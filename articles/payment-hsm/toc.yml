@@ -5,21 +5,27 @@
   items:
   - name: Payment HSM overview
     href: overview.md
+  - name: What's new
+    href: whats-new.md
 
 - name: Tutorials
   expanded: true
   items:
   - name: 1. Create a payment HSM
     items:
-    - name: With host and management ports in same VNet
+    - name: Host and management ports in same VNet
       href: create-payment-hsm.md
-    - name: With host and management ports different VNets
+    - name: Host and management ports in different VNets
       href: create-different-vnet.md
-    - name: With host and management port with IP addresses in different different VNets
+    - name: Host and management ports in different VNets (template)
+      href: create-different-vnet-template.md
+    - name: Host and management port with IP addresses in different VNets
       href: create-different-ip-addresses.md
-  - name: 2. Access the payShield manager for your payment HSM
+  - name: 2. View your payment HSMs
+    href: view-payment-hsms.md
+  - name: 3. Access the payShield manager for your payment HSM
     href: access-payshield-manager.md
-  - name: 3. Delete a commissioned payment HSM
+  - name: 4. Delete a commissioned payment HSM
     href: remove-payment-hsm.md
 
 - name: Quickstarts
@@ -36,7 +42,7 @@
   - name: Getting started with Azure Payment HSM
     href: getting-started.md
 
-- name: Concepts
+- name: Compliance
   items:
   - name: Certification and compliance
     href: certification-compliance.md

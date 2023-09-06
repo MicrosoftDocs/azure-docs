@@ -4,10 +4,10 @@ titleSuffix: Azure Storage
 description: View code samples that use the Azure Queue Storage client library for Java version 8.
 services: storage
 author: pauljewellmsft
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
+ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 07/24/2023
 ms.author: pauljewell
 ---
 
@@ -17,9 +17,9 @@ This article shows code samples that use version 8 of the Azure Queue Storage cl
 
 [!INCLUDE [storage-v11-sdk-support-retirement](../../../includes/storage-v11-sdk-support-retirement.md)]
 
-## Create a queue
+For code samples using the latest version 12.x client library version, see [Quickstart: Azure Queue Storage client library for Java](storage-quickstart-queues-java.md).
 
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-create-a-queue)
+## Create a queue
 
 Add the following `import` directives:
 
@@ -58,8 +58,6 @@ catch (Exception e)
 
 ## Add a message to a queue
 
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-add-a-message-to-a-queue)
-
 To insert a message into an existing queue, first create a new `CloudQueueMessage`. Next, call the `addMessage` method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. The following code example creates a queue (if it doesn't exist) and inserts the message `Hello, World`.
 
 ```java
@@ -90,8 +88,6 @@ catch (Exception e)
 ```
 
 ## Peek at the next message
-
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-peek-at-the-next-message)
 
 You can peek at the message in the front of a queue without removing it from the queue by calling `peekMessage`.
 
@@ -125,8 +121,6 @@ catch (Exception e)
 ```
 
 ## Change the contents of a queued message
-
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-change-the-contents-of-a-queued-message)
 
 The following code sample searches through the queue of messages, locates the first message content that matches `Hello, world`, modifies the message content, and exits.
 
@@ -210,8 +204,6 @@ catch (Exception e)
 
 ## Get the queue length
 
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-get-the-queue-length)
-
 The `downloadAttributes` method retrieves several values including the number of messages currently in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `downloadAttributes`, without calling Queue Storage.
 
 ```java
@@ -244,8 +236,6 @@ catch (Exception e)
 ```
 
 ## Dequeue the next message
-
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-dequeue-the-next-message)
 
 Your code dequeues a message from a queue in two steps. When you call `retrieveMessage`, you get the next message in a queue. A message returned from `retrieveMessage` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call `deleteMessage`. If your code fails to process a message, this two-step process ensures that you can get the same message and try again. Your code calls `deleteMessage` right after the message has been processed.
 
@@ -280,8 +270,6 @@ catch (Exception e)
 
 ## Additional options for dequeuing messages
 
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#additional-options-for-dequeuing-messages)
-
 The following code example uses the `retrieveMessages` method to get 20 messages in one call. Then it processes each message using a `for` loop. It also sets the invisibility timeout to five minutes (300 seconds) for each message. The timeout starts for all messages at the same time. When five minutes have passed since the call to `retrieveMessages`, any messages not deleted becomes visible again.
 
 ```java
@@ -313,8 +301,6 @@ catch (Exception e)
 
 ## List the queues
 
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-list-the-queues)
-
 To obtain a list of the current queues, call the `CloudQueueClient.listQueues()` method, which returns a collection of `CloudQueue` objects.
 
 ```java
@@ -343,8 +329,6 @@ catch (Exception e)
 ```
 
 ## Delete a queue
-
-Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-delete-a-queue)
 
 To delete a queue and all the messages contained in it, call the `deleteIfExists` method on the `CloudQueue` object.
 

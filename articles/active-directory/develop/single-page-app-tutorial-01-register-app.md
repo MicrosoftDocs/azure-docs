@@ -1,10 +1,13 @@
 ---
 title: "Tutorial: Register a Single-page application with the Microsoft identity platform"
 description: Register an application in an Azure Active Directory tenant.
+services: active-directory
 author: OwenRichards1
-ms.author: owenrichards
 manager: CelesteDG
+
 ms.service: active-directory
+ms.subservice: develop
+ms.author: owenrichards
 ms.topic: tutorial
 ms.date: 02/27/2023
 #Customer intent: As a React developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.
@@ -31,9 +34,11 @@ In this tutorial:
 
 ## Register the application and record identifiers
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To complete registration, provide the application a name, specify the supported account types, and add a redirect URI. Once registered, the application **Overview** pane displays the identifiers needed in the application source code.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations > New registration**.

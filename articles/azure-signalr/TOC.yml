@@ -85,9 +85,9 @@
     href: signalr-concept-performance.md
   - name: Authentication
     href: signalr-concept-authenticate-oauth.md
-  - name: Authorization with Azure AD
+  - name: Authorization with Microsoft Entra ID
     items:
-      - name: Overview of Azure AD for Azure SignalR Service
+      - name: Overview of Microsoft Entra ID for Azure SignalR Service
         href: signalr-concept-authorize-azure-active-directory.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md
@@ -99,7 +99,7 @@
       href: ./security-controls-policy.md
 - name: How-to guides
   items:
-  - name: Scale
+  - name: Scale and geo-replicate
     items:
     - name: Single instance
       href: signalr-howto-scale-signalr.md
@@ -107,6 +107,8 @@
       href: signalr-howto-scale-multi-instances.md
     - name: Autoscale
       href: signalr-howto-scale-autoscale.md
+    - name: Geo-replication
+      href: howto-enable-geo-replication.md
   - name: Secure
     items:
     - name: Access key rotation
@@ -143,10 +145,14 @@
           href: signalr-howto-reverse-proxy-overview.md
         - name: Use SignalR Service with Application Gateway
           href: signalr-howto-work-with-app-gateway.md
+        - name: Use SignalR Service with API Management
+          href: signalr-howto-work-with-apim.md
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor SignalR Service
       href: signalr-howto-diagnostic-logs.md
+    - name: Monitor SignalR service data reference
+      href: signalr-howto-monitor-reference.md
     - name: Audit compliance using Azure Policy
       href: signalr-howto-azure-policy.md
   - name: Troubleshooting

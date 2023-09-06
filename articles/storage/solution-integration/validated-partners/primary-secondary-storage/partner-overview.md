@@ -6,8 +6,8 @@ author: beber-msft
 ms.author: beber
 ms.date: 05/12/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Azure Storage partners for primary and secondary storage

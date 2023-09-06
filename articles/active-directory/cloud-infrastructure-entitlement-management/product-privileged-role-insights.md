@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 05/22/2023
 ms.author: jfields
 ---
 
-# View privileged role assignments in your organization (Preview)
+# View privileged role assignments in your organization
 
 The **Azure AD Insights** tab shows you who is assigned to privileged roles in your organization. You can review a list of identities assigned to a privileged role and learn more about each identity.
 

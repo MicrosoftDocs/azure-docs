@@ -12,9 +12,9 @@ ms.custom: ignite-fall-2021
 
 # Supported resource types and role assignments for Chaos Studio
 
-The following are the supported resource types for faults, the target types, and suggested roles to use when giving an experiment permission to a resource of that type.
+The following table lists the supported resource types for faults, the target types, and suggested roles to use when you give an experiment permission to a resource of that type.
 
-| Resource Type                                                    | Target name/type                          | Suggested role assignment                   |
+| Resource type                                                    | Target name/type                          | Suggested role assignment                   |
 |-------------------------------------------------------------------|--------------------------------------------|----------------------------------------------|
 | Microsoft.Cache/Redis (service-direct)                           | Microsoft-AzureCacheForRedis              | Redis Cache Contributor                     |
 | Microsoft.ClassicCompute/domainNames (service-direct)            | Microsoft-DomainNames                     | Classic Virtual Machine Contributor         |
@@ -23,7 +23,8 @@ The following are the supported resource types for faults, the target types, and
 | Microsoft.Compute/virtualMachines (service-direct)               | Microsoft-VirtualMachine                  | Virtual Machine Contributor                 |
 | Microsoft.Compute/virtualMachineScaleSets (service-direct)       | Microsoft-VirtualMachineScaleSet          | Virtual Machine Contributor                 |
 | Microsoft.ContainerService/managedClusters (service-direct)      | Microsoft-AzureKubernetesServiceChaosMesh | Azure Kubernetes Service Cluster Admin Role |
-| Microsoft.DocumentDb/databaseAccounts (CosmosDB, service-direct) | Microsoft-CosmosDB                        | Cosmos DB Operator                          |
+| Microsoft.DocumentDb/databaseAccounts (CosmosDB, service-direct) | Microsoft-CosmosDB                        | Azure Cosmos DB Operator                          |
 | Microsoft.Insights/autoscalesettings (service-direct)            | Microsoft-AutoScaleSettings               | Web Plan Contributor                        |
-| Microsoft.KeyVault/vaults (service-direct)                       | Microsoft-KeyVault                        | Key Vault Contributor                       |
+| Microsoft.KeyVault/vaults (service-direct)                       | Microsoft-KeyVault                        | Azure Key Vault Contributor                       |
 | Microsoft.Network/networkSecurityGroups (service-direct)         | Microsoft-NetworkSecurityGroup            | Network Contributor                         |
+| Microsoft.Web/sites (service-direct)                             | Microsoft-AppService                      | Website Contributor                         |

@@ -2,11 +2,13 @@
 title: 'Tutorial: Access Azure databases with managed identity'
 description: Secure database connectivity (Azure SQL Database, Database for MySQL, and Database for PostgreSQL) with managed identity from .NET, Node.js, Python, and Java apps.
 keywords: azure app service, web app, security, msi, managed service identity, managed identity, .net, dotnet, asp.net, c#, csharp, node.js, node, python, java, visual studio, visual studio code, visual studio for mac, azure cli, azure powershell, defaultazurecredential
+author: cephalin
+ms.author: cephalin
 
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: mvc, devx-track-azurecli, ignite-2022
+ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -1010,7 +1012,7 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 # [Azure PowerShell](#tab/ps)
 
-1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
+1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
 
 1. Sign in to Azure CLI with the following cmdlet using your Azure AD user:
 

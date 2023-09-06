@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 02/08/2023
 ms.author: duau
 ---
+
 # ExpressRoute monitoring, metrics, and alerts
 
 This article helps you understand ExpressRoute monitoring, metrics, and alerts using Azure Monitor. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
@@ -73,9 +74,7 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
 | --- | --- | --- | --- | --- | --- | --- | 
 | [BitsInPerSecond](#connectionbandwidth) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second through ExpressRoute gateway | ConnectionName | Yes | 
-| [BitsOutPerSecond](#connectionbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second through ExpressRoute gateway | ConnectionName | Yes | 
-| DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | ConnectionName | Yes | 
-| DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | ConnectionName | Yes | 
+| [BitsOutPerSecond](#connectionbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second through ExpressRoute gateway | ConnectionName | Yes |
 
 ### ExpressRoute Direct
 
@@ -298,7 +297,7 @@ Aggregation type: *Avg*
 Split by: Gateway Instance
 
 
-This metric displays a count of the total number of active flows on the ExpressRoute Gateway. Through split at instance level, you can see active flow count per gateway instance. For more information, see [understand network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits).
+This metric displays a count of the total number of active flows on the ExpressRoute Gateway. Only inbound traffic from on-premises is captured for active flows. Through split at instance level, you can see active flow count per gateway instance. For more information, see [understand network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits).
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/active-flows.png" alt-text="Screenshot of number of active flows per second metrics dashboard.":::
 

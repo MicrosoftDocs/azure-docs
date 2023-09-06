@@ -3,6 +3,7 @@ title: Deploy the diagnostics tool for Azure Virtual Desktop (classic) - Azure
 description: How to deploy the diagnostics UX tool for Azure Virtual Desktop (classic).
 author: Heidilohr
 ms.topic: how-to
+ms.custom: has-azure-ad-ps-ref
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
@@ -33,7 +34,7 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 You also need to install these two PowerShell modules before you get started:
 
-- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Azure AD module](/powershell/azure/active-directory/install-adv2)
 
 Make sure you have your Subscription ID ready for when you sign in.
@@ -124,10 +125,11 @@ Before you continue deploying the diagnostics tool, we recommend that you verify
 
 To make sure your app registration has API permissions:
 
-1. Open a browser and connect to the [Azure portal](https://portal.azure.com/) with your administrative account.
+1. Open a browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 2. Go to **Azure Active Directory**.
 3. Go to **App registrations** and select **All Applications**.
 4. Look for your Azure AD app registration with the same app name you entered in step 5 of [Create an Azure Active Directory app registration](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
+5. On your Azure subscription, check that app registration has been assigned the *Contributor* role assignment.
 
 ### Review your Log Analytics workspace
 

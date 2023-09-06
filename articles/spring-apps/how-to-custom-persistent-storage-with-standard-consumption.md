@@ -1,20 +1,20 @@
 ---
-title: How to enable your own persistent storage in Azure Spring Apps with the Standard consumption plan
+title: How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
 description: Learn how to enable your own persistent storage in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: yitaopan
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
-# How to enable your own persistent storage in Azure Spring Apps with the Standard consumption plan
+# How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article describes how to enable your own persistent storage in Azure Spring Apps.
 
@@ -30,7 +30,7 @@ You can also mount your own persistent storage not only to Azure Spring Apps but
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
-- An Azure Spring Apps Standard consumption plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
 - A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Set up the environment
@@ -38,11 +38,11 @@ You can also mount your own persistent storage not only to Azure Spring Apps but
 Use the following commands to set the following variables to the names of your resources and current region setting.
 
 ```bash
-RESOURCE_GROUP="<resource-group-name>"
-LOCATION="eastus"
-AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-AZURE_SPRING_APPS_INSTANCE="<Azure-Spring-Apps-instance-name>"
-APP_NAME="<Spring-app-name>"
+export RESOURCE_GROUP="<resource-group-name>"
+export LOCATION="eastus"
+export AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+export AZURE_SPRING_APPS_INSTANCE="<Azure-Spring-Apps-instance-name>"
+export APP_NAME="<Spring-app-name>"
 ```
 
 ## Set up a storage account
@@ -52,7 +52,7 @@ Use the following steps to create a storage account and establish a file share t
 1. Create an Azure Storage account by using the following commands. The `STORAGE_ACCOUNT_NAME` variable includes a randomly generated suffix to ensure uniqueness.
 
    ```azurecli
-   STORAGE_ACCOUNT_NAME="myasastorageaccount$RANDOM"
+   export STORAGE_ACCOUNT_NAME="myasastorageaccount$RANDOM"
 
    az storage account create \
        --resource-group $RESOURCE_GROUP \
@@ -69,7 +69,7 @@ Use the following steps to create a storage account and establish a file share t
 1. Create the Azure Storage file share by using the following commands:
 
    ```azurecli
-   FILE_SHARE_NAME="<file-share-name>"
+   export FILE_SHARE_NAME="<file-share-name>"
 
    az storage share-rm create \
        --resource-group $RESOURCE_GROUP \
@@ -83,7 +83,7 @@ Use the following steps to create a storage account and establish a file share t
 1. Get the Storage Account key by using the following command:
 
    ```azurecli
-   STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+   export STORAGE_ACCOUNT_KEY=$(az storage account keys list \
        --account-name $STORAGE_ACCOUNT_NAME \
        --query "[0].value" \
        --output tsv)
@@ -96,7 +96,7 @@ Use the following steps to create a storage account and establish a file share t
 Create the storage link in the Azure Container Apps environment by using the following commands. The `az containerapp env storage set` command creates a link between the environment and the file share created with the `az storage share-rm` command.
 
 ```azurecli
-STORAGE_MOUNT_NAME="<storage-account-name>"
+export STORAGE_MOUNT_NAME="<storage-account-name>"
 
 az containerapp env storage set \
     --resource-group $RESOURCE_GROUP \
@@ -122,12 +122,12 @@ az spring app append-persistent-storage \
     --name $APP_NAME \
     --persistent-storage-type AzureFileVolume \
     --mount-path /var/log/nginx \
-    --storage-name STORAGE_MOUNT_NAME
+    --storage-name $STORAGE_MOUNT_NAME
 ```
 
 ## Clean up resources
 
-Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternately, to delete the resource group by using Azure CLI, use the following commands:
+Be sure to delete the resources you created in this article when you no longer need them. To delete the resources, just delete the resource group that contains them. You can delete the resource group using the Azure portal. Alternatively, to delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
@@ -138,4 +138,4 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-- [Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network](./standard-consumption-customer-responsibilities.md)
+- [Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network](./standard-consumption-customer-responsibilities.md)

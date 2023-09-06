@@ -1,6 +1,6 @@
 ---
-author: ddematheu2
-ms.author: dademath
+author: RinaRish
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
@@ -47,6 +47,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |  | Send typing indicators                                            |
 |                     | Receive rich text messages              |
 |                     | Receive inline images*              |
+|                     | Receive file attachments*              |
 | Chat actions | Send a chat message                                |
 |              | Receive a chat message                             |
 | Chat events  | Show typing indicators                                |
@@ -55,16 +56,17 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |              | Show changes to the chat title                               |
 | Participants | Show a participant roster                               |
 
-*Microsoft Teams allows users to share images by:
-- Copying & paste into the box at the bottom of the chat - inline images.
-- Drag & drop into the chat area.
-- Upload an image as a file via the "Upload from this device" button.
+\*Microsoft Teams allows users to share attached image files that are stored behind authenticated servers, which may require additional configuration when using the UI Library. To learn more about this, see the storybook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images).
 
-Azure Communication Services currently support only option one for copying and pasting the image. Users can achieve it using keyboard shortcuts or the operating system's context menu options for copy and paste. To learn more about this, please refer to the storybook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images)
+\*Certain GIF images might not be supported by the UI library at this time. The user might receive a static image instead, and this is a known issue. In addition, the Web UI library doesn't support videos at this time.
 
-*Certain GIF encodings may not be supported by the UI library at this time, the user might receive a static image instead and this is a known issue. 
+The Web UI library currently supports the following file permissions:
+  - "Anyone", and
+  - "People you choose" (with email address)
+  
+The Teams user (sender) should be made aware that all other permissions (such as "People in your organization") aren't supported. The Teams user should double-check if the default permission is supported after uploading the file in their Teams client. In addition, The Teams admin could impose policies that limit or disable this feature entirely (such as having file sharing disabled or having certain permissions disabled).
 
-*Inline image support is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+\*Inline image and file attachment support are currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Supported identities
 

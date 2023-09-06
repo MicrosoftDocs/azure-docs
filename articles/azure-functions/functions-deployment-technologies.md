@@ -1,9 +1,9 @@
 ---
 title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
-ms.custom: vs-azure, vscode-azure-extension-update-not-needed
+ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023
 ms.topic: conceptual
-ms.date: 05/18/2022
+ms.date: 06/22/2023
 ---
 
 # Deployment technologies in Azure Functions
@@ -19,7 +19,7 @@ The following table describes the available deployment methods for your Function
 | Deployment&nbsp;type | Methods | Best for... |
 | -- | -- | -- |
 | Tools-based |	&bull;&nbsp;[Visual&nbsp;Studio&nbsp;Code&nbsp;publish](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio publish](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Core Tools publish](functions-run-local.md#publish) | Deployments during development and other ad hoc deployments. Deployments are managed locally by the tooling. |
-| App Service-managed| &bull;&nbsp;[Deployment&nbsp;Center&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container&nbsp;deployments](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Continuous deployment (CI/CD) from source control or from a container registry. Deployments are managed by the App Service platform (Kudu).|
+| App Service-managed| &bull;&nbsp;[Deployment&nbsp;Center&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container&nbsp;deployments](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) |  Continuous deployment (CI/CD) from source control or from a container registry. Deployments are managed by the App Service platform (Kudu).|
 | External pipelines|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub Actions](functions-how-to-github-actions.md) | Production and Azure pipelines that include additional validation, testing, and other actions be run as part of an automated deployment. Deployments are managed by the pipeline. |
 
 While specific Functions deployments use the best technology based on their context, most deployment methods are based on [zip deployment](#zip-deploy).
@@ -44,10 +44,11 @@ Each plan has different behaviors. Not all deployment technologies are available
 | Local Git<sup>1</sup> |✔|✔|✔| |✔|✔|
 | Cloud sync<sup>1</sup> |✔|✔|✔| |✔|✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
-| Portal editing |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
+| In-portal editing<sup>2</sup> |✔|✔|✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|
 
-<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).
-<sup>2</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
+<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  
+<sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).  
+<sup>3</sup> In-portal editing is enabled only for HTTP and Timer triggered functions running on Linux in Premium and Dedicated plans.  
 
 ## Key concepts
 
@@ -65,35 +66,33 @@ When you deploy using an external package URL and the contents of the package ch
 
 ### Remote build
 
-Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds are not performed when an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode. To learn how to use remote build, navigate to [zip deploy](#zip-deploy).
+Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. 
 
-> [!NOTE]
-> If you're having issues with remote build, it might be because your app was created before the feature was made available (August 1, 2019). Try creating a new function app, or running `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` to update your function app. This command might take two tries to succeed.
+# [Windows](#tab/windows)
 
-#### Remote build on Windows
-
-All function apps running on Windows have a small management app, the SCM (or [Kudu](https://github.com/projectkudu/kudu)) site. This site handles much of the deployment and build logic for Azure Functions.
+All function apps running on Windows have a small management app, the SCM site provided by [Kudu](https://github.com/projectkudu/kudu). This site handles much of the deployment and build logic for Azure Functions.
 
 When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
 
-#### Remote build on Linux
+# [Linux](#tab/linux)
 
-To enable remote build on Linux, the following [application settings](functions-how-to-use-azure-function-app-settings.md#settings) must be set:
+To enable remote build on Linux, you must set the following in your application settings:
 
-+ `ENABLE_ORYX_BUILD=true`
-+ `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
++ [`ENABLE_ORYX_BUILD=true`](functions-app-settings.md#enable_oryx_build)
++ [`SCM_DO_BUILD_DURING_DEPLOYMENT=true`](functions-app-settings.md#scm_do_build_during_deployment)
 
 By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
-##### Consumption plan
+---
 
-Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds.
+The following considerations apply when using remote builds during deployment:
 
-##### Dedicated and Premium plans
-
-Function apps running on Linux in the [Dedicated (App Service) plan](dedicated-plan.md) and the [Premium plan](functions-premium-plan.md) also have a limited SCM/Kudu site.
++ Remote builds are supported for function apps running on Linux in the Consumption plan, however they don't have an SCM/Kudu site, which limits deployment options. 
++ Function apps running on Linux a [Premium plan](functions-premium-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md) do have an SCM/Kudu site, but it's limited compared to Windows.
++ Remote builds aren't performed when an app has previously been set to run in [run-from-package](run-functions-from-deployment-package.md) mode. To learn how to use remote build in these cases, see [Zip deploy](#zip-deploy).
++ You may have issues with remote build when your app was created before the feature was made available (August 1, 2019). For older apps, either create a new function app or run `az functionapp update -resource-group <RESOURCE_GROUP_NAME> -name <APP_NAME>` to update your function app. This command might take two tries to succeed.
 
 ### App content storage
 
@@ -131,16 +130,17 @@ Use zip deploy to push a .zip file that contains your function app to Azure. Opt
 
 ### Docker container
 
-You can deploy a Linux container image that contains your function app.
+You can deploy a function app running in a Linux container.
 
->__How to use it:__ Create a Linux function app in the Premium or Dedicated plan and specify which container image to run from. You can do this in two ways:
+>__How to use it:__ [Create your functions in a Linux container](functions-create-container-registry.md) then deploy the container to a Premium or Dedicated plan in Azure Functions or another container host. Use the [Azure Functions Core Tools](functions-run-local.md#) to create a customized Dockerfile for your project that you use to build a containerized function app. You can use the container in the following deployments: 
 >
->+ Create a Linux function app on an Azure App Service plan in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted.
->+ Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
->
->To deploy to a Kubernetes cluster as a custom container, in [Azure Functions Core Tools](functions-run-local.md), use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command.
+>+ Deploy to Azure Functions resources you create in the Azure portal. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
+>+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
+>+ Deploy to Azure Container Apps (preview). To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
+>+ Deploy to Azure Arc (preview). To learn how, see [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
+>+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
 
->__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs. This deployment mechanism is available only for Functions running on Linux.
+>__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs and where the container is hosted. This deployment mechanism is available only for functions running on Linux.
 
 >__Where app content is stored:__ App content is stored in the specified container registry as a part of the image.
 
@@ -200,9 +200,9 @@ You can use FTP to directly transfer files to Azure Functions.
 
 In the portal-based editor, you can directly edit the files that are in your function app (essentially deploying every time you save your changes).
 
->__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](./functions-get-started.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package).
+>__How to use it:__ To be able to edit your functions in the [Azure portal](https://portal.azure.com), you must have [created your functions in the portal](./functions-get-started.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package).
 
->__When to use it:__ The portal is a good way to get started with Azure Functions. For more intense development work, we recommend that you use one of the following client tools:
+>__When to use it:__ The portal is a good way to get started with Azure Functions. For more advanced development work, we recommend that you use one of the following client tools:
 >
 >+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >+ [Azure Functions Core Tools (command line)](functions-run-local.md)
@@ -210,7 +210,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
-The following table shows the operating systems and languages that support portal editing:
+The following table shows the operating systems and languages that support in-portal editing:
 
 | Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
@@ -218,12 +218,13 @@ The following table shows the operating systems and languages that support porta
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
-| Python | | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>1</sup>|✔<sup>1</sup>|
+| Python<sup>2</sup> | | | |✔ |✔<sup>1</sup> |✔<sup>1</sup> |
 | PowerShell |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
+<sup>1</sup> In-portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.  
+<sup>2</sup> In-portal editing is only supported for the [v1 Python programming model](functions-reference-python.md?pivots=python-mode-configuration).  
 
 ## Deployment behaviors
 

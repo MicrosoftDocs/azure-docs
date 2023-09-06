@@ -561,7 +561,7 @@ Tune Metastore to reduce their CPU usage.
    1. Default Value: `60`
    1. Proposed value: `3600` 
 1. Advanced Optimizations
-The following options need to be tested in a lower(non-prod) environment before applying tin production.
+The following options need to be tested in a lower(non-prod) environment before applying to production.
    1.	Remove the Materialized view related listener if Materialized view isn't used.
    1. From Ambari UI, **add a custom property (in custom hive-site.xml) and remove the unwanted background metastore threads**. 
    1. Property name: **metastore.task.threads.remote**

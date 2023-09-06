@@ -1,6 +1,6 @@
 ---
 title: Sending requests to the Bing Spell Check API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the Bing Spell Check modes, settings, and other information relating to the API.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Sending requests to the Bing Spell Check API
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 To check a text string for spelling and grammar errors, you'd send a GET request to the following endpoint:  
 

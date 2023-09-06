@@ -8,22 +8,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/01/2022
-ms.custom: references_regions
+ms.date: 07/19/2023
+
 ---
 # AI enrichment in Azure Cognitive Search
 
-*AI enrichment* is the application of machine learning models over content that isn't full text searchable in its raw form. Through enrichment, analysis and inference are used to create searchable content and structure where none previously existed. 
+In Cognitive Search, *AI enrichment* is the application of machine learning models over content that isn't full text searchable in its raw form. Through enrichment, analysis and inference are used to create searchable content and structure where none previously existed. 
 
 Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
 
-+ Translation and language detection for multi-lingual search
-+ Entity recognition extracts people, places, and other entities from large chunks of text
-+ Key phrase extraction identifies and then outputs important terms
-+ Optical Character Recognition (OCR) recognizes printed and handwritten text in binary files
-+ Image analysis describes image content and outputs the descriptions as searchable text fields
++ Apply translation and language detection for multi-lingual search
++ Apply entity recognition to extract people names, places, and other entities from large chunks of text
++ Apply key phrase extraction to identify and output important terms
++ Apply Optical Character Recognition (OCR) to recognize printed and handwritten text in binary files
++ Apply image analysis to describe image content, and output the descriptions as searchable text fields
 
-AI enrichment is an extension of an [**indexer pipeline**](search-indexer-overview.md). An enrichment pipeline has all of the components of an indexer pipeline (indexer, data source, index), plus a [**skillset**](cognitive-search-working-with-skillsets.md) that specifies atomic enrichment steps.
+AI enrichment is an extension of an [**indexer pipeline**](search-indexer-overview.md) that connects to Azure data sources. An enrichment pipeline has all of the components of an indexer pipeline (indexer, data source, index), plus a [**skillset**](cognitive-search-working-with-skillsets.md) that specifies atomic enrichment steps.
 
 The following diagram shows the progression of AI enrichment:
 
@@ -43,8 +43,6 @@ The following diagram shows the progression of AI enrichment:
 
 **Exploration** is the last step. Output is always a [search index](search-what-is-an-index.md) that you can query from a client app. Output can optionally be a [knowledge store](knowledge-store-concept-intro.md) consisting of blobs and tables in Azure Storage that are accessed through data exploration tools or downstream processes. If you're creating a knowledge store, [projections](knowledge-store-projection-overview.md) determine the data path for enriched content. The same enriched content can appear in both indexes and knowledge stores.
 
-<!-- ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline") -->
-
 ## When to use AI enrichment
 
 Enrichment is useful if raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the [**built-in skills**](cognitive-search-predefined-skills.md) can unlock this content for full text search and data science applications. 
@@ -54,7 +52,7 @@ Open-source, third-party, or first-party code can be integrated into the pipelin
 
 ### Use-cases for built-in skills
 
-Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
+Built-in skills are based on the Azure AI services APIs: [Azure AIComputer Vision](../ai-services/computer-vision/index.yml) and [Language Service](../ai-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Azure AI services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
 
 A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well suited for the following application scenarios:
 
@@ -66,11 +64,7 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 ### Use-cases for custom skills
 
-[**Custom skills**](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include:
-
-+ [Forms Recognizer](../applied-ai-services/form-recognizer/overview.md)
-+ [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md)
-+ [Custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
+[**Custom skills**](cognitive-search-create-custom-skill-example.md) execute external code that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills can be found in the [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/README.md) GitHub repository.
 
 Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
 
@@ -104,13 +98,9 @@ In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assu
 
 ## Availability and pricing
 
-Enrichment is available in regions that have Azure Cognitive Services. You can check the availability of enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. Enrichment is available in all regions except:
+Enrichment is available in regions that have Azure AI services. You can check the availability of enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. 
 
-+ Australia Southeast
-+ China North 2
-+ Germany West Central
-
-Billing follows a pay-as-you-go pricing model. The costs of using built-in skills are passed on when a multi-region Cognitive Services key is specified in the skillset. There are also costs associated with image extraction, as metered by Cognitive Search. Text extraction and utility skills, however, aren't billable. For more information, see [How you're charged for Azure Cognitive Search](search-sku-manage-costs.md#how-youre-charged-for-azure-cognitive-search).
+Billing follows a pay-as-you-go pricing model. The costs of using built-in skills are passed on when a multi-region Azure AI services key is specified in the skillset. There are also costs associated with image extraction, as metered by Cognitive Search. Text extraction and utility skills, however, aren't billable. For more information, see [How you're charged for Azure Cognitive Search](search-sku-manage-costs.md#how-youre-charged-for-azure-cognitive-search).
 
 ## Checklist: A typical workflow
 
@@ -120,7 +110,7 @@ Start with a subset of data in a [supported data source](search-indexer-overview
 
 1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection to your data.
 
-1. [Create a skillset](cognitive-search-defining-skillset.md). Unless your project is small, you'll want to [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
+1. [Create a skillset](cognitive-search-defining-skillset.md). Unless your project is small, you'll want to [attach an Azure AI multi-service resource](cognitive-search-attach-cognitive-services.md). If you're [creating a knowledge store](knowledge-store-create-rest.md), define it within the skillset.
 
 1. [Create an index schema](search-how-to-create-search-index.md) that defines a search index.
 

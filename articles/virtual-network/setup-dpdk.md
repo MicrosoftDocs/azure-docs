@@ -3,11 +3,12 @@ title: DPDK in an Azure Linux VM
 titleSuffix: Azure Virtual Network
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
-author: asudbring
+author: steveesp
 ms.service: virtual-network
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 04/24/2023
-ms.author: allensu
+ms.author: steveesp
 ---
 
 # Set up DPDK in a Linux virtual machine
@@ -19,6 +20,8 @@ In typical packet processing that uses the kernel network stack, the process is 
 DPDK consists of sets of user-space libraries that provide access to lower-level resources. These resources can include hardware, logical cores, memory management, and poll mode drivers for network interface cards.
 
 DPDK can run on Azure virtual machines that are supporting multiple operating system distributions. DPDK provides key performance differentiation in driving network function virtualization implementations. These implementations can take the form of network virtual appliances (NVAs), such as virtual routers, firewalls, VPNs, load balancers, evolved packet cores, and denial-of-service (DDoS) applications.
+
+A list of setup instructions for DPDK on MANA VMs is available here: [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](setup-dpdk-mana.md)
 
 ## Benefit
 
@@ -38,6 +41,8 @@ The following distributions from the Azure Marketplace are supported:
 
 The noted versions are the minimum requirements. Newer versions are supported too.
 
+A list of requirements for DPDK on MANA VMs is available here: [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](setup-dpdk-mana.md)
+
 **Custom kernel support**
 
 For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com). 
@@ -55,6 +60,8 @@ In addition, DPDK uses RDMA verbs to create data queues on the Network Adapter. 
 
 
 ## Install DPDK manually (recommended)
+
+DPDK installation instructions for MANA VMs are available here: [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](setup-dpdk-mana.md)
 
 ### Install build dependencies
 

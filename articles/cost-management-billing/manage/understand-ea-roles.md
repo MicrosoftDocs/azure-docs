@@ -39,11 +39,11 @@ These roles are specific to managing Azure Enterprise Agreements and are in addi
 > 
 > This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
-## Azure Enterprise portal hierarchy
+## Azure portal for Cost Management and Billing
 
-The Azure Enterprise portal hierarchy consists of:
+The Azure portal hierarchy for Cost Management consists of:
 
-- **Azure Enterprise portal** - an online management portal that helps you manage costs for your Azure EA services. You can:
+- **Azure portal for Cost Management** - an online management portal that helps you manage costs for your Azure EA services. You can:
 
   - Create an Azure EA hierarchy with departments, accounts, and subscriptions.
   - Reconcile the costs of your consumed services, download usage reports, and view price lists.
@@ -51,9 +51,9 @@ The Azure Enterprise portal hierarchy consists of:
 
 - **Departments** help you segment costs into logical groupings. Departments enable you to set a budget or quota at the department level.
 
-- **Accounts** are organizational units in the Azure Enterprise portal. You can use accounts to manage subscriptions and access reports.
+- **Accounts** are organizational units in the Azure portal for Cost Management. You can use accounts to manage subscriptions and access reports.
 
-- **Subscriptions** are the smallest unit in the Azure Enterprise portal. They're containers for Azure services managed by the service administrator.
+- **Subscriptions** are the smallest unit in the Azure portal for Cost Management. They're containers for Azure services managed by the Account Owner role, also known as the Subscription's service administrator.
 
 The following diagram illustrates simple Azure EA hierarchies.
 
@@ -70,17 +70,20 @@ The following administrative user roles are part of your enterprise enrollment:
 - Service administrator
 - Notification contact
 
-Roles work in two different portals to complete tasks. You use the [Azure Enterprise portal](https://ea.azure.com) to manage billing and costs, and the [Azure portal](https://portal.azure.com) to manage Azure services.
+Use the Azure portal's Cost Management blade the [Azure portal](https://portal.azure.com) to manage Azure Enterprise Agreement roles.
 
-Direct EA customers can complete all administrative tasks in the Azure portal. You can use the [Azure Portal](https://portal.azure.com) to manage billing, costs, and Azure services.
+Direct EA customers can complete all administrative tasks in the Azure portal. You can use the [Azure portal](https://portal.azure.com) to manage billing, costs, and Azure services.
 
-User roles are associated with a user account. To validate user authenticity, each user must have a valid work, school, or Microsoft account. Ensure that each account is associated with an email address that's actively monitored. Account notifications are sent to the email address.
+User roles are associated with a user account. To validate user authenticity, each user must have a valid work, school, or Microsoft account. Ensure that each account is associated with an email address that's actively monitored. Enrollment notifications are sent to the email address.  
 
-When setting up users, you can assign multiple accounts to the enterprise administrator role. However, only one account can hold the account owner role. Also, you can assign both the enterprise administrator and account owner roles to a single account.
+> [!NOTE] 
+> The Account Owner role is often assigned to a service account that doesn't have an actively monitored email.
+
+When setting up users, you can assign multiple accounts to the enterprise administrator role. An enrollment can have multiple account owners, for example, one per department. Also, you can assign both the enterprise administrator and account owner roles to a single account.
 
 ### Enterprise administrator
 
-Users with this role have the highest level of access. They can:
+Users with this role have the highest level of access to the Enrollment. They can:
 
 - Manage accounts and account owners.
 - Manage other enterprise administrators.
@@ -94,11 +97,7 @@ Users with this role have the highest level of access. They can:
 
 You can have multiple enterprise administrators in an enterprise enrollment. You can grant read-only access to enterprise administrators. 
 
-The EA administrator role automatically inherits all access and privilege of the department administrator role. So there’s no need to manually give an EA administrator the department administrator role. Avoid giving the EA administrator the department administrator role because, as a department administrator, the EA administrator:
-
-- Won't have access to the Enrollment tab in the EA portal
-- Won't have access to the Usage Summary Page under the Reports tab
-
+The EA administrator role automatically inherits all access and privilege of the department administrator role. So there’s no need to manually give an EA administrator the department administrator role. 
 
 The enterprise administrator role can be assigned to multiple accounts.
 
@@ -185,12 +184,20 @@ The following sections describe the limitations and capabilities of each role.
 
 ## Add a new enterprise administrator
 
-Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-administration.md#create-another-enterprise-administrator). Direct EA customers can use the Azure portal to add EA admins, see [Create another enterprise admin on Azure Portal](direct-ea-administration.md#add-another-enterprise-administrator). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-administration.md#create-another-enterprise-administrator). Direct EA customers can use the Azure portal to add EA admins, see [Create another enterprise admin on Azure portal](direct-ea-administration.md#add-another-enterprise-administrator). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 
 ## Update account owner state from pending to active
 
-When new Account Owners (AO) are added to an Azure EA enrollment for the first time, their status appears as _pending_. When a new account owner receives the activation welcome email, they can sign in to activate their account. Once they activate their account, the account status is updated from _pending_ to _active_. The account owner needs to read the 'Warning' message and select **Continue**. New users might get prompted enter their first and last name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.
+When new Account Owners (AO) are added to an Azure EA enrollment for the first time, their status appears as _pending_. When a new account owner receives the activation welcome email, they can sign in to activate their account. 
+
+> [!NOTE]
+> If the Account Owner is a service account and doesn't have an email, use an In-Private session to sign in to the Azure portal and navigate to Cost Management to be prompted to accept the activation welcome email.  
+
+Once they activate their account, the account status is updated from _pending_ to _active_. The account owner needs to read the 'Warning' message and select **Continue**. New users might get prompted to enter their first and last name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.  
+
+> [!NOTE]
+> A subscription is associated with one and only one account. The warning message includes details that warn the Account Owner that accepting the offer will move the subscriptions associated with the Account to the new Enrollment.
 
 ## Add a department Admin
 
@@ -214,10 +221,7 @@ Direct EA admins can add department admins in the Azure portal. For more informa
 
 ## See pricing for different user roles
 
-You may see different pricing in the Azure portal depending on your administrative role and how the view charges policies are set by the Enterprise Administrator. The two policies in the Enterprise portal that affect the pricing you see in the Azure portal are:
-
-- DA view charges
-- AO view charges
+You may see different pricing in the Azure portal depending on your administrative role and how the view charges policies are set by the Enterprise Administrator. Enabling Department Administrator and Account Owner Roles to see the charges can be restricted by restricting access to billing information.
 
 To learn how to set these policies, see [Manage access to billing information for Azure](manage-billing-access.md).
 

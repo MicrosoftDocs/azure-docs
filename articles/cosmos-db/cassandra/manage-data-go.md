@@ -9,7 +9,7 @@ ms.subservice: apache-cassandra
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.custom: mode-api, ignite-2022
+ms.custom: mode-api, ignite-2022, devx-track-go
 ---
 
 # Quickstart: Build a Go app with the `gocql` client to manage Azure Cosmos DB for Apache Cassandra data

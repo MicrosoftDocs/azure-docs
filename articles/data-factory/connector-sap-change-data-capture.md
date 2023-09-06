@@ -40,7 +40,7 @@ The SAP CDC connector supports basic authentication or Secure Network Communicat
 
 Here are current limitations of the SAP CDC connector in Data Factory:
 
-- You can't reset or delete ODQ subscriptions in Data Factory (use transaction ODQMON in the connected SAP system for this).
+- You can't reset or delete ODQ subscriptions in Data Factory (use transaction ODQMON in the connected SAP system for this purpose).
 - You can't use SAP hierarchies with the solution.
 
 ## Prerequisites
@@ -61,9 +61,9 @@ To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-c
 
 ## Transform data with the SAP CDC connector
 
-The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. For example, technical attributes associated with each row (like ODQ_CHANGEMODE) have to be understood to apply the changes to the sink correctly. Also, an extract of change data from ODP can contain multiple changes to the same key (for example, the same sales order). It is therefore important to respect the order of changes, while at the same time optimizing performance by processing the changes in parallel.
+The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. For example, technical attributes associated with each row (like ODQ_CHANGEMODE) have to be understood to apply the changes to the sink correctly. Also, an extract of change data from ODP can contain multiple changes to the same key (for example, the same sales order). It's therefore important to respect the order of changes, while at the same time optimizing performance by processing the changes in parallel.
 Moreover, managing a change data capture feed also requires keeping track of state, for example in order to provide built-in mechanisms for error recovery.
-Azure data factory mapping data flows take care of all such aspects. Therefore, SAP CDC connectivity is part of the mapping data flow experience. This allows users to concentrate on the required transformation logic without having to bother with the technical details of data extraction.
+Azure data factory mapping data flows take care of all such aspects. Therefore, SAP CDC connectivity is part of the mapping data flow experience. Thus, users can concentrate on the required transformation logic without having to bother with the technical details of data extraction.
 
 To get started, create a pipeline with a mapping data flow.
 
@@ -72,9 +72,19 @@ To get started, create a pipeline with a mapping data flow.
 Next, specify a staging linked service and staging folder in Azure Data Lake Gen2, which serves as an intermediate storage for data extracted from SAP.
 
  >[!NOTE]
-   >The staging linked service cannot use a self-hosted integration runtime.
+   > - The staging linked service cannot use a self-hosted integration runtime.
+   > - The staging folder should be considered an internal storage of the SAP CDC connector. For further optimizations of the SAP CDC runtime, implementation details, like the file format used for the staging data, might change. We therefore recommend not to use the staging folder for other purposes, e.g. as a source for other copy activities or mapping data flows.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-staging-folder.png" alt-text="Screenshot of specify staging folder in data flow activity.":::
+
+The **Checkpoint Key** is used by the SAP CDC runtime to store status information about the change data capture process. This, for example, allows SAP CDC mapping data flows to automatically recover from error situations, or know whether a change data capture process for a given data flow has already been established. It is therefore important to use a unique **Checkpoint Key** for each source. Otherwise status information of one source will be overwritten by another source.
+
+>[!NOTE]
+   > - To avoid conflicts, a unique id is generated as **Checkpoint Key** by default.
+   > - When using parameters to leverage the same data flow for multiple sources, make sure to parametrize the **Checkpoint Key** with unique values per source.
+   > - The **Checkpoint Key** property is not shown if the **Run mode** within the SAP CDC source is set to **Full on every run** (see next section), because in this case no change data capture process is established.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-checkpoint-key.png" alt-text="Screenshot of checkpoint key property in data flow activity.":::
 
 ### Mapping data flow properties
 
@@ -107,3 +117,9 @@ If **Run mode** is set to **Full on every run** or **Full on the first run, then
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-optimize-partition.png" alt-text="Screenshot of the partitioning options in optimize of mapping data flow source.":::
 
 If partitions are equally sized, source partitioning can linearly increase the throughput of data extraction. To achieve such performance improvements, sufficient resources are required in the SAP source system, the virtual machine hosting the self-hosted integration runtime, and the Azure integration runtime.
+
+## Next steps
+
+- [Overview and architecture of the SAP CDC capabilities](sap-change-data-capture-introduction-architecture.md)
+- [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
+- [SAP CDC advanced topics](sap-change-data-capture-advanced-topics.md)

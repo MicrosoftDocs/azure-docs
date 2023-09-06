@@ -1,19 +1,17 @@
 ---
-title: Use Draft and the DevX extension for Visual Studio Code with Azure Kubernetes Service (AKS) (preview)
+title: Use Draft and the DevX extension for Visual Studio Code with Azure Kubernetes Service (AKS)
 description: Learn how to use Draft and the DevX extension for Visual Studio Code with Azure Kubernetes Service (AKS)
 author: schaffererin
 ms.topic: article
-ms.date: 03/20/2023
+ms.date: 05/17/2023
 ms.author: schaffererin
 ---
 
-# Use Draft and the DevX extension for Visual Studio Code with Azure Kubernetes Service (AKS) (preview)
+# Use Draft and the DevX extension for Visual Studio Code with Azure Kubernetes Service (AKS)
 
 [Draft][draft] is an open-source project that streamlines Kubernetes development by taking a non-containerized application and generating the DockerFiles, Kubernetes manifests, Helm charts, Kustomize configurations, and other artifacts associated with a containerized application. The Azure Kubernetes Service (AKS) DevX extension for Visual Studio Code enhances non-cluster experiences, allowing you to create deployment files to deploy your applications to AKS. Draft is the available feature included in the DevX extension.
 
 This article shows you how to use Draft with the DevX extension to draft a DockerFile, draft a Kubernetes deployment and service, and build an image on Azure Container Registry (ACR).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
@@ -64,6 +62,14 @@ You'll see the following getting started page:
 1. Press **Ctrl + Shift + P** to open the command palette.
 2. Enter **AKS Developer**.
 3. Select **AKS Developer: Build an Image on Azure Container Registry**.
+
+### Draft a GitHub Action Deployment Workflow
+
+`Draft a GitHub Action Deployment Workflow` adds a GitHub Action to your repository, allowing you initiate an autonomous workflow.
+
+1. Press **Ctrl + Shift + P** to open the command palette.
+2. Enter **AKS Developer**.
+3. Select **AKS Developer: Draft a GitHub Action Deployment Workflow**.
 
 ## Next steps
 

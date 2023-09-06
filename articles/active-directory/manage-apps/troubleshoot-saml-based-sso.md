@@ -18,6 +18,8 @@ ms.custom: enterprise-apps
 
 If you encounter a problem when configuring an application. Verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md) for a detail step-by-step guidance.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Can’t add another instance of the application
 
 To add a second instance of an application, you need to be able to:
@@ -77,7 +79,7 @@ Azure AD doesn’t provide a URL to get the metadata. The metadata can only be r
 
 ## Customize SAML claims sent to an application
 
-To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) for more information.
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/saml-claims-customization.md) for more information.
 
 ## Next steps
 

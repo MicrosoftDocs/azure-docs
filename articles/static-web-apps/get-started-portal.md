@@ -36,7 +36,7 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 
 ## Create a repository
 
-This article uses a Azure DevOps repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
+This article uses an Azure DevOps repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
 
 1. Sign in to Azure DevOps.
 2. Select **New repository**.
@@ -114,14 +114,14 @@ After you sign in with GitHub, enter the repository information.
 |--|--|
 | Organization | Select your organization. |
 | Repository| Select **my-first-web-static-app**. |
-| Branch | Select **main**. |
+| Branch | Select **<branch_name>**. |
 
 :::image type="content" source="media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Repository details":::
 
 > [!NOTE]
 > If you don't see any repositories:
 > - You may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**.
-> - You may need to authorize Azure Static Web Apps in your Azure DevOps organization. You must be an owner of the organization to grant the permissions. Request third-party application access via via OAuth. For more information, see [Authorize access to REST APIs with OAuth 2.0](/azure/devops/integrate/get-started/authentication/oauth).
+> - You may need to authorize Azure Static Web Apps in your Azure DevOps organization. You must be an owner of the organization to grant the permissions. Request third-party application access via OAuth. For more information, see [Authorize access to REST APIs with OAuth 2.0](/azure/devops/integrate/get-started/authentication/oauth).
 
 ::: zone-end
 
@@ -140,7 +140,7 @@ In the _Basics_ section, begin by configuring your new app and linking it to an 
 | Organization | Select your organization. |
 | Project | Select your project. |
 | Repository| Select **my-first-web-static-app**. |
-| Branch | Select **main**. |
+| Branch | Select **<branch_name>**. |
 
 > [!NOTE]
 > Make sure the branch you are using is not protected, and that you have sufficient permissions to issue a `push` command. To verify, browse to your DevOps repository and go to **Repos** -> **Branches** and select **More options**. Next, select your branch, and then **Branch policies** to ensure required policies aren't enabled.

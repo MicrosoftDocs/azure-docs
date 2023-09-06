@@ -57,8 +57,6 @@
       href: concepts-custom-attributes.md
     - name: Virtual network considerations
       href: network-considerations.md
-    - name: Classic deployment migration benefits
-      href: concepts-migration-benefits.md
     - name: What is Azure Active Directory?
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Azure Active Directory architecture
@@ -87,8 +85,6 @@
           href: notifications.md
         - name: Delete a managed domain
           href: delete-aadds.md
-        - name: Migrate from a Classic deployment
-          href: migrate-from-classic-vnet.md
         - name: Change SKU
           href: change-sku.md
         - name: Retrieve data

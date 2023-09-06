@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mcleanbyron
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.date: 02/28/2023
 ms.author: mcleans

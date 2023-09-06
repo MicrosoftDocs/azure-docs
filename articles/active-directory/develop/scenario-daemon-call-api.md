@@ -59,9 +59,7 @@ try
 {
     GraphServiceClient graphServiceClient = serviceProvider.GetRequiredService<GraphServiceClient>();
     var users = await graphServiceClient.Users
-        .Request()
-        .WithAppOnly()
-        .GetAsync();
+        .GetAsync(r => r.Options.WithAppOnly());
     Console.WriteLine($"{users.Count} users");
     Console.ReadKey();
 }
@@ -126,7 +124,7 @@ data = requests.get(endpoint, headers=http_headers, stream=False).json()
 
 # [.NET low level](#tab/dotnet)
 
-[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
+[!INCLUDE [Call web API in .NET](./includes/scenarios/scenarios-call-apis-dotnet.md)]
 
 ---
 

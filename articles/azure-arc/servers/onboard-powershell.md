@@ -3,6 +3,7 @@ title: Connect hybrid machines to Azure by using PowerShell
 description: In this article, you learn how to install the agent and connect a machine to Azure by using Azure Arc-enabled servers. You can do this with PowerShell.
 ms.date: 07/16/2021
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 ---
 
 # Connect hybrid machines to Azure by using PowerShell
@@ -19,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - A machine with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-You use PowerShell to manage VM extensions on your hybrid servers managed by Azure Arc-enabled servers. Before using PowerShell, install the `Az.ConnectedMachine` module. Run the following command on your server enabled with Azure Arc:
+You use PowerShell to manage VM extensions on your hybrid servers managed by Azure Arc-enabled servers. Before using PowerShell, install the `Az.ConnectedMachine` module on the server you want to Arc-enable. Run the following command on your server enabled with Azure Arc:
 
 ```powershell
 Install-Module -Name Az.ConnectedMachine

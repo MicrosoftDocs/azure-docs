@@ -26,6 +26,8 @@
       href: sample-template-targets.md
     - name: Experiments
       href: sample-template-experiment.md
+  - name: Bicep 
+    href: chaos-studio-bicep.md
   - name: Azure policy definitions
     href: sample-policy-targets.md
 - name: Concepts

@@ -28,7 +28,7 @@ If you've exported an API from API Management as a [custom connector](export-api
 
 Follow these steps to configure the CORS policy in API Management.
 
-1. Sign into [Azure portal](https://portal.azure.com) and go to your API Management instance.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your API Management instance.
 1. In the left menu, select **APIs** and select the API that you exported as a custom connector. If you want to, select only an API operation to apply the policy to.
 1. In the **Policies** section, in the **Inbound processing** section, select **+ Add policy**.
     1. Select **Allow cross-origin resource sharing (CORS)**.

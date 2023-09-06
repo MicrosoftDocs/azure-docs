@@ -14,13 +14,10 @@ ms.custom: UpdateFrequency5, seodec18, devx-track-azurecli, cliv1
 
 # Install & use the CLI (v1)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-azure-machine-learning-cli.md)
-> * [v2 (current version)](../how-to-configure-cli.md?view=azureml-api-2&preserve-view=true)
 
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
 
@@ -57,7 +54,7 @@ az login
 
 If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
-[!INCLUDE [select-subscription](../../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../includes/machine-learning-cli-subscription.md)]
 
 For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -173,7 +170,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-amlcompute).
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-note.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-note.md)]
 
 <a id="computeinstance"></a>
 
@@ -316,7 +313,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
 
 ## Environment management
 
-The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment-v1.md) for your workspace:
+The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment.md) for your workspace:
 
 + Create scaffolding files for an environment:
 
@@ -475,7 +472,7 @@ The following commands demonstrate how to register a trained model, and then dep
 
 ## Inference configuration schema
 
-[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
+[!INCLUDE [inferenceconfig](../includes/machine-learning-service-inference-config.md)]
 
 <a id="deploymentconfig"></a>
 
@@ -483,15 +480,15 @@ The following commands demonstrate how to register a trained model, and then dep
 
 ### Local deployment configuration schema
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-local-deploy-config.md)]
 
 ### Azure Container Instance deployment configuration schema 
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-aci-deploy-config.md)]
 
 ### Azure Kubernetes Service deployment configuration schema
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-aks-deploy-config.md)]
 
 ## Next steps
 

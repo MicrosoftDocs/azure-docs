@@ -19,6 +19,22 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## July 2023
+
+Built-in policy to govern the key rotation configuration in Azure Key Vault. With this policy, you can audit existing keys in key vaults to ensure that all keys are configured for rotation and comply with your organization's standards. 
+
+For more information, see [Configure key rotation governance](../keys/how-to-configure-key-rotation.md#configure-key-rotation-policy-governance)
+
+## June 2023
+
+Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
+
+## May 2023
+
+Azure RBAC is now the recommended authorization system for the Azure Key Vault data plane. Azure RBAC is built on Azure Resource Manager and provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource).
+
+For more information, please visit [Azure role-based access control (Azure RBAC) vs. access policies | Microsoft Learn](rbac-access-policy.md)
+
 ## February 2023
 
 Built-in policy to govern the migration to Azure role-based access control (RBAC) is now in preview. With the built-in policy you can audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model. See [RBAC migration governance](../general/rbac-migration.md#migration-governance) to learn how to enforce the new built-in policy.
@@ -100,7 +116,7 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 - Release of the next-generation Azure Key Vault SDKs. For examples of their use, see the Azure Key Vault secret quickstarts for [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md), and [Node.js](../secrets/quick-create-node.md)
 - New Azure policies to manage key vault certificates. See the [Azure Policy built-in definitions for Key Vault](../policy-reference.md).
 - Azure Key Vault Virtual Machine extension now generally available.  See [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) and [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md).
-- Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md], and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
+- Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md), and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
 
 ## 2018
 

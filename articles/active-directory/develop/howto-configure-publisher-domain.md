@@ -68,6 +68,8 @@ If your app was registered *before May 21, 2019*, your app's consent prompt show
 
 ## Set a publisher domain in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To set a publisher domain for your app by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

@@ -67,8 +67,6 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-  - name: Access to Azure virtual networks
-    href: connect-virtual-network-vnet-isolated-environment-overview.md
   - name: Business continuity and disaster recovery
     href: business-continuity-disaster-recovery-guidance.md
   - name: Security
@@ -96,6 +94,10 @@
       href: ../connectors/compare-built-in-azure-connectors.md
     - name: Edit host and app settings for logic apps in single-tenant
       href: edit-app-settings-host-settings.md
+    - name: Create and run .NET Framework code
+      href: create-run-custom-code-functions.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
     - name: DevOps deployment for single-tenant
       href: devops-deployment-single-tenant-azure-logic-apps.md
     - name: Set up DevOps deployment for single-tenant
@@ -198,16 +200,12 @@
       href: logic-apps-diagnosing-failures.md
   - name: Access Azure virtual networks
     items:
-    - name: Create integration service environment - Azure portal
-      href: connect-virtual-network-vnet-isolated-environment.md
-    - name: Create integration service environment - REST API
-      href: create-integration-service-environment-rest-api.md
+    - name: Access to Azure virtual networks
+      href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: Set up access for multiple integration service environments
       href: connect-virtual-network-vnet-set-up-single-ip-address.md
     - name: Add resources to integration service environments
       href: add-artifacts-integration-service-environment-ise.md
-    - name: Set up customer-managed encryption keys for integration service environments
-      href: customer-managed-keys-integration-service-environment.md
   - name: Access on-premises data
     items:
     - name: Install data gateway
@@ -219,7 +217,7 @@
     - name: Integration account and artifacts
       items:
       - name: Create integration account
-        href: logic-apps-enterprise-integration-create-integration-account.md
+        href: ./enterprise-integration/create-integration-account.md
       - name: Trading partners
         href: logic-apps-enterprise-integration-partners.md
       - name: Agreements
@@ -258,10 +256,8 @@
       items:
       - name: Exchange X12 messages
         href: logic-apps-enterprise-integration-x12.md
-      - name: X12 encoding
-        href: logic-apps-enterprise-integration-x12-encode.md
-      - name: X12 decoding
-        href: logic-apps-enterprise-integration-x12-decode.md
+      - name: X12 message settings
+        href: logic-apps-enterprise-integration-x12-message-settings.md
       - name: X12 TA1 acknowledgment
         href: logic-apps-enterprise-integration-x12-ta1-acknowledgment.md
       - name: X12 997 acknowledgment
@@ -284,7 +280,7 @@
         href: logic-apps-enterprise-integration-liquid-transform.md
     - name: Troubleshoot B2B errors
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-  - name: Connectors - In-depth topics
+  - name: Connectors - How-to guides
     items:
     - name: AS2
       href: logic-apps-enterprise-integration-as2.md
@@ -319,13 +315,11 @@
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
     - name: File system
-      href: logic-apps-using-file-connector.md
+      href: ../connectors/file-system.md
     - name: Flat file
       href: logic-apps-enterprise-integration-flatfile.md
     - name: FTP
       href: ../connectors/connectors-create-api-ftp.md
-    - name: GitHub
-      href: ../connectors/connectors-create-api-github.md
     - name: Gmail - Google data security & privacy policies
       href: ../connectors/connectors-google-data-security-privacy-policy.md
     - name: HTTP
@@ -359,7 +353,13 @@
     - name: RosettaNet
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: SAP
-      href: logic-apps-using-sap-connector.md
+      items:
+      - name: Prerequisites and setup
+        href: logic-apps-using-sap-connector.md
+      - name: Create common example workflows
+        href: sap-create-example-scenario-workflows.md
+      - name: Generate schemas for SAP artifacts
+        href: sap-generate-schemas-for-artifacts.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window
@@ -401,7 +401,7 @@
     - name: Move logic app resources
       href: move-logic-app-resources.md
     - name: Update schema for Consumption workflows
-      href: update-consumption-workflow-schema.md
+      href: update-workflow-definition-language-schema.md
   - name: Test
     items:
     - name: Test logic apps with mock data
@@ -428,6 +428,8 @@
         href: monitor-b2b-messages-log-analytics.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
+      - name: Tracking schemas for monitoring messages
+        href: tracking-schemas-as2-x12-custom.md
   - name: Business continuity and disaster recovery
     items:
     - name: Set up zone redundant logic apps
@@ -480,16 +482,6 @@
         href: logic-apps-workflow-actions-triggers.md
       - name: Functions reference
         href: workflow-definition-language-functions-reference.md
-      - name: GA - Schema history
-        href: logic-apps-schema-2016-04-01.md
-  - name: Tracking schemas
-    items:
-      - name: AS2 tracking schema
-        href: logic-apps-track-integration-account-as2-tracking-schemas.md
-      - name: X12 tracking schema
-        href: logic-apps-track-integration-account-x12-tracking-schema.md
-      - name: Custom tracking schema
-        href: logic-apps-track-integration-account-custom-tracking-schema.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

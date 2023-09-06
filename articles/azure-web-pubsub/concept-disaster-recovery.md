@@ -4,17 +4,27 @@ description: An overview on how to set up multiple Azure Web PubSub service inst
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 05/28/2023
 ms.author: lianwei
 ---
 # Resiliency and disaster recovery in Azure Web PubSub Service
 
-Resiliency and disaster recovery is a common need for online systems. Azure Web PubSub Service already guarantees 99.9% availability, but it's still a regional service.
+Resiliency and disaster recovery is a common need for online systems. Azure Web PubSub Service already guarantees 99.9% availability, but it's still a regional service. When there is a region-wide outage, it is critical for the service to continue processing real-time messages in a different region.
 
-Your service instance is a regional service and the instance is running in one region. When there is a region-wide outage, it is critical for the service to continue processing real-time messages in a different region. This article will explain some of the strategies you can use to deploy the service to allow for disaster recovery.
+For regional disaster recovery, we recommend the following two approaches:
+
+- **Enable Geo-Replication** (Easy way). This feature will handle regional failover for you automatically. When enabled, there remains just one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
+- **Utilize Multiple Endpoints**. You learn how to do so **in this document**
 
 ## High available architecture for Web PubSub service
 
+There are two typical patterns using Web PubSub service:
+* One is client-server pattern that [clients send events the the server](./quickstarts-event-notifications-from-clients.md) and [server pushes messages to the clients](./quickstarts-push-messages-from-server.md).
+* Another is client-client pattern that [clients pub/sub messages through the Web PubSub service to other clients](./quickstarts-pubsub-among-clients.md).
+
+Below sections describe different ways for these two patterns to do disaster recovery
+
+###  High available architecture for client-server pattern
 In order to have cross region resiliency for Web PubSub service, you need to set up multiple service instances in different regions. So when one region is down, the others can be used as backup.
 
 One typical setup for cross region scenario is to have two (or more) pairs of Web PubSub service instances and app servers.
@@ -38,13 +48,13 @@ We haven't integrated the strategy into the SDK yet, so for now the application 
 In summary, what the application side needs to implement is:
 1. Health check. Application can either check if the service is healthy using [service health check API](/rest/api/webpubsub/dataplane/health-api/get-service-status) periodically in the background or on demand for every **negotiate** call.
 1. Negotiate logic. Application returns healthy **primary** endpoint by default. When **primary** endpoint is down, application returns healthy **secondary** endpoint.
-1. Broadcast logic. When sending messages to multiple clients, application needs to make sure it broadcasts messages to all the **healthy** endpoints.
+1. Broadcast logic. When messages are sent to multiple clients, application needs to make sure it broadcasts messages to all the **healthy** endpoints.
 
 Below is a diagram that illustrates such topology:
 
 ![Diagram shows two regions each with an app server and a Web PubSub service, where each server is associated with the Web PubSub service in its region as primary and with the service in the other region as secondary.](media/concept-disaster-recovery/topology.png)
 
-## Failover sequence and best practice
+#### Failover sequence and best practice
 
 Now you have the right system topology setup. Whenever one Web PubSub service instance is down, online traffic will be routed to other instances.
 Here is what happens when a primary instance is down (and recovers after some time):
@@ -87,6 +97,10 @@ Be noted no matter which patterns you choose to use, you'll need to connect each
 
 Also due to the nature of WebSocket connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place.
 You'll need to handle such cases at client side to make it transparent to your end customers. For example, do reconnect after a connection is closed.
+
+###  High available architecture for client-client pattern
+
+For client-client pattern, currently it is not yet possible to support a zero-down-time disaster recovery using multiple instances. If you have high availability requirements, please consider using [geo-replication](howto-enable-geo-replication.md).
 
 ## How to test a failover
 

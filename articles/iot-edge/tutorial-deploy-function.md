@@ -33,7 +33,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 
 ## Prerequisites
 
-Before beginning this tutorial, do the tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules using Linux containers](tutorial-develop-for-linux.md). After completing that tutorial, you should have the following prerequisites in place:
+Before beginning this tutorial, do the tutorial to set up your development environment for Linux container development: [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md). After completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstart to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).

@@ -45,11 +45,6 @@ Retrieve the application ID for the system-assigned managed identity, which you'
 ```azurecli
 # Get the client ID (application ID) of the system-assigned managed identity
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
-
-[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
-
-
 az ad sp list --display-name vm-name --query [*].appId --out tsv
 ```
 
@@ -81,19 +76,9 @@ For testing purposes, you can run the following commands in your shell. Note you
 ```bash
 # Retrieve the access token
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
-
-[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
-
-
 export PGPASSWORD=`curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token`
 
 # Connect to the database
-
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
-
-[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
-
 
 psql -h SERVER --user USER@SERVER DBNAME
 ```

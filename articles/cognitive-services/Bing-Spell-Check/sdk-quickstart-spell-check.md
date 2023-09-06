@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Check spelling with the Bing Spell Check SDK for C#"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp, mode-api
 
 # Quickstart: Check spelling with the Bing Spell Check SDK for C#
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to begin spell checking with the Bing Spell Check SDK for C#. While Bing Spell Check has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
 

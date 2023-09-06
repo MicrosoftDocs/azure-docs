@@ -16,6 +16,8 @@
     href: faq.md
 - name: How-to guides
   items:
+  - name: Orchestrate updates across multiple member clusters
+    href: update-orchestration.md
   - name: Kubernetes resource objects propagation
     href: configuration-propagation.md
   - name: Multi-cluster Layer 4 Load Balancing

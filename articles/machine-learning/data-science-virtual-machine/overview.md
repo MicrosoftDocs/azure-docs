@@ -5,29 +5,30 @@ description: Overview of Azure Data Science Virtual Machine - An easy to use vir
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
+ms.custom: devx-track-linux
 author: jesscioffi
 ms.author: jcioffi
 ms.reviewer: mattmcinnes
 ms.topic: overview
 ms.date: 06/23/2022
-
 ---
 
 # What is the Azure Data Science Virtual Machine for Linux and Windows?
 
-The Data Science Virtual Machine (DSVM) is a customized VM image on the Azure cloud platform built specifically for doing data science. It has many popular data science tools preinstalled and preconfigured to jump-start building intelligent applications for advanced analytics.
-
 > [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> This feature is currently in public preview.
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The Data Science Virtual Machine (DSVM) is a customized VM image on the Azure cloud platform built specifically for doing data science. It has many popular data science tools preinstalled and preconfigured to jump-start building intelligent applications for advanced analytics.
 
 The DSVM is available on:
 
 + Windows Server 2019
++ Windows Server 2022 (Preview)
 + Ubuntu 20.04 LTS
 
-Additionally, we're excited to offer Azure DSVM for PyTorch (preview), which is an Ubuntu 20.04 image from Azure Marketplace that is optimized for large, distributed deep learning workloads. It comes preinstalled and validated with the latest PyTorch version to reduce setup costs and accelerate time to value. It comes packaged with various optimization functionalities (ONNX Runtime​, DeepSpeed​, MSCCL​, ORTMoE​, Fairscale​, Nvidia Apex​), and an up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA.
+Additionally, we're excited to offer Azure DSVM for PyTorch, which is an Ubuntu 20.04 image from Azure Marketplace that is optimized for large, distributed deep learning workloads. It comes preinstalled and validated with the latest PyTorch version to reduce setup costs and accelerate time to value. It comes packaged with various optimization functionalities (ONNX Runtime​, DeepSpeed​, MSCCL​, ORTMoE​, Fairscale​, Nvidia Apex​), and an up-to-date stack with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA.
 
 ## Comparison with Azure Machine Learning
 
@@ -51,7 +52,7 @@ The DSVM is a customized VM image for Data Science but [Azure Machine Learning](
 
 Key differences between these:
 
-|Feature |Data Science<br>VM |AzureML<br>Compute Instance  | 
+|Feature |Data Science<br>VM |Azure Machine Learning<br>Compute Instance  | 
 |---------|---------|---------|
 | Fully Managed | No        | Yes        |
 |Language Support     |  Python, R, Julia, SQL, C#,<br> Java, Node.js, F#       | Python and R        |
@@ -63,7 +64,7 @@ Key differences between these:
 |Built-in<br>Hosted Notebooks     |   No<br>(requires additional configuration)      |      Yes   |
 |Built-in SSO     | No <br>(requires additional configuration)         |    Yes     |
 |Built-in Collaboration     | No         | Yes        |
-|Preinstalled Tools     |  Jupyter(lab), VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab) |
+|Preinstalled Tools     |  Jupyter(lab), VS Code,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab) |
 
 ## Sample use cases
 

@@ -5,7 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Example PowerShell scripts
@@ -37,7 +37,7 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
 
 1. [Prepare an Azure Storage account](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Log into your subscription containing your Azure Remote Rendering account:
+1. Log in to your subscription containing your Azure Remote Rendering account:
     1. Open a PowerShell window.
     1. Run: `Connect-AzAccount` and follow the on-screen directions.
 
@@ -55,10 +55,10 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
     "accountSettings": {
         "arrAccountId": "<fill in the account ID from the Azure Portal>",
         "arrAccountKey": "<fill in the account key from the Azure Portal>",
-        "arrAccountDomain": "<select from available regions or specify the full url>"
+        "arrAccountDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>"
     },
     "renderingSessionSettings": {
-        "remoteRenderingDomain": "<select from available regions or specify the full url>",
+        "remoteRenderingDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>",
         "vmSize": "<select standard or premium>",
         "maxLeaseTime": "<hh:mm:ss>"
     },
@@ -85,7 +85,7 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
 ### accountSettings
 
 For `arrAccountId` and `arrAccountKey`, see [Create an Azure Remote Rendering account](../how-tos/create-an-account.md).
-The `arrAccountDomain` should be a region from [list of available regions](../reference/regions.md). If you're running on a nonpublic Azure region, you have to specify the full url to the account authentication service in your region.
+The `arrAccountDomain` should be a region from [list of available regions](../reference/regions.md).
 
 ### renderingSessionSettings
 
@@ -95,7 +95,6 @@ This structure must be filled out if you want to run **RenderingSession.ps1**:
 - **maxLeaseTime:** The duration for which you want to lease the VM. The VM shuts down when the lease expires. The lease time can be extended later (see [here](#change-session-properties)).
 - **remoteRenderingDomain:** The region where the remote rendering VM resides in.
   - Can differ from the arrAccountDomain, but still should be a region from [list of available regions](../reference/regions.md)
-  - If you're running on a nonpublic Azure region, you have to specify the full url to the remote rendering service in your region.
 
 ### assetConversionSettings
 
@@ -187,7 +186,7 @@ The script demonstrates the two options to use storage accounts with the service
 
 ### Linked storage account
 
-Once you've fully filled out arrconfig.json and linked a storage account, you can use the following command. Linking your storage account is described at [Create an Account](../how-tos/create-an-account.md#link-storage-accounts).
+Once you have fully filled out arrconfig.json and linked a storage account, you can use the following command. Linking your storage account is described at [Create an Account](../how-tos/create-an-account.md#link-storage-accounts).
 
 Using a linked storage account is the preferred way to use the conversion service since there's no need to generate Shared Access Signatures.
 

@@ -22,11 +22,7 @@ Learn more about the general [process for creating Azure support requests](/azur
 
 ### Prerequisites
 
-To create a support request, your Azure account must have one of the following roles at the Azure subscription level:
-
- - [Owner](../role-based-access-control/built-in-roles.md)
- - [Contributor](../role-based-access-control/built-in-roles.md)
- - [Support Request Contributor](../role-based-access-control/built-in-roles.md)
+[!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
 
 ## Prepare to submit a request
 

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.date: 10/11/2022
 ms.topic: quickstart
-ms.custom: devx-track-java, devx-track-azurecli, mode-api
+ms.custom: devx-track-java, devx-track-azurecli, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Build and push container images of the Java Spring Boot app to Azure Container Registry

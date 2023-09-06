@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twin ontologies, how they're used in Azure Digital Twins, and how these DTDL ontologies can be used for modeling in the context of certain industries.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 04/05/2023
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -49,7 +49,7 @@ Here are some other benefits to using industry-standard DTDL ontologies as schem
 * Easier data interoperability on a semantic level
 * Best practice reuse, rather than starting from scratch
 
-Microsoft has created several open-source DTDL ontologies built on widely used industry standards. You can [adopt these ontologies](concepts-ontologies-adopt.md) out-of-the-box in your solutions, or [extend the ontologies](concepts-ontologies-extend.md) with your own additions to customize your solutions. Because models in Azure Digital Twins are represented in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md), ontologies designed for Azure Digital Twins are written in DTDL.
+Microsoft has created several open-source DTDL ontologies built on widely used industry standards. You can [adopt these ontologies](concepts-ontologies-adopt.md) out-of-the-box in your solutions, or [extend the ontologies](concepts-ontologies-extend.md) with your own additions to customize your solutions. Because models in Azure Digital Twins are represented in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md), ontologies designed for Azure Digital Twins are written in DTDL.
 
 If you have a set of models for your industry that's represented in a different standard industry format, such as RDF or OWL, you can use it as a starting point and [convert the models to DTDL](concepts-ontologies-convert.md) in order to use them in Azure Digital Twins.
 

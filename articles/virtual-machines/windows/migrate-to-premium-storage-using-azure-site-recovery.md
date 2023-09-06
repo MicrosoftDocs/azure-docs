@@ -2,12 +2,11 @@
 title: Migrate your Windows VMs to Azure Premium Storage with Azure Site Recovery 
 description: Learn how to migrate your VM disks from a standard storage account to a premium storage account by using Azure Site Recovery.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: rogarana
-ms.subservice: disks
 ---
 # Migrate to Premium Storage by using Azure Site Recovery
 
@@ -208,7 +207,7 @@ Site Recovery will create a VM instance whose type is the same as or similar to 
 
 For specific scenarios for migrating virtual machines, see the following resources:
 
-* [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
+* [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Create and upload a Windows Server VHD to Azure](upload-generalized-managed.md)
 * [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](/shows/it-ops-talk/migrate-your-aws-vms-to-azure-with-azure-migrate)
 

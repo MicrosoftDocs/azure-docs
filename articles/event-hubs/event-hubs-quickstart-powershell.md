@@ -3,7 +3,7 @@ title: 'Quickstart: Create an event hub using PowerShell'
 description: This quickstart describes how to create an event hub using Azure PowerShell and then send and receive events using .NET Standard SDK.
 ms.topic: quickstart
 ms.date: 03/13/2023
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, devx-track-dotnet
 ---
 
 # Quickstart: Create an event hub using Azure PowerShell
@@ -14,7 +14,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you're using PowerShell locally, you must run the latest version of PowerShell to complete this quickstart. If you need to install or upgrade, see [Install and Configure Azure PowerShell](/powershell/azure/install-az-ps).
+If you're using PowerShell locally, you must run the latest version of PowerShell to complete this quickstart. If you need to install or upgrade, see [Install and Configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Create a resource group
 Run the following command to create a resource group. A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. 

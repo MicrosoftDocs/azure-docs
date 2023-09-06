@@ -8,7 +8,7 @@ ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js, subject-rbac-steps
+ms.custom: subject-rbac-steps
 ---
 
 # How to secure a single-page web application with non-interactive sign-in

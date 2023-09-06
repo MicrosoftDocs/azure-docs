@@ -121,7 +121,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    >   filename="cert$num.pem"
    >   cert=$(jq '.pem' <<< $item)
    >   echo -e $cert >> $filename
-   >   sed -e '1d' -e '$d' -i $filename
+   >   sed -e 's/^"//' -e 's/"$//' -i $filename
    > done
    > ```
 

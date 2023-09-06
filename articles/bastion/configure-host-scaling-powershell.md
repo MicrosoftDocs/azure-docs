@@ -1,24 +1,24 @@
 ---
 title: 'Add scale units for host scaling: PowerShell'
 titleSuffix: Azure Bastion
-description: Learn how to add additional instances (scale units) to Azure Bastion using PowerShell
+description: Learn how to add more instances (scale units) to Azure Bastion using PowerShell
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 05/17/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to configure host scaling using Azure PowerShell.
 ---
 
 # Configure host scaling using Azure PowerShell
 
-This article helps you add additional scale units (instances) to Azure Bastion to accommodate additional concurrent client connections using PowerShell. For more information about host scaling, see [Configuration settings](configuration-settings.md#instance).
+This article helps you add more scale units (instances) to Azure Bastion to accommodate additional concurrent client connections. The steps in this article use PowerShell. For more information about host scaling, see [Configuration settings](configuration-settings.md#instance). You can also configure host scaling using the [Azure portal](configure-host-scaling.md).
 
 ## Configuration steps
 
-1. Get the target Bastion resource. Use the example below, modifying the values as needed.
+1. Get the target Bastion resource. Use the following example, modifying the values as needed.
 
    ```azurepowershell-interactive
    $bastion = Get-AzBastion -Name bastion -ResourceGroupName bastion-rg

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/25/2022
-ms.custom: project-no-code, engagement-fy23
+ms.custom: project-no-code, engagement-fy23, build-2023
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type

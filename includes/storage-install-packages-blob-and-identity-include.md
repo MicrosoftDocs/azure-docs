@@ -3,7 +3,7 @@
  description: include file
  services: storage
  author: tamram
- ms.service: storage
+ ms.service: azure-storage
  ms.topic: include
  ms.date: 11/26/2019
  ms.author: tamram

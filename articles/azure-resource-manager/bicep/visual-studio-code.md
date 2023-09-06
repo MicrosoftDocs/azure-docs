@@ -3,7 +3,7 @@ title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/03/2023
+ms.date: 06/05/2023
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -70,7 +70,7 @@ You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bic
 
 ### Generate parameters file
 
-This command creates a parameter file in the same folder as the Bicep file. The new parameter file name is `<bicep-file-name>.parameters.json`.
+This command creates a parameter file in the same folder as the Bicep file. You can choose to create a Bicep parameter file or a JSON parameter file. The new Bicep parameter file name is `<bicep-file-name>.bicepparam`, while the new JSON parameter file name is `<bicep-file-name>.parameters.json`.
 
 ### Import Kubernetes manifest (Preview)
 
@@ -127,15 +127,7 @@ From Visual Studio Code, you can easily open the template reference for the reso
 
 ## Paste as Bicep
 
-You can paste a JSON snippet from an ARM template to Bicep file. Visual Studio Code automatically decompiles the JSON to Bicep. This feature is only available with the Bicep extension version 0.14.0 or newer.
-
-To enable the feature:
-
-1. In Visual Studio Code, select **Manage** (gear icon) in the side menu. Select **Settings**.  You can also use <kbd>Ctrl+,</kbd> to open settings.
-1. Expand **Extensions** and then select **Bicep**.
-1. Select **Decompile on Paste**.
-
-    :::image type="content" source="./media/visual-studio-code/enable-paste-json.png" alt-text="Screenshot of Visual Studio Code Paste as Bicep.":::
+You can paste a JSON snippet from an ARM template to Bicep file. Visual Studio Code automatically decompiles the JSON to Bicep. This feature is only available with the Bicep extension version 0.14.0 or newer. This feature is enabled by default. To disable the feature, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
 By using this feature, you can paste:
 

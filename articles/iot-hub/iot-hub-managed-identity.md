@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 05/11/2023
 ms.custom: subject-rbac-steps
 ---
 
@@ -24,14 +24,17 @@ In IoT Hub, managed identities can be used for egress connectivity from IoT Hub 
 
 ## System-assigned managed identity
 
-### Add and remove a system-assigned managed identity in Azure portal
+### Enable or disable system-assigned managed identity in Azure portal
 
-1. Sign in to the Azure portal and navigate to your desired IoT hub.
-2. Navigate to **Identity** in your IoT Hub portal
-3. Under **System-assigned** tab, select **On** and click **Save**.
-4. To remove system-assigned managed identity from an IoT hub, select **Off** and click **Save**.
+1. Sign in to the Azure portal and navigate to your IoT hub.
+2. Select **Identity** from the **Security settings** section of the navigation menu.
+3. Select the **System-assigned** tab.
+4. Set the system-assigned managed identity **Status** to **On** or **Off**, then select **Save**.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="Screenshot showing where to turn on system-assigned managed identity for an I O T hub.":::
+   >[!NOTE]
+   >You can't turn off system-assigned managed identity while it's in use. Make sure that no custom endpoints are using system-assigned managed identity authentication before disabling the feature.
+
+   :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="Screenshot showing where to turn on system-assigned managed identity for an IoT hub.":::
 
 ### Enable system-assigned managed identity at hub creation time using ARM template
 
@@ -227,11 +230,11 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 Managed identities can be used for egress connectivity from IoT Hub to other Azure services for [message routing](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [bulk device import/export](iot-hub-bulk-identity-mgmt.md). You can choose which managed identity to use for each IoT Hub egress connectivity to customer-owned endpoints including storage accounts, event hubs, and service bus endpoints.
 
 > [!NOTE]
-> Only system-assigned managed identity gives IoT Hub access to private resources. If you want to use user-assigned managed identity, then the public access on those private resources needs to be enabled in order to allow connectivity. 
+> Only system-assigned managed identity gives IoT Hub access to private resources. If you want to use user-assigned managed identity, then the public access on those private resources needs to be enabled in order to allow connectivity.
 
 ## Configure message routing with managed identities
 
-In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) to an event hub custom endpoint as an example. The example applies to other routing custom endpoints.
+In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) to an Event Hubs custom endpoint as an example. The example applies to other routing custom endpoints, as well.
 
 1. Go to your event hub in the Azure portal to assign the managed identity the right access.
 
@@ -263,17 +266,29 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
     > [!NOTE]
     > You need to complete above steps to assign the managed identity the right access before adding the event hub as a custom endpoint in IoT Hub. Please wait a few minutes for the role assignment to propagate.
 
-5. Next, go to your IoT hub. In your hub, navigate to **Message Routing**, then click **Custom endpoints**. Click **Add** and choose the type of endpoint you would like to use. In this section, we use event hub as the example.
+1. Next, go to your IoT hub. In your hub, navigate to **Message Routing**, then select **Add**.
 
-6. At the bottom of the page, choose your preferred **Authentication type**. In this section, we use the **User-Assigned** as the example. In the dropdown, select the preferred user-assigned managed identity then click **Create**.
+1. On the **Endpoint** tab, create an endpoint for your event hub by providing the following information:
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-routing-endpoint.png" alt-text="Screenshot that shows event hub with user assigned.":::
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Endpoint type** | Select **Event Hubs**. |
+   | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Event Hubs endpoint. |
+   | **Event Hubs namespace** | Use the drop-down menu to select an existing Event Hubs namespace in your subscription. |
+   | **Event hub instance** | Use the drop-down menu to select an existing event hub in your namespace. |
+   | **Authentication type** | Select **User-assigned**, then use the drop-down menu to select the **User assigned identity** that you created in your event hub. |
 
-7. Custom endpoint successfully created.
+    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-routing-endpoint.png" alt-text="Screenshot that shows event hub endpoint with user assigned authentication.":::
 
-8. After creation, you can still change the authentication type. Select **Message routing** in the left navigation pane and then **Custom endpoints**. Select the custom endpoint for which you want to change the authentication type and then click **Change authentication type**.
+1. Select **Create + next**. You can continue through the wizard to create a route that points to this endpoint, or you can close the wizard.
 
-9. Choose the new authentication type to be updated for this endpoint, click **Save**.
+You can change the authentication type of an existing custom endpoint. Use the following steps to modify an endpoint:
+
+1. In your IoT hub, select **Message routing** in the left navigation pane and then **Custom endpoints**.
+
+1. Select the checkbox for the custom endpoint that you want to modify, and then select **Change authentication type**.
+
+1. Choose the new authentication type for this endpoint, then select **Save**.
 
 ## Configure file upload with managed identities
 

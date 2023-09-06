@@ -3,12 +3,12 @@ title: How to view AutoML model training code
 titleSuffix: Azure Machine Learning AutoML
 description: How to view model training code for an automated ML trained model and explanation of each stage.
 services: machine-learning
-author: shouryaj
-ms.author: shoja
+author: rsavage2
+ms.author: rasavage
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 02/16/2022
 monikerRange: 'azureml-api-1'
@@ -41,7 +41,7 @@ The following diagram illustrates that you can generate the code for automated M
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](../quickstart-create-resources.md).
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](../tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train-v1.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](../tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
 * Automated ML code generation is only available for experiments run on remote Azure Machine Learning compute targets. Code generation isn't supported for local runs.
 

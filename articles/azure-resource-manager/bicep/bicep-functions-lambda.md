@@ -40,7 +40,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputArray |Yes |array |The array to filter.|
-| lambda expression |Yes |expression |The lambda expression applied to each input array element. If false, the item will be filtered out of the output array.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element. If the result is true, the item will be included in the output array; otherwise, the item is discarded.|
 
 ### Return value
 

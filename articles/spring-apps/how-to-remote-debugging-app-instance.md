@@ -6,7 +6,7 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: jialuogan
 ms.date: 4/18/2023
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Debug your apps remotely in Azure Spring Apps
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This feature describes how to enable remote debugging of your applications in Azure Spring Apps.
 
@@ -214,14 +214,14 @@ This section provides troubleshooting information.
 
 Remote debugging is only supported for Java applications.
 
-| Tier                    | Deployment type   | Supported |
+| Plan                    | Deployment type   | Supported |
 |-------------------------|-------------------|-----------|
-| Standard and basic tier | Jar               | Yes       |
-| Standard and basic tier | Source code(Java) | Yes       |
-| Standard and basic tier | Custom Image      | No        |
-| Enterprise tier         | Java Application  | Yes       |
-| Enterprise tier         | Source code(Java) | Yes       |
-| Enterprise tier         | Custom Image      | No        |
+| Standard and basic plan | Jar               | Yes       |
+| Standard and basic plan | Source code(Java) | Yes       |
+| Standard and basic plan | Custom Image      | No        |
+| Enterprise plan         | Java Application  | Yes       |
+| Enterprise plan         | Source code(Java) | Yes       |
+| Enterprise plan         | Custom Image      | No        |
 
 ## Tips
 

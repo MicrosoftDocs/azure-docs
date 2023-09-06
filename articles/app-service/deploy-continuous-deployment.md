@@ -4,8 +4,9 @@ description: Learn how to enable CI/CD to Azure App Service from GitHub, Bitbuck
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
 ms.date: 03/12/2021
-ms.reviewer: dariac
 ms.custom: seodec18
+author: cephalin
+ms.author: cephalin
 ---
 
 # Continuous deployment to Azure App Service
@@ -136,13 +137,13 @@ This optional configuration replaces the default authentication with publishing 
 
     ```yaml
     - name: Sign in to Azure 
-    # Use the GitHub secret you added.
-    - uses: azure/login@v1
+      # Use the GitHub secret you added.
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Deploy to Azure Web App
-    # Remove publish-profile.
-    - uses: azure/webapps-deploy@v2
+      # Remove publish-profile.
+      uses: azure/webapps-deploy@v2
       with:
         app-name: '<app-name>'
         slot-name: 'production'

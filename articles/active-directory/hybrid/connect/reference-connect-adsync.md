@@ -11,7 +11,7 @@ ms.author: billmath
 ms.topic: reference
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Azure AD Connect:  ADSync PowerShell Reference
@@ -286,7 +286,7 @@ The following documentation provides reference information for the ADSync.psm1 P
 
  #### System.UInt32
  
- #### Sytem.Management.Automation.PSCredential
+ #### System.Management.Automation.PSCredential
 
  ### OUTPUTS
 

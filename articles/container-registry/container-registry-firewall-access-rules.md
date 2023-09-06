@@ -185,7 +185,7 @@ After you set up dedicated data endpoints for your registry, you can enable clie
 
 ## Configure client firewall rules for MCR
 
-If you need to access Microsoft Container Registry (MCR) from behind a firewall, see the guidance to configure [MCR client firewall rules](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR is the primary registry for all Microsoft-published docker images, such as Windows Server images.
+If you need to access Microsoft Container Registry (MCR) from behind a firewall, see the guidance to configure [MCR client firewall rules](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md). MCR is the primary registry for all Microsoft-published docker images, such as Windows Server images.
 
 ## Next steps
 

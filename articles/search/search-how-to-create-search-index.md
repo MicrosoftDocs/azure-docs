@@ -73,7 +73,7 @@ During development, plan on frequent rebuilds. Because physical structures are c
 
 Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. 
 
-1. [Sign in to Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search service Overview page, choose either option for creating a search index: 
 

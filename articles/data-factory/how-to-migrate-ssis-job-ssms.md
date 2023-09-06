@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 07/20/2023
 ---
 # Migrate SQL Server Agent jobs to ADF with SSMS
 

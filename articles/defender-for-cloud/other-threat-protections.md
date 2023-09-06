@@ -1,8 +1,8 @@
 ---
-title: Other threat protections from Microsoft Defender for Cloud
+title: Other threat protections
 description: Learn about the threat protections available from Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/01/2023
+ms.date: 05/22/2023
 ---
 
 # Other threat protections in Microsoft Defender for Cloud
@@ -15,6 +15,7 @@ In addition to its built-in [advanced protection plans](defender-for-cloud-intro
 <a name="network-layer"></a>
 
 ## Threat protection for Azure network layer
+
 Defenders for Cloud network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Defender for Cloud uses machine learning models to identify and flag malicious traffic activities. Defender for Cloud also uses the Microsoft Threat Intelligence database to enrich IP addresses.
 
 Some network configurations restrict Defender for Cloud from generating alerts on suspicious network activity. For Defender for Cloud to generate network alerts, ensure that:
@@ -40,6 +41,17 @@ If you have created [WAF Security solution](partner-integration.md#add-data-sour
 
 > [!NOTE]
 > Only WAF v1 is supported and will work with Microsoft Defender for Cloud.
+
+To deploy Azure's Application Gateway WAF, do the following:
+
+1. From the Azure portal, open **Defender for Cloud**.
+
+1. From Defender for Cloud's menu, select **Security solutions**.
+
+1. In the **Add data sources** section, select **Add** for Azure's Application Gateway WAF.
+
+    :::image type="content" source="media/other-threat-protections/deploy-azure-waf.png" alt-text="Screenshot showing where to select add to deploy WAF." lightbox="media/other-threat-protections/deploy-azure-waf.png"::: 
+
 
 <a name="azure-ddos"></a>
 

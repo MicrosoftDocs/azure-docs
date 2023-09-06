@@ -3,7 +3,7 @@ title: View audit log report for Azure AD roles in Azure AD PIM
 description: Learn how to view the audit log history for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 06/24/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 
@@ -25,11 +25,13 @@ Follow these steps to view the audit history for Azure AD roles.
 
 ## View resource audit history
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Resource audit gives you a view of all activity associated with your Azure AD roles.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD roles**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles**.
 
 1. Select **Resource audit**.
 
@@ -41,9 +43,9 @@ Resource audit gives you a view of all activity associated with your Azure AD ro
 
 My audit enables you to view your personal role activity.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD roles**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles**.
 
 1. Select the resource you want to view audit history for.
 

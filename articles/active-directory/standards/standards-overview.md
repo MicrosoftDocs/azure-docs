@@ -46,4 +46,4 @@ To learn more about supported compliance frameworks, see [Azure compliance offer
 
 * See, Standards documentation [Implement identity standards with Azure Active Directory](index.yml)
 * [Configure Azure Active Directory to achieve NIST authenticator assurance levels](nist-overview.md)
-* [Configure Azure Active directory to meet FedRAMP High Impact level](configure-azure-active-directory-for-fedramp-high-impact.md)
+* [Configure Azure Active directory to meet FedRAMP High Impact level](configure-for-fedramp-high-impact.md)

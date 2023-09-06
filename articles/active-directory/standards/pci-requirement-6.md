@@ -41,7 +41,7 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
-|**6.3.1** Security vulnerabilities are identified and managed as follows: </br> New security vulnerabilities are identified using industry-recognized sources for security vulnerability information, including alerts from international and national computer emergency response teams (CERTs). </br> Vulnerabilities are assigned a risk ranking based on industry best practices and consideration of potential impact. </br> Risk rankings identify, at a minimum, all vulnerabilities considered to be a high-risk or critical to the environment. </br> Vulnerabilities for bespoke and custom, and third-party software (for example operating systems and databases) are covered.|Learn about vulnerabilities. [MSRC | Security Updates, Security Update Guide](https://msrc.microsoft.com/update-guide)|
+|**6.3.1** Security vulnerabilities are identified and managed as follows: </br> New security vulnerabilities are identified using industry-recognized sources for security vulnerability information, including alerts from international and national/regional computer emergency response teams (CERTs). </br> Vulnerabilities are assigned a risk ranking based on industry best practices and consideration of potential impact. </br> Risk rankings identify, at a minimum, all vulnerabilities considered to be a high-risk or critical to the environment. </br> Vulnerabilities for bespoke and custom, and third-party software (for example operating systems and databases) are covered.|Learn about vulnerabilities. [MSRC | Security Updates, Security Update Guide](https://msrc.microsoft.com/update-guide)|
 |**6.3.2** An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.|Generate reports for applications using Azure AD for authentication for inventory. [applicationSignInDetailedSummary resource type](/graph/api/resources/applicationsignindetailedsummary?view=graph-rest-beta&viewFallbackFrom=graph-rest-1.0&preserve-view=true) </br> [Applications listed in Enterprise applications](../manage-apps/application-list.md)|
 |**6.3.3** All system components are protected from known vulnerabilities by installing applicable security patches/updates as follows: </br> Critical or high-security patches/updates (identified according to the risk ranking process at Requirement 6.3.1) are installed within one month of release. </br> All other applicable security patches/updates are installed within an appropriate time frame as determined by the entity (for example, within three months of release).|Not applicable to Azure AD.|
 
@@ -59,7 +59,7 @@ ms.collection:
 |-|-|
 |**6.5.1** Changes to all system components in the production environment are made according to established procedures that include: </br> Reason for, and description of, the change. </br> Documentation of security impact. </br> Documented change approval by authorized parties. </br> Testing to verify that the change doesn't adversely impact system security. </br> For bespoke and custom software changes, all updates are tested for compliance with Requirement 6.2.4 before being deployed into production. </br> Procedures to address failures and return to a secure state.|Include changes to Azure AD configuration in the change control process. |
 |**6.5.2** Upon completion of a significant change, all applicable PCI-DSS requirements are confirmed to be in place on all new or changed systems and networks, and documentation is updated as applicable.|Not applicable to Azure AD.|
-|**6.5.3** Preproduction environments are separated from production environments and the separation is enforced with access controls.|Approaches to separate preproduction and production environments, based on organizational requirements. [Resource isolation in a single tenant](../fundamentals/secure-with-azure-ad-single-tenant.md) </br> [Resource isolation with multiple tenants](../fundamentals/secure-with-azure-ad-multiple-tenants.md)|
+|**6.5.3** Preproduction environments are separated from production environments and the separation is enforced with access controls.|Approaches to separate preproduction and production environments, based on organizational requirements. [Resource isolation in a single tenant](../architecture/secure-single-tenant.md) </br> [Resource isolation with multiple tenants](../architecture/secure-multiple-tenants.md)|
 |**6.5.4** Roles and functions are separated between production and preproduction environments to provide accountability such that only reviewed and approved changes are deployed.|Learn about privileged roles and dedicated preproduction tenants. [Best practices for Azure AD roles](../roles/best-practices.md)|
 |**6.5.5** Live PANs aren't used in preproduction environments, except where those environments are included in the CDE and protected in accordance with all applicable PCI-DSS requirements.|Not applicable to Azure AD.|
 |**6.5.6** Test data and test accounts are removed from system components before the system goes into production.|Not applicable to Azure AD.|
@@ -70,7 +70,7 @@ PCI-DSS requirements **3**, **4**, **9**, and **12** aren't applicalbe to Azure 
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
-* [Azure AD PCI-DSS guidance](azure-ad-pci-dss-guidance.md) 
+* [Azure AD PCI-DSS guidance](pci-dss-guidance.md) 
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) 
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md) 
@@ -79,4 +79,4 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 8: Identify Users and Authenticate Access to System Components](pci-requirement-8.md)
 * [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
-* [Azure AD PCI-DSS Multi-Factor Authentication guidance](azure-ad-pci-dss-mfa.md)
+* [Azure AD PCI-DSS Multi-Factor Authentication guidance](pci-dss-mfa.md)

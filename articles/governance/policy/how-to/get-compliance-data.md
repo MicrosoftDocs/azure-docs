@@ -629,7 +629,7 @@ az policy state list --filter "ResourceType eq 'Microsoft.Network/virtualNetwork
 The Azure PowerShell module for Azure Policy is available on the PowerShell Gallery as
 [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). Using
 PowerShellGet, you can install the module using `Install-Module -Name Az.PolicyInsights` (make sure
-you have the latest [Azure PowerShell](/powershell/azure/install-az-ps) installed):
+you have the latest [Azure PowerShell](/powershell/azure/install-azure-powershell) installed):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet

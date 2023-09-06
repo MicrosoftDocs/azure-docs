@@ -81,5 +81,5 @@ IoT Central provides a rich set of features that you can use to analyze and visu
 
 Now that you've seen an overview of the analysis and visualization options available to your IoT solution, some suggested next steps include:
 
+- [Manage your IoT solution](./iot-overview-solution-management.md)
 - [IoT solution options](iot-introduction.md#solution-options)
-- [Azure IoT services and technologies](iot-services-and-technologies.md)

@@ -24,6 +24,7 @@ After you complete this quickstart, you'll have a lab plan that you can use for 
 ## Prerequisites
 
 [!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Azure manage resources](./includes/lab-services-prerequisite-manage-resources.md)]
 
 ## Create a lab plan
 

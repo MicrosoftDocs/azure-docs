@@ -1,0 +1,136 @@
+variables: 
+- group: AzureResourcesVariableGroup
+   
+trigger:
+- main
+
+stages:
+- stage: Build
+  jobs: 
+  - job: Build
+
+    pool:
+      vmImage: 'windows-latest'
+
+    variables:
+      solution: '**/*.sln'
+      buildPlatform: 'Any CPU'
+      buildConfiguration: 'Release'      
+
+    steps:
+    - task: NuGetToolInstaller@1
+
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
+
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+        
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'  
+    
+- stage: DeployAzureResources
+  displayName: 'Deploy resources to Azure'
+  dependsOn: Build
+  condition: |
+    succeeded()    
+  jobs: 
+  - job: DeployAzureResources
+    pool: 
+      vmImage: 'windows-latest'
+    steps:
+      - task: AzureCLI@2
+        inputs:
+          azureSubscription: $(AZURESUBSCRIPTION)
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            # Create a resource group
+            az group create --location $LOCATION --name $RESOURCEGROUPNAME
+            echo "Created resource group $RESOURCEGROUPNAME"    
+
+            # Create App Service plan
+            az appservice plan create -g $RESOURCEGROUPNAME -n $SVCPLANNAME --sku FREE
+            echo "Created App Service plan $SVCPLANNAME"
+            
+            ### Create Test resources
+            # create and configure an Azure App Service web app
+            az webapp create -g $RESOURCEGROUPNAME -p $SVCPLANNAME -n $WEBAPPNAMETEST -r "dotnet:7"
+
+            redirectUriTest="https://$WEBAPPNAMETEST.azurewebsites.net/.auth/login/aad/callback"
+            homePageUrlTest="https://$WEBAPPNAMETEST.azurewebsites.net"
+            issuerTest="https://sts.windows.net/$TENANTID"
+            
+            # Required resource access.  Access Microsoft Graph with delegated User.Read permissions.
+            cat > manifest.json << EOF
+            [
+                {
+                    "resourceAppId": "00000003-0000-0000-c000-000000000000",
+                    "resourceAccess": [
+                        {
+                            "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+                            "type": "Scope"
+                        }
+                    ]
+                }
+            ]
+            EOF
+            
+            # Create app registration for App Service authentication
+            appIdTest=$(az ad app create --display-name $WEBAPPNAMETEST --sign-in-audience AzureADMyOrg --enable-id-token-issuance true --query appId --output tsv)
+            echo "Created app registration $appIdTest"
+
+            # Set identifier URI, homepage, redirect URI, and resource access
+            az ad app update --id $appIdTest --identifier-uris api://$appIdTest --web-redirect-uris $redirectUriTest  --web-home-page-url $homePageUrlTest --required-resource-accesses @manifest.json
+            echo "Updated app $appIdTest"
+
+            # Get secret from the app for App Service authentication
+            secretTest=$(az ad app credential reset --id $appIdTest --query password --output tsv)
+            echo "Added secret to app $appIdTest"
+
+            az config set extension.use_dynamic_install=yes_without_prompt
+            az extension add --name authV2                      
+
+            az webapp config appsettings set --name $WEBAPPNAMETEST --resource-group $RESOURCEGROUPNAME --slot-settings MICROSOFT_PROVIDER_AUTHENTICATION_SECRET=$secretTest
+            echo "Updated settings for web app $WEBAPPNAMETEST"
+
+            az webapp auth microsoft update --name $WEBAPPNAMETEST --resource-group $RESOURCEGROUPNAME --client-id $appIdTest --secret-setting MICROSOFT_PROVIDER_AUTHENTICATION_SECRET --allowed-audiences $redirectUriTest  --issuer $issuerTest
+            echo "Updated authentication settings for $WEBAPPNAMETEST"
+            
+        name: DeploymentScript
+
+- stage: DeployWebApp
+  displayName: 'Deploy the web app'
+  dependsOn: DeployAzureResources
+  condition: |
+    succeeded()    
+  
+  jobs: 
+  - job: DeployWebApp
+    displayName: 'Depoy Web App'
+    pool: 
+      vmImage: 'windows-latest'
+    
+    steps:
+      
+    - task: DownloadBuildArtifacts@0
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: 'drop'
+        downloadPath: '$(System.DefaultWorkingDirectory)'
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: $(AZURESUBSCRIPTION)
+        appType: 'webApp'
+        WebAppName: '$(WEBAPPNAMETEST)'
+        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

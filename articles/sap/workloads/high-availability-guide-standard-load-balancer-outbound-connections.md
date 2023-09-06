@@ -201,7 +201,7 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
      #Restart on all nodes
      sudo systemctl restart pacemaker
      # Take the cluster out of maintenance mode
-     sudo crm configure property maintenance-mode=true
+     sudo crm configure property maintenance-mode=false
      ```
 
   - Red Hat  

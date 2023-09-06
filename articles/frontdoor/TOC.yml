@@ -62,8 +62,10 @@
       items:
       - name: Integrate a storage account
         href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/TOC.json
-      - name: Create a profile and endpoint
+      - name: Create a profile and endpoint - Portal
         href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/TOC.json
+      - name: Create a profile and endpoint - Azure CLI
+        href: ../cdn/scripts/cli/cdn-azure-cli-create-endpoint.md?toc=/azure/frontdoor/TOC.json
       - name: Create profile and endpoint - Bicep
         displayName: ARM, Resource Manager, Template
         href: ../cdn/create-profile-endpoint-bicep.md?toc=/azure/frontdoor/TOC.json
@@ -96,33 +98,6 @@
           href: ../cdn/cdn-custom-ssl.md?toc=/azure/frontdoor/TOC.json
         - name: Set caching rules
           href: ../cdn/cdn-caching-rules-tutorial.md?toc=/azure/frontdoor/TOC.json
-- name: Samples
-  items:
-    - name: Front Door
-      items:
-      - name: Standard/Premium
-        items:
-        - name: Bicep and Resource Manager Templates
-          href: front-door-quickstart-template-samples.md?pivots=front-door-standard-premium
-        - name: Terraform
-          href: terraform-samples.md?pivots=front-door-standard-premium
-      - name: Classic
-        items:
-        - name: Bicep and Resource Manager Templates
-          href: front-door-quickstart-template-samples.md?pivots=front-door-classic
-        - name: Deploy custom domain - Azure CLI
-          href: scripts/custom-domain.md
-        - name: Terraform
-          href: terraform-samples.md?pivots=front-door-classic
-    - name: CDN
-      items:
-        - name: Code samples
-          href: https://azure.microsoft.com/resources/samples/?service=cdn
-        - name: Microsoft (classic)
-          items:
-            - name: Create a profile and endpoint - Azure CLI
-              displayName: az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group      
-              href: ../cdn/scripts/cli/cdn-azure-cli-create-endpoint.md?toc=/azure/frontdoor/TOC.json
 - name: Concepts
   items :
   - name: Front Door
@@ -179,6 +154,8 @@
           href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Understand billing
         href: billing.md
+      - name: Price comparison between tiers
+        href: understanding-pricing.md
       - name: Logs and metrics
         href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
@@ -263,7 +240,7 @@
       href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/TOC.json
     - name: Retrieve POP IP's
       href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/TOC.json
-    - name: Migrate from Standard Verizon to Premium Verizon
+    - name: Migrate from Standard Edgio to Premium Edgio
       href: ../cdn/cdn-migrate.md?toc=/azure/frontdoor/TOC.json
     - name: China content delivery
       href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/TOC.json
@@ -276,10 +253,14 @@
       - name: Configure
         items:
         - name: Upgrade to Premium tier
-          href: tier-upgrade.md
-        - name: Configure endpoints
+          items:
+          - name: Azure portal
+            href: tier-upgrade.md
+          - name: Azure PowerShell
+            href: tier-upgrade-powershell.md
+        - name: Configure a new endpoint
           href: how-to-configure-endpoints.md
-        - name: Origins in origin group
+        - name: Add origins to origin group
           href: how-to-configure-origin.md
         - name: Set up managed identity
           href: managed-identity.md
@@ -331,12 +312,24 @@
           href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
+      - name: Integrations
+        items:
+        - name: Azure Storage Account
+          href: integrate-storage-account.md
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
-        href: migrate-tier.md
+        items:
+        - name: Azure portal
+          href: migrate-tier.md
+        - name: Azure PowerShell
+          href: migrate-tier-powershell.md
       - name: Add a custom domain
-        href: front-door-custom-domain.md
+        items:
+        - name: Azure portal
+          href: front-door-custom-domain.md
+        - name: Azure CLI
+          href: scripts/custom-domain.md
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
       - name: Add a root or apex domain
@@ -361,6 +354,8 @@
       items:
       - name: Troubleshooting Front Door issues
         href: troubleshoot-issues.md
+      - name: Troubleshooting Front Door performance issues
+        href: troubleshoot-performance-issues.md
       - name: Allowed certificate authorities
         href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
       - name: File compression
@@ -474,7 +469,7 @@
           href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
         - name: Node.js
           href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
-    - name: Verizon
+    - name: Edgio
       items:
       - name: Standard
         items:
@@ -501,8 +496,6 @@
             href: ../cdn/cdn-improve-performance.md?toc=/azure/frontdoor/TOC.json
           - name: Endpoint multi-origin
             href: ../cdn/endpoint-multiorigin.md?toc=/azure/frontdoor/TOC.json
-          - name: Enforce HTTPS by using the Standard rules engine
-            href: ../cdn/cdn-standard-rules-engine.md?toc=/azure/frontdoor/TOC.json
           - name: Control caching behavior
             items:
             - name: Control caching behavior by using caching rules
@@ -532,7 +525,7 @@
           items:
           - name: Azure diagnostics logs
             href: ../cdn/cdn-azure-diagnostic-logs.md?toc=/azure/frontdoor/TOC.json
-          - name: Analytics tools for Azure CDN from Verizon
+          - name: Analytics tools for Azure CDN from Edgio
             items:
             - name: Core reports
               href: ../cdn/cdn-analyze-usage-patterns.md?toc=/azure/frontdoor/TOC.json
@@ -632,11 +625,11 @@
     items:
     - name: HTTP headers protocol support
       href: front-door-http-headers-protocol.md
-    - name: Azure Front Door edge locations
+    - name: Azure Front Door POP locations
       items:
-      - name: Edge locations by region
+      - name: POP locations by region
         href: edge-locations-by-region.md
-      - name: Edge locations by abbreviation
+      - name: POP locations by abbreviation
         href: edge-locations-by-abbreviation.md
     - name: Standard/Premium
       items:
@@ -644,6 +637,10 @@
         href: /cli/azure/afd
       - name: Azure PowerShell
         href: /powershell/module/az.cdn
+      - name: Bicep and Resource Manager Templates
+        href: front-door-quickstart-template-samples.md?pivots=front-door-standard-premium
+      - name: Terraform
+        href: terraform-samples.md?pivots=front-door-standard-premium
       - name: REST API
         href: /rest/api/frontdoor
       - name: Python SDK
@@ -658,6 +655,10 @@
         href: /cli/azure/afd/
       - name: Azure PowerShell
         href: /powershell/module/az.frontdoor
+      - name: Bicep and Resource Manager Templates
+        href: front-door-quickstart-template-samples.md?pivots=front-door-classic
+      - name: Terraform
+        href: terraform-samples.md?pivots=front-door-classic
       - name: REST API
         href: /rest/api/frontdoor/#front-door-classic
       - name: JavaScript SDK
@@ -674,7 +675,7 @@
         items:
         - name: Microsoft (classic)
           href: ../cdn/microsoft-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
-        - name: Verizon
+        - name: Edgio
           href: ../cdn/cdn-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
     - name: Standard rules engine
       href: ../cdn/cdn-standard-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
@@ -685,9 +686,9 @@
         href: ../cdn/cdn-standard-rules-engine-actions.md?toc=/azure/frontdoor/TOC.json
     - name: Microsoft-specific HTTP headers
       href: ../cdn/cdn-msft-http-debug-headers.md?toc=/azure/frontdoor/TOC.json
-    - name: Verizon
+    - name: Edgio
       items:
-      - name: Verizon Premium rules engine reference
+      - name: Edgio Premium rules engine reference
         href: ../cdn/cdn-verizon-premium-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
         items:
         - name: Rules engine conditional expressions
@@ -698,7 +699,7 @@
           href: ../cdn/cdn-verizon-premium-rules-engine-reference-features.md?toc=/azure/frontdoor/TOC.json
         - name: HTTP variables
           href: ../cdn/cdn-http-variables.md?toc=/azure/frontdoor/TOC.json
-      - name: Verizon-specific HTTP headers
+      - name: Edgio-specific HTTP headers
         href: ../cdn/cdn-verizon-http-headers.md?toc=/azure/frontdoor/TOC.json
         items:
         - name: X-EC-Debug headers

@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 10/27/2021
-ms.custom: mode-api
+ms.custom: mode-api, UpdateFrequency2
 #Customer intent: As an administrator, I want to set up a lab so that my developers have a test environment.
 ---
 

@@ -2,16 +2,18 @@
 title: Compatibility and feature support
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review Azure Cosmos DB for MongoDB vCore supported features and syntax including; commands, query support, datatypes, aggregation, and operators.
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: gahllevy
+author: gahl-levy
+ms.author: gahllevy
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 08/28/2023
 ---
 
 # MongoDB compatibility and feature support with Azure Cosmos DB for MongoDB vCore
+
+[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
 Azure Cosmos DB is Microsoft's fully managed NoSQL and relational database, offering [multiple database APIs](../../choose-api.md). You can communicate with Azure Cosmos DB for MongoDB using the MongoDB drivers, SDKs and tools you're already familiar with. Azure Cosmos DB for MongoDB enables the use of existing client drivers by adhering to the MongoDB wire protocol.
 
@@ -290,6 +292,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | `$replaceRoot` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$replaceWith` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$sample` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `$search` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes, only with [vector search](vector-search.md) |
 | `$set` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$skip` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$sort` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
@@ -647,9 +650,10 @@ Azure Cosmos DB for MongoDB vCore supports the following indexes and index prope
 | `Single Field Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `Compound Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `Multikey Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
-| `Text Index` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `Text Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `Geospatial Index` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `Hashed Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `Vector Index (only available in Cosmos DB)` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes, with [vector search](vector-search.md) |
 
 ### Index properties
 

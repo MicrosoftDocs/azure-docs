@@ -63,8 +63,15 @@ The following image describes the hardware elements on the HPE ProLiant DL360 ba
 |**512485-B21** 	| HPE iLO Adv 1-Server License 1 Year Support	|1|
 |**874543-B21** 	| HPE 1U Gen10 SFF Easy Install Rail Kit	|1|
 
-## Port expansion
+## Optional Storage Controllers
+Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below have been tested in our lab for compatibility and sustained performance:
 
+|Quantity|PN|Description|
+|----|---|----|
+|1| 804331-B21 | HPE Smart Array P408i-a SR Gen10 Controller (RAID10) |
+
+
+## Optional port expansion
 Optional modules for port expansion include:
 
 |Location |Type|Specifications|
@@ -121,9 +128,13 @@ Use the following procedure to set up network options and update the default pas
 
 1. Change the default password and select **F10: Save**.
 
-### Configure the HPE BIOS
+### Setup the BIOS and RAID array
 
-This procedure describes how to update the HPE BIOS configuration for your OT sensor deployment.
+This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
+In the event that any of the steps below are missing in the BIOS, please make sure that the hardware matches the specifications above.
+
+HPE BIOS iLO is a system management software designed to give administrators control of HPE hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be setup locally or remotely. To setup the BIOS remotely from a management computer, you need to define the HPE IP address and the management computer's IP address on the same subnet.
+
 
 **To configure the HPE BIOS**:
 > [!IMPORTANT]
@@ -135,7 +146,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 
 1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
 
-1. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
+1. Change **Boot Mode** to **UEFI BIOS Mode**, and then select **F10: Save**.
 
 1. Select **Esc** twice to close the **System Configuration** form.
 

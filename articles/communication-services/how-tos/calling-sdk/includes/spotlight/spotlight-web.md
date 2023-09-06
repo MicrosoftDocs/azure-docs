@@ -60,7 +60,7 @@ spotLightFeature.stopAllSpotLight();
 
 
 ### Handle changed states
-The `Spotlight` API allows you to subscribe to `spotlightUpdated` events. A `spotlightUpdated` event comes from a `call` instance and contains information about newly spotlighted participants and participants whose spotlight were stopped
+The `Spotlight` API allows you to subscribe to `spotlightChanged` events. A `spotlightChanged` event comes from a `call` instance and contains information about newly spotlighted participants and participants whose spotlight were stopped
 ```js
 // event : { added: SpotlightedParticipant[]; removed: SpotlightedParticipant[] }
 // SpotlightedParticipant = { identifier: CommunicationIdentifier, order?: number }

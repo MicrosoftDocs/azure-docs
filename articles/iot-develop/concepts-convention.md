@@ -11,7 +11,7 @@ services: iot-develop
 
 # IoT Plug and Play conventions
 
-IoT Plug and Play devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play devices use the MQTT protocol to communicate with IoT Hub, AMQP is supported by IoT Hub and available in some device SDKs.
+IoT Plug and Play devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play devices use the MQTT protocol to communicate with IoT Hub. IoT Hub also supports the AMQP protocol which available in some IoT device SDKs.
 
 A device can include [modules](../iot-hub/iot-hub-devguide-module-twins.md), or be implemented in an [IoT Edge module](../iot-edge/about-iot-edge.md) hosted by the IoT Edge runtime.
 
@@ -36,15 +36,17 @@ To identify the model that a device or module implements, a service can get the 
 
 - Telemetry sent from a no component device doesn't require any extra metadata. The system adds the `dt-dataschema` property.
 - Telemetry sent from a device using components must add the component name to the telemetry message.
-- When using MQTT add the `$.sub` property with the component name to the telemetry topic, the system adds the `dt-subject` property.
-- When using AMQP add the `dt-subject` property with the component name as a message annotation.
+- When using MQTT, add the `$.sub` property with the component name to the telemetry topic, the system adds the `dt-subject` property.
+- When using AMQP, add the `dt-subject` property with the component name as a message annotation.
 
 > [!NOTE]
 > Telemetry from components requires one message per component.
 
+For more telemetry examples, see [Payloads > Telemetry](concepts-message-payloads.md#telemetry)
+
 ## Read-only properties
 
-A read-only property is set by the device and reported to the back-end application.
+A device sets a read-only property which it then reports to the back-end application.
 
 ### Sample no component read-only property
 
@@ -126,9 +128,11 @@ Sample reported property payload:
 }
 ```
 
+For more read-only property examples, see [Payloads > Properties](concepts-message-payloads.md#properties).
+
 ## Writable properties
 
-A writable property can be set by the back-end application and sent to the device.
+A back-end application sets a writable property that IoT Hub then sends to the device.
 
 The device or module should confirm that it received the property by sending a reported property. The reported property should include:
 
@@ -139,7 +143,7 @@ The device or module should confirm that it received the property by sending a r
 
 ### Acknowledgment responses
 
-When reporting writable properties the device should compose the acknowledgment message, using the four fields described above, to indicate the actual device state, as described in the following table:
+When reporting writable properties the device should compose the acknowledgment message, by using the four fields in the previous list, to indicate the actual device state, as described in the following table:
 
 |Status(ac)|Version(av)|Value(value)|Description(av)|
 |:---|:---|:---|:---|
@@ -177,7 +181,7 @@ A device can use the reported property to provide other information to the hub. 
 }
 ```
 
-When the device reaches the target temperature it sends the following message:
+When the device reaches the target temperature, it sends the following message:
 
 ```json
 "reported": {
@@ -442,11 +446,18 @@ Sample reported property second payload:
 > [!NOTE]
 > You could choose to combine these two reported property payloads into a single payload.
 
+For more writable property examples, see [Payloads > Properties](concepts-message-payloads.md#writable-property-types).
+
 ## Commands
 
 No component interfaces use the command name without a prefix.
 
 On a device or module, multiple component interfaces use command names with the following format: `componentName*commandName`.
+
+For more command examples, see [Payloads > Commands](concepts-message-payloads.md#commands).
+
+> [!TIP]
+> IoT Central has its own conventions for implementing [Long-running commands](../iot-central/core/howto-use-commands.md#long-running-commands) and [Offline commands](../iot-central/core/howto-use-commands.md#offline-commands).
 
 ## Next steps
 

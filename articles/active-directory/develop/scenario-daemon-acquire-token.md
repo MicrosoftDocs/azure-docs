@@ -28,16 +28,16 @@ Here's an example of defining the scopes for the web API as part of the configur
 
 ```json
 {
-	"AzureAd": {
-		// Same AzureAd section as before.
-	},
+    "AzureAd": {
+        // Same AzureAd section as before.
+    },
 
-	"MyWebApi": {
-		"BaseUrl": "https://localhost:44372/",
-		"RelativePath": "api/TodoList",
-		"RequestAppToken": true,
-		"Scopes": [ "[Enter here the scopes for your web API]" ]
-	}
+    "MyWebApi": {
+        "BaseUrl": "https://localhost:44372/",
+        "RelativePath": "api/TodoList",
+        "RequestAppToken": true,
+        "Scopes": [ "[Enter here the scopes for your web API]" ]
+    }
 }
 ```
 
@@ -99,7 +99,7 @@ using Microsoft.Identity.Web;
 
 var tokenAcquirerFactory = TokenAcquirerFactory.GetDefaultInstance();
 ITokenAcquirer acquirer = tokenAcquirerFactory.GetTokenAcquirer();
-AcquireTokenResult tokenResult = await acquirer.GetTokenForUserAsync(new[] { https://graph.microsoft.com/.default" });
+AcquireTokenResult tokenResult = await acquirer.GetTokenForUserAsync(new[] { "https://graph.microsoft.com/.default" });
 string accessToken = tokenResult.AccessToken;
 ```
 
@@ -285,7 +285,7 @@ Content: {
 
 ### Are you calling your own API?
 
-If your daemon app calls your own web API and you weren't able to add an app permission to the daemon's app registration, you need to [Add app roles to the web API's app registration](howto-add-app-roles-in-azure-ad-apps.md).
+If your daemon app calls your own web API and you weren't able to add an app permission to the daemon's app registration, you need to [Add app roles to the web API's app registration](./howto-add-app-roles-in-apps.md).
 
 ## Next steps
 

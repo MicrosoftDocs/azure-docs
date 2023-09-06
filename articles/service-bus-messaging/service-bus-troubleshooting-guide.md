@@ -108,7 +108,7 @@ Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Nam
 ```
 
 ### Cause
-The Azure Resource Manager ID that you specified for the subnet may be invalid. This may happen when the virtual network is in a different resource group from the one that has the Service Bus namespace. If you don't explicitly specify the resource group of the virtual network, the CLI command constructs the Azure Resource Manager ID by using the resource group of the Service Bus namespace. So, it fails to remove the subnet from the network rule. 
+The Azure Resource Manager ID that you specified for the subnet may be invalid. This issue may happen when the virtual network is in a different resource group from the one that has the Service Bus namespace. If you don't explicitly specify the resource group of the virtual network, the CLI command constructs the Azure Resource Manager ID by using the resource group of the Service Bus namespace. So, it fails to remove the subnet from the network rule. 
 
 ### Resolution
 Specify the full Azure Resource Manager ID of the subnet that includes the name of the resource group that has the virtual network. For example:
@@ -126,7 +126,20 @@ You have configured a delete lock on a Service Bus namespace, but you're able to
 Resource lock is preserved in Azure Resource Manager (control plane) and it doesn't prevent the data plane SDK call from deleting the resource directly from the namespace. The standalone Service Bus Explorer uses the data plane SDK, so the deletion goes through. 
 
 ### Resolution
-We recommend that you use the Azure Resource Manager based API via Azure portal, PowerShell, CLI, or Resource Manager template to delete entities so that the resource lock will prevent the resources from being accidentally deleted.
+We recommend that you use the Azure Resource Manager based API via Azure portal, PowerShell, CLI, or Resource Manager template to delete entities so that the resource lock prevents the resources from being accidentally deleted.
+
+## Entity is no longer available
+
+### Symptoms
+You see an error that the entity is no longer available. 
+
+### Cause
+The resource may have been deleted. Follow these steps to identify why the entity was deleted. 
+
+- Check the activity log to see if there's an Azure Resource Manager request for deletion. 
+- Check the operational log to see if there was a direct API call for deletion. To learn how to collect an operational log, see [Collection and routing](monitor-service-bus.md#collection-and-routing). For the schema and an example of an operation log, see [Operation logs](monitor-service-bus-reference.md#operational-logs)
+- Check the operation log to see if there was an `autodeleteonidle` related deletion. 
+
 
 ## Next steps
 See the following articles: 

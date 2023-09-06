@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: managed-hsm
 tags: azure-resource-manager
-ms.custom: subject-armqs, devx-track-arm-template
+ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 #Customer intent: As a security admin who is new to Azure, I want to create a managed HSM using an Azure Resource Manager template.
 ---
 

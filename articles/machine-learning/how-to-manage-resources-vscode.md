@@ -18,7 +18,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ![Azure Machine Learning VS Code Extension](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
 
@@ -354,7 +354,7 @@ Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: De
 For more information, see [train machine learning models](concept-train-machine-learning-model.md).
 :::moniker-end
 :::moniker range="azureml-api-1"
-For more information, see [train machine learning models](./v1/concept-train-machine-learning-model-v1.md).
+For more information, see [train machine learning models](./v1/concept-train-machine-learning-model.md).
 :::moniker-end
 
 ### Create model

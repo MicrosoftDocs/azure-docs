@@ -1,13 +1,13 @@
 ---
 title: Managed identities for applications in Azure Spring Apps
-titleSuffix: Azure Spring Apps Enterprise Tier
+titleSuffix: Azure Spring Apps Enterprise plan
 description: Home page for managed identities for applications.
-author: karlerickson
+author: KarlErickson
 ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 04/15/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022
 zone_pivot_groups: spring-apps-tier-selection
 ---
 
@@ -16,7 +16,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use system-assigned and user-assigned managed identities for applications in Azure Spring Apps.
 

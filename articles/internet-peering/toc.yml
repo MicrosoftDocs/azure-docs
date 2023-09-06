@@ -12,16 +12,30 @@
     href: policy.md
   - name: Prerequisites to set up peering with Microsoft
     href: prerequisites.md
+  - name: Azure Peering Service partner overview
+    href: peering-service-partner-overview.md
+  - name: Peering registered prefix requirements
+    href: peering-registered-prefix-requirements.md
+  - name: Internet peering FAQ
+    href: faqs.md
 - name: How-to guides
   items:
   - name: Direct peering walkthrough
     href: walkthrough-direct-all.md
   - name: Exchange peering walkthrough
     href: walkthrough-exchange-all.md
-  - name: Peering Service partner walkthrough
+  - name: Internet peering for Peering Service partner walkthrough
     href: walkthrough-peering-service-all.md
-  - name: Communications Services partner walkthrough
+  - name: Internet peering for Peering Service voice partner walkthrough
     href: walkthrough-communications-services-partner.md
+  - name: Internet peering for Peering Service Exchange with Route Server partner walkthrough
+    href: walkthrough-exchange-route-server-partner.md
+  - name: Peering maintenance notification walkthrough
+    href: walkthrough-device-maintenance-notification.md
+  - name: Peering Service monitoring and telemetry walkthrough
+    href: walkthrough-monitoring-telemetry.md
+  - name: Direct peering type conversion request walkthrough
+    href: walkthrough-direct-peering-type-conversions.md
   - name: Associate peer ASN to Azure subscription
     items:
     - name: Portal
@@ -34,6 +48,8 @@
       href: howto-peering-service-portal.md
     - name: PowerShell
       href: howto-peering-service-powershell.md
+  - name: Enable Peering Service Voice on a Direct peering
+    href: howto-peering-service-voice-portal.md
   - name: Create or modify a Direct peering
     items:
     - name: Portal
@@ -84,7 +100,3 @@
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
-  - name: Internet peering FAQ
-    href: faqs.md
-  - name: Peering Service FAQ
-    href: service-faqs.yml

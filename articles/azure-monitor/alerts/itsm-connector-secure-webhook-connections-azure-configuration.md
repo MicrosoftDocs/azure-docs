@@ -2,7 +2,7 @@
 title: 'IT Service Management Connector: Secure Webhook in Azure Monitor - Azure configurations'
 description: This article shows you how to configure Azure to connect your ITSM products or services with Secure Webhook in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 06/19/2023
 ms.reviewer: nolavime
 
 ---
@@ -49,7 +49,7 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 1. Select **Alerts** > **Manage actions**.
-1. Select [Add action group](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) and fill in the fields.
+1. Select [Add action group](../alerts/action-groups.md#create-an-action-group-in-the-azure-portal) and fill in the fields.
 1. Enter a name in the **Action group name** box and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent by using this group.
 1. Select **Secure Webhook**.
 1. Select these details:

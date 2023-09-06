@@ -1,5 +1,5 @@
 - name: Bing Local Business Search API Documentation
-  href: ../Bing-Web-Search/index.yml
+  href: ../bing-web-search/index.yml
   expanded: true
   items:
 - name: Overview
@@ -8,7 +8,7 @@
   - name: What is the Bing Local Business Search API?
     href: overview.md
   - name: Compare the Bing Search APIs
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    href: ../bing-web-search/bing-api-comparison.md
     maintainContext: true
 - name: Quickstarts
   items:
@@ -34,13 +34,13 @@
 - name: Reference
   items:
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-display-requirements.md
+    href: ../bing-web-search/use-display-requirements.md
     maintainContext: true
   - name: Local Business Search API reference
     href: local-search-reference.md
 - name: Resources
   items:
-  - name: Try Cognitive Services
+  - name: Try Azure AI services
     href: https://azure.microsoft.com/free/cognitive-services
   - name: Pricing information
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/

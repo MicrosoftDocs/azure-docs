@@ -1,12 +1,13 @@
 ---
-title: Azure Front Door manager
-description: This article is about concepts of the Front Door manager. You'll learn about routes and security policies in an endpoint.
+title: Front Door manager
+titleSuffix: Azure Front Door
+description: This article is about how Front Door manager can help you manage your routing and security policy for an endpoint.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/13/2022
+ms.date: 08/09/2023
 ms.author: duau
 ---
 
@@ -25,15 +26,15 @@ An [*endpoint*](endpoint.md) is a logical grouping of one or more routes that ar
 > * Traffic will only flow to origins once both the endpoint and route is **enabled**.
 >
 
-Domains configured within a route can either be a custom domain or an endpoint domain. For more information about custom domains, see [create a custom domain](standard-premium/how-to-add-custom-domain.md) with Azure Front Door. Endpoint domains refer to the auto generated domain name when you create a new endpoint. The name is a unique endpoint hostname with a hash value in the format of `endpointname-hash.z01.azurefd.net`. The endpoint domain will be accessible if you associate it with a route.
+Domains configured within a route can either be a custom domain or an endpoint domain. For more information about custom domains, see [create a custom domain](standard-premium/how-to-add-custom-domain.md) with Azure Front Door. Endpoint domains refer to the auto generated domain name when you create a new endpoint. The name is a unique endpoint hostname with a hash value in the format of `endpointname-hash.z01.azurefd.net`. The endpoint domain is accessible if you associate it with a route.
 
 ## Security policy in an endpoint
 
-A security policy is an association of one or more domains with a Web Application Firewall (WAF) policy. The WAF policy will provide centralized protection for your web applications. If you manage security policies using the Azure portal, you can only associate a security policy with domains that are in the Routes configuration of that endpoint. 
+A security policy is an association of one or more domains with a Web Application Firewall (WAF) policy. The WAF policy provides centralized protection for your web applications. If you manage security policies using the Azure portal, you can only associate a security policy with domains that are in the Routes configuration of that endpoint. 
 
 > [!TIP]
 > * If you see one of your domains is unhealthy, you can select the domain to take you to the domains page. From there you can take appropriate actions to troubleshoot the unhealthy domain.
-> * If you're running a large Azure Front Door profile, review [**Azure Front Door service limits**](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-tier-service-limits) and [**Azure Front Door routing limits**](front-door-routing-limits.md) to better manage your Azure Front Door.
+> * If you're running a large Azure Front Door profile, review [**Azure Front Door service limits**](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits) and [**Azure Front Door routing limits**](front-door-routing-limits.md) to better manage your Azure Front Door.
 >
 
 ## Next steps

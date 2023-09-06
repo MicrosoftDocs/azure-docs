@@ -9,15 +9,12 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 ---
 
 # Train a small object detection model with AutoML
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/how-to-use-automl-small-object-detect-v1.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-use-automl-small-object-detect.md)
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.
@@ -52,7 +49,7 @@ You can specify the value for `tile_grid_size` in your training parameters as a 
 
 # [CLI v2](#tab/CLI-v2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_parameters:
@@ -74,7 +71,7 @@ To choose the optimal value for this parameter for your dataset, you can use hyp
 
 # [CLI v2](#tab/CLI-v2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 search_space:

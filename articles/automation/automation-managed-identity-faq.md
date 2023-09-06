@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 07/25/2021
-ms.custom: devx-track-azurepowershell
+ms.custom:
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 
@@ -28,6 +28,11 @@ From 1 April 2023, creation of new Run As accounts wouldn't be possible. We stro
  
 ## Will runbooks that still use the Run As account be able to authenticate after September 30, 2023?
 Yes, the runbooks will be able to authenticate until the Run As account certificate expires. After 30 September 2023, all runbook executions using RunAs accounts wouldn't be supported.
+
+## Are Connections and Credentials assets retiring on 30th Sep 2023?
+
+Automation Run As accounts will not be supported after **30 September 2023**. Connections and Credentials assets don't come under the purview of this retirement. For more secure way of authentication, we recommend you to use [Managed Identities](automation-security-overview.md#managed-identities).
+
 
 ## What is a managed identity?
 Applications use managed identities in Azure AD when they're connecting to resources that support Azure AD authentication. Applications can use managed identities to obtain Azure AD tokens without managing credentials, secrets, certificates, or keys. 

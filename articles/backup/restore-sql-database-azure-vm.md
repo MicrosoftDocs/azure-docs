@@ -2,10 +2,10 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 08/03/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore SQL Server databases on Azure VMs
 
@@ -28,7 +28,7 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 Before you restore a database, note the following:
 
 - You can restore the database to an instance of a SQL Server in the same Azure region.
-- The destination server must be registered to the same vault as the source.
+- The destination server must be registered to the same vault as the source. If you want to restore backups to a different vault, [enable Cross Subscription Restore](#cross-subscription-restore).
 - If you have multiple instances running on a server, all the instances should be up and running. Otherwise the server won't appear in the list of destination servers for you to restore the database to. For more information, refer to [the troubleshooting steps](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
@@ -124,7 +124,7 @@ To restore the backup data as .bak files instead of a database, choose **Restore
 
 1. Select **Restore Point**, and select whether to [restore to a specific point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point).
 
-1. All the backup files associated with the selected recovery point are dumped into the destination path. You can restore the files as a database on any machine they're present on using SQL Server Management Studio.
+1. When doing SQL database point-in-time restore using **Restore as files**, it'll store all the recovery points from the *Full backup* to the *selected point-in-time*. Then you can restore using these files as a database on any machine they're present using SQL Server Management Studio.
 
     ![Restored Backup Files in Destination Path](./media/backup-azure-sql-database/sql-backup-files.png)
 
@@ -203,7 +203,7 @@ To restore the database files to the *original path on the source server*, remov
   ```
 
 >[!Note]
->You shouldn’t have the same database files on the target server (restore with replace).  Also, you can [enable instant file initialization on the target server to reduce the file initialization time overhead]( /sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver16).
+>You shouldn’t have the same database files on the target server (restore with replace).  Also, you can [enable instant file initialization on the target server to reduce the file initialization time overhead]( /sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver16&preserve-view=true).
 
 To relocate the database files from the target restore server, you can frame a TSQL command using the `MOVE` clauses.
 
@@ -220,7 +220,7 @@ To relocate the database files from the target restore server, you can frame a T
     GO
   ```
 
-If there are more than two files for the database, you can add additional `MOVE` clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. [Learn more](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16).
+If there are more than two files for the database, you can add additional `MOVE` clauses to the restore query. You can also use SSMS for database recovery using `.bak` files. [Learn more](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-ver16&preserve-view=true).
 
 >[!Note]
 >For large database recovery, we recommend you to use TSQL statements. If you want to relocate the specific database files, see the list of database files in the JSON format created during the **Restore as Files** operation.
@@ -266,6 +266,32 @@ The secondary region restore user experience will be similar to the primary regi
 1. Filter operation for **CrossRegionRestore** to view the jobs in the secondary region.
 
    :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs-inline.png" alt-text="Screenshot showing the filtered Backup jobs." lightbox="./media/backup-azure-sql-database/backup-center-jobs-expanded.png":::
+
+
+
+## Cross Subscription Restore
+
+Azure Backup now allows you to restore SQL database to any subscription (as per the following Azure RBAC requirements) from the restore point. By default, Azure Backup restores to the same subscription where the restore points are available. 
+
+With Cross Subscription Restore (CSR), you have the flexibility of restoring to any subscription and any vault under your tenant if restore permissions are available. By default, CSR is enabled on all Recovery Services vaults (existing and newly created vaults). 
+
+>[!Note]
+>- You can trigger Cross Subscription Restore from Recovery Services vault.
+>- CSR is supported only for streaming based backup and is not supported for snapshot-based backup.
+>- Cross Regional Restore (CRR) with CSR is not supported.
+
+**Azure RBAC  requirements**
+
+| Operation type | Backup operator | Recovery Services vault | Alternate operator |
+| --- | --- | --- | --- |
+| Restore database or restore as files | `Virtual Machine Contributor` | Source VM that got backed up | Instead of a built-in role, you can consider a custom role which has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
+|            | `Virtual Machine Contributor` | Target VM in which the database will be restored or files are created. | Instead of a built-in role, you can consider a custom role that has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
+|          | `Backup Operator` | Target Recovery Services vault |            |	
+
+By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to **Properties** > **Cross Subscription Restore** and make the required changes.
+
+:::image type="content" source="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png" alt-text="Screenshot shows how to modify the Cross Subscription Restore settings on a Recovery Services vault for SQL database." lightbox="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png":::
+
 
 ## Next steps
 

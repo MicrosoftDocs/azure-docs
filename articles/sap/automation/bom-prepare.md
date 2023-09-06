@@ -4,7 +4,7 @@ description: How to prepare a full SAP Bill of Materials (BOM) for use with the 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 05/07/2023
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -14,7 +14,7 @@ ms.subservice: sap-automation
 
 The [SAP on Azure Deployment Automation Framework](deployment-framework.md) uses a Bill of Materials (BOM). The BOM helps configure your SAP systems. 
 
-The automation framework's GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-automation/tree/main/training-materials/WORKSPACES/BOMS) that you can use to get started. It is also possible to create BOMs for other SAP Applications and databases. 
+The automation framework's GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/SAP-automation-samples/tree/main/SAP) that you can use to get started. It is also possible to create BOMs for other SAP Applications and databases. 
 
 If you want to generate a BOM that includes permalinks, [follow the steps for creating this type of BOM](#permalinks).
 
@@ -218,8 +218,6 @@ To generate a BOM with permalinks:
 ## Example BOM file
 
 The following sample is a small part of an example BOM file for S/4HANA 1909 SP2. 
-
-You can find multiple complete, usable BOM files in the [GitHub repository](https://github.com/Azure/sap-automation/tree/main/training-materials/WORKSPACES/BOMS) folder.
 
 ```yml
 step|BOM Content

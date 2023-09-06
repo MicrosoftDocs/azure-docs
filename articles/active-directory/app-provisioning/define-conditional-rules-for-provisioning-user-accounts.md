@@ -8,19 +8,13 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 05/05/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
 
 # Scoping users or groups to be provisioned with scoping filters
-
-::: zone pivot="cross-tenant-synchronization"
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
 
 Learn how to use scoping filters in the Azure Active Directory (Azure AD) provisioning service to define attribute based rules. The rules are used to determine which users or groups are provisioned.
 
@@ -72,6 +66,8 @@ According to this scoping filter, users must satisfy the following criteria to b
 Scoping filters are configured as part of the attribute mappings for each Azure AD user provisioning connector. The following procedure assumes that you already set up automatic provisioning for [one of the supported applications](../saas-apps/tutorial-list.md) and are adding a scoping filter to it.
 
 ### Create a scoping filter
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -148,8 +144,8 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 ## Common scoping filters
 | Target Attribute| Operator | Value | Description|
 |----|----|----|----|
-|userPrincipalName|REGEX MATCH|`.\*@domain.com`|All users with `userPrincipal` that have the domain `@domain.com` are in scope for provisioning. |
-|userPrincipalName|NOT REGEX MATCH|`.\*@domain.com`|All users with `userPrincipal` that has the domain `@domain.com` are out of scope for provisioning. |
+|userPrincipalName|REGEX MATCH|`.*\@domain.com`|All users with `userPrincipal` that have the domain `@domain.com` are in scope for provisioning. |
+|userPrincipalName|NOT REGEX MATCH|`.*\@domain.com`|All users with `userPrincipal` that has the domain `@domain.com` are out of scope for provisioning. |
 |department|EQUALS|`sales`|All users from the sales department are in scope for provisioning|
 |workerID|REGEX MATCH|`(1[0-9][0-9][0-9][0-9][0-9][0-9])`| All employees with `workerID` between 1000000 and 2000000 are in scope for provisioning.|
 

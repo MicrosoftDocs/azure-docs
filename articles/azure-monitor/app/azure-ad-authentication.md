@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 06/23/2023
 ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
@@ -15,7 +15,7 @@ Using various authentication systems can be cumbersome and risky because it's di
 
 > [!NOTE]
 > Note
-> This document is used to cover data ingestion into Application Insights using Azure AD. authentication. If you are looking for information on querying data within Application Insights, please refer to **[Query Application Insights using Azure AD Authentication](/azure/azure-monitor/logs/api/app-insights-azure-ad-api)**.
+> This document covers data ingestion into Application Insights using Azure AD. authentication. For information on querying data within Application Insights, see [Query Application Insights using Azure AD Authentication](./app-insights-azure-ad-api.md).
 
 ## Prerequisites
 > 
@@ -412,6 +412,22 @@ The following example shows the Azure Resource Manager template you can use to c
 
 ```
 
+### Token audience
+
+When developing a custom client to obtain an access token from Azure AD for the purpose of submitting telemetry to Application Insights, refer to the table provided below to determine the appropriate audience string for your particular host environment.
+
+| Azure cloud version | Token audience value |
+| --- | --- |
+| Azure public cloud | `https://monitor.azure.com` |
+| Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
+| Azure US Government cloud | `https://monitor.azure.us` |
+
+If you're using sovereign clouds, you can find the audience information in the connection string as well. The connection string follows this structure:
+
+_InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}_
+
+Please note that the audience parameter, AADAudience, may vary depending on your specific environment.
+
 ## Troubleshooting
 
 This section provides distinct troubleshooting scenarios and steps that you can take to resolve an issue before you raise a support ticket.
@@ -535,6 +551,6 @@ This error usually occurs when the provided credentials don't grant access to in
 
 * [Monitor your telemetry in the portal](overview-dashboard.md)
 * [Diagnose with Live Metrics Stream](live-stream.md)
-* [Query Application Insights using Azure AD Authentication](/azure/azure-monitor/logs/api/app-insights-azure-ad-api)
+* [Query Application Insights using Azure AD Authentication](./app-insights-azure-ad-api.md)
 
 

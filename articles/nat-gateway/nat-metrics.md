@@ -34,7 +34,7 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 | Dropped packets | Packets dropped by the NAT gateway | Sum | / |
 | SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State (Attempted, Established, Failed, Closed, Timed Out), Protocol (6 TCP; 17 UDP) |
 | Total SNAT connection count | Total number of active SNAT connections | Sum | Protocol (6 TCP; 17 UDP) |
-| Data path availability (Preview) | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
+| Datapath availability | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 ## Where to find my NAT gateway metrics
 
@@ -166,9 +166,9 @@ Reasons for why you may see failed connections:
 
 - If you're seeing a pattern of failed connections for your NAT gateway resource, there could be multiple possible reasons. See the NAT gateway [troubleshooting guide](./troubleshoot-nat.md) to help you further diagnose.  
 
-### Data path availability
+### Datapath availability
 
-The data path availability metric measures the status of the NAT gateway resource over time. This metric informs on whether or not NAT gateway is available for directing outbound traffic to the internet. This metric is a reflection of the health of the Azure infrastructure. 
+The datapath availability metric measures the status of the NAT gateway resource over time. This metric informs on whether or not NAT gateway is available for directing outbound traffic to the internet. This metric is a reflection of the health of the Azure infrastructure. 
 
 You can use this metric to: 
 
@@ -188,13 +188,13 @@ Reasons for why you may see a drop in data path availability include:
 
 Alerts can be configured in Azure Monitor for each of the preceding metrics. These alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address potential issues with your NAT gateway resource. 
 
-For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../azure-monitor/alerts/alerts-metric-overview.md). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
+For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../azure-monitor/alerts/alerts-metric-overview.md). The following guidance describes how to configure some common and recommended types of alerts for your NAT gateway. 
 
-### Alerts for data path availability droppage
+### Alerts for datapath availability droppage
 
 If the datapath of your NAT gateway resource begins to experience drops in availability, you can set up an alert to be fired when it hits a specific threshold in availability. 
 
-The recommended guidance is to alert on NAT gateway’s datapath availability when it drops below 90% over a 15 minute period. This configuration will be indicative of a NAT gateway resource going into a degraded state.
+The recommended guidance is to alert on NAT gateway’s datapath availability when it drops below 90% over a 15 minute period. This configuration is indicative of a NAT gateway resource being in a degraded state.
 
 To set up a datapath availability alert, follow these steps:
 
@@ -271,7 +271,7 @@ To view a topological map of your setup in Azure:
 
 1. From your NAT gateway’s resource page, select **Insights** from the **Monitoring** section.
 
-2. On the landing page for **Insights**, you'll see a topology map of your NAT gateway setup. This map will show you the relationship between the different components of your network (subnets, virtual machines, public IP addresses). 
+2. On the landing page for **Insights**, there is a topology map of your NAT gateway setup. This map shows the relationship between the different components of your network (subnets, virtual machines, public IP addresses). 
 
 3. Hover over any component in the topology map to view configuration information.
 

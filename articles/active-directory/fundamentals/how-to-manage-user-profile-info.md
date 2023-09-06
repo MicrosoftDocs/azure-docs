@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 05/24/2023
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -18,12 +18,15 @@ ms.collection: M365-identity-device-management
 # Add or update a user's profile information and settings
 A user's profile information and settings can be managed on an individual basis and for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
 
-This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). 
+This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](./add-users.md). 
 
 ## Add or change profile information
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When new users are created, only some details are added to their user profile. If your organization needs more details, they can be added after the user is created. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
 
 1. Go to **Azure Active Directory** > **Users** and select a user.
    
@@ -78,13 +81,18 @@ In the **User settings** area of Azure AD, you can adjust several settings that 
 
 Go to **Azure AD** > **User settings**. 
 
-![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings-options.png)
+[ ![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings.png) ](media/how-to-manage-user-profile-info/user-settings.png#lightbox)
 
 The following settings can be managed from Azure AD **User settings**.
 
-- Manage how end users launch and view their applications
 - Allow users to register their own applications
-- [Prevent non-admins from creating their own tenants](users-default-permissions.md#restrict-member-users-default-permissions)
+- Prevent non-admins from creating their own tenants
+    - For more information, see [default user permissions](users-default-permissions.md#restrict-member-users-default-permissions)
+- Allow users to create security groups
+- Guest user access restrictions
+    - Guest users have the same access as members (most inclusive)
+    - Guest users have limited access to properties and memberships of directory objects
+    - Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)
 - Restrict access to the Azure AD administration portal
 - [Allow users to connect their work or school account with LinkedIn](../enterprise-users/linkedin-user-consent.md)
 - [Enable the "Stay signed in?" prompt](how-to-manage-stay-signed-in-prompt.md)
@@ -94,13 +102,15 @@ The following settings can be managed from Azure AD **User settings**.
     - [External user leave settings](../external-identities/self-service-sign-up-user-flow.md#enable-self-service-sign-up-for-your-tenant)
     - Collaboration restrictions
 - Manage user feature settings
+    - Users can use preview features for My Apps
+    - Administrators can access My Staff
 
 ## Next steps
 
-- [Add or delete users](add-users-azure-active-directory.md)
+- [Add or delete users](./add-users.md)
 
-- [Assign roles to users](active-directory-users-assign-role-azure-portal.md)
+- [Assign roles to users](./how-subscriptions-associated-directory.md)
 
-- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+- [Create a basic group and add members](./how-to-manage-groups.md)
 
 - [View Azure AD enterprise user management documentation](../enterprise-users/index.yml).

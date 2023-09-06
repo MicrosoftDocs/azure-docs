@@ -88,7 +88,7 @@ Communication Services offers the following types of logs that you can enable:
 | `Method` | The method used in the request. |
 |`NumberType`| The type of number, the SMS message is being sent from. It can be either **LongCodeNumber** or **ShortCodeNumber** or **DynamicAlphaSenderID**|
 |`MessageID`|Represent the unique messageId generated for every outgoing and incoming message. This can be found in the SMS API response object|
-|`Country`|Represent the countries where the SMS messages were sent to or received from|
+|`Country`|Represent the countries/regions where the SMS messages were sent to or received from|
 
 #### Example SMS sent log
 

@@ -6,10 +6,8 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: shseth
 ms.date: 1/18/2023 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
-# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.    
-
+ms.custom:
+# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.
 ---
 
 # Tools for migrating from Log Analytics Agent to Azure Monitor Agent 
@@ -58,35 +56,35 @@ To install DCR Config Generator:
 
 1. Run the script:
 
-	Option 1: Outputs **ready-to-deploy ARM template files** only, which creates the generated DCR in the specified subscription and resource group, when deployed.
+    Option 1: Outputs **ready-to-deploy ARM template files** only, which creates the generated DCR in the specified subscription and resource group, when deployed.
 
-	```powershell
-	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
-	```
-	Option 2: Outputs **ready-to-deploy ARM template files** and **the DCR JSON files** separately for you to deploy via other means. You need to set the `GetDcrPayload` parameter.
+    ```powershell
+    .\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
+    ```
+    Option 2: Outputs **ready-to-deploy ARM template files** and **the DCR JSON files** separately for you to deploy via other means. You need to set the `GetDcrPayload` parameter.
 
-	```powershell
-	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath -GetDcrPayload
-	```
+    ```powershell
+    .\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath -GetDcrPayload
+    ```
 
-	**Parameters**  
-	
-	| Parameter | Required? | Description |
-	|------|------|------|
-	| `SubscriptionId` | Yes | ID of the subscription that contains the target workspace. |
-	| `ResourceGroupName` | Yes | Resource group that contains the target workspace. |
-	| `WorkspaceName` | Yes | Name of the target workspace. |
-	| `DCRName` | Yes | Name of the new DCR. |
-	| `Location` | Yes | Region location for the new DCR. |
-	| `GetDcrPayload` | No | When set, it generates additional DCR JSON files 
-	| `FolderPath` | No | Path in which to save the ARM template files and JSON files (optional). By default, Azure Monitor uses the current directory. |  
-	
+    **Parameters**
+
+    | Parameter | Required? | Description |
+    |------|------|------|
+    | `SubscriptionId` | Yes | ID of the subscription that contains the target workspace. |
+    | `ResourceGroupName` | Yes | Resource group that contains the target workspace. |
+    | `WorkspaceName` | Yes | Name of the target workspace. |
+    | `DCRName` | Yes | Name of the new DCR. |
+    | `Location` | Yes | Region location for the new DCR. |
+    | `GetDcrPayload` | No | When set, it generates additional DCR JSON files 
+    | `FolderPath` | No | Path in which to save the ARM template files and JSON files (optional). By default, Azure Monitor uses the current directory. |
+
 1. Review the output ARM template files. The script can produce two types of ARM template files, depending on the agent configuration in the target workspace:
 
-	- Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
-	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
-	
-	If the Log Analytics workspace wasn't [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but wasn't configured to send any data from the host machine.
+    - Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
+    - Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
+
+    If the Log Analytics workspace wasn't [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but wasn't configured to send any data from the host machine.
 
 1. Deploy the generated ARM templates:
     

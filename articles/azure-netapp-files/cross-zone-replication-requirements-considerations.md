@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 08/18/2023
 ms.author: anfdocs
 ---
 # Requirements and considerations for using cross-zone replication 
@@ -35,8 +35,10 @@ This article describes requirements and considerations about [using the volume c
 * After you set up cross-zone replication, the replication process creates *SnapMirror snapshots* to provide references between the source volume and the destination volume. SnapMirror snapshots are cycled automatically when a new one is created for every incremental transfer. You cannot delete SnapMirror snapshots until you delete the replication relationship and volume. 
 * You cannot mount a dual-protocol volume until you [authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume) and the initial [transfer](cross-region-replication-display-health-status.md#display-replication-status) happens.
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after you've deleted replication relationship. You cannot delete manual snapshots for the destination volume until you break the replication relationship.
-* You can't revert a source or destination volume of cross-zone replication to a snapshot. The snapshot revert functionality is unavailable out for volumes in a replication relationship. 
+* When reverting a source volume with an active volume replication relationship, only snapshots that are more recent than the SnapMirror snapshot can be used in the revert operation. For more information, see [Revert a volume using snapshot revert with Azure NetApp Files](snapshots-revert-volume.md).
+* Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
 * You can't currently use cross-zone replication with [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) (larger than 100 TiB).
+
 
 ## Next steps
 * [Understand cross-zone replication](cross-zone-replication-introduction.md)

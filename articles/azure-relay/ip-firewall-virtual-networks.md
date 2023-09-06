@@ -22,7 +22,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
-    3. If you want to allow Microsoft services trusted by the Azure Relay service to bypass this firewall, select **Yes** for **Allow [trusted Microsoft services](#trusted-services) to bypass this firewall?**. 
+    3. If you want to allow Microsoft services trusted by the Azure Relay service to bypass this firewall, select **Yes** for **Allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall?**. 
   
         :::image type="content" source="./media/ip-firewall/selected-networks-trusted-access-disabled.png" alt-text="Screenshot showing the Public access tab of the Networking page with the Firewall enabled.":::
 1. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
@@ -120,20 +120,8 @@ The template takes one parameter: **ipMask**, which is a single IPv4 address or 
 
 To deploy the template, follow the instructions for [Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
-## Trusted services
-The following services are the trusted services for Azure Relay.
-- Azure Event Grid
-- Azure IoT Hub
-- Azure Stream Analytics
-- Azure Monitor
-- Azure API Management
-- Azure Synapse
-- Azure Data Explorer
-- Azure IoT Central
-- Azure Healthcare Data Services
-- Azure Digital Twins
-- Azure Arc
 
+[!INCLUDE [trusted-services](./includes/trusted-services.md)]
 
 ## Next steps
 To learn about other network security-related features, see [Network security](network-security.md).

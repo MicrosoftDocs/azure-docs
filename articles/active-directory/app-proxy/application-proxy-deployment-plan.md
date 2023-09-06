@@ -257,9 +257,9 @@ The following capabilities can be used to support Azure AD Application Proxy:
 
 * User and location-based Conditional Access: Keep sensitive data protected by limiting user access based on geo-location or an IP address with [location-based Conditional Access policies](../conditional-access/location-condition.md).
 
-* Device-based Conditional Access: Ensure only enrolled, approved, and compliant devices can access corporate data with [device-based Conditional Access](../conditional-access/require-managed-devices.md).
+* Device-based Conditional Access: Ensure only enrolled, approved, and compliant devices can access corporate data with [device-based Conditional Access](../conditional-access/concept-conditional-access-grant.md).
 
-* Application-based Conditional Access: Work doesn't have to stop when a user isn't on the corporate network. [Secure access to corporate cloud and on-premises apps](../conditional-access/app-based-conditional-access.md) and maintain control with Conditional Access.
+* Application-based Conditional Access: Work doesn't have to stop when a user isn't on the corporate network. [Secure access to corporate cloud and on-premises apps](../conditional-access/howto-policy-approved-app-or-app-protection.md) and maintain control with Conditional Access.
 
 * Risk-based Conditional Access: Protect your data from malicious hackers with a [risk-based Conditional Access policy](https://www.microsoft.com/cloud-platform/conditional-access) that can be applied to all apps and all users, whether on-premises or in the cloud.
 
@@ -274,7 +274,7 @@ Microsoft advocates the principle of granting the least possible privilege to pe
 | Business role| Business tasks| Azure AD roles |
 |---|---|---|
 | Help desk admin | Typically limited to qualifying end user reported issues and performing limited tasks such as changing users’ passwords, invalidating refresh tokens, and monitoring service health. | Helpdesk Administrator |
-| Identity admin| Read Azure AD sign in reports and audit logs to debug App Proxy related issues.| Security reader |
+| Identity admin| Read Azure AD sign-in reports and audit logs to debug App Proxy related issues.| Security reader |
 | Application owner| Create and manage all aspects of enterprise applications, application registrations, and application proxy settings.| Application Admin |
 | Infrastructure admin | Certificate Rollover Owner | Application Admin |
 
@@ -292,7 +292,7 @@ These logs provide detailed information about logins to applications configured 
 
 #### Application Proxy Connector monitoring
 
-The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure portal. For more information about connector maintainence see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#maintenance).
+The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure portal. For more information about connector maintenance see [Understand Azure AD Application Proxy Connectors](./application-proxy-connectors.md#maintenance).
 
 ![Example: Azure AD Application Proxy connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 

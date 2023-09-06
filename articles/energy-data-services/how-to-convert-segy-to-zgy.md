@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - How to convert segy to zgy file
+title: Microsoft Azure Data Manager for Energy - How to convert segy to zgy file
 description: This article describes how to convert a SEG-Y file to a ZGY file
 author: marielgherz
 ms.author: marielherzog
@@ -13,13 +13,12 @@ ms.custom: template-how-to
 
 In this article, you will learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion)
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
 1. Download and install [Postman](https://www.postman.com/) desktop app.
 2. Import the [oZGY Conversions.postman_collection](https://github.com/microsoft/meds-samples/blob/main/postman/SegyToZgyConversion%20Workflow%20using%20SeisStore%20R3%20CI-CD%20v1.0.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-3. Ensure that your Azure Data Manager for Energy Preview instance is created already
+3. Ensure that your Azure Data Manager for Energy instance is created already
 4. Clone the **sdutil** repo as shown below:
   ```markdown
   git clone https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil.git

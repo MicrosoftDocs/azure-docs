@@ -11,7 +11,7 @@ ms.author: grbury
 ---
 
 # Attestation
-Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing trust and ensuring that computing technologies we rely on are trustworthy.
+Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing and ensuring that computing technologies we rely on are trustworthy.
 
 In this document, we are looking at what attestation is, types of attestation Microsoft offers today, and how customers can utilize these types of attestation scenarios in Microsoft solutions. 
 
@@ -20,19 +20,19 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 
 ### Passport Model
 #### Passport Model - Immigration Desk
-1. A Citizen wants a passport to travel to a Foreign Country. The Citizen submits evidence requirements to their Host Country. 
-2. Host country receives the evidence of policy compliance from the individual and verifies whether the supplied evidence proves that the individual complies with the policies for being issues a passport. 
+1. A Citizen wants a passport to travel to a Foreign Country/Region. The Citizen submits evidence requirements to their Host Country/Region. 
+2. Host country/region receives the evidence of policy compliance from the individual and verifies whether the supplied evidence proves that the individual complies with the policies for being issued a passport. 
 	- Birth certificate is valid and hasn't been altered.
 	- Issuer of the birth certificate is trusted
 	- Individual isn't part of a restricted list
-3. If the Host Country decides the evidence meets their policies, the Host Country will issue a passport for a Citizen.
-4. The Citizen travels to a foreign nation, but first must present their passport to the Foreign Country Border Patrol Agent for evaluation.
-5. The Foreign Country Border Patrol Agent checks a series of rules on the passport before trusting it  
+3. If the Host Country/Region decides the evidence meets their policies, the Host Country/Region will issue a passport for a Citizen.
+4. The Citizen travels to a foreign nation, but first must present their passport to the Foreign Country/Region Border Patrol Agent for evaluation.
+5. The Foreign Country/Region Border Patrol Agent checks a series of rules on the passport before trusting it  
 	- Passport is authentic and hasn't been altered.
-	- Passport was produced by a trusted country.
+	- Passport was produced by a trusted country/region.
 	- Passport isn't expired or revoked.
 	- Passport conforms to policy of a Visa or age requirement.
-6. The Foreign Country Border Patrol Agent approves of the Passport and the Citizen can enter the Foreign Country.
+6. The Foreign Country/Region Border Patrol Agent approves of the Passport and the Citizen can enter the Foreign Country/Region.
 
 ![Diagram of remote attestation with the passport model for an immigration desk.](media/attestation-solutions/passport-model-immigration.png)
 
@@ -57,8 +57,8 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 #### Background Check – School Verification
 1. A Person is doing a background check with a potential Employer to obtain a job. The Person submits their education background of the School they attended to the potential Employer. 
 2. The Employer retrieves the education background from the person and forwards this to the respective School to be verified.
-3. If the School decides if the given education background from the Person meets their records, the School issues an Attestation Result for the Employer.
-4. The School sends the issued Attestation Result that verifiers the Person’s education background matches their records. 
+3. The School evaluates whether the education background given by the Person meets the School records.
+4. The School issues an Attestation Result that verifies the Person’s education background matches their records and sends it to the Employer 
 5. The Employer, otherwise known as the Relying Party, may check a series of rules on the Attestation Result before trusting it.  
 	- Attestation Result is authentic, hasn't been altered, and truly comes from the School.
 	- Attestation Result was produced by a trusted School.
@@ -73,8 +73,8 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 	- Certificate is valid and hasn't been altered.
 	- Issuer of the certificate is trusted.
 	- TEE evidence isn't part of a restricted list.
-4. If the Verifier decides the evidence meets the defined policies, the Verifier creates an Attestation Result for the TEE and send it to the Secrets Manager
-5. The Secrets Manager checks a series of rules on the Attestation Result before trusting it  
+4. The Verifier creates an Attestation Result for the TEE and sends it to the Secrets Manager.
+5. The Secrets Manager checks a series of rules on the Attestation Result before trusting it.  
 	- Attestation Result is authentic and hasn't been altered.
 	- Attestation Result was produced by a trusted authority.
 	- Attestation Result isn't expired or revoked.
@@ -84,7 +84,7 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 ![Diagram of remote attestation with the background check model for computing.](media/attestation-solutions/background-check-model-computing.png)
 
 ## Types of Attestation
-Attestation services can be utilized in two distinct ways that each provide their own benefits. 
+Attestation services can be utilized in two distinct ways that each provide its own benefits. 
 
 ### Cloud Provider 
 At Microsoft, we provide [Microsoft Azure Attestation (MAA)](https://azure.microsoft.com/products/azure-attestation) as customer-facing service and a framework for attesting Trusted Execution Environments (TEEs) like Intel Software Guard Extensions (SGX) enclaves, virtualization-based security (VBS) enclaves, Trusted Platform Modules (TPMs), Trusted Launch and Confidential Virtual Machines. Benefits from using a cloud provider’s attestation service such as Azure Attestation includes,

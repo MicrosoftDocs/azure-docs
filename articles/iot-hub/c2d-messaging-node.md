@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2017
+ms.date: 05/30/2023
 ms.custom: [amqp, mqtt, devx-track-js]
 ---
 
@@ -20,7 +20,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 This article shows you how to:
 
-* Send cloud-to-device messages, from your solution backend, to a single device through IoT Hub
+* Send cloud-to-device (C2D) messages from your solution backend to a single device through IoT Hub
 
 * Receive cloud-to-device messages on a device
 
@@ -30,9 +30,9 @@ This article shows you how to:
 
 At the end of this article, you run two Node.js console apps:
 
-* **SimulatedDevice**: a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp), which connects to your IoT hub and receives cloud-to-device messages.
+* **simple_sample_device**: a sample device app included with the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples), which connects to your IoT hub and receives cloud-to-device messages.
 
-* **SendCloudToDevice**: sends a cloud-to-device message to the device app through IoT Hub and then receives its delivery acknowledgment.
+* **SendCloudToDevice**: a service app that sends a cloud-to-device message to the device app through IoT Hub and then receives its delivery acknowledgment.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (C, Java, Python, and JavaScript) through the [Azure IoT device SDKs](iot-hub-devguide-sdks.md).
@@ -41,34 +41,46 @@ To learn more about cloud-to-device messages, see [Send cloud-to-device messages
 
 ## Prerequisites
 
-* A complete working version of the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) quickstart or the [Configure message routing with IoT Hub](tutorial-routing.md) article. This article builds on the quickstart.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
+
+* A device registered in your IoT hub. If you haven't registered a device yet, register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
+* This article uses sample code from the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node).
+
+  * Download or clone the SDK repository from GitHub to your development machine.
+  * Make sure that Node.js version 10.0.x or greater is installed on your development machine. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-## Receive messages in the simulated device app
+## Get the device connection string
 
-In this section, modify your device app to receive cloud-to-device messages from the IoT hub.
+In this article, you run a sample app that simulates a device, which receives cloud-to-device messages sent through your IoT Hub. The **simple_sample_device** sample app included with the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples) connects to your IoT hub and acts as your simulated device. The sample uses the primary connection string of the registered device on your IoT hub. 
 
-1. Using a text editor, open the **SimulatedDevice.js** file. This file is located in the **iot-hub\Quickstarts\simulated-device** folder off of the root folder of the Node.js sample code you downloaded in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart.
+[!INCLUDE [iot-hub-include-find-device-connection-string](../../includes/iot-hub-include-find-device-connection-string.md)]
 
-2. Register a handler with the device client to receive messages sent from IoT Hub. Add the call to `client.on` just after the line that creates the device client as in the following snippet:
+## Receive messages in the device app
 
-    ```javascript
-    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+In this section, run the **simple_sample_device** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and navigate to the **azure-iot-sdk-node\device\samples\javascript** folder, under the folder where you expanded the Azure IoT Node.js SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value with the device connection string you copied from the registered device in your IoT hub.
 
-    client.on('message', function (msg) {
-      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-      client.complete(msg, function (err) {
-        if (err) {
-          console.error('complete error: ' + err.toString());
-        } else {
-          console.log('complete sent');
-        }
-      });
-    });
-    ```
+```cmd/sh
+set IOTHUB_DEVICE_CONNECTION_STRING={Your device connection string}
+node simple_sample_device.js
+```
+
+The following output is from the sample device app after it successfully starts and connects to your IoT hub:
+
+```cmd/sh
+Client connected
+Client connected
+Client connected
+Sending message: {"deviceId":"myFirstDevice","windSpeed":10.949952400617569,"temperature":26.0096515658525,"humidity":72.59398225838534}
+Client connected
+Client connected
+send status: MessageEnqueued
+Sending message: {"deviceId":"myFirstDevice","windSpeed":12.917649160180087,"temperature":27.336831253904613,"humidity":77.37300365434534}
+```
 
 In this example, the device invokes the **complete** function to notify IoT Hub that it has processed the message and that it can safely be removed from the device queue. The call to **complete** isn't required if you're using MQTT transport and can be omitted. It's required for AMQP and HTTPS.
 
@@ -82,7 +94,7 @@ If something happens that prevents the device from completing, abandoning, or re
 For more information about the cloud-to-device message lifecycle and how IoT Hub processes cloud-to-device messages, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
   
 > [!NOTE]
-> If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (a minimum of every 25 minutes). For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](iot-hub-devguide-protocols.md).
+> If you use HTTPS instead of MQTT or AMQP as the transport, the **Client** instance checks for messages from IoT Hub infrequently (a minimum of every 25 minutes). For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](iot-hub-devguide-protocols.md).
 
 ## Get the IoT hub connection string
 
@@ -94,15 +106,15 @@ In this article, you create a backend service to send cloud-to-device messages t
 
 In this section, you create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device ID from your device and your IoT hub connection string.
 
-1. Create an empty folder called **sendcloudtodevicemessage**. In the **sendcloudtodevicemessage** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create an empty folder called **sendcloudtodevicemessage**. Open a command prompt, navigate to the **sendcloudtodevicemessage** folder, and then run the following command to create a `package.json` file in that folder. Press **Enter** at each prompt presented by the `npm` command to accept the default for that prompt:
 
-    ```shell
+    ```cmd/sh
     npm init
     ```
 
 2. At your command prompt in the **sendcloudtodevicemessage** folder, run the following command to install the **azure-iothub** package:
 
-    ```shell
+    ```cmd/sh
     npm install azure-iothub --save
     ```
 
@@ -172,10 +184,10 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
 
 You're now ready to run the applications.
 
-1. At the command prompt in the **simulated-device** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
+1. At the command prompt in the **azure-iot-sdk-node\device\samples\javascript** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
 
     ```shell
-    node SimulatedDevice.js
+    node simple_sample_device.js
     ```
 
     ![Run the simulated device app](./media/iot-hub-node-node-c2d/receivec2d.png)

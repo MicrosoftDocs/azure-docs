@@ -5,7 +5,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: include
-ms.custom: [mvc, seo-javascript-september2019, seo-javascript-october2019, mqtt, 'Role: Cloud Development', devx-track-js, devx-track-azurecli]
+ms.custom: [mvc, seo-javascript-september2019, seo-javascript-october2019, mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 01/31/2023
 ---
 

@@ -2,11 +2,10 @@
 title: Mount an NFS Azure file share on Linux
 description: Learn how to mount a Network File System (NFS) Azure file share on Linux.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/06/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 
@@ -48,7 +47,7 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 ## Mount an NFS share using the Azure portal
 
 > [!NOTE]
-> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
+> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
 1. Once the file share is created, select the share and select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script.
@@ -75,4 +74,4 @@ If your mount failed, it's possible that your private endpoint wasn't set up cor
 ## Next steps
 
 - Learn more about Azure Files with [Planning for an Azure Files deployment](storage-files-planning.md).
-- If you experience any issues, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md).
+- If you experience any issues, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json).

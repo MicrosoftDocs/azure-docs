@@ -8,6 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: kengaderdus

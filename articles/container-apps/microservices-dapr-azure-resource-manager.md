@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 06/29/2022
 ms.author: cshoe
-ms.custom: ignite-2022, devx-track-bicep, devx-track-arm-template
+ms.custom: ignite-2022, devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
 zone_pivot_groups: container-apps
 ---
 

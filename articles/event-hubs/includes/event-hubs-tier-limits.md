@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 10/19/2022
+ms.date: 05/18/2023
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
@@ -21,7 +21,8 @@ The following table shows limits that may be different for basic, standard, prem
 | Limit | Basic | Standard | Premium |  Dedicated |
 | ----- | ----- | -------- | -------- | --------- | 
 | Maximum size of Event Hubs publication | 256 KB | 1 MB | 1 MB |  1 MB |
-| Number of consumer groups per event hub | 1 | 20 | 100 | 1000<br/>No limit per CU  |
+| Number of Event Hub consumer groups per event hub | 1 | 20 | 100 | 1000<br/>No limit per CU  |
+| Number of Kafka consumer groups per Namespace | NA | 1000 | 1000 | 1000  |
 | Number of brokered connections per namespace | 100 | 5,000 | 10000 per PU<br/><br/>For example, if the namespace is assigned 3 PUs, the limit is 30000. | 100, 000 per CU |
 | Maximum retention period of event data | 1 day | 7 days | 90 days | 90 days |
 | Maximum TUs or PUs or CUs | 40 TUs | 40 TUs | 16 PUs | 20 CUs |
@@ -29,6 +30,7 @@ The following table shows limits that may be different for basic, standard, prem
 | Number of namespaces per subscription | 1000 | 1000 | 1000 | 1000 (50 per CU) |
 | Number of event hubs per namespace | 10 | 10 | 100 per PU | 1000 |
 | Capture | N/A | Pay per hour | Included | Included |
+| Size of compacted event hub  | N/A | 1 GB per partition | 250 GB per partition | 250 GB per partition |
 | Size of the schema registry (namespace) in mega bytes | N/A | 25 | 100 | 1024 |
 | Number of schema groups in a schema registry or namespace | N/A | 1 - excluding the default group | 100 <br/>1 MB per schema | 1000<br/>1 MB per schema |
 | Number of schema versions across all schema groups | N/A | 25 | 1000 | 10000 |

@@ -3,18 +3,14 @@ title: Delete installed Microsoft Sentinel out-of-the-box content and solutions
 description: Remove solutions and content you've deployed in Microsoft Sentinel.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 06/22/2023
 ms.author: cwatson
 ---
 
-# Delete installed Microsoft Sentinel out-of-the-box content and solutions (public preview)
+# Delete installed Microsoft Sentinel out-of-the-box content and solutions
 
 If you've installed a Microsoft Sentinel out-of-the-box solution, you can remove content items from the solution or delete the installed solution. If you later need to restore deleted content items, select **Reinstall** on the solution. Similarly, you can restore the solution by re-installing the solution.
  
-> [!IMPORTANT]
->
-> Microsoft Sentinel solutions and the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Delete content items
 
 Delete content items for an installed solution deployed by the content hub.
@@ -42,7 +38,7 @@ To restore an out-of-the-box solution from the content hub, select the solution 
 
 ## Next steps
 
-- [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (public preview)](sentinel-solutions-deploy.md)
+- [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md)
 - [About Microsoft Sentinel content and solutions](sentinel-solutions.md)
 - Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
 - [Microsoft Sentinel catalog](sentinel-solutions-catalog.md)

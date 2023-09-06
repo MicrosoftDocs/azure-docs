@@ -6,7 +6,6 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/01/2022
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Tutorial: Analyze blob inventory reports

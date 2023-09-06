@@ -4,6 +4,7 @@ description: Learn how to prepare on-premises machines for migration with Azure 
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.manager: vijain
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.custom: engagement-fy23

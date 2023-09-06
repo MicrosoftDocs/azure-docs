@@ -29,9 +29,12 @@ There are three common scenarios in which it's necessary to populate Azure Activ
  - Application that doesn't use Azure AD as its only identity provider
  - Application does not use Azure AD as its identity provider nor does it support provisioning
 
-For more information on those first two scenarios, where the application supports provisioning, or uses an LDAP directory, SQL database or relies upon Azure AD as its identity provider, see the article [govern an application's existing users](identity-governance-applications-existing-users.md). That article covers how to use identity governance features for existing users of those categories of applications.
+For more information on those first two scenarios, where the application supports provisioning, or uses an LDAP directory, SQL database, has a SOAP or REST API or relies upon Azure AD as its identity provider, see the article [govern an application's existing users](identity-governance-applications-existing-users.md). That article covers how to use identity governance features for existing users of those categories of applications.
 
 This article covers the third scenario. For some legacy applications it might not be feasible to remove other identity providers or local credential authentication from the application, or enable support for provisioning protocols for those applications. For those applications, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent application users.  This article covers that scenario of an application that does not use Azure AD as its identity provider and does not support provisioning.
+
+## License requirements
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Terminology
 
@@ -49,7 +52,7 @@ When you create an assignment for a user to an access package, Azure AD entitlem
 
 - You must have one of the following licenses in your tenant:
 
-  - Azure AD Premium P2
+  - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
   - Enterprise Mobility + Security E5 license
 
 - You need to have an appropriate administrative role. If this is the first time you're performing these steps, you need the Global Administrator role to authorize the use of Microsoft Graph PowerShell in your tenant.
@@ -239,7 +242,11 @@ Follow the instructions in the [guide for creating an access review of groups or
 
 1. The columns `PrincipalDisplayName` and `PrincipalId` contain the display names and Azure AD user IDs of each user who retains an application role assignment.
 
+## Configure entitlement management integration with ServiceNow for ticketing (optional)
+
+If you have ServiceNow then you can optionally configure automated ServiceNow ticket creation, using the [entitlement management integration](entitlement-management-ticketed-provisioning.md) via Logic Apps.  In that scenario, entitlement management can automatically create ServiceNow tickets for manual provisioning of users who have received access package assignments.
 
 ## Next steps
 
  - [Prepare for an access review of users' access to an application](access-reviews-application-preparation.md)
+ - [Automated ServiceNow ticket creation with entitlement management integration](entitlement-management-ticketed-provisioning.md)

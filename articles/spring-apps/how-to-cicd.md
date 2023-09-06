@@ -1,12 +1,12 @@
 ---
 title: Automate application deployments to Azure Spring Apps
 description: Describes how to use the Azure Spring Apps task for Azure Pipelines.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/13/2021
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022, devx-track-arm-template
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-arm-template
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use the [Azure Spring Apps task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) to deploy applications.
 
@@ -250,9 +250,9 @@ To deploy directly from an existing container image, use the following pipeline 
     ContainerImage: '<your image tag>'
 ```
 
-### Deploy and specify a builder (Enterprise tier only)
+### Deploy and specify a builder (Enterprise plan only)
 
-If you're using Azure Spring Apps Enterprise tier, you can also specify which builder to use for deploy actions using the `builder` option, as shown in the following example. For more information, see [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+If you're using the Azure Spring Apps Enterprise plan, you can also specify which builder to use for deploy actions using the `builder` option, as shown in the following example. For more information, see [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
 ```yaml
 - task: AzureSpringCloud@0

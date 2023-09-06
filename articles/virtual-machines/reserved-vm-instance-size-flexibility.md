@@ -42,13 +42,13 @@ The following sections show what sizes are in the same size series group when yo
 
 CSV below has the instance size flexibility groups, ArmSkuName and the ratios.  
 
-[Instance size flexibility ratios](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
+[Instance size flexibility ratios](https://aka.ms/isf)
 
 Azure keeps link and schema updated so that you can use the file programmatically.
 
 ## View VM size recommendations
 
-Azure shows VM size recommendations in the purchase experience. To view the smallest size recommendations, select **Group by smallest size**.
+Azure shows VM size recommendations in the purchase experience. When enabled, the **Optimize for instance size flexibility (preview)** option groups and sorts recommendations by instance size flexibility.
 
 :::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Screenshot showing recommended quantities." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 

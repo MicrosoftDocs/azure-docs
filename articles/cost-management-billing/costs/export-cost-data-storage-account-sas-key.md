@@ -3,7 +3,7 @@ title: Export cost data with an Azure Storage account SAS key
 description: This article helps partners create a SAS key and configure Cost Management exports.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2023
+ms.date: 06/07/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -21,6 +21,8 @@ Often, partners don't have their own Azure subscriptions in the tenant that's as
 - You must be a partner with a Microsoft Partner Agreement and have customers on the Azure Plan.
 - You must be global admin for your partner organization's billing account.
 - You must have access to configure a storage account that's in a different tenant of your partner organization. You're responsible for maintaining permissions and data access when your export data to your storage account.
+- The storage account must not have a firewall configured.
+- The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
 
 ## Configure Azure Storage with a SAS key
 

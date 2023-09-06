@@ -2,7 +2,6 @@
 title: Multitenancy and content isolation
 titleSuffix: Azure Cognitive Search
 description: Learn about common design patterns for multitenant SaaS applications while using Azure Cognitive Search.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search

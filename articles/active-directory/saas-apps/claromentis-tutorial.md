@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<CUSTOMER_SITE_URL>/login?no_auto=0` |
     |
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL which is explained later in the turorial.
+	> These values are not real. Update these values with the actual Reply URL and Sign-on URL which is explained later in the tutorial.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

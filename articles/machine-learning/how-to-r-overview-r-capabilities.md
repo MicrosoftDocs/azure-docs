@@ -3,6 +3,7 @@ title: Bring R workloads into Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how to bring your R workloads into Azure Machine Learning'
 ms.service: machine-learning
+ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: conceptual
 author: wahalulu
@@ -13,7 +14,7 @@ ms.devlang: r
 
 # Bring your R workloads
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 There's no Azure Machine Learning SDK for R.  Instead, you'll use either the CLI or a Python control script to run your R scripts.  
 

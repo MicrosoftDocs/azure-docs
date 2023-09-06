@@ -4,7 +4,7 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 03/20/2023
+ms.date: 05/23/2023
 ms.author: schaffererin
 ---
 
@@ -37,7 +37,8 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 * * If you're using Azure CLI, the **aks-preview** extension version **0.5.74 or later** is required.
 * To learn about what Roles to use in various scenarios, see:
   *  [AzureML access to AKS clusters with special configurations](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md).
-  *  [AKS backup using Azure Backup][aks-azure-backup]
+  *  [Using Azure Backup][aks-azure-backup]
+  *  [Enable Agentless Container Posture](../defender-for-cloud/concept-agentless-containers.md)
 
 
 First, install the aks-preview extension by running the following command:
@@ -157,6 +158,8 @@ For more information on AKS, see:
 
 * [Deploy and manage cluster extensions for AKS](cluster-extensions.md)
 * [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../machine-learning/how-to-deploy-kubernetes-extension.md)
+* [Deploy Azure Backup on AKS cluster](../backup/azure-kubernetes-service-backup-overview.md)
+* [Enable Agentless Container Posture on AKS cluster](../defender-for-cloud/concept-agentless-containers.md)
 
 <!-- LINKS -->
 

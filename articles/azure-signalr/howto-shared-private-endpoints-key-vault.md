@@ -48,6 +48,7 @@ The examples in this article use the following naming convention, although you c
    :::image type="content" alt-text="Screenshot of the button for adding a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" :::
 
     Enter the following information:
+   
     | Field | Description |
     | ----- | ----------- |
     | **Name** | The name of the shared private endpoint. |
@@ -55,7 +56,7 @@ The examples in this article use the following naming convention, although you c
     | **Subscription** | The subscription containing your Key Vault. |
     | **Resource** | Enter the name of your Key Vault resource. |
     | **Request Message** | Enter "please approve" |
-
+   
 1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::

@@ -31,15 +31,19 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Prepare SAP environment](preparing-sap.md)
 
-1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
+1. [Configure auditing](configure-audit.md)
 
-1. [Deploy SAP security content](deploy-sap-security-content.md)
+1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md)
+
+1. [Deploy data connector agent](deploy-data-connector-agent-container.md) 
 
 1. **Configure Microsoft Sentinel solution for SAP® applications (*You are here*)**
 
-1. Optional deployment steps
-   - [Configure auditing](configure-audit.md)
+1. Optional deployment steps   
    - [Configure data connector to use SNC](configure-snc.md)
+   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
+   - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
    - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 ## Configure watchlists
@@ -102,7 +106,7 @@ By default, all analytics rules provided in the Microsoft Sentinel solution for 
 
 To enable or disable the ingestion of a specific log:
  
-1. Edit the *systemconfig.ini* file located under */opt/sapcon/SID/* on the connector's VM. 
+1. Edit the *systemconfig.json* file located under */opt/sapcon/SID/* on the connector's VM. 
 1. Inside the configuration file, locate the relevant log and do one of the following:
     - To enable the log, change the value to `True`. 
     - To disable the log, change the value to `False`.
@@ -110,9 +114,9 @@ To enable or disable the ingestion of a specific log:
 For example, to stop ingestion for the `ABAPJobLog`, change its value to `False`:
 
 ```
-ABAPJobLog = False
+"abapjoblog": "True",
 ```
-Review the list of available logs in the [Systemconfig.ini file reference](reference-systemconfig.md#logs-activation-status-section).
+Review the list of available logs in the [Systemconfig.json file reference](reference-systemconfig-json.md).
 
 You can also [stop ingesting the user master data tables](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
@@ -126,10 +130,10 @@ You can also [stop ingesting the user master data tables](sap-solution-deploy-al
 To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, run this command: 
 
 ```
-docker stop sapcon-[SID]
+docker stop sapcon-[SID/agent-name]
 ```
-
-The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This both stops the ingestion and billing for the SAP system related to the connector.
+To stop ingesting a specific SID for a multi-SID container you must delete the SID from the connector page UI in Sentinel
+The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This stops both the ingestion and billing for the SAP system related to the connector.
 
 If you need to reenable the Docker container, run this command: 
 
@@ -140,3 +144,31 @@ docker start sapcon-[SID]
 ## Remove the user role and the optional CR installed on your ABAP system
 
 To remove the user role and optional CR imported to your system, import the deletion CR *NPLK900259* into your ABAP system.
+
+## Next steps
+
+Learn more about the Microsoft Sentinel solution for SAP® applications:
+
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy and configure container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Deploy SAP security content](deploy-sap-security-content.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
+- [Enable and configure SAP auditing](configure-audit.md)
+- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+
+Troubleshooting:
+
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
+
+Reference files:
+
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Kickstart script reference](reference-kickstart.md)
+- [Update script reference](reference-update.md)
+- [Systemconfig.ini file reference](reference-systemconfig.md)
+
+For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).

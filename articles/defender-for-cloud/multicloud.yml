@@ -7,8 +7,8 @@ metadata:
   title: The Defender for Cloud multicloud solution
   description: See all of the docs that relate to multicloud scenarios in Microsoft Defender for Cloud on one page.
   services: defender-for-cloud
-  author: bmansheim
-  ms.author: benmansheim
+  author: dcurwin
+  ms.author: dacurwin
   manager: raynew
   ms.topic: landing-page
   ms.collection: collection

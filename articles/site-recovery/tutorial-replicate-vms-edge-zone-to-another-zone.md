@@ -27,7 +27,7 @@ Here the primary location is an Azure Public MEC and secondary location is anoth
 
 ### Prerequisites
 
-- Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps)
+- Ensure Azure Az PowerShell module is installed. For information on how to install, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell)
 - The minimum Azure Az PowerShell version must be 9.1.0+. Use the following command to see the current version:
 
     ```

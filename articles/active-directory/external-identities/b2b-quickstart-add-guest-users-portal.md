@@ -22,9 +22,9 @@ In this quickstart, you'll learn how to add a new guest user to your Azure AD di
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
 ## Prerequisites
 
@@ -36,9 +36,11 @@ To complete the scenario in this quickstart, you need:
 
 ## Invite an external guest user
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This quickstart guide provides the basic steps to invite an external user. To learn about all of the properties and settings that you can include when you invite an external user, see [How to create and delete a user](../fundamentals/how-to-create-delete-users.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using one of the roles listed in the Prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the Prerequisites.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -54,7 +56,7 @@ In this section, you're inviting the guest to your tenant using *their email add
 
 - **Display name**: Provide the display name.
 
--  **Invitation message**: Select the **Send invite message** checkbox to customize a brief message to preview how the invitation message appears.
+-  **Invitation message**: Select the **Send invite message** checkbox to send an invitation message. When enabling this checkbox, you can also set up the customized short message and additional CC recipient.
 
 ![Screenshot of the invite external user Basics tab.](media/quickstart-add-users-portal/invite-external-user-basics-tab.png)
 
@@ -92,7 +94,7 @@ Now sign in as the guest user to see the invitation.
 
 When no longer needed, delete the test guest user.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's been assigned the Global administrator or User administrator role.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global administrator or User administrator role.
 1. Select the **Azure Active Directory** service.
 1. Under **Manage**, select **Users**.
 1. Select the test user, and then select **Delete user**.

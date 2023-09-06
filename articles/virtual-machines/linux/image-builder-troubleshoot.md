@@ -4,11 +4,11 @@ description: This article helps you troubleshoot common problems and errors you 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 04/12/2023
+ms.date: 07/31/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Troubleshoot Azure VM Image Builder
@@ -100,14 +100,19 @@ The assigned managed identity cannot be used. Please remove the existing one and
 
 #### Cause
 
-There are cases where [Managed Service Identities (MSI)](./image-builder-permissions-cli.md#create-a-user-assigned-managed-identity) assigned to the image template cannot be used:
 
-1. The Image Builder template uses a customer provided staging resource group and the MSI is deleted before the image template is deleted ([staging resource group](./image-builder-json.md#properties-stagingresourcegroup) scenario)
-1. The identity is deleted and attempted to recreate the identity with the same name, but without re-assigning the MSI. Though the resource ids are the same, the underlying service principal has been changed.
+There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used: 
+
+
+- The Image Builder template uses a customer provided staging resource group and the MSI is deleted before the image template is deleted ([staging resource group](./image-builder-json.md#properties-stagingresourcegroup) scenario)
+- The created [Managed Service Identities (MSI)](./image-builder-permissions-cli.md#create-a-user-assigned-managed-identity) assigned to the image template cannot be used
+
 
 #### Solution
 
+
 Use Azure CLI to reset identity on the image template. Ensure you [update](/cli/azure/update-azure-cli) Azure CLI to the 2.45.0 version or later.
+
 
 Remove the managed identity from the target image builder template
 
@@ -349,7 +354,32 @@ The `customization.log` file includes the following stages:
 - Ensure that Azure Policy and Firewall allow connectivity to remote resources.
 - Output comments to the console by using `Write-Host` or `echo`. Doing so lets you search the *customization.log* file.
 
+
 ## Troubleshoot common build errors
+
+### The template deployment failed because of policy violation
+
+#### Error
+
+```text
+{
+  "statusCode": "BadRequest",
+  "serviceRequestId": null,
+  "statusMessage": "{\"error\":{\"code\":\"InvalidTemplateDeployment\",\"message\":\"The template deployment failed because of policy violation. Please see details for more information.\",\"details\":[{\"code\":\"RequestDisallowedByPolicy\",\"target\":\"<target_name>\",\"message\":\"Resource '<resource_name>' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[Initiative] KeyVault (Microsoft.KeyVault)\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policyAssignments/Microsoft.KeyVault\\\"},\\\"policyDefinition\\\":{\\\"name\\\":\\\"Azure Key Vault should disable public network access\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policyDefinitions/KeyVault.disablePublicNetworkAccess_deny_deny\\\"},\\\"policySetDefinition\\\":{\\\"name\\\":\\\"[Initiative] KeyVault (Microsoft.KeyVault)\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policySetDefinitions/Microsoft.KeyVault\\\"}}]'.\",\"additionalInfo\":[{\"type\":\"PolicyViolation\"}]}]}}",
+  "eventCategory": "Administrative",
+  "entity": "/subscriptions/<subscription_ID>/<resourcegroups>/<resourcegroupname>/providers/Microsoft.Resources/deployments/<deployment_name>",
+  "message": "Microsoft.Resources/deployments/validate/action",
+  "hierarchy": "<subscription_ID>/<resourcegroupname>/<policy_name>/<managementGroup_name>/<deployment_ID>"
+}
+```
+
+#### Cause
+
+The above policy violation error is a result of using an Azure Key Vault with public access disabled. At this time, Azure Image Builder doesn't support this configuration.
+
+#### Solution
+
+The Azure Key Vault must be created with public access enabled.
 
 ### Packer build command failure
 
@@ -438,6 +468,58 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 
 `File` customizer is suitable only for small (less than 20 MB) file downloads. For larger file downloads, use a script or inline command. For example, in Linux you can use `wget` or `curl`. In Windows, you can use `Invoke-WebRequest`.
 
+
+### The builder continually fails to run Windows-Restart with the error code 1190
+
+#### Error
+
+```output
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] (telemetry) Starting provisioner windows-restart
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] starting remote command: shutdown /r /f /t 10
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] command 'shutdown /r /f /t 10' exited with code: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> azure-arm: A system shutdown has already been scheduled.(1190)
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC client: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] RPC client: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: Check if machine is rebooting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] starting remote command: shutdown /r /f /t 60 /c "packer restart test"
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] command 'shutdown /r /f /t 60 /c "packer restart test"' exited with code: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 52 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC client: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 52 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] RPC client: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: Reboot already in progress, waiting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:08 packer-provisioner-windows-restart plugin: Check if machine is rebooting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: Waiting for machine to reboot with timeout: 15m0s
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: Waiting for machine to become available...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> Some builds didn't complete successfully and had errors:
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:46:26 machine readable: azure-arm,error []string{"Timeout waiting for machine to restart."}
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT --> azure-arm: Timeout waiting for machine to restart.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR ==> Builds finished but no artifacts were created.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT 
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:46:26 [INFO] (telemetry) Finalizing.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> Builds finished but no artifacts were created.
+```
+
+#### Cause
+
+The windows update step declares prematurely in images based on Windows Server 2016.
+
+#### Solution
+
+Increase `restartTimeout` from 15 minutes to 30 minutes.
+
 ### Error waiting on Azure Compute Gallery
 
 #### Error
@@ -519,7 +601,7 @@ Increase the build VM size.
 
 ### The build finished but no artifacts were created
 
-#### Error
+#### Warning
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -537,13 +619,10 @@ Increase the build VM size.
 Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT
 ```
 
-#### Cause
-
-The build timed out while it was waiting for the required Azure resources to be created.
 
 #### Solution
 
-Rerun the build to try again.
+The above warning can safely be ignored.
 
 ### Resource not found
 
@@ -701,6 +780,32 @@ PACKER ERR 2022/03/07 18:43:06 packer-plugin-azure plugin: 2022/03/07 18:43:06 R
 These error log messages are mostly harmless, because resource deletions are retried several times and, ordinarily, they eventually succeed. You can verify this by continuing to follow the deletion logs until you observe a success message. Alternatively, you can inspect the staging resource group to confirm whether the resource has been deleted.
 
 Making these observations is especially important in build failures, where these error messages might lead you to conclude that they're the reason for the failures, even when the actual errors might be elsewhere.
+
+#### Error
+
+When images are stuck in template deletion, the customization log may show the below error:
+
+```output
+error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 -- 
+Original Error: Code="NicInUseWithPrivateEndpoint"
+Message="Network interface /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName> cannot be deleted because it is currently in use with an private endpoint (/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/privateEndpoints/<pIname>)." Details=[]
+```
+
+#### Cause
+
+The error occurs because the network interface is currently in use with a private endpoint.
+
+#### Solution
+
+To resolve the issue, delete the below resources one by one in the specific order:
+
+1. Private endpoint connection. You can find this in the private link service resource by going to the "private endpoint connections" tab on the private link service resource page.
+1. Private link service.
+1. Network interface and load balancer.
+1. Resource Group.
+1. Image template.
+
+For additional assistance, you can [contact Azure support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to resolve the stuck deletion error.
 
 ## DevOps tasks
 

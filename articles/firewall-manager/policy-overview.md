@@ -77,4 +77,6 @@ Policies are billed based on firewall associations. A policy with zero or one fi
 
 ## Next steps
 
-To learn how to deploy an Azure Firewall, see [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md).
+- Learn how to deploy an Azure Firewall - [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
+

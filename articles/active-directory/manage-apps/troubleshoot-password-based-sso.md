@@ -19,7 +19,7 @@ To use password-based single sign-on (SSO) in My Apps, the browser extension mus
 
 ## My Apps browser extension not installed
 
-Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](my-apps-deployment-plan.md).
+Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](./myapps-overview.md).
 
 ## Single sign-on not configured
 
@@ -83,11 +83,13 @@ There are two ways to capture sign-in fields for your custom apps:
 
 In general, if automatic sign-in field capture doesn't work, try the manual option.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ### Automatically capture sign-in fields for an app
 
 To configure password-based SSO by using automatic sign-in field capture, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
+1. Sign in to the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
 2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
 3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
 4. Select **Enterprise Applications** in the Azure AD navigation pane.
@@ -107,7 +109,7 @@ To manually capture sign-in fields, you must have the My Apps browser extension 
 
 To configure password-based SSO for an app by using manual sign-in field capture, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
+1. Sign in to the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
 2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
 3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
 4. Select **Enterprise Applications** in the Azure AD navigation pane.
@@ -259,4 +261,4 @@ The following information explains what each notification item means and provide
 ## Next steps
 
 - [Quickstart Series on Application Management](view-applications-portal.md)
-- [Plan a My Apps deployment](my-apps-deployment-plan.md)
+- [Plan a My Apps deployment](./myapps-overview.md)

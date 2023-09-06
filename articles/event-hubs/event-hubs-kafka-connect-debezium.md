@@ -9,19 +9,10 @@ ms.date: 10/18/2021
 
 **Change Data Capture (CDC)** is a technique used to track row-level changes in database tables in response to create, update, and delete operations. [Debezium](https://debezium.io/) is a distributed platform that builds on top of Change Data Capture features available in different databases (for example, [logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). It provides a set of [Kafka Connect connectors](https://debezium.io/documentation/reference/1.2/connectors/index.html) that tap into row-level changes in database table(s) and convert them into event streams that are then sent to [Apache Kafka](https://kafka.apache.org/).
 
-> [!WARNING]
-> Use of the Apache Kafka Connect framework as well as the Debezium platform and its connectors are **not eligible for product support through Microsoft Azure**.
->
-> Apache Kafka Connect assumes for its dynamic configuration to be held in compacted topics with otherwise unlimited retention. Event Hubs [does not implement compaction as a broker feature](event-hubs-federation-overview.md#log-projections) and always imposes a time-based retention limit on retained events, rooting from the principle that Event Hubs is a real-time event streaming engine and not a long-term data or configuration store.
->
-> While the Apache Kafka project might be comfortable with mixing these roles, Azure believes that such information is best managed in a proper database or configuration store.
->
-> Many Apache Kafka Connect scenarios will be functional, but these conceptual differences between Apache Kafka's and Event Hubs' retention models may cause certain configurations not to work as expected. 
-
 This tutorial walks you through how to set up a change data capture based system on Azure using [Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure DB for PostgreSQL](../postgresql/overview.md) and Debezium. It will use the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Event Hubs
 
 > [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 In this tutorial, you take the following steps:
 

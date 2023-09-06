@@ -8,7 +8,7 @@ ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Secure a single page application with user sign-in
@@ -40,8 +40,8 @@ Create the web application in Azure AD for users to sign in. The web application
 6. Copy the Azure AD app ID and the Azure AD tenant ID from the app registration to use in the Web SDK. Add the Azure AD app registration details and the `x-ms-client-id` from the Azure Map account to the Web SDK.
 
     ```javascript
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js" />
         <script>
             var map = new atlas.Map("map", {
                 center: [-122.33, 47.64],

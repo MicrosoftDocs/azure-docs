@@ -1,10 +1,10 @@
 ---
-title: SQL information protection policy in Microsoft Defender for Cloud
+title: SQL information protection policy
 description: Learn how to customize information protection policies in Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.date: 11/09/2021
 ---
 # SQL information protection policy in Microsoft Defender for Cloud

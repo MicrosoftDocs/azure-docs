@@ -2,12 +2,12 @@
 title: How to target Azure Functions runtime versions
 description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
 ms.topic: conceptual
-ms.date: 10/22/2022
+ms.date: 05/17/2023
 ---
 
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. There are four major versions: [4.x, 3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 4.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
+A function app runs on a specific version of the Azure Functions runtime. There have been four major versions: [4.x, 3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 4.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
 The way that you manually target a specific version depends on whether you're running Windows or Linux.
 
@@ -130,14 +130,11 @@ To pin a Linux function app to a specific host version, you set a version-specif
 > [!IMPORTANT]
 > Pinned function apps on Linux don't receive regular security and host functionality updates. Unless recommended by a support professional, use the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) setting and a standard [`linuxFxVersion`] value for your language and version, such as `Python|3.9`. For valid values, see the [`linuxFxVersion` reference article][`linuxFxVersion`].   
 >
-> For apps running in a Consumption plan, setting [`linuxFxVersion`] to a specific image may also increase cold start times. This is because pinning to a specific image prevents Functions from using some cold start optimizations. 
+> Pinning to a specific runtime isn't currently supported for Linux function apps running in a Consumption plan. 
 
-The following table provides an example of [`linuxFxVersion`] values required to pin a Node.js 18 function app to a specific runtime version of 4.11.2:
+The following is an example of the [`linuxFxVersion`] value required to pin a Node.js 18 function app to a specific runtime version of 4.11.2:
 
-| [Hosting plan](functions-scale.md)  | [`linuxFxVersion` value][`linuxFxVersion`] |
-| --- | --- |
-| Consumption  | `DOCKER|mcr.microsoft.com/azure-functions/mesh:4.11.2-node18` | 
-| Premium/Dedicated | `DOCKER|mcr.microsoft.com/azure-functions/node:4.11.2-node18-appservice` |
+`DOCKER|mcr.microsoft.com/azure-functions/node:4.11.2-node18-appservice` 
 
 When needed, a support professional can provide you with a valid base image URI for your application. 
 
@@ -167,9 +164,6 @@ You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md
 The function app restarts after the change is made to the site config.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Target the 2.0 runtime in your local development environment](functions-run-local.md)
 
 > [!div class="nextstepaction"]
 > [See Release notes for runtime versions](https://github.com/Azure/azure-webjobs-sdk-script/releases)

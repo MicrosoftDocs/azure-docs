@@ -24,6 +24,8 @@
         href: spot-quota.md
       - name: Increase networking quotas
         href: networking-quota-requests.md
+      - name: Increase storage account quotas
+        href: storage-account-quota-requests.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -31,7 +33,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.quota/
   - name: Azure REST API
-    href: /rest/api/reserved-vm-instances/quotaapi
+    href: /rest/api/quota
 - name: Resources
   items:
   - name: Azure updates

@@ -3,7 +3,8 @@ title: How to create a storage mover resource
 description: Learn how to create a top-level Azure Storage Mover resource
 author: stevenmatthew
 ms.author: shaas
-ms.service: storage-mover
+ms.service: azure-storage-mover
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/07/2022
 ---
@@ -70,7 +71,7 @@ Install-Module -Name Az.StorageMover -Scope CurrentUser -Repository PSGallery -F
 
 ```
 
-The [Install Azure PowerShell](/powershell/azure/install-az-ps) article has more details.
+The [Install Azure PowerShell](/powershell/azure/install-azure-powershell) article has more details.
 
 To deploy a storage mover resource, you'll need to supply values for the required `-Name`, `-ResourceGroupName`, and `-Region` parameters. The `-Description` parameter is optional.
 

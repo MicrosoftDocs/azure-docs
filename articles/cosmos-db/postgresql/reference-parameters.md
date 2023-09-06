@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 08/02/2022
+ms.date: 06/06/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL server parameters
@@ -24,14 +24,14 @@ all worker nodes, or just for the coordinator node.
 
 > [!NOTE]
 >
-> clusters running older versions of the Citus Engine may not
+> Clusters running older versions of [the Citus extension](./reference-versions.md#citus-and-other-extension-versions) may not
 > offer all the parameters listed below.
 
 ### General configuration
 
 #### citus.use\_secondary\_nodes (enum)
 
-Sets the policy to use when choosing nodes for SELECT queries. If it's set to 'always', then the planner will query only nodes that are
+Sets the policy to use when choosing nodes for SELECT queries. If it's set to 'always', then the planner queries only nodes that are
 marked as 'secondary' noderole in
 [pg_dist_node](reference-metadata.md#worker-node-table).
 
@@ -44,7 +44,7 @@ The supported values for this enum are:
 #### citus.cluster\_name (text)
 
 Informs the coordinator node planner which cluster it coordinates. Once
-cluster\_name is set, the planner will query worker nodes in that
+cluster\_name is set, the planner queries worker nodes in that
 cluster alone.
 
 #### citus.enable\_version\_checks (boolean)
@@ -66,8 +66,8 @@ server log. It defaults to false.
 
 #### citus.distributed\_deadlock\_detection\_factor (floating point)
 
-Sets the time to wait before checking for distributed deadlocks. In particular
-the time to wait will be this value multiplied by PostgreSQL\'s
+Sets the time to wait before checking for distributed deadlocks. In particular, 
+the time to wait is this value multiplied by PostgreSQL\'s
 [deadlock\_timeout](https://www.postgresql.org/docs/current/static/runtime-config-locks.html)
 setting. The default value is `2`. A value of `-1` disables distributed
 deadlock detection.
@@ -173,7 +173,7 @@ The maximum number of rows to store in `citus_stat_statements`. Defaults to
 50000, and may be changed to any value in the range 1000 - 10000000. Each row requires 140 bytes of storage, so setting `stat_statements_max` to its
 maximum value of 10M would consume 1.4 GB of memory.
 
-Changing this GUC won't take effect until PostgreSQL is restarted.
+Changing this GUC doesn't take effect until PostgreSQL is restarted.
 
 #### citus.stat_statements_track (enum)
 
@@ -214,7 +214,7 @@ case by choosing between the following commit protocols:
 #### citus.shard\_replication\_factor (integer)
 
 Sets the replication factor for shards that is, the number of nodes on which
-shards will be placed, and defaults to 1. This parameter can be set at run-time
+shards are placed, and defaults to 1. This parameter can be set at run-time
 and is effective on the coordinator. The ideal value for this parameter depends
 on the size of the cluster and rate of node failure.  For example, you may want
 to increase this replication factor if you run large clusters and observe node
@@ -228,24 +228,24 @@ This GUC determines how Azure Cosmos DB for PostgreSQL moves data when doing a j
 local and distributed tables. Customizing the join policy can help reduce the
 amount of data sent between worker nodes.
 
-Azure Cosmos DB for PostgreSQL will send either the local or distributed tables to nodes as
+Azure Cosmos DB for PostgreSQL sends either the local or distributed tables to nodes as
 necessary to support the join. Copying table data is referred to as a
-“conversion.” If a local table is converted, then it will be sent to any
+“conversion.” If a local table is converted, then it is sent to any
 workers that need its data to perform the join. If a distributed table is
-converted, then it will be collected in the coordinator to support the join.
-The Azure Cosmos DB for PostgreSQL planner will send only the necessary rows doing a conversion.
+converted, then it is collected in the coordinator to support the join.
+The Azure Cosmos DB for PostgreSQL planner sends only the necessary rows doing a conversion.
 
 There are four modes available to express conversion preference:
 
-* **auto:** (Default) Azure Cosmos DB for PostgreSQL will convert either all local or all distributed
+* **auto:** (Default) Azure Cosmos DB for PostgreSQL converts either all local or all distributed
   tables to support local and distributed table joins. Azure Cosmos DB for PostgreSQL decides which to
-  convert using a heuristic. It will convert distributed tables if they're
+  convert using a heuristic. It converts distributed tables if they're
   joined using a constant filter on a unique index (such as a primary key). The
   conversion ensures less data gets moved between workers.
-* **never:** Azure Cosmos DB for PostgreSQL won't allow joins between local and distributed tables.
-* **prefer-local:** Azure Cosmos DB for PostgreSQL will prefer converting local tables to support local
+* **never:** Azure Cosmos DB for PostgreSQL doesn't allow joins between local and distributed tables.
+* **prefer-local:** Azure Cosmos DB for PostgreSQL prefers converting local tables to support local
   and distributed table joins.
-* **prefer-distributed:** Azure Cosmos DB for PostgreSQL will prefer converting distributed tables to
+* **prefer-distributed:** Azure Cosmos DB for PostgreSQL prefers converting distributed tables to
   support local and distributed table joins. If the distributed tables are
   huge, using this option might result in moving lots of data between workers.
 
@@ -320,7 +320,7 @@ be used.
 -   **first-replica:** The first-replica policy assigns tasks based on the insertion order of placements (replicas) for the
     shards. In other words, the fragment query for a shard is assigned to the worker that has the first replica of that shard.
     This method allows you to have strong guarantees about which shards
-    will be used on which nodes (that is, stronger memory residency
+    are used on which nodes (that is, stronger memory residency
     guarantees).
 
 This parameter can be set at run-time and is effective on the
@@ -333,7 +333,7 @@ coordinator.
 The maximum size in KB of intermediate results for CTEs that are unable
 to be pushed down to worker nodes for execution, and for complex
 subqueries. The default is 1 GB, and a value of -1 means no limit.
-Queries exceeding the limit will be canceled and produce an error
+Queries exceeding the limit are canceled and produce an error
 message.
 
 ### Executor Configuration
@@ -398,8 +398,8 @@ The supported values for this enum are:
 -   **off:** Turn off logging any queries that generate multiple tasks
     (that is, span multiple shards)
 -   **debug:** Logs statement at DEBUG severity level.
--   **log:** Logs statement at LOG severity level. The log line will
-    include the SQL query that was run.
+-   **log:** Logs statement at LOG severity level. The log line 
+    includes the SQL query that was run.
 -   **notice:** Logs statement at NOTICE severity level.
 -   **warning:** Logs statement at WARNING severity level.
 -   **error:** Logs statement at ERROR severity level.
@@ -455,15 +455,15 @@ propagation](howto-modify-distributed-tables.md#types-and-functions).
 ##### citus.enable\_repartition\_joins (boolean)
 
 Ordinarily, attempting to perform repartition joins with the adaptive executor
-will fail with an error message.  However setting
+fails with an error message.  However setting
 `citus.enable_repartition_joins` to true allows Azure Cosmos DB for PostgreSQL to
 temporarily switch into the task-tracker executor to perform the join.  The
 default value is false.
 
 ##### citus.enable_repartitioned_insert_select (boolean)
 
-By default, an INSERT INTO … SELECT statement that can’t be pushed down will
-attempt to repartition rows from the SELECT statement and transfer them between
+By default, an INSERT INTO … SELECT statement that can’t be pushed down 
+attempts to repartition rows from the SELECT statement and transfer them between
 workers for insertion. However, if the target table has too many shards then
 repartitioning will probably not perform well. The overhead of processing the
 shard intervals when determining how to partition the results is too great.
@@ -516,8 +516,8 @@ short queries it’s faster. The default value is 10 ms.
 
 Each backend opens connections to the workers to query the shards. At the end
 of the transaction, the configured number of connections is kept open to speed
-up subsequent commands. Increasing this value will reduce the latency of
-multi-shard queries, but will also increase overhead on the workers.
+up subsequent commands. Increasing this value reduces the latency of
+multi-shard queries, but also increases overhead on the workers.
 
 The default value is 1. A larger value such as 2 might be helpful for clusters
 that use a small number of concurrent sessions, but it’s not wise to go much
@@ -525,16 +525,16 @@ further (for example, 16 would be too high).
 
 ##### citus.force_max_query_parallelization (boolean)
 
-Simulates the deprecated and now nonexistent real-time executor. This is used
+Simulates the deprecated and now nonexistent real-time executor. This parameter is used
 to open as many connections as possible to maximize query parallelization.
 
-When this GUC is enabled, Azure Cosmos DB for PostgreSQL will force the adaptive executor to use as many
+When this GUC is enabled, Azure Cosmos DB for PostgreSQL forces the adaptive executor to use as many
 connections as possible while executing a parallel distributed query. If not
 enabled, the executor might choose to use fewer connections to optimize overall
-query execution throughput. Internally, setting this true will end up using one
+query execution throughput. Internally, setting this to `true` ends up using one
 connection per task.
 
-One place where this is useful is in a transaction whose first query is
+One place where this parameter is useful is in a transaction whose first query is
 lightweight and requires few connections, while a subsequent query would
 benefit from more connections. Azure Cosmos DB for PostgreSQL decides how many connections to use in a
 transaction based on the first statement, which can throttle other queries
@@ -609,10 +609,10 @@ entry can be set at run-time and is effective on the workers.
 By default, Azure Cosmos DB for PostgreSQL shows the output of a single, arbitrary task
 when running
 [EXPLAIN](http://www.postgresql.org/docs/current/static/sql-explain.html) on a
-distributed query. In most cases, the explain output will be similar across
-tasks. Occasionally, some of the tasks will be planned differently or have much
+distributed query. In most cases, the explain output is similar across
+tasks. Occasionally, some of the tasks are planned differently or have much
 higher execution times. In those cases, it can be useful to enable this
-parameter, after which the EXPLAIN output will include all tasks. Explaining
+parameter, after which the EXPLAIN output includes all tasks. Explaining
 all tasks may cause the EXPLAIN to take longer.
 
 ##### citus.explain_analyze_sort_method (enum)
@@ -624,6 +624,19 @@ The supported values are:
 
 * **execution-time:** sort by execution time.
 * **taskId:** sort by task ID.
+
+## Managed PgBouncer parameters
+The following [managed PgBouncer](./concepts-connection-pool.md) parameters can be configured on single node or coordinator.
+
+| Parameter Name             | Description | Default | 
+|----------------------|--------|-------------|
+| pgbouncer.default_pool_size | Set this parameter value to the number of connections per user/database pair.      | 295       | 
+| pgbouncer.ignore_startup_parameters | Comma-separated list of parameters that PgBouncer can ignore. For example, you can let PgBouncer ignore `extra_float_digits` parameter. Some parameters are allowed, all others raise error. This ability is needed to tolerate overenthusiastic JDBC wanting to unconditionally set 'extra_float_digits=2' in startup packet. Use this option if the library you use report errors such as `pq: unsupported startup parameter: extra_float_digits`. | extra_float_digits, ssl_renegotiation_limit  |
+| pgBouncer.max_client_conn | Set this parameter value to the highest number of client connections to PgBouncer that you want to support.     | 2000     | 
+| pgBouncer.min_pool_size | Add more server connections to pool if below this number.    |   0 (Disabled)   |
+| pgBouncer.pool_mode | Set this parameter value to TRANSACTION for transaction pooling (which is the recommended setting for most workloads).      | TRANSACTION     |
+| pgbouncer.query_wait_timeout | Maximum time (in seconds) queries are allowed to spend waiting for execution. If the query isn't assigned to a server during that time, the client is disconnected. | 20s |
+| pgbouncer.server_idle_timeout | If a server connection has been idle more than this many seconds, it is closed. If 0 then this timeout is disabled. | 60s |
 
 ## PostgreSQL parameters
 
@@ -660,7 +673,7 @@ The supported values are:
 * [cpu_index_tuple_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CPU-INDEX-TUPLE-COST) - Sets the planner's estimate of the cost of processing each index entry during an index scan
 * [cpu_operator_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CPU-OPERATOR-COST) - Sets the planner's estimate of the cost of processing each operator or function call
 * [cpu_tuple_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CPU-TUPLE-COST) - Sets the planner's estimate of the cost of processing each tuple (row)
-* [cursor_tuple_fraction](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION) - Sets the planner's estimate of the fraction of a cursor's rows that will be retrieved
+* [cursor_tuple_fraction](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION) - Sets the planner's estimate of the fraction of a cursor's rows that are retrieved
 * [deadlock_timeout](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-DEADLOCK-TIMEOUT) - Sets the amount of time, in milliseconds, to wait on a lock before checking for deadlock
 * [debug_pretty_print](https://www.postgresql.org/docs/current/runtime-config-logging.html#id-1.6.6.11.5.2.3.1.3) - Indents parse and plan tree displays
 * [debug_print_parse](https://www.postgresql.org/docs/current/runtime-config-logging.html#id-1.6.6.11.5.2.2.1.3) - Logs each query's parse tree
@@ -706,7 +719,7 @@ The supported values are:
 * [lc_numeric](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LC-NUMERIC) - Sets the locale for formatting numbers
 * [lo_compat_privileges](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES) - Enables backward compatibility mode for privilege checks on large objects
 * [lock_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT) - Sets the maximum allowed duration (in milliseconds) of any wait for a lock. 0 turns this off
-* [log_autovacuum_min_duration](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#) - Sets the minimum execution time above which autovacuum actions will be logged
+* [log_autovacuum_min_duration](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#) - Sets the minimum execution time above which autovacuum actions are logged
 * [log_checkpoints](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS) - Logs each checkpoint
 * [log_connections](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS) - Logs each successful connection
 * [log_destination](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DESTINATION) - Sets the destination for server log output
@@ -714,7 +727,7 @@ The supported values are:
 * [log_duration](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION) - Logs the duration of each completed SQL statement
 * [log_error_verbosity](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY) - Sets the verbosity of logged messages
 * [log_lock_waits](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS) - Logs long lock waits
-* [log_min_duration_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT) - Sets the minimum execution time (in milliseconds) above which statements will be logged. -1 disables logging statement durations
+* [log_min_duration_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT) - Sets the minimum execution time (in milliseconds) above which statements are logged. -1 disables logging statement durations
 * [log_min_error_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT) - Causes all statements generating error at or above this level to be logged
 * [log_min_messages](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES) - Sets the message levels that are logged
 * [log_replication_commands](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-REPLICATION-COMMANDS) - Logs each replication command

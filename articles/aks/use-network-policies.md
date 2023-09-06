@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/05/2023
+ms.date: 07/14/2023
 ---
 
 # Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)
@@ -45,9 +45,10 @@ Azure Network Policy Manager for Linux uses Linux *IPTables* and Azure Network P
 | Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. |
 | Logging                                  | Logs available with **kubectl log -n kube-system \<network-policy-pod\>** command | For more information, see [Calico component logs][calico-logs] |
 
-## Limitations:
+## Limitations
 
 Azure Network Policy Manager doesn't support IPv6. Otherwise, Azure Network Policy Manager fully supports the network policy spec in Linux.
+
 * In Windows, Azure Network Policy Manager doesn't support the following:
     * named ports
     * SCTP protocol
@@ -55,11 +56,11 @@ Azure Network Policy Manager doesn't support IPv6. Otherwise, Azure Network Poli
     * "except" CIDR blocks (a CIDR with exceptions)
 
 >[!NOTE]
-> * Azure Network Policy Manager pod logs will record an error if an unsupported policy is created.
+> * Azure Network Policy Manager pod logs record an error if an unsupported policy is created.
 
-## Scale:
+## Scale
 
-With the current limits set on Azure Network Policy Manager for Linux, it can scale up to 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us on [aks-acn-github] if you'd like to increase your memory limit.
+With Azure Network Policy Manager for Linux, we don't recommend scaling beyond 250 nodes and 20k pods. If you attempt to scale beyond these limits, you may encounter Out of Memory (OOM) kills. To increase your memory limit, contact us on [aks-acn-github].
 
 ## Create an AKS cluster and enable Network Policy
 

@@ -9,7 +9,7 @@ ms.custom: devx-track-arm-template
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 11/14/2022
+ms.date: 05/25/2023
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to authorize Azure Resource Manager to perform key management operations via Azure Managed HSM
 ---
@@ -23,13 +23,13 @@ Azure Managed HSM doesn't trust Azure Resource Manager by default. However, for 
 For the Azure portal or Azure Resource Manager to interact with Azure Managed HSM in the same way as Azure Key Vault Standard and Premium, an authorized Managed HSM administrator must allow Azure Resource Manager to act on behalf of the user. To change this behavior and allow users to use Azure portal or Azure Resource Manager to create new keys or list keys, make the following Azure Managed HSM setting update:
 
 ```azurecli-interactive
-az rest --method PATCH --url "https://<managed-hsm-url>/settings/AllowKeyManagementOperationsThroughARM" --body "{\"value\":\"true\"}" --headers "Content-Type=application/json" --resource "https://managedhsm.azure.net" 
+az keyvault setting update --hsm-name <managed-hsm name> --name AllowKeyManagementOperationsThroughARM --value true 
 ```
 
 To disable this trust and revert to the default behavior of Managed HSM:
 
 ```azurecli-interactive
-az rest --method PATCH --url "https://<managed-hsm-url>/settings/AllowKeyManagementOperationsThroughARM" --body "{\"value\":\"false\"}" --headers "Content-Type=application/json" --resource "https://managedhsm.azure.net" 
+az keyvault setting update --hsm-name <managed-hsm name> --name AllowKeyManagementOperationsThroughARM --value false 
 ```
 
 ## Next steps

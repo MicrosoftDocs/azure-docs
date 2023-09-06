@@ -59,7 +59,7 @@ The output from the preceding example with the default values is:
 
 `concat(arg1, arg2, arg3, ...)`
 
-Combines multiple arrays and returns the concatenated array.
+Combines multiple arrays and returns the concatenated array. For more information about combining multiple strings, see [concat](./bicep-functions-string.md#concat).
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 

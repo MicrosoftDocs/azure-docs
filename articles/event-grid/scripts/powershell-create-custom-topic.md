@@ -5,6 +5,7 @@ services: event-grid
 documentationcenter: na
 
 ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na

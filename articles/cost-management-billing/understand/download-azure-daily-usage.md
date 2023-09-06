@@ -10,7 +10,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 02/15/2023
+ms.date: 05/17/2023
 ---
 
 # View and download your Azure usage and charges
@@ -74,6 +74,19 @@ Use the following information to download usage for billed charges. The same ste
 1. Select the ellipsis symbol (`...`) at the end of the row.
 1. In the context menu, select **Prepare Azure usage file**. A notification message appears stating that the usage file is being prepared.
 1. When the file is ready to download, select **Download**. If you missed the notification, you can view it from **Notifications** area in top right of the Azure portal (the bell symbol).
+
+#### Calculate discount in the usage file
+
+The usage file shows the following per-consumption line items:
+
+- `costInBillingCurrency` (Column AU)
+- `paygCostInBillingCurrency` (Column AX).
+
+Use the information from the two columns to calculate your discount amount and discount percentage, as follows:
+
+Discount amount = (AX – AU)
+
+Discount percentage = (Discount amount / AX) * 100
 
 ## Get usage data with Azure CLI
 

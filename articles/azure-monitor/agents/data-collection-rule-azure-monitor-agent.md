@@ -2,10 +2,10 @@
 title: Collect events and performance counters from virtual machines with Azure Monitor Agent
 description: Describes how to collect events and performance data from virtual machines by using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 12/11/2022
+ms.date: 7/19/2023
 author: guywild
 ms.author: guywild
-ms.reviewer: shseth
+ms.reviewer: jeffwo
 
 ---
 
@@ -22,10 +22,15 @@ To complete this procedure, you need:
 
 ## Create a data collection rule
 
-You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
+You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace. You can send Windows event and Syslog data to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. 
+
+> [!NOTE] 
+> At this time, Microsoft.HybridCompute ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md)) resources can't be viewed in [Metrics Explorer](../essentials/metrics-getting-started.md) (the Azure portal UX), but they can be acquired via the Metrics REST API (Metric Namespaces - List, Metric Definitions - List, and Metrics - List).
+
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
+
 ### [Portal](#tab/portal)
 
 1. On the **Monitor** menu, select **Data Collection Rules**.
