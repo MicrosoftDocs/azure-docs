@@ -88,33 +88,11 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 The following example shows an HTTP triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that creates a queue item for each HTTP request received.
 
-```typescript
-import { app, HttpRequest, HttpResponseInit, InvocationContext, output } from '@azure/functions';
-
-const queueOutput = output.storageQueue({
-    queueName: 'outqueue',
-    connection: 'MyStorageConnectionAppSetting',
-});
-
-export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    const body = await request.text();
-    context.extraOutputs.set(queueOutput, body);
-    return { body: 'Created queue item.' };
-}
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    extraOutputs: [queueOutput],
-    handler: httpTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueOutput1.ts" :::
 
 To output multiple messages, return an array instead of a single object. For example:
 
-```typescript
-context.extraOutputs.set(queueOutput, ['message 1', 'message 2']);
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueOutput2.ts" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -129,31 +107,11 @@ TypeScript samples are not documented for model v3.
 
 The following example shows an HTTP triggered [JavaScript function](functions-reference-node.md) that creates a queue item for each HTTP request received.
 
-```javascript
-const { app, output } = require('@azure/functions');
-
-const queueOutput = output.storageQueue({
-    queueName: 'outqueue',
-    connection: 'MyStorageConnectionAppSetting',
-});
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    extraOutputs: [queueOutput],
-    handler: async (request, context) => {
-        const body = await request.text();
-        context.extraOutputs.set(queueOutput, body);
-        return { body: 'Created queue item.' };
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" :::
 
 To output multiple messages, return an array instead of a single object. For example:
 
-```javascript
-context.extraOutputs.set(queueOutput, ['message 1', 'message 2']);
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput2.js" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 

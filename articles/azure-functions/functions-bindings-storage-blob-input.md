@@ -126,31 +126,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 The following example shows a queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
-```typescript
-import { app, input, InvocationContext, output } from '@azure/functions';
-
-const blobInput = input.storageBlob({
-    path: 'samples-workitems/{queueTrigger}',
-    connection: 'MyStorageConnectionAppSetting',
-});
-
-const blobOutput = output.storageBlob({
-    path: 'samples-workitems/{queueTrigger}-Copy',
-    connection: 'MyStorageConnectionAppSetting',
-});
-
-export async function storageQueueTrigger1(queueItem: unknown, context: InvocationContext): Promise<unknown> {
-    return context.extraInputs.get(blobInput);
-}
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'myqueue-items',
-    connection: 'MyStorageConnectionAppSetting',
-    extraInputs: [blobInput],
-    return: blobOutput,
-    handler: storageQueueTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobInputAndOutput1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -165,29 +141,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a queue triggered [JavaScript function](functions-reference-node.md) that makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
-```javascript
-const { app, input, output } = require('@azure/functions');
-
-const blobInput = input.storageBlob({
-    path: 'samples-workitems/{queueTrigger}',
-    connection: 'MyStorageConnectionAppSetting',
-});
-
-const blobOutput = output.storageBlob({
-    path: 'samples-workitems/{queueTrigger}-Copy',
-    connection: 'MyStorageConnectionAppSetting',
-});
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'myqueue-items',
-    connection: 'MyStorageConnectionAppSetting',
-    extraInputs: [blobInput],
-    return: blobOutput,
-    handler: (queueItem, context) => {
-        return context.extraInputs.get(blobInput);
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobInputAndOutput1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

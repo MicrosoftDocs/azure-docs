@@ -100,46 +100,11 @@ The following example shows a [C# function](../articles/azure-functions/dotnet-i
 
 The following example shows an Event Hubs trigger [TypeScript function](../articles/azure-functions/functions-reference-node.md?tabs=typescript). The function reads [event metadata](#event-metadata) and logs the message.
 
-```typescript
-import { app, InvocationContext } from '@azure/functions';
-
-export async function eventHubTrigger1(message: unknown, context: InvocationContext): Promise<void> {
-    context.log('Event hub function processed message:', message);
-    context.log('EnqueuedTimeUtc =', context.triggerMetadata.enqueuedTimeUtc);
-    context.log('SequenceNumber =', context.triggerMetadata.sequenceNumber);
-    context.log('Offset =', context.triggerMetadata.offset);
-}
-
-app.eventHub('eventHubTrigger1', {
-    connection: 'myEventHubReadConnectionAppSetting',
-    eventHubName: 'MyEventHub',
-    cardinality: 'one',
-    handler: eventHubTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubTrigger1.ts" :::
 
 To receive events in a batch, set `cardinality` to `many`, as shown in the following example.
 
-```typescript
-import { app, InvocationContext } from '@azure/functions';
-
-export async function eventHubTrigger1(messages: unknown[], context: InvocationContext): Promise<void> {
-    context.log(`Event hub function processed ${messages.length} messages`);
-    for (let i = 0; i < messages.length; i++) {
-        context.log('Event hub message:', messages[i]);
-        context.log(`EnqueuedTimeUtc = ${context.triggerMetadata.enqueuedTimeUtcArray[i]}`);
-        context.log(`SequenceNumber = ${context.triggerMetadata.sequenceNumberArray[i]}`);
-        context.log(`Offset = ${context.triggerMetadata.offsetArray[i]}`);
-    }
-}
-
-app.eventHub('eventHubTrigger1', {
-    connection: 'myEventHubReadConnectionAppSetting',
-    eventHubName: 'MyEventHub',
-    cardinality: 'many',
-    handler: eventHubTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubTrigger2.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -154,43 +119,11 @@ TypeScript samples are not documented for model v3.
 
 The following example shows an Event Hubs trigger [JavaScript function](../articles/azure-functions/functions-reference-node.md). The function reads [event metadata](#event-metadata) and logs the message.
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.eventHub('eventHubTrigger1', {
-    connection: 'myEventHubReadConnectionAppSetting',
-    eventHubName: 'MyEventHub',
-    cardinality: 'one',
-    handler: (message, context) => {
-        context.log('Event hub function processed message:', message);
-        context.log('EnqueuedTimeUtc =', context.triggerMetadata.enqueuedTimeUtc);
-        context.log('SequenceNumber =', context.triggerMetadata.sequenceNumber);
-        context.log('Offset =', context.triggerMetadata.offset);
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubTrigger1.js" :::
 
 To receive events in a batch, set `cardinality` to `many`, as shown in the following example.
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.eventHub('eventHubTrigger1', {
-    connection: 'myEventHubReadConnectionAppSetting',
-    eventHubName: 'MyEventHub',
-    cardinality: 'many',
-    handler: (messages, context) => {
-        context.log(`Event hub function processed ${messages.length} messages`);
-        for (let i = 0; i < messages.length; i++) {
-            context.log('Event hub message:', messages[i]);
-            context.log(`EnqueuedTimeUtc = ${context.triggerMetadata.enqueuedTimeUtcArray[i]}`);
-            context.log(`SequenceNumber = ${context.triggerMetadata.sequenceNumberArray[i]}`);
-            context.log(`Offset = ${context.triggerMetadata.offsetArray[i]}`);
-        }
-    },
-});
-
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubTrigger2.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

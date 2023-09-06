@@ -93,21 +93,7 @@ The following example shows a blob trigger [TypeScript code](functions-reference
 
 The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](./functions-bindings-expressions-patterns.md) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#blob-name-patterns) later in this article.
 
-```typescript
-import { app, InvocationContext } from '@azure/functions';
-
-export async function storageBlobTrigger1(blob: Buffer, context: InvocationContext): Promise<void> {
-    context.log(
-        `Storage blob function processed blob "${context.triggerMetadata.name}" with size ${blob.length} bytes`
-    );
-}
-
-app.storageBlob('storageBlobTrigger1', {
-    path: 'samples-workitems/{name}',
-    connection: 'MyStorageAccountAppSetting',
-    handler: storageBlobTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -124,19 +110,7 @@ The following example shows a blob trigger [JavaScript code](functions-reference
 
 The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](./functions-bindings-expressions-patterns.md) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#blob-name-patterns) later in this article.
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.storageBlob('storageBlobTrigger1', {
-    path: 'samples-workitems/{name}',
-    connection: 'MyStorageAccountAppSetting',
-    handler: (blob, context) => {
-        context.log(
-            `Storage blob function processed blob "${context.triggerMetadata.name}" with size ${blob.length} bytes`
-        );
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

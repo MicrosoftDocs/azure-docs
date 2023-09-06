@@ -103,31 +103,11 @@ Java functions can also write to a Service Bus topic. The following example uses
 
 The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that sends a queue message every 5 minutes.
 
-```typescript
-import { app, InvocationContext, output, Timer } from '@azure/functions';
-
-export async function timerTrigger1(myTimer: Timer, context: InvocationContext): Promise<string> {
-    const timeStamp = new Date().toISOString();
-    return `Message created at: ${timeStamp}`;
-}
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    return: output.serviceBusQueue({
-        queueName: 'testqueue',
-        connection: 'MyServiceBusConnection',
-    }),
-    handler: timerTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusOutput1.ts" :::
 
 To output multiple messages, return an array instead of a single object. For example:
 
-```typescript
-const timeStamp = new Date().toISOString();
-const message = `Message created at: ${timeStamp}`;
-return [`1: ${message}`, `2: ${message}`];
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusOutput2.ts" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -142,31 +122,11 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that sends a queue message every 5 minutes.
 
-```javascript
-const { app, output } = require('@azure/functions');
-
-const serviceBusOutput = output.serviceBusQueue({
-    queueName: 'testqueue',
-    connection: 'MyServiceBusConnection',
-});
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    return: serviceBusOutput,
-    handler: (myTimer, context) => {
-        const timeStamp = new Date().toISOString();
-        return `Message created at: ${timeStamp}`;
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusOutput1.js" :::
 
 To output multiple messages, return an array instead of a single object. For example:
 
-```javascript
-const timeStamp = new Date().toISOString();
-const message = `Message created at: ${timeStamp}`;
-return [`1: ${message}`, `2: ${message}`];
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusOutput2.js" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 
