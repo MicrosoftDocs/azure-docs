@@ -232,7 +232,7 @@ Rate Limits for SMS:
 |Send Message|Short Code |Per Number|60|6000*|6000|
 |Send Message|Alphanumeric Sender ID |Per resource|60|600*|600|
 
-*If your company has requirements that exceed the rate-limits, email us at phone@microsoft.com and we will enable higher throughput.
+*If your company has requirements that exceed the rate-limits, submit [a request to Azure Support](../../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
 
 ## Carrier Fees 
 ### What are the carrier fees for SMS?

@@ -36,7 +36,7 @@ The following table lists the data formats supported:
 
 ## Prerequisites
 
-Your first step is to create a database where the tables will be created. Before creating a database scoped credential, the database must have a master key to protect the credential. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](https://learn.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
+Your first step is to create a database where the tables will be created. Before creating a database scoped credential, the database must have a master key to protect the credential. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
 - DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
 
     ```sql

@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Defender for Office 365 connector for Microsoft Sentinel"
+title: "Microsoft Defender for Office 365 connector for Microsoft Sentinel (preview)"
 description: "Learn how to install the connector Microsoft Defender for Office 365 to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Microsoft Defender for Office 365 connector for Microsoft Sentinel
+# Microsoft Defender for Office 365 connector for Microsoft Sentinel (preview)
 
 Microsoft Defender for Office 365 safeguards your organization against malicious threats posed by email messages, links (URLs) and collaboration tools. By ingesting Microsoft Defender for Office 365 alerts into Microsoft Sentinel, you can incorporate information about email- and URL-based threats into your broader risk analysis and build response scenarios accordingly.
  

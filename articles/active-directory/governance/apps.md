@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: compliance
 ms.topic: overview
 ms.workload: identity
-ms.date: 06/30/2023
+ms.date: 08/24/2023
 ms.author: billmath
 ms.custom: contperf-fy21q3-portal
 ms.reviewer: amycolannino
@@ -268,8 +268,7 @@ Microsoft Entra identity governance can be integrated with many other applicatio
 | SAML-based apps | | ●  |
 | [SAP Analytics Cloud](../../active-directory/saas-apps/sap-analytics-cloud-provisioning-tutorial.md) | ● | ● |
 | [SAP Cloud Platform](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) | ● | ● |
-| [SAP ECC 7.0](../../active-directory/app-provisioning/on-premises-sap-connector-configure.md) | ● |  |
-| SAP R/3 | ● |  |
+| [SAP R/3 and ERP](../../active-directory/app-provisioning/on-premises-sap-connector-configure.md) | ● |  |
 | [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Azure Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) | ● | ● |
