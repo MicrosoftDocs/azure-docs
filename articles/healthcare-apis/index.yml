@@ -114,20 +114,7 @@ conceptualContent:
               text: Disable events 
             - url: ./events/events-troubleshooting-guide.md
               itemType: how-to-guide
-              text: Troubleshoot events  
-          
-        # Card
-        - title: Azure API for FHIR
-          links:
-            - url: ./azure-api-for-fhir/overview.md
-              itemType: overview
-              text: Azure API for FHIR overview
-            - url: ./azure-api-for-fhir/fhir-paas-portal-quickstart.md
-              itemType: how-to-guide
-              text: Deploy Azure API for FHIR
-            - url: ./azure-api-for-fhir/configure-azure-rbac.md
-              itemType: how-to-guide
-              text: Configure settings   
+              text: Troubleshoot events 
           
 additionalContent:
   sections:
