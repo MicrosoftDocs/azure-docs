@@ -124,7 +124,7 @@ Some of the key benefits & limitations of this deployment method are:
 - **Seamless Integration with Managed Services:** If your application is hosted on a managed service platform such as Azure App Services or Azure Functions, deploying PgBouncer on a VM allows for easy integration with your existing infrastructure.
 - **Simplified Setup on Azure VM:** If you're already running your application on an Azure VM, setting up PgBouncer on the same VM is straightforward. deploying the  PgBouncer in VM ensures that PgBouncer is deployed in close proximity to your application, minimizing network latency and maximizing performance.
 - **Non-Intrusive Configuration:** By deploying PgBouncer on a VM, you can avoid modifying server parameters on Azure PostgreSQL. This is useful when you want to configure PgBouncer on a flexible server. For example, changing the SSLMODE parameter to "required" on Azure PostgreSQL might cause certain applications that rely on SSLMODE=FALSE to fail. Deploying PgBouncer on a separate VM allows you to maintain the default server configuration while still using PgBouncer's benefits.
-- **Compatibility with Prepared Statements:** In-built PgBouncer does not support using prepared statements with transaction and statement pool modes. However, by deploying PgBouncer on a VM, you can overcome this limitation. This provides the flexibility to utilize prepared statements without sacrificing the advantages offered by transaction and statement pool modes.
+
 
 By considering these benefits, deploying PgBouncer on a VM offers a convenient and efficient solution for enhancing the performance and compatibility of your application running on Azure infrastructure.
 
