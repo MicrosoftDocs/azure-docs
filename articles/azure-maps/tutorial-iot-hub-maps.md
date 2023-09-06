@@ -184,7 +184,7 @@ Now, set up your Azure function.
      >[!IMPORTANT]
     > The **Azure Event ***Hub*** Trigger** and the **Azure Event ***Grid*** Trigger** templates have similar names. Make sure you select the **Azure Event ***Grid*** Trigger** template.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Screenshot of create a function.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Screenshot of create a function in Azure Portal.":::
 
 1. The **Create function** panel appears. Scroll down the **Select a template** panel, and select **Azure Event Grid trigger** then select the **Create** button.
 
