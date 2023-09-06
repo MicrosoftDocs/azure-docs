@@ -51,7 +51,7 @@ To generate the Secret Token
 1. Click on **Generate Api Key**.
 Copy and save the **Api Key**. This value is entered in the **Secret Token** field in the Provisioning tab of your Insite LMS application in the Azure portal.
 
->![NOTE]
+>[!NOTE]
 >The Access Token is only valid for 1 year.
 
 ## Step 3. Add Insite LMS from the Azure AD application gallery
