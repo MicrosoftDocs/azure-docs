@@ -74,7 +74,7 @@ For a demonstration of how to add a connected organization, watch the following 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-**Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
+**Prerequisite role**: *Global Administrator* or  *Identity Governance Administrator*
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -86,7 +86,7 @@ For a demonstration of how to add a connected organization, watch the following 
 
 To add an external Azure AD directory or domain as a connected organization, follow the instructions in this section.
 
-**Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
+**Prerequisite role**: *Global Administrator* or *Identity Governance Administrator*
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -139,7 +139,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 If the connected organization changes to a different domain, the organization's name changes, or you want to change the sponsors, you can update the connected organization by following the instructions in this section.
 
-**Prerequisite role**: *Global administrator* or *User administrator*
+**Prerequisite role**: *Global Administrator* or *Identity Governance Administrator*
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -158,7 +158,7 @@ If the connected organization changes to a different domain, the organization's 
 
 If you no longer have a relationship with an external Azure AD directory or domain, or do not wish to have a proposed connected organization any longer, you can delete the connected organization.
 
-**Prerequisite role**: *Global administrator* or *User administrator*
+**Prerequisite role**: *Global Administrator* or *Identity Governance Administrator*
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 

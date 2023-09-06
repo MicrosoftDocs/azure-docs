@@ -865,6 +865,8 @@ groups:
     title: Azure portal
   - id: azcli
     title: Azure CLI
+  - id: azpowershell
+    title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
   - id: programming-language-java
@@ -1746,6 +1748,8 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
   - id: rest-api
     title: REST
 - id: openai-chat
@@ -1774,6 +1778,8 @@ groups:
     title: Portal
   - id: cli
     title: CLI
+  - id: ps
+    title: PowerShell
 # Owner: mbullwin
 - id: openai-fine-tuning
   title: Programming languages
@@ -1813,6 +1819,8 @@ groups:
     title: Go
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
   - id: rest-api
     title: REST
 # Owner: diberry
