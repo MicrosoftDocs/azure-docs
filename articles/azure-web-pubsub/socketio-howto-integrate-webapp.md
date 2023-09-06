@@ -94,15 +94,15 @@ git clone https://github.com/Azure-Samples/socket.io-webapp-integration
     # Poweshell
     ```
 
-1. Compess into a zip
+1. Compress into a zip
 
     Use Bash
     ```bash
     zip -r app.zip *
     ```
 
-    Use Powershell
-    ```Powershell
+    Use PowerShell
+    ```PowerShell
     Compress-Archive -Path * -DestinationPath app.zip
     ```
 
