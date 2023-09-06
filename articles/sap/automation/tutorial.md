@@ -687,11 +687,11 @@ Connect to your deployer VM for the following steps. A copy of the repo is now t
 
 Go into the `WORKSPACES/SYSTEM` folder and copy the sample configuration files to use from the repository.
 
-    ```bash
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM
+```bash
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM
 
-    cp -Rp ../../sap-automation/training-materials/WORKSPACES/SYSTEM/DEV-[REGION]-SAP01-X00 .
-    ```
+cp -Rp ../../sap-automation/training-materials/WORKSPACES/SYSTEM/DEV-[REGION]-SAP01-X00 .
+```
 
 ## Deploy the SAP system infrastructure
 
