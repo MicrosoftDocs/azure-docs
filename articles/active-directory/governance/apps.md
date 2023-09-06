@@ -67,7 +67,7 @@ Microsoft Entra identity governance can be integrated with many other applicatio
 | [Atmos](../../active-directory/saas-apps/atmos-provisioning-tutorial.md) | ● |  |
 | [AuditBoard](../../active-directory/saas-apps/auditboard-provisioning-tutorial.md) | ● |  |
 | [Autodesk SSO](../../active-directory/saas-apps/autodesk-sso-provisioning-tutorial.md) | ● | ● |
-| [Azure Databricks SCIM Connector](https://learn.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad) | ● |  |
+| [Azure Databricks SCIM Connector](/azure/databricks/administration-guide/users-groups/scim/aad) | ● |  |
 | [AWS IAM Identity Center](../../active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial.md) | ● | ● |
 | [BambooHR](../../active-directory/saas-apps/bamboo-hr-tutorial.md) |  | ● |
 | [BenQ IAM](../../active-directory/saas-apps/benq-iam-provisioning-tutorial.md) | ● | ● |
