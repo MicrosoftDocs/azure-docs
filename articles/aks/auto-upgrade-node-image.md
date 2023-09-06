@@ -8,7 +8,7 @@ author: nickomang
 ms.date: 02/03/2023
 ---
 
-# Automatically upgrade Azure Kubernetes Service cluster node operating system images (preview)
+# Automatically upgrade Azure Kubernetes Service cluster node operating system images
 
 AKS now supports an exclusive channel dedicated to controlling node-level OS security updates. This channel, referred to as the node OS auto-upgrade channel, can't be used for cluster-level Kubernetes version upgrades. To automatically upgrade Kubernetes versions, continue to use the cluster [auto-upgrade][Autoupgrade] channel.
 
@@ -33,7 +33,7 @@ The following upgrade channels are available. You're allowed to choose one of th
 |---|---|
 | `None`| Your nodes won't have security updates applied automatically. This means you're solely responsible for your security updates.|N/A|
 | `Unmanaged`|OS updates are applied automatically through the OS built-in patching infrastructure. Newly allocated machines are unpatched initially and will be patched at some point by the OS's infrastructure.|Ubuntu applies security patches through unattended upgrade roughly once a day around 06:00 UTC. Windows doesn't automatically apply security patches, so this option behaves equivalently to `None`. Azure Linux CPU node pools don't automatically apply security patches, so this option behaves equivalently to `None`.|
-| `SecurityPatch`|This channel is in preview and requires enabling the feature flag `NodeOsUpgradeChannelPreview`. Refer to the prerequisites section below for details. AKS regularly updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only." There may be disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|Azure Linux doesn't support this channel on GPU-enabled VMs.|
+| `SecurityPatch`|This channel is in preview and requires enabling the feature flag `NodeOsUpgradeChannelPreview`. Refer to the prerequisites section for details. AKS regularly updates the node's virtual hard disk (VHD) with patches from the image maintainer labeled "security only." There may be disruptions when the security patches are applied to the nodes. When the patches are applied, the VHD is updated and existing machines are upgraded to that VHD, honoring maintenance windows and surge settings. This option incurs the extra cost of hosting the VHDs in your node resource group. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|Azure Linux doesn't support this channel on GPU-enabled VMs.|
 | `NodeImage`|AKS updates the nodes with a newly patched VHD containing security fixes and bug fixes on a weekly cadence. The update to the new VHD is disruptive, following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option. If you use this channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default.|
 
 To set the node OS auto-upgrade channel when creating a cluster, use the *node-os-upgrade-channel* parameter, similar to the following example.
@@ -47,9 +47,10 @@ To set the node os auto-upgrade channel on existing cluster, update the *node-os
 ```azurecli-interactive
 az aks update --resource-group myResourceGroup --name myAKSCluster --node-os-upgrade-channel SecurityPatch
 ```
+
 ## Cadence and Ownership
 
-The default cadence means there's no planned maintenance window applied. 
+The default cadence means there's no planned maintenance window applied.
 
 |Channel|Updates Ownership|Default cadence|
 |---|---|
@@ -58,6 +59,7 @@ The default cadence means there's no planned maintenance window applied.
 | `NodeImage`|AKS|Weekly|
 
 ## Prerequisites
+
 "The following prerequisites are only applicable when using the `SecurityPatch` channel. If you aren't using this channel, you can ignore these requirements.
 - Must be using API version `11-02-preview` or later
 
