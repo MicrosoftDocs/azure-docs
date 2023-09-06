@@ -497,7 +497,7 @@ To view detailed conditions for a configuration object, select its name.
 Flux supports many parameters to enable various scenarios. For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
 
 For more information about available parameters and how to use them, see [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](conceptual-gitops-flux2.md#parameters).
-A workaround to deploy Flux resources with non-supported parameters is to define the required Flux custom resources (for example [GitRepository](https://fluxcd.io/flux/components/source/gitrepositories/), [Kustomization](https://fluxcd.io/flux/components/kustomize/kustomization/) etc.) inside your git repository, and deploy these resources with the `az k8s-configuration flux create` command. You will then still be able to access your Flux resources through the Azure Arc UI.
+A workaround to deploy Flux resources with non-supported parameters is to define the required Flux custom resources inside your git repository. For example, [GitRepository](https://fluxcd.io/flux/components/source/gitrepositories/), [Kustomization](https://fluxcd.io/flux/components/kustomize/kustomization/), etcetera. Then deploy these resources with the `az k8s-configuration flux create` command. You will then still be able to access your Flux resources through the Azure Arc UI.
 
 ## Manage cluster configuration by using the Flux Kustomize controller
 
