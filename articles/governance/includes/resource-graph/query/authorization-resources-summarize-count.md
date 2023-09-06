@@ -1,5 +1,6 @@
 ---
 ms.service: resource-graph
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 08/31/2023
 author: davidsmatlak
