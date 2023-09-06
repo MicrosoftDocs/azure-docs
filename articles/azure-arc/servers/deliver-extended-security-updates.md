@@ -1,7 +1,7 @@
 ---
 title: Deliver Extended Security Updates for Windows Server 2012
 description: Learn how to deliver Extended Security Updates for Windows Server 2012.
-ms.date: 08/22/2023
+ms.date: 09/06/2023
 ms.topic: conceptual
 ---
 
@@ -12,6 +12,8 @@ This article provides instructions for enabling delivery of Extended Security Up
 ## Before you begin
 
 Plan and prepare to onboard your machines to Azure Arc-enabled servers. See [Prepare to deliver Extended Security Updates for Windows Server 2012](prepare-extended-security-updates.md) to learn more.
+
+You'll also need the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in [Azure RBAC](../../role-based-access-control/overview.md) to create and assign ESUs to Arc-enabled servers.
 
 ## Manage ESU licenses
 
