@@ -63,7 +63,10 @@ Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-dic
 Learn more about: 
 
 [Access FHIR service using Postman](./fhir/use-postman.md)
+
 [Access FHIR service using REST client](./fhir/using-rest-client.md)
+
 [Access DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
+
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
