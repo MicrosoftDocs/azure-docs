@@ -34,16 +34,17 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
    - **Subscription:** Select your subscription
    - **Quota type:** Azure VMware Solution
 
-1. Got to **Next**. On the **Additional details** tab:
+1. Got to **Next**. On the **Additional details** tab, under **Request details** > Enter details form:
 
-   - RequestRegion Name
-   - Number of hosts
-   - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
+   - Region
+   - SKU
+   - Number of nodes
+     Click **Save and continue**
 
    >[!NOTE]
    >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
 
-1. Select **Review + Create** to submit the request.
+1. Select **Next** > Under **Review + Create** > validate and click **Create to submit the request.
 
 
 ## Request host quota for CSP customers 
@@ -78,25 +79,21 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    1. Expand customer details and select **Microsoft Azure Management Portal**.
    
    1. In the Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
-      - **Issue type:** Technical
-      - **Subscription:** Select your subscription
-      - **Service:** All services > Azure VMware Solution
-      - **Resource:** General question 
-      - **Summary:** Need capacity
-      - **Problem type:** Capacity Management Issues
-      - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
-   
-   1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
-   
-      - Region Name
-      - Number of hosts
-      - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
-      - Is intended to host multiple customers?
-   
-      >[!NOTE]
-      >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
-   
-   1. Select **Review + Create** to submit the request.
+      -  - **Issue type:** Service and subcscription limits (quotas)
+   - **Subscription:** Select your subscription
+   - **Quota type:** Azure VMware Solution
+
+   1. Got to **Next**. On the **Additional details** tab, under **Request details** > Enter details form:
+
+   - Region
+   - SKU
+   - Number of nodes
+     Click **Save and continue**
+
+   >[!NOTE]
+   >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
+
+   1. Select **Next** > Under **Review + Create** > validate and click **Create** to submit the request.
 
 
 ## Next steps
