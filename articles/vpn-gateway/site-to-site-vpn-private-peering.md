@@ -88,8 +88,8 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
 1. Use the private IP that you wrote down in step 3 as the remote IP on your on-premises firewall to establish the Site-to-Site tunnel over the ExpressRoute private peering.
 
    >[!NOTE]
-  >Configurig BGP on your VPN Gateway is not required to achieve a VPN connection over ExpressRoute private peering.
-  >
+   > Configurig BGP on your VPN Gateway is not required to achieve a VPN connection over ExpressRoute private peering.
+   >
 
 ## <a name="powershell"></a>PowerShell steps
 
