@@ -203,6 +203,8 @@ A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/a
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/grant-api-permissions-app-permissions.md)]
 
+[!INCLUDE [find the application ID](../customers/includes/register-app/find-application-id.md)] 
+
 ## Next steps
  
 - Learn more about a [daemon app that calls a web API in the daemon's name](/azure/active-directory/develop/authentication-flows-app-scenarios#daemon-app-that-calls-a-web-api-in-the-daemons-name)
