@@ -6,7 +6,7 @@ author: jimmart-dev
 ms.service: azure-storage
 ms.subservice: common-concepts
 ms.topic: "include"
-ms.date: 08/30/2023
+ms.date: 09/06/2023
 ms.author: jammart
 ms.custom: "include file"
 ---
@@ -23,4 +23,4 @@ ms.custom: "include file"
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> In the event of a significant disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](../articles/storage/common/storage-failover-overview.md#microsoft-managed-failover).
+> In the event of a significant disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](../articles/storage/common/storage-disaster-recovery-guidance.md#microsoft-managed-failover).

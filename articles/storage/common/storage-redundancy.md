@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/05/2023
+ms.date: 09/06/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -178,7 +178,7 @@ When read access to the secondary is enabled, your application can be read from 
 
 #### Plan for data loss
 
-Because data is replicated asynchronously from the primary to the secondary region, the secondary region is typically behind the primary region in terms of write operations. If a disaster were to strike the primary region, it's likely that some data would be lost and that files within a directory or container would not be consistent. For more information about how to plan for potential data loss, see [Data loss and inconsistencies](storage-failover-overview.md#data-loss-and-inconsistencies).
+Because data is replicated asynchronously from the primary to the secondary region, the secondary region is typically behind the primary region in terms of write operations. If a disaster were to strike the primary region, it's likely that some data would be lost and that files within a directory or container would not be consistent. For more information about how to plan for potential data loss, see [Data loss and inconsistencies](storage-disaster-recovery.md#data-loss-and-inconsistencies).
 
 ## Summary of redundancy options
 

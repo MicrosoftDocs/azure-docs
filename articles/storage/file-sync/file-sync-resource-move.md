@@ -4,7 +4,7 @@ description: Learn how to move sync resources across resource groups, subscripti
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/01/2023
+ms.date: 09/06/2023
 ms.author: kendownie
 ---
 
@@ -130,7 +130,7 @@ Assigning a different region to a resource is different from a [region fail-over
 
 ## Region fail-over
 
-[Azure Files offers geo-redundancy options](../files/files-redundancy.md#geo-redundant-storage) for storage accounts. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions isn't performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It can't have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to account for potential [Data loss and inconsistencies](../common/storage-failover-overview.md#data-loss-and-inconsistencies).
+[Azure Files offers geo-redundancy options](../files/files-redundancy.md#geo-redundant-storage) for storage accounts. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions isn't performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It can't have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to account for potential [Data loss and inconsistencies](../common/storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
 
 > [!CAUTION]
 > Failover is never an appropriate substitute to provisioning your resources in the correct Azure region. If your resources are in the "wrong" region, you need to consider stopping sync and setting sync up again to new Azure file shares that are deployed in your desired region.

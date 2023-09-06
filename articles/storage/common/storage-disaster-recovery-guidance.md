@@ -20,8 +20,8 @@ Microsoft strives to ensure that Azure services are always available. However, u
 - [Data protection](../blobs/data-protection-overview.md)
 - [Backup and restore](../../backup/index.yml)
 - [Data redundancy](storage-redundancy.md)
-- [Failover](storage-failover-overview.md)
-- Designing applications for high availability
+- [Failover](#plan-for-storage-account-failover)
+- [Designing applications for high availability](#design-for-high-availability)
 
 This article focuses on failover for globally-redundant storage accounts (GRS), and how to design your applications to be highly available in the event of an outage and subsequent failover.
 
@@ -45,8 +45,8 @@ For more information about redundancy in Azure Storage, see [Azure Storage redun
 
 Azure Storage accounts support two types of failover:
 
-- [**Customer-managed failover**](storage-failover-overview.md#customer-managed-failover) - Customers can manage storage account failover in the event of unexpected service outages.
-- [**Microsoft-managed failover**](storage-failover-overview.md#microsoft-managed-failover) - Initiated by Microsoft only in the case of a severe disaster in a primary region.
+- [**Customer-managed failover**](#customer-managed-failover) - Customers can manage storage account failover in the event of unexpected service outages.
+- [**Microsoft-managed failover**](#microsoft-managed-failover) - Initiated by Microsoft only in the case of a severe disaster in a primary region.
 
 Your disaster recovery plan should be based on customer-managed failover. Do not rely on Microsoft-managed failover, which would only be used in extreme circumstances.
 
@@ -140,7 +140,7 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 > [!IMPORTANT]
 > Customer-managed account failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as *classic*, is not supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](classic-account-migration-overview.md). Your storage account must be accessible to perform the upgrade, so the primary region cannot currently be in a failed state.
 >
-> In the event of a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts. For more information, see [Microsoft-managed failover](storage-failover-overview.md#microsoft-managed-failover).
+> In the event of a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).
 
 #### Azure Data Lake Storage Gen2
 
