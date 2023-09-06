@@ -11,7 +11,7 @@ ms.custom:
 ---
 # Use a virtual network to secure inbound and outbound traffic for Azure API Management
 
-API Management provides several options to secure access to your API Management instance and APIs using an Azure virtual network. API Management supports the following options. Depending on the [service tier](api-management-features.md) of your API Management instance, certain options may not be available:
+API Management provides several options to secure access to your API Management instance and APIs using an Azure virtual network. API Management supports the following options. Available options depend on the [service tier](api-management-features.md) of your API Management instance.
 
 * **Injection** of the API Management instance into a subnet in the virtual network, enabling the gateway to access resources in the network. 
 
@@ -28,7 +28,7 @@ The following table compares virtual networking options. For more information, s
 |**[Virtual network injection - external](#virtual-network-injection)**     | Developer, Premium       | Developer portal, gateway, management plane, and Git repository        | Inbound and outbound traffic can be allowed to internet, peered virtual networks, Express Route, and S2S VPN connections.     | External access to private and on-premises backends
 |**[Virtual network injection - internal](#virtual-network-injection)**     |  Developer, Premium      |  Developer portal, gateway, management plane, and Git repository.       |  Inbound and outbound traffic can be allowed to peered virtual networks, Express Route, and S2S VPN connections.       | Internal access to private and on-premises backends
 |**[Inbound private endpoint](#inbound-private-endpoint)**   | Developer, Basic, Standard, Premium        |   Gateway only (managed gateway supported, self-hosted gateway not supported).      |    Only inbound traffic can be allowed from internet, peered virtual networks, Express Route, and S2S VPN connections.     | Secure client connection to API Management gateway |
-|**[Outbound virtual network integration](#outbound-virtual-network-integration)**     | Standard v2       | Gateway        | Inbound and outbound traffic can be allowed to internet, peered virtual networks, Express Route, and S2S VPN connections.     | External access to private and on-premises backends
+|**[Outbound virtual network integration](#outbound-virtual-network-integration)**     | Standard v2       | Gateway        | Outbound traffic can be allowed to internet, peered virtual networks, Express Route, and S2S VPN connections.     | Outbound access to private and on-premises backends
 
 
 ## Virtual network injection
@@ -46,7 +46,7 @@ Using a virtual network, you can configure the developer portal, API gateway, an
 
 * **External** - The API Management endpoints are accessible from the public internet via an external load balancer. The gateway can access resources within the VNet.
 
-    :::image type="content" source="media/virtual-network-concepts/api-management-vnet-external.png" alt-text="Diagram showing a connection to external VNet." lightbox="media/virtual-network-concepts/api-management-vnet-external.png":::
+    :::image type="content" source="media/virtual-network-concepts/api-management-vnet-external.png" alt-text="Diagram showing a connection to external VNet." :::
 
     Use API Management in external mode to access backend services deployed in the virtual network.
 
@@ -63,7 +63,7 @@ Using a virtual network, you can configure the developer portal, API gateway, an
 
 ### Network resource requirements for injection
 
-The following are virtual network resource requirements for API Management injection. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
+The following are virtual network resource requirements for API Management injection into a VNet. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
 
 #### [stv2](#tab/stv2)
 
@@ -166,10 +166,10 @@ For more information, see [Connect privately to API Management using an inbound 
 
 ## Outbound virtual network integration
 
-In the Standard v2 tier, you can connect (integrate) your API Management instance to a virtual network and then make outbound requests to API backends that are isolated in the network. In this mode, your API Management instance isn't itself deployed in a virtual network. It's configured to make outbound connections to resources in a subnet in a virtual network that's in the same region and that's delegated to the Microsoft.Web/serverFarms service.
+In the Standard v2 tier, you can connect (integrate) your API Management instance to a virtual network and then make outbound requests to API backends that are isolated in the network. In this mode, your API Management instance isn't itself deployed in a virtual network. It's configured to make outbound connections to a subnet in a virtual network that's in the same region and that's delegated to the Microsoft.Web/serverFarms service.
 
 <!-- Compare with /app-service/media/networking-features/vnet-integration.png -->
-:::image type="content" source="./media/virtual-network-concepts/vnet-integration.svg" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
+:::image type="content" source="./media/virtual-network-concepts/vnet-integration.svg" alt-text="Diagram of integrating API Management instance with a delegated subnet.":::
 
 For more information, see [Integrate an Azure API Management instance with a private VNet](integrate-vnet-outbound.md).
 

@@ -2,20 +2,19 @@
 title: Azure API Management - v2 tiers (preview)
 description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. The v2 tiers are in preview.
 services: api-management
-documentationcenter: ''
 author: dlepow
 editor: ''
  
 ms.service: api-management
-ms.topic: overview
-ms.date: 08/22/2023
+ms.topic: conceptual
+ms.date: 09/06/2023        
 ms.author: danlep
 ms.custom: references_regions
 ---
 
 # Welcome to the v2 tiers of API Management (preview)
 
-We're introducing a new set of pricing tiers (SKUs) for Azure API Management that we've named *v2 tiers*. The v2 tiers of Azure API Management are designed to meet the needs of customers with today's demanding API management workloads. Built on a new platform that provides enhanced performance, reliability, and scale, the v2 tiers offer a range of features and flexible options for many scenarios. 
+We're introducing a new set of pricing tiers (SKUs) for Azure API Management: the *v2 tiers*. The v2 tiers of Azure API Management are designed to meet the needs of customers with today's demanding API management workloads. Built on a new platform that provides enhanced performance, reliability, and scale, the v2 tiers offer a range of features and flexible options for many scenarios. 
 
 Currently in preview, the following v2 tiers are available:
 
@@ -27,20 +26,15 @@ Currently in preview, the following v2 tiers are available:
 
 * **Faster deployment and scaling** - Deploy a production-ready API Management instance in minutes. Scale up quickly to meet the needs of your API management workloads.
 
-* **Simplified networking** - The v2 tiers support [networking options](#networking-options) to isolate the network traffic to and from your API Management instance. Most networking configurations and dependencies can be managed automatically by the service.
+* **Simplified networking** - The Standard v2 tier supports [outbound connections](#networking-options) to network-isolated backends.
 
 * **Built-in analytics** -  The v2 tiers include built-in analytics based on Azure Log Analytics workbooks.
 
 * **More options for production workloads** - The v2 tiers are all supported with an SLA.
 
-* **Consumption-based pricing** - The v2 tiers are designed for a consumption-based pricing model, based on the number of API calls made through your API Management gateway.
+* **Consumption-based pricing** - The v2 tiers have a consumption-based pricing model, based on the number of API calls made through your API Management gateway. For details, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
-    > [!NOTE]
-    > Currently, pricing specifics for the v2 tiers haven't been announced.
-
-<!-- Do we want to provide specifics about change to compute architecture
-## Architecture
--->
+* **Developer portal options** - Enable the [developer-portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. The developer portal is included in the Standard v2 tier, and is an add-on in the Basic v2 tier.
 
 ## Networking options
 
@@ -49,14 +43,10 @@ In preview, the v2 tiers currently support the following options to limit networ
 
 * **Standard v2**
 
-    **Outbound**: VNet integration to allow your API Management instance to reach API backends that are isolated in a VNet. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The VNet must be in the same region as the API Management instance. [Learn more]
+    **Outbound** - VNet integration to allow your API Management instance to reach API backends that are isolated in a VNet. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The VNet must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-
-<!--Link to networking article?-->
-
+    
 ## Features and limitations
-
-<!--Review and confirm all details-->
 
 ### API version
 
@@ -75,36 +65,48 @@ In preview, the v2 tiers are available in the following regions:
 * Brazil South
 * South Africa North
 * Australia East
-* Central India
+* Australia Southeast
 * East Asia
 
 ### Feature availability
 
-Most capabilities of the existing (v1) tiers are supported in the v2 tiers. However, the following API Management capabilities that are available in the v1 tiers aren't supported in the v2 tiers:
+Most capabilities of the existing (v1) tiers are supported in the v2 tiers. However, the following capabilities aren't supported in the v2 tiers:
 
 * API Management service configuration using Git
-* Back up and restore
+* Back up and restore of API Management instance
 * Enabling Azure DDoS Protection
 
 ### Preview limitations
 
-During preview, the following API Management capabilities are currently not available in the v2 tiers. Feature support may be added during the preview period.
+During preview, the following API Management capabilities are currently unavailable in the v2 tiers. Feature support may be added during the preview period.
 
+
+**Infrastructure and networking**
 * Zone redundancy
 * Multi-region deployment
 * Autoscaling
 * Multiple custom domain names
-* Deployment in a VNet in internal mode (VNet injection)
-* Delegation in the developer portal
+* Capacity metric
+* Deployment (injection) in a VNet in external or internal mode 
+* Inbound connection using a private endpoint
+* Upgrade to v2 tiers from v1 tiers
+* Workspaces
+* Compute platform version property  
+
+**Developer portal**
+* Delegation of user registration and product subscription
+
+**Gateway**
 * Management of Websocket APIs
-* Management of GraphQL APIs
-* Upgrade to v2 tiers from v1 tiers 
+* Requests to the gateway over localhost
+* Self-hosted gateway
+* Rate limit by key policy
 
 ## Frequently asked questions
 
 ### Q: Can I migrate from my existing API Management instance to a new v2 tier instance?
 
-A: No. Currently you can't migrate an existing API Management instance (in the Consumption, Developer, Standard, or Premium tier) to a new v2 tier instance. You must deploy a completely new instance in the v2 tier.
+A: No. Currently you can't migrate an existing API Management instance (in the Consumption, Developer, Standard, or Premium tier) to a new v2 tier instance. You must deploy a new instance in the v2 tier.
 
 ### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
 A: They're not related. API Management's stv2 compute platform is a successor platform version used for the [retirement of the stv1 compute platform](./breaking-changes/stv1-platform-retirement-august-2024.md) in the current Developer, Standard, and Premium tiers. The v2 tiers aren't affected by the retirement of the stv1 compute platform.
