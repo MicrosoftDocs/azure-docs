@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.1.3**: <br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Device inventory enhancements for local subnets](#device-inventory-enhancements-for-local-subnets) <br>- [Event timeline access for OT sensor Read Only users](#event-timeline-access-for-ot-sensor-read-only-users)|
+| **OT networks** | **Version 23.1.3**: <br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Event timeline access for OT sensor Read Only users](#event-timeline-access-for-ot-sensor-read-only-users)|
 
 ### Troubleshoot OT sensor connectivity
 
