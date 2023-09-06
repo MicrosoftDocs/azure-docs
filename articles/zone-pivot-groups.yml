@@ -865,7 +865,7 @@ groups:
     title: Azure portal
   - id: azcli
     title: Azure CLI
-  - id: azps
+  - id: azpowershell
     title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
