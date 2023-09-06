@@ -19,7 +19,7 @@ If the primary endpoint for your geo-redundant storage account becomes unavailab
 This article shows how to initiate an account failover for your storage account using the Azure portal, PowerShell, or Azure CLI. To learn more about account failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 > [!WARNING]
-> An account failover typically results in some data loss. To understand the implications of an account failover and to prepare for data loss, review [Data loss and inconsistencies](storage-failover-overview.md#data-loss-and-inconsistencies).
+> An account failover typically results in some data loss. To understand the implications of an account failover and to prepare for data loss, review [Data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -29,8 +29,8 @@ Before you can perform an account failover on your storage account, make sure th
 
 > [!div class="checklist"]
 > - Your storage account is configured for geo-replication (GRS, GZRS, RA-GRS or RA-GZRS). For more information about Azure Storage redundancy, see [Azure Storage redundancy](storage-redundancy.md).
-> - The type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-failover-overview.md#supported-storage-account-types).
-> - Your storage account doesn't have any features or services enabled that are not supported for account failover. See [Unsupported features and services](storage-failover-overview.md#unsupported-features-and-services) for a detailed list.
+> - The type of your storage account supports customer-initiated failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
+> - Your storage account doesn't have any features or services enabled that are not supported for account failover. See [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services) for a detailed list.
 
 ## Initiate the failover
 

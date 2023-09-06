@@ -218,5 +218,4 @@ After re-configuring the account as GZRS, replication to the original secondary 
 
 - [Disaster recovery planning](storage-disaster-recovery-guidance.md)
 - [Azure Storage redundancy](storage-redundancy.md)
-- [Azure storage account failover overview](storage-failover-overview.md)
 - [Initiate an account failover](storage-initiate-account-failover.md)
