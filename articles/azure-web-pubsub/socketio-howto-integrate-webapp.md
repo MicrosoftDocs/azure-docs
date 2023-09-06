@@ -18,8 +18,6 @@ In this how-to guide, we take a cloud-native approach and use Azure services to 
 
 :::image type="content" source="./media/howto-integrate-app-service/result.gif" alt-text="Gif of finished project.":::
 
-:::image type="content" source="./media/howto-integrate-app-service/architecture.jpg" alt-text="Architecture diagram of the collaborative whiteboard app.":::
-
 ## Prerequisites
  
 In order to follow the step-by-step guide, you need
