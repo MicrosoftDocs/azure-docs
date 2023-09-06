@@ -40,7 +40,7 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
    - SKU
    - Number of nodes
      
-     Click **Save and continue**
+   Click **Save and continue**
 
    >[!NOTE]
    >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
@@ -89,11 +89,11 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
       - Region
       - SKU
       - Number of nodes
-     
-     Click **Save and continue**
+      
+      Click **Save and continue**
 
-   >[!NOTE]
-   >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
+      >[!NOTE]
+      >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
 
    1. Select **Next** > Under **Review + Create** > validate and click **Create** to submit the request.
 
