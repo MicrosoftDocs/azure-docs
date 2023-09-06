@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.date: 01/18/2023
 ms.author: cwerner 
-ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
+ms.custom: aaddev, 'scenarios:getting-started', 'languages:Java', devx-track-java, devx-track-extended-java
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from a Java web app

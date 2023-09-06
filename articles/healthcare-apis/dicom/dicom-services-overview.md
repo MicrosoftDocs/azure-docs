@@ -5,19 +5,13 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 09/01/2023
 ms.author: mmitrik
 ---
 
-# Overview of the DICOM service
-
-This article describes the concepts of DICOM and the DICOM service.
-
-## DICOM
+# What is the DICOM service?
 
 DICOM (Digital Imaging and Communications in Medicine) is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare. 
-
-## DICOM service
 
 The DICOM service is a managed service within [Azure Health Data Services](../healthcare-apis-overview.md) that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb&trade; enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs), [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs), [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs). It's backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) compliance that you can upload PHI data to the DICOM service and exchange it through secure networks. 
 
