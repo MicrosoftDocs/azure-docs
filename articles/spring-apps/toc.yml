@@ -211,6 +211,8 @@ items:
         href: how-to-setup-autoscale.md
     - name: Integrate
       items:
+      - name: Create a service connection from the Azure portal
+        href: ../service-connector/quickstart-portal-spring-cloud-connection.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
       - name: Azure Cosmos DB
         href: how-to-bind-cosmos.md
       - name: Azure Cache for Redis
@@ -423,6 +425,8 @@ items:
         href: how-to-setup-autoscale.md
     - name: Integrate
       items:
+      - name: Create a service connection from the Azure portal
+        href: ../service-connector/quickstart-portal-spring-cloud-connection.md?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
       - name: Azure Cosmos DB
         href: how-to-bind-cosmos.md
       - name: Azure Cache for Redis
