@@ -34,7 +34,7 @@ You can create or edit the configuration file by using the `azacsnap -c configur
 
 You can create a configuration file by running `azacsnap -c configure --configuration new`. By default, the configuration file name is *azacsnap.json*. You can use a custom file name with the `--configfile=` parameter (for example, `--configfile=<customname>.json`).
 
-The following example is for an Azure Large Instance configuration:
+The following example is for an Azure Large Instances configuration:
 
 ```bash
 azacsnap -c configure --configuration new
@@ -88,7 +88,7 @@ When you add an *SAP HANA database* to the configuration, the following values a
 - `HANA SID`: The SAP HANA system ID (SID).
 - `HANA Instance Number`: The SAP HANA instance number.
 - `HANA HDB User Store Key`: The SAP HANA user configured with permissions to run database backups.
-- `Do you need AzAcSnap to automatically disable/enable backint during snapshot`: Defaults to `n` (no). You can set it to `y` (yes) to allow the snapshot tool to disable or re-enable the Backint interface. The [Backint coexistence](#backint-coexistence) section in this article explains this option in more detail.
+- `Do you need AzAcSnap to automatically disable/enable backint during snapshot`: Defaults to `n` (no). You can set it to `y` (yes) to allow AzAcSnap to disable or re-enable the Backint interface. The [Backint coexistence](#backint-coexistence) section in this article explains this option in more detail.
 - `Single node`: Host name and IP address of the node.
 - `HSR with STONITH`: Host name and IP address of the node.
 - `Scale-out (N+N, N+M)`: Current host name and IP address of the master node.
@@ -99,9 +99,9 @@ When you add an *SAP HANA database* to the configuration, the following values a
 
 The [Azure Backup](../backup/index.yml) service provides an alternate backup tool for SAP HANA. You can stream database and log backups into Azure Backup.
 
-Some customers want to combine the streaming Backint-based backups with regular snapshot-based backups. However, Backint-based backups block other backup methods, such as using a files-based backup or a storage snapshot-based backup (for example, the Azure Application Consistent Snapshot tool). For more information, see [Run SAP HANA native clients backup on a database with Azure Backup](../backup/backup-azure-sap-hana-database.md#run-sap-hana-native-clients-backup-on-a-database-with-azure-backup).
+Some customers want to combine the streaming Backint-based backups with regular snapshot-based backups. However, Backint-based backups block other backup methods, such as using a files-based backup or a storage snapshot-based backup (for example, AzAcSnap). For more information, see [Run SAP HANA native clients backup on a database with Azure Backup](../backup/backup-azure-sap-hana-database.md#run-sap-hana-native-clients-backup-on-a-database-with-azure-backup).
 
-The process that the Azure Backup documentation describes has been implemented with the Azure Application Consistent Snapshot tool to automatically do the following steps:
+The process that the Azure Backup documentation describes has been implemented with AzAcSnap to automatically do the following steps:
 
 1. Force a log backup flush to Backint.
 1. Wait for running backups to finish.
@@ -179,7 +179,7 @@ When you add *Azure NetApp Files storage* to a database section, the following v
 In the following example, *azacsnap.json* is configured with the one SID.
 
 You must set the parameter values to your specific SAP HANA environment.
-For an Azure Large Instance system, Microsoft Service Management provides this information as an Excel file during the call for onboarding and handover. Open a service request if you need Microsoft Service Management to send the information again.
+For an Azure Large Instances system, Microsoft Service Management provides this information as an Excel file during the call for onboarding and handover. Open a service request if you need Microsoft Service Management to send the information again.
 
 The following output is an example configuration file only. It's the content of the file that the configuration example generates. Update all the values accordingly.
 
@@ -228,7 +228,7 @@ cat azacsnap.json
 > [!NOTE]
 > For a disaster recovery (DR) scenario where you'll run backups at the DR site, the HANA server name that's configured in the DR configuration file (for example, *DR.json*) at the DR site should be the same as the production server name.
 >
-> For Azure Large Instance, your storage IP address must be in the same subnet as your server pool. For example, in this case, the server pool subnet is 172.18.18.0/24 and the assigned storage IP address is 172.18.18.11.
+> For Azure Large Instances, your storage IP address must be in the same subnet as your server pool. For example, in this case, the server pool subnet is 172.18.18.0/24 and the assigned storage IP address is 172.18.18.11.
 
 ## Next steps
 
