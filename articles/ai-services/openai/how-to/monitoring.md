@@ -1,13 +1,13 @@
 ---
 title: Monitoring Azure OpenAI Service
-description: Learn how to use Azure Monitor tools to capture and analyze metrics and data logs for your Azure OpenAI Service resources.
+description: Learn how to use Azure Monitor tools like Log Analytics to capture and analyze metrics and data logs for your Azure OpenAI Service resources.
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
 ms.custom: subject-monitoring
-ms.date: 09/06/2023
+ms.date: 09/07/2023
 ---
 
 # Monitoring Azure OpenAI Service
@@ -38,22 +38,49 @@ Azure OpenAI has commonality with a subset of Azure AI services. For a list of a
 
 ### Azure OpenAI metrics
 
-This table summarizes the current subset of metrics available in Azure OpenAI. All of the following metrics are exportable by using [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings) in Azure Monitor.
+The following table summarizes the current subset of metrics available in Azure OpenAI. 
 
-|Metric|Display Name|Unit|Aggregation|Description|Dimensions|
+|Metric|Display Name|Category|Unit|Aggregation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|`BlockedCalls` |Blocked Calls |Count |Total |Number of calls that exceeded rate or quota limit. | `ApiName`, `OperationName`, `Region`, `RatelimitKey` |
-|`ClientErrors` |Client Errors |Count |Total |Number of calls with a client side error (HTTP response code 4xx). |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
-|`DataIn` |Data In |Bytes |Total |Size of incoming data in bytes. |`ApiName`, `OperationName`, `Region` |
-|`DataOut` |Data Out |Bytes |Total |Size of outgoing data in bytes. |`ApiName`, `OperationName`, `Region` |
-|`FineTunedTrainingHours` |Processed FineTuned Training Hours |Count |Total |Number of training hours processed on an Azure OpenAI fine-tuned model. |`ApiName`, `ModelDeploymentName`, `FeatureName`, `UsageChannel`, `Region` |
-|`Latency` |Latency |MilliSeconds |Average |Latency in milliseconds. |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
-|`Ratelimit` |Ratelimit |Count |Total |The current rate limit of the rate limit key. |`Region`, `RatelimitKey` |
-|`ServerErrors` |Server Errors |Count |Total |Number of calls with a service internal error (HTTP response code 5xx). |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
-|`SuccessfulCalls` |Successful Calls |Count |Total |Number of successful calls. |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
-|`TokenTransaction` |Processed Inference Tokens |Count |Total |Number of inference tokens processed on an Azure OpenAI model. |`ApiName`, `ModelDeploymentName`, `FeatureName`, `UsageChannel`, `Region` |
-|`TotalCalls` |Total Calls |Count |Total |Total number of calls. |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
-|`TotalErrors` |Total Errors |Count |Total |Total number of calls with an error response (HTTP response code 4xx or 5xx). |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
+|`BlockedCalls` |Blocked Calls |HTTP | Count |Total |Number of calls that exceeded rate or quota limit. | `ApiName`, `OperationName`, `Region`, `RatelimitKey` |
+|`ClientErrors` |Client Errors |HTTP | Count |Total |Number of calls with a client side error (HTTP response code 4xx). |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
+|`DataIn` |Data In |HTTP | Bytes |Total |Size of incoming data in bytes. |`ApiName`, `OperationName`, `Region` |
+|`DataOut` |Data Out |HTTP | Bytes |Total |Size of outgoing data in bytes. |`ApiName`, `OperationName`, `Region` |
+|`FineTunedTrainingHours` |Processed FineTuned Training Hours |USAGE |Count |Total |Number of training hours processed on an Azure OpenAI fine-tuned model. |`ApiName`, `ModelDeploymentName`, `FeatureName`, `UsageChannel`, `Region` |
+|`GeneratedTokens` |Generated Completion Tokens |USAGE |Count |Total |Number of generated tokens from an Azure OpenAI model. |`ApiName`, `ModelDeploymentName`, `FeatureName`, `UsageChannel`, `Region` |
+|`Latency` |Latency |HTTP |MilliSeconds |Average |Latency in milliseconds. |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
+|`ProcessedPromptTokens` |Processed Prompt Tokens |USAGE |Count |Total |Number of prompt tokens processed on an Azure OpenAI model. |`ApiName`, `ModelDeploymentName`, `FeatureName`, `UsageChannel`, `Region` |
+|`Ratelimit` |Ratelimit |HTTP |Count |Total |The current rate limit of the rate limit key. |`Region`, `RatelimitKey` |
+|`ServerErrors` |Server Errors |HTTP | Count |Total |Number of calls with a service internal error (HTTP response code 5xx). |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
+|`SuccessfulCalls` |Successful Calls |HTTP |Count |Total |Number of successful calls. |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
+|`SuccessRate` |Availability Rate |SLI |Percentage |Total |Availability percentage for the calculation `(TotalCalls - ServerErrors)/TotalCalls` for `ServerErrors` of HTTP response code 5xx. |`ApiName`, `ModelDeploymentName`, `FeatureName`, `UsageChannel`, `Region` |
+|`TokenTransaction` |Processed Inference Tokens |USAGE |Count |Total |Number of inference tokens processed on an Azure OpenAI model. |`ApiName`, `ModelDeploymentName`, `FeatureName`, `UsageChannel`, `Region` |
+|`TotalCalls` |Total Calls |HTTP |Count |Total |Total number of calls. |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
+|`TotalErrors` |Total Errors |HTTP |Count |Total |Total number of calls with an error response (HTTP response code 4xx or 5xx). |`ApiName`, `OperationName`, `Region`, `RatelimitKey` |
+
+## Configure diagnostic settings
+
+All of the metrics are exportable with [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings). To analyze logs and metrics data with Azure Monitor Log Analytics queries, you need to configure diagnostic settings for your Azure OpenAI resource and your Log Analytics workspace.
+
+1. From your Azure OpenAI resource page, under **Monitoring**, select **Diagnostic settings** on the left pane. On the **Diagnostic settings** page, select **Add diagnostic setting**.
+
+   :::image type="content" source="../media/monitoring/monitor-add-diagnostic-setting.png" alt-text="Screenshot that shows how to open the Diagnostic setting page for an Azure OpenAI resource in the Azure portal." border="false":::
+
+1. On the **Diagnostic settings** page, configure the following fields:
+
+   1. Select **Send to Log Analytics workspace**.
+   1. Choose your Azure account subscription.
+   1. Choose your Log Analytics workspace.
+   1. Under **Logs**, select **allLogs**.
+   1. Under **Metrics**, select **AllMetrics**.
+
+   :::image type="content" source="../media/monitoring/monitor-configure-diagnostics.png" alt-text="Screenshot that shows how to configure diagnostic settings for an Azure OpenAI resource in the Azure portal.":::
+
+1. Enter a **Diagnostic setting name** to save the configuration.
+
+1. Select **Save**.
+
+After you configure the diagnostic settings, you can work with metrics and log data for your Azure OpenAI resource in your Log Analytics workspace.
 
 ## Analyze logs
 
@@ -67,19 +94,37 @@ For a list of the types of resource logs available for Azure OpenAI and similar 
 
 ## Use Kusto queries
 
-After you deploy an Azure OpenAI model and send some completions calls in [Azure AI Studio](https://oai.azure.com/), you have monitoring data available for your resource. You can explore the data to get a sense of the performance information available. To analyze your monitoring data, you can use the [Kusto](/azure/data-explorer/kusto/query/) query language.
+After you deploy an Azure OpenAI model, you can send some completions calls by using the **playground** environment in [Azure AI Studio](https://oai.azure.com/).
+
+:::image type="content" source="../media/monitoring/azure-openai-studio-playground.png" alt-text="Screenshot that shows how to generate completions for an Azure OpenAI resource in the Azure OpenAI Studio playground." lightbox="../media/monitoring/azure-openai-studio-playground.png" border="false":::
+
+Any text that you enter in the **Completions playground** or the **Chat completions playground** generates metrics and log data for your Azure OpenAI resource. In the Log Analytics workspace for your resource, you can query the monitoring data by using the [Kusto](/azure/data-explorer/kusto/query/) query language.
+
+> [!IMPORTANT]
+> The **Open query** option on the Azure OpenAI resource page browses to Azure Resource Graph, which isn't described in this article.
+> The following queries use the query environment for Log Analytics. Be sure to follow the steps in [Configure diagnostic settings](#configure-diagnostic-settings) to prepare your Log Analytics workspace. 
+
+1. From your Azure OpenAI resource page, under **Monitoring** on the left pane, select **Logs**.
+
+1. Select the Log Analytics workspace that you configured with diagnostics for your Azure OpenAI resource. 
+
+1. From the **Log Analytics workspace** page, under **Overview** on the left pane, select **Logs**.
+
+   The Azure portal displays a **Queries** window with sample queries and suggestions by default. You can close this window.
+
+For the following examples, enter the Kusto query into the edit region at the top of the **Query** window, and then select **Run**. The query results display below the query text.
 
 The following Kusto query is useful for an initial analysis of Azure Diagnostics (`AzureDiagnostics`) data about your resource: 
 
 ```kusto
 AzureDiagnostics
 | take 100
-| project TimeGenerated, _ResourceId, Category,OperationName, DurationMs, ResultSignature, properties_s
+| project TimeGenerated, _ResourceId, Category, OperationName, DurationMs, ResultSignature, properties_s
 ```
 
-This query returns a sample of 100 entries and displays a subset of the available columns of data in the logs:
+This query returns a sample of 100 entries and displays a subset of the available columns of data in the logs. In the query results, you can select the arrow next to the table name to view all available columns and associated data types.
 
-:::image type="content" source="../media/monitoring/kusto-results-diagnostics.png" alt-text="Screenshot that shows the results of a Kusto query for Azure Diagnostics data about the Azure OpenAI resource." lightbox="../media/monitoring/kusto-results-diagnostics.png":::
+:::image type="content" source="../media/monitoring/log-analytics-diagnostics-query.png" alt-text="Screenshot that shows the Log Analytics query results for Azure Diagnostics data about the Azure OpenAI resource." lightbox="../media/monitoring/log-analytics-diagnostics-query.png":::
 
 To see all available columns of data, you can remove the scoping parameters line `| project ...` from the query:
 
@@ -88,19 +133,17 @@ AzureDiagnostics
 | take 100
 ```
 
-In the query results, you can select the arrow next to the table name to view all available columns and associated data types.
-
 To examine the Azure Metrics (`AzureMetrics`) data for your resource, run the following query:
 
 ```kusto
 AzureMetrics
 | take 100
-| project TimeGenerated, MetricName, Total, Count, TimeGrain, UnitName
+| project TimeGenerated, MetricName, Total, Count, Maximum, Minimum, Average, TimeGrain, UnitName
 ```
 
 The query returns a sample of 100 entries and displays a subset of the available columns of Azure Metrics data:
 
-:::image type="content" source="../media/monitoring/kusto-results-metrics.png" alt-text="Screenshot that shows the results of a Kusto query for Azure Metrics data about the Azure OpenAI resource" lightbox="../media/monitoring/kusto-results-metrics.png":::
+:::image type="content" source="../media/monitoring/log-analytics-metrics-query.png" alt-text="Screenshot that shows the Log Analytics query results for Azure Metrics data about the Azure OpenAI resource." lightbox="../media/monitoring/log-analytics-metrics-query.png":::
 
 > [!NOTE]
 > When you select **Monitoring** > **Logs** in the Azure OpenAI menu for your resource, Log Analytics opens with the query scope set to the current resource. The visible log queries include data from that specific resource only. To run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu in the Azure portal. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](../../../azure-monitor/logs/scope.md) for details.
