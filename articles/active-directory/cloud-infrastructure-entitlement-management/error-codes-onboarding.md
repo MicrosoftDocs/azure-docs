@@ -14,7 +14,7 @@ ms.author: jfields
 
 # Error codes when onboarding Permissions Management
 
-During onboarding in Microsoft Entra Permissions Management, authorization system onboarding may fail. If this happens, error messages are returned that an admin can triage. This article lists potential data collection error messages and their descriptions shown in the Permissions Management UI, along with proposed solutions.
+During onboarding in Microsoft Entra Permissions Management, authorization system onboarding may fail, and error messages are returned that an admin can triage. This article lists data collection error messages and their descriptions shown in the Permissions Management UI, along with proposed solutions.
 
 
 <table>
@@ -28,7 +28,7 @@ During onboarding in Microsoft Entra Permissions Management, authorization syste
 <tbody>
 <tr>
 <td><code>AWS_ACCESSADVISOR_COLLECTION_ERROR</code></td>
-<td>This account does not have permissions to view 'Service Last Accessed'.</td>
+<td>This account does not have permissions to view ```Service Last Accessed```.</td>
 <td>Verify that you're signed in using Management Account credentials.
     - The AWS account must have a policy that has permissions to generate, get, list ```ServiceLastAccessDetails``` or equivalent permissions.
     - In the AWS Management Console, verify that Service Control Policies (SCPs) are enabled in your organization root.</td>
@@ -36,20 +36,20 @@ During onboarding in Microsoft Entra Permissions Management, authorization syste
 <tr>
 <td><code>AWS_CLOUDTRAIL_</code></td>
 <td>This AWS environment does not have CloudTrail configured, or you do not have permissions to access CloudTrail.</td>
-<td>CloudTrail is automatically created when an AWS account is created. You don't have permission to access Cloudtrail. To access:
+<td>CloudTrail is automatically created when an AWS account is created. You don't have permission to access CloudTrail. To access:
 - Verify you're signed in using Management Account credentials.
 - Enable CloudTrail as a trusted service in your AWS organization.
 - The AWS account must have the CloudTrail managed policies ```AWSCloudTrail_FullAccess```, ```AWSCloudTrail_ReadOnlyAccess```, or have been granted equivalent permissions.``` </td>
 </tr>
 <tr>
 <td><code>AWS_CLOUDTRAIL_S3_ACCESS_DENIED</code></td>
-<td>This account doesN't have permissions to access SB3 Bucket Cloudtrail logs.</td>
+<td>This account doesN't have permissions to access SB3 Bucket CloudTrail logs.</td>
 <td>Steps to try:
 - Verify you're signed in using Management Account credentials.
 - Enable CloudTrail as a trusted service in your AWS organization.
-- The AWS account must have the CloudTrail managed policies ```AWSCloudTrail_FullAccess``` or have been granted equivalent permissions.``` 
+- The AWS account must have the CloudTrail managed policies ```AWSCloudTrail_FullAccess``` or have been granted equivalent permissions.
 - For cross-account access, each account must have an IAM role with an access policy that grants access.
-- CloudTrail must hve the required permissions to deliver log files to S3 bucket and S3 bucket policies are updated to receive and store log files.</td>
+- CloudTrail must have the required permissions to deliver log files to S3 bucket and S3 bucket policies are updated to receive and store log files.</td>
 </tr>
 <tr>
 <td><code>AWS_LDAP_CREDENTIALS_INVALID</code></td>
@@ -59,7 +59,7 @@ During onboarding in Microsoft Entra Permissions Management, authorization syste
 <tr>
 <td><code>AWS_LDAP_UNREACHABLE</code></td>
 <td>Connection failure while trying to access LDAP service.</td>
-<td>This is a common issue with the AWS Managed Microsoft AD Connector used to enable LDAPS. Verify if the AD connector can communicate via TCP and UDP over the 88 (Kerberos) and 389 (LDAP) ports.</tr>
+<td>This issue is common with the AWS Managed Microsoft AD Connector used to enable LDAPS. Verify if the AD connector can communicate via TCP and UDP over the 88 (Kerberos) and 389 (LDAP) ports.</tr>
 <tr>
 <td><code>AWS_SYSTEM_ROLE_POLICIES_COLLECTION_ERROR</code></td>
 <td>Error during the collection of System role policies.</td>
@@ -73,7 +73,7 @@ During onboarding in Microsoft Entra Permissions Management, authorization syste
 <tr>
 <td><code>ERROR_NO_IDENTIFIER_URIS_IN_APP</code></td>
 <td>No Identifier URIs configured for app.</td>
-<td>Verify the application configuration for the configured Identifier URI’s in the portal. Please check the Azure AD application’s manifest file. </td>
+<td>Verify the application configuration for the configured Identifier URI’s in the portal. Check the Entra ID application’s manifest file. </td>
 <tr>
 <tr>
 <td><code>AWS_CHECK_EC2_ROLE</code></td>
