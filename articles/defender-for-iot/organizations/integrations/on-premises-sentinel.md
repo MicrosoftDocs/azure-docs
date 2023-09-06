@@ -1,5 +1,5 @@
 ---
-title: Connect Defender for IoT resources directly to Microsoft Sentinel (legacy)
+title: Connect Defender for IoT on-premises resources to Microsoft Sentinel (legacy)
 description: This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel.
 ms.topic: how-to
 ms.date: 08/17/2023

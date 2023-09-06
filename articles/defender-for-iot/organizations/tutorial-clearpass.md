@@ -146,7 +146,7 @@ To enable viewing the device inventory in ClearPass, you need to set up Defender
 
 To enable viewing the alerts discovered by Defender for IoT in Aruba, you need to set the forwarding rule. This rule defines which information about the ICS, and SCADA security threats identified by Defender for IoT security engines is sent to ClearPass.
 
-For more information, see [On-premises integration (recommended)](#on-premises-integration-recommended).
+For more information, see [On-premises integrations (recommended)](#on-premises-integrations-recommended).
 
 ### Monitor ClearPass and Defender for IoT communication
 
