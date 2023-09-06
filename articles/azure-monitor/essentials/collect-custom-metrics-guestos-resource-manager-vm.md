@@ -269,7 +269,7 @@ To deploy the ARM template, we use Azure PowerShell.
 
 1. In the resource dropdown menu, select the VM that you created. If you didn't change the name in the template, it should be **SimpleWinVM2**.
 
-1. In the namespaces dropdown list, select **azure.vm.windows.guest**.
+1. In the namespaces dropdown list, select **azure.vm.windows.guestmetrics**.
 
 1. In the metrics dropdown list, select **Memory\%Committed Bytes in Use**.
 

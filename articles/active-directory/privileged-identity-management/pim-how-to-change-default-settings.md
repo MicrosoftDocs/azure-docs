@@ -1,6 +1,6 @@
 ---
 title: Configure Azure AD role settings in PIM
-description: Learn how to configure Azure AD role settings in Azure AD Privileged Identity Management (PIM).
+description: Learn how to configure Azure AD role settings in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -29,9 +29,11 @@ PIM role settings are also known as PIM policies.
 
 To open the settings for an Azure AD role:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD Privileged Identity Management** > **Azure AD Roles** > **Roles**. This page shows a list of Azure AD roles available in the tenant, including built-in and custom roles.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles** > **Roles**.
+
+1. This page shows a list of Azure AD roles available in the tenant, including built-in and custom roles.
     :::image type="content" source="media/pim-how-to-change-default-settings/role-settings.png" alt-text="Screenshot that shows the list of Azure AD roles available in the tenant, including built-in and custom roles." lightbox="media/pim-how-to-change-default-settings/role-settings.png":::
 
 1. Select the role whose settings you want to configure.
@@ -115,7 +117,7 @@ You can require users to enter a support ticket number when they activate the el
 
 You can require approval for activation of an eligible assignment. The approver doesn't have to have any roles. When you use this option, you must select at least one approver. We recommend that you select at least two approvers. There are no default approvers.
 
-To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md).
+To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md).
 
 ### Assignment duration
 

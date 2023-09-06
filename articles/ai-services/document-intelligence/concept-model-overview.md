@@ -1,5 +1,5 @@
 ---
-title: Document processing models - Document Intelligence
+title: Document processing models - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Document processing models for OCR, document layout, invoices, identity, custom  models, and more to extract text, structure, and key-value pairs.
 author: laujan
@@ -54,7 +54,7 @@ monikerRange: '<=doc-intel-3.1.0'
 | [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
-For all of the models above except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are four add-on capabilities available for the `2023-07-31` (GA) API version:
+For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are four add-on capabilities available for the `2023-07-31` (GA) API version:
 
 * [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
 * [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
@@ -70,7 +70,7 @@ The Read API analyzes and extracts lines, words, their locations, detected langu
 
 ***Sample document processed using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
 
-:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Screenshot of sample document processed using Document Intelligence Studio Read":::
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot of Screenshot of sample document processed using Document Intelligence Studio Read":::
 
 > [!div class="nextstepaction"]
 > [Learn more: read model](concept-read.md)
@@ -113,7 +113,7 @@ The health insurance card model combines powerful Optical Character Recognition 
 :::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card analysis in Document Intelligence Studio." lightbox="./media/studio/analyze-health-card.png":::
 
 > [!div class="nextstepaction"]
-> [Learn more: Health insurance card model](concept-insurance-card.md)
+> [Learn more: Health insurance card model](concept-health-insurance-card.md)
 
 ### W-2
 
@@ -190,7 +190,7 @@ Version v3.0 custom model supports signature detection in custom forms (template
 
 ***Sample custom template processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
-:::image type="content" source="media/studio/train-model.png" alt-text="Screenshot: Document Intelligence tool analyze-a-custom-form window.":::
+:::image type="content" source="media/studio/train-model.png" alt-text="Screenshot of Document Intelligence tool analyze-a-custom-form window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
@@ -236,7 +236,7 @@ A composed model is created by taking a collection of custom models and assignin
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | [prebuilt-read](concept-read.md#data-detection-and-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
-| [prebuilt-healthInsuranceCard.us](concept-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
@@ -255,7 +255,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ### Version migration
 
-Learn how to use Document Intelligence v3.0 in your applications by following our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md)
+Learn how to use Document Intelligence v3.0 in your applications by following our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md)
 
 ::: moniker-end
 
@@ -340,7 +340,7 @@ The business card model analyzes and extracts key information from business card
 
 ***Sample custom model processing using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
-:::image type="content" source="media/overview-custom.jpg" alt-text="Screenshot: Document Intelligence tool analyze-a-custom-form window.":::
+:::image type="content" source="media/overview-custom.jpg" alt-text="Screenshot of Document Intelligence tool analyze-a-custom-form window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
@@ -376,7 +376,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ### Version migration
 
- You can learn how to use Document Intelligence v3.0 in your applications by following our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md)
+ You can learn how to use Document Intelligence v3.0 in your applications by following our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md)
 
 ::: moniker-end
 

@@ -31,8 +31,6 @@ The Python v1 programming model requires you to define bindings in a separate *f
 
 This article supports both programming models.
 
-> [!IMPORTANT]
-> The Python v2 programming model is currently in preview.
 ::: zone-end
 
 ## Example
@@ -449,7 +447,7 @@ This section contains examples that require version 3.x of Azure Cosmos DB exten
 
 The examples refer to a simple `ToDoItem` type:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDbInputBindingFunction.cs" id="docsnippet_qtrigger_with_cosmosdb_inputbinding_todo_model" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosInputBindingFunctions.cs" range="244-264":::
 
 <a id="queue-trigger-look-up-id-from-json-isolated"></a>
 
@@ -457,7 +455,7 @@ The examples refer to a simple `ToDoItem` type:
 
 The following example shows a function that retrieves a single document. The function is triggered by a JSON message in the storage queue. The queue trigger parses the JSON into an object of type `ToDoItemLookup`, which contains the ID and partition key value to retrieve. That ID and partition key value are used to return a `ToDoItem` document from the specified database and collection.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDbInputBindingFunction.cs" id="docsnippet_qtrigger_with_cosmosdb_inputbinding" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosInputBindingFunctions.cs" range="244-264":::
 
 ---
 

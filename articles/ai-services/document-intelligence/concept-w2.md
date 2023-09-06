@@ -1,5 +1,5 @@
 ---
-title: Automated W-2 form processing - Document Intelligence
+title: Automated W-2 form processing - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the Document Intelligence prebuilt W-2 model to automate extraction of W2 form data.
 author: laujan
@@ -58,7 +58,7 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot: analyze W-2 window in the Document Intelligence Studio.":::
+    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot of analyze W-2 window in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
@@ -109,14 +109,14 @@ Try extracting data from W-2 forms using the Document Intelligence Studio. You n
 | LocalWagesTipsEtc | 18 | Number | Local wages, tips, etc. | 50000 |
 | LocalIncomeTax | 19 | Number | Local income tax | 750 |
 | LocalityName | 20 | Number | Locality name. | CLEVELAND |
- | W2Copy |  | String | Copy of W-2 forms A, B, C, D, 1, or 2 | Copy A For Social Security Administration |
+ | W2&#8203;Copy |  | String | Copy of W-2 forms A, B, C, D, 1, or 2 | Copy A For Social Security Administration |
 | TaxYear |  | Number | Tax year | 2020 |
 
 * | W2FormVariant |  | String | The variants of W-2 forms, including *W-2*, *W-2AS*, *W-2CM*, *W-2GU*, *W-2VI* | W-2 |
 
-### Migration guide and REST API v3.0
+### Migration guide and REST API v3.1
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 * Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 

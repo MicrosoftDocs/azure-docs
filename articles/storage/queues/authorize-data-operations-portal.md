@@ -2,10 +2,10 @@
 title: Choose how to authorize access to queue data in the Azure portal
 titleSuffix: Azure Storage
 description: When you access queue data using the Azure portal, the portal makes requests to Azure Storage under the covers. These requests to Azure Storage can be authenticated and authorized using either your Azure AD account or the storage account access key.
-author: tamram
+author: akashdubey-ms
 services: storage
 
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: ozguns
 ms.date: 12/13/2021
 ms.topic: how-to

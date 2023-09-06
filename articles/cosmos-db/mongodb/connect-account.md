@@ -39,16 +39,12 @@ This tutorial provides two ways to retrieve connection string information:
 1. Choose your platform (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). If you don't see your driver or tool listed, don't worry--we continuously document more connection code snippets. Comment on what you'd like to see. To learn how to craft your own connection, read [Get the account's connection string information](#get-the-mongodb-connection-string-to-customize).
 1. Copy and paste the code snippet into your MongoDB app.
 
-    :::image type="content" source="./media/connect-account/quickstart-pane.png" alt-text="Screenshot showing the Quick start pane.":::
-
 ## Get the MongoDB connection string to customize
 
 1. In an Internet browser, sign in to the [Azure portal](https://portal.azure.com).
 1. In the **Azure Cosmos DB** pane, select the API.
 1. In the left pane of the account pane, select **Connection strings**.
 1. The **Connection strings** pane opens. It has all the information necessary to connect to the account by using a driver for MongoDB, including a preconstructed connection string.
-
-    :::image type="content" source="./media/connect-account/connection-string-pane.png" alt-text="Screenshot showing the Connection strings pane." lightbox="./media/connect-account/connection-string-pane.png" :::
 
 ## Connection string requirements
 

@@ -5,7 +5,7 @@ description: Learn how to manage Azure storage containers using Azure PowerShell
 services: storage
 author: stevenmatthew
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/03/2022
 ms.author: shaas

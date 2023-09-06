@@ -37,8 +37,8 @@ Learn more:
 
 * [Token cache serialization](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)
 * [Token cache serialization in MSAL.NET](../develop/msal-net-token-cache-serialization.md)
-* [Custom token cache serialization in MSAL for Java](../develop/msal-java-token-cache-serialization.md)
-* [Custom token cache serialization in MSAL for Python](../develop/msal-python-token-cache-serialization.md).
+* [Custom token cache serialization in MSAL for Java](/entra/msal/java/advanced/msal-java-token-cache-serialization)
+* [Custom token cache serialization in MSAL for Python](/entra/msal/python/advanced/msal-python-token-cache-serialization).
 
    ![Diagram of a device and and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
@@ -168,12 +168,12 @@ Augment standard token claims with optional claims, such as groups. The **Applic
 
 Learn more: 
 
-* [Provide optional claims to your app](../develop/active-directory-optional-claims.md)
-* [Configuring groups optional claims](../develop/active-directory-optional-claims.md#configuring-groups-optional-claims)
+* [Provide optional claims to your app](../develop/optional-claims.md)
+* [Configuring groups optional claims](../develop/optional-claims.md#configure-groups-optional-claims)
 
 We recommend you use and include app roles, which customers manage by using the portal or APIs. Assign roles to users and groups to control access. When a token is issued, the assigned roles are in the token roles claim. Information derived from a token prevents more APIs calls.
 
-See, [Add app roles to your application and receive them in the token](../develop/howto-add-app-roles-in-azure-ad-apps.md)
+See, [Add app roles to your application and receive them in the token](../develop/howto-add-app-roles-in-apps.md)
 
 Add claims based on tenant information. For example, an extension has an enterprise-specific User ID.
 

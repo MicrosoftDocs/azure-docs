@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 03/03/2023
+ms.date: 08/02/2023
 ms.custom: engagement-fy23
 ---
 
@@ -62,6 +62,7 @@ Here's what's included in Azure App Service assessment properties:
 **Currency** | The billing currency for your account.
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, discount (%) and VM uptime properties with their default settings.
+**Security** | Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it will assess security readiness and costs for your Azure App Service deployment with Microsoft Defender for Cloud.  
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
 
@@ -76,6 +77,10 @@ Azure App Service readiness for web apps is based on feature compatibility check
 1. If there are non-critical compatibility issues, such as degraded or unsupported features that don't block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance.
 1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Not ready** with **issue** details and recommended remediation guidance.
 1. If the discovery is still in progress or there are any discovery issues for a web app, the readiness is marked as **Unknown** as the assessment couldn't compute the readiness for that web app.
+
+### Security readiness
+If the web app is marked as **Ready** or **Ready with conditions** for Azure App Service, it is marked as **Ready** for Microsoft Defender for App Service.
+
 
 ## Calculate sizing
 
@@ -111,6 +116,10 @@ P1v3  | 16
 
 > [!NOTE]
 > Your App Service plan can be scaled up and down at any time. [Learn more](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features).
+
+### Security cost
+For web apps that have been recommended to App Service plans, the security cost is calculated per App Service plan that has been recommended.
+
 
 ## Next steps
 - [Review](best-practices-assessment.md) best practices for creating assessments.

@@ -151,7 +151,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 
 ### REST APIs
 
-To change the DWUs, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the service level objective to DW1000c for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+To change the DWUs, use the [Create or Update Database](/rest/api/sql/2022-08-01-preview/databases/create-or-update) REST API. The following example sets the service level objective to DW1000c for the database `MySQLDW`, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1

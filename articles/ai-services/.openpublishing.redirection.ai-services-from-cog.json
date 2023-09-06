@@ -1532,8 +1532,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/conversation-transcription",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/conversation-transcription.md",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/custom-commands-encryption-of-data-at-rest.md",
@@ -1652,8 +1657,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-async-conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-async-conversation-transcription",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-async-conversation-transcription.md",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-audio-content-creation.md",
@@ -1887,8 +1897,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-use-conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-use-conversation-transcription",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-use-conversation-transcription.md",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-use-custom-entity-pattern-matching.md",

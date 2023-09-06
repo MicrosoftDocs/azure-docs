@@ -46,7 +46,7 @@ As you review your list, you may find you need to either assign an owner for tas
 
 ### Identify and resolve synchronization issues
 
-Microsoft recommends you have a good baseline and understanding of the issues in your on-premises environment that can result in synchronization issues to the cloud. Since automated tools such as [IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) and [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#why-use-azure-ad-connect-health) can generate a high volume of false positives, we recommend you identify synchronization errors that have been left unaddressed for more than 100 days by cleaning up those objects in error. Long term unresolved synchronization errors can generate support incidents. [Troubleshooting errors during synchronization](../hybrid/tshoot-connect-sync-errors.md) provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors.
+Microsoft recommends you have a good baseline and understanding of the issues in your on-premises environment that can result in synchronization issues to the cloud. Since automated tools such as [IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) and [Azure AD Connect Health](../hybrid/connect/whatis-azure-ad-connect.md#why-use-azure-ad-connect-health) can generate a high volume of false positives, we recommend you identify synchronization errors that have been left unaddressed for more than 100 days by cleaning up those objects in error. Long term unresolved synchronization errors can generate support incidents. [Troubleshooting errors during synchronization](../hybrid/connect/tshoot-connect-sync-errors.md) provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors.
 
 ### Azure AD Connect Sync configuration
 
@@ -75,7 +75,7 @@ Examples of objects to exclude are:
 > [!NOTE]
 > If a single human identity has multiple accounts provisioned from something such as a legacy domain migration, merger, or acquisition, you should only synchronize the account used by the user on a day-to-day basis, for example, what they use to log in to their computer.
 
-Ideally, you'll want to reach a balance between reducing the number of objects to synchronize and the complexity in the rules. Generally, a combination between OU/container [filtering](../hybrid/how-to-connect-sync-configure-filtering.md) plus a simple attribute mapping to the cloudFiltered attribute is an effective filtering combination.
+Ideally, you'll want to reach a balance between reducing the number of objects to synchronize and the complexity in the rules. Generally, a combination between OU/container [filtering](../hybrid/connect/how-to-connect-sync-configure-filtering.md) plus a simple attribute mapping to the cloudFiltered attribute is an effective filtering combination.
 
 > [!IMPORTANT]
 > If you use group filtering in production, you should transition to another filtering approach.
@@ -99,7 +99,7 @@ If your Azure AD Connect version is more than six months behind, you should upgr
 
 #### Source anchor
 
-Using **ms-DS-consistencyguid** as the [source anchor](../hybrid/plan-connect-design-concepts.md) allows an easier migration of objects across forests and domains, which is common in AD Domain consolidation/cleanup, mergers, acquisitions, and divestitures.
+Using **ms-DS-consistencyguid** as the [source anchor](../hybrid/connect/plan-connect-design-concepts.md) allows an easier migration of objects across forests and domains, which is common in AD Domain consolidation/cleanup, mergers, acquisitions, and divestitures.
 
 If you're currently using **ObjectGuid** as the source anchor, we recommend you switch to using **ms-DS-ConsistencyGuid**.
 
@@ -178,12 +178,12 @@ If you're currently provisioning apps in an ad-hoc manner or using things like C
 
 It's important to understand the volume of changes in your organization and make sure that it isn't taking too long to have a predictable synchronization time.
 
-The [default delta sync](../hybrid/how-to-connect-sync-feature-scheduler.md) frequency is 30 minutes. If the delta sync is taking longer than 30 minutes consistently, or there are significant discrepancies between the delta sync performance of staging and production, you should investigate and review the [factors influencing the performance of Azure AD Connect](../hybrid/plan-connect-performance-factors.md).
+The [default delta sync](../hybrid/connect/how-to-connect-sync-feature-scheduler.md) frequency is 30 minutes. If the delta sync is taking longer than 30 minutes consistently, or there are significant discrepancies between the delta sync performance of staging and production, you should investigate and review the [factors influencing the performance of Azure AD Connect](../hybrid/connect/plan-connect-performance-factors.md).
 
 #### Azure AD Connect troubleshooting recommended reading
 
 - [Prepare directory attributes for synchronization with Microsoft 365 by using the IdFix tool](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
-- [Azure AD Connect: Troubleshooting Errors during synchronization](../hybrid/tshoot-connect-sync-errors.md)
+- [Azure AD Connect: Troubleshooting Errors during synchronization](../hybrid/connect/tshoot-connect-sync-errors.md)
 
 ## Summary
 

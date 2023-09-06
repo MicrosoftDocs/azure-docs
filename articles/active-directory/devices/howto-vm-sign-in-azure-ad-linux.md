@@ -51,7 +51,7 @@ The following Azure regions are currently supported for this feature:
 
 - Azure Global
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 
 Use of the SSH extension for Azure CLI on Azure Kubernetes Service (AKS) clusters is not supported. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
@@ -82,7 +82,7 @@ Azure Government:
 - `https://login.microsoftonline.us`: For PAM-based authentication flows.
 - `https://pasff.usgovcloudapi.net`: For Azure RBAC flows.
 
-Azure China 21Vianet:
+Microsoft Azure operated by 21Vianet:
 
 - `https://packages.microsoft.com`: For package installation and upgrades.
 - `http://169.254.169.254`: Azure Instance Metadata Service endpoint.
@@ -119,8 +119,6 @@ There are two ways to enable Azure AD login for your Linux VM:
 - The Azure Cloud Shell experience when you're creating a Linux VM or using an existing one
 
 ### Azure portal
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can enable Azure AD login for any of the [supported Linux distributions](#supported-linux-distributions-and-azure-regions) by using the Azure portal.
 
@@ -190,7 +188,7 @@ There are two ways to configure role assignments for a VM:
 - Azure Cloud Shell experience
 
 > [!NOTE]
-> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.
+> The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource group level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.
 
 ### Azure AD portal
 
@@ -209,7 +207,7 @@ To configure role assignments for your Azure AD-enabled Linux VMs:
     | Role | **Virtual Machine Administrator Login** or **Virtual Machine User Login** |
     | Assign access to | User, group, service principal, or managed identity |
 
-    ![Screenshot that shows the page for adding a role assignment in the Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows the page for adding a role assignment.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 After a few moments, the security principal is assigned the role at the selected scope.
 
@@ -267,8 +265,8 @@ The application that appears in the Conditional Access policy is called *Azure L
 
 If the Azure Linux VM Sign-In application is missing from Conditional Access, make sure the application isn't in the tenant:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **Virtual Machine**. If you don't see Microsoft Azure Linux Virtual Machine Sign-In as a result, the service principal is missing from the tenant.
 
 Another way to verify it is via Graph PowerShell:

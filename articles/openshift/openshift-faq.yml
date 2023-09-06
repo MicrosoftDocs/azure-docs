@@ -51,7 +51,7 @@ sections:
 
       - question: Are infrastructure nodes available?
         answer: |
-          On Azure Red Hat OpenShift 4.x clusters, infrastructure nodes aren't currently available.
+          Yes, ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. See [Deploy infrastructure nodes in an ARO cluster](howto-infrastructure-nodes.md) to learn more.
           
           ## How do I handle cluster upgrades?
           
