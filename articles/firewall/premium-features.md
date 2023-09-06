@@ -72,7 +72,7 @@ Azure Firewall Premium provides signature-based IDPS to allow rapid detection of
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
-- Over 58,000 rules in over 50 categories.
+- Over 67,000 rules in over 50 categories.
     - The categories include malware command and control, phishing, trojans, botnets, informational events, exploits, vulnerabilities, SCADA network protocols, exploit kit activity, and more.
 - 20 to 40+ new rules are released each day.
 - Low false positive rating by using state-of-the-art malware detection techniques such as global sensor network feedback loop.

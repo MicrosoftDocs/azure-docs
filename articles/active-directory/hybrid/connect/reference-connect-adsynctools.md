@@ -423,7 +423,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### INPUTS
 
 ### OUTPUTS
-This cmdlet creates the <filename> containing all synced Mail-Enabled PublicFolder objects in CSV format.
+This cmdlet creates the `<filename>` containing all synced Mail-Enabled PublicFolder objects in CSV format.
     
 ## Export-ADSyncToolsHybridAadJoinReport
 ### SYNOPSIS

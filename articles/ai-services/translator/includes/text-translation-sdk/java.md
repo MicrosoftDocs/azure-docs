@@ -113,6 +113,9 @@ For this quickstart, we use the Gradle build automation tool to create and run t
 
 To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create an `AzureKeyCredential` with your `key` from the Azure portal and a `TextTranslationClient` instance with the `AzureKeyCredential`. The authentication varies slightly depending on whether your resource uses the regional or global endpoint. For this project, authenticate using the global endpoint. For more information about using a regional endpoint, _see_ [Translator text sdks](../../text-sdk-overview.md#3-authenticate-the-client).
 
+  > [!NOTE]
+  > In this example we are using the global endpoint. If you're using a regional endpoint, see [Create a Text Translation client](../../create-translator-resource.md#create-a-text-translation-client).
+
 ```java
 import java.util.List;
 import java.util.ArrayList;
