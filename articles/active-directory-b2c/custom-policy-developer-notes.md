@@ -135,7 +135,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |---------|:---------:|:---------:|---------|
 |[After federating with an identity provider during sign-up](api-connectors-overview.md#after-federating-with-an-identity-provider-during-sign-up) | GA | GA | |
 |[Before creating the user](api-connectors-overview.md#before-creating-the-user) | GA | GA | |
-|[Before including application claims in token](api-connectors-overview#before-sending-the-token-preview)| Preview | GA | |
+|[Before including application claims in token](api-connectors-overview.md#before-sending-the-token-preview)| Preview | GA | |
 |[Secure with basic authentication](secure-rest-api.md#http-basic-authentication) | GA | GA | |
 |[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | GA | GA | |
 |[Secure with OAuth2 bearer authentication](secure-rest-api.md#oauth2-bearer-authentication) | NA | GA | |
