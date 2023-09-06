@@ -9,7 +9,7 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 07/07/2023
+ms.date: 09/12/2023
 ---
 
 
@@ -108,11 +108,11 @@ In this step, you can specify the following properties:
 
 |Property| Description |
 |---|-----|
-|Deployment name| - Within the same endpoint, deployment name should be unique. <br> - If you select existing endpoint in the previous step, and input an existing deployment name, then that deployment will be overwritten with the new configurations. |
-|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an AzureML data asset, and can be used for later monitoring. Learn more about [model monitroing.](https://learn.microsoft.com/azure/machine-learning/how-to-monitor-model-performance)|
-|Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc) will be collected into workspace default Application Insights. Learn more about [prompt flow serving metrcis](#view-prompt-flow-endpoints-specific-metrics-optional).|
+|Deployment name| - Within the same endpoint, deployment name should be unique. <br> - If you select an existing endpoint in the previous step, and input an existing deployment name, then that deployment will be overwritten with the new configurations. |
+|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [model monitoring.](https://learn.microsoft.com/azure/machine-learning/how-to-monitor-model-performance)|
+|Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc) will be collected into workspace default Application Insights. To learn more, see [prompt flow serving metrics](#view-prompt-flow-endpoints-specific-metrics-optional).|
 
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png" alt-text="Screenshot of the deployment step in the deploy wizard." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png" alt-text="Screenshot of the deployment step in the deploy wizard in the studio UI." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png":::
 
 ### Outputs
 
@@ -248,7 +248,7 @@ For more information on how to view online endpoint metrics, see [Monitor online
 
 ### View prompt flow endpoints specific metrics (optional)
 
-If you enable **Application Insights diagnostics** in the UI deploy wizard, or set `app_insights_enabled=true` in the deployment definition using code, there will be following prompt flow endpoints speicifc metrics collected in the workspace default Application Insights.
+If you enable **Application Insights diagnostics** in the UI deploy wizard, or set `app_insights_enabled=true` in the deployment definition using code, there will be following prompt flow endpoints specific metrics collected in the workspace default Application Insights.
 
 | Metrics Name                         | Type      | Dimensions                                | Description                                                                     |
 |--------------------------------------|-----------|-------------------------------------------|---------------------------------------------------------------------------------|
@@ -261,18 +261,17 @@ If you enable **Application Insights diagnostics** in the UI deploy wizard, or s
 | rpc_request                          | counter   | flow,node,api_call,exception              | rpc count                                                                       |
 | flow_streaming_response_duration     | histogram | flow                                      | streaming response sending cost, from sending first byte to sending last byte   |
 
-You can find the worskpace default Application Insights in your workspace page in Azure portal.
+You can find the workspace default Application Insights in your workspace page in Azure portal.
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/workspace-default-appinsights.png" alt-text="Screenshot of the workspace default Application Insights. " lightbox = "./media/how-to-deploy-for-real-time-inference/workspace-default-appinsights.png":::
 
-Open the Application Insights, and select **Usage and estimated costs** from the left navigation. Select **Cutom metrics (Preview)**, and select **With dimensions**, and save the change.
+Open the Application Insights, and select **Usage and estimated costs** from the left navigation. Select **Custom metrics (Preview)**, and select **With dimensions**, and save the change.
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/enable-multidimensional-metrics.png" alt-text="Screenshot of enable multidimensional metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/enable-multidimensional-metrics.png":::
 
-Select **Metrics** tab in the left navigation. Select **promptflow standard metrics** from the **Metric Namespace**, and you can explore the metrics from the **Metric** dropdown list with different aggragation methods.
+Select **Metrics** tab in the left navigation. Select **promptflow standard metrics** from the **Metric Namespace**, and you can explore the metrics from the **Metric** dropdown list with different aggregation methods.
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png" alt-text="Screenshot of prompt flow endpoint metrics. " lightbox = "./media/how-to-deploy-for-real-time-inference/prompt-flow-metrics.png":::
-
 
 ## Troubleshoot endpoints deployed from prompt flow
 

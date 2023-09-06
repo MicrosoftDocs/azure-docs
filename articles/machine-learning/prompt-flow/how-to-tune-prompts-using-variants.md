@@ -64,14 +64,14 @@ To optimize this flow, there can be multiple ways, and following are two directi
 ### Create variants
 
 1. Select **Show variants** button on the top right of the LLM node. The existing LLM node is variant_0 and is the default variant.
-2. Select the **Clone** button on variant_0 to generate variant_1, then you can configure parameters to different values, or update the prompt on variant_1.
+2. Select the **Clone** button on variant_0 to generate variant_1, then you can configure parameters to different values or update the prompt on variant_1.
 3. Repeat the step to create more variants.
-4. Select **Hide variants** to stop adding more variants. And all variants are folded. The default variant is shown for the node.
+4. Select **Hide variants** to stop adding more variants. All variants are folded. The default variant is shown for the node.
 
 For **classify_with_llm** node, based on variant_0:
 
-- create variant_1 where the temperature is changed from 1 to 0.
-- create variant_2 where temperature is 0 and you can use the following prompt including few-shots examples.
+- Create variant_1 where the temperature is changed from 1 to 0.
+- Create variant_2 where temperature is 0 and you can use the following prompt including few-shots examples.
 
 
 ```
@@ -156,9 +156,9 @@ You can submit a batch run, which allows you test the variants with a large amou
 
 ### Visualize outputs
 
-1. After the batch run and evaluation run complete, in the run detail page, multi-select the batch runs for each variant, click **Visualize outputs**, you will see the metrics of 3 variants for the **classify_with_llm** node and LLM predicted outputs for each record of data.
+1. After the batch run and evaluation run complete, in the run detail page, multi-select the batch runs for each variant, then select **Visualize outputs**. You will see the metrics of 3 variants for the **classify_with_llm** node and LLM predicted outputs for each record of data.
    :::image type="content" source="./media/how-to-tune-prompts-using-variants/visualize_outputs.png" alt-text="Screenshot of visualizing outputs. " lightbox = "./media/how-to-tune-prompts-using-variants/3-2-variants.png":::
-2. After you identify that which variant is the best, you can go back to the flow authoring page and set that variant as default variant of the node
+2. After you identify which variant is the best, you can go back to the flow authoring page and set that variant as default variant of the node
 3. You can repeat the above steps to evaluate the variants of **summarize_text_content** node as well.
 
 Now, you've finished the process of tuning prompts using variants. You can apply this technique to your own Prompt flow to find the best variant for the LLM node.
