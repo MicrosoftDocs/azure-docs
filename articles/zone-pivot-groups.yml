@@ -1800,6 +1800,8 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-javascript
+    title: JavaScript 
   - id: rest-api
     title: REST
 # Owner: pafarley

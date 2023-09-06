@@ -137,15 +137,3 @@ tool: {
 
 > [!div class="nextstepaction"]
 > [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Create-application)
-
-## Clean up resources
-
-If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
-
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
-
-## Next steps
-
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)
-
