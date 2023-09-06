@@ -36,13 +36,14 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 1. Select **New registration**.
 1. When the **Register an application** page appears, enter a name for your application, such as *identity-client-app*.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
+1. Select **Register**. 
+1. The application's Overview pane is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
 1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
 1. Select **Configure** to apply the changes.
 1. Under **Platform Configurations** expand **Single-page application**.
-1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) your Redirect URI is eligible for the Authorization Code Flow with PKCE.
+1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) your **Redirect URI** is eligible for the Authorization Code Flow with PKCE.
 
 To obtain the sample application, you can either clone it from GitHub or download it as a .zip file.
 
@@ -86,4 +87,4 @@ Run the project with a web server by using Node.js:
 
 - [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](./quickstart-web-api-aspnet-core-protect-api.md)
 
-- Learn more by building this React SPA from scratch with the following series - [Tutorial: Sign in users and call Microsoft Graph](./single-page-app-tutorial-01-register-app.md)
+- Learn more by building this React SPA from scratch with the following series - [Tutorial: Sign in users and call Microsoft Graph](./tutorial-v2-javascript-spa.md)
