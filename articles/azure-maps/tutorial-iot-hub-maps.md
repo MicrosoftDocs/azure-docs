@@ -23,6 +23,7 @@ In this tutorial you will:
 > [!div class="checklist"]
 >
 > * Create an Azure storage account to log car tracking data.
+> * Upload a geofence to the Azure Maps Data service using the Data Upload API.
 > * Create a hub in Azure IoT Hub, and register a device.
 > * Create a function in Azure Functions, implementing business logic based on Azure Maps spatial analytics.
 > * Subscribe to IoT device telemetry events from the Azure function via Azure Event Grid.
@@ -228,7 +229,7 @@ In your example scenario, you only want to receive messages when the rental car 
 
 ## Send telemetry data to IoT Hub
 
-When your Azure function is running, you can now send telemetry data to the IoT hub, which routes it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need [.NET SDK 7.0] on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
+When your Azure function is running, you can now send telemetry data to the IoT hub, which routes it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need [.NET SDK 6.0] on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
 
 1. If you haven't done so already, download the [rentalCarSimulation] C# project.
 
@@ -286,7 +287,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 > [!div class="nextstepaction"]
 > [Send telemetry from a device]
 
-[.NET SDK 7.0]: https://dotnet.microsoft.com/download/dotnet/7.0
+[.NET SDK 6.0]: https://dotnet.microsoft.com/download/dotnet/6.0
 [Azure certified devices]: https://devicecatalog.azure.com/
 [Azure Functions]: ../azure-functions/functions-overview.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
