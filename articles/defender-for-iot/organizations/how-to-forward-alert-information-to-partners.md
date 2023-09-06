@@ -235,7 +235,7 @@ You may be integrating Defender for IoT with a partner service to send alert or 
 
 [Partner integrations](integrate-overview.md) can help to bridge previously siloed security solutions, enhance device visibility, and accelerate system-wide response to more rapidly mitigate risks.
 
-In such cases, use the **Actions** described below to enter credentials and other information required to communicate with integrated partner services.
+In such cases, use supported **Actions** to enter credentials and other information required to communicate with integrated partner services.
 
 For more information, see:
 
