@@ -292,7 +292,7 @@ To determine the average I/O per second (IOPS) for your workload, first determin
 
 To determine the average throughput for your workload, take the total amount of transmitted data by combining the **Ingress** and **Egress** metrics (total throughput) and divide that by 60 seconds. For example, 1 GiB total throughput over 1 minute / 60 seconds = 17 MiB average throughput.
 
-### Monitor Azure Premium file shares
+### Monitor utilization by maximum IOPS and bandwidth (premium only)
 
 Because Azure Premium file shares are billed on a provisioned model in which each GiB of storage capacity that you provision entitles you to more IOPS and throughput, it's often useful to determine maximum IOPS and bandwidth. Whereas throughput measures the actual amount of data successfully transmitted, bandwidth refers to the maximum data transfer rate.
 
