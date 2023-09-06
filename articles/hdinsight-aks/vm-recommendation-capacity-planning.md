@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 09/06/2023
 ---
 
-# Default and Minimum VM Size Recommendations for HDInsight on AKS
+# Default and Minimum VM Size Recommendations and Capacity Planning for HDInsight on AKS
 
 This article discusses default and recommended node configurations for Azure HDInsight on AKS clusters.
 
@@ -37,11 +37,11 @@ In there is insufficient capacity/quota on the above recommended VM Families, pl
 
 The minimum VM specifications recommended (regardless of the chosen VM Family for the cluster) is 8vCPUs and 32 GiB RAM. Higher vCPU and GiB variants may be chosen as per the workload being processed.
 
-# Capacity Planning for HDInsight on AKS Cluster Pools and Clusters
+## Capacity Planning 
 
 The Virtual Machines used in HDInsight on AKS clusters requires the same Quota as Azure VMs. This is unlike the original version of HDInsight, where a dedicated Quota had to be requested for creating HDInsight clusters by selecting ‘Azure HDInsight’ on the Quota selection dropdown (image below). For HDInsight on AKS, customers need to select ‘Compute’ from the Quota selection dropdown in order to request extra capacity for the VMs they intend to use in their clusters. Find detailed instructions for increasing your quota [here](/azure/quotas/per-vm-quota-requests).
 
-:::image type="content" source="./media/capacity-planning/capacity-planning.png" alt-text="Screenshot shows Capacity Planning for HDInsight on AKS." border="true" lightbox="./media/capacity-planning/capacity-planning.png":::
+:::image type="content" source="./media/vm-recommendation-capacity-planning/capacity-planning.png" alt-text="Screenshot shows Capacity Planning for HDInsight on AKS." border="true" lightbox="./media/vm-recommendation-capacity-planning/capacity-planning.png":::
 
 
 
