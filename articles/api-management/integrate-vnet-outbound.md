@@ -33,12 +33,14 @@ This section will guide you through the process of enabling VNet integration for
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **Deployment + Infrastructure**, select **Network**.
 1. On the **Outbound traffic** card, select **VNET integration**.
+
     :::image type="content" source="media/integrate-vnet-outbound/integrate-vnet.png" lightbox="media/integrate-vnet-outbound/integrate-vnet.png" alt-text="Screenshot of VNet integration in the portal.":::
 
 1. In the **Virtual network** blade, enable the **Virtual network** checkbox.
 1. Select the location of your API Management instance.
 1. In **Virtual network**, select the virtual network and the delegated subnet that you want to integrate. 
 1. Select **Apply**, and then select **Save**. The VNet is integrated.
+
     :::image type="content" source="media/integrate-vnet-outbound/vnet-settings.png" lightbox="media/integrate-vnet-outbound/vnet-settings.png" alt-text="Screenshot of VNet settings in the portal.":::
 
 ## (Optional) Test VNet integration
