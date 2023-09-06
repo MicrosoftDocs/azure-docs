@@ -91,7 +91,7 @@ popd
 Note the following example code for running DPDK with MANA. The direct-to-vf 'netvsc' configuration on Azure is recommended for maximum performance with MANA.
 
 >[!NOTE]
->DPDK requires either 2MB or 1GB hugepages to be enabled
+>DPDK requires either 2MB or 1GB hugepages to be enabled.
 >Example assumes an Azure VM with 2 accelerated networking NICs attached.
 
 ```bash
