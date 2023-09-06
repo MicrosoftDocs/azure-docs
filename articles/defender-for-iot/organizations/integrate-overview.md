@@ -11,7 +11,7 @@ ms.custom: enterprise-iot
 Integrate Microsoft Defender for IoT with partner services to view data from across your security stack data in Defender for IoT, or to view Defender for IoT data in one of your security ecosystem integrations.
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk](#splunk) integrations in an upcoming 23.x version. 
+> Defender for IoT plans to end support for the legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), [Splunk](#splunk), and [Microsoft Sentinel](#microsoft-sentinel) integrations in an upcoming 23.x version. 
 >
 > We recommend moving your integrations to newly recommended methods, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
 
@@ -78,7 +78,8 @@ Integrate Microsoft Defender for IoT with partner services to view data from acr
 |Name  |Description  |Support scope  |Supported by  |Learn more |
 |---------|---------|---------|---------|---------|
 |**Defender for IoT data connector in Microsoft Sentinel**  (recommended, cloud integration)   |  Displays Defender for IoT cloud data in Microsoft Sentinel, supporting end-to-end SOC investigations for Defender for IoT alerts.  <br><br>Connects to other partner services, allowing you to synchronize your data between Defender for IoT and supported partner systems, across Microsoft Sentinel. |    - OT and Enterprise IoT networks <br>- Cloud-connected sensors       |    Microsoft       | - [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md) <br>- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md) <br>- [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)  |
-|**Microsoft Sentinel** (on-premises, legacy integration)    |  Send Defender for IoT alerts from on-premises resources to Microsoft Sentinel.   |    - OT networks <br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Connect on-premises OT network sensors to Microsoft Sentinel](integrations/on-premises-sentinel.md) |
+| **Microsoft Sentinel** (recommended, on-premises) | View Defender for IoT data together with Microsoft Sentinel data by configuring your sensor to send syslog files directly to Microsoft Sentinel.| - OT networks <br>- Cloud-connected or locally managed OT sensors | Microsoft |  [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md) |
+|**Microsoft Sentinel** (legacy)    |  Send Defender for IoT alerts from on-premises resources to Microsoft Sentinel.   |    - OT networks <br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Connect on-premises OT network sensors to Microsoft Sentinel](integrations/on-premises-sentinel.md) |
 
 ## Palo Alto
 
