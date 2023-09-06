@@ -25,7 +25,7 @@ In addition to the Microsoft worldwide cloud, the Microsoft Authentication Libra
 Including the global Azure cloud, Azure Active Directory (Azure AD) is deployed in the following national clouds: 
 
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 - Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
 
 This guide demonstrates how to sign in to work and school accounts, get an access token, and call the Microsoft Graph API in the [Azure Government cloud](https://azure.microsoft.com/global-infrastructure/government/) environment.
@@ -216,5 +216,5 @@ See [National cloud authentication endpoints](authentication-national-cloud.md) 
 National cloud documentation:
 
 - [Azure Government](../../azure-government/index.yml)
-- [Azure China 21Vianet](/azure/china/)
+- [Microsoft Azure operated by 21Vianet](/azure/china/)
 - [Azure Germany (closes on October 29, 2021)](../../germany/index.yml)

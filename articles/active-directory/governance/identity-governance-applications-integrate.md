@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 Once you've [established the policies](identity-governance-applications-define.md) for who should have access to an application, then you can [connect your application to Azure AD](../manage-apps/what-is-application-management.md) and then [deploy the policies](identity-governance-applications-deploy.md) for governing access to them.
 
-Microsoft Entra identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD with many popular SaaS applications and on-premises applications, including applications that your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
+Microsoft Entra identity governance can be integrated with many applications, including well-known applications such as SAP and those using [standards](../architecture/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL, LDAP, SOAP and REST.  Through these standards, you can use Azure AD with many popular SaaS applications and on-premises applications, including applications that your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
 In order for Microsoft Entra identity governance to be used for an application, the application must first be integrated with Azure AD. An application being integrated with Azure AD means one of two requirements must be met:
 
@@ -33,7 +33,7 @@ If neither of those criteria are met for an application, for example when the ap
 
 ## Integrate the application with Azure AD to ensure only authorized users can access the application
 
-Typically this process of integrating an application begins when you configure that application to rely upon Azure AD for user authentication, with a federated single sign-on (SSO) protocol connection, and then add provisioning.  The most commonly used protocols for SSO are [SAML and OpenID Connect](../develop/active-directory-v2-protocols.md).  You can read more about the tools and process to [discover and migrate application authentication to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md).
+Typically this process of integrating an application begins when you configure that application to rely upon Azure AD for user authentication, with a federated single sign-on (SSO) protocol connection, and then add provisioning.  The most commonly used protocols for SSO are [SAML and OpenID Connect](../develop/v2-protocols.md).  You can read more about the tools and process to [discover and migrate application authentication to Azure AD](../manage-apps/migrate-adfs-apps-phases-overview.md).
 
 Next, if the application implements a provisioning protocol, then you should configure Azure AD to provision users to the application, so that Azure AD can signal to the application when a user has been granted access or a user's access has been removed.  These provisioning signals permit the application to make automatic corrections, such as to reassign content created by an employee who has left to their manager.
 
@@ -50,7 +50,7 @@ Next, if the application implements a provisioning protocol, then you should con
      |Application supports| Next steps|
      |----|-----|
      | OpenID Connect | [Add an OpenID Connect OAuth application](../saas-apps/openidoauth-tutorial.md) |
-     | SAML 2.0 | Register the application and configure the application with [the SAML endpoints and certificate of Azure AD](../develop/active-directory-saml-protocol-reference.md) |
+     | SAML 2.0 | Register the application and configure the application with [the SAML endpoints and certificate of Azure AD](../develop/saml-protocol-reference.md) |
      | SAML 1.1 | [Add a SAML-based application](../saas-apps/saml-tutorial.md) |
 
    * Otherwise, if this is an on-premises or IaaS hosted application that supports single sign-on, then configure single sign-on from Azure AD to the application through the application proxy.
@@ -61,7 +61,7 @@ Next, if the application implements a provisioning protocol, then you should con
      | Integrated Windows Auth (IWA) | Deploy the [application proxy](../app-proxy/application-proxy.md), configure an application for [Integrated Windows authentication SSO](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md), and set firewall rules to prevent access to the application's endpoints except via the proxy.|
      | header-based authentication | Deploy the [application proxy](../app-proxy/application-proxy.md) and configure an application for [header-based SSO](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md) |
 
-1. If your application has multiple roles, and relies upon Azure AD to send a user's application-specific role as a claim of a user signing into the application, then configure those application roles in Azure AD on your application.  You can use  the [app roles UI](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to add those roles to the application manifest.
+1. If your application has multiple roles, and relies upon Azure AD to send a user's application-specific role as a claim of a user signing into the application, then configure those application roles in Azure AD on your application.  You can use  the [app roles UI](../develop/howto-add-app-roles-in-apps.md#app-roles-ui) to add those roles to the application manifest.
 
 1. If the application supports provisioning, then [configure provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md) of assigned users and groups from Azure AD to that application.  If this is a private or custom application, you can also select the integration that's most appropriate, based on the location and capabilities of the application.
 
@@ -75,7 +75,7 @@ Next, if the application implements a provisioning protocol, then you should con
 
      |Application supports| Next steps|
      |----|-----|
-     | Kerberos | Configure Azure AD Connect [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), create groups in Azure AD and [write those groups to AD](../enterprise-users/groups-write-back-portal.md) |
+     | Kerberos | Configure Azure AD Connect [group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md), create groups in Azure AD and [write those groups to AD](../enterprise-users/groups-write-back-portal.md) |
 
    * Otherwise, if this is an on-premises or IaaS hosted application, and isn't integrated with AD, then configure provisioning to that application, either via SCIM or to the underlying database or directory of the application.
 
@@ -84,8 +84,11 @@ Next, if the application implements a provisioning protocol, then you should con
      | SCIM | configure an application with the [provisioning agent for on-premises SCIM-based apps](../app-provisioning/on-premises-scim-provisioning.md)|
      | local user accounts, stored in a SQL database |  configure an application with the  [provisioning agent for on-premises SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md)|
      | local user accounts, stored in an LDAP directory | configure an application with the [provisioning agent for on-premises LDAP-based applications](../app-provisioning/on-premises-ldap-connector-configure.md) |
+     | local user accounts, managed through a SOAP or REST API | configure an application with the [provisioning agent with the web services connector](../app-provisioning/on-premises-web-services-connector.md)|
+     | local user accounts, managed through a MIM connector | configure an application with the [provisioning agent with a custom connector](../app-provisioning/on-premises-custom-connector.md)|
+     | SAP ECC with NetWeaver AS ABAP 7.0 or later | configure an application with the [provisioning agent with a SAP ECC configured web services connector](../app-provisioning/on-premises-sap-connector-configure.md)|
 
-1. If your application uses Microsoft Graph to query groups from Azure AD, then [consent](../develop/consent-framework.md) to the applications to have the appropriate permissions to read from your tenant.
+1. If your application uses Microsoft Graph to query groups from Azure AD, then [consent](../develop/application-consent-experience.md) to the applications to have the appropriate permissions to read from your tenant.
 
 1. Set that access to **the application is only permitted for users assigned to the application**.  This setting prevents users from inadvertently seeing the application in MyApps, and attempting to sign into the application, prior to Conditional Access policies being enabled.
 
@@ -101,7 +104,7 @@ However, if the application already existed in your environment, then it's possi
 1. If the application was using AD security groups, then you need to review the membership of those security groups.
 1. If the application had its own directory or database and wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
 1. If the application was using AD security groups, and those groups were created in AD, then once the review is complete, you need to manually update the AD groups to remove memberships of those users who were denied.  Subsequently, to have denied access rights removed automatically, you can either update the application to use an AD group that was created in Azure AD and [written back to Azure AD](../enterprise-users/groups-write-back-portal.md), or move the membership from the AD group to the Azure AD group, and nest the written back group as the only member of the AD group.
-1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy conditional access and entitlement management policies for the application.
+1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy Conditional Access and entitlement management policies for the application.
 
 Now that you have a baseline that ensures existing access has been reviewed, then you can [deploy the organization's policies](identity-governance-applications-deploy.md) for ongoing access and any new access requests.
 

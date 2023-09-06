@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 06/29/2023
+ms.date: 08/16/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -33,7 +33,7 @@ To deploy applications using GitOps with Flux v2, you need:
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running. ARM64-based clusters are supported starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023).
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. ARM64-based clusters are supported starting with [`microsoft.flux` version 1.7.0](extensions-release.md#flux-gitops).
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
@@ -141,7 +141,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running. ARM64-based clusters are supported starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023).
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. ARM64-based clusters are supported starting with [`microsoft.flux` version 1.7.0](extensions-release.md#flux-gitops).
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
@@ -545,6 +545,28 @@ spec:
 
 When you use this annotation, the deployed HelmRelease is patched with the reference to the configured source. Currently, only `GitRepository` source is supported.
 
+### Helm drift detection
+
+[Drift detection for Helm releases](https://fluxcd.io/flux/components/helm/helmreleases/#drift-detection ) isn't enabled by default. Starting with [`microsoft.flux` v1.7.5](extensions-release.md#flux-gitops), you can enable Helm drift detection by running the following command:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --name flux --cluster-type <cluster-type> --config helm-controller.detectDrift=true 
+```
+
+### Helm OOM watch
+
+Starting with [`microsoft.flux` v1.7.5](extensions-release.md#flux-gitops), you can enable Helm OOM watch. For more information, see [Enable Helm near OOM detection](https://fluxcd.io/flux/cheatsheets/bootstrap/#enable-helm-near-oom-detection).
+
+Be sure to review potential [remediation strategies](https://fluxcd.io/flux/components/helm/helmreleases/#configuring-failure-remediation) and apply them as needed when enabling this feature.
+
+To enable OOM watch, run the following command:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --name flux --cluster-type <cluster-type> --config helm-controller.outOfMemoryWatch.enabled=true helm-controller.outOfMemoryWatch.memoryThreshold=70 helm-controller.outOfMemoryWatch.interval=700ms
+```
+
+If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the default memory threshold is set to 95%, with the interval at which to check the memory utilization set to 500 ms.
+
 ## Delete the Flux configuration and extension
 
 Use the following commands to delete your Flux configuration and, if desired, the Flux extension itself.
@@ -591,6 +613,8 @@ For AKS clusters, you can't use the Azure portal to delete the extension. Instea
 ```azurecli
 az k8s-extension delete -g <resource-group> -c <cluster-name> -n flux -t managedClusters --yes
 ```
+
+---
 
 ## Next steps
 

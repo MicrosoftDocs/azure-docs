@@ -10,6 +10,7 @@ ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.subservice: hybrid

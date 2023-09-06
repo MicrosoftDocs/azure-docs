@@ -46,7 +46,7 @@ To customize the start and expiry date and other properties of the certificate, 
 
 Use the certificate you create using this method to authenticate from an application running from your machine. For example, authenticate from Windows PowerShell.
 
-In an elevated PowerShell prompt, run the following command and leave the PowerShell console session open. Replace `{certificateName}` with the name that you wish to give to your certificate.
+In a PowerShell prompt, run the following command and leave the PowerShell console session open. Replace `{certificateName}` with the name that you wish to give to your certificate.
 
 ```powershell
 $certname = "{certificateName}"    ## Replace {certificateName}
@@ -113,4 +113,4 @@ The self-signed certificate you created following the steps above has a limited 
 
 ## Next steps
 
-[Manage certificates for federated single sign-on in Azure Active Directory](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
+[Manage certificates for federated single sign-on in Azure Active Directory](../manage-apps/tutorial-manage-certificates-for-federated-single-sign-on.md)

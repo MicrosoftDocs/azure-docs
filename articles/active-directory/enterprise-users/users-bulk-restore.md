@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
@@ -81,7 +81,7 @@ Next, you can check to see that the users you restored exist in the Azure AD org
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 You should see that the users that you restored are listed.

@@ -252,7 +252,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Burkina Faso                           |                ✓                  |                   |             |
 | Burundi                                |                ✓                  |                   |             |
 | Cameroon                               |                ✓                  |                   |             |
-| Cape Verde                             |                ✓                  |                   |             |
+| Cabo Verde                             |                ✓                  |                   |             |
 | Central African Republic               |                ✓                  |                   |             |
 | Chad                                   |                ✓                  |                   |             |
 | Congo                                  |                ✓                  |                   |             |
@@ -304,7 +304,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Somalia                                |                ✓                  |                   |             |
 | South Africa                           |                ✓                  |         ✓         |      ✓     |
 | South Sudan                            |                ✓                  |                   |             |
-| St. Helena                             |                ✓                  |                   |             |
+| St. Helena, Ascension, and Tristan da Cunha |                ✓                  |                   |             |
 | Sudan                                  |                ✓                  |                   |             |
 | Swaziland                              |                ✓                  |                   |             |
 | Syria                                  |                ✓                  |                   |             |

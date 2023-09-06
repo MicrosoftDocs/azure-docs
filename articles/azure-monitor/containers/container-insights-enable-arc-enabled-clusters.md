@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Arc-enabled Kubernetes clusters
-ms.date: 05/24/2022
+ms.date: 08/02/2023
 ms.topic: article
 description: Collect metrics and logs of Azure Arc-enabled Kubernetes clusters using Azure Monitor.
 ms.reviewer: aul
@@ -72,7 +72,7 @@ ms.reviewer: aul
 
 ### Identify workspace resource ID
 
-Run the following commands to locate the full Azure Resource Manager identifier of the Log Analytics workspace. 
+Run the following commands to locate the full Azure Resource Manager identifier of the Log Analytics workspace.
 
 1. List all the subscriptions that you have access to using the following command:
 
@@ -109,8 +109,7 @@ This option uses the following defaults:
 - Auto-upgrade is enabled for the Azure Monitor cluster extension
 
 >[!NOTE]
->Managed identity authentication will be default in k8s-extension version 1.43.0 or higher.
->
+> Managed identity authentication is the default in k8s-extension version 1.43.0 or higher.
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
@@ -123,10 +122,10 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 ```
 
 >[!NOTE]
->Managed identity authentication is not supported for Arc k8s connected clusters with **ARO**.
+> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
 >
 
-To use legacy/non-managed identity authentication to create extension instance on **Arc K8S connected clusters with ARO**, you can use the commands below that does not use managed identity. Non-cli onboarding is not supported for Arc K8s connected clusters with **ARO**. Currently, only k8s-extension version 1.3.7 or below is supported. 
+To use legacy/non-managed identity authentication to create an extension instance on **Arc K8S connected clusters with ARO**, use the commands below that don't use managed identity. Non-cli onboarding is not supported for Arc-enabled Kubernetes clusters with **ARO**. Currently, only k8s-extension version 1.3.7 or below is supported. 
 
 If you are using k8s-extension version above 1.3.7, downgrade the version.
 
@@ -140,7 +139,6 @@ Install the extension with **amalogs.useAADAuth=false**.
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=false
 ```
-
 
 ### Option 2 - With existing Azure Log Analytics workspace
 
@@ -252,8 +250,7 @@ az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-nam
 Use the flowing guidance to migrate an existing extension instance to managed identity authentication.
 
 >[!NOTE]
->Managed identity authentication is not supported for Arc k8s connected clusters with **ARO**.
->
+> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
 
 ## [CLI](#tab/migrate-cli)
 First retrieve the Log Analytics workspace configured for Container insights extension.

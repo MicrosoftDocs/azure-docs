@@ -31,14 +31,18 @@ When a membership or ownership is assigned, the assignment:
 
 ## Assign an owner or member of a group
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to make a user eligible member or owner of a group. You will need permissions to manage groups. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role-assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not administrative unit level). 
 
 > [!NOTE]
 > Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com)
 
-1. Select **Azure AD Privileged Identity Management -> Groups** and view groups that are already enabled for PIM for Groups.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Groups**. 
+
+1. Here you can view groups that are already enabled for PIM for Groups.
 
     :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="Screenshot of where to view groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
 
@@ -74,14 +78,18 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 
 ## Update or remove an existing role assignment
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to update or remove an existing role assignment. You will need permissions to manage groups. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role-assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not administrative unit level). 
 
 > [!NOTE]
 > Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with appropriate role permissions.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD Privileged Identity Management -> Groups** and view groups that are already enabled for PIM for Groups.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Groups**. 
+
+1. Here you can view groups that are already enabled for PIM for Groups.
 
     :::image type="content" source="media/pim-for-groups/pim-group-1.png" alt-text="Screenshot of where to view groups that are already enabled for PIM for Groups." lightbox="media/pim-for-groups/pim-group-1.png":::
 

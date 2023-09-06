@@ -38,7 +38,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Design Catalogs and Access Packages for applications and resources based for employees in the organization | App Owners |
 | Define Security Policies to assign users to access packages | InfoSec team + App Owners |
 | If policies include approval workflows, regularly review workflow approvals | App Owners |
-| Review exceptions in security policies, such as conditional access policies, using access reviews | InfoSec Operations Team |
+| Review exceptions in security policies, such as Conditional Access policies, using access reviews | InfoSec Operations Team |
 
 As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren't aligned with the recommendations above.
 
@@ -52,8 +52,8 @@ There are changes that require special considerations when testing, from simple 
 
 | Scenario| Recommendation |
 |-|-|
-|Changing the authentication type from federated to PHS/PTA or vice-versa| Use [staged rollout](../hybrid/how-to-connect-staged-rollout.md) to test the impact of changing the authentication type.|
-|Rolling out a new conditional access (CA) policy or Identity Protection Policy|Create a new Conditional Access policy and assign to test users.|
+|Changing the authentication type from federated to PHS/PTA or vice-versa| Use [staged rollout](../hybrid/connect/how-to-connect-staged-rollout.md) to test the impact of changing the authentication type.|
+|Rolling out a new Conditional Access policy or Identity Protection Policy|Create a new Conditional Access policy and assign to test users.|
 |Onboarding a test environment of an application|Add the application to a production environment, hide it from the MyApps panel, and assign it to test users during the quality assurance (QA) phase.|
 |Changing of sync rules|Perform the changes in a test Azure AD Connect with the same configuration that is currently in production, also known as staging mode, and analyze CSExport Results. If satisfied, swap to production when ready.|
 |Changing of branding|Test in a separate test tenant.|
@@ -90,7 +90,7 @@ Hackers often target admin accounts and other elements of privileged access to r
 
 If no process exists in your organization to manage privileged accounts, or you currently have admins who use their regular user accounts to manage services and resources, you should immediately begin using separate accounts, for example one for regular day-to-day activities; the other for privileged access and configured with MFA. Better yet, if your organization has an Azure AD Premium P2 subscription, then you should immediately deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). In the same token, you should also review those privileged accounts and [assign less privileged roles](../roles/security-planning.md) if applicable.
 
-Another aspect of privileged account management that should be implemented is in defining [access reviews](../governance/access-reviews-overview.md) for those accounts, either manually or [automated through PIM](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md).
+Another aspect of privileged account management that should be implemented is in defining [access reviews](../governance/access-reviews-overview.md) for those accounts, either manually or [automated through PIM](../privileged-identity-management/pim-perform-roles-and-resource-roles-review.md).
 
 #### Privileged account management recommended reading
 

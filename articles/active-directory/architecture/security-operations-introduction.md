@@ -29,9 +29,9 @@ Azure Active Directory creates a common user identity for authentication and aut
 
 To achieve hybrid identity with Azure AD, one of three authentication methods can be used, depending on your scenarios. The three methods are:
 
-* [Password hash synchronization (PHS)](../hybrid/whatis-phs.md)
-* [Pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md)
-* [Federation (AD FS)](../hybrid/whatis-fed.md)
+* [Password hash synchronization (PHS)](../hybrid/connect/whatis-phs.md)
+* [Pass-through authentication (PTA)](../hybrid/connect/how-to-connect-pta.md)
+* [Federation (AD FS)](../hybrid/connect/whatis-fed.md)
 
 As you audit your current security operations or establish security operations for your Azure environment, we recommend you:
 
@@ -145,13 +145,13 @@ If you don't plan to use Microsoft Defender for Identity, monitor your domain co
 
 As part of an Azure hybrid environment, the following items should be baselined and included in your monitoring and alerting strategy.
 
-* **PTA Agent** - The pass-through authentication agent is used to enable pass-through authentication and is installed on-premises. See [Azure AD Pass-through Authentication agent: Version release history](../hybrid/reference-connect-pta-version-history.md) for information on verifying your agent version and next steps.
+* **PTA Agent** - The pass-through authentication agent is used to enable pass-through authentication and is installed on-premises. See [Azure AD Pass-through Authentication agent: Version release history](../hybrid/connect/reference-connect-pta-version-history.md) for information on verifying your agent version and next steps.
 
 * **AD FS/WAP** - Azure Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
 
-* **Azure AD Connect Health Agent** - The agent used to provide a communications link for Azure AD Connect Health. For information on installing the agent, see [Azure AD Connect Health agent installation](../hybrid/how-to-connect-health-agent-install.md).
+* **Azure AD Connect Health Agent** - The agent used to provide a communications link for Azure AD Connect Health. For information on installing the agent, see [Azure AD Connect Health agent installation](../hybrid/connect/how-to-connect-health-agent-install.md).
 
-* **Azure AD Connect Sync Engine** - The on-premises component, also called the sync engine. For information on the feature, see [Azure AD Connect sync service features](../hybrid/how-to-connect-syncservice-features.md).
+* **Azure AD Connect Sync Engine** - The on-premises component, also called the sync engine. For information on the feature, see [Azure AD Connect sync service features](../hybrid/connect/how-to-connect-syncservice-features.md).
 
 * **Password Protection DC agent** - Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
 
@@ -167,9 +167,9 @@ As part of an Azure cloud-based environment, the following items should be basel
 
 * **Azure AD Application Proxy** - This cloud service provides secure remote access to on-premises web applications. For more information, see [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy-connectors.md).
 
-* **Azure AD Connect** - Services used for an Azure AD Connect solution. For more information, see [What is Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
+* **Azure AD Connect** - Services used for an Azure AD Connect solution. For more information, see [What is Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md).
 
-* **Azure AD Connect Health** - Service Health provides you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. For more information, see [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md).
+* **Azure AD Connect Health** - Service Health provides you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. For more information, see [Azure AD Connect Health](../hybrid/connect/whatis-azure-ad-connect.md).
 
 * **Azure AD multifactor authentication** - Multifactor authentication requires a user to provide more than one form of proof for authentication. This approach can provide a proactive first step to securing your environment. For more information, see [Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md).
 
@@ -201,7 +201,7 @@ As part of an Azure cloud-based environment, the following items should be basel
 
 * **Self-service password reset service** - Azure AD self-service password reset (SSPR) gives users the ability to change or reset their password. The administrator or help desk isn't required. For more information, see [How it works: Azure AD self-service password reset](../authentication/concept-sspr-howitworks.md).
 
-* **Device services** - Device identity management is the foundation for [device-based Conditional Access](../conditional-access/require-managed-devices.md). With device-based Conditional Access policies, you can ensure that access to resources in your environment is only possible with managed devices. For more information, see [What is a device identity](../devices/overview.md).
+* **Device services** - Device identity management is the foundation for [device-based Conditional Access](../conditional-access/concept-conditional-access-grant.md). With device-based Conditional Access policies, you can ensure that access to resources in your environment is only possible with managed devices. For more information, see [What is a device identity](../devices/overview.md).
 
 * **Self-service group management** - You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure AD. The owner of the group can approve or deny membership requests and can delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists. For more information, see [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md).
 

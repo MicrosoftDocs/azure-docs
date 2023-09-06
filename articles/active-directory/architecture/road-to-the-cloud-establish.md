@@ -19,9 +19,9 @@ Before you migrate identity and access management (IAM) from Active Directory to
 
 If you're using Microsoft Office 365, Exchange Online, or Teams, then you're already using Azure AD. Your next step is to establish more Azure AD capabilities:
 
-* Establish hybrid identity synchronization between Active Directory and Azure AD by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
+* Establish hybrid identity synchronization between Active Directory and Azure AD by using [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md).
 
-* [Select authentication methods](../hybrid/choose-ad-authn.md). We strongly recommend password hash synchronization.
+* [Select authentication methods](../hybrid/connect/choose-ad-authn.md). We strongly recommend password hash synchronization.
 
 * Secure your hybrid identity infrastructure by following [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md).
 
@@ -40,9 +40,9 @@ After you roll out passwordless credentials to your users, consider reducing the
 
 ### Configure hybrid Azure AD join for existing Windows clients
 
-You can configure hybrid Azure AD join for existing Active Directory-joined Windows clients to benefit from cloud-based security features such as [co-management](/mem/configmgr/comanage/overview), conditional access, and Windows Hello for Business. New devices should be Azure AD joined and not hybrid Azure AD joined.
+You can configure hybrid Azure AD join for existing Active Directory-joined Windows clients to benefit from cloud-based security features such as [co-management](/mem/configmgr/comanage/overview), Conditional Access, and Windows Hello for Business. New devices should be Azure AD joined and not hybrid Azure AD joined.
 
-To learn more, check [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md).
+To learn more, check [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-join-plan.md).
 
 ## Next steps
 

@@ -93,9 +93,9 @@ You can remove role assignments from the **Administrative roles** page for a sel
 
 ## Next steps
 
-- [Add or delete users](add-users-azure-active-directory.md)
+- [Add or delete users](./add-users.md)
 
-- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](./how-to-manage-user-profile-info.md)
 
 - [Add guest users from another directory](../external-identities/what-is-b2b.md)
 

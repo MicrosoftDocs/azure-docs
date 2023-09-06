@@ -42,7 +42,7 @@ Azure Virtual Desktop supports cloud-only identities when using [Azure AD joined
 If you're using an Identity Provider (IdP) other than Azure AD to manage your user accounts, you must ensure that:
 
 - Your IdP is [federated with Azure AD](../active-directory/devices/azureadjoin-plan.md#federated-environment).
-- Your session hosts are Azure AD-joined or [Hybrid Azure AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md).
+- Your session hosts are Azure AD-joined or [Hybrid Azure AD-joined](../active-directory/devices/hybrid-join-plan.md).
 - You enable [Azure AD authentication](configure-single-sign-on.md) to the session host.
 
 ### External identity

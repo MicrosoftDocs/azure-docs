@@ -36,7 +36,7 @@ To connect a remote network to Global Secure Access, you set up an Internet Prot
 
 Global Secure Access remote network connectivity provides a secure solution between a remote network and the
 Global Secure Access service. It doesn't provide a secure connection between one remote network and another.
-To learn more about secure remote network-to-remote network connectivity, see the [Azure Virtual WAN documentation](../virtual-wan/index.yml).
+To learn more about secure remote network-to-remote network connectivity, see the [Azure Virtual WAN documentation](/azure/virtual-wan/).
  
 ## Why remote network connectivity may be important for you? 
 Maintaining security of a corporate network is increasingly difficult in a world of remote work and distributed teams. Security Service Edge (SSE) promises a world of security where customers can access their corporate resources from anywhere in the world without needing to back haul their traffic to headquarters.

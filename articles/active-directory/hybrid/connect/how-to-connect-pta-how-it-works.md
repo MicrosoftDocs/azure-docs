@@ -29,8 +29,8 @@ When a user tries to sign in to an application secured by Azure AD, and if Pass-
 
 1. The user tries to access an application, for example, [Outlook Web App](https://outlook.office365.com/owa/).
 2. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page.
-3. The user enters their username into the Azure AD sign in page, and then selects the **Next** button.
-4. The user enters their password into the Azure AD sign in page, and then selects the **Sign in** button.
+3. The user enters their username into the Azure AD sign-in page, and then selects the **Next** button.
+4. The user enters their password into the Azure AD sign-in page, and then selects the **Sign in** button.
 5. Azure AD, on receiving the request to sign in, places the username and password (encrypted by using the public key of the Authentication Agents) in a queue.
 6. An on-premises Authentication Agent retrieves the username and encrypted password from the queue. Note that the Agent doesn't frequently poll for requests from the queue, but retrieves requests over a pre-established persistent connection.
 7. The agent decrypts the password by using its private key.

@@ -134,7 +134,7 @@ If you run the script on a computer with restricted access, ensure there's acces
 - `download.microsoft.com` or `AzureFrontDoor.FirstParty` service tag in NSG on port 443 (outbound)
 - Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides) on port 3260 (outbound)
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions) or `AzureBackup` service tag in NSG
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet) or `AzureBackup` service tag in NSG
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Microsoft Azure operated by 21Vianet) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany) or `AzureBackup` service tag in NSG
 - Public DNS resolution on port 53 (outbound)
