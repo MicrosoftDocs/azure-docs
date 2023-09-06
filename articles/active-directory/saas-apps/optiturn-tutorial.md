@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/02/2023
+ms.date: 09/04/2023
 ms.author: jeedes
 
 ---
@@ -62,25 +62,29 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Identifier** textbox, type the URL:
-	`https://optiturn.com/sp`
+	a. In the **Identifier** textbox, type the URL using one of the following:
 
-    b. In the **Reply URL** textbox, type a URL using one of the following patterns:
+	| **Identifier** |
+	|------------|
+	| `https://optiturn.com/sp` - production |
+	| `https://sandbox.optiturn.com/sp` - testing |
+
+   b. In the **Reply URL** textbox, type a URL using one of the following patterns:
     
 	| **Reply URL** |
 	|------------|
-	| `https://optiturn.com/auth/saml/<Customer_Name>_azure_saml/callback` |
-	| `https://<Environment>.optiturn.com/auth/saml/<Customer_Name>_azure_saml/callback` |
+	| `https://optiturn.com/auth/saml/<Customer_Name>_azure_saml/callback` - production |
+	| `https://sandbox.optiturn.com/auth/saml/<Customer_Name>_azure_saml/callback` - testing |
 
-	c. In the **Sign on URL** textbox, type one of the following URL/pattern:
+	c. In the **Sign on URL** textbox, type one of the following:
 
 	| **Sign on URL** |
 	|----------|
-    | ` https://optiturn.com/session/new` |
-	| `https://<Environment>.optiturn.com/session/new` |
+   | `https://optiturn.com/session/new` - production |
+	| `https://sandbox.optiturn.com/session/new` - testing |
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Reply URL and Sign on URL. Contact [OptiTurn support team](mailto:support@optoro.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > `<Customer_Name>` should be replaced with a lowercased and underscored version of your company’s name. For example, Fake Corp. would become fake_corp. The [OptiTurn support team](mailto:support@optoro.com) can help choose this value.
 
 1. OptiTurn application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 

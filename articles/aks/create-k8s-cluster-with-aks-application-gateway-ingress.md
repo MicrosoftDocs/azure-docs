@@ -1,24 +1,25 @@
 ---
-title: Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
-description: Learn how to create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
+title: Create an Application Gateway Ingress Controller (AGIC) in Azure Kubernetes Service (AKS) using Terraform
+description: Learn how to create an Application Gateway Ingress Controller (AGIC) in Azure Kubernetes Service (AKS) using Terraform.
 ms.topic: how-to
-ms.date: 9/5/2023
+ms.date: 09/05/2023
 ms.custom: devx-track-terraform, devx-track-azurecli
 content_well_notification: 
   - AI-contribution
 ---
 
-# Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
+# Create an Application Gateway Ingress Controller (AGIC) in Azure Kubernetes Service (AKS) using Terraform
 
-[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, you can do such tasks as provisioning, upgrading, and scaling resources on-demand.
+[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. With AKS, you can provision, upgrade, and scale resources on-demand.
 
-An Application Gateway Ingress Controller (AGIC) provides various features for Kubernetes services. These features include reverse proxy, configurable traffic routing, and TLS termination. Kubernetes Ingress resources are used to configure the Ingress rules for individual Kubernetes services. An Ingress controller allows a single IP address to route traffic to multiple services in a Kubernetes cluster. All this functionality is provided by [Azure Application Gateway](/azure/Application-Gateway/), making it an ideal Ingress controller for Kubernetes on Azure.
+[Azure Application Gateway](/azure/Application-Gateway/) provides Application Gateway Ingress Controller (AGIC). AGIC enables various features for Kubernetes services, including reverse proxy, configurable traffic routing, and TLS termination. Kubernetes Ingress resources help configure the ingress rules for individual Kubernetes services. An ingress controller allows a single IP address to route traffic to multiple services in a Kubernetes cluster.
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
 > * Create a User Assigned Identity using [azurerm_user_assigned_identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity).
@@ -31,36 +32,34 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+Before you get started, you need to install and configure the following tools:
 
-- **Install kubectl**: The [kubectl](https://kubernetes.io/docs/tasks/tools/) command-line tool allows you to run commands against Kubernetes clusters.
-
-- **Install Helm**: [Helm](https://helm.sh/docs/intro/install/) is the Kubernetes package manager.
-
-- **Install GNU wget**: The [wget](http://www.gnu.org/software/wget/) command-line tool is used to download assets from the Internet.
+* [Terraform](/azure/developer/terraform/quickstart-configure)
+* [kubectl command-line tool](https://kubernetes.io/docs/tasks/tools/)
+* [Helm package manager](https://helm.sh/docs/intro/install/)
+* [GNU wget command-line tool](http://www.gnu.org/software/wget/)
 
 ## Implement the Terraform code
 
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/TestRecord.md).
+> You can find the sample code from this article in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/TestRecord.md).
 >
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+> For more information, see [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
 
-1. Create a directory in which to test the sample Terraform code and make it the current directory.
-
-1. Create a file named `providers.tf` and insert the following code.
+1. Create a directory to test sample Terraform code and make it your working directory.
+2. Create a file named `providers.tf` and copy in the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf":::
 
-1. Create a file named `main.tf` and insert the following code:
+3. Create a file named `main.tf` and copy in the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf":::
 
-1. Create a file named `variables.tf` and insert the following code:
+4. Create a file named `variables.tf` and copy in the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf":::
 
-1. Create a file named `outputs.tf` and insert the following code.
+5. Create a file named `outputs.tf` and copy in the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/outputs.tf":::
 
@@ -76,9 +75,7 @@ In this article, you learn how to:
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
-## Verify the results: Test the Kubernetes cluster
-
-The Kubernetes tools can be used to verify the newly created cluster.
+## Test the Kubernetes cluster
 
 1. Get the Azure resource group name.
 
@@ -86,22 +83,22 @@ The Kubernetes tools can be used to verify the newly created cluster.
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Get the AKS cluster name.
+2. Get the AKS cluster name.
 
     ```console
     aks_cluster_name=$(terraform output -raw aks_cluster_name)
     ```
 
-1. Run [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) to get the Kubernetes configuration and access credentials from Azure.
+3. Get the Kubernetes configuration and access credentials for the cluster using the [`az aks get-credentials`](/cli/azure/aks#az-aks-get-credentials) command.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials \
         --name $aks_cluster_name  \
         --resource-group $resource_group_name \
         --overwrite-existing
     ```
 
-1. Run [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) to verify the health of the cluster.
+4. Verify the health of the cluster using the [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command.
 
     ```console
     kubectl get nodes
@@ -109,130 +106,129 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
     **Key points:**
 
-    - The details of your worker nodes display with a status of **Ready**.
+    * The details of your worker nodes display with a status of **Ready**.
 
     :::image type="content" source="media/create-k8s-cluster-with-aks-application-gateway-ingress/kubectl-get-nodes.png" alt-text="Screenshot of kubectl showing the health of your Kubernetes cluster.":::
 
-## Install Azure AD Pod Identity
+## Install Azure Active Directory Pod Identity
 
-Azure Active Directory Pod Identity provides token-based access to [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
+Azure Active Directory (Azure AD) Pod Identity provides token-based access to [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
 
 [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) adds the following components to your Kubernetes cluster:
 
-  - Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
-  - [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
-  - [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
+* Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
+* [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
+* [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-To install Azure AD Pod Identity to your cluster, you need to know if RBAC is enabled or disabled. RBAC is disabled by default for this demo. Enabling or disabling RBAC is done in the `variables.tf` file via the `aks_enable_rbac` block's `default` value.
+To install Azure AD Pod Identity on your cluster, you need to know if RBAC is enabled or disabled. RBAC is disabled by default for this demo. Enabling or disabling RBAC is done in the `variables.tf` file via the `aks_enable_rbac` block's `default` value.
 
-- If RBAC is **enabled**, run the following command:
+* If RBAC is **enabled**, run the following `kubectl create` command.
 
     ```console
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
     ```
 
-- If RBAC is **disabled**, run the following command:
+* If RBAC is **disabled**, run the following `kubectl create` command.
 
     ```console
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
     ```
 
-## Use Helm to install the AGIC package
+## Install the AGIC Helm repo
 
-1. Run [helm repo add](https://helm.sh/docs/helm/helm_repo_add/) to add the AGIC Helm repo.
+1. Add the AGIC Helm repo using the [`helm repo add`](https://helm.sh/docs/helm/helm_repo_add/) command.
 
     ```console
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     ```
-    
-1. Run [helm repo update](https://helm.sh/docs/helm/helm_repo_update/) to update the AGIC Helm repo.
+
+2. Update the AGIC Helm repo using the [`helm repo update`](https://helm.sh/docs/helm/helm_repo_update/) command.
 
     ```console
     helm repo update
     ```
-    
-## Install AGIC Helm Chart
 
-1. Download `helm-config.yaml` to configure AGIC.
+## Configure AGIC using Helm
+
+1. Download `helm-config.yaml` to configure AGIC using the [`wget`](https://www.gnu.org/software/wget/) command.
 
     ```console
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
 
-1. Open `helm-config.yaml` in a text editor.
+2. Open `helm-config.yaml` in a text editor.
+3. Enter the following value for the top level keys:
 
-1. Enter values for the top level keys.
+    * `verbosityLevel`: Specify the *verbosity level* of the AGIC logging infrastructure. For more information about logging levels, see [logging Levels section of Application Gateway Kubernetes Ingress](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md).
 
-    - `verbosityLevel`: Specify the *verbosity level* of the AGIC logging infrastructure. For more information about logging levels, see [the Logging Levels section of the Application Gateway Kubernetes Ingress document](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md).
+4. Enter the following values for the `appgw` block:
 
-1. Enter values for the `appgw` block.
+    * `appgw.subscriptionId`: Specify the Azure subscription ID used to create the App Gateway.
+    * `appgw.resourceGroup`: Get the resource group name using the `echo "$(terraform output -raw resource_group_name)"` command.
+    * `appgw.name`: Get the Application Gateway name using the `echo "$(terraform output -raw application_gateway_name)"` command.
+    * `appgw.shared`: This boolean flag defaults to `false`. Set it to `true` if you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
 
-    - `appgw.subscriptionId`: Specify the Azure subscription ID used to create the App Gateway.
-    - `appgw.resourceGroup`: Get the resource group name by running `echo "$(terraform output -raw resource_group_name)"`
-    - `appgw.name`: Get the Application Gateway name by running `echo "$(terraform output -raw application_gateway_name)"`
-    - `appgw.shared`: This boolean flag defaults to `false`. Set it to `true` if you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+5. Enter the following value for the `kubernetes` block:
 
-1. Enter values for the `kubernetes` block.
+    * `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value or a comma-separated list of namespaces. Leaving this variable commented out or setting it to a blank or an empty string results in the Ingress controller observing all accessible namespaces.
 
-    - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces. Leaving this variable commented out, or setting it to a blank or an empty string results in the Ingress controller observing all accessible namespaces.
+6. Enter the following values for the `armAuth` block:
 
-1. Enter values for the `armAuth` block.
+    * If you specify `armAuth.type` as `aadPodIdentity`:
+        * `armAuth.identityResourceID`: Get the Identity resource ID by running `echo "$(terraform output -raw identity_resource_id)"`.
+        * `armAuth.identityClientId`: Get the Identity client ID by running `echo "$(terraform output -raw identity_client_id)"`.
 
-    - If you specify `armAuth.type` as `aadPodIdentity`:
-        - `armAuth.identityResourceID`: Get the Identity resource ID by running `echo "$(terraform output -raw identity_resource_id)"`.
-        - `armAuth.identityClientId`: Get the Identity client ID by running `echo "$(terraform output -raw identity_client_id)"`.
+    * If you specify `armAuth.type` as `servicePrincipal`, see [Using a service principal](/azure/application-gateway/ingress-controller-install-existing#using-a-service-principal).
 
-    - If you specify `armAuth.type` as `servicePrincipal`, see [Using a service principal](/azure/application-gateway/ingress-controller-install-existing#using-a-service-principal).
+## Install the AGIC package
 
-1. Install the Application Gateway Ingress controller package:
+1. Install the AGIC package using the [`helm install`](https://helm.sh/docs/helm/helm_install/) command.
 
     ```console
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
     ```
 
-1. Get the Azure resource group name.
+2. Get the Azure resource group name.
 
     ```console
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Get the Identity name.
+3. Get the identity name.
 
     ```console
     identity_name=$(terraform output -raw identity_name)
     ```
 
-1. To get the key values from your identity, you can run [az identity show](/cli/azure/identity#az-identity-show) .
+4. Get the key values from your identity using the [`az identity show`](/cli/azure/identity#az-identity-show) command.
 
-    ```azurecli
+    ```azurecli-interactive
     az identity show -g $resource_group_name -n $identity_name
     ```
 
 ## Install a sample app
 
-Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
-
-1. Use the curl command to download the YAML file:
+1. Download the YAML file using the [`curl`](https://curl.se/) command.
 
     ```console
     curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
     ```
 
-2. Apply the YAML file:
+2. Apply the YAML file using the [`kubectl apply`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command.
 
     ```console
     kubectl apply -f aspnetapp.yaml
     ```
 
-## Verify the results: Test the sample app
+## Test the sample app
 
-1. Run the following Terraform command to get the app's IP address.
+1. Get the app IP address.
 
     ```console
     echo "$(terraform output -raw application_ip_address)"
     ```
-    
-2. Using a browser, go to the IP address indicated in the previous step.
+
+2. In a browser, navigate to the IP address from the output of the previous step.
 
     :::image type="content" source="media/create-k8s-cluster-with-aks-application-gateway-ingress/sample-app.png" alt-text="Screenshot of sample app.":::
 
