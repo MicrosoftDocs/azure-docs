@@ -36,9 +36,11 @@ Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure sub
 
 **Prerequisite role**: Global Administrator
 
-1. Sign in to the [Microsoft Entra admin center](https://portal.azure.com) as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
+1. Sign in to the [Microsoft Entra admin center](https://portal.azure.com) as a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
-1. Select **Identity**, then select **Diagnostic settings** under **Monitoring and health** in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
+
+1. Check if there's already a setting to send the audit logs to that workspace.
 
 1. If there isn't already a setting, select **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to send the Azure AD audit log to the Azure Monitor workspace.
 
@@ -52,7 +54,7 @@ Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure sub
 
 1. Later, to see the range of dates held in your workspace, you can use the *Archived Log Date Range* workbook:  
     
-    1. Select **Identity** then select **Workbooks** under **Monitoring and health**. 
+    1. Browse to **Identity** > **Monitoring & health** > **Workbooks**.
     
     1. Expand the section **Azure Active Directory Troubleshooting**, and select on **Archived Log Date Range**. 
 

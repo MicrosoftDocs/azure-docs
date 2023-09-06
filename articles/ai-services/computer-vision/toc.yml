@@ -102,6 +102,8 @@ items:
   items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
+  - name: Vision SDK
+    href: how-to/install-sdk.md
   - name: Quickstarts
     items:
     - name: Version 4.0 quickstart (preview)

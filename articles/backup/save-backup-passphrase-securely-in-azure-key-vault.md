@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 08/18/2023
 ms.reviewer: sooryar
 ms.service: backup
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -446,9 +447,3 @@ This section lists commonly encountered errors when saving the passphrase to Azu
 :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/registration-incomplete-warning.png" alt-text="Screenshot shows how to complete the registration." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/registration-incomplete-warning.png":::
 
  
-
-
-
-
-
-

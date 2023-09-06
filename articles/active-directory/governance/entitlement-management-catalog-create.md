@@ -214,7 +214,7 @@ To remove resources from a catalog:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. Browse to **Identity governance** > **Catalogs**.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
 
 1. On the **Catalogs** page open the catalog you want to remove resources from.
 
@@ -225,6 +225,8 @@ To remove resources from a catalog:
 1. Select **Remove**. Optionally, select the ellipsis (**...**) and then select **Remove resource**.
 
 ## Add more catalog owners
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 The user who created a catalog becomes the first catalog owner. To delegate management of a catalog, add users to the catalog owner role. Adding more catalog owners helps to share the catalog management responsibilities.
 
