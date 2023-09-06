@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/10/2022
 ms.author: dmwendia
-ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-other
+ms.custom: aaddev, 'scenarios:getting-started', 'languages:Java', devx-track-java, mode-other, devx-track-extended-java
 #Customer intent: As an application developer, I want to learn how my Java app can get an access token and call an API that's protected by Microsoft identity platform endpoint using client credentials flow.
 ---
 
