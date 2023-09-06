@@ -62,6 +62,7 @@ Following are common scenarios for monitoring the network.
 
 - Create [flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) to log information about the IP traffic flowing through network security groups used by your cluster and then use [traffic analytics](../../network-watcher/traffic-analytics.md) to analyze and provide insights on this data. You'll most likely use the same Log Analytics workspace for traffic analytics that you use for Container insights and your control plane logs.
 - Using [traffic analytics](../../network-watcher/traffic-analytics.md), you can determine if any traffic is flowing either to or from any unexpected ports used by the cluster and also if any traffic is flowing over public IPs that shouldn't be exposed. Use this information to determine whether your network rules need modification.
+- For AKS clusters, use the [Network Observability add-on for AKS (preview)](https://aka.ms/NetObsAddonDoc) to monitor and observe access between services in the cluster (east-west traffic).
 
 
 ## Platform engineer
@@ -71,7 +72,7 @@ The *platform engineer*, also known as the cluster administrator, is responsible
 :::image type="content" source="media/monitor-kubernetes/layers-platform-engineer.png" alt-text="Diagram of layers of Kubernetes environment for platform engineer." lightbox="media/monitor-kubernetes/layers-platform-engineer.png"  border="false":::
 
 
-Large organizations may also have a *fleet architect*, which is similar to the platform engineer but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. At scale recommendations for the fleet architect are included in the guidance below.
+Large organizations may also have a *fleet architect*, which is similar to the platform engineer but is responsible for multiple clusters. They need visibility across the entire environment and must perform administrative tasks at scale. At scale recommendations are included in the guidance below. See [What is Azure Kubernetes Fleet Manager (preview)?](../../kubernetes-fleet/overview.md) for details on creating a Fleet resource for multi-cluster and at-scale scenarios.
 
 
 ### Azure services for platform engineer
@@ -109,23 +110,23 @@ See [Default Prometheus metrics configuration in Azure Monitor](../essentials/pr
 
 #### Enable Grafana for analysis of Prometheus data
 
-[Create an instance of Managed Grafana](../../managed-grafana/quickstart-managed-grafana-portal.md) and [link it to your Azure Monitor workspace](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace) so that you can use your Prometheus data as a data source. You can also manually perform this configuration using [add Azure Monitor managed service for Prometheus as data source](../essentials/prometheus-grafana.md) 
+[Create an instance of Managed Grafana](../../managed-grafana/quickstart-managed-grafana-portal.md) and [link it to your Azure Monitor workspace](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace) so that you can use your Prometheus data as a data source. You can also manually perform this configuration using [add Azure Monitor managed service for Prometheus as data source](../essentials/prometheus-grafana.md).  variety of [prebuilt dashboards](../visualize/grafana-plugin.md#use-out-of-the-box-dashboards) are available for monitoring Kubernetes clusters including several that present similar information as Container insights views. 
 
 If you have an existing Grafana environment, then you can continue to use it and add Azure Monitor managed service for [Prometheus as a data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/). You can also [add the Azure Monitor data source to Grafana](https://grafana.com/docs/grafana/latest/datasources/azure-monitor/) to use data collected by Container insights in custom Grafana dashboards. Perform this configuration if you want to focus on Grafana dashboards rather than using the Container insights views and reports.
 
-A variety of prebuilt dashboards are available for monitoring Kubernetes clusters including several that present similar information as Container insights views. [Search the available Grafana dashboards templates](https://grafana.com/grafana/dashboards/?search=kubernetes) to identify dashboards for monitoring Kubernetes and then [import into Grafana](../../managed-grafana/how-to-create-dashboard.md).
 
 
 #### Enable Container Insights for collection of logs
 
-When you enable Container Insights for your Kubernetes cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to a Log Analytics workspace in Azure Monitor. Container insights collects container stdout/stderr, infrastructure logs, and performance data. All log data is stored in a Log Analytics workspace where they can be analyzed using [Kusto Query Language (KQL)](../logs/log-query-overview.md).
+When you enable Container Insights for your Kubernetes cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/log-analytics-agent.md) that sends data to a Log Analytics workspace in Azure Monitor. Container insights collects container stdout/stderr, infrastructure logs, and performance data. All log data is stored in a Log Analytics workspace where they can be analyzed using [Kusto Query Language (KQL)](../logs/log-query-overview.md).
 
 See [Enable Container insights](../containers/container-insights-onboard.md) for prerequisites and configuration options for onboarding your Kubernetes clusters. [Onboard using Azure Policy](container-insights-enable-aks-policy.md) to ensure that all clusters retain a consistent configuration. 
 
 Once Container insights is enabled for a cluster, perform the following actions to optimize your installation.
 
+- Container insights collects many of the same metric values as [Prometheus](#enable-scraping-of-prometheus-metrics). You can disable collection of these metrics by configuring Container insights to only collect **Logs and events** as described in [Enable cost optimization settings in Container insights](../containers/container-insights-cost-config.md#custom-data-collection). This configuration disables the Container insights experience in the Azure portal, but you can use Grafana to visualize Prometheus metrics and Log Analytics to analyze log data collected by Container insights.
+- Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. 
 - To improve your query experience with data collected by Container insights and to reduce collection costs, [enable the ContainerLogV2 schema](container-insights-logging-v2.md) for each cluster. If you only use logs for occasional troubleshooting, then consider configuring this table as [basic logs](../logs/basic-logs-configure.md).
-- Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) for details.
 
 If you have an existing solution for collection of logs, then follow the guidance for that tool or enable Container insights and use the [data export feature of Log Analytics workspace](../logs/logs-data-export.md) to send data to [Azure Event Hubs](../../event-hubs/event-hubs-about.md) to forward to alternate system.
 
@@ -175,13 +176,11 @@ Following are common scenarios for monitoring the cluster level components.
 - Under **Reports**, use the **Node Monitoring** workbooks to analyze disk capacity, disk IO, and GPU usage. For more information about these workbooks, see [Node Monitoring workbooks](container-insights-reports.md#node-monitoring-workbooks).
 - Under **Monitoring**, select **Workbooks**, then **Subnet IP Usage** to see the IP allocation and assignment on each node for a selected time-range.
 
-**Network observability (east-west traffic)**
-- For AKS clusters, use the [Network Observability add-on for AKS (preview)](https://aka.ms/NetObsAddonDoc) to monitor and observe access between services in the cluster (east-west traffic).
-
 **Grafana dashboards**<br>
-- Multiple [Kubernetes dashboards](https://grafana.com/grafana/dashboards/?search=kubernetes) are available that visualize the performance and health of your nodes based on data stored in Prometheus.
+- Use the [prebuilt dashboard](../visualize/grafana-plugin.md#use-out-of-the-box-dashboards) in Managed Grafana for **Kubelet** to see the health and performance of each kubelet.
 - Use Grafana dashboards with [Prometheus metric values](../essentials/prometheus-metrics-scrape-default.md) related to disk such as `node_disk_io_time_seconds_total` and `windows_logical_disk_free_bytes` to monitor attached storage.
-
+- Multiple [Kubernetes dashboards](https://grafana.com/grafana/dashboards/?search=kubernetes) are available that visualize the performance and health of your nodes based on data stored in Prometheus.
+- 
 **Log Analytics**
 - Select the [Containers category](../logs/queries.md?tabs=groupby#find-and-filter-queries) in the [queries dialog](../logs/queries.md#queries-dialog) for your Log Analytics workspace to access prebuilt log queries for your cluster, including the **Image inventory** log query that retrieves data from the [ContainerImageInventory](/azure/azure-monitor/reference/tables/containerimageinventory) table populated by Container insights.
 
@@ -210,6 +209,7 @@ Following are common scenarios for monitoring your managed Kubernetes components
 - Under **Reports**, use the **Kubelet** workbook to see the health and performance of each kubelet. For more information about these workbooks, see [Resource Monitoring workbooks](container-insights-reports.md#resource-monitoring-workbooks). 
 
 **Grafana**<br>
+- Use the [prebuilt dashboard](../visualize/grafana-plugin.md#use-out-of-the-box-dashboards) in Managed Grafana for **Kubelet** to see the health and performance of each kubelet.
 - Use a dashboard such as [Kubernetes apiserver](https://grafana.com/grafana/dashboards/12006) for a complete view of the API server performance. This includes such values as request latency and workqueue processing time.
 
 **Log Analytics**<br>
@@ -243,15 +243,15 @@ Following are common scenarios for monitoring your Kubernetes objects and worklo
 
 
 
-
-
 **Container insights**<br>
 - Use the **Nodes** and **Controllers** views to see the health and performance of the pods running on them and drill down to the health and performance of their containers.
 - Use the **Containers** view to see the health and performance for the containers. For more information on analyzing container health and performance, see [Monitor your Kubernetes cluster performance with Container Insights](container-insights-analyze.md#analyze-nodes-controllers-and-container-health).
 - Under **Reports**, use the **Deployments** workbook to see deployment metrics. For more information, see [Deployment & HPA metrics with Container Insights](container-insights-deployment-hpa-metrics.md).
 
 **Grafana dashboards**<br>
+- Use the [prebuilt dashboards](../visualize/grafana-plugin.md#use-out-of-the-box-dashboards) in Managed Grafana for **Nodes** and **Pods** to view their health and performance.
 - Multiple [Kubernetes dashboards](https://grafana.com/grafana/dashboards/?search=kubernetes) are available that visualize the performance and health of your nodes based on data stored in Prometheus.
+
 
 **Live data**
 - In troubleshooting scenarios, Container Insights provides access to live AKS container logs (stdout/stderror), events and pod metrics. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real-time](container-insights-livedata-overview.md).
