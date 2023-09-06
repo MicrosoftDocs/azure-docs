@@ -101,7 +101,7 @@ For illustration purposes, in this document we're using a two-node cluster with 
  
 1. From the **vSphere Client**, go to the HCX plugin area. Under **Services**, select **Migration** > **Migrate**. 
    - Select the second node virtual machine.
-   - Set the vSphere cluster in the remote private cloud, cloud , which will now host the migrated SQL Server VM or VMs, as the **Compute Container**.
+   - Set the vSphere cluster in the remote private cloud, which will now host the migrated SQL Server VM or VMs, as the **Compute Container**.
    - Select the **vSAN Datastore** as remote storage.
    - Select a folder if you want to place the virtual machines in specific folder, this not mandatory but is recommended to separate the different workloads in your Azure VMware Solution private cloud.
    - Keep **Same format as source**.

@@ -62,22 +62,22 @@ This table indicates the estimated downtime for migration of each SQL Server top
 | **Always On SQL Server Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
 | **Always On SQL Server Failover Cluster Instance** | High | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
-## Executing the migration 
+## Executing the migration
 
 1. Log into your on-premises **vCenter Server** and access the VMware HCX plugin. 
-1. Under **Services** select **Migration** > **Migrate**.
-   - Select the SQL Server virtual machine.
-   - Set the vSphere cluster in the remote private cloud, which will now host the migrated SQL Server VM or VMs as the **Compute Container**.
-   - Select the vSAN Datastore as remote storage.
-   - Select a folder. This isn't mandatory, but we recommend separating the different workloads in your Azure VMware Solution private cloud.
-   - Keep **Same format as source**.
-   - Select **vMotion** as Migration profile. 
-   - In **Extended Options** select **Migrate Custom Attributes**.
-   - Verify that on-premises network segments have the correct remote stretched segment in Azure VMware Solution.
-   - Select **Validate** and ensure that all checks are completed with pass status. 
-   - Select **Go** to start the migration.
+1. Under **Services**, select **Migration** > **Migrate**.
+   1. Select the SQL Server virtual machine.
+   2. Set the vSphere cluster in the remote private cloud, which will now host the migrated SQL Server VM or VMs as the **Compute Container**.
+   3. Select the vSAN Datastore as remote storage.
+   4. Select a folder. This isn't mandatory, but we recommend separating the different workloads in your Azure VMware Solution private cloud.
+   5. Keep **Same format as source**.
+   6. Select **vMotion** as Migration profile. 
+   7. In **Extended Options** select **Migrate Custom Attributes**.
+   8. Verify that on-premises network segments have the correct remote stretched segment in Azure VMware Solution.
+   9. Select **Validate** and ensure that all checks are completed with pass status. 
+   10. Select **Go** to start the migration.
 1. After the migration has completed, access the virtual machine using VMware Remote Console in the vSphere Client.
-   - Verify the network configuration and check connectivity both with on-premises and Azure VMware Solution resources.
+1. Verify the network configuration and check connectivity both with on-premises and Azure VMware Solution resources.
 1. Verify your SQL Server and databases are up and accessible. For example, using SQL Server Management Studio verify you can access the database.  
 
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-standalone-1.png" alt-text="Diagram showing a SQL Server Management Studio connection to the migrated database." border="false" lightbox="media/sql-server-hybrid-benefit/sql-standalone-1.png":::  
