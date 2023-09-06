@@ -8,6 +8,8 @@ ms.date: 09/04/2023
 
 # Default and Minimum VM Size Recommendations for HDInsight on AKS
 
+This article discusses default and recommended node configurations for Azure HDInsight on AKS clusters.
+
 ## Cluster Pools
 For creating cluster pools, the currently available VM Options are F4s_v2, D4a_v4, D4as_v4, E4_v3, and E4s_v3.
 
