@@ -15,7 +15,7 @@ ms.custom: devplatv2, pipeline
 # Manage inputs and outputs of component and pipeline
 
 
-In this article you will learn:
+In this article you learn:
 
 > [!div class="checklist"]
 > - Overview of inputs and outputs in component and pipeline
@@ -53,12 +53,12 @@ For data asset input/output, you must specify a `path` parameter that points to 
 |---------|---------|---------|---------|
 |A path on your local computer     | `./home/username/data/my_data`         | ✓ | |
 |A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | ✓ | |
-|A path on Azure Storage     |   `wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>`<br>`abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    | ✓ | Only work for command and spark job|
+|A path on Azure Storage     |   `wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>`<br>`abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    | Not suggested because it may need extra identity configuration to read the data. |  |
 |A path on an Azure Machine Learning Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`  | ✓ | ✓ |
 |A path to a Data Asset  |  `azureml:<my_data>:<version>`  |✓ | ✓ |
 
 > [!NOTE]
-> For output, we highly suggest to use Azure Machine Learning Datastore path since it's supported across various job types.  
+> For input/output on storage, we highly suggest to use Azure Machine Learning Datastore path instead of direct Azure Storage path. Datastore path are suppported across various job types in pipeline.   
 
 For data input/output, you can choose from various modes (download or mount) to define how the data is accessed in the compute target.
 This table shows the possible modes for different type/mode/input/output combinations. Refer to [data asset modes](./how-to-read-write-data-v2.md#modes) to learn more. 
@@ -101,7 +101,9 @@ Similarly, when editing a pipeline in designer, you can find the pipeline inputs
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/pipeline-interface.png" lightbox="./media/how-to-manage-pipeline-input-output/pipeline-interface.png" alt-text="Screenshot highlighting the pipeline interface in designer":::
 
 
-## How to promote inputs & outputs to pipeline level
+## How to promote component inputs & outputs to pipeline level
+
+Promoting a component's input/output to pipeline level allows you to overwrite the component's input/output when submitting a pipeline job. It's also useful if you want to trigger the pipeline using REST endpoint. 
 
 Following are examples to promote component inputs/outputs to pipeline level inputs/outputs.
 
@@ -110,7 +112,7 @@ Following are examples to promote component inputs/outputs to pipeline level inp
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="1-65" highlight="6-17":::
 
 
-The full example can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml).  This pipeline promotes three inputs and three outputs to pipeline level. Let's take `pipeline_job_training_max_epocs` as example. It's declared under `inputs` section on root level, which means's its pipeline level input. Under `jobs -> train_job` section, the input named `max_epocs` is referenced as `${{parent.inputs.pipeline_job_training_max_epocs}}`, which indicates the `train_job`'s input `max_epocs` is promoted to pipeline level input. Similarly, you can promote pipeline output using the same schema. 
+The full example can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml).  This pipeline promotes three inputs and three outputs to pipeline level. Let's take `pipeline_job_training_max_epocs` as example. It's declared under `inputs` section on root level, which means's its pipeline level input. Under `jobs -> train_job` section, the input named `max_epocs` is referenced as `${{parent.inputs.pipeline_job_training_max_epocs}}`, which indicates the `train_job`'s input `max_epocs` references the pipeline level input `pipeline_job_training_max_epocs`. Similarly, you can promote pipeline output using the same schema. 
 
 # [Python SDK](#tab/python)
 
@@ -186,7 +188,7 @@ pipeline_job.settings.default_compute = "cpu-cluster"
 pipeline_job.settings.default_datastore = "workspaceblobstore"
 ```
 
-The working notebook example in [azureml-example repo](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/2c_nyc_taxi_data_regression/nyc_taxi_data_regression.ipynb)
+The end to end notebook example in [azureml-example repo](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/2c_nyc_taxi_data_regression/nyc_taxi_data_regression.ipynb)
 
 ---
 
@@ -199,10 +201,11 @@ You can promote a component's input to pipeline level input in designer authorin
 
 ## Optional input
 
-By default, all inputs are required and must be assigned a value (or a default value) each time you submit a pipeline job. However, there may be instances where you need optional inputs. In such cases, you have the flexibility to not assign a value to the input when submitting a pipeline job.
+By default, all inputs are required and must be assigned a value (or a default value) each time you submit a pipeline job. However, there may be instances where you need optional inputs. In such cases, you have the flexibility to not assign a value to the input when submitting a pipeline job. 
+
+For example, if you have an optional input with data/model type and you don't assign a value when submitting the pipeline job, there will be a component in the pipeline that doesn't have upstream data dependency (the input port isn't connected to any component or data/model node). The pipeline service invokes this component directly rather than waiting upstream dependency to be ready.
 
 Following are examples about how to define optional input.
-
 
 :::code language="yaml" source="~/azureml-examples-main/cli/assets/component/train.yml" range="1-34" highlight="12-22,31-33":::
 
@@ -222,9 +225,6 @@ By default, the output of a component will be stored in `azureml://datastores/${
 
 But you can also customize where to store the output by defining path of an output. Following are example:
 
-# [Python SDK](#tab/python)
-
-[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-output-path)] 
 
 # [Azure CLI](#tab/cli)
 
@@ -240,6 +240,13 @@ output_path="azureml://datastores/{datastore_name}/paths/{relative_path_of_conta
 az ml job create -f ./pipeline.yml --set outputs.pipeline_job_trained_model.path=$output_path  
 
 ```
+
+# [Python SDK](#tab/python)
+
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-output-path)] 
+
+The end to end notebook example can be found [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb)
+
 ---
  
 
@@ -288,6 +295,9 @@ az ml job download --all -n <JOB_NAME> -g <RESOURCE_GROUP_NAME> -w <WORKSPACE_NA
 ```
 
 # [Python SDK](#tab/python)
+
+Before we dive in the code, you need a way to reference your workspace. You create `ml_client` for a handle to the workspace. Refer to [this article](./tutorial-explore-data.md#create-handle-to-workspace) to initialize `ml_client`.
+
 ```python
 # List all child jobs in the job
 child_jobs = client.jobs.list(parent_job_name=job.name)
@@ -336,7 +346,7 @@ from azure.ai.ml import dsl, Output
 components_dir = "./components/"
 helloworld_component = load_component(source=f"{components_dir}/helloworld_component.yml")
 
-@dsl.pipeline()
+@pipeline()
 def register_pipeline_output():
   # Call component obj as function: apply given inputs & parameters to create a node in pipeline
   node = helloworld_component(component_in_path=Input(
@@ -387,7 +397,7 @@ from azure.ai.ml import dsl, Output
 components_dir = "./components/"
 helloworld_component = load_component(source=f"{components_dir}/helloworld_component.yml")
 
-@dsl.pipeline()
+@pipeline()
 def register_node_output():
   # Call component obj as function: apply given inputs & parameters to create a node in pipeline
   node = helloworld_component(component_in_path=Input(
