@@ -5,8 +5,9 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 08/27/2023
+ms.date: 09/06/2023
 ---
+
 # Defender for Containers architecture
 
 Defender for Containers is designed differently for each Kubernetes environment whether they're running in:
@@ -105,6 +106,30 @@ When Defender for Cloud protects a cluster hosted in Google Kubernetes Engine, t
 :::image type="content" source="./media/defender-for-containers/architecture-gke.png" alt-text="Diagram of high-level architecture of the interaction between Microsoft Defender for Containers, Google GKE clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-gke.png":::
 
 ---
+
+## How does agentless discovery for Kubernetes work?
+
+The discovery process is based on snapshots taken at intervals:
+
+:::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
+
+When you enable the agentless discovery for Kubernetes extension, the following process occurs:
+
+- **Create**:
+  - If the extension is enabled from Defender CSPM, Defender for Cloud creates an identity in customer environments called `CloudPosture/securityOperator/DefenderCSPMSecurityOperator`.
+  - If the extension is enabled from Defender for Containers, Defender for Cloud creates an identity in customer environments called `CloudPosture/securityOperator/DefenderForContainersSecurityOperator`.
+- **Assign**: Defender for Cloud assigns a built-in role called **Kubernetes Agentless Operator** to that identity on subscription scope. The role contains the following permissions:
+
+  - AKS read (Microsoft.ContainerService/managedClusters/read)
+  - AKS Trusted Access with the following permissions:
+  - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/write
+  - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/read
+  - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/delete
+
+   Learn more about [AKS Trusted Access](/azure/aks/trusted-access-feature).
+
+- **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
+- **Bind**: Upon discovery of an AKS cluster, Defender for Cloud performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives Defender for Cloud data plane read permission inside the cluster.
 
 ## Next steps
 
