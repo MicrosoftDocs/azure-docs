@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 # Get an access token using Azure CLI or Azure PowerShell
 
-To use the FHIR service or the DICOM service, you need an access token that verifies your identity and permissions to the server. You can use [PowerShell](https:./../powershell/scripting/overview?view=powershell-7.3) or the [Azure Command-Line Interface (CLI)](./../cli/azure/what-is-azure-cli), which are tools for creating and managing Azure resources, to obtain an access token.
+To use the FHIR service or the DICOM service, you need an access token that verifies your identity and permissions to the server. You can obtain an access token using [PowerShell](/powershell/scripting/overview?view=powershell) or the [Azure Command-Line Interface (CLI)](/cli/azure/what-is-azure-cli), which are tools for creating and managing Azure resources.
 
 Keep in mind that to access the FHIR service or the DICOM service, users and applications must be granted permissions through [role assignments](configure-azure-rbac.md) from Azure portal, or by using [scripts](configure-azure-rbac-using-scripts.md). 
 
@@ -62,10 +62,10 @@ Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-dic
 
 Learn more about: 
 
->[Access FHIR service using Postman](./fhir/use-postman.md)
+[Access FHIR service using Postman](./fhir/use-postman.md)
 
->[Access FHIR service using REST client](./fhir/using-rest-client.md)
+[Access FHIR service using REST client](./fhir/using-rest-client.md)
 
->[Access DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
+[Access DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
