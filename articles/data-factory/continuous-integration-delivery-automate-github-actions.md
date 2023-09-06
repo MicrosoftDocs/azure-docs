@@ -8,40 +8,39 @@ ms.author: olmoloce
 ms.reviewer: kromerm
 ms.topic: conceptual
 ms.date: 08/29/2023 
-ms.custom:
 ---
 
 # Automate continuous integration and delivery using GitHub Actions
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this guide we will show how to do continuos integration and delivery in Azure Data Factory with GitHub Actions. This will be done using workflows. A workflow is defined by a YAML file that contains the various steps and parameters that make up the workflow. 
+In this guide, we show how to do continuous integration and delivery in Azure Data Factory with GitHub Actions. This is done using workflows. A workflow is defined by a YAML file that contains the various steps and parameters that make up the workflow. 
 
-The workflow will leverage the [automated publishing capability](continuous-integration-delivery-improvements.md) of Azure Data Factory. As well as the [Azure Data Factory Deploy Action](https://github.com/marketplace/actions/data-factory-deploy) from the GitHub Marketplace which uses the [pre- and post-deployment script](continuous-integration-delivery-sample-script.md).  
+The workflow leverages the [automated publishing capability](continuous-integration-delivery-improvements.md) of Azure Data Factory. And the [Azure Data Factory Deploy Action](https://github.com/marketplace/actions/data-factory-deploy) from the GitHub Marketplace that uses the [pre- and post-deployment script](continuous-integration-delivery-sample-script.md).  
 
 ## Requirements
 
 - Azure Subscription - if you don't have one, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. 
 
-- Azure Data Factory - you will need two instances, one development instance that will be the source of changes. And a second one where changes will be propagated with the workflow. If you don't have an existing Data Factory instance, follow this [tutorial](quickstart-create-data-factory.md) to create one. 
+- Azure Data Factory - you need two instances, one development instance that is the source of changes. And a second one where changes are propagated with the workflow. If you don't have an existing Data Factory instance, follow this [tutorial](quickstart-create-data-factory.md) to create one. 
 
 - GitHub repository integration set up - if you don't have a GitHub repository connected to your development Data Factory, follow the [tutorial](source-control.md#github-settings) to connect it.  
 
 ## Create a user-assigned managed identity
 
-You will need credentials that will authenticate and authorize GitHub Actions to deploy your ARM template to the target Data Factory. We will leverage a user-assigned managed identity (UAMI) with [workload identity federation](../active-directory/workload-identities/workload-identity-federation.md). Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets. In this scenario, GitHub Actions will be able to access the Azure resource group and deploy the target Data Factory instance. 
+You need credentials that authenticate and authorize GitHub Actions to deploy your ARM template to the target Data Factory. We leverage a user-assigned managed identity (UAMI) with [workload identity federation](../active-directory/workload-identities/workload-identity-federation.md). Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets. In this scenario, GitHub Actions are able to access the Azure resource group and deploy the target Data Factory instance. 
 
-Please follow the tutorial to [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). Once the UAMI is created, browse to the Overview page and take a note of the Subscription ID and Client ID. We will use it later.
+Follow the tutorial to [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). Once the UAMI is created, browse to the Overview page and take a note of the Subscription ID and Client ID. We need these values later.
 
 ## Configure the workload identity federation 
 
-1. Please follow the tutorial to [configure a federated identity credential on a user-assigned managed identity](../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md#configure-a-federated-identity-credential-on-a-user-assigned-managed-identity). 
+1. Follow the tutorial to [configure a federated identity credential on a user-assigned managed identity](../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md#configure-a-federated-identity-credential-on-a-user-assigned-managed-identity). 
 
     Here is an example of a federated identity configuration:
    
     :::image type="content" source="media/continuous-integration-delivery-github-actions/add-federated-credential.png" alt-text="Adding Federated Credential":::
 
-2. After creating the credential, navigate to Azure Active Directory Overview page and take a note of the tenant ID. We will need this value later. 
+2. After creating the credential, navigate to Azure Active Directory Overview page and take a note of the tenant ID. We need this value later. 
 
 3. Browse to the Resource Group containing the target Data Factory instance and assign the UAMI the [Data Factory Contributor role](concepts-roles-permissions.md#roles-and-requirements). 
 
@@ -71,14 +70,14 @@ You need to provide your application's Client ID, Tenant ID and Subscription ID 
 
 ## Create the workflow that deploys the Data Factory ARM template 
 
-At this point, you must have a Data Factory instance with git integration set up. If this is not the case, please follow the links in the Requirements section. 
+At this point, you must have a Data Factory instance with git integration set up. If not, follow the links in the Requirements section. 
 
 The workflow is composed of two jobs: 
 
-- **A build job** which leverages the npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) to (1) validate all the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected in Data Factory Studio. And (2) export the ARM template that’ll be later used to deploy to the QA or Staging environment. 
+- **A build job** which uses the npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) to (1) validate all the Data Factory resources in the repository. You get the same validation errors as when "Validate All" is selected in Data Factory Studio. And (2) export the ARM template that is later used to deploy to the QA or Staging environment. 
 - **A release job** which takes the exported ARM template artifact and deploys it to the higher environment Data Factory instance. 
 
-1. Navigate to the repository connected to your Data Factory, under your root folder (ADFroot in the below example) create a build folder where you will store the package.json file: 
+1. Navigate to the repository connected to your Data Factory, under your root folder (ADFroot in the below example) create a build folder where you store the package.json file: 
 
     ```json
     {
@@ -91,7 +90,7 @@ The workflow is composed of two jobs:
     }
     ```
     
-    This should look like below:
+    The setup should look like:
    
     :::image type="content" source="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" alt-text="Saving the package.json file":::
 
@@ -99,7 +98,7 @@ The workflow is composed of two jobs:
    
    :::image type="content" source="media/continuous-integration-delivery-github-actions/new-workflow.png" alt-text="Creating a new workflow":::
 
-3. Paste the workflow YAML provided below. 
+3. Paste the workflow YAML. 
 
 ```yml
 on:
@@ -176,18 +175,18 @@ jobs:
 
 Let’s walk together through the workflow. It contains parameters that are numbered for your convenience and comments describe what each expects. 
 
-For the build job, there are four parameters you will need to provide. For more detailed information about these, check the npm package [Azure Data Factory utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) documentation.
+For the build job, there are four parameters you need to provide. For more detailed information about these, check the npm package [Azure Data Factory utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) documentation.
 
 > [!TIP]
 > Use the same artifact name in the Export, Upload and Download actions. 
 
-In the Release job, there are the next six  parameters you'll need to supply. For more details about these please check the [Azure Data Factory Deploy Action GitHub Marketplace listing](https://github.com/marketplace/actions/data-factory-deploy). 
+In the Release job, there are the next six parameters you need to supply. For more details about these, please check the [Azure Data Factory Deploy Action GitHub Marketplace listing](https://github.com/marketplace/actions/data-factory-deploy). 
 
 ## Monitor the workflow execution 
 
-Let’s test the setup by making some changes in the development Data Factory instance. Create a feature branch where you make the changes, and then make a pull request to main. This should trigger the workflow to execute. 
+Let’s test the setup by making some changes in the development Data Factory instance. Create a feature branch and make some changes. Then make a pull request to the main branch. This triggers the workflow to execute. 
 
-1. To check it, browse to the repository -> Actions -> and identify your workflow
+1. To check it, browse to the repository -> Actions -> and identify your workflow.
    
    :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-workflow.png" alt-text="Monitoring a workflow":::
 
