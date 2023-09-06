@@ -36,10 +36,10 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 1. When the **Register an application** page appears, enter a name for your application, such as *identity-client-app*.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. Select **Register**. 
-1. The application's Overview pane is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
+1. The application's overview pane is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
-1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
+1. Set the **Redirect URIs** value to `http://localhost:4200/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
 1. Select **Configure** to apply the changes.
 1. Under **Platform Configurations** expand **Single-page application**.
 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) your **Redirect URI** is eligible for the Authorization Code Flow with PKCE.
@@ -65,7 +65,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
-    * `RedirectUri` - The **Redirect URI** of the application. Replace the text in quotes with the redirect URI that was recorded earlier from the overview page of the registered application.
+    * `RedirectUri` - The **Redirect URI** of the application. If necessary, replace the text in quotes with the redirect URI that was recorded earlier from the overview page of the registered application.
 
 ## Run the application and sign in
 
@@ -83,6 +83,12 @@ Run the project with a web server by using Node.js:
 1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
 
     ![Screenshot of the application showing the user's profile details.](media/quickstarts/angular-spa/quickstart-angular-spa-sign-in.png)
+
+## Sign-out from the application
+
+1. Find the **Sign out** link in the top right corner of the page, and select it.
+1. You'll be prompted to pick an account to sign out from. Select the account you used to sign in.
+1. A message appears indicating that you have signed out.
 
 ## Related content
 
