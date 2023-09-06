@@ -183,6 +183,5 @@ The acceptable score is fixed at 3/5; you can only adjust the 'acceptable overal
 ## Next Steps
 
 - [Get started with Prompt flow](get-started-prompt-flow.md)
-- [Create standard flows](how-to-develop-a-standard-flow.md)
-- [Create chat flows](how-to-develop-a-chat-flow.md)
+- [Submit bulk test and evaluate a flow (preview)](how-to-bulk-test-evaluate-flow.md)
 - [Create evaluation flows](how-to-develop-an-evaluation-flow.md)
