@@ -31,12 +31,13 @@ As a workaround, you can follow these steps:
 
 1. Go to the folder : C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
 1. Edit the file with the name *Orchestrator.Sandbox.exe.config*
-1. Add the following lines inside the tags <assemblyBinding>:
+1. Add the following lines inside the `<assemblyBinding>` tags:
+```xml
 <dependentAssembly>
   <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
   <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
 </dependentAssembly>
-
+```
 
 ### <a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
 
