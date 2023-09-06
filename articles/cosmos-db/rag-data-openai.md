@@ -88,7 +88,7 @@ Prior to sending a request to Azure OpenAI, the user input/query/request is also
 
 There are multiple ways to use RAG and vector search with your data stored in Azure Cosmos DB. 
 
-:::image type="content" source="media/rag-data-openai/vector-search-datasheet.png" alt-text="Options for Vector Search with Azure Cosmos DB." lightbox="media/rag-data-openai/vector-search-datasheet.png":::
+:::image type="content" source="media/rag-data-openai/vector-search-infosheet.png" alt-text="Options for Vector Search with Azure Cosmos DB." lightbox="media/rag-data-openai/vector-search-datasheet.png":::
 
 ## Azure Cosmos DB for NoSQL and Azure Cognitive Search
 
