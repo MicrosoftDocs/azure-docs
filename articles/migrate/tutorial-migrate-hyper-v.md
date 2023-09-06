@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 12/12/2022
-ms.custom: MVC, fasttrack-edit, engagement-fy23
+ms.date: 07/13/2023
+ms.custom: MVC, fasttrack-edit, engagement-fy24
 ---
 
 # Migrate Hyper-V VMs to Azure

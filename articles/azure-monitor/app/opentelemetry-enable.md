@@ -101,10 +101,10 @@ Download the [applicationinsights-agent-3.4.16.jar](https://github.com/microsoft
 
 Install these packages:
 
-- [applicationinsights](https://www.npmjs.com/package/applicationinsights/v/beta)
+- [@azure/monitor-opentelemetry](https://www.npmjs.com/package/@azure/monitor-opentelemetry)
 
 ```sh
-npm install applicationinsights@beta
+npm install @azure/monitor-opentelemetry
 ```
 
 The following packages are also used for some specific scenarios described later in this article:
@@ -190,10 +190,9 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 
 ##### [Node.js](#tab/nodejs)
 
-```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-const config = new ApplicationInsightsConfig();
-const appInsights = new ApplicationInsightsClient(config);
+```typescript
+const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+useAzureMonitor();
 ```
 
 ##### [Python](#tab/python)

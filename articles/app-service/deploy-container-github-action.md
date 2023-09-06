@@ -6,6 +6,8 @@ ms.date: 12/15/2021
 ms.reviewer: ushan
 ms.custom: github-actions-azure, devx-track-azurecli 
 ms.devlang: azurecli
+author: cephalin
+ms.author: cephalin
 
 ---
 
@@ -27,7 +29,7 @@ For an Azure App Service container workflow, the file has three sections:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join). You need to have code in a GitHub repository to deploy to Azure App Service. 
-- A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. Make sure to complete the full deployment to Azure App Service for containers. Unlike regular web apps, web apps for containers do not have a default landing page. Publish the container to have a working example.
+- A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. Make sure to complete the full deployment to Azure App Service for containers. Unlike regular web apps, web apps for containers don't have a default landing page. Publish the container to have a working example.
     - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01)
   		
 ## Generate deployment credentials
@@ -78,7 +80,7 @@ In the example, replace the placeholders with your subscription ID, resource gro
 
 OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
 
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
 
     ```azurecli-interactive
     az ad app create --display-name myApp
@@ -141,7 +143,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
 
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret a name, like `AZURE_CREDENTIALS`.
 
 When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
@@ -205,7 +207,7 @@ jobs:
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
 
-You can also use [Docker Login](https://github.com/azure/docker-login) to log into multiple container registries at the same time. This example includes two new GitHub secrets for authentication with docker.io. The example assumes that there is a Dockerfile at the root level of the registry. 
+You can also use [Docker sign-in](https://github.com/azure/docker-login) to log into multiple container registries at the same time. This example includes two new GitHub secrets for authentication with docker.io. The example assumes that there's a Dockerfile at the root level of the registry. 
 
 ```yml
 name: Linux Container Node Workflow
@@ -293,7 +295,7 @@ jobs:
     - name: 'Checkout GitHub Action' 
       uses: actions/checkout@main
     
-    - name: 'Login via Azure CLI'
+    - name: 'Sign in via Azure CLI'
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -335,7 +337,7 @@ jobs:
     - name: 'Checkout GitHub Action' 
       uses: actions/checkout@main
     
-    - name: 'Login via Azure CLI'
+    - name: 'Sign in via Azure CLI'
       uses: azure/login@v1
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -369,11 +371,11 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 
 - [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
 
-- [Azure login](https://github.com/Azure/login)
+- [Azure sign-in](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 
-- [Docker login/logout](https://github.com/Azure/docker-login)
+- [Docker sign-in/out](https://github.com/Azure/docker-login)
 
 - [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 

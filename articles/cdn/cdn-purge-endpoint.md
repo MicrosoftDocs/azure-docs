@@ -65,7 +65,7 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
     ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Purge requests take approximately 2 minutes with **Azure CDN from Verizon** (standard and premium), and approximately 10 seconds with **Azure CDN from Akamai**.  Azure CDN has a limit of 100 concurrent purge requests at any given time at the profile level. 
+> Purge requests take approximately 2 minutes with **Azure CDN from Edgio** (standard and premium), and approximately 10 seconds with **Azure CDN from Akamai**.  Azure CDN has a limit of 100 concurrent purge requests at any given time at the profile level. 
 > 
 > 
 
