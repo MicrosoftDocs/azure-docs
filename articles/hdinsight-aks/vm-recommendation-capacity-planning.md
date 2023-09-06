@@ -18,7 +18,7 @@ HDInsight on AKS currently supports Virtual Machines (VMs) from the [Memory Opti
 
 If your use case requires the usage of Memory Optimized VMs, the default recommendation is to use VMs from the families `Eadsv5` or `Easv5`. For use cases requiring the usage of General Purpose VMs, we recommend VMs from the families `Dadsv5` or `Ddsv5`. 
 
-If there is insufficient capacity/quota on the above recommended VM Families, please look for alternatives in the below table that lists all the VM Families currently supported in HDInsight on AKS for cluster creation:
+If there is insufficient capacity/quota on the recommended VM Families, look for alternatives in the table that lists all the VM Families currently supported in HDInsight on AKS for cluster creation:
 
 |	Type	|	VM Family	|	Temp Storage	|	Premium Storage Support	|
 |--|--|--|--|
@@ -39,7 +39,7 @@ The minimum VM specifications recommended (regardless of the chosen VM Family fo
 
 ## Capacity Planning 
 
-The Virtual Machines used in HDInsight on AKS clusters requires the same Quota as Azure VMs. This is unlike the original version of HDInsight, where a dedicated Quota had to be requested for creating HDInsight clusters by selecting ‘Azure HDInsight’ on the Quota selection dropdown (image below). For HDInsight on AKS, customers need to select ‘Compute’ from the Quota selection dropdown in order to request extra capacity for the VMs they intend to use in their clusters. Find detailed instructions for increasing your quota [here](/azure/quotas/per-vm-quota-requests).
+The Virtual Machines used in HDInsight on AKS clusters requires the same Quota as Azure VMs. This is unlike the original version of HDInsight, where users had to request a dedicated quota to create HDInsight clusters by selecting 'Azure HDInsight' from the quota selection dropdown as shown in the image. For HDInsight on AKS, customers need to select ‘Compute’ from the Quota selection dropdown in order to request extra capacity for the VMs they intend to use in their clusters. Find detailed instructions for increasing your quota [here](/azure/quotas/per-vm-quota-requests).
 
 :::image type="content" source="./media/vm-recommendation-capacity-planning/capacity-planning.png" alt-text="Screenshot shows Capacity Planning for HDInsight on AKS." border="true" lightbox="./media/vm-recommendation-capacity-planning/capacity-planning.png":::
 
