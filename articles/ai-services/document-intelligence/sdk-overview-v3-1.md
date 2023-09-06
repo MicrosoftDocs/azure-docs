@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 09/05/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.1.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -18,7 +18,7 @@ monikerRange: 'doc-intel-3.1.0'
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Document Intelligence SDK v3.1 (GA)
+# Document Intelligence SDK v3.1 latest (GA)
 
 **The SDKs referenced in this article are supported by:** ![Document Intelligence checkmark](media/yes-icon.png) **Document Intelligence REST API version 2023-07-31—v3.1 (GA)**.
 
