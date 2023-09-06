@@ -13,7 +13,7 @@ ms.reviewer: michm
 
 # Onboard to the Microsoft Customer Agreement (MCA)
 
-This playbook (guide) helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA contract. The guide was created to recommend best practices to onboard you to an MCA.
+This playbook (guide) helps customers who buy Microsoft software and services through a Microsoft account manager set up an MCA. The guide was created to recommend best practices to onboard you to an MCA.
 
 The onboarding processes and important considerations vary, depending on whether you are:
 
@@ -31,7 +31,7 @@ This guide follows each path and provides information for each step of the proce
 
 ## Important terms
 
-- **[Enterprise Agreement (EA)](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise)** - A licensing agreement designed for large organizations with 500 or more users or devices. It's a volume licensing program that gives them the flexibility to buy Azure or seat-based cloud services and software licenses under one agreement.
+- **[Enterprise Agreement (EA)](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise)** - A licensing agreement designed for large organizations with 500 or more users or devices. It's a volume licensing program that gives organizations the flexibility to buy Azure or seat-based cloud services and software licenses under one agreement.
 - **Microsoft Customer Agreement (MCA)** - A Microsoft licensing agreement designed for automated processing, dynamic updating of terms, transparent pricing, and enhanced billing management capabilities.
 - **Pay-as-you-go (PAYG)** – A utility computing billing method that's used in cloud computing and geared towards organizations and end users. PAYG is a pricing option where you pay for the resources you use on an hourly or monthly basis. You only pay for what you use and can scale up or down as needed.
 - **APIs** - A software intermediary that allows two applications to interact with each other. For example, it defines the kinds of calls or requests that can be made, how to make them, the data formats that should be used, and the conventions to follow.
