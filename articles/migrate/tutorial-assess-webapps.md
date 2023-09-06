@@ -41,6 +41,8 @@ Run an assessment as follows:
 
 3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Web apps to App Service**. 
 
+   :::image type="content" source="./media/tutorial-assess-webapps/hub-assess-webapps.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
+
 4. Select **Edit** to review the assessment properties.
 
 5. Here's what's included in Azure App Service assessment properties:
@@ -80,15 +82,9 @@ Run an assessment as follows:
 
    The **Overview** screen contains 3 sections: Essentials, Assessed entities, and Migration scenario. 
 
-     **Essentials**
+    **Essentials**
 
-      **Field** | **Description**
-      ----- | -----
-      **Group** | 
-      **Status** | 
-      **Discovery source** |
-      **Target location** | 
-      **Currency** | 
+    The **Essentials** sections displays the group the assessed entity belongs to, its status, the location, discovery source, and currency in US dollars.
 
    **Assessed entities**
 
@@ -96,7 +92,7 @@ Run an assessment as follows:
 
    **Migration scenario**
 
-   This section provides a pictorial representation of the number of apps that are ready, ready with conditions, and not ready. You can see two graphical representations, one for All Web applications to App Service Code and the other for All Web applications to App Service Containers. In addition, it also lists the number of apps ready to migrate and the estimated cost for the migration for the apps that are ready to migrate.  
+   This section provides a pictorial representation of the number of apps that are ready, ready with conditions, and not ready. You can see two graphical representations, one for *All Web applications to App Service Code* and the other for *All Web applications to App Service Containers*. In addition, it also lists the number of apps ready to migrate and the estimated cost for the migration for the apps that are ready to migrate.  
 
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
 
