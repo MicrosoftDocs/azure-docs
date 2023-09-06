@@ -116,7 +116,7 @@ The following table compares Hive table types and ACID operations before an upgr
 
 ### HDInsight 3.x and HDInsight 4.x Table type comparison
 
-|**HDInsight 3.x**| | | |**HDInsight 4.x**| |
+|**HDInsight 3.x**|- |- | - |**HDInsight 4.x**| - |
 |-|-|-|-|-|-|
 |**Table Type**	|**ACID v1**	|**Format**	|**Owner (user) of Hive Table File**	|**Table Type**|**ACID v2**|
 |External	|No	|Native or non-native|	Hive or non-Hive	|External	|No|
