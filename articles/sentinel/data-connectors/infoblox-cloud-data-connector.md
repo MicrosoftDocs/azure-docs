@@ -88,7 +88,7 @@ InfobloxCDC
 ## Vendor installation instructions
 
 
->**IMPORTANT:** This data connector depends on a parser based on a Kusto Function to work as expected called [**InfobloxCDC**](https://aka.ms/sentinel-InfobloxCloudDataConnector-parser) which is deployed with the solution.
+>**IMPORTANT:** This data connector depends on a parser based on a Kusto Function to work as expected called **InfobloxCDC** which is deployed with the solution.
 
 
 >**IMPORTANT:** This Microsoft Sentinel data connector assumes an Infoblox Cloud Data Connector host has already been created and configured in the Infoblox Cloud Services Portal (CSP). As the [**Infoblox Cloud Data Connector**](https://docs.infoblox.com/display/BloxOneThreatDefense/Deploying+the+Data+Connector+Solution) is a feature of BloxOne Threat Defense, access to an appropriate BloxOne Threat Defense subscription is required. See this [**quick-start guide**](https://www.infoblox.com/wp-content/uploads/infoblox-deployment-guide-data-connector.pdf) for more information and licensing requirements.
