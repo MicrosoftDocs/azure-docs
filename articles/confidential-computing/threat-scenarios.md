@@ -1,24 +1,24 @@
 # Threat Scenarios and Protection Goals
 > Understanding what you are protecting, and from whom
 
-In all designs it's important to understand what threats you are protecting against, this is commonly called threat modelling.
-There is a widely-used principle of "the 5 W's", Who, What, When, Where and Why that is useful in clearly articulating threat models.
+In all designs, it's important to understand what threats you're protecting against, commonly called threat modeling.
+There's a widely used principle of "the five W's" : Who, What, When, Where and Why that is useful in clearly articulating threat models.
 
-For example, if you were modelling the potential threat of someone burgling your home whilst you were on holiday you could define it as follows;
+For example, if you were modeling the potential threat of someone burgling your home whilst you were on holiday you could define it as follows;
 
 |Element    |Definition    |Scope
 |:---       |:---            |:---
-|**Who**     |..are you protecting against?|A person who is not specifically entitled or authorised to enter your property.
+|**Who**     |..are you protecting against?|A person who isn't entitled or authorized to enter your property.
 |**What**    |..are you protecting against happening to?| Theft or vandalism of personal property.
-|**When**    |..are you worried this may happen?| Whilst property is unattended for >24hrs
-|**Where**   |..could this happen?| At my home, 1 Acacia Avenue, Londontown, UK.
-|**Why**     |..are you worried about this, what is the impact?| Financial loss as a result of theft or vandalism of property.
+|**When**    |..are you worried this may happen?| Whilst property is unattended for >24 hrs
+|**Where**   |..could this happen?| At my home, one Acacia Avenue, Londontown, UK.
+|**Why**     |..are you worried about this, what is the effect?| Financial loss as a result of theft or vandalism of property.
 
-This helps you to unambiguously define a potential threat. You can use this definition to develop suitable preventative measures to stop it happening, or, where maybe you can't fully prevent something develop a suitable mitigation to reduce the impact if the threat scenario occurs.
+This format helps you to unambiguously define a potential threat. You can use this definition to develop suitable preventative measures to stop it happening. Or, where maybe you can't fully prevent something you can use it to develop a suitable mitigation to reduce the effect if the threat scenario occurs.
 
-You'll see that it reduces ambiguity, for example clearly calling out the difference between protecting a home whilst it is unattended vs. whilst it is occupied - which could both have different preventative measures and mitigations.
+From this example you see that it reduces ambiguity, for example clearly calling out the difference between protecting a home whilst it's unattended vs. whilst it's occupied - which could both have different preventative measures and mitigations.
 
-Some of the common threat scenarios you can address using Confidential Compute are as follows (note, this is not an exhaustive list)..
+Some of the common threat scenarios you can address using Confidential Compute are as follows (note, this isn't an exhaustive list)..
 
 ### Protect data from cloud provider
 
@@ -32,7 +32,7 @@ Azure already encrypts data at rest and in transit, and confidential computing h
 
 Microsoft will not attempt to defeat customer-controlled data protection of confidential computing with customer-managed keys and verification policies in order to view or extract data in use. If faced with a legal demand to do so, we would challenge such a demand on any lawful basis, consistent with our customer commitments as outlined in this [blog] (https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
 
-Azure is also protected by a comprehensive defense in depth strategy offering customer protections from contractual and privacy transparency through to technical controls operated on-behalf of the customer that are independently audited and a comprehensive set of technical and infrastructure tools provided to allow customers to define their security posture.
+Azure is also protected by a comprehensive defense in depth strategy offering customer protections through contractual and privacy transparency through to technical controls operated on-behalf of the customer that are independently audited. A comprehensive set of technical and infrastructure tools are provided to allow customers to define their security posture.
 
 Confidential computing complements the already comprehensive defense strategy offered in Azure by allowing customers to further protect their data in-use from the cloud provider.
 
@@ -61,7 +61,7 @@ Many customers have a requirement to protect their workloads from internal threa
 
 ### Multi-party collaboration
 
-Many new scenarios are evolving where multiple parties collaborate together on combined data-sets, in this case there is usually a desire to retain control over proprietary data and IP.
+Many new scenarios are evolving where multiple parties collaborate together on combined data-sets, in this case there's usually a desire to retain control over proprietary data and IP.
 
 |Who    |What    |Where    |When    |Why
 |:---   |:---    |:---     |:---    |:---
@@ -71,7 +71,7 @@ For more details on multi-party solutions see [Multi-Party Data Solutions](./mul
 
 ### Compliance with regulatory requirements
 
-In order to comply with regulations like GDPR or SCHREMS II it is often required that the customer has granular control over access to data, for example ensuring that data is analysed in an 'eyes-off' manner where data scientists collaborate without having direct access to entire data sets.
+In order to comply with regulations like GDPR or SCHREMS II it's often required that the customer has granular control over access to data, for example ensuring that data is analyzed in an 'eyes-off' manner where data scientists collaborate without having direct access to entire data sets.
 
 |Who    |What    |Where    |When    |Why
 |:---   |:---    |:---     |:---    |:---
