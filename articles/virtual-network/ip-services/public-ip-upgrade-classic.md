@@ -54,7 +54,7 @@ In this section, you'll use the Azure classic CLI to migrate a classic reserved 
 > The reserved IP must be removed from any cloud service that the IP address is associated to.
 
 ```azurecli-interactive
-azure network reserved-ip validate migration myReservedIP
+azure network reserved-ip validate-migration myReservedIP
 
 ```
 The previous command displays any warnings and errors that block migration. If validation is successful, you can continue with the following steps to **Prepare** and **Commit** the migration:
