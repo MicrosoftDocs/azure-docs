@@ -259,6 +259,16 @@ The following fields are included in the table in the **Values** section on the 
 
 Many organizations opt to obfuscate their registry information. Sometimes contact email addresses end in *@anonymised.email*. This placeholder is used instead of a real contact address. Many fields are optional during registration configuration, so any field with an empty value wasn't included by the registrant.
 
+
+
+### Change history 
+
+The "Change history" tab displays a list of modifications that have been applied to an asset over time. This information helps you track these changes over time and better understand the lifecycle of the asset.  This tab displays a variety of changes, including but not limited to asset states, labels and external IDs. For each change, we list the user who implemented the change and a timestamp. 
+
+[ ![Screenshot that shows the Change history tab.](media/change-history-1.png) ](media/change-history-1.png#lightbox)
+
+
+
 ## Next steps
 
 - [Understand dashboards](understanding-dashboards.md)

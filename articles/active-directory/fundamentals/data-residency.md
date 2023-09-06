@@ -64,7 +64,7 @@ Use the following table to see Azure AD cloud solution models based on infrastru
 
 Learn more: 
 
-* [Customer data storage and processing for European customers in Azure AD](./active-directory-data-storage-eu.md)
+* [Customer data storage and processing for European customers in Azure AD](./data-storage-eu.md)
 * Power BI: [Azure Active Directory – Where is your data located?](https://aka.ms/aaddatamap)
 * [What is the Azure Active Directory architecture?](https://aka.ms/aadarch)
 * [Find the Azure geography that meets your needs](https://azure.microsoft.com/overview/datacenters/how-to-choose/)
@@ -112,4 +112,3 @@ For more information on data residency in Microsoft Cloud offerings, see the fol
 
 * [Data operational considerations](data-operational-considerations.md)
 * [Data protection considerations](data-protection-considerations.md)
-

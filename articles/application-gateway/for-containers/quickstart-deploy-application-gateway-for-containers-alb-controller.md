@@ -102,7 +102,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 ## Install the ALB Controller
 
-1. Create a user managed identity for ALB controller and federate the identity as Pod Identity to use in the AKS cluster.
+1. Create a user managed identity for ALB controller and federate the identity as Workload Identity to use in the AKS cluster.
 
     ```azurecli-interactive
     RESOURCE_GROUP='<your resource group name>'

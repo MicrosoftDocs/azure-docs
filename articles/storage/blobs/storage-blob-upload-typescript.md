@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 06/21/2023
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js

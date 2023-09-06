@@ -37,7 +37,7 @@ The IP address associated with an inbound endpoint is always part of the private
 ![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
 > [!NOTE]
-> The IP address assigned to an inbound endpoint can be static if you use [PowerShell to provison the endpoint](dns-private-resolver-get-started-powershell.md#create-the-inbound-endpoint). The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you use another method to provision the inbound endpoint, then typically the fifth IP address in the subnet is assigned. If the inbound endpoint is reprovisioned, this IP address might change, but normally the 5th IP address in the subnet is used again. The IP address does not change unless the inbound endpoint is reprovisioned.
+> The IP address assigned to an inbound endpoint can be static if you use [PowerShell to provision the endpoint](dns-private-resolver-get-started-powershell.md#create-the-inbound-endpoint). The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you use another method to provision the inbound endpoint, then typically the fifth IP address in the subnet is assigned. If the inbound endpoint is reprovisioned, this IP address might change, but normally the 5th IP address in the subnet is used again. The IP address does not change unless the inbound endpoint is reprovisioned.
 
 ## Outbound endpoints
 

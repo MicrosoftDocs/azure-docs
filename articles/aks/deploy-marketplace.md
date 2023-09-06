@@ -4,7 +4,7 @@ description: Learn how to deploy Kubernetes applications from Azure Marketplace 
 author: nickomang
 ms.author: nickoman
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 08/18/2023
 ms.custom: ignite-fall-2022, references_regions
 ---
 
@@ -25,22 +25,13 @@ Included among these solutions are Kubernetes application-based container offers
 
 This feature is currently supported only in the following regions:
 
-- East US, EastUS2EUAP, West US, Central US, West Central US, South Central US, East US2, West US2, West Europe, North Europe, Canada Central, South East Asia, Australia East, Central India, Japan East, Korea Central, UK South, UK West, Germany West Central, France Central, East Asia, West US3, Norway East, South African North, North Central US, Australia South East, Switzerland North, Japan West, South India 
+- East US, EastUS2EUAP, West US, Central US, West Central US, South Central US, East US2, West US2, West Europe, North Europe, Canada Central, South East Asia, Australia East, Central India, Japan East, Korea Central, UK South, UK West, Germany West Central, France Central, East Asia, West US3, Norway East, South African North, North Central US, Australia South East, Switzerland North, Japan West, South India
 
 Kubernetes application-based container offers can't be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
-## Register resource providers
-
-Before you deploy a container offer, you must register the  `Microsoft.ContainerService` and `Microsoft.KubernetesConfiguration` providers on your subscription by using the `az provider register` command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService --wait
-az provider register --namespace Microsoft.KubernetesConfiguration --wait
-```
-
 ## Select and deploy a Kubernetes application
 
-### From the AKS portal screen
+### From an AKS cluster
 
 1. In the [Azure portal](https://portal.azure.com/), you can deploy a Kubernetes application from an existing cluster by navigating to **Marketplace** or selecting **Extensions + applications**, then selecting **+ Add**.
 
@@ -52,11 +43,11 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 1. After you decide on an application, select the offer.
 
-1. On the **Plans + Pricing** tab, select an option. Ensure that the terms are acceptable, and then select **Create**.
+1. On the **Plans + Pricing** tab, select an option. Ensure that the terms are acceptable, and then select **Create**.
 
    :::image type="content" source="./media/deploy-marketplace/plan-pricing.png" alt-text="Screenshot of the offer purchasing page in the Azure portal, showing plan and pricing information.":::
 
-1. Follow each page in the wizard, all the way through Review + Create. Fill in information for your resource group, your cluster, and any configuration options that the application requires. 
+1. Follow each page in the wizard, all the way through **Review + Create**. Fill in information for your resource group, your cluster, and any configuration options that the application requires.
 
    :::image type="content" source="./media/deploy-marketplace/review-create.png" alt-text="Screenshot of the Azure portal wizard for deploying a new offer, with the selector for creating a cluster or using an existing one.":::
 
@@ -64,7 +55,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
    :::image type="content" source="./media/deploy-marketplace/deploying.png" alt-text="Screenshot of the Azure portal deployments screen, showing that the Kubernetes offer is currently being deployed.":::
 
-### From the Marketplace portal screen
+### Search in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Marketplace** on the top search bar. In the results, under **Services**, select **Marketplace**.
 
@@ -143,13 +134,6 @@ You can view the extension instance from the cluster by using the following comm
 az k8s-extension show --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-
-
-
-
-
-
-
 ---
 
 ## Monitor billing and usage information
@@ -166,8 +150,6 @@ To monitor billing and usage information for the offer that you deployed:
 
 You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster.
 
-
-
 ### [Portal](#tab/azure-portal)
 
 Select an application, then select the uninstall button to remove the extension from your cluster:
@@ -180,7 +162,6 @@ Select an application, then select the uninstall button to remove the extension 
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-
 ---
 
 ## Troubleshooting
@@ -190,22 +171,10 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 ## Next steps
 
 - Learn more about [exploring and analyzing costs][billing].
+- Learn more about [deploying a Kubernetes application programmatically using Azure CLI](/azure/aks/deploy-application-az-cli)
 
 <!-- LINKS -->
 [azure-marketplace]: /marketplace/azure-marketplace-overview
-
 [cluster-extensions]: ./cluster-extensions.md
-
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
-
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
-
-
-
-
-
-- Learn more about [deploying a Kubernetes application programmatically using Azure CLI](/azure/aks/deploy-application-az-cli)
-
-
-
-

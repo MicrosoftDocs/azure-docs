@@ -4,12 +4,19 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/01/2023
+ms.date: 08/30/2023
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article we highlight articles for new features and where there have been important updates to existing articles.
+
+## August 2023
+
+In August 2023, we published the following changes:
+
+- Updated [Administrative template for Azure Virtual Desktop](administrative-template.md) to include being able to configure settings using the settings catalog in Intune.
+- A new article for [Use cases for Azure Virtual Desktop Insights](insights-use-cases.md) that includes example scenarios for how you can use Azure Virtual Desktop Insights to help understand your Azure Virtual Desktop environment.
 
 ## July 2023
 
@@ -28,7 +35,7 @@ In June 2023, we published the following changes:
 
 - Updated [Use Azure Virtual Desktop Insights](insights.md) to use the Azure Monitor Agent.
 - Updated [Supported features for Microsoft Teams on Azure Virtual Desktop](teams-supported-features.md) to include simulcast, mirror my video, manage breakout rooms, call health panel.
-- New article to [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
+- A new article to [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
 - Added Intune to [Administrative template for Azure Virtual Desktop](administrative-template.md).
 - Updated [Configure single sign-on using Azure AD Authentication](configure-single-sign-on.md) to include how to use an Active Directory domain admin account with single sign-on, and highlight the need to create a Kerberos server object.
 

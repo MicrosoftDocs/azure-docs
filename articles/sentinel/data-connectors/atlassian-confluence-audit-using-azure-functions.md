@@ -31,8 +31,6 @@ ConfluenceAudit
    | sort by TimeGenerated desc
    ```
 
-
-
 ## Prerequisites
 
 To integrate with Atlassian Confluence Audit (using Azure Functions) make sure you have: 
@@ -40,28 +38,21 @@ To integrate with Atlassian Confluence Audit (using Azure Functions) make sure y
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **REST API Credentials/permissions**: **ConfluenceAccessToken**, **ConfluenceUsername** is required for REST API. [See the documentation to learn more about API](https://developer.atlassian.com/cloud/confluence/rest/api-group-audit/). Check all [requirements and follow  the instructions](https://developer.atlassian.com/cloud/confluence/rest/intro/#auth) for obtaining credentials.
 
-
 ## Vendor installation instructions
 
-
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to the Confluence REST API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+>  This connector uses Azure Functions to connect to the Confluence REST API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
-
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
-
+**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 **STEP 1 - Configuration steps for the Confluence API**
 
  [Follow the instructions](https://developer.atlassian.com/cloud/confluence/rest/intro/#auth) to obtain the credentials. 
 
-
-
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
->**IMPORTANT:** Before deploying the Workspace data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).
-
-
+> [!IMPORTANT]
+> Before deploying the Workspace data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).
 
 Option 1 - Azure Resource Manager (ARM) Template
 
@@ -71,8 +62,9 @@ Use this method for automated deployment of the Confluence Audit data connector 
 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-confluenceauditapi-azuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
-> **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
-3. Enter the **ConfluenceAccessToken**, **ConfluenceUsername**, **ConfluenceHomeSiteName** (short site name part, as example HOMESITENAME from https://HOMESITENAME.atlassian.net) and deploy. 
+   > [!NOTE]
+   > Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
+3. Enter the **ConfluenceAccessToken**, **ConfluenceUsername**, **ConfluenceHomeSiteName** (short site name part, as example HOMESITENAME from ``` https://HOMESITENAME.atlassian.net ```) and deploy. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 
@@ -80,10 +72,10 @@ Option 2 - Manual Deployment of Azure Functions
 
 Use the following step-by-step instructions to deploy the Confluence Audit data connector manually with Azure Functions (Deployment via Visual Studio Code).
 
-
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> [!NOTE]
+> You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-confluenceauditapi-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -108,7 +100,6 @@ If you're already signed in, go to the next step.
 6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.
 7. Go to Azure Portal for the Function App configuration.
 
-
 **2. Configure the Function App**
 
 1. In the Function App, select the Function App Name and select **Configuration**.
@@ -120,10 +111,8 @@ If you're already signed in, go to the next step.
 		WorkspaceID
 		WorkspaceKey
 		logAnalyticsUri (optional)
-> - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
+   - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
 4. Once all application settings have been entered, click **Save**.
-
-
 
 ## Next steps
 

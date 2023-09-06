@@ -148,7 +148,7 @@ When routing intent is enabled on the hub, static routes corresponding to the co
 | Route Name | Prefixes | Next Hop Resource| 
 |--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall | 
- _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
+ | _policy_PublicTraffic| 0.0.0.0/0| Azure Firewall |
 
 > [!NOTE]
 > Any static routes in the defaultRouteTable containing prefixes that aren't exact matches with 0.0.0.0/0 or the RFC1918 super-nets (10.0.0.0/8, 192.168.0.0/16 and 172.16.0.0/12) are automatically consolidated into a single static route, named **private_traffic**. Prefixes in the defaultRouteTable that match RFC1918 supernets or 0.0.0.0/0 are always automatically removed once routing intent is configured, regardless of the policy type.
@@ -166,7 +166,7 @@ Enabling routing intent on this hub would result in the following end state of t
 | Route Name | Prefixes | Next Hop Resource| 
 |--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall | 
- _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
+ | _policy_PublicTraffic| 0.0.0.0/0| Azure Firewall |
 | private_traffic | 40.0.0.0/24, 10.0.0.0/24, 50.0.0.0/24| Azure Firewall | 
 
 #### Other methods (PowerShell, REST, CLI)
@@ -180,14 +180,14 @@ For example, consider the scenario where the defaultRouteTable has the following
 | firewall_route_ 1 | 10.0.0.0/8|Azure Firewall |
 | firewall_route_2 | 192.168.0.0/16, 10.0.0.0/24 | Azure Firewall|
 | firewall_route_3 | 40.0.0.0/24| Azure Firewall|
- to_internet | 0.0.0.0/0| Azure Firewall |
+| to_internet | 0.0.0.0/0| Azure Firewall |
 
 The following table represents the final state of the defaultRouteTable after routing intent creation succeeds. Note that firewall_route_1 and to_internet was automatically removed as the only prefix in those routes were 10.0.0.0/8 and 0.0.0.0/0. firewall_route_2 was modified to remove 192.168.0.0/16 as that prefix is an RFC1918 aggregate prefix.
  
 | Route Name | Prefixes | Next Hop Resource|
 |--|--|--|
 | _policy_PrivateTraffic | 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12| Azure Firewall |
-| _policy_InternetTraffic| 0.0.0.0/0| Azure Firewall |
+| _policy_PublicTraffic| 0.0.0.0/0| Azure Firewall |
 | firewall_route_2 | 10.0.0.0/24 | Azure Firewall|
 | firewall_route_3 | 40.0.0.0/24| Azure Firewall|
 

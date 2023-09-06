@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 08/07/2023
+ms.date: 08/11/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -33,22 +33,22 @@ You can configure ingress connectivity to the cluster using an ingress controlle
 
 Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address space logically different from the VNet, but it has scaling and other limitations. The below table provides a detailed comparison between Kubenet and Azure CNI Overlay. If you don't want to assign VNet IP addresses to pods due to IP shortage, we recommend using Azure CNI Overlay.
 
-| Area                         | Azure CNI Overlay                                                | Kubenet                                                                       |
-|------------------------------|------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| Cluster scale                | 1000 nodes and 250 pods/node                                     | 400 nodes and 250 pods/node                                                   |
+| Area                         | Azure CNI Overlay                                            | Kubenet                                                                       |
+|------------------------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Cluster scale                | 1000 nodes and 250 pods/node                                 | 400 nodes and 250 pods/node                                                   |
 | Network configuration        | Simple - no extra configurations required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
-| Pod connectivity performance | Performance on par with VMs in a VNet                            | Extra hop adds minor latency                                             |
-| Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                           | Calico                                                                        |
-| OS platforms supported       | Linux and Windows Server 2022(Preview)                           | Linux only                                                                    |
+| Pod connectivity performance | Performance on par with VMs in a VNet                        | Extra hop adds minor latency                                                  |
+| Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                       | Calico                                                                        |
+| OS platforms supported       | Linux and Windows Server 2022, 2019                          | Linux only                                                                    |
 
 ## IP address planning
 
 - **Cluster Nodes**: When setting up your AKS cluster, make sure your VNet subnet has enough room to grow for future scaling. Keep in mind that clusters can't scale across subnets, but you can always add new node pools in another subnet within the same VNet for extra space. A `/24`subnet can fit up to 251 nodes since the first three IP addresses are reserved for management tasks.
 - **Pods**: The Overlay solution assigns a `/24` address space for pods on every node from the private CIDR that you specify during cluster creation. The `/24` size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure the private CIDR is large enough to provide `/24` address spaces for new nodes to support future cluster expansion.
   - When planning IP address space for pods, consider the following factors:
-    - Pod CIDR space must not overlap with the cluster subnet range.
-    - Pod CIDR space must not overlap with IP ranges used in on-premises networks and peered networks.
     - The same pod CIDR space can be used on multiple independent AKS clusters in the same VNet.
+    - Pod CIDR space must not overlap with the cluster subnet range.
+    - Pod CIDR space must not overlap with directly connected networks (like VNet peering, ExpressRoute, or VPN). If external traffic has source IPs in the podCIDR range, it needs translation to a non-overlapping IP via SNAT to communicate with the cluster.
 - **Kubernetes service address range**: The size of the service address CIDR depends on the number of cluster services you plan to create. It must be smaller than `/12`. This range shouldn't overlap with the pod CIDR range, cluster subnet range, and IP range used in peered VNets and on-premises networks.
 - **Kubernetes DNS service IP address**: This IP address is within the Kubernetes service address range that's used by cluster service discovery. Don't use the first IP address in your address range, as this address is used for the `kubernetes.default.svc.cluster.local` address.
 

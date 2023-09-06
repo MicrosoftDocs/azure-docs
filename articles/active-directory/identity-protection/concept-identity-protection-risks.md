@@ -218,7 +218,7 @@ Microsoft doesn't provide specific details about how risk is calculated. Each le
 
 ### Password hash synchronization
 
-Risk detections like leaked credentials require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
+Risk detections like leaked credentials require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md).
 
 ### Why are there risk detections generated for disabled user accounts?
           

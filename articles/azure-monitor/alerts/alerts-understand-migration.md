@@ -199,7 +199,7 @@ Any user who has the built-in role of Monitoring Contributor at the subscription
 
 ## Common problems and remedies
 
-After you [trigger the migration](alerts-using-migration-tool.md), you'll receive email at the addresses you provided to notify you that migration is complete or if any action is needed from you. This section describes some common problems and how to deal with them.
+After you trigger the migration, you'll receive email at the addresses you provided to notify you that migration is complete or if any action is needed from you. This section describes some common problems and how to deal with them.
 
 ### Validation failed
 
@@ -220,5 +220,4 @@ As part of the migration, new metric alerts and new action groups will be create
 
 ## Next steps
 
-- [How to use the migration tool](alerts-using-migration-tool.md)
 - [Prepare for the migration](alerts-prepare-migration.md)

@@ -2,8 +2,8 @@
 title: Monitoring - Azure Database for MariaDB
 description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 06/24/2022

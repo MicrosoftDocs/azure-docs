@@ -13,7 +13,7 @@ manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 # How to configure Azure AD certificate-based authentication
 
@@ -391,7 +391,7 @@ To enable CBA and configure username bindings using Graph API, complete the foll
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
-- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
+- [Azure AD CBA on mobile devices (Android and iOS)](./concept-certificate-based-authentication-mobile-ios.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
