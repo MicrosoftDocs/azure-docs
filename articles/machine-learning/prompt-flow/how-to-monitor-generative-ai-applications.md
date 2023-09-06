@@ -14,7 +14,8 @@ ms.date: 09/06/2023
 ms.custom: devplatv2
 ---
 
-## Monitoring AI applications
+
+# Monitoring AI applications
 Monitoring models in production is an essential part of the AI lifecycle: changes in data and consumer behavior can influence your LLM application over time, resulting in outdated AI systems, which can produce undesired results that can negatively impact business outcomes and expose organizations to compliance, economic, and reputational risks. 
 
 Azure Machine Learning model monitoring for generative AI applications makes it easier for you to monitor your LLM applications in production for safety and quality on a cadence to ensure it is delivering maximum business impact. This ultimately helps maintain the quality and safety of your generative AI applications. Capabilities and integrations include: 
@@ -64,49 +65,58 @@ You must have an Azure OpenAI resource configured with a workspace connection. F
 > During preview, the correct permissions are required to configure your monitoring, or your monitor will fail. Please double-check your connection permissions.
  
 1. Create a promptflow runtime [following this guidance](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-create-manage-runtime?view=azureml-api-2) and clone a sample flow or create flow from scratch, specify the connection and runtime, run it. 
+
 1. Configure your flow: ensure your flow inputs and outputs are configured: "prompt" (aka "inputs" aka "question") and "completion" (aka "outputs" aka "answer")
-:::image type="content" source="prompt-flow/media/monitor-generative-ai-applications/how-to-monitor-models/pf-configure-flow.png" alt-text="Screenshot showing how to configure prompt flow input and output settings for generative AI." lightbox="media/how-to-monitor-models/pf-configure-flow.png":::
+
+    :::image type="content" source="./media/monitor-generative-ai-applications/pf-configure-flow.png" alt-text="Screenshot showing how to configure prompt flow input and output settings for generative AI." lightbox="./media/monitor-generative-ai-applications/pf-configure-flow.png":::
+
 1. After your promptflow run successfully completes, select "Deploy" and finish the deploy wizard by [following this guidance](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference?view=azureml-api-2) 
     1. Capture outputs: ensure your desired flow outputs are being captured: "completion" (aka "answer") along with any additional optional outputs: "context" or "ground truth" 
-    :::image type="content" source="prompt-flow/media/monitor-generative-ai-applications/how-to-monitor-models/pf-confirm-outputs.png" alt-text="Screenshot showing how to configure prompt flow outputs for data collection." lightbox="media/how-to-monitor-models/pf-confirm-outputs.png":::
+    :::image type="content" source="./media/monitor-generative-ai-applications/pf-confirm-outputs.png" alt-text="Screenshot showing how to configure prompt flow outputs for data collection." lightbox="./media/monitor-generative-ai-applications/pf-confirm-outputs.png":::
+
     1. Enable inference data collection, which uses AzureML's [Model Data Collector](https://learn.microsoft.com/en-us/azure/machine-learning/concept-data-collection?view=azureml-api-2)
-    :::image type="content" source="media/how-to-monitor-models/pf-configure-data-collection.png" alt-text="Screenshot showing how to configure prompt flow data collection using Model Data Collector." lightbox="media/how-to-monitor-models/pf-configure-data-collection.png":::
+    :::image type="content" source="./media/monitor-generative-ai-applications/pf-configure-data-collection.png" alt-text="Screenshot showing how to configure prompt flow data collection using Model Data Collector." lightbox="./media/monitor-generative-ai-applications/pf-configure-data-collection.png":::
+    
     1. Enable your desired connection that you previously configured. Note that you will need to remember your connection and deployment names. 
-    :::image type="content" source="media/how-to-monitor-models/pf-confirm-connection.png" alt-text="Screenshot showing how to configure prompt flow to your workspace connection" lightbox="media/how-to-monitor-models/pf-confirm-connection.png":::
+    :::image type="content" source="./media/monitor-generative-ai-applications/pf-confirm-connection.png" alt-text="Screenshot showing how to configure prompt flow to your workspace connection" lightbox="./media/monitor-generative-ai-applications/pf-confirm-connection.png":::
+
     1. Confirm your settings
-    :::image type="content" source="media/how-to-monitor-models/pf-confirm-settings.png" alt-text="Screenshot showing your configured promptflow deployment." lightbox="media/how-to-monitor-models/pf-confirm-settings.png":::   
+    :::image type="content" source="./media/monitor-generative-ai-applications/pf-confirm-settings.png" alt-text="Screenshot showing your configured promptflow deployment." lightbox="./media/monitor-generative-ai-applications/pf-confirm-settings.png":::  
+ 
 1. The deployment creation may take more than 15 mins. 
     1. After deployment creation finishes, confirm your deployment is fully functional using the 'test' tab of your endpoint
-    :::image type="content" source="media/how-to-monitor-models/pf-confirm-deployment.png" alt-text="Screenshot showing your configured promptflow deployment." lightbox="media/how-to-monitor-models/pf-confirm-deployment.png"::: 
+    :::image type="content" source="./media/monitor-generative-ai-applications/pf-confirm-deployment.png" alt-text="Screenshot showing your configured promptflow deployment." lightbox="./media/monitor-generative-ai-applications/pf-confirm-deployment.png"::: 
+
     1. Confirm data is being collected in the proper format of your data asset as specified above. Please use a web-based json validator to confirm the structure before proceeding.
-    :::image type="content" source="media/how-to-monitor-models/pf-confirm-data-collection.png" alt-text="Screenshot showing your data asset." lightbox="media/how-to-monitor-models/pf-confirm-data-collection.png":::  
+    :::image type="content" source="./media/monitor-generative-ai-applications/pf-confirm-data-collection.png" alt-text="Screenshot showing your data asset." lightbox="./media/monitor-generative-ai-applications/pf-confirm-data-collection.png":::  
 
 
-# User Experience
-## 1. Create your monitor 
+## Create your monitor 
 1. ### Configure basic monitoring settings
-A. Change 'model task type' to 'prompt & completion'
-:::image type="content" source="media/how-to-monitor-models/gsq-configure-basic-settings.png" alt-text="Screenshot showing how to configure basic monitoring settings for generative AI." lightbox="media/how-to-monitor-models/gsq-configure-basic-settings.png":::
+    A. Change 'model task type' to 'prompt & completion'
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-configure-basic-settings.png" alt-text="Screenshot showing how to configure basic monitoring settings for generative AI." lightbox="./media/monitor-generative-ai-applications/gsq-configure-basic-settings.png":::
 
 1. ### Configure data asset
-No action is required. Monitoring will automatically join your model inputs and outputs, but you can override with a custom data asset if desired. 
-:::image type="content" source="media/how-to-monitor-models/gsq-configure-data-asset.png" alt-text="Screenshot showing how to configure your data asset for generative AI." lightbox="media/how-to-monitor-models/gsq-configure-data-asset.png":::
-
+    No action is required. Monitoring will automatically join your model inputs and outputs, but you can override with a custom data asset if desired. 
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-configure-data-asset.png" alt-text="Screenshot showing how to configure your data asset for generative AI." lightbox="./media/monitor-generative-ai-applications/gsq-configure-data-asset.png":::
+    
 1. ### Select monitoring signals
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-configure-signal2.png" alt-text="Screenshot showing monitoring signal configurations." lightbox="./media/monitor-generative-ai-applications/gsq-configure-signal2.png":::
     - A. Configure workspace connection 
+        You will need to configure your workspace connection correctly, or you will see this: 
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-configure-signal1.png" alt-text="Screenshot showing an unconfigured monitoring signal." lightbox="./media/monitor-generative-ai-applications/gsq-configure-signal1.png":::
     - B. Enter your Azure OpenAI evaluator deployment name (Note: this is a preview feature and will be automated)
     - C. (optional) join your production data inputs & outputs: your production model inputs and outputs will be automatically joined by the Monitoring service. You can customize this if needed, but no action is required. By default, the join column is 'correlationid' which is generated by Model Data Collector. 
     - D. (optional) Configure metric thresholds: An acceptable per-instance score is fixed at 3/5. You can adjust your passing rate as-needed.
         
-        - #### Metric requirements
-        - The following inputs (data column names) are required to measure generation safety & quality: 
+        #### Metric configuration requirements
+        The following inputs (data column names) are required to measure generation safety & quality: 
 
-        - * **prompt (aka question) text** - the original prompt given 
-        - * **completion (aka answer) text** - the final completion from the API call that is returned
-        - * **context text** - any context data that is sent to the API call, together with original prompt. For example, if you hope to get search results only from certain certified information sources/website, you can define in the evaluation steps. This is an optional step that can be configured through PromptFlow.
-        - * **ground truth text** - the user-defined text as the "source of truth" (optional)
+        - **prompt (aka question) text** - the original prompt given 
+        - **completion (aka answer) text** - the final completion from the API call that is returned
+        - **context text** - any context data that is sent to the API call, together with original prompt. For example, if you hope to get search results only from certain certified information sources/website, you can define in the evaluation steps. This is an optional step that can be configured through PromptFlow.
+        - **ground truth text** - the user-defined text as the "source of truth" (optional)
         
-        - #### Metric configuration
         What parameters are configured in your data asset will dictate what metrics you can produce. 
         | Metric | Prompt  | Completion |  Context | Ground truth |
         | -- | -- | -- | -- | -- | 
@@ -118,31 +128,28 @@ No action is required. Monitoring will automatically join your model inputs and 
 
     - E. Enter column names from your prompt flow. Standard names are ("prompt" | "completion" | "context" | "ground_truth") but you can configure it according to your data asset
     - F. (optional) Set sampling rate
-    :::image type="content" source="media/how-to-monitor-models/gsq-configure-signal2.png" alt-text="Screenshot showing monitoring signal configurations." lightbox="media/how-to-monitor-models/gsq-configure-signal2.png":::
-    You will need to configure your workspace connection correctly, or you will see this: 
-    :::image type="content" source="media/how-to-monitor-models/gsq-configure-signal1.png" alt-text="Screenshot showing an unconfigured monitoring signal." lightbox="media/how-to-monitor-models/gsq-configure-signal1.png":::
+    
     - Once configured, your signal will no longer show an error, and you can proceed
-    :::image type="content" source="media/how-to-monitor-models/gsq-configure-signal3.png" alt-text="Screenshot showing monitoring signal configurations." lightbox="media/how-to-monitor-models/gsq-configure-signal3.png":::
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-configure-signal3.png" alt-text="Screenshot showing monitoring signal configurations." lightbox="./media/monitor-generative-ai-applications/gsq-configure-signal3.png":::
 
 1. ### Configure notifications
-No action is required. You can configure additional recipients on notifications if needed.
-:::image type="content" source="media/how-to-monitor-models/gsq-configure-notifications.png" alt-text="Screenshot showing monitoring notification configurations." lightbox="media/how-to-monitor-models/gsq-configure-notifications.png.png":::
-- gsq-configure-notifications.png
+    No action is required. You can configure additional recipients on notifications if needed.
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-configure-notifications.png" alt-text="Screenshot showing monitoring notification configurations." lightbox="./media/monitor-generative-ai-applications/gsq-configure-notifications.png.png":::
 
 1. ### Confirm your monitoring configuration  
-When successfully configured, your monitor should look like this:
-:::image type="content" source="media/how-to-monitor-models/gsq-confirm-configuration.png" alt-text="Screenshot showing a configured monitoring signal." lightbox="media/how-to-monitor-models/gsq-confirm-configuration.png":::
+    When successfully configured, your monitor should look like this:
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-confirm-configuration.png" alt-text="Screenshot showing a configured monitoring signal." lightbox="./media/monitor-generative-ai-applications/gsq-confirm-configuration.png":::
 
 2. ### Confirm monitoring status
-If successfully configured, your monitoring pipeline job will show the following:
-:::image type="content" source="media/how-to-monitor-models/gsq-confirm-job-success.png" alt-text="Screenshot showing a configured monitoring signal." lightbox="media/how-to-monitor-models/gsq-confirm-job-success.png":::
+    If successfully configured, your monitoring pipeline job will show the following:
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-confirm-job-success.png" alt-text="Screenshot showing a configured monitoring signal." lightbox="./media/monitor-generative-ai-applications/gsq-confirm-job-success.png":::
 
 3. ### Visualize metrics in Studio UI 
 1. View your monitor overview
-    :::image type="content" source="media/how-to-monitor-models/gsq-monitor-overview.png" alt-text="Screenshot showing monitor overview." lightbox="media/how-to-monitor-models/gsq-monitor-overview.png":::
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-monitor-overview.png" alt-text="Screenshot showing monitor overview." lightbox="./media/monitor-generative-ai-applications/gsq-monitor-overview.png":::
 1. A. View metrics over time
 1. B. View histogram of distributions 
-    :::image type="content" source="media/how-to-monitor-models/gsq-monitor-signal-details.png" alt-text="Screenshot showing a signal details page." lightbox="media/how-to-monitor-models/gsq-monitor-signal-details.png":::
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-monitor-signal-details.png" alt-text="Screenshot showing a signal details page." lightbox="./media/monitor-generative-ai-applications/gsq-monitor-signal-details.png":::
 1. Resolve alerts by adjusting signal thresholds
-    :::image type="content" source="media/how-to-monitor-models/gsq-monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="media/how-to-monitor-models/gsq-monitor-signal-adjust-signal.png":::
+    :::image type="content" source="./media/monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png":::
    
