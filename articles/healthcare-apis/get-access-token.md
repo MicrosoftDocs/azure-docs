@@ -1,6 +1,6 @@
 ---
-title: Get access token using Azure CLI or Azure PowerShell
-description: This article explains how to obtain an access token for Azure Health Data Services using the Azure CLI or Azure PowerShell.
+title: Get an access token to use the FHIR service or the DICOM service
+description: Learn how to get an access token for the FHIR service or the DICOM service.
 services: healthcare-apis
 author: mikaelweave
 ms.service: healthcare-apis
