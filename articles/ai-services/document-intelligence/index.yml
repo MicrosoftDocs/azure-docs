@@ -60,7 +60,7 @@ landingContent:
              - text: 🆕 Add-on capabilities
                url:  concept-add-on-capabilities.md
              - text: 🆕 Health insurance card model
-               url:  concept-insurance-card.md
+               url:  concept-health-insurance-card.md
              - text: Custom model
                url: concept-custom.md
              - text: W-2 Form model

@@ -4,7 +4,7 @@ description: Learn how to do an in-place upgrade from Ubuntu Server to Ubuntu Pr
 author: anujkmaurya
 ms.service: virtual-machines
 ms.subservice: billing
-ms.custom: devx-track-linux
+ms.custom: devx-track-linux, devx-track-azurecli
 ms.collection: linux
 ms.topic: article
 ms.date: 08/07/2023
