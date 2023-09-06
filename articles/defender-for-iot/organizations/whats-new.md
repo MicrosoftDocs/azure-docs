@@ -37,12 +37,6 @@ For example:
 
 For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
 
-### Device inventory enhancements for local subnets
-
-Starting with sensor version 23.1.3, applying a **Network location (Preview) == Local** filter, which filters the device inventory for local subnets only, now only shows devices with OT protocols. This change is applied only for devices detected by sensors with versions 23.1.3 or higher.
-
-For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
-
 ### Event timeline access for OT sensor Read Only users
 
 Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page. For example:

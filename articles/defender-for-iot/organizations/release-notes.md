@@ -111,7 +111,6 @@ This version includes the following updates and enhancements:
 
 - [Connectivity troubleshooting enhancements from the OT sensor](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues)
 - [Read Only users can access the Event Timeline](roles-on-premises.md)
-- [Non-IP devices are shown in the Device inventory only when they have OT protocols](device-inventory.md)
 
 ### Version 23.1.2
 
