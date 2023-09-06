@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/06/2024
+ms.date: 09/06/2023
 ms.reviewer: lualderm
 ---
 
@@ -207,7 +207,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
         :::image type="content" source="media/diagnostic-settings/storage-settings-new.png" alt-text="Screenshot that shows storage category and destination details." lightbox="media/diagnostic-settings/storage-settings-new.png":::
 
         > [!TIP]
-        >  Use the [AzureStorage LifeCycle Policy](/articles/storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal) to manage the length of time that your logs are retained.  
+        >  Use the [AzureStorage LifeCycle Policy](../../storage/blobs/lifecycle-management-policy-configure.md?tabs=azure-portal) to manage the length of time that your logs are retained.  
         > The Retention Policy as set in the Diagnostic Setting settings is now deprecated.
 
      1. **Partner integration**: You must first install partner integration into your subscription. Configuration options vary by partner. For more information, see [Azure Monitor partner integrations](../../partner-solutions/overview.md).
