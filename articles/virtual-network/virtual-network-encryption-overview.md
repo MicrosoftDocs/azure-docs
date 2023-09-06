@@ -28,8 +28,8 @@ Virtual network encryption has the following requirements:
     | --- | --- |
     | D-series | **[Dv4 and Dsv4-series](/azure/virtual-machines/dv4-dsv4-series)**, **[Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)**, **[Dav4 and Dasv4-series](/azure/virtual-machines/dav4-dasv4-series)** |
     | D-series V5 | **[Dv5 and Dsv5-series](/azure/virtual-machines/dv5-dsv5-series)**, **[Ddv5 and Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series)** |
-    | E-series | **[Ev5 and Esv5-series](/azure/virtual-machines/ev5-esv5-series)**, **[Edv5 and Edsv5-series](/azure/virtual-machines/edv5-edsv5-series)** |
-    | E-series V5 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)**, **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** |
+    | E-series | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)**, **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** |
+    | E-series V5 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev5-esv5-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv5-edsv5-series)** |
     | LSv3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
     | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)** |
     
