@@ -432,8 +432,7 @@ cd sap-automation/deploy/scripts
 
 The script installs Terraform and Ansible and configures the deployer.
 
-> [!IMPORTANT]
-> The rest of the tasks need to be executed on the deployer.
+The rest of the tasks must be executed on the deployer.
 
 ## Get SAP software by using the Bill of Materials
 
@@ -594,8 +593,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
 1. If necessary, register the SPN.
 
-    > [!IMPORTANT]
-    > The first time an environment is instantiated, a SPN must be registered. In this tutorial, the control plane is in the `MGMT` environment and the workload zone is in `DEV`. Therefore, an SPN must be registered for `DEV` at this time.
+    The first time an environment is instantiated, a SPN must be registered. In this tutorial, the control plane is in the `MGMT` environment and the workload zone is in `DEV`. Therefore, an SPN must be registered for `DEV` at this time.
 
     ```bash
     export subscriptionId="<subscriptionId>"
@@ -708,29 +706,29 @@ The SAP system deploys:
 
 Deploy the SAP system.
 
-    ```bash
+```bash
 
-    export sap_env_code="DEV"
-    export  region_code="<region_code>"
+export sap_env_code="DEV"
+export  region_code="<region_code>"
 
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-SAP01-X00
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-SAP01-X00
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh                  \
-      --parameterfile "${sap_env_code}-${region_code}-SAP01-X00.tfvars"  \
-      --type sap_system                                                  \
-      --auto-approve
-    ```
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh                  \
+    --parameterfile "${sap_env_code}-${region_code}-SAP01-X00.tfvars"  \
+    --type sap_system                                                  \
+    --auto-approve
+```
 
-    The deployment command for the `northeurope` example will look like:
+The deployment command for the `northeurope` example will look like:
 
-    ```bash
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
+```bash
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-      --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
-      --type sap_system                                  \
-      --auto-approve
-    ```
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
+    --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
+    --type sap_system                                  \
+    --auto-approve
+```
 
 Check that the system resource group is now in the Azure portal.
 
