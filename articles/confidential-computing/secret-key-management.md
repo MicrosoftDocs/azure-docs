@@ -1,3 +1,13 @@
+---
+title: Secret and key management
+description: Understanding how confidential computing handles secrets and keys
+author: gallaghs
+ms.author: gallaghs
+ms.service: confidential-computing
+ms.topic: concepts
+ms.date: 6/09/2023
+ms.custom: template-concept
+---
 # Secrets and Key Management
 
 Confidential computing provides advanced capabilities for protecting secrets and keys whilst they are in-use to enhance the security posture of an application.

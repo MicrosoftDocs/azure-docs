@@ -1,3 +1,13 @@
+---
+title: Trusted compute base (TCB)
+description: Understanding what the TCB is and what it includes
+author: gallaghs
+ms.author: gallaghs
+ms.service: confidential-computing
+ms.topic: concepts
+ms.date: 6/09/2023
+ms.custom: template-concept
+---
 # Trusted Compute Base
 
 The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical." If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.

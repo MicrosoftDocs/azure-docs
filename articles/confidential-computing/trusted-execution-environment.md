@@ -1,3 +1,13 @@
+---
+title: Trusted Execution Environment (TEE)
+description: Understanding what the TEE is and what it includes
+author: gallaghs
+ms.author: gallaghs
+ms.service: confidential-computing
+ms.topic: concepts
+ms.date: 6/09/2023
+ms.custom: template-concept
+---
 # Trusted Execution Environment (TEE)
 
 ## What is a TEE?
