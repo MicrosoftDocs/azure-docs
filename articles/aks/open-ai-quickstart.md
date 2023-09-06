@@ -411,7 +411,7 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 
 [managed-identity]: /azure/ai-services/openai/how-to/managed-identity#authorize-access-to-managed-identities
 
-[Create a private AKS cluster]: https://learn.microsoft.com/en-us/azure/aks/private-clusters?tabs=azure-portal#options-for-connecting-to-the-private-cluster
+[Create a private AKS cluster]: private-clusters.md?tabs=azure-portal#options-for-connecting-to-the-private-cluster
 
 [key-vault]: csi-secrets-store-driver.md
 
