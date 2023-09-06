@@ -286,7 +286,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 > [!div class="nextstepaction"]
 > [Send telemetry from a device]
 
-[.NET SDK 7.0]: https://dotnet.microsoft.com/en-us/download/dotnet/7.0
+[.NET SDK 7.0]: https://dotnet.microsoft.com/download/dotnet/7.0
 [Azure certified devices]: https://devicecatalog.azure.com/
 [Azure Functions]: ../azure-functions/functions-overview.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
