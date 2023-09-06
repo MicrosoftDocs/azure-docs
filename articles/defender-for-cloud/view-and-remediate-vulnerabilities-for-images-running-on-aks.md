@@ -4,7 +4,7 @@ description: Learn how to view and remediate runtime threat findings
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 09/06/2023
 ---
 
 # View and remediate vulnerabilities for images running on your AKS clusters

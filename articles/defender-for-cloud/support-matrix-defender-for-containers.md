@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Containers plan in
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 09/03/2023
+ms.date: 09/06/2023
 ms.custom: references_regions, ignite-2022
 ---
 

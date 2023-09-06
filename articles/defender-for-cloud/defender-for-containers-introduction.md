@@ -5,7 +5,7 @@ ms.topic: overview
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 09/03/2023
+ms.date: 09/06/2023
 ---
 
 # Overview of Microsoft Defender for Containers

@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 09/03/2023
+ms.date: 09/06/2023
 ---
 
 # Defender for Containers architecture
