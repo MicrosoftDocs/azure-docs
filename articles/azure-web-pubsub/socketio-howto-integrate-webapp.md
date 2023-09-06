@@ -55,7 +55,7 @@ In order to follow the step-by-step guide, you need
       --resource-group "<resource-group-name>" \
       --name "<webapp-name>" \ 
       --plan "<app-service-plan-name>" \
-      --runtime "NODE:18-lts"
+      --runtime "NODE:16-lts"
     ```
 
 ### 3. Create a Web PubSub for Socket.IO
@@ -106,6 +106,14 @@ git clone https://github.com/Azure-Samples/socket.io-webapp-integration
     Compress-Archive -Path * -DestinationPath app.zip
     ```
 
+1. Set Azure Web PubSub connection string in the application settings. Use the value of  `primaryConnectionString` you stored from an earlier step.
+    ```azurecli-interactive
+    az webapp config appsettings set \
+    --resource-group "<resource-group-name>" \
+    --name "<webapp-name>" \
+    --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
+    ```
+    
 1. Use the following command to deploy it to Azure App Service.
     ```azurecli-interactive
     az webapp deployment source config-zip \
@@ -114,16 +122,8 @@ git clone https://github.com/Azure-Samples/socket.io-webapp-integration
     --src app.zip
     ```
 
-1. Set Azure Web PubSub connection string in the application settings. Use the value of  `primaryConnectionString` you stored from an earlier step.
-    ```azurecli-interactive
-    az webapp config appsettings set \
-    --resource-group "<resource-group-name>" \
-    --name "<webapp-name>" \
-    --setting Web_PubSub_ConnectionString="<primaryConnectionString>"
-    ```
-
 ## View the whiteboard app in a browser
-Now head over to your browser and visit your deployed Web App . It's recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
+Now head over to your browser and visit your deployed Web App. The url usually is `https://<webapp-name>.azurewebsites.net` . It's recommended to have multiple browser tabs open so that you can experience the real-time collaborative aspect of the app. Or better, share the link with a colleague or friend.
 
 ## Next steps
 > [!div class="nextstepaction"]
