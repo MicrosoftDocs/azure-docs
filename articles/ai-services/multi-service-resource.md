@@ -56,9 +56,9 @@ The multi-service resource enables access to the following Azure AI services wit
 
 ::: zone-end
 
-::: zone pivot="azps"
+::: zone pivot="azpowershell"
 
-[!INCLUDE [Azure PowerShell quickstart](includes/quickstarts/management-azps.md)]
+[!INCLUDE [Azure PowerShell quickstart](includes/quickstarts/management-azpowershell.md)]
 
 ::: zone-end
 

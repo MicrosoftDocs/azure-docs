@@ -7,7 +7,7 @@ author: mgreenegit
 manager: nitinme
 ms.service: cognitive-services
 keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
-ms.topic: quickstart
+ms.topic: include
 ms.date: 08/29/2022
 ms.author: migreene
 ms.custom: mode-api, devx-track-azurepowershell

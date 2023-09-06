@@ -172,7 +172,7 @@ The [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-dep
 If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure PowerShell](../../multi-service-resource.md?pivots=azps#clean-up-resources)
+- [Azure PowerShell](../../multi-service-resource.md?pivots=azpowershell#clean-up-resources)
 
 ## Next steps
 

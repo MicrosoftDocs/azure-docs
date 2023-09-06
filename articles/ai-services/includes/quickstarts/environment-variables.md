@@ -23,7 +23,7 @@ PowerShell includes an extensible solution,
 [Secret Management](/powershell/module/microsoft.powershell.secretmanagement),
 for storing secure strings in platforms such as [Secret Store](/powershell/module/microsoft.powershell.secretstore) or [Azure KeyVault](/powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault).
 
-To setup a secret store to host secure strings, see the article
+To set up a secret store to host secure strings, see the article
 [Getting started using secret store](/powershell/utility-modules/secretmanagement/get-started/using-secretstore). Then use the following examples to store your api keys.
 
 ```powershell
