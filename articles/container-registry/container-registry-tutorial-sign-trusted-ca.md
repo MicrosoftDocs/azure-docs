@@ -34,7 +34,7 @@ In this article:
 > * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 > [!NOTE]
-> We recommend creating a new Azure Key Vault for storing signing certificates only.
+> We recommend creating a new Azure Key Vault for storing certificates only.
 
 ## Install the notation CLI and AKV plugin
 
@@ -108,7 +108,7 @@ In this article:
 az login
 ```
 
-To learn more about Azure CLI and how to sign in with it, see [Sign in with Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+To learn more about Azure CLI and how to sign in with it, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 
 ## Create or import a certificate issued by a CA in AKV
@@ -121,16 +121,17 @@ The requirements for root and intermediate certificates are as follows:
 - The `basicConstraints` extension MUST be present and MUST be marked as critical. The `cA` field MUST be set `true`.
 - The `keyUsage` extension MUST be present and MUST be marked `critical`. Bit positions for `keyCertSign` MUST be set. 
 
-The requirements for signing certificates are as follows:
+The requirements for certificates issued by a CA are as follows:
 - X.509 certificate properties:
   - Subject MUST contain common name (`CN`), country (`C`), state or province (`ST`), and organization (`O`). In this tutorial, `$CERT_SUBJECT` is used as the subject.
-  - X.509 key usage flags must be `DigitalSignature`.
+  - X.509 key usage flag must be `DigitalSignature` only.
   - Extended Key Usages (EKUs) must be empty or `1.3.6.1.5.5.7.3.3` (for Codesigning).
 - Key properties:
   - The property "exportable" should be set to `false`
   - Select [supported key type and size](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#algorithm-selection)
 
-The certificate created or imported must contain an ordered X.509 certificate chain. The signing certificate must be the first certificate, followed by the intermediate certificates (if any), and root certificate in the correct order.
+> [!NOTE]
+> Version v1.0.0 of the Notation AKV plugin requires a specific certificate order in a certificate chain. However, this limitation has been removed in version v1.0.1. We recommend using the latest version of the plugin.
 
 ### Create a certificate issued by a CA
 
@@ -147,7 +148,7 @@ To import a certificate, follow these steps:
 2. Import the certificate into Azure Key Vault by following the instructions in [import a certificate](../key-vault/certificates/tutorial-import-certificate.md).
 
 > [!NOTE]
-> If the certificate does not contain a certificate chain after creation or importing, you can obtain the intermediate and root certificates from your CA vendor. You can ask your vendor to provide you with a PEM file that contains the intermediate certificates first, followed by the root certificate. This file can then be used at step 5 of [signing container images](#sign-a-container-image-with-notation-cli-and-akv-plugin).
+> If the certificate does not contain a certificate chain after creation or importing, you can obtain the intermediate and root certificates from your CA vendor. You can ask your vendor to provide you with a PEM file that contains the intermediate certificates (if any) and root certificate. This file can then be used at step 5 of [signing container images](#sign-a-container-image-with-notation-cli-and-akv-plugin).
 
 ## Sign a container image with Notation CLI and AKV plugin 
 
