@@ -667,7 +667,7 @@ Use either Studio or Studio (preview) to see how to set up applications.
 
 # [Azure CLI](#tab/azure-cli)
 
-USe either Studio or Studio (preview) to see how to set up applications.
+Use either Studio or Studio (preview) to see how to set up applications.
 
 # [Studio](#tab/azure-studio)
 

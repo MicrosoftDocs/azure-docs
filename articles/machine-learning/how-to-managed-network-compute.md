@@ -12,7 +12,7 @@ ms.date: 08/22/2023
 ms.topic: how-to
 ---
 
-# Use managed compute in a managed virtual network.
+# Use managed compute in a managed virtual network
 
 Learn how to configure compute clusters or compute instances in an Azure Machine Learning managed virtual network (preview).
 
@@ -168,3 +168,6 @@ If you have an existing workspace and want to enable managed virtual network for
 * Managed online endpoints
 
 ## Next steps
+
+* [Managed virtual network isolation](how-to-managed-network.md)
+* [Secure online endpoints with network isolation](how-to-secure-online-endpoint.md)
