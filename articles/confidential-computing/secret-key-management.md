@@ -1,8 +1,8 @@
 ---
 title: Secret and key management
 description: Understanding how confidential computing handles secrets and keys
-author: gallaghs
-ms.author: gallaghs
+author: sgallagher
+ms.author: sgallagher
 ms.service: confidential-computing
 ms.topic: concepts
 ms.date: 6/09/2023

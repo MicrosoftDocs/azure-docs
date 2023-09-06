@@ -5,13 +5,13 @@ services: virtual-machines
 author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: mamccrea #ananyagarg #sgallagher
 ms.custom: ignite-fall-2021, inspire-july-2022
 ---
 
-## What is confidential computing?
+# What is confidential computing?
 
 Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC) - a foundation dedicated to defining and accelerating the adoption of confidential computing. The CCC defines confidential computing as: The protection of data in use by performing computations in a hardware-based Trusted Execution Environment (TEE).
 
