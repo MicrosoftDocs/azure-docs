@@ -344,7 +344,7 @@ All prices shown below are in USD.
 |-------------|---------------|-----------------|
 |Toll-free    |N/A            |Starting at USD 0.1888/min   |
 
-## Hong Kong telephony offers
+## Hong Kong SAR telephony offers
 
 ### Phone number leasing charges
 |Number type   |Monthly fee   |
