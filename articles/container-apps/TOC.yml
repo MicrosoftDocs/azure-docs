@@ -275,6 +275,8 @@
       href: /rest/api/containerapps/
     - name: Supported regions
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
+    - name: Hardware reference
+      href: hardware.md
     - name: Management SDKs
       items:
         - name: .NET
