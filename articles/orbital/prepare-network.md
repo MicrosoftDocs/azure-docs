@@ -49,7 +49,7 @@ Ensure the contact profile properties are set as follows:
 > [!NOTE]
 > You can have multiple links/channels in a contact profile, and you can have multiple IPs. But the combination of port/protocol must be unique. You cannot have two identical ports, even if you have two different destination IPs. 
 
-For more information, learn about [contact profiles](https://learn.microsoft.com/azure/orbital/concepts-contact-profile) and [how to configure a contact profile](https://learn.microsoft.com/azure/orbital/contact-profile).
+For more information, learn about [contact profiles](/azure/orbital/concepts-contact-profile) and [how to configure a contact profile](/azure/orbital/contact-profile).
 
 ## Schedule the contact
 
@@ -71,7 +71,7 @@ You can use this information to set up network policies or to distinguish betwee
 > - Only one destination IP is present. Any link in client mode should connect to this IP and the links are differentiated based on port.
 > - Many source IPs can be present. Links in server mode will connect to your specified IP address in the contact profile. The flows will originate from the source IPs present in this field and target the port as per the link details in the contact profile. There is no fixed assignment of link to source IP so please make sure to allow all IPs in any networking setup or firewalls. 
 
-For more information, learn about [contacts](https://learn.microsoft.com/azure/orbital/concepts-contact) and [how to schedule a contact](https://learn.microsoft.com/azure/orbital/schedule-contact).
+For more information, learn about [contacts](/azure/orbital/concepts-contact) and [how to schedule a contact](/azure/orbital/schedule-contact).
 
 ## Client/Server, TCP/UDP, and link direction
 
