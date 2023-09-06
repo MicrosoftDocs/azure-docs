@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/09/2023
+ms.date: 08/29/2023
 ---
 
 # User-defined data types in Bicep (Preview)
@@ -29,7 +29,7 @@ To enable this preview, modify your project's [bicepconfig.json](./bicep-config.
 You can use the `type` statement to define user-defined data types. In addition, you can also use type expressions in some places to define custom types.
 
 ```bicep
-type <userDefinedDataTypeName> = <typeExpression>
+type <user-defined-data-type-name> = <type-expression>
 ```
 
 The valid type expressions include:

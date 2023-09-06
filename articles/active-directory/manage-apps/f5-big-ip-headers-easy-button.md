@@ -74,7 +74,7 @@ For the scenario you need:
   * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
   * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php)
 * User identities synchronized from an on-premises directory to Azure AD
-  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 * An SSL web certificate to publish services over HTTPS, or use default BIG-IP certs for testing
   * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * A header-based application or set up an IIS header app for testing
@@ -311,7 +311,7 @@ Learn more: see, [My Apps](https://myapplications.microsoft.com/)
 
 The SAML federation metadata for the published application is imported from your tenant. The import provides the APM with the SAML sign out endpoint for Azure AD. This action ensures SP-initiated sign out terminates client and Azure AD sessions. Ensure the APM knows when user sign out occurs.
 
-If the BIG-IP webtop portal accesses published applications, then th eAPM processes the sign out to call the Azure AD sign out endpoint. If the BIG-IP webtop portal isn’t used, users can't instruct the APM to sign out. If users sign out of the application, the BIG-IP is oblivious. Thus, ensure SP-initiated sign out securely terminates sessions. You can add an SLO function to an application **Sign out** button, Then, clients are redirected to the Azure AD SAML or BIG-IP sign out endpoint. To locate the SAML sign out endpoint URL for your tenant, go to **App Registrations > Endpoints**.
+If the BIG-IP webtop portal accesses published applications, then th eAPM processes the sign out to call the Azure AD sign-out endpoint. If the BIG-IP webtop portal isn’t used, users can't instruct the APM to sign out. If users sign out of the application, the BIG-IP is oblivious. Thus, ensure SP-initiated sign out securely terminates sessions. You can add an SLO function to an application **Sign out** button, Then, clients are redirected to the Azure AD SAML or BIG-IP sign out endpoint. To locate the SAML sign out endpoint URL for your tenant, go to **App Registrations > Endpoints**.
 
 If you can't change the app, enable the BIG-IP to listen for the application sign out call and trigger SLO. 
 

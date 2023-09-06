@@ -1,5 +1,5 @@
 ---
-title: Best practices for labeling documents in the Document Intelligence Studio
+title: Best practices for labeling documents in the Document Intelligence (formerly Form Recognizer) Studio
 titleSuffix: Azure AI services
 description: Label documents in the Studio to create a training dataset. Labeling guidelines aimed at training a model with high accuracy
 author: laujan

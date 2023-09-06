@@ -21,12 +21,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Universal Windows Platform (UWP)
-            url: desktop-app-quickstart.md?pivots=devlang-uwp
-          - text: Windows Presentation Foundation (WPF)
-            url: desktop-app-quickstart.md?pivots=devlang-wpf
           - text: Node.js - Electron
-            url: desktop-app-quickstart.md?pivots=devlang-nodejs-electron
+            url: quickstart-desktop-app-nodejs-electron-sign-in.md
+          - text: Universal Windows Platform (UWP)
+            url: quickstart-desktop-app-uwp-sign-in.md
+          - text: Windows Presentation Foundation (WPF)
+            url: quickstart-desktop-app-wpf-sign-in.md
   - title: "Learn by building"
     linkLists:
       - linkListType: tutorial

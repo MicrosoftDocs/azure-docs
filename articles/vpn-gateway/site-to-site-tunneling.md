@@ -1,27 +1,28 @@
 ---
-title: 'Configure split or forced tunneling for site-to-site connections: PowerShell'
+title: 'Configure forced tunneling for site-to-site connections: PowerShell'
 description: Learn how to split or force tunnel traffic for VPN Gateway site-to-site connections using PowerShell.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/04/2023
 ms.author: cherylmc
 ---
-# Configure forced tunneling and split tunneling for site-to-site connections
+# Configure forced tunneling for site-to-site connections
 
-The steps in this article help you configure forced tunneling and split tunneling for site-to-site (S2S) IPsec connections. For more information, see [About forced tunneling and split tunneling for VPN Gateway](about-site-to-site-tunneling.md).
+The steps in this article help you configure forced tunneling for site-to-site (S2S) IPsec connections. For more information, see [About forced tunneling for VPN Gateway](about-site-to-site-tunneling.md).
 
-By default, Internet-bound traffic from your VMs goes directly to the Internet via the VPN gateway S2S connection. If you want to force all Internet-bound traffic through the VPN gateway to an on-premises site for inspection and auditing, you can do so by configuring **forced tunneling**. After you configure forced tunneling, if desired, you can split tunnel Internet-bound traffic for specified subnets using custom user-defined routes (UDRs).
+By default, Internet-bound traffic from your VMs goes directly to the Internet. If you want to force all Internet-bound traffic through the VPN gateway to an on-premises site for inspection and auditing, you can do so by configuring **forced tunneling**. After you configure forced tunneling, if desired, you can route Internet-bound traffic directly to the Internet for specified subnets using custom user-defined routes (UDRs).
 
-:::image type="content" source="./media/about-site-to-site-tunneling/split-tunnel.png" alt-text="Diagram shows split tunneling." lightbox="./media/about-site-to-site-tunneling/split-tunnel-high-res.png":::
+:::image type="content" source="./media/about-site-to-site-tunneling/tunnel-user-defined-routing.png" alt-text="Diagram shows split tunneling." lightbox="./media/about-site-to-site-tunneling/tunnel-user-defined-routing-high-res.png":::
 
-The following steps help you configure a forced tunneling scenario by specifying a default site. Optionally, using custom UDR, you can then split tunnel traffic by specifying that Internet-bound traffic from the Frontend subnet goes directly to the Internet, instead of to the on-premises site.
+The following steps help you configure a forced tunneling scenario by specifying a default site. Optionally, using custom UDR, you can route traffic by specifying that Internet-bound traffic from the Frontend subnet goes directly to the Internet, rather than to the on-premises site.
 
 * The VNet you create has three subnets: Frontend, Mid-tier, and Backend with four cross-premises connections: DefaultSiteHQ, and three branches.
-* You specify the default site for your VPN gateway using PowerShell, which forces all traffic back to the on-premises location. The default site can't be configured using the Azure portal.
-* The Frontend subnet is assigned a UDR to send traffic directly to the Internet, bypassing the VPN gateway.
-* The Mid-tier and Backend subnets continue to have traffic force tunneled back to the on-premises site via the VPN gateway because a default site is specified.
+* You specify the default site for your VPN gateway using PowerShell, which forces all Internet traffic back to the on-premises location. The default site can't be configured using the Azure portal.
+* The Frontend subnet is assigned a UDR to send Internet traffic directly to the Internet, bypassing the VPN gateway. Other traffic is routed normally.
+* The Mid-tier and Backend subnets continue to have Internet traffic force tunneled back to the on-premises site via the VPN gateway because a default site is specified.
 
 ## Create a VNet and subnets
 
@@ -134,7 +135,7 @@ To assign a default site for the gateway, you use the **-GatewayDefaultSite** pa
 
 At this point, all Internet-bound traffic is now configured to be force tunneled to *DefaultSiteHQ*. Note that the on-premises VPN device must be configured using 0.0.0.0/0 as traffic selectors.
 
-* If you want to only configure forced tunneling, and not split tunnel Internet traffic for specific subnets, you can skip to the [Establish Connections](#establish-s2s-vpn-connections) section of this article to create your connections.
+* If you want to only configure forced tunneling, and not route Internet traffic directly to the Internet for specific subnets, you can skip to the [Establish Connections](#establish-s2s-vpn-connections) section of this article to create your connections.
 * If you want specific subnets to send Internet-bound traffic directly to the Internet, continue with the next sections to configure custom UDRs and assign routes.
 
 ## Create route tables and routes

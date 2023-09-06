@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to 
 ms.date: 07/31/2023
-ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-dotnet
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -42,6 +42,8 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
+If you are running version 1.x of the runtime in Azure Stack Hub, see [Considerations for Azure Stack Hub](#considerations-for-azure-stack-hub) first.
+
 ## Identify function apps to upgrade
 
 Use the following PowerShell script to generate a list of function apps in your subscription that currently target version 1.x:
@@ -77,9 +79,9 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **Unless your app depends on a library or API only available to .NET Framework, we recommend upgrading to .NET 6 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that is what was available when they were created. Additional capabilities are available to more recent versions of .NET, and if your app is not forced to stay on .NET Framework due to a dependency, you should upgrade.
+> **Unless your app depends on a library or API only available to .NET Framework, we recommend upgrading to .NET 6 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that is what was available when they were created. Additional capabilities are available to more recent versions of .NET, and if your app is not forced to stay on .NET Framework due to a dependency, you should upgrade. .NET 6 is the fully released version with the longest support window from .NET. 
 >
-> Migrating to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. The [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+> Migrating to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
 ::: zone-end
 
@@ -120,7 +122,7 @@ Migrating a C# function app from version 1.x to version 4.x of the Functions run
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
 
 > [!TIP]
-> The [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
+> If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
 ### .csproj file
 
@@ -316,7 +318,7 @@ Some key classes changed names between version 1.x and version 4.x. These change
 
 ---
 
-[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
 
 There might also be class name differences in bindings. For more information, see the reference articles for the specific bindings.
 
@@ -453,6 +455,13 @@ In version 2.x, the following changes were made:
 * Because of [.NET Core limitations](https://github.com/Azure/azure-functions-host/issues/3414), support for F# script (`.fsx` files) functions has been removed. Compiled F# functions (.fs) are still supported.
 
 * The URL format of Event Grid trigger webhooks has been changed to follow this pattern: `https://{app}/runtime/webhooks/{triggerName}`.
+
+## Considerations for Azure Stack Hub
+
+[App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) does not support version 4.x of Azure Functions. When you are planning a migration off of version 1.x in Azure Stack Hub, you can choose one of the following options:
+
+- Migrate to version 4.x hosted in public cloud Azure Functions using the instructions in this article. Instead of upgrading your existing app, you would create a new app using version 4.x and then deploy your modified project to it.
+- Switch to [WebJobs](../app-service/webjobs-create.md) hosted on an App Service plan in Azure Stack Hub.
 
 ## Next steps
 

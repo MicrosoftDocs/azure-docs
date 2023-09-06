@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/23/2022
+ms.date: 08/31/2023
 ms.author: barclayn
 ms.reviewer: sumitp
-ms.custom: "it-pro;seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -69,7 +69,7 @@ When you complete the preceding steps, you're now the global administrator of th
   
 7. Select **Custom domain names**, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
   
-   ![domain verified as added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![domain verified as added to Azure AD](./media/domains-admin-takeover/add-domain.png)
   
 > [!NOTE]
 > Any users of Power BI or Azure Rights Management service who have licenses assigned in the Microsoft 365 organization must save their dashboards if the domain name is removed. They must sign in with a user name like *user\@fourthcoffeexyz.onmicrosoft.com* rather than *user\@fourthcoffee.xyz*.
@@ -114,6 +114,7 @@ The key and templates aren't moved over when the unmanaged organization is in a 
 Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates weren't moved over, that content isn't accessible after the domain takeover.
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
+
 You can see these cmdlets used in [PowerShell example](#powershell-example).
 
 cmdlet | Usage

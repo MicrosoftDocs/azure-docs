@@ -25,7 +25,7 @@ ms.custom: devx-track-js, ignite-2022
 | Samples | [Node.js code samples](samples-nodejs.md)
 | Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)
 | Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](tutorial-nodejs-web-app.md)
-| Current supported Node.js platforms | [LTS versions of Node.js](https://nodejs.org/about/releases/)
+| Current supported Node.js platforms | [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 
 ## Release notes
 
@@ -84,13 +84,13 @@ for await(const { result: item } in client.databases.readAll().getAsyncIterator(
 
 ### Fixed containers are now partitioned
 
-The Azure Cosmos DB service now supports partition keys on all containers, including those that were previously created as fixed containers. The v3 SDK updates to the latest API version that implements this change, but it is not breaking. If you do not supply a partition key for operations, we will default to a system key that works with all your existing containers and documents.
+The Azure Cosmos DB service now supports partition keys on all containers, including those that were previously created as fixed containers. The v3 SDK updates to the latest API version that implements this change, but it isn't breaking. If you don't supply a partition key for operations, we'll default to a system key that works with all your existing containers and documents.
 
 ### Upsert removed for stored procedures
 
 Previously upsert was allowed for non-partitioned collections, but with the API version update, all collections are partitioned so we removed it entirely.
 
-### Item reads will not throw on 404
+### Item reads won't throw on 404
 
 const container = client.database(dbId).container(containerId)
 
@@ -144,7 +144,7 @@ v2 had custom code to generate item IDs. We have switched to the well known and 
 
 #### Connection strings
 
-It is now possible to pass a connection string copied from the Azure portal:
+It's now possible to pass a connection string copied from the Azure portal:
 
 ```javascript
 const client = new CosmosClient("AccountEndpoint=https://test-account.documents.azure.com:443/;AccountKey=c213asdasdefgdfgrtweaYPpgoeCsHbpRTHhxuMsTaw==;")
@@ -155,7 +155,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 
 ### Improved browser experience
 
-While it was possible to use the v2 SDK in the browser, it was not an ideal experience. You needed to Polyfill several Node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
+While it was possible to use the v2 SDK in the browser, it wasn't an ideal experience. You needed to Polyfill several Node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
 
 * Replace request internals with fetch (#245)
 * Remove usage of Buffer (#330)
@@ -187,7 +187,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 
 ## Release & Retirement Dates
 
-Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. Read the [Microsoft Support Policy for SDKs](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy) for more details.
+Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it's recommended that you always upgrade to the latest SDK version as early as possible. Read the [Microsoft Support Policy for SDKs](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy) for more details.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

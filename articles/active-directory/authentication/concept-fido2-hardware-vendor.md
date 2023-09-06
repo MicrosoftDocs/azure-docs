@@ -43,6 +43,7 @@ The following table lists partners who are Microsoft-compatible FIDO2 security k
 | [Feitian](https://shop.ftsafe.us/pages/microsoft) | ![y] | ![y]| ![y]| ![y]| ![y] |
 | [Fortinet](https://www.fortinet.com/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [Giesecke + Devrient (G+D)](https://www.gi-de.com/en/identities/enterprise-security/hardware-based-authentication) | ![y] | ![y]| ![y]| ![y]| ![n] |
+| [Google](https://store.google.com/us/product/titan_security_key) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [GoTrustID Inc.](https://www.gotrustid.com/idem-key) | ![n] | ![y]| ![y]| ![y]| ![n] |
 | [HID](https://www.hidglobal.com/products/crescendo-key) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [HIDEEZ](https://hideez.com/products/hideez-key-4) | ![n] | ![y]| ![y]| ![y]| ![n] |
@@ -52,11 +53,11 @@ The following table lists partners who are Microsoft-compatible FIDO2 security k
 | [IDmelon Technologies Inc.](https://www.idmelon.com/#idmelon) | ![y] | ![y]| ![y]| ![y]| ![n] |
 | [Kensington](https://www.kensington.com/solutions/product-category/why-biometrics/) | ![y] | ![y]| ![n]| ![n]| ![n] |
 | [KONA I](https://konai.com/business/security/fido) | ![y] | ![n]| ![y]| ![y]| ![n] |
-| [Movenda](https://www.movenda.com/en/authentication/fido2/overview) | ![y] | ![n]| ![y]| ![y]| ![n] |
 | [NeoWave](https://neowave.fr/en/products/fido-range/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Nymi](https://www.nymi.com/nymi-band) | ![y] | ![n]| ![y]| ![n]| ![n] |
 | [Octatco](https://octatco.com/) | ![y] | ![y]| ![n]| ![n]| ![n] |
 | [OneSpan Inc.](https://www.onespan.com/products/fido) | ![n] | ![y]| ![n]| ![y]| ![n] |
+| [PONE Biometrics](https://ponebiometrics.com/) | ![y] | ![n]| ![n]| ![y]| ![n] |
 | [Precision Biometric](https://www.innait.com/product/fido/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [RSA](https://www.rsa.com/products/securid/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [Sentry](https://sentryenterprises.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |

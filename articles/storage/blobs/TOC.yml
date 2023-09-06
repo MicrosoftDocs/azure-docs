@@ -1129,6 +1129,8 @@ items:
       href: ../common/policy-reference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Resources
     items:
+    - name: FAQ
+      href: storage-blob-faq.yml
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=storage
     - name: Azure Storage Explorer

@@ -11,6 +11,7 @@ metadata:
   ms.subservice: hybrid
   ms.workload: identity
   ms.tgt_pltfrm: na
+  ms.custom: has-azure-ad-ps-ref
   ms.topic: faq
   ms.date: 02/08/2023
   ms.author: billmath

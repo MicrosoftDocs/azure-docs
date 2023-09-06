@@ -90,6 +90,8 @@ SQL DB requires unique Azure AD display names. With this, the Azure AD accounts 
 
     > [!NOTE]
     > `VMName` in the following command is the name of the VM that you enabled system assigned identity on in the prerequisites section.
+    > 
+    > If you encounter the error "Principal `VMName` has a duplicate display name", append the CREATE USER statement with WITH OBJECT_ID='xxx'.
 
     ```sql
     ALTER ROLE db_datareader ADD MEMBER [VMName]

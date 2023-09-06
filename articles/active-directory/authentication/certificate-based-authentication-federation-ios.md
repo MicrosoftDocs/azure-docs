@@ -5,6 +5,7 @@ description: Learn about the supported scenarios and the requirements for config
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 09/30/2022
 
@@ -83,7 +84,7 @@ On iOS 9 or later, the native iOS mail client is supported. To determine if this
 
 ## Next steps
 
-To configure certificate-based authentication in your environment, see [Get started with certificate-based authentication](active-directory-certificate-based-authentication-get-started.md) for instructions.
+To configure certificate-based authentication in your environment, see [Get started with certificate-based authentication](./certificate-based-authentication-federation-get-started.md) for instructions.
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png

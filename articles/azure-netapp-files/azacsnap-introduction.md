@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 08/21/2023
 ms.author: phjensen
 ---
 
@@ -25,6 +25,7 @@ Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool tha
 - **Databases**
   - SAP HANA (refer to [support matrix](azacsnap-get-started.md#snapshot-support-matrix-from-sap) for details)
   - Oracle Database release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](../virtual-machines/workloads/oracle/oracle-vm-solutions.md) for details)
+  - IBM Db2 for LUW on Linux-only version 10.5 or later (refer to [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](../virtual-machines/workloads/sap/dbms_guide_ibm.md) for details)
 
 - **Operating Systems**
   - SUSE Linux Enterprise Server 12+

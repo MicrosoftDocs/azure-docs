@@ -99,7 +99,7 @@ The following example uses `parted` on `/dev/sdc`, which is where the first data
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
-sudo partprobe /dev/sdc1
+sudo partprobe /dev/sdc
 sudo mkfs.xfs /dev/sdc1
 ```
 
