@@ -87,47 +87,37 @@ The hub virtual network is the central network of the solution. The hub network 
     | Name | Enter **vnet-hub**. |
     | Region | Select **East US 2**. |
 
-1. Select **Next: IP Addresses**.
+1. Select **Next** to proceed to the **Security** tab.
 
-1. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
+1. Select **Enable Bastion** in the **Azure Bastion** section of the **Security** tab.
 
-1. In **IPv4 address space** enter **10.0.0.0/16**.
+    Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](../articles/bastion/bastion-overview.md)
 
-1. Select **+ Add subnet**.
+    >[!NOTE]
+    >[!INCLUDE [Pricing](bastion-pricing.md)]
 
-1. In **Add subnet** enter or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Subnet name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.0.0.0/24**. |
-
-1. Select **Add**.
-
-1. Select **+ Add subnet**.
-
-1. In **Add subnet** enter or select the following information:
+1. Enter or select the following information in **Azure Bastion**:
 
     | Setting | Value |
-    | ------- | ----- |
-    | Subnet name | Enter **subnet-public**. |
-    | Subnet address range | Enter **10.0.253.0/28**. |
-    | **NAT GATEWAY** |   |
-    | NAT gateway | Select **nat-gateway**. |
+    |---|---|
+    | Azure Bastion host name | Enter **bastion**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** in Name. </br> Select **OK**. |
 
-1. Select **Add**.
+1. Select **Next** to proceed to the **IP Addresses** tab.
 
-1. Select **Next: Security**.
+1. In the address space box in **Subnets**, select the **default** subnet.
 
-1. In the **Security** tab in **BastionHost**, select **Enable**.
-
-1. Enter or select the following information:
+1. In **Edit subnet**, enter or select the following information:
 
     | Setting | Value |
-    | ------- | ----- |
-    | Bastion name | Enter **bastion**. |
-    | AzureBastionSubnet address space | Enter **10.0.1.0/26**. |
-    | Public IP address | Select **Create new**. </br> In **Name** enter **public-ip**. </br> Select **OK**. |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-1**. |
+    | Starting address | Leave the default of **10.0.0.0**. |
+    | Subnet size | Leave the default of **/24(256 addresses)**. |
+
+1. Select **Save**.
 
 1. Select **Review + create**.
 
@@ -385,6 +375,8 @@ Create another virtual network in a different region for the first spoke of the 
     | **Instance details** |   |
     | Name | Enter **vnet-spoke-1**. |
     | Region | Select **South Central US**. |
+
+1. Select **Next** to proceed to the **Security** tab.
 
 1. Select **Next: IP Addresses**.
 
