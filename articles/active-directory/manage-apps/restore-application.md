@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 06/21/2023
 ms.author: jomondi
 ms.reviewer: sureshja
-ms.custom: enterprise-apps, devx-track-extended-java, devx-track-go, devx-track-js, has-azure-ad-ps-ref
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 zone_pivot_groups: enterprise-apps-minus-portal
 #Customer intent: As an administrator of an Azure AD tenant, I want to restore a soft deleted enterprise application.
 ---

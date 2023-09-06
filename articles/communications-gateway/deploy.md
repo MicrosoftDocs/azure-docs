@@ -147,7 +147,6 @@ When your resource has been provisioned, you can connect Azure Communications Ga
                 <ServerName>sip:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
                 <DefaultHandling>0</DefaultHandling>
             </ApplicationServer>
-            <ProfilePartIndicator>0</ProfilePartIndicator>
         </InitialFilterCriteria>
         ```
 1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as MAPS for Voice).

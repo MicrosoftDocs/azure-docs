@@ -1,6 +1,6 @@
 ---
 title: Glossary of terms in the Microsoft identity platform
-description: Definitions of terms commonly found in Microsoft identity platform documentation, Azure portal, and authentication SDKs like the Microsoft Authentication Library (MSAL).
+description: Definitions of terms commonly found in Microsoft identity platform documentation, Microsoft Entra admin center, and authentication SDKs like the Microsoft Authentication Library (MSAL).
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,7 +15,7 @@ ms.reviewer:
 
 # Glossary: Microsoft identity platform
 
-You see these terms when you use our documentation, the Azure portal, our authentication libraries, and the Microsoft Graph API. Some terms are Microsoft-specific while others are related to protocols like OAuth or other technologies you use with the Microsoft identity platform.
+You see these terms when you use our documentation, the Microsoft Entra admin center, our authentication libraries, and the Microsoft Graph API. Some terms are Microsoft-specific while others are related to protocols like OAuth or other technologies you use with the Microsoft identity platform.
 
 ## Access token
 
@@ -40,11 +40,11 @@ The application ID, or _[client ID](https://datatracker.ietf.org/doc/html/rfc674
 
 ## Application manifest
 
-A feature provided by the [Azure portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][Graph-App-Resource] and [ServicePrincipal][Graph-Sp-Resource] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
+An application manifest is a feature that produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][Graph-App-Resource] and [ServicePrincipal][Graph-Sp-Resource] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
 ## Application object
 
-When you register/update an application in the [Azure portal], the portal creates/updates both an application object and a corresponding [service principal object](#service-principal-object) for that tenant. The application object _defines_ the application's identity configuration globally (across all tenants where it has access), providing a template from which its corresponding service principal object(s) are _derived_ for use locally at run-time (in a specific tenant).
+When you register/update an application, both an application object and a corresponding [service principal object](#service-principal-object) are created/updated for that tenant. The application object _defines_ the application's identity configuration globally (across all tenants where it has access), providing a template from which its corresponding service principal object(s) are _derived_ for use locally at run-time (in a specific tenant).
 
 For more information, see [Application and Service Principal Objects][AAD-App-SP-Objects].
 
@@ -140,7 +140,7 @@ A [client application](#client-application) gains access to a [resource server](
 
 They also surface during the [consent](#consent) process, giving the administrator or resource owner the opportunity to grant/deny the client access to resources in their tenant.
 
-Permission requests are configured on the **API permissions** page for an application in the [Azure portal], by selecting the desired "Delegated Permissions" and "Application Permissions" (the latter requires membership in the Global Administrator role). Because a [public client](#client-application) can't securely maintain credentials, it can only request delegated permissions, while a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in its [requiredResourceAccess property][Graph-App-Resource].
+Permission requests are configured on the **API permissions** page for an application, by selecting the desired "Delegated Permissions" and "Application Permissions" (the latter requires membership in the Global Administrator role). Because a [public client](#client-application) can't securely maintain credentials, it can only request delegated permissions, while a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in its [requiredResourceAccess property][Graph-App-Resource].
 
 ## Refresh token
 
@@ -170,15 +170,15 @@ Like [scopes](#scopes), app roles provide a way for a [resource server](#resourc
 
 App roles can support two assignment types: "user" assignment implements role-based access control for users/groups that require access to the resource, while "application" assignment implements the same for [client applications](#client-application) that require access.  An app role can be defined as user-assignable, app-assignabnle, or both.
 
-Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][Graph-Sp-Resource]. The Azure portal is also used to assign users to "user" assignable roles, and configure client [application permissions](#permissions) to request "application" assignable roles.
+Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][Graph-Sp-Resource]. Users can be assigned to "user" assignable roles and client [application permissions](#permissions) can be configured to request "application" assignable roles.
 
-For a detailed discussion of the application roles exposed by the Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For a step-by-step implementation example, see [Add or remove Azure role assignments using the Azure portal][AAD-RBAC].
+For a detailed discussion of the application roles exposed by the Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For a step-by-step implementation example, see [Add or remove Azure role assignments][AAD-RBAC].
 
 ## Scopes
 
 Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope-based][OAuth2-Access-Token-Scopes] access control, for a [client application](#client-application) that has been given delegated access to the resource by its owner.
 
-Scopes are resource-defined strings (for example "Mail.Read", "Directory.ReadWrite.All"), managed in the [Azure portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][Graph-Sp-Resource]. The Azure portal is also used to configure client application [delegated permissions](#permissions) to access a scope.
+Scopes are resource-defined strings (for example "Mail.Read", "Directory.ReadWrite.All"), managed via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][Graph-Sp-Resource]. Client application [delegated permissions](#permissions) can be configured to access a scope.
 
 A best practice naming convention, is to use a "resource.operation.constraint" format. For a detailed discussion of the scopes exposed by Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For scopes exposed by Microsoft 365 services, see [Microsoft 365 API permissions reference][O365-Perm-Ref].
 
@@ -188,7 +188,7 @@ A signed document containing claims, such as an OAuth 2.0 token or SAML 2.0 asse
 
 ## Service principal object
 
-When you register/update an application in the [Azure portal], the portal creates/updates both an [application object](#application-object) and a corresponding service principal object for that tenant. The application object _defines_ the application's identity configuration globally (across all tenants where the associated application has been granted access), and is the template from which its corresponding service principal object(s) are _derived_ for use locally at run-time (in a specific tenant).
+When you register/update an application, both an [application object](#application-object) and a corresponding service principal object are created/updated for that tenant. The application object _defines_ the application's identity configuration globally (across all tenants where the associated application has been granted access), and is the template from which its corresponding service principal object(s) are _derived_ for use locally at run-time (in a specific tenant).
 
 For more information, see [Application and Service Principal Objects][AAD-App-SP-Objects].
 
@@ -214,7 +214,7 @@ An instance of an Azure AD directory is referred to as an Azure AD tenant. It pr
 - authentication of user accounts and registered applications
 - REST endpoints required to support various protocols including OAuth 2.0 and SAML, including the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application).
 
-Azure AD tenants are created/associated with Azure and Microsoft 365 subscriptions during sign-up, providing Identity & Access Management features for the subscription. Azure subscription administrators can also create additional Azure AD tenants via the Azure portal. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [Associate or add an Azure subscription to your Azure Active Directory tenant][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant, and for instructions on how to associate or add a subscription to an Azure AD tenant.
+Azure AD tenants are created/associated with Azure and Microsoft 365 subscriptions during sign-up, providing Identity & Access Management features for the subscription. Azure subscription administrators can also create additional Azure AD tenants. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [Associate or add an Azure subscription to your Azure Active Directory tenant][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant, and for instructions on how to associate or add a subscription to an Azure AD tenant.
 
 ## Token endpoint
 
@@ -264,7 +264,6 @@ Many of the terms in this glossary are related to the OAuth 2.0 and OpenID Conne
 [AAD-Multi-Tenant-Overview]:howto-convert-app-to-be-multi-tenant.md
 [AAD-Security-Token-Claims]: ./authentication-vs-authorization.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
-[Azure portal]: https://portal.azure.com
 [AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/rfc7519
 [Microsoft-Graph]: https://developer.microsoft.com/graph

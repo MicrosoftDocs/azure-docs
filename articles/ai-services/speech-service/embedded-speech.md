@@ -59,9 +59,9 @@ The Speech SDK for Java doesn't support Windows on ARM64.
 
 Embedded speech is only available with C#, C++, and Java SDKs. The other Speech SDKs, Speech CLI, and REST APIs don't support embedded speech.
 
-Embedded speech recognition only supports mono 16 bit, 8-kHz or 16-kHz PCM-encoded WAV audio.
+Embedded speech recognition only supports mono 16 bit, 8-kHz or 16-kHz PCM-encoded WAV audio formats.
 
-Embedded neural voices only support 24-kHz sample rate.
+Embedded neural voices support 24 kHz RIFF/RAW, with a RAM requirement of 100 MB.
 
 ## Embedded speech SDK packages
 
@@ -166,7 +166,7 @@ For embedded speech, you'll need to download the speech recognition models for [
 
 The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
 
-The following [text to speech](text-to-speech.md) locales and voices are available:
+The following [text to speech](text-to-speech.md) locales and voices are available out of box. We welcome your input to help us gauge demand for additional languages and voices. Check the full text to speech language and voice list [here](language-support.md?tabs=tts). 
 
 | Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |

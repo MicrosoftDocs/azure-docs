@@ -6,7 +6,7 @@ author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: reference
 ms.date: 08/21/2023
 ms.author: phjensen
