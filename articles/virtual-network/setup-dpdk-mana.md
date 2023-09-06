@@ -22,7 +22,7 @@ The setup procedure for MANA DPDK is outlined in the [example code.](#example-te
 Legacy Azure Linux VMs rely on the mlx4 or mlx5 drivers and the accompanying hardware for accelerated networking. Azure DPDK users would select specific interfaces to include or exclude by passing bus addresses to the DPDK EAL. The setup procedure for MANA DPDK differs slightly, since the assumption of one bus address per Accelerated Networking interface no longer holds true. Rather than using a PCI bus address, the MANA PMD uses the MAC address to determine which interface it should bind to.
 
 ## MANA DPDK EAL Arguments
-The MANA PMD probes all devices and ports on the system when no `--vdev` argument is present; the `--vdev` argument is not mandatory. In testing environments, it's often desirable to leave one (primary) interface available for servicing the SSH connection to the VM. To use DPDK with a subset of the available VFs, users should pass both the bus address of the MANA device and the MAC address of the interfaces in the `--vdev` argument. For more detail, example code is available to demonstrate [DPDK EAL initialization on MANA](#example-testpmd-setup-and-netvsc-test).
+The MANA PMD probes all devices and ports on the system when no `--vdev` argument is present; the `--vdev` argument isn't mandatory. In testing environments, it's often desirable to leave one (primary) interface available for servicing the SSH connection to the VM. To use DPDK with a subset of the available VFs, users should pass both the bus address of the MANA device and the MAC address of the interfaces in the `--vdev` argument. For more detail, example code is available to demonstrate [DPDK EAL initialization on MANA](#example-testpmd-setup-and-netvsc-test).
 
 For general information about the DPDK Environment Abstraction Layer (EAL):
 - [DPDK EAL Arguments for Linux](https://doc.dpdk.org/guides/prog_guide/env_abstraction_layer.html#eal-in-a-linux-userland-execution-environment)
@@ -161,7 +161,7 @@ Cause: Cannot init EAL: Permission denied
 Failover configuration of either the `net_failsafe` or `net_vdev_netvsc` poll-mode-drivers isn't recommended for high performance on Azure. The netvsc configuration with DPDK version 20.11 or higher may give better results. For optimal performance, ensure your Linux kernel, rdma-core, and DPDK packages meet the listed requirements for DPDK and MANA.
 
 ### Version mismatch for rdma-core
-Mismatches in rdma-core and the linux kernel can occur any time a user is building some combination of rdma-core, DPDK, and the linux kernel from source. This type of version mismatch can cause a failed probe of the MANA virtual function (VF).
+Mismatches in rdma-core and the linux kernel can occur anytime; often they are occur when a user is building some combination of rdma-core, DPDK, and the linux kernel from source. This type of version mismatch can cause a failed probe of the MANA virtual function (VF).
 
 ```log
 EAL: Probe PCI driver: net_mana (1414:ba) device: 7870:00:00.0 (socket 0)
@@ -177,9 +177,9 @@ hn_vf_attach(): Couldn't find port for VF
 hn_vf_add(): RNDIS reports VF but device not found, retrying
 
 ```
-This likely results from using a kernel with backported patches for mana_ib with a newer version of rdma-core. The root cause is an interaction between the kernel rdma drivers and userspace rdma-core libraries.
+This likely results from using a kernel with backported patches for mana_ib with a newer version of rdma-core. The root cause is an interaction between the kernel RDMA drivers and user space rdma-core libraries.
 
-The Linux kernel uapi for rdma has a list of rdma provider ids, in backported versions of the kernel this ID value can differ from the version in the rdma-core libraries.
+The Linux kernel uapi for RDMA has a list of RDMA provider IDs, in backported versions of the kernel this ID value can differ from the version in the rdma-core libraries.
 > {!NOTE}
 > Example snippets are from [Ubuntu 5.150-1045 linux-azure](https://git.launchpad.net/~canonical-kernel/ubuntu/+source/linux-azure/+git/focal/tree/include/uapi/rdma/ib_user_ioctl_verbs.h?h=azure-5.15-next) and [rdma-core v46.0](https://github.com/linux-rdma/rdma-core/blob/4cce53f5be035137c9d31d28e204502231a56382/kernel-headers/rdma/ib_user_ioctl_verbs.h#L220)
 ```c
@@ -238,4 +238,4 @@ enum rdma_driver_id {
 };
 ```
 
-This mismatch results in the MANA provider code failing to load. Use `gdb` to trace the execution of `dpdk-testpmd` to confirm the edrma is loaded instead of the mana provider. The MANA driver_id must be consistent for both the kernel and rdma-core. The mana PMD will load correctly when those IDs match.
+This mismatch results in the MANA provider code failing to load. Use `gdb` to trace the execution of `dpdk-testpmd` to confirm the ERDMA provider is loaded instead of the MANA provider. The MANA driver_id must be consistent for both the kernel and rdma-core. The MANA PMD loads correctly when those IDs match.
