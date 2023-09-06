@@ -218,9 +218,9 @@ If you don't assign the User Access Administrator role to the service principal,
     code .
     ```
 
-    Expand the `WORKSPACES` directory. There are five subfolders: `CONFIGURATION`, `DEPLOYER`, `LANDSCAPE`, `LIBRARY`, `SYSTEM`, and `BOMS`. Expand each of these folders to find regional deployment configuration files.
+1. Expand the `WORKSPACES` directory. There are five subfolders: `CONFIGURATION`, `DEPLOYER`, `LANDSCAPE`, `LIBRARY`, `SYSTEM`, and `BOMS`. Expand each of these folders to find regional deployment configuration files.
 
-    Find the appropriate four-character code that corresponds to the Azure region you're using.
+1. Find the appropriate four-character code that corresponds to the Azure region you're using.
 
     | Region name        | Region code |
     |--------------------|-------------|
@@ -234,7 +234,7 @@ If you don't assign the User Access Administrator role to the service principal,
     | UK South           | UKSO        |
     | West US 2          | WUS2        |
 
-    Find the Terraform variable files in the appropriate subfolder. For example, the `DEPLOYER` Terraform variable file might look like this example:
+1. Find the Terraform variable files in the appropriate subfolder. For example, the `DEPLOYER` Terraform variable file might look like this example:
 
     ```terraform
     # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
@@ -569,7 +569,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     Please select playbook:
     ```
 
-    Select the playbook `1) BOM Downloader` to download the SAP software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
+    Select the playbook `1) BoM Downloader` to download the SAP software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
 
 ## Collect workload zone information
 
