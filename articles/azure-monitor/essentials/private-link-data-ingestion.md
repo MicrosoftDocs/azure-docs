@@ -30,7 +30,7 @@ Once this is done, navigate to the DCR resource which was created during onboard
 In the Data collection endpoint dropdown, pick a DCE in the same region as the AKS cluster. If the Azure Monitor Workspace is in the same region as the AKS cluster, you can reuse the DCE created during onboarding. If not, create a DCE in the same region as the AKS cluster and pick that in the dropdown. 
 
 > [!NOTE]
-> Please refer to[](../../../articles/managed-grafana/how-to-connect-to-data-source-privately.md) for details on how to configure private link for querying data from your Azure Monitor workspace using Grafana.
+> Please refer to[Connect to a data source privately](../../../articles/managed-grafana/how-to-connect-to-data-source-privately.md) for details on how to configure private link for querying data from your Azure Monitor workspace using Grafana. 
 > Please refer to [use private endpoints for queries](azure-monitor-workspace-private-endpoint.md) for details on how to configure private link for querying data from your Azure Monitor workspace.
 
 ## Private link ingestion from a private AKS cluster
