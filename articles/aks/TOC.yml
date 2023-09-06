@@ -293,7 +293,7 @@
               href: manage-node-pools.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
-            - name: Multi-instance GPU Node pool
+            - name: Multi-instance GPU node pool
               href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md

@@ -2,7 +2,7 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: article
-ms.date: 04/26/2023
+ms.date: 09/06/2023
 ms.reviewer: mattmcinnes
 ms.custom: contperf-fy21q4, devx-track-linux
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -242,7 +242,7 @@ The following examples demonstrate possible usage of this command:
     ```
 
 > [!IMPORTANT]
-> During this operation, all virtual machine scale set instances are upgraded and re-imaged to use the new SSH public key.
+> After you update SSH key, AKS doesn't automatically reimage your node pool, you can choose anytime to perform [the reimage operation][node-image-upgrade]. Only after reimage is complete, does the update SSH key operation take effect.
 
 
 ## Next steps
@@ -259,3 +259,4 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [how-to-install-azure-extensions]: /cli/azure/azure-cli-extensions-overview#how-to-install-extensions
+[node-image-upgrade]:node-image-upgrade.md
