@@ -52,14 +52,14 @@ conceptualContent:
           links:
             - url: ./fhir/overview.md
               itemType: overview
-              text: What is the FHIR service?
+              text: FHIR service overview
             - url: ./fhir/get-started-with-fhir.md
               itemType: how-to-guide
               text: Deploy the FHIR service
             - url: ./fhir/use-postman.md
               itemType: how-to-guide
               text: Configure settings
-            - url: ./fhir/centers-for-medicare-tutorial-introduction.md
+            - url: ./fhir/configure-cross-origin-resource-sharing.md
               itemType: how-to-guide
               text: CMS operability and patient access
         # Card
