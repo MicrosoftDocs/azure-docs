@@ -161,9 +161,8 @@
     href: ../confidential-ledger/overview.md
 #  - name: Confidential Consortium Framework (CCF) #done < seems to be missing from livesite now?
 #    href: ../confidential-consortium-framework/overview.md
-  - name: Confidential AI #done
-   # href: https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-data #broken link
-     href: https://github.com/microsoft/confidential-ai
+  - name: Confidential AI #done was# href: https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-data #broken link
+    href: https://github.com/microsoft/confidential-ai
   - name: Secure Key Release (SKR) with Azure Key Vault
     items:
     - name: SKR with Azure Confidential Computing Concept
