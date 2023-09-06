@@ -20,8 +20,6 @@ Your secure score is based on the number of security recommendations you've comp
 decide which recommendations to resolve first, look at the severity of each one and its potential
 impact on your secure score.
 
-## <a name='recs-devops'></a>DevOps recommendations
-
 [!INCLUDE [devops-recommendations](includes/defender-for-devops-recommendations.md)]
 
 ## Next steps
