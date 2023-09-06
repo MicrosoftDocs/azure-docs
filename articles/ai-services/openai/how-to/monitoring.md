@@ -1,6 +1,6 @@
 ---
 title: Monitoring Azure OpenAI Service
-description: Learn how to use Azure Monitor tools to capture and analyze metrics and daa logs for your Azure OpenAI Service resources.
+description: Learn how to use Azure Monitor tools to capture and analyze metrics and data logs for your Azure OpenAI Service resources.
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
