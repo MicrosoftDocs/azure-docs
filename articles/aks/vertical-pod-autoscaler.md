@@ -8,7 +8,7 @@ ms.date: 09/05/2023
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 
-This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. This frees up CPU and Memory for the other pods and helps make effective utilization of your AKS cluster.
+This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA frees up CPU and Memory for the other pods and helps make effective utilization of your AKS cluster.
 
 Vertical Pod autoscaling provides recommendations for resource usage over time. To manage sudden increases in resource usage, use the [Horizontal Pod Autoscaler][horizontal-pod-autoscaling].
 
@@ -56,7 +56,7 @@ The VPA object consists of three components:
 
 - **Updater** - it checks which of the managed pods have correct resources set and, if not, kills them so that they can be recreated by their controllers with the updated requests.
 
-- **Admission Plugin** - it sets the correct resource requests on new pods (either just created or recreated by their controller due to the Updater's activity).
+- **Admission Plugin** - it sets the correct resource requests on new pods (either created or recreated by their controller due to the Updater's activity).
 
 ### VPA admission controller
 
@@ -68,7 +68,7 @@ For high availability, AKS supports two admission controller replicas.
 
 A Vertical Pod Autoscaler resource is inserted for each controller that you want to have automatically computed resource requirements. This is most commonly a *deployment*. There are four modes in which VPAs operate:
 
-* `Auto` - VPA assigns resource requests during pod creation as well as update existing pods using the preferred update mechanism. Currently, this is equivalent to `Recreate`. Once restart free ("in-place") update of pod requests is available, it may be used as the preferred update mechanism by the `Auto` mode. When using this mode, VPA evicts a pod if it needs to change it's resource requests. This may cause the pods to be restarted all at once, thereby causing application inconsistencies. You can limit restarts and maintain consistency in this situation by using a [PodDisruptionBudget][pod-disruption-budget].
+* `Auto` - VPA assigns resource requests during pod creation and updates existing pods using the preferred update mechanism. Currently, `Auto` is equivalent to `Recreate`. Once restart free ("in-place") update of pod requests is available, it may be used as the preferred update mechanism by the `Auto` mode. When using `Recreate` mode, VPA evicts a pod if it needs to change it's resource requests. It may cause the pods to be restarted all at once, thereby causing application inconsistencies. You can limit restarts and maintain consistency in this situation by using a [PodDisruptionBudget][pod-disruption-budget].
 * `Recreate` - VPA assigns resource requests during pod creation as well as update existing pods by evicting them when the requested resources differ significantly from the new recommendation (respecting the Pod Disruption Budget, if defined). This mode should be used rarely, only if you need to ensure that the pods are restarted whenever the resource request changes. Otherwise, the `Auto` mode is preferred, which may take advantage of restart-free updates once they are available.
 * `Initial` - VPA only assigns resource requests during pod creation and never changes afterwards.
 * `Off` - VPA doesn't automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.
@@ -77,7 +77,7 @@ A Vertical Pod Autoscaler resource is inserted for each controller that you want
 
 A common deployment pattern recommended for you if you're unfamiliar with VPA is to:
 
-1. Set `updateMode = off` in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. This can avoid introducing a misconfiguration that can cause an outage.
+1. Set `updateMode = off` in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. `UpdateMode = off` can avoid introducing a misconfiguration that can cause an outage.
 
 2. Establish observability first by collecting actual resource utilization telemetry over a given period of time. This helps you understand the behavior and signs of symptoms or issues from container and pod resources influenced by the workloads running on them.
 
@@ -311,7 +311,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
         updateMode: "Auto"
     ```
 
-    The `targetRef.name` value specifies that any pod that is controlled by a deployment named `vpa-auto-deployment` belongs to this `VerticalPodAutoscaler`. The `updateMode` value of `Auto` means that the Vertical Pod Autoscaler controller can delete a pod, adjust the CPU and memory requests, and then start a new pod.
+    The `targetRef.name` value specifies that any pod that's controlled by a deployment named `vpa-auto-deployment` belongs to `VerticalPodAutoscaler`. The `updateMode` value of `Auto` means that the Vertical Pod Autoscaler controller can delete a pod, adjust the CPU and memory requests, and then start a new pod.
 
 6. Apply the manifest to the cluster using the [kubectl apply][kubectl-apply] command:
 
@@ -511,9 +511,9 @@ The following example is an extra recommender that you apply to your existing AK
                 - "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done" 
     ```
 
-   If `memory` is not specified in `controlledResources`, the Recommender won't respond to OOM events. In this case, you are only setting CPU in `controlledValues`. `controlledValues` allows you to choose whether to update the containers's resource requests by `RequestsOnly` option, or both resource requests and limits using the `RequestsAndLimits` option. The default value is `RequestsAndLimits`. If you use the `RequestsAndLimits` option, **requests** are computed based on actual usage, and **limits** are calculated based on the current pod's request and limit ratio.
+   If `memory` is not specified in `controlledResources`, the Recommender doesn't respond to OOM events. In this case, you are only setting CPU in `controlledValues`. `controlledValues` allows you to choose whether to update the container's resource requests by `RequestsOnly` option, or both resource requests and limits using the `RequestsAndLimits` option. The default value is `RequestsAndLimits`. If you use the `RequestsAndLimits` option, **requests** are computed based on actual usage, and **limits** are calculated based on the current pod's request and limit ratio.
 
-   For example, if you start with a pod that requests 2 CPUs and limits to 4 CPUs, VPA always sets the limit to be twice as much as requests. The same principle applies to memory. So when using the `RequestsAndLimits` mode, this can serve as a blueprint for your initial application resource requests and limits.
+   For example, if you start with a pod that requests 2 CPUs and limits to 4 CPUs, VPA always sets the limit to be twice as much as requests. The same principle applies to memory. When you use the `RequestsAndLimits` mode, it can serve as a blueprint for your initial application resource requests and limits.
 
 You can simplify VPA object by using Auto mode and computing recommendations for both CPU and Memory.
 
@@ -580,7 +580,7 @@ To diagnose problems with a VPA installation, perform the following steps.
    kubectl --namespace=kube-system get pods|grep vpa
    ```
 
-The output should list 3 pods - recommender, updater and admission-controller all with the state showing a status of `Running`.
+The output should list three pods - recommender, updater and admission-controller all with the state showing a status of `Running`.
 
 2. Confirm if the system components log any errors. For each of the pods returned by the previous command, run the following command:
 
