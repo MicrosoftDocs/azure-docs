@@ -116,21 +116,14 @@ conceptualContent:
               itemType: how-to-guide
               text: Troubleshoot events  
           
-        # Card
-        - title: Azure API for FHIR
-          links:
-            - url: ./azure-api-for-fhir/overview.md
-              itemType: overview
-              text: Azure API for FHIR overview
-            - url: ./azure-api-for-fhir/fhir-paas-portal-quickstart.md
-              itemType: how-to-guide
-              text: Deploy Azure API for FHIR
-            - url: ./azure-api-for-fhir/configure-azure-rbac.md
-              itemType: how-to-guide
-              text: Configure settings   
-          
 additionalContent:
   sections:
+    - title: Other services
+      items:
+        #Card
+        - title: Azure API for FHIR
+          summary: Scalable, secure, standards-based service for FHIR data
+          url: ./azure-api-for-fhir/overview.md
     - title: Tools & resources 
       items:
         # Card
