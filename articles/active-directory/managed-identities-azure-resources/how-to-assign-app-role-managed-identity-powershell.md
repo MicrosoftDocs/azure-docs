@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/12/2022
+ms.date: 09/06/2023
 ms.author: jodowns
 ms.collection: M365-identity-device-management 
 ms.custom: has-azure-ad-ps-ref
@@ -109,10 +109,10 @@ In this article, you learn how to assign a managed identity to an application ro
 
     ```powershell
     New-AzureADServiceAppRoleAssignment `
-        -ObjectId $managedIdentityObjectId `
+        -ObjectId $serverServicePrincipalObjectId `
+        -ResourceId $serverServicePrincipalObjectId `
         -Id $appRoleId `
-        -PrincipalId $managedIdentityObjectId `
-        -ResourceId $serverServicePrincipalObjectId
+        -PrincipalId $managedIdentityObjectId
     ```
 
     # [Microsoft Graph](#tab/microsoftgraph)
@@ -162,10 +162,10 @@ $appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $app
 
 # Assign the managed identity access to the app role.
 New-AzureADServiceAppRoleAssignment `
-    -ObjectId $managedIdentityObjectId `
+    -ObjectId $serverServicePrincipalObjectId `
+    -ResourceId $serverServicePrincipalObjectId `
     -Id $appRoleId `
-    -PrincipalId $managedIdentityObjectId `
-    -ResourceId $serverServicePrincipalObjectId
+    -PrincipalId $managedIdentityObjectId
 ```
 
 # [Microsoft Graph](#tab/microsoftgraph)

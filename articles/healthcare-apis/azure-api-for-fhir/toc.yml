@@ -94,10 +94,10 @@
       href: disaster-recovery.md 
     - name: Enable diagnostic logging
       href: enable-diagnostic-logging.md
-    - name: Access token validation
-      href: azure-api-fhir-access-token-validation.md
     - name: Use Custom HTTP headers to add data to audit logs
       href: use-custom-headers.md
+    - name: Access token validation
+      href: azure-api-fhir-access-token-validation.md
   - name: Search
     expanded: false
     items:
@@ -144,6 +144,20 @@
     href: get-healthcare-apis-access-token-cli.md
   - name: Move to a different subscription
     href: move-fhir-service.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Azure AD and Azure API for FHIR Overview
+    href: azure-active-directory-identity-configuration.md
+  - name: Access token validation
+    href: azure-api-fhir-access-token-validation.md
+  - name: FHIR REST API capabilities
+    href: fhir-rest-api-capabilities.md
+  - name: Security
+    expanded: false
+    items:
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
 - name: Resources
   expanded: false
   items:
