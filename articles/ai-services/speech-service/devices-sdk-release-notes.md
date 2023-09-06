@@ -63,7 +63,7 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 1.5.1:
 
-- Include [Conversation Transcription](./conversation-transcription.md) in the sample app.
+- Include conversation transcription in the sample app.
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.5.1. For more information, see its [release notes](./releasenotes.md).
 
 ## Speech Devices SDK 1.5.0: 2019-May release

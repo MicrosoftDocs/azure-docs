@@ -28,7 +28,7 @@ Organizations should avoid the following configurations:
 **For all users, all cloud apps:**
 
 - **Block access** - This configuration blocks your entire organization.
-- **Require device to be marked as compliant** - For users that haven't enrolled their devices yet, this policy blocks all access including access to the Intune portal. If you're an administrator without an enrolled device, this policy blocks you from getting back into the Azure portal to change the policy.
+- **Require device to be marked as compliant** - For users that haven't enrolled their devices yet, this policy blocks all access including access to the Intune portal. If you're an administrator without an enrolled device, this policy blocks you from getting back in to change the policy.
 - **Require Hybrid Azure AD domain joined device** - This policy block access has also the potential to block access for all users in your organization if they don't have a hybrid Azure AD joined device.
 - **Require app protection policy** - This policy block access has also the potential to block access for all users in your organization if you don't have an Intune policy. If you're an administrator without a client application that has an Intune app protection policy, this policy blocks you from getting back into portals such as Intune and Azure.
 
@@ -54,16 +54,16 @@ More information can be found about the problem by clicking **More Details** in 
 
 To find out which Conditional Access policy or policies applied and why do the following.
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Global Reader.
-1. Browse to **Azure Active Directory** > **Sign-ins**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
 1. Find the event for the sign-in to review. Add or remove filters and columns to filter out unnecessary information.
    1. Add filters to narrow the scope:
       1. **Correlation ID** when you have a specific event to investigate.
-      1. **Conditional access** to see policy failure and success. Scope your filter to show only failures to limit results.
+      1. **Conditional Access** to see policy failure and success. Scope your filter to show only failures to limit results.
       1. **Username** to see information related to specific users.
       1. **Date** scoped to the time frame in question.
 
-   ![Screenshot showing selecting the Conditional access filter in the sign-ins log.](./media/troubleshoot-conditional-access/image3.png)
+   ![Screenshot showing selecting the Conditional Access filter in the sign-ins log.](./media/troubleshoot-conditional-access/image3.png)
 
 1. Once the sign-in event that corresponds to the user's sign-in failure has been found select the **Conditional Access** tab. The Conditional Access tab shows the specific policy or policies that resulted in the sign-in interruption.
    1. Information in the **Troubleshooting and support** tab may provide a clear reason as to why a sign-in failed such as a device that didn't meet compliance requirements.
@@ -78,7 +78,7 @@ Selecting the ellipsis on the right side of the policy in a sign-in event brings
 
 The left side provides details collected at sign-in and the right side provides details of whether those details satisfy the requirements of the applied Conditional Access policies. Conditional Access policies only apply when all conditions are satisfied or not configured.
 
-If the information in the event isn't enough to understand the sign-in results, or adjust the policy to get desired results, the sign-in diagnostic tool can be used. The sign-in diagnostic can be found under **Basic info** > **Troubleshoot Event**. For more information about the sign-in diagnostic, see the article [What is the sign-in diagnostic in Azure AD](../reports-monitoring/overview-sign-in-diagnostics.md). You can also [use the What If tool to troubleshoot Conditional Access policies](what-if-tool.md).
+If the information in the event isn't enough to understand the sign-in results, or adjust the policy to get desired results, the sign-in diagnostic tool can be used. The sign-in diagnostic can be found under **Basic info** > **Troubleshoot Event**. For more information about the sign-in diagnostic, see the article [What is the sign-in diagnostic in Azure AD](../reports-monitoring/howto-use-sign-in-diagnostics.md). You can also [use the What If tool to troubleshoot Conditional Access policies](what-if-tool.md).
 
 If you need to submit a support incident, provide the request ID and time and date from the sign-in event in the incident submission details. This information allows Microsoft support to find the specific event you're concerned about.
 
@@ -102,15 +102,15 @@ To determine the service dependency, check the sign-ins log for the application 
 
 :::image type="content" source="media/troubleshoot-conditional-access/service-dependency-example-sign-in.png" alt-text="Screenshot that shows an example sign-in log showing an Application calling a Resource. This scenario is also known as a service dependency." lightbox="media/troubleshoot-conditional-access/service-dependency-example-sign-in.png":::
 
-## What to do if you're locked out of the Azure portal?
+## What to do if you're locked out?
 
-If you're locked out of the Azure portal due to an incorrect setting in a Conditional Access policy:
+If you're locked out of the due to an incorrect setting in a Conditional Access policy:
 
-- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign-in. 
+- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access can disable the policy that is impacting your sign-in. 
 - If none of the administrators in your organization can update the policy, submit a support request. Microsoft support can review and upon confirmation update the Conditional Access policies that are preventing access.
 
 ## Next steps
 
 - [Use the What If tool to troubleshoot Conditional Access policies](what-if-tool.md)
-- [Sign-in activity reports in the Azure portal](../reports-monitoring/concept-sign-ins.md)
+- [Sign-in activity reports](../reports-monitoring/concept-sign-ins.md)
 - [Troubleshooting Conditional Access using the What If tool](troubleshoot-conditional-access-what-if.md)

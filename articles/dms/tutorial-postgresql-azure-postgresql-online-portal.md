@@ -65,6 +65,8 @@ To complete this tutorial, you need to:
   * max_replication_slots = [number of slots], recommend setting to **five slots**
   * max_wal_senders =[number of concurrent tasks] - The max_wal_senders parameter sets the number of concurrent tasks that can run, recommend setting to **10 tasks**
 
+* The user must have the REPLICATION role on the server hosting the source database.
+
 > [!IMPORTANT]
 > All tables in your existing database need a primary key to ensure that changes can be synced to the target database.
 

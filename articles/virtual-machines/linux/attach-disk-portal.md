@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 08/09/2023
 ms.author: rogarana
 ms.collection: linux
 ---
@@ -115,7 +115,7 @@ The following example uses `parted` on `/dev/sdc`, which is where the first data
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
-sudo mkfs.xfs /dev/sdc
+sudo mkfs.xfs /dev/sdc1
 sudo partprobe /dev/sdc1
 ```
 

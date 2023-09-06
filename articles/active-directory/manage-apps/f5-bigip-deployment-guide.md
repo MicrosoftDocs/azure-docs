@@ -368,13 +368,13 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 
     ![Screenshot of certificate, key, and chain selections.](./media/f5ve-deployment-plan/contoso-wildcard.png)
 
-13.	Repeat steps to create an **SSL server certificate profile**. 
-14.	From the top ribbon, select **SSL** > **Server** > **Create**.
-15.	In the **New Server SSL Profile** page, enter a unique, friendly **Name**.
-16.	Ensure the Parent profile is set to **serverssl**.
-17.	Select the far-right check box for the **Certificate** and **Key** rows
-18.	From the **Certificate** and **Key** drop-down lists, select your imported certificate.
-19.	Select **Finished**.
+13. Repeat steps to create an **SSL server certificate profile**. 
+14. From the top ribbon, select **SSL** > **Server** > **Create**.
+15. In the **New Server SSL Profile** page, enter a unique, friendly **Name**.
+16. Ensure the Parent profile is set to **serverssl**.
+17. Select the far-right check box for the **Certificate** and **Key** rows
+18. From the **Certificate** and **Key** drop-down lists, select your imported certificate.
+19. Select **Finished**.
 
     ![Screenshot of general properties and configuration selections.](./media/f5ve-deployment-plan/server-ssl-profile.png)
 

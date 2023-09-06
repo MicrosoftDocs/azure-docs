@@ -1,70 +1,73 @@
 ---
-title: Logical operators in Azure Cosmos DB
-description: Learn about SQL logical operators supported by Azure Cosmos DB.
-author: seesharprun
+title: Logical operators
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Logical operators in Azure Cosmos DB for NoSQL compare two different expressions with boolean (true/false) operands.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 01/07/2022
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: reference
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
-# Logical operators in Azure Cosmos DB
+
+# Logical operators in Azure Cosmos DB for NoSQL
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-This article details the logical operators supported by Azure Cosmos DB.
+Logical operators in Azure Cosmos DB for NoSQL compare two different expressions with boolean (``true``/``false``) operands.
 
 ## Understanding logical (AND, OR and NOT) operators
 
-Logical operators operate on Boolean values. The following tables show the logical truth tables for these operators:
+Logical operators operate on **boolean** values. The following tables show the logical *truth tables* for each operator.
 
-**OR operator**
+### OR operator
 
-Returns `true` when either of the conditions is `true`.
+The ``OR`` operator returns ``true`` when either of the conditions is ``true``.
 
-|  | **True** | **False** | **Undefined** |
+|  | ``true`` | ``false`` | ``undefined`` |
 | --- | --- | --- | --- |
-| **True** |True |True |True |
-| **False** |True |False |Undefined |
-| **Undefined** |True |Undefined |Undefined |
+| **``true``** | ``true`` | ``true`` | ``true`` |
+| **``false``** | ``true`` | ``false`` | ``undefined`` |
+| **``undefined``** | ``true`` | ``undefined`` | ``undefined`` |
 
-**AND operator**
+### AND operator
 
-Returns `true` when both expressions are `true`.
+The ``AND`` operator returns ``true`` when both expressions are ``true``.
 
-|  | **True** | **False** | **Undefined** |
+|  | ``true`` | ``false`` | ``undefined`` |
 | --- | --- | --- | --- |
-| **True** |True |False |Undefined |
-| **False** |False |False |False |
-| **Undefined** |Undefined |False |Undefined |
+| **``true``** | ``true`` | ``false`` | ``undefined`` |
+| **``false``** | ``false`` | ``false`` | ``false`` |
+| **``undefined``** | ``undefined`` | ``false`` | ``undefined`` |
 
-**NOT operator**
+### NOT operator
 
-Reverses the value of any Boolean expression.
+The ``NOT`` operator reverses the value of any boolean expression.
 
-|  | **NOT** |
+|  | ``NOT`` |
 | --- | --- |
-| **True** |False |
-| **False** |True |
-| **Undefined** |Undefined |
+| **``true``** | ``false`` |
+| **``false``** | ``true`` |
+| **``undefined``** | ``undefined`` |
 
-**Operator Precedence**
+## Operator Precedence
 
-The logical operators `OR`, `AND`, and `NOT` have the precedence level shown below:
+The logical operators ``OR``, ``AND``, and ``NOT`` have the precedence level indicated here.
 
-| **Operator** | **Priority** |
+| | Priority |
 | --- | --- |
-| **NOT** |1 |
-| **AND** |2 |
-| **OR** |3 |
+| **``NOT``** | 1 |
+| **``AND``** | 2 |
+| **``OR``** | 3 |
 
 ## * operator
 
-The special operator * projects the entire item as is. When used, it must be the only projected field. A query like `SELECT * FROM Families f` is valid, but `SELECT VALUE * FROM Families f` and  `SELECT *, f.id FROM Families f` are not valid.
+The special operator ``*`` projects the entire item as is. When used, it must be the only projected field. A query like ``SELECT * FROM products p`` is valid, but ``SELECT VALUE * FROM products p`` or ``SELECT *, p.id FROM products p`` aren't valid.
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [``SELECT`` clause](select.md)
 - [Keywords](keywords.md)
-- [SELECT clause](select.md)
+- [Equality/comparison operators](equality-comparison-operators.md)

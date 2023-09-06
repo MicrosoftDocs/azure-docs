@@ -49,7 +49,7 @@ Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need
 
 - An Azure AD subscription
   -  If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/trial/get-started-active-directory/) or above
-- User identities [synchronized from their on-premises directory](../hybrid/how-to-connect-sync-whatis.md) to Azure AD.
+- User identities [synchronized from their on-premises directory](../hybrid/connect/how-to-connect-sync-whatis.md) to Azure AD.
 - An account with Azure AD application admin [permissions](../roles/permissions-reference.md#application-administrator)
 - BIG-IP infrastructure with client traffic routing to and from the BIG-IP 
   - Or [deploy a BIG-IP Virtual Edition into Azure](f5-bigip-deployment-guide.md)
@@ -105,7 +105,7 @@ Set up a SAML federation trust between the BIG-IP to allow the Azure AD BIG-IP t
 
     ![Screenshot of user attributes and claims properties.](media/f5-passwordless-vpn/user-attributes-claims.png)
 
-You can add other claims to your BIG-IP published service. Claims defined in addition to the default set are issued if they're in Azure AD. Define directory [roles or group](../hybrid/how-to-connect-fed-group-claims.md) memberships against a user object in Azure AD, before they can be issued as a claim.
+You can add other claims to your BIG-IP published service. Claims defined in addition to the default set are issued if they're in Azure AD. Define directory [roles or group](../hybrid/connect/how-to-connect-fed-group-claims.md) memberships against a user object in Azure AD, before they can be issued as a claim.
 
    ![Screenshot of Federation Metadata XML Download option.](media/f5-passwordless-vpn/saml-signing-certificate.png)
 
@@ -323,7 +323,7 @@ Your SSL-VPN service is published and accessible via SHA, either with its URL or
     ![Screenshot of the Contoso Network Portal page with network access indicator.](media/f5-passwordless-vpn/vpn-launcher.png)
 
 >[!NOTE]
->Select the VPN tile to install the BIG-IP Edge client and establish a VPN connection configured for SHA. The F5 VPN application is visible as a target resource in Azure AD Conditional Access. See [conditional access policies](../conditional-access/concept-conditional-access-policies.md) to enable users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
+>Select the VPN tile to install the BIG-IP Edge client and establish a VPN connection configured for SHA. The F5 VPN application is visible as a target resource in Azure AD Conditional Access. See [Conditional Access policies](../conditional-access/concept-conditional-access-policies.md) to enable users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
 
 
 ## Resources

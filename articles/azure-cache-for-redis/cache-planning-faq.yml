@@ -45,9 +45,9 @@ sections:
           Azure Cache for Redis pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly and monthly rate. Caches are billed on a per-minute basis. The period is measured from time a cache is created until the time that a cache is deleted. There's no option for stopping or pausing the billing of a cache.
           
       - question: |
-          Can I use Azure Cache for Redis with Azure Government Cloud or Azure China 21Vianet Cloud?
+          Can I use Azure Cache for Redis with Azure Government Cloud or Azure operated by 21Vianet Cloud?
         answer: |
-          Yes, the _Basic_, _Standard_, and _Premium_ tiers of Azure Cache for Redis are available in Azure Government Cloud and Azure China 21Vianet Cloud. The URLs for accessing and managing Azure Cache for Redis are different in these clouds compared with Azure Public Cloud.
+          Yes, the _Basic_, _Standard_, and _Premium_ tiers of Azure Cache for Redis are available in Azure Government Cloud and Azure operated by 21Vianet Cloud. The URLs for accessing and managing Azure Cache for Redis are different in these clouds compared with Azure Public Cloud.
           
           | Cloud   | Dns Suffix for Redis            |
           |---------|---------------------------------|
@@ -58,9 +58,9 @@ sections:
           For more information on considerations when using Azure Cache for Redis with other clouds, see the following links.
           
           - [Azure Government Databases - Azure Cache for Redis](../azure-government/compare-azure-government-global-azure.md)
-          - [Azure China 21Vianet Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
+          - [Azure operated by 21Vianet Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
           
-          For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud and Azure China 21Vianet Cloud, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+          For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud and Azure operated by 21Vianet Cloud, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
           
           The _Enterprise_ and _Enterprise Flash_ tiers of Azure Cache for Redis are only available in the Public cloud for the time being.
           

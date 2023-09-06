@@ -79,7 +79,7 @@ Azure AD doesn’t provide a URL to get the metadata. The metadata can only be r
 
 ## Customize SAML claims sent to an application
 
-To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) for more information.
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/saml-claims-customization.md) for more information.
 
 ## Next steps
 

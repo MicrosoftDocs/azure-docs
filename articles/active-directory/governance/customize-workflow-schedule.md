@@ -24,11 +24,9 @@ When you create workflows by using lifecycle workflows, you can fully customize 
 
 Workflows that you create within lifecycle workflows follow the same schedule that you define on the **Workflow settings** pane. To adjust the schedule, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. On the search bar near the top of the page, enter **Identity Governance** and select the result.
-
-1. On the left menu, select **Lifecycle workflows**.
+1. Browse to **Identity governance** > **Lifecycle workflows**.
 
 1. On the **Lifecycle workflows** overview page, select **Workflow settings**.
 

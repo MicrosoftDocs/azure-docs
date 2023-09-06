@@ -216,4 +216,4 @@ To delete a group, you'll need the **Groups Administrator** or **User Administra
 
 - [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)
 
-- [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Associate or add an Azure subscription to Azure Active Directory](./how-subscriptions-associated-directory.md)

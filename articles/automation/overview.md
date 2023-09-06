@@ -107,7 +107,7 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
     - Collect and store information about Azure resources. 
     - Perform SQL monitoring checks & reporting.
     - Check website availability. 
-* **Dev/test automation scenarios** - Start and start resources, scale resources, etc.
+* **Dev/test automation scenarios** - Stop and start resources, scale resources, etc.
 * **Governance related automation** - Automatically apply or update tags, locks, etc.
 * **Azure Site Recovery** - orchestrate pre/post scripts defined in a Site Recovery DR workflow.
 * **Azure Virtual Desktop** - orchestrate scaling of VMs or start/stop VMs based on utilization.

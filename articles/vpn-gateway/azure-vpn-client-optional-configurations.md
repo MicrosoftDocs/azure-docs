@@ -62,7 +62,7 @@ To add DNS suffixes, modify the downloaded profile XML file and add the **\<dnss
           <dnssuffix>.xyz.com</dnssuffix>
           <dnssuffix>.etc.net</dnssuffix>
     </dnssuffixes>
-    
+
 </clientconfig>
 </azvpnprofile>
 ```
@@ -75,11 +75,11 @@ To add custom DNS servers, modify the downloaded profile XML file and add the **
 <azvpnprofile>
 <clientconfig>
 
-	<dnsservers>
-		<dnsserver>x.x.x.x</dnsserver>
-        	<dnsserver>y.y.y.y</dnsserver>
-	</dnsservers>
-    
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+            <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+
 </clientconfig>
 </azvpnprofile>
 ```
@@ -109,20 +109,20 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
    ```xml
   <azvpnprofile>
   <clientconfig>
-          
+
     <includeroutes>
-    	<route>
-    		<destination>0.0.0.0</destination><mask>1</mask>
-    	</route>
-    	<route>
-    		<destination>128.0.0.0</destination><mask>1</mask>
-    	</route>
+        <route>
+            <destination>0.0.0.0</destination><mask>1</mask>
+        </route>
+        <route>
+            <destination>128.0.0.0</destination><mask>1</mask>
+        </route>
     </includeroutes>
-           
+
   </clientconfig>
   </azvpnprofile>
   ```
-  
+
 > [!NOTE]
 > - The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
 > - A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
@@ -135,15 +135,15 @@ You can add custom routes. Modify the downloaded profile XML file and add the **
 <azvpnprofile>
 <clientconfig>
 
-	<includeroutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-		<route>
-    			<destination>y.y.y.y</destination><mask>24</mask>
-    		</route>
-	</includeroutes>
-    
+    <includeroutes>
+        <route>
+            <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+        <route>
+                <destination>y.y.y.y</destination><mask>24</mask>
+            </route>
+    </includeroutes>
+
 </clientconfig>
 </azvpnprofile>
 ```
@@ -156,15 +156,15 @@ The ability to completely block routes isn't supported by the Azure VPN Client. 
 <azvpnprofile>
 <clientconfig>
 
-	<excluderoutes>
-		<route>
-			<destination>x.x.x.x</destination><mask>24</mask>
-		</route>
-		<route>
-    			<destination>y.y.y.y</destination><mask>24</mask>
-    		</route>
-	</excluderoutes>
-    
+    <excluderoutes>
+        <route>
+            <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+        <route>
+            <destination>y.y.y.y</destination><mask>24</mask>
+        </route>
+    </excluderoutes>
+
 </clientconfig>
 </azvpnprofile>
 ```

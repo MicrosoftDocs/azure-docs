@@ -1,8 +1,8 @@
 ---
 title: Public Network Access overview - Azure Database for MySQL - Flexible Server
 description: Learn about public access networking option in the Flexible Server deployment option for Azure Database for MySQL
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -35,8 +35,10 @@ Granting permission to an IP address is called a firewall rule. If a connection 
 
 You can consider enabling connections from all Azure data center IP addresses if a fixed outgoing IP address isn't available for your Azure service.
 
-> [!IMPORTANT]  
-> The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When selecting this option, ensure your login and user permissions limit access to only authorized users.
+> [!IMPORTANT]
+> - The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When selecting this option, ensure your login and user permissions limit access to only authorized users.
+>    - You can create a maximum of 500 IP firewall rules.
+>    
 
 Learn how to enable and manage public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md).
 
@@ -55,9 +57,11 @@ Consider the following points when access to the Microsoft Azure Database for My
 - **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it shows the validation error.
 
 > [!NOTE]  
-> We recommend you use the fully qualified domain name (FQDN) '<servername>.mysql.database.azure.com' in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
+> We recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 ## Next steps
 
 - Learn how to enable public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md)
 - Learn how to [use TLS](how-to-connect-tls-ssl.md)
+
+
