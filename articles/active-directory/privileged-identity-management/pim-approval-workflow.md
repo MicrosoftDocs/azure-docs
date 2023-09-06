@@ -23,6 +23,8 @@ With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), 
 
 ## View pending requests
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 As a delegated approver, you'll receive an email notification when an Azure AD role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).

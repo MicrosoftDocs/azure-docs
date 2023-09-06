@@ -10,8 +10,6 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-
-
 # Tutorial: Enterprise scale for SAP Deployment Automation Framework
 
 This tutorial shows how to do enterprise scaling for deployments by using [SAP Deployment Automation Framework](deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations.
@@ -385,7 +383,7 @@ To connect to your deployer VM:
 
 1. Save the file. If you're prompted to **Save as type**, select **All files** if **SSH** isn't an option. For example, use `deployer.ssh`.
 
-1. Connect to the deployer VM through any SSH client, such as Visual Studio Code. Use the public IP address you noted earlier and the SSH key you downloaded. For instructions on how to connect to the deployer by using Visual Studio Code, see [Connect to the deployer by using Visual Studio Code](tools-configuration.md#configuring-visual-studio-code). If you're using PuTTY, convert the SSH key file first by using PuTTYGen.
+1. Connect to the deployer VM through any SSH client, such as Visual Studio Code. Use the public IP address you noted earlier and the SSH key you downloaded. For instructions on how to connect to the deployer by using Visual Studio Code, see [Connect to the deployer by using Visual Studio Code](tools-configuration.md#configure-visual-studio-code). If you're using PuTTY, convert the SSH key file first by using PuTTYGen.
 
 > [!NOTE]
 >The default username is *azureadm*.
@@ -798,8 +796,7 @@ This playbook configures HANA system replication and Pacemaker for the HANA data
 
 ## Clean up installation
 
-> [!NOTE]
-> It's important to clean up your SAP installation from this tutorial after you're finished. Otherwise, you continue to incur costs related to the resources.
+It's important to clean up your SAP installation from this tutorial after you're finished. Otherwise, you continue to incur costs related to the resources.
 
 To remove the entire SAP infrastructure you deployed, you need to:
 
@@ -810,7 +807,7 @@ To remove the entire SAP infrastructure you deployed, you need to:
 
 Run the removal of your SAP infrastructure resources and workload zones from the deployer VM. Run the removal of the control plane from Cloud Shell.
 
-Before you begin, sign in o your Azure account. Then, check that you're in the correct subscription.
+Before you begin, sign in to your Azure account. Then, check that you're in the correct subscription.
 
 ### Remove the SAP infrastructure
 

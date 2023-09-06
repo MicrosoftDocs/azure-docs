@@ -146,7 +146,7 @@ To edit an existing alert rule:
 
     1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
         ```KQL
-         adx(cluster).table    
+         adx('https://help.kusto.windows.net/Samples').table    
          | where MyTS >= ago(5m) and MyTS <= now()
         ```     
          ```KQL

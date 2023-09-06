@@ -46,7 +46,7 @@ To learn more about Azure AD built-in roles and their permissions, see [Azure AD
 
 One Azure AD tenant can have up to 500 role-assignable groups. To learn more about Azure AD service limits and restrictions, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
-Azure AD role-assignable group feature is not part of Azure AD Privileged Identity Management (Azure AD PIM). It requires a Microsft Entra Premium P1, P2, or Micrsoft Entra ID Governance license.
+Azure AD role-assignable group feature is not part of Azure AD Privileged Identity Management (Azure AD PIM). It requires a Microsoft Entra Premium P1, P2, or Microsoft Entra ID Governance license.
 
 ## Relationship between role-assignable groups and PIM for Groups
 
