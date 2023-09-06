@@ -12,7 +12,7 @@ ms.date: 06/21/2023
 ms.author: jomondi
 ms.reviewer: sureshja
 zone_pivot_groups: enterprise-apps-all
-ms.custom: enterprise-apps, devx-track-extended-java, devx-track-go, devx-track-js, has-azure-ad-ps-ref
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 #Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---
 

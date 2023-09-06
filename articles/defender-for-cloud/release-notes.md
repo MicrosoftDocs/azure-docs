@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/31/2023
+ms.date: 09/05/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -22,11 +22,10 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ## September 2023
 
-Updates in September include:
-
 |Date |Update  |
 |----------|----------|
 | September 1 | [General Availability (GA): malware scanning in Defender for Storage](#general-availability-ga-malware-scanning-in-defender-for-storage)|
+| September 5 | [Sensitive data discovery for PaaS databases (Preview)](#sensitive-data-discovery-for-paas-databases-preview) |
 
 ### General Availability (GA): malware scanning in Defender for Storage
 
@@ -42,6 +41,25 @@ If you're using the previous plan (now renamed "Microsoft Defender for Storage (
 
 Read the [Microsoft Defender for Cloud announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/malware-scanning-for-cloud-storage-ga-pre-announcement-prevent/ba-p/3884470). 
 
+### Sensitive data discovery for PaaS databases (Preview)
+
+September 5, 2023
+
+Data-aware security posture capabilities for frictionless sensitive data discovery for PaaS Databases (Azure SQL Databases and Amazon RDS Instances of any type) is now in public preview. This public preview allows you to create a map of your critical data wherever it resides, and the type of data that is found in those databases.
+
+Sensitive data discovery for Azure and AWS databases, adds to the shared taxonomy and configuration which is already publicly available for cloud object storage resources (Azure Blob Storage, AWS S3 buckets and GCP storage buckets) and provides a single configuration and enablement experience.
+
+Databases are scanned on a weekly basis. If you enable `sensitive data discovery`, discovery will run within 24 hours. The results can be viewed in the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) or by reviewing the new [attack paths](how-to-manage-attack-path.md) for managed databases with sensitive data.
+
+Data-aware security posture for databases is available through the [Defender CSPM plan](tutorial-enable-cspm-plan.md), and is automatically enabled on subscriptions where `sensitive data discovery` option is enabled.
+
+You can learn more about data aware security posture in the following articles:
+
+- [Support and prerequisites for data-aware security posture](concept-data-security-posture-prepare.md)
+- [Enable data-aware security posture](data-security-posture-enable.md)
+- [Explore risks to sensitive data](data-security-review-risks.md)
+- [Azure data attack paths](attack-path-reference.md#azure-data)
+- [AWS data attack paths](attack-path-reference.md#aws-data)
 
 ## August 2023
 

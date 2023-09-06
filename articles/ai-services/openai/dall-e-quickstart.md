@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js
 ms.topic: quickstart
 author: PatrickFarley
 ms.author: pafarley
@@ -60,4 +60,3 @@ zone_pivot_groups: openai-quickstart-dall-e
 [!INCLUDE [REST API quickstart](includes/dall-e-rest.md)]
 
 ::: zone-end
-
