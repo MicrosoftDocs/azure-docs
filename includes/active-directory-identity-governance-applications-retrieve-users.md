@@ -140,7 +140,7 @@ The first time your organization uses these cmdlets for this scenario, you need 
    $db_mail_nickname_column_name = "Alias"
    ```
 
-   Then you can use this script to create Azure AD users for those in the database which didn't match.  Note that you may need to modify this script to add additional Azure AD attributes needed in your organization, or if the `$azuread_match_attr_name` is neither `mailNickname` nor `userPrincipalName`, in order to supply that Azure AD attribute.
+   Then you can use this script to create Azure AD users for those in the database or directory that didn't match with users in Azure AD.  Note that you may need to modify this script to add additional Azure AD attributes needed in your organization, or if the `$azuread_match_attr_name` is neither `mailNickname` nor `userPrincipalName`, in order to supply that Azure AD attribute.
 
    ```powershell
    $dbu_missing_columns_list = @()
