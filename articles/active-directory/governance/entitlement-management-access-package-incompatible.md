@@ -49,7 +49,7 @@ To use entitlement management and assign users to access packages, you must have
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner or Access package manager
 
 Follow these steps to change the list of incompatible groups or other access packages for an existing access package:
 
@@ -93,7 +93,7 @@ New-MgEntitlementManagementAccessPackageIncompatibleAccessPackageByRef -AccessPa
 
 ## View other access packages that are configured as incompatible with this one
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner or Access package manager
 
 Follow these steps to view the list of other access packages that have indicated that they're incompatible with an existing access package:
 
@@ -111,7 +111,7 @@ Follow these steps to view the list of other access packages that have indicated
 
 If you've configured incompatible access settings on an access package that already has users assigned to it, then you can download a list of those users who have that additional access. Those users who also have an assignment to the incompatible access package won't be able to re-request access.
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner or Access package manager
 
 Follow these steps to view the list of users who have assignments to two access packages.
 
@@ -135,7 +135,7 @@ Follow these steps to view the list of users who have assignments to two access 
 
 If you're configuring incompatible access settings on an access package that already has users assigned to it, then any of those users who also have an assignment to the incompatible access package or groups won't be able to re-request access.
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner or Access package manager
 
 Follow these steps to view the list of users who have assignments to two access packages.
 
