@@ -15,7 +15,7 @@ ms.custom: devplatv2
 ---
 
 
-# Monitoring generative AI applications in production
+# Monitoring generative AI applications in production (preview)
 
 Monitoring models in production is an essential part of the AI lifecycle: changes in data and consumer behavior can influence your LLM application over time, resulting in outdated AI systems, which can produce undesired results that can negatively impact business outcomes and expose organizations to compliance, economic, and reputational risks. 
 
