@@ -105,6 +105,9 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     aks-nodepool1-31469198-vmss000001   Ready    agent   3h29m   v1.25.6
     aks-nodepool1-31469198-vmss000002   Ready    agent   3h29m   v1.25.6
     ```
+   
+> [!NOTE]
+> For private clusters, the nodes might be unreachable if you try to connect to them through the public IP address. In order to fix this, you need to create an end-point within the same VNET as the cluster to connect from. Follow the instructions to [Create a private AKS cluster] and connect to it.
 
 ## Deploy the application 
 
@@ -407,6 +410,8 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 [aoai-get-started]: ../ai-services/openai/quickstart.md
 
 [managed-identity]: /azure/ai-services/openai/how-to/managed-identity#authorize-access-to-managed-identities
+
+[Create a private AKS cluster]: https://learn.microsoft.com/en-us/azure/aks/private-clusters?tabs=azure-portal#options-for-connecting-to-the-private-cluster
 
 [key-vault]: csi-secrets-store-driver.md
 
