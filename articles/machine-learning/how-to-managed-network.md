@@ -132,7 +132,9 @@ Before following the steps in this article, make sure you have the following pre
 ## Configure a managed virtual network to allow internet outbound
 
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision` command from the Azure CLI. For example, `az ml workspace provision --name ws --resource-group rg`.
+> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision-network` command from the Azure CLI. For example, `az ml workspace provision-network --name ws --resource-group rg`.
+>
+> __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -346,7 +348,9 @@ To configure a managed VNet that allows internet outbound communications, use th
 ## Configure a managed virtual network to allow only approved outbound
 
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. __If you plan to submit serverless spark jobs__, [Manually start provisioning](#configure-for-serverless-spark-jobs).
+> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision-network` command from the Azure CLI. For example, `az ml workspace provision-network --name ws --resource-group rg`.
+>
+> __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
 
