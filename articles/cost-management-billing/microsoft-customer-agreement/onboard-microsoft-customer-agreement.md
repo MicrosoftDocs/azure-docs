@@ -68,7 +68,7 @@ Management, deployment, and optimization tools in a **single portal**
 This section describes the steps you must take to enable and sign an MCA, which allows you to experience its benefits.
 
 >[!NOTE]
-The following steps apply only to **new MCA customers** that have never signed an MCA or EA but who may have bought Azure or per seat products through another method, such as a licensing vehicle or contracting type. If you're a **customer migrating to MCA from an existing Microsoft EA**, see [Migrate from an EA to transition to an MCA](#migrate-from-an-ea-to-an-mca).
+> The following steps apply only to **new MCA customers** that have never signed an MCA or EA but who may have bought Azure or per seat products through another method, such as a licensing vehicle or contracting type. If you're a **customer migrating to MCA from an existing Microsoft EA**, see [Migrate from an EA to transition to an MCA](#migrate-from-an-ea-to-an-mca).
 
 Start your journey to MCA by using the steps in the following diagram. More details and supporting links are in the sections that follow the diagram.
 
