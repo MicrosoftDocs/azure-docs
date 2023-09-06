@@ -685,7 +685,7 @@ Wait for the deployment to finish. The new resource group appears in the Azure p
 
 Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
-1. Go into the `WORKSPACES/SYSTEM` folder and copy the sample configuration files to use from the repository.
+Go into the `WORKSPACES/SYSTEM` folder and copy the sample configuration files to use from the repository.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM
