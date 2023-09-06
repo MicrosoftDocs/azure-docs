@@ -1,6 +1,6 @@
 ---
 title: Reference table for all DevOps recommendations 
-description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
+description: This article lists Microsoft Defender for Cloud's DevOps security recommendations that help you harden and protect your resources.
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
@@ -9,9 +9,9 @@ ms.author: dacurwin
 ms.custom: generated
 ---
 
-# Security recommendations for AWS resources - a reference guide
+# Security recommendations for DevOps resources - a reference guide
 
-This article lists the recommendations you might see in Microsoft Defender for Cloud if you've connected an AWS account from the **Environment settings** page. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
+This article lists the recommendations you might see in Microsoft Defender for Cloud if you've [connected a DevOps](quickstart-onboard-devops.md) or [Github](quickstart-onboard-github.md) environment from the **Environment settings** page. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
 
 To learn about how to respond to these recommendations, see
 [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
