@@ -16,7 +16,12 @@ You must install the [Microsoft Visual C++ Redistributable for Visual Studio 201
 
 # [Linux](#tab/linux)
 
-The Speech SDK for C# only supports **Ubuntu 18.04/20.04/22.04**, **Debian 10/11**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following architectures when used with Linux: x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu)
+The Speech SDK for C# only supports the following distributions on the x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) architectures:
+
+- Ubuntu 18.04/20.04/22.04
+- Debian 10/11
+- Red Hat Enterprise Linux (RHEL) 7/8
+- CentOS 7/8
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 
