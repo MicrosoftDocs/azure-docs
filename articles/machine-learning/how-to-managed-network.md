@@ -50,7 +50,7 @@ The following diagram shows a managed virtual network configured to __allow only
 
 ### Azure Machine Learning studio
 
-If you have inbound communication with your workspace from clients in an Azure Virtual Network, and those clients will be using Azure Machine Learning studio, create a _private endpoint_ or _service endpoint_ for the default storage account in the virtual network.
+If you want to use the integrated notebook or create datasets in the default storage account from studio, your client needs access to the default storage account. Create a _private endpoint_ or _service endpoint_ for the default storage account in the Azure Virtual Network that the clients use.
 
 Part of Azure Machine Learning studio runs locally in the client's web browser, and communicates directly with the default storage for the workspace. Creating a private endpoint or service endpoint for the default storage account in the virtual network ensures that the client can communicate with the storage account.
 
@@ -132,7 +132,7 @@ Before following the steps in this article, make sure you have the following pre
 ## Configure a managed virtual network to allow internet outbound
 
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. __If you plan to submit serverless spark jobs__, [Manually start provisioning](#configure-for-serverless-spark-jobs).
+> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision` command from the Azure CLI. For example, `az ml workspace provision --name ws --resource-group rg`.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -880,11 +880,15 @@ __Outbound__ service tag rules:
 __Inbound__ service tag rules:
 * `AzureMachineLearning`
 
-## List of recommended outbound rules
+## List of scenario specific outbound rules
+
+### Scenario: Access public machine learning packages
 
 To allow installation of __Python packages for training and deployment__, add outbound _FQDN_ rules to allow traffic to the following host names:
 
 [!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
+
+### Scenario: Use Visual Studio Code desktop or web with compute instance
 
 If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbound _FQDN_ rules to allow traffic to the following hosts:
 
@@ -901,12 +905,17 @@ If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbo
 * `*.vo.msecnd.net`
 * `marketplace.visualstudio.com`
 
+### Scenario: Use batch endpoints
+
 If you plan to use __Azure Machine Learning batch endpoints__ for deployment, add outbound _private endpoint_ rules to allow traffic to the following sub resources for the default storage account:
 
 * `queue`
 * `table`
 
-If you plan to use __Azure AI services__, including __Azure Cognitive Search__, __Content Safety__, and __Azure Open AI__
+### Scenario: Use prompt flow with Azure Open AI, content safety, and cognitive search
+
+* Private endpoint to Azure AI Services
+* Private endpoint to Azure Cognitive Search
 
 ## Private endpoints
 
