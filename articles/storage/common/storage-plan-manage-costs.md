@@ -96,23 +96,11 @@ Requests to this endpoint can also occur in accounts that have a hierarchical na
 
 If your account has the hierarchical namespace feature enabled, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**. Otherwise, make sure that it is set to **Flat Namespace**.
 
-All requests to the service are made by using REST operations from the Blob Storage REST API. You can use that REST API directly or use a tool or SDK. Any tool you use to interact with Blob Storage translates your interactions to REST operations. The following lists map operations to the type of transaction shown in the pricing page.
+##### Price table for blob storage endpoint
 
-| Cost category in pricing page | REST operations |
-|--|--|
-| Write operations | [Put Blob](/rest/api/storageservices/put-blob), [Put Block](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) [Append Block](/rest/api/storageservices/append-block), [Snapshot Blob](/rest/api/storageservices/snapshot-blob), [Copy Blob](/rest/api/storageservices/copy-blob), [Set Blob Tier](/rest/api/storageservices/set-blob-tier)<sup>2</sup>|
-| List and create operations | [List Blobs](/rest/api/storageservices/list-blobs), [List Containers](/rest/api/storageservices/list-containers2), [Find Blobs By Tags](/rest/api/storageservices/find-blobs-by-tags), [Create Container](/rest/api/storageservices/create-container) |
-| Read operations | [Get Blob](/rest/api/storageservices/get-blob), [Set Blob Tier](/rest/api/storageservices/set-blob-tier)<sup>1</sup>|
-| All other operations (except delete) | Operations |
-| Data retrieval charge | Operations |
-| Point in time restore | Operations |
+Clients make a request by using a REST operation from the Blob Storage REST API. Requests that originate from custom applications that use an Azure Storage client library or from tools such as Azure Storage Explorer and AzCopy arrive to the service in the form of a REST operation from the Blob Storage REST API. Each request incurs a cost per transaction. Each type of transaction is billed at a different rate. The following table maps each Blob Storage REST API operation to a transaction category that appears in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
 
-> [!NOTE]
-> Delete is not listed in this table as it is free operation.
-
-<sup>1</sup>    Applies only when changing to a cooler tier.
-
-<sup>2</sup>    Applies only when changing to a warmer tier.
+Table goes here.
 
 #### Pricing requests to the Data Lake Storage endpoint
 
@@ -128,19 +116,26 @@ The correct pricing page for these requests is the [Azure Data Lake Storage Gen2
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
 
-All requests to the service are made by using REST operations from the Blob Storage REST API. You can use that REST API directly or use a tool or SDK. Any tool you use to interact with Blob Storage translates your interactions to REST operations. The following table maps operations to the type of transaction shown in the pricing page.
+##### Price table for Gen2 endpoint
 
-| Write | Write (Iterative) | Read | Read (Iterative) |
-|----|-|---|---|
-|[Append Data](/rest/api/storageservices/datalakestoragegen2/path/update)|[Rename Directory](/rest/api/storageservices/datalakestoragegen2/path/create)|[Read File](/rest/api/storageservices/datalakestoragegen2/path/read)|[List Filesystems](/rest/api/storageservices/datalakestoragegen2/filesystem/list)|
-|[Create Filesystem](/rest/api/storageservices/datalakestoragegen2/filesystem/create)|||[List Path](/rest/api/storageservices/datalakestoragegen2/path/list)|
-|[Create File](/rest/api/storageservices/datalakestoragegen2/path/create)||||
-|[Create Directory](/rest/api/storageservices/datalakestoragegen2/path/create)||||
-|[Flush Data](/rest/api/storageservices/datalakestoragegen2/path/update)||||
-|[Set Properties](/rest/api/storageservices/datalakestoragegen2/path/update)||||
-|[Set Filesystem Properties](/rest/api/storageservices/datalakestoragegen2/filesystem/set-properties)||||
-|[Rename File](/rest/api/storageservices/datalakestoragegen2/path/create)||||
-|||||
+Clients make a request by using a REST operation from the Blob Storage REST API. Requests that originate from custom applications that use an Azure Storage client library or from tools such as Azure Storage Explorer and AzCopy arrive to the service in the form of a REST operation from the Blob Storage REST API. Each request incurs a cost per transaction. Each type of transaction is billed at a different rate. The following table maps each Blob Storage REST API operation to a transaction category that appears in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
+
+Something here about it being premium block blob account and standard general-purpose v2 accounts.
+
+:::row:::
+   :::column span="":::
+      | Operation                                                                            | Premium                   | Standard                  |
+      |--------------------------------------------------------------------------------------|---------------------------|---------------------------|
+      | [List Containers](/rest/api/storageservices/list-containers2)                        | List and create container | List and create container |
+      | [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties) | Other                     | Other                     |
+   :::column-end:::
+   :::column span="":::
+      | Operation                                                                            | Premium                   | Standard                  |
+      |--------------------------------------------------------------------------------------|---------------------------|---------------------------|
+      | [Set Blob Tags](/rest/api/storageservices/set-blob-tags)                             | Other                     | Other                     |
+      | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)                   | List and create container | List and create container |
+   :::column-end:::
+:::row-end:::
 
 ### Using Azure Prepayment with Azure Blob Storage
 
