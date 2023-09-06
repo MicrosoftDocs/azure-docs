@@ -41,7 +41,7 @@ See [Azure AI Video Indexer account types](/azure/azure-video-indexer/accounts-o
 
 **New accounts:** As of January 15, all newly created AVI accounts will be non-AMS dependent accounts. You'll no longer be able to create AMS-dependent accounts.
 
-**Existing accounts**: Existing accounts will continue to work through June 30, 2024. To continue using the account beyond June 30, customers must go through the process to convert their account to an non-AMS dependent account. If you don’t convert your account to an non-AMS dependent account, you won't be able to access the account or use it beyond June 30.
+**Existing accounts**: Existing accounts will continue to work through June 30, 2024. To continue using the account beyond June 30, customers must go through the process to convert their account to an non-AMS dependent account. If you don’t convert your account to a non-AMS dependent account, you won't be able to access the account or use it beyond June 30.
 
 ### Classic accounts
 
@@ -90,11 +90,11 @@ As of July 1, 2024, AVI won’t use AMS for encoding or streaming. As a result, 
 
 - Encoding with adaptive bitrate will no longer be supported. Only single bitrate will be supported for new indexing jobs. Videos already encoded with adaptive bitrate will be playable in the AVI player.
 - Video Indexer [dynamic encryption](/azure/media-services/latest/drm-content-protection-concept) of media files will no longer be supported.
-- Media files created by AVI Updated accounts won’t be playable by the [Azure Media Player](https://azure.microsoft.com/products/media-services/media-player).
+- Media files created by non-AMS dependent accounts won’t be playable by the [Azure Media Player](https://azure.microsoft.com/products/media-services/media-player).
 - Using a Cognitive Insights widget and playing the content with the Azure Media Player outlined [here](video-indexer-embed-widgets.md) will no longer be supported.
 
 ## Timeline
 
 This graphic shows the timeline for the changes.
 
-:::image type="content" source="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" lightbox="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" alt-text="AVI changes timeline":::
+:::image type="content" source="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" lightbox="media/avi-ams-retirement-announcement/avi-changes-timeline.svg" alt-text="AVI changes timeline that visually represents what has been discussed in the document":::
