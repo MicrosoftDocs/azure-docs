@@ -120,10 +120,10 @@ additionalContent:
         summary: Call Automation provides a new set of APIs to help developers build server-based, intelligent calling workflows.
         url: ./concepts/call-automation/call-automation.md
       - title: UI Library
-        summary: UI Library gives you a library of production-ready UI components to easily build modern communications user experiences using Azure Communication Services.
+        summary: UI Library gives you a library of production-ready, fully accessible UI components to easily build modern communications user experiences using Azure Communication Services.
         url: ./concepts/ui-library/ui-library-overview.md   
-      - title: Job router
-        summary: Direct each customer interaction to the correct customer service resource with a mix of pre-defined and runtime rules and policies.
+      - title: Job Router
+        summary: Job router allows you to direct each customer interaction to the correct customer service resource with a mix of pre-defined and runtime rules and policies.
         url: ./concepts/router/concepts.md
     - title: Core Scenarios
       summary: Whether you're just starting or have lots of experience, our prebuilt communications solutions help you arrive at your business goals quickly and effectively.
