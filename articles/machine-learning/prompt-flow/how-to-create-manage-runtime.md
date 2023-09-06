@@ -24,15 +24,15 @@ Prompt flow's runtime provides the computing resources required for the applicat
 
 You can choose between two types of runtimes for Prompt flow: [compute instance (CI)](../concept-compute-instance.md), [automatic](../how-to-use-serverless-compute.md) and [managed online endpoint/deployment](../concept-endpoints-online.md). Here are some differences between them to help you decide which one suits your needs.
 
-| Runtime type                                 |Compute instance runtime| Automatic runtime |Managed online deployment runtime (depracated)|
+| Runtime type                                 |Compute instance runtime| Automatic runtime |Managed online deployment runtime (deprecated)|
 |----------------------------------------------|------------------------|--------------------|----------------------------------------------|
 | Team shared                                  | N                                 |Y                         |Y|
 | User isolation                               | Y                                 |Y                         |N|
 | OBO/identity support                         | Y                                 |N                         |N|
 | Easily manually customization of environment | Y                                 |N                         |N|
 | Multiple runtimes on single resource         | Y                                 |Y                         |N|
-| Custom VNet support                          | Y                                  |N                         |N|
-| Managed VNet support                         | Y                                  |N                         |N|
+| Custom virtual network support                          | Y                                  |N                         |N|
+| Managed virtual network support                         | Y                                  |N                         |N|
 
 If you're new to Prompt flow, we recommend you to start with compute instance runtime first.
 
@@ -67,12 +67,12 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
     1. Select create new custom application as runtime.
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of add compute instance runtime with custom application highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
 
-        This is recommended for most users of Prompt flow. The Prompt flow system will create a new custom application on a compute instance as a runtime.
+        This is recommended for most users of Prompt flow. The Prompt flow system creates a new custom application on a compute instance as a runtime.
 
         - To choose the default environment, select this option. This is the recommended choice for new users of Prompt flow.
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png" alt-text="Screenshot of add compute instance runtime with environment highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png":::
 
-        - If you want to install additional packages in your project, you should create a custom environment. To learn how to build your own custom environment, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+        - If you want to install other packages in your project, you should create a custom environment. To learn how to build your own custom environment, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
          :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png" alt-text="Screenshot of add compute instance runtime with customized environment and choose an environment highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png":::
 
@@ -111,10 +111,10 @@ When performing a bulk test, you can use the original runtime in the flow or cha
 
 ### Using automatic runtime in Prompt flow authoring
 
-There is `automatic` runtime which is leverage serverless compute, when using automtic runtime you didn't need to manged the compute resource manaully and environments.
-- Compute resource will be warm up when you're using it, so the first run may take serveral mintutes to prepare compute. If your didn't specify instance_type when submit flow run we will use `Standard_E4s_v3` as default instance type. You can use Flow UI and CLI / SDK change it to other version. Please make sure you have enouth quota on this instance type.
+There's `automatic` runtime, which is leverage serverless compute, when using automatic runtime you didn't need to manged the compute resource manually and environments.
+- Compute resource is warm up when you're using it, so the first run may take several minutes to prepare compute. If your didn't specify instance_type when submit flow run we'll use `Standard_E4s_v3` as default instance type. You can use Flow UI and CLI / SDK change it to other version. Please make sure you have enough quota on this instance type.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png" alt-text="Screenshot of show how to specify instence type in flow. " lightbox = "./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png" alt-text="Screenshot of show how to specify instance type in flow. " lightbox = "./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png":::
 
 
 ```yaml
@@ -146,7 +146,7 @@ base_run = pf.run(
 ```
 
 
-- Enviroment of the runtime support dynamic package installation, you can specify the packages your want in `requirements.txt` in your prompt flow folder. Every time you using the `automatic` runtime, we will install the packages your defined in `requirements.txt`. You need ensure in `flow.dag.yaml` you have defined the `python_requirements_txt` in `environment` section.
+- Environment of the runtime support dynamic package installation, you can specify the packages your want in `requirements.txt` in your prompt flow folder. Every time you using the `automatic` runtime, we'll install the packages your defined in `requirements.txt`. You need ensure in `flow.dag.yaml` you have defined the `python_requirements_txt` in `environment` section.
 
 ```yaml
 ...
@@ -154,7 +154,7 @@ environment:
     python_requirements_txt: requirements.txt
 ```
 
-- `automatic` runtime will try best to reuse the same compute sesseion to provide better performance, if there is no activity in the compute session for 30 minutes, the compute resource will be released.
+- `automatic` runtime tries best to reuse the same compute session to provide better performance, if there's no activity in the compute session for 30 minutes, the compute resource will be released.
 
 
 ## Update runtime from UI
@@ -246,7 +246,7 @@ Go to the compute instance terminal and run  `docker logs -<runtime_container_na
 
 #### User doesn't have access to this compute instance. Please check if this compute instance is assigned to you and you have access to the workspace. Additionally, verify that you are on the correct network to access this compute instance.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of a do not have access error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of a don't have access error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
 
 This because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
 
