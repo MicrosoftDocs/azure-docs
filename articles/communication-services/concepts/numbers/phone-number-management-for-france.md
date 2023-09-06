@@ -47,6 +47,7 @@ More details on eligible subscription types are as follows:
 | :---------- |
 |France|
 |Italy|
+|United States|
 
 
 ## Find information about other countries/regions
