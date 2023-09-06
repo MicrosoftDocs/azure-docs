@@ -43,17 +43,17 @@ Ensure the contact profile properties are set as follows:
 | **Property** | **Setting** |
 |----------|---------|
 | subnetId | Enter the **full ID to the delegated subnet**, which can be found inside the VNET's JSON view. subnetID is found under networkConfiguration. |
-| ipAddress | For each link, enter an **IP for TCP/UDP server mode**. Leave blank for TCP/UDP client mode. See section below for a detailed explanation on configuring this property. |
-| port | For each link, port must be within 49152 and 65535 range and must be unique across all links in the contact profile. |
+| ipAddress | For each link, enter an **IP for TCP/UDP server mode**. Leave blank for TCP/UDP client mode. See the following section for a detailed explanation of configuring this property. |
+| port | For each link, the port must be within the 49152 and 65535 range and must be unique across all links in the contact profile. |
 
 > [!NOTE]
-> You can have multiple links/channels in a contact profile, and you can have multiple IPs. But the combination of port/protocol must be unique. You cannot have two identical ports, even if you have two different destination IPs. 
+> You can have multiple links/channels in a contact profile, and you can have multiple IPs. However the combination of port/protocol must be unique. You cannot have two identical ports, even if you have two different destination IPs. 
 
 For more information, learn about [contact profiles](/azure/orbital/concepts-contact-profile) and [how to configure a contact profile](/azure/orbital/contact-profile).
 
 ## Schedule the contact
 
-The Azure Orbital Ground Station platform pre-reserves IPs in the subnet when a contact is scheduled. These IPs represent the platform side endpoints for each link. IPs will be unique between contacts, and if multiple concurrent contacts are using the same subnet, Microsoft guarantees those IPs to be distinct. The service will fail to schedule the contact and an error will be returned if the service runs out of IPs or cannot allocate an IP.
+The Azure Orbital Ground Station platform pre-reserves IPs in the subnet when a contact is scheduled. These IPs represent the platform side endpoints for each link. IPs are unique between contacts, and if multiple concurrent contacts are using the same subnet, Microsoft guarantees those IPs to be distinct. The service fails to schedule the contact and an error is returned if the service runs out of IPs or cannot allocate an IP.
 
 When you create a contact, you can find these IPs by viewing the contact properties. Select JSON view in the portal or use the GET contact API call to view the contact properties. Make sure to use the current API version of 2022-03-01. The parameters of interest are below:
 
