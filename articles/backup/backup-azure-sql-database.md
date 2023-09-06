@@ -2,7 +2,7 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: conceptual
-ms.date: 09/05/2023
+ms.date: 09/06/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -149,7 +149,7 @@ catch
 
 ## Configure simultaneous backups
 
-You can now configure backups to save the SQL server recovery points in a local storage and Recovery Services vault simultaneously.
+You can now configure backups to save the SQL server recovery points and logs in a local storage and Recovery Services vault simultaneously.
 
 To configure simultaneous backups, follow these steps:
 
