@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 Confidential computing provides advanced capabilities for protecting secrets and keys whilst they are in-use to enhance the security posture of an application.
 
-Confidential computing enabled services use keys managed by the [hardware root of trust](trusted-compute-base.md#hardware-root-of-trust) to inform [Attestation] (attestation.md) services and encrypt and decrypt data inside the Trusted Execution Environment ([TEE](trusted-execution-environment.md)).
+Confidential computing enabled services use keys managed by the [hardware root of trust](trusted-compute-base.md#hardware-root-of-trust) to inform [Attestation](attestation.md) services and encrypt and decrypt data inside the Trusted Execution Environment ([TEE](trusted-execution-environment.md)).
 
 This is a key part of protection for Confidential virtual machines (CVM) and many other services built upon CVMs like [confidential node pools on AKS](confidential-node-pools-aks.md) or data services that support confidential SKUs like Azure Data Explorer.
 

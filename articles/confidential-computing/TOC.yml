@@ -161,11 +161,9 @@
     href: ../confidential-ledger/overview.md
 #  - name: Confidential Consortium Framework (CCF) #done < seems to be missing from livesite now?
 #    href: ../confidential-consortium-framework/overview.md
-  - name: Machine Learning
-    expanded: true
-    items:
-  - name: Confidential Machine Learning #done
-    href: https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-data
+  - name: Confidential AI #done
+   # href: https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-data #broken link
+     href: https://github.com/microsoft/confidential-ai
   - name: Secure Key Release (SKR) with Azure Key Vault
     items:
     - name: SKR with Azure Confidential Computing Concept
@@ -176,36 +174,36 @@
       href: skr-flow-confidential-containers-azure-container-instance.md
     - name: SKR Policy Examples
       href: skr-policy-examples.md  
-- name: Partner Solutions
-  items:
-  - name: Overview
-    href: partner-pages/partner-pages-index.md
-  - name: Anjuna
-    href: partner-pages/anjuna.md
-  - name: BeeKeeperAI
-    href: partner-pages/beekeeperai.md
-  - name: Decentriq
-    href: partner-pages/decentriq.md
-  - name: Edgeless
-    href: partner-pages/edgeless.md
-  - name: Enclaive
-    href: partner-pages/enclaive.md
-  - name: Fortanix
+  - name: Partner Solutions
     items:
-    - name: About Fortanix
-      href: partner-pages/fortanix.md
-    - name: Fortanix Confidential Computing Manager
-      href: how-to-fortanix-confidential-computing-manager.md
-    - name: Fortanix Confidential Computing Manager Node Agent
-      href: how-to-fortanix-confidential-computing-manager-node-agent.md
-  - name: Habu
-    href: partner-pages/habu.md
-  - name: Mithril Security
-    href: partner-pages/mithril.md
-  - name: Opaque
-    href: partner-pages/opaque.md
-  - name: Scone
-    href: partner-pages/scone.md
+    - name: Overview
+      href: partner-pages/partner-pages-index.md
+    - name: Anjuna
+      href: partner-pages/anjuna.md
+    - name: BeeKeeperAI
+      href: partner-pages/beekeeperai.md
+    - name: Decentriq
+      href: partner-pages/decentriq.md
+    - name: Edgeless
+      href: partner-pages/edgeless.md
+    - name: Enclaive
+      href: partner-pages/enclaive.md
+    - name: Fortanix
+      items:
+      - name: About Fortanix
+        href: partner-pages/fortanix.md
+      - name: Fortanix Confidential Computing Manager
+        href: how-to-fortanix-confidential-computing-manager.md
+      - name: Fortanix Confidential Computing Manager Node Agent
+        href: how-to-fortanix-confidential-computing-manager-node-agent.md
+    - name: Habu
+      href: partner-pages/habu.md
+    - name: Mithril Security
+      href: partner-pages/mithril.md
+    - name: Opaque
+      href: partner-pages/opaque.md
+    - name: Scone
+      href: partner-pages/scone.md
 - name: Resources
   items:
   - name: Join our Tech Community
