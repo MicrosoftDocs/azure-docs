@@ -152,7 +152,7 @@ The way that you mount storage depends on your storage access option and whether
     | Setting | Description |
     |-|-|
     | **Name** | Name of the mount configuration. Spaces aren't allowed. |
-    | **Configuration options** | Select **Basic**. if the storage account isn't using [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](../../../key-vault/general/overview.md). Otherwise, select **Advanced**. |
+    | **Configuration options** | Select **Advanced**. |
     | **Storage accounts** | Azure Storage account. |
     | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
     | **Storage container** or **Share name** | Files share or Blobs container to mount. |
