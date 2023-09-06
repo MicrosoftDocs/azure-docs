@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: overview
-ms.date: 11/04/2021
+ms.date: 06/09/2023
 ms.author: mamccrea
 ms.custom: ignite-fall-2021
 ---

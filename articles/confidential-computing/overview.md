@@ -6,7 +6,7 @@ author: mamccrea
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 06/09/2023
 ms.author: mamccrea #ananyagarg #sgallagher
 ms.custom: ignite-fall-2021, inspire-july-2022
 ---

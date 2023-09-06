@@ -1,11 +1,11 @@
 ---
 title: Threat scenarios and protection goals
 description: Understanding what you are trying to protect against and where Confidential computing can help.
-author: sgallagher
+author: vinfnet
 ms.author: sgallagher
 ms.service: confidential-computing
 ms.topic: conceptual
-ms.date: 6/09/2023
+ms.date: 06/09/2023
 ms.custom: template-concept
 ---
 # Threat Scenarios and Protection Goals

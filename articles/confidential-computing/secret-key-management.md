@@ -1,11 +1,11 @@
 ---
 title: Secret and key management
 description: Understanding how confidential computing handles secrets and keys
-author: sgallagher
+author: vinfnet
 ms.author: sgallagher
 ms.service: confidential-computing
 ms.topic: concepts
-ms.date: 6/09/2023
+ms.date: 06/09/2023
 ms.custom: template-concept
 ---
 # Secrets and Key Management

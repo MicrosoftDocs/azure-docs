@@ -1,11 +1,11 @@
 ---
 title: Trusted compute base (TCB)
 description: Understanding what the TCB is and what it includes
-author: sgallagher
+author: vinfnet
 ms.author: sgallagher
 ms.service: confidential-computing
 ms.topic: conceptual
-ms.date: 6/09/2023
+ms.date: 06/09/2023
 ms.custom: template-concept
 ---
 # Trusted Compute Base
