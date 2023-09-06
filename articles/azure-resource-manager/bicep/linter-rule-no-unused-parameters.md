@@ -2,6 +2,7 @@
 title: Linter rule - no unused parameters
 description: Linter rule - no unused parameters
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 02/10/2023
 ---
 

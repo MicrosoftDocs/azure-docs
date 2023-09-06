@@ -3,14 +3,14 @@ title: Create a storage account
 titleSuffix: Azure Storage
 description: Learn to create a storage account to store blobs, files, queues, and tables. An Azure storage account provides a unique namespace in Microsoft Azure for reading and writing your data.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 01/10/2023
-ms.author: jammart
-ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
+ms.date: 08/18/2023
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement
 ---
 
 # Create a storage account
@@ -29,7 +29,7 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -100,11 +100,24 @@ A storage account is an Azure Resource Manager resource. Resource Manager is the
 
 Every Resource Manager resource, including an Azure storage account, must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This how-to shows how to create a new resource group.
 
+### Storage account type parameters
+
+When you create a storage account using PowerShell, the Azure CLI, Bicep, or Azure Templates, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
+
+| Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku or SkuName parameter | Supports hierarchical namespace |
+|--|--|--|--|--|
+| Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
+| Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
+| Premium file shares | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
+| Premium page blobs | LRS | StorageV2 | Premium_LRS | No |
+| Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+| Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
+
 # [Portal](#tab/azure-portal)
 
 To create an Azure storage account with the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, click the menu button to toggle it on.
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, select the menu button to toggle it on.
 
     :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure portal homepage showing the location of the Menu button near the top left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
 
@@ -125,8 +138,8 @@ The following table describes the fields on the **Basics** tab.
 | Project details | Subscription | Required | Select the subscription for the new storage account. |
 | Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. |
-| Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
-| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul><br />Microsoft recommends creating a general-purpose v2, premium block blob, or premium file share account for most scenarios. To select a legacy account type, use the link provided beneath **Instance details**. For more information about legacy account types, see [Legacy storage account types](storage-account-overview.md#legacy-storage-account-types). |
+| Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing).<br /><br />If your subscription supports Azure public multi-access edge zones (Azure MEC), you can deploy your storage account to an edge zone. For more information about edge zones, see [What is Azure public MEC?](../../public-multi-access-edge-compute-mec/overview.md). |
+| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul>
 | Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
 
 The following image shows a standard configuration of the basic properties for a new storage account.
@@ -167,8 +180,10 @@ The following table describes the fields on the **Networking** tab.
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | Network connectivity | Network access | Required | By default, incoming network traffic is routed to the public endpoint for your storage account. You can specify that traffic must be routed to the public endpoint through an Azure virtual network. You can also configure private endpoints for your storage account. For more information, see [Use private endpoints for Azure Storage](storage-private-endpoints.md). |
-| Network connectivity | Endpoint type | Required | Azure Storage supports two types of endpoints: [standard endpoints](storage-account-overview.md#standard-endpoints) (the default) and [Azure DNS zone endpoints](storage-account-overview.md#azure-dns-zone-endpoints-preview) (preview). Within a given subscription, you can create up to 250 accounts with standard endpoints per region, and up to 5000 accounts with Azure DNS zone endpoints per region, for a total of 5250 storage accounts. To register for the preview, see [About the preview](storage-account-overview.md#about-the-preview). |
+| Network connectivity | Endpoint type | Required | Azure Storage supports two types of endpoints: [standard endpoints](storage-account-overview.md#standard-endpoints) (the default) and [Azure DNS zone endpoints](storage-account-overview.md#azure-dns-zone-endpoints-preview) (preview). Within a given subscription, you can create up to 250<sup>1</sup> accounts with standard endpoints per region, and up to 5000 accounts with Azure DNS zone endpoints per region, for a total of 5250 storage accounts. To register for the preview, see [About the preview](storage-account-overview.md#about-the-preview). |
 | Network routing | Routing preference | Required | The network routing preference specifies how network traffic is routed to the public endpoint of your storage account from clients over the internet. By default, a new storage account uses Microsoft network routing. You can also choose to route network traffic through the POP closest to the storage account, which may lower networking costs. For more information, see [Network routing preference for Azure Storage](network-routing-preference.md). |
+
+<sup>1</sup>With a quota increase, you can create up to 500 storage accounts with standard endpoints per region in a given subscription, for a total of 5500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
 
 The following image shows a standard configuration of the networking properties for a new storage account.
 
@@ -270,7 +285,7 @@ To create an account with Azure DNS zone endpoints (preview), follow these steps
 
 1. Close and reopen the PowerShell console.
 
-1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
 
     ```azurepowershell
     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 4.4.2-preview -AllowClobber -AllowPrerelease -Force
@@ -296,15 +311,6 @@ $account.SecondaryEndpoints
 To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `EnableHierarchicalNamespace` parameter to `$True` on the call to the **New-AzStorageAccount** command.
 
 The following table shows which values to use for the `SkuName` and `Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
-
-| Type of storage account | Supported redundancy configurations | Supported values for the Kind parameter | Supported values for the SkuName parameter | Supports hierarchical namespace |
-|--|--|--|--|--|
-| Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
-| Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
-| Premium file shares | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
-| Premium page blobs | LRS | StorageV2 | Premium_LRS | No |
-| Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
-| Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -361,17 +367,6 @@ az storage account show \
 ```
 
 To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `enable-hierarchical-namespace` parameter to `true` on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
-
-The following table shows which values to use for the `sku` and `kind` parameters to create a particular type of storage account with the desired redundancy configuration.
-
-| Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku parameter | Supports hierarchical namespace |
-|--|--|--|--|--|
-| Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
-| Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
-| Premium file shares | LRS / ZRS | FileStorage | Premium_LRS / Premium_ZRS | No |
-| Premium page blobs | LRS | StorageV2 | Premium_LRS | No |
-| Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
-| Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
 # [Bicep](#tab/bicep)
 
@@ -445,7 +440,7 @@ If you try to delete a storage account associated with an Azure virtual machine,
 # [Portal](#tab/azure-portal)
 
 1. Navigate to the storage account in the [Azure portal](https://portal.azure.com).
-1. Click **Delete**.
+1. Select **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -502,12 +497,16 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 ---
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
+## Create a general purpose v1 storage account
+
+[!INCLUDE [GPv1 support statement](../../../includes/storage-account-gpv1-support.md)]
+
+General purpose v1 (GPv1) storage accounts can no longer be created from the Azure portal. If you need to create a GPv1 storage account, follow the steps in section [Create a storage account](#create-a-storage-account-1) for PowerShell, the Azure CLI, Bicep, or Azure Templates. For the `kind` parameter, specify `Storage`, and choose a `sku` or `SkuName` from the [table of supported values](#storage-account-type-parameters).
+
 ## Next steps
 
 - [Storage account overview](storage-account-overview.md)
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
-- [Migrate a classic storage account](storage-account-migrate-classic.md)
-   
-
+- [Migrate a classic storage account](classic-account-migrate.md)

@@ -26,6 +26,9 @@ You'll use a template to deploy a test environment that has a central VNet (10.0
 - an Azure Bastion subnet (10.0.20.0/24)
 - a firewall subnet (10.0.100.0/24)
 
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 A single central VNet is used in this test environment for simplicity. For production purposes, a [hub and spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets is more common.
 
 :::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Central VNet topology":::
@@ -159,4 +162,5 @@ Let's create an application rule to allow access to sports web sites.
 
 ## Next steps
 
+- [Building a POC for TLS inspection in Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/building-a-poc-for-tls-inspection-in-azure-firewall/ba-p/3676723)
 - [Azure Firewall Premium in the Azure portal](premium-portal.md)

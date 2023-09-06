@@ -3,7 +3,7 @@ title: Source claims from an external store (SAML app)
 titleSuffix: Microsoft identity platform
 description: Use a custom claims provider to augment tokens with claims from an external identity system. Configure a SAML app to receive tokens with external claims. 
 services: active-directory
-author: yoelhor
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -26,7 +26,7 @@ This article describes how to configure a SAML application to receive tokens wit
 Before configuring a SAML application to receive tokens with external claims, first follow these sections:
 
 - [Create a custom claims provider API](custom-extension-get-started.md#step-1-create-an-azure-function-app)
-- [Register a custom claims extension](custom-extension-get-started.md#step-2-register-a-custom-extension)
+- [Register a custom claims extension](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension)
 
 ## Configure a SAML application that receives enriched tokens
 
@@ -36,9 +36,15 @@ The following steps are for registering a demo [XRayClaims](https://adfshelp.mic
 
 ### Add a new SAML application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Add a new, non-gallery SAML application in your tenant:
 
-1. In the [Azure portal](https://portal.azure.com), go to **Azure Active Directory** and then **Enterprise applications**.  Select **New application** and then **Create your own application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.  
+
+1. Select **New application** and then **Create your own application**.
 
 1. Add a name for the app.  For example, **AzureADClaimsXRay**.  Select the **Integrate any other application you don't find in the gallery (Non-gallery)** option and select **Create**.
 
@@ -66,7 +72,7 @@ Attributes that return by your custom claims provider API aren't automatically i
 
 1. Select on **Configure** for **Custom claims provider**.
 
-1. Select the custom extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-extension) in the **Custom claims provider** dropdown.  Select **Save**.
+1. Select the custom authentication extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension) in the **Custom claims provider** dropdown.  Select **Save**.
 
 1. Select **Add new claim** to add a new claim.
 
@@ -86,7 +92,7 @@ Before testing the user sign-in, you must assign a user or group of users to the
 
 1. In the **Users and groups** page, select **Add user/group**.
 
-1. Search for and select the user to sign into the app.  Select the **Assign** button.
+1. Search for and select the user to sign in to the app.  Select the **Assign** button.
 
 ### Test the application
 
@@ -104,6 +110,6 @@ Test that the token is being enriched for users signing in to the application:
 
 [Troubleshoot your custom claims provider API](custom-extension-troubleshoot.md).
 
-View the [Authentication Events Trigger for Azure Functions sample app](https://github.com/Azure/microsoft-azure-webJobs-extensions-authentication-events).
+View the [Authentication Events Trigger for Azure Functions sample app](https://github.com/Azure/azure-docs-sdk-dotnet/blob/live/api/overview/azure/preview/microsoft.azure.webjobs.extensions.authenticationevents-readme.md).
 
 <!-- For information on the HTTP request and response formats, read the [protocol reference](custom-claims-provider-protocol-reference.md). -->

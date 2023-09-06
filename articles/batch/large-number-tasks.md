@@ -4,7 +4,7 @@ description: Learn how to efficiently submit a very large number of tasks in a s
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.devlang: csharp, python
-ms.custom: "devx-track-python, devx-track-csharp"
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
 ---
 # Submit a large number of tasks to a Batch job
 

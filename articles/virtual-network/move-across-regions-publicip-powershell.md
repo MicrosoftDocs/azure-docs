@@ -7,7 +7,7 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 12/08/2021
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Move Azure Public IP configuration to another region using Azure PowerShell

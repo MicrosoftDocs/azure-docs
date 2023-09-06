@@ -52,10 +52,16 @@ az extension add --name containerapp --upgrade
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Now install the Az.App module.
+Install the Az.App module if it isn't installed.
 
 ```azurepowershell
 Install-Module -Name Az.App
+```
+
+If you have an older version of the Az.App module installed, update it.
+
+```azurepowershell
+Update-Module -Name Az.App
 ```
 
 ---

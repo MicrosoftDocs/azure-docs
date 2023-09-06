@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Expiration Reminder | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Expiration Reminder'
 description: Learn how to configure single sign-on between Azure Active Directory and Expiration Reminder.
 services: active-directory
 author: jeevansd

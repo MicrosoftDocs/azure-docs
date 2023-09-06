@@ -4,7 +4,7 @@ description: Learn how to configure a virtual network for injection of Azure-SSI
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 author: chugugrace
 ms.author: chugu 
 ---

@@ -2,6 +2,7 @@
 title: Resource Manager template samples for activity log alerts
 description: Sample Azure Resource Manager templates to deploy Azure Monitor activity log alerts.
 ms.topic: sample
+ms.custom: devx-track-arm-template
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 12/28/2022

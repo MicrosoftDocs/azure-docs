@@ -33,9 +33,11 @@ The general media delivery or video-on-demand media delivery optimization types 
 Partial cache sharing allows the CDN to serve partially cached content to new requests. For example, if the first request to the CDN results in a cache miss, the request is sent to the origin. Although this incomplete content is loaded into the CDN cache, other requests to the CDN can start getting this data. 
 
 
-## Media streaming optimizations for Azure CDN from Verizon
+<a name='media-streaming-optimizations-for-azure-cdn-from-verizon'></a>
 
-**Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** endpoints deliver streaming media assets directly by using the general web delivery optimization type. A few features on the CDN directly help delivering media assets by default.
+## Media streaming optimizations for Azure CDN from Edgio
+
+**Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** endpoints deliver streaming media assets directly by using the general web delivery optimization type. A few features on the CDN directly help delivering media assets by default.
 
 ### Partial cache sharing
 
@@ -47,7 +49,10 @@ Partial cache sharing allows the CDN to serve partially cached content to new re
 
  
 ## Media streaming optimizations for Azure CDN from Akamai
- 
+
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
+
 **Azure CDN Standard from Akamai** offers a feature that delivers streaming media assets efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the standard Akamai pricing tier. 
 
 Media streaming optimization for **Azure CDN Standard from Akamai** is effective for live or video-on-demand streaming media that uses individual media fragments for delivery. This process is different from a single large asset transferred via progressive download or by using byte-range requests. For information on that style of media delivery, see [Large file optimization](cdn-large-file-optimization.md).

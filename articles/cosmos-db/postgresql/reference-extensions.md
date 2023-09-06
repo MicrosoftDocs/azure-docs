@@ -1,18 +1,19 @@
 ---
 title: Extensions – Azure Cosmos DB for PostgreSQL
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Cosmos DB for PostgreSQL
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
+ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 02/25/2023
+ms.date: 08/24/2023
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-PostgreSQL provides the ability to extend the functionality of your database by using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function like built-in features. For more information on PostgreSQL extensions, see [Package related objects into an extension](https://www.postgresql.org/docs/current/static/extend-extensions.html).
+PostgreSQL extend the functionality of your database by using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function like built-in features. For more information on PostgreSQL extensions, see [Package related objects into an extension](https://www.postgresql.org/docs/current/static/extend-extensions.html).
 
 ## Use PostgreSQL extensions
 
@@ -32,7 +33,7 @@ Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as 
 
 ## Extensions supported by Azure Cosmos DB for PostgreSQL
 
-The following tables list the standard PostgreSQL extensions that are currently supported by Azure Cosmos DB for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
+The following tables list the standard PostgreSQL extensions that are supported on Azure Cosmos DB for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
 
 The versions of each extension installed in a cluster sometimes differ based on the version of PostgreSQL (11, 12, or 13). The tables list extension versions per database version.
 
@@ -41,7 +42,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.11 | 10.0.7 | 10.2.8 | 11.1.5 | 11.2.0 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.12 | 10.2.9 | 11.3.0 | 12.0.0 | 12.0.0 |
 
 ### Data types extensions
 
@@ -56,8 +57,8 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. | 1.1 | 1.1 | 1.2 | 1.2 | 1.2 |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 |
-> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.2.0 | 1.2.0 | 1.2.0 | 1.4.0 | 1.4.0 |
-> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.4.0 | 2.4.0 | 2.4.0 | 2.4.0 | 2.5.0 |
+> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.4.0 | 1.4.0 | 1.4.0 | 1.4.0 | 1.4.0 |
+> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.5.0 | 2.5.0 | 2.5.0 | 2.5.0 | 2.5.0 |
 
 ### Full-text search extensions
 
@@ -80,7 +81,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Integer aggregator and enumerator (obsolete). | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Functions for tracking last modification time. | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.6.0 | 4.6.0 | 4.6.0 | 4.6.2 | 4.7.0 |
+> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.7.3 | 4.7.3 | 4.7.3 | 4.7.3 | 4.7.3 |
 > | [pg\_surgery](https://www.postgresql.org/docs/current/pgsurgery.html) | Functions to perform surgery on a damaged relation. |     |     |     | 1.0 | 1.0 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 |
 > | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Provides cryptographic functions. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 |
@@ -115,9 +116,9 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [old\_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html) | Allows inspection of the server state that is used to implement old_snapshot_threshold. |     |     |     | 1.0 | 1.0 |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. | 1.7 | 1.7 | 1.8 | 1.9 | 1.10 |
-> | [pg\_azure\_storage](howto-ingest-azure-blob-storage.md) | Azure integration for PostgreSQL. | | | 1.0 | 1.0 | 1.0 |
+> | [pg\_azure\_storage](howto-ingest-azure-blob-storage.md) | Azure integration for PostgreSQL. | | | 1.2 | 1.2 | 1.2 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 |
-> | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.4 | 1.4 | 1.4 | 1.4 | 1.4 |
+> | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine the free space map (FSM). | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [pg\_prewarm](https://www.postgresql.org/docs/current/static/pgprewarm.html) | Provides a way to load relation data into the buffer cache. | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html) | Provides a means for tracking execution statistics of all SQL statements executed by a server. See the "pg_stat_statements" section for information about this extension. | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 |
@@ -130,16 +131,21 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE method, which accepts time in milliseconds as a limit. | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | XPath querying and XSLT. | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 
+### Pgvector extension
+> [!div class="mx-tableFixed"]
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
+> |---|---|---|---|---|
+> [pgvector](https://github.com/pgvector/pgvector#installation-notes) | Open-source vector similarity search for Postgres | 0.4.4 | 0.4.4 | 0.4.4 | 0.4.4 | 0.4.4 |
 
 ### PostGIS extensions
 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
 > |---|---|---|---|---|
-> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
-> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
-> | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
-> | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
+> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 3.3.4 | 3.4.0 | 3.4.0 | 3.4.0 | 3.4.0 |
+> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 3.3.4 | 3.4.0 | 3.4.0 | 3.4.0 | 3.4.0 |
+> | postgis\_sfcgal | PostGIS SFCGAL functions. | 3.3.4 | 3.4.0 | 3.4.0 | 3.4.0 | 3.4.0 |
+> | postgis\_topology | PostGIS topology spatial types and functions. | 3.3.4 | 3.4.0 | 3.4.0 | 3.4.0 | 3.4.0 |
 
 
 ## pg_stat_statements
@@ -147,15 +153,14 @@ The [pg\_stat\_statements extension](https://www.postgresql.org/docs/current/pgs
 
 The setting `pg_stat_statements.track` controls what statements are counted by the extension. It defaults to `top`, which means that all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`.
 
-There's a tradeoff between the query execution information pg_stat_statements provides and the effect on server performance as it logs each SQL statement. If you aren't actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Some third-party monitoring services might rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
+There's a tradeoff between the query execution information pg_stat_statements provides and the effect on server performance as it logs each SQL statement. If you aren't actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Some third-party monitoring services might rely on pg_stat_statements to deliver query performance insights, so confirm whether it's the case for you or not.
 
 ## dblink and postgres_fdw
 
 You can use dblink and postgres\_fdw to connect from one PostgreSQL server to
 another, or to another database in the same server.  The receiving server needs
 to allow connections from the sending server through its firewall.  To use
-these extensions to connect between Azure Cosmos DB for PostgreSQL servers or
-clusters, set **Allow Azure services and resources to access this cluster (or
+these extensions to connect between Azure Cosmos DB for PostgreSQL clusters with [public access](./concepts-firewall-rules.md), set **Allow Azure services and resources to access this cluster (or
 server)** to ON.  You also need to turn this setting ON if you want to use the
 extensions to loop back to the same server.  The **Allow Azure services and
 resources to access this cluster** setting can be found in the Azure portal

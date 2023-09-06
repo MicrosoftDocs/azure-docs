@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 11/7/2022
+ms.date: 04/11/2023
 ms.topic: how-to
 ---
 
@@ -27,7 +27,7 @@ To see a full list of directories to which you have access, select **All Directo
 
 To mark a directory as a favorite, select its star icon. Those directories will be listed in the  **Favorites** section.
 
-To switch to a different directory, select the directory that you want to work in, then select the **Switch** button in its row.
+To switch to a different directory, find the directory that you want to work in, then select the **Switch** button in its row.
 
 :::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Screenshot showing the Directories settings pane.":::
 
@@ -101,12 +101,6 @@ The **Menu behavior** section lets you choose how the default Azure portal menu 
 The theme that you choose affects the background and font colors that appear in the Azure portal. In the **Theme** section, you can select from one of four preset color themes. Select each thumbnail to find the theme that best suits you.
 
 Alternatively, you can choose a theme from the **High contrast theme** section. These themes can make the Azure portal easier to read, especially if you have a visual impairment. Selecting either the white or black high-contrast theme will override any other theme selections.
-
-### Focus navigation
-
-Choose whether or not to enable focus navigation.
-
-If enabled, only one screen at a time will be visible as you step through a process in the portal. If disabled, as you move through the steps of a process, you'll be able to move between them through a horizontal scroll bar.
 
 ### Startup page
 

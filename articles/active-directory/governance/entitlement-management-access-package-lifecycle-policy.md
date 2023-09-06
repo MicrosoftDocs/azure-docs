@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -31,25 +31,29 @@ To ensure users have the right access to an access package, custom questions can
 
 ## Open lifecycle settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To change the lifecycle settings for an access package, you need to open the corresponding policy. Follow these steps to open the lifecycle settings for an access package.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
-1. Click **Policies** and then click the policy that has the lifecycle settings you want to edit.
+1. On the **Access packages** page open the access package that you want to edit.
+
+1. Select **Policies** and then select the policy that has the lifecycle settings you want to edit.
 
     The Policy details pane opens at the bottom of the page.
 
     ![Access package - Policy details pane](./media/entitlement-management-shared/policy-details.png)
 
-1. Click **Edit** to edit the policy.
+1. Select **Edit** to edit the policy.
 
     ![Access package - Edit policy](./media/entitlement-management-shared/policy-edit.png)
 
-1. Click the **Lifecycle** tab to open the lifecycle settings.
+1. Select the **Lifecycle** tab to open the lifecycle settings.
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 

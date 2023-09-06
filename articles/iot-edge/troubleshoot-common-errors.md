@@ -66,7 +66,9 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 #### Symptoms
 
-The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but continually reporting 'empty config file...'.
+* The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but and reports *empty config file...*.
+
+* When you run `sudo iotedge check` on a device, it reports *Container engine is not configured with DNS server setting, which may impact connectivity to IoT Hub. Please see https://aka.ms/iotedge-prod-checklist-dns for best practices.*
 
 #### Cause
 
@@ -114,6 +116,49 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 > If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
+
+### Edge Agent module with LTE connection reports 'empty edge agent config' and causes 'transient network error'
+
+#### Symptoms
+
+A device configured with LTE connection is having issues starting modules defined in the deployment. The *edgeAgent* isn't able to connect to the IoT Hub and reports *empty edge agent config* and *transient network error occurred.*
+
+#### Cause
+
+Some networks have packet overhead, which makes the default docker network MTU (1500) too high and causes packet fragmentation preventing access to external resources.
+
+#### Solution
+
+1. Check the MTU setting for your docker network. 
+    
+   `docker network inspect <network name>`
+
+1. Check the MTU setting for the physical network adaptor on your device.
+   
+    `ip addr show eth0`
+
+>[!NOTE]
+>The MTU for the docker network cannot be higher than the MTU for your device. Contact your ISP for more information.
+
+If you see a different MTU size for your docker network and the device, try the following workaround:
+
+1. Create a new network. For example,
+
+    `docker network create --opt com.docker.network.driver.mtu=1430 test-mtu`
+
+    In the example, the MTU setting for the device is 1430. Hence, the MTU for the Docker network is set to 1430.
+
+1. Stop and remove the Azure network.
+
+    `docker network rm azure-iot-edge`
+
+1. Recreate the Azure network.
+
+   `docker network create --opt com.docker.network.driver.mtu=1430 azure-iot-edge`
+
+1. Remove all containers and restart the *aziot-edged* service.
+
+   `sudo iotedge system stop && sudo docker rm -f $(docker ps -aq -f "label=net.azure-devices.edge.owner=Microsoft.Azure.Devices.Edge.Agent") && sudo iotedge config apply`
 
 ### IoT Edge agent can't access a module's image (403)
 
@@ -422,6 +467,29 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. If you chose to exclude authentication keys during the device export, reconfigure each device with the new keys given by the new IoT hub (`device_id_pk` under `[provisioning.authentication]` in `config.toml`)
 1. Restart the top-level parent Edge device first, make sure it's up and running
 1. Restart each device in hierarchy level by level from top to the bottom
+
+### IoT Edge has low message throughput when geographically distant from IoT Hub
+
+#### Symptoms
+
+Azure IoT Edge devices that are geographically distant from Azure IoT Hub have a lower than expected message throughput.
+
+#### Cause
+
+High latency between the device and IoT Hub can cause a lower than expected message throughput. IoT Edge uses a default message batch size of 10. This limits the number of messages that are sent in a single batch, which increases the number of round trips between the device and IoT Hub.
+
+#### Solution
+
+Try increasing the IoT Edge Hub **MaxUpstreamBatchSize** environment variable. This allows more messages to be sent in a single batch, which reduces the number of round trips between the device and IoT Hub.
+
+To set Azure Edge Hub environment variables in the Azure portal:
+
+1. Navigate to your IoT Hub and select **Devices** under the **Device management** menu.
+1. Select the IoT Edge device that you want to update.
+1. Select **Set Modules**.
+1. Select **Runtime Settings**.
+1. In the **Edge Hub** module settings tab, add the **MaxUpstreamBatchSize** environment variable as type **Number** with a value of **20**.
+1. Select **Apply**.
 
 ## Next steps
 

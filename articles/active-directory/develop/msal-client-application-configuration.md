@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/15/2022
+ms.date: 08/11/2023
 ms.author: cwerner
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
@@ -45,8 +45,8 @@ The authority you specify in your code needs to be consistent with the **Support
 The authority can be:
 
 - An Azure AD cloud authority.
-- An Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- An Active Directory Federation Services (AD FS) authority. See [AD FS support](https://aka.ms/msal-net-adfs-support).
+- An Azure AD B2C authority. See [B2C specifics](msal-net-b2c-considerations.md).
+- An Active Directory Federation Services (AD FS) authority. See [AD FS support](msal-net-adfs-support.md).
 
 Azure AD cloud authorities have two parts:
 
@@ -87,7 +87,7 @@ Using MSAL in your code, you specify the audience by using one of the following 
 
 MSAL will throw a meaningful exception if you specify both the Azure AD authority audience and the tenant ID.
 
-If you don't specify an audience, your app will target Azure AD and personal Microsoft accounts as an audience. (That is, it will behave as though `common` were specified.)
+It is recommended to specify an audience, as many tenants, and the applications deployed in them will have guest users. If your application will have external users, the endpoints of `common` and `organization` are best avoided. If you don't specify an audience, your app will target Azure AD and personal Microsoft accounts as an audience and will behave as though `common` were specified.
 
 ### Effective audience
 
@@ -129,7 +129,7 @@ You can override the redirect URI by using the `RedirectUri` property (for examp
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
 - `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
-For more iOS details, see [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md) and [Leveraging the broker on iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
+For more iOS details, see [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md) and [Leveraging the broker on iOS](msal-net-use-brokers-with-xamarin-apps.md).
 For more Android details, see [Brokered auth in Android](msal-android-single-sign-on.md).
 
 ### Redirect URI for confidential client apps
@@ -154,8 +154,8 @@ To help in debugging and authentication failure troubleshooting scenarios, the M
     :::column-end:::
     :::column:::
         - [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
-        - [Logging in MSAL for Java](msal-logging-java.md)
-        - [Logging in MSAL for Python](msal-logging-python.md)
+        - [Logging in MSAL for Java](/entra/msal/java/advanced/msal-logging-java)
+        - [Logging in MSAL for Python](/entra/msal/python/advanced/msal-logging-python)
     :::column-end:::
 :::row-end:::
 

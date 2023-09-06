@@ -4,7 +4,7 @@ description: This article describes how you can query against resources from mul
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/28/2022
+ms.date: 05/30/2023
 
 ---
 
@@ -24,7 +24,7 @@ There are two methods to query data that's stored in multiple workspaces and app
 
 ## Cross-resource query limits
 
-* The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
+* The number of Application Insights components and Log Analytics workspaces that you can include in a single query is limited to 100.
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 * References to a cross resource, such as another workspace, should be explicit and can't be parameterized. See [Identify workspace resources](#identify-workspace-resources) for examples.
 
@@ -32,93 +32,66 @@ There are two methods to query data that's stored in multiple workspaces and app
 To reference another workspace in your query, use the [workspace](../logs/workspace-expression.md) identifier. For an app from Application Insights, use the [app](./app-expression.md) identifier.
 
 ### Identify workspace resources
-The following examples demonstrate queries across Log Analytics workspaces to return summarized counts of logs from the Update table on a workspace named `contosoretail-it`.
 
-You can identify a workspace in one of several ways:
-
-* **Resource name**: This human-readable name of the workspace is sometimes referred to as the *component name*.
-
-    >[!IMPORTANT]
-    >Because app and workspace names aren't unique, this identifier might be ambiguous. We recommend that the reference uses a qualified name, workspace ID, or Azure Resource ID.
-
-    `workspace("contosoretail-it").Update | count`
-
-* **Qualified name**: This "full name" of the workspace is composed of the subscription name, resource group, and component name in the format *subscriptionName/resourceGroup/componentName*.
-
-    `workspace('contoso/contosoretail/contosoretail-it').Update | count`
-
-    >[!NOTE]
-    >Because Azure subscription names aren't unique, this identifier might be ambiguous.
+You can identify a workspace using one of these IDs:
 
 * **Workspace ID**: A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
 
-    `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
+    `workspace("00000000-0000-0000-0000-000000000000").Update | count`
 
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.
+* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName*.
 
     For example:
 
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
+    workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
 ### Identify an application
 The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights.
 
-You can identify an application in Application Insights with the `app(Identifier)` expression. The `Identifier` argument specifies the app by using one of the following names or IDs:
-
-* **Resource name**: This human readable name of the app is sometimes referred to as the *component name*.
-
-    `app("fabrikamapp")`
-
-    >[!NOTE]
-    >Identifying an application by name assumes uniqueness across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
-
-* **Qualified name**: This "full name" of the app is composed of the subscription name, resource group, and component name in the format *subscriptionName/resourceGroup/componentName*.
-
-    `app("AI-Prototype/Fabrikam/fabrikamapp").requests | count`
-
-     >[!NOTE]
-    >Because Azure subscription names aren't unique, this identifier might be ambiguous.
-    >
+You can identify an app using one of these IDs:
 
 * **ID**: This ID is the app GUID of the application.
 
-    `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
+    `app("00000000-0000-0000-0000-000000000000").requests | count`
 
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the app. You use the resource ID when the resource name is ambiguous. The format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.
+* **Azure Resource ID**: This ID is the Azure-defined unique identity of the app. The format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.
 
     For example:
 
     ```
-    app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+    app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
 
 ### Perform a query across multiple resources
 You can query multiple resources from any of your resource instances. These resources can be workspaces and apps combined.
 
-Example for a query across two workspaces:
+Example for a query across three workspaces:
 
 ```
-union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+union 
+  Update, 
+  workspace("00000000-0000-0000-0000-000000000001").Update, 
+  workspace("00000000-0000-0000-0000-000000000002").Update
 | where TimeGenerated >= ago(1h)
 | where UpdateState == "Needed"
 | summarize dcount(Computer) by Classification
 ```
 
 ## Use a cross-resource query for multiple resources
-When you use cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights resources, the query can become complex and difficult to maintain. You should make use of [functions in Azure Monitor log queries](./functions.md) to separate the query logic from the scoping of the query resources. This method simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name.
+When you use cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights components, the query can become complex and difficult to maintain. You should make use of [functions in Azure Monitor log queries](./functions.md) to separate the query logic from the scoping of the query resources. This method simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights components and visualize the count of failed requests by application name.
 
-Create a query like the following example that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as a function](./functions.md#create-a-function) with the alias `applicationsScoping`.
+Create a query like the following example that references the scope of Application Insights components. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as a function](./functions.md#create-a-function) with the alias `applicationsScoping`.
 
 ```Kusto
-// crossResource function that scopes my Application Insights resources
+// crossResource function that scopes my Application Insights components
 union withsource= SourceApp
-app('Contoso-app1').requests, 
-app('Contoso-app2').requests,
-app('Contoso-app3').requests,
-app('Contoso-app4').requests,
-app('Contoso-app5').requests
+app('00000000-0000-0000-0000-000000000000').requests, 
+app('00000000-0000-0000-0000-000000000001').requests,
+app('00000000-0000-0000-0000-000000000002').requests,
+app('00000000-0000-0000-0000-000000000003').requests,
+app('00000000-0000-0000-0000-000000000004').requests
 ```
 
 You can now [use this function](./functions.md#use-a-function) in a cross-resource query like the following example. The function alias `applicationsScoping` returns the union of the requests table from all the defined applications. The query then filters for failed requests and visualizes the trends by application. The `parse` operator is optional in this example. It extracts the application name from the `SourceApp` property.
@@ -127,15 +100,13 @@ You can now [use this function](./functions.md#use-a-function) in a cross-resour
 applicationsScoping 
 | where timestamp > ago(12h)
 | where success == 'False'
-| parse SourceApp with * '(' applicationName ')' * 
-| summarize count() by applicationName, bin(timestamp, 1h) 
+| parse SourceApp with * '(' applicationId ')' * 
+| summarize count() by applicationId, bin(timestamp, 1h) 
 | render timechart
 ```
 
 >[!NOTE]
 > This method can't be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn't supported. If you prefer to use a function for resource scoping in log alerts, you must edit the alert rule in the portal or with an Azure Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
-
-![Screenshot that shows a time chart.](media/cross-workspace-query/chart.png)
 
 ## Next steps
 

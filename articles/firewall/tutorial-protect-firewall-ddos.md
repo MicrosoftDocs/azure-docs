@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Deploy a firewall with Azure DDoS Protection Standard'
+title: 'Tutorial: Deploy a firewall with Azure DDoS Protection'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy rules using the Azure portal with Azure DDoS protection.
 services: firewall
 author: asudbring
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 01/24/2022
+ms.date: 06/06/2023
 ms.author: allensu
 ms.custom: template-tutorial
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
-# Tutorial: Deploy a firewall with Azure DDoS Protection Standard
+# Tutorial: Deploy a firewall with Azure DDoS Protection
 
-This article helps you create an Azure Firewall with a DDoS protected virtual network. Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your firewall from large scale DDoS attacks.
+This article helps you create an Azure Firewall with a DDoS protected virtual network. Azure DDoS Protection enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your firewall from large scale DDoS attacks.
 
 > [!IMPORTANT]
-> Azure DDoS Protection incurs a cost when you use the Standard SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
 
-For this tutorial, you create a simplified single VNet with two subnets for easy deployment. Azure DDoS Protection Standard is enabled for the virtual network.
+For this tutorial, you create a simplified single VNet with two subnets for easy deployment. Azure DDoS Network Protection is enabled for the virtual network.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -52,7 +52,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 The resource group contains all the resources for the tutorial.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page, then select **Add**. Enter or select the following values:
 
     | Setting  | Value  |
@@ -114,7 +114,7 @@ This VNet will have two subnets.
 1. For **Subnet address range**, type **10.1.2.0/24**.
 1. Select **Add**.
 1. Select **Next: Security**.
-1. In **DDoS Protection Standard** select **Enable**.
+1. In **DDoS Network Protection** select **Enable**.
 1. Select **myDDoSProtectionPlan** in **DDoS protection plan**.
 1. Select **Review + create**.
 1. Select **Create**.

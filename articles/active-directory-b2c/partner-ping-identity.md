@@ -67,7 +67,7 @@ You can configure PingFederate as an authentication provider, or a proxy, for up
 
 Use this function to contextually, dynamically, or declaratively switch an inbound request to an Azure AD B2C policy. See the following diagram of protocol sequence flow.
 
-   ![Diagram of the protocol sequence flow for PingAccess, PingFederate, Azure AD B2C, and the applicaiton.](./media/partner-ping/pingaccess-pingfederate-workflow.png)
+   ![Diagram of the protocol sequence flow for PingAccess, PingFederate, Azure AD B2C, and the application.](./media/partner-ping/pingaccess-pingfederate-workflow.png)
 
 ## Prerequisites
 

@@ -3,7 +3,7 @@ title: "Symantec ProxySG connector for Microsoft Sentinel"
 description: "Learn how to install the connector Symantec ProxySG to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,8 +16,6 @@ The [Symantec ProxySG](https://www.broadcom.com/products/cyber-security/network/
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | SymantecProxySG |
-| **Kusto function url** | https://aka.ms/sentinelgithubparserssymantecproxysg |
 | **Log Analytics table(s)** | Syslog (SymantecProxySG)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
@@ -58,7 +56,8 @@ To integrate with Symantec ProxySG make sure you have:
 ## Vendor installation instructions
 
 
->This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinelgithubparserssymantecproxysg) to create the Kusto functions alias, **SymantecProxySG**
+> [!NOTE]
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Symantec Proxy SG and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SymantecProxySG/Parsers/SymantecProxySG/SymantecProxySG.txt), on the second line of the query, enter the hostname(s) of your Symantec Proxy SG device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Install and onboard the agent for Linux
 
@@ -77,7 +76,16 @@ Configure the facilities you want to collect and their severities.
 
 3. Configure and connect the Symantec ProxySG
 
-[Follow these instructions](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) to enable syslog streaming of **Access** Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+ 
+ 1. Log in to the Blue Coat Management Console .
+ 2. Select Configuration > Access Logging > Formats.
+ 3. Select New.
+ 4.  Enter a unique name in the Format Name field.
+ 5. Click the radio button for  **Custom format string**  and paste the following string into the field.
+ <p><code>date time time-taken c-ip cs-userdn cs-auth-groups x-exception-id sc-filter-result cs-categories cs(Referer) sc-status s-action cs-method rs(Content-Type) cs-uri-scheme cs-host cs-uri-port cs-uri-path cs-uri-query cs-uri-extension cs(User-Agent) s-ip sr-bytes rs-bytes x-virus-id x-bluecoat-application-name x-bluecoat-application-operation cs-uri-port x-cs-client-ip-country cs-threat-risk</code></p>
+ 6. Click the **OK** button. 
+ 7. Click the **Apply** button. 
+ 8. [Follow these instructions](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) to enable syslog streaming of **Access** Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address
 
 
 

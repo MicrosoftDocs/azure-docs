@@ -126,6 +126,8 @@ Before you create the `A` record, you first need to validate that you own the do
 	
 1. Copy the value of the **`stableInboundIP`** property and set it aside in a text editor for future use. This is the IP address of your regional Static Web Apps host.
 
+1. Under Settings, select Custom domains.
+
 1. Select **+ Add**.
 	
 1. In the *Enter domain* tab, enter your apex domain name.

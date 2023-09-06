@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot resource access denied in Privileged Identity Management - Azure Active Directory | Microsoft Docs
+title: Troubleshoot resource access denied in Privileged Identity Management
 description: Learn how to troubleshoot system errors with roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 10/07/2021
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot access to Azure resources denied in Privileged Identity Management
 
-Are you having a problem with Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsft Entra? The information that follows can help you to get things working again.
+Are you having a problem with Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra? The information that follows can help you to get things working again.
 
 ## Access to Azure resources denied
 
@@ -37,5 +37,5 @@ Assign the User Access Administrator role to the Privileged identity Management 
 ## Next steps
 
 - [License requirements to use Privileged Identity Management](subscription-requirements.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md?toc=/azure/active-directory/privileged-identity-management/toc.json)
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)

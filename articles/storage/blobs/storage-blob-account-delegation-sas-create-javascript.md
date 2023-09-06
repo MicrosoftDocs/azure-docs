@@ -5,10 +5,9 @@ description: Create and use account SAS tokens in a JavaScript application that 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/30/2022
-ms.subservice: blobs
 ms.custom: template-how-to, devx-track-js
 ---
 

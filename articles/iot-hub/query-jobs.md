@@ -2,11 +2,11 @@
 title: Run queries on Azure IoT Hub jobs
 description: This article describes how to retrieve information about device jobs from your Azure IoT hub using the query language.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 09/29/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 09/29/2022
 ---
 
 # Queries for IoT Hub jobs

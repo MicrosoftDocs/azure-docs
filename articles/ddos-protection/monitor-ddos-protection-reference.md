@@ -5,14 +5,14 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.date: 12/19/2022
+ms.date: 03/22/2023
 ms.custom: template-concept
 ---
 
 # Monitoring Azure DDoS Protection
 
 
-See [Tutorial: View and configure Azure DDoS protection telemetry](telemetry.md) for details on collecting, analyzing, and monitoring DDoS Protection.
+The following section outlines the metrics of the Azure DDoS Protection service.
 
 ## Metrics
 
@@ -56,87 +56,11 @@ The following [Azure Monitor metrics](../azure-monitor/essentials/metrics-suppor
 | UDPPacketsDroppedDDoS​ | Inbound UDP packets dropped DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets dropped DDoS​ |
 | UDPPacketsForwardedDDoS​ | Inbound UDP packets forwarded DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets forwarded DDoS​ |
 | UDPPacketsInDDoS​ | Inbound UDP packets DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets DDoS​ |
-## Diagnostic logs
-
-See [Tutorial: View and configure Azure DDoS Protection diagnostic logging](diagnostic-logging.md) for details on attack insights and visualization with DDoS Attack Analytics.
-
-The following diagnostic logs are available for Azure DDoS Protection:
-
-- **DDoSProtectionNotifications**: Notifications will notify you anytime a public IP resource is under attack, and when attack mitigation is over.
-- **DDoSMitigationFlowLogs**: Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic and other interesting data-points during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Microsoft Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
-- **DDoSMitigationReports**: Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
-- **AllMetrics**: Provides all possible metrics available during the duration of a DDoS attack.
-
-## Log schemas
-
-The following table lists the field names and descriptions:
-
-# [DDoSProtectionNotifications](#tab/DDoSProtectionNotifications)
-
-| Field name | Description |
-| --- | --- |
-| **TimeGenerated** | The date and time in UTC when the notification was created. |
-| **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
-| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
-| **SubscriptionId** | Your DDoS protection plan subscription ID. |
-| **Resource** | The name of your public IP address. |
-| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For notifications, this will be `DDoSProtectionNotifications`.  |
-| **Message** | Details of the attack. |
-| **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
-| **PublicIpAddress** | Your public IP address. |
-
-# [DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
-
-| Field name | Description |
-| --- | --- |
-| **TimeGenerated** | The date and time in UTC when the flow log was created. |
-| **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For flow logs, this will be `DDoSMitigationFlowLogs`.|
-| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
-| **SubscriptionId** | Your DDoS protection plan subscription ID. |
-| **Resource** | The name of your public IP address. |
-| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For flow logs, this will be `DDoSMitigationFlowLogs`. |
-| **Message** | Details of the attack. |
-| **SourcePublicIpAddress** | The public IP address of the client generating traffic to your public IP address. |
-| **SourcePort** | Port number ranging from 0 to 65535. |
-| **DestPublicIpAddress** | Your public IP address. |
-| **DestPort** | Port number ranging from 0 to 65535. |
-| **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`.|
-
-# [DDoSMitigationReports](#tab/DDoSMitigationReports)
-
-| Field name | Description |
-| --- | --- |
-| **TimeGenerated** | The date and time in UTC when the report was created. |
-| **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSMitigationReports`.|
-| **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
-| **SubscriptionId** | Your DDoS protection plan subscription ID. |
-| **Resource** | The name of your public IP address. |
-| **ResourceType** | This will always be `PUBLICIPADDRESS`. |
-| **OperationName** | For mitigation reports, this will be `DDoSMitigationReports`. |
-| **ReportType** | Possible values include `Incremental`, `PostMitigation`.|
-| **MitigationPeriodStart** | The date and time in UTC when the mitigation started.  |
-| **MitigationPeriodEnd** | The date and time in UTC when the mitigation ended. |
-| **IPAddress** | Your public IP address. |
-| **AttackVectors** |  Breakdown of attack types. Keys include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, `Other packet flood`.|
-| **TrafficOverview** |  Breakdown of attack traffic. Keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, `Total Other packets dropped`. |
-| **Protocols** | Breakdown of protocols involved. Keys include `TCP`, `UDP`, `Other`. |
-| **DropReasons** | Breakdown of reasons for dropped packets. Keys include `Protocol violation invalid TCP syn`, `Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood`, `Rate limit exceeded`, `Packet was forwarded to service`. |
-| **TopSourceCountries** | Breakdown of top 10 source countries/regions of incoming traffic. |
-| **TopSourceCountriesForDroppedPackets** | Breakdown of top 10 source countries/regions of attack traffic that is/was mitigated. |
-| **TopSourceASNs** | Breakdown of top 10 source autonomous system numbers (ASN) of the incoming traffic.  |
-| **SourceContinents** | Breakdown of the source continents of incoming traffic. |
-***
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [View and configure DDoS diagnostic logging](diagnostic-logging.md)
->
-> [Test with simulation partners](test-through-simulations.md)
+* [Configure DDoS Alerts](alerts.md)
+* [View alerts in Microsoft Defender for Cloud](ddos-view-alerts-defender-for-cloud.md)
+* [Test with simulation partners](test-through-simulations.md)
 
 

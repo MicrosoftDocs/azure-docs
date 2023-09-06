@@ -2,11 +2,10 @@
 title: Connect an Azure Elastic SAN Preview volume to an AKS cluster.
 description: Learn how to connect to an Azure Elastic SAN Preview volume an Azure Kubernetes Service cluster.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 07/11/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ---
 
 # Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster
@@ -29,9 +28,11 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 
 ## Prerequisites
 
-- Have an [Azure Elastic SAN](elastic-san-create.md) with volumes
-- Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-az-ps)
+- Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver
+- [Deploy an Elastic SAN Preview](elastic-san-create.md)
+- [Configure a virtual network endpoint](elastic-san-networking.md#configure-a-virtual-network-endpoint)
+- [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
 ## Limitations
 
@@ -42,49 +43,8 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 
 ### Driver installation
 
-First, install the Kubernetes iSCSI CSI driver on your cluster. You have to perform a local install since a few code changes are required for the driver to connect to Elastic SAN volumes.
-
-First, clone the driver repo:
-
 ```
-git clone https://github.com/kubernetes-csi/csi-driver-iscsi.git 
-```
-
-Elastic SAN doesn't currently support dynamic discovery used in this driver. The following code changes in the driver are required to add volumes statically.
-
-Make the following modifications to pkg/lib/iscsi/iscsi/iscsi.go:
-
-First, add a new function for static discovery: 
-
-```
-// Add a new function to make static discovery
-func (c *Connector) discoverTargetStatically(targetIqn string, iFace string, portal string) error {
-  err := CreateDBEntry(targetIqn, portal, iFace, c.DiscoverySecrets, c.SessionSecrets)
-  if err != nil {
-    debug.Printf("Error creating db entry: %s\n", err.Error())
-    return err
-  }
-  return nil
-}
-```
-
-Then, make the following change so that you can use the function you created: 
-
-Replace: 
-```
-if err := c.discoverTarget(targetIqn, iFace, portal); err != nil
-```
-with:
-```
-if err := c.discoverTargetStatically
-```
-
-After the modifications, run the remaining install scripts:
-
-```
-cd csi-driver-iscsi 
-
-./deploy/install-driver.sh master local
+curl -skSL https://raw.githubusercontent.com/kubernetes-csi/csi-driver-iscsi/master/deploy/install-driver.sh | bash -s master --
 ```
 
 After deployment, check the pods status to verify that the driver installed.
@@ -93,9 +53,9 @@ After deployment, check the pods status to verify that the driver installed.
 kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node
 ```
 
-### Volume information
+### Get volume information
 
-To connect an Elastic SAN volume to an AKS cluster, you need the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
+You need the volume's StorageTargetIQN, StorageTargetPortalHostName, and StorageTargetPortalPort.
 
 You may get them with the following Azure PowerShell command:
 
@@ -111,7 +71,7 @@ az elastic-san volume show --elastic-san-name --name --resource-group --volume-g
 
 ### Cluster configuration
 
-Once you've retrieved your volume's information, you need to create a few yml files for your new resources on your AKS cluster.
+Once you've retrieved your volume's information, you need to create a few yaml files for your new resources on your AKS cluster.
 
 ### Storageclass
 
@@ -152,7 +112,7 @@ spec:
       iqn: "yourIQN"
       lun: "0"
       iscsiInterface: "default"
-      discoveryCHAPAuth: "false"
+      discoveryCHAPAuth: "true"
       sessionCHAPAuth: "false"
 ```
 
@@ -239,3 +199,6 @@ You've now successfully connected an Elastic SAN volume to your AKS cluster.
 ## Next steps
 
 [Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)
+
+<!-- LINKS - internal -->
+[Configure Elastic SAN networking Preview]: elastic-san-networking.md

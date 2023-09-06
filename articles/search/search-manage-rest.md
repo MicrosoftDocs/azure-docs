@@ -2,12 +2,11 @@
 title: Manage with REST
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 05/09/2023
 ---
 
 # Manage your Azure Cognitive Search service with REST APIs
@@ -22,12 +21,12 @@ ms.date: 01/11/2023
 
 In this article, learn how to create and configure an Azure Cognitive Search service using the [Management REST APIs](/rest/api/searchmanagement/). Only the Management REST APIs are guaranteed to provide early access to [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview). 
 
-The Management RESt API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
+The Management REST API is available in stable and preview versions. Be sure to set a preview API version if you're accessing preview features.
 
 > [!div class="checklist"]
 > * [List search services](#list-search-services)
 > * [Create or update a service](#create-or-update-a-service)
-> * [(preview) Enable Azure role-based access control for data plane](#enable-rbac)
+> * [Enable Azure role-based access control for data plane](#enable-rbac)
 > * [(preview) Enforce a customer-managed key policy](#enforce-cmk)
 > * [(preview) Disable semantic search](#disable-semantic-search)
 > * [(preview) Disable workloads that push data to external resources](#disable-external-access)
@@ -147,7 +146,7 @@ Now that Postman is set up, you can send REST calls similar to the ones describe
 Returns all search services under the current subscription, including detailed service information:
 
 ```rest
-GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
 ```
 
 ## Create or update a service
@@ -155,7 +154,7 @@ GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Micr
 Creates or updates a search service under the current subscription. This example uses variables for the search service name and region, which haven't been defined yet. Either provide the names directly, or add new variables to the collection.
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
 {
   "location": "{{region}}",
   "sku": {
@@ -174,7 +173,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 To create an [S3HD](search-sku-tier.md#tier-descriptions) service, use a combination of `-Sku` and `-HostingMode` properties. Set "sku" to `Standard3` and "hostingMode" to `HighDensity`.
 
 ```rest
-PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
 {
   "location": "{{region}}",
   "sku": {
@@ -190,7 +189,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 
 <a name="enable-rbac"></a>
 
-## (preview) Configure role-based access for data plane
+## Configure role-based access for data plane
 
 **Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
 
@@ -201,7 +200,7 @@ To use Azure role-based access control (Azure RBAC) for data plane operations, s
 If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up with a second request, this time setting "disableLocalAuth" to "true".
 
 ```rest
-PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
 {
   "properties": {
     "disableLocalAuth": false,
@@ -238,7 +237,7 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 ## (preview) Disable semantic search
 
-Although [semantic search isn't enabled](semantic-search-overview.md#enable-semantic-search) by default, you could lock down the feature at the service level.
+Although [semantic search isn't enabled](semantic-how-to-enable-disable.md) by default, you could lock down the feature at the service level.
 
 ```rest
 PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview

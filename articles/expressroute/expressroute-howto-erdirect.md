@@ -50,7 +50,7 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 3. List all locations where ExpressRoute Direct is supported.
   
    ```powershell
-   Get-AzExpressRoutePortsLocation
+   Get-AzExpressRoutePortsLocation | format-list
    ```
 
    **Example output**
@@ -83,7 +83,7 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 4. Determine if a location listed above has available bandwidth
 
    ```powershell
-   Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
+   Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1" | format-list
    ```
 
    **Example output**

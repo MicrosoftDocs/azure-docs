@@ -396,7 +396,7 @@ This example shows how to view a task's history of workflow runs along with thei
 
    The run details pane opens and shows the underlying workflow that ran.
 
-   - A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with a Service Bus trigger that waits for messages to arrive in the source Service Bus queue.
+   - A workflow always starts with a [*trigger*](../connectors/introduction.md#triggers). For this task, the workflow starts with a Service Bus trigger that waits for messages to arrive in the source Service Bus queue.
 
    - Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 

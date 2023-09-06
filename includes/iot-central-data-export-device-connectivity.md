@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-central
- author: v-krishnag
+ author: dominicbetts
  ms.service: iot-central
  ms.topic: include
- ms.date: 04/27/2022
- ms.author: v-krishnag
+ ms.date: 05/22/2023
+ ms.author: dobett
  ms.custom: include file
 ---
 

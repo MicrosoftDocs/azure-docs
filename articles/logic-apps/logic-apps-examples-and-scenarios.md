@@ -10,7 +10,7 @@ ms.date: 03/07/2023
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
 
-[Azure Logic Apps](logic-apps-overview.md) helps you orchestrate and integrate different services by providing hundreds of prebuilt and ready-to-use connectors, ranging from SQL Server and SAP to Azure Cognitive Services. Azure Logic Apps is "serverless", so you don't have to worry about scale or instances. All you have to do is define a workflow with a trigger and the actions that the workflow performs. The underlying platform handles scale, availability, and performance. Azure Logic Apps is especially useful for use cases and scenarios where you need to coordinate actions across multiple systems and services.
+[Azure Logic Apps](logic-apps-overview.md) helps you orchestrate and integrate different services by providing hundreds of prebuilt and ready-to-use connectors, ranging from SQL Server and SAP to Azure AI services. Azure Logic Apps is "serverless", so you don't have to worry about scale or instances. All you have to do is define a workflow with a trigger and the actions that the workflow performs. The underlying platform handles scale, availability, and performance. Azure Logic Apps is especially useful for use cases and scenarios where you need to coordinate actions across multiple systems and services.
 
 To help you learn about the capabilities and patterns that Azure Logic Apps supports, this guide describes common starting points, examples, and scenarios.
 
@@ -39,14 +39,14 @@ Every workflow starts with a single [*trigger*](logic-apps-overview.md#logic-app
 
 After you add the trigger, continue building your workflow by adding one or more actions. The following quickstarts help you build your first Consumption logic app workflow, which runs in global, multi-tenant Azure Logic Apps:
 
-* [Quickstart: Create your first automated workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md)
+* [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md)
 * [Quickstart: Create automated tasks, processes, and workflows by using Azure Logic Apps - Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Quickstart: Create and manage automated logic app workflows by using Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
 The following how-to guides help you build a Standard logic app workflow that runs in single-tenant Azure Logic Apps:
 
-* [Create a Standard logic app workflow for single-tenant Azure Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md)
-* [Create a Standard logic app workflow for single-tenant Azure Logic Apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
+* [Create an example Standard logic app workflow in single-tenant Azure Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md)
+* [Create an example Standard logic app workflow in single-tenant Azure Logic Apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
 ## Control flow and error handling capabilities
 
@@ -141,9 +141,9 @@ Azure Logic Apps integrates with many services, such as Azure Functions, Azure A
 * [Call Azure Functions from Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md)
 * [Tutorial: Call or trigger logic app workflows by using Azure Functions and Azure Service Bus](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Tutorial: Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
-* [Tutorial: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
+* [Tutorial: Create a function that integrates with Azure Logic Apps and Azure AI services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
 * [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](/shows/)
-* [Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-logic-app.md)
 * [Tutorial: IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Call SOAP services by using Azure Logic Apps](/archive/blogs/logicapps/using-soap-services-with-logic-apps)
 
@@ -157,5 +157,5 @@ Learn how Azure Logic Apps, along with other Azure services and Microsoft produc
 
 ## Next steps
 
-* [What are connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [What are connectors in Azure Logic Apps](../connectors/introduction.md)
 * [B2B enterprise integration scenarios with Azure Logic Apps](logic-apps-enterprise-integration-overview.md)

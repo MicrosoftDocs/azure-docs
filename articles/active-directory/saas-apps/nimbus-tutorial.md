@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nimbus | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nimbus'
 description: Learn how to configure single sign-on between Azure Active Directory and Nimbus.
 services: active-directory
 author: jeevansd

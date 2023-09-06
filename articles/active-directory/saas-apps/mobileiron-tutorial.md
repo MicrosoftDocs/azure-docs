@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with MobileIron | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with MobileIron'
 description: Learn how to configure single sign-on between Azure Active Directory and MobileIron.
 services: active-directory
 author: jeevansd

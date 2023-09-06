@@ -7,8 +7,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 03/18/2020
 ms.topic: overview
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ---
 
 # What is Azure Queue Storage?
@@ -38,7 +37,7 @@ Queue Storage contains the following components:
 ## Next steps
 
 - [Create a storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json)
-- [Get started with Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
-- [Get started with Queue Storage using Java](storage-java-how-to-use-queue-storage.md)
-- [Get started with Queue Storage using Python](storage-python-how-to-use-queue-storage.md)
-- [Get started with Queue Storage using Node.js](storage-nodejs-how-to-use-queues.md)
+- [Get started with Queue Storage using .NET](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
+- [Get started with Queue Storage using Java](/azure/storage/queues/storage-quickstart-queues-java?tabs=powershell%2Cpasswordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
+- [Get started with Queue Storage using Python](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
+- [Get started with Queue Storage using Node.js](/azure/storage/queues/storage-quickstart-queues-nodejs?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)

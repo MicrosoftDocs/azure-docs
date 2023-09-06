@@ -4,22 +4,23 @@ description: Learn to manage custom domain names and certificates in Azure Conta
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 06/07/2022
 ms.author: cshoe
 ---
 
-# Custom domain names and certificates in Azure Container Apps
+# Custom domain names and bring your own certificates in Azure Container Apps
 
 Azure Container Apps allows you to bind one or more custom domains to a container app.
 
-- Every domain name must be associated with a domain certificate.
+- Every domain name must be associated with a TLS/SSL certificate. You can upload your own certificate or use a [free managed certificate](custom-domains-managed-certificates.md).
 - Certificates are applied to the container app environment and are bound to individual container apps. You must have role-based access to the environment to add certificates.
 - [SNI domain certificates](https://wikipedia.org/wiki/Server_Name_Indication) are required.
-- Ingress must be enabled for the container app
+- Ingress must be enabled for the container app.
 
 > [!NOTE]
-> To configure a custom DNS suffix for all container apps in an environment, see [Custom environment DNS suffix in Azure Container Apps](environment-custom-dns-suffix.md). If you configure a custom environment DNS suffix, you cannot add a custom domain that contains this suffix to your Container App.
+> If you configure a [custom environment DNS suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
 
 ## Add a custom domain and certificate
 
@@ -39,28 +40,50 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
 1. Select the **Add custom domain** button.
 
-1. In the *Add custom domain* window, enter the following values for the *Enter domain* tab:
+1. In the *Add custom domain and certificate* window, in *TLS/SSL certificate*, select **Bring your own certificate**.
 
-    | Setting | Value | Notes |
+1. In *domain*, enter the domain you want to add.
+
+1. Select **Add a certificate**.
+
+1. In the *Add certificate* window, in *Certificate name*, enter a name for this certificate.
+
+1. In *Certificate file* section, browse for the certificate file you want to upload.
+
+1. Select **Validate**.
+
+1. Once validation succeeds, select **Add**.
+
+1. In the *Add custom domain and certificate* window, in *Certificate*, select the certificate you just added.
+
+1. Select the *Hostname record type* based on the type of your domain.
+
+    | Domain type | Record type | Notes |
     |--|--|--|
-    | Domain | Enter your domain name. | Make sure the value is just the domain without the protocol. For instance, `example.com`, or `www.example.com`. |
-    | Hostname record type | Verify the default value. | The value selected automatically is Azure's best guess based on the form of the domain name you entered. For an apex domain, the value should be an `A` record, for a subdomain the value should be `CNAME`. |
+    | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
+    | Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Next, you need to add the DNS records shown on this window to your domain via your domain provider's website. Open a new browser window to add the DNS records and return here once you're finished.
+1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it.
 
-1. Once the required DNS records are created on your domain provider's account, select the **Validate** button.
+    - If you selected *A record*, create the following DNS records:
 
-1. Once validation succeeds, select the **Next** button.
+        | Record type | Host | Value |
+        |--|--|--|
+        | A | `@` | The IP address of your Container Apps environment |
+        | TXT | `asuid` | The domain verification code |
 
-1. On the *Bind certificate + add* tab, enter the following values:
+    - If you selected *CNAME*, create the following DNS records:
 
-    | Setting | Value | Notes |
-    |--|--|--|
-    | Certificate | Select an existing certificate from the list, or select the **Create new** link. | If you create a new certificate, a window appears that allows you to select a certificate file from your local machine. Once you select a certificate file, you're prompted to add the certificate password. |
+        | Record type | Host | Value |
+        |--|--|--|
+        | CNAME | The subdomain (for example, `www`) | The automatically generated domain of your container app |
+        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code |
 
-    Once you select a certificate, the binding operation may take up to a minute to complete.
+1. Select the **Validate** button.
 
-Once the add operation is complete, you see your domain name in the list of custom domains.
+1. Once validation succeeds, select the **Add** button.
+
+1. Once the operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it's accessible.
 
 > [!NOTE]
 > For container apps in internal Container Apps environments, [additional configuration](./networking.md#dns) is required to use custom domains with VNET-scope ingress.

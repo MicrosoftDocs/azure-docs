@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="275.082 402.894 320.271 290.425" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css">
+	.st0{fill:#FA582D;}
+</style>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 277.309513, 428.277228)">
+    <g>
+      <g>
+        <rect x="-2.228" y="-25.383" width="320.271" height="290.425" style="fill: rgb(255, 255, 255);"/>
+      </g>
+      <g>
+        <polygon class="st0" points="246.6 46.4 201.8 1.6 157 46.4 179.3 68.6 67 180.9 111.8 225.7 156.6 180.9 134.3 158.6"/>
+      </g>
+      <g>
+        <rect x="-0.9" y="48.5" transform="matrix(0.707107, -0.707107, 0.707107, 0.707107, -33.650002, 78.9869)" class="st0" width="158.799" height="63.299"/>
+      </g>
+      <rect x="155.699" y="115.499" transform="matrix(0.707107, -0.707107, 0.707107, 0.707107, -35.193001, 209.355103)" class="st0" width="158.799" height="63.299"/>
+    </g>
+  </g>
+</svg>

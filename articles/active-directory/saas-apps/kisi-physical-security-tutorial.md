@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kisi Physical Security | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kisi Physical Security'
 description: Learn how to configure single sign-on between Azure Active Directory and Kisi Physical Security.
 services: active-directory
 author: jeevansd

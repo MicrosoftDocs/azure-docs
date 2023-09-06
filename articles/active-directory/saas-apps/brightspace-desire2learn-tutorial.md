@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Brightspace by Desire2Learn | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Brightspace by Desire2Learn'
 description: Learn how to configure single sign-on between Azure Active Directory and Brightspace by Desire2Learn.
 services: active-directory
 author: jeevansd

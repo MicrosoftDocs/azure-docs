@@ -5,12 +5,12 @@ description: The data protection options available for you're for Blob Storage a
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.date: 09/19/2022
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: prishet
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Data protection overview

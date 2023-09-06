@@ -6,14 +6,11 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Email client library overview for Azure Communication Services
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services Email client libraries can be used to add transactional Email support to your applications.
 
@@ -41,7 +38,7 @@ The following list presents the set of features that are currently available in 
 
 ## API Throttling and Timeouts
 
-Your Azure account has a set of limitation on the number of email messages that you can send. For all the developers email sending is limited to 10 mails per minute, 25 mails in an hour and 100 mails in day. This sandbox setup is to help developers to start building the application and gradually you can request to increase the sending volume as soon as the application is ready to go live. Submit a support request to increase your sending limit.
+Your Azure account has a set of limitation on the number of email messages that you can send. For all the developers email sending is limited to 30 mails per minute, 100 mails in an hour. This sandbox setup is to help developers to start building the application and gradually you can request to increase the sending volume as soon as the application is ready to go live. Submit a support request to increase your sending limit.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Minimize MFA prompts from known devices in Azure AD | Microsoft Docs
+title: Azure Active Directory recommendation - Minimize MFA prompts from known devices in Azure AD
 description: Learn why you should minimize MFA prompts from known devices in Azure AD.
 services: active-directory
 author: shlipsey3
@@ -46,7 +46,7 @@ This recommendation improves your user's productivity and minimizes the sign-in 
 
 1. Adjust the number of days in the **remember multi-factor authentication on trusted device** section to 90 days.
 
-    ![Remember MFA on trusted devices](./media/recommendation-mfa-from-known-devices\remember-mfa-on-trusted-devices.png)
+    ![Remember MFA on trusted devices](./media/recommendation-mfa-from-known-devices/remember-mfa-on-trusted-devices.png)
 
 
 ## Next steps

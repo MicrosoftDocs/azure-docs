@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Corptax | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Corptax'
 description: Learn how to configure single sign-on between Azure Active Directory and Corptax.
 services: active-directory
 author: jeevansd

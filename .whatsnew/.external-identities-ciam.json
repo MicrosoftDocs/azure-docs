@@ -1,0 +1,24 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Azure Active Directory for customers (CIAM)",
+    "rootDirectory": "articles/active-directory/external-identities/customers/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/active-directory/external-identities/customers"
+    },
+    "inclusionCriteria": {
+        "omitPullRequestTitles" : false,
+        "minAdditionsToFile" : 10,
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:active-directory/svc",
+            "label:ciam/subsvc"
+        ]
+    },
+    "areas": [
+        {
+            "names": [ "."],
+            "heading": "Azure Active Directory for customers"
+        }
+    ]
+}

@@ -10,7 +10,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 09/21/2021
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Backends in API Management
@@ -49,4 +49,3 @@ For **Developer** and **Premium** tiers, an API Management instance deployed in 
 
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.md) using the Azure portal.
 * Backends can also be configured using the API Management [REST API](/rest/api/apimanagement), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md).
-

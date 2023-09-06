@@ -3,8 +3,8 @@ title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
 ms.date: 05/11/2022
 ms.topic: sample
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Azure Policy Samples
 
@@ -37,8 +37,9 @@ Azure:
 - [Australian Government ISM PROTECTED](./australia-ism.md)
 - [Azure Security Benchmark](./azure-security-benchmark.md)
 - [Canada Federal PBMM](./canada-federal-pbmm.md)
-- [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md)
-- [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [CIS Microsoft Azure Foundations Benchmark 1.1.0](./cis-azure-1-1-0.md)
+- [CIS Microsoft Azure Foundations Benchmark 1.3.0](./cis-azure-1-3-0.md)
+- [CIS Microsoft Azure Foundations Benchmark 1.4.0](./cis-azure-1-4-0.md)
 - [CMMC Level 3](./cmmc-l3.md)
 - [FedRAMP Moderate](./fedramp-moderate.md)
 - [FedRAMP High](./fedramp-high.md)

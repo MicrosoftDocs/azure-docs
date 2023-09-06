@@ -2,12 +2,12 @@
 title: "Access Config Server and Service Registry"
 titleSuffix: Azure Spring Apps
 description: How to access Config Server and Service Registry Endpoints with Azure Active Directory role-based access control.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.custom: devx-track-java, subject-rbac-steps, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, subject-rbac-steps, event-tier1-build-2022
 ---
 
 # Access Config Server and Service Registry
@@ -15,7 +15,7 @@ ms.custom: devx-track-java, subject-rbac-steps, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
 This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps using Azure Active Directory (Azure AD) role-based access control (RBAC).
 
@@ -52,7 +52,7 @@ After the role is assigned, the assignee can access the Spring Cloud Config Serv
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}'*
 
     >[!NOTE]
-    > If you're using Azure China, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Azure China developer guide](/azure/china/resources-developer-guide).
+    > If you're using Microsoft Azure operated by 21Vianet, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Microsoft Azure operated by 21Vianet developer guide](/azure/china/resources-developer-guide).
 
 1. Access the composed endpoint with the access token. Put the access token in a header to provide authorization: `--header 'Authorization: Bearer {TOKEN_FROM_PREVIOUS_STEP}'`.
 

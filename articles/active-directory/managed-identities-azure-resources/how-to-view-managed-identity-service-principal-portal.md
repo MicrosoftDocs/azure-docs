@@ -1,5 +1,5 @@
 ---
-title: View service principal of a managed identity in the Azure portal - Azure AD
+title: View service principal of a managed identity in the Azure portal
 description: Step-by-step instructions for viewing the service principal of a managed identity in the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 08/31/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---

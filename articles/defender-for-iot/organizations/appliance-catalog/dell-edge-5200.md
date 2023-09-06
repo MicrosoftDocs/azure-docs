@@ -14,7 +14,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 |**Hardware profile** | E500|
 |**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
-|**Status** | Supported, Not available pre-configured|
+|**Status** | Supported, Not available preconfigured|
 
 The following image shows the hardware elements on the Dell Edge 5200 that are used by Defender for IoT:
 
@@ -30,7 +30,7 @@ The following image shows the hardware elements on the Dell Edge 5200 that are u
 |Processor|	Intel® Core™ i7-9700TE|
 |Chipset|Intel C246|
 |Memory	|32 GB = Two 16 GB DDR4 ECC UDIMM|
-|Storage| 1x 512GB SSD |
+|Storage| 1x 512 GB SSD |
 |Network controller|3x Intel GbE: 2x i210 + i219LM PHY|
 |Management|Intel AMT supported on i5 and i7 CPUs|
 |Device access|	6x USB 3.0|
@@ -40,7 +40,7 @@ The following image shows the hardware elements on the Dell Edge 5200 that are u
 
 |Quantity|PN|Description|
 |:----|:----|:----|
-|1|210-BCNV|Dell EMC Edge Gateway 5200,Core i7-9700TE.32G.512G, Win 10 IoT.TPM, OEM|
+|1|210-BCNV|Dell EMC Edge Gateway 5200, Core i7-9700TE.32G.512G, Win 10 IoT.TPM, OEM|
 |1|631-ADIJ|User Documentation EMEA 2|
 |1|683-1187|No Installation Service Selected (Contact Sales Rep for more details)|
 |1|709-BDGW|Parts Only Warranty 15 Months|
@@ -54,6 +54,5 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

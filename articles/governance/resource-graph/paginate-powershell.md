@@ -3,9 +3,9 @@ title: 'Paginate Azure Resource Graph query results using Azure PowerShell'
 description: In this quickstart, you control the volume Azure Resource Graph query output by using pagination in Azure PowerShell.
 ms.date: 11/11/2022
 ms.topic: quickstart
-ms.author: timwarner
-author: timwarner-msft
-ms.custom: dev-track-azurepowershell
+ms.author: davidsmatlak
+author: davidsmatlak
+ms.custom: dev-track-azurepowershell, devx-track-azurepowershell
 ---
 # Quickstart: Paginate Azure Resource Graph query results using Azure PowerShell
 
@@ -33,10 +33,10 @@ added. This module can be used with locally installed PowerShell, with
 The Azure Resource Graph module requires the following software:
 
 - Azure PowerShell 8.x or higher. If it isn't yet installed, follow
-  [these instructions](/powershell/azure/install-az-ps).
+  [these instructions](/powershell/azure/install-azure-powershell).
 
 - PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
-  [these instructions](/powershell/scripting/gallery/installing-psget).
+  [these instructions](/powershell/gallery/powershellget/install-powershellget).
 
 ### Install the module
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Evercate for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Evercate for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Evercate.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: df77d462-071a-4889-b6e1-0554adaa2445
 ms.service: active-directory

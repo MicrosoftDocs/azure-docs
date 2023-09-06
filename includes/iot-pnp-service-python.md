@@ -34,14 +34,14 @@ pip install azure-iot-hub
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/pnp/README.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/pnp/README.md).
 
 In this tutorial, you use a sample thermostat device, written in Python, as the IoT Plug and Play device. To run the sample device:
 
-1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Device Python SDK](https://github.com/Azure/azure-iot-sdk-python) GitHub repository into this location:
+1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Device Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v2/) GitHub repository into this location:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python
+    git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
     ```
 
 1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the *azure-iot-sdk-python/samples/pnp* folder.

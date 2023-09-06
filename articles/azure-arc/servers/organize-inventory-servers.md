@@ -47,4 +47,4 @@ Results can be easily visualized and exported to other reporting solutions. More
 
 * [Azure Resource Graph sample queries for Azure Arc-enabled servers](resource-graph-samples.md)
 
-* [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources?tabs=json)
+* [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md?tabs=json)

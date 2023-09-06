@@ -1,5 +1,5 @@
 ---
-title: Service limits and restrictions - Azure Active Directory | Microsoft Docs
+title: Service limits and restrictions
 description: Usage constraints and other service limits for the Azure Active Directory service
 services: active-directory
 documentationcenter: ''
@@ -27,4 +27,4 @@ This article contains the usage constraints and other service limits for the Azu
 ## Next steps
 
 * [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md)
-* [How Azure subscriptions are associated with Azure AD](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [How Azure subscriptions are associated with Azure AD](../fundamentals/how-subscriptions-associated-directory.md)

@@ -13,7 +13,7 @@ zone_pivot_groups: container-apps-image-build-type
 
 # Tutorial: Communication between microservices in Azure Container Apps
 
-Azure Container Apps exposes each container app through a domain name if [ingress](ingress.md) is enabled. Ingress endpoints for container apps within an external environment can be either publicly accessible or only available to other container apps in the same [environment](environment.md).
+Azure Container Apps exposes each container app through a domain name if [ingress](ingress-how-to.md) is enabled. Ingress endpoints for container apps within an external environment can be either publicly accessible or only available to other container apps in the same [environment](environment.md).
 
 Once you know the fully qualified domain name for a given container app, you can make direct calls to the service from other container apps within the shared environment.
 

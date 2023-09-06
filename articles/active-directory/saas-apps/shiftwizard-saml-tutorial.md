@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ShiftWizard SAML | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ShiftWizard SAML'
 description: Learn how to configure single sign-on between Azure Active Directory and ShiftWizard SAML.
 services: active-directory
 author: jeevansd

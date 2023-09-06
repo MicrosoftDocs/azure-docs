@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 01/11/2022
+ms.date: 06/27/2023
 ---
 
 # Quickstart: Connect an NXP MIMXRT1060-EVK Evaluation kit to IoT Hub
@@ -18,23 +18,23 @@ ms.date: 01/11/2022
 
 In this quickstart, you use Azure RTOS to connect the NXP MIMXRT1060-EVK evaluation kit (from now on, the NXP EVK) to Azure IoT.
 
-You'll complete the following tasks:
+You complete the following tasks:
 
 * Install a set of embedded development tools for programming the NXP EVK in C
 * Build an image and flash it onto the NXP EVK
-* Use Azure CLI to create and manage an Azure IoT hub that the NXP EVK will securely connect to
+* Use Azure CLI to create and manage an Azure IoT hub that the NXP EVK securely connects to
 * Use Azure IoT Explorer to register a device with your IoT hub, view device properties, view device telemetry, and call direct commands on the device
 
 ## Prerequisites
 
 * A PC running Windows 10 or Windows 11
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
     * The [NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK) (NXP EVK)
     * USB 2.0 A male to Micro USB male cable
     * Wired Ethernet access
     * Ethernet cable
-* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -69,107 +69,15 @@ To install the tools:
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
 
-    ```shell
-    cmake --version
-    ```
+   ```shell
+   cmake --version
+   ```
 
-## Create the cloud components
-
-### Create an IoT hub
-
-You can use Azure CLI to create an IoT hub that handles events and messaging for your device.
-
-To create an IoT hub:
-
-1. Launch your CLI app. To run the CLI commands in the rest of this quickstart, copy the command syntax, paste it into your CLI app, edit variable values, and press Enter.
-    - If you're using Cloud Shell, right-click the link for [Cloud Shell](https://shell.azure.com/bash), and select the option to open in a new tab.
-    - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
-
-1. Run [az extension add](/cli/azure/extension#az-extension-add) to install or upgrade the *azure-iot* extension to the current version.
-
-    ```azurecli-interactive
-    az extension add --upgrade --name azure-iot
-    ```
-
-1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *centralus* region.
-
-    > [!NOTE] 
-    > You can optionally set an alternate `location`. To see available locations, run [az account list-locations](/cli/azure/account#az-account-list-locations).
-
-    ```azurecli
-    az group create --name MyResourceGroup --location centralus
-    ```
-
-1. Run the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub. It might take a few minutes to create an IoT hub.
-
-    *YourIotHubName*. Replace this placeholder in the code with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your unique IoT hub name.
-
-    The `--sku F1` parameter creates the IoT hub in the Free tier. Free tier hubs have a limited feature set and are used for proof of concept applications. For more information on IoT Hub tiers, features, and pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
-
-    ```azurecli
-    az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName} --sku F1 --partition-count 2
-    ```
-
-1. After the IoT hub is created, view the JSON output in the console, and copy the `hostName` value to use in a later step. The `hostName` value looks like the following example:
-
-    `{Your IoT hub name}.azure-devices.net`
-
-### Configure IoT Explorer
-
-In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to the IoT hub you  created, and to read plug and play models from the public model repository. 
-
-To add a connection to your IoT hub:
-
-1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string for your IoT hub.
-
-    ```azurecli
-    az iot hub connection-string  show --hub-name {YourIoTHubName}
-    ```
-
-1. Copy the connection string without the surrounding quotation characters.
-1. In Azure IoT Explorer, select **IoT hubs** on the left menu.
-1. Select **+ Add connection**. 
-1. Paste the connection string into the **Connection string** box.
-1. Select **Save**.
-
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub/iot-explorer-add-connection.png" alt-text="Screenshot of adding a connection in IoT Explorer.":::
-
-If the connection succeeds, IoT Explorer switches to the **Devices** view.
-
-To add the public model repository:
-
-1. In IoT Explorer, select **Home** to return to the home view.
-1. On the left menu, select **IoT Plug and Play Settings**, then select **+Add** and select **Public repository** from the drop-down menu.
-1. An entry appears for the public model repository at `https://devicemodels.azure.com`.
-
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub/iot-explorer-add-public-repository.png" alt-text="Screenshot of adding the public model repository in IoT Explorer.":::
-
-1. Select **Save**.
-
-### Register a device
-
-In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your physical device in a later section.
-
-To register a device:
-
-1. From the home view in IoT Explorer, select **IoT hubs**.
-1. The connection you previously added should appear. Select **View devices in this hub** below the connection properties.
-1. Select **+ New** and enter a device ID for your device; for example, `mydevice`. Leave all other properties the same.
-1. Select **Create**.
-
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity.":::
-
-1. Use the copy buttons to copy the **Device ID** and **Primary key** fields.
-
-Before continuing to the next section, save each of the following values retrieved from earlier steps, to a safe location. You use these values in the next section to configure your device. 
-
-* `hostName`
-* `deviceId`
-* `primaryKey`
+[!INCLUDE [iot-develop-create-cloud-components](../../includes/iot-develop-create-cloud-components.md)]
 
 ## Prepare the device
 
-To connect the NXP EVK to Azure, you'll modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
+To connect the NXP EVK to Azure, you modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Add configuration
 
@@ -179,9 +87,9 @@ To connect the NXP EVK to Azure, you'll modify a configuration file for Azure Io
 
 1. Comment out the following line near the top of the file as shown:
 
-    ```c
-    // #define ENABLE_DPS 
-    ```
+   ```c
+   // #define ENABLE_DPS
+   ```
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
@@ -237,43 +145,43 @@ You can use the **Termite** app to monitor communication and confirm that your d
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
 1. In the **Termite** app, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
 
-    ```output
+   ```output
     Initializing DHCP
-    	MAC: **************
-    	IP address: 192.168.0.56
-    	Mask: 255.255.255.0
-    	Gateway: 192.168.0.1
+        MAC: **************
+        IP address: 192.168.0.56
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-    
+
     Initializing DNS client
-    	DNS address: 192.168.0.1
+        DNS address: 192.168.0.1
     SUCCESS: DNS client initialized
-    
+
     Initializing SNTP time sync
-    	SNTP server 0.pool.ntp.org
-    	SNTP time update: Jan 11, 2023 20:37:37.90 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP time update: Jan 11, 2023 20:37:37.90 UTC
     SUCCESS: SNTP initialized
-    
+
     Initializing Azure IoT Hub client
-    	Hub hostname: **************.azure-devices.net
-    	Device id: mydevice
-    	Model id: dtmi:azurertos:devkit:gsg;2
+        Hub hostname: **************.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsg;2
     SUCCESS: Connected to IoT Hub
-    
+
     Receive properties: {"desired":{"$version":1},"reported":{"$version":1}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"NXP","model":"MIMXRT1060-EVK","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M7","processorManufacturer":"NXP","totalStorage":8192,"totalMemory":768}}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=5{"ledState":false}
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=7{"telemetryInterval":{"ac":200,"av":1,"value":10}}
-    
+
     Starting Main loop
     Telemetry message sent: {"temperature":40.61}.
-    ```
+   ```
 
 Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you'll use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the NXP EVK. These capabilities rely on the device model published for the NXP EVK in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the NXP EVK. These capabilities rely on the device model published for the NXP EVK in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -297,7 +205,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 
 To view device properties using Azure IoT Explorer:
 
-1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off. 
+1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off.
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
@@ -305,14 +213,14 @@ To view device properties using Azure IoT Explorer:
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
- 
+
 To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
 
-    ```azurecli
-    az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
-    ```
+   ```azurecli
+   az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
+   ```
 
 1. Inspect the properties for your device in the console output.
 
@@ -341,13 +249,13 @@ To use Azure CLI to view device telemetry:
 
 1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
-    ```azurecli
-    az iot hub monitor-events --device-id mydevice --hub-name {YourIoTHubName}
-    ```
+   ```azurecli
+   az iot hub monitor-events --device-id mydevice --hub-name {YourIoTHubName}
+   ```
 
 1. View the JSON output in the console.
 
-    ```json
+   ```json
     {
         "event": {
             "origin": "mydevice",
@@ -359,7 +267,7 @@ To use Azure CLI to view device telemetry:
             }
         }
     }
-    ```
+   ```
 
 1. Select CTRL+C to end monitoring.
 
@@ -372,7 +280,7 @@ To call a method in Azure IoT Explorer:
 
 1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
 1. For the **setLedState** command, set the **state** to **true**.
-1. Select **Send command**. You should see a notification in IoT Explorer. There will be no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
+1. Select **Send command**. You should see a notification in IoT Explorer. There's no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling the setLedState method in IoT Explorer.":::
 
@@ -381,32 +289,32 @@ To call a method in Azure IoT Explorer:
 
 To use Azure CLI to call a method:
 
-1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` would turn an LED on. There will be no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
+1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` would turn on an LED. There's no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
 
 
-    ```azurecli
-    az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
-    ```
+   ```azurecli
+   az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
+   ```
 
-    The CLI console shows the status of your method call on the device, where `204` indicates success.
+   The CLI console shows the status of your method call on the device, where `204` indicates success.
 
-    ```json
-    {
-        "payload": {},
-        "status": 200
-    }    
-    ```
+   ```json
+   {
+       "payload": {},
+       "status": 200
+   }
+   ```
 
 1. Check your device to confirm the LED state.
 
 1. View the Termite terminal to confirm the output messages:
 
-    ```output
+   ```output
     Received command: setLedState
         Payload: true
         LED is turned ON
     Sending property: $iothub/twin/PATCH/properties/reported/?$rid=15{"ledState":true}
-    ```
+   ```
 
 ## Troubleshoot and debug
 
@@ -414,33 +322,13 @@ If you experience issues building the device code, flashing the device, or conne
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
-## Clean up resources
-
-If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete the resource group and all of its resources.
-
-> [!IMPORTANT] 
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
-
-To delete a resource group by name:
-
-1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
-
-    ```azurecli-interactive
-    az group delete --name MyResourceGroup
-    ```
-
-1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
-
-    ```azurecli-interactive
-    az group list
-    ```
-
+[!INCLUDE [iot-develop-cleanup-resources](../../includes/iot-develop-cleanup-resources.md)]
 
 ## Next steps
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the NXP EVK device. You connected the NXP EVK to Azure IoT Hub, and carried out tasks such as viewing telemetry and calling a method on the device.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs, or Azure RTOS to connect devices to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)

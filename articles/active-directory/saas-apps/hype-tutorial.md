@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Hype | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Hype'
 description: Learn how to configure single sign-on between Azure Active Directory and Hype.
 services: active-directory
 author: jeevansd

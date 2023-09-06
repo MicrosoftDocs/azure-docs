@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Server | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Server'
 description: Learn how to configure single sign-on between Azure Active Directory and Tableau Server.
 services: active-directory
 author: jeevansd

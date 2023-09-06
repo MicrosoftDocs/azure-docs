@@ -121,7 +121,7 @@ The scale set needs to know what size of VM to create ("sku name") and how many 
 ```
 
 ### Choose type of updates
-The scale set also needs to know how to handle updates on the scale set. Currently, there are three options, `Manual`, `Rolling` and `Automatic`. For more information on the differences between the two, see the documentation on [how to upgrade a scale set](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+The scale set also needs to know how to handle updates on the scale set. Currently, there are three options, `Manual`, `Rolling` and `Automatic`. For more information on the differences between the two, see the documentation on [how to upgrade a scale set](./virtual-machine-scale-sets-upgrade-policy.md).
 
 ```json
        "properties": {

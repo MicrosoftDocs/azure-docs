@@ -33,9 +33,9 @@ Here are some examples of how to retrieve the FQDN for the nodes in the cluster.
 The following example uses [jq](https://stedolan.github.io/jq/) or [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) to parse the JSON response document and display only the host names.
 
 ```bash
-export password=''
-export clusterName=''
-curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" \
+export PASSWORD=''
+export CLUSTER_NAME=''
+curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" \
 | jq -r '.items[].Hosts.host_name'
 ```  
 

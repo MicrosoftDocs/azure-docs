@@ -4,7 +4,7 @@ description: Learn how to ensure high availability with Apache Kafka on Azure HD
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/28/2022
+ms.date: 05/23/2023
 ---
 
 # High availability of your data with Apache Kafka on HDInsight

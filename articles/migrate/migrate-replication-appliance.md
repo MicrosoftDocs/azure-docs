@@ -5,7 +5,8 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.service: azure-migrate
+ms.date: 08/29/2023
 ms.custom: engagement-fy23
 ---
 
@@ -114,7 +115,7 @@ https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7
 > - https://management.azure.com for replication management operations and coordination. 
 >- https://login.microsoftonline.com <br>https://login.windows.net <br> https://www.live.com and <br> https://www.microsoft.com for access control and identity management by Azure Active Directory
 
-## Azure China 21Vianet (Azure China) URL access
+## Microsoft Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet) URL access
 
 The replication appliance needs access to these URLs.
 

@@ -38,7 +38,6 @@ Symantec Endpoint Protection (SEP) is also supported on Azure. Through portal in
 Learn more:
 
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## Multi-Factor Authentication

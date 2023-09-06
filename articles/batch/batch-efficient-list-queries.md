@@ -4,7 +4,7 @@ description: Learn how to create more efficient list queries for your Batch reso
 ms.topic: how-to
 ms.date: 12/20/2021
 ms.devlang: csharp
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: seodec18, devx-track-csharp, devx-track-dotnet
 ---
 
 # Create queries to list Batch resources efficiently

@@ -5,8 +5,8 @@ keywords: azure functions, functions, event processing, warmup, cold start, prem
 ms.service: azure-functions
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-csharp
-ms.date: 03/04/2022
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 09/04/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -22,6 +22,7 @@ The following considerations apply when using a warmup trigger:
 * There can be only one warmup trigger function per function app, and it can't be invoked after the instance is already running.
 * The warmup trigger is only called during scale-out operations, not during restarts or other non-scale startups. Make sure your logic can load all required dependencies without relying on the warmup trigger. Lazy loading is a good pattern to achieve this goal.
 * Dependencies created by warmup trigger should be shared with other functions in your app. To learn more, see [Static clients](manage-connections.md#static-clients).
+* If the [built-in authentication](../app-service/overview-authentication-authorization.md) (aka Easy Auth) is used, [HTTPS Only](../app-service/configure-ssl-bindings.md#enforce-https) should be enabled for the warmup trigger to get invoked.
 
 ## Example
 
@@ -29,7 +30,7 @@ The following considerations apply when using a warmup trigger:
 
 <!--Optional intro text goes here, followed by the C# modes include.-->
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)
 
@@ -62,7 +63,7 @@ namespace WarmupSample
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that runs on each new instance when it's added to your app. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="9-18":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -251,8 +252,9 @@ The following considerations apply to using a warmup function in C#:
 
 # [Isolated process](#tab/isolated-process)
 
-- Your function must be named `warmup` (case-insensitive) using the `FunctionName` attribute.
+- Your function must be named `warmup` (case-insensitive) using the `Function` attribute.
 - A return value attribute isn't required.
+- Use the `Microsoft.Azure.Functions.Worker.Extensions.Warmup` package
 - You can pass an object instance to the function.
 
 # [C# script](#tab/csharp-script)

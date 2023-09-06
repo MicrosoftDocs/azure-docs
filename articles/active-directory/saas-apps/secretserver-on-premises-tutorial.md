@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Secret Server (On-Premises) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Secret Server (On-Premises)'
 description: Learn how to configure single sign-on between Azure Active Directory and Secret Server (On-Premises).
 services: active-directory
 author: jeevansd

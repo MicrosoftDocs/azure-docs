@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Netsparker Enterprise for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Netsparker Enterprise for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Netsparker Enterprise.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 6e951318-213e-40d1-9947-88242059f877
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -24,7 +24,7 @@ This tutorial describes the steps you need to perform in both Netsparker Enterpr
 > * Create users in Netsparker Enterprise.
 > * Remove users in Netsparker Enterprise when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Netsparker Enterprise.
-> * Provision groups and group memberships in Netsparker Enterprise
+> * Provision groups and group memberships in Netsparker Enterprise.
 > * [Single sign-on](netsparker-enterprise-tutorial.md) to Netsparker Enterprise (recommended).
 
 ## Prerequisites

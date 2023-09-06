@@ -8,7 +8,7 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 09/16/2021
+ms.date: 04/18/2023
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -23,11 +23,14 @@ translation.priority.mt:
 ---
 # OData `search.score` function in Azure Cognitive Search
 
-When you send a query to Azure Cognitive Search without the [**$orderby** parameter](search-query-odata-orderby.md), the results that come back will be sorted in descending order by relevance score. Even when you do use **$orderby**, the relevance score will be used to break ties by default. However, sometimes it is useful to use the relevance score as an initial sort criteria, and some other criteria as the tie-breaker. The `search.score` function allows you to do this.
+When you send a query to Azure Cognitive Search without the [**$orderby** parameter](search-query-odata-orderby.md), the results that come back will be sorted in descending order by relevance score. Even when you do use **$orderby**, the relevance score is used to break ties by default. However, sometimes it's useful to use the relevance score as an initial sort criteria, and some other criteria as the tie-breaker. The example in this article demonstrates using the `search.score` function for sorting.
+
+> [!NOTE]
+> The relevance score is computed by the similarity ranking algorithm, and the range varies depending on which algorithm you use. For more information, see [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md).
 
 ## Syntax
 
-The syntax for `search.score` in **$orderby** is `search.score()`. The function `search.score` does not take any parameters. It can be used with the `asc` or `desc` sort-order specifier, just like any other clause in the **$orderby** parameter. It can appear anywhere in the list of sort criteria.
+The syntax for `search.score` in **$orderby** is `search.score()`. The function `search.score` doesn't take any parameters. It can be used with the `asc` or `desc` sort-order specifier, just like any other clause in the **$orderby** parameter. It can appear anywhere in the list of sort criteria.
 
 ## Example
 

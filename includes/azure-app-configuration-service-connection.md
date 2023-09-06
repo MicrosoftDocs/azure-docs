@@ -1,6 +1,6 @@
 ---
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 02/14/2023

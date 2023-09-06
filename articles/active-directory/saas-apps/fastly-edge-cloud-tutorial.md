@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fastly Edge Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fastly Edge Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Fastly Edge Cloud.
 services: active-directory
 author: jeevansd

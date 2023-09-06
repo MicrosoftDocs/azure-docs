@@ -9,7 +9,6 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/09/2022 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Find encrypted objects and information

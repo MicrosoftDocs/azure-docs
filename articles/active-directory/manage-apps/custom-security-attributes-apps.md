@@ -1,5 +1,5 @@
 ---
-title: Manage custom security attributes for an application (Preview) - Azure Active Directory
+title: Manage custom security attributes for an application (Preview)
 description: Assign, update, list, or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: omondiatieno
@@ -11,6 +11,7 @@ ms.date: 02/28/2023
 ms.author: jomondi
 ms.reviewer: rolyon
 zone_pivot_groups: enterprise-apps-all
+ms.custom: not-enterprise-apps
 
 ---
 
@@ -18,7 +19,7 @@ zone_pivot_groups: enterprise-apps-all
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 [Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your applications or to help determine who gets access. This article describes how to assign, update, list, or remove custom security attributes for Azure AD enterprise applications.
 
@@ -39,12 +40,14 @@ To assign or remove custom security attributes for an application in your Azure 
 Learn how to work with custom attributes for applications in Azure AD.
 ### Assign custom security attributes to an application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 
 :::zone pivot="portal"
 
 Undertake the following steps to assign custom security attributes through the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**, then select **Enterprise applications**. 
 
@@ -70,7 +73,7 @@ Undertake the following steps to assign custom security attributes through the A
 
 ### Update custom security attribute assignment values for an application
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**, then select **Enterprise applications**.
 
@@ -90,7 +93,7 @@ Undertake the following steps to assign custom security attributes through the A
 
 You can filter the list of custom security attributes assigned to applications on the **All applications** page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**, then select **Enterprise applications**.
 
@@ -112,7 +115,7 @@ You can filter the list of custom security attributes assigned to applications o
 
 ### Remove custom security attribute assignments from applications
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**, then select **Enterprise applications**.
 
@@ -265,7 +268,7 @@ Update-MgServicePrincipal -ServicePrincipalId $ServicePrincipal -BodyParameter $
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use the Microsoft Graph API. Make the following API calls to manage assignments.
 
-For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
+For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#powershell-or-microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
 
 ### Assign a custom security attribute with a multi-string value to an application (service principal)
 

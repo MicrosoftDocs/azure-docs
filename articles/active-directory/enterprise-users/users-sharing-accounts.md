@@ -1,5 +1,5 @@
 ---
-title: Sharing accounts and credentials - Azure Active Directory | Microsoft Docs
+title: Sharing accounts and credentials
 description: Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services.
 services: active-directory
 documentationcenter: ''
@@ -50,7 +50,7 @@ Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS) or Azu
 
 Azure AD features that enable account sharing include:
 
-* [Password single sign-on](../manage-apps/sso-options.md#password-based-sso)
+* [Password single sign-on](../manage-apps/plan-sso-deployment.md#single-sign-on-options)
 * Password single sign-on agent
 * [Group assignment](groups-self-service-management.md)
 * Custom Password apps

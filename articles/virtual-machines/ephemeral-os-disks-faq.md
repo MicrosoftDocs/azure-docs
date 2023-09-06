@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 05/26/2022
 ms.author: aarthiv
 ms.subservice: disks 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Frequently asked questions about Ephemeral OS disks

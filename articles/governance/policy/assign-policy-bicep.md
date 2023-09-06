@@ -3,7 +3,7 @@ title: "Quickstart: New policy assignment with Bicep file"
 description: In this quickstart, you use a Bicep file to create a policy assignment to identify non-compliant resources.
 ms.date: 03/24/2022
 ms.topic: quickstart
-ms.custom: subject-bicepqs
+ms.custom: subject-bicepqs, devx-track-bicep
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources by using a Bicep file
 
@@ -104,7 +104,7 @@ If there are any existing resources that aren't compliant with this new assignme
 under **Non-compliant resources**.
 
 For more information, see
-[How compliance works](./how-to/get-compliance-data.md#how-compliance-works).
+[How compliance works](./concepts/compliance-states.md).
 
 ## Clean up resources
 

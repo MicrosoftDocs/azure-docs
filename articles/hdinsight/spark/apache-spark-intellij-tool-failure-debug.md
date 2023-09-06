@@ -3,9 +3,9 @@ title: 'Debug Spark job with IntelliJ Azure Toolkit (preview) - HDInsight'
 description: Guidance using HDInsight Tools in Azure Toolkit for IntelliJ to debug applications
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive, hdiseo17may2017, devx-track-extended-java
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 07/31/2023
 ---
 
 # Failure spark job debugging with Azure Toolkit for IntelliJ (preview)

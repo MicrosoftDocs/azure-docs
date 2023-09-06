@@ -4,6 +4,7 @@ description: Get started guide for Azure IT operators
 author: RicksterCDN
 ms.author: rclaus
 tags: azure-resource-manager
+ms.custom: devx-track-arm-template
 ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
@@ -157,7 +158,7 @@ In addition to creating, managing, and deleting resources by using the Azure por
 
 #### Azure PowerShell
 
-Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### Azure CLI
 
@@ -379,7 +380,7 @@ For more information, see [Get started with Azure Table storage](../../cosmos-db
 #### Queue storage
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
-For more information, see [Get started with Azure Queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md).
+For more information, see [Get started with Azure Queue storage](/azure/storage/queues/).
 
 ### Deploying a storage account
 

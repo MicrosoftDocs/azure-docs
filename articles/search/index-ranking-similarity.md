@@ -2,12 +2,11 @@
 title: Configure relevance scoring
 titleSuffix: Azure Cognitive Search
 description: Enable Okapi BM25 ranking to upgrade the search ranking and relevance behavior on older Azure Search services.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 08/31/2023
 ---
 
 # Configure relevance scoring
@@ -18,10 +17,10 @@ Configuration changes are scoped to individual indexes, which means you can adju
 
 ## Default scoring algorithm
 
-Depending on the age of your search service, Azure Cognitive Search supports two [similarity scoring algorithms](index-similarity-and-scoring.md) for assigning relevance to results in a full text search query:
+Depending on the age of your search service, Azure Cognitive Search supports two [similarity scoring algorithms](index-similarity-and-scoring.md) for a full text search query:
 
-+ An *Okapi BM25* algorithm, used in all search services created after July 15, 2020
-+ A *classic similarity* algorithm, used by all search services created before July 15, 2020
++ Okapi BM25 algorithm (after July 15, 2020)
++ Classic similarity algorithm (before July 15, 2020)
 
 BM25 ranking is the default because it tends to produce search rankings that align better with user expectations. It includes [parameters](#set-bm25-parameters) for tuning results based on factors such as document size. For search services created after July 2020, BM25 is the only scoring algorithm. If you try to set "similarity" to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
 
@@ -61,7 +60,7 @@ BM25 similarity adds two parameters to control the relevance score calculation.
 
 ## Enable BM25 scoring on older services
 
-If you're running a search service that was created from March 2014 through July 15, 2020, you can enable BM25 by setting a "similarity" property on new indexes. The property is only exposed on new indexes, so if want BM25 on an existing index, you must drop and [rebuild the index](search-howto-reindex.md) with a "similarity" property set to "Microsoft.Azure.Search.BM25Similarity".
+If you're running a search service that was created from March 2014 through July 15, 2020, you can enable BM25 by setting a "similarity" property on new indexes. The property is only exposed on new indexes, so if you want BM25 on an existing index, you must drop and [rebuild the index](search-howto-reindex.md) with a "similarity" property set to "Microsoft.Azure.Search.BM25Similarity".
 
 Once an index exists with a "similarity" property, you can switch between `BM25Similarity` or `ClassicSimilarity`. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Helpshift | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Helpshift'
 description: Learn how to configure single sign-on between Azure Active Directory and Helpshift.
 services: active-directory
 author: jeevansd

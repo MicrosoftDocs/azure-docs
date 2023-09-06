@@ -1,15 +1,8 @@
 ---
-author: sdwheeler
 description: Learn to embed Azure Cloud Shell.
-manager: mkluck
-ms.author: sewhee
 ms.contributor: jahelmic
 ms.date: 11/14/2022
-ms.service: cloud-shell
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.workload: infrastructure-services
-services: cloud-shell
 tags: azure-resource-manager
 title: Embed Azure Cloud Shell
 ---
@@ -49,22 +42,11 @@ Large sized button
 The location of these image files is subject to change. We recommend that you download the files for
 use in your applications.
 
-## Customize experience
-
-Set a specific shell experience by augmenting your URL.
-
-|        Experience        |                 URL                  |
-| ------------------------ | ------------------------------------ |
-| Most recently used shell | `https://shell.azure.com`            |
-| Bash                     | `https://shell.azure.com/bash`       |
-| PowerShell               | `https://shell.azure.com/powershell` |
-
 ## Next steps
 
 - [Bash in Cloud Shell quickstart][07]
 - [PowerShell in Cloud Shell quickstart][06]
 
 <!-- updated link references -->
-[01]: https://shell.azure.com
 [06]: quickstart-powershell.md
 [07]: quickstart.md

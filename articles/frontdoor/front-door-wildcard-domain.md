@@ -73,7 +73,7 @@ You can add as many single-level subdomains of the wildcard domain in front-end 
 
 - Defining a different route for a subdomain than the rest of the domains (from the wildcard domain).
 
-- Having a different WAF policy for a specific subdomain. For example, `*.contoso.com` allows adding `foo.contoso.com` without having to again prove domain ownership. But it doesn't allow `foo.bar.contoso.com` because it isn't a single level subdomain of `*.contoso.com`. To add `foo.bar.contoso.com` without extra domain ownership validation, `*.bar.contosonews.com` needs to be added.
+- Having a different WAF policy for a specific subdomain. For example, `*.contoso.com` allows adding `foo.contoso.com` without having to again prove domain ownership. But it doesn't allow `foo.bar.contoso.com` because it isn't a single level subdomain of `*.contoso.com`. To add `foo.bar.contoso.com` without extra domain ownership validation, `*.bar.contoso.com` needs to be added.
 
 You can add wildcard domains and their subdomains with certain limitations:
 
@@ -146,6 +146,18 @@ When configuring a routing rule, you can select a wildcard domain as a front-end
 
 ## Next steps
 
+::: zone pivot="front-door-standard-premium"
+
+- Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
+- Learn how to [add a custom domain](standard-premium/how-to-add-custom-domain.md) to your Azure Front Door.
+- Learn how to [enable HTTPS on a custom domain](standard-premium/how-to-configure-https-custom-domain.md).
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 - Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).
 - Learn how to [add a custom domain](front-door-custom-domain.md) to your Azure Front Door.
 - Learn how to [enable HTTPS on a custom domain](front-door-custom-domain-https.md).
+
+::: zone-end

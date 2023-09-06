@@ -139,6 +139,18 @@ jdbc_df = spark.read \
         .load()
 ```
 
+> [!IMPORTANT]
+> - A required dependency must be installed in order to authenticate using Active Directory. 
+> - The format of `user` when using ActiveDirectoryPassword should be the UPN format, for example `username@domainname.com`. 
+>   - For **Scala**, the `com.microsoft.aad.adal4j` artifact will need to be installed.
+>   - For **Python**, the `adal` library will need to be installed.  This is available via pip.
+> - Check the [sample notebooks](https://github.com/microsoft/sql-spark-connector/tree/master/samples) for examples and for latest drivers and versions, visit [Apache Spark connector: SQL Server & Azure SQL](/sql/connect/spark/connector).
+
+## Support
+
+The Apache Spark Connector for Azure SQL and SQL Server is an open-source project. This connector does not come with any Microsoft support. For issues with or questions about the connector, create an Issue in this project repository. The connector community is active and monitoring submissions.
+
 ## Next steps
 - [Learn more about the SQL Server and Azure SQL connector](/sql/connect/spark/connector)
+- Visit the [SQL Spark connector GitHub repository](https://github.com/microsoft/sql-spark-connector).
 - [View Azure Data SQL Samples](https://github.com/microsoft/sql-server-samples)

@@ -1,10 +1,11 @@
 ---
 title: Understand how IoT Edge uses certificates for security
+titleSuffix: Azure IoT Edge
 description: How Azure IoT Edge uses certificate to validate devices, modules, and downstream devices enabling secure connections between them. 
 author: jlian
 
 ms.author: jlian
-ms.date: 11/03/2022
+ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -122,8 +123,8 @@ sequenceDiagram
     
     EdgeGateway->>ContosoIotHub: Let's talk securely with TLS 🔒
     EdgeGateway->>ContosoIotHub: Here's my certificate 📜
-    ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     note over EdgeGateway, ContosoIotHub: Cryptographic algorithms
+    ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     ContosoIotHub->>EdgeGateway: Great, let's connect
 -->
 
@@ -138,13 +139,13 @@ For example, we can use the following command to get the identity certificate's 
 sudo openssl x509 -in /var/lib/aziot/certd/certs/deviceid-random.cer -noout -nocert -fingerprint -sha256
 ```
 
-The command outputs the certificate thumbprint:
+The command outputs the certificate SHA256 thumbprint:
 
 ```output
 SHA256 Fingerprint=1E:F3:1F:88:24:74:2C:4A:C1:A7:FA:EC:5D:16:C4:11:CD:85:52:D0:88:3E:39:CB:7F:17:53:40:9C:02:95:C3
 ```
 
-If we view the thumbprint value for the *EdgeGateway* device in the Azure portal, we can see it matches the thumbprint on *EdgeGateway*:
+If we view the SHA256 thumbprint value for the *EdgeGateway* device registered in IoT Hub, we can see it matches the thumbprint on *EdgeGateway*:
 
 :::image type="content" source="./media/iot-edge-certs/edge-id-thumbprint.png" alt-text="Screenshot from Azure portal of EdgeGateway device's thumbprint in ContosoIotHub.":::
 
@@ -154,6 +155,8 @@ For more information about the certificate building process, see [Create and pro
 
 > [!NOTE]
 > This example doesn't address Azure IoT Hub Device Provisioning Service (DPS), which has support for X.509 CA authentication with IoT Edge when provisioned with an enrollment group. Using DPS, you upload the CA certificate or an intermediate certificate, the certificate chain is verified, then the device is provisioned. To learn more, see [DPS X.509 certificate attestation](../iot-dps/concepts-x509-attestation.md).
+>
+> In the Azure Portal, DPS displays the SHA1 thumbprint for the certificate rather than the SHA256 thumbprint.
 >
 > DPS registers or updates the SHA256 thumbprint to IoT Hub. You can verify the thumbprint using the command `openssl x509 -in /var/lib/aziot/certd/certs/deviceid-long-random-string.cer -noout -fingerprint -sha256`. Once registered, Iot Edge uses thumbprint authentication with IoT Hub. If the device is reprovisioned and a new certificate is issued, DPS updates IoT Hub with the new thumbprint.
 >
@@ -230,16 +233,9 @@ flowchart TB
 
 ### Hostname specificity
 
-The certificate common name **CN = edgegateway.local** is listed at the top of the chain. **edgegateway.local** is the hostname for *EdgeGateway* on the local network (LAN or VNet) where *TempSensor* and *EdgeGateway* are connected. It could be a private IP address such as *192.168.1.23* or a fully-qualified domain name (FQDN) similar to the diagram. The important parts are:
+The certificate common name **CN = edgegateway.local** is listed at the top of the chain. **edgegateway.local** is *edgeHub*'s server certificate common name. **edgegateway.local** is also the hostname for *EdgeGateway* on the local network (LAN or VNet) where *TempSensor* and *EdgeGateway* are connected. It could be a private IP address such as *192.168.1.23* or a fully qualified domain name (FQDN) like the diagram. The *edgeHub server certificate* is generated using the **hostname** parameter defined in the [IoT Edge config.toml file](configure-device.md#hostname). Don't confuse the *edgeHub server certificate* with *Edge CA certificate*. For more information about managing the Edge CA certificate, see [Manage IoT Edge certificates](how-to-manage-device-certificates.md#manage-edge-ca).
 
-* *TempSensor's* OS could resolve the hostname to reach *EdgeGateway*
-* The hostname is explicitly configured in *EdgeGateway's* `config.toml` as follows:
-
-    ```toml
-    hostname = 'edgegateway.local'
-    ```
-
-The two values must *match exactly*. As in the example, **CN = 'edgegateway.local'** and **hostname = 'edgegateway.local'**.
+When *TempSensor* connects to *EdgeGateway*, *TempSensor* uses the hostname **edgegateway.local** to connect to *EdgeGateway*. *TempSensor* checks the certificate presented by *EdgeGateway* and verifies that the certificate common name is **edgegateway.local**. If the certificate common name is different, *TempSensor* rejects the connection.
 
 > [!NOTE]
 > For simplicity, the example shows subject certificate common name (CN) as property that is validated. In practice, if a certificate has a subject alternative name (SAN), SAN is validated instead of CN. Generally, because SAN can contain multiple values, it has both the main domain/hostname for the certificate holder as well as any alternate domains.

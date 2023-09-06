@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ContractWorks | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ContractWorks'
 description: Learn how to configure single sign-on between Azure Active Directory and ContractWorks.
 services: active-directory
 author: jeevansd

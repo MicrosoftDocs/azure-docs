@@ -29,7 +29,7 @@ ms.topic: include
 
       :::image type="content" source="media/virtual-wan-p2s-hub/radius-proxy-ips.png" alt-text="Screenshot of User V P N Config with RADIUS Proxy I Ps." lightbox="media/virtual-wan-p2s-hub/radius-proxy-ips.png":::
 
-   * **Client address pool** -  The address pool from which IP addresses will be automatically assigned to VPN clients. For more information, see [About client address pools](../articles/virtual-wan/about-client-address-pools.md).
+   * **Client address pool** -  The address pool from which IP addresses will be automatically assigned to VPN clients. Address pools must be distinct. There can be no overlap between address pools. For more information, see [About client address pools](../articles/virtual-wan/about-client-address-pools.md).
    * **Custom DNS Servers** - The IP address of the DNS server(s) the clients will use. You can specify up to 5.
 
 1. Select **Review + create** to validate your settings.

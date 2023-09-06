@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 08/07/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -37,7 +37,7 @@ The IP address associated with an inbound endpoint is always part of the private
 ![View inbound endpoints](./media/private-resolver-endpoints-rulesets/east-inbound-endpoint.png)
 
 > [!NOTE]
-> The IP address assigned to an inbound endpoint is not a static IP address that you can choose. Typically, the fifth IP address in the subnet is assigned.  However, if the inbound endpoint is reprovisioned, this IP address might change. The IP address does not change unless the inbound endpoint is reprovisioned.
+> The IP address assigned to an inbound endpoint can be static if you use [PowerShell to provision the endpoint](dns-private-resolver-get-started-powershell.md#create-the-inbound-endpoint). The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you use another method to provision the inbound endpoint, then typically the fifth IP address in the subnet is assigned. If the inbound endpoint is reprovisioned, this IP address might change, but normally the 5th IP address in the subnet is used again. The IP address does not change unless the inbound endpoint is reprovisioned.
 
 ## Outbound endpoints
 
@@ -72,6 +72,9 @@ For example, resources in the vnet `myeastspoke` can resolve records in the priv
 - The ruleset provisioned in `myeastvnet` is linked to `myeastspoke`
 - A ruleset rule is configured and enabled in the linked ruleset to resolve `azure.contoso.com` using the inbound endpoint in `myeastvnet`
 
+> [!NOTE]
+> You can also link a ruleset to a virtual network in another Azure subscription.  However, the resource group specified must be in the same region as the private resolver. 
+
 ### Rules
 
 DNS forwarding rules (ruleset rules) have the following properties:
@@ -79,9 +82,11 @@ DNS forwarding rules (ruleset rules) have the following properties:
 | Property | Description |
 | --- | --- |
 | Rule name | The name of your rule. The name must begin with a letter, and can contain only letters, numbers, underscores, and dashes. |
-| Domain name | The dot-terminated DNS namespace where your rule applies. The namespace must have either zero labels (for wildcard) or between 2 and 34 labels. For example, `contoso.com.` has two labels. |
+| Domain name | The dot-terminated DNS namespace where your rule applies. The namespace must have either zero labels (for wildcard) or between 1 and 34 labels. For example, `contoso.com.` has two labels.<sup>1</sup> |
 | Destination IP:Port | The forwarding destination. One or more IP addresses and ports of DNS servers that are used to resolve DNS queries in the specified namespace. |
 | Rule state | The rule state: Enabled or disabled. If a rule is disabled, it's ignored. |
+
+<sup>1</sup>Single-label domain names are supported.
 
 If multiple rules are matched, the longest prefix match is used.  
 

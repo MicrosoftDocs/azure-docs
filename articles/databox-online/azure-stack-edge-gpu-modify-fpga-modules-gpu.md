@@ -206,8 +206,7 @@ To set memory and CPU usage, use processor limits for modules in the `k8s-experi
 ```
 The memory and CPU specification are not necessary but generally good practice. If `requests` isn't specified, the values set in limits are used as the minimum required. 
 
-Using shared memory for modules also requires a different way. For example, you can use the Host IPC mode for shared memory access between Live Video Analytics and Inference solutions as described in [Deploy Live Video Analytics on Azure Stack Edge](../azure-video-analyzer/video-analyzer-docs/overview.md).
-
+Using shared memory for modules also requires a different way. For example, you can use the Host IPC mode for shared memory access between Live Video Analytics and Inference solutions as described in [Deploy Live Video Analytics on Azure Stack Edge](/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/overview).
 
 ## Web proxy 
 

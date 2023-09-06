@@ -1,5 +1,5 @@
 ---
-title: Add users to a dynamic group - tutorial - Azure AD | Microsoft Docs
+title: Add users to a dynamic group - tutorial
 description: In this tutorial, you use groups with user membership rules to add or remove users automatically
 services: active-directory
 documentationcenter: ''
@@ -37,9 +37,11 @@ You're not required to assign licenses to the users for them to be members in dy
 
 ## Create a group of guest users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 First, you'll create a group for your guest users who all are from a single partner company. They need special licensing, so it's often more efficient to create a group for this purpose.
 
-1. Sign in to the Azure portal (https://portal.azure.com) with an account that is the global administrator for your organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the global administrator for your organization.
 2. Select **Azure Active Directory** > **Groups** > **New group**.
    ![select command to start a new group](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
@@ -101,7 +103,4 @@ In this tutorial, you learned how to:
 
 Advance to the next article to learn more group-based licensing basics
 > [!div class="nextstepaction"]
-> [Group licensing basics](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-
-
-
+> [Group licensing basics](../fundamentals/licensing-whatis-azure-portal.md)

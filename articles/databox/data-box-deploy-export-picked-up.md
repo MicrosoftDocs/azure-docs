@@ -91,7 +91,7 @@ If using Microsoft managed shipping, follow these steps.
 
 [!INCLUDE [data-box-shipping-in-singapore](../../includes/data-box-shipping-in-singapore.md)]
 
-### [Hong Kong](#tab/in-hk)
+### [Hong Kong Special Administrative Region](#tab/in-hk)
 
 [!INCLUDE [data-box-shipping-in-hk](../../includes/data-box-shipping-in-hk.md)]
 

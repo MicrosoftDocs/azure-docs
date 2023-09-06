@@ -88,7 +88,7 @@ The following sections describe the four stages in the architecture.
 
 - STAC API is based on open source STAC FastAPI. 
 - STAC API layer is implemented on Azure Kubernetes Service and the APIs are exposed using [API Management Service](https://azure.microsoft.com/products/api-management/).
-- STAC APIs are used to discover the geospatial data in your Catalog. These APIs are based on STAC specifications and understand the STAC metadata defined and indexed in the STAC Catalog database (PostgresSQL server).
+- STAC APIs are used to discover the geospatial data in your Catalog. These APIs are based on STAC specifications and understand the STAC metadata defined and indexed in the STAC Catalog database (PostgreSQL server).
 - Based on the search criteria, you can quickly locate your data from a large dataset.
   - Querying the STAC Collection, Items & Assets:
     - A query is submitted by a user to look up one or more STAC Collection, Items & Assets through the STAC FastAPI.

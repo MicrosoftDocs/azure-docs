@@ -7,7 +7,7 @@ author: adrianhall
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 09/07/2022
+ms.date: 03/15/2023
 ms.author: adhal
 ---
 
@@ -18,6 +18,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | Change Title | Effective Date |
 |:-------------|:---------------|
 | [Resource provider source IP address updates][bc1] | March 31, 2023 |
+| [Metrics retirements][metrics2023] | August 31, 2023 |
 | [Resource provider source IP address updates][rp2023] | September 30, 2023 |
 | [API version retirements][api2023] | September 30, 2023 |
 | [Deprecated (legacy) portal retirement][devportal2023] | October 31, 2023 |
@@ -35,3 +36,4 @@ The following table lists all the upcoming breaking changes and feature retireme
 [stv12024]: ./stv1-platform-retirement-august-2024.md
 [msal2025]: ./identity-provider-adal-retirement-sep-2025.md
 [captcha2025]: ./captcha-endpoint-change-sep-2025.md
+[metrics2023]: ./metrics-retirement-aug-2023.md

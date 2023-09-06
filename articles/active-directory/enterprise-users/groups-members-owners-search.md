@@ -1,5 +1,5 @@
 ---
-title: Search and filter groups members and owners (preview) - Azure Active Directory | Microsoft Docs
+title: Search and filter groups members and owners (preview)
 description: Search and filter groups members and owners in the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -64,11 +64,11 @@ The group **Overview** page provides member counts for groups. You can see the t
 
 These articles provide additional information on working with groups in Azure AD.
 
-- [View your groups and members](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Manage group membership](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [View your groups and members](../fundamentals/groups-view-azure-portal.md)
+- [Manage group membership](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-create-rule.md)
-- [Edit your group settings](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage access to resources using groups](../fundamentals/active-directory-manage-groups.md)
+- [Edit your group settings](../fundamentals/how-to-manage-groups.md)
+- [Manage access to resources using groups](../fundamentals/concept-learn-about-groups.md)
 - [Manage access to SaaS apps using groups](groups-saasapps.md)
 - [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)
-- [Add an Azure subscription to Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Add an Azure subscription to Azure Active Directory](../fundamentals/how-subscriptions-associated-directory.md)

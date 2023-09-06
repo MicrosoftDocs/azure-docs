@@ -4,7 +4,7 @@ description: Recover/Purge Azure App Configuration soft deleted Stores
 author: muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet, engagement-fy23
+ms.custom: engagement-fy23
 ms.topic: how-to
 ms.date: 01/25/2023
 ---

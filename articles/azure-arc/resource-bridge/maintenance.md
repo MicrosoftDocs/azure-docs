@@ -13,7 +13,7 @@ To maintain the on-premises appliance VM, the [appliance configuration files gen
 
 The following sections describe some of the most common maintenance tasks for Arc resource bridge (preview).
 
-## Update credentials in the Appliance VM
+## Update credentials in the appliance VM
 
 Arc resource bridge consists of an on-premises appliance VM. The appliance VM [stores credentials](system-requirements.md#user-account-and-credentials) (for example, a user account for VMware vCenter) used to access the control center of the on-premises infrastructure to view and manage on-premises resources.
 

@@ -8,7 +8,6 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/29/2021
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Blob snapshots

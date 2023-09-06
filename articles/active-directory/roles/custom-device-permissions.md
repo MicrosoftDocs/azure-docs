@@ -1,5 +1,5 @@
 ---
-title: Device management permissions for Azure AD custom roles - Azure Active Directory
+title: Device management permissions for Azure AD custom roles
 description: Device management permissions for Azure AD custom roles in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
@@ -40,7 +40,7 @@ The following permission is available to read BitLocker metadata and recovery ke
 
 - microsoft.directory/bitlockerKeys/key/read
 
-You can view the BitLocker recovery key by selecting a device from the **All Devices** page, and then selecting **Show Recovery Key**. For more information about reading BitLocker recovery keys, see [View or copy BitLocker keys](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+You can view the BitLocker recovery key by selecting a device from the **All Devices** page, and then selecting **Show Recovery Key**. For more information about reading BitLocker recovery keys, see [View or copy BitLocker keys](../devices/manage-device-identities.md#view-or-copy-bitlocker-keys).
 
 ![Screenshot showing Bitlocker keys in Azure portal.](./media/custom-device-permissions/bitlocker-keys.png)
 

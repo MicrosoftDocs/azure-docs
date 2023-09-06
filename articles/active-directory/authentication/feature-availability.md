@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 04/13/2023
 
 
 ms.author: justinha
@@ -44,7 +44,6 @@ This following tables list Azure AD feature availability in Azure Government.
 || Session lifetime management | &#x2705; | 
 || Identity Protection (vulnerabilities and risky accounts) | See [Identity protection](#identity-protection) below. | 
 || Identity Protection (risk events investigation, SIEM connectivity) | See [Identity protection](#identity-protection) below. | 
-|| Entra permissions management | &#10060; | 
 |**Administration and hybrid identity**|User and group management | &#x2705; | 
 || Advanced group management (Dynamic groups, naming policies, expiration, default classification) | &#x2705; | 
 || Directory synchronization—Azure AD Connect (sync and cloud sync) | &#x2705; | 
@@ -53,7 +52,6 @@ This following tables list Azure AD feature availability in Azure Government.
 || Global password protection and management – cloud-only users | &#x2705; | 
 || Global password protection and management – custom banned passwords, users synchronized from on-premises Active Directory | &#x2705; | 
 || Microsoft Identity Manager user client access license (CAL) | &#x2705; | 
-|| Entra workload identities | &#10060; | 
 |**End-user self-service**|Application launch portal (My Apps) | &#x2705; | 
 || User application collections in My Apps | &#x2705; |
 || Self-service account management portal (My Account) | &#x2705; |
@@ -69,7 +67,6 @@ This following tables list Azure AD feature availability in Azure Government.
 || Access certifications and reviews | &#x2705; |
 || Entitlement management | &#x2705; |
 || Privileged Identity Management (PIM), just-in-time access |  &#x2705; |
-|| Entra governance | &#10060; |
 |**Event logging and reporting**|Basic security and usage reports | &#x2705; |
 || Advanced security and usage reports | &#x2705; |
 || Identity Protection: vulnerabilities and risky accounts | &#x2705; |

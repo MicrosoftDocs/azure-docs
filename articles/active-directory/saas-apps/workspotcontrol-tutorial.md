@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Workspot Control | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Workspot Control'
 description: Learn how to configure single sign-on for Azure Active Directory and Workspot Control.
 services: active-directory
 author: jeevansd

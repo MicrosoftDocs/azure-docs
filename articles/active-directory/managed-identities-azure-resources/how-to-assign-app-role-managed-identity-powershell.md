@@ -1,5 +1,5 @@
 ---
-title: Assign a managed identity to an application role using PowerShell - Azure AD
+title: Assign a managed identity to an application role using PowerShell
 description: Step-by-step instructions for assigning a managed identity access to another application's role, using PowerShell.
 services: active-directory
 documentationcenter: 
@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 09/06/2023
 ms.author: jodowns
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom: has-azure-ad-ps-ref
 ---
 
 # Assign a managed identity access to an application role using PowerShell
@@ -66,7 +66,7 @@ In this article, you learn how to assign a managed identity to an application ro
     > [!NOTE]
     > Display names for applications are not unique, so you should verify that you obtain the correct application's service principal.
 
-1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 3. You can create the role using the Azure portal or by using Microsoft Graph. For example, you could add an app role by running the following query on Graph explorer:
+1. Add an [app role](../develop/howto-add-app-roles-in-apps.md) to the application you created in step 3. You can create the role using the Azure portal or by using Microsoft Graph. For example, you could add an app role by running the following query on Graph explorer:
 
     ```http
     PATCH /applications/{id}/

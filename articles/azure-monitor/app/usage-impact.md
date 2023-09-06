@@ -2,7 +2,7 @@
 title: Application Insights usage impact - Azure Monitor
 description: Analyze how different properties potentially affect conversion rates for parts of your apps.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 05/24/2023
 ---
 
 # Impact analysis with Application Insights
@@ -20,7 +20,7 @@ Analyzing performance is only a subset of Impact's capabilities. Impact supports
 
 ## Impact analysis workbook
 
-To use the Impact analysis workbook, in your Application Insights resources go to **Usage** > **Impact** and select **Impact Analysis Workbook**. Or on the **Workbooks** tab, select **Public Templates**. Then under **Usage**, select **User Impact Analysis**.
+To use the Impact analysis workbook, in your Application Insights resources go to **Usage** > **More** and select **User Impact Analysis Workbook**. Or on the **Workbooks** tab, select **Public Templates**. Then under **Usage**, select **User Impact Analysis**.
 
 :::image type="content" source="./media/usage-impact/workbooks-gallery.png" alt-text="Screenshot that shows the Workbooks Gallery on public templates." lightbox="./media/usage-impact/workbooks-gallery.png":::
 
