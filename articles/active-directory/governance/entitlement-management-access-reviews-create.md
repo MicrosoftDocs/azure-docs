@@ -28,12 +28,14 @@ To reduce the risk of stale access, you should enable periodic reviews of users 
 
 To enable reviews of access packages, you must meet the prerequisites for creating an access package:
 - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
-- Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+- Global administrator, Identity Governance administrator, Catalog owner, or Access package manager
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 
 ## Create an access review of an access package
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package assignment policy](entitlement-management-access-package-lifecycle-policy.md) policy. If you have multiple policies, for different communities of users to request access, you can have independent access review schedules for each policy. Follow these steps to enable access reviews of an access package's assignments:
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 08/30/2022
 ms.author: mbullwin
 recommendations: false
 ---
@@ -94,10 +94,11 @@ This role is typically granted access at the resource group level for a user in 
 ✅ Use the Chat, Completions, and DALL-E (preview) playground experiences to generate text and images with any models that have already been deployed to this Azure OpenAI resource <br>
 ✅ Create customized content filters <br>
 ✅ Add a data source for the use your data feature <br>
+✅ Create new model deployments or edit existing model deployments (via API) <br>
 
 A user with only this role assigned would be unable to:
 
-❌ Create new model deployments or edit existing model deployments <br>
+❌ Create new model deployments or edit existing model deployments (via Azure OpenAI Studio) <br>
 ❌ Access quota <br>
 ❌ Create custom fine-tuned models <br>
 ❌ Upload datasets for fine-tuning
@@ -129,7 +130,7 @@ All the capabilities of Cognitive Services OpenAI Contributor plus the ability t
 All the capabilities of Cognitive Services Contributor plus the ability to:
 
 ✅ View & edit quota allocations in Azure OpenAI Studio <br>
-✅ Create new model deployments or edit existing model deployments <br>
+✅ Create new model deployments or edit existing model deployments (via Azure OpenAI Studio) <br>
 
 ## Common Issues
 

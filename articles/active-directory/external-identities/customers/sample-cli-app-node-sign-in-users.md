@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
 ms.date: 08/04/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn how to authenticate users in an Azure Active Directory (Azure AD) for customers tenant using a sample Node.js CLI application
 ---
 

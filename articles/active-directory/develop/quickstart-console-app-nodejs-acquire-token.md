@@ -9,8 +9,8 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.date: 09/09/2022
 ms.author: cwerner
+ms.custom: mode-other, devx-track-js
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by a Microsoft identity platform endpoint using client credentials flow.
-ms.custom: mode-other
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph from a Node.js console app
