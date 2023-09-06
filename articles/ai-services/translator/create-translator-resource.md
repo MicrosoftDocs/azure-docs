@@ -74,7 +74,7 @@ All Azure AI services API requests require an endpoint URL and a read-only key f
 
 ## Create a Text Translation client
 
-Applied AI Text Translation supports both [global and regional endpoints](#complete-your-project-and-instance-details). Once you have your [authentication keys](#authentication-keys-and-endpoint-url), you need to create an instance of the `TextTranslationClient`, using an `AzureKeyCredential` for authentication, to interact with the Text Translation service:
+Text Translation supports both [global and regional endpoints](#complete-your-project-and-instance-details). Once you have your [authentication keys](#authentication-keys-and-endpoint-url), you need to create an instance of the `TextTranslationClient`, using an `AzureKeyCredential` for authentication, to interact with the Text Translation service:
 
 * To create a `TextTranslationClient` using a global resource endpoint, you need your resource **API key**:
 
