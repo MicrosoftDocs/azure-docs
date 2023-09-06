@@ -38,6 +38,13 @@ If the `spec.auth` property isn't set, the system-assigned managed identity is u
 |---|---|---|---|
 |managedIdentityClientId|The Client ID of user-assigned managed identity|false|string|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal|false|string|
+|workloadIdentity|The settings for using workload identity|false|object|
+
+The `spec.auth.workloadIdentity` property has the following child property.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|managedIdentityClientId|The Client ID of user-assigned managed identity|true|string|
 
 The `spec.keyValues` has the following child properties. The `spec.keyValues.keyVaults` property is required if any Key Vault references are expected to be downloaded.
 
@@ -74,15 +81,17 @@ If the `spec.keyValues.keyVaults.auth` property isn't set, the system-assigned m
 |---|---|---|---|
 |managedIdentityClientId|The client ID of a user-assigned managed identity used for authentication with vaults that don't have individual authentication methods specified|false|string|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with vaults that don't have individual authentication methods specified|false|string|
+|workloadIdentity|The settings for using workload identity for authentication with vaults that don't have individual authentication methods specified|false|object|
 |vaults|The authentication methods for individual vaults|false|object array|
 
-The authentication method of each *vault* can be specified with the following properties. One of `managedIdentityClientId` and `servicePrincipalReference` must be provided.
+The authentication method of each *vault* can be specified with the following properties. One of `managedIdentityClientId`, `servicePrincipalReference` or `workloadIdentity` must be provided.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
 |uri|The URI of a vault|true|string|
 |managedIdentityClientId|The client ID of a user-assigned managed identity used for authentication with a vault|false|string|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a vault|false|string|
+|workloadIdentity|The settings for using workload identity for authentication with a vault|false|object|
 
 The `spec.keyValues.refresh` property has the following child properties.
 
@@ -119,7 +128,7 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
         configMapName: configmap-created-by-appconfig-provider
     ```
 
-#### Use User-Assigned Managed Identity
+#### Use User-Assigned Managed Identity at cluster level
 
 1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
 1. [Assign the user-assigned managed identity to the virtual machine scale set](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) used by the Azure Kubernetes Service (AKS) cluster.
@@ -139,7 +148,7 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
         managedIdentityClientId: <your-managed-identity-client-id>
     ```
 
-#### Use Service Principal
+#### Use Service Principal at cluster level
 
 1. [Create a Service Principal](/azure/active-directory/develop/howto-create-service-principal-portal)
 1. [Grant the service principal **App Configuration Data Reader** role](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) in Azure App Configuration.
@@ -159,10 +168,36 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
         servicePrincipalReference: <your-service-principal-secret-name>
     ```
 
+#### Use workload identity at pod level
+
+1. [Enable Workload Identity](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) on the Azure Kubernetes Service (AKS) cluster.
+1. [Get the OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) of the AKS cluster.
+1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
+1. Create the federated identity credential between the managed identity, OIDC issuer, and subject using the az identity federated-credential create command.
+   ``` bash
+   az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:azappconfig-system:az-appconfig-k8s-provider --audience api://AzureADTokenExchange
+   ```
+1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) in Azure App Configuration.
+1. Set the `spec.auth.workloadIdentity.managedIdentityClientId` property to the client ID of the user-assigned managed identity in the following sample `AzureAppConfigurationProvider` resource and deploy it to the AKS cluster.
+
+    ``` yaml
+    apiVersion: azconfig.io/v1beta1
+    kind: AzureAppConfigurationProvider
+    metadata:
+      name: appconfigurationprovider-sample
+    spec:
+      endpoint: <your-app-configuration-store-endpoint>
+      target:
+        configMapName: configmap-created-by-appconfig-provider
+      auth:
+        workloadIdentity:
+          managedIdentityClientId: <your-managed-identity-client-id>
+    ```
+
 #### Use Connection String
 
 1. Create a Kubernetes Secret in the same namespace as the `AzureAppConfigurationProvider` resource and add Azure App Configuration connection string with key *azure_app_configuration_connection_string* in the Secret.
-2. Set the `spec.connectionStringReference` property to the name of the Secret in the following sample `AzureAppConfigurationProvider` resource and deploy it to the Kubernetes cluster.
+1. Set the `spec.connectionStringReference` property to the name of the Secret in the following sample `AzureAppConfigurationProvider` resource and deploy it to the Kubernetes cluster.
 
     ``` yaml
     apiVersion: azconfig.io/v1beta1
