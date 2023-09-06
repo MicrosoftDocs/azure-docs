@@ -1,4 +1,29 @@
+---
+title: Monitoring evaluation metrics descriptions and use cases (preview)
+titleSuffix: Azure Machine Learning
+description: Understand the metrics used when monitoring the performance of generative AI models deployed to production on Azure Machine Learning.
+services: machine-learning
+author: buchananwp
+ms.author: wibuchan
+ms.service: machine-learning
+ms.subservice: mlops
+ms.reviewer: scottpolly
+reviewer: s-polly
+ms.topic: how-to
+ms.date: 09/06/2023
+ms.custom: devplatv2
+---
+
+
 # Monitoring evaluation metrics descriptions and use cases
+
+In this article, you'll learn about the metrics used when monitoring and evaluating generative AI models in Azure Machine Learning, as well as the recommended practices for using generative AI model monitoring.
+
+> [!IMPORTANT]
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Model monitoring tracks model performance in production and aims to understand it from both data science and operational perspectives. To implement monitoring, Azure Machine Learning uses monitoring signals aquired through data analysis on streamed data.  Each monitoring signal has one or more metrics. You can set thresholds for these metrics in order to receive alerts via Azure Machine Learning or Azure Monitor about model or data anomalies.
 
 ## Groundedness
 Groundedness evaluates how well the model's generated answers align with information from the input source. Answers are verified as claims against context in the user-defined ground truth source: even if answers are true (factually correct), if not verifiable against the source text, then it is scored as ungrounded. Responses verified as claims against “context” in the ground truth source (such as your input source or your database). 
@@ -6,7 +31,7 @@ Groundedness evaluates how well the model's generated answers align with informa
 - **How to read it:** If the model's answers are highly grounded, it indicates that the facts covered in the AI system's responses are verifiable by the input source or internal database. Conversely, low groundedness scores suggest that the facts mentioned in the AI system's responses may not be adequately supported or verifiable by the input source or internal database. In such cases, the model's generated answers could be based solely on its pre-trained knowledge, which may not align with the specific context or domain of the given input
 - **Scale:** 1= "ungrounded", 5="perfect groundedness"
 
-##Relevance
+## Relevance
 The relevance metric measures the extent to which the model's generated responses are pertinent and directly related to the given questions. When users interact with a generative AI model, they pose questions or input prompts, expecting meaningful and contextually appropriate answers.
 - **Use it when:** You would like to achieve high relevance for your application's answers to enhance the user experience and utility of your generative AI systems.
 - **How to read it:** Answers are scored in their ability to capture the key points of the question from the context in the ground truth source. If the model's answers are highly relevant, it indicates that the AI system comprehends the input and can produce coherent and contextually appropriate outputs. Conversely, low relevance scores suggest that the generated responses might be off-topic, lack context, or fail to address the user's intended queries adequately.    
@@ -29,3 +54,10 @@ Similarity quantifies the similarity between a ground truth sentence (or documen
 - **Use it when:** You would like to objectively evaluate the performance of an AI model (for text generation tasks where you have access to ground truth desired responses). Ada similarity allows you to compare the generated text against the desired content.
 - **How to read it:** Answers are scored for equivalencies to the ground-truth answer by capturing the same information and meaning as the ground-truth answer for the given question. A high Ada similarity score suggests that the model's prediction is very contextually similar to the ground truth, indicating accurate and relevant results. Conversely, a low Ada similarity score implies a mismatch or divergence between the prediction and the actual ground truth, potentially signaling inaccuracies or deficiencies in the model's performance.
 - **Scale:** 1= "non-equivalence", 5="perfect equivalence"  
+
+
+## Next steps
+
+- [Get started with Prompt flow (preview)](get-started-prompt-flow.md)
+- [Submit bulk test and evaluate a flow (preview)](how-to-bulk-test-evaluate-flow.md)
+- [Monitoring AI applications](how-to-monitor-generative-ai-applications.md)
