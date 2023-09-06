@@ -30,7 +30,7 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 
 
 > [!WARNING]
-> Azure Active Directory Authentication Library (ADAL) has been deprecated. Please use the [Microsoft Authentication Library (MSAL)](/entra/msal/). If you have existing applications that use ADAL, be sure to [migrate them to MSAL](..\develop\msal-migration.md).
+> Azure Active Directory Authentication Library (ADAL) has been deprecated. Please use the [Microsoft Authentication Library (MSAL)](/entra/msal/). If you have existing applications that use ADAL, be sure to [migrate them to MSAL](../develop/msal-migration.md).
 
 ## Microsoft-supported Client Libraries
 

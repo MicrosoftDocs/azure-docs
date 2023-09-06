@@ -19,7 +19,7 @@ ms.reviewer: cmmdesai
 This tutorial describes how to configure [API-driven inbound user provisioning](inbound-provisioning-api-concepts.md). 
 
 > [!IMPORTANT]
-> API-driven inbound provisioning is currently in public preview and is governed by [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> API-driven inbound provisioning is currently in public preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 This feature is available only when you configure the following Enterprise Gallery apps: 
 * API-driven inbound user provisioning to Azure AD
@@ -36,7 +36,7 @@ If you're configuring inbound user provisioning to on-premises Active Directory,
 
 ## Create your API-driven provisioning app
 
-1. Log in to the [Microsoft Entra portal](<https://entra.microsoft.com>).
+1. Log in to the [Microsoft Entra admin center](<https://entra.microsoft.com>).
 2. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
 3. Click on **New application** to create a new provisioning application. 
      [![Screenshot of Entra Admin Center.](media/inbound-provisioning-api-configure-app/provisioning-entra-admin-center.png)](media/inbound-provisioning-api-configure-app/provisioning-entra-admin-center.png#lightbox)

@@ -122,7 +122,7 @@ the **Azure Cloud Shell - VNet storage** template.
 
 ## 2. Provision the virtual network using the ARM template
 
-Use the [Azure Cloud Shell - VNet][07] template to create Cloud Shell resources in a virtual
+Use the [Azure Cloud Shell - VNet][08] template to create Cloud Shell resources in a virtual
 network. The template creates three subnets under the virtual network created earlier. You may
 choose to change the supplied names of the subnets or use the defaults. The virtual network, along
 with the subnets, require valid IP address assignments.
@@ -168,7 +168,7 @@ subscription.
 
 ## 3. Provision the VNET storage using the ARM template
 
-Use the [Azure Cloud Shell - VNet storage][08] template to create Cloud Shell resources in a virtual
+Use the [Azure Cloud Shell - VNet storage][09] template to create Cloud Shell resources in a virtual
 network. The template creates the storage account and assigns it to the private VNET.
 
 The ARM template requires specific information about the resources you created earlier, along
@@ -250,4 +250,3 @@ private Cloud Shell instance.
 [07]: /azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings
 [08]: https://aka.ms/cloudshell/docs/vnet/template
 [09]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
-[10]: media/quickstart-deploy-vnet/setup-cloud-shell-storage.png

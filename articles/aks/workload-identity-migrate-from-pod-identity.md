@@ -23,19 +23,19 @@ This section explains the migration options available depending on what version 
 For either scenario, you need to have the federated trust set up before you update your application to use the workload identity. The following are the minimum steps required:
 
 - [Create a managed identity](#create-a-managed-identity) credential.
-- Associate the managed identity with the kubernetes service account already used for the pod-manged identity or [create a new Kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
+- Associate the managed identity with the kubernetes service account already used for the pod-managed identity or [create a new Kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
 - [Establish a federated trust relationship](#establish-federated-identity-credential-trust) between the managed identity and Azure AD.
 
 ### Migrate from latest version
 
-If your cluster is already using the latest version of the Azure Identity SDK, perform the following steps to complete the authentication configuration:
+If your application is already using the latest version of the Azure Identity SDK, perform the following steps to complete the authentication configuration:
 
 - Deploy workload identity in parallel with pod-managed identity. You can restart your application deployment to begin using the workload identity, where it injects the OIDC annotations into the application automatically.
 - After verifying the application is able to authenticate successfully, you can [remove the pod-managed identity](#remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
 
 ### Migrate from older version
 
-If your cluster isn't using the latest version of the Azure Identity SDK, you have two options:
+If your application isn't using the latest version of the Azure Identity SDK, you have two options:
 
 - You can use a migration sidecar that we provide within your Linux applications, which proxies the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Perform the following steps to:
 

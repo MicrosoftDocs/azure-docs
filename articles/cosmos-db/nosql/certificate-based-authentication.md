@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.custom: devx-track-azurepowershell, subject-rbac-steps, has-azure-ad-ps-ref
 ---
 
 # Certificate-based authentication for an Azure AD identity to access keys from an Azure Cosmos DB account

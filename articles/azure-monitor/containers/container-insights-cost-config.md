@@ -119,7 +119,7 @@ Container insights Collected Data can be customized through the Azure portal, us
 | Grouping | Tables | Notes |
 | --- | --- | --- |
 | All (Default) | All standard container insights tables | Required for enabling the default container insights visualizations |
-| Performance | Perf, Insights Metrics | |
+| Performance | Perf, InsightsMetrics | |
 | Logs and events | ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory | Recommended if you have enabled managed Prometheus metrics |
 | Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
 | Persistent Volumes | InsightsMetrics, KubePVInventory | |

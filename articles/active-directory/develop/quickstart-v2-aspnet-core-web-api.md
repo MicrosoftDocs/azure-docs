@@ -21,7 +21,7 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart:Protect an ASP.NET Core web API](web-api-quickstart.md?pivots=devlang-aspnet-core)
+> > [Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform](quickstart-web-api-aspnet-protect-api.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -41,7 +41,7 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > First, register the web API in your Azure AD tenant and add a scope by following these steps:
 > 
 > 1. Sign in to the [Azure portal](https://portal.azure.com/).
-> 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source=".\media\common\portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
+> 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for the application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of the app will see this name, and can be changed later.

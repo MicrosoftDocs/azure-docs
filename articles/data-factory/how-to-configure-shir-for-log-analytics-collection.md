@@ -42,7 +42,7 @@ It's important to note that when choosing the event logs using the interface, it
 
 The event journal name we must configure are:
 
-- Connectors – Integration Runtime
+- Connectors - Integration Runtime
 - Integration Runtime
 
 :::image type="content" source="media/how-to-configure-shir-for-log-analytics-collection/configure-journals-for-collection.png" alt-text="Screenshot of the selection of the SHIR relevant logs with errors and warnings checked.":::
@@ -127,11 +127,11 @@ search in (Perf, Event) "disconnected"
 
 ##### Retrieve all events from one specific log journal
 
-In this example we’re narrowing the query to the log journal called **Connectors – Integration Runtime**.
+In this example we’re narrowing the query to the log journal called **Connectors - Integration Runtime**.
 
 ```kusto
 Event 
-| where EventLog == "Connectors – Integration Runtime"
+| where EventLog == "Connectors - Integration Runtime"
 ```
 
 ##### Use timespans to restrict query results
@@ -140,7 +140,7 @@ This query uses the same query as above but restricts results to those occurring
 
 ```kusto
 Event 
-| where EventLog      == "Connectors – Integration Runtime"
+| where EventLog      == "Connectors - Integration Runtime"
   and   TimeGenerated >= ago(2d)
 ```
 

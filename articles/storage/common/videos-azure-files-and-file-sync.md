@@ -15,7 +15,7 @@ If you're new to Azure Files and File Sync or looking to deepen your understandi
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/TOHaNJpAOfc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube.com/embed/TOHaNJpAOfc]
     :::column-end:::
     :::column:::
         **How Azure Files can help protect against ransomware and accidental data loss**
@@ -24,7 +24,7 @@ If you're new to Azure Files and File Sync or looking to deepen your understandi
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube.com/embed/jd49W33DxkQ]
     :::column-end:::
     :::column:::
         **Domain join Azure file share with on-premises Active Directory and replace your file server with Azure file share**
@@ -33,7 +33,7 @@ If you're new to Azure Files and File Sync or looking to deepen your understandi
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/bmRZi9iGsK0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube.com/embed/bmRZi9iGsK0]
     :::column-end:::
     :::column:::
         **Mount an Azure file share in Windows**
@@ -42,7 +42,7 @@ If you're new to Azure Files and File Sync or looking to deepen your understandi
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/44qVRZg-bMA?list=PLEq-KSMM-P-0jRrVF5peNCA0GbBZrOhE1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube.com/embed/44qVRZg-bMA?list=PLEq-KSMM-P-0jRrVF5peNCA0GbBZrOhE1]
     :::column-end:::
     :::column:::
         **NFS 4.1 for Azure file shares**
@@ -51,7 +51,7 @@ If you're new to Azure Files and File Sync or looking to deepen your understandi
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/V43p6qIhFkc?list=PLEq-KSMM-P-0jRrVF5peNCA0GbBZrOhE1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube.com/embed/V43p6qIhFkc?list=PLEq-KSMM-P-0jRrVF5peNCA0GbBZrOhE1]
     :::column-end:::
     :::column:::
         **How to set up Azure File Sync**
@@ -60,7 +60,7 @@ If you're new to Azure Files and File Sync or looking to deepen your understandi
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/uStaB09y6TE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube.com/embed/uStaB09y6TE]
     :::column-end:::
     :::column:::
         **Integrating HPC Pack with Azure Files**

@@ -2,8 +2,8 @@
 title: Migrate with dump and restore - Azure Database for MariaDB
 description: This article explains two common ways to back up and restore databases in your Azure database for MariaDB by using tools such as mysqldump, MySQL Workbench, and phpMyAdmin.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.subservice: migration-guide
 ms.custom: devx-track-linux
 ms.topic: how-to

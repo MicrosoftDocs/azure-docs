@@ -84,7 +84,7 @@ A container acts as a file system for your files. You can create a container by 
 
 - [DataLakeServiceClient.CreateFileSystem](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync)
 
-This example creates a container and returns a [DataLakeFileSystemClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient) object for later use:
+The following code example creates a container and returns a [DataLakeFileSystemClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient) object for later use:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateContainer":::
 
@@ -104,7 +104,7 @@ You can rename or move a directory by using the following method:
 
 - [DataLakeDirectoryClient.RenameAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync)
 
-Pass the path of the desire directory as a parameter. The following code example shows how to rename a subdirectory:
+Pass the path of the desired directory as a parameter. The following code example shows how to rename a subdirectory:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RenameDirectory":::
 

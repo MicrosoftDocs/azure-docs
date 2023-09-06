@@ -5,7 +5,7 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 07/31/2023
+ms.date: 08/10/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -45,6 +45,16 @@ ARM API users with existing resources can continue to use the 2022-04-01-preview
 ARM API users can migrate to the 2023-06-01 API with their current resources with no ARM template changes (other than specifying the newer API version).
  
 Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API cannot go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+
+### New cloud monitoring option - Azure Monitor Workbooks
+
+**Type:** New feature
+
+**Date available:** July 12, 2023
+
+You can now use Azure Monitor Workbooks to monitor your private mobile network. Workbooks provide versatile tools for visualizing and analyzing data. You can use workbooks to gain insights into your connected resources - including the packet core, Azure Stack Edge devices and Kubernetes clusters - using a range of visualization options. You can create new workbooks or customize one of the included templates to suit your needs.
+
+See [Monitor Azure Private 5G Core with Azure Monitor Workbooks](monitor-private-5g-core-workbooks.md) to learn more.
 
 ## June 2023
 

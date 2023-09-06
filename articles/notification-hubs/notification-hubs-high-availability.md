@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 07/17/2023
+ms.date: 08/22/2023
 
 ---
 
@@ -16,14 +16,11 @@ ms.date: 07/17/2023
 Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the configuration options to achieve the availability characteristics required by your solution. For more information about our SLA, see the [Notification Hubs SLA][].
 
 > [!NOTE]
-> The following features are available in preview:
+> The following feature is available in preview:
 >
-> - Ability to edit your cross region disaster recovery options
 > - Availability zones
 >
-> If you're not participating in the preview, your failover region defaults to one of the [Azure paired regions][].
->
-> Availability zones support will incur an additional cost on top of existing tier pricing. You will not be charged to preview the feature. Once it becomes generally available, you will automatically be billed.
+> Availability zones support will incur an additional cost on top of existing tier pricing. You will not be charged to preview the feature. Once it becomes generally available, you are automatically billed.
 
 Notification Hubs offers two availability configurations:
 
@@ -94,14 +91,16 @@ metadata are replicated across data centers in the availability zone. In the eve
 
 New availability zones are being added regularly. The following regions currently support availability zones:
 
-| Americas      | Europe            | Africa               | Asia Pacific       |
-|---------------|-------------------|----------------------|--------------------|
-| West US 3     | West Europe       | South Africa North   | Australia East     |
-| East US 2     | France Central    |                      | East Asia          |
-| West US 2     | Poland Central    |                      | Qatar              |
-| Canada Central| UK South          |                      | India Central      |
-|               | North Europe      |                      |                    |
-|               | Sweden Central    |                      |                    |
+| Americas      | Europe               | Africa               | Asia Pacific       |
+|---------------|----------------------|----------------------|--------------------|
+| West US 3     | West Europe          | South Africa North   | Australia East     |
+| East US 2     | France Central       |                      | East Asia          |
+| West US 2     | Poland Central       |                      | Qatar              |
+| Canada Central| UK South             |                      | India Central      |
+|               | North Europe         |                      | Japan East         |
+|               | Sweden Central       |                      | Korea Central      |
+|               | Norway East          |                      |                    |
+|               | Germany West Central |                      |                    |
 
 ### Enable availability zones
 

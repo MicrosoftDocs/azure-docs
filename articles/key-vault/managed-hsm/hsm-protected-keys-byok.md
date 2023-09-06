@@ -18,7 +18,7 @@ ms.author: mbaldwin
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM.
 
 > [!NOTE]
-> This functionality is not available for Azure China 21Vianet. This import method is available only for [supported HSMs](#supported-hsms). 
+> This functionality is not available for Microsoft Azure operated by 21Vianet. This import method is available only for [supported HSMs](#supported-hsms). 
 
 For more information, and for a tutorial to get started using Managed HSM, see [What is Managed HSM?](overview.md).
 

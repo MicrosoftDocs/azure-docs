@@ -5,6 +5,7 @@ description: If you have internal user accounts for partners, distributors, supp
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 07/27/2023
 
@@ -13,7 +14,6 @@ author: csmulligan
 manager: CelesteDG
 
 ms.collection: engagement-fy23, M365-identity-device-management
-
 # Customer intent: As a tenant administrator, I want to know how to invite internal users to B2B collaboration.
 ---
 
@@ -37,7 +37,7 @@ Sending an invitation to an existing internal account lets you retain that user�
 - **On-premises synced users**: For user accounts that are synced between on-premises and the cloud, the on-premises directory remains the source of authority after they’re invited to use B2B collaboration. Any changes you make to the on-premises account will sync to the cloud account, including disabling or deleting the account. Therefore, you can’t prevent the user from signing into their on-premises account while retaining their cloud account by simply deleting the on-premises account. Instead, you can set the on-premises account password to a random GUID or other unknown value.
 
 > [!NOTE]
-> In Azure AD Connect sync, there’s a default rule that writes the onPremisesUserPrincipalName attribute to the user object. Because the presence of this attribute can prevent a user from signing in using external credentials, we block internal-to-external conversions for user objects with this attribute. If you’re using Azure AD Connect and you want to be able to invite internal users to B2B collaboration, you'll need to [modify the default rule](../hybrid/how-to-connect-sync-change-the-configuration.md) so the onPremisesUserPrincipalName attribute isn’t written to the user object.
+> In Azure AD Connect sync, there’s a default rule that writes the onPremisesUserPrincipalName attribute to the user object. Because the presence of this attribute can prevent a user from signing in using external credentials, we block internal-to-external conversions for user objects with this attribute. If you’re using Azure AD Connect and you want to be able to invite internal users to B2B collaboration, you'll need to [modify the default rule](../hybrid/connect/how-to-connect-sync-change-the-configuration.md) so the onPremisesUserPrincipalName attribute isn’t written to the user object.
 ## How to invite internal users to B2B collaboration
 
 You can use the Azure portal, PowerShell, or the invitation API to send a B2B invitation to the internal user. Some things to note:

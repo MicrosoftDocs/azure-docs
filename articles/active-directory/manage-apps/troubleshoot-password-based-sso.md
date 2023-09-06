@@ -19,7 +19,7 @@ To use password-based single sign-on (SSO) in My Apps, the browser extension mus
 
 ## My Apps browser extension not installed
 
-Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](my-apps-deployment-plan.md).
+Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](./myapps-overview.md).
 
 ## Single sign-on not configured
 
@@ -261,4 +261,4 @@ The following information explains what each notification item means and provide
 ## Next steps
 
 - [Quickstart Series on Application Management](view-applications-portal.md)
-- [Plan a My Apps deployment](my-apps-deployment-plan.md)
+- [Plan a My Apps deployment](./myapps-overview.md)

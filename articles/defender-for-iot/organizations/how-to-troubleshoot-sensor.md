@@ -120,7 +120,7 @@ This procedure describes how to download a diagnostics log to send to support in
 This feature is supported for the following sensor versions:
 
 - **22.1.1** - Download a diagnostic log from the sensor console.
-- **22.1.3** - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
+- **22.1.3** and higher - For locally managed sensors, [upload a diagnostics log](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support) from the **Sites and sensors** page in the Azure portal. This file is automatically sent to support when you open a ticket on a cloud-connected sensor.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
