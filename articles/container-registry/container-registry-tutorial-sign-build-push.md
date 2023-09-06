@@ -1,6 +1,6 @@
 ---
-title: Sign container images with Notation and Azure Key Vault using a self-signed certificate (preview)
-description: In this tutorial you'll learn to create a signing certificate in Azure Key Vault (AKV), build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image with notation.
+title: Sign container images with Notation and Azure Key Vault using a self-signed certificate (Preview)
+description: In this tutorial you'll learn to create a self-signed certificate in Azure Key Vault (AKV), build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image with notation.
 author: yizha1
 ms.author: yizha1
 ms.service: container-registry
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 4/23/2023
 ---
 
-# Sign container images with Notation and Azure Key Vault using a self-signed certificate (preview)
+# Sign container images with Notation and Azure Key Vault using a self-signed certificate (Preview)
 
-Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been tampered with. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store a signing certificate that can be utilized by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach and discover these signatures to container images.
+Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been tampered with. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store certificates with signing keys that can be utilized by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach and discover these signatures to container images.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -20,7 +20,7 @@ In this tutorial:
 
 > [!div class="checklist"]
 > * Install Notation CLI and AKV plugin
-> * Create a self-signed signing certificate in AKV
+> * Create a self-signed certificate in AKV
 > * Build and push a container image with ACR task
 > * Sign a container image with Notation CLI and AKV plugin
 > * Validate a container image against the signature with Notation CLI
@@ -28,7 +28,7 @@ In this tutorial:
 ## Prerequisites
 
 * Create or use an [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md) for storing container images and signatures
-* Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md) for managing signing certificates
+* Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md) for managing certificates
 * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or Run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 ## Install Notation CLI and AKV plugin
@@ -104,7 +104,7 @@ In this tutorial:
 az login
 ```
 
-To learn more about Azure CLI and how to sign in with it, see [Sign in with Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+To learn more about Azure CLI and how to sign in with it, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Assign access policy in AKV (Azure CLI)
 
@@ -126,13 +126,13 @@ az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-p
 > [!NOTE]
 > The permissions granted are necessary for creating a certificate and signing a container image. Depending on your requirements, you may need to grant additional permissions.
 
-## Create a self-signed signing certificate in AKV (Azure CLI)
+## Create a self-signed certificate in AKV (Azure CLI)
 
-The following steps show how to create a self-signed signing certificate for testing purpose.
+The following steps show how to create a self-signed certificate for testing purpose.
 
 1. Create a certificate policy file.
 
-    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with [Notary Project certificate requirement](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements) in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts. The subject is used later as trust identity that user trust during verification.
+    Once the certificate policy file is executed as below, it creates a valid certificate compatible with [Notary Project certificate requirement](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements) in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts. The subject is used later as trust identity that user trust during verification.
 
     ```bash
     cat <<EOF > ./my_policy.json
@@ -207,7 +207,7 @@ The following steps show how to create a self-signed signing certificate for tes
 
 ## Verify a container image with Notation CLI
 
-To verify the container image, you need to add the root certificate that signs the signing certificate to a trust store and create trust policies for verification. For a self-signed certificate used in this tutorial, the root certificate is the self-signed certificate itself.
+To verify the container image, you need to add the root certificate that signs the certificate to a trust store and create trust policies for verification. For a self-signed certificate used in this tutorial, the root certificate is the self-signed certificate itself.
 
 1. Download public certificate.
 
@@ -231,7 +231,7 @@ To verify the container image, you need to add the root certificate that signs t
  
 4. Configure trust policy before verification.
 
-   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. Assuming that the user trusts a specific identity with the X.509 subject `$CERT_SUBJECT`, which is used for the signing certificate. The named trust store `$STORE_NAME` of type `$STORE_TYPE` contains the root certificates. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/v1.0.0/specs/trust-store-trust-policy.md) for details.
+   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. Assuming that the user trusts a specific identity with the X.509 subject `$CERT_SUBJECT`, which is used for the certificate. The named trust store `$STORE_NAME` of type `$STORE_TYPE` contains the root certificates. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/v1.0.0/specs/trust-store-trust-policy.md) for details.
 
     ```bash
     cat <<EOF > ./trustpolicy.json
