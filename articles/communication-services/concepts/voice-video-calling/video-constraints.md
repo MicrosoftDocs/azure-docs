@@ -37,6 +37,6 @@ ACS native Calling SDK (Android, iOS, Windows)  supports setting the maximum val
 ## Next steps
 For more information, see the following articles:
 
-- [Tutorial on how to enable video contraints](../../quickstarts/voice-video-calling/get-started-video-constraints?pivots=platform-web.md)
+- [Tutorial on how to enable video contraints](../../quickstarts/voice-video-calling/get-started-video-constraints.md)
 - [Enable Media Quality Statistics in your application](./media-quality-sdk.md)
 - Learn about [Calling SDK capabilities](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
