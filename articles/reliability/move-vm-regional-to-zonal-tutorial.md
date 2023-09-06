@@ -17,14 +17,14 @@ This article provides information on how to move Azure Single Instance Virtual M
 
 Ensure the following before you begin:
 
-1.  **Availability zone regions support**: Ensure that the regions you want to move to are supported by Availability Zones. [Learn more](availability-zones-service-support#azure-regions-with-availability-zones) about the supported regions.
+1.  **Availability zone regions support**: Ensure that the regions you want to move to are supported by Availability Zones. [Learn more](./availability-zones-service-support.md) about the supported regions.
 
-1. **VM SKU availability**: The availability of VM sizes, or SKUs, can differ based on the region and zone. Ensure to plan for the use of Availability Zones. [Learn more]() about the available VM SKUs for each Azure region and zone. 
+1. **VM SKU availability**: The availability of VM sizes, or SKUs, can differ based on the region and zone. Ensure to plan for the use of Availability Zones. [Learn more](../virtual-machines/windows/create-powershell-availability-zone.md#check-vm-sku-availability) about the available VM SKUs for each Azure region and zone. 
 
 1. **Subscription permissions**: Check that you have *Owner* access on the subscription containing the VMs that you want to move.
-   The first time you add a VM to be moved to Zonal configuration, a [system-assigned managed identity]() (formerly, Managed Service Identify (MSI)) that's trusted by the subscription is necessary. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs Owner permissions on the subscription. [Learn more]() about Azure roles.
+   The first time you add a VM to be moved to Zonal configuration, a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly, Managed Service Identify (MSI)) that's trusted by the subscription is necessary. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs Owner permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.
 
-1.  **VM support**: Check that the VMs you want to move are supported. [Learn more](). Check supported VM settings.
+1.  **VM support**: Check that the VMs you want to move are supported. [Learn more](./move-vm-regional-to-zonal-overview.md). Check supported VM settings.
       
 1. **Subscription quota**: The subscription must have enough quota to create the new VM and associated networking resources in target zonal configuration (in same region). If the subscription does not have enough quota, you will need to [request additional limits](). 
 
