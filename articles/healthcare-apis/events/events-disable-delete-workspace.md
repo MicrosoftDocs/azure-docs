@@ -1,6 +1,6 @@
 ---
-title: How to disable the events feature and delete Azure Health Data Services workspaces - Azure Health Data Services
-description: Learn how to disable the events feature and delete Azure Health Data Services workspaces.
+title: How to disable the events and delete Azure Health Data Services workspaces - Azure Health Data Services
+description: Learn how to disable events and delete Azure Health Data Services workspaces.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,12 +10,12 @@ ms.date: 07/11/2023
 ms.author: jasteppe
 ---
 
-# How to disable the events feature and delete Azure Health Data Services workspaces
+# How to disable the events and delete Azure Health Data Services workspaces
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, learn how to disable the events feature and delete Azure Health Data Services workspaces.
+In this article, learn how to disable events and delete Azure Health Data Services workspaces.
 
 ## Disable events
 
@@ -25,7 +25,7 @@ To disable events from sending event messages for a single **Event Subscription*
 
    :::image type="content" source="media/disable-delete-workspaces/events-select-subscription.png" alt-text="Screenshot of Events subscriptions and select event subscription to be deleted." lightbox="media/disable-delete-workspaces/events-select-subscription.png":::
 
-2. Select **Delete** and confirm the Event Subscription deletion.
+2. Select **Delete** and confirm the **Event Subscription** deletion.
 
    :::image type="content" source="media/disable-delete-workspaces/events-select-subscription-delete.png" alt-text="Screenshot of events subscriptions and select delete and confirm the event subscription to be deleted." lightbox="media/disable-delete-workspaces/events-select-subscription-delete.png":::
 
@@ -46,7 +46,7 @@ To avoid errors and successfully delete workspaces, follow these steps and in th
 
 ## Next steps
 
-In this article, you learned how to disable the events feature and delete workspaces.
+In this article, you learned how to disable events and delete Azure Health Data Services workspaces.
 
 To learn about how to troubleshoot events, see
 
