@@ -37,6 +37,12 @@ Workspace managed VNet is the recommend way to support network isolation in prom
 
 1. Follow [Workspace managed network isolation](../how-to-managed-network.md) to enable workspace managed VNet.
 
+    > [!IMPORTANT]
+    > The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. You can use following command to manually trigger network provisioning.
+    ```bash
+    az ml workspace provision-network --subscription <sub_id> -g <resource_group_name> -n <workspace_name>
+    ```
+
 2. If you to want communicate with [private Azure cognitive services](../../ai-services/cognitive-services-virtual-networks.md), you need to add related user defined outbound rules to related resource. The Azure Machine Learning workspace will create private endpoint in the related resource with auto approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png" alt-text="Screenshot of user defined outbound rule for Azure cognitive services." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-cognitive-services.png":::
@@ -56,7 +62,7 @@ Workspace managed VNet is the recommend way to support network isolation in prom
 
 
 ## Limitations
-- Workspace hub / leah workspace and AI studio don't support bring your own VNet.
+- Workspace hub / lean workspace and AI studio don't support bring your own VNet.
 - Managed online endpoint only supports workspace managed VNet. If you want to use your own VNet, you may need one workspace for prompt flow authoring with your VNet and another workspace for prompt flow deployment using managed online endpoint with workspace managed VNet.
 
 ## Next steps
