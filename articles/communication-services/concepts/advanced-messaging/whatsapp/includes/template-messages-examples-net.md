@@ -82,8 +82,9 @@ Create one `MessageTemplateImage` and four `MessageTemplateText` variables. Then
 ```csharp
 string templateName = "sample_movie_ticket_confirmation"; 
 string templateLanguage = "en_us"; 
+var imageUrl = new Uri("https://aka.ms/acsicon1");
 
-var image = new MessageTemplateImage("image", new Uri("https://aka.ms/acsicon1"));
+var image = new MessageTemplateImage("image", imageUrl);
 var title = new MessageTemplateText("title", "Contoso");
 var time = new MessageTemplateText("time", "July 1st, 2023 12:30PM");
 var venue = new MessageTemplateText("venue", "Southridge Video");
@@ -229,10 +230,9 @@ And the template includes two prefilled reply buttons, `Yes` and `No`.
 }
 ```
 
-Quick reply buttons are defined as `MessageTemplateQuickActionValue` objects and have three attributes:
+Quick reply buttons are defined as `MessageTemplateQuickAction` objects and have three attributes:
 - `name`   
-Using the quick reply buttons, the `name` matches a button's `text` parameter in the template details.   
-For this example, our `name` values are `Yes` and `No`.
+The `name` is used to lookup the value in `MessageTemplateWhatsAppBindings`.   
 - `text`   
 Using the quick reply buttons, the `text` attribute isn't used.
 - `payload`   
@@ -240,14 +240,14 @@ The `payload` assigned to a button is available in a message reply if the user s
 
 For more information on buttons, see WhatsApp's documentation for [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object).
 
-Create one `MessageTemplateText` and two `MessageTemplateQuickActionValue` variables. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
+Create one `MessageTemplateText` and two `MessageTemplateQuickAction` variables. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your binding's buttons.
 ```csharp
 string templateName = "sample_issue_resolution";
 string templateLanguage = "en_us";
 
-var name = new MessageTemplateText("name", "Kat");
-var yes = new MessageTemplateQuickActionValue(name: "Yes", payload: "Kat said yes");
-var no = new MessageTemplateQuickActionValue(name: "No", payload: "Kat said no");
+var name = new MessageTemplateText(name: "name", text: "Kat");
+var yes = new MessageTemplateQuickAction(name: "Yes", payload: "Kat said yes");
+var no = new MessageTemplateQuickAction(name: "No", payload: "Kat said no");
 
 IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
 {
@@ -257,10 +257,11 @@ IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
 };
 var bindings = new MessageTemplateWhatsAppBindings(
     body: new[] { name.Name },
-    button: new Dictionary<string, MessageTemplateValueWhatsAppSubType>
-    {
-        { yes.Name, MessageTemplateValueWhatsAppSubType.QuickReply },
-        { no.Name, MessageTemplateValueWhatsAppSubType.QuickReply }
+    button: new[] {
+        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(yes.Name,
+            MessageTemplateValueWhatsAppSubType.QuickReply),
+        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(no.Name,
+            MessageTemplateValueWhatsAppSubType.QuickReply)
     });
 
 var issueResolutionTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
@@ -308,9 +309,9 @@ And the template includes a dynamic URL button with one parameter:
 }
 ```
 
-Call to action buttons for website links are defined as `MessageTemplateQuickActionValue` objects and have three attributes:
+Call to action buttons for website links are defined as `MessageTemplateQuickAction` objects and have three attributes:
 - `name`   
-Using the call to action buttons, the `name` is `text`.
+The `name` is used to lookup the value in `MessageTemplateWhatsAppBindings`.
 - `text`   
 Using the call to action button for website links, the `text` attribute defines the text that is appended to the URL.   
 For this example, our `text` value is `survey-code`. In the message received by the user, they're presented with a button that links them to the URL `https://www.example.com/survey-code`.
@@ -319,15 +320,15 @@ Using the call to action button for website links, the `payload` attribute isn't
 
 For more information on buttons, see WhatsApp's documentation for [Button Parameter Object](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages#button-parameter-object).
 
-Create one `MessageTemplateImage`, one `MessageTemplateText`, and one `MessageTemplateQuickActionValue` variable. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
+Create one `MessageTemplateImage`, one `MessageTemplateText`, and one `MessageTemplateQuickAction` variable. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your binding's buttons.
 ```csharp
 string templateName = "sample_purchase_feedback";
 string templateLanguage = "en_us";
 var imageUrl = new Uri("https://aka.ms/acsicon1");
 
-var image = new MessageTemplateImage("image", imageUrl);
-var product = new MessageTemplateText("product", "coffee");
-var urlSuffix = new MessageTemplateQuickActionValue(name: "text", text: "survey-code");
+var image = new MessageTemplateImage(name: "image", uri: imageUrl);
+var product = new MessageTemplateText(name: "product", text: "coffee");
+var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "survey-code");
 
 IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
 {
@@ -338,9 +339,10 @@ IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
 var bindings = new MessageTemplateWhatsAppBindings(
     header: new[] { image.Name },
     body: new[] { product.Name },
-    button: new Dictionary<string, MessageTemplateValueWhatsAppSubType>
+    button: new[]
     {
-        { urlSuffix.Name, MessageTemplateValueWhatsAppSubType.Url }
+        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(urlSuffix.Name,
+            MessageTemplateValueWhatsAppSubType.Url)
     });
 
 var purchaseFeedbackTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);

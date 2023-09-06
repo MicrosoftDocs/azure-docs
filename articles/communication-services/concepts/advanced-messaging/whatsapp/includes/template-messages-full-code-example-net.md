@@ -119,8 +119,9 @@ namespace SendTemplateMessages
         {
             string templateName = "sample_movie_ticket_confirmation";
             string templateLanguage = "en_us";
+            var imageUrl = new Uri("https://aka.ms/acsicon1");
 
-            var image = new MessageTemplateImage("image", new Uri("https://aka.ms/acsicon1"));
+            var image = new MessageTemplateImage("image", imageUrl);
             var title = new MessageTemplateText("title", "Contoso");
             var time = new MessageTemplateText("time", "July 1st, 2023 12:30PM");
             var venue = new MessageTemplateText("venue", "Southridge Video");
@@ -194,9 +195,9 @@ namespace SendTemplateMessages
             string templateName = "sample_issue_resolution";
             string templateLanguage = "en_us";
 
-            var name = new MessageTemplateText("name", "Kat");
-            var yes = new MessageTemplateQuickActionValue(name: "Yes", payload: "Kat said yes");
-            var no = new MessageTemplateQuickActionValue(name: "No", payload: "Kat said no");
+            var name = new MessageTemplateText(name: "name", text: "Kat");
+            var yes = new MessageTemplateQuickAction(name: "Yes", payload: "Kat said yes");
+            var no = new MessageTemplateQuickAction(name: "No", payload: "Kat said no");
 
             IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
             {
@@ -206,10 +207,11 @@ namespace SendTemplateMessages
             };
             var bindings = new MessageTemplateWhatsAppBindings(
                 body: new[] { name.Name },
-                button: new Dictionary<string, MessageTemplateValueWhatsAppSubType>
-                {
-                    { yes.Name, MessageTemplateValueWhatsAppSubType.QuickReply },
-                    { no.Name, MessageTemplateValueWhatsAppSubType.QuickReply }
+                button: new[] {
+                    new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(yes.Name,
+                        MessageTemplateValueWhatsAppSubType.QuickReply),
+                    new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(no.Name,
+                        MessageTemplateValueWhatsAppSubType.QuickReply)
                 });
 
             return new MessageTemplate(templateName, templateLanguage, values, bindings);
@@ -221,9 +223,9 @@ namespace SendTemplateMessages
             string templateLanguage = "en_us";
             var imageUrl = new Uri("https://aka.ms/acsicon1");
 
-            var image = new MessageTemplateImage("image", imageUrl);
-            var product = new MessageTemplateText("product", "coffee");
-            var urlSuffix = new MessageTemplateQuickActionValue(name: "text", text: "survey-code");
+            var image = new MessageTemplateImage(name: "image", uri: imageUrl);
+            var product = new MessageTemplateText(name: "product", text: "coffee");
+            var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "survey-code");
 
             IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
             {
@@ -234,9 +236,10 @@ namespace SendTemplateMessages
             var bindings = new MessageTemplateWhatsAppBindings(
                 header: new[] { image.Name },
                 body: new[] { product.Name },
-                button: new Dictionary<string, MessageTemplateValueWhatsAppSubType>
+                button: new[]
                 {
-                    { urlSuffix.Name, MessageTemplateValueWhatsAppSubType.Url }
+                    new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(urlSuffix.Name,
+                        MessageTemplateValueWhatsAppSubType.Url)
                 });
 
             return new MessageTemplate(templateName, templateLanguage, values, bindings);

@@ -88,12 +88,12 @@ var messageTemplate = new MessageTemplate(templateName, templateLanguage, values
 
 ### Templates with quick reply buttons
 
-Use `MessageTemplateQuickActionValue` to define the payload for quick reply buttons.
+Use `MessageTemplateQuickAction` to define the payload for quick reply buttons.
 
-`MessageTemplateQuickActionValue` objects and have the following three attributes.   
- **Specifically for quick reply buttons**, follow these guidelines to create your `MessageTemplateQuickActionValue` object.
+`MessageTemplateQuickAction` objects and have the following three attributes.   
+ **Specifically for quick reply buttons**, follow these guidelines to create your `MessageTemplateQuickAction` object.
 - `name`   
-The `name` is a name used to look up the value in `MessageTemplateWhatsAppBindings`.
+The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`.
 - `text`   
 The `text` attribute isn't used.
 - `payload`   
@@ -116,10 +116,12 @@ Template definition buttons:
 }
 ```
 
+The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
+
 Message template assembly:
 ```csharp
-var yes = new MessageTemplateQuickActionValue(name: "Yes", payload: "User said yes");
-var no = new MessageTemplateQuickActionValue(name: "No", payload: "User said no");
+var yes = new MessageTemplateQuickAction(name: "Yes", payload: "User said yes");
+var no = new MessageTemplateQuickAction(name: "No", payload: "User said no");
 
 IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
 {
@@ -127,28 +129,29 @@ IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
     no
 };
 var bindings = new MessageTemplateWhatsAppBindings(
-    button: new Dictionary<string, MessageTemplateValueWhatsAppSubType>
-    {
-        { yes.Name, MessageTemplateValueWhatsAppSubType.QuickReply },
-        { no.Name, MessageTemplateValueWhatsAppSubType.QuickReply }
+    button: new[] {
+        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(yes.Name,
+            MessageTemplateValueWhatsAppSubType.QuickReply),
+        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(no.Name,
+            MessageTemplateValueWhatsAppSubType.QuickReply)
     });
 
 var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
 ``````
 
-For more information on the payload in Quick Reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
+For more information on the payload in quick reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
 
 #### Example
 - [Use sample template sample_issue_resolution](#use-sample-template-sample_issue_resolution)
 
 ### Templates with call to action buttons
 
-Use `MessageTemplateQuickActionValue` to define the url suffix for call to action buttons.   
+Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons.   
 
-`MessageTemplateQuickActionValue` objects and have the following three attributes.   
- **Specifically for call to action buttons**, follow these guidelines to create your `MessageTemplateQuickActionValue` object.
+`MessageTemplateQuickAction` objects and have the following three attributes.   
+ **Specifically for call to action buttons**, follow these guidelines to create your `MessageTemplateQuickAction` object.
 - `name`   
-The `name` is a name used to look up the value in `MessageTemplateWhatsAppBindings`.
+The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`.
 - `text`   
 The `text` attribute defines the text that is appended to the URL.   
 - `payload`   
@@ -168,18 +171,21 @@ Template definition buttons:
 }
 ```
 
+The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
+
 Message template assembly:
 ```csharp
-var urlSuffix = new MessageTemplateQuickActionValue(name: "text", text: "url-suffix-text");
+var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "url-suffix-text");
 
 IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
 {
     urlSuffix
 };
 var bindings = new MessageTemplateWhatsAppBindings(
-    button: new Dictionary<string, MessageTemplateValueWhatsAppSubType>
+    button: new[]
     {
-        { urlSuffix.Name, MessageTemplateValueWhatsAppSubType.Url }
+        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(urlSuffix.Name,
+            MessageTemplateValueWhatsAppSubType.Url)
     });
 
 var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
