@@ -18,7 +18,7 @@ HDInsight on AKS currently supports Virtual Machines (VMs) from the [Memory Opti
 
 If your use case requires the usage of Memory Optimized VMs, the default recommendation is to use VMs from the families `Eadsv5` or `Easv5`. For use cases requiring the usage of General Purpose VMs, we recommend VMs from the families `Dadsv5` or `Ddsv5`. 
 
-In there is insufficient capacity/quota on the above recommended VM Families, please look for alternatives in the below table that lists all the VM Families currently supported in HDInsight on AKS for cluster creation:
+If there is insufficient capacity/quota on the above recommended VM Families, please look for alternatives in the below table that lists all the VM Families currently supported in HDInsight on AKS for cluster creation:
 
 |	Type	|	VM Family	|	Temp Storage	|	Premium Storage Support	|
 |--|--|--|--|
