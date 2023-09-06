@@ -58,7 +58,7 @@ In extreme circumstances where the original primary region is deemed unrecoverab
 
 Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is copied to the secondary. If the primary region becomes unavailable, the most recent writes may not yet have been copied to the secondary.
 
-When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary region is lost permanently.
+When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary. All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary region is lost permanently.
 
 The new primary region is configured to be locally redundant (LRS) after the failover.
 

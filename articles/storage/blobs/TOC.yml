@@ -203,7 +203,7 @@ items:
           href: immutable-legal-hold-overview.md
     - name: Disaster recovery
       items:
-      - name: Disaster recovery planning
+      - name: Disaster recovery planning with failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Data redundancy
         href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
