@@ -502,26 +502,26 @@ Application access can be blocked because the proper permissions consent operati
 
 - For any Open ID Connect-enabled application that requests permissions, navigating to the application’s sign-in screen performs a user level consent to the application for the signed-in user.
 
-- If you wish to do this programmatically, see [Requesting individual user consent](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
+- If you wish to do this programmatically, see [Requesting individual user consent](../develop/permissions-consent-overview.md#requesting-individual-user-consent).
 
 ### Perform administrator-level consent operation for any application
 
 - For **only applications developed using the V1 application model**, you can force this administrator level consent to occur by adding “**?prompt=admin\_consent**” to the end of an application’s sign-in URL.
 
-- For **any application developed using the V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
+- For **any application developed using the V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/permissions-consent-overview.md#using-the-admin-consent-endpoint).
 
 ### Perform administrator-level consent for a single-tenant application
 
 - For **single-tenant applications** that request permissions (like those you're developing or own in your organization), you can perform an **administrative-level consent** operation on behalf of all users by signing in as a Global Administrator and clicking on the **Grant permissions** button at the top of the **Application Registry -&gt; All Applications -&gt; Select an App -&gt; Required Permissions** pane.
 
-- For **any application developed using the V1 or V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
+- For **any application developed using the V1 or V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/permissions-consent-overview.md#using-the-admin-consent-endpoint).
 
 ### Perform administrator-level consent for a multi-tenant application
 
 - For **multi-tenant applications** that request permissions (like an application a third party, or Microsoft, develops), you can perform an **administrative-level consent** operation. Sign in as a Global Administrator and clicking on the **Grant permissions** button under the **Enterprise Applications -&gt; All Applications -&gt; Select an App -&gt; Permissions** pane (available soon).
 
-- You can also enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
+- You can also enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](../develop/permissions-consent-overview.md#using-the-admin-consent-endpoint).
 
 ## Next steps
 
-[Using the admin consent endpoint](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)
+[Using the admin consent endpoint](../develop/permissions-consent-overview.md#using-the-admin-consent-endpoint)

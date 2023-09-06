@@ -67,7 +67,7 @@ The HTTP triggered function returns a type of [IActionResult] or `Task<IActionRe
 
 # [Isolated process](#tab/isolated-process)
 
-The HTTP triggered function returns an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object or a `Task<HttpResponseData>`. If the app uses [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview), it could also use [IActionResult], `Task<IActionResult>`, [HttpResponse], or `Task<HttpResponse>`.
+The HTTP triggered function returns an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object or a `Task<HttpResponseData>`. If the app uses [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration), it could also use [IActionResult], `Task<IActionResult>`, [HttpResponse], or `Task<HttpResponse>`.
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 [HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse

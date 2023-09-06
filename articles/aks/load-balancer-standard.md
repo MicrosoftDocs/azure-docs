@@ -421,7 +421,8 @@ spec:
 This example updates the rule to allow inbound external traffic only from the `MY_EXTERNAL_IP_RANGE` range. If you replace `MY_EXTERNAL_IP_RANGE` with the internal subnet IP address, traffic is restricted to only cluster internal IPs. If traffic is restricted to cluster internal IPs, clients outside your Kubernetes cluster are unable to access the load balancer.
 
 > [!NOTE]
-> Inbound, external traffic flows from the load balancer to the virtual network for your AKS cluster. The virtual network has a network security group (NSG) which allows all inbound traffic from the load balancer. This NSG uses a [service tag][service-tags] of type *LoadBalancer* to allow traffic from the load balancer.
+> * Inbound, external traffic flows from the load balancer to the virtual network for your AKS cluster. The virtual network has a network security group (NSG) which allows all inbound traffic from the load balancer. This NSG uses a [service tag][service-tags] of type *LoadBalancer* to allow traffic from the load balancer.
+> * Pod CIDR should be added to loadBalancerSourceRanges if there are Pods needing to access the service's LoadBalancer IP for clusters with version v1.25 or above.
 
 ## Maintain the client's IP on inbound connections
 
@@ -454,6 +455,8 @@ The following annotations are supported for Kubernetes services with type `LoadB
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group            | Specify the resource group of load balancer public IPs that aren't in the same resource group as the cluster infrastructure (node resource group).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags][service-tags] separated by commas.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time in minutes for TCP connection idle timeouts to occur on the load balancer. The default and minimum value is 4. The maximum value is 30. The value must be an integer.
+| `service.beta.kubernetes.io/azure-load-balancer-ipv4`             | IPv4 address                          | Specify the IPv4 address to assign to the load balancer.
+| `service.beta.kubernetes.io/azure-load-balancer-ipv6`             | IPv6 address                          | Specify the IPv6 address to assign to the load balancer.
 
 > [!NOTE]
 > `service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` was deprecated in Kubernetes 1.18 and removed in 1.20.

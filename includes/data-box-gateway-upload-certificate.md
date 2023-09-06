@@ -18,5 +18,9 @@ A proper SSL certificate ensures that you're sending encrypted information to th
      The following example shows the usage of this cmdlet:
 
      ```
-     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username"
+     $pwd="<CertificatePassword>"
+     $password=ConvertTo-SecureString -String $pwd -AsPlainText -Force
+     $cred=New-Object System.Management.Automation.PSCredential('Administrator',$password)
+
+     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath \\myfileshare\certificates\mycert.pfx -CertificatePassword $cred -Credential "Username"
      ```

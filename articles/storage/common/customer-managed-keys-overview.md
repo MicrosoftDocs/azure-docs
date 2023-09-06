@@ -3,12 +3,12 @@ title: Customer-managed keys for account encryption
 titleSuffix: Azure Storage
 description: You can use your own encryption key to protect the data in your storage account. When you specify a customer-managed key, that key is used to protect and control access to the key that encrypts your data. Customer-managed keys offer greater flexibility to manage access controls.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.date: 05/11/2023
 ms.topic: conceptual
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
@@ -141,7 +141,7 @@ To revoke access to customer-managed keys, use [PowerShell](./customer-managed-k
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
-- [Get Blob Metadata](/rest/api/storageservices/get-bl- ob-metadata)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Snapshot Blob](/rest/api/storageservices/snapshot-blob), when called with the `x-ms-meta-name` request header
 - [Copy Blob](/rest/api/storageservices/copy-blob)

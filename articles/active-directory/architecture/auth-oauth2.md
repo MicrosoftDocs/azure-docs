@@ -42,7 +42,6 @@ Rich client and modern app scenarios and RESTful web API access.
 
 * [Integrating applications with Azure AD](../saas-apps/tutorial-list.md) 
 
-* [OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform](../develop/active-directory-v2-protocols.md) 
+* [OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform](../develop/v2-protocols.md) 
 
 * [Application types and OAuth2](../develop/v2-app-types.md) 
-

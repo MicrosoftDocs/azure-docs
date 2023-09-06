@@ -84,10 +84,10 @@ If you're not going to continue to use this application, you can delete the tena
 
 - Change or add other domain names, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md)
 
-- Add users, see [Add or delete a new user](add-users-azure-active-directory.md)
+- Add users, see [Add or delete a new user](./add-users.md)
 
-- Add groups and members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+- Add groups and members, see [Create a basic group and add members](./how-to-manage-groups.md)
 
 - Learn about [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and [Conditional Access](../conditional-access/overview.md) to help manage your organization's application and resource access.
 
-- Learn about Azure AD, including [basic licensing information, terminology, and associated features](active-directory-whatis.md).
+- Learn about Azure AD, including [basic licensing information, terminology, and associated features](./whatis.md).

@@ -27,6 +27,9 @@ Use cross-tenant access settings to manage how you collaborate with other Azure 
 
 Learn more about using cross-tenant access settings to [manage B2B direct connect](b2b-direct-connect-overview.md#managing-cross-tenant-access-for-b2b-direct-connect).
 
+> [!IMPORTANT]
+> Microsoft is beginning to move customers using cross-tenant access settings to a new storage model on August 30, 2023. You may notice an entry in your audit logs informing you that your cross-tenant access settings were updated as our automated task migrates your settings. For a brief window while the migration processes, you will be unable to make changes to your settings. If you are unable to make a change, you should wait a few moments and try the change again. Once the migration completes, [you will no longer be capped with 25kb of storage space](/azure/active-directory/external-identities/faq#how-many-organizations-can-i-add-in-cross-tenant-access-settings-) and there will be no more limits on the number of partners you can add.
+
 ## Before you begin
 
 - Review the [Important considerations](cross-tenant-access-overview.md#important-considerations) section in the [cross-tenant access overview](cross-tenant-access-overview.md) before configuring your cross-tenant access settings.
@@ -42,7 +45,7 @@ Learn more about using cross-tenant access settings to [manage B2B direct connec
 
  Default cross-tenant access settings apply to all external tenants for which you haven't created organization-specific customized settings. If you want to modify the Azure AD-provided default settings, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or an account with a [custom role](cross-tenant-access-overview.md#custom-roles-for-managing-cross-tenant-access-settings) you've created. Then open the **Azure Active Directory** service.
 1. Select **External Identities**, and then select **Cross-tenant access settings**.
 1. Select the **Default settings** tab and review the summary page.
 
@@ -130,6 +133,9 @@ With inbound settings, you select which external users and groups will be able t
    - In the **Add other users and groups** pane, type the user object ID or the group object ID in the search box.
    - In the menu next to the search box, choose either **user** or **group**.
    - Select **Add**.
+
+   > [!NOTE]
+   > You cannot target users or groups in inbound default settings.
 
    ![Screenshot showing adding external users for inbound b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/b2b-direct-connect-inbound-external-users-groups-add.png)
 

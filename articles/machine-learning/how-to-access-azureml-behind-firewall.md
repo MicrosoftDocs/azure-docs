@@ -20,7 +20,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 Azure Machine Learning requires access to servers and services on the public internet. When implementing network isolation, you need to understand what access is required and how to enable it.
 
 > [!NOTE]
-> The information in this article applies to Azure Machine Learning workspace configured with a private endpoint.
+> The information in this article applies to Azure Machine Learning workspace configured to use an _Azure Virtual Network_. When using a _managed virtual network_, the required inbound and outbound configuration for the workspace is automatically applied. For more information, see [Azure Machine Learning managed virtual network](how-to-managed-network.md).
 
 ## Common terms and information
 
@@ -100,16 +100,7 @@ __Outbound traffic__
 
 __To allow installation of Python packages for training and deployment__, allow __outbound__ traffic to the following host names:
 
-> [!NOTE]
-> This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
-
-| __Host name__ | __Purpose__ |
-| ---- | ---- |
-| `anaconda.com`<br>`*.anaconda.com` | Used to install default packages. |
-| `*.anaconda.org` | Used to get repo data. |
-| `pypi.org` | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow `*.pythonhosted.org`. |
-| `*pytorch.org` | Used by some examples based on PyTorch. |
-| `*.tensorflow.org` | Used by some examples based on Tensorflow. |
+[!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
 
 ## Scenario: Install RStudio on compute instance
 

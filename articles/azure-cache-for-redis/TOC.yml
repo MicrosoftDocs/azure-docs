@@ -140,10 +140,10 @@
       href: cache-how-to-premium-persistence.md
     - name: Add more replicas
       href: cache-how-to-multi-replicas.md
-    - name: Secure your cache with a virtual network
-      href: cache-how-to-premium-vnet.md
-    - name: Connect privately to a cache
+    - name: Connect to cache using Private Link
       href: cache-private-link.md
+    - name: Migrate from VNet injection to Private Link
+      href: cache-vnet-migration.md
     - name: Enable zone redundancy 
       href: cache-how-to-zone-redundancy.md
     - name: Set up passive geo-replication
@@ -154,8 +154,8 @@
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
-    - name: Migrate from VNet injection to Private Link
-      href: cache-vnet-migration.md
+    - name: Secure your cache with a virtual network
+      href: cache-how-to-premium-vnet.md
     - name: Planning FAQs
       href: cache-planning-faq.yml
   - name: Build

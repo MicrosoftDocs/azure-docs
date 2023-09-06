@@ -200,6 +200,6 @@ Once you create your claims mapping policy, the next step is to upload it to you
 ## Next steps
 
 - To learn how to [create and register a custom extension and API endpoint](custom-extension-get-started.md).
-- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
-- To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- To learn more about extension attributes, see [Using directory extension attributes in claims](active-directory-schema-extensions.md).
+- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant](./saml-claims-customization.md)
+- To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](./saml-claims-customization.md)
+- To learn more about extension attributes, see [Using directory extension attributes in claims](./schema-extensions.md).
