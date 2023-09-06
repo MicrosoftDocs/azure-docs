@@ -327,7 +327,7 @@ Transition the billing ownership from your old agreement to your new one.
 - If you're moving from the Microsoft Online Subscription Agreement (buying Azure online), watch the [Transition the billing for your Azure subscriptions from MOSA to MCA](https://www.youtube.com/watch?v=gfiUI2YLsgc&ab_channel=AzureCostManagement) video. For more information, see the [step-by-step transition guide](../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
 
 > [!IMPORTANT]
-> - To sign the MCA, you need billing account owner access. If you don't have access, you can either contact an existing billing account owner or, if you are a global admin in the tenant, you can elevate your access and give yourself billing account ownership. For more information, see [Elevate access to manage billing accounts]../manage/elevate-access-global-admin.md).
+> - To sign the MCA, you need billing account owner access. If you don't have access, you can either contact an existing billing account owner or, if you are a global admin in the tenant, you can elevate your access and give yourself billing account ownership. For more information, see [Elevate access to manage billing accounts](../manage/elevate-access-global-admin.md).
 > - If you're currently a PAYG user and you have overdue invoices for the subscriptions that you're migrating, you must pay the invoice or create a support ticket through the Azure portal.
 
 For more information, see [Cost Management + Billing frequently asked questions](../cost-management-billing-faq.yml).
