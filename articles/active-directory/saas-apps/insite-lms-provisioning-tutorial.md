@@ -64,7 +64,7 @@ The Azure AD provisioning service allows you to scope who is provisioned based o
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
+* If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to Insite LMS
@@ -102,7 +102,7 @@ enter your Insite LMS **Tenant URL** as `https://api.insitelms.net/scim` and ent
 
 1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Insite LMS**.
 
-1. Review the user attributes that are synchronized from Azure AD to Insite LMS in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Insite LMS for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Insite LMS API supports filtering users based on that attribute. Select **Save** to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Insite LMS in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Insite LMS for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Insite LMS API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Insite LMS|
    |---|---|---|---|
