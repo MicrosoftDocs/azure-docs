@@ -36,6 +36,9 @@ Run an assessment as follows:
 
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Web apps on Azure**.
+
+   :::image type="content" source="./media/tutorial-assess-webapps/hub-assess-webapps.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
+
 3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Web apps to App Service**. 
 
 4. Select **Edit** to review the assessment properties.
