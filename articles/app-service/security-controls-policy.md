@@ -5,6 +5,8 @@ ms.date: 08/25/2023
 ms.topic: sample
 ms.service: app-service
 ms.custom: "UpdateFrequency3, subject-policy-compliancecontrols"
+author: cephalin
+ms.author: cephalin
 ---
 # Azure Policy Regulatory Compliance controls for Azure App Service
 

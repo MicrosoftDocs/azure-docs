@@ -122,7 +122,6 @@ To test the sensitive data threat detection feature by uploading test data that 
 
     > [!NOTE]
     > If you enable the feature and then add sensitive data on the days after enablement, the next scan for that newly added data will occur within the next 7-day scanning cycle, depending on the day of the week the data was added.
-
 1. Change access level:
 
     1. Return to the Containers blade.
@@ -199,9 +198,7 @@ Learn more about:
 
 - [Threat response](defender-for-storage-threats-alerts.md)
 - [Customizing data sensitivity settings](defender-for-storage-data-sensitivity.md)
+
 - [Threat detection and alerts](defender-for-storage-threats-alerts.md)
-
-
-
 
 
