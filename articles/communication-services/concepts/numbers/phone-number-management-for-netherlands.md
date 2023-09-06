@@ -46,9 +46,8 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 |Netherlands|
-|United States*|
+|United States|
 
-\*Alphanumeric Sender ID only
 
 ## Find information about other countries/regions
 
