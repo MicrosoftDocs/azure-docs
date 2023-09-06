@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: overview
-ms.date: 08/01/2023
+ms.date: 09/06/2023
 ms.custom: template-overview
 ---
 
@@ -31,7 +31,9 @@ Azure Communications Gateway acts as the edge of your network, ensuring complian
 
 To ensure availability, Azure Communications Gateway is deployed into two Azure Regions within a given Geography. It supports both active-active and primary-backup geographic redundancy models to fit with your network design.
 
-Connectivity between your network and Azure Communications Gateway must meet the Microsoft Teams _Network Connectivity Specification_. Azure Communications Gateway supports Microsoft Azure Peering Service (MAPS) for connectivity to on-premises environments, in line with this specification.
+Connectivity between your network and Azure Communications Gateway must meet the Microsoft Teams _Network Connectivity Specification_. You can achieve this using one of the following connectivity models.
+
+[!INCLUDE [communications-gateway-maps-or-expressroute](includes/communications-gateway-maps-or-expressroute.md)]
 
 The sites in your network must have cross-connects between them. You must also set up your routing so that each site in your deployment can route to both Azure Regions.
 
