@@ -248,14 +248,17 @@ Alternatively, you can perform a multi-phase upgrade.
 4. Upgrade service to a new version that
     - performs read operations on the V2 collection only;
     - still performs each add, update and delete operation on first V1 and then V2 collections to maintain the option of rolling back to V1.
-5. Upgrade service to a new version that
+5. Comprehensively test the service and confirm it is working as expected.
+    - If you missed any value access operation that wasn't updated to work on both V1 and V2 collection, you may notice missing data.
+    - If any data is missing roll back to Step 1, remove the V2 collection and repeat the process.
+6. Upgrade service to a new version that
     - performs all operations on the V2 collection only;
     - going back to V1 is no longer possible with a service rollback and would require rolling forward with reversed steps 2-4.
-6. Upgrade service a new version that
+7. Upgrade service a new version that
     - [removes the V1 collection](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.removeasync).
-7. Wait for log truncation.
+8. Wait for log truncation.
     - By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
-8. Upgrade service to a new version that
+9. Upgrade service to a new version that
     - no longer has the V1 data contracts included in the service code package.
 
 ## Next steps
