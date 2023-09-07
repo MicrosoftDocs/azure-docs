@@ -148,7 +148,7 @@ When using the API, pass the `filter` parameter in each API request. For example
 
 ## Schedule automatic index refreshes
 
-To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. to enable an automatic index refresh:
+To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
 
 1. [Add a data source](../quickstart.md) using Azure OpenAI studio.
 1. Under **Select or add data source** select **Indexer schedule** and choose the refresh cadence you would like to apply.
@@ -183,7 +183,7 @@ Use the following sections to help you configure Azure OpenAI on your data for o
 
 ### System message
 
-Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 200 tokens. 
+Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 400 tokens. 
 
 For example, if you're creating a chatbot where the data consists of transcriptions of quarterly financial earnings calls, you might use the following system message:
 
