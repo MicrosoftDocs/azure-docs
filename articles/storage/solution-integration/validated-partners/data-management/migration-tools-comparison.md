@@ -135,7 +135,7 @@ The following comparison matrix shows basic functionality of different tools tha
 ### Komprise Elastic Data Migration
 
 - Project/directory based migrations
-- Migration pre-checks with analytics
+- Migration prechecks with analytics
 - Migration planning with analytics
 - Assessment / reporting: File types, file size, project based
 - Assessment / reporting: Custom metadata-based searches
