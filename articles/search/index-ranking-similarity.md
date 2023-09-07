@@ -13,7 +13,7 @@ ms.date: 09/07/2023
 
 This article provides instructions for configuring the BM25 relevance scoring algorithm used by Azure Cognitive Search for full text search queries. It also explains how to enable it on older search services.
 
-BM25 applies to strings (text) on fields having a "searchable" attribution. At query time, it calculates an **@search.score** for each match in a given query. The results are then ranked by their search score, with the topmost results returned in the query response.
+BM25 applies to strings (text) on fields having a "searchable" attribution. At query time, it calculates a **@searchScore** for each match in a given query. The results are then ranked by their search score, with the topmost results returned in the query response.
 
 BM25 has defaults for weighting term frequency and document length. You can customize these properties if the defaults aren't suited to your content. Configuration changes are scoped to individual indexes, which means you can adjust relevance scoring based on the characteristics of each index.
 
