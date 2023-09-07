@@ -17,11 +17,6 @@ The FHIR service supports $import operation that allows you to import data into 
   
 * Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API. It also allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
 
-> [!IMPORTANT]
-> Incremental mode capability is currently in preview and offered free of charge. With General Availability, use of Incremental import will incur charges.
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 In this document we go over the three steps used in configuring import settings on the FHIR service:
 
  1. Enable managed identity on the FHIR service.

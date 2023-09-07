@@ -40,7 +40,7 @@ The following decision charts highlight the features of each **Document Intellig
 | Document type | Data to extract | Your best solution |
 | -----------------|--------------|-------------------|
 |**U.S. W-2 tax form**|You want to extract key information such as salary, wages, and taxes withheld.|[**W-2 model**](concept-w2.md)|
-|**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member ID, prescription coverage, and group number.|[**Health insurance card model**](./concept-insurance-card.md)|
+|**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member ID, prescription coverage, and group number.|[**Health insurance card model**](./concept-health-insurance-card.md)|
 |**Invoice** or billing statement.|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
  |**Receipt**, voucher, or single-page hotel receipt. |You want to extract key information such as merchant name, transaction date, and transaction total.|[**Receipt model**](concept-receipt.md)|
 |**Identity document (ID)** like a U.S. driver's license or international passport. |You want to extract key information such as first name, last name, date of birth, address, and signature. | [**Identity document (ID) model**](concept-id-document.md)|

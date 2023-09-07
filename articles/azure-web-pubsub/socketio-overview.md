@@ -1,7 +1,7 @@
 ---
 title: Overview Socket.IO on Azure
 description: Get an overview of Azure's support for the open-source Socket.IO library.
-keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: kevinguo-ed
 ms.author: kevinguo
 ms.date: 07/27/2023

@@ -6,6 +6,8 @@ ms.topic: article
 ms.date: 02/03/2023
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 

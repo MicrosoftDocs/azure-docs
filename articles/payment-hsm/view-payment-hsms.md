@@ -6,7 +6,7 @@ ms.service: payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
 ms.date: 08/09/2023
 ---
 

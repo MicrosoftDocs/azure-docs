@@ -44,14 +44,6 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 | Australia |
-|Canada|
-|Denmark|
-|Ireland|
-|Italy|
-|Puerto Rico|
-|Sweden|
-|United Kingdom|
-|United States|
 
 ## Find information about other countries/regions
 

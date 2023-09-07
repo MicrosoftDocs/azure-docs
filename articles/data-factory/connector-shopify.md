@@ -11,7 +11,7 @@ ms.custom: synapse
 ms.date: 01/18/2023
 ---
 
-# Copy data from Shopify using Azure Data Factoryor Synapse Analytics (Preview)
+# Copy data from Shopify using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Shopify. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.

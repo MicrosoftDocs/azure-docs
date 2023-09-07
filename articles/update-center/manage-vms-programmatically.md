@@ -26,7 +26,7 @@ POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers
 
 # [Azure CLI](#tab/cli)
 
-To specify the POST request, you can use the Azure CLI [az vm assess-patches](https://learn.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-assess-patches) command.
+To specify the POST request, you can use the Azure CLI [az vm assess-patches](/cli/azure/vm#az-vm-assess-patches) command.
 
 ```azurecli
 az vm assess-patches -g MyResourceGroup -n MyVm
@@ -35,7 +35,7 @@ az vm assess-patches -g MyResourceGroup -n MyVm
 
 # [Azure PowerShell](#tab/powershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzVMPatchAssessment](https://learn.microsoft.com/powershell/module/az.compute/invoke-azvmpatchassessment?view=azps-9.5.0) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzVMPatchAssessment](/powershell/module/az.compute/invoke-azvmpatchassessment) cmdlet.
 
 ```azurepowershell
 Invoke-AzVMPatchAssessment -ResourceGroupName "myRG" -VMName "myVM"
@@ -100,7 +100,7 @@ POST on 'subscriptions/{subscriptionId}/resourceGroups/acmedemo/providers/Micros
 
 # [Azure CLI](#tab/azurecli)
 
-To specify the POST request, you can use the Azure CLI [az vm install-patches](https://learn.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-install-patches) command.
+To specify the POST request, you can use the Azure CLI [az vm install-patches](/cli/azure/vm#az-vm-install-patches) command.
 
 ```azurecli
 az vm install-patches -g MyResourceGroup -n MyVm --maximum-duration PT4H --reboot-setting IfRequired --classifications-to-include-linux Critical

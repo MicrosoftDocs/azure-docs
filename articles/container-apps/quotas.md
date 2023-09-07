@@ -21,7 +21,7 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 | Feature | Scope | Default | Is Configurable | Remarks |
 |--|--|--|--|--|
 | Environments | Region |  Up to 15 | Yes | Limit up to 15 environments per subscription, per region. |
-| Environments | Global | Up to 20 | Yes | Limit up to 20 environments per subscription accross all regions |
+| Environments | Global | Up to 20 | Yes | Limit up to 20 environments per subscription across all regions |
 | Container Apps | Environment | Unlimited | n/a | |
 | Revisions | Container app | 100 | No | |
 | Replicas | Revision | 300 | Yes | |
