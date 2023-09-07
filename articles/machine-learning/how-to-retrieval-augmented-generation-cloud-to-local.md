@@ -16,9 +16,11 @@ ms.custom: prompt-flow
 
 # Retrieval Augmented Generation (RAG) from cloud to local - Bring Your Own Data QnA (preview)
 
-In this article, you'll learn how to transition your RAG created flows from cloud in your Azure Machine Learning workspace to local using the Prompt Flow VS Code extension or CLI.
+In this article, you'll learn how to transition your RAG created flows from cloud in your Azure Machine Learning workspace to local using the Prompt flow VS Code extension or CLI.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+> [!IMPORTANT]
+> Prompt flow and Retrieval Augmented Generation (RAG) is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -106,20 +108,20 @@ Create a connection yaml file "AzureOpenAIConnection.yaml", then run the connect
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/visual-editor.png" alt-text="Screenshot of the flow dag yaml file with the visual editor highlighted in VS Code." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/visual-editor.png":::
 
    > [!NOTE]
-   > When legacy tools switching to code first mode, "not found" error may occur, please refer to [Vector DB/Faiss Index/Vector Index Lookup tool](Tool_Reminder.md) rename reminder
+   > When legacy tools switching to code first mode, "not found" error may occur, refer to [Vector DB/Faiss Index/Vector Index Lookup tool](Tool_Reminder.md) rename reminder
 
-2. Jump to the "embed_the_question" node, make sure the connection is the local connection you have created, and double check the deployment_name which is the model you use here for the embedding.
+2. Jump to the "embed_the_question" node, make sure the connection is the local connection you have created, and double check the deployment_name, which is the model you use here for the embedding.
 
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/embed-question.png" alt-text="Screenshot of embed the question node in VS Code." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/embed-question.png":::
 
 3. Jump to the "search_question_from_indexed_docs" node, which consumes the Vector Index Lookup Tool in this flow. Check the path of your indexed docs you specify. All public accessible path is supported, such as: `https://github.com/Azure/azureml-assets/tree/main/assets/promptflow/data/faiss-index-lookup/faiss_index_sample`.
 
    > [!NOTE]
-   > If your indexed docs is the data asset in your workspace (the path in your workspace is as the screenshot below), the local consume of it need Azure authentication.
+   > If your indexed docs is the data asset in your workspace, the local consume of it need Azure authentication.
    >
    > Before run the flow, make sure you have `az login` and connect to the Azure Machine Learning workspace.
    >
-   > More detail you can refer to [Connect to Azure Machine Learning workspace](integrate_with_llmapp-devops.md#connect-to-azure-machine-learning-workspace)
+   > More detail you can refer to [Connect to Azure Machine Learning workspace](/prompt-flow/how-to-integrate-with-llm-app-devops.md#connect-to-azure-machine-learning-workspace)
 
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/search-blob.png" alt-text="Screenshot of search question from indexed docs node in VS Code showing the inputs." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/search-blob.png":::
 
@@ -151,7 +153,7 @@ Scroll up to the top of the flow, fill in the "Inputs" value of this single run 
 
 :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/flow-run.png" alt-text="Screenshot of the flow dag YAML file showing inputs and highlighting value of the question input and run button." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/flow-run.png":::
 
-For batch run and evaluation, you can refer to [Submit flow run to Azure Machine Learning workspace](integrate_with_llmapp-devops.md#submit-flow-run-to-azure-machine-learning-workspace)
+For batch run and evaluation, you can refer to [Submit flow run to Azure Machine Learning workspace](/prompt-flow/how-to-integrate-with-llm-app-devops.md#submit-flow-run-to-azure-machine-learning-workspace)
 
 # [Azure CLI](#tab/cli)
 
