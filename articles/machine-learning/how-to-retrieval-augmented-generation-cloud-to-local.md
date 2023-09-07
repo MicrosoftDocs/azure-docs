@@ -14,7 +14,7 @@ ms.custom: prompt-flow
 
 ---
 
-# Retrieval Augmented Generation (RAG) from cloud to local - Bring Your Own Data QnA (preview)
+# RAG from cloud to local - Bring Your Own Data QnA (preview)
 
 In this article, you'll learn how to transition your RAG created flows from cloud in your Azure Machine Learning workspace to local using the Prompt flow VS Code extension or CLI.
 
