@@ -281,7 +281,7 @@
         - name: Use specialized image
           href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
         - name: Use Azure Marketplace image
-          href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
+          href: azure-stack-edge-create-a-vm-from-azure-marketplace.md 
       - name: Deploy
         items:
         - name: VMs - Azure portal (preview)
