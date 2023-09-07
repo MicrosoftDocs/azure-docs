@@ -914,7 +914,7 @@ How to determine whether you're affected:
     
     "The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. The remote certificate is invalid according to the validation procedure."
     
-    The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
+    The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the check server certificate link on the machine where the self-hosted IR is installed, and then view the server certificate information.
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png" alt-text="Screenshot of the check server certificate pane of the Azure Data Factory service.":::
     

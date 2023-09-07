@@ -30,9 +30,6 @@
       href: data-factory-copy-activity-tutorial-using-rest-api.md
     - name: .NET API
       href: data-factory-copy-activity-tutorial-using-dotnet-api.md
-  - name: Create a pipeline to transform data
-    href: data-factory-build-your-first-pipeline.md
-    items: 
     - name: Azure portal
       href: data-factory-build-your-first-pipeline-using-editor.md
     - name: Visual Studio
