@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 *Platform metrics* are measurements over time collected from Azure resources and stored by [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). You can use the Azure Monitor Metrics Explorer to analyze metrics in the Azure portal, or query the Azure Monitor REST API for metrics to analyze with third-party monitoring tools.
 
-Azure Private 5G Core (AP5GC) platform metrics are collected per site and allow you to monitor key statistics relating to your deployment. See [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftkubernetesconfigurationextensions) for the available AP5GC metrics. AP5GC metrics are included under *microsoft.kubernetesconfiguration/extensions*.
+Azure Private 5G Core (AP5GC) platform metrics are collected per site and allow you to monitor key statistics relating to your deployment. See [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftmobilenetworkpacketcorecontrolplanes) for the available AP5GC metrics. AP5GC metrics are included under *microsoft.mobilnetwork/packetcorecontrolplanes* and *microsoft.mobilnetwork/packetcorecontrolplanes/packetcoredataplanes*.
 
 Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
 
@@ -61,7 +61,7 @@ In addition to the monitoring functionalities offered by the Azure portal, you c
 > [!NOTE]
 > Exporting metrics to another application for analysis or storage may incur extra costs. Check the pricing information for the applications you want to use.
 
-See [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftkubernetesconfigurationextensions) for the AP5GC metrics available for retrieval. AP5GC metrics are included under *microsoft.kubernetesconfiguration/extensions*. You can find more information on using the Azure Monitor REST API to construct queries and retrieve metrics at [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).
+See [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftmobilenetworkpacketcorecontrolplanes) for the AP5GC metrics available for retrieval. AP5GC metrics are included under *microsoft.mobilenetwork/packetcorecontrolplanes* and *microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes*. You can find more information on using the Azure Monitor REST API to construct queries and retrieve metrics at [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).
 
 ## Next steps
 
