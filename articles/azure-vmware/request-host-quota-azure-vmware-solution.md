@@ -17,7 +17,7 @@ In this how-to, you'll request host quota/capacity for [Azure VMware Solution](i
 If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
 >[!IMPORTANT]
->It can take up to five business days to allocate the hosts, depending on the number requested.  So request what is needed for provisioning, so you don't need to request a quota increase as often.
+>It can take up to five business days to allocate the hosts, depending on the number requested.
 
 ## Eligibility criteria
 
@@ -30,24 +30,22 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
 ## Request host quota for EA and MCA customers
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
-   - **Issue type:** Technical
+   - **Issue type:** Service and subcscription limits (quotas)
    - **Subscription:** Select your subscription
-   - **Service:** All services > Azure VMware Solution
-   - **Resource:** General question 
-   - **Summary:** Need capacity
-   - **Problem type:** Capacity Management Issues
-   - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
+   - **Quota type:** Azure VMware Solution
 
-1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
- 
-   - Region Name
-   - Number of hosts
-   - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
+1. Got to **Next**. On the **Additional details** tab, under **Request details** > Enter details form:
+
+   - Region
+   - SKU
+   - Number of nodes
+     
+   Select **Save and continue**.
 
    >[!NOTE]
    >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
 
-1. Select **Review + Create** to submit the request.
+1. Select **Next** > Under **Review + Create** > validate and click **Create to submit the request.
 
 
 ## Request host quota for CSP customers 
@@ -82,25 +80,22 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    1. Expand customer details and select **Microsoft Azure Management Portal**.
    
    1. In the Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
-      - **Issue type:** Technical
+      - **Issue type:** Service and subcscription limits (quotas)
       - **Subscription:** Select your subscription
-      - **Service:** All services > Azure VMware Solution
-      - **Resource:** General question 
-      - **Summary:** Need capacity
-      - **Problem type:** Capacity Management Issues
-      - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
-   
-   1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
-   
-      - Region Name
-      - Number of hosts
-      - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
-      - Is intended to host multiple customers?
-   
+      - **Quota type:** Azure VMware Solution
+
+   1. Got to **Next**. On the **Additional details** tab, under **Request details** > Enter details form:
+
+      - Region
+      - SKU
+      - Number of nodes
+      
+      Select **Save and continue**.
+
       >[!NOTE]
       >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
-   
-   1. Select **Review + Create** to submit the request.
+
+   1. Select **Next** > Under **Review + Create** > validate and click **Create** to submit the request.
 
 
 ## Next steps

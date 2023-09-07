@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management
-description: Frequently asked questions (FAQs) about Microsoft Permissions Management.
+description: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -153,11 +153,11 @@ Permissions Management is $125 per resources/year ($10.40 per resource/month). P
 
 ## Do I need to pay for all resources?
 
-Although Permissions Management supports all resources, Microsoft only requires licenses for certain resources per cloud. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
+Although Permissions Management supports all resources, Microsoft only requires licenses for billable resources per cloud environment. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
 
-## How do I figure out how many resources I have? 
+## How do I calculate the number of billable resources I have? 
 
-To find out how many resources you have across your multicloud infrastructure, select Settings (gear icon) and view the Billable Resources tab in Permissions Management. 
+To calculate the billable resources you have across your multicloud infrastructure, you must first activate a [45-day free trial](https://aka.ms/TryPermissionsManagement) of Permissions Management or [purchase a paid license](https://aka.ms/BuyPermissionsManagement). In Permissions Management, select **Settings** (gear icon), then click the **Billable Resources** tab. View the amount of billable resources in the **Total Number of Licenses** column.
 
 ## What do I do if I’m using the legacy version of the CloudKnox service?  
 
