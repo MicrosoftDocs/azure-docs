@@ -109,7 +109,7 @@ sections:
       - question: |
           Where can I post questions and see answers to other common questions? 
         answer: |  
-          - We recommend posting questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/387/azure-openai)
+          - We recommend posting questions on [Microsoft Q&A](/answers/tags/387/azure-openai)
           - Alternatively, you can post questions on [Stack Overflow](https://stackoverflow.com/search?q=azure+openai)
       - question: |
           Where do I go for Azure OpenAI customer support?
