@@ -36,27 +36,32 @@ Designing for disaster recovery has the following main concerns:
 
 - [Data recovery and replication](#data-recovery-and-replication) uses backups and replication to restore lost data. 
 
-- [Process recovery]() recovers applications and deploys code to recover from outages. 
+- [Building resilient applications](#building-resilient-applications) requires proactive planning to recover from outages. 
 
 ### Data recovery and replication 
 
-Replication duplicates data in multiple data store replicas. Unlike backup, which creates long-lived, read-only snapshots of data to use for recovery, replication creates real-time or near-real-time copies of live data. The goal of replication is to keep replicas synchronized with as little latency as possible while maintaining application responsiveness.  
+During a disaster, there are two methods of restoring data:
 
-Different replication designs place different priorities on data consistency, performance, and cost. 
 
-- *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. 
+- **Data Backup** restores data to a specific point in time.   By using backup, you can provide simple, secure, and cost-effective solutions to back up and recover your data to the Microsoft Azure cloud. Use [Azure Backup](/azure/backup/backup-overview) to create long-lived, read-only data snapshots for use in recovery.  
 
-- *Passive* replication does synchronization in the background, removing replication as a constraint on application performance, but increasing RPO. 
+- **Data Replication** creates data replicas with minimal data loss. With replication, you can create real-time or near-real-time copies of live data in multiple data store replicas. The goal of replication is to keep replicas synchronized with as little latency as possible while maintaining application responsiveness.  Most fully featured database systems and other data-storage products and services include some kind of replication as a tightly integrated feature, due to its functional and performance requirements.  Some Azure services, such as Azure Blob Storage, utilize [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) to keep your data resilient.
 
-- *Active-active* or *multimaster* replication enables using multiple replicas simultaneously, enabling load balancing at the cost of complicating data consistency. 
+    Different replication designs place different priorities on data consistency, performance, and cost. 
+    
+    - *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. 
+    
+    - *Passive* replication does synchronization in the background, removing replication as a constraint on application performance, but increasing RPO. 
+    
+    - *Active-active* or *multimaster* replication enables using multiple replicas simultaneously, enabling load balancing at the cost of complicating data consistency. 
+    
+    - *Active-passive* replication reserves replicas for live use during failover only. 
+    
+    
 
-- *Active-passive* replication reserves replicas for live use during failover only. 
+### Building resilient applications  
 
- Most fully featured database systems and other data-storage products and services include some kind of replication as a tightly integrated feature, due to its functional and performance requirements.  
-
-### Process recovery 
-
-Disaster scenarios also commonly result in downtime, whether due to network connectivity problems, datacenter outages, damaged virtual machines (VMs), or corrupted software deployments. In most cases, process recovery involves failover to a separate, working deployment, and it may be necessary to recover processes in another Azure region in the event of a large-scale disaster. Additional considerations may include recovery locations, number of replicated environments, and how to maintain these environments.  
+Disaster scenarios also commonly result in downtime, whether due to network connectivity problems, datacenter outages, damaged virtual machines (VMs), or corrupted software deployments. In most cases, application recovery involves failover to a separate, working deployment. As a result,it may be necessary to recover processes in another Azure region in the event of a large-scale disaster. Additional considerations may include: recovery locations, number of replicated environments, and how to maintain these environments.
 
 Depending on your application design, you can use several different strategies and Azure features, such as [Azure Site Recovery](/azure/site-recovery/site-recovery-overview), to improve your application's support for process recovery after a disaster. 
 
@@ -64,7 +69,6 @@ Depending on your application design, you can use several different strategies a
 
 Most services that run on Azure platform as a service (PaaS) offerings like [Azure App Service](./reliability-app-service.md) provide features and guidance to support DR. For some scenarios, you can use service-specific features to support fast recovery. For example, Azure SQL Server supports geo-replication for quickly restoring service in another region. Azure App Service has a Backup and Restore feature, and the documentation includes guidance for using Azure Traffic Manager to support routing traffic to a secondary region. 
 
-To find information on service specific DR guidance, configuration, and features see [Disaster recovery guidance by service]().
 
 ## More information
 
