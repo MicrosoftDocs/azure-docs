@@ -6,7 +6,10 @@ ms.date: 04/20/2020
 ms.author: mahender
 ---
 
-A managed identity from Azure Active Directory (Azure AD) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../articles/active-directory/managed-identities-azure-resources/overview.md).
+A managed identity from Azure Active Directory (Azure AD) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. 
+
+> [!NOTE]
+> Managed identities use certificate-based authentication. Each managed identity’s credential has an expiration of 90 days and it's rolled after 45 days. A certificate rotation will trigger an app restart. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../articles/active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 
