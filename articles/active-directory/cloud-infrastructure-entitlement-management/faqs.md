@@ -157,7 +157,7 @@ Although Permissions Management supports all resources, Microsoft only requires 
 
 ## How do I calculate the number of billable resources I have? 
 
-To calculate the billable resources you have across your multicloud infrastructure, in Permissions Management, select **Settings** (gear icon), then click the **Billable Resources** tab. View the amount of billable resources in the **Total Number of Licenses** column.   
+To calculate the billable resources you have across your multicloud infrastructure, you must activate a [45-day free trial](https://aka.ms/TryPermissionsManagement) of Permissions Management or [purchase a paid license](https://aka.ms/BuyPermissionsManagement). In Permissions Management, select **Settings** (gear icon), then click the **Billable Resources** tab. View the amount of billable resources in the **Total Number of Licenses** column.
 
 ## What do I do if I’m using the legacy version of the CloudKnox service?  
 
