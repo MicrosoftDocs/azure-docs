@@ -34,7 +34,7 @@ The associated versions for this update are:
 
 For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2304-release-notes.md).
 
-**To apply 2307 update, your device must be running version 2207 or later.**
+**To apply the 2307 update, your device must be running version 2207 or later.**
 
 - If you are not running the minimum required version, you'll see this error:
  
