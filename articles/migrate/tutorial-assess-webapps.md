@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Run an assessment
 
-Run an assessment as follows:
+To run an assessment, follow these steps:
 
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Web apps on Azure**.
@@ -45,7 +45,7 @@ Run an assessment as follows:
 
 4. Select **Edit** to review the assessment properties.
 
-5. The following is included in Azure App Service assessment properties:
+5. The following are included in Azure App Service assessment properties:
 
    :::image type="content" source="./media/tutorial-assess-webapps/create-settings.png" alt-text="Screenshot of assessment settings for Azure Migrate.":::
 
@@ -60,11 +60,11 @@ Run an assessment as follows:
     **Savings options (Compute)** | The Savings option the assessment must consider.
     **Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter.
 
-    - In **Savings options (Compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
-        - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
-        - When you select *None*, the Azure compute cost is based on the Pay as you go rate or based on actual usage.
-        - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' setting isn't applicable.
+    - In **Savings options (Compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure Compute cost. 
+        - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or three year reserved) are a good option for the most consistently running resources.
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or three year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - When you select *None*, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.
+        - You need to select Pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than *None*, the **Discount (%)** setting isn't applicable.
 
 1. Select **Save** if you made any changes.
 1. In **Create assessment**, select **Next**.
@@ -84,7 +84,7 @@ Run an assessment as follows:
 
 ## Review an assessment
 
-**To view an assessment**:
+To view an assessment, follow these steps:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to the Web apps on Azure assessment. 
 2. Select the assessment name, which you wish to view. 
@@ -112,7 +112,7 @@ Run an assessment as follows:
 
 Review the Readiness for the web apps by following these steps:
 
-1. In Assessments, select the name of the assessment that you want to view. 
+1. In **Assessments**, select the name of the assessment that you want to view. 
 1. Select **View more details** to view more details about each app and instances. Review the Azure App service Code and Azure App service Container readiness column in the table for the assessed web apps:  
 
 
