@@ -81,7 +81,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. In the applications list, select **Asana**.
 
-	![Screenshot of The Asana link in the Applications list.](common/all-applications.png)
+	![Screenshot of the Asana link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
@@ -93,11 +93,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. In the **Admin Credentials** section, input your Asana Tenant URL and Secret Token provided by Asana. Click **Test Connection** to ensure Azure AD can connect to Asana. If the connection fails, contact Asana to check your account setup.
 
- 	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
+ 	![Screenshot of token.](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Screenshot of Notification Email.](common/provisioning-notification-email.png)
+	![Screenshot of notification email.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -136,15 +136,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To enable the Azure AD provisioning service for Asana, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
+	![Screenshot of Provisioning status toggled on.](common/provisioning-toggle-on.png)
 
 1. Define the users and groups that you would like to provision to Asana by choosing the appropriate values in **Scope** in the **Settings** section.
 
-	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
+	![Screenshot of Provisioning scope.](common/provisioning-scope.png)
 
 1. When you're ready to provision, click **Save**.
 
-	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
+	![Screenshot of Saving provisioning configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to execute than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
