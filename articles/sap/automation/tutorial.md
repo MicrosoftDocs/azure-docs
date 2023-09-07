@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: SAP Deployment Automation Framework'
-description: Learn how to do enterprise scaling in this SAP Deployment Automation Framework tutorial.
+description: Learn how to use SAP Deployment Automation Framework.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
@@ -10,9 +10,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Tutorial: Enterprise scale for SAP Deployment Automation Framework
+# Tutorial: Enterprise Scale for SAP Deployment Automation Framework
 
-This tutorial shows how to do enterprise scaling for deployments by using [SAP Deployment Automation Framework](deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations.
+This tutorial shows how to perform deployments by using [SAP Deployment Automation Framework](deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations.
 
 In this tutorial, you perform the following tasks:
 
