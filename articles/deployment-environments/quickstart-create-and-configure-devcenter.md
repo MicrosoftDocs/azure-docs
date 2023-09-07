@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.topic: quickstart
 ms.service: deployment-environments
 ms.custom: ignite-2022, build-2023
-ms.date: 04/25/2023
+ms.date: 09/06/2023
 ---
 
 # Quickstart: Create and configure a dev center for Azure Deployment Environments
@@ -18,14 +18,7 @@ A platform engineering team typically sets up a dev center, attaches external ca
 
 The following diagram shows the steps you perform in this quickstart to configure a dev center for Azure Deployment Environments in the Azure portal. 
 
-:::image type="content" source="media/quickstart-create-and-configure-devcenter/dev-box-build-stages-1a.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments.":::
-
-First, you create a dev center to organize your deployment environments resources. Next, you create a key vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Then, you attach an identity to the dev center and assign that identity access to the key vault. Then, you add a catalog that stores your IaC templates to the dev center. Finally, you create environment types to define the types of environments that development teams can create. 
-
-
-The following diagram shows the remaining steps you must perform before you can create a deployment environment. You perform these steps in the [Create and configure a project quickstart](quickstart-create-and-configure-projects.md) 
-
-:::image type="content" source="media/quickstart-create-and-configure-devcenter/dev-box-build-stages-1b.png" alt-text="Diagram showing the stages required to configure a project for Deployment Environments.":::
+:::image type="content" source="media/quickstart-create-and-configure-devcenter/dev-box-build-stages.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments.":::
 
 You need to perform the steps in both quickstarts before you can create a deployment environment.
 
@@ -67,31 +60,12 @@ To create and configure a Dev center in Azure Deployment Environments by using t
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
 
-## Create a Key Vault
-You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. In this quickstart, you create an RBAC Key Vault. For help with configuring an access policy for a key vault, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?branch=main&tabs=azure-portal). 
+### Create a Key Vault
+When you are using a GitHub repository or an Azure DevOps repository to store your [catalog](./concept-environments-key-concepts.md#catalogs), you need an Azure Key Vault to store a personal access token (PAT) that is used to grant Azure access to your repository. Key Vaults can control access with either access policies or role-based access control (RBAC). If you have an existing key vault, you can use it, but you should check whether it uses access policies or RBAC assignments to control access. This quickstart assumes you're using an RBAC Key Vault and a GitHub repository. 
 
-If you don't have an existing key vault, use the following steps to create one:
+If you don't have an existing key vault, use the following steps to create one: [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 
-1.	Sign in to the [Azure portal](https://portal.azure.com).
-1.	In the Search box, enter *Key Vault*.
-1.	From the results list, select **Key Vault**.
-1.	On the Key Vault page, select **Create**.
-1.	On the Create key vault tab, provide the following information:
-
-    |Name      |Value      |
-    |----------|-----------|
-    |**Name**|Enter a name for the key vault.|
-    |**Subscription**|Select the subscription in which you want to create the key vault.|
-    |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.|
-    |**Location**|Select the location or region where you want to create the key vault.|
-    
-    Leave the other options at their defaults.
-
-1. On the Access configuration tab, select **Azure role-based access control**, and then select **Review + create**.
-
-1. On the Review + create tab, select **Create**.
-
-## Create a personal access token
+### Configure a personal access token 
 Using an authentication token like a GitHub PAT enables you to share your repository securely.  GitHub offers classic PATs, and fine-grained PATs. Fine-grained and classic PATs work with Azure Deployment Environments, but fine-grained tokens give you more granular control over the repositories to which you're allowing access.
 
 > [!TIP] 
@@ -238,7 +212,7 @@ You also need the path to the secret you created in the key vault.
     | **Git clone URI**  | Enter or paste the clone URL for either your GitHub repository or your Azure DevOps repository.<br />*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
     | **Branch**  | Enter the repository branch to connect to.<br />*Sample catalog example:* `main`|
     | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your environment definitions. <br /> The folder path is for the folder with subfolders containing environment definition manifests, not for the folder with the environment definition manifest itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
-    | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
+    | **Secret identifier**| Enter the [secret identifier](#configure-a-personal-access-token) that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
    :::image type="content" source="media/how-to-configure-catalog/add-catalog-form-inline.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-catalog-form-expanded.png":::
 

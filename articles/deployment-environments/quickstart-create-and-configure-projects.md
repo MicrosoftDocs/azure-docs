@@ -7,33 +7,26 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022, build-2023
 ms.topic: quickstart
-ms.date: 04/25/2023
+ms.date: 09/06/2023
 ---
 
 # Quickstart: Create and configure a project
 
-This quickstart shows you how to create a project in Azure Deployment Environments. Then, you associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
+This quickstart shows you how to create a project in Azure Deployment Environments, and associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
 
-A platform engineering team typically creates projects and provides project access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications.
-
-The following diagram shows the steps you perform in the [Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md) quickstart to configure a dev center for Azure Deployment Environments in the Azure portal. You must perform these steps before you can create a project.
-
-:::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps-2-a.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments.":::
- 
 The following diagram shows the steps you perform in this quickstart to configure a project associated with a dev center for Deployment Environments in the Azure portal.
 
-:::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps-2-b.png" alt-text="Diagram showing the stages required to configure a project for Deployment Environments.":::
+:::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps.png" alt-text="Diagram showing the stages required to configure a project for Deployment Environments.":::
 
 First, you create a project. Then, assign the dev center managed identity the Owner role to the subscription. Then, you configure the project by creating a project environment type. Finally, you give the development team access to the project by assigning the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role to the project.
 
 You need to perform the steps in both quickstarts before you can create a deployment environment. 
 
-For more information on how to create an environment, see [Quickstart: Create and access Azure Deployment Environments by using the developer portal](quickstart-create-access-environments.md).
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+- An Azure Deployment Environments dev center with a catalog attached. If you don't have a dev center with a catalog, see [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
 
 ## Create a project
 
@@ -57,7 +50,7 @@ To create a project in your dev center:
 
 1. On the **Review + Create** tab, wait for deployment validation, and then select **Create**.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/create-project-page-review-create.png" alt-text="Screenshot that shows selecting the Review + Create button to validate and create a project.":::
+    :::image type="content" source="media/quickstart-create-configure-projects/create-project.png" alt-text="Screenshot that shows selecting the create project basics tab.":::
 
 1. Confirm that the project was successfully created by checking your Azure portal notifications. Then, select **Go to resource**.
 
