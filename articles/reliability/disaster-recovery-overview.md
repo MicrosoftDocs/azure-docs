@@ -38,7 +38,7 @@ Designing for disaster recovery has the following main concerns:
 
 ### Data recovery and replication 
 
-During a disaster, there are two methods of restoring data:
+During a disaster, there are two methods of recovering data:
 
 
 - **Data Backup** restores data to a specific point in time.   By using backup, you can provide simple, secure, and cost-effective solutions to back up and recover your data to the Microsoft Azure cloud. Use [Azure Backup](/azure/backup/backup-overview) to create long-lived, read-only data snapshots for use in recovery.  
