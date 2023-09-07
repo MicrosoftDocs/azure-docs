@@ -347,4 +347,3 @@ You may also want to:
 - [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)
 - [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)
-- [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
