@@ -77,27 +77,27 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
 1. In the applications list, select **Asana**.
 
-	![The Asana link in the Applications list](common/all-applications.png)
+	![Screenshot of The Asana link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of Provisioning tab.](common/provisioning.png)
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab automatic](common/provisioning-automatic.png)
+	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
 1. In the **Admin Credentials** section, input your Asana Tenant URL and Secret Token provided by Asana. Click **Test Connection** to ensure Azure AD can connect to Asana. If the connection fails, contact Asana to check your account setup.
 
- 	![Token](common/provisioning-testconnection-tenanturltoken.png)
+ 	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot of Notification Email.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -112,7 +112,15 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.formatted|String||
    |title|String||
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference||
+   |addresses[type eq "work"].country|String||
+   |addresses[type eq "work"].region|String||
+   |addresses[type eq "work"].locality|String||
+   |phoneNumbers[type eq "work"].value|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String||
 
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Asana**.
@@ -128,15 +136,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To enable the Azure AD provisioning service for Asana, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
 1. Define the users and groups that you would like to provision to Asana by choosing the appropriate values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
 1. When you're ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to execute than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
@@ -151,6 +159,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * 11/06/2021 - Dropped support for **externalId, name.givenName and name.familyName**. Added support for **preferredLanguage , title and urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department**. Enabled **Group Provisioning**.
 * 05/23/2023 - Dropped support for **preferredLanguage** Added support for **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager**.
+* 09/07/2023 - Added support for **addresses[type eq "work"].locality, addresses[type eq "work"].region, addresses[type eq "work"].country, phoneNumbers[type eq "work"].value, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber, urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter, 
+urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization and urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division**.
 
 ## More resources
 
