@@ -44,11 +44,13 @@ The exit code indicates the reason the application terminated. The following lis
 
   - If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
-- **137** - The application exited because of an out-of-memory error. The application requested resources that the hosting platform failed to provide. Update your application's Java Virtual Machine (JVM) parameters to restrict resource usage or scale up application resources.
+- **137** - The application is terminated immediately by the hosting platform with no grace period. This can be either:
+  - When liveness check is failed, the application is killed immediately by the hosting platform after attempting to terminate the application and waiting for a grace period. Ensure your application handles gracefully shutdown correctly.
+  - The application exited because of an out-of-memory error. The application requested resources that the hosting platform failed to provide. Update your application's Java Virtual Machine (JVM) parameters to restrict resource usage or scale up application resources.
   
-  If the application is a Java application, check the JVM parameter values. They may exceed the memory limit of your application.
+    If the application is a Java application, check the JVM parameter values. They may exceed the memory limit of your application.
 
-  For example, suppose you set the *Xmx* JVM parameter to 10 GB, but the application is using up to 5 GB of memory. Decrease the *Xmx* value or increase the application memory to make sure that the value of the *Xmx* parameter is lower or equal to the memory limit of the application.
+    For example, suppose you set the *Xmx* JVM parameter to 10 GB, but the application is using up to 5 GB of memory. Decrease the *Xmx* value or increase the application memory to make sure that the value of the *Xmx* parameter is lower or equal to the memory limit of the application.
   
 - **143** - The application exited because it failed to respond to a health check due to an out-of-memory error or some other error.
 
