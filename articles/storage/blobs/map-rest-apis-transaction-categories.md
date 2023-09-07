@@ -12,17 +12,15 @@ ms.custom: subject-cost-optimization
 
 # Map each REST operation to a price
 
-This article maps each REST operation in the Blob Storage REST API and Data Lake Storage REST API with an operation type. With that information, you can identify the price of each operation. 
+This article helps you determine the price of each REST operation that a client can execute against the Azure Blob Storage service. 
 
-Your client interacts with the Azure Blob Storage service by using REST operations. All traffic which originates from a client tool such as AzCopy, Azure Storage Explorer, and even custom applications that use Azure Storage client libraries arrives to the service in the form of REST operations. Other than the cost of storage and the use of other capabilities such as Blob index tags or blob inventory, much of your bill will consist of charges as they relate to operations that are executed against the service. To get more complete picture of all the costs which can appear on your bill, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage)
+Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
 
-Each pricing page lists prices by operation type. For example: a `write` operation is an operation type. You can use the tables in this article to determine the operation type of any given operation. Then, you can open the appropriate pricing page to determine the price of that operation type. 
-
-There are two pricing pages for the Azure Blob Storage service. Use the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page to price requests that your client makes to the blob service endpoint by using [Blob Storage REST](https://learn.microsoft.com/rest/api/storageservices/blob-service-rest-api) operations. Use the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page to price requests that your client makes to the Data Lake Storage endpoint by using [Data Lake Storage Gen2](https://learn.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) operations.
+To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. Use the tables in this article as a guide.
 
 ## Operation type of each Blob Storage REST operation
 
-The following table maps each Blob Storage REST API operation to a operation type.
+The following table maps each Blob Storage REST operation to a operation type. The price of each type appears in the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
 
 | Operation                                                                                 | Premium block blob        | Standard general-purpose v2 | Standard general-purpose v1 |
 |-------------------------------------------------------------------------------------------|---------------------------|-----------------------------|-----------------------------|
@@ -87,7 +85,7 @@ The following table maps each Blob Storage REST API operation to a operation typ
 
 ## Operation type of each Data Lake Storage Gen2 REST operation
 
-The following table maps each Data Lake Storage Gen2 REST operation to an operation type.
+The following table maps each Data Lake Storage Gen2 REST operation to a operation type. The price of each type appears in the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
 | Operation                                                                                              | Premium block blob | Standard general-purpose v2 |
 |--------------------------------------------------------------------------------------------------------|--------------------|-----------------------------|

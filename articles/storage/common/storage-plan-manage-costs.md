@@ -110,9 +110,11 @@ The correct pricing page for these requests is the [Azure Data Lake Storage Gen2
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
 
-#### Map each REST operation to a price
+#### Find the price of each operation
 
-Your client interacts with the Azure Blob Storage service by using REST operations. All traffic which originates from a client tool such as AzCopy, Azure Storage Explorer, and even custom applications that use Azure Storage client libraries arrives to the service in the form of REST operations. Other than the cost of storage and the use of other capabilities such as Blob index tags or blob inventory, much of your bill will consist of charges as they relate to operations that are executed against the service. The pricing pages don't list the price of each operation. Instead, prices are organized by operation type. To determine the operation type of each REST operation, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
+Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
+
+To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 
 ### Using Azure Prepayment with Azure Blob Storage
 
