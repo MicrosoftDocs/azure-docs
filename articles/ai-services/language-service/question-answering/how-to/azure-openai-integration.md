@@ -67,6 +67,8 @@ At the same time, customers often require a custom answer authoring experience t
     
 1. Review the information you provided, and select **Save and close**. 
 
+    :::image type="content" source="../media/question-answering/confirm-details.png" alt-text="A screenshot showing the confirmation screen." lightbox="../media/question-answering/confirm-details.png":::
+
 1. Your data source has now been added. Select your model's deployment name under the **Configuration** > **Deployment** tab on the menu to the right. 
 
     :::image type="content" source="../../../openai/media/quickstarts/chat-playground.png" alt-text="A screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../../../openai/media/quickstarts/chat-playground.png":::
