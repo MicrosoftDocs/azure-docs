@@ -49,7 +49,7 @@ Different replication designs place different priorities on data consistency, pe
     
 - *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. 
     
-    - *Passive* replication does synchronization in the background, removing replication as a constraint on application performance, but increasing RPO. 
+- *Passive* replication does synchronization in the background, removing replication as a constraint on application performance, but increasing RPO. 
     
 - *Active-active* or *multimaster* replication enables using multiple replicas simultaneously, enabling load balancing at the cost of complicating data consistency. 
     
