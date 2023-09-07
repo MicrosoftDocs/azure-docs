@@ -65,7 +65,8 @@ The following list presents the set of features that are currently available in 
 > During Public preview, you won't be able to stop the call recording if it started after adding the Teams participant.
 
 ## Supported clients
->[!IMPORTANT] Teams phone license is a must to use this feature.
+> [!IMPORTANT]
+> Teams phone license is a must to use this feature.
 
 | Clients          | Support     |
 | -----------------| ----------- |
