@@ -360,7 +360,7 @@ The Azure Maps Routing v2 service (preview) contains different levels of geograp
 - Truck Routing (commercial truck routes)
 - Real-time traffic - truck (commercial truck routes)
 
-| Market                                 | Road Data / Routing | Real-time<br/>traffic | Truck<br/>routing | Real-time<br/>traffic - truck |
+| Market                                 | Road Data / Routing | Real-time<br>traffic | Truck<br>routing | Real-time<br>traffic - truck |
 |----------------------------------------|---------------------|-----------------------|-------------------|-------------------------------|
 | Afghanistan                            | Major Roads Only    |                       | ✔                 |                               |
 | Albania                                | Good                |                       | ✔                 |                               |
