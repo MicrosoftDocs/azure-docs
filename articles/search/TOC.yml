@@ -466,13 +466,13 @@
         href: search-query-fuzzy.md
   - name: Relevance
     items:
-    - name: Configure scoring
+    - name: Configure BM25 ranking
       href: index-ranking-similarity.md
     - name: Add a scoring profile
       href: index-add-scoring-profiles.md
     - name: Enable or disable semantic search
       href: semantic-how-to-enable-disable.md      
-    - name: Configure semantic search
+    - name: Configure semantic ranking
       href: semantic-how-to-query-request.md
   - name: Performance and monitoring
     items:
