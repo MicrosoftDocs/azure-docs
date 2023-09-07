@@ -50,9 +50,11 @@ kubectl describe pod <pod-name>
 
 # [Portal](#tab/azure-portal)
 
- Content for portal -->
+ Content for portal
 
---
+ --
+
+ -->
 
 ## Best practices for troubleshooting with events
 
