@@ -50,6 +50,8 @@
     href: oracle-design.md
 - name: Reference
   items:
+  - name: Oracle on Azure VMs landing zone accelerator
+    href: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/
   - name: Cloud Adoption Framework for Azure
     href: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
   - name: Azure Architecture Center
