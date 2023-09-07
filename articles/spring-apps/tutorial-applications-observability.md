@@ -1,15 +1,15 @@
 ---
-title: "Tutorial - Optimizing Applications Observability for Azure Spring Apps"
+title: "Tutorial - Observe your production applications in Azure Spring Apps"
 description: Learn how to observe the application of Azure Spring Apps.
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: tutorial
-ms.date: 06/20/2023
+ms.date: 09/15/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Optimizing Applications Observability for Azure Spring Apps
+# Tutorial: Observe your production applications in Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -18,22 +18,23 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
-Observability is the ability to provide insights, analytics and actionable intelligence through the logs, metrics, traces and alerts.
-As a distributed application manager in production, you should focus on the following areas to ensure the states of all applications meet expectations and to discover and predict issues in all applications:
+This quickstart shows you how to observe your production applications deployed on Azure Spring Apps, and diagnose and investigate production issues. You can provide insights, analytics, and actionable intelligence through the logs, metrics, traces, and alerts by observing your applications in Azure Spring Apps. Focus on the following areas to find out if your applications meet expectations and discover and predict issues in all applications:
+
 - **Availability**: Check that the application is available and accessible to the user.
 - **Reliability**: Check that the application is reliable and can be used normally.
 - **Failure**: Understand that the application isn't working properly and further fixes are required.
 - **Performance**: Understand which performance issue the application encounters, need further attention, and find out the root cause of the problem.
-- **Alerts**: Know the current state of the application. Proactively notify managers and perform associated actionable actions when the application is abnormal.
+- **Alerts**: Know the current state of the application. Proactively notify others and take necessary actions when the application is not working properly.
 
-This article shows you how to observe your production applications deployed on Azure Spring Apps, 
-and diagnose and investigate production issues.
-We use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as a production program.
-You can follow [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) 
-and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md) quickstarts to deploy the PetClinic project to Azure Spring Apps and use MySQL as the persistent store.
-[Log Analytics](../azure-monitor/logs/log-analytics-overview.md) and [Application Insights](../azure-monitor/insights/insights-overview.md) 
-are deeply integrated with Azure Spring Apps, you can use Log Analytics to diagnose your application with variously log queries, 
-and use Application Insights to investigate production issues.
+In this quickstart, we use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as the production application. For more information on how to deploy the PetClinic sample app to Azure Spring Apps, see the following articles:
+
+- [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md)
+- [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
+
+Log Analytics and application insights are deeply integrated with Azure Spring Apps. You can use Log Analytics to diagnose your application with various log queries, and use Application Insights to investigate production issues. For more information, see the following articles:
+
+- [Log Analytics](../azure-monitor/logs/log-analytics-overview.md)
+- [Application Insights](../azure-monitor/insights/insights-overview.md) 
 
 ## 1. Prerequisites
 
