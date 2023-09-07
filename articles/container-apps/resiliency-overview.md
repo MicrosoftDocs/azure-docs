@@ -47,19 +47,6 @@ You can create resiliency policies for your container app in the CLI, via Bicep,
 
 # [CLI](#tab/cli)
 
-You can pass the following endpoints supported by the REST API.
-
-```
-PUT {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
-```
-
-```
-GET {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
-```
-
-```
-DELETE {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
-```
 
 
 # [Bicep](#tab/bicep)
@@ -126,5 +113,22 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
 Need
 
 ---
+
+## REST API endpoints
+
+You can pass the following endpoints supported by the REST API.
+
+```sh
+PUT {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
+```
+
+```sh
+GET {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
+```
+
+```sh
+DELETE {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
+```
+
 
 ## Related content
