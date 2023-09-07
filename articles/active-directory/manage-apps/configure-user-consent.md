@@ -59,7 +59,7 @@ To choose which app consent policy governs user consent for applications, you ca
 
 ### Connect to Microsoft Graph PowerShell
 
-Connect to Microsoft Graph PowerShell using the least-privilege permission needed. For reading the current user consent settings, use *Policy.Read.All*. For reading and changing the user consent settings, use *Policy.ReadWrite.Authorization*.
+Connect to Microsoft Graph PowerShell using the least-privilege permission needed. For reading the current user consent settings, use *Policy.Read.All*. For reading and changing the user consent settings, use *Policy.ReadWrite.Authorization*. You need to sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
 ```powershell
 Connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"

@@ -63,6 +63,17 @@ To create an app role by using the Azure portal's user interface:
 
 When the app role is set to enabled, any users, applications or groups who are assigned has it included in their tokens. These can be access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user. If set to disabled, it becomes inactive and no longer assignable. Any previous assignees will still have the app role included in their tokens, but it has no effect as it is no longer actively assignable. 
 
+## Assign application owner 
+
+If you have not already done so, you'll need to assign yourself as the application owner.
+
+1. In your app registration, under **Manage**, select **Owners**, and **Add owners**.
+1. In the new window, find and select the owner(s) that you want to assign to the application. Selected owners appear in the right panel. Once done, confirm with **Select**. The app owner(s) will now appear in the owner's list.
+
+>[!NOTE]
+>
+> Ensure that both the API application and the application you want to add permissions to both have an owner, otherwise the API will not be listed when requesting API permissions.
+
 ## Assign users and groups to roles
 
 Once you've added app roles in your application, you can assign users and groups to the roles. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/api/user-post-approleassignments). When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
