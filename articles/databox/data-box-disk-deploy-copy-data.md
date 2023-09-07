@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/06/2023
+ms.date: 09/07/2023
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -17,13 +17,15 @@ ms.author: alkohli
 #    09/01/23: 100 ()
 ---
 
+<!--
 ::: zone target="docs"
+-->
 
 # Tutorial: Copy data to Azure Data Box Disk and verify
 
+<!-->
 ::: zone-end
 
-<!--
 ::: zone target="chromeless"
 
 ## Copy data to Azure Data Box Disk and validate
@@ -31,9 +33,7 @@ ms.author: alkohli
 After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should validate the data to ensure that it will successfully upload to Azure.
 
 ::: zone-end
--->
 
-<!--
 ::: zone target="docs"
 -->
 
@@ -93,9 +93,9 @@ Perform the following steps to connect and copy data from your computer to the D
 
 1. Copy data to be imported as block blobs into the *BlockBlob* folder. Copy data to be stored as block blobs in the archive tier into the *BlockBlob_Archive* folder. Similarly, copy VHD or VHDX data to the *PageBlob* folder, and file share data into *AzureFile* folder.
 
-   A container is created in the Azure storage account for each subfolder within the *BlockBlob* and *PageBlob* folders. All files under *BlockBlob* and *PageBlob* folders are copied into a default `$root` container under the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
+   A container is created in the Azure storage account for each subfolder within the *BlockBlob* and *PageBlob* folders. All files copied to the *BlockBlob* and *PageBlob* folders are copied into a default `$root` container within the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
 
-   Copy files to a folder within *AzureFile* folder. All files under *AzureFile* folder are copied as files to a default container of type `databox-format-[GUID]`, for example, `databox-azurefile-7ee19cfb3304122d940461783e97bf7b4290a1d7`.
+   Copy data to be placed in Azure file shares to a subfolder within the *AzureFile* folder. All files copied to the *AzureFile* folder are copied as files to a default container of type `databox-format-[GUID]`, for example, `databox-azurefile-7ee19cfb3304122d940461783e97bf7b4290a1d7`.
 
    Before you begin to copy data, you need to move any files and folders that exist in the root directory to a different folder.
 
@@ -121,7 +121,7 @@ Perform the following steps to connect and copy data from your computer to the D
     |/E                 | Copies subdirectories including empty directories. |
     |/MT[:n]            | Creates multi-threaded copies with *n* threads where *n* is an integer between 1 and 128.<br>The default value for *n* is 8. |
     |/R: \<n>           | Specifies the number of retries on failed copies.<br>The default value of *n* is 1,000,000 retries. |
-    |/W: \<n>           | Specifies the wait time between retries, in seconds.<br>The default value of *n* is 30 and corresponds to a wait time 30 seconds. |
+    |/W: \<n>           | Specifies the wait time between retries, in seconds.<br>The default value of *n* is 30 and is equivalent to a wait time 30 seconds. |
     |/NFL               | Specifies that file names aren't logged. |
     |/NDL               | Specifies that directory names aren't to be logged. |
     |/FFT               | Assumes FAT file times with a resolution precision of two seconds. |
@@ -209,7 +209,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
 ### Split and copy data to disks
 
-The Data Box Split Copy tool helps split and copy the data. The tool is only available for use on a Windows computer. This optional procedure is helpful when you have a large dataset that needs to be split and copied across multiple disks.
+The Data Box Split Copy tool helps split and copy data across two or more Azure Data Box Disks. The tool is only available for use on a Windows computer. This optional procedure is helpful when you have a large dataset that needs to be split and copied across several disks.
 
 >[!IMPORTANT]
 > The Data Box Split Copy tool can also validate your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
@@ -247,7 +247,7 @@ The Data Box Split Copy tool helps split and copy the data. The tool is only ava
 
    :::image type="content" source="media/data-box-disk-deploy-copy-data/split-copy-6-sml.png" alt-text="Split copy data 6" lightbox="media/data-box-disk-deploy-copy-data/split-copy-6.png":::
 
-1. Open a Command Prompt window with elevated privilegs and run the `DataBoxDiskSplitCopy.exe` using the following command.
+1. Open a Command Prompt window with elevated privileges and run the `DataBoxDiskSplitCopy.exe` using the following command.
 
    ```Command prompt
    DataBoxDiskSplitCopy.exe PrepImport /config:ConfigFile.json
