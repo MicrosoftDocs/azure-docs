@@ -9,7 +9,7 @@ ms.author: cmulligan
 
 ## Find the application (client) ID
 
-After registering a new application, you can find the application (client) ID and from the overview in the Microsoft Entra admin center. 
+After you register a new application, you can find the Application (client) ID from the overview in the Microsoft Entra Admin center. 
 
 1. From the **App registrations** page, select the **All applications** or the **Owned applications** tab.
 1. Select the application to open its **Overview** page. 
