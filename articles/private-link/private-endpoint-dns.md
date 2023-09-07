@@ -331,7 +331,7 @@ The following diagram shows the DNS resolution for both networks, on-prem
 
 ## Private DNS zone group
 
-If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group is a strong association between the private DNS zone and the private endpoint that helps auto-updating the private DNS zone when there is an update on the private endpoint.  For example, when you add or remove regions, the private DNS zone is automatically updated.
+If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group has a strong association between the private DNS zone and the private endpoint. It helps with managing the private DNS zone records when there is an update on the private endpoint. For example, when you add or remove regions, the private DNS zone is automatically updated with the correct amount of records.
 
 Previously, the DNS records for the private endpoint were created via scripting (retrieving certain information about the private endpoint and then adding it on the DNS zone). With the DNS zone group, there is no need to write any additional CLI/PowerShell lines for every DNS zone. Also, when you delete the private endpoint, all the DNS records within the DNS zone group will be deleted as well.
 
@@ -342,6 +342,9 @@ A common scenario for DNS zone group is in a hub-and-spoke topology, where it al
 
 > [!NOTE]
 > Adding multiple DNS zone groups to a single Private Endpoint is not supported.
+
+> [!NOTE]
+> Delete and update operations for DNS records can be seen performed by "Azure Traffic Manager and DNS." This is a normal platform operation necessary for managing your DNS Records.
 
 ## Next steps
 - [Learn about private endpoints](private-endpoint-overview.md)
