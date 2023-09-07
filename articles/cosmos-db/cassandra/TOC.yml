@@ -1,5 +1,5 @@
 - name: Choose your model
-  href: compare-cosmosdb-managed-instance.md
+  href: choose-service.md
 - name: RU-based
   items:
   - name: RU-based Apache Cassandra documentation

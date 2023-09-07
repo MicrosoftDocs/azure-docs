@@ -5,7 +5,6 @@ author: TheovanKraay
 ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: apache-cassandra
 ms.topic: quickstart
 ms.date: 09/05/2023
 ---
