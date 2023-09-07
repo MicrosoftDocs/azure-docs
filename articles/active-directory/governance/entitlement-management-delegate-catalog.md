@@ -41,7 +41,7 @@ If you have existing catalogs to delegate, then continue at the [create and mana
 
 Follow these steps to assign a user to the catalog creator role.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
+**Prerequisite role:** Global Administrator or Identity Governance Administrator
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -61,7 +61,7 @@ Follow these steps to assign a user to the catalog creator role.
 
 To allow delegated roles, such as catalog creators and access package managers, to access the Microsoft Entra admin center to manage access packages, you should check the administration portal setting.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, or User administrator
+**Prerequisite role:** Global Administrator or Identity Governance Administrator
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 

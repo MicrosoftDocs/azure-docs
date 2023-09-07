@@ -42,7 +42,6 @@ conceptualContent:
             - url: ./authentication-authorization.md
               itemType: how-to-guide
               text: Set up user access and permissions 
-            
             - url: ./authentication-authorization.md
               itemType: how-to-guide
               text: Grant permissions to a managed identity
@@ -52,11 +51,11 @@ conceptualContent:
           links:
             - url: ./fhir/overview.md
               itemType: overview
-              text: What is the FHIR service?
+              text: FHIR service overview
             - url: ./fhir/get-started-with-fhir.md
               itemType: how-to-guide
               text: Deploy the FHIR service
-            - url: ./fhir/use-postman.md
+            - url: ./fhir/configure-cross-origin-resource-sharing.md
               itemType: how-to-guide
               text: Configure settings
             - url: ./fhir/centers-for-medicare-tutorial-introduction.md
@@ -114,13 +113,13 @@ conceptualContent:
               text: Disable events 
             - url: ./events/events-troubleshooting-guide.md
               itemType: how-to-guide
-              text: Troubleshoot events  
-          
+              text: Troubleshoot events
+             
 additionalContent:
   sections:
-    - title: Other services
+    - title: Other services 
       items:
-        #Card
+        # Card
         - title: Azure API for FHIR
           summary: Scalable, secure, standards-based service for FHIR data
           url: ./azure-api-for-fhir/overview.md

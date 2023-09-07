@@ -148,7 +148,7 @@ When using the API, pass the `filter` parameter in each API request. For example
 
 ## Schedule automatic index refreshes
 
-To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. to enable an automatic index refresh:
+To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
 
 1. [Add a data source](../quickstart.md) using Azure OpenAI studio.
 1. Under **Select or add data source** select **Indexer schedule** and choose the refresh cadence you would like to apply.
@@ -183,7 +183,7 @@ Use the following sections to help you configure Azure OpenAI on your data for o
 
 ### System message
 
-Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 200 tokens. 
+Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 400 tokens. 
 
 For example, if you're creating a chatbot where the data consists of transcriptions of quarterly financial earnings calls, you might use the following system message:
 
@@ -216,7 +216,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 
 > [!IMPORTANT]
 > * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
-> * Currently Azure OpenAI on your data supports semantic search for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.
+> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic
 
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
@@ -259,9 +259,9 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 **Multi-lingual support**  
 
-* Azure OpenAI on your data supports queries that are in the same language as the documents. For example, if your data is in Japanese, then queries need to be in Japanese too.  
+* Currently, keyword search and semantic search in Azure OpenAI on your data supports queries are in the same language as the data in the index. For example, if your data is in Japanese, then input queries also need to be in Japanese. For cross-lingual document retrieval, we recommend building the index with [Vector search](/azure/search/vector-search-overview) enabled.  
 
-* Currently Azure OpenAI on your data supports [semantic search](/azure/search/semantic-search-overview) for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.   
+* To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic   
 
 * We recommend using a system message to inform the model that your data is in another language. For example:
 

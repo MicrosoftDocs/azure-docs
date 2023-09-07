@@ -1,3 +1,4 @@
+items:
 - name: Oracle on Azure VMs
   href: index.yml
 - name: Overview 
@@ -49,10 +50,10 @@
   - name: Cloud Adoption Framework for Azure
     href: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
   - name: Azure Architecture Center
-    href: https://learn.microsoft.com/azure/architecture/
+    href: /azure/architecture/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Azure DevOps Roadmap
-    href: https://learn.microsoft.com/azure/devops/release-notes/features-timeline
+    href: /azure/devops/release-notes/features-timeline
 - name: FAQs
   href: oracle-azure-vms-faq.md
