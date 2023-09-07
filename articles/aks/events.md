@@ -30,7 +30,7 @@ Below is a set of the important fields in a Kubernetes Event. For a comprehensiv
 
 ## Accessing events
 
-# [Azure CLI](#tab/azure-cli/linux)
+<!-- # [Azure CLI](#tab/azure-cli/linux) -->
 
 You can find events for your cluster and its components by using `kubectl`. Keep in mind the Kubernetes API server only retains events for 1 hour after the last occurrence.
 
@@ -46,9 +46,11 @@ kubectl get pods
 kubectl describe pod <pod-name>
 ```
 
+<!--
+
 # [Portal](#tab/azure-portal)
 
-<!-- Content for portal -->
+ Content for portal -->
 
 --
 
