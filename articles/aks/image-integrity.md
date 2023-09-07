@@ -1,18 +1,18 @@
 ---
-title: Use Image Integrity to ensure only trusted images are deployed to your Azure Kubernetes Service (AKS) cluster
-description: Learn how to use Image Integrity to ensure only trusted images are deployed to your Azure Kubernetes Service (AKS) cluster.
+title: Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)
+description: Learn how to use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters.
 author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 07/24/2023
+ms.date: 09/07/2023
 ---
 
-# Use Image Integrity to ensure only trusted images are deployed to your Azure Kubernetes Service (AKS) cluster (Preview)
+# Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)
 
-Azure Kubernetes Service (AKS) and its underlying container model provide increased scalability and manageability for cloud native applications. It's easier than ever to launch flexible software applications according to the runtime needs of your system. This flexibility, however, can come with new challenges.
+Azure Kubernetes Service (AKS) and its underlying container model provide increased scalability and manageability for cloud native applications. With AKS, you can launch flexible software applications according to the runtime needs of your system. However, this flexible can introduce new challenges.
 
-In such environments, using signed container images can enable you to assure deployments are built from a trusted entity and verify images haven't been tampered with since their creation. Image Integrity is a service that allows you to add deploy-time policy enforcement to your AKS clusters to check whether the images are signed.
+In these application environments, using signed container images helps verify that your deployments are built from a trusted entity and that images haven't been tampered with since their creation. Image Integrity is a service that allows you to add deploy-time policy enforcements to your AKS clusters to check whether the images are signed.
 
 > [!NOTE]
 > Image Integrity is a feature based on [Ratify][ratify]. On an AKS cluster, the feature name and property name is `ImageIntegrity`, while the relevant Image Integrity pods' names contain `Ratify`.
@@ -22,14 +22,15 @@ In such environments, using signed container images can enable you to assure dep
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.96 or later CLI extension installed.
+* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install].
+* `aks-preview` CLI extension version 0.5.96 or later.
 * The Azure Policy add-on for AKS. If you don't have this add-on installed, see [Install Azure Policy add-on for AKS](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks).
 * An AKS cluster enabled with OIDC Issuer. To create a new cluster or update an existing cluster, see [Configure an AKS cluster with OIDC Issuer](/cluster-configuration.md#oidc-issuer).
 * The `EnableImageIntegrityPreview` feature flag registered on your Azure subscription. Register the feature flag using the following commands:
   
     1. Register the `EnableImageIntegrityPreview` feature flag using the [`az feature register`][az-feature-register] command.
 
-        ```azurecli
+        ```azurecli-interactive
         az feature register --namespace "Microsoft.ContainerService" --name "EnableImageIntegrityPreview"
         ```
 
@@ -37,37 +38,39 @@ In such environments, using signed container images can enable you to assure dep
 
     2. Verify the registration status using the [`az feature show`][az-feature-show] command.
 
-        ```azurecli
+        ```azurecli-interactive
         az feature show --namespace "Microsoft.ContainerService" --name "EnableImageIntegrityPreview"
         ```
 
-    3. Once that status shows *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
+    3. Once the status shows *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
 
-        ```azurecli
+        ```azurecli-interactive
         az provider register --namespace Microsoft.ContainerService
         ```
 
-## Limitations
+## Considerations and limitations
 
 * Your AKS clusters must run Kubernetes version 1.26 or above.
-* You shouldn't use this feature for production ACR registries or workloads.
-* A maximum of 200 unique signatures are supported concurrently cluster-wide.
+* You shouldn't use this feature for production Azure Container Registry (ACR) registries or workloads.
+* Image Integrity supports a maximum of 200 unique signatures concurrently cluster-wide.
 * Notation is the only supported verifier.
 * Audit is the only supported verification policy effect.
 
 ## How Image Integrity works
 
+:::image type="content" source="./media/image-integrity/aks-image-integrity-architecture.png" alt-text="Screenshot showing the basic architecture for Image Integrity" lightbox="./media/image-integrity/aks-image-integrity-architecture.png":::
+
 Enabling Image Integrity on your cluster also deploys a `Ratify` pod. This `Ratify` pod performs the following tasks:
 
 1. Reconciles certificates from Azure Key Vault per the configuration you set up through `Ratify` CRDs.
-2. Accesses images stored in ACR when validation requests come from `AzurePolicy`.
-
-`Ratify` then determines whether the target image is signed with a trusted cert and therefore considered as *trusted*. `AzurePolicy` consumes the validation results as the compliance state to decide whether to allow the deployment request.
+2. Accesses images stored in ACR when validation requests come from [Azure Policy](../governance/policy/concepts/policy-for-kubernetes.md), an admission controller webhook that extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper).
+3. Determines whether the target image is signed with a trusted cert and therefore considered as *trusted*.
+4. `AzurePolicy` and `Gatekeeper` consume the validation results as the compliance state to decide whether to allow the deployment request.
 
 ## Enable Image Integrity on your AKS cluster
 
 > [!NOTE]
-> Image signature verification is a governance-oriented scenario and it is closely working with the [Azure Policy](../governance/policy/concepts/policy-for-kubernetes.md). We recommend using AKS built-in policy to enable Image Integrity. Learn more about the [Image Integrity policy](TBDpolicylink).
+> Image signature verification is a governance-oriented scenario and works closely with [Azure Policy](../governance/policy/concepts/policy-for-kubernetes.md). We recommend using AKS built-in policy to enable Image Integrity. For more information, see the [Image Integrity policy][image-integrity-policy].
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -86,23 +89,19 @@ Enabling Image Integrity on your cluster also deploys a `Ratify` pod. This `Rati
 3. Under **Categories**, select **Kubernetes**.
 4. Choose the policy you want to apply. In this case, select **[Preview]: Use Image Integrity to ensure only trusted images are deployed** > **Assign**.
 5. Set the **Scope** to the resource group where your AKS cluster is located.
-6. Select **Parameters** and update the **Effect** to *deny* to block new deployments from violating the baseline initiative. You can add extra namespaces to exclude from validation. For this example, keep the default values.
-7. Select **Review + create** > **Create** to submit the policy assignment.
+6. Select **Review + create** > **Create** to submit the policy assignment.
 
 ---
 
 ## Set up verification configurations
 
-For Image Integrity to properly verify the target signed image, you need to set up `Ratify` configurations through K8s [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) using natively supported `kubectl` commands.
+For Image Integrity to properly verify the target signed image, you need to set up `Ratify` configurations through K8s [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) using `kubectl`.
 
-> [!NOTE]
-> Set up Image Integrity configurations through CRD is a temporary behavior of public preview. This will likely be replaced when it becomes GA.
+In this article, we use an example CRD to set up verification configurations For more examples, see [Ratify CRDs](https://github.com/deislabs/ratify/blob/main/docs/reference/ratify-configuration.md).
 
-The following CRD is an example you can try as a quickstart. For more examples, see [Ratify CRDs](https://github.com/deislabs/ratify/blob/main/docs/reference/ratify-configuration.md).
+1. Create a `VerifyConfig` file named `verify-config.yaml` and copy in the following YAML:
 
-1. Create an `VerifyConfig` file named `verify-config.yml` and copy in the following YAML.
-
-    ```yml
+    ```YAML
     apiVersion: config.ratify.deislabs.io/v1beta1
     kind: CertificateStore
     metadata:
@@ -167,44 +166,59 @@ The following CRD is an example you can try as a quickstart. For more examples, 
 2. Apply the `VerifyConfig` to your cluster using the `kubectl apply` command.
 
     ```azurecli-interactive
-    kubectl apply -f verify-config.yml
+    kubectl apply -f verify-config.yaml
     ```
 
-## Deploy two sample images to your AKS cluster
+## Deploy sample images to your AKS cluster
 
 1. Deploy an unsigned image using the `kubectl run demo` command.
 
     ```azurecli-interactive
-    kubectl run demo --image=ghcr.io/deislabs/ratify/notary-image:unsigned 
+    kubectl run demo-unsigned --image=ghcr.io/deislabs/ratify/notary-image:unsigned 
     ```
 
-    Image Integrity verifies the image signature and denies the deployment since the image hasn't been signed and doesn't meet the deployment criteria.
+    The following example output shows that Image Integrity denies the deployment since the image hasn't been signed and doesn't meet the deployment criteria:
 
-2. Run a pod using a signed sample image using the `kubectl run demo` command.
+    ```output
+    Error from server (Forbidden): admission webhook "validation.gatekeeper.sh" denied the request: [ratify-constraint] Subject failed verification: ghcr.io/deislabs/ratify/notary-image:unsigned
+    ```
+
+2. Deploy a signed image using the `kubectl run demo` command.
 
     ```azurecli-interactive
-    kubectl run demo --image=ghcr.io/deislabs/ratify/notary-image:signed 
+    kubectl run demo-signed --image=ghcr.io/deislabs/ratify/notary-image:signed 
     ```
 
-    Image Integrity verifies the image signature and allows the deployment.
+    The following example output shows that Image Integrity allows the deployment:
 
-This is a quickstart sample. If you want to try your own image, follow the [guidance for image signing](../container-registry/container-registry-tutorial-sign-build-push.md).
+    ```output
+    ghcr.io/deislabs/ratify/notary-image:signed
+    pod/demo-signed created
+    ```
+
+If you want to use your own images, see the [guidance for image signing](../container-registry/container-registry-tutorial-sign-build-push.md).
 
 ## Disable Image Integrity
 
 * Disable Image Integrity on your cluster using the [`az aks update`][az-aks-update] command with the `--disable-image-integrity` flag.
 
     ```azurecli-interactive
-    az aks update -g myResourceGroup -n MyManagedCluster
-  --disable-image-integrity
+    az aks update -g myResourceGroup -n MyManagedCluster --disable-image-integrity
+    ```
+
+### Remove policy initiative
+
+* Remove the policy initiative using the [`az policy assignment delete`][az-policy-assignment-delete] command.
+
+    ```azurecli-interactive
+    az policy assignment delete --name 'deploy-trustedimages'
     ```
 
 ## Next steps
 
-In this article, you learned how to use Image Integrity to ensure only trusted images are deployed to your AKS cluster. If you want to learn how to sign your own containers, see [Build, sign, and verify container images using Notary and Azure Key Vault (Preview)](../container-registry/container-registry-tutorial-sign-build-push.md).
+In this article, you learned how to use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters. If you want to learn how to sign your own containers, see [Build, sign, and verify container images using Notary and Azure Key Vault (Preview)](../container-registry/container-registry-tutorial-sign-build-push.md).
 
 <!--- Internal links ---->
-
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-show]: /cli/azure/feature#az_feature_show
 [az-provider-register]: /cli/azure/provider#az_provider_register
@@ -212,7 +226,8 @@ In this article, you learned how to use Image Integrity to ensure only trusted i
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-powershell-install]: /powershell/azure/install-az-ps
+[az-policy-assignment-delete]: /cli/azure/policy/assignment#az_policy_assignment_delete
 
 <!--- External links ---->
-
 [ratify]: https://github.com/deislabs/ratify
+[image-integrity-policy]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf426bb8-b320-4321-8545-1b784a5df3a4
