@@ -43,9 +43,28 @@ The resiliency policies for Azure Container Apps include:
 | `httpRetryPolicy` |  |
 | `tcpRetryPolicy` |  |
 
-The following code puts the resiliency policies into context.
+You can create resiliency policies for your container app in the CLI, via Bicep, and the Azure portal. 
 
-```json
+# [CLI](#tab/cli)
+
+You can pass the following endpoints supported by the REST API.
+
+```
+PUT {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
+```
+
+```
+GET {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
+```
+
+```
+DELETE {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
+```
+
+
+# [Bicep](#tab/bicep)
+
+```bicep
 resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' = {
   name: '${appName}/myResiliencyPolicy'
   properties: {
@@ -101,23 +120,11 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
 }
 ```
 
-## REST API spec
 
+# [Azure portal](#tab/portal)
 
-The REST API supports the following endpoints:
+Need
 
-```
-PUT {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
-```
-
-```
-GET {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
-```
-
-```
-DELETE {{baseUrl}}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/appResiliency/{name}?api-version=2023-08-01-preview
-```
-
-Refer to the policy spec for the body for the PUT/response for the GET/requests.
+---
 
 ## Related content
