@@ -21,7 +21,7 @@ In a Teams Interopability Chat ("Interop Chat"), we can enable file sharing betw
 >
 >File sharing feature comes with the CallWithChat Composite without additional setups. 
 >
->Currently, the Communication user is able to receive file attachments only from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md) to learn more.
+>Currently, the Communication user is able to only receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md) to learn more.
 
 
 ## Download code
