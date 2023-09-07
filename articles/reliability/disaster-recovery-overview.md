@@ -45,7 +45,7 @@ During a disaster, there are two methods of recovering data:
 
 - **Data Replication** creates data replicas with minimal data loss. With replication, you can create real-time or near-real-time copies of live data in multiple data store replicas. The goal of replication is to keep replicas synchronized with as little latency as possible while maintaining application responsiveness.  Most fully featured database systems and other data-storage products and services include some kind of replication as a tightly integrated feature, due to its functional and performance requirements.  Some Azure services, such as Azure Blob Storage, utilize [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) to keep your data resilient.
 
-    Different replication designs place different priorities on data consistency, performance, and cost. 
+Different replication designs place different priorities on data consistency, performance, and cost. 
     
     - *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. 
     
