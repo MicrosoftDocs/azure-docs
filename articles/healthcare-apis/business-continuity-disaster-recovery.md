@@ -18,19 +18,24 @@ Business continuity and disaster recovery (BCDR) in Azure Health Data Services h
 
 ## Overview of BCDR in Azure Health Data Services
 
-When you create an Azure Health Data Services resource, you choose a region where your data is stored and processed. This region is fixed and can't be changed later. You can't transfer your data or service to another region if there is a disaster. 
+Azure Health Data Services is available in multiple regions. When you create an Azure Health Data Services resource, you specify its region. From then on, your resource and all its operations stay associated with that Azure region. Cross-region disaster recovery isn't currently supported in Azure Health Data Services.
 
-Azure Health Data Services handles most of the disruptions that may occur in the cloud, such as network failures or hardware issues. However, there are some situations that Azure Health Data Services can't handle, such as:
+In most cases, Azure Health Data Services handles disruptive events that may occur in the cloud environment to keep your applications and business processes running. However, Azure Health Data Services can't handle these situations:
 
 * You accidentally delete or update your service or data, and you don't have a backup.
-* A natural disaster, such as an earthquake, causes a power outage or disables the data center where your service and data are located.
+* A natural disaster, such as an earthquake, causes a power outage or disables the region or data center where your service and data are located.
 * Any other catastrophic event that requires cross-region failover.
 
 ## Database backups for the FHIR service
 
 Database backups are an essential part of any business continuity strategy because they help protect your data from corruption or deletion. These backups enable you to restore service to a previous state. Azure Health Data Services automatically keeps backups of your data for the FHIR service for the last seven days.
 
-The support team handles the backups and restores of the FHIR database. To restore the data, customers need to submit a support ticket.
+The support team handles the backups and restores of the FHIR database. To restore the data, customers need to submit a support ticket with these details:
+
+*Name of the service
+*Restore point date and time within the last seven days. If the date and time is unavailable, ask us to restore from the earliest available point.
+
+More information: [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
 
 For a large or active database, the restore might take several hours to several days. The restoration process involves taking a snapshot of your database at a certain time and then creating a new database to point your FHIR service to. During the restoration process, the server may return an HTTP Status code response with 503, meaning the service is temporarily unavailable and can't handle the request at the moment. After the restoration process completes, the support team updates the ticket with a status that the operation has been completed to restore the requested service.
 
