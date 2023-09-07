@@ -367,7 +367,7 @@ productDirectory:
     # Card
     - title: HDInsight on AKS
       summary: Deploy Apache Spark, Apache Flink, and Trino workloads without managing and monitoring containers
-      imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
+      imageSrc: media/index/hdinsight-aks.svg
       azureCategories:
         - analytics
       url: hdinsight-aks/index.yml
