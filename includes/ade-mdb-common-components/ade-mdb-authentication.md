@@ -1,7 +1,7 @@
 
 ## Using Azure AD authentication for REST APIs
 
-Use the following procedures to authenticate with Azure AD. You can follow along in [Azure Cloud Shell](./../../cloud-shell/quickstart.md), on an Azure virtual machine, or on your local machine.
+Use the following procedures to authenticate with Azure AD. You can follow along in [Azure Cloud Shell](../../articles/cloud-shell/quickstart.md), on an Azure virtual machine, or on your local machine.
 
 ### Sign in to the user's Azure subscription
 
@@ -57,4 +57,4 @@ The token is a Base64 string. The token is valid for at least 5 minutes with the
 To access REST APIs, you must set the Authorization header on your request. The header value should be the string `Bearer` followed by a space and the token you received in the previous step.
 
 ## Next steps
-- Review [Azure Active Directory fundamentals](./../../active-directory/fundamentals/active-directory-whatis.md).
+- Review [Azure Active Directory fundamentals](../../articles/active-directory/fundamentals/whatis.md).
