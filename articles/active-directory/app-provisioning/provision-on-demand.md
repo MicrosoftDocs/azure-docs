@@ -167,7 +167,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 ::: zone-end
 ::: zone pivot="cross-tenant-synchronization"
 * On-demand provisioning of groups is not supported for cross-tenant synchronization. 
-* ::: zone-end
+::: zone-end
 * On-demand provisioning supports provisioning one user at a time through the Microsoft Entra portal.
 * Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft-delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
 * On-demand provisioning of roles isn't supported.
