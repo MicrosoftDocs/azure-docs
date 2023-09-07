@@ -96,12 +96,6 @@ Requests to this endpoint can also occur in accounts that have a hierarchical na
 
 If your account has the hierarchical namespace feature enabled, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**. Otherwise, make sure that it is set to **Flat Namespace**.
 
-##### Price table for blob storage endpoint
-
-Clients make a request by using a REST operation from the Blob Storage REST API. Requests that originate from custom applications that use an Azure Storage client library or from tools such as Azure Storage Explorer and AzCopy arrive to the service in the form of a REST operation from the Blob Storage REST API. Each request incurs a cost per transaction. Each type of transaction is billed at a different rate. The following table maps each Blob Storage REST API operation to a transaction category that appears in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
-
-Table goes here.
-
 #### Pricing requests to the Data Lake Storage endpoint
 
 The format of the Data Lake Storage endpoint is `https://<storage-account>.dfs.core.windows.net` and is most common endpoint used by analytic workloads and applications. This endpoint is typically used with accounts that have a hierarchical namespace but not always.
@@ -115,27 +109,6 @@ Requests can originate from any of these sources:
 The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
-
-##### Price table for Gen2 endpoint
-
-Clients make a request by using a REST operation from the Blob Storage REST API. Requests that originate from custom applications that use an Azure Storage client library or from tools such as Azure Storage Explorer and AzCopy arrive to the service in the form of a REST operation from the Blob Storage REST API. Each request incurs a cost per transaction. Each type of transaction is billed at a different rate. The following table maps each Blob Storage REST API operation to a transaction category that appears in the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
-
-Something here about it being premium block blob account and standard general-purpose v2 accounts.
-
-:::row:::
-   :::column span="":::
-      | Operation                                                                            | Transaction category      |
-      |--------------------------------------------------------------------------------------|---------------------------|
-      | [List Containers](/rest/api/storageservices/list-containers2)                        | List and create container |
-      | [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties) | Other                     |
-   :::column-end:::
-   :::column span="":::
-      | Operation                                                                            | Transaction category      |
-      |--------------------------------------------------------------------------------------|---------------------------|
-      | [Set Blob Tags](/rest/api/storageservices/set-blob-tags)                             | Other                     |
-      | [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)                   | List and create container |
-   :::column-end:::
-:::row-end:::
 
 ### Using Azure Prepayment with Azure Blob Storage
 
