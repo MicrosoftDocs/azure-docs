@@ -66,6 +66,11 @@ You can also access to the model's generated code from the top of the child run'
 
 If you're using the Python SDKv2, you can also download the "script.py" and the "script_run_notebook.ipynb" by retrieving the best run via MLFlow & downloading the resulting artifacts. 
 
+## Limitations
+
+There is a known issue where selecting **View Generated Code**. This action fails to redirect to the Notebooks portal when the storage is behind a VNet. As a workaround, the user can manually download the **script.py** and the **script_run_notebook.ipynb** files by navigating to the **Outputs + Logs** tab under the **outputs>generated_code** folder. These files can be uploaded manually to the notebooks folder to run or edit them.
+
+
 ## script.py
 
 The `script.py` file contains the core logic needed to train a model with the previously used hyperparameters. While intended to be executed in the context of an Azure Machine Learning script run, with some modifications, the model's training code can also be run standalone in your own on-premises environment.
@@ -350,10 +355,6 @@ Finally, the model is serialized and saved as a `.pkl` file named "model.pkl":
         pickle.dump(model, f)
     run.upload_file('outputs/model.pkl', 'model.pkl')
 ```
-
-## Limitations
-
-There is a known issue where selecting **View Generated Code**. This action fails to redirect to the Notebooks portal when the storage is behind a VNet. As a workaround, the user can manually download the **script.py** and the **script_run_notebook.ipynb** files by navigating to the **Outputs + Logs** tab under the **outputs>generated_code** folder. These files can be uploaded manually to the notebooks folder to run or edit them.
 
 ## script_run_notebook.ipynb
 
