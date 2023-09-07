@@ -58,6 +58,10 @@ kubectl describe pod <pod-name>
 
 In your AKS cluster, you might have various namespaces and services running. Filtering events based on object type, namespace, or reason can help you narrow down your focus to what's most relevant to your applications. For instance, you can use the following command to filter events within a specific namespace:
 
+```azurecli-interactive
+kubectl get events -n <namespace>
+```
+
 ### Automating event notifications
 
 To ensure timely response to critical events in your AKS cluster, set up automated notifications. Azure offers integration with monitoring and alerting services like [Azure Monitor][aks-azure-monitor]. You can configure alerts to trigger based on specific event patterns. This way, you're immediately informed about crucial issues that require attention.
