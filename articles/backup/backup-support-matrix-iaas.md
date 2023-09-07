@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/21/2023
+ms.date: 09/07/2023
 ms.custom: references_regions 
 ms.reviewer: sharrai
 ms.service: backup
@@ -196,6 +196,8 @@ Shared storage| Backing up VMs by using Cluster Shared Volumes (CSV) or Scale-Ou
 NVMe/[ephemeral disks](../virtual-machines/ephemeral-os-disks.md) | Not supported.
 [Resilient File System (ReFS)](/windows-server/storage/refs/refs-overview) restore | Supported. Volume Shadow Copy Service (VSS) supports app-consistent backups on ReFS.
 Dynamic disk with spanned or striped volumes | Supported, unless you enable the selective disk feature on an Azure VM.
+VMs with encryption at host | Supported
+
 
 ## VM network support
 
