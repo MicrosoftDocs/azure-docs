@@ -1,7 +1,7 @@
 ---
 title: "Use blocklists for text moderation"
 titleSuffix: Azure AI services
-description: Learn how to customize text moderation in Content Safety by using your own list of blockItems.
+description: Learn how to customize text moderation in Content Safety by using your own list of blocklistItems.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -25,7 +25,7 @@ The default AI classifiers are sufficient for most content moderation needs. How
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, and select a resource group, supported region, and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * One of the following installed:
   * [cURL](https://curl.haxx.se/) for REST API calls.
@@ -55,7 +55,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_list_name>?api-version=2023-04-30-preview' \
+curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_list_name>?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -140,11 +140,11 @@ except HttpResponseError as e:
 
 ---
 
-### Add blockItems to the list
+### Add blocklistItems to the list
 
 > [!NOTE]
 >
-> There is a maximum limit of **10,000 terms** in total across all lists. You can add at most 100 blockItems in one request.
+> There is a maximum limit of **10,000 terms** in total across all lists. You can add at most 100 blocklistItems in one request.
 
 #### [REST API](#tab/rest)
 
@@ -154,20 +154,20 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_name>` (in the URL) with the name you used in the list creation step.
 1. Optionally replace the value of the `"description"` field with a custom description.
-1. Replace the value of the `"text"` field with the item you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
+1. Replace the value of the `"text"` field with the item you'd like to add to your blocklist. The maximum length of a blocklistItem is 128 characters.
 
 ```shell
-curl --location --request POST '<endpoint>/contentsafety/text/blocklists/<your_list_name>:addBlockItems?api-version=2023-04-30-preview' \
+curl --location --request POST '<endpoint>/contentsafety/text/blocklists/<your_list_name>:addBlocklistItems?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
---data-raw '"blockItems": [{
+--data-raw '"blocklistItems": [{
     "description": "string",
     "text": "bleed"
 }]'
 ```
 
 > [!TIP]
-> You can add multiple blockItems in one API call. Make the request body a JSON array of data groups:
+> You can add multiple blocklistItems in one API call. Make the request body a JSON array of data groups:
 >
 > ```json
 > [{
@@ -185,7 +185,7 @@ The response code should be `200`.
 
 ```console
 {
-  "blockItemId": "string",
+  "blocklistItemId": "string",
   "description": "string",
   "text": "bleed"
   
@@ -203,25 +203,25 @@ ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new Azur
 
 var blocklistName = "<your_list_name>";
 
-string blockItemText1 = "<block_item_text_1>";
-string blockItemText2 = "<block_item_text_2>";
+string blocklistItemText1 = "<block_item_text_1>";
+string blocklistItemText2 = "<block_item_text_2>";
 
-var blockItems = new TextBlockItemInfo[] { new TextBlockItemInfo(blockItemText1), new TextBlockItemInfo(blockItemText2) };
-var addedBlockItems = client.AddBlockItems(blocklistName, new AddBlockItemsOptions(blockItems));
+var blocklistItems = new TextblocklistItemInfo[] { new TextblocklistItemInfo(blocklistItemText1), new TextblocklistItemInfo(blocklistItemText2) };
+var addedblocklistItems = client.AddblocklistItems(blocklistName, new AddblocklistItemsOptions(blocklistItems));
 
-if (addedBlockItems != null && addedBlockItems.Value != null)
+if (addedblocklistItems != null && addedblocklistItems.Value != null)
 {
-    Console.WriteLine("\nBlockItems added:");
-    foreach (var addedBlockItem in addedBlockItems.Value.Value)
+    Console.WriteLine("\nblocklistItems added:");
+    foreach (var addedblocklistItem in addedblocklistItems.Value.Value)
     {
-        Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", addedBlockItem.BlockItemId, addedBlockItem.Text, addedBlockItem.Description);
+        Console.WriteLine("blocklistItemId: {0}, Text: {1}, Description: {2}", addedblocklistItem.blocklistItemId, addedblocklistItem.Text, addedblocklistItem.Description);
     }
 }
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
-1. Replace the values of the `blockItemText1` and `blockItemText2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
-1. Optionally add more blockItem strings to the `blockItems` parameter.
+1. Replace the values of the `blocklistItemText1` and `blocklistItemText2` fields with the items you'd like to add to your blocklist. The maximum length of a blocklistItem is 128 characters.
+1. Optionally add more blocklistItem strings to the `blocklistItems` parameter.
 1. Run the code.
 
 #### [Python](#tab/python)
@@ -233,8 +233,8 @@ import os
 from azure.ai.contentsafety import ContentSafetyClient
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.contentsafety.models import (
-    TextBlockItemInfo,
-    AddBlockItemsOptions
+    TextblocklistItemInfo,
+    AddblocklistItemsOptions
 )
 from azure.core.exceptions import HttpResponseError
 
@@ -248,16 +248,16 @@ blocklist_name = "<your_list_name>"
 block_item_text_1 = "<block_item_text_1>"
 block_item_text_2 = "<block_item_text_2>"
 
-block_items = [TextBlockItemInfo(text=block_item_text_1), TextBlockItemInfo(text=block_item_text_2)]
+block_items = [TextblocklistItemInfo(text=block_item_text_1), TextblocklistItemInfo(text=block_item_text_2)]
 try:
     result = client.add_block_items(
         blocklist_name=blocklist_name,
-        body=AddBlockItemsOptions(block_items=block_items),
+        body=AddblocklistItemsOptions(block_items=block_items),
     )
     if result and result.value:
         print("\nBlock items added: ")
         for block_item in result.value:
-            print(f"BlockItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
+            print(f"blocklistItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
 except HttpResponseError as e:
     print("\nAdd block items failed: ")
     if e.error:
@@ -269,8 +269,8 @@ except HttpResponseError as e:
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
-1. Replace the values of the `block_item_text_1` and `block_item_text_2` fields with the items you'd like to add to your blocklist. The maximum length of a blockItem is 128 characters.
-1. Optionally add more blockItem strings to the `block_items` parameter.
+1. Replace the values of the `block_item_text_1` and `block_item_text_2` fields with the items you'd like to add to your blocklist. The maximum length of a blocklistItem is 128 characters.
+1. Optionally add more blocklistItem strings to the `block_items` parameter.
 1. Run the script.
 
 
@@ -278,7 +278,7 @@ except HttpResponseError as e:
 
 > [!NOTE]
 > 
-> There will be some delay after you add or edit a blockItem before it takes effect on text analysis, usually **not more than five minutes**.
+> There will be some delay after you add or edit a blocklistItem before it takes effect on text analysis, usually **not more than five minutes**.
 
 ### Analyze text with a blocklist
 
@@ -292,7 +292,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Optionally change the value of the `"text"` field to whatever text you want to analyze. 
 
 ```shell
-curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2023-04-30-preview&' \
+curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2023-10-01&' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -304,7 +304,8 @@ curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-versio
     "Violence"
   ],
   "blocklistNames":["<your_list_name>"],
-  "breakByBlocklists": true
+  "haltOnBlocklistHit": false,
+  "outputType": "FourSeverityLevels"
 }'
 ```
 
@@ -312,13 +313,17 @@ The JSON response will contain a `"blocklistMatchResults"` that indicates any ma
 
 ```json
 {
-  "blocklistMatchResults": [
+  "blocklistsMatch": [
     {
       "blocklistName": "string",
-      "blockItemID": "string",
-      "blockItemText": "bleed",
-      "offset": "28",
-      "length": "5"
+      "blocklistItemId": "string",
+      "blocklistItemText": "bleed"
+    }
+  ],
+  "categoriesAnalysis": [
+    {
+      "category": "Hate",
+      "severity": 0
     }
   ]
 }
@@ -356,8 +361,8 @@ if (response.Value.BlocklistsMatchResults != null)
     Console.WriteLine("\nBlocklist match result:");
     foreach (var matchResult in response.Value.BlocklistsMatchResults)
     {
-        Console.WriteLine("Blockitem was hit in text: Offset: {0}, Length: {1}", matchResult.Offset, matchResult.Length);
-        Console.WriteLine("BlocklistName: {0}, BlockItemId: {1}, BlockItemText: {2}, ", matchResult.BlocklistName, matchResult.BlockItemId, matchResult.BlockItemText);
+        Console.WriteLine("blocklistItem was hit in text: Offset: {0}, Length: {1}", matchResult.Offset, matchResult.Length);
+        Console.WriteLine("BlocklistName: {0}, blocklistItemId: {1}, blocklistItemText: {2}, ", matchResult.BlocklistName, matchResult.blocklistItemId, matchResult.blocklistItemText);
     }
 }
 ```
@@ -393,7 +398,7 @@ try:
         print("\nBlocklist match results: ")
         for match_result in analysis_result.blocklists_match_results:
             print(f"Block item was hit in text, Offset={match_result.offset}, Length={match_result.length}.")
-            print(f"BlocklistName: {match_result.blocklist_name}, BlockItemId: {match_result.block_item_id}, BlockItemText: {match_result.block_item_text}")
+            print(f"BlocklistName: {match_result.blocklist_name}, blocklistItemId: {match_result.block_item_id}, blocklistItemText: {match_result.block_item_text}")
 except HttpResponseError as e:
     print("\nAnalyze text failed: ")
     if e.error:
@@ -413,7 +418,7 @@ except HttpResponseError as e:
 
 This section contains more operations to help you manage and use the blocklist feature.
 
-### List all blockItems in a list
+### List all blocklistItems in a list
 
 #### [REST API](#tab/rest)
 
@@ -425,7 +430,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
 
 ```shell
-curl --location --request GET '<endpoint>/contentsafety/text/blocklists/<your_list_name>/blockItems?api-version=2023-04-30-preview' \
+curl --location --request GET '<endpoint>/contentsafety/text/blocklists/<your_list_name>/blocklistItems?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 ```
@@ -436,7 +441,7 @@ The status code should be `200` and the response body should look like this:
 {
  "values": [
   {
-   "blockItemId": "string",
+   "blocklistItemId": "string",
    "description": "string",
    "text": "bleed",
   }
@@ -455,11 +460,11 @@ ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new Azur
 
 var blocklistName = "<your_list_name>";
 
-var allBlockitems = client.GetTextBlocklistItems(blocklistName);
-Console.WriteLine("\nList BlockItems:");
-foreach (var blocklistItem in allBlockitems)
+var allblocklistItems = client.GetTextBlocklistItems(blocklistName);
+Console.WriteLine("\nList blocklistItems:");
+foreach (var blocklistItem in allblocklistItems)
 {
-    Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", blocklistItem.BlockItemId, blocklistItem.Text, blocklistItem.Description);
+    Console.WriteLine("blocklistItemId: {0}, Text: {1}, Description: {2}", blocklistItem.blocklistItemId, blocklistItem.Text, blocklistItem.Description);
 }
 ```
 
@@ -490,7 +495,7 @@ try:
     if block_items:
         print("\nList block items: ")
         for block_item in block_items:
-            print(f"BlockItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
+            print(f"blocklistItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
 except HttpResponseError as e:
     print("\nList block items failed: ")
     if e.error:
@@ -518,7 +523,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request GET '<endpoint>/contentsafety/text/blocklists?api-version=2023-04-30-preview' \
+curl --location --request GET '<endpoint>/contentsafety/text/blocklists?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 ```
@@ -589,7 +594,7 @@ Run the script.
 
 ---
 
-### Get a blocklist by name
+### Get a blocklist by blocklistName 
 
 #### [REST API](#tab/rest)
 
@@ -600,7 +605,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
 
 ```shell
-cURL --location '<endpoint>contentsafety/text/blocklists/<your_list_name>?api-version=2023-04-30-preview' \
+cURL --location '<endpoint>contentsafety/text/blocklists/<your_list_name>?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --data ''
 ```
@@ -609,8 +614,8 @@ The status code should be `200`. The JSON response looks like this:
 
 ```json
 {
-    "blocklistName": "string",
-    "description": "string"
+  "blocklistName": "string",
+  "description": "string"
 }
 ```
 
@@ -676,7 +681,7 @@ except HttpResponseError as e:
 ---
 
 
-### Get a blockItem by blockItem ID
+### Get a blocklistItem by blocklistName and blocklistItemId
 
 #### [REST API](#tab/rest)
 
@@ -685,11 +690,11 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
-1. Replace `<your_item_id>` with the ID value for the blockItem. This is the value of the `"blockItemId"` field from the **Add blockItem** or **Get all blockItems** API calls.
+1. Replace `<your_item_id>` with the ID value for the blocklistItem. This is the value of the `"blocklistItemId"` field from the **Add blocklistItem** or **Get all blocklistItems** API calls.
 
 
 ```shell
-cURL --location '<endpoint>contentsafety/text/blocklists/<your_list_name>/blockitems/<your_item_id>?api-version=2023-04-30-preview' \
+cURL --location '<endpoint>contentsafety/text/blocklists/<your_list_name>/blocklistItems/<your_item_id>?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --data ''
 ```
@@ -698,9 +703,9 @@ The status code should be `200`. The JSON response looks like this:
 
 ```json
 {
-    "blockItemId": "string",
-    "description": "string",
-    "text": "string"
+  "blocklistItemId": "string",
+  "description": "string",
+  "text": "string"
 }
 ```
 
@@ -715,12 +720,12 @@ string key = Environment.GetEnvironmentVariable("CONTENT_SAFETY_KEY");
 ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(key));
 
 var blocklistName = "<your_list_name>";
-var getBlockItemId = "<your_block_item_id>";
+var getblocklistItemId = "<your_block_item_id>";
 
-var getBlockItem = client.GetTextBlocklistItem(blocklistName, getBlockItemId);
+var getblocklistItem = client.GetTextBlocklistItem(blocklistName, getblocklistItemId);
 
-Console.WriteLine("\nGet BlockItem:");
-Console.WriteLine("BlockItemId: {0}, Text: {1}, Description: {2}", getBlockItem.Value.BlockItemId, getBlockItem.Value.Text, getBlockItem.Value.Description);
+Console.WriteLine("\nGet blocklistItem:");
+Console.WriteLine("blocklistItemId: {0}, Text: {1}, Description: {2}", getblocklistItem.Value.blocklistItemId, getblocklistItem.Value.Text, getblocklistItem.Value.Description);
 ```
 
 1. Replace `<your_list_name>` with the name you used in the list creation step.
@@ -735,7 +740,7 @@ Create a new Python script and open it in your preferred editor or IDE. Paste in
 import os
 from azure.ai.contentsafety import ContentSafetyClient
 from azure.core.credentials import AzureKeyCredential
-from azure.ai.contentsafety.models import TextBlockItemInfo, AddBlockItemsOptions
+from azure.ai.contentsafety.models import TextblocklistItemInfo, AddblocklistItemsOptions
 from azure.core.exceptions import HttpResponseError
 
 key = os.environ["CONTENT_SAFETY_KEY"]
@@ -748,22 +753,22 @@ blocklist_name = "<your_list_name>"
 block_item_text_1 = "<block_item_text>"
 
 try:
-    # Add a blockItem
+    # Add a blocklistItem
     add_result = client.add_block_items(
         blocklist_name=blocklist_name,
-        body=AddBlockItemsOptions(block_items=[TextBlockItemInfo(text=block_item_text_1)]),
+        body=AddblocklistItemsOptions(block_items=[TextblocklistItemInfo(text=block_item_text_1)]),
     )
     if not add_result or not add_result.value or len(add_result.value) <= 0:
-        raise RuntimeError("BlockItem not created.")
+        raise RuntimeError("blocklistItem not created.")
     block_item_id = add_result.value[0].block_item_id
 
-    # Get this blockItem by blockItemId
+    # Get this blocklistItem by blocklistItemId
     block_item = client.get_text_blocklist_item(
         blocklist_name=blocklist_name,
         block_item_id= block_item_id
     )
-    print("\nGet blockitem: ")
-    print(f"BlockItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
+    print("\nGet blocklistItem: ")
+    print(f"blocklistItemId: {block_item.block_item_id}, Text: {block_item.text}, Description: {block_item.description}")
 except HttpResponseError as e:
     print("\nGet block item failed: ")
     if e.error:
@@ -780,7 +785,7 @@ except HttpResponseError as e:
 
 ---
 
-### Remove a blockItem from a list
+### Remove blocklistItems from a blocklist. 
 
 > [!NOTE]
 >
@@ -794,20 +799,20 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
-1. Replace `<item_id>` with the ID value for the blockItem. This is the value of the `"blockItemId"` field from the **Add blockItem** or **Get all blockItems** API calls.
+1. Replace `<item_id>` with the ID value for the blocklistItem. This is the value of the `"blocklistItemId"` field from the **Add blocklistItem** or **Get all blocklistItems** API calls.
 
 
 ```shell
-curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your_list_name>/removeBlockItems?api-version=2023-04-30-preview' \
+curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your_list_name>:removeBlocklistItems?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
---data-raw '"blockItemIds":[
+--data-raw '"blocklistItemIds":[
     "<item_id>"
 ]'
 ```
 
 > [!TIP]
-> You can delete multiple blockItems in one API call. Make the request body an array of `blockItemId` values.
+> You can delete multiple blocklistItems in one API call. Make the request body an array of `blocklistItemId` values.
 
 The response code should be `204`.
 
@@ -823,13 +828,13 @@ ContentSafetyClient client = new ContentSafetyClient(new Uri(endpoint), new Azur
 
 var blocklistName = "<your_list_name>";
 
-var removeBlockItemId = "<your_block_item_id>";
-var removeBlockItemIds = new List<string> { removeBlockItemId };
-var removeResult = client.RemoveBlockItems(blocklistName, new RemoveBlockItemsOptions(removeBlockItemIds));
+var removeblocklistItemId = "<your_block_item_id>";
+var removeblocklistItemIds = new List<string> { removeblocklistItemId };
+var removeResult = client.RemoveblocklistItems(blocklistName, new RemoveblocklistItemsOptions(removeblocklistItemIds));
 
 if (removeResult != null && removeResult.Status == 204)
 {
-    Console.WriteLine("\nBlockItem removed: {0}.", removeBlockItemId);
+    Console.WriteLine("\nblocklistItem removed: {0}.", removeblocklistItemId);
 }
 ```
 
@@ -846,9 +851,9 @@ import os
 from azure.ai.contentsafety import ContentSafetyClient
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.contentsafety.models import (
-    TextBlockItemInfo,
-    AddBlockItemsOptions,
-    RemoveBlockItemsOptions
+    TextblocklistItemInfo,
+    AddblocklistItemsOptions,
+    RemoveblocklistItemsOptions
 )
 from azure.core.exceptions import HttpResponseError
 
@@ -862,21 +867,21 @@ blocklist_name = "<your_list_name>"
 block_item_text_1 = "<block_item_text>"
 
 try:
-    # Add a blockItem
+    # Add a blocklistItem
     add_result = client.add_block_items(
         blocklist_name=blocklist_name,
-        body=AddBlockItemsOptions(block_items=[TextBlockItemInfo(text=block_item_text_1)]),
+        body=AddblocklistItemsOptions(block_items=[TextblocklistItemInfo(text=block_item_text_1)]),
     )
     if not add_result or not add_result.value or len(add_result.value) <= 0:
-        raise RuntimeError("BlockItem not created.")
+        raise RuntimeError("blocklistItem not created.")
     block_item_id = add_result.value[0].block_item_id
 
-    # Remove this blockItem by blockItemId
+    # Remove this blocklistItem by blocklistItemId
     client.remove_block_items(
         blocklist_name=blocklist_name,
-        body=RemoveBlockItemsOptions(block_item_ids=[block_item_id])
+        body=RemoveblocklistItemsOptions(block_item_ids=[block_item_id])
     )
-    print(f"\nRemoved blockItem: {add_result.value[0].block_item_id}")
+    print(f"\nRemoved blocklistItem: {add_result.value[0].block_item_id}")
 except HttpResponseError as e:
     print("\nRemove block item failed: ")
     if e.error:
@@ -909,7 +914,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<your_list_name>` (in the request URL) with the name you used in the list creation step.
 
 ```shell
-curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your_list_name>?api-version=2023-04-30-preview' \
+curl --location --request DELETE '<endpoint>/contentsafety/text/blocklists/<your_list_name>?api-version=2023-10-01' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 ```
