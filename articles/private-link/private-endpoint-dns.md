@@ -27,7 +27,7 @@ You can use the following options to configure your DNS settings for private end
 > It is not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below.
 
 > [!IMPORTANT]
-> Existing Private DNS Zones tied to a single service should not be associated with two different Private Endpoints as it will not be possible to properly resolve two different A-Records that point to the same service. However, Private DNS Zones tied to multiple services would not face this resolution constraint.
+> Existing Private DNS Zones linked to a single service should not be associated with two different Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issue when attempting to access that service from each respective Private Endpoint. However, linking a Private DNS Zones with private endpoints associated with different services would not face this resolution constraint.
 
 ## Azure services DNS zone configuration
 
