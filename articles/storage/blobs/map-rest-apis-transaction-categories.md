@@ -71,10 +71,8 @@ The following table maps each Blob Storage REST operation to a operation type. T
 | [Put Block from URL](/rest/api/storageservices/put-block-from-url)                        | Write                     | Write                       | Write                       |
 | [Put Block List](/rest/api/storageservices/put-block-list)                                | Write                     | Write                       | Write                       |
 | [Get Block List](/rest/api/storageservices/get-block-list)                                | Other                     | Other                       | Read                        |
-| [Query Blob Contents](/rest/api/storageservices/query-blob-contents)                      | Read                      | Read                        | N/A                         |
-| [Put Page](/rest/api/storageservices/put-page)                                            | Write<sup>2</sup>         | Write<sup>2</sup>           | Write                       |
-| [Put Page from URL](/rest/api/storageservices/put-page-from-url)                          | ?                         | ?                           | ?                           |
-| [Get Page Ranges](/rest/api/storageservices/get-page-ranges)                              | Read                      | Read                        | Read                        |
+| [Query Blob Contents](/rest/api/storageservices/query-blob-contents)                      | Read<sup>2</sup>                       | Read<sup>2</sup>                         | N/A                         |
+Read                        |
 | [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)                  | Other                     | Other                       | Write                       |
 | [Append Block](/rest/api/storageservices/append-block)                                    | Write                     | Write                       | Write                       |
 | [Append Block from URL](/rest/api/storageservices/append-block-from-url)                  | Write                     | Write                       | Write                       |
