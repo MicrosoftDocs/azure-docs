@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/23/2022
+ms.date: 08/31/2023
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
@@ -114,6 +114,7 @@ The key and templates aren't moved over when the unmanaged organization is in a 
 Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates weren't moved over, that content isn't accessible after the domain takeover.
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
+
 You can see these cmdlets used in [PowerShell example](#powershell-example).
 
 cmdlet | Usage

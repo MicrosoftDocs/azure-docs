@@ -14,7 +14,7 @@ Logs created from operations like update assessments and installations are store
 
 Azure Resource Graph's query language is based on the [Kusto query language](../governance/resource-graph/concepts/query-language.md) used by Azure Data Explorer. 
 
-The article describes the structure of the logs from Update management center (Preview) and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
+The article describes the structure of the logs from Update Manager (preview) and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
 
 ## Log structure
 

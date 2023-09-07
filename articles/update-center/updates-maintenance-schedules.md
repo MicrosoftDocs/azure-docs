@@ -1,7 +1,7 @@
 ---
 title: Updates and maintenance in Azure Update Manager (preview).
 description: The article describes the updates and maintenance options available in Azure Update Manager (preview).
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.date: 05/23/2023
 ms.topic: conceptual
 author: snehasudhirG
@@ -41,7 +41,7 @@ Start using [scheduled patching](scheduled-patching.md) to create and save recur
 
 This mode of patching lets the Azure platform automatically download and install all the security and critical updates on your machines every month and apply them on your machines following the availability-first principles. For more information, see [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).
 
-In **Update management center** home page, go to **Update Settings** blade, select Patch orchestration as **Azure Managed - Safe Deployment** value to enable this VM property. 
+In **Update Manager** home page, go to **Update Settings** blade, select Patch orchestration as **Azure Managed - Safe Deployment** value to enable this VM property. 
 
 
 ## Windows automatic updates

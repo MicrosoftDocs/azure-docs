@@ -1,7 +1,7 @@
 ---
 title: Check update compliance in Azure Update Manager (preview)
 description: The article details how to use Azure Update Manager (preview) in the Azure portal to assess update compliance for supported machines.
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.date: 05/31/2023
 ms.topic: conceptual
 author: SnehaSudhir 
@@ -24,7 +24,7 @@ This article details how to check the status of available updates on a single VM
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In Update management center (Preview), **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
+1. In Update Manager (preview), **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
 
 1. In **Select resources and check for updates**, choose the machine for which you want to check the updates and select **Check for updates**.
 
@@ -50,7 +50,7 @@ This article details how to check the status of available updates on a single VM
 
 1. Select your virtual machine and the **virtual machines | Updates** page opens.
 1. Under **Operations**, select **Updates**.
-1. In **Updates**, select **Go to Updates using Update Management Center**. 
+1. In **Updates**, select **Go to Updates using Update Manager**. 
 
       :::image type="content" source="./media/view-updates/resources-check-updates.png" alt-text="Screenshot showing selection of updates from Home page.":::
 
@@ -94,7 +94,7 @@ To check the updates on your machines at scale, follow these steps:
 
 1. Select **Assess now** to perform the assessment.
 
-   A notification appears when the operation is initiated and completed. After a successful scan,  the **Update management center (Preview) | Machines** page is refreshed to display the updates.
+   A notification appears when the operation is initiated and completed. After a successful scan,  the **Update Manager (preview) | Machines** page is refreshed to display the updates.
 
 ---
 

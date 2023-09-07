@@ -6,7 +6,7 @@ ms.service: azure-container-storage
 ms.topic: quickstart
 ms.date: 08/18/2023
 ms.author: kendownie
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service

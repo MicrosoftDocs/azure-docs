@@ -65,16 +65,15 @@ You can [manually create a tenant](quickstart-create-new-tenant.md), which will 
 
 For convenience, you may want to invite yourself and other members of your development team to be guest users in the tenant. This will create separate guest objects in the test tenant, but means you only have to manage one set of credentials for your corporate account and your test account.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
-2. Go to **Users**.
-3. Click on **New guest user** and invite your work account email address.
-4. Repeat for other members of the development and/or testing team for your application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Invite external user** and invite your work account email address.
+1. Repeat for other members of the development and/or testing team for your application.
 
 You can also create test users in your test tenant. If you used one of the Microsoft 365 sample packs, you may already have some test users in your tenant. If not, you should be able to create some yourself as the tenant administrator.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select on **Azure Active Directory**.
-2. Go to **Users**.
-3. Click **New user** and create some new test users in your directory.
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user** and create some new test users in your directory.
 
 ### Get an Azure AD subscription (optional)
 
@@ -96,7 +95,6 @@ Replicating Conditional Access policies ensures you don't encounter unexpected b
 
 Viewing your production tenant Conditional Access policies may need to be performed by a company administrator.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using your production tenant account.
 1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional Access**.
 1. View the list of policies in your tenant. Click the first one.
 1. Navigate to **Cloud apps or actions**.
@@ -104,18 +102,15 @@ Viewing your production tenant Conditional Access policies may need to be perfor
 
 In a new tab or browser session, sign in to the [Azure portal](https://portal.azure.com) to access your test tenant.
 
-1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional Access**.
-1. Click on **New policy**
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Conditional Access**.
+1. Select **Create new policy**
 1. Copy the settings from the production tenant policy, identified through the previous steps.
 
 #### Permission grant policies
 
 Replicating permission grant policies ensures you don't encounter unexpected prompts for admin consent when moving to production.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using your production tenant account.
-1. Click on **Azure Active Directory**.
-1. Go to **Enterprise applications**.
-1. From your production tenant, go to **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent** settings. Copy the settings there to your test tenant.
+Browse to **Identity** > **Applications** > **Enterprise applications** > **Consent and permissions** > **User consent** settings. Copy the settings there to your test tenant.
 
 #### Token lifetime policies
 
@@ -134,20 +129,18 @@ You'll need to create an app registration to use in your test environment. This 
 
 You'll need to create some test users with associated test data to use while testing your scenarios. This step might need to be performed by an admin.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
-2. Go to **Users**.
-3. Select **New user** and create some new test users in your directory.
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user** and create some new test users in your directory.
 
 ### Add the test users to a group (optional)
 
 For convenience, you can assign all these users to a group, which makes other assignment operations easier.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
-2. Go to **Groups**.
-3. Click **New group**.
-4. Select either **Security** or **Microsoft 365** for group type.
-5. Name your group.
-6. Add the test users created in the previous step.
+1. Browse to **Identity** > **Groups** > **All groups**.
+1. Select **New group**.
+1. Select either **Security** or **Microsoft 365** for group type.
+1. Name your group.
+1. Add the test users created in the previous step.
 
 ### Restrict your test application to specific users
 

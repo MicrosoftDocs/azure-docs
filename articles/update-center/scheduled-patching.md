@@ -1,7 +1,7 @@
 ---
 title: Scheduling recurring updates in Azure Update Manager (preview)
 description: The article details how to use Azure Update Manager (preview) in Azure to set update schedules that install recurring updates on your machines.
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.date: 05/30/2023
 ms.topic: conceptual
 author: SnehaSudhirG
@@ -106,7 +106,7 @@ To schedule recurring updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (Preview)**, **Machines**, select your **Subscription**, select your machine and select **Schedule updates**.
+1. In **Update Manager (preview)**, **Machines**, select your **Subscription**, select your machine and select **Schedule updates**.
 
 1. In **Create new maintenance configuration**, you can create a schedule for a single VM, assign machine and tags. Follow the procedure from step 3 listed in **From Overview blade** of [Schedule recurring updates on single VM](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration and assign a schedule.
 
@@ -134,7 +134,7 @@ To schedule recurring updates at scale, follow these steps:
  
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (Preview)**, **Overview**, select your **Subscription** and select **Schedule updates**.
+1. In **Update Manager (preview)**, **Overview**, select your **Subscription** and select **Schedule updates**.
 
 1. In the **Create new maintenance configuration** page, you can create a schedule for multiple machines.
 
@@ -170,7 +170,7 @@ To schedule recurring updates at scale, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (Preview)**, **Machines**, select your **Subscription**, select your machines and select **Schedule updates**.
+1. In **Update Manager (preview)**, **Machines**, select your **Subscription**, select your machines and select **Schedule updates**.
 
 In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow the procedure from step 3 listed in **From Overview blade** of [Schedule recurring updates on single VM](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration and assign a schedule.
 
@@ -182,7 +182,7 @@ A notification appears that the deployment is created.
  ## Attach a maintenance configuration
  A maintenance configuration can be attached to multiple machines. It can be attached to machines at the time of creating a new maintenance configuration or even after you've created one.
 
- 1. In **Update management center**, select **Machines** and select your **Subscription**.
+ 1. In **Update Manager**, select **Machines** and select your **Subscription**.
  1. Select your machine and in **Updates (Preview)**, select **Scheduled updates** to create a maintenance configuration  or attach existing maintenance configuration to the scheduled recurring updates.
 1. In **Scheduling**, select **Attach maintenance configuration**. 
 1. Select the maintenance configuration that you would want to attach and select **Attach**. 
@@ -249,7 +249,7 @@ Policy allows you to assign standards and assess compliance at scale. [Learn mor
 1. Under **Basics**, in the **Assign policy** page:
 	- In **Scope**, choose your subscription, resource group, and choose **Select**.
 	- Select **Policy definition** to view a list of policies.
-	- In **Available Definitions**, select **Built in** for Type and in search, enter - *[Preview] Schedule recurring updates using Update Management Center* and click **Select**.
+	- In **Available Definitions**, select **Built in** for Type and in search, enter - *[Preview] Schedule recurring updates using Update Manager* and click **Select**.
 
 	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-defintion.png" alt-text="Screenshot that shows on how to select the definition.":::
 	
@@ -286,7 +286,7 @@ To view the current compliance state of your existing resources:
 	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-policy-compliance.png" alt-text="Screenshot that shows on policy compliance.":::
 
 ## Check your scheduled patching run
-You can check the deployment status and history of your maintenance configuration runs from the Update management center portal. Follow [Update deployment history by maintenance run ID](./manage-multiple-machines.md#update-deployment-history-by-maintenance-run-id).
+You can check the deployment status and history of your maintenance configuration runs from the Update Manager portal. Follow [Update deployment history by maintenance run ID](./manage-multiple-machines.md#update-deployment-history-by-maintenance-run-id).
 
 ## Next steps
 

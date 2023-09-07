@@ -1,16 +1,16 @@
 ---
 title: What's upcoming in Azure Update Manager (preview)
 description: Learn about what's upcoming and updates in the Update manager (preview) service.
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 06/01/2023
 ---
 
-# What's upcoming in Azure Update Manager (preview)
+# What are the upcoming features in Azure Update Manager (preview)
 
-The primary [what's New in Update management center (preview)](whats-new.md) contains updates of feature releases and this article lists all the upcoming features.
+The primary [what's New in Azure Update Manager (preview)](whats-new.md) contains updates of feature releases and this article lists all the upcoming features.
 
 ## Expanded support for Operating system and VM images
  
@@ -22,7 +22,10 @@ Update Manager will be declared GA soon.
 
 ## Prescript and postscript 
 
-The prescript and post-script will be available soon.
+The prescript and postscript will be available soon.
+
+## SQL Server patching
+SQL Server patching using Update Manager will be available soon.
 
 ## Next steps
 

@@ -27,10 +27,9 @@ In Azure Active Directory (Azure AD) for customers, a customer tenant represents
 
 To create a new admin account, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user** > **Create new user**.
 1. Enter information for this admin:
   
@@ -52,10 +51,9 @@ The admin is created and added to your customer tenant. It's preferable to have 
 
 You can also invite a new guest user to manage your tenant. To invite an admin, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user** > **Invite external user**.
 1. On the **New user** page, enter information for the admin:
 
@@ -75,10 +73,9 @@ An invitation email is sent to the user. The user needs to accept the invitation
 
 You can assign a role when you create a user or invite a guest user. You can add a role, change the role, or remove a role for a user:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select the user you want to change the roles for. Then select **Assigned roles**.
 1. Select **Add assignments**, select the role to assign (for example, *Application administrator*), and then choose **Add**.
 
@@ -86,10 +83,9 @@ You can assign a role when you create a user or invite a guest user. You can add
 
 If you need to remove a role assignment from a user, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select the user you want to change the roles for. Then select **Assigned roles**.
 1. Select the role you want to remove, for example *Application administrator*, and then select **Remove assignment**.
 
@@ -97,20 +93,18 @@ If you need to remove a role assignment from a user, follow these steps:
 
 As part of an auditing process, you typically review which users are assigned to specific roles in your customer directory. Use the following steps to audit which users are currently assigned privileged roles.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Roles & admins** > **Roles & admins**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 2. Select a role, such as **Global administrator**. The **Assignments** page lists the users with that role.
 
 ## Delete an administrator account
 
 To delete an existing user, you must have a *Global administrator* role assignment. Global admins can delete any user, including other admins. *User administrators* can delete any non-admin user.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your customer tenant in the **Directory name** list, and then select **Switch**.
-1. Under **Azure Active Directory**, select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with Global Administrator or Privileged Role Administrator permissions.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant.
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 

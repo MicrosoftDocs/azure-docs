@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/18/2023
+ms.date: 09/05/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -79,11 +79,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-insurance-card.png" link="#health-insurance-card":::</br>
-    [**Insurance card**](#w-2) | Extract health insurance details.
-   :::column-end:::
-   :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
-    [**W2**](#w-2) | Extract taxable </br>compensation details.
+    [**Health Insurance card**](#health-insurance-card) | Extract health insurance details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-business-card.png" link="#business-card":::</br>
@@ -95,6 +91,10 @@ Prebuilt models enable you to add intelligent document processing to your apps a
    :::column-end:::
 :::row-end:::
 :::row:::
+   :::column span="":::
+      :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
+    [**W2**](#w-2) | Extract taxable </br>compensation details.
+   :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098e.png" link="#us-tax-1098-e-form":::</br>
     [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details
@@ -230,7 +230,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-| [**Health insurance card**](concept-insurance-card.md)|&#9679; Extract key information from US health insurance cards.</br>&#9679; [Data and field extraction](concept-insurance-card.md#field-extraction)|&#9679; Coverage and eligibility verification. </br>&#9679; Predictive modeling.</br>&#9679; Value-based analytics.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)
+| [**Health insurance card**](concept-health-insurance-card.md)|&#9679; Extract key information from US health insurance cards.</br>&#9679; [Data and field extraction](concept-health-insurance-card.md#field-extraction)|&#9679; Coverage and eligibility verification. </br>&#9679; Predictive modeling.</br>&#9679; Value-based analytics.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true#prebuilt-model)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)

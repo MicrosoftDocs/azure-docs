@@ -1,16 +1,26 @@
 ---
 title: What's new in Azure Update Manager (preview)
 description: Learn about what's new and recent updates in the Azure Update Manager (preview) service.
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/05/2023
+ms.date: 08/30/2023
 ---
 
 # What's new in Azure Update Manager (Preview)
 
 [Azure Update Manager (preview)](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update Manager (preview).
+
+## August 2023
+
+### New region support
+
+Azure Update Manager (preview) is now available in Canada East and Sweden Central regions for Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+
+### SQL Server patching (preview)
+
+SQL Server patching (preview) allows you to patch SQL Servers. You can now manage and govern updates for all your SQL Servers using the patching capabilities provided by Azure Update Manager. [Learn more](guidance-patching-sql-server-azure-vm.md).
 
 ## July 2023
 
@@ -43,7 +53,7 @@ A new patch orchestration - **Customer Managed Schedules (Preview)** is introduc
 
 ### New region support
 
-Update management center (Preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Update Manager (preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
 
 ## October 2022
 

@@ -169,7 +169,9 @@ You can create an APM configuration and bind to app builds and deployments, as e
 You can manage APM integration by configuring properties or secrets in the APM configuration using the Azure portal or the Azure CLI.
 
 > [!NOTE]
-> When configuring properties or secrets for APM, use key names without a prefix. For example, don't use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix.
+> When configuring properties or secrets via APM configurations, use key names without the APM name as prefix. For example, don't use a `DT_` prefix for Dynatrace or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix.
+>
+> If you intend to override or configure some properties or secrets, such as app name or app level, you need to set environment variables when deploying an app with the original environment variables with the APM name as prefix.
 
 ##### [Azure portal](#tab/azure-portal)
 
@@ -177,7 +179,7 @@ Use the following steps to show, add, edit, or delete an APM configuration:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. In the navigation pane, select **APM**.
-1. To create an APM configuration, select **Add**. If you want to enable the APM configuration globally, select **Enable globally**. All the subsequent builds and deployments will use the APM configuration automatically.
+1. To create an APM configuration, select **Add**. If you want to enable the APM configuration globally, select **Enable globally**. All the subsequent builds and deployments use the APM configuration automatically.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Add button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/add-apm.png":::
 
@@ -185,7 +187,7 @@ Use the following steps to show, add, edit, or delete an APM configuration:
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Edit APM option selected." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/show-apm.png":::
 
-1. To delete an APM configuration, select the ellipsis (**...**) button for the configuration, then select **Delete**. If the APM configuration is used by any build or deployment, you won't be able to delete it.
+1. To delete an APM configuration, select the ellipsis (**...**) button for the configuration and then select **Delete**. If the APM configuration is used by any build or deployment, you aren't able to delete it.
 
    :::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png" alt-text="Screenshot of the Azure portal showing the APM configuration page with the Delete button highlighted." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/delete-apm.png":::
 
