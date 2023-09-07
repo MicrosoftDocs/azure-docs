@@ -32,7 +32,6 @@ Each major process or workload that an application implements should have separa
 
 Disaster recovery isn't an automatic feature, but must be designed, built, and tested. To support a solid DR strategy, you must build an application with DR in mind from the ground up. Azure offers services, features, and guidance to help you support DR when you create apps.
 
-Designing for disaster recovery has the following main concerns: 
 
 
 
