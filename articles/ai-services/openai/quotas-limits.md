@@ -49,7 +49,7 @@ The default quota for models varies by model and region. Default quota limits ar
     <td>240 K</td>  
   </tr>  
   <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East</td>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, Sweden Central, Switzerland North</td>  
     <td>300 K</td>  
   </tr>  
   <tr>  
@@ -58,7 +58,7 @@ The default quota for models varies by model and region. Default quota limits ar
     <td>240 K</td>  
   </tr>  
   <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East</td>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, Sweden Central, Switzerland North</td>  
     <td>300 K</td>  
   </tr>  
   <tr>  
@@ -67,7 +67,7 @@ The default quota for models varies by model and region. Default quota limits ar
     <td>20 K</td>  
   </tr>  
   <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South</td>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South, Sweden Central, Switzerland North</td>  
     <td>40 K</td>  
   </tr>  
   <tr>  
@@ -76,7 +76,7 @@ The default quota for models varies by model and region. Default quota limits ar
     <td>40 K</td>  
   </tr>  
   <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South</td>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South,  Sweden Central, Switzerland North</td>  
     <td>80 K</td>  
   </tr>  
   <tr>  
@@ -85,7 +85,7 @@ The default quota for models varies by model and region. Default quota limits ar
     <td>240 K</td>  
   </tr>  
   <tr>  
-    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South</td>  
+    <td>North Central US, Australia East, East US 2, Canada East, Japan East, UK South, Switzerland North</td>  
     <td>350 K</td>  
   </tr>  
   <tr>  
