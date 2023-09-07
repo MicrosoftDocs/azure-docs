@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure OpenAI with Custom Question Answering
+title: Connect Custom Question Answering with Azure OpenAI on your data 
 titleSuffix: Azure AI services
 description: Learn how to use Custom Question Answering with Azure OpenAI.
 ms.service: cognitive-services
@@ -49,9 +49,9 @@ At the same time, customers often require a custom answer authoring experience t
     :::image type="content" source="../../../openai/media/quickstarts/chatgpt-playground-add-your-data.png" alt-text="A screenshot showing the button for adding your data in Azure OpenAI Studio." lightbox="../../../openai/media/quickstarts/chatgpt-playground-add-your-data.png":::
 
 1. In the pane that appears, select **Azure Cognitive Search** under **Select or add data source**. This will update the screen with **Data field mapping** options depending on your data source.
-
-:::image type="content" source="../media/question-answering/data-source-selection.png" alt-text="A screenshot showing data selection options in Azure OpenAI Studio." lightbox="../media/question-answering/data-source-selection.png":::
-
+        
+    :::image type="content" source="../media/question-answering/data-source-selection.png" alt-text="A screenshot showing data selection options in Azure OpenAI Studio." lightbox="../media/question-answering/data-source-selection.png":::
+                    
 
 1. Select the subscription, Azure Cognitive Search service and Azure Cognitive Search Index associated with your Custom Question Answering project. Select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
 
@@ -71,7 +71,7 @@ At the same time, customers often require a custom answer authoring experience t
 
 1. Your data source has now been added. Select your model's deployment name under the **Configuration** > **Deployment** tab on the menu to the right. 
 
-    :::image type="content" source="../../../openai/media/quickstarts/chat-playground.png" alt-text="A screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../../../openai/media/quickstarts/chat-playground.png":::
+    :::image type="content" source="../media/question-answering/chat-playground.png" alt-text="A screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/question-answering/chat-playground.png":::
 
 You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../..//openai/concepts/use-your-data.md#using-the-web-app) to chat with the model over the web.
 
