@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Machine recommendations and capacity planning
-description: Default and Minimum VM Size Recommendations and Capacity Planning for HDInsight on AKS Cluster Pools and Clusters.
+description: Default and minimum virtual machine size recommendations and capacity planning for HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: conceptual
 ms.date: 09/06/2023
