@@ -30,7 +30,7 @@ For older services, classic similarity remains the default algorithm. Older serv
 
 ## Set BM25 parameters
 
-BM25 ranking exposes two parameters to control the relevance score calculation. 
+BM25 ranking provides two parameters for tuning the relevance score calculation. 
 
 1. Use a [Create or Update Index](/rest/api/searchservice/create-index) request to set BM25 parameters:
 
@@ -49,16 +49,12 @@ BM25 ranking exposes two parameters to control the relevance score calculation.
 
    Because Cognitive Search doesn't allow updates to a live index, you need to take the index offline so that the parameters can be added. Indexing and query requests fail while the index is offline. The duration of the outage is the amount of time it takes to update the index, usually no more than several seconds. When the update is complete, the index comes back automatically.
 
-1. Set `"b"` and `"k1"` to custom values. See the property descriptions in the next section for details.
+1. Set `"b"` and `"k1"` to custom values, and then send the request.
 
-1. Send the request.
-
-### BM25 property descriptions
-
-| Property | Type | Description |
-|----------|------|-------------|
-| k1 | number | Controls the scaling function between the term frequency of each matching terms to the final relevance score of a document-query pair. Values are usually 0.0 to 3.0, with 1.2 as the default. </br></br>A value of 0.0 represents a "binary model", where the contribution of a single matching term is the same for all matching documents, regardless of how many times that term appears in the text. Larger k1 values allow the score to continue to increase as more instances of the same term is found in the document. </br></br>Using a larger k1 value is important in cases where multiple terms are included in a search query. In those cases, you might want to favor documents matching more query terms, over documents that only match a single term, multiple times. For example, when querying for the terms "Apollo Spaceflight", you might want to lower the score of an article about Greek Mythology that contains the term "Apollo" a few dozen times, without mentions of "Spaceflight", relative to another article that explicitly mentions both "Apollo" and "Spaceflight" a handful of times only. |
-| b | number | Controls how the length of a document affects the relevance score. Values are between 0 and 1, with 0.75 as the default. </br></br>A value of 0.0 means the length of the document doesn't influence the score. A value of 1.0 means the effect of term frequency on relevance score is normalized by the document's length. </br></br>Normalizing the term frequency by the document's length is useful in cases where you want to penalize longer documents. In some cases, longer documents (such as a complete novel), are more likely to contain many irrelevant terms, compared to shorter documents. |
+    | Property | Type | Description |
+    |----------|------|-------------|
+    | k1 | number | Controls the scaling function between the term frequency of each matching terms to the final relevance score of a document-query pair. Values are usually 0.0 to 3.0, with 1.2 as the default. </br></br>A value of 0.0 represents a "binary model", where the contribution of a single matching term is the same for all matching documents, regardless of how many times that term appears in the text. Larger k1 values allow the score to continue to increase as more instances of the same term is found in the document. </br></br>Using a larger k1 value is important in cases where multiple terms are included in a search query. In those cases, you might want to favor documents matching more query terms, over documents that only match a single term, multiple times. For example, when querying for the terms "Apollo Spaceflight", you might want to lower the score of an article about Greek Mythology that contains the term "Apollo" a few dozen times, without mentions of "Spaceflight", relative to another article that explicitly mentions both "Apollo" and "Spaceflight" a handful of times only. |
+    | b | number | Controls how the length of a document affects the relevance score. Values are between 0 and 1, with 0.75 as the default. </br></br>A value of 0.0 means the length of the document doesn't influence the score. A value of 1.0 means the effect of term frequency on relevance score is normalized by the document's length. </br></br>Normalizing the term frequency by the document's length is useful in cases where you want to penalize longer documents. In some cases, longer documents (such as a complete novel), are more likely to contain many irrelevant terms, compared to shorter documents. |
 
 ## Enable BM25 scoring on older services
 
