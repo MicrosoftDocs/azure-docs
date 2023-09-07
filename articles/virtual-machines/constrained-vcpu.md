@@ -27,11 +27,11 @@ The licensing fees charged for SQL Server are based on the available vCPU count.
 ## Specification comparison
 The Standard_E32s_v5 VM size comes with 32 vCPUs, 256 GiB of RAM, 32 disks, and 80,000 IOPs of I/O bandwidth. The pre-defined Standard_E32-16s_v5 and Standard_E32-8s_v5 VM sizes comes with 16 and 8 active vCPUs respectively, while maintaining the memory, storage, and I/O bandwidth specifications of the Standard_E32s_v5.
 
-|Type         | Size name              | Disabled vCPUs | Available vCPUs   | Memory, Storage, I/O           |
-|-------------|------------------------|----------------|-------------------|--------------------------------|
-| Original    | Standard_E32s_v5       | 0              | **32**            | 256 GiB, 32 Disks, 80,000 IOPs |
-| Constrained | Standard_E32-**16**s_v5| 16             | **16**            | 256 GiB, 32 Disks, 80,000 IOPs |
-| Constrained | Standard_E32-**8**s_v5 | 24             | **8**             | 256 GiB, 32 Disks, 80,000 IOPs |
+| Size type       | Size name              | Disabled vCPUs | Active vCPUs      | Memory, Storage, I/O           |
+|-----------------|------------------------|----------------|-------------------|--------------------------------|
+| Base (Original) | Standard_E32s_v5       | 0              | **32**            | 256 GiB, 32 Disks, 80,000 IOPs |
+| Constrained     | Standard_E32-**16**s_v5| 16             | **16**            | 256 GiB, 32 Disks, 80,000 IOPs |
+| Constrained     | Standard_E32-**8**s_v5 | 24             | **8**             | 256 GiB, 32 Disks, 80,000 IOPs |
 
 > [!NOTE]
 > Disabled vCPUs are not available for use by the VM. If your VM has multiple workloads assigned to it then it may require more vCPUs. If possible, relocate secondary tasks to another virtual machine to avoid increased licensing costs.
@@ -43,7 +43,7 @@ At this time, the VM pricing, remains the same as the original size. For more in
 
 #### [M-family sizes](#tab/family-M)
 
-| Name                    | vCPU | Base Size  |
+| Size name               | Active vCPUs | Base size |
 |-------------------------|------|------------|
 | Standard_M8-2ms         | 2    | M8ms       |
 | Standard_M8-4ms         | 4    | M8ms       |
@@ -61,7 +61,7 @@ At this time, the VM pricing, remains the same as the original size. For more in
 
 #### [E-family sizes](#tab/family-E)
 
-| Name                    | vCPU | Base Size  |
+| Size name               | Active vCPUs | Base size |
 |-------------------------|------|------------|
 | Standard_E4-2s_v3       | 2    | E4s_v3     |
 | Standard_E8-4s_v3       | 4    | E8s_v3     |
@@ -149,7 +149,7 @@ At this time, the VM pricing, remains the same as the original size. For more in
 
 #### [G-family sizes](#tab/family-G)
 
-| Name                    | vCPU | Base Size  |
+| Size name               | Active vCPUs | Base size |
 |-------------------------|------|------------|
 | Standard_GS4-8          | 8    | GS4        |
 | Standard_GS4-4          | 4    | GS4        |
@@ -159,7 +159,7 @@ At this time, the VM pricing, remains the same as the original size. For more in
 
 #### [D-family sizes](#tab/family-D)
 
-| Name                    | vCPU | Base Size  |
+| Size name               | Active vCPUs | Base size |
 |-------------------------|------|------------|
 | Standard_DS11-1_v2      | 1    | DS11_v2    |
 | Standard_DS12-2_v2      | 2    | DS12_v2    |
