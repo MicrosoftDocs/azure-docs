@@ -9,13 +9,12 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 08/23/2023
+ms.date: 09/12/2023
 ---
 
 # Network isolation in prompt flow (preview)
 
 You can secure prompt flow using private networks. This article explains the requirements to use prompt flow in an environment secured by private networks.
-
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -24,6 +23,7 @@ You can secure prompt flow using private networks. This article explains the req
 ## Involved services
 
 When you're developing your LLM application using prompt flow, you may want a secured environment. You can make the following services private via network setting.
+
 - Workspace: you can make Azure Machine Learning workspace as private and limit inbound and outbound of it.
 - Compute resource: you can also limit inbound and outbound rule of compute resource in the workspace.
 - Storage account: you can limit the accessibility of the storage account to specific virtual network.
@@ -53,18 +53,18 @@ Workspace managed virtual network is the recommend way to support network isolat
 
     :::image type="content" source="./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png" alt-text="Screenshot of user defined outbound rule for non Azure resource." lightbox = "./media/how-to-secure-prompt-flow/outbound-rule-non-azure-resources.png":::
 
-
 ## Secure prompt flow use your own virtual network
 
 - To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md). 
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 
-
 ## Limitations
+
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
 - Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
 ## Next steps
+
 - [Secure workspace resources](../how-to-secure-workspace-vnet.md)
 - [Workspace managed network isolation](../how-to-managed-network.md)

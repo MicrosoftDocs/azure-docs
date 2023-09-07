@@ -40,13 +40,13 @@ If you're new to Prompt flow, we recommend you to start with compute instance ru
 
 You need to assign enough permission to use runtime in Prompt flow. To assign a role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on resource.
 
-To create and use runtime to authoring prompt flow, you need to have `AzureML Data Scientist` role of the workspace. To learn more, see [Prerequisites](#prerequisites)
+To create and use runtime to author prompt flow, you need to have `AzureML Data Scientist` role in the workspace. To learn more, see [Prerequisites](#prerequisites)
 
 ## Create runtime in UI
 
 ### Prerequisites
 
-- You need `AzureML Data Scientist` role of the workspace to create a runtime.
+- You need `AzureML Data Scientist` role in the workspace to create a runtime.
 
 > [!IMPORTANT]
 > Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
@@ -92,8 +92,7 @@ After creating the runtime, you need to grant the necessary permissions to use i
 
 To assign role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on the resource.
 
-To use runtime, assigning the `AzureML Data Scientist` role of workspace to user (if using Compute instance as runtime) or endpoint (if using managed online endpoint as runtime). To learn more, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
-
+To use the runtime, assigning the `AzureML Data Scientist` role of workspace to user (if using Compute instance as runtime) or endpoint (if using managed online endpoint as runtime). To learn more, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
 
 > [!NOTE]
 > This operation may take several minutes to take effect.
@@ -111,51 +110,50 @@ When performing a bulk test, you can use the original runtime in the flow or cha
 
 ### Using automatic runtime in Prompt flow authoring
 
-There's `automatic` runtime, which is leverage serverless compute, when using automatic runtime you didn't need to manged the compute resource manually and environments.
-- Compute resource is warm up when you're using it, so the first run may take several minutes to prepare compute. If your didn't specify instance_type when submit flow run we'll use `Standard_E4s_v3` as default instance type. You can use Flow UI and CLI / SDK change it to other version. Please make sure you have enough quota on this instance type.
+There's `automatic` runtime, which uses serverless compute, when using automatic runtime you didn't need to manage the compute resource manually and environments.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png" alt-text="Screenshot of show how to specify instance type in flow. " lightbox = "./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png":::
+- Compute resource is warming up when you're using it, so the first run may take several minutes to prepare the compute. If you didn't specify `instance_type` when submit flow run we'll use `Standard_E4s_v3` as default instance type. You can use Flow UI and CLI / SDK to change it to the other version. Make sure you have enough quota on this instance type.
 
+    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png" alt-text="Screenshot of show how to specify instance type in flow. " lightbox = "./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png":::
+    
+    
+    ```yaml
+    $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
+    flow: <path_to_flow>
+    data: <path_to_flow_data>
+    
+    # define cloud resource
+    resources:
+        instance_type: Standard_E4s_v3 # use this part to specify instance type for batch run
+    connections:
+      note_name1:
+        connection: <connection_name>
+        deployment_name: <deployment_name>
+      note_name2:
+        connection: <connection_name>
+        deployment_name: <deployment_name>
+    ```
+    
+    ```python
+    instance_type = 'Standard_E4s_v3' # use this part to specify instance type for batch run
+    base_run = pf.run(
+        flow=flow,
+        data=data,
+        runtime=runtime,  
+        connections=connections,  
+        resources={'instance_type': instance_type},
+    )
+    ```
 
-```yaml
-$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
-flow: <path_to_flow>
-data: <path_to_flow_data>
+- In the environment of the runtime support dynamic package installation, you can specify the packages you want in `requirements.txt` in your prompt flow folder. Every time you use the `automatic` runtime, we'll install the packages you defined in `requirements.txt`. You need to ensure in `flow.dag.yaml` you have defined the `python_requirements_txt` in `environment` section.
 
-# define cloud resource
-resources:
-    instance_type: Standard_E4s_v3 # use this part to specify instance type for batch run
-connections:
-  note_name1:
-    connection: <connection_name>
-    deployment_name: <deployment_name>
-  note_name2:
-    connection: <connection_name>
-    deployment_name: <deployment_name>
-```
+    ```yaml
+    ...
+    environment:
+        python_requirements_txt: requirements.txt
+    ```
 
-```python
-instance_type = 'Standard_E4s_v3' # use this part to specify instance type for batch run
-base_run = pf.run(
-    flow=flow,
-    data=data,
-    runtime=runtime,  
-    connections=connections,  
-    resources={'instance_type': instance_type},
-)
-```
-
-
-- Environment of the runtime support dynamic package installation, you can specify the packages your want in `requirements.txt` in your prompt flow folder. Every time you using the `automatic` runtime, we'll install the packages your defined in `requirements.txt`. You need ensure in `flow.dag.yaml` you have defined the `python_requirements_txt` in `environment` section.
-
-```yaml
-...
-environment:
-    python_requirements_txt: requirements.txt
-```
-
-- `automatic` runtime tries best to reuse the same compute session to provide better performance, if there's no activity in the compute session for 30 minutes, the compute resource will be released.
-
+- `automatic` runtime tries its best to reuse the same compute session to provide better performance, if there's no activity in the compute session for 30 minutes, the compute resource will be released.
 
 ## Update runtime from UI
 
@@ -236,7 +234,7 @@ Error in the example says "UserError: Invoking runtime gega-ci timeout, error me
 
 3. If you can't find anything in runtime logs to indicate it's a specific node issue
 
-    Please contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
+    Contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
 
 ### Compute instance runtime related
 
