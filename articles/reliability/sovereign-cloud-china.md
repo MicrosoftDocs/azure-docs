@@ -75,10 +75,14 @@ This section outlines variations and considerations when using Azure Arc-enabled
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| API Management | API Management on Azure Arc-enabled Kubernetes is not supported in Azure China |
-| App service | App service on Azure Arc-enabled Kubernetes is not supported in Azure China |
-| Container Apps | Container Apps on Azure Arc-enabled Kubernetes is not supported in Azure China |
-| Microsoft Defender for Cloud | Microsoft Defender for Cloud on Azure Arc-enabled Kubernetes is not supported in Azure China |
+| API Management | API Management on Arc-enabled Kubernetes is not supported in Azure China |
+| App service | App service on Arc-enabled Kubernetes is not supported in Azure China |
+| Container Apps | Container Apps on Arc-enabled Kubernetes is not supported in Azure China |
+| Dapr | Dapr extension for Arc-enabled Kubernetes is not supported in Azure China |
+| Event Grid | Event Grid on Arc-enabled Kubernetes is not supported in Azure China |
+| Machine Learning | Azure Machine Learning on Arc-enabled Kubernetes is not supported in Azure China |
+| Microsoft Defender for Cloud | Microsoft Defender for Cloud on Arc-enabled Kubernetes is not supported in Azure China |
+| Open Service Mesh | Open Service Mesh on Arc-enabled Kubernetes is not supported in Azure China |
 
 
 ### Azure Container Apps
