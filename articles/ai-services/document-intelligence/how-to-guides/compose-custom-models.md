@@ -128,7 +128,7 @@ Training with labels leads to better performance in some scenarios. To train wit
 |**C#**|**StartBuildModel**|
 |**Java**| [**beginBuildModel**](/java/api/com.azure.ai.formrecognizer.documentanalysis.administration.documentmodeladministrationclient.beginbuildmodel)|
 |**JavaScript** | [**beginBuildModel**](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-latest#@azure-ai-form-recognizer-documentmodeladministrationclient-beginbuildmodel&preserve-view=true)|
-| **Python** | [**begin_build_document_model**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.aio.documentmodeladministrationclient?view=azure-python#azure-ai-formrecognizer-aio-documentmodeladministrationclient-begin-build-model&preserve-view=true)
+| **Python** | [**begin_build_document_model**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.documentmodeladministrationclient?view=azure-python#azure-ai-formrecognizer-documentmodeladministrationclient-begin-build-document-model&preserve-view=true)
 
 ---
 
