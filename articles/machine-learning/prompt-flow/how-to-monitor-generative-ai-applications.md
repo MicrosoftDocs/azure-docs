@@ -178,7 +178,7 @@ It's only possible to adjust signal thresholds: the acceptable score is fixed at
 :::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/how-to-monitor-generative-ai-applications/how-to-gsq-monitor-signal-adjust-signal.png":::
    
 ## Next Steps
-
+- [Model monitoring overview](../concept-model-monitoring.md)
 - [Model data collector](../concept-data-collection.md)
 - [Get started with Prompt flow](get-started-prompt-flow.md)
 - [Submit bulk test and evaluate a flow (preview)](how-to-bulk-test-evaluate-flow.md)
