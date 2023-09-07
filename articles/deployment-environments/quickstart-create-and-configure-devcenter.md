@@ -18,7 +18,7 @@ A platform engineering team typically sets up a dev center, attaches external ca
 
 The following diagram shows the steps you perform in this quickstart to configure a dev center for Azure Deployment Environments in the Azure portal. 
 
-:::image type="content" source="media/quickstart-create-and-configure-devcenter/dev-box-build-stages.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments.":::
+:::image type="content" source="media/quickstart-create-and-configure-devcenter/environments-build-stages.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments.":::
 
 You need to perform the steps in both quickstarts before you can create a deployment environment.
 
