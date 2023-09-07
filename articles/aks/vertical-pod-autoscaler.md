@@ -36,6 +36,14 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * We don't recommend using Vertical Pod Autoscaler with [Horizontal Pod Autoscaler][horizontal-pod-autoscaler-overview], which scales based on the same CPU and memory usage metrics.
 
+* VPA Recommender only stores up to eight days of historical data.
+
+* VPA does not support JVM-based workloads due to limited visibility into actual memory usage of the workload.
+
+* It is not recommended or supported to run your own implementation of VPA alongside this managed implementation of VPA.
+
+* AKS Windows containers are not supported.
+
 ## Before you begin
 
 * AKS cluster is running Kubernetes version 1.24 and higher.
@@ -60,7 +68,7 @@ The VPA object consists of three components:
 
 ### VPA admission controller
 
-VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller runs a job to create and renew the `vpa-tls-certs` secret. 
+VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller runs a job to create and renew the `vpa-tls-certs` secret.
 
 For high availability, AKS supports two admission controller replicas.
 
@@ -73,9 +81,9 @@ A Vertical Pod Autoscaler resource is inserted for each controller that you want
 * `Initial` - VPA only assigns resource requests during pod creation and never changes afterwards.
 * `Off` - VPA doesn't automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.
 
-## Deployment pattern for new users
+## Deployment pattern during application development
 
-A common deployment pattern recommended for you if you're unfamiliar with VPA is to:
+A common deployment pattern recommended for you if you're unfamiliar with VPA is to perform the following steps during application development in order to identify its unique resource utilization characteristics, test VPA to verify it is functioning properly, and test alongside other Kubernetes components to optimize resource utilization of the cluster.
 
 1. Set `updateMode = off` in your production cluster and run VPA in recommendation mode so you can test and gain familiarity with VPA. `UpdateMode = off` can avoid introducing a misconfiguration that can cause an outage.
 
