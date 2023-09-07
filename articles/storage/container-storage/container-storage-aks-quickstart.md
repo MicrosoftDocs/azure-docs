@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 08/18/2023
+ms.date: 09/07/2023
 ms.author: kendownie
 ms.custom:
 ---
@@ -16,6 +16,8 @@ ms.custom:
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
+- You'll need an AKS cluster with an appropriate [virtual machine type](../articles/storage/container-storage/install-container-storage-aks.md#vm-types). If you don't have one, see [Create an AKS cluster](../articles/storage/container-storage/install-container-storage-aks.md#create-aks-cluster).
+- 
 ## Install Azure Container Storage
 
 Follow these instructions to install Azure Container Storage on your AKS cluster using an installation script.

@@ -12,6 +12,4 @@ ms.author: kendownie
 
 - You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
-- You'll need an AKS cluster with an appropriate [virtual machine type](../articles/storage/container-storage/install-container-storage-aks.md#vm-types). If you don't have one, see [Create an AKS cluster](../articles/storage/container-storage/install-container-storage-aks.md#create-aks-cluster).
-
 - Optional: We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
