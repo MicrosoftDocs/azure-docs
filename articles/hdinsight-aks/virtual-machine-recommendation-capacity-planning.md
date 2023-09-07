@@ -1,16 +1,16 @@
 ---
-title: VM Recommendations and Capacity Planning
+title: Azure Virtual Machine recommendations and capacity planning
 description: Default and Minimum VM Size Recommendations and Capacity Planning for HDInsight on AKS Cluster Pools and Clusters.
 ms.service: hdinsight-aks
 ms.topic: conceptual
 ms.date: 09/06/2023
 ---
 
-# Default and Minimum VM Size Recommendations and Capacity Planning for HDInsight on AKS
+# Default and minimum virtual machine size recommendations and capacity planning for HDInsight on AKS
 
 This article discusses default and recommended node configurations for Azure HDInsight on AKS clusters.
 
-## Cluster Pools
+## Cluster pools
 For creating cluster pools, the currently available VM Options are F4s_v2, D4a_v4, D4as_v4, E4_v3, and E4s_v3.
 
 ## Clusters
@@ -37,11 +37,11 @@ If there is insufficient capacity/quota on the recommended VM Families, look for
 
 The minimum VM specifications recommended (regardless of the chosen VM Family for the cluster) is 8vCPUs and 32 GiB RAM. Higher vCPU and GiB variants may be chosen as per the workload being processed.
 
-## Capacity Planning 
+## Capacity planning 
 
 The Virtual Machines used in HDInsight on AKS clusters requires the same Quota as Azure VMs. This is unlike the original version of HDInsight, where users had to request a dedicated quota to create HDInsight clusters by selecting 'Azure HDInsight' from the quota selection dropdown as shown in the image. For HDInsight on AKS, customers need to select ‘Compute’ from the Quota selection dropdown in order to request extra capacity for the VMs they intend to use in their clusters. Find detailed instructions for increasing your quota [here](/azure/quotas/per-vm-quota-requests).
 
-:::image type="content" source="./media/vm-recommendation-capacity-planning/capacity-planning.png" alt-text="Screenshot shows Capacity Planning for HDInsight on AKS." border="true" lightbox="./media/vm-recommendation-capacity-planning/capacity-planning.png":::
+:::image type="content" source="./media/virtual-machine-recommendation-capacity-planning/capacity-planning.png" alt-text="Screenshot shows Capacity Planning for HDInsight on AKS." border="true" lightbox="./media/virtual-machine-recommendation-capacity-planning/capacity-planning.png":::
 
 
 
