@@ -7,7 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 07/24/2023
+ms.date: 09/07/2023
 ms.author: duau
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
@@ -57,7 +57,9 @@ A custom domain is configured on the **Domains** page of the Azure Front Door pr
     :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Screenshot of domain validation state submitting.":::
 
     > [!NOTE]
-    > An Azure pre-validated domain will have a validation state of **Pending** and will automatically change to **Approved** after a few minutes. Once validation gets approved, skip to [**Associate the custom domain to your Front Door endpoint**](#associate-the-custom-domain-with-your-azure-front-door-endpoint) and complete the remaining steps. 
+    > * Starting from September 2023, Azure Front Door supports Bring Your Own Certificates based domain ownership validation, Azure Front Door will automatically approve the domain ownership so long as the Certificate Name (CN) or Subject Alternative Name (SAN) of provided certificate matches the custom domain. When you select Azure managed certificate, the domain ownership will continue to be valdiated via the DNS TXT record.
+    > * For custom domains created before Bring Your Own Certificates based validation is supported and the domain validation status is anything but **Approved**, you need to trigger the auto approval of the domain ownership validation by clicking on the **Validation State** and then click on the **Revalidate** button on portal. Or if you use using command line tools, please trigger domain validation by sending an empty PATCH request to the domain API.
+    > * An Azure pre-validated domain will have a validation state of **Pending** and will automatically change to **Approved** after a few minutes. Once validation gets approved, skip to [**Associate the custom domain to your Front Door endpoint**](#associate-the-custom-domain-with-your-azure-front-door-endpoint) and complete the remaining steps. 
 
     The validation state will change to **Pending** after a few minutes.
 
