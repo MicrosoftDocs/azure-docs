@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 08/03/2023
+ms.date: 09/06/2023
 ms.author: anfdocs
 ---
 
@@ -21,7 +21,17 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## September 2023
+
+* [Troubleshooting enhancement: validate user connectivity, group membership and access to LDAP-enabled volumes](troubleshoot-user-access-ldap.md)
+
+    Azure NetApp Files now provides you with the ability to validate user connectivity and access to LDAP-enabled volumes based on group membership. When you provide a user ID, Azure NetApp Files reports a list of primary and auxiliary group IDs that the user belongs to from the LDAP server. Validating user access is helpful for scenarios such as ensuring POSIX attributes set on the LDAP server are accurate or when you encounter permission errors. 
+
 ## August 2023
+
+* [Cross-region replication enhancement: re-establish deleted volume replication](reestablish-deleted-volume-relationships.md) (Preview)
+
+    Azure NetApp Files now allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. If the destination volume remained operational and no snapshots were deleted, the replication re-establish operation will use the last common snapshot and incrementally synchronize the destination volume based on the last known good snapshot. In that case, no baseline replication will be required. 
 
 * [Backup vault](backup-vault-manage.md) (Preview)
 
@@ -258,6 +268,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The following features are now GA. You no longer need to register the features before using them.   
     * [Dynamic change of service level](dynamic-change-volume-service-level.md)
     * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)    
+
 
 ## March 2022
 

@@ -63,7 +63,7 @@ Follow these steps to incorporate VU Identity Card solution into your Apps.
 
 As a developer you can share these steps with your tenant administrator to obtain the verification request URL, and body for your application or website to request Verified IDs from your users.
 
-1. Go to Microsoft Entra portal - [**Verified ID**](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade)
+1. Go to Microsoft Entra admin center - [**Verified ID**](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade)
 
    >[!NOTE]
    >Verify that the tenant configured for Verified ID meets the  prerequisites.

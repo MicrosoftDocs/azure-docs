@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview for use with A
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 08/14/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -18,16 +18,16 @@ ms.custom: devx-track-azurecli
 
 - Take note of your Azure subscription ID. We recommend using a subscription on which you have an [Owner](../../role-based-access-control/built-in-roles.md#owner) role. If you don't have access to one, you can still proceed, but you'll need admin assistance to complete the steps in this article.
 
-- Sign up for the public preview by completing the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
-
 - This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Quickstart for Bash in Azure Cloud Shell](../../cloud-shell/quickstart.md).
+
+- Optional: We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 > [!NOTE]
 > Instead of following the steps in this article, you can install Azure Container Storage Preview using a provided installation script. See [Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service](container-storage-aks-quickstart.md).
 
 ## Getting started
 
-- [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
+- [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
 - If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription where you want to create the storage account and select **Create**.
 

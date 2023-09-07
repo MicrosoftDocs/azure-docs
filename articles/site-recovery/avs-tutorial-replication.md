@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/23/2022
+ms.date: 08/18/2023
 ms.author: ankitadutta
 ms.custom: MVC, engagement-fy23
 

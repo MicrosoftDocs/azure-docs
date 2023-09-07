@@ -49,6 +49,8 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 
     If you know the server name, you can use the `-ServerName` parameter with the command. See the [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) PowerShell command details.
 
+1. Once you enable SMB Continuous Availability, reboot the server for the change to take effect. 
+
 ## Next steps  
 
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)
