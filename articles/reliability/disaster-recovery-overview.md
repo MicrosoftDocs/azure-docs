@@ -35,7 +35,6 @@ Disaster recovery isn't an automatic feature, but must be designed, built, and t
 Designing for disaster recovery has the following main concerns: 
 
 
-- [Building resilient applications](#building-resilient-applications) requires proactive planning to recover from outages. 
 
 ### Data recovery and replication 
 
