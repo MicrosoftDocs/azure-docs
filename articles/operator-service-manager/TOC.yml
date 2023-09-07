@@ -5,6 +5,8 @@
   items:
   - name: About Azure Operator Service Manager
     href: ./overview.md
+  - name: Helm Package Requirements
+    href: helm-requirements.md
 - name: Resources
   expanded: false
   items:
