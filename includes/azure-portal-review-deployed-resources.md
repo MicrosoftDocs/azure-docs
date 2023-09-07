@@ -20,4 +20,4 @@ Verify that you can see data about your virtual machine in the Azure portal dash
 
 1. Review the dashboard, which should look similar to the one shown here. While some of the content is static, there are also charts that show the performance of the VM you created at the beginning.
 
-    :::image type="content" source="media/azure-portal-review-deployed-resources/review-simple-vm-dashboard.png" alt-text="Screenshot of an example dashboard in the Azure portal.":::git 
+    :::image type="content" source="media/azure-portal-review-deployed-resources/review-simple-vm-dashboard.png" alt-text="Screenshot of an example dashboard in the Azure portal.":::
