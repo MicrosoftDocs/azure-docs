@@ -30,7 +30,7 @@ A rollout may take several weeks before the agent is available in all environmen
 | Production | 1.0.7033.1401 |
 | Validation | 1.0.7255.800 |
 
-The agent is automatically installed when adding session hosts in most scenarios, but if you need to download the agent manually, see [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool).
+The agent is automatically installed when adding session hosts in most scenarios. If you need to download the agent, you find it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
 ## Version 1.0.7255.800 (validation)
 
