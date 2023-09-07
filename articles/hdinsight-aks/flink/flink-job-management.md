@@ -5,7 +5,6 @@ ms.service: hdinsight-aks
 ms.topic: tutorial
 ms.date: 09/07/2023
 ---
-    :::image type="content" source="./media/flink-job-submission/create-directory.png" alt-text="Screenshot showing integration configure tab." border="true" lightbox="./media/flink-job-submission/create-directory.png":::
 # Introduction
 
 HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal (user-friendly interface) and ARM Rest API’s. 
@@ -27,7 +26,7 @@ There are some prerequisites before submitting and managing jobs from portal or 
 1. Create a directory in the primary storage account of the cluster to upload the job jar.
 1. If the user wants to take savepoints, then create a directory in the storage account for job savepoints.
 
-    :::image type="image" source="./media/flink-job-submission/create-directory.png" alt-text="Screenshot shows directory structure." border="true" lightbox="./media/flink-job-submission/create-directory.png":::
+    :::image type="image" source="./media/flink-job-management/create-directory.png" alt-text="Screenshot shows directory structure." border="true" lightbox="./media/flink-job-management/create-directory.png":::
 
 
 ## Key features and operations
@@ -56,11 +55,11 @@ To run the Flink job from portal go to:
 
 Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flink Jobs 
 
-    :::image type="image" source="./media/flink-job-submission/run-flink-jobs.png" alt-text="Screenshot shows how to run flink job." border="true" lightbox="./media/flink-job-submission/run-flink-jobs.png":::
+    :::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run flink job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
 
 1. **New Job:** To submit a new job, upload the job jars to the storage account and create a savepoint directory. Complete the template below with the necessary configurations and then submit the job.
 
-    :::image type="image" source="./media/flink-job-submission/create-new-job.png" alt-text="Screenshot shows how to create new job." border="true" lightbox="./media/flink-job-submission/create-new-job.png":::
+    :::image type="image" source="./media/flink-job-management/create-new-job.png" alt-text="Screenshot shows how to create new job." border="true" lightbox="./media/flink-job-management/create-new-job.png":::
 
     **Property details:**
 
@@ -77,17 +76,17 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
 
 1. **Stop:** Stop job did not require any parameter, user can stop the job by selecting the action.
 
-    :::image type="image" source="./media/flink-job-submission/stop-job.png" alt-text="Screenshot shows how user can stop job." border="true" lightbox="./media/flink-job-submission/stop-job.png":::
+    :::image type="image" source="./media/flink-job-management/stop-job.png" alt-text="Screenshot shows how user can stop job." border="true" lightbox="./media/flink-job-management/stop-job.png":::
 
 Once the job is stopped, the job status on the portal will be STOPPED.
 
 1. **Start:** This action starts the job from savepoint. To start the job, select the stopped job and start it.
 
-:::image type="image" source="./media/flink-job-submission/start-job-savepoint.png" alt-text="Screenshot shows how user start job." border="true" lightbox="./media/flink-job-submission/start-job-savepoint.png":::
+:::image type="image" source="./media/flink-job-management/start-job-savepoint.png" alt-text="Screenshot shows how user start job." border="true" lightbox="./media/flink-job-management/start-job-savepoint.png":::
 
 Fill the flow template with the required options and start it. Users need to select the savepoint from which user wants to start the job. By default, it will take the last successful savepoint.
 
-:::image type="image" source="./media/flink-job-submission/fill-flow-template.png" alt-text="Screenshot shows how fill flow template." border="true" lightbox="./media/flink-job-submission/fill-flow-template.png":::
+:::image type="image" source="./media/flink-job-management/fill-flow-template.png" alt-text="Screenshot shows how fill flow template." border="true" lightbox="./media/flink-job-management/fill-flow-template.png":::
 
 **Property details**:
 
@@ -101,21 +100,21 @@ Fill the flow template with the required options and start it. Users need to sel
 
 1. **Update:** Update helps to restart jobs with updated job code. Users need to update the latest job jar in storage location and update the job from portal. This will stop the job with savepoint and start again with latest jar.
 
-:::image type="image" source="./media/flink-job-submission/restart-job-with-updated-code.png" alt-text="Screenshot shows how restart jobs with updated job code." border="true" lightbox="./media/flink-job-submission/restart-job-with-updated-code.png":::
+:::image type="image" source="./media/flink-job-management/restart-job-with-updated-code.png" alt-text="Screenshot shows how restart jobs with updated job code." border="true" lightbox="./media/flink-job-management/restart-job-with-updated-code.png":::
 
    Template for updating job.
    
-   :::image type="image" source="./media/flink-job-submission/template-for-updating-job.png" alt-text="Screenshot shows template for updating job." border="true" lightbox="./media/flink-job-submission/template-for-updating-job.png":::
+   :::image type="image" source="./media/flink-job-management/template-for-updating-job.png" alt-text="Screenshot shows template for updating job." border="true" lightbox="./media/flink-job-management/template-for-updating-job.png":::
 
    Once the job is updated, the job status on the portal will be RUNNING.
 
 1. **Stateless update:** This is like an update, but it involves a fresh restart of the job with the latest code.
 
-:::image type="image" source="./media/flink-job-submission/stateless-update.png" alt-text="Screenshot shows fresh restart of the job with the latest code." border="true" lightbox="./media/flink-job-submission/stateless-update.png":::
+:::image type="image" source="./media/flink-job-management/stateless-update.png" alt-text="Screenshot shows fresh restart of the job with the latest code." border="true" lightbox="./media/flink-job-management/stateless-update.png":::
 
    Template for updating job.
 
-   :::image type="image" source="./media/flink-job-submission/template-for-updating-stateless-job.png" alt-text="Screenshot shows template for updating statelees job." border="true" lightbox="./media/flink-job-submission/template-for-updating-stateless-job.png":::
+   :::image type="image" source="./media/flink-job-management/template-for-updating-stateless-job.png" alt-text="Screenshot shows template for updating statelees job." border="true" lightbox="./media/flink-job-management/template-for-updating-stateless-job.png":::
 
    **Property details**:
    
@@ -127,23 +126,23 @@ Fill the flow template with the required options and start it. Users need to sel
    
 1. **SavePoint:** Take the savepoint for the Flink Job.
 
- :::image type="image" source="./media/flink-job-submission/savepoint-flink-job.png" alt-text="Screenshot shows savepoint for the Flink Job." border="true" lightbox="./media/flink-job-submission/savepoint-flink-job.png":::
+ :::image type="image" source="./media/flink-job-management/savepoint-flink-job.png" alt-text="Screenshot shows savepoint for the Flink Job." border="true" lightbox="./media/flink-job-management/savepoint-flink-job.png":::
 
 Savepoint is time consuming process, and it will take some time. You can see job action status as in-progress.
 
- :::image type="image" source="./media/flink-job-submission/job-action-status.png" alt-text="Screenshot shows job action status." border="true" lightbox="./media/flink-job-submission/job-action-status.png":::
+ :::image type="image" source="./media/flink-job-management/job-action-status.png" alt-text="Screenshot shows job action status." border="true" lightbox="./media/flink-job-management/job-action-status.png":::
 
 1. **Cancel:** This will help the user to terminate the job.
 
- :::image type="image" source="./media/flink-job-submission/terminate-job.png" alt-text="Screenshot shows how user can terminate the job." border="true" lightbox="./media/flink-job-submission/terminate-job.png":::
+ :::image type="image" source="./media/flink-job-management/terminate-job.png" alt-text="Screenshot shows how user can terminate the job." border="true" lightbox="./media/flink-job-management/terminate-job.png":::
 
 1. **Delete:** Delete job data from portal.
 
-:::image type="image" source="./media/flink-job-submission/delete-job-data.png" alt-text="Screenshot shows how user can delete job data from portal." border="true" lightbox="./media/flink-job-submission/delete-job-data.png":::
+:::image type="image" source="./media/flink-job-management/delete-job-data.png" alt-text="Screenshot shows how user can delete job data from portal." border="true" lightbox="./media/flink-job-management/delete-job-data.png":::
 
 1. **View Job Details:** To view the job detail user can click on job name, it will give the details about the job and last action result.
 
- :::image type="image" source="./media/flink-job-submission/view-job-details.png" alt-text="Screenshot shows to view job details." border="true" lightbox="./media/flink-job-submission/view-job-details.png":::
+ :::image type="image" source="./media/flink-job-management/view-job-details.png" alt-text="Screenshot shows to view job details." border="true" lightbox="./media/flink-job-management/view-job-details.png":::
 
 For any failed action, this job json give detailed exceptions and reasons for failure.
 
