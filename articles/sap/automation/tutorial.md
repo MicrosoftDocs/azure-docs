@@ -10,7 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Tutorial: Enterprise Scale for SAP Deployment Automation Framework
+# Tutorial: Enterprise scale for SAP Deployment Automation Framework
 
 This tutorial shows you how to perform deployments by using [SAP Deployment Automation Framework](deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations.
 
