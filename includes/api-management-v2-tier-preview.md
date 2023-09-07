@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> This article applies to API Management instances created in the Consumption, Developer, Basic, Standard, and Premium tiers. It hasn't been updated to include information about instances created in the [v2 pricing tiers](../articles/api-management/v2-service-tiers-overview.md) (preview). 

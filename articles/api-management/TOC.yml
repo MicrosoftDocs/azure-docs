@@ -165,17 +165,19 @@
               displayName: soft delete
               href: soft-delete.md
             - name: Migrate to stv2 platform
-              href: migrate-stv1-to-stv2.md
+              href: migrate-stv1-to-stv2.md 
             - name: Configure networking
               items:
-                - name: Connect to a virtual network
+                - name: Deploy to a VNet - external
                   href: api-management-using-with-vnet.md
-                - name: Connect to an internal virtual network
+                - name: Deploy to a VNet - internal
                   href: api-management-using-with-internal-vnet.md
-                - name: Integrate Application Gateway in an internal virtual network
+                - name: Integrate Application Gateway in an internal VNet
                   href: api-management-howto-integrate-internal-vnet-appgateway.md
                 - name: Connect privately using private endpoint
                   href: private-endpoint.md
+                - name: Integrate with VNet for outbound requests
+                  href: integrate-vnet-outbound.md
                 - name: Retrieve IP addresses
                   href: api-management-howto-ip-addresses.md
                 - name: Defend against DDoS attacks
