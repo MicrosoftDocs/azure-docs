@@ -9,11 +9,11 @@ author: rayi
 ms.date: 08/30/2023
 ---
 
-# CONNECTION POOLING STRATEGY FOR POSTGRESQL USING PGBOUNCER
+# Connection Pooling Strategy for PostgreSQL Using PgBouncer
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Strategic guidance for selecting connection pooling mechanism for PostgreSQL
+Strategic guidance for selecting connection pooling mechanism for PostgreSQL.
 
 ## Introduction
 
@@ -38,8 +38,6 @@ The effective utilization of PgBouncer can be categorized into three distinct us
 1. PgBouncer and Application Colocation deployment
 1. Application independent centralized PgBouncer deployments
 1. Inbuilt PgBouncer and Database deployment
-
-:::image type="content" source="./media/concepts-connection-pooling-best-practices/design-patterns.png" alt-text="Diagram for App co-location":::
 
 
 Each of these patterns has its own advantages & disadvantages.
@@ -142,7 +140,7 @@ By utilizing **PgBouncer** as a separate service, you can efficiently manage and
 
 [**PgBouncer** sidecar proxy image](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) published in Microsoft container registry can be used to create and deploy a service.
 
-:::image type="content" source="./media/concepts-connection-pooling-best-practices/centralized-aks.png" alt-text="Diagram for PGBouncer as a service within AKS":::
+:::image type="content" source="./media/concepts-connection-pooling-best-practices/centralized-aks.png" alt-text="Diagram for PgBouncer as a service within AKS":::
 
 Some of the key benefits & limitations of this deployment method are:
 
@@ -164,7 +162,7 @@ While **PgBouncer** running as a standalone service offers benefits such as cent
 
 Azure Database for PostgreSQL – Flexible Server offers [PgBouncer](https://github.com/pgbouncer/pgbouncer) as a built-in connection pooling solution. This is offered as an optional service that can be enabled on a per-database server basis. PgBouncer runs in the same virtual machine as the Postgres database server. As the number of connections increases beyond a few hundreds or thousand, Postgres may encounter resource limitations. In such cases, built-in PgBouncer can provide a significant advantage by improving the management of idle and short-lived connections at the database server.
 
-Refer link to enable and set up PgBouncer connection pooling in Azure DB for PostgreSQL Flexible server
+Refer link to enable and set up PgBouncer connection pooling in Azure DB for PostgreSQL Flexible server.
 
 Some of the key benefits & limitations of this deployment method are:
 
