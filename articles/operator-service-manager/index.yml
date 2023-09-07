@@ -30,6 +30,10 @@ landingContent:
             url: helm-requirements.md
           - text: Roles and interfaces
             url: roles-interfaces.md
+
+  # Card
+  - title: Get started with Azure Operator Service Manager
+    linkLists:
       - linkListType: quickstart
         links:
           - text: Containerized Network Function (CNF)
