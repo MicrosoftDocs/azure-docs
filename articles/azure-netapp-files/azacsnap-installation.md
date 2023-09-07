@@ -18,87 +18,86 @@ ms.author: phjensen
 
 # Install the Azure Application Consistent Snapshot tool
 
-This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files or Azure Large Instances.
+This article provides a guide for installation of the Azure Application Consistent Snapshot tool (AzAcSnap) that you can use with Azure NetApp Files or Azure Large Instances.
 
 > [!IMPORTANT]
 > Distributed installations are the only option for Azure Large Instances systems, because they're deployed in a private network. You must install AzAcSnap on each system to ensure connectivity.
 
-The downloadable self-installer is designed to make the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer sets up the user and puts the snapshot tools into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
+The downloadable self-installer makes the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer sets up the user and puts the snapshot tools into the user's *$HOME/bin* subdirectory. (The default is */home/azacsnap/bin*).
 
-The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the prerequisite steps (enable communication with storage and SAP HANA) were run as root, then the installation copies the private key and `hdbuserstore` to the backup user's location. The steps to enable communication with the storage back-end and SAP HANA can be manually done by a knowledgeable administrator after the installation.
+The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user who's performing the installation (for example, root). If the prerequisite steps to enable communication with storage and SAP HANA were run as root, the installation copies the private key and `hdbuserstore` to the backup user's location. A knowledgeable administrator can manually take the steps to enable communication with the storage back end and SAP HANA after the installation.
 
 ## Prerequisites for installation
 
-Follow the guidelines to set up and execute the snapshots and disaster recovery commands. We recommend that you complete the following steps as root before you install and use the snapshot tools.
+Follow the guidelines to set up and execute the snapshots and disaster-recovery commands. We recommend that you complete the following steps as root before you install and use the snapshot tools:
 
-1. **OS is patched**: See patching and SMT set up in [How to install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
-1. **Time Synchronization is set up**. The customer needs to provide an NTP compatible time server, and configure the OS accordingly.
-1. **Database is installed** : Refer to separate instructions for each supported database.
-1. **[Enable communication with storage](#enable-communication-with-storage)** (for more information, see separate section): Select the storage back-end you're using for your deployment.
+1. Patch the operating system and set up SUSE Subscription Management Tool (SMT). For more information, see [Install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
+1. Set up time synchronization. Provide a time server that's compatible with the Network Time Protocol (NTP), and configure the operating system accordingly.
+1. Install the database. Follow the instructions for the supported database that you're using.
+1. Select the storage back-end you're using for your deployment. For more information, see [Enable communication with storage](#enable-communication-with-storage) later in this article.
 
    # [Azure NetApp Files](#tab/azure-netapp-files)
 
-   1. **For Azure NetApp Files (for more information, see separate section)**: Customer must either set up a System Managed Identity or generate the Service Principal authentication file.
+   Either set up a system-managed identity or generate the service principal's authentication file.
 
-      > [!IMPORTANT]
-      > When validating communication with Azure NetApp Files, communication might fail or time-out. Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
-      > - (https://)management.azure.com:443
-      > - (https://)login.microsoftonline.com:443
+   When you're validating communication with Azure NetApp Files, communication might fail or time out. Check that firewall rules aren't blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
+
+   - (https://)management.azure.com:443
+   - (https://)login.microsoftonline.com:443
 
    # [Azure Large Instances (bare metal)](#tab/azure-large-instance)
 
-   1. For Azure Large Instances (for more information, see separate section): Generate an SSH private/public key pair. For each node where the snapshot tools will be run, provide the generated public key to Microsoft Operations so they can install on the storage back-end.
+   Generate a Secure Shell (SSH) private/public key pair. For each node where you'll run the snapshot tools, provide the generated public key to Microsoft Operations so it can install on the storage back end.
 
-      Test connectivity by using SSH to connect to one of the nodes (for example, `ssh -l <Storage UserName> <Storage IP Address>`).
-      Type `exit` to logout of the storage prompt.
+   Test connectivity by using SSH to connect to one of the nodes (for example, `ssh -l <Storage Username> <Storage IP Address>`). Enter `exit` to log out of the storage prompt.
 
-      Microsoft Operations provides the storage user and storage IP at the time of provisioning.
+   Microsoft Operations provides the storage username and storage IP address at the time of provisioning.
 
-      ---
+   ---
 
-1. **[Enable communication with database](#enable-communication-with-database)** (for more information, see separate section):
+1. Enable communication with the database.
 
    # [SAP HANA](#tab/sap-hana)
 
-   Set up an appropriate SAP HANA user following the instructions in the Enable communication with database](#enable-communication-with-database) section.
+   Set up an appropriate SAP HANA user by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
 
-   1. After setup, you can test the connection from the command line as follows by using the following examples. These examples are for non-SSL communication to SAP HANA.
+   After setup, you can test the connection from the command line by using the following examples. These examples are for non-SSL communication to SAP HANA.
 
-      1. HANAv1
+   HANA 1.0:
 
-            `hdbsql -n <HANA IP address> -i <HANA instance> -U <HANA user> "\s"`
+   `hdbsql -n <HANA IP address> -i <HANA instance> -U <HANA user> "\s"`
 
-      1. HANAv2
+   HANA 2.0:
 
-            `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
+   `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
 
    # [Oracle](#tab/oracle)
 
-   Set up an appropriate Oracle database and Oracle Wallet following the instructions in the [Enable communication with database](#enable-communication-with-database) section.
+   Set up an appropriate Oracle database and Oracle wallet by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
 
-   1. After setup, you can test the connection from the command line as follows by using these examples:
+   After setup, you can test the connection from the command line by using the following example:
 
-      1. `sqlplus /@<ORACLE_USER> as SYSBACKUP`
+   `sqlplus /@<ORACLE_USER> as SYSBACKUP`
 
    # [IBM Db2](#tab/db2)
 
-   Set up an appropriate IBM Db2 connection method following the instructions in the Enable communication with database](#enable-communication-with-database) section.
+   Set up an appropriate IBM Db2 connection method by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
 
-   1. After set up the connection can be tested from the command line as follows using these examples:
+   After setup, test the connection from the command line by using the following examples:
 
-      1. Installed onto the database server, then complete the set up with "[Db2 local connectivity](#db2-local-connectivity)".
+   - Installed onto the database server, then complete the setup with "[Db2 local connectivity](#db2-local-connectivity)".
 
-         `db2 "QUIT"`
+     `db2 "QUIT"`
 
-      1. Installed onto a centralized backup system, then complete the set up with "[Db2 remote connectivity](#db2-remote-connectivity)".
+   - Installed onto a centralized backup system, then complete the setup with "[Db2 remote connectivity](#db2-remote-connectivity)".
 
-         `ssh <InstanceUser>@<ServerAddress> 'db2 "QUIT"'`
+     `ssh <InstanceUser>@<ServerAddress> 'db2 "QUIT"'`
 
-   1. Both of the commands run in step 1 should produce the output:
+   The preceding commands should produce the following output:
 
-      ```output
-      DB20000I  The QUIT command completed successfully.
-      ```
+   ```output
+   DB20000I  The QUIT command completed successfully.
+   ```
 
    ---
 
@@ -267,7 +266,7 @@ Communication with the storage back-end executes over an encrypted SSH channel. 
 
 ---
 
-## Enable communication with database
+## Enable communication with the database
 
 This section explains how to enable communication with the database. Ensure the database you're using is correctly selected from the tabs.
 
@@ -275,9 +274,9 @@ This section explains how to enable communication with the database. Ensure the 
 
 If you're deploying to a centralized virtual machine, then it will need to have the SAP HANA client installed and set up so the AzAcSnap user can run `hdbsql` and `hdbuserstore` commands. You can download the SAP HANA client from the [SAP Development Tools website](https://tools.hana.ondemand.com/#hanatools).
 
-The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to initiate and release the database save-point. The following example shows the set up of the SAP HANA v2 user and the `hdbuserstore` for communication to the SAP HANA database.
+The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to initiate and release the database save-point. The following example shows the set up of the SAP HANA 2.0 user and the `hdbuserstore` for communication to the SAP HANA database.
 
-The following example commands set up a user (AZACSNAP) in the SYSTEMDB on SAP HANA 2 database, change the IP address, usernames, and passwords as appropriate:
+The following example commands set up a user (AZACSNAP) in the SYSTEMDB on SAP HANA 2.0 database, change the IP address, usernames, and passwords as appropriate:
 
 1. Connect to the SYSTEMDB to create the user.
 
@@ -657,9 +656,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
       1. Copy the ZIP file to the target system (for example, the centralized virtual machine running AzAcSnap).
 
          > [!IMPORTANT]
-         > If deploying to a centralized virtual machine, then it will need to have the Oracle instant client installed and set up so the AzAcSnap user can run `sqlplus` commands.
-         >
-         > You can download the Oracle Instant Client from the [Oracle Instant Client Downloads page](https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html).
+         > If deploying to a centralized virtual machine, then it will need to have Oracle Instant Client installed and set up so the AzAcSnap user can run `sqlplus` commands. You can download Oracle Instant Client from the [Oracle downloads page](https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html).
          >
          > In order for SQL\*Plus to run correctly, download both the required package (for example, Basic Light Package) and the optional SQL\*Plus tools package.
 
@@ -1165,7 +1162,7 @@ As the root superuser, a manual installation can be achieved as follows:
 
     ---
 
-1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This assumes the "root" user has already configured the secure user store. See section [Enable communication with database](#enable-communication-with-database).
+1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This assumes the "root" user has already configured the secure user store. See section [Enable communication with the database](#enable-communication-with-the-database).
 
     ```bash
     cp -pr ~/.hdb /home/azacsnap/.
@@ -1223,7 +1220,7 @@ The following output shows the steps to complete after running the installer wit
     1. `azacsnap -c backup –-volume data--prefix=hana_test --retention=1`
 ```
 
-Step 2 is necessary if "[Enable communication with database](#enable-communication-with-database)" wasn't done before the
+Step 2 is necessary if "[Enable communication with the database](#enable-communication-with-the-database)" wasn't done before the
 installation.
 
 The test commands should execute correctly. Otherwise, the commands may fail.

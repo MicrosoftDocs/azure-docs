@@ -270,7 +270,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure manag
    Be sure to create the disks in the same availability zone as the target VM.
 
 1. Connect the disks to the VM via the Azure portal.
-1. Log in to the VM as the `root` user and scan for the newly attached disks by using `dmesg` or `pvscan`:
+1. Log in to the VM as the root user and scan for the newly attached disks by using `dmesg` or `pvscan`:
 
     - Using `dmesg`:
 
@@ -315,7 +315,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure manag
        Total: 2 [1023.99 GiB] / in use: 2 [1023.99 GiB] / in no VG: 0 [0   ]
        ```
 
-1. Import a volume group clone from the disks by using `vgimportclone` as the `root` user:
+1. Import a volume group clone from the disks by using `vgimportclone` as the root user:
 
     ```bash
     vgimportclone --basevgname hanadata_adhoc /dev/sde /dev/sdf
@@ -330,7 +330,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure manag
     WARNING: PV K3yhxN-2713-lk4k-c3Pc-xOJQ-sCkD-8ZE6YX prefers device /dev/sdd because device is used by LV.
     ```
 
-1. Activate the logical volume by using `pvscan` and `vgchange` as the `root` user:
+1. Activate the logical volume by using `pvscan` and `vgchange` as the root user:
 
     ```bash
     pvscan --cache
@@ -351,7 +351,7 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure manag
     1 logical volume(s) in volume group "hanadata_adhoc" now active
     ```
 
-1. Mount the logical volume as the `root` user.
+1. Mount the logical volume as the root user.
 
    Use the `mount -o rw,nouuid` options. Otherwise, volume mounting will fail because of duplicate UUIDs (universally unique identifiers) on the VM.
 
