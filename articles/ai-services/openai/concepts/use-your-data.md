@@ -216,7 +216,7 @@ Azure OpenAI on your data provides several search options you can use when you a
 
 > [!IMPORTANT]
 > * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
-> * Currently Azure OpenAI on your data supports semantic search for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.
+> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic
 
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
@@ -259,9 +259,9 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 **Multi-lingual support**  
 
-* Azure OpenAI on your data supports queries that are in the same language as the documents. For example, if your data is in Japanese, then queries need to be in Japanese too.  
+* Currently, keyword search and semantic search in Azure OpenAI on your data supports queries are in the same language as the data in the index. For example, if your data is in Japanese, then input queries also need to be in Japanese. For cross-lingual document retrieval, we recommend building the index with [Vector search](/azure/search/vector-search-overview) enabled.  
 
-* Currently Azure OpenAI on your data supports [semantic search](/azure/search/semantic-search-overview) for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.   
+* To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic   
 
 * We recommend using a system message to inform the model that your data is in another language. For example:
 

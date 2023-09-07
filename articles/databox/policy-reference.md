@@ -5,8 +5,8 @@ ms.date: 09/06/2023
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
-author: alkohli
-ms.author: alkohli
+author: stevenmatthew
+ms.author: shaas
 ---
 # Azure Policy built-in definitions for Azure Data Box
 

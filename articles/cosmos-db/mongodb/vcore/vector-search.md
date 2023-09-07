@@ -52,16 +52,16 @@ To create a vector index, use the following `createIndexes` template:
 | `index_name` | string | Unique name of the index. |
 | `path_to_property` | string | Path to the property that contains the vector. This path can be a top-level property or a dot notation path to the property. If a dot notation path is used, then all the nonleaf elements can't be arrays. |
 | `kind` | string | Type of vector index to create. Currently, `vector-ivf` is the only supported index option. |
-| `numLists` | integer | This integer is the number of clusters that the inverted file (IVF) index uses to group the vector data. We recommend that `numLists` is set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows. Using a `numLists` value of `1` is akin to performing brute-force search. |
+| `numLists` | integer | This integer is the number of clusters that the inverted file (IVF) index uses to group the vector data. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents. Using a `numLists` value of `1` is akin to performing brute-force search, which will have limited performance. |
 | `similarity` | string | Similarity metric to use with the IVF index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance), and `IP` (inner product). |
 | `dimensions` | integer | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
 
 > [!IMPORTANT]
-> Setting the _numLists_ parameter correctly is important for acheiving good accuracy and performance. We recommend that `numLists` is set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows.
+> Setting the _numLists_ parameter correctly is important for acheiving good accuracy and performance. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents.
 >
 > As the number of items in your database grows, you should tune _numLists_ to be larger in order to achieve good latency performance for vector search.
 >
-> If you're experimenting with a new scenario or creating a small demo, you can start with `numLists` set to `1` to perform a brute-force search across all vectors. This should provide you with the most accurate results from the vector search. After your initial setup, you should go ahead and tune the `numLists` parameter using the above guidance.
+> If you're experimenting with a new scenario or creating a small demo, you can start with `numLists` set to `1` to perform a brute-force search across all vectors. This should provide you with the most accurate results from the vector search, however be aware that the search speed and latency will be slow. After your initial setup, you should go ahead and tune the `numLists` parameter using the above guidance.
 
 ## Examples
 
