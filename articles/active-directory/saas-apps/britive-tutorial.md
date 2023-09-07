@@ -121,11 +121,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 3. Select **ADD IDENTITY PROVIDER**. Enter the name and description. Select the
 **Add** button.
 
-    ![security](./media/britive-tutorial/security.png)
+    ![Add Identity Provider](./media/britive-tutorial/security.png)
 
 5. Select **Manage** for the Azure identity provider and select **SSO Configuration**.
    
-    ![configuration](./media/britive-tutorial/configuration.png)
+    ![SSO Configuration Settings](./media/britive-tutorial/configuration.png)
 
     a. Change the **SSO Provider** from **Generic** to **Azure**.
 
