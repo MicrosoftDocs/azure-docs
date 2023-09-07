@@ -15,7 +15,7 @@ When working with custom IPsec policies, keep in mind the following requirements
 * **IKE** - For IKE, you can select any parameter from IKE Encryption, plus any parameter from IKE Integrity, plus any parameter from DH Group.
 * **IPsec** -  For IPsec, you can select any parameter from IPsec Encryption, plus any parameter from IPsec Integrity, plus PFS. If any of the parameters for IPsec Encryption or IPsec Integrity is GCM, then the parameters for both settings must be GCM.
 
-With Custom IPsec policies, there is no concept of responder and initiator (unlike Default IPsec policies). Both sides (on-premises and Azure VPN gateway) will use the same settings for IKE Phase 1 and IKE Phase 2. Both IKEv1 and IKEv2 protocols are supported.
+With Custom IPsec policies, there is no concept of responder and initiator (unlike Default IPsec policies). Both sides (on-premises and Azure VPN gateway) will use the same settings for IKE Phase 1 and IKE Phase 2. Both IKEv1 and IKEv2 protocols are supported. The default custom policy includes weaker algorithms that are not recommended. We recommend only using the algorithms listed below.
 
 **Available settings and parameters**
 
