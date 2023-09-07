@@ -6,12 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 09/07/2023
 ---
 
 # Configure BM25 relevance scoring
 
-In this article, you'll learn how to configure the BM25 relevance scoring algorithm used by Azure Cognitive Search. BM25 applies to full text search queries and calculates an **@search.score** for each match in a given query. The results are then ranked by their search score, with the topmost results returned in the query response.
+This article provides instructions for configuring the BM25 relevance scoring algorithm used by Azure Cognitive Search for full text search queries. It also explains how to enable it on older search services.
+
+BM25 applies to strings (text) on fields having a "searchable" attribution. At query time, it calculates an **@search.score** for each match in a given query. The results are then ranked by their search score, with the topmost results returned in the query response.
 
 BM25 has defaults for weighting term frequency and document length. You can customize these properties if the defaults aren't suited to your content. Configuration changes are scoped to individual indexes, which means you can adjust relevance scoring based on the characteristics of each index.
 
@@ -28,9 +30,9 @@ For older services, classic similarity remains the default algorithm. Older serv
 
 ## Set BM25 parameters
 
-BM25 similarity adds two parameters to control the relevance score calculation. 
+BM25 ranking exposes two parameters to control the relevance score calculation. 
 
-1. Formulate a [Create or Update Index](/rest/api/searchservice/create-index) request as illustrated by the following example.
+1. Use a [Create or Update Index](/rest/api/searchservice/create-index) request to set BM25 parameters:
 
     ```http
     PUT [service-name].search.windows.net/indexes/[index-name]?api-version=2020-06-30&allowIndexDowntime=true
@@ -43,11 +45,11 @@ BM25 similarity adds two parameters to control the relevance score calculation.
     }
     ```
 
-1. Set "b" and "k1" to custom values. See the property descriptions in the next section for details.
+1. If the index is live, append the `allowIndexDowntime=true` URI parameter on the request, shown on the previous example.
 
-1. If the index is live, append the "allowIndexDowntime=true" URI parameter on the request.
+   Because Cognitive Search won't allow updates to a live index, you need to take the index offline so that the parameters can be added. Indexing and query requests will fail while the index is offline. The duration of the outage is the amount of time it takes to update the index, usually no more than several seconds. When the update is complete, the index comes back automatically.
 
-   Because Cognitive Search won't allow updates to a live index, you'll need to take the index offline so that the parameters can be added. Indexing and query requests will fail while the index is offline. The duration of the outage is the amount of time it takes to update the index, usually no more than several seconds. When the update is complete, the index comes back automatically.
+1. Set `"b"` and `"k1"` to custom values. See the property descriptions in the next section for details.
 
 1. Send the request.
 
@@ -103,7 +105,7 @@ PUT [service-name].search.windows.net/indexes/[index name]?api-version=2020-06-3
 
 ## See also  
 
-+ [Similarity and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
++ [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
 + [REST API Reference](/rest/api/searchservice/)
 + [Add scoring profiles to your index](index-add-scoring-profiles.md)
 + [Create Index API](/rest/api/searchservice/create-index)
