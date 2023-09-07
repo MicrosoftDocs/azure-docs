@@ -142,7 +142,7 @@ Configure the following modules at the **top layer**:
 
 Configure the following module on any **lower layer** for this scenario:
 
-* An API proxy module
+* API proxy module. The API proxy module is required on all lower layer devices except the bottom layer device.
   * Configure the following environment variables:
 
     | Name | Value |
