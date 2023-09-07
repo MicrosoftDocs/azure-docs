@@ -160,7 +160,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
         EOF
         ```
 > [!NOTE]
-> Make sure the **'udf'** module is enabled. Blocklisting or removing it will cause a provisioning failure.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+> Make sure the **'udf'** and **'vfat'** moduless are enabled. Removing/disabling them will cause a provisioning/boot failure.  **(Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
