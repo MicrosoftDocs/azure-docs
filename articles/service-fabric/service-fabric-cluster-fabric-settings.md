@@ -496,10 +496,20 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, default is None|Dynamic|Determines the set of MetricActivityThresholds for the metrics in the cluster. Balancing will work if maxNodeLoad is greater than MetricActivityThresholds. For defrag metrics it defines the amount of load equal to or below which Service Fabric will consider the node empty |
 
+## MetricActivityThresholdsPerNodeType
+| **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup|KeyStringValueMap, default is None|Static|Configuration that specifies metric activity thresholds per node type. |
+
 ## MetricBalancingThresholds
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, default is None|Dynamic|Determines the set of MetricBalancingThresholds for the metrics in the cluster. Balancing will work if maxNodeLoad/minNodeLoad is greater than MetricBalancingThresholds. Defragmentation will work if maxNodeLoad/minNodeLoad in at least one FD or UD is smaller than MetricBalancingThresholds. |
+
+## MetricBalancingThresholdsPerNodeType
+| **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup|KeyStringValueMap, default is None|Static|Configuration that specifies metric balancing thresholds per node type. |
 
 ## MetricLoadStickinessForSwap
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
@@ -576,6 +586,12 @@ The following is a list of Fabric settings that you can customize, organized by 
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, default is 10 | Dynamic |Maximum interval (in seconds) after which a new performance counter binary file is created. |
 |SamplingIntervalInSeconds |Int, default is 60 | Dynamic |Sampling interval for performance counters being collected. |
 
+## MinLoadBalancingIntervalsPerNodeType
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup |KeyStringValueMap, default is None | Static |Configuration that specifies min load balancing intervals per node type. |
+
 ## PlacementAndLoadBalancing
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -628,7 +644,10 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PreferredPrimaryDomainsConstraintPriority| Int, default is 1 | Dynamic| Determines the priority of preferred primary domain constraint: 0: Hard; 1: Soft; negative: Ignore |
 |PreferUpgradedUDs|bool, default is FALSE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs. Starting with SF 7.0, the default value for this parameter is changed from TRUE to FALSE.|
 |PreventTransientOvercommit | Bool, default is false | Dynamic|Determines should PLB immediately count on resources that will be freed up by the initiated moves. By default; PLB can initiate move out and move in on the same node which can create transient overcommit. Setting this parameter to true will prevent those kinds of overcommits and on-demand defrag (also known as placementWithMove) will be disabled. |
+|RelaxUnlimitedPartitionBasedAutoScaling | Bool, default is false | Dynamic|Allow partition based auto-scaling for -1 upper scaling limit exceeds number of available nodes. If config is enabled; maximum partition count is calculated as ratio of available load and default partition load. If RelaxUnlimitedPartitionBasedAutoScaling is enabled; maximum partition count won't be less than number of available nodes. |
+|RelaxUnlimitedInstanceBasedAutoScaling | Bool, default is false | Dynamic|Allow instance based auto-scaling for -1 upper scaling limit exceeds number of available nodes. If config is enabled; maximum partition count is calculated as ratio of available load and default instance load. If RelaxUnlimitedInstanceBasedAutoScaling is enabled; maximum instance count won't be less than number of available nodes. If service doesn't allow multi-instance on the same node; enabling RelaxUnlimitedInstanceBasedAutoScaling config doesn't have impact on that service. If AllowCreateUpdateMultiInstancePerNodeServices config is disabled; enabling RelaxUnlimitedInstanceBasedAutoScaling config doesn't have impact. |
 |ScaleoutCountConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of scaleout count constraint: 0: Hard; 1: Soft; negative: Ignore. |
+|SeparateBalancingStrategyPerNodeType | Bool, default is false |Dynamic| Balancing configuration per node type Enable or disable balancing per node type feature. |
 |SubclusteringEnabled|Bool, default is FALSE | Dynamic |Acknowledge subclustering when calculating standard deviation for balancing |
 |SubclusteringReportingPolicy| Int, default is 1 |Dynamic|Defines how and if the subclustering health reports are sent: 0: Don't report; 1: Warning; 2: OK |
 |SwapPrimaryThrottlingAssociatedMetric | string, default is ""|Static| The associated metric name for this throttling. |
@@ -780,6 +799,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ActivateNode |string, default is "Admin" |Dynamic| Security configuration for activation a node. |
+|AddRemoveConfigurationParameterOverrides |wstring, default is L"Admin" |Dynamic|Add/remove configuration parameter overrides|
 |CancelTestCommand |string, default is "Admin" |Dynamic| Cancels a specific TestCommand - if it's in flight. |
 |CodePackageControl |string, default is "Admin" |Dynamic| Security configuration for restarting code packages. |
 |CreateApplication |string, default is "Admin" | Dynamic|Security configuration for application creation. |
@@ -873,6 +893,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ToggleVerboseServicePlacementHealthReporting | string, default is "Admin\|\|User" |Dynamic| Security configuration for Toggling Verbose ServicePlacement HealthReporting. |
 |UnprovisionApplicationType |string, default is "Admin" |Dynamic| Security configuration for application type unprovisioning. |
 |UnprovisionFabric |string, default is "Admin" |Dynamic| Security configuration for MSI and/or Cluster Manifest unprovisioning. |
+|UnreliableLeaseBehavior |wstring, default is L"Admin" |Dynamic| Adding/Removing unreliable Lease behavior |
 |UnreliableTransportControl |string, default is "Admin" |Dynamic| Unreliable Transport for adding and removing behaviors. |
 |UpdateService |string, default is "Admin" |Dynamic|Security configuration for service updates. |
 |UpgradeApplication |string, default is "Admin" |Dynamic| Security configuration for starting or interrupting application upgrades. |
