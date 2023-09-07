@@ -27,7 +27,7 @@ You can initialize [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/a
 * With an authorization token: pass in an authorization token and the associated region.
 
 > [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you always create a configuration.
 
 ## Recognize speech from a microphone
 

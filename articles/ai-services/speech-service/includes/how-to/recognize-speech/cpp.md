@@ -30,7 +30,7 @@ You can initialize `SpeechConfig` in a few other ways:
 * With an authorization token: pass in an authorization token and the associated region.
 
 > [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you always create a configuration.
 
 ## Recognize speech from a microphone
 
@@ -195,7 +195,7 @@ speechConfig->SetSpeechRecognitionLanguage("de-DE");
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text).
 

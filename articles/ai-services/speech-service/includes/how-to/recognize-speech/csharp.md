@@ -40,7 +40,7 @@ You can initialize `SpeechConfig` in a few other ways:
 * With an authorization token: pass in an authorization token and the associated region/location.
 
 > [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you always create a configuration.
 
 ## Recognize speech from a microphone
 
@@ -111,7 +111,7 @@ For many use cases, it's likely that your audio data comes from blob storage or 
 
 * Writes raw audio data (PCM) to `PushAudioInputStream` by using the `Write()` function, which accepts a `byte[]` instance.
 * Reads a *.wav* file by using `FileReader` for demonstration purposes. If you already have audio data in a `byte[]` instance, you can skip directly to writing the content to the input stream.
-* The default format is 16-bit, 16-KHz mono PCM. To customize the format, you can pass an [`AudioStreamFormat`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audiostreamformat) object to `CreatePushStream()` by using the static function `AudioStreamFormat.GetWaveFormatPCM(sampleRate, (byte)bitRate, (byte)channels)`.
+* The default format is 16-bit, 16-KHz mono pulse-code modulation (PCM) data. To customize the format, you can pass an [`AudioStreamFormat`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audiostreamformat) object to `CreatePushStream()` by using the static function `AudioStreamFormat.GetWaveFormatPCM(sampleRate, (byte)bitRate, (byte)channels)`.
 
 ```csharp
 using System;
@@ -270,7 +270,7 @@ The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-csharp#speech-to-text).
 

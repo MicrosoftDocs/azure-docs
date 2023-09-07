@@ -28,14 +28,14 @@ You can initialize `SpeechConfig` in a few other ways:
 * With an authorization token: pass in an authorization token and the associated location/region.
 
 > [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you always create a configuration.
 
 ## Recognize speech from a microphone
 
 Recognizing speech from a microphone isn't supported in Node.js. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech to text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech to text conversions.
 
 > [!NOTE]
-> If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. For more information, ee [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md).
+> If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. For more information, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md).
 
 ## Recognize speech from a file 
 
@@ -60,10 +60,10 @@ fromFile();
 
 ## Recognize speech from an in-memory stream
 
-For many use cases, your audio data likely comes from blob storage. Or it's already in memory as [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) or a similar raw data structure. The following code:
+For many use cases, your audio data likely comes from blob storage. Or it's already in memory as an [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) or a similar raw data structure. The following code:
 
 * Creates a push stream by using `createPushStream()`.
-* Reads a *.wav* file by using `fs.createReadStream` for demonstration purposes. If you already have audio data in `ArrayBuffer`, you can skip directly to writing the content to the input stream.
+* Reads a *.wav* file by using `fs.createReadStream` for demonstration purposes. If you already have audio data in the `ArrayBuffer`, you can skip directly to writing the content to the input stream.
 * Creates an audio configuration by using the push stream.
 
 ```javascript
@@ -90,7 +90,7 @@ function fromStream() {
 fromStream();
 ```
 
-Using a push stream as input assumes that the audio data is a raw PCM that skips any headers. The API still works in certain cases if the header hasn't been skipped. But for the best results, consider implementing logic to read off the headers so that `fs` starts at the *start of the audio data*.
+Using a push stream as input assumes that the audio data is a raw pulse-code modulation (PCM) data that skips any headers. The API still works in certain cases if the header hasn't been skipped. But for the best results, consider implementing logic to read off the headers so that `fs` starts at the *start of the audio data*.
 
 ## Handle errors
 
@@ -193,7 +193,7 @@ The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-sp
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text).
 

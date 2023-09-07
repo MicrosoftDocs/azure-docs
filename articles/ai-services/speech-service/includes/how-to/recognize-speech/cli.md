@@ -8,7 +8,7 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Speech to text from a microphone
+## Recognize speech from a microphone
 
 Plug in and turn on your PC microphone. Turn off any apps that might also use the microphone. Some computers have a built-in microphone, whereas others require configuration of a Bluetooth device.
 
@@ -23,9 +23,9 @@ spx recognize --microphone
 
 Speak into the microphone, and you can see transcription of your words into text in real-time. The Speech CLI stops after a period of silence, or when you select **Ctrl+C**.
 
-## Speech to text from an audio file
+## Recognize speech from a file
 
-The Speech CLI can recognize speech in many file formats and natural languages. In this example, you can use any *.wav* file (16 KHz or 8 KHz, 16-bit, and mono PCM) that contains English speech. Or if you want a quick sample, download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a> file and copy it to the same directory as the Speech CLI binary file.
+The Speech CLI can recognize speech in many file formats and natural languages. In this example, you can use any *.wav* file (16 KHz or 8 KHz, 16-bit, and mono PCM) that contains English speech. Or if you want a quick sample, download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a> file, and copy it to the same directory as the Speech CLI binary file.
 
 Use the following command to run the Speech CLI to recognize speech found in the audio file:
 
