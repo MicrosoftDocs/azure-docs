@@ -1,6 +1,6 @@
 ---
 title: Prerequisites for Operator and Containerized Network Function (CNF)
-description: TBD
+description: Install the necessary prerequisites for Operator and Containerized Network Function (CNF).
 author: sherryg
 ms.author: sherryg
 ms.date: 09/07/2023

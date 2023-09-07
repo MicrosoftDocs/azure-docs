@@ -1,6 +1,6 @@
 ---
 title: Prerequisites for using Azure Operator Service Manager with Containerized Network Functions (CNF)
-description: TBD
+description: Install the necessary prerequisites for using Azure Operator Service Manager with Containerized Network Functions (CNF).
 author: sherryg
 ms.author: sherryg
 ms.date: 09/07/2023

@@ -1,5 +1,5 @@
 ---
-title: Creating a Containerized Network Functions (CNF) Site with Nginx
+title: Create a Containerized Network Functions (CNF) Site with Nginx
 description: TBD
 author: sherryg
 ms.author: sherryg
@@ -8,5 +8,5 @@ ms.topic: quickstart
 ms.service: azure-operator-service-manager
 ---
 
-# Quickstart: Creating a Containerized Network Functions (CNF) Site with Nginx
+# Quickstart: Create a Containerized Network Functions (CNF) Site with Nginx
 Content under development.
