@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.author: gicheng
+ms.author: mjbrown
 ms.reviewer: mjbrown
 ---
 

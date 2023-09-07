@@ -8,11 +8,10 @@ author: nickomang
 ms.date: 02/03/2023
 ---
 
-# Automatically upgrade Azure Kubernetes Service cluster node operating system images
+# Automatically upgrade Azure Kubernetes Service cluster node operating system images 
 
 AKS now supports an exclusive channel dedicated to controlling node-level OS security updates. This channel, referred to as the node OS auto-upgrade channel, can't be used for cluster-level Kubernetes version upgrades. To automatically upgrade Kubernetes versions, continue to use the cluster [auto-upgrade][Autoupgrade] channel.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## How does node OS auto-upgrade work with cluster auto-upgrade?
 
@@ -94,7 +93,7 @@ az provider register --namespace Microsoft.ContainerService
 - The `SecurityPatch` channel isn't supported on Windows OS node pools. 
  
  > [!NOTE]
- > By default, any new cluster created with an API version of `06-01-2022`or later will set the node OS auto-upgrade channel value to `NodeImage`. Any existing clusters created with an API version earlier than `06-01-2022` will have the node OS auto-upgrade channel value set to `None` by default.
+ > By default, any new cluster created with an API version of `06-01-2022` or later will set the node OS auto-upgrade channel value to `NodeImage`. Any existing clusters created with an API version earlier than `06-01-2022` will have the node OS auto-upgrade channel value set to `None` by default.
 
 
 ## Using node OS auto-upgrade with Planned Maintenance
@@ -118,7 +117,7 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
 
 * Can I change the node OS auto-upgrade channel value if my cluster auto-upgrade channel is set to `node-image` ?
 
- No. Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change the node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to be able to change the node OS auto-upgrade channel values, make sure the cluster auto-upgrade channel isn't `node-image`.
+ No. Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change the node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to be able to change the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`.
 
 <!-- LINKS -->
 [planned-maintenance]: planned-maintenance.md

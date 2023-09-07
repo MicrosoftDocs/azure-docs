@@ -75,7 +75,7 @@ To publish complex distributed app through Application Proxy with application se
 
 5. In the External Url field, drop down the list and select the custom domain you want to use.
 
-6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta).
+6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta&preserve-view=true).
 
 7. Select Create.
 
