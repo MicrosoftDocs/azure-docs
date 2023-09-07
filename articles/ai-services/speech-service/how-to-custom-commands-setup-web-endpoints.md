@@ -154,7 +154,7 @@ In this section, you'll use an existing default **DeviceState** endpoint. If you
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
    | Name | UpdateDeviceState | Name for the web endpoint. |
-   | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | The URL of the endpoint you wish your custom command app to talk to. |
+   | URL | ```https://webendpointexample.azurewebsites.net/api/DeviceState``` | The URL of the endpoint you wish your custom command app to talk to. |
    | Method | POST | The allowed interactions (such as GET, POST) with your endpoint.|
    | Headers | Key: app, Value: take the first 8 digits of your applicationId | The header parameters to include in the request header.|
 
