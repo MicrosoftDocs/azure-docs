@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 09/07/2023
 ms.author: jomondi
 ms.reviewer: ergreenl, lenalepa
 ms.collection: M365-identity-device-management
@@ -117,11 +117,11 @@ Run the following queries.
 
 Use the following steps to hide all Microsoft 365 applications from the My Apps portal. The applications are still visible in the Office 365 portal.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [global administrator](../roles/permissions-reference.md#global-administrator). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [global administrator](../roles/permissions-reference.md#global-administrator). 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. Select **App launchers**.
 2. Select **Settings**.
-3. For **Users can only see Microsoft 365 apps in the Microsoft 365 portal**, select **Yes**.
+3. Enable the option of **Users can only see Microsoft 365 apps in the Microsoft 365 portal**.
 4. Select **Save**.
 
 :::zone-end
