@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Availability of services for Microsoft Azure operated by 21Vianet
 
-Azure operated by 21Vianet is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd..
+Azure operated by 21Vianet is a physically separated instance of cloud services located in China. It's independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd.
 
 
 ## Service availability
@@ -156,7 +156,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
 | Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external environment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
-| Azure Container Apps Event Stream Endpoint | \<region\>.azurecontainerapps.dev | \<region\>.chinanorth3.azurecontainerapps-dev.cn  |
+| Azure Container Apps Event Stream Endpoint | `\<region\>.azurecontainerapps.dev`` | `\<region\>.chinanorth3.azurecontainerapps-dev.cn``  |
 
 ### Application Insights
 
