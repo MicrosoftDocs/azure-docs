@@ -1,8 +1,8 @@
 {
     "redirections": [
 	{
-            "source_path": "/azure/communication-services/tutorials/file-sharing-tutorial",
-            "redirect_URL": "articles/communication-services/tutorials/file-sharing-tutorial-acs-chat.md",
+            "source_path": "articles/communication-services/tutorials/file-sharing-tutorial.md",
+            "redirect_URL": "/azure/communication-services/tutorials/file-sharing-tutorial-acs-chat",
             "redirect_document_id": false
         },
         {
