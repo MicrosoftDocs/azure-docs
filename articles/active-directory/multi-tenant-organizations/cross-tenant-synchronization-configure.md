@@ -511,7 +511,7 @@ $smssignin = Get-MgUserAuthenticationPhoneMethod -UserId $userId
     if($smssignin.SmsSignInState -eq "ready"){   
       #### Disable Sms Sign-In for the user is set to ready
        
-      Disable-MgUserAuthenticationPhoneMethodSmSign -UserId $userId -PhoneAuthenticationMethodId $phoneAuthenticationMethodId
+      Disable-MgUserAuthenticationPhoneMethodSmsSignIn -UserId $userId -PhoneAuthenticationMethodId $phoneAuthenticationMethodId
       Write-Host "SMS sign-in disabled for the user" -ForegroundColor Green
     }
     else{
