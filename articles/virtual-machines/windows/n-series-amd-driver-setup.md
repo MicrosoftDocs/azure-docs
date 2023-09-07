@@ -30,7 +30,7 @@ To take advantage of the GPU capabilities of Azure NGads V620 Series VMs, AMD GP
 
 ### VM Creation
 Create the VMs using CLI. (Azure AMD GPU driver extensions don't support NGads  V620 Series during preview)
-1. Link to the CLI VM creation documentation https://learn.microsoft.com/azure/virtual-machines/windows/quick-create-cli<br>
+1. Review the [CLI VM creation documentation](/azure/virtual-machines/windows/quick-create-cli).
 
 ### Driver installation
 1.	Download the zip file to a local drive<br>
