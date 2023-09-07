@@ -4,7 +4,7 @@ description: Learn how services are supported for Microsoft Azure operated by 21
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 09/08/2023
 ms.author: anaharris
 ms.reviewer: cynthn
 ms.custom: references_regions, subject-reliability
@@ -68,6 +68,18 @@ This section outlines variations and considerations when using Security services
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 | Microsoft Sentinel| For Microsoft Sentinel availability, see [Microsoft Sentinel availability](../sentinel/feature-availability.md). |
+
+### Azure Arc-enabled Kubernetes
+
+This section outlines variations and considerations when using Azure Arc-enabled Kubernetes.
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| API Management | API Management on Azure Arc-enabled Kubernetes is not supported in Azure China |
+| App service | App service on Azure Arc-enabled Kubernetes is not supported in Azure China |
+| Container Apps | Container Apps on Azure Arc-enabled Kubernetes is not supported in Azure China |
+| Microsoft Defender for Cloud | Microsoft Defender for Cloud on Azure Arc-enabled Kubernetes is not supported in Azure China |
+
 
 ### Azure Container Apps
 
