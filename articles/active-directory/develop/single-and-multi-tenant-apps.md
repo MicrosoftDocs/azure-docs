@@ -21,18 +21,18 @@ Azure Active Directory (Azure AD) organizes objects like users and apps into gro
 
 ## Who can sign in to your app?
 
-When it comes to developing apps, developers can choose to configure their app to be either single-tenant or multi-tenant during app registration in the [Azure portal](https://portal.azure.com).
+When it comes to developing apps, developers can choose to configure their app to be either single-tenant or multi-tenant during app registration.
 
 - Single-tenant apps are only available in the tenant they were registered in, also known as their home tenant.
 - Multi-tenant apps are available to users in both their home tenant and other tenants.
 
-In the Azure portal, you can configure your app to be single-tenant or multi-tenant by setting the audience as follows.
+When you register an application, you can configure it to be single-tenant or multi-tenant by setting the audience as follows.
 
-| Audience                                                                                              | Single/multi-tenant | Who can sign in                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Accounts in this directory only                                                                       | Single tenant       | All user and guest accounts in your directory can use your application or API.<br>_Use this option if your target audience is internal to your organization._                                                                                                                                                         |
-| Accounts in any Azure AD directory                                                                    | Multi-tenant        | All users and guests with a work or school account from Microsoft can use your application or API. This includes schools and businesses that use Microsoft 365.<br>_Use this option if your target audience is business or educational customers._                                                                    |
-| Accounts in any Azure AD directory and personal Microsoft accounts (such as Skype, Xbox, Outlook.com) | Multi-tenant        | All users with a work or school, or personal Microsoft account can use your application or API. It includes schools and businesses that use Microsoft 365 as well as personal accounts that are used to sign in to services like Xbox and Skype.<br>_Use this option to target the widest set of Microsoft accounts._ |
+| Audience | Single/multi-tenant | Who can sign in |
+| -------- | ------------------- | --------------- |
+| Accounts in this directory only | Single tenant | All user and guest accounts in your directory can use your application or API.<br>Use this option if your target audience is internal to your organization. |
+| Accounts in any Azure AD directory | Multi-tenant | All users and guests with a work or school account from Microsoft can use your application or API. This includes schools and businesses that use Microsoft 365.<br>Use this option if your target audience is business or educational customers. |
+| Accounts in any Azure AD directory and personal Microsoft accounts (such as Skype, Xbox, Outlook.com) | Multi-tenant | All users with a work or school, or personal Microsoft account can use your application or API. It includes schools and businesses that use Microsoft 365 as well as personal accounts that are used to sign in to services like Xbox and Skype.<br>Use this option to target the widest set of Microsoft accounts. |
 
 ## Best practices for multi-tenant apps
 

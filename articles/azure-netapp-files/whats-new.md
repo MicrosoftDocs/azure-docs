@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 09/06/2023
+ms.date: 09/07/2023
 ms.author: anfdocs
 ---
 
@@ -26,6 +26,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the hot tier) to an Azure storage account (the cool tier). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 7 to 63 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
 
 ## September 2023
+
+* [Standard network features in select US Gov regions (Preview)](azure-netapp-files-network-topologies.md)
+
+    Azure NetApp Files now supports Standard network features for new volumes in select US Gov regions. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files. You can now choose Standard or Basic network features when creating a new Azure NetApp Files volume. This feature is Generally Available in Azure commercial regions and public preview US Gov region(s).
 
 * [Troubleshooting enhancement: validate user connectivity, group membership and access to LDAP-enabled volumes](troubleshoot-user-access-ldap.md)
 
