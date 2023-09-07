@@ -120,14 +120,14 @@ The following table lists the field names and descriptions:
 | **ReportType** | Possible values are `Incremental` and `PostMitigation`. |
 | **MitigationPeriodStart** | The date and time in UTC when the mitigation started. |
 | **MitigationPeriodEnd** | The date and time in UTC when the mitigation ended. |
-| **IPAddress**  | Your public IP Address. | 
+| **IPAddress**  | Your public IP Address. |
 | **AttackVectors** | Degradation of attack types. The keys include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, and `Other packet flood`. |
-| **TrafficOverview** | Degradation of attack traffic. The keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, and `Total Other packets dropped`. | 
-| **Protocols**  | Breakdown of protocols included. The keys include `TCP`, `UDP`, and `Other`.   |  
+| **TrafficOverview** | Degradation of attack traffic. The keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, and `Total Other packets dropped`. |
+| **Protocols**  | Breakdown of protocols included. The keys include `TCP`, `UDP`, and `Other`.   |
 | **DropReasons** | Analysis of causes of dropped packets. The keys include `Protocol violation invalid TCP`. `syn Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood Rate limit exceeded`, and `Packet was forwarded to service`. Protocol violation invalid drop reasons refer to malformed packets. |
 | **TopSourceCountries** | Breakdown of the top 10 source countries into inbound traffic. |
 | **TopSourceCountriesForDroppedPackets** | Analysis of the top 10 source countries for attack traffic that have been throttled. |
-| **TopSourceASNs** | Analysis of the top 10 sources of autonomous system numbers (ASNs) of incoming traffic.  | 
+| **TopSourceASNs** | Analysis of the top 10 sources of autonomous system numbers (ASNs) of incoming traffic.  |
 | **SourceContinents** | Analysis of the source continent for inbound traffic. |
 | **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
 
