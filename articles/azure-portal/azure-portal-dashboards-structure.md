@@ -305,7 +305,7 @@ The object underneath the "0" contains two properties, `order` and `parts`. Curr
 
 The `parts` object contains a property for each part, where the name of the property is a number. The number isn't significant.
 
-Each individual part object has a `position`, and `metadata`.
+Each individual part object contains `position` and `metadata`.
 
 ### Position
 
@@ -323,9 +323,9 @@ Each part has a metadata property. An object has only one required property: `ty
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Used to show monitoring metrics
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Used to show customized markdown content, such as text or images, with basic formatting for lists, links, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Used to show videos from YouTube, Channel9, and any other type of video that works in an HTML video tag.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Used to show videos from YouTube, Channel 9, and any other type of video that works in an HTML video tag.
 
-Each type of part has its own configuration. The possible configuration properties are called `inputs`, `settings`, and `asset`.
+Each type of part has its own options for configuration. The possible configuration properties are called `inputs`, `settings`, and `asset`.
 
 ### Inputs
 
