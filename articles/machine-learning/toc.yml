@@ -616,6 +616,8 @@
               href: ./prompt-flow/how-to-create-manage-runtime.md
             - name: Customize environment for runtime
               href: ./prompt-flow/how-to-customize-environment-runtime.md
+            - name: Migrate from managed online endpoint/deployment runtime
+              href: ./prompt-flow/migrate-mir-runtime.md
         - name: Develop flows
           items:
             - name: Develop a standard flow
@@ -648,6 +650,8 @@
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Set up end-to-end LLMOps with Prompt Flow and GitHub 
               href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
+            - name: Network isolation in prompt flow
+              href: ./prompt-flow/how-to-secure-prompt-flow.md
         - name: Tools Reference
           items:
             - name: LLM tool
@@ -682,6 +686,8 @@
           href: how-to-create-vector-index.md
         - name: How to create an RAG pipeline
           href: how-to-use-pipelines-prompt-flow.md
+        - name: RAG cloud to local 
+          href: how-to-retrieval-augmented-generation-cloud-to-local.md
 - name: Responsibly develop & monitor
   items:
   - name: Responsible AI overview
