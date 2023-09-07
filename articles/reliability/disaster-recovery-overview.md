@@ -36,7 +36,7 @@ Designing for disaster recovery has the following main concerns:
 
 
 
-### Data recovery and replication 
+### Data recovery
 
 During a disaster, there are two methods of recovering data:
 
