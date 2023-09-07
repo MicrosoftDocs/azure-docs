@@ -228,7 +228,7 @@ You manage the Azure Machine Learning compute quota on your subscription separat
 
 2. On the left pane, in the **Support + troubleshooting** section, select **Usage + quotas** to view your current quota limits and usage.
 
-:::image type="content" source="./media/how-to-manage-quotas/portal-view-quota.png" lightbox="./media/how-to-manage-quotas/portal-view-quota.png" alt-text="Screenshot of Azure Portal view of current quota limits and usage.":::
+[![Screenshot of Azure Portal view of current quota limits and usage.](./media/how-to-manage-quotas/portal-view-quota.png)](./media/how-to-manage-quotas/portal-view-quota.png)
 
 3. Select a subscription to view the quota limits. Filter to the region you're interested in.
 
@@ -240,11 +240,11 @@ To raise the limit for Azure Machine Learning VM quota above the default limit, 
 
 1. Navigate to the **Usage + quotas** page by following the above instructions. View the current quota limits. Select the SKU for which you'd like to request an increase. 
 
-   :::image type="content" source="./media/how-to-manage-quotas/mlstudio-request-quota.png" lightbox="./media/how-to-manage-quotas/mlstudio-request-quota.png" alt-text="Screenshot of the VM quota details.":::
+[![Screenshot of the VM quota details.](./media/how-to-manage-quotas/mlstudio-request-quota.png)](./media/how-to-manage-quotas/mlstudio-request-quota.png)
 
 2. Provide the quota you'd like to increase and the new limit value. Finally, select __Submit__ to continue. 
 
-   :::image type="content" source="./media/how-to-manage-quotas/mlstudio-new-quota-limit.png" lightbox="./media/how-to-manage-quotas/mlstudio-new-quota-limit.png" alt-text="Screenshot of the new VM quota request form.":::
+[![Screenshot of the new VM quota request form.](./media/how-to-manage-quotas/mlstudio-new-quota-limit.png)](./media/how-to-manage-quotas/mlstudio-new-quota-limit.png)
 
 ### Endpoint quota increases
 
@@ -255,7 +255,7 @@ To raise endpoint quota, [open an online customer support request](https://porta
 3. Select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
 1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value, the reason for the quota increase request, and __location(s)__ where you need the quota increase. Finally, select __Save and continue__ to continue.
 
-    :::image type="content" source="./media/how-to-manage-quotas/quota-details.png" lightbox="./media/how-to-manage-quotas/quota-details.png" alt-text="Screenshot of the endpoint quota details form.":::
+[![Screenshot of the endpoint quota details form.](./media/how-to-manage-quotas/quota-details.png)](./media/how-to-manage-quotas/quota-details.png)
 
 ## Next steps
 
