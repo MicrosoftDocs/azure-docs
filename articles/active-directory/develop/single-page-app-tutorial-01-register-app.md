@@ -1,10 +1,13 @@
 ---
 title: "Tutorial: Register a Single-page application with the Microsoft identity platform"
 description: Register an application in an Azure Active Directory tenant.
+services: active-directory
 author: OwenRichards1
-ms.author: owenrichards
 manager: CelesteDG
+
 ms.service: active-directory
+ms.subservice: develop
+ms.author: owenrichards
 ms.topic: tutorial
 ms.date: 02/27/2023
 #Customer intent: As a React developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.

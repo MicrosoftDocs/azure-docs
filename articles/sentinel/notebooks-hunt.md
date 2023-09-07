@@ -142,7 +142,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     When you've found the notebook you want to use, select **Create from template** and **Save** to clone it into your own workspace.
 
-    Edit the name as needed. If the notebook already exists in your workspace, you can overwrite the existing notebook or create a new one.
+    Edit the name as needed. If the notebook already exists in your workspace, you can overwrite the existing notebook or create a new one. By default, your notebook will be saved in /Users/<Your_User_Name>/ directory of selected AML workspace.
 
     :::image type="content" source="media/notebooks/save-notebook.png" alt-text="Save a notebook to clone it to your own workspace.":::
 

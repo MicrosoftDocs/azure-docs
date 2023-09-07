@@ -18,35 +18,36 @@ ms.collection: M365-identity-device-management
 ---
 # Understand the Privileged Identity Management APIs
 
-You can perform Privileged Identity Management (PIM) tasks using the Microsoft Graph APIs for Azure Active Directory (Azure AD) roles and the Azure Resource Manager API for Azure roles. This article describes important concepts for using the APIs for Privileged Identity Management.
+You can perform Privileged Identity Management (PIM) tasks using the Microsoft Graph APIs for Azure Active Directory (Azure AD) roles and groups, and the Azure Resource Manager API for Azure resource roles. This article describes important concepts for using the APIs for Privileged Identity Management.
 
 For requests and other details about PIM APIs, check out:
 
 - [PIM for Azure AD roles API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)
+- [PIM for groups API reference (preview))(/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview)
 - [PIM for Azure resource roles API reference](/rest/api/authorization/roleeligibilityschedulerequests)
 
 ## PIM API history
 
-There have been several iterations of the PIM API over the past few years. You'll find some overlaps in functionality, but they don't represent a linear progression of versions.
+There have been several iterations of the PIM APIs over the past few years. You'll find some overlaps in functionality, but they don't represent a linear progression of versions.
 
 ### Iteration 1 – Deprecated
 
-Under the /beta/privilegedRoles endpoint, Microsoft had a classic version of the PIM API which only supported Azure AD roles and is no longer supported. Access to this API was deprecated in June 2021.
+Under the `/beta/privilegedRoles` endpoint, Microsoft had a classic version of the PIM APIs which only supported Azure AD roles. Access to this API was retired in June 2021.
 
 ### Iteration 2 – Supports Azure AD roles and Azure resource roles
 
-Under the `/beta/privilegedAccess` endpoint, Microsoft supported both `/aadRoles` and `/azureResources`. This endpoint is still available in your tenant but Microsoft recommends against starting any new development with this API. This beta API will never be released to general availability and will be eventually deprecated.
+Under the `/beta/privilegedAccess` endpoint, Microsoft supported both `/aadRoles` and `/azureResources`. The `/aadRoles` endpoint has been retired but the `/azureResources` endpoint is still available in your tenant. Microsoft recommends against starting any new development with the APIs available through the `/azureResources` endpoint. This API will never be released to general availability and will be eventually deprecated and retired.
 
-### Current iteration – Azure AD roles in Microsoft Graph and Azure resource roles in Azure Resource Manager
+### Current iteration – Azure AD roles and groups in Microsoft Graph and Azure resource roles in Azure Resource Manager
 
-Currently in general availability, this is the final iteration of the PIM API. Based on customer feedback, the PIM API for managing Azure AD roles is now under the **unifiedRoleManagement** set of APIs and the Azure Resource PIM API is now under the Azure Resource Manager role assignment API. These locations also provide a few additional benefits including:
+Currently, in general availability, this is the final iteration of the PIM APIs. Based on customer feedback, the PIM APIs for managing Azure AD roles are now under the **unifiedRoleManagement** set of APIs and the Azure Resource PIM APIs is now under the Azure Resource Manager role assignment APIs. These locations also provide a few additional benefits including:
 
-- Alignment of the PIM API for regular role assignment API for both Azure AD roles and Azure Resource roles.
-- Reducing the need to call additional PIM API to onboard a resource, get a resource, or get role definition.
+- Alignment of the PIM APIs for regular role assignment of both Azure AD roles and Azure Resource roles.
+- Reducing the need to call additional PIM APIs to onboard a resource, get a resource, or get a role definition.
 - Supporting app-only permissions.
 - New features such as approval and email notification configuration.
 
-In the current iteration, there is no API support for PIM alerts and PIM for Groups.
+This iteration also includes PIM APIs for managing ownership and membership of groups as well as security alerts for PIM for Azure AD roles.
 
 ## Current permissions required
 

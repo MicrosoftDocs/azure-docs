@@ -214,7 +214,7 @@ This set of configuration information contains sensitive information that should
 Name | Value
 ---- | -----
 storageAccountName | The name of the storage account in which data is written by the extension.
-storageAccountEndPoint | (Optional) The endpoint that identifies the cloud in which the storage account exists. If this setting is absent, the LAD default is the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Azure China 21Vianet, set this value as required.
+storageAccountEndPoint | (Optional) The endpoint that identifies the cloud in which the storage account exists. If this setting is absent, the LAD default is the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Microsoft Azure operated by 21Vianet, set this value as required.
 storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) for blob and table services (`ss='bt'`). It applies to containers and objects (`srt='co'`). It grants add, create, list, update, and write permissions (`sp='acluw'`). Do *not* include the leading question-mark (?).
 mdsdHttpProxy | (Optional) HTTP proxy information that the extension needs to connect to the specified storage account and endpoint.
 sinksConfig | (Optional) Details of alternative destinations to which metrics and events can be delivered. The following sections address details about each data sink supported by the extension.

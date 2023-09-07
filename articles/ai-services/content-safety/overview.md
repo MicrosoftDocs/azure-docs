@@ -101,9 +101,11 @@ Currently, the public preview features are available in the **F0 and S0** pricin
 
 ## Service limits
 
-### Language availability
+### Language support
 
-This API supports eight languages: English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese. You don't need to specify a language code for text analysis; we automatically detect your input language.
+Content Safety models have been specifically trained and tested on the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality may vary. In all cases, you should do your own testing to ensure that it works for your application.
+
+For more information, see [Language support](/azure/ai-services/content-safety/language-support).
 
 ### Region / location
 

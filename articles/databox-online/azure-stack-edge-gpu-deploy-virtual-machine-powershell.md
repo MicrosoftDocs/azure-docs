@@ -26,8 +26,8 @@ The high-level deployment workflow of the VM deployment is as follows:
 1. Connect to the local Azure Resource Manager of your device.
 1. Identify the built-in subscription on the device.
 1. Bring your VM image.
-1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.  
-1. Create a local storage account on the device to store the VHD that will be used to create a VM image.
+1. Create a resource group in the built-in subscription. The resource group contains the VM and all the related resources.  
+1. Create a local storage account on the device to store the VHD that is used to create a VM image.
 1. Upload a Windows/Linux source image into the storage account to create a managed disk.
 1. Use the managed disk to create a VM image.
 1. Enable compute on a device port to create a virtual switch.
@@ -188,7 +188,7 @@ Start by creating a new Azure resource group and use this as a logical container
     ```powershell
     $ResourceGroupName = "<Resource group name>" 
     ```
-1. Create a resource group for the resources that you'll create for the VM.
+1. Create a resource group for the resources that you create for the VM.
    
     ```powershell
     New-AzResourceGroup -Name $ResourceGroupName -Location DBELocal
@@ -260,10 +260,14 @@ Use the following commands with AzCopy 10:
 1. Copy the VHD from the source (in this case, local system) to the storage account that you created on your device in the earlier step.
 
     ```powershell
-    $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value    
-    $endPoint = (Get-AzStorageAccount -name $StorageAccountName -ResourceGroupName $ResourceGroupName).PrimaryEndpoints.Blob    
-    $StorageAccountContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -Endpoint $endpoint    
-    $StorageAccountSAS = New-AzStorageAccountSASToken -Service Blob -ResourceType Container,Service,Object -Permission "acdlrw" -Context $StorageAccountContext -Protocol HttpsOnly        
+    $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value
+    $blobendpoint = (Get-AzEnvironment -Name Environment Name).StorageEndpointSuffix
+    $StorageAccountContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -Endpoint $blobendpoint
+    <Create the container if it does not exist>
+    $containerName = "con1"
+    $container = New-AzStorageContainer -Name $containerName -Context $StorageAccountContext -Permission Container
+    $StorageAccountSAS = New-AzStorageAccountSASToken -Service Blob -ResourceType Container,Service,Object -Permission "acdlrw" -Context $StorageAccountContext -Protocol HttpsOnly
+    $endPoint = (Get-AzStorageAccount -name $StorageAccountName -ResourceGroupName $ResourceGroupName).PrimaryEndpoints.Blob
     <Path to azcopy.exe> cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"    
     ```
 
@@ -296,15 +300,15 @@ Use the following commands with AzCopy 10:
 Use the following commands with AzCopy 10:  
 
 ```powershell
-$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>)[0].Value
-
-$endPoint = (Get-AzureRmStorageAccount -name <StorageAccountName> -ResourceGroupName <ResourceGroupName>).PrimaryEndpoints.Blob
-
-$StorageAccountContext = New-AzureStorageContext -StorageAccountName <StorageAccountName> -StorageAccountKey <StorageAccountKey> -Endpoint <Endpoint>
-
-$StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Table -ResourceType Container,Service,Object -Permission "acdlrw" -Context <StorageAccountContext> -Protocol HttpsOnly
-
-<AzCopy exe path> cp "Full VHD path" "<BlobEndPoint>/<ContainerName><StorageAccountSAS>"
+$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value
+$blobendpoint = (Get-AzureRmEnvironment -Name <environment name>).StorageEndpointSuffix
+$StorageAccountContext = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -Endpoint $blobendpoint
+<Create the container if it does not exist>
+$containerName = "con1" 
+$container = New-AzureStorageContainer -Name $containerName -Context $StorageAccountContext -Permission Container
+$StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob -ResourceType Container,Service,Object -Permission "acdlrw" -Context $StorageAccountContext -Protocol HttpsOnly
+$endPoint = (Get-AzureRmStorageAccount -name $StorageAccountName -ResourceGroupName $ResourceGroupName).PrimaryEndpoints.Blob
+<Path to azcopy.exe> cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"
 ```
 
 Here's some example output: 
@@ -330,7 +334,7 @@ C:\AzCopy.exe  cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS
 
 ## Create a managed disk from the VHD
 
-You will now create a managed disk from the uploaded VHD.
+You'll now create a managed disk from the uploaded VHD.
 
 ### [Az](#tab/az)
 
@@ -550,7 +554,7 @@ $aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
 
 ### Create a virtual network interface card
 
-You'll create a virtual network interface card by using the virtual network subnet ID.
+You create a virtual network interface card by using the virtual network subnet ID.
 
 ### [Az](#tab/az)
 
@@ -568,7 +572,7 @@ You'll create a virtual network interface card by using the virtual network subn
     $Nic = New-AzNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName -Location DBELocal -IpConfiguration $IpConfig    
     ```
 
-    By default, an IP is dynamically assigned to your network interface from the network enabled for compute. Use the `-PrivateIpAddress parameter` if you are allocating a static IP to your network interface.         
+    By default, an IP is dynamically assigned to your network interface from the network enabled for compute. Use the `-PrivateIpAddress parameter` if you're allocating a static IP to your network interface.         
 
     Here's an example output:
     
@@ -646,7 +650,7 @@ $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId
 $Nic = New-AzureRmNetworkInterface -Name <Nic name> -ResourceGroupName <Resource group name> -Location DBELocal -IpConfiguration $ipConfig
 ```
 
-By default, an IP is dynamically assigned to your network interface from the network enabled for compute. Use the `-PrivateIpAddress parameter` if you are allocating a static IP to your network interface. 
+By default, an IP is dynamically assigned to your network interface from the network enabled for compute. Use the `-PrivateIpAddress parameter` if you're allocating a static IP to your network interface. 
 
 Here's some example output:
 

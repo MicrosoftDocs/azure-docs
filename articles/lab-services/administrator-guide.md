@@ -1,8 +1,8 @@
 ---
-title: Administrator guide | Microsoft Docs
+title: Administrator guide
 description: This guide helps administrators who create and manage lab plans by using Azure Lab Services. 
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 08/28/2023
 ms.custom: devdivchpfy22
 ---
 
@@ -201,6 +201,9 @@ With Lab Services, if you create a lab with a template, the lab VMs will have th
 To obtain lab VMs with unique SID, create a lab without a template VM.  You must use a *generalized* image from the Azure Marketplace or an attached Azure Compute Gallery.  To use your own Azure Compute Gallery, see [Attach or detach a compute gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).  The machine SIDs can be verified by using a tool such as [PsGetSid](/sysinternals/downloads/psgetsid).
 
 If you plan to use an endpoint management tool or similar software, we recommend that you don't use template VMs for your labs.
+
+## Azure AD register/join, Hybrid Azure AD join, or AD domain join
+To make labs easy to set up and manage, Azure Lab Services is designed with *no* requirement to register/join lab VMs to either Active Directory (AD) or Azure Active Directory (Azure AD).  As a result, Azure Lab Services *doesn’t* currently offer built-in support to register/join lab VMs.  Although it's possible to Azure AD register/join, Hybrid Azure AD join, or AD domain join lab VMs using other mechanisms, we do *not* recommend that you attempt to register/join lab VMs to either AD or Azure AD due to product limitations.
 
 ## Pricing
 

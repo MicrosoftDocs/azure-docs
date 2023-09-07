@@ -1,7 +1,7 @@
 ---
 title: Language support - Content Moderator API
 titleSuffix: Azure AI services
-description: This is a list of natural languages that the Azure AI services Content Moderator API supports.
+description: This is a list of natural languages that the Content Moderator API supports.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -32,11 +32,11 @@ ms.author: pafarley
 |Assamese | |✔️ | | |
 |Azerbaijani | |✔️ | | |
 |Bangla - Bangladesh | |✔️ | | |
-|Bangla - India | |✔️ | | |
 |Balinese |✔️ | | | |
 |Basque | |✔️ | | |
 |Belarusian | |✔️ | | |
 |Bengali | ✔️| | | |
+|Bengali - India | |✔️ | | |
 |Bosnian - Cyrillic | |✔️ | | |
 |Bosnian - Latin | |✔️ | | |
 |Buginese |✔️ | | | |

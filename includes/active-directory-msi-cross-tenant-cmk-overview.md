@@ -4,6 +4,7 @@ ms.author: vakarand
 ms.date: 09/01/2022
 ms.service: active-directory
 ms.subservice: managed-identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: include
 title: Cross tenant customer-managed key (CMK) overview - Azure
 description: include file for cross-tenant customer-managed key (CMK) overview
@@ -20,11 +21,11 @@ The image below shows a data encryption at rest with federated identity in a cro
 
 :::image type="content" source="media/msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" alt-text="Screenshot showing a cross-tenant CMK with a federated identity." lightbox="media/msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" border="true":::
 
-In the example above, there are two Azure AD tenants: an independent service provider's tenant (*Tenant1*), and a customer's tenant (*Tenant2*). *Tenant1* hosts Azure platform services and *Tenant2* hosts the customer's key vault.
+In the example above, there are two Azure AD tenants: an independent service provider's tenant (*Tenant 1*), and a customer's tenant (*Tenant 2*). *Tenant 1* hosts Azure platform services and *Tenant 2* hosts the customer's key vault.
 
-A multi-tenant application registration is created by the service provider in *Tenant1*. A [federated identity credential](../articles/active-directory/develop/workload-identity-federation-create-trust.md) is created on this application using a user-assigned managed identity. Then, the name and application ID of the app is shared with the customer.
+A multi-tenant application registration is created by the service provider in *Tenant 1*. A [federated identity credential](../articles/active-directory/develop/workload-identity-federation-create-trust.md) is created on this application using a user-assigned managed identity. Then, the name and application ID of the app is shared with the customer.
 
-A user with the appropriate permissions installs the service provider's application in the customer tenant, *Tenant2*. A user then grants the service principal associated with the installed application access to the customer's key vault. The customer also stores the encryption key, or customer-managed key, in the key vault. The customer shares the key location (the URL of the key) with the service provider.
+A user with the appropriate permissions installs the service provider's application in the customer tenant, *Tenant 2*. A user then grants the service principal associated with the installed application access to the customer's key vault. The customer also stores the encryption key, or customer-managed key, in the key vault. The customer shares the key location (the URL of the key) with the service provider.
 
 The service provider now has:
 
@@ -32,7 +33,7 @@ The service provider now has:
 - A managed identity configured as the credential on the multi-tenant application.
 - The location of the key in the customer's key vault.
 
-With these three parameters, the service provider provisions Azure resources in *Tenant1* that can be encrypted with the customer-managed key in *Tenant2*.
+With these three parameters, the service provider provisions Azure resources in *Tenant 1* that can be encrypted with the customer-managed key in *Tenant 2*.
 
 Let's divide the above end-to-end solution into three phases:
 
@@ -54,7 +55,7 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 #### Considerations for service providers
 
 - Azure Resource Manager (ARM) templates are not recommended for creating Azure AD applications.
-- The same multi-tenant application can be used to access keys in any number of tenants, like *Tenant2*, *Tenant3*, *Tenant4*, and so on. In each tenant, an independent instance of the application is created that has the same application ID but a different object ID. Each instance of this application is thus authorized independently. Consider how the application object used for this feature is used to partition your application across all customers. 
+- The same multi-tenant application can be used to access keys in any number of tenants, like *Tenant 2*, *Tenant3*, *Tenant4*, and so on. In each tenant, an independent instance of the application is created that has the same application ID but a different object ID. Each instance of this application is thus authorized independently. Consider how the application object used for this feature is used to partition your application across all customers. 
   - Application can have a maximum of 20 federated identity credentials, which requires a service provider to share federated identities among its customers. For more information about federated identities design considerations and restrictions, see [Configure an app to trust an external identity provider](../articles/active-directory/develop/workload-identity-federation-create-trust.md?pivots=identity-wif-apps-methods-azp#important-considerations-and-restrictions)
 - In rare scenarios, a service provider may use a single Application object per its customer, but that will require significant maintenance costs to manage applications at scale across all customers. 
 - In the service provider tenant, it is not possible to automate the [Publisher Verification](../articles/active-directory/develop/publisher-verification-overview.md).
@@ -68,9 +69,12 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 | 3. | Grant the consented application identity access to the Azure key vault by assigning the role [Key Vault Crypto Service Encryption User](../articles/key-vault/general/rbac-guide.md?preserve-view=true&tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations) | To assign the **Key Vault Crypto Service Encryption User** role to the application, you must have been assigned the [User Access Administrator](../articles/role-based-access-control/built-in-roles.md#user-access-administrator) role. | None |
 | 4. | Copy the key vault URL and key name into the customer-managed keys configuration of the SaaS offering.| None| None|
 
+> [!NOTE]
+> To authorize access to the Managed HSM for encryption using CMK, see example for Storage Account [here](../articles/storage/common/customer-managed-keys-configure-key-vault-hsm.md#assign-a-role-to-the-storage-account-for-access-to-the-managed-hsm). For more information about managing keys with Managed HSM, see [Manage a Managed HSM using the Azure CLI](../articles/key-vault/managed-hsm/key-management.md)
+
 #### Considerations for customers of service providers
 
-- In the customer tenant, *Tenant2*, an admin can set policies to block non-admin users from installing applications. These policies can prevent non-admin users from creating service principals. If such a policy is configured, then users with permissions to create service principals will need to be involved.
+- In the customer tenant, *Tenant 2*, an admin can set policies to block non-admin users from installing applications. These policies can prevent non-admin users from creating service principals. If such a policy is configured, then users with permissions to create service principals will need to be involved.
 - Access to Azure Key Vault can be authorized using Azure RBAC or access policies. When granting access to a key vault, make sure to use the active mechanism for your key vault.
 - An Azure AD application registration has an application ID (client ID). When the application is installed in your tenant, a service principal is created. The service principal shares the same application ID as the app registration, but generates its own object ID. When you authorize the application to have access to resources, you may need to use the service principal `Name` or `ObjectID` property.
 

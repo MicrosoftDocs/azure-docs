@@ -227,10 +227,10 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
 
 3. Now, run the **Get-AzDataFactoryRun** cmdlet to get details about the activity run for the slice.
 
-	```powershell   
-	Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
-	<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
-	```
+    ```powershell
+    Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
+    <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
+    ```
 
     For example:
 

@@ -272,7 +272,7 @@ sections:
       - question: |
           Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
         answer: |
-          Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
+          Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Data Box Disk will transfer file/directory timestamps, attributes, and ACLs to Azure Files. Azure File Sync usage with Data Box disk is now supported.
           
           
   - name: Verify and upload

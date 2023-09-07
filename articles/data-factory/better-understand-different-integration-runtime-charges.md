@@ -57,7 +57,7 @@ As the compute is reserved, the 6 copy activities aren't rounded up independentl
 
 :::image type="content" source="./media/integration-runtime-pricing/vnet-integration-runtime-example-2.png" alt-text="Screenshot of calculation formula for Azure integration runtime with managed virtual network example 2.":::
 
-**Example 3: If there are 6 HDInsight activities triggered by Foreach. The execution time of each is 9 minutes and 40 seconds. The parallel is configured as 50 in Foreach. TTL is 30 minutes.**
+**Example 3: If there are 6 HDInsight activities triggered by Foreach. The execution time of each is 9 minutes and 40 seconds. The parallel is configured as 50 in Foreach. Compute size is 1. TTL is 30 minutes.**
 
 In this example, the execution time of each HDInsight activity is rounded up to 10 minutes. As the 6 HDInsight activities run in parallel and within the concurrency limitation (800), they're only charged once. 
 

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Bing Entity Search single-page web app"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This tutorial shows how to use the Bing Entity Search API in a single-page Web application.
 author: aahill
 ms.service: cognitive-services

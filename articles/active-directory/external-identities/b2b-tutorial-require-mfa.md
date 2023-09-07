@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/03/2023
+ms.date: 07/28/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -62,13 +62,14 @@ To complete the scenario in this tutorial, you need:
 1. In the left menu, under **Manage**, select **Users**.
 1. Select **New user**, and then select **Invite external user**.
 
-    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option.":::
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option." lightbox="media/tutorial-mfa/tutorial-mfa-new-user.png":::
 
-1. Under **Identity**, enter the email address of the external user. Optionally, include a name and welcome message.
+1. Under **Identity** on the **Basics** tab, enter the email address of the external user. Optionally, include a display name and welcome message.
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user-identity.png" alt-text="Screenshot showing where to enter the guest email.":::
 
-1. Select **Invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears.
+1. Optionally, you can add further details to the user under the **Properties** and **Assignments** tabs.
+1. Select **Review + invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears.
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
 
 ## Test the sign-in experience before MFA setup
@@ -86,7 +87,7 @@ To complete the scenario in this tutorial, you need:
 1. On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
 1. On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 1. In the **Assignments** section, choose the link under **Users and groups**.
-1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types), built-in [directory roles](../conditional-access/concept-conditional-access-users-groups.md#include-users), or users and groups. 
+1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types), built-in directory roles, or users and groups. 
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-user-access.png" alt-text="Screenshot showing selecting all guest users.":::
 

@@ -8,12 +8,23 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: whats-new
-ms.date: 07/20/2023
+ms.date: 08/25/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
+
+## August 2023
+
+### Azure OpenAI on your own data (preview) updates
+
+- You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
+- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support) now supports private endpoints.
+- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
+- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
+- [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
+- [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
 
 ## July 2023
 
@@ -27,7 +38,7 @@ keywords:
 
 ### New Regions
 
-- Azure OpenAI is now also available in the Canada East, Japan East, and North Central US regions. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
+- Azure OpenAI is now also available in the Canada East, East US 2, Japan East, and North Central US regions. Check the [models page](concepts/models.md), for the latest information on model availability in each region.  
 
 ## June 2023
 
