@@ -56,7 +56,7 @@ To continue using the account beyond June 30, 2024, classic accounts will have t
 ### Existing trial accounts
 
 - As of January 15, 2024 Video Indexer trial accounts will continue to work as usual. However, when using them through the APIs, customers must use the updated APIs.
-- AVI supports [importing content](import-content-from-trial.md) from a trial AVI account to a paid AVI account. This import option will be supported only until **January 15th, 2024**. Trial account owners will be sent instructions on how to move to ARM-based accounts in the coming months.
+- AVI supports [importing content](import-content-from-trial.md) from a trial AVI account to a paid AVI account. This import option will be supported only until **January 15th, 2024**.
 
 ## API changes
 
