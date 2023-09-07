@@ -113,7 +113,6 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-smalldisk |
-| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core |
 
 
 ## Requirements for configuring automatic OS image upgrade
