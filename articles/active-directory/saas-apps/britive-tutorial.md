@@ -117,16 +117,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ## Configure Britive SSO
 
 1. Login to the Britive application with administrator privileges in a different web browser window.
-2. Click on **Admin->Identity Management->Identity Providers** from the navigation menu.
-3. Click on **ADD IDENTITY PROVIDER**. Enter the name and description. Click on the
+2. Select **Admin->Identity Management->Identity Providers** from the navigation menu.
+3. Select **ADD IDENTITY PROVIDER**. Enter the name and description. Select the
 **Add** button.
 
-    ![security](https://github.com/MicrosoftDocs/azure-docs/assets/92109160/d99245cd-6892-4ef1-b215-99c4e02d8d71)
+    ![security](./media/britive-tutorial/security.png)
 
-
-4. Click on **Manage** for the Azure identity provider and click **SSO Configuration**.
+5. Select **Manage** for the Azure identity provider and select **SSO Configuration**.
    
-    ![MicrosoftTeams-image](https://github.com/MicrosoftDocs/azure-docs/assets/92109160/db0126a2-4074-4409-aa8d-91cf9160378a)
+    ![configuration](./media/britive-tutorial/configuration.png)
 
     a. Change the **SSO Provider** from **Generic** to **Azure**.
 
@@ -135,17 +134,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     c. Copy the **Initiate SSO URL** value and paste it into the Sign on URL text box in the
 Basic SAML Configuration section in the Azure portal.
 
-    d. Click on **UPLOAD SAML METADATA** to upload the downloaded metadata XML file
+    d. Select **UPLOAD SAML METADATA** to upload the downloaded metadata XML file
 from the Azure portal. After uploading the metadata file the above values will be auto- populated and save changes.
 
 
 ### Create Britive test user
 
 1. Login to the Britive with administrator privileges in a different web browser window.
-2. Click on **Admin** Settings Icon and select **Identity Management**.
-3. Click on **ADD USER** from the **Users** tab.
-4. Fill in all the necessary details of the user according to your organization's requirements and
-click **Add**. Make sure to select Azure from the **Identity Providers** list.
+2. Select **Admin** Settings Icon and select **Identity Management**.
+3. Select **ADD USER** from the **Users** tab.
+4. Fill in all the necessary details of the user according to your organization's requirements and select **Add**. Make sure to select Azure from the **Identity Providers** list.
 
 > [!NOTE]
 >Britive also supports automatic user provisioning, you can find more details [here](./britive-provisioning-tutorial.md) on how to configure automatic user provisioning.
@@ -154,7 +152,7 @@ click **Add**. Make sure to select Azure from the **Identity Providers** list.
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Britive Sign-on URL where you can initiate the login flow. 
+* Select **Test this application** in Azure portal. This will redirect to Britive Sign-on URL where you can initiate the login flow. 
 
 * Go to Britive Sign-on URL directly and initiate the login flow from there.
 
