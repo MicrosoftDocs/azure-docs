@@ -24,7 +24,7 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 
 
 * Customer-managed keys with managed HSM is supported using the 2022.11 or later API version.
-* Customer-managed keys with managed HSM is only supported for Azure NetApp Files accounts that do not have existing encryption. 
+* Customer-managed keys with managed HSM is only supported for Azure NetApp Files accounts that don't have existing encryption. 
 * Before creating a volume using customer-managed key with managed HSM volume, you must have: 
     * created an [Azure Key Vault](../key-vault/general/overview.md), containing at least one key.
         * The key vault must have soft delete and purge protection enabled.
@@ -162,7 +162,7 @@ To use a system-assigned identity, the Azure Key Vault must be configured to use
 1. In the Azure portal, navigate to Azure NetApp Files then select **Encryption**.
 1. In the **Encryption** menu, provide the following values:
     * For **Encryption key source**, select **Customer Managed Key**.
-    * For **Key URI**, select **Enter Key URI** the provide the URI for the managed HSM.
+    * For **Key URI**, select **Enter Key URI** then provide the URI for the managed HSM.
     * Select the NetApp **Subscription**.
     * For **Identity type**, select **User-assigned**.
 1. When you select **User-assigned**, a context pane opens to select the identity. 
@@ -171,10 +171,9 @@ To use a system-assigned identity, the Azure Key Vault must be configured to use
         * "Microsoft.KeyVault/vaults/keys/read"
         * "Microsoft.KeyVault/vaults/keys/encrypt/action"
         * "Microsoft.KeyVault/vaults/keys/decrypt/action"
-    The user-assigned identity you select is added to your NetApp account. Due to RBAC being customizable, the Azure portal does not configure access to the key vault. For more information, see [Using Azure RBAC secret, key, and certificate permissions with Key Vault](../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault)
+    The user-assigned identity you select is added to your NetApp account. Due to RBAC being customizable, the Azure portal doesn't configure access to the key vault. For more information, see [Using Azure RBAC secret, key, and certificate permissions with Key Vault](../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault)
 
     :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
-
 
 1. Select **Save**.
 
