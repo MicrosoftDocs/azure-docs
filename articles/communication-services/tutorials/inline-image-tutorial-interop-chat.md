@@ -19,11 +19,9 @@ In a Teams Interopability Chat ("Interop Chat"), we can enable communication use
 
 >[!IMPORTANT]
 >
->*Certain GIF images might not be supported by the UI library at this time. The user might receive a static image instead, and this is a known issue.
+>Inline image feature comes with the CallWithChat Composite without additional setups. 
 >
->In addition, the Web UI library doesn't support Clips (short videos) sent by the Teams users at this time.**
->
->Moreover, inline images are images that are copied and pasted in to the send box of Teams client. If the Teams user drop-and-drop an image to the send box, it woud become an image attachment, which is supported by the file sharing feature in Interop chat. Please refer to the turtorial on [adding file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md).
+>Currently, the Communication user is able to only receive inline images from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md) to learn more.
 
 
 ## Download code
@@ -124,6 +122,11 @@ Simply click on the chat button located on lower-right to reveal the chat panel 
 Please note that in a Teams Interop Chat, we currently only support Communication Users to recieve inline images sent by the Teams user. To learm more about what features are supported, please refer to the [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
 
 
+## Known Issues
+
+* Certain GIF images might not be supported by the UI library at this time. The user might receive a static image instead.
+* the Web UI library doesn't support Clips (short videos) sent by the Teams users at this time.**
+
 
 ## Next steps
 
@@ -138,4 +141,3 @@ You may also want to:
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)
-- [UI library Use Cases](../concepts/ui-library/includes/web-ui-use-cases.md)
