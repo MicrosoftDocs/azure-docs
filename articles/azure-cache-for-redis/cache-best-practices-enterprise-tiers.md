@@ -36,8 +36,14 @@ Redis Enterprise, on the other hand, can use multiple vCPUs for the Redis instan
 
 The tables show the number of vCPUs used for the primary shards, not the replica shards. Shards don't map one-to-one to the number of vCPUs. The tables only illustrate vCPUs, not shards. Some configurations use more shards than available vCPUs to boost performance in some usage scenarios. 
 
-### E10
+### E5
+|Capacity|Effective vCPUs|
+|---:|---:|
+| 2 | 1 |
+| 4 | 2 |
+| 6 | 6 |
 
+### E10
 |Capacity|Effective vCPUs|
 |---:|---:|
 | 2 | 2 |
@@ -75,6 +81,24 @@ The tables show the number of vCPUs used for the primary shards, not the replica
 |6|30|
 |8|30|
 |10|30|
+
+### E200
+|Capacity|Effective vCPUs|
+|---:|---:|
+|2|30|
+|4|60|
+|6|60|
+|8|120|
+|10|120|
+
+### E400
+|Capacity|Effective vCPUs|
+|---:|---:|
+|2|60|
+|4|120|
+|6|120|
+|8|240|
+|10|240|
 
 ### F300
 |Capacity|Effective vCPUs|
