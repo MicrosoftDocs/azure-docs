@@ -86,13 +86,17 @@ A robust mechanism is necessary to identify the most relevant data from the exte
 
 Prior to sending a request to Azure OpenAI, the user input/query/request is also transformed into an embedding, and vector search techniques are employed to locate the most similar embeddings within the database. This technique enables the identification of the most relevant data records in the database. These retrieved records are then supplied as input to the model request using prompt engineering.
 
+There are multiple ways to use RAG and vector search with your data stored in Azure Cosmos DB. 
+
+:::image type="content" source="media/rag-data-openai/vector-search-infosheet.png" alt-text="Infosheet that shows options for performing Vector Search with Azure Cosmos DB to bring your data to your AI applications." lightbox="media/rag-data-openai/vector-search-infosheet.png":::
+
 ## Azure Cosmos DB for NoSQL and Azure Cognitive Search
 
 Implement RAG-patterns with Azure Cosmos DB for NoSQL and Azure Cognitive Search. This approach enables powerful integration of your data residing in Azure Cosmos DB for NoSQL into your AI-oriented applications. Azure Cognitive Search empowers you to efficiently index, and query high-dimensional vector data, which is stored in Azure Cosmos DB for NoSQL.
 
 ### Code samples
 
-- [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/cognitive-search-vector-v2)
+- [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/cognitive-search-vector)
 - [.NET samples - Hackathon project](https://github.com/AzureCosmosDB/OpenAIHackathon)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch)
 - [.NET tutorial - recipe chatbot w/ Semantic Kernel](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch_SemanticKernel)
@@ -116,8 +120,13 @@ You can employ RAG by utilizing native vector search within Azure Cosmos DB for 
 
 - Python: [Python notebook tutorial - food review chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-PostgreSQL_CognitiveSearch)
 
+
 ## Next steps
 
+
 - [Vector search with Azure Cognitive Search](../search/vector-search-overview.md)
-- [Vector search with Azure Cosmos DB for MongoDB vCore(mongodb/vcore/vector-search.md)
+- [Vector search with Azure Cosmos DB for MongoDB vCore](mongodb/vcore/vector-search.md)
 - [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
+
+
+

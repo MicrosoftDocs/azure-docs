@@ -93,9 +93,9 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing  WebSDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24) or greater | 6 videos + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing  WebSDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24) or greater | 9 videos + 1 screen sharing |
 
-While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](/azure/communication-services/how-tos/calling-sdk/manage-video?branch=main&branchFallbackFrom=pr-en-us-249591&pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
 
 ## Calling SDK timeouts
 
@@ -136,15 +136,12 @@ Running JavaScript Calling SDK on these platforms isn't actively tested, it may 
 ## Android Calling SDK support
 
 - Support for Android API Level 21 or Higher
-
 - Support for Java 7 or higher
-
 - Support for Android Studio 2.0
 
 ## iOS Calling SDK support
 
 - Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
-
 - Xcode 12.0+
 
 ## Calling client - browser security model
@@ -182,4 +179,3 @@ For more information, see the following articles:
 - Learn about [call types](../voice-video-calling/about-call-types.md)
 - Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications. 
 - [Plan your PSTN solution](../telephony/plan-solution.md)
-
