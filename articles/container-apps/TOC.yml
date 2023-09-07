@@ -138,6 +138,10 @@
   items:
     - name: Scale an app
       href: scale-app.md
+    - name: Resiliency
+      items:
+        - name: Overview
+          href: resiliency-overview.md
 - name: Domains & certificates
   items:
     - name: Custom domains & certificates

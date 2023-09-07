@@ -18,13 +18,13 @@ Detect, mitigate, and respond to failure in your container app using resiliency 
 
 ## How do resiliency policies work?
 
-Rather than placed directly on a container app spec, policies are created and deployed as separate resources to allow flexibility for the policy target. The resiliency polices applied to the upstream application (the application being called) define:
+Rather than placed directly on a container app spec, policies are created and deployed as separate resources to allow flexibility for the policy target. The resiliency policies applied to the upstream application (the application being called) define:
 - The resiliency API, behaviors, and scale limits
-- Which APIs are retriable
+- Which APIs are retry-able
 - How long an operation should take
 - When to cut connections to prevent overloading. 
 
-All downstream applications (the applications making calls) should use the policies defined by the upstream application they are calling.
+All downstream applications (the applications making calls) should use the policies defined by the upstream application they're calling.
 
 The policies are the children of a container app. Each container app should only have one policy. 
 
