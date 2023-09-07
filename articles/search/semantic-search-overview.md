@@ -23,7 +23,7 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 
 > [!div class="checklist"]
 > * [Check regional and service tier requirements](#availability-and-pricing).
-> * [Enable semantic search for semantic ranking](semantic-how-to-enable-disable.md) on your search service.
+> * [Enable semantic ranking](semantic-how-to-enable-disable.md) on your search service.
 > * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
 > * Add a few more query properties to also [return semantic answers](semantic-answers.md).
 

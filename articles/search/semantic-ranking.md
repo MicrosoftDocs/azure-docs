@@ -13,8 +13,8 @@ ms.date: 09/08/2023
 
 # Semantic ranking in Azure Cognitive Search
 
-<!-- > [!IMPORTANT]
-> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). -->
+> [!IMPORTANT]
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 In Azure Cognitive Search, semantic ranking is an extension of the query execution pipeline that improves precision by reranking the top matches of an initial result set. Semantic ranking is backed by large transformer-based networks, trained for capturing the semantic meaning of query terms, as opposed to linguistic matching on keywords. In contrast with the [default BM25 algorithm](index-ranking-similarity.md) that ranks on term frequency, the semantic ranker uses the context and meaning of words to determine relevance.
 
@@ -26,9 +26,9 @@ Content must be reduced to a manageable input that can be handled efficiently by
 
 1. Content reduction starts with a [BM25-ranked search result](index-ranking-similarity.md) from keyword search. Only the top 50 progress to semantic ranking, even if results include more than 50.
 
-1. String consolidation occurs for each field listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). Values are extracted and combined into a long string. 
+1. Consolidate each field listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration) that contributes content to the semantic ranker. Values are extracted and combined into a long string. 
 
-1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step.
+1. Trim any excessively long strings to ensure the overall length meets the input requirements of the summarization step.
 
    This trimming exercise is why it's important to add fields to your semantic configuration in prioritized order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 
@@ -58,7 +58,7 @@ Outputs include:
 
 1. Captions are evaluated for conceptual and semantic relevance, relative to the query provided.
 
-   The following diagram provides an illustration of what *semantic relevance* means. Consider the term "capital", which could be used in the context of finance, law, geography, or grammar. If a query includes terms from the same vector space (for example, "capital" and "investment"), a document that also includes tokens in the same cluster will score higher than one that doesn't.
+   The following illustration explains *semantic relevance*. Consider the term "capital", which has different meanings depending on whether the context is finance, law, geography, or grammar. The semantic reranker can detect context and promote results that fit query intent.
 
    :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
@@ -71,9 +71,7 @@ Outputs include:
 
 ## Next steps
 
-<!-- Semantic ranking is offered on Basic tiers and higher, in specific regions. For more information about availability and sign-up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the ranking and response structures of semantic search. To get started, [Configure semantic ranking](semantic-how-to-query-request.md). -->
-
-Alternatively, review the following articles about default ranking. Semantic ranking depends on the similarity ranker to return the initial results. Knowing about query execution and ranking will give you a broad understanding of how the entire process works.
+Review the following articles about default ranking. Semantic ranking depends on the BM25 ranker to return the initial results. Knowing about query execution and ranking will give you a broad understanding of how the entire process works.
 
 + [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Similarity and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
