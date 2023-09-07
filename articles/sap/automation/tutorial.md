@@ -593,7 +593,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
 1. If necessary, register the SPN.
 
-    The first time an environment is instantiated, a SPN must be registered. In this tutorial, the control plane is in the `MGMT` environment and the workload zone is in `DEV`. Therefore, an SPN must be registered for `DEV` at this time.
+    The first time an environment is instantiated, an SPN must be registered. In this tutorial, the control plane is in the `MGMT` environment and the workload zone is in `DEV`. Therefore, an SPN must be registered for `DEV` at this time.
 
     ```bash
     export subscriptionId="<subscriptionId>"
