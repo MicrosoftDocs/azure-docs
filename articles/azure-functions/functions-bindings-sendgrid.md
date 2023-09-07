@@ -159,7 +159,43 @@ You can omit setting the attribute's `ApiKey` property if you have your API key 
 
 # [Isolated process](#tab/isolated-process)
 
-We don't currently have an example for using the SendGrid binding in a function app running in an isolated worker process. 
+The following example show a [C# Function](functions-dotnet-class-library.md) running an [Isolated process](dotnet-isolated-process-guide.md) that uses a Storage Queue trigger and a SendGrid output binding.
+
+```cs
+using Microsoft.Azure.Functions.Worker;
+using SendGrid.Helpers.Mail;
+
+[Function("SendEmail")]
+[SendGridOutput(ApiKey = "CustomSendGridKeyAppSettingName")]
+public static SendGridMessage Run([QueueTrigger("myqueue")] string myQueueItem,
+	FunctionContext context)
+{
+	var message = new SendGridMessage();
+	message.AddTo(new EmailAddress("to@email.com", "toName"));
+	message.SetFrom(new EmailAddress("from@email.com", "fromName"));
+	message.SetGlobalSubject("Subject");
+	message.AddContent(MimeType.Text, "SendGrid example from Azure Function");
+
+	return message;
+}
+```
+
+You can omit setting the attribute's ApiKey property if you have you API key in an app setting named "AzureWebJobsSendGridApiKey".
+
+## Json Serialization
+
+Due to current conflict between JSON serializers the json sent from the worker to the host is incorrect caused by the JsonProperty attribute not being respected. Easiest way around this is using NewtonSoftJson since the SendGrid C# Package also uses NewtonSoft.Json.
+
+Refer to this [sample bootstrapping code to configure JSON.NET as serializer](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Configuration/Program.cs#L17). (You need to add a reference to the `Microsoft.Azure.Core.NewtonsoftJson` package to use the `NewtonsoftJsonObjectSerializer` type.)
+
+```cs
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults(workerApplication =>
+    {
+        workerApplication.UseNewtonsoftJson();
+    })
+    .Build();
+```
 
 # [C# Script](#tab/csharp-script)
 
