@@ -4,6 +4,7 @@ description: Release notes, new features and features in preview
 ms.author: nlarin
 author: niklarin
 ms.custom: mvc
+ms.custom: references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
@@ -22,7 +23,7 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
-### Septebmer 2023
+### September 2023
 * General availability: Azure Cosmos DB is now available in Australia Central, Canada East, and Qatar Central.
     * See [all supported regions](./resources-regions.md).
 
