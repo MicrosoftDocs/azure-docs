@@ -14,7 +14,7 @@ ms.service: azure-operator-service-manager
 
 ## Prerequisite: Azure account with active subscription
 
-An Azure account with an active subscription is required. If you don't have an Azure subscription, follow the instructions here [Start free](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) to create an account before you begin.
+An Azure account with an active subscription is required. If you don't have an Azure subscription, follow the instructions here [Start free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to create an account before you begin.
 
 ## Create input file
 
