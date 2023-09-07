@@ -16,11 +16,26 @@ The following comparison matrix shows basic functionality of different tools tha
 > [!TIP]
 > Azure File Sync can be utilized for migrating data to Azure Files, even if you don't intend to use a hybrid solution for on-premises caching or syncing. This migration process is efficient and causes no downtime. To use Azure File Sync as a migration tool, [simply deploy it](../../../file-sync/file-sync-deployment-guide.md) and, after the migration is finished, [remove the server endpoint](../../../file-sync/file-sync-server-endpoint-delete.md).  Ideally Azure File Sync would be used long-term, while Storage Mover and AzCopy are intended for migration focused activities.
 
+## Overview comparison
+
+|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) | [Cirrus Data](https://www.cirrusdata.com/) |
+|--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|---------------------------------------|
+|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [Migrate Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cirrusdatasolutionsinc1618222951068.cirrus-migrate-cloud-sponsored-by-azure?tab=Overview)              |
+| **Support provided by**                 | Microsoft | Microsoft | [Data Dynamics](https://www.datdynsupport.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> | [Atempo](https://www.atempo.com/support-en/contacting-support/)<sub>1</sub>| [Cirrus Data](https://www.cirrusdata.com/global-support-services/)<sub>1</sub> |
+| **Assessment** | No | Yes | Yes | Yes | Yes | Yes |
+| **SAN Migration** | No | No | No | No | No | Yes |
+| **NFS to Azure Blob** | No | Yes | Yes | Yes | Yes | No |
+| **NFS to NFS** | No | No | Yes | Yes | Yes | No |
+| **SMB to Azure Files** | Yes | Yes | Yes | Yes | Yes | No |
+| **SMB to Azure NetApp Files** | No | No | Yes | Yes | Yes | No |
+| **Lustre** | No | No | No | No | Yes | No |
+
+
 ## Supported Azure services
 
 |    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) | [Datadobi](https://www.datadobi.com) |
 |--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
+|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
 | **Support provided by**                 | Microsoft | Microsoft | [Data Dynamics](https://www.datdynsupport.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> | [Atempo](https://www.atempo.com/support-en/contacting-support/)<sub>1</sub>| [Datadobi](https://support.datadobi.com/s/)<sub>1</sub> |
 | **Azure Files support (all tiers)** | Yes                          | Yes                          | Yes                      | Yes            | Yes                            | Yes |
 | **Azure NetApp Files support**      | No                           | No                           | Yes                      | Yes            | Yes                            | Yes |
@@ -33,8 +48,8 @@ The following comparison matrix shows basic functionality of different tools tha
 
 |    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) | [Datadobi](https://www.datadobi.com) |
 |--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
-| **SMB 2.1**       | Source | Source | Yes | Yes | Yes | Yes |
+|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
+| **SMB 2.1**       | Source | Yes | Yes | Yes | Yes | Yes |
 | **SMB 3.0**       | Source | Source | Yes | Yes | Yes | Yes |
 | **SMB 3.1**       | Source/Destination (Azure Files SMB) | Source/Destination (Azure Files SMB) | Yes | Yes | Yes | Yes |
 | **NFS v3**        | Source/Destination (Azure Blob NFSv3)  | Source/Destination (Azure Blob NFSv3) | Yes | Yes | Yes | Yes |
@@ -47,14 +62,14 @@ The following comparison matrix shows basic functionality of different tools tha
 
 |    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) | [Datadobi](https://www.datadobi.com) |
 |--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
+  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
 | **UID / SID remapping**                   | No  | No | Yes | No | No | Yes |
 | **Protocol ACL remapping**                | No  | No | No  | No  | No | No |
 | **Azure Data Lake Storage Gen2**          | Yes | No | Yes | Yes | No | Yes |
-| **Throttling support**                    | Yes | No | Yes | Yes | Yes | Yes |
+| **Throttling support**                    | Yes | No | Yes | No | Yes | Yes |
 | **File pattern exclusions**               | Yes | No | Yes | Yes | Yes | Yes |
 | **Support for selective file attributes** | No  | No | Yes | Yes | Yes | Yes |
-| **Delete propagations**                   | No  | No | Yes | Yes | Yes | Yes |
+| **Delete propagations**                   | No  | Yes | Yes | Yes | Yes | Yes |
 | **Follow NTFS junctions**                 | No  | No | No | Yes | Yes | Yes |
 | **Override SMB Owner and Group Owner**    | No | No | Yes | No | Yes | Yes |
 | **Chain of custody reporting**            | No  | No | Yes | Yes | Yes | Yes |
@@ -79,7 +94,7 @@ The following comparison matrix shows basic functionality of different tools tha
 
 |    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) | [Datadobi](https://www.datadobi.com) |
 |--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
+  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
 | **Capacity**                        | No | Reporting | Yes | Yes | Yes | Yes |
 | **# of files / folders**            | Yes | Reporting | Yes | Yes | Yes | Yes |
 | **Age distribution over time**      | No | No | Yes | Yes | Yes | Yes |
@@ -92,9 +107,9 @@ The following comparison matrix shows basic functionality of different tools tha
 
 |    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) | [Datadobi](https://www.datadobi.com) |
 |--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
-| **BYOL**             | N / A | N / A | Yes | Yes | Yes | Yes |
-| **Azure Commitment** | N / A | Yes   | Yes | Yes | No | Yes |
+  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [DobiMigrate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadobi1602192408529.datadobi_license_purchase?tab=Overview)              |
+| **BYOL**             | Free | Free | Yes | Yes | Yes | Yes |
+| **Azure Commitment** | Free | Free | Yes | Yes | No | Yes |
 
 ## Other features
 
