@@ -22,9 +22,9 @@ Semantic ranking is both resource and time intensive. In order to complete proce
 
 ## Prepare strings
 
-Before scoring for relevance, content must be reduced to a manageable number of inputs that can be handled efficiently by the semantic ranker.
+Content must be reduced to a manageable input that can be handled efficiently by the semantic ranker.
 
-1. Content reduction begins with a [BM25-ranked search result](index-ranking-similarity.md) used for keyword search. Only the top 50 progress to semantic ranking, even if results include more matching documents.
+1. Content reduction starts with a [BM25-ranked search result](index-ranking-similarity.md) from keyword search. Only the top 50 progress to semantic ranking, even if results include more than 50.
 
 1. String consolidation occurs for each field listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). Values are extracted and combined into a long string. 
 
