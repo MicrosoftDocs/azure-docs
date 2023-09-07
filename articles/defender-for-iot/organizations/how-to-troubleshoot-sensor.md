@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor | Microsoft Defender for IoT
 description: Learn how to troubleshoot your Microsoft Defender for IoT OT sensor.
-ms.date: 09/05/2023
+ms.date: 09/07/2023
 ms.topic: troubleshooting
 #CustomerIntent: As a Defender for IoT sensor admin, I want to know how to troubleshoot sensor issues so that I can get it back online quickly.
 ---
@@ -34,17 +34,23 @@ Use the **Cloud connectivity troubleshooting** page in your OT sensor to learn m
 1. Sign into your OT sensor and do one of the following:
 
 - From the sensor's **Overview** page, select the **Learn more** link in the error at the top of the page
-- Select **System settings > System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**
+- Select **System settings > System settings > Sensor management > Cloud connectivity troubleshooting**
 
-The **Cloud connectivity troubleshooting** pane opens on the right. If the sensor is connected to the Azure portal, the pane indicates that **The sensor is connected to cloud successfully**. If the sensor isn't connected, a description of the issue and any mitigation instructions are listed instead. For example:
+The **Cloud connectivity troubleshooting** pane opens on the right. If the sensor is connected to the Azure portal, the pane indicates that **The sensor is connected to cloud successfully**. If the sensor isn't connected, a description of the issue and any mitigation instructions are listed instead. For example: <!--need new image-->
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/connectivity-troubleshooting.png" alt-text="Screenshot of the Connectivity troubleshooting pane.":::
 
 The **Cloud connectivity troubleshooting** pane covers the following types of issues:
 
-- Errors encountered while establishing connections or secure connections
-- Name resolution failures
-- Unreachable proxy or DNS servers
+|Issue  |Description |
+|---------|---------|
+|**SSL errors**     |   Typically, SSL errors means that the sensor doesn't trust the certificate found. This might occur due to an incorrect sensor time configuration, or using an SSL inspection service. SSL inspection services are often found in proxies and can lead to potential certificate errors. <br><br>For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates) and [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).|
+|**General connection errors**     | Occur when the sensor can't establish communication with one or more required endpoints. In such cases, ensure that all required endpoints are accessible from your sensor, and consider configuring more endpoints in your firewall. For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).        |
+|**DNS server unreachability**     |  Occurs when the sensor can't perform name resolution due to an unreachable DNS server. In such cases, verify that your sensor can access the DNS server.       |
+|**Proxy authentication issues**     |  Occurs when a proxy demands authentication, but no credentials, or incorrect credentials, are provided. In such cases, make sure that you've configured the proxy credentials correctly. For more information, see [Configure proxy settings on an OT sensor](connect-sensors.md).       |
+|**Name resolution failures**     | Occurs when the sensor can't perform name resolution for a specific endpoint. In such cases, if your DNS server is reachable, make sure that the DNS server is configured on your sensor correctly. If the configuration is correct, we recommend reaching out to your DNS administrator.   For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
+|**Unreachable proxy server**     | Occurs when the sensor can't establish a connection with the proxy server. In such cases, confirm the reachability of your proxy server with your network team.        |
+
 
 ## Check system health
 
