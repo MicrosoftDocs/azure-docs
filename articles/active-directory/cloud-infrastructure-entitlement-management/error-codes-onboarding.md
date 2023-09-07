@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/06/2023
+ms.date: 09/07/2023
 ms.author: jfields
 ---
 
 # Error codes: Microsoft Entra Permissions Management 
 
-During onboarding in Microsoft Entra Permissions Management, authorization system onboarding might return error messages that an admin can triage. This article lists data collection error messages and their descriptions shown in the Permissions Management UI, along with proposed solutions.
+During onboarding, Microsoft Entra Permissions Management may return error messages that an admin can triage. This article lists data collection error messages and their descriptions shown in the Permissions Management UI, along with proposed solutions.
 
 
 ## AWS_ACCESSADVISOR_COLLECTION_ERROR 
@@ -26,9 +26,9 @@ This account does not have permissions to view ```Service Last Acc
 - Verify that you're signed in using Management Account credentials. The AWS account must have a policy that has permissions to generate, get, or list ```ServiceLastAccessDetails``` or equivalent permissions. 
 - In the AWS Management Console, verify that Service Control Policies (SCPs) are enabled in your organization root.
 
-## AWS_CLOUDTRAIL 
+## AWS_CLOUDTRAIL_DISABLED
 
-The AWS environment doesn't have CloudTrail configured, or you don't have permissions to access CloudTrail. 
+The AWS environment doesn't have CloudTrail configured, or you don't have permissions to access CloudTrail. 
 
 ### Proposed solution
 
@@ -76,7 +76,7 @@ Error during the collection of System role policies.
 
 ### Proposed solution
 
-If your system role policies include Service Control Policies (SCPS), verify you're signed in using Management Account credentials. The AWS account must have the required permissions to display the policies’ details and attached entities.
+If your system role policies include Service Control Policies (SCPs), verify you're signed in using Management Account credentials. The AWS account must have the required permissions to display the policies’ details and attached entities.
 
 
 ## ERROR_GCP_PROJECT_MIN_PERMISSION
