@@ -42,7 +42,6 @@ conceptualContent:
             - url: ./authentication-authorization.md
               itemType: how-to-guide
               text: Set up user access and permissions 
-            
             - url: ./authentication-authorization.md
               itemType: how-to-guide
               text: Grant permissions to a managed identity
@@ -123,7 +122,7 @@ additionalContent:
         # Card
         - title: Azure API for FHIR
           summary: Scalable, secure, standards-based service for FHIR data
-          url: ./azure-api-for-fhir/fhir-paas-portal-quickstart.md
+          url: ./azure-api-for-fhir/overview.md
     - title: Tools & resources 
       items:
         # Card
