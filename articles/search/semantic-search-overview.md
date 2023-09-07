@@ -1,15 +1,15 @@
 ---
 title: Semantic search
 titleSuffix: Azure Cognitive Search
-description: Learn how Cognitive Search is using deep learning semantic search models from Bing to make search results more intuitive.
+description: Learn how Cognitive Search uses deep learning semantic search models from Bing to make search results more intuitive.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/22/2023
-ms.custom: references_regions
+ms.date: 09/08/2023
+
 ---
 
 # Semantic search in Azure Cognitive Search
@@ -34,7 +34,7 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 
 Semantic search is a collection of query-related capabilities that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
 
-* First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, promoting the most semantically relevant results to the top of the list. 
+* First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, using language understanding models to promote the most semantically relevant results. 
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
@@ -42,7 +42,7 @@ Although semantic search and vector search are closely related, this particular 
 
 | Feature | Description |
 |---------|-------------|
-| [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning of a query to compute a new relevance score over existing results. |
+| [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning of a query to compute a new relevance score over existing BM25-ranked results. |
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts verbatim sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the search results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
 | [Semantic answers](semantic-answers.md) | An optional and extra substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document has text with the characteristics of an answer. |
 
@@ -50,7 +50,7 @@ Although semantic search and vector search are closely related, this particular 
 
 *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense for the query. Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience.
 
-State-of-the-art pretrained models are used for summarization and ranking. To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default scoring algorithm](index-similarity-and-scoring.md). Semantic ranking re-scores those results based on the semantic strength of the match.
+To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default BM25 scoring algorithm](index-similarity-and-scoring.md). Semantic ranking re-scores those results based on the semantic strength of the match.
 
 The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
@@ -103,4 +103,5 @@ Charges for semantic search are levied when query requests include "queryType=se
 
 ## Next steps
 
-[Enable semantic search](semantic-how-to-enable-disable.md) for your search service and follow the steps in [Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic search on your content.
++ [Enable semantic search](semantic-how-to-enable-disable.md) for your search service.
++ [Configure semantic ranking](semantic-how-to-query-request.md) so that you can try out semantic search on your content.
