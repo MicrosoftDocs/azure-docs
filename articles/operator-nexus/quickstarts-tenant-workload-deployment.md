@@ -52,9 +52,9 @@ To define these variables, use the following set commands and replace the exampl
 ```bash
 # Azure parameters
 RESOURCE_GROUP="myResourceGroup"
-SUBSCRIPTION="$(az account show -o tsv --query id)"
+SUBSCRIPTION="<Azure subscription ID>"
 CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
-LOCATION="$(az group show --name $RESOURCE_GROUP --query location | tr -d '\"')"
+LOCATION="$(az group show --name $RESOURCE_GROUP --query location --subscription $SUBSCRIPTION -o tsv)"
 
 # VM parameters
 VM_NAME="myNexusVirtualMachine"

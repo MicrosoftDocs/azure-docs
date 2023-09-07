@@ -45,8 +45,6 @@ This service mesh add-on uses and builds on top of open-source Istio. The add-on
 ## Limitations
 
 Istio-based service mesh add-on for AKS has the following limitations:
-
-* The add-on currently doesn't work on AKS clusters using [Azure CNI Powered by Cilium][azure-cni-cilium].
 * The add-on doesn't work on AKS clusters that are using [Open Service Mesh addon for AKS][open-service-mesh-about].
 * The add-on doesn't work on AKS clusters that have Istio installed on them already outside the add-on installation.
 * Managed lifecycle of mesh on how Istio versions are installed and later made available for upgrades.

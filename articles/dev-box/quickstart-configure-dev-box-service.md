@@ -36,7 +36,6 @@ To complete this quickstart, you need:
   - Microsoft 365 A3, Microsoft 365 A5
   - Microsoft 365 Business Premium
   - Microsoft 365 Education Student Use Benefit
-- [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), which allows you to use your Windows licenses on Azure with Dev Box.
 - If your organization routes egress traffic through a firewall, open the appropriate ports. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 ## 1. Create a dev center
 

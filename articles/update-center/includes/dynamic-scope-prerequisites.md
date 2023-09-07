@@ -5,7 +5,10 @@ ms.topic: include
 ms.date: 08/02/2023
 ---
 
- Ensure to register the preview feature in your Azure subscription by following these steps:
+## Enable feature flag
+
+#### [Portal](#tab/portal)
+Ensure to register the preview feature in your Azure subscription by following these steps:
 
   1. Sign in to the [Azure portal](https://portal.azure.com).
   1. In search, enter and select **Subscriptions**.
@@ -14,6 +17,16 @@ ms.date: 08/02/2023
   1. Search for **Dynamic scoping**. 
   1. Select **Register** and then select **OK** to get started with Dynamic scope (preview).
 
+#### [PowerShell](#tab/ps)
+To register the preview feature, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet
+
+```powershell-interactive
+Register-AzProviderFeature -ProviderNamespace Microsoft.Maintenance -FeatureName InGuestPatchDynamicScope
+```
+---
+
+## Prerequisites
+
 #### [Azure VMs](#tab/avms)
 
 - Patch Orchestration must be set to Customer Managed Schedules (Preview). This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
@@ -21,6 +34,6 @@ ms.date: 08/02/2023
              
 #### [Arc-enabled VMs](#tab/arcvms)
 
-There are no pre-requisities for patch orchestration. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](../prerequsite-for-schedule-patching.md).
+There are no prerequisites for patch orchestration. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](../prerequsite-for-schedule-patching.md).
 
 ---

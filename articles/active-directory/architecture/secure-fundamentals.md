@@ -105,7 +105,7 @@ Some legacy scenarios required a human identity to be used in *non-human* scenar
 
 ## Azure AD functional areas
 
-These are the functional areas provided by Azure AD that are relevant to isolated environments. To learn more about the capabilities of Azure AD, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+These are the functional areas provided by Azure AD that are relevant to isolated environments. To learn more about the capabilities of Azure AD, see [What is Azure Active Directory?](../fundamentals/whatis.md).
 
 ### Authentication
 
@@ -131,7 +131,7 @@ Azure AD provides industry-leading strong authentication options that organizati
 
 ### Administration
 
-**Identity management**. Azure AD provides tools to manage the lifecycle of user, group, and device identities. [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) enables organizations to extend current, on-premises identity management solution to the cloud. Azure AD Connect manages the provisioning, de-provisioning, and updates to these identities in Azure AD.
+**Identity management**. Azure AD provides tools to manage the lifecycle of user, group, and device identities. [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) enables organizations to extend current, on-premises identity management solution to the cloud. Azure AD Connect manages the provisioning, de-provisioning, and updates to these identities in Azure AD.
 
 Azure AD also provides a portal and the Microsoft Graph API to allow organizations to manage identities or integrate Azure AD identity management into existing workflows or automation. To learn more about Microsoft Graph, see [Use the Microsoft Graph API](/graph/use-the-api).
 

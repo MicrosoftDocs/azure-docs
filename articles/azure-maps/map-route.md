@@ -166,8 +166,7 @@ document.body.onload = onload;
 ```
 
 <!-----------------------------------------------------
-<iframe height='500' scrolling='no' title='Show directions from A to B on a map (Service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/RBZbep/'>Show directions from A to B on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
 In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [Create a map] for instructions.
@@ -307,8 +306,7 @@ document.body.onload = onload;
 ```
 
 <!-----------------------------------------------------
-<iframe height='500' scrolling='no' title='Show directions from A to B on a map' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>Show directions from A to B on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
 In the previous code example, the first block of code constructs a map object and sets the authentication mechanism to use Azure Active Directory. You can see [Create a map] for instructions.

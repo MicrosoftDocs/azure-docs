@@ -1,7 +1,7 @@
 ---
 title: Azure Relay Hybrid Connections - HTTP requests in Node.js
 description: Write a Node.js console application for Azure Relay Hybrid Connections HTTP requests.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/21/2022
 ms.custom: devx-track-js, mode-ui, mode-api
 ---
@@ -44,9 +44,8 @@ To send messages to the Relay, you can use any HTTP client, or write a Node.js c
 ## Run the applications
 
 1. Run the server application: from a Node.js command prompt type `node listener.js`.
-2. Run the client application: from a Node.js command prompt type `node sender.js`.
-
-    :::image type="content" source="./media/relay-hybrid-connections-http-requests-node-get-started/output.png" alt-text="Screenshot showing the listener and sender applications.":::
+2. Run the client application: from a Node.js command prompt type `node sender.js`, and enter some text.
+3. Ensure that the server application console outputs the text that was entered in the client application.
 
 Congratulations, you have created an end-to-end Hybrid Connections application using Node.js!
 

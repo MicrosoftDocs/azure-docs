@@ -3,13 +3,13 @@ title: Dissociate a public IP address from an Azure VM
 titlesuffix: Azure Virtual Network
 description: Learn how to dissociate a public IP address from an Azure virtual machine (VM) using the Azure portal, Azure CLI or Azure PowerShell.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 12/16/2022
-ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 

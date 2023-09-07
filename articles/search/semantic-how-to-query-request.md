@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 7/14/2023
+ms.date: 8/15/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -16,9 +16,9 @@ ms.date: 7/14/2023
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and beta SDKs. This feature is billable. See [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In this article, you'll learn how to invoke a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
+In this article, learn how to invoke a semantic ranking algorithm over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
-There are two main activities to perform:
+To use semantic ranking:
 
 + Add a semantic configuration to an index
 + Add parameters to a query request
@@ -27,16 +27,14 @@ There are two main activities to perform:
 
 + A search service on Basic, Standard tier (S1, S2, S3), or Storage Optimized tier (L1, L2), subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-  If you have an existing Basic or greater service in a supported region, you can enable semantic search without having to create a new service.
++ Semantic ranking [enabled on your search service](semantic-how-to-enable-disable.md).
 
-+ Semantic search [enabled on your search service](semantic-search-overview.md#enable-semantic-search).
-
-+ An existing search index with rich content in a [supported query language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic search works best on content that is informational or descriptive.
++ An existing search index with rich content in a [supported query language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic ranking works best on content that is informational or descriptive.
 
 + Review the [Semantic search overview](semantic-search-overview.md) if you need an introduction to the feature.
 
 > [!NOTE]
-> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem determines what part of your content has the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic search.
+> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses language understanding to determine what part of your content have the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking.
 
 ## 1 - Choose a client
 
@@ -84,7 +82,7 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 ### [**Azure portal**](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-how-to-enable-disable.md).
 
 1. Open an index.
 
@@ -224,7 +222,7 @@ Your next step is adding parameters to the query request. To be successful, your
 
 [Search explorer](search-explorer.md) has been updated to include options for semantic queries. To configure semantic ranking in the portal, follow the steps below:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-search-overview.md#enable-semantic-search).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-how-to-enable-disable.md).
 
 1. Select **Search explorer** at the top of the overview page.
 
@@ -290,7 +288,9 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 1. Set "captions" to specify whether semantic captions are included in the result. If you're using a semantic configuration, you should set this parameter. While the ["searchFields" approach](#2b---use-searchfields-for-field-prioritization) automatically included captions, "semanticConfiguration" doesn't. 
 
-   Currently, the only valid value for this parameter is "extractive". Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive|highlight-false`. 
+   Currently, the only valid value for this parameter is "extractive". Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive|highlight-false`.
+
+   For semantic captions, the fields referenced in the "semanticConfiguration" must have a word limit in the range of 2000-3000 words (or equivalent to 10000 tokens), otherwise, it will miss important caption results. If you anticipate that the fields used by the "semanticConfiguration" word count could be higher than the exposed limit and you need to use captions, consider [Text split cognitive skill]cognitive-search-skill-textsplit.md) as part of your [AI enrichment pipeline](cognitive-search-concept-intro.md) while indexing your data with [built-in pull indexers](search-indexer-overview.md).
 
 1. Set "highlightPreTag" and "highlightPostTag" if you want to override the default highlight formatting that's applied to captions.
 

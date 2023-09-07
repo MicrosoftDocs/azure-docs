@@ -66,7 +66,7 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 - [Authentication basics](./authentication-vs-authorization.md)
 - [Application and service principals](app-objects-and-service-principals.md)
 - [Audiences](v2-supported-account-types.md)
-- [Permissions and consent](v2-permissions-and-consent.md)
+- [Permissions and consent](./permissions-consent-overview.md)
 - [ID tokens](id-tokens.md)
 - [Access tokens](access-tokens.md)
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

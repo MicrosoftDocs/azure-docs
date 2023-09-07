@@ -70,7 +70,7 @@ This is the built-in scope for every application. It refers to the static list o
 
 To use the `/.default` scope, append `/.default` to the resource identifier. For example: `https://graph.microsoft.com/.default`. If your resource ends with a slash (`/`), you should still append `/.default`, including the leading forward slash, resulting in a scope that has a double forward slash (`//`) in it.
 
-You can read more information about using the "/.default" scope [here](./v2-permissions-and-consent.md#the-default-scope)
+You can read more information about using the "/.default" scope [here](./permissions-consent-overview.md).
 
 ### Supporting different WebView types & browsers
 

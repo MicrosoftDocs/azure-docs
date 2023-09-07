@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
-ms.date: 05/16/2023
+ms.date: 08/11/2023
 ms.topic: how-to
 ---
 # How to create custom machine configuration package artifacts
@@ -20,9 +20,9 @@ both Windows and Linux. The DSC configuration defines the condition that the mac
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
 > extension version 1.26.24 or later, or Arc agent 1.10.0 or later, is required.
 >
-> The **GuestConfiguration** module is only available on Ubuntu 18. However, the package and
-> policies produced by the module can be used on any Linux distribution and version supported in
-> Azure or Arc.
+> The **GuestConfiguration** module is only available on Ubuntu 18 and later. However, the package
+> and policies produced by the module can be used on any Linux distribution and version supported
+> in Azure or Arc.
 >
 > Testing packages on macOS isn't available.
 >

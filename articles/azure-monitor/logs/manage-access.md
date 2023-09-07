@@ -195,8 +195,6 @@ The Log Analytics Reader role includes the following Azure actions:
 | Action | `*/read`   | Ability to view all Azure resources and resource configuration.<br>Includes viewing:<br>- Virtual machine extension status.<br>- Configuration of Azure diagnostics on resources.<br>- All properties and settings of all resources.<br><br>For workspaces, allows full unrestricted permissions to read the workspace settings and query data. See more granular options in the preceding list. |
 | Action | `Microsoft.Support/*` | Ability to open support cases. |
 |Not Action | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Prevents reading of workspace key required to use the data collection API and to install agents. This prevents the user from adding new resources to the workspace. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecated. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecated. |
 
 #### Log Analytics Contributor
 
@@ -308,7 +306,7 @@ Granting table-level read access involves assigning a user two roles:
 - At the workspace level - a custom role that provides limited permissions to read workspace details and run a query in the workspace, but not to read data from any tables.        
 - At the table level - a **Reader** role, scoped to the specific table. 
 
-To grant a user or group table-level read access to a specific table:
+**To grant a user or group limited permissions to the Log Analytics workspace:**
 
 1. Create a [custom role](../../role-based-access-control/custom-roles.md) at the workspace level to let users read workspace details and run a query in the workspace, without providing read access to data in any tables:
 
@@ -332,9 +330,7 @@ To grant a user or group table-level read access to a specific table:
 
             ```json
             "Microsoft.OperationalInsights/workspaces/read",
-            "Microsoft.OperationalInsights/workspaces/query/read",
-            "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-            "Microsoft.OperationalInsights/workspaces/search/action"    
+            "Microsoft.OperationalInsights/workspaces/query/read" 
             ```
 
         1. In the `"not actions"` section, add: 
@@ -365,21 +361,24 @@ To grant a user or group table-level read access to a specific table:
 
     1. Search for and select a user and click **Select**.
     1. Select **Review and assign**.
-    
-1. Grant the user read access to a specific table:
+ 
+The user can now read workspace details and run a query, but can't read data from any tables. 
 
-    1. From the **Log Analytics workspaces** menu, select **Tables**.  
-    1. Select the ellipsis ( **...** ) to the right of your table and select **Access control (IAM)**.
-        
-       :::image type="content" source="media/manage-access/table-level-access-control.png" alt-text="Screenshot that shows the Log Analytics workspace table management screen with the table-level access control button highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::      
-    
-    1. On the **Access control (IAM)** screen, select **Add** > **Add role assignment**. 
-    1. Select the **Reader** role and select **Next**.    
-    1. Click **+ Select members** to open the **Select members** screen.
-    1. Search for and select the user and click **Select**.
-    1. Select **Review and assign**.
+**To grant the user read access to a specific table:**
 
-    The user can now read data from this specific table.
+1. From the **Log Analytics workspaces** menu, select **Tables**.  
+1. Select the ellipsis ( **...** ) to the right of your table and select **Access control (IAM)**.
+    
+   :::image type="content" source="media/manage-access/table-level-access-control.png" alt-text="Screenshot that shows the Log Analytics workspace table management screen with the table-level access control button highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::      
+
+1. On the **Access control (IAM)** screen, select **Add** > **Add role assignment**. 
+1. Select the **Reader** role and select **Next**.    
+1. Click **+ Select members** to open the **Select members** screen.
+1. Search for and select the user and click **Select**.
+1. Select **Review and assign**.
+
+The user can now read data from this specific table. Grant the user read access to other tables in the workspace, as needed. 
+    
 ### Legacy method of setting table-level read access
 
 The legacy method of table-level also uses [Azure custom roles](../../role-based-access-control/custom-roles.md) to let you grant specific users or groups access to specific tables in the workspace. Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
