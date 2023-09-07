@@ -74,7 +74,7 @@ You must have an Azure OpenAI resource configured with a workspace connection. F
     - "prompt" (also known as "inputs" or "question")
     - "completion" (also known as "outputs" or "answer"). 
 
-    :::image type="content" source="./media/monitor-generative-ai-applications/pf-configure-flow.png" alt-text="Screenshot showing how to configure prompt flow input and output settings for generative AI." lightbox="./media/how-to-monitor-generative-ai-applications/pf-configure-flow.png":::
+    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-configure-flow.png" alt-text="Screenshot showing how to configure prompt flow input and output settings for generative AI." lightbox="./media/how-to-monitor-generative-ai-applications/pf-configure-flow.png":::
 
 1. After your prompt flow run successfully completes, select "Deploy" and finish the deploy wizard by [using this article as a guide](how-to-deploy-for-real-time-inference.md) 
     1. Capture outputs: ensure the required flow outputs are being captured: 
