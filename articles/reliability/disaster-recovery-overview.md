@@ -47,7 +47,7 @@ During a disaster, there are two methods of recovering data:
 
 Different replication designs place different priorities on data consistency, performance, and cost. 
     
-    - *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. 
+- *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. 
     
     - *Passive* replication does synchronization in the background, removing replication as a constraint on application performance, but increasing RPO. 
     
