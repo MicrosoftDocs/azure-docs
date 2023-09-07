@@ -116,8 +116,6 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
----
-
 ### [Spring](#tab/spring)
 
 Update the `bootstrap.yml` file of your application with the following configurations.
