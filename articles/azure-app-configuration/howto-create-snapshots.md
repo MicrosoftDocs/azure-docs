@@ -118,6 +118,31 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ---
 
+### [Spring](#tab/spring)
+
+Update the `bootstrap.yml` file of your application with the following configurations.
+
+```yml
+spring:
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+         -
+           endpoint: <your-endpoint>
+           selects:
+             -
+              snapshot-name: <name of your snapshot>
+```
+
+> [!NOTE]
+> Snapshot support is available if you use version **4.12.0-beta.1**/**5.6.0-beta.1** or later of any of the following packages.
+> - `spring-cloud-azure-appconfiguration-config`
+> - `spring-cloud-azure-appconfiguration-config-web`
+> - `spring-cloud-azure-starter-appconfiguration-config`
+
+---
+
 ## Manage active snapshots
 
 The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App Configuration store.
