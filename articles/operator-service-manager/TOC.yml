@@ -1,10 +1,10 @@
 - name: Azure Operator Service Manager documentation
-  href: ./overview.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: About Azure Operator Service Manager
-    href: ./overview.md
+  - name: What is Azure Operator Service Manager?
+    href: ./azure-operator-service-manager-overview.md
   - name: Roles and Interfaces
     href: roles-interfaces.md
   - name: Helm Package Requirements

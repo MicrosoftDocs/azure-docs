@@ -1,0 +1,36 @@
+### YamlMime:Landing
+
+title: Azure Operator Service Manager documentation
+summary: Azure Operator Service Manager aids telecom operators in managing network services across hybrid cloud sites, including Azure regions and Arc-connected areas. Simplify complex, multi-vendor app management.
+
+metadata:
+  title: Azure Operator Service Manager documentation
+  description: Azure Operator Service Manager aids telecom operators in managing network services across hybrid cloud sites, including Azure regions and Arc-connected areas. Simplify complex, multi-vendor app management.
+  ms.service: azure-operator-service-manager
+  ms.topic: landing-page
+  author: sherryg
+  ms.author: sherryg
+  ms.date: 05/31/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Operator Service Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Operator Service Manager?
+            url: azure-operator-service-manager-overview.md
+      - linkListType: concept
+        links:
+          - text: Helm requirements
+            url: helm-requirements.md
+          - text: Roles and interfaces
+            url: roles-interfaces.md
+      - linkListType: quickstart
+        links:
+          - text: Containerized Network Function (CNF)
+            url: quickstart-containerized-network-function-prerequisites.md
