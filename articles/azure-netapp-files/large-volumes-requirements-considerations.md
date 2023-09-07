@@ -41,11 +41,13 @@ The following requirements and considerations apply to large volumes. For perfor
 * Large volumes aren't currently supported with cross-zone replication.
 * Currently, large volumes are not suited for database (HANA, Oracle, SQL Server, etc) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes.
 * Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You're able to grow to 500 TiB with the throughput ceiling per the following table:  
+    
     | Capacity tier | Volume size (TiB) | Throughput (MiB/s) |
     | --- | --- | --- |
     | Standard | 100 to 500 | 1,600 |
     | Premium | 100 to 500 | 6,400 | 
     | Ultra | 100 to 500 | 10,240 | 
+    
 * Large volumes aren't currently supported with standard storage with cool access.
 ## Supported regions
 
