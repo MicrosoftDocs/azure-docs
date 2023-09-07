@@ -494,7 +494,7 @@ Stay up to date on Azure Maps:
 [language mapping]: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-maps/supported-languages.md#azure-maps-supported-languages
 [user regions (view)]: /javascript/api/azure-maps-control/atlas.styleoptions#azure-maps-control-atlas-styleoptions-view
 [ImageSpriteManager.add()]: /javascript/api/azure-maps-control/atlas.imagespritemanager#azure-maps-control-atlas-imagespritemanager-add
-[Map.setServiceOptions()]: https://learn.microsoft.com/javascript/api/azure-maps-control/atlas.map#azure-maps-control-atlas-map-setserviceoptions
+[Map.setServiceOptions()]: /javascript/api/azure-maps-control/atlas.map#azure-maps-control-atlas-map-setserviceoptions
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
 [SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager
