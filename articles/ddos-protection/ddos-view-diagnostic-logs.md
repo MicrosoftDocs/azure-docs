@@ -47,8 +47,8 @@ In this tutorial, you learn how to:
 Notifications will notify you anytime a public IP resource is under attack, and when attack mitigation is over.
 
 ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSProtectionNotifications"
+AzureDiagnostics
+| where Category == "DDoSProtectionNotifications"
 ```
 
 
@@ -73,8 +73,8 @@ The following table lists the field names and descriptions:
 Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic and other interesting data-points during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Microsoft Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
 
 ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSMitigationFlowLogs"
+AzureDiagnostics
+| where Category == "DDoSMitigationFlowLogs"
 ```
 
 The following table lists the field names and descriptions:
@@ -101,8 +101,8 @@ The following table lists the field names and descriptions:
 Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
 
 ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSMitigationReports"
+AzureDiagnostics
+| where Category == "DDoSMitigationReports"
 ```
 
 The following table lists the field names and descriptions:
@@ -134,8 +134,10 @@ The following table lists the field names and descriptions:
 
 ## Next steps
 
-In this tutorial you learned how to view DDoS Protection diagnostic logs in a Log Analytics workspace. To learn more about the recommended steps to take when you receive a DDoS attack, see these next steps.
+In this tutorial, you learned how to view DDoS Protection diagnostic logs in a Log Analytics workspace. To learn more about the recommended steps to take when you receive a DDoS attack, see these next steps.
 
 > [!div class="nextstepaction"]
 > [Engage with Azure DDoS Rapid Response](ddos-rapid-response.md)
+
+> [!div class="nextstepaction"]
 > [components of a DDoS Rapid Response Strategy](ddos-response-strategy.md)
