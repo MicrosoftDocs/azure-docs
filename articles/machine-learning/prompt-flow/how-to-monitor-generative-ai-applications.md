@@ -1,5 +1,5 @@
 ---
-title: Monitoring generative AI applications in production (preview)
+title: Model monitoring for generative AI applications (preview)
 titleSuffix: Azure Machine Learning
 description: Monitor the safety and quality of generative AI applications deployed to production on Azure Machine Learning.
 services: machine-learning
@@ -15,9 +15,9 @@ ms.custom: devplatv2
 ---
 
 
-# Monitoring generative AI applications in production (preview)
+# Model monitoring for generative AI applications (preview)
 
-Monitoring models in production is an essential part of the AI lifecycle. Changes in data and consumer behavior can influence your LLM application over time, resulting in outdated AI systems  that negatively affect business outcomes and expose organizations to compliance, economic, and reputational risks. 
+Monitoring models in production is an essential part of the AI lifecycle. Changes in data and consumer behavior can influence your generative AI application over time, resulting in outdated systems that negatively affect business outcomes and expose organizations to compliance, economic, and reputational risks. 
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
