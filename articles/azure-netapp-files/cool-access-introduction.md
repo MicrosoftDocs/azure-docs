@@ -283,6 +283,10 @@ Your first twelve-month savings:
 * Cost with cool access: `First month + Second month + … + twelfth month = (2 x $604.00) + $435.53 + (9 x $347.18) = $4,768.11`
 * Savings using cool access: **`34.21%`**
 
+
+> [!TIP]     
+> You can use the [Azure NetApp Files standard tier with cool access cost savings estimator](https://azure.github.io/azure-netapp-files/calc/) to interactively estimate cost savings based on changeable input parameters.
+
 ## Next steps
 
 * [Manage Azure NetApp Files Standard service level with cool access](manage-cool-access.md)

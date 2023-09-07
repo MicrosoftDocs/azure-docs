@@ -21,7 +21,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Standard storage with cool access](cool-access-about.md) (Preview)
+* [Standard storage with cool access](cool-access-introduction.md) (Preview)
 
     Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the hot tier) to an Azure storage account (the cool tier). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 7 to 63 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
 

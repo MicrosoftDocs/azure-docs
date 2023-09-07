@@ -255,5 +255,5 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * [Configure network features for an Azure NetApp Files volume](configure-network-features.md) 
 * [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure Virtual WAN for Azure NetApp Files](configure-virtual-wan.md)
-* [Standard storage with cool access in Azure NetApp Files](cool-access-about.md)
+* [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md)
 * [Manage Azure NetApp Files Standard service level with cool access](manage-cool-access.md)
