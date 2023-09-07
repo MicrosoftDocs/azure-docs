@@ -205,5 +205,5 @@ _We have discussed different ways of implementing PgBouncer and the table summar
 |Difficult |:::image type="icon" source="./media/concepts-connection-pooling-best-practices/red.png":::|
 
 
-*ALB: Azure Load Balancer
+*ALB: Azure Load Balancer.
 
