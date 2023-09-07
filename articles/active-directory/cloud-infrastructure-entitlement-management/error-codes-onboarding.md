@@ -41,7 +41,7 @@ To access:
 
 ## AWS_CLOUDTRAIL_S3_ACCESS_DENIED 
 
-This account doesn't have permissions to access SB3 Bucket CloudTrail logs. 
+This account doesn't have permissions to access S3 Bucket CloudTrail logs. 
 
 ### Proposed solution
 
