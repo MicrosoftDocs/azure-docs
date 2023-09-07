@@ -75,7 +75,7 @@ This article describes some items you should check to help you troubleshoot enti
 
 ### View a request's delivery errors
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -103,7 +103,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 - If the error wasn't fixed during the trials window, the request status may be **Delivery failed** or **partially delivered**. You can then use the **reprocess** button. You'll have seven days to reprocess the request.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -121,7 +121,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 You can only cancel a pending request that hasn't yet been delivered or whose delivery has failed.The **cancel** button would be grayed out otherwise.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
