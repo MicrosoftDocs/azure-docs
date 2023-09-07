@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/11/2017
+ms.date: 09/07/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.custom: enterprise-apps
@@ -16,7 +16,7 @@ ms.custom: enterprise-apps
 
 # Troubleshoot SAML-based single sign-on
 
-If you encounter a problem when configuring an application. Verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md) for a detail step-by-step guidance.
+If you encounter a problem when configuring an application, verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md) for a detail step-by-step guidance.
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
@@ -35,17 +35,13 @@ If you’re not able to configure the Identifier or the Reply URL, confirm the I
 
 To know the patterns pre-configured for the application:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.** Go to step 7. If you are already in the application configuration blade on Azure AD.
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-5. click **All Applications** to view a list of all your applications.
-   - If you do not see the application you want show up here, use the **Filter** control at the top of the -**All Applications List** and set the **Show** option to **All Applications.**
-6. Select the application you want to configure single sign-on.
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-8. Select **SAML-based Sign-on** from the **Mode** dropdown.
-9. Go to the **Identifier** or **Reply URL** textbox, under the **Domain and URLs section.**
-10. There are three ways to know the supported patterns for the application:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). Go to step 4. If you are already in the application configuration blade on Azure AD.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the application you want to configure single sign-on.
+1. Once the application loads, select the **Single sign-on** from the application’s left-hand navigation menu.
+1. Select **SAML-based Sign-on** from the **Mode** dropdown.
+1. Go to the **Identifier** or **Reply URL** textbox, under the **Domain and URLs section.**
+1. There are three ways to know the supported patterns for the application:
     - In the textbox, you see the supported pattern(s) as a placeholder, for example: `https://contoso.com`.
     - if the pattern is not supported, you see a red exclamation mark when you try to enter the value in the textbox. If you hover your mouse over the red exclamation mark, you see the supported patterns.
     - In the tutorial for the application, you can also get information about the supported patterns. Under the **Configure Azure AD single sign-on** section. Go to the step for configured the values under the **Domain and URLs** section.
@@ -65,15 +61,11 @@ Azure AD select the format for the NameID attribute (User Identifier) based on t
 
 To download the application metadata or certificate from Azure AD, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-5. Select **All Applications** to view a list of all your applications.
-   - If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-6. Select the application you have configured single sign-on.
-7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-8. Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the application you have configured single sign-on.
+1. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+1. Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
 
 Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as a XML file.
 
