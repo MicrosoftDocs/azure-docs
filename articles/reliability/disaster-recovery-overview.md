@@ -41,7 +41,7 @@ Designing for disaster recovery has the following main concerns:
 During a disaster, there are two main methods of restoring data: backups and replication.
 
 
-- **Data Backup** restores data to a specific point in time.   By using backup, you can provide simple, secure, and cost-effective solutions to back up and recover your data to the Microsoft Azure cloud. Use [Azure Backup](/azure/backup/backup-overview) to create long-lived, read-only data snapshots for use in recovery.  
+**Backup** restores data to a specific point in time.   By using backup, you can provide simple, secure, and cost-effective solutions to back up and recover your data to the Microsoft Azure cloud. Use [Azure Backup](/azure/backup/backup-overview) to create long-lived, read-only data snapshots for use in recovery.  
 
 **Data Replication** creates real-time or near-real-time copies of live data in multiple data store replicas with minimal data loss in mind. The goal of replication is to keep replicas synchronized with as little latency as possible while maintaining application responsiveness.  Most fully featured database systems and other data-storage products and services include some kind of replication as a tightly integrated feature, due to its functional and performance requirements.  An example of this is [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage).
 
