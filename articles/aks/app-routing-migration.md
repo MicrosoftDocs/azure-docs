@@ -1,5 +1,5 @@
 ---
-title: Migrate from HTTPS application routing to the application routing add-on
+title: Migrate from HTTP application routing to the application routing add-on
 description: Learn how to migrate from the HTTP application routing feature to the application routing add-on.
 ms.topic: how-to
 ms.author: nickoman
@@ -37,7 +37,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
     metadata:
     name: aks-helloworld
     annotations:
-        kubernetes.io/ingress.class: addon-http-application-routing  # Remove this
+        kubernetes.io/ingress.class: addon-http-application-routing # Remove the ingress class annotation
     spec:
     rules:
     - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE>
@@ -60,7 +60,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
     metadata:
     name: aks-helloworld
     spec:
-    ingressClassName: webapprouting.kubernetes.azure.com
+    ingressClassName: webapprouting.kubernetes.azure.com # Set the ingressClassName property to refer to the application routing add-on ingress class
     rules:
     - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE> # Replace with your own value
         http:
