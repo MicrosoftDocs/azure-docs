@@ -55,7 +55,7 @@ To run the Flink job from portal go to:
 
 Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flink Jobs 
 
-    :::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run flink job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
+:::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run flink job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
 
 1. **New Job:** To submit a new job, upload the job jars to the storage account and create a savepoint directory. Complete the template below with the necessary configurations and then submit the job.
 
@@ -126,11 +126,11 @@ Fill the flow template with the required options and start it. Users need to sel
    
 1. **SavePoint:** Take the savepoint for the Flink Job.
 
- :::image type="image" source="./media/flink-job-management/savepoint-flink-job.png" alt-text="Screenshot shows savepoint for the Flink Job." border="true" lightbox="./media/flink-job-management/savepoint-flink-job.png":::
+:::image type="image" source="./media/flink-job-management/savepoint-flink-job.png" alt-text="Screenshot shows savepoint for the Flink Job." border="true" lightbox="./media/flink-job-management/savepoint-flink-job.png":::
 
 Savepoint is time consuming process, and it will take some time. You can see job action status as in-progress.
 
- :::image type="image" source="./media/flink-job-management/job-action-status.png" alt-text="Screenshot shows job action status." border="true" lightbox="./media/flink-job-management/job-action-status.png":::
+:::image type="image" source="./media/flink-job-management/job-action-status.png" alt-text="Screenshot shows job action status." border="true" lightbox="./media/flink-job-management/job-action-status.png":::
 
 1. **Cancel:** This will help the user to terminate the job.
 
