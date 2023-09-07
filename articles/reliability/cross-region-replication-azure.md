@@ -102,7 +102,7 @@ The table below lists Azure reasons that don't have a region pair:
 | Geography | Region |
 |-----|----|
 | Qatar | Qatar Central |
-| PolaND | Poland Central |
+| Poland | Poland Central |
 | Israel | Israel Central |
 | Italy | Italy North |
 | Austria | Austria East (Coming soon) |

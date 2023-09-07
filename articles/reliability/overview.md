@@ -31,7 +31,7 @@ Building reliability systems on Azure is a **shared responsibility**. Microsoft 
 
 :::image type="content" source="media/shared-responsibility.svg" alt-text="Diagram showing the shared responsibility model for Azure business continuity.":::
 
-In the traditional on-premises model, the entire responsibility of managing, from the hardware for compute, storage and networking to the application, falls on you. You must plan for various types of failures and how to deal with them by creating a disaster recovery strategy. With IaaS, the cloud service provider is responsible for the core infrastructure resiliency, including storage, networking, and compute. As you move from IaaS to PaaS and then to SaaS, you’ll find that you’re responsible for less and the cloud service provider is responsible for more.  
+In the traditional on-premises model, the entire responsibility of managing, from the hardware for compute, storage and networking to the application, falls on you. You must plan for various types of failures and how to deal with them by creating a [disaster recovery strategy](./disaster-recovery-overview.md). With IaaS, the cloud service provider is responsible for the core infrastructure resiliency, including storage, networking, and compute. As you move from IaaS to PaaS and then to SaaS, you’ll find that you’re responsible for less and the cloud service provider is responsible for more.  
 
 For more information on Reliability principles, see [Well-architected Framework Reliability documentation](/azure/well-architected/resiliency/).   
 
@@ -64,13 +64,10 @@ Two important metrics to consider are the recovery time objective and recovery p
 
 - **Recovery point objective (RPO)** is the maximum duration of data loss that is acceptable during a disaster.  
 
-  
 RTO and RPO are non-functional requirements of a system and should be dictated by business requirements. To derive these values, it's a good idea to conduct a risk assessment, and clearly understanding the cost of downtime or data loss.   
 ## Regions and availability zones
 
 Regions and Availability Zones are a big part of the reliability equation. Regions feature multiple, physically separate availability zones. These availability zones are connected by a high-performance network featuring less than 2ms latency between physical zones. Low latency helps your data stay synchronized and accessible when things go wrong. You can use this infrastructure strategically as you architect applications and data infrastructure that automatically replicate and deliver uninterrupted services between zones and across regions. 
-
-Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your disaster recovery and business continuity strategy needs. 
 
 Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your disaster recovery and business continuity strategy needs. 
 
@@ -88,8 +85,6 @@ Azure services deployed to Azure regions are listed on the [Azure global infrast
 Azure services are built for reliability including high availability and disaster recovery. There are no services that are dependent on a single logical data center (to avoid single points of failure). Non-regional services listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) are services for which there is no dependency on a specific Azure region. Non-regional services are deployed to two or more regions and if there is a regional failure, the instance of the service in another region continues servicing customers. Certain non-regional services enable customers to specify the region where the underlying virtual machine (VM) on which service runs will be deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region location where the VM resides. All Azure services that store customer data allow the customer to specify the specific regions in which their data will be stored. The exception is [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/), which has geo placement (such as Europe or North America). For more information about data storage residency, see the [Data residency map](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 If you need to understand dependencies between Azure services to help better architect your applications and services, you can request the **Azure service dependency documentation** by contacting your Microsoft sales or customer representative. This document lists the dependencies for Azure services, including dependencies on any common major internal services such as control plane services. To obtain this documentation, you must be a Microsoft customer and have the appropriate non-disclosure agreement (NDA) with Microsoft.
-
-For service migration guides to AZ support, refer to [availability zone migration guidance](./availability-zones-migration-overview.md). For DR guides, refer to [DR guides by service](./).  
 
 ## Next steps
 
