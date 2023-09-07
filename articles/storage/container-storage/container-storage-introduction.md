@@ -40,12 +40,12 @@ Azure Container Storage offers persistent volume support with ReadWriteOnce acce
 | **Storage type** | **Description** | **Workloads** | **Offerings** | **Provisioning model** |
 |------------------|-----------------|---------------|---------------|------------------------|
 | **[Azure Elastic SAN Preview](../elastic-san/elastic-san-introduction.md)** | Provision on demand, fully managed resource | General purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. | Azure Elastic SAN Preview | Provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. |
-| **[Azure Disks](../../virtual-machines/managed-disks-overview.md)** | Granular control of storage SKUs and configurations​ | Azure Disks are a good fit for tier 1 and general purpose databases such as MySQL, MongoDB, and PostgreSQL. | Premium SSD | Provisioned per target container storage pool size and maximum volume size. |
+| **[Azure Disks](../../virtual-machines/managed-disks-overview.md)** | Granular control of storage SKUs and configurations​ | Azure Disks are a good fit for tier 1 and general purpose databases such as MySQL, MongoDB, and PostgreSQL. | Premium SSD, Premium SSD v2, Standard SSD, Ultra Disk | Provisioned per target container storage pool size and maximum volume size. |
 | **Ephemeral Disk** | Utilizes local storage resources on AKS nodes | Ephemeral disk is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. | NVMe only (available on [storage optimized VM SKUs](../../virtual-machines/sizes-storage.md)) | Deployed as part of the VMs hosting an AKS cluster. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment. |
 
 ## Regional availability
 
-Azure Container Storage Preview is only available in the following Azure regions: East US, East US 2, West US 2, West US 3, South Central US, Southeast Asia, Australia East, West Europe, North Europe, UK South, Sweden Central, and France Central.
+[!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
 ## Why Azure Container Storage is useful
 Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.

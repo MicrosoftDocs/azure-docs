@@ -34,13 +34,13 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 ## Prerequisites
 
-You must sign in to your account using the [az sign-in](/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to your Azure account's **Subscription ID**.
+You must sign in to your account using the [az sign-in](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to your Azure account's **Subscription ID**.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using the [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) command. Note the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list).
+Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using the [az account set](/cli/azure/account#az-account-set) command. Note the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>
