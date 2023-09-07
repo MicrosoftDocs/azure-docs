@@ -103,6 +103,7 @@ AKS supports the following [admission controllers][admission-controllers]:
 - *NamespaceLifecycle*
 - *LimitRanger*
 - *ServiceAccount*
+- *DefaultIngressClass*
 - *DefaultStorageClass*
 - *DefaultTolerationSeconds*
 - *MutatingAdmissionWebhook*
