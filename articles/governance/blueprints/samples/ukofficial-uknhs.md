@@ -1,7 +1,7 @@
 ---
 title: UK OFFICIAL and UK NHS blueprint sample
 description: Overview of the UK OFFICIAL and UK NHS blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # UK OFFICIAL and UK NHS blueprint sample
