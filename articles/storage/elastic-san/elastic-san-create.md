@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure p
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 08/30/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -54,8 +54,6 @@ az provider show --namespace Microsoft.ElasticSan
 az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 ```
 ---
-> [!IMPORTANT]
-> If you are using PowerShell or CLI, you don't need to run this command. Skip this step and proceed to deploy an Elastic SAN.
 
 ## Limitations
 

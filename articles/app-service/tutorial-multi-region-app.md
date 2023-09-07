@@ -45,7 +45,7 @@ To complete this tutorial:
 
 ## Create two instances of a web app
 
-You'll need two instances of a web app that run in different Azure regions for this tutorial. You'll use the [region pair](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) East US/West US as your two regions and create two empty web apps. Feel free to choose you're own regions if needed.
+You'll need two instances of a web app that run in different Azure regions for this tutorial. You'll use the [region pair](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) East US/West US as your two regions and create two empty web apps. Feel free to choose you're own regions if needed.
 
 To make management and clean-up simpler, you'll use a single resource group for all resources in this tutorial. Consider using separate resource groups for each region/resource to further isolate your resources in a disaster recovery situation.
 

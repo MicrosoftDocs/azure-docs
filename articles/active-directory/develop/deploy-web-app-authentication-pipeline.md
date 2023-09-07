@@ -143,8 +143,8 @@ Add a [service connection](/azure/devops/pipelines/library/service-endpoints) so
 
 An application is also created in your Azure AD tenant that provides an identity for the pipeline.  You need the display name of the app registration in later steps.  To find the display name:
 
-1. Sign into the [Entra admin portal](https://entra.microsoft.com/).
-1. Select **App registrations** in the left navigation pane, and then the **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Applications** > **App registrations** > **All applications**.
 1. Find the display name of the app registration, which is of the form `{organization}-{project}-{guid}`.
 
 Grant the service connection permission to access the pipeline:
@@ -157,7 +157,7 @@ Grant the service connection permission to access the pipeline:
 
 The `DeployAzureResources` stage that you create in the next section uses several values to create and deploy resources to Azure:
 
-- The Azure AD tenant ID (find in the [Entra admin portal](https://entra.microsoft.com/)).
+- The Azure AD tenant ID (find in the [Microsoft Entra admin center](https://entra.microsoft.com/)).
 - The region, or location, where the resources are deployed.
 - A resource group name.
 - The App Service service plan name.
@@ -195,8 +195,8 @@ Next, add a stage to the pipeline that deploys Azure resources.  The pipeline us
 
 The inline script runs in the context of the pipeline, assign the [Application.Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role to the app so the script can create app registrations:
 
-1. Sign into the [Entra admin portal](https://entra.microsoft.com/).
-1. In the left navigation pane, select **Roles & admins**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 1. Select **Application Administrator** from the list of built-in roles and then **Add assignment**.
 1. Search for the pipeline app registration by display name.
 1. Select the app registration from the list and select **Add**.
@@ -222,7 +222,7 @@ A `DeployWebApp` stage is defined with several tasks:
 - [DownloadBuildArtifacts@1](/azure/devops/pipelines/tasks/reference/download-build-artifacts-v1) downloads the build artifacts that were published to the pipeline in a previous stage.
 - [AzureRmWebAppDeployment@4](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) deploys the web app to App Service.
 
-View the deployed website on App Service. Navigate to your App Service in Azure portal and select the instance's **Default domain**: `https://pipelinetestwebapp.azurewebsites.net`.
+View the deployed website on App Service. Navigate to your App Service and select the instance's **Default domain**: `https://pipelinetestwebapp.azurewebsites.net`.
 
 :::image type="content" alt-text="Screen shot that shows the default domain URL." source="./media/deploy-web-app-authentication-pipeline/default-domain.png" border="true":::
 
@@ -246,7 +246,7 @@ Save your changes and run the pipeline.
 
 ## Verify limited access to the web app
 
-To verify that access to your app is limited to users in your organization, navigate to your App Service in the [Azure portal](https://portal.azure.com) and select the instance's **Default domain**: `https://pipelinetestwebapp.azurewebsites.net`.
+To verify that access to your app is limited to users in your organization, navigate to your App Service and select the instance's **Default domain**: `https://pipelinetestwebapp.azurewebsites.net`.
 
 You should be directed to a secured sign-in page, verifying that unauthenticated users aren't allowed access to the site. Sign in as a user in your organization to gain access to the site. 
 
@@ -258,7 +258,7 @@ Clean up your Azure resources and Azure DevOps environment so you're not charged
 
 ### Delete the resource group
 
-In the Azure portal, select **Resource groups** from the menu and select the resource group that contains your deployed web app.
+Select **Resource groups** from the menu and select the resource group that contains your deployed web app.
 
 Select **Delete resource group** to delete the resource group and all the resources.
 
@@ -285,7 +285,7 @@ Choose this option if you don't need your DevOps project for future reference. T
 
 ### Delete app registrations in Azure AD
 
-In the [Entra admin center](https://entra.microsoft.com/), select **Applications** > **App registrations** > **All applications**.
+In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Identity** > **Applications** > **App registrations** > **All applications**.
 
 Select the application for the pipeline, the display name has the form `{organization}-{project}-{guid}`, and delete it.
 

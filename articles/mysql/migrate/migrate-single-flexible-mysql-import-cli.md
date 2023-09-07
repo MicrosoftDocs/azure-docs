@@ -34,13 +34,13 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 ## Prerequisites
 
-You must sign in to your account using the [az sign-in](/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to your Azure account's **Subscription ID**.
+You must sign in to your account using the [az sign-in](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to your Azure account's **Subscription ID**.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using the [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) command. Note the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list).
+Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using the [az account set](/cli/azure/account#az-account-set) command. Note the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>
@@ -158,6 +158,7 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 ## How long does MySQL Import take to migrate my Single Server instance?
 
 Below is the benchmarked performance based on storage size.
+
   | Single Server Storage Size | MySQL Import time |
   | ------------- |:-------------:|
   | 1 GiB | 0 min 23 secs |
@@ -170,8 +171,9 @@ Below is the benchmarked performance based on storage size.
 From the table above, as the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly impacted by network fluctuations. Therefore, the data provided here should be taken as a reference only.
 
 Below is the benchmarked performance based on varying number of tables for 10 GiB storage size.
+
   | Number of tables in Single Server instance | MySQL Import time |
-  | ------------- |:-------------:|
+  | ------------- | :-------------: |
   | 100 | 4 min 24 secs |
   | 200 | 4 min 40 secs |
   | 800 | 4 min 52 secs |
@@ -184,7 +186,6 @@ Below is the benchmarked performance based on varying number of tables for 10 Gi
 ## Post-import steps
 
 - Copy the following properties from the source Single Server to target Flexible Server post MySQL Import operation is completed successfully:
-  - Server parameters
   - Firewall rules
   - Read-Replicas
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)

@@ -38,8 +38,9 @@ Application properties control how the application is represented and how the ap
 
 To configure the application properties:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
-1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Search for and select the application that you want to use.
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 1. On the **Properties** pane, you may want to configure the following properties for your application:
    - Logo
@@ -54,7 +55,7 @@ To configure the application properties:
 
 Use the following Microsoft Graph PowerShell script to configure basic application properties.
 
-You'll need to consent to the `Application.ReadWrite.All` permission.
+You'll need to to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) and consent to the `Application.ReadWrite.All` permission.
 
 ```powershell
 
@@ -89,7 +90,7 @@ Update-MgApplication -ApplicationId $applicationId -BodyParameter $params
 
 :::zone pivot="ms-graph"
 
-To configure the basic properties of an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
+To configure the basic properties of an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 You'll need to consent to the `Application.ReadWrite.All` permission.
 

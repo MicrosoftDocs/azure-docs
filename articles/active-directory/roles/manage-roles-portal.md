@@ -101,33 +101,33 @@ Follow these steps to assign Azure AD roles using PowerShell.
 1. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
     ```powershell
-    Import-Module -Name AzureADPreview -Force
+    Import-Module -Name Microsoft.Graph.Identity.Governance -Force
     ```
 
-1. In a PowerShell window, use [Connect-AzureAD](/powershell/module/azuread/connect-azuread) to sign in to your tenant.
+1. In a PowerShell window, use [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands?view=graph-powershell-1.0&preserve-view=true) to sign in to your tenant.
 
     ```powershell
-    Connect-AzureAD
+    Connect-MgGraph -Scopes "RoleManagement.ReadWrite.Directory"
     ```
 
-1. Use [Get-AzureADUser](/powershell/module/azuread/get-azureaduser) to get the user you want to assign a role to.
+1. Use [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-1.0&preserve-view=true) to get the user you want to assign a role to.
 
     ```powershell
-    $user = Get-AzureADUser -Filter "userPrincipalName eq 'user@contoso.com'"
+    $user = Get-MgUser -Filter "userPrincipalName eq 'johndoe@contoso.com'"
     ```
 
 ### Assign a role
 
-1. Use [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) to get the role you want to assign.
+1. Use [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition?view=graph-powershell-1.0&preserve-view=true) to get the role you want to assign.
 
     ```powershell
-    $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Billing Administrator'"
+    $roledefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Billing Administrator'"
     ```
 
-1. Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) to assign the role.
+1. Use [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0&preserve-view=true) to assign the role.
 
     ```powershell
-    $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+    $roleassignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roledefinition.Id -PrincipalId $user.Id
     ```
 
 ### Assign a role as eligible using PIM
@@ -135,31 +135,35 @@ Follow these steps to assign Azure AD roles using PowerShell.
 If PIM is enabled, you have additional capabilities, such as making a user eligible for a role assignment or defining the start and end time for a role assignment. These capabilities use a different set of PowerShell commands. For more information about using PowerShell and PIM, see [PowerShell for Azure AD roles in Privileged Identity Management](../privileged-identity-management/powershell-for-azure-ad-roles.md).
 
 
-1. Use [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition) to get the role you want to assign.
+1. Use [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition?view=graph-powershell-1.0&preserve-view=true) to get the role you want to assign.
 
     ```powershell
-    $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Billing Administrator'"
+    $roledefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Billing Administrator'"
     ```
 
-1. Use [Get-AzureADMSPrivilegedResource](/powershell/module/azuread/get-azureadmsprivilegedresource) to get the privileged resource. In this case, your tenant.
+1. Use the following command to create a hash table to store all the necessary attributes required to assign the role to the user. The Principal ID will be the user id to which you want to assign the role. In this example, the assignment will be valid only for **10 hours**.
 
     ```powershell
-    $aadTenant = Get-AzureADMSPrivilegedResource -ProviderId aadRoles
+    $params = @{
+      "PrincipalId" = "053a6a7e-4a75-48bc-8324-d70f50ec0d91"
+      "RoleDefinitionId" = "b0f54661-2d74-4c50-afa3-1ec803f12efe"
+      "Justification" = "Add eligible assignment"
+      "DirectoryScopeId" = "/"
+      "Action" = "AdminAssign"
+      "ScheduleInfo" = @{
+        "StartDateTime" = Get-Date
+        "Expiration" = @{
+          "Type" = "AfterDuration"
+          "Duration" = "PT10H"
+          }
+        }
+       }
     ```
 
-1. Use [New-Object](/powershell/module/microsoft.powershell.utility/new-object) to create a new `AzureADMSPrivilegedSchedule` object to define the start and end time of the role assignment.
+1. Use [New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleeligibilityschedulerequest?view=graph-powershell-1.0&preserve-view=true) to assign the role as eligible. Once the role has been assigned, it will reflect on the Azure portal under **Privileged Identity Management -> Azure AD Roles -> Assignments -> Eligible Assignments** section.
 
     ```powershell
-    $schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
-    $schedule.Type = "Once"
-    $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
-    $schedule.EndDateTime = "2021-07-25T20:00:00.000Z"
-    ```
-
-1. Use [Open-AzureADMSPrivilegedRoleAssignmentRequest](/powershell/module/azuread/open-azureadmsprivilegedroleassignmentrequest) to assign the role as eligible.
-
-    ```powershell
-    $roleAssignmentEligible = Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId $aadTenant.Id -RoleDefinitionId $roleDefinition.Id -SubjectId $user.objectId -Type 'AdminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "Review billing info"
+    New-MgRoleManagementDirectoryRoleEligibilityScheduleRequest -BodyParameter $params | Format-List Id, Status, Action, AppScopeId, DirectoryScopeId, RoleDefinitionId, IsValidationOnly, Justification, PrincipalId, CompletedDateTime, CreatedDateTime
     ```
 
 ## Microsoft Graph API

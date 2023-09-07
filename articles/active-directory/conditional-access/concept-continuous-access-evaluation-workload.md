@@ -15,7 +15,7 @@ ms.reviewer: joroja
 
 ms.collection: M365-identity-device-management
 ---
-# Continuous access evaluation for workload identities (preview)
+# Continuous access evaluation for workload identities
 
 Continuous access evaluation (CAE) for [workload identities](../workload-identities/workload-identities-overview.md) provides security benefits to your organization. It enables real-time enforcement of Conditional Access location and risk policies along with instant enforcement of token revocation events for workload identities. 
 
@@ -23,9 +23,9 @@ Continuous access evaluation doesn't currently support managed identities.
 
 ## Scope of preview
 
-The continuous access evaluation for workload identities public preview scope includes support for Microsoft Graph as a resource provider.
+The continuous access evaluation for workload identities is supported only on access requests sent to Microsoft Graph as a resource provider.  More resource providers will be added over time.
 
-The preview targets service principals for line of business (LOB) applications.
+Service principals for line of business (LOB) applications are supported
 
 We support the following revocation events:
 

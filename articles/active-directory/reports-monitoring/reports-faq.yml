@@ -99,6 +99,7 @@ sections:
           I used the signInActivity resource to look up a user's last sign-in time, but it hasn't updated after a few hours. When will it be updated with the latest sign in time? 
         answer: |
           The signInActivity resource is used to find inactive [users who haven't signed in for some time](howto-manage-inactive-user-accounts.md). It does not update in near real time; you should expect up to 6 hours before the property is updated for a given user. If you need to find the user's last sign-in activity more quickly than that, you can use the Azure AD sign-ins blade to see near real time sign-in activity for all your users. 
+
       - question: |
           What data is included in the CSV file I can download from the Azure AD sign-in logs?
         answer: |
@@ -171,7 +172,16 @@ sections:
           How can I restrict sign-in (authentication) for various apps that I see in the Service Principal sign-in logs?
         answer:
           If you wish to control how authentication works in your tenant for specific client or resource apps, follow instructions in the [Restrict Azure AD app to a set of users](../develop/howto-restrict-your-app-to-a-set-of-users.md) article.
-                  
+
+      - question: |
+          Why do sign-ins that are technically non-interactive show up on my interactive sign-in logs?
+        answer:
+          Some non-interactive sign-ins were made available before the non-interactive sign-in logs were available in public preview. These non-interactive sign-ins were included in the interactive sign-in logs and remained in the interactive sign-in logs after the non-interactive logs became available.
+          
+          Sign-ins using the FIDO2 keys are an example of non-interactive sign-ins that show up in the interactive sign-in logs.
+
+          At this time, these non-interactive logs will always be included in the interactive sign-in log. 
+
   - name: Conditional Access
     questions:
       - question: |
