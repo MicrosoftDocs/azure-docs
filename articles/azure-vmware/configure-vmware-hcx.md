@@ -167,6 +167,9 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
    The selections define the resources where VMs can consume VMware HCX services.
 
+   > [!NOTE]
+   > If you have a mixed mode SDDC with a fleet cluster, deployment of service mesh appliances for AV64 nodes is not viable/supported. 
+
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-source.png" alt-text="Screenshot that shows selecting the source compute profile." lightbox="media/tutorial-vmware-hcx/select-compute-profile-source.png":::
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="Screenshot that shows selecting the remote compute profile." lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::
@@ -222,4 +225,5 @@ Now that you've configured the HCX Connector, you can also learn about:
 - [Create a HCX network extension](configure-hcx-network-extension.md)
 
 - [VMware HCX Mobility Optimized Networking (MON) guidance](vmware-hcx-mon-guidance.md)
+
 
