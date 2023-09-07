@@ -139,7 +139,7 @@ VMs on Azure now support the following patch orchestration modes:
 **AutomaticByPlatform (Azure-orchestrated patching):**
 - This mode is supported for both Linux and Windows VMs.
 - This mode enables automatic VM guest patching for the virtual machine and subsequent patch installation is orchestrated by Azure.
-- During the installation process, this mode will [assess the VM](https://learn.microsoft.com/rest/api/compute/virtual-machines/assess-patches) for available patches and save the details in [Azure Resource Graph](https://learn.microsoft.com/azure/update-center/query-logs). (preview).
+- During the installation process, this mode will [assess the VM](/rest/api/compute/virtual-machines/assess-patches) for available patches and save the details in [Azure Resource Graph](/azure/update-center/query-logs). (preview).
 - This mode is required for availability-first patching.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
 - For Windows VMs, setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
@@ -169,7 +169,7 @@ VMs on Azure now support the following patch orchestration modes:
 
 > [!NOTE]
 >For Windows VMs, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` can only be set when the VM is first created. This impacts certain patch mode transitions. Switching between AutomaticByPlatform and Manual modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`. Similarly switching between AutomaticByPlatform and AutomaticByOS modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`. Switching between AutomaticByOS and Manual modes is not supported.
->Azure recommends that [Assessment Mode](https://learn.microsoft.com/rest/api/compute/virtual-machines/assess-patches) be enabled on a VM even if Azure Orchestration is not enabled for patching. This will allow the platform to assess the VM every 24 hours for any pending updates, and save the details in [Azure Resource Graph](https://learn.microsoft.com/azure/update-center/query-logs). (preview). The platform performs assessment to report consolidated results when the machine’s desired patch configuration state is applied or confirmed. This will be reported as a ‘Platform’-initated assessment.
+>Azure recommends that [Assessment Mode](/rest/api/compute/virtual-machines/assess-patches) be enabled on a VM even if Azure Orchestration is not enabled for patching. This will allow the platform to assess the VM every 24 hours for any pending updates, and save the details in [Azure Resource Graph](/azure/update-center/query-logs). (preview). The platform performs assessment to report consolidated results when the machine’s desired patch configuration state is applied or confirmed. This will be reported as a ‘Platform’-initated assessment.
 
 ## Requirements for enabling automatic VM guest patching
 
