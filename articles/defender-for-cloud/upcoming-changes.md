@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 08/22/2023
+ms.date: 09/04/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -26,7 +26,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 |--|--|
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | August 2023 |
-| [Update naming format of Azure Center for Internet Security standards in regulatory compliance](#update-naming-format-of-azure-center-for-internet-security-standards-in-regulatory-compliance) | August 2023 |
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) | August 2023 |
 | [Deprecate and replace recommendations App Service Client Certificates](#deprecate-and-replace-recommendations-app-service-client-certificates) | August 2023 |
 | [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) | September 2023 |
@@ -176,24 +175,6 @@ Queries will need to be updated to include both the old and new `resourceID` to 
 Additionally, customers that have created custom queries using the DevOps workbook will need to update the assessment keys for the impacted DevOps security recommendations. The template DevOps workbook is planned to be updated to reflect the new recommendations, although during the actual migration, customers may experience some errors with the workbook.
 
 The experience on the recommendations page will be impacted and require customers to query under "All recommendations" to view the new DevOps recommendations. For Azure DevOps, deprecated assessments may continue to show for a maximum of 14 days if new pipelines are not run.  Refer to [Defender for DevOps Common questions](/azure/defender-for-cloud/faq-defender-for-devops#why-don-t-i-see-recommendations-for-findings-) for details.
-
-### Update naming format of Azure Center for Internet Security standards in regulatory compliance
-
-**Estimated date for change: August 2023**
-
-The naming format of Azure CIS (Center for Internet Security) foundations benchmarks in the compliance dashboard is set for change from `[Cloud] CIS [version number]` to `CIS [Cloud] Foundations v[version number]`. Refer to the following table:
-
-| Current Name | New Name |
-|--|--|
-| Azure CIS 1.1.0 | CIS Azure Foundations v1.1.0 |
-| Azure CIS 1.3.0 | CIS Azure Foundations v1.3.0 |
-| Azure CIS 1.4.0 | CIS Azure Foundations v1.4.0 |
-| AWS CIS 1.2.0 | CIS AWS Foundations v1.2.0 |
-| AWS CIS 1.5.0 | CIS AWS Foundations v1.5.0 |
-| GCP CIS 1.1.0 | CIS GCP Foundations v1.1.0 |
-| GCP CIS 1.2.0 | CIS GCP Foundations v1.2.0 |
-
-Learn how to [improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
 ### Preview alerts for DNS servers to be deprecated
 

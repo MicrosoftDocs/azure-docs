@@ -455,3 +455,36 @@ You can update `scalingMode` by invoking the `updateScalingMode` method:
 ```js
 view.updateScalingMode('Crop');
 ```
+
+## Send video streams from two different cameras, in the same call from the same desktop device.
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+This is supported as part of version 1.17.1-beta.1+ on desktop.
+- You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
+```js
+// Create your first CallAgent with identity A
+const callClient1 = new CallClient();
+const callAgent1 = await callClient1.createCallAgent(tokenCredentialA);
+const deviceManager1 = await callClient1.getDeviceManager();
+
+// Create your second CallAgent with identity B
+const callClient2 = new CallClient();
+const callAgent2 = await callClient2.createCallAgent(tokenCredentialB);
+const deviceManager2 = await callClient2.getDeviceManager();
+
+// Join the call with your first CallAgent
+const camera1 = await deviceManager1.getCameras()[0];
+const callObj1 = callAgent1.join({ groupId: ‘123’}, { videoOptions: { localVideoStreams: [new LocalVideoStream(camera1)] } });
+
+// Join the same call with your second CallAgent and make it use a different camera
+const camera2 = (await deviceManager2.getCameras()).filter((camera) => { return camera !== camera1 })[0];
+const callObj2 = callAgent2.join({ groupId: '123' }, { videoOptions: { localVideoStreams: [new LocalVideoStream(camera2)] } });
+
+//Mute the microphone and speakers of your second CallAgent’s Call, so that there is no echos/noises.
+await callObj2.muteIncomingAudio();
+await callObj2.mute();
+```
+Limitations:
+- This must be done with two different call agents with different identities, hence the code snippet shows two call agents being used.
+- Sending the same camera in both CallAgent, is not supported. They must be two different cameras.
+- Sending two different cameras with one CallAgent is currently not supported.
+- On MacOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.

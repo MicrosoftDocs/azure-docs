@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 08/25/2023
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurepowershell, references_regions, engagement
+ms.custom: ignite-2022, devx-track-azurepowershell, references_regions, engagement, devx-track-azurecli
 ---
 
 # Configure networking for an Elastic SAN Preview

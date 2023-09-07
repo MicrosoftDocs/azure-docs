@@ -47,7 +47,7 @@ Many developers already have tenants through services or subscriptions that are 
 
 To check the tenant:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. Use the account you'll use to manage your application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Tenant Creator](../roles/permissions-reference.md#tenant-creator).
 1. Check the upper-right corner. If you have a tenant, you'll automatically be signed in. You see the tenant name directly under your account name.
    * Hover over your account name to see your name, email address, directory or tenant ID (a GUID), and domain.
    * If your account is associated with multiple tenants, you can select your account name to open a menu where you can switch between tenants. Each tenant has its own tenant ID.
@@ -55,13 +55,13 @@ To check the tenant:
 > [!TIP]
 > To find the tenant ID, you can:
 > * Hover over your account name to get the directory or tenant ID.
-> * Search and select **Azure Active Directory** > **Overview** > **Tenant ID** in the Azure portal.
+> * Select **Identity** > **Overview** and look for **Tenant ID**.
 
 If you don't have a tenant associated with your account, you'll see a GUID under your account name. You won't be able to do actions like registering apps until you create an Azure AD tenant.
 
 ### Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md) or use the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the Azure portal. If you want to create a tenant for app testing, see [build a test environment](test-setup-environment.md).
+If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md). If you want to create a tenant for app testing, see [build a test environment](test-setup-environment.md).
 
 You'll provide the following information to create your new tenant:
 
