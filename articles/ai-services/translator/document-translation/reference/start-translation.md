@@ -9,7 +9,7 @@ author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 09/07/2023
 ---
 
 # Start translation
@@ -50,7 +50,7 @@ Request headers are:
 |--- |--- |
 |Ocp-Apim-Subscription-Key|Required request header|
 
-## BatchRequest (body/object)
+## BatchRequest (body)
 
 Definition for the input batch translation request. Each request can contain multiple documents and must contain a source and target container for each document. Source media types: `application/json`, `text/json`, `application/*+json`.
 
@@ -108,11 +108,11 @@ Definition for the source data.
 
 |Name|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
-|**inputs.source** |`object`|True|&bullet;sourceUrl (string)</br>&bullet; filter (object)</br>&bullet; language (string)</br>&bullet; storageSource (string)| Container location of the source file or folder.|
-|**inputs.source.sourceUrl**|||||
+|**inputs.source** |`object`|True|&bullet;sourceUrl (string)</br>&bullet; filter (object)</br>&bullet; language (string)</br>&bullet; storageSource (string)|Source data for input documents.|
+|**inputs.source.sourceUrl**|`string`|True|string|Container location of the source file or folder.|
 |**inputs.source.filter**|`object`|False|&bullet; prefix (string)</br>&bullet; suffix (string)|Case-sensitive strings to filter documents in the source path.|
-|**inputs.source.filter.prefix**|`string`|False|&bullet; prefix (string)</br>&bullet; suffix (string)|Case-sensitive strings to filter documents in the source path.|
-|**inputs.source.filter**|`object`|False|&bullet; prefix (string)</br>&bullet; suffix (string)|Case-sensitive strings to filter documents in the source path.|
+|**inputs.source.filter.prefix**|`string`|False|string|A case-sensitive prefix string to filter documents in the source path for translation. Often used to designate sub-folders for translation. Example: "_FolderA_".|
+|**inputs.source.filter.suffix**|`string`|False|string|A case-sensitive suffix string to filter documents in the source path for translation.Most often used for file extensions. Example: ".txt"|
 |**inputs.source.language**|`string`|False|string|The language code for the source documents. If not specified, auto-detect is implemented.
 |**inputs.source.storageSource**|`string`|False|string|Defaults to "AzureBlob".|
 
@@ -124,14 +124,14 @@ Definition for the target and glossaries data.
 |--- |---|---|---|--|
 |**inputs.targets**|`array`|True|&bullet; targetUrl (string)</br>&bullet; category (string)</br>&bullet; language (string)</br>&bullet; glossaries (array)</br>&bullet; storageSource (string)|Destination container location for translated documents.|
 |**inputs.targets.targetUrl**|`string`|True|string|Location of the folder / container with your documents.|
-|**inputs.targets.category**|`string`|False|string|Classification or category for the translation request. Ex: _general_.|
-|**inputs.targets.language**|`string`|True|string|Target language code.|
+|**inputs.targets.category**|`string`|False|string|Classification or category for the translation request. Example: "_general_".|
+|**inputs.targets.language**|`string`|True|string|Target language code. Example: "_fr_".|
 |**inputs.targets.glossaries**|`array`|False|&bullet; glossaryUrl (string)</br>&bullet; format (string)</br>&bullet; version (string)</br>&bullet; storageSource (string)|_See_ [Create and use glossaries](../how-to-guides/create-use-glossaries.md)|
 |**inputs.targets.glossaries.glossaryUrl**|`string`|True (if using glossaries)|string|Location of the glossary. The file extension is used to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it isn't applied.|
-|**inputs.targets.glossaries.format**|`string`|False|string|To check if your file format is supported, _see_ [Get supported glossary formats](get-supported-glossary-formats.md)|
-|**inputs.targets.glossaries.version**|`string`|False|string|Version indicator. Ex: 2.0|
-|**inputs.targets.glossaries.storageSource**|`string`|False|string|Defaults to "AzureBlob".|
-|**inputs.targets.storageSource**|`string`|False|string|Defaults to "AzureBlob".|
+|**inputs.targets.glossaries.format**|`string`|False|string|To check if your file format is supported, _see_ [Get supported glossary formats](get-supported-glossary-formats.md).|
+|**inputs.targets.glossaries.version**|`string`|False|string|Version indicator. Example: "_2.0_".|
+|**inputs.targets.glossaries.storageSource**|`string`|False|string|Defaults to "_AzureBlob_".|
+|**inputs.targets.storageSource**|`string`|False|string|Defaults to "_AzureBlob_".|
 
 ### inputs.storageType
 
@@ -139,7 +139,7 @@ Definition for the storage type of the input documents source string
 
 |Name|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
-|**inputs.storageType**|`string`|False|&bullet;`Folder`</br>&bullet; `File`|Storage type of the input documents source string. Only `Folder` or `File` are valid values.|
+|**inputs.storageType**|`string`|False|&bullet;`Folder`</br>&bullet; `File`|Storage type of the input documents source string. Only "_Folder_" or "_File_" are valid values.|
 
 ## Options
 
@@ -148,7 +148,7 @@ Definition for the input batch translation request.
 |Name|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
 |**options**|`object`|True|Source information for input documents.|
-|**options.experimental**|boolean|False|&bullet;`true`</br>&bullet; `false`|Indicates whether the request will use experimental feature (if applicable). Only the booleans `true` or `false` are valid values.|
+|**options.experimental**|boolean|False|&bullet;`true`</br>&bullet; `false`|Indicates whether the request will include an experimental feature (if applicable). Only the booleans _`true`_ or _`false`_ are valid values.|
 
 ## Example request
 
