@@ -235,7 +235,7 @@ Application access can be blocked due to a problem with a group that is assigned
 
 To check a group’s membership, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [group administrator](../roles/permissions-reference.md#group-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [groups administrator](../roles/permissions-reference.md#groups-administrator).
 1. Browse to **Identity** > **Groups** > **All Groups**.
 1. Search for the group you're interested in and select the row with the group's details.
 1. Select **Members** to review the list of users assigned to this group.
@@ -244,7 +244,7 @@ To check a group’s membership, follow these steps:
 
 To check a dynamic group’s membership criteria, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [group administrator](../roles/permissions-reference.md#group-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [groups administrator](../roles/permissions-reference.md#groups-administrator).
 1. Browse to **Identity** > **Groups** > **All Groups**.
 1. Search for the group you're interested in and select the row with the group's details.
 
@@ -256,7 +256,7 @@ To check a dynamic group’s membership criteria, follow these steps:
 
 To check a group’s assigned licenses, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [group administrator](../roles/permissions-reference.md#group-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [groups administrator](../roles/permissions-reference.md#groups-administrator).
 1. Browse to **Identity** > **Groups** > **All Groups**.
 1. Search for the group you're interested in and select the row with the group's details.
 
@@ -266,7 +266,7 @@ To check a group’s assigned licenses, follow these steps:
 
 To reprocess a group’s assigned licenses, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [group administrator](../roles/permissions-reference.md#group-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [groups administrator](../roles/permissions-reference.md#groups-administrator).
 1. Browse to **Identity** > **Groups** > **All Groups**.
 1. Search for the group you're interested in and select the row with the group's details.
 
@@ -283,7 +283,7 @@ To reprocess a group’s assigned licenses, follow these steps:
 
 To assign a license to a group, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [group administrator](../roles/permissions-reference.md#group-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator) or [groups administrator](../roles/permissions-reference.md#groups-administrator).
 1. Browse to **Identity** > **Groups** > **All Groups**.
 1. Search for the group you're interested in and select the row with the group's details.
 
@@ -326,7 +326,7 @@ To check or validate a single Conditional Access policy:
 
 To check or validate a single application’s currently configured Conditional Access policy:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. Search for the application you're interested in, or the user is attempting to sign in to by application display name or application ID.
 
