@@ -40,7 +40,7 @@ At the same time, customers often require a custom answer authoring experience t
 
 1. Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource.
 
-1. Select the **Bring your own data** tile to start connecting your search index. You an also select the **Chat playground** tile.
+1. Select the **Bring your own data** tile to start connecting your search index. You can also select the **Chat playground** tile.
 
     :::image type="content" source="../../../openai/media/quickstarts/chat-playground-card.png" alt-text="A screenshot of the Azure OpenAI Studio landing page." lightbox="../../../openai/media/quickstarts/chat-playground-card.png":::
 
@@ -49,6 +49,9 @@ At the same time, customers often require a custom answer authoring experience t
     :::image type="content" source="../../../openai/media/quickstarts/chatgpt-playground-add-your-data.png" alt-text="A screenshot showing the button for adding your data in Azure OpenAI Studio." lightbox="../../../openai/media/quickstarts/chatgpt-playground-add-your-data.png":::
 
 1. In the pane that appears, select **Azure Cognitive Search** under **Select or add data source**. This will update the screen with **Data field mapping** options depending on your data source.
+
+:::image type="content" source="../media/question-answering/data-source-selection.png" alt-text="A screenshot showing data selection options in Azure OpenAI Studio." lightbox="../media/question-answering/data-source-selection.png":::
+
 
 1. Select the subscription, Azure Cognitive Search service and Azure Cognitive Search Index associated with your Custom Question Answering project. Select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
 
@@ -68,7 +71,7 @@ At the same time, customers often require a custom answer authoring experience t
 
     :::image type="content" source="../../../openai/media/quickstarts/chat-playground.png" alt-text="A screenshot of the playground page of the Azure OpenAI Studio with sections highlighted." lightbox="../../../openai/media/quickstarts/chat-playground.png":::
 
-You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../..//openai/concepts/use-your-data.md#using-the-web-app) for a graphical interface for chatting with the model over the web.
+You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../..//openai/concepts/use-your-data.md#using-the-web-app) to chat with the model over the web.
 
 ## Next steps
 * [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md) 
