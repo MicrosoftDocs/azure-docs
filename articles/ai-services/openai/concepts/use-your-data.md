@@ -261,7 +261,7 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 * Currently, keyword search and semantic search in Azure OpenAI on your data supports queries are in the same language as the data in the index. For example, if your data is in Japanese, then input queries also need to be in Japanese. For cross-lingual document retrieval, we recommend building the index with [Vector search](/azure/search/vector-search-overview) enabled.  
 
-* In Azure OpenAI on your data team’s internal benchmark, turn on [semantic search](/azure/search/semantic-search-overview) for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic would help improve the quality of information retrieval and model response.   
+* To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic   
 
 * We recommend using a system message to inform the model that your data is in another language. For example:
 
