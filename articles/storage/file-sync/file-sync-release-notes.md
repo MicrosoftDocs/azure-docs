@@ -53,9 +53,6 @@ The following release notes are for Azure File Sync version 16.0.0.0 (released J
 ### Improvements and issues that are fixed
 - Improved Azure File Sync service availability
 	- Azure File Sync is now a zone-redundant service which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](../files/files-redundancy.md).
-	> [!Note]
-	> Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
- 
 - Immediately run server change enumeration to detect files changes that were missed on the server
 	- Azure File Sync uses the [Windows USN journal](/windows/win32/fileio/change-journals) feature on Windows Server to immediately detect files that were changed and upload them to the Azure file share. If files changed are missed due to journal wrap or other issues, the files will not sync to the Azure file share until the changes are detected. Azure File Sync has a server change enumeration job that runs every 24 hours on the server endpoint path to detect changes that were missed by the USN journal. If you don't want to wait until the next server change enumeration job runs, you can now use the Invoke-StorageSyncServerChangeDetection PowerShell cmdlet to immediately run server change enumeration on a server endpoint path.
 		

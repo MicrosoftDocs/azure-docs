@@ -74,7 +74,7 @@ The following tables show which transports are supported for each platform. Supp
 |---------|------|-----|-----|
 | Edge    | &#10060; | &#10060; | &#10060; |
 | Chrome  | &#x2705; | &#10060; | &#10060; |
-| Firefox | &#10060; | &#10060; | &#10060; |
+| Firefox | &#x2705; | &#10060; | &#10060; |
 
 
 ### iOS

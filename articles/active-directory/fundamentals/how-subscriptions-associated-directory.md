@@ -87,8 +87,8 @@ After you associate a subscription with a different directory, you might need to
 
 ## Next steps
 
-- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
+- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](./create-new-tenant.md).
 
 - To learn more about how Microsoft Azure controls resource access, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-- To learn more about how to assign roles in Azure AD, see [Assign administrator and non-administrator roles to users with Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+- To learn more about how to assign roles in Azure AD, see [Assign administrator and non-administrator roles to users with Azure Active Directory](./how-subscriptions-associated-directory.md).

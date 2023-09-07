@@ -39,6 +39,7 @@ Before you begin, you must set up your tenant to use the [Microsoft Entra Verifi
 
 ## Create an access package with verified ID requirements
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To add a verified ID requirement to an access package, you must start from the access package’s requests tab. Follow these steps to add a verified ID requirement to a new access package.
 
@@ -48,9 +49,11 @@ To add a verified ID requirement to an access package, you must start from the a
 > [!NOTE]
 > Identity Governance administrator, User administrator, Catalog owner, or Access package manager will be able to add verified ID requirements to access packages soon.
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then select **+ New access package**.
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
+
+1. On the **Access packages** page select **+ New access package**.
 
 1. On the **Requests** tab, scroll to the **Required Verified Ids** section.
 
@@ -73,7 +76,7 @@ Once an access package is configured with a verified ID requirement, end-users w
 
 The requestor steps are as follows:
 
-1. Go to [myaccess.microsoft.com](HTTPS://myaccess.microsoft.com) and sign in.
+1. Go to [myaccess.microsoft.com](../develop/configure-app-multi-instancing.md) and sign in.
 
 1. Search for the access package you want to request access to (you can browse the listed packages or use the search bar at the top of the page) and select **Request**.
 

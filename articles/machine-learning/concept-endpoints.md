@@ -88,11 +88,9 @@ The following table shows a summary of the different features available to onlin
 | Swagger support                       | Yes                                             | No                                            |
 | Authentication                        | Key and token                                   | Azure AD                                      |
 | Private network support               | Yes                                             | Yes                                           |
-| Managed network isolation<sup>1</sup> | Yes                                             | No                                            |
+| Managed network isolation | Yes                                             | No                                            |
 | Customer-managed keys                 | Yes                                             | No                                            |
 | Cost basis                            | None                                            | None                                          |
-
-<sup>1</sup> [*Managed network isolation*](how-to-secure-online-endpoint.md) allows you to manage the networking configuration of the endpoint independently of the configuration of the Azure Machine Learning workspace.
 
 #### Deployments
 

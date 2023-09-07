@@ -139,7 +139,7 @@ Likewise, the [Self-service Password Management report](../../authentication/how
 
 ### Self-service app management
 
-Before your users can self-discover applications from their access panel, you need to enable [self-service application access](../../manage-apps/access-panel-manage-self-service-access.md) to any applications that you wish to allow users to self-discover and request access to them. The request can optionally require approval before access being granted. 
+Before your users can self-discover applications from their access panel, you need to enable [self-service application access](../../manage-apps/manage-self-service-access.md) to any applications that you wish to allow users to self-discover and request access to them. The request can optionally require approval before access being granted. 
 
 ### Self-service group management
 

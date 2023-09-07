@@ -72,8 +72,8 @@ For more information, see the Microsoft 365 [tenant ID get](https://pnp.github.i
 
 ## Next steps
 
-- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
+- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](./create-new-tenant.md).
 
-- To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](active-directory-how-subscriptions-associated-directory.md).
+- To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](./how-subscriptions-associated-directory.md).
 
 - To learn how to find the object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

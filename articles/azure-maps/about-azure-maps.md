@@ -161,26 +161,6 @@ The [Get Map Tile V2 API] allows you to request past, current, and future radar 
 
 ![Example of map with real-time weather radar tiles](media/about-azure-maps/intro_weather.png)
 
-### Maps Creator service
-
-Maps Creator service is a suite of web services that developers can use to create applications with map features based on indoor map data.
-
-Maps Creator provides the following services:
-
-* [Dataset service]. Use the Dataset service to create a dataset from a converted drawing package data. For information about drawing package requirements, see drawing package requirements.
-
-* [Conversion service]. Use the Conversion service to convert a DWG design file into drawing package data for indoor maps.
-
-* [Tileset service]. Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
-
-* [Custom styling service] (preview). Use the [style service] or [visual style editor] to customize the visual elements of an indoor map.
-
-* [Feature State service]. Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
-
-* [WFS service]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API] standards for querying a single dataset.
-
-* [Wayfinding service] (preview). Use the [wayfinding API] to generate a path between two points within a facility. Use the [routeset API] to create the data that the wayfinding service needs to generate paths.
-
 ## Programming model
 
 Azure Maps is built for mobility and can help you develop cross-platform applications. It uses a programming model that's language agnostic and supports JSON output through [REST APIs].
@@ -217,6 +197,10 @@ Verify that the location of your current IP address is in a supported country/re
 
 ## Next steps
 
+Learn about indoor maps:
+
+[What is Azure Maps Creator?]
+
 Try a sample app that showcases Azure Maps:
 
 [Quickstart: Create a web app]
@@ -226,16 +210,10 @@ Stay up to date on Azure Maps:
 [Azure Maps blog]
 
 <!---------   learn.microsoft.com links     --------------->
-[Conversion service]: creator-indoor-maps.md#convert-a-drawing-package
-[Custom styling service]: creator-indoor-maps.md#custom-styling-preview
-[Dataset service]: creator-indoor-maps.md#datasets
-[Feature State service]: creator-indoor-maps.md#feature-statesets
 [Get started with Azure Maps Power BI visual]: power-bi-visual-get-started.md
 [How to use the Get Map Attribution API]: how-to-show-attribution.md
 [Quickstart: Create a web app]: quick-demo-map-app.md
-[Tileset service]: creator-indoor-maps.md#tilesets
-[Wayfinding service]: creator-indoor-maps.md#wayfinding-preview
-[WFS service]: creator-indoor-maps.md#web-feature-service-api
+[What is Azure Maps Creator?]: about-creator.md
 <!---------   REST API Links     --------------->
 [Data service]: /rest/api/maps/data-v2
 [Geolocation service]: /rest/api/maps/geolocation
@@ -244,14 +222,11 @@ Stay up to date on Azure Maps:
 [Render V2 service]: /rest/api/maps/render-v2
 [REST APIs]: /rest/api/maps/
 [Route service]: /rest/api/maps/route
-[routeset API]: /rest/api/maps/v20220901preview/routeset
 [Search service]: /rest/api/maps/search
 [Spatial service]: /rest/api/maps/spatial
-[style service]: /rest/api/maps/v20220901preview/style
 [TilesetID]: /rest/api/maps/render-v2/get-map-tile#tilesetid
 [Time zone service]: /rest/api/maps/timezone
 [Traffic service]: /rest/api/maps/traffic
-[wayfinding API]: /rest/api/maps/v20220901preview/wayfinding
 <!---------   JavaScript API Links     --------------->
 [JavaScript map control]: /javascript/api/azure-maps-control
 <!---------   External Links     --------------->
@@ -260,7 +235,5 @@ Stay up to date on Azure Maps:
 [Azure portal]: https://portal.azure.com
 [IANA ID]: https://www.iana.org/
 [Microsoft Trust Center]: https://www.microsoft.com/trust-center/privacy
-[Open Geospatial Consortium API]: https://docs.opengeospatial.org/is/17-069r3/17-069r3.html
 [reverse geocode]: https://en.wikipedia.org/wiki/Reverse_geocoding
 [Subprocessor List]: https://servicetrust.microsoft.com/DocumentPage/aead9e68-1190-4d90-ad93-36418de5c594
-[visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor

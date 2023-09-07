@@ -1,7 +1,7 @@
 ---
 title: CLI command users and access for OT monitoring - Microsoft Defender for IoT
 description: Learn about the users supported for the Microsoft Defender for IoT CLI commands and how to access the CLI.
-ms.date: 01/01/2023
+ms.date: 08/09/2023
 ms.topic: concept-article
 ---
 
@@ -104,6 +104,17 @@ To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor 
 - **On a virtual appliance**, access the CLI via SSH, the vSphere client, or Hyper-V Manager. Connect to the virtual appliance's management interface IP address via port 22.
 
 Each CLI command on an OT network sensor or on-premises management console is supported a different set of privileged users, as noted in the relevant CLI descriptions. Make sure you sign in as the user required for the command you want to run. For more information, see [Privileged user access for OT monitoring](#privileged-user-access-for-ot-monitoring).
+
+## Access the system root as a *support* user
+
+
+When signing in as the *support* user, run the following command to access the host machine as the root user. Access the host machine as the root user enables you to run CLI commands that aren't available to the *support* user. 
+
+Run:
+
+```support bash
+system shell
+```
 
 ## Sign out of the CLI
 

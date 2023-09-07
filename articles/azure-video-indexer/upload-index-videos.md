@@ -3,6 +3,8 @@ title: Upload and index videos with Azure AI Video Indexer using the Video Index
 description: Learn how to upload videos by using Azure AI Video Indexer.
 ms.topic: article
 ms.date: 05/10/2023
+author: IngridAtMicrosoft
+ms.author: inhenkel
 ---
 
 # Upload media files using the Video Indexer website

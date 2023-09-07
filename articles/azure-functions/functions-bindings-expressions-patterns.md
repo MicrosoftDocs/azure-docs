@@ -182,7 +182,7 @@ Details of metadata properties for each trigger are described in the correspondi
 
 ## JSON payloads
 
-When a trigger payload is JSON, you can refer to its properties in configuration for other bindings in the same function and in function code.
+ In some scenarios, you can refer to the trigger payload's properties in configuration for other bindings in the same function and in function code. This requires that the trigger payload is JSON and is smaller than a threshold specific to each trigger. Typically, the payload size needs to be less than 100MB, but you should check the reference content for each trigger. Using trigger payload properties may impact the performance of your application, and it forces the trigger parameter type to be simple types like strings or a custom object type representing JSON data. It cannot be used with streams, clients, or other SDK types.
 
 The following example shows the *function.json* file for a webhook function that receives a blob name in JSON: `{"BlobName":"HelloWorld.txt"}`. A Blob input binding reads the blob, and the HTTP output binding returns the blob contents in the HTTP response. Notice that the Blob input binding gets the blob name by referring directly to the `BlobName` property (`"path": "strings/{BlobName}"`)
 

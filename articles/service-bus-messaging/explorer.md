@@ -47,8 +47,9 @@ To use the Service Bus Explorer, navigate to the Service Bus namespace on which 
 1. If you're looking to run operations against a queue, select **Queues** from the navigation menu. If you're looking to run operations against a topic (and it's related subscriptions), select **Topics**. 
 
     :::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Screenshot of left side navigation, where entity can be selected." lightbox="./media/service-bus-explorer/queue-topics-left-navigation.png":::
-
 1. After selecting **Queues** or **Topics**, select the specific queue or topic.
+
+    :::image type="content" source="./media/service-bus-explorer/select-specific-queue.png" alt-text="Screenshot of the Queues page with a specific queue selected." lightbox="./media/service-bus-explorer/select-specific-queue.png":::
 1. Select the **Service Bus Explorer** from the left navigation menu
 
     :::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Screenshot of queue page where Service Bus Explorer can be selected." lightbox="./media/service-bus-explorer/left-navigation-menu-selected.png":::
@@ -222,6 +223,8 @@ After peeking or receiving a message, we can resend it, which will send a copy o
 When working with Service Bus Explorer, it's possible to use either **Access Key** or **Azure Active Directory** authentication.
 
 1. Select the **Settings** button.
+
+    :::image type="content" source="./media/service-bus-explorer/select-settings.png" alt-text="Screenshot indicating the Settings button in Service Bus Explorer." lightbox="./media/service-bus-explorer/select-settings.png":::
 1. Choose the desired authentication method, and select the **Save** button.
 
     :::image type="content" source="./media/service-bus-explorer/queue-select-authentication-type.png" alt-text="Screenshot indicating the Settings button and a page showing the different authentication types." lightbox="./media/service-bus-explorer/queue-select-authentication-type.png":::

@@ -65,7 +65,7 @@ The Azure Kinect SDK feature set is different from Kinect for Windows v2, as det
 | Body Tracking | BodyFrame | Body Tracking SDK |
 | | BodyIndexFrame | Body Tracking SDK  |
 | Coordinate Mapping|CoordinateMapper| [Sensor SDK - Image transformations](use-image-transformation.md) |
-|Face Tracking | FaceFrame | [Azure AI services: Face](https://azure.microsoft.com/services/cognitive-services/face/)       |
+|Face Tracking | FaceFrame | [Azure AI services: Face](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-face-recognition/)       |
 |    Speech   Recognition    |    N/A                      |    [Azure AI Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)     |
 
 ## Next steps

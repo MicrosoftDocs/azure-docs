@@ -20,21 +20,18 @@ ms.author: anfdocs
 
 Azure NetApp Files volume encryption with customer-managed keys with the managed Hardware Security Module (HSM) is an extension to [customer-managed keys for Azure NetApp Files volumes encryption feature](configure-customer-managed-keys.md). Customer-managed keys with HSM allows you to store your encryptions keys in a more secure FIPS 140-2 Level 3 HSM instead of the FIPS 140-2 Level 1 or Level 2 service used by Azure Key Vault (AKV).
 
-## Considerations
+## Requirements 
+
 
 * Customer-managed keys with managed HSM is supported using the 2022.11 or later API version.
 * Customer-managed keys with managed HSM is only supported for Azure NetApp Files accounts that do not have existing encryption. 
-
-## Requirements 
-
-Before creating a volume using customer-managed key with managed HSM volume, you must have: 
-
-* created an [Azure Key Vault](../key-vault/general/overview.md), containing at least one key.
-    * The key vault must have soft delete and purge protection enabled.
-    * The key must be of type RSA.
-* created a VNet with a subnet delegated to Microsoft.Netapp/volumes.
-* a user or system-assigned identity for your Azure NetApp Files account. 
-* [provisioned and activated a managed HSM.](../key-vault/managed-hsm/quick-create-cli.md)
+* Before creating a volume using customer-managed key with managed HSM volume, you must have: 
+    * created an [Azure Key Vault](../key-vault/general/overview.md), containing at least one key.
+        * The key vault must have soft delete and purge protection enabled.
+        * The key must be type RSA.
+    * created a VNet with a subnet delegated to Microsoft.Netapp/volumes.
+    * a user- or system-assigned identity for your Azure NetApp Files account. 
+    * [provisioned and activated a managed HSM.](../key-vault/managed-hsm/quick-create-cli.md)
 
 ## Supported regions
 
@@ -54,7 +51,7 @@ Before creating a volume using customer-managed key with managed HSM volume, you
 * Norway West
 * South Africa North
 * South Central US
-* South East Asia
+* Southeast Asia
 * Sweden Central
 * Switzerland North
 * UAE Central
