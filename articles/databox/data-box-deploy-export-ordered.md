@@ -63,7 +63,7 @@ Perform the following steps in the Azure portal to order a device.
 
     |Setting  |Value  |
     |---------|---------|
-    |Transfer type     | Select **Export to Azure**.        |
+    |Transfer type     | Select **Export from Azure**.        |
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group     |    Select an existing resource group. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Source Azure region    |    Select the Azure region where your data currently is.         |

@@ -5,7 +5,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python
-ms.date: 4/10/2023
+ms.date: 8/31/2023
 zone_pivot_groups: app-service-getting-started-stacks
 ---
 
@@ -56,8 +56,8 @@ zone_pivot_groups: app-service-getting-started-stacks
 
 | Action | Resources |
 | --- | --- |
-| **Create your first Java app** | Using one of the following tools:<br><br>- [Linux - Maven](./quickstart-java.md?tabs=javase&pivots=platform-linux-development-environment-maven)<br>- [Linux - Azure portal](./quickstart-java.md?tabs=javase&pivots=platform-linux-development-environment-azure-portal)<br>- [Windows - Maven](./quickstart-java.md?tabs=javase&pivots=platform-windows-development-environment-maven)<br>- [Windows - Azure portal](./quickstart-java.md?tabs=javase&pivots=platform-windows-development-environment-azure-portal) |
-| **Deploy your app** | - [Configure Java](./configure-language-java.md?pivots=platform-linux)<br>- [Deploy War](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [GitHub actions](./deploy-github-actions.md) |
+| **Create your first Java app** | Using one of the following tools:<br><br>- [Maven deploy with an embedded web server](./quickstart-java.md?pivots=java-maven-quarkus)<br>- [Maven deploy to a Tomcat server](./quickstart-java.md?pivots=java-maven-tomcat)<br>- [Maven deploy to a JBoss server](./quickstart-java.md?pivots=java-maven-jboss) |
+| **Deploy your app** | - [With Maven](configure-language-java.md?pivots=platform-linux#maven)<br>- [With Gradle](configure-language-java.md?pivots=platform-linux#gradle)<br>- [Deploy War](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With popular IDEs (VS Code, IntelliJ, and Eclipse)](configure-language-java.md?pivots=platform-linux#ides)<br>- [Deploy WAR or JAR packages directly](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With GitHub Actions](./deploy-github-actions.md) |
 | **Monitor your app**| - [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** |- [Java Spring with Cosmos DB](./tutorial-java-spring-cosmosdb.md)|

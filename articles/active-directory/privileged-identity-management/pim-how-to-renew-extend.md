@@ -1,6 +1,6 @@
 ---
 title: Renew Azure AD role assignments in PIM
-description: Learn how to extend or renew Azure Active Directory role assignments in Azure AD Privileged Identity Management (PIM).
+description: Learn how to extend or renew Azure Active Directory role assignments in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -176,7 +176,7 @@ After the request has been submitted, administrators are notified of a pending r
 
 ### Admin approves
 
-Azure AD administrators can access the renewal request from the link in the email notification, or by accessing Privileged Identity Management from the Azure portal and selecting **Approve requests** in PIM.
+Azure AD administrators can access the renewal request from the link in the email notification, or by accessing Privileged Identity Management from the Microsoft Entra admin center and selecting **Approve requests** in PIM.
 
 ![Azure AD roles - Approve requests page listing requests and links to approve or deny](./media/pim-how-to-renew-extend/extend-admin-approve-list.png)
 

@@ -89,9 +89,11 @@ Alice is a Dynamics 365 contact center agent, who makes an outbound call from Om
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
+For more information on Omnichannel for Customer Service pricing, see [pricing scenarios for voice calling](/dynamics365/customer-service/voice-channel-pricing-scenarios)
+
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 
-Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
+Alice and Bob are on a VoIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
 
 - Alice used the JS SDK to build the app. They spoke for 10 minutes before calling Charlie on the PSTN number.
 - Once Bob escalated the call to Charlie on his PSTN number, the three of them spoke for another 10 minutes.
@@ -116,7 +118,7 @@ Asha calls your US toll-free number (acquired from Communication Services) from 
 **Cost calculations**
 
 - Inbound PSTN leg by Asha to toll-free number acquired from Communication Services x 10 minutes x $0.0220 per minute for receiving the call = $0.22
-- One participant on the VOIP leg (David) x 5 minutes x $0.004 per participant leg per minute = $0.02
+- One participant on the VoIP leg (David) x 5 minutes x $0.004 per participant leg per minute = $0.02
 
 Note that the service application that uses Call Automation SDK isn't charged to be part of the call. The additional monthly cost of leasing a US toll-free number isn't included in this calculation.
 

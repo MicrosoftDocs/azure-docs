@@ -49,7 +49,7 @@ Advanced Persistent Threats See the [video: Understanding APTs](/events/teched-2
 
 ### **Arc-enabled Kubernetes**
 
-Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center. See [What is Azure Arc-enabled Logic Apps? (Preview)](../logic-apps/azure-arc-enabled-logic-apps-overview.md).
+Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center. See [What is Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
 
 ### **ARG**
 
@@ -73,7 +73,7 @@ To make sure that your server resources are secure, Microsoft Defender for Cloud
 
 ### Azure Policy for Kubernetes
 
-A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes).
+A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. It's deployed as an AKS add-on in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes).
 
 ## B
 

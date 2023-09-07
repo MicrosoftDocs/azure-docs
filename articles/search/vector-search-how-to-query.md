@@ -33,7 +33,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 + Use REST API version **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
-+ (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
++ (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
 
 ## Limitations
 
@@ -148,7 +148,58 @@ api-key: {{admin-api-key}}
 
 The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, even if the similarity is weak. For indexes that have fewer than "k" documents, only those number of documents will be returned.
 
-Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result, so it's not included in the results.
+Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result, so it's often excluded in the results.
+
+### Vector query response
+
+Here's a modified example so that you can see the basic structure of a response from a pure vector query. 
+
+```json
+{
+    "@odata.count": 3,
+    "value": [
+        {
+            "@search.score": 0.80025613,
+            "title": "Azure Search",
+            "category": "AI + Machine Learning",
+            "contentVector": [
+                -0.0018343845,
+                0.017952163,
+                0.0025753193,
+                ...
+            ]
+        },
+        {
+            "@search.score": 0.78856903,
+            "title": "Azure Application Insights",
+            "category": "Management + Governance",
+            "contentVector": [
+                -0.016821077,
+                0.0037742127,
+                0.016136652,
+                ...
+            ]
+        },
+        {
+            "@search.score": 0.78650564,
+            "title": "Azure Media Services",
+            "category": "Media",
+            "contentVector": [
+                -0.025449317,
+                0.0038463024,
+                -0.02488436,
+                ...
+            ]
+        }
+    ]
+}
+```
+
+**Key points:**
+
++ It's reduced to 3 "k" matches.
++ It shows a **`@search.score`** that's determined by the HNSW algorithm and a `cosine` similarity metric. 
++ Fields include text and vector values. The content vector field consists of 1536 dimensions for each match, so it's truncated for brevity (normally, you might exclude vector fields from results). The text fields used in the response (`"select": "title, category"`) aren't used during query execution. The match is made on vector data alone. However, a response can include any "retrievable" field in an index. As such, the inclusion of text fields is helpful because its values are easily recognized by users.
 
 ### [**.NET**](#tab/dotnet-vector-query)
 
