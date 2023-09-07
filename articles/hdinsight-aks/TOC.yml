@@ -30,7 +30,7 @@ items:
       items:
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
-  - name: Resource Management
+  - name: Resource management
     href: ./vm-recommendation-capacity-planning.md
   - name: Metrics and monitoring
     href: ./concept-azure-monitor-integration.md
