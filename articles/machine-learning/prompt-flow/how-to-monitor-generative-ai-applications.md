@@ -105,13 +105,19 @@ What parameters are configured in your data asset dictates what metrics you can 
 
 
 ## Prerequisites
-1. **Azure OpenAI resource:** You must have an Azure OpenAI resource configured with the appropriate access policies outlined below.
-1. **Workspace connection:** [following this guidance](get-started-prompt-flow.md#connection), you'll use a managed identity which will represent the credentials to the Azure OpenAI endpoint leveraged to calculate the monitoring metrics. It will need permissions to be configured according to the following table. To learn more, see [Create and manage runtimes (preview)](how-to-create-manage-runtime.md). **DO NOT** delete the connection once it's used in the flow.
+1. **Azure OpenAI resource:** You must have an Azure OpenAI resource created with sufficient quota. 
+1. **Managed identity:**  Create a User Assigned Identity (UAI) and attach it to your workspace [using this guidance](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-submit-spark-jobs?view=azureml-api-2&tabs=cli#attach-user-assigned-managed-identity-using-cli-v2)
+1. **Role access** The following roles must be assigned to your UAI:
+    - **Resource:** Workspace
+    - **Role:** Azure Machine Learning Data Scientist
+1. **Workspace connection:** [following this guidance](get-started-prompt-flow.md#connection), you'll use a managed identity which will represent the credentials to the Azure OpenAI endpoint leveraged to calculate the monitoring metrics. **DO NOT** delete the connection once it's used in the flow.
+    -  **API version:** 2023-03-15-preview
 1. **Promptflow deployment:** Create a prompt flow runtime [following this guidance](how-to-create-manage-runtime.md), run your flow, and ensure your [deployment is configured using this article as a guide](how-to-deploy-for-real-time-inference.md) 
     - **Flow inputs & outputs:** in this article, we'll use the following:
-        - **Inputs:** "prompt" (also known as "inputs" or "question")
-        - **Outputs:** "completion" (also known as "outputs" or "answer") with optional parameters: "context" or "ground truth" 
-    - **Data collection:** 'inference data collection' must be enabled using [Model Data Collector](../concept-data-collection.md) and needs model inputs ("prompt") and outputs ("completion") columns.
+        - **Inputs (required):** "prompt" (also known as "inputs" or "question")
+        - **Outputs (required):** "completion" (also known as "outputs" or "answer")
+            - **Outputs (optional):** "context" | "ground truth" 
+    - **Data collection:** in the "Deployment" Step #2 of the PromptFlow deployment wizard, the 'inference data collection' toggle must be enabled using [Model Data Collector](../concept-data-collection.md) and needs model inputs ("prompt") and outputs ("completion") columns.
 
 ## Create your monitor 
 Create your monitor in the Monitoring overview page 
