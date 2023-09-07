@@ -58,8 +58,8 @@ To self register your subscription for Public preview in Azure portal, follow th
 Initiate the asynchronous support check using either of the following APIs:
 
 1. **API Action Invocation**
-    1. [Assess patches](https://learn.microsoft.com/rest/api/compute/virtual-machines/assess-patches?tabs=HTTP) 
-    1. [Install patches](https://learn.microsoft.com/rest/api/compute/virtual-machines/install-patches?tabs=HTTP)
+    1. [Assess patches](/rest/api/compute/virtual-machines/assess-patches?tabs=HTTP) 
+    1. [Install patches](/rest/api/compute/virtual-machines/install-patches?tabs=HTTP)
 
 1. **Portal operations**: Try the preview:
     1. [On demand check for updates](view-updates.md).
