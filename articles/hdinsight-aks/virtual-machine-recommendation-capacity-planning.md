@@ -41,7 +41,7 @@ The minimum VM specifications recommended (regardless of the chosen VM Family fo
 
 The Virtual Machines used in HDInsight on AKS clusters requires the same Quota as Azure VMs. This is unlike the original version of HDInsight, where users had to request a dedicated quota to create HDInsight clusters by selecting 'Azure HDInsight' from the quota selection dropdown as shown in the image. For HDInsight on AKS, customers need to select ‘Compute’ from the Quota selection dropdown in order to request extra capacity for the VMs they intend to use in their clusters. Find detailed instructions for increasing your quota [here](/azure/quotas/per-vm-quota-requests).
 
-:::image type="content" source="./media/virtual-machine-recommendation-capacity-planning/capacity-planning.png" alt-text="Screenshot shows Capacity Planning for HDInsight on AKS." border="true" lightbox="./media/virtual-machine-recommendation-capacity-planning/capacity-planning.png":::
+:::image type="content" source="./media/virtual-machine-recommendation-capacity-planning/capacity-planning.png" alt-text="Screenshot shows capacity planning for HDInsight on AKS." border="true" lightbox="./media/virtual-machine-recommendation-capacity-planning/capacity-planning.png":::
 
 
 
