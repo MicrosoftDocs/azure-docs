@@ -8,7 +8,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 09/07/2023
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
