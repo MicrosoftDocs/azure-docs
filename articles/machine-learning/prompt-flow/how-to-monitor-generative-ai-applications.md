@@ -83,19 +83,19 @@ You must have an Azure OpenAI resource configured with a workspace connection. F
     :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-confirm-outputs.png" alt-text="Screenshot showing how to configure prompt flow outputs for data collection." lightbox="./media/how-to-monitor-generative-ai-applications/pf-confirm-outputs.png":::
 
     1. Enable inference data collection, which uses Azure Machine Learning's [Model Data Collector](../concept-data-collection.md).
-    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-configure-data-collection.png" alt-text="Screenshot showing how to configure prompt flow data collection using Model Data Collector." lightbox="./media/monitor-generative-ai-applications/pf-configure-data-collection.png":::
+    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-configure-data-collection.png" alt-text="Screenshot showing how to configure prompt flow data collection using Model Data Collector." lightbox="./media/how-to-monitor-generative-ai-applications/pf-configure-data-collection.png":::
     
     1. Enable your desired connection that you previously configured. You need to remember your connection and deployment names. 
     :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-confirm-connection.png" alt-text="Screenshot showing how to configure prompt flow to your workspace connection" lightbox="./media/how-to-monitor-generative-ai-applications/pf-confirm-connection.png":::
 
     1. Confirm your settings
-    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-confirm-settings.png" alt-text="Screenshot showing your configured prompt flow deployment." lightbox="./media/how-to-monitor-generative-ai-applications/pf-confirm-settings.png":::  
+    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-confirm-settings.png" alt-text="Screenshot showing your configuration settings for confirmation." lightbox="./media/how-to-monitor-generative-ai-applications/pf-confirm-settings.png":::  
  
-1. The deployment creation may take more than 15 mins. 
-    1. After deployment creation finishes, confirm your deployment is fully functional using the 'test' tab of your endpoint
+    The deployment creation may take more than 15 mins. 
+1. After deployment creation finishes, confirm your deployment is fully functional using the 'test' tab of your endpoint
     :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-confirm-deployment.png" alt-text="Screenshot showing your configured prompt flow deployment." lightbox="./media/how-to-monitor-generative-ai-applications/pf-confirm-deployment.png"::: 
 
-    1. Confirm data is being collected in the proper format of your data asset as specified above. Use a web-based json validator to confirm the structure before proceeding.
+1. Confirm data is being collected in the proper format of your data asset as specified above. Use a web-based json validator to confirm the structure before proceeding.
     :::image type="content" source="./media/how-to-monitor-generative-ai-applications/pf-confirm-data-collection.png" alt-text="Screenshot showing your data asset." lightbox="./media/how-to-monitor-generative-ai-applications/pf-confirm-data-collection.png":::  
 
 
@@ -113,7 +113,7 @@ No action is required. Monitoring will automatically join your model inputs and 
     
 ### Select monitoring signals
 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal2.png" alt-text="Screenshot showing monitoring signal configurations." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal2.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal2.png" alt-text="Screenshot showing monitoring signal configuration options on the monitoring settings dialog." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal2.png":::
 1. Configure workspace connection **(A)** in the screenshot. 
     1. You need to configure your workspace connection correctly, or you see this: 
     :::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal1.png" alt-text="Screenshot showing an unconfigured monitoring signal." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal1.png":::
@@ -144,7 +144,7 @@ What parameters are configured in your data asset dictates what metrics you can 
 - (optional) Set sampling rate
 
 - Once configured, your signal will no longer show a warning.
-    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal3.png" alt-text="Screenshot showing monitoring signal configurations." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal3.png":::
+    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal3.png" alt-text="Screenshot showing monitoring signal configurations without a warning." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal3.png":::
 
 ### Configure notifications
 
@@ -178,7 +178,7 @@ The signal details page allows you to view metrics over time **(A)**  as well as
 
 It's only possible to adjust signal thresholds. 
 The acceptable score is fixed at 3/5; you can only adjust the 'acceptable overall % passing rate' field. 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/monitor-generative-ai-applications/how-to-gsq-monitor-signal-adjust-signal.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/how-to-monitor-generative-ai-applications/how-to-gsq-monitor-signal-adjust-signal.png":::
    
 ## Next Steps
 
