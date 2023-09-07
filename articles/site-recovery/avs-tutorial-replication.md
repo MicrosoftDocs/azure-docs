@@ -61,7 +61,7 @@ In your source environment, you need a single, highly available, on-premises mac
   * Receives replication data, optimizes the data (with caching, compression, and encryption), and sends the data to a cache storage account in Azure.
   * Installs the Mobility Service agent on VMs that you want to replicate.
   * Performs automatic discovery of Azure VMware Solution VMs.
-* **Master target server**: This server handles replication data during failback from Azure.
+* **Primary target server**: This server handles replication data during failback from Azure.
 
 All of these components are installed together on a single Azure VMware Solution machine that's known as the *configuration server*. By default, for Azure VMware Solution disaster recovery, you set up the configuration server as a highly available VMware vSphere VM. To do this, you download a prepared Open Virtualization Application (OVA) template that's based on Open Virtualization Format (OVF). Then, you import the template into VMware vCenter Server to create the VM.
 
