@@ -3,7 +3,7 @@ title: Product updates for Azure Cosmos DB for PostgreSQL
 description: Release notes, new features and features in preview
 ms.author: nlarin
 author: niklarin
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
@@ -21,6 +21,11 @@ Azure Cosmos DB for PostgreSQL gets updated regularly.
 Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
+
+### September 2023
+* General availability: Azure Cosmos DB is now available in Australia Central, Canada East, and Qatar Central.
+    * See [all supported regions](./resources-regions.md).
+
 
 ### August 2023
 * General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.21, 12.16, 13.12, 14.9, and 15.4) are now available in all supported regions.
