@@ -12,7 +12,7 @@ Azure HDInsight on AKS is currently in public preview and may be substantially m
 
 This article describes the Azure HDInsight on AKS preview state, and provides disclaimers related to preview.
 
-## Terms of Use
+## Terms of use
 
 Your use of the Microsoft Azure HDInsight on AKS Cluster Pool or Microsoft Azure HDInsight on AKS Clusters preview experiences and features is governed by the preview online service terms and conditions of the agreement(s) under which you obtained the services and the [supplemental preview terms](https://go.microsoft.com/fwlink/?linkid=2240967).
 
