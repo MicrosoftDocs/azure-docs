@@ -1,12 +1,12 @@
 ---
 title: Analyze performance
 titleSuffix: Azure Cognitive Search
-description: TBD
+description: Learn about the tools, behaviors, and approaches for analyzing query and indexing performance in Cognitive Search.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 08/31/2023
 ---
 
 # Analyze performance in Azure Cognitive Search

@@ -50,6 +50,12 @@ For more information, see [Enable Top flows (preview) and Flow trace logs (previ
 
 You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
 
+### Embedded Firewall Workbooks (preview)
+
+Azure Firewall predefined workbooks are two clicks away and fully available from the **Monitoring** section in the Azure Firewall portal UI.
+
+For more information, see [Azure Firewall: New Monitoring and Logging Updates](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-new-monitoring-and-logging-updates/ba-p/3897897#:~:text=Embedded%20Firewall%20Workbooks%20are%20now%20in%20public%20preview)
+
 ## Next steps
 
 To learn more about Azure Firewall, see [What is Azure Firewall?](overview.md).

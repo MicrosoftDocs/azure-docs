@@ -8,16 +8,15 @@ ms.date: 08/22/2023
 
 # Switch to the new preview version
 
-On August 21, 2023, we rolled out major changes to Azure Arc-enabled VMware vSphere preview. We are now announcing a new preview. By switching to the new preview version, you can use all the Azure management services that are available for Arc-enabled Servers.  
+On August 21, 2023, we rolled out major changes to Azure Arc-enabled VMware vSphere preview. We are now announcing a new preview. By switching to the new preview version, you can use all the Azure management services that are available for Arc-enabled Servers.
 
 > [!NOTE]
-> If you're a new to Arc-enabled VMware vSphere (preview), you will be able to leverage the new capabilities by default. To get started with the preview, see [Quickstart: Connect VMware vCenter Server to Azure Arc by using the helper script](quick-start-connect-vcenter-to-arc-using-script.md). 
+> If you're new to Arc-enabled VMware vSphere (preview), you will be able to leverage the new capabilities by default. To get started with the preview, see [Quickstart: Connect VMware vCenter Server to Azure Arc by using the helper script](quick-start-connect-vcenter-to-arc-using-script.md). 
 
-If you have the earlier version of preview installed already, switch to the new version by following the below steps:
 
 ## Switch to the new preview version (Existing preview customer)
 
- Follow these steps to switch to the new preview version: 
+If you are an existing **Azure Arc-enabled VMware** customer, for VMs that are Azure-enabled, follow these steps to switch to the new preview version: 
 
 >[!Note]
 >If you had enabled guest management on any of the VMs, remove [VM extensions](/azure/azure-arc/vmware-vsphere/remove-vcenter-from-arc-vmware#step-1-remove-vm-extensions) and [disconnect agents](/azure/azure-arc/vmware-vsphere/remove-vcenter-from-arc-vmware#step-2-disconnect-the-agent-from-azure-arc).

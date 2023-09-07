@@ -20,8 +20,8 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Toll-Free   |-  | - | Public Preview | Public Preview\* |
-| Local       | -                    | -                    | Public Preview | Public Preview\* |
+| Toll-Free   |-  | - | General Availability | General Availability\* |
+| Local       | -                    | -                    | General Availability | General Availability\* |
 |Alphanumeric Sender ID\**|Public Preview|-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -47,6 +47,7 @@ More details on eligible subscription types are as follows:
 | :---------- |
 |France|
 |Italy|
+|United States|
 
 
 ## Find information about other countries/regions

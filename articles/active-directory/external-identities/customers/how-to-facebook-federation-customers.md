@@ -47,7 +47,7 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
     - `https://<tenant-name>.ciamlogin.com/<tenant-ID>/federation/oauth2`
     - `https://<tenant-name>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
    > [!NOTE]
-   > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
+   > To find your customer tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Browse to **Identity** > **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
 1. Select **Save changes** at the bottom of the page.
 1. At this point, only Facebook application owners can sign in. Because you registered the app, you can sign in with your Facebook account. To make your Facebook application available to your users, from the menu, select **Go live**. Follow all of the steps listed to complete all requirements. You'll likely need to complete the business verification to verify your identity as a business entity or organization. For more information, see [Meta App Development](https://developers.facebook.com/docs/development/release).
 
@@ -55,8 +55,8 @@ If you don't already have a Facebook account, sign up at [https://www.facebook.c
 
 After you create the Facebook application, in this step you set the Facebook client ID and client secret in Azure AD. You can use the Azure portal or PowerShell to do so. To configure Facebook federation in the Microsoft Entra admin center, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as the global administrator of your customer tenant.
-1. Go to **Azure Active Directory** > **External Identities** > **All identity providers**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 2. Select **+ Facebook**.
 
    <!-- ![Screenshot that shows how to add Facebook identity provider in Azure AD.](./media/sign-in-with-facebook/configure-facebook-idp.png)-->
@@ -81,7 +81,7 @@ To configure Facebook federation by using PowerShell, follow these steps:
 
 At this point, the Facebook identity provider has been set up in your customer tenant, but it's not yet available in any of the sign-in pages. To add the Facebook identity provider to a user flow:
 
-1. In your customer tenant, go to **Azure Active Directory** > **External Identities** > **User flows**.
+1. Browse to **Identity** > **External Identities** > **User flows**.
 1. Select the user flow where you want to add the Facebook identity provider.
 1. Under Settings, select **Identity providers**
 1. Under **Other Identity Providers**, select **Facebook**.

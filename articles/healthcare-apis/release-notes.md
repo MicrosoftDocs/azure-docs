@@ -19,6 +19,14 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## August 2023
+#### Azure Health Data Services
+
+#### FHIR service
+**$convert-data documentation updates**
+
+Customers can now find detailed documentation on the $convert-data operation, allowing them to have an easier self-service experience. This includes an [overview](./fhir/overview-of-convert-data.md), how to [configure settings](./fhir/configure-settings-convert-data.md), a ready-made [pipeline template](./fhir/convert-data-with-azure-data-factory.md) in Azure Data Factory, [troubleshooting](./fhir/troubleshoot-convert-data.md) tips, and an [FAQ](./fhir/frequently-asked-questions-convert-data.md).
+
 ## July 2023
 #### Azure Health Data Services
 
@@ -35,7 +43,6 @@ Patient and Group level exports on interruption would restart from the beginning
 **API Version 2 is Generally Available (GA)**
 
 The DICOM service API v2 is now Generally Available (GA) and introduces [several changes and new features](dicom/dicom-service-v2-api-changes.md).  Most notable is the change to validation of DICOM attributes during store (STOW) operations - beginning with v2, the request fails only if **required attributes** fail validation.  See the [DICOM Conformance Statement v2](dicom/dicom-services-conformance-statement-v2.md) for full details.  
-
 
 ## June 2023
 #### Azure Health Data Services

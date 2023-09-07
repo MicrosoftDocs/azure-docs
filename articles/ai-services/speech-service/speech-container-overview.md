@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 08/29/2023
 ms.author: eur
 keywords: on-premises, Docker, container
 ---
@@ -16,9 +16,6 @@ keywords: on-premises, Docker, container
 # Speech containers overview
 
 By using containers, you can use a subset of the Speech service features in your own environment. With Speech containers, you can build a speech application architecture that's optimized for both robust cloud capabilities and edge locality. Containers are great for specific security and data governance requirements. 
-
-> [!NOTE]
-> You must [request and get approval](#request-approval-to-run-the-container) to use a Speech container. 
 
 ## Available Speech containers
 
@@ -34,11 +31,9 @@ The following table lists the Speech containers available in the Microsoft Conta
 <sup>1</sup> The container is available in public preview. Containers in preview are still under development and don't meet Microsoft's stability and support requirements.
 <sup>2</sup> Not available as a disconnected container.
 
-## Request approval to run the container
+## Request approval to run containers disconnected from the internet
 
-To use the Speech containers, you must submit one of the following request forms and wait for approval:
--	[Connected containers request form](https://aka.ms/csgate) if you want to run containers regularly, in environments that are only connected to the internet.
--	[Disconnected Container request form](https://aka.ms/csdisconnectedcontainers) if you want to run containers in environments that can be disconnected from the internet. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md) in the Azure AI services documentation.
+To use the Speech containers in environments that are disconnected from the internet, you must submit a [request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md) in the Azure AI services documentation.
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. 
 
@@ -47,11 +42,6 @@ The form requests information about you, your company, and the user scenario for
 * Check your email for updates on the status of your application from Microsoft.
 
 After you submit the form, the Azure AI services team reviews it and emails you with a decision within 10 business days.
-
-> [!IMPORTANT]
-> To use the Speech containers, your request must be approved. 
-
-While you're waiting for approval, you can [setup the prerequisites](speech-container-howto.md#prerequisites) on your host computer. You can also download the container from the Microsoft Container Registry (MCR). You can run the container after your request is approved.
 
 ## Billing
 

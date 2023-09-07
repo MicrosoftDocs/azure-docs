@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure p
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 08/30/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -18,6 +18,42 @@ This article explains how to deploy and configure an elastic storage area networ
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
     - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+
+
+## Preview Registration
+Register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
+
+# [Portal](#tab/azure-portal)
+If you are using the portal, follow the steps in either the Azure PowerShell module or the Azure CLI to register your subscription for the preview.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
+Register-AzProviderFeature -FeatureName ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
+```
+
+It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
+
+```azurepowershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
+Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace "Microsoft.ElasticSan"
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az provider register --namespace Microsoft.ElasticSan
+az feature register --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
+```
+
+It may take a few minutes for registration to complete. To confirm you've registered, use the following command:
+
+```azurecli
+az provider show --namespace Microsoft.ElasticSan
+az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
+```
+---
 
 ## Limitations
 
@@ -175,7 +211,7 @@ The following sample command creates a single volume in the Elastic SAN volume g
 > [!IMPORTANT]
 > The volume name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
 
-Use the same variables you set for , then run the following script:
+Use the same variables, then run the following script:
 
 ```azurepowershell
 # Create the volume, this command only creates one.

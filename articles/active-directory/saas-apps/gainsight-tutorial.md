@@ -37,9 +37,9 @@ To integrate Azure Active Directory with Gainsight, you need:
 
 Before you begin the process of configuring single sign-on, you need to add the Gainsight application from the Azure AD gallery. You need a test user account to assign to the application and test the single sign-on configuration.
 
-### Add Gainsight from the Azure AD gallery
+### Add Gainsight SAML from the Azure AD gallery
 
-Add Gainsight from the Azure AD application gallery to configure single sign-on with Gainsight. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
+Add Gainsight SAML from the Azure AD application gallery to configure single sign-on with Gainsight. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
 ### Create and assign Azure AD test user
 
@@ -53,37 +53,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the Azure portal, on the **Gainsight** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
-
-   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
-
-1. On the **Basic SAML Configuration** section, perform the following steps:
-
-	a. In the **Identifier** textbox, type a value using one of the following patterns:
-
-	| **Identifier**  |
-    | ------------- |
-    | `urn:auth0:gainsight:<ID>`  |
-    | `urn:auth0:gainsight-eu:<ID>`  |
-	
-    b. In the **Reply URL** textbox, type a URL using one of the following patterns:
-    
-	| **Reply URL**  |
-    | ------------- |
-    | `https://secured.gainsightcloud.com/login/callback connection=<ID>` |
-    | `https://secured.eu.gainsightcloud.com/login/callback?connection=<ID>` |
-
-1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
-
-	In the **Sign on URL** textbox, type a URL using one of the following patterns:
-
-	| **Sign on URL** |
-	|------------|
-	| `https://secured.gainsightcloud.com/samlp/<ID>` |
-	| `https://secured.eu.gainsightcloud.com/samlp/<ID>` |
-
-	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Gainsight support team](mailto:support@gainsight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+1. Provide any dummy url like (`https://gainsight.com`) in the **Identifier (Entity ID)** and **Reply URL (Assertion Consumer Service URL)** in **Basic SAML Configuration** in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -92,6 +62,8 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 1. On the **Set up Gainsight SAML** section, copy the appropriate URL(s) based on your requirement.
 
    ![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
+
+1. Now on the Gainsight Side, Navigate to **User Management** and click on **Authentication** tab, create a new **SAML** Authentication.
 
 ## Setup SAML 2.0 Authentication in Gainsight
 
@@ -108,7 +80,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the **User Management** page, navigate to **Authentication** tab and click **Add Authentication** > **SAML**.
 
-    [ ![Screenshot shows the Gainsight User Management Authentication Page.](media/gainsight-tutorial/authentication.png "Authentication Page") ](media/gainsight-tutorial/authentication.png#lightbox)
+    ![Screenshot shows the Gainsight User Management Authentication Page.](media/gainsight-tutorial/authentication.png "Authentication Page")
 
 1. In the **SAML Mechanism** page, perform the following steps:
 
@@ -120,9 +92,39 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     1. In the **Sign Out URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
     1. Open the downloaded **Certificate (Base64)** from the Azure portal and upload it into the **Certificate** by clicking **Browse** option.
     1. Click **Save**.
+    1. Reopen the new **SAML** Authentication and click on edit on the newly created connection, and download the **metadata**. Open the **metadata** file in your favorite Editor, and copy **entityID** and **Assertion Consumer Service Location URL**.
 
     > [!Note]
     > For more information on SAML creation, please refer [GAINSIGHT SAML](https://support.gainsight.com/Gainsight_NXT/01Onboarding_and_Implementation/Onboarding_for_Gainsight_NXT/Login_and_Permissions/03Gainsight_Authentication).
+
+1. Now back to Azure portal, On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
+    
+    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
+
+1. On the **Basic SAML Configuration** section, using the values obtained in the Step 4, perform the following steps:
+
+	a. In the **Identifier (Entity ID)** textbox, type a value using one of the following patterns:
+
+	| **Identifier**  |
+    | ------------- |
+    | `urn:auth0:gainsight:<ID>`  |
+    | `urn:auth0:gainsight-eu:<ID>`  |
+	
+    b. In the **Reply URL (Assertion Consumer Service URL)** textbox, type a URL using one of the following patterns:
+    
+	| **Reply URL**  |
+    | ------------- |
+    | `https://secured.gainsightcloud.com/login/callback connection=<ID>` |
+    | `https://secured.eu.gainsightcloud.com/login/callback?connection=<ID>` |
+
+1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
+
+	In the **Sign on URL** textbox, type a URL using one of the following patterns:
+
+	| **Sign on URL** |
+	|------------|
+	| `https://secured.gainsightcloud.com/samlp/<ID>` |
+	| `https://secured.eu.gainsightcloud.com/samlp/<ID>` |
 
 ## Create Gainsight test user
 
@@ -130,7 +132,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the **User Management** page, navigate to **Users** > **Add User**.
     
-    [ ![Screenshot shows how to add users in Gainsight.](media/gainsight-tutorial/user.png "Add Users") ](media/gainsight-tutorial/user.png#lightbox)
+    ![Screenshot shows how to add users in Gainsight.](media/gainsight-tutorial/user.png "Add Users")
 
 1. Fill required fields and click **Save**. Users must be created and activated before you use single sign-on.
 
