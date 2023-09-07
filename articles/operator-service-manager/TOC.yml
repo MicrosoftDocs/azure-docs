@@ -13,15 +13,15 @@
   - name: Containerized Network Function (CNF)
     expanded: false
     items:
-      - name: Quickstart - Prerequisites for using Azure Operator Service Manager
+      - name: Prerequisites for using Azure Operator Service Manager
         href: ./overview
-      - name: Quickstart - How to Publish a Network Function Definition
+      - name: How to Publish a Network Function Definition
         href: ./overview
-      - name: Quickstart - How to Design a Network Service Design
+      - name: How to Design a Network Service Design
         href: ./overview
-      - name: Quickstart - Prerequisites for Operator
+      - name: Prerequisites for Operator
         href: ./overview
-      - name: Quickstart - How to Create Site
+      - name: How to Create Site
         href: ./overview
 - name: Resources
   expanded: false
