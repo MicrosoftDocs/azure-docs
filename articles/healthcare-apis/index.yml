@@ -55,10 +55,10 @@ conceptualContent:
             - url: ./fhir/get-started-with-fhir.md
               itemType: how-to-guide
               text: Deploy the FHIR service
-            - url: ./fhir/use-postman.md
+            - url: ./fhir/configure-cross-origin-resource-sharing.md
               itemType: how-to-guide
               text: Configure settings
-            - url: ./fhir/configure-cross-origin-resource-sharing.md
+            - url: ./fhir/centers-for-medicare-tutorial-introduction.md
               itemType: how-to-guide
               text: CMS operability and patient access
         # Card
