@@ -17,7 +17,7 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
-Currently in Azure Cognitive Search, "semantic search" is a collection of query-related capabilities that returns more relevant results by applying language understanding to an initial search result. This article is a high-level introduction to semantic search. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
+In Azure Cognitive Search, "semantic search" measurably improves search relevance by using language understanding to rerank an initial search result. This article is a high-level introduction to semantic reranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -32,7 +32,7 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 
 ## What is semantic search?
 
-Semantic search is a collection of features that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
+Semantic search is a collection of query-related capabilities that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
 
 * First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, promoting the most semantically relevant results to the top of the list. 
 

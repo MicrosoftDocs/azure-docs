@@ -1,5 +1,5 @@
 ---
-title: Configure relevance scoring
+title: Configure BM25 relevance scoring
 titleSuffix: Azure Cognitive Search
 description: Enable Okapi BM25 ranking to upgrade the search ranking and relevance behavior on older Azure Search services.
 author: HeidiSteen
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 08/31/2023
 ---
 
-# Configure relevance scoring
+# Configure BM25 relevance scoring
 
-In this article, you'll learn how to configure the similarity scoring algorithm used by Azure Cognitive Search. The BM25 scoring model has defaults for weighting term frequency and document length. You can customize these properties if the defaults aren't suited to your content.
+In this article, you'll learn how to configure the BM25 relevance scoring algorithm used by Azure Cognitive Search. BM25 applies to full text search queries and calculates an **@search.score** for each match in a given query. The results are then ranked by their search score, with the topmost results returned in the query response.
 
-Configuration changes are scoped to individual indexes, which means you can adjust relevance scoring based on the characteristics of each index.
+BM25 has defaults for weighting term frequency and document length. You can customize these properties if the defaults aren't suited to your content. Configuration changes are scoped to individual indexes, which means you can adjust relevance scoring based on the characteristics of each index.
 
 ## Default scoring algorithm
 
-Depending on the age of your search service, Azure Cognitive Search supports two [similarity scoring algorithms](index-similarity-and-scoring.md) for a full text search query:
+Depending on the age of your search service, Azure Cognitive Search supports two [scoring algorithms](index-similarity-and-scoring.md) for a full text search query:
 
 + Okapi BM25 algorithm (after July 15, 2020)
 + Classic similarity algorithm (before July 15, 2020)
