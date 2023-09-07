@@ -30,6 +30,7 @@ This table shows what features are supported between Azure portal and Visual Stu
 |Share inputs and outputs across multiple queries     |No          |Yes         |
 |Query testing with a sample file     |Yes        |Yes         |
 |Live data local testing     |No        |Yes      |
+| Time policy support in query testing | No        |Yes      |
 |List jobs and view job entities     |Yes          |Yes         |
 |Export a job to a local project     |No        |Yes         |
 |Submit, start, and stop jobs     |Yes          |Yes         |
