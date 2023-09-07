@@ -5,6 +5,9 @@
   items:
   - name: What is Azure Operator Service Manager?
     href: ./azure-operator-service-manager-overview.md
+- name: Concepts
+  expanded: false
+  items:
   - name: Roles and Interfaces
     href: roles-interfaces.md
   - name: Helm Package Requirements
