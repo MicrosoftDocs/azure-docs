@@ -35,18 +35,18 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
-    name: aks-helloworld
-    annotations:
-        kubernetes.io/ingress.class: addon-http-application-routing # Remove the ingress class annotation
+      name: aks-helloworld
+      annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing  # Remove the ingress class annotation
     spec:
-    rules:
-    - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE>
+      rules:
+      - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE>
         http:
-        paths:
-        - path: /
+          paths:
+          - path: /
             pathType: Prefix
             backend:
-            service: 
+              service: 
                 name: aks-helloworld
                 port: 
                 number: 80
@@ -58,17 +58,17 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
-    name: aks-helloworld
+      name: aks-helloworld
     spec:
-    ingressClassName: webapprouting.kubernetes.azure.com # Set the ingressClassName property to refer to the application routing add-on ingress class
-    rules:
-    - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE> # Replace with your own value
-        http:
-        paths:
-        - path: /
+      ingressClassName: webapprouting.kubernetes.azure.com # Set the ingress class property to refer to the application routing add-on ingress class
+      rules:
+      - http:
+        host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE> # Replace with your own hostname
+          paths:
+          - path: /
             pathType: Prefix
             backend:
-            service: 
+              service: 
                 name: aks-helloworld
                 port: 
                 number: 80
