@@ -49,7 +49,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
               service: 
                 name: aks-helloworld
                 port: 
-                number: 80
+                  number: 80
     ```
 
     After you've properly updated, the same configuration will look like the following:
@@ -71,7 +71,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
               service: 
                 name: aks-helloworld
                 port: 
-                number: 80
+                  number: 80
     ```
 
 3. Update the ingress controller's IP (such as in DNS records) with the new IP address. You can find the new IP by using `kubectl get`. For example:
