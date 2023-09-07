@@ -170,7 +170,7 @@ For the **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2
    * For **inputStorageFile** use `@triggerBody().fileName`. This parameter provides the runtime value for this parameter based on the file associated with the event triggered (for example: file name of the new HL7v2 blob created/updated in the storage account configured in the trigger).
    * For **rootTemplate** specify the name of the template to be used for the pipeline executions associated with this trigger (for example: `ADT_A01`).
 
-2. Select **Save** to create the new trigger. Be sure to select **Publish** on the menu bar to begin your trigger running on the defined schedule.
+2. Select **OK** to create the new trigger. Be sure to select **Publish** on the menu bar to begin your trigger running on the defined schedule.
 
    :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/trigger-run-parameters.png" alt-text="Screenshot of Azure Data Factory trigger parameters." lightbox="media/convert-data/convert-data-with-azure-data-factory/trigger-run-parameters.png":::
 
