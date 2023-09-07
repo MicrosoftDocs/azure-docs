@@ -1,6 +1,6 @@
 ---
 title: Map each REST operation to a price - Azure Blob Storage
-description: See how each REST operation in the Azure Blob Storage REST and Data Lake Storage REST API maps to transaction categories in the pricing pages.
+description: Find the operation type of each REST operation so that you can identify the price of an operation. 
 services: storage
 author: normesta
 ms.service: azure-blob-storage
@@ -10,15 +10,19 @@ ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
 
-# Map each REST operation to a price category
+# Map each REST operation to a price
 
-Put an opening paragraph here.
+This article maps each REST operation in the Blob Storage REST API and Data Lake Storage REST API with an operation type. With that information, you can identify the price of each operation. 
 
-Clients make a request by using a REST operation from the Blob Storage REST API or the Data Lake Storage Gen2 REST API. Requests that originate from custom applications that use an Azure Storage client library or from tools such as Azure Storage Explorer and AzCopy arrive to the service in the form of a REST operation from either of these APIs. Each request incurs a cost per transaction. Each type of transaction is billed at a different rate. Use these tables as a guide.
+Your client interacts with the Azure Blob Storage service by using REST operations. All traffic which originates from a client tool such as AzCopy, Azure Storage Explorer, and even custom applications that use Azure Storage client libraries arrives to the service in the form of REST operations. Other than the cost of storage and the use of other capabilities such as Blob index tags or blob inventory, much of your bill will consist of charges as they relate to operations that are executed against the service. To get more complete picture of all the costs which can appear on your bill, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage)
 
-## Transaction category of each Blob Storage REST operation
+Each pricing page lists prices by operation type. For example: a `write` operation is an operation type. You can use the tables in this article to determine the operation type of any given operation. Then, you can open the appropriate pricing page to determine the price of that operation type. 
 
-The following table maps each Blob Storage REST API operation to a transaction category that appears in the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
+There are two pricing pages for the Azure Blob Storage service. Use the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page to price requests that your client makes to the blob service endpoint by using [Blob Storage REST](https://learn.microsoft.com/rest/api/storageservices/blob-service-rest-api) operations. Use the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page to price requests that your client makes to the Data Lake Storage endpoint by using [Data Lake Storage Gen2](https://learn.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) operations.
+
+## Operation type of each Blob Storage REST operation
+
+The following table maps each Blob Storage REST API operation to a operation type.
 
 | Operation                                                                                 | Premium block blob        | Standard general-purpose v2 | Standard general-purpose v1 |
 |-------------------------------------------------------------------------------------------|---------------------------|-----------------------------|-----------------------------|
@@ -79,12 +83,11 @@ The following table maps each Blob Storage REST API operation to a transaction c
 | [Append Blob Seal](/rest/api/storageservices/append-blob-seal)                            | Write                     | Write                       | Write                       |
 | [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       |
 
-<sup>1</sup>    Acquire, release, renew, break, change
 <sup>2</sup>    In addition to a read charge, charges for incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
-## Transaction category of each Data Lake Storage Gen2 REST operation
+## Operation type of each Data Lake Storage Gen2 REST operation
 
-The following table maps each Blob Storage REST API operation to a transaction category that appears in the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
+The following table maps each Data Lake Storage Gen2 REST operation to an operation type.
 
 | Operation                                                                                              | Premium block blob | Standard general-purpose v2 |
 |--------------------------------------------------------------------------------------------------------|--------------------|-----------------------------|
