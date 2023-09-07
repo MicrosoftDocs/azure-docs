@@ -1,10 +1,33 @@
 - name: Azure Operator Service Manager documentation
-  href: ./overview.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: About Azure Operator Service Manager
-    href: ./overview.md
+  - name: What is Azure Operator Service Manager?
+    href: ./azure-operator-service-manager-overview.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Roles and Interfaces
+    href: roles-interfaces.md
+  - name: Helm Package Requirements
+    href: helm-requirements.md
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Containerized Network Function (CNF)
+    expanded: false
+    items:
+      - name: Prerequisites for using Azure Operator Service Manager
+        href: quickstart-containerized-network-function-prerequisites.md
+      - name: Publish a Network Function Definition
+        href: quickstart-publish-containerized-network-function-definition.md
+      - name: Design a Network Service Design
+        href: quickstart-containerized-network-function-network-design.md
+      - name: Prerequisites for Operator
+        href: quickstart-containerized-network-function-operator.md
+      - name: Create a Site
+        href: quickstart-containerized-network-function-create-site.md
 - name: Resources
   expanded: false
   items:
