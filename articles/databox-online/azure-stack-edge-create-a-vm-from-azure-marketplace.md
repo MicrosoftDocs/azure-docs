@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
-This' article describes how to create a VM image using source images from Azure Marketplace or images from an Azure Storage account. These VM images can then be used to create a VM on your Azure Stack Edge device.
+This article describes how to create a VM image using source images from Azure Marketplace or images from an Azure Storage account. These VM images can then be used to create a VM on your Azure Stack Edge device.
 
 The audience for this guide is IT administrators familiar with existing Azure Stack Edge solutions. 
 
