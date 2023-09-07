@@ -68,7 +68,11 @@ To ensure timely response to critical events in your AKS cluster, set up automat
 
 ### Regularly reviewing events
 
-Make a habit of regularly reviewing events in your AKS cluster. This proactive approach can help you identify trends, catch potential problems early, and prevent escalations. By staying on top of events, you can maintain the stability and performance of your applications. 
+Make a habit of regularly reviewing events in your AKS cluster. This proactive approach can help you identify trends, catch potential problems early, and prevent escalations. By staying on top of events, you can maintain the stability and performance of your applications.
+
+## Next steps
+
+Now that you understand Kubernetes events, you can continue your monitoring and observability journey by [enabling Container Insights][container-insights].
 
 <!-- LINKS -->
 [aks-azure-monitor]: ./monitor-aks.md
