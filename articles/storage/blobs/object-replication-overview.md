@@ -109,7 +109,7 @@ The source and destination containers must both exist before you can specify the
 You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
 
 > [!NOTE]
->  Changing the access tier of blob of source blob won't change the access tier of destination blob as [Set Blob Tier](/rest/api/storageservices/set-blob-tier) ins't implicit part of object replication. 
+> Changing the access tier of a blob in the source account won't change the access tier of that blob in the destination account. 
 
 ## Policy definition file
 
