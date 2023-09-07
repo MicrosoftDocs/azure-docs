@@ -27,6 +27,8 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `textSplitMode`    | Either `pages` or `sentences` | 
 | `maximumPageLength` | Only applies if `textSplitMode` is set to `pages`. This refers to the maximum page length in characters as measured by `String.Length`. The minimum value is 300, the maximum is 100000, and the default value is 5000.  The algorithm will do its best to break the text on sentence boundaries, so the size of each chunk may be slightly less than `maximumPageLength`. | 
+| `pageOverlapLength` | Only applies if `textSplitMode` is set to `pages`. If it's specificied (needs to be >= 0), (n+1)th page will start with this number of characters from the end of the nth page. If this is set to 0, it should behave the same as if this value is not set. |
+| `maximumPagesToTake` | Only applies if `textSplitMode` is set to `pages`. Number of pages to return. Default (0) to all pages. This can be used if only a partial number of pages is needed.
 | `defaultLanguageCode`	| (optional) One of the following language codes: `am, bs, cs, da, de, en, es, et, fr, he, hi, hr, hu, fi, id, is, it, ja, ko, lv, no, nl, pl, pt-PT, pt-BR, ru, sk, sl, sr, sv, tr, ur, zh-Hans`. Default is English (en). Few things to consider:<ul><li>Providing a language code is useful to avoid cutting a word in half for non-whitespace languages such as Chinese, Japanese, and Korean.</li><li>If you do not know the language (i.e. you need to split the text for input into the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), the default of English (en) should be sufficient. </li></ul>  |
 
 
@@ -51,6 +53,8 @@ Parameters are case-sensitive.
     "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
     "textSplitMode" : "pages", 
     "maximumPageLength": 1000,
+    "pageOverlapLength": 100,
+    "maximumPagesToTake": 1,
     "defaultLanguageCode": "en",
     "inputs": [
         {
@@ -103,8 +107,8 @@ Parameters are case-sensitive.
             "recordId": "1",
             "data": {
                 "textItems": [
-                    "This is the loan…",
-                    "On the second page we…"
+                    "This is the loan...Here is the overlap part...",
+                    "Here is the overlap part...On the second page we..."
                 ]
             }
         },
@@ -112,8 +116,8 @@ Parameters are case-sensitive.
             "recordId": "2",
             "data": {
                 "textItems": [
-                    "This is the second document...",
-                    "On the second page of the second doc…"
+                    "This is the second document...Here is the overlap part...",
+                    "Here is the overlap part...On the second page of the second doc..."
                 ]
             }
         }
@@ -122,7 +126,7 @@ Parameters are case-sensitive.
 ```
 
 ## Error cases
-If a language is not supported, a warning is generated.
++ If a language is not supported, a warning is generated.
 
 ## See also
 
