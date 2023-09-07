@@ -22,7 +22,7 @@ The following comparison matrix shows basic functionality of different tools tha
 |--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|---------------------------------------|
 |  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [Migrate Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cirrusdatasolutionsinc1618222951068.cirrus-migrate-cloud-sponsored-by-azure?tab=Overview)              |
 | **Support provided by**                 | Microsoft | Microsoft | [Data Dynamics](https://www.datdynsupport.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> | [Atempo](https://www.atempo.com/support-en/contacting-support/)<sub>1</sub>| [Cirrus Data](https://www.cirrusdata.com/global-support-services/)<sub>1</sub> |
-| **Assessment** | No | Yes | Yes | Yes | Yes | Yes |
+| **Assessment** | No | No | Yes | Yes | Yes | Yes |
 | **SAN Migration** | No | No | No | No | No | Yes |
 | **NFS to Azure Blob** | Yes | Yes | Yes | Yes | Yes | No |
 | **NFS to NFS** | No | No | Yes | Yes | Yes | No |
@@ -42,9 +42,9 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Azure Files support (all tiers)** | Yes                          | Yes                          | Yes                      | Yes            | Yes                            |
 | **Azure NetApp Files support**      | No                           | No                           | Yes                      | Yes            | Yes                            |
 | **Azure Blob Hot / Cool support**   | Yes                          | Yes                          | Yes     | Yes            | Yes                            |
-| **Azure Blob Archive tier support** | Yes                          | Yes                          | No                       | Yes             | Yes                             |
+| **Azure Blob Archive tier support** | Yes                          | No                           | No                       | Yes             | Yes                             |
 | **Azure Data Lake Storage support** | Yes                          | No                           | Yes                       | Yes             | No                             |
-| **Supported Sources**      | Any NAS, Azure Blob, Azure Files, Google Cloud Storage, and AWS S3 |  NAS & cloud file systems | Any NAS, and S3 | Any NAS, Cloud File Storage, or S3                 | Any NAS, S3, PFS, and Swift |
+| **Supported Sources**      | Any NAS, Azure Blob, Azure Files, Google Cloud Storage, and AWS S3 |  Any SMB/NFS share on servers and NAS devices | Any NAS, and S3 | Any NAS, Cloud File Storage, or S3                 | Any NAS, S3, PFS, and Swift |
 
 ## Supported protocols (source / destination)
 
@@ -83,7 +83,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Preserving access time**                | Yes (Azure Files) | Yes | Yes | Yes | Yes |
 | **Preserving modified time**              | Yes (Azure Files) | Yes | Yes | Yes | Yes |
 | **Preserving creation time**              | Yes (Azure Files) | Yes | Yes | Yes | Yes |
-| **Azure Data Box support**                | Yes | No | Yes | No | Yes |
+| **Azure Data Box support**                | Yes | Yes | Yes | No | Yes |
 | **Migration of snapshots**                | No  | No | Yes | No | No |
 | **Symbolic link support**                 | Yes | Yes | No | Yes | Yes |
 | **Hard link support**                     | Migrated as separate files | Migrated as separate files |  Yes | Yes | Yes |
