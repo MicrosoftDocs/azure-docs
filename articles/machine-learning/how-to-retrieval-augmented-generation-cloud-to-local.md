@@ -121,7 +121,7 @@ Create a connection yaml file "AzureOpenAIConnection.yaml", then run the connect
    >
    > Before run the flow, make sure you have `az login` and connect to the Azure Machine Learning workspace.
    >
-   > More detail you can refer to [Connect to Azure Machine Learning workspace](/prompt-flow/how-to-integrate-with-llm-app-devops.md#connect-to-azure-machine-learning-workspace)
+   > More detail you can refer to [Connect to Azure Machine Learning workspace](./prompt-flow/how-to-integrate-with-llm-app-devops.md#connect-to-azure-machine-learning-workspace)
 
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/search-blob.png" alt-text="Screenshot of search question from indexed docs node in VS Code showing the inputs." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/search-blob.png":::
 
@@ -153,7 +153,7 @@ Scroll up to the top of the flow, fill in the "Inputs" value of this single run 
 
 :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/flow-run.png" alt-text="Screenshot of the flow dag YAML file showing inputs and highlighting value of the question input and run button." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/flow-run.png":::
 
-For batch run and evaluation, you can refer to [Submit flow run to Azure Machine Learning workspace](/prompt-flow/how-to-integrate-with-llm-app-devops.md#submit-flow-run-to-azure-machine-learning-workspace)
+For batch run and evaluation, you can refer to [Submit flow run to Azure Machine Learning workspace](./prompt-flow/how-to-integrate-with-llm-app-devops.md#submit-flow-run-to-azure-machine-learning-workspace)
 
 # [Azure CLI](#tab/cli)
 
