@@ -98,7 +98,7 @@ Definition for the input batch translation request. Each request can contain mul
 
 Definition for the input batch translation request.
 
-|Name|Type|Required|Request parameters|Description|
+|Key parameter|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
 |**inputs**| `array`|True|&bullet; source (object)</br></br>&bullet; targets (array)</br></br>&bullet; storageType (string)|Input source data.|
 
@@ -106,38 +106,38 @@ Definition for the input batch translation request.
 
 Definition for the source data.
 
-|Name|Type|Required|Request parameters|Description|
+|Key parameter|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
 |**inputs.source** |`object`|True|&bullet; sourceUrl (string)</br></br>&bullet; filter (object)</br></br>&bullet; language (string)</br></br>&bullet; storageSource (string)|Source data for input documents.|
-|**inputs.source.sourceUrl**|`string`|True|string|Container location for the source file or folder.|
+|**inputs.source.sourceUrl**|`string`|True|&bullet; string|Container location for the source file or folder.|
 |**inputs.source.filter**|`object`|False|&bullet; prefix (string)</br></br>&bullet; suffix (string)|Case-sensitive strings to filter documents in the source path.|
-|**inputs.source.filter.prefix**|`string`|False|string|Case-sensitive prefix string to filter documents in the source path for translation. Often used to designate sub-folders for translation. Example: "_FolderA_".|
-|**inputs.source.filter.suffix**|`string`|False|string|Case-sensitive suffix string to filter documents in the source path for translation. Most often used for file extensions. Example: "_.txt_"|
-|**inputs.source.language**|`string`|False|string|The language code for the source documents. If not specified, auto-detect is implemented.
-|**inputs.source.storageSource**|`string`|False|string|Storage source for inputs. Defaults to "AzureBlob".|
+|**inputs.source.filter.prefix**|`string`|False|&bullet; string|Case-sensitive prefix string to filter documents in the source path for translation. Often used to designate sub-folders for translation. Example: "_FolderA_".|
+|**inputs.source.filter.suffix**|`string`|False|&bullet; string|Case-sensitive suffix string to filter documents in the source path for translation. Most often used for file extensions. Example: "_.txt_"|
+|**inputs.source.language**|`string`|False|&bullet; string|The language code for the source documents. If not specified, auto-detect is implemented.
+|**inputs.source.storageSource**|`string`|False|&bullet; string|Storage source for inputs. Defaults to "AzureBlob".|
 
 ### inputs.targets
 
 Definition for target and glossaries data.
 
-|Name|Type|Required|Request parameters|Description|
+|Key parameter|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
 |**inputs.targets**|`array`|True|&bullet; targetUrl (string)</br></br>&bullet; category (string)</br></br>&bullet; language (string)</br></br>&bullet; glossaries (array)</br></br>&bullet; storageSource (string)|Targets and glossaries data for translated documents.|
-|**inputs.targets.targetUrl**|`string`|True|string|Location of the container location for translated documents.|
-|**inputs.targets.category**|`string`|False|string|Classification or category for the translation request. Example: "_general_".|
-|**inputs.targets.language**|`string`|True|string|Target language code. Example: "_fr_".|
+|**inputs.targets.targetUrl**|`string`|True|&bullet; string|Location of the container location for translated documents.|
+|**inputs.targets.category**|`string`|False|&bullet; string|Classification or category for the translation request. Example: "_general_".|
+|**inputs.targets.language**|`string`|True|&bullet; string|Target language code. Example: "_fr_".|
 |**inputs.targets.glossaries**|`array`|False|&bullet; glossaryUrl (string)</br></br>&bullet; format (string)</br></br>&bullet; version (string)</br></br>&bullet; storageSource (string)|_See_ [Create and use glossaries](../how-to-guides/create-use-glossaries.md)|
-|**inputs.targets.glossaries.glossaryUrl**|`string`|True (if using glossaries)|string|Location of the glossary. The file extension is used to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it isn't applied.|
-|**inputs.targets.glossaries.format**|`string`|False|string|Specified file format for glossary. To check if your file format is supported, _see_ [Get supported glossary formats](get-supported-glossary-formats.md).|
-|**inputs.targets.glossaries.version**|`string`|False|string|Version indicator. Example: "_2.0_".|
-|**inputs.targets.glossaries.storageSource**|`string`|False|string|Storage source for glossaries. Defaults to "_AzureBlob_".|
-|**inputs.targets.storageSource**|`string`|False|string|Storage source for targets.Defaults to "_AzureBlob_".|
+|**inputs.targets.glossaries.glossaryUrl**|`string`|True (if using glossaries)|&bullet; string|Location of the glossary. The file extension is used to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it isn't applied.|
+|**inputs.targets.glossaries.format**|`string`|False|&bullet; string|Specified file format for glossary. To check if your file format is supported, _see_ [Get supported glossary formats](get-supported-glossary-formats.md).|
+|**inputs.targets.glossaries.version**|`string`|False|&bullet; string|Version indicator. Example: "_2.0_".|
+|**inputs.targets.glossaries.storageSource**|`string`|False|&bullet; string|Storage source for glossaries. Defaults to "_AzureBlob_".|
+|**inputs.targets.storageSource**|`string`|False|&bullet; string|Storage source for targets.Defaults to "_AzureBlob_".|
 
 ### inputs.storageType
 
 Definition of the storage entity for input documents.
 
-|Name|Type|Required|Request parameters|Description|
+|Key parameter|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
 |**inputs.storageType**|`string`|False|&bullet;`Folder`</br></br>&bullet; `File`|Storage type of the input documents source string. Only "_Folder_" or "_File_" are valid values.|
 
@@ -145,7 +145,7 @@ Definition of the storage entity for input documents.
 
 Definition for the input batch translation request.
 
-|Name|Type|Required|Request parameters|Description|
+|Key parameter|Type|Required|Request parameters|Description|
 |--- |---|---|---|--|
 |**options**|`object`|False|Source information for input documents.|
 |**options.experimental**|`boolean`|False|&bullet;`true`</br></br>&bullet; `false`|Indicates whether the request will include an experimental feature (if applicable). Only the booleans _`true`_ or _`false`_ are valid values.|
@@ -277,14 +277,14 @@ The following are the possible HTTP status codes that a request returns.
 
 ## Error response
 
-|Name|Type|Description|
+|Key parameter|Type|Description|
 |--- |--- |--- |
-|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
-|message|string|Gets high-level error message.|
+|code|`string`|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|message|`string`|Gets high-level error message.|
 |innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(it can be nested).|
-|inner.Errorcode|string|Gets code error string.|
-|innerError.message|string|Gets high-level error message.|
-|innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` if the document is invalid.|
+|inner.Errorcode|`string`|Gets code error string.|
+|innerError.message|`string`|Gets high-level error message.|
+|innerError.target|`string`|Gets the source of the error. For example, it would be `documents` or `document id` if the document is invalid.|
 
 ## Examples
 
