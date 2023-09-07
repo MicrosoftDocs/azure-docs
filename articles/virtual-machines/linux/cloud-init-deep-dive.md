@@ -23,7 +23,7 @@ When cloud-init is included in a generalized image and a VM is created from that
 
 Configuring a VM to run on a platform uses cloud-init to apply multiple configurations. The main configurations you interact with is `User data` (customData), which supports multiple formats. For more information, see [User-Data Formats & cloud-init 21.2 documentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). You also have the ability to add and run scripts (/var/lib/cloud/scripts) for other configuration.
 
-### Pre-configured Azure Marketplace images
+### Preconfigured Azure Marketplace images
 Some configurations are already baked into Azure Marketplace images that come with cloud-init.
 
 * **Cloud data source** - cloud-init contains code that can interact with cloud platforms, these codes are called 'datasources'. When a VM is created from a cloud-init image in [Azure](https://cloudinit.readthedocs.io/en/latest/reference/datasources/azure.html#azure), cloud-init loads the Azure datasource, which interacts with the Azure metadata endpoints to get the VM specific configuration.
@@ -41,11 +41,11 @@ Some configurations are already baked into Azure Marketplace images that come wi
 
 ## Cloud-init boot stages (processing configuration)
 
-When you are provisioning VMs with cloud-init there are five configuration boot stages. The output from these stages is visible in the logs.
+When you're provisioning VMs with cloud-init, there are five configuration boot stages. The output from these stages is visible in the logs.
 
 1. [Generator Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): The cloud-init systemd generator starts, and determines that cloud-init should be included in the boot goals, and if so, it enables cloud-init.
-2. [Cloud-init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): Here cloud-init looks for the local "Azure" datasource, which enables cloud-init to interface with Azure, and apply a networking configuration, including fallback.
-3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online, and the NIC and route table information should be generated. At this stage, the modules listed in `cloud_init_modules` in `/etc/cloud/cloud.cfg` runs. The VM in Azure is mounted, the ephemeral disk is formatted, the hostname is set, along with other tasks.
+2. [Cloud-init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): Here, cloud-init looks for the local "Azure" datasource, which enables cloud-init to interface with Azure, and apply a networking configuration, including fallback.
+3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online, and the NIC and route table information should be generated. At this stage, the modules listed in `cloud_init_modules` in `/etc/cloud/cloud.cfg` are run. The VM in Azure is mounted, the ephemeral disk is formatted, the hostname is set, along with other tasks.
 
    The following are some of the `cloud_init_modules`:
 
