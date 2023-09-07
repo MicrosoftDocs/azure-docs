@@ -229,11 +229,11 @@ Alternatively, you can perform a multi-phase upgrade.
     - performs read operations on the V1 collection only.
 3. Copy all data from the V1 collection to the V2 collection.
     - This can be done in a background process by the service version deployed in step 2.
-    - [Enumerate all keys](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary2-2.createkeyenumerableasync)
-      in the V1 collection with the
-      [IsolationLevel.Snapshot](/dotnet/api/microsoft.servicefabric.data.beta.ireliablestatemanager2.createtransaction)
-      to avoid locking it for the entire duration of the copy process.
-    - For each key, use a separate transaction with the [IsolationLevel.ReadRepeatable](/dotnet/api/microsoft.servicefabric.data.beta.isolationlevel) to 
+    - [Retreieve all keys](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary2-2.createkeyenumerableasync)
+      from the V1 collection. Enumeration is performed with the
+      [IsolationLevel.Snapshot](/dotnet/api/microsoft.servicefabric.data.beta.isolationlevel)
+      by default to avoid locking the collection for the duration of the operation.
+    - For each key, use a separate transaction to
         - [TryGetValueAsync](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.trygetvalueasync)
           from the V1 collection.
         - If the value has already been removed from the V1 collection since the copy process started,
@@ -243,6 +243,8 @@ Alternatively, you can perform a multi-phase upgrade.
         - If the value has already been added to the V2 collection since the copy process started,
           the key should be skipped.
         - The transaction should be committed only if the `TryAddAsync` returns `true`.
+        - Value access APIs use the [IsolationLevel.ReadRepeatable](/dotnet/api/microsoft.servicefabric.data.beta.isolationlevel)
+          by default and rely on locking to guarantee that the values aren't modified by another caller until the transaction is committed or aborted.
 4. Upgrade service to a new version that
     - performs read operations on the V2 collection only;
     - still performs each add, update and delete operation on first V1 and then V2 collections to maintain the option of rolling back to V1.
