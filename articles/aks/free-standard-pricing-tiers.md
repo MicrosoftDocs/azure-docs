@@ -83,7 +83,7 @@ Once the deployment completes, it returns JSON-formatted information about your 
 
 ## Update the tier of an existing AKS cluster
 
-The following example uses the `az aks update` command to update the existing cluster.
+The following example uses the [`az aks update`](/cli/azure/aks#az_aks_update) command to update the existing cluster.
 
 ```azurecli-interactive
 # Update an existing cluster to the Free tier
