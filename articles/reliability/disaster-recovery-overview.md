@@ -53,7 +53,7 @@ During a disaster, there are two methods of recovering data:
     
     - *Active-active* or *multimaster* replication enables using multiple replicas simultaneously, enabling load balancing at the cost of complicating data consistency. 
     
-    - *Active-passive* replication reserves replicas for live use during failover only. 
+- *Active-passive* replication reserves replicas for live use during failover only. 
     
     
 
