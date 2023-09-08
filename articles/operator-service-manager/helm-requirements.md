@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 Helm is a package manager for Kubernetes that helps you manage Kubernetes applications. Helm packages are called charts, and they consist of a few YAML configuration files and some templates that are rendered into Kubernetes manifest files. Charts are reusable by anyone for any environment, which reduces complexity and duplicates. 
 
 ## Registry URL path and imagepullsecrets requirements
-When developing a helm package, it is common to keep the container registry server URL in the values. This is useful for moving artifacts between each environment container registry. The Network Function Manager (NFM) contains features to inject container registry server location and imagepullsecrets into the helm values during NF deployment. An imagePullSecret is an authorization token, also known as a secret, that stores Docker credentials that are used for accessing a registry. For example, if you need to deploy an application via Kubernetes deployment, you can define a deployment like the following example: 
+When developing a helm package, it's common to keep the container registry server URL in the values. Keeping the container registry server URL in the values is useful for moving artifacts between each environment container registry. The Network Function Manager (NFM) contains features to inject container registry server location and imagepullsecrets into the helm values during NF deployment. An imagePullSecret is an authorization token, also known as a secret, that stores Docker credentials that are used for accessing a registry. For example, if you need to deploy an application via Kubernetes deployment, you can define a deployment like the following example: 
 
 ```json
 apiVersion: apps/v1 
@@ -79,7 +79,7 @@ $ helm install --set "global.registryPath=<registryURL>" --set "global.imagePull
 > [!NOTE]
 > The registryPath is set without any prefix such as https:// or  oci://. If a prefix is required in the helm package, publishers need to define this in the package. 
 
-`values.yaml` is a file that contains the default values for a Helm chart. It is a YAML file that defines the default values for a chart. In the values.yaml file, two types of variables must be present; imagePullSecrets and registryPath. Each are described in the table.
+`values.yaml` is a file that contains the default values for a Helm chart. It's a YAML file that defines the default values for a chart. In the values.yaml file, two types of variables must be present; imagePullSecrets and registryPath. Each is described in the table.
 
 ```json
 global: 
@@ -89,17 +89,17 @@ global:
 
 | Name      | Type | Description     |
 | :---        |    :----:   |          :--- |
-| imagePullSecrets      | String       | imagePullSecrets is array of secrets name which will be used to pull container images  |
+| imagePullSecrets      | String       | imagePullSecrets are an array of secret names, which are used to pull container images  |
 | registryPath      | String       | registryPath is the `AzureContainerRegistry` server location  |
 
 imagePullSecrets and registryPath must be provided in the create NFDVersion onboarding step. 
 
 An NFO running in the cluster populates these two variables (imagePullSecrets and registryPath) during a helm release using the helm install –set command.
 
-For additional details, see: [pull-image-private-registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry)
+For more information, see: [pull-image-private-registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry)
 
 ## Immutability restrictions
-Immutability restrictions prevent changes to a file or directory. For example, an immutable file cannot be changed or renamed, and a file that allows append operations cannot be deleted, modified, or renamed.
+Immutability restrictions prevent changes to a file or directory. For example, an immutable file can't be changed or renamed, and a file that allows append operations can't be deleted, modified, or renamed.
 
 ### Avoid use of mutable tags
 Users should avoid using mutable tags such as latest, dev or stable. For example, if deployment.yaml used 'latest' for the .Values.image.tag the deployment would fail.
@@ -109,14 +109,14 @@ Users should avoid using mutable tags such as latest, dev or stable. For example
 ```
 
 ### Avoid references to external registry
-Users should avoid using references to an external registry. For example, if deployment.yaml uses a hardcoded registry path or external registry references it will fail validation.
+Users should avoid using references to an external registry. For example, if deployment.yaml uses a hardcoded registry path or external registry references it fails validation.
 
 ```json
  image: http://myURL/{{ .Values.image.repository }}:{{ .Values.image.tag}}
 ```
 
 ## Recommendations
-Splitting the Custom Resource Definitions (CRDs) declaration and usage as well as using manual validations are recommended practices. Each is described in the following sections.
+Splitting the Custom Resource Definitions (CRDs) declaration and usage plus using manual validations are recommended practices. Each is described in the following sections.
 ### Split CRD declaration and usage 
 We recommend splitting the declaration and usage of CRDs into separate helm charts to support
 updates. For detailed information see: [method-2-separate-charts](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#method-2-separate-charts)
