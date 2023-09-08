@@ -117,6 +117,13 @@ To create and configure a project in a dev box:
 1. Confirm that the project is created successfully by checking the notifications. Select **Go to resource**.
 
 1. Verify that the project appears on the **Projects** page.
+ 
+
+As you create a project, you might see this informational message about catalogs: 
+
+:::image type="content" source="media/quickstart-configure-dev-box-service/project-catalog-message.png" alt-text="Screenshot showing an informational message that reads The dev center that contains this project does not have a catalog assigned.":::
+
+Because you're not configuring Deployment Environments, you can safely ignore this message.
 
 ## 2. Configure a network connection
 
@@ -207,7 +214,7 @@ To create the network connection, complete the steps on the relevant tab.
    |**Subscription**|Select the subscription in which you want to create the network connection.|
    |**ResourceGroup**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
    |**Name**|Enter a descriptive name for your network connection.|
-   |**Virtual network**|Select the virtual network that you want the network connection to use.|
+   |**Virtual network**|Select the virtual network that you want the network connection to use. Dev boxes are created and domain joined in the location of the virtual network.|
    |**Subnet**|Select the subnet that you want the network connection to use.|
    |**AD DNS domain name**| Enter the DNS name of the Active Directory domain that you want to use for connecting and provisioning Cloud PCs. For example: `corp.contoso.com`. |
    |**Organizational unit**| Enter the organizational unit (OU). An OU is a container within an Active Directory domain that can hold users, groups, and computers. |
@@ -237,13 +244,13 @@ To provide network configuration information for dev boxes, associate a network 
 
 1. On the **Add network connection** pane, select the network connection that you created, and then select **Add**.
 
-After you attach a network connection, the Azure portal runs several health checks on the network. You can view the status of the checks on the resource overview page. You can add network connections that pass all health checks to a dev center and use them to create dev box pools. Dev boxes that are in dev box pools are created and domain joined in the location of the virtual network that's assigned to the network connection.
+After you attach a network connection, the Azure portal runs several health checks on the network. You can view the status of the checks on the network connection overview page. You can add network connections that pass all health checks to a dev center and use them to create dev box pools. 
 
 :::image type="content" source="./media/quickstart-configure-dev-box-service/network-connection-grid-populated.png" alt-text="Screenshot that shows the status of a network connection.":::
 
 To resolve any errors, see [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
 
-Dev boxes automatically register with Microsoft Intune when they're created. If your network connection displays a warning for the Intune Enrollment Restrictions Allow Windows Enrollment test, check the Intune Windows platform restriction policy, as it may block you from provisioning. 
+Dev boxes automatically register with Microsoft Intune when they're created. If your network connection displays a warning for the **Intune Enrollment Restrictions Allow Windows Enrollment** test, check the Intune Windows platform restriction policy, as it may block you from provisioning. 
 
 :::image type="content" source="media/quickstart-configure-dev-box-service/network-connection-intune-warning.png" alt-text="Intune warning":::
 
@@ -353,7 +360,7 @@ To assign roles:
 
 Microsoft Dev Box  makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams. They can create and manage [dev box pools](./how-to-manage-dev-box-pools.md), set [dev box limits](./tutorial-dev-box-limits.md), and configure [auto-stop schedules](./how-to-configure-stop-schedule.md). To give users permissions to manage projects, assign the DevCenter Project Admin role to them.
 
-You can assign the DevCenter Project Admin role by using the steps described earlier in [6. Provide access to a dev box project](#6-provide-access-to-a-dev-box-project) and select the Project Admin role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
+You can assign the DevCenter Project Admin role by using the steps described earlier in [5. Provide access to a dev box project](#6-provide-access-to-a-dev-box-project) and select the Project Admin role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 
