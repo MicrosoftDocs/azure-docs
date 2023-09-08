@@ -23,9 +23,9 @@ This article provides a guide for installation of the Azure Application Consiste
 > [!IMPORTANT]
 > Distributed installations are the only option for Azure Large Instances systems, because they're deployed in a private network. You must install AzAcSnap on each system to ensure connectivity.
 
-The downloadable self-installer makes the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer sets up the user and puts the snapshot tools into the user's *$HOME/bin* subdirectory. (The default is */home/azacsnap/bin*).
+The downloadable self-installer makes the snapshot tools easy to set up and run with non-root user privileges (for example, `azacsnap`). The installer sets up the user and puts the snapshot tools into the user's `$HOME/bin` subdirectory. (The default is `/home/azacsnap/bin`.)
 
-The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user who's performing the installation (for example, root). If the prerequisite steps to enable communication with storage and SAP HANA were run as root, the installation copies the private key and `hdbuserstore` to the backup user's location. A knowledgeable administrator can manually take the steps to enable communication with the storage back end and SAP HANA after the installation.
+The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user who's performing the installation (for example, root). If the prerequisite steps to enable communication with storage and SAP HANA are run as root, the installation copies the private key and `hdbuserstore` to the backup user's location. A knowledgeable administrator can manually take the steps to enable communication with the storage back end and SAP HANA after the installation.
 
 ## Prerequisites for installation
 
@@ -194,7 +194,7 @@ az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --
 
     This command will automatically assign RBAC Contributor role to the service principal at the subscription level. You can narrow down the scope to the specific resource group where your tests will create the resources.
 
-1. Cut and paste the output content into a file called *azureauth.json* stored on the same system as the `azacsnap` command. Secure the file with appropriate system permissions.
+1. Cut and paste the output content into a file called `azureauth.json` stored on the same system as the `azacsnap` command. Secure the file with appropriate system permissions.
 
    > [!WARNING]
    > Make sure the format of the JSON file is exactly as described in the previous step (to create a service principal by using the Azure CLI). Ensure that the URLs are enclosed in double quotation marks (").
@@ -203,7 +203,7 @@ az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --
 
 Communication with the storage back end occurs over an encrypted SSH channel. The following example steps provide guidance on setup of SSH for this communication:
 
-1. Modify the */etc/ssh/ssh_config* file.
+1. Modify the `/etc/ssh/ssh_config` file.
 
     Refer to the following output, where the `MACs hmac-sha1` line has been added:
 
@@ -274,7 +274,7 @@ If you're deploying to a centralized virtual machine, you need to install and se
 
 The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to initiate and release the database save point. The following example shows the setup of the SAP HANA 2.0 user and `hdbuserstore` for communication to the SAP HANA database.
 
-The following example commands set up a user (AZACSNAP) in SYSTEMDB on SAP HANA 2.0 database. Change the IP address, usernames, and passwords as appropriate.
+The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on SAP HANA 2.0 database. Change the IP address, usernames, and passwords as appropriate.
 
 1. Connect to SYSTEMDB:
 
@@ -291,13 +291,13 @@ The following example commands set up a user (AZACSNAP) in SYSTEMDB on SAP HANA 
     hdbsql SYSTEMDB=>
     ```
 
-1. Create the user. This example creates the AZACSNAP user in SYSTEMDB:
+1. Create the user. This example creates the `AZACSNAP` user in SYSTEMDB:
 
     ```sql
     hdbsql SYSTEMDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
     ```
 
-1. Grant the user permissions. This example sets the permission for the AZACSNAP user to allow for performing a database-consistent storage snapshot:
+1. Grant the user permissions. This example sets the permission for the `AZACSNAP` user to allow for performing a database-consistent storage snapshot:
 
     - For SAP HANA releases up to version 2.0 SPS 03:
 
@@ -316,7 +316,7 @@ The following example commands set up a user (AZACSNAP) in SYSTEMDB on SAP HANA 
     > [!NOTE]
     > Check with corporate policy before you make this change.
 
-   The following example disables the password expiration for the AZACSNAP user. Without this change, the user's password could expire and prevent snapshots from being taken correctly.
+   The following example disables the password expiration for the `AZACSNAP` user. Without this change, the user's password could expire and prevent snapshots from being taken correctly.
 
    ```sql
    hdbsql SYSTEMDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
@@ -402,9 +402,9 @@ In the preceding code, the backslash (`\`) character is a command-line line wrap
 
 The snapshot tools communicate with the Oracle database and need a user who has appropriate permissions to enable and disable backup mode.
 
-After AzAcSnap puts the database in backup mode, AzAcSnap queries the Oracle database to get a list of files that have backup mode as active. This file list is sent into an external file. The external file is in the same location and basename as the log file, but with a *.protected-tables* file name extension. (The AzAcSnap log file details the output file name.)
+After AzAcSnap puts the database in backup mode, AzAcSnap queries the Oracle database to get a list of files that have backup mode as active. This file list is sent into an external file. The external file is in the same location and basename as the log file, but with a `.protected-tables` file name extension. (The AzAcSnap log file details the output file name.)
 
-The following example commands show the setup of the Oracle database user (AZACSNAP), the use of `mkstore` to create an Oracle wallet, and the `sqlplus` configuration files that are required for communication to the Oracle database. Change the IP address, usernames, and passwords as appropriate.
+The following example commands show the setup of the Oracle database user (`AZACSNAP`), the use of `mkstore` to create an Oracle wallet, and the `sqlplus` configuration files that are required for communication to the Oracle database. Change the IP address, usernames, and passwords as appropriate.
 
 1. Connect to the Oracle database:
 
@@ -421,7 +421,7 @@ The following example commands show the setup of the Oracle database user (AZACS
     SQL>
     ```
 
-1. Create the user. This example creates the AZACSNAP user:
+1. Create the user. This example creates the `AZACSNAP` user:
 
     ```sql
     SQL> CREATE USER azacsnap IDENTIFIED BY password;
@@ -431,7 +431,7 @@ The following example commands show the setup of the Oracle database user (AZACS
     User created.
     ```
 
-1. Grant the user permissions. This example sets the permission for the AZACSNAP user to allow for putting the database in backup mode:
+1. Grant the user permissions. This example sets the permission for the `AZACSNAP` user to allow for putting the database in backup mode:
 
     ```sql
     SQL> GRANT CREATE SESSION TO azacsnap;
@@ -466,7 +466,7 @@ The following example commands show the setup of the Oracle database user (AZACS
    > [!NOTE]
    > Check with corporate policy before you make this change.
 
-   This example gets the password expiration for the AZACSNAP user:
+   This example gets the password expiration for the `AZACSNAP` user:
 
    ```sql
    SQL> SELECT username,account_status,expiry_date,profile FROM dba_users WHERE username='AZACSNAP';
@@ -500,9 +500,9 @@ The following example commands show the setup of the Oracle database user (AZACS
 
    The Oracle wallet provides a method to manage database credentials across multiple domains. This capability uses a database connection string in the data-source definition, which is resolved with an entry in the wallet. When you use the Oracle wallet correctly, passwords in the data-source configuration are unnecessary.
 
-   This set up makes it possible to use the Oracle Transparent Network Substrate (TNS) administrative file with a connection string alias, which hides details of the database connection string. If the connection information changes, it's a matter of changing the *tnsnames.ora* file instead of (potentially) many data-source definitions.
+   This set up makes it possible to use the Oracle Transparent Network Substrate (TNS) administrative file with a connection string alias, which hides details of the database connection string. If the connection information changes, it's a matter of changing the `tnsnames.ora` file instead of (potentially) many data-source definitions.
 
-   Run the following commands on the Oracle database server. This example uses the `mkstore` command from the Linux shell to set up the Oracle wallet. These commands are run on the Oracle database server via unique user credentials to avoid any impact on the running database. This example creates a new user (azacsnap) and appropriately configures the environment variables.
+   Run the following commands on the Oracle database server. This example uses the `mkstore` command from the Linux shell to set up the Oracle wallet. These commands are run on the Oracle database server via unique user credentials to avoid any impact on the running database. This example creates a new user (`azacsnap`) and appropriately configures the environment variables.
 
    1. Get the Oracle environment variables to be used in setup. Run the following commands as the root user on the Oracle database server:
 
@@ -522,7 +522,7 @@ The following example commands show the setup of the Oracle database user (AZACS
       /u01/app/oracle/product/19.0.0/dbhome_1
       ```
 
-   1. Create the Linux user to generate the Oracle wallet and associated _*.ora_ files by using the output from the previous step.
+   1. Create the Linux user to generate the Oracle wallet and associated `*.ora` files by using the output from the previous step.
 
       These examples use the `bash` shell. If you're using a different shell (for example, `csh`), be sure to set environment variables correctly.
 
@@ -534,7 +534,7 @@ The following example commands show the setup of the Oracle database user (AZACS
       echo "export PATH=\$PATH:\$ORACLE_HOME/bin" >> /home/azacsnap/.bash_profile
       ```
 
-   1. As the new Linux user (azacsnap), create the wallet and _*.ora_ files.
+   1. As the new Linux user (`azacsnap`), create the wallet and `*.ora` files.
 
       Switch to the user created in the previous step:
 
@@ -575,7 +575,7 @@ The following example commands show the setup of the Oracle database user (AZACS
       Enter wallet password: <wallet_password>
       ```
 
-      Create the *tnsnames-ora* file. In the following example command, set `HOST` to the IP address of the Oracle database server. Set `SID` to the Oracle database SID.
+      Create the `tnsnames-ora` file. In the following example command, set `HOST` to the IP address of the Oracle database server. Set `SID` to the Oracle database SID.
 
       ```bash
       echo "# Connection string
@@ -583,7 +583,7 @@ The following example commands show the setup of the Oracle database user (AZACS
       " > $TNS_ADMIN/tnsnames.ora
       ```
 
-      Create the *sqlnet.ora* file:
+      Create the `sqlnet.ora` file:
 
       ```bash
       echo "SQLNET.WALLET_OVERRIDE = TRUE
@@ -630,7 +630,7 @@ The following example commands show the setup of the Oracle database user (AZACS
       Version 19.3.0.0.0
       ```
 
-      Create a ZIP file archive of the Oracle wallet and _*.ora_ files:
+      Create a ZIP file archive of the Oracle wallet and `*.ora` files:
 
       ```bash
       cd $TNS_ADMIN
@@ -658,7 +658,7 @@ The following example commands show the setup of the Oracle database user (AZACS
 
       1. Deploy the ZIP file that you copied in the previous step.
 
-         This step assumes that you already created the user running AzAcSnap (by default, azacsnap) by using the AzAcSnap installer.
+         This step assumes that you already created the user running AzAcSnap (by default, `azacsnap`) by using the AzAcSnap installer.
 
          > [!NOTE]
          > It's possible to use the `TNS_ADMIN` shell variable to allow for multiple Oracle targets by setting the unique shell variable value for each Oracle system as needed.
@@ -721,7 +721,7 @@ The following example commands show the setup of the Oracle database user (AZACS
 
          After you configure AzAcSnap (for example, `azacsnap -c configure --configuration new`) with the Oracle connection string (for example, `/@AZACSNAP`), it should be possible to connect to the Oracle database.
 
-         Check that the `$TNS_ADMIN` variable is set for the correct Oracle target system. The `$TNS_ADMIN` shell variable determines where to locate the Oracle wallet and _*.ora_ files, so you must set it before you run the `azacsnap` command.
+         Check that the `$TNS_ADMIN` variable is set for the correct Oracle target system. The `$TNS_ADMIN` shell variable determines where to locate the Oracle wallet and `*.ora` files, so you must set it before you run the `azacsnap` command.
 
          ```bash
          ls -al $TNS_ADMIN
@@ -755,22 +755,22 @@ The following example commands show the setup of the Oracle database user (AZACS
 
 # [IBM Db2](#tab/db2)
 
-The snapshot tools issue commands to the IBM Db2 database using the command line processor `db2` to enable and disable backup mode.
+The snapshot tools issue commands to the IBM Db2 database by using the command line processor `db2` to enable and disable backup mode.
 
-After AzAcSnap puts the database in backup mode, it queries the IBM Db2 database to get a list of "protected paths", which are part of the database where backup mode is active. This list is output into an external file, which is in the same location and basename as the log file, but with a `.\<DBName>-protected-paths` extension (output filename detailed in the AzAcSnap log file).
+After AzAcSnap puts the database in backup mode, it queries the IBM Db2 database to get a list of protected paths, which are part of the database where backup mode is active. This list is output into an external file, which is in the same location and basename as the log file but has a `.\<DBName>-protected-paths` extension. The AzAcSnap log file details the output file name.
 
-AzAcSnap uses the IBM Db2 command line processor `db2` to issue SQL commands, such as `SET WRITE SUSPEND` or `SET WRITE RESUME`. Therefore AzAcSnap should be installed in one of the following two ways:
+AzAcSnap uses the IBM Db2 command-line processor `db2` to issue SQL commands, such as `SET WRITE SUSPEND` or `SET WRITE RESUME`. So you should install AzAcSnap in one of the following ways:
 
-- Install onto the database server, then complete the set up with "[Db2 local connectivity](#db2-local-connectivity)".
-- Install onto a centralized backup system, then complete the set up with "[Db2 remote connectivity](#db2-remote-connectivity)".
+- Install on the database server, and then complete the setup with [Db2 local connectivity](#db2-local-connectivity).
+- Install on a centralized backup system, and then complete the setup with [Db2 remote connectivity](#db2-remote-connectivity).
 
 #### Db2 local connectivity
 
-If AzAcSnap has been installed onto the database server, then be sure to add the azacsnap user to the correct Linux group and import the Db2 instance user's profile per the following example set up.
+If you installed AzAcSnap on the database server, be sure to add the `azacsnap` user to the correct Linux group and import the Db2 instance user's profile. Use the following example setup.
 
 ##### azacsnap user permissions
 
-The azacsnap user should belong to the same Db2 group as the database instance user. The following example gets the group membership of the IBM Db2 installation's database instance user `db2tst`.
+The `azacsnap` user should belong to the same Db2 group as the database instance user. The following example gets the group membership of the IBM Db2 installation's database instance user `db2tst`:
 
 ```bash
 id db2tst
@@ -780,7 +780,7 @@ id db2tst
 uid=1101(db2tst) gid=1001(db2iadm1) groups=1001(db2iadm1)
 ```
 
-From the output, you can confirm the `db2tst` user has been added to the `db2iadm1` group, therefore add the azacsnap user to the group.
+From the output, you can confirm the `db2tst` user has been added to the `db2iadm1` group. Add the `azacsnap` user to the group:
 
 ```bash
 usermod -a -G db2iadm1 azacsnap
@@ -788,7 +788,9 @@ usermod -a -G db2iadm1 azacsnap
 
 ##### azacsnap user profile
 
-The azacsnap user needs to be able to execute the `db2` command. By default the `db2` command won't be in the azacsnap user's $PATH, therefore add the following to the user's `.bashrc` file using your own IBM Db2 installation value for `INSTHOME`.
+The `azacsnap` user needs to be able to run the `db2` command. By default, the `db2` command isn't in the `azacsnap` user's $PATH. 
+
+Add the following code to the user's `.bashrc` file. Use your own IBM Db2 installation value for `INSTHOME`.
 
 ```output
 # The following four lines have been added to allow this user to run the DB2 command line processor.
@@ -798,7 +800,7 @@ if [ -f ${INSTHOME}/sqllib/db2profile ]; then
 fi
 ```
 
-Test the user can run the `db2` command line processor.
+Test that the user can run the `db2` command-line processor:
 
 ```bash
 su - azacsnap
@@ -832,13 +834,13 @@ db2 => quit
 DB20000I  The QUIT command completed successfully.
 ```
 
-Now configure azacsnap to user localhost. Once this preliminary test as the azacsnap user is working correctly, go on to configure (`azacsnap -c configure`) with the `serverAddress=localhost` and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
+Now configure `azacsnap` to user `localhost`. After this preliminary test as the `azacsnap` user is working correctly, go on to configure (`azacsnap -c configure`) with the `serverAddress=localhost` and test (`azacsnap -c test --test db2`) AzAcSnap database connectivity.
 
 #### Db2 remote connectivity
 
-If AzAcSnap has been installed following option 2, then be sure to allow SSH access to the Db2 database instance per the following example set up.
+If you installed AzAcSnap on a centralized backup system, use the following example setup to allow SSH access to the Db2 database instance.
 
-Log in to the AzAcSnap system as the azacsnap user and generate a public/private SSH key pair.
+Log in to the AzAcSnap system as the `azacsnap` user and generate a public/private SSH key pair:
 
 ```bash
 ssh-keygen
@@ -867,7 +869,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-Get the contents of the public key.
+Get the contents of the public key:
 
 ```bash
 cat .ssh/id_rsa.pub
@@ -877,15 +879,15 @@ cat .ssh/id_rsa.pub
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02
 ```
 
-Log in to the IBM Db2 system as the Db2 Instance User.
+Log in to the IBM Db2 system as the Db2 instance user.
 
-Add the contents of the AzAcSnap user's public key to the Db2 Instance Users `authorized_keys` file.
+Add the contents of the AzAcSnap user's public key to the Db2 instance user's `authorized_keys` file:
 
 ```bash
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02" >> ~/.ssh/authorized_keys
 ```
 
-Log in to the AzAcSnap system as the azacsnap user and test SSH access.
+Log in to the AzAcSnap system as the `azacsnap` user and test SSH access:
 
 ```bash
 ssh <InstanceUser>@<ServerAddress>
@@ -895,7 +897,7 @@ ssh <InstanceUser>@<ServerAddress>
 [InstanceUser@ServerName ~]$
 ```
 
-Test the user can run the `db2` command line processor.
+Test that the user can run the `db2` command-line processor:
 
 ```bash
 db2
@@ -936,7 +938,7 @@ logout
 Connection to <serverAddress> closed.
 ```
 
-Once this is working correctly go on to configure (`azacsnap -c configure`) with the Db2 server's external IP address and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
+After the access is working correctly, go on to configure (`azacsnap -c configure`) with the Db2 server's external IP address and test (`azacsnap -c test --test db2`) AzAcSnap database connectivity.
 
 Run the `azacsnap` test command:
 
@@ -954,21 +956,20 @@ END   : Test process complete for 'db2'
 
 ---
 
-## Installing the snapshot tools
+## Install the snapshot tools
 
-The downloadable self-installer is designed to make the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer sets up the user and puts the snapshot tools
-into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
+The downloadable self-installer makes the snapshot tools easy to set up and run with non-root user privileges (for example, `azacsnap`). The installer sets up the user and puts the snapshot tools
+into the users `$HOME/bin` subdirectory. (The default is `/home/azacsnap/bin`.)
 
-The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the previous set up steps (Enable
-communication with storage and SAP HANA) were run as root, then the installation copies the private key and the `hdbuserstore` to the backup user's location. The steps to enable communication with the storage back end and database can be manually done by a knowledgeable administrator after the installation.
+The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the previous setup steps to enable communication with storage and SAP HANA were run as root, the installation copies the private key and `hdbuserstore` to the backup user's location. A knowledgeable administrator can manually take the steps to enable communication with the storage back end and database after the installation.
 
 > [!NOTE]
-> For earlier SAP HANA on Azure Large Instances installations, the directory of pre-installed snapshot tools was `/hana/shared/<SID>/exe/linuxx86_64/hdb`.
+> For earlier installations of SAP HANA on Azure Large Instances, the directory of preinstalled snapshot tools was `/hana/shared/<SID>/exe/linuxx86_64/hdb`.
 
-With the [prerequisite steps](#prerequisites-for-installation) completed, it's now possible to install the snapshot tools using the self-installer as follows:
+With the [prerequisite steps](#prerequisites-for-installation) completed, it's now possible to install the snapshot tools by using the self-installer as follows:
 
 1. Copy the downloaded self-installer to the target system.
-1. Execute the self-installer as the `root` user, see the following example. If necessary, make the file executable using the `chmod +x *.run` command.
+1. Run the self-installer as the root user. If necessary, make the file executable by using the `chmod +x *.run` command.
 
 Running the self-installer command without any arguments displays help on using the installer as follows:
 
@@ -994,23 +995,24 @@ Switches enclosed in [] are optional for each command line.
 Examples of a target directory are ./tmp or /usr/local/bin
 ```
 
-The self-installer has an option to extract (-X) the snapshot tools from the bundle without performing any user creation and set up. This allows an experienced administrator to complete the setup steps manually, or to copy the commands to upgrade an existing installation.
+The self-installer has an option to extract (`-X`) the snapshot tools from the bundle without performing any user creation and setup. An experienced administrator can then complete the setup steps manually or copy the commands to upgrade an existing installation.
 
-### Easy installation of snapshot tools (default)
+### Use the easy installation of snapshot tools (default)
 
-The installer has been designed to quickly install the snapshot tools for SAP HANA on Azure. By default, if the installer is run with only the -I option, it does the following steps:
+The installer can quickly install the snapshot tools for SAP HANA on Azure. By default, if you run the installer with only the `-I` option, it does the following steps:
 
-1. Create Snapshot user azacsnap, home directory, and set group membership.
-1. Configure the azacsnap user's login `~/.profile`.
-1. Search filesystem for directories to add to azacsnap's `$PATH`. This task allows the user who runs azacsnap to use SAP HANA commands, such as `hdbsql` and `hdbuserstore`.
-1. Search filesystem for directories to add to azacsnap's `$LD_LIBRARY_PATH`. Many commands require a library path to be set in order to execute correctly, this task configures it for the installed user.
-1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running the install). This task assumes the "root" user has already configured connectivity to the storage (for more information, see section [Enable communication with storage](#enable-communication-with-storage)).
-1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This task assumes the "root" user has already configured the secure user store (for more information, see section "Enable communication with SAP HANA").
+1. Create snapshot user `azacsnap`, create the home directory, and set group membership.
+1. Configure the `azacsnap` user's login `~/.profile` information.
+1. Search the file system for directories to add to `$PATH` for AzAcSnap. This task allows the user who runs AzAcSnap to use SAP HANA commands, such as `hdbsql` and `hdbuserstore`.
+1. Search the file system for directories to add to `$LD_LIBRARY_PATH` for AzAcSnap. Many commands require you to set a library path to run them correctly. This task configures it for the installed user.
+1. Copy the SSH keys for back-end storage for AzAcSnap from the root user (the user running the installation).
+
+   This task assumes that the root user has already configured connectivity to the storage. For more information, see the earlier section [Enable communication with storage](#enable-communication-with-storage).
+1. Copy the SAP HANA connection's secure user store for the target user, `azacsnap`. This task assumes that the root user has already configured the secure user store. For more information, see the earlier section [Enable communication with the database](#enable-communication-with-the-database).
 1. The snapshot tools are extracted into `/home/azacsnap/bin/`.
-1. The commands in `/home/azacsnap/bin/` have their permissions set (ownership and executable bit, etc.).
+1. The commands in `/home/azacsnap/bin/` have their permissions set (including ownership and executable bit).
 
-The following example shows the correct output of the installer when run with the default
-installation option.
+The following example shows the correct output of the installer when you run it by using the default installation option:
 
 ```bash
 ./azacsnap_installer_v5.0.run -I
@@ -1058,22 +1060,21 @@ installation option.
 
 ### Uninstall the snapshot tools
 
-If the snapshot tools have been installed using the default settings, uninstallation only requires removing the user the commands have been installed for (default = azacsnap).
+If you installed the snapshot tools by using the default settings, uninstallation requires only removing the user that you installed the commands for. The default is `azacsnap`.
 
 ```bash
 userdel -f -r azacsnap
 ```
 
-### Manual installation of the snapshot tools
+### Manually install the snapshot tools
 
-In some cases, it's necessary to install the tools manually, but the recommendation is to use the installer's default option to ease this process.
+In some cases, it's necessary to install the tools manually. But we recommend that you use the installer's default option to ease this process.
 
-Each line starting with a `#` character demonstrates the example commands following the character are run by the root user. The `\` at the end of a line is the standard line-continuation character for a
-shell command.
+Each line that starts with a pound (`#`) character demonstrates that the root user runs the example commands after the character. The backslash (`\`) at the end of a line is the standard line-continuation character for a shell command.
 
-As the root superuser, a manual installation can be achieved as follows:
+As the root superuser, you can follow these steps for a manual installation:
 
-1. Get the "sapsys" group ID, in this case the group ID = 1010
+1. Get the `sapsys` group ID. In this case, the group ID is `1010`.
 
     ```bash
     grep sapsys /etc/group
@@ -1083,31 +1084,31 @@ As the root superuser, a manual installation can be achieved as follows:
     sapsys:x:1010:
     ```
 
-1. Create Snapshot user 'azacsnap', home directory, and set group membership using the group ID from step 1.
+1. Create snapshot user `azacsnap`, create the home directory, and set group membership by using the group ID from step 1:
 
     ```bash
     useradd -m -g 1010 -c "Azure SAP HANA Snapshots User" azacsnap
     ```
 
-1. Make sure the user azacsnap's login `.profile` exists.
+1. Make sure the login `.profile` information for the `azacsnap` user exists:
 
     ```bash
     echo "" >> /home/azacsnap/.profile
     ```
 
-1. Search filesystem for directories to add to azacsnap's $PATH, these are typically the paths to the SAP HANA tools, such as `hdbsql` and `hdbuserstore`.
+1. Search the file system for directories to add to `$PATH` for AzAcSnap. These directories are typically the paths to the SAP HANA tools, such as `hdbsql` and `hdbuserstore`.
 
     ```bash
     HDBSQL_PATH=`find -L /hana/shared/[A-z0-9][A-z0-9][A-z0-9]/HDB*/exe /usr/sap/hdbclient -name hdbsql -exec dirname {} + 2> /dev/null | sort | uniq | tr '\n' ':'`
     ```
 
-1. Add the updated PATH to the user's profile:
+1. Add the updated `$PATH` information to the user's profile:
 
     ```bash
     echo "export PATH=\"\$PATH:$HDBSQL_PATH\"" >> /home/azacsnap/.profile
     ```
 
-1. Search filesystem for directories to add to azacsnap's $LD_LIBRARY_PATH.
+1. Search the file system for directories to add to `$LD_LIBRARY_PATH` for AzAcSnap:
 
     ```bash
     NEW_LIB_PATH=`find -L /hana/shared/[A-z0-9][A-z0-9][A-z0-9]/HDB*/exe /usr/sap/hdbclient -name "*.so" -exec dirname {} + 2> /dev/null | sort | uniq | tr '\n' ':'`
@@ -1123,40 +1124,39 @@ As the root superuser, a manual installation can be achieved as follows:
 
     # [Azure NetApp Files (with VM)](#tab/azure-netapp-files)
 
-    1. On Azure NetApp Files
-        1. Configure the user's `DOTNET_BUNDLE_EXTRACT_BASE_DIR` path per the .NET Core single-file extract guidance.
-            1. SUSE Linux
+    Configure the user's `DOTNET_BUNDLE_EXTRACT_BASE_DIR` path according to the .NET Core single-file extract guidance.
 
-                ```bash
-                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
-                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
-                ```
+    Use the following code for SUSE Linux:
 
-            1. RHEL
+    ```bash
+    echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
+    echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+    ```
 
-                ```bash
-                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
-                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
-                ```
+    Use the following code for RHEL:
+
+    ```bash
+    echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
+    echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+    ```
 
     # [Azure Large Instances (bare metal)](#tab/azure-large-instance)
 
-    1. On Azure Large Instances
-        1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running the install). This assumes the "root" user has already configured connectivity to the storage (see section [Enable communication with storage](#enable-communication-with-storage)).
+    1. Copy the SSH keys for back-end storage for AzAcSnap from the root user (the user running the installation). This step assumes that the root user has already configured connectivity to the storage. For more information, see the earlier section [Enable communication with storage](#enable-communication-with-storage).
 
-            ```bash
-            cp -pr ~/.ssh /home/azacsnap/.
-            ```
+        ```bash
+        cp -pr ~/.ssh /home/azacsnap/.
+        ```
 
-        1. Set the user permissions correctly for the SSH files
+    1. Set the user permissions correctly for the SSH files
 
-            ```bash
-            chown -R azacsnap.sapsys /home/azacsnap/.ssh
-            ```
+        ```bash
+        chown -R azacsnap.sapsys /home/azacsnap/.ssh
+        ```
 
     ---
 
-1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This assumes the "root" user has already configured the secure user store. See section [Enable communication with the database](#enable-communication-with-the-database).
+1. Copy the SAP HANA connection's secure user store for the target user, `azacsnap`. This step assumes that the root user has already configured the secure user store. For more information, see the earlier section [Enable communication with the database](#enable-communication-with-the-database).
 
     ```bash
     cp -pr ~/.hdb /home/azacsnap/.
@@ -1168,7 +1168,7 @@ As the root superuser, a manual installation can be achieved as follows:
     chown -R azacsnap.sapsys /home/azacsnap/.hdb
     ```
 
-1. Extract the snapshot tools into /home/azacsnap/bin/.
+1. Extract the snapshot tools into `/home/azacsnap/bin/`:
 
     ```bash
     ./azacsnap_installer_v5.0.run -X -d /home/azacsnap/bin
@@ -1180,7 +1180,7 @@ As the root superuser, a manual installation can be achieved as follows:
     chmod 700 /home/azacsnap/bin/*
     ```
 
-1. Ensure the correct ownership permissions are set on the user's home directory:
+1. Ensure that the correct ownership permissions are set on the user's home directory:
 
     ```bash
     chown -R azacsnap.sapsys /home/azacsnap/*
@@ -1188,11 +1188,9 @@ As the root superuser, a manual installation can be achieved as follows:
 
 ### Complete the setup of snapshot tools
 
-The installer provides steps to complete after the installation of the snapshot tools has been done.
+The installer provides steps to complete after you install the snapshot tools.
 
-Follow these steps to configure and test the snapshot tools. After successful testing, then perform the first database-consistent storage snapshot.
-
-The following output shows the steps to complete after running the installer with the default installation options:
+The following output shows the steps to complete after running the installer with the default installation options. Follow these steps to configure and test the snapshot tools.
 
 ```output
 1. Change into the snapshot user account
@@ -1217,9 +1215,9 @@ The following output shows the steps to complete after running the installer wit
 Step 2 is necessary if "[Enable communication with the database](#enable-communication-with-the-database)" wasn't done before the
 installation.
 
-The test commands should execute correctly. Otherwise, the commands may fail.
+If the test commands run correctly, the test is successful. You can then perform the first database-consistent storage snapshot.
 
-## Configuring the database
+## Configure the database
 
 This section explains how to configure the database.
 
