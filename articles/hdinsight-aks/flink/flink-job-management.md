@@ -7,9 +7,9 @@ ms.date: 09/07/2023
 ---
 # Flink job management
 
-    HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
+HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
 
-    This feature empowers users to efficiently control and monitor their Flink jobs without requiring deep cluster-level knowledge.
+This feature empowers users to efficiently control and monitor their Flink jobs without requiring deep cluster-level knowledge.
 
 ## Benefits
 
@@ -22,8 +22,11 @@ ms.date: 09/07/2023
 1. **Automating Flink job using azure pipeline**: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps. It empowers you to manage your Flink cluster efficiently.
 
 ## Prerequisites
-    There are some prerequisites before submitting and managing jobs from portal or Rest APIs.
+
+There are some prerequisites before submitting and managing jobs from portal or Rest APIs.
+
 1. Create a directory in the primary storage account of the cluster to upload the job jar.
+
 1. If the user wants to take savepoints, then create a directory in the storage account for job savepoints.
 
     :::image type="image" source="./media/flink-job-management/create-directory.png" alt-text="Screenshot shows directory structure." border="true" lightbox="./media/flink-job-management/create-directory.png":::
@@ -47,18 +50,18 @@ ms.date: 09/07/2023
 
 ## Options to manage job in Hilo Flink
 
-    Hilo provides ways to manage Flink jobs.
+Hilo provides ways to manage Flink jobs.
 
-    1. [Azure Portal](#azure-portal)
-    1. [ARM Rest API](#arm-rest-api)
+1. [Azure Portal](#azure-portal)
+1. [ARM Rest API](#arm-rest-api)
 
 ### <a id="azure-portal">Job Management from Azure Portal</a>
 
-    To run the Flink job from portal go to:
+To run the Flink job from portal go to:
 
-    Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flink Jobs 
+Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flink Jobs 
 
-    :::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run `flink` job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
+:::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run `flink` job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
 
 1. **New job:** To submit a new job, upload the job jars to the storage account and create a savepoint directory. Complete the template with the necessary configurations and then submit the job.
 
@@ -151,19 +154,21 @@ ms.date: 09/07/2023
 
 ### <a id="arm-rest-api">Job Management Using Rest API</a>
 
-    HDInsight on AKS - Flink supports user friendly ARM Rest APIs to submit job and manage job. Using this Flink REST API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps and empowers you to manage your Flink cluster efficiently.
+HDInsight on AKS - Flink supports user friendly ARM Rest APIs to submit job and manage job. Using this Flink REST API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps and empowers you to manage your Flink cluster efficiently.
+
 #### Base URL format for Rest API
-    Below is the base URL for rest API, users need to replace subscription, resource group, cluster pool, cluster name and Hilo API version in this before using it.
+
+Below is the base URL for rest API, users need to replace subscription, resource group, cluster pool, cluster name and Hilo API version in this before using it.
 
     ```Job API
-    https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runjob?api-version={{HILO_API_VERSION}}
+            https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runjob?api-version={{HILO_API_VERSION}}
     ```
 
-    Using this REST API, users can initiate new jobs, stop jobs, start jobs, create savepoints, cancel jobs, and delete jobs. The current HILO_API_VERSION is 2023-06-01-preview.
+Using this REST API, users can initiate new jobs, stop jobs, start jobs, create savepoints, cancel jobs, and delete jobs. The current HILO_API_VERSION is 2023-06-01-preview.
 
 #### Rest API Authentication 
 
-    To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or access token for ARM resource. To authenticate Azure ARM (Azure Resource Manager) REST API using a service principal, you can follow these general steps:
+To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or access token for ARM resource. To authenticate Azure ARM (Azure Resource Manager) REST API using a service principal, you can follow these general steps:
 
 1. Create a Service Principal.
 
