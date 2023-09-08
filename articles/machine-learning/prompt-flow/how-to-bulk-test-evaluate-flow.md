@@ -59,11 +59,11 @@ Prompt flow also  supports mapping your flow input to a specific data column in 
 
 Then, in the next step, you can decide to use an evaluation method to validate the performance of this run either immediately or later. For a completed batch run, a new round of evaluation can still be added.
 
-You can directly click **"Next"** button to skip this step and run the batch run without using any evaluation method to calculate metrics. In this way, this batch run only generates outputs for your dataset. You can check the outputs manually or export them for further analysis with other methods.
+You can directly select the **"Next"** button to skip this step and run the batch run without using any evaluation method to calculate metrics. In this way, this batch run only generates outputs for your dataset. You can check the outputs manually or export them for further analysis with other methods.
 
 Otherwise, if you want to run batch run with evaluation now, you can select an evaluation method from the dropdown box based on the description provided. After you selected an evaluation method, you can select **"View detail"** button to see more information about the selected method, such as the metrics it generates and the connections and inputs it requires.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-eval-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method from drop-down box. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-eval-selection.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-eval-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method from drop-down box." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-eval-selection.png":::
 
 In the  **"input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column may come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
@@ -90,7 +90,7 @@ After you finish the input mapping, select on  **"Next"**  to review your settin
 
 ## View the evaluation result and metrics
 
-After submission, you can find the submitted batch run in the run list tab in prompt flow page. Click a run to navigate to the run detail page.
+After submission, you can find the submitted batch run in the run list tab in prompt flow page. Select a run to navigate to the run detail page.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-list.png" alt-text="Screenshot of prompt flow run list page where you find batch runs. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-list.png":::
 
@@ -104,9 +104,9 @@ In the overview panel, you can check the metadata of this run. You can also go t
 
 You can  **select an evaluation run**  from the dropdown box and you'll see appended columns at the end of the table showing the evaluation result for each row of data. In this screenshot, you can locate the result that is falsely predicted with the output column "grade".
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-eval.png" alt-text="Screenshot of batch run detail page on the outputs tab where evaluation results are appended. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-eval.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-evaluation.png" alt-text="Screenshot of batch run detail page on the outputs tab where evaluation results are appended. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-evaluation.png":::
 
-To view the overall performance, you can select the **"Metrics"** tab, and you can see various metrics that indicate the quality of each variant.
+To view the overall performance, you can select the **Metrics** tab, and you can see various metrics that indicate the quality of each variant.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-metrics.png" alt-text="Screenshot of batch run detail page on the metrics tab where you check the overall performance in the metrics tab. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-metrics.png":::
 
@@ -120,15 +120,15 @@ If you have already completed a batch run, you can start another round of evalua
 - you have already used evaluation method to calculate a metric. You can start another round of evaluation to calculate another metric.
 - your evaluation run failed but your flow successfully generated outputs. You can submit your evaluation again.
 
-You can select **"New evaluation"** to start another round of evaluation. 
+You can select **New evaluation** to start another round of evaluation.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-new-eval.png" alt-text="Screenshot of batch run detail page on where to start a new round of evaluation. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-new-eval.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-new-evaluation.png" alt-text="Screenshot of batch run detail page on where to start a new round of evaluation. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-new-evaluation.png":::
 
 After setting up the configuration, you can select **"Submit"** for this new round of evaluation. After submission, you'll be able to see a new record in the prompt flow run list.
 
 After the evaluation run completed, similarly, you can check the result of evaluation in the **"Overview->Output"** tab of the batch run detail page. You need select the new evaluation run to view its result.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-new-eval.png" alt-text="Screenshot of batch run detail page on the output tab with checking the new evaluation output." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-new-eval.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-new-evaluation.png" alt-text="Screenshot of batch run detail page on the output tab with checking the new evaluation output." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-new-evaluation.png":::
 
 When multiple different evaluation runs are submitted for a batch run, you can go to the **"Metrics"** tab of the batch run detail page to compare all the metrics. 
 
@@ -144,9 +144,9 @@ You can select on each batch run to check the detail. You can also select multip
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-history-list.png" alt-text="Screenshot of batch run runs showing the history." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-history-list.png":::
 
-In the "Visualize output" panel the **Runs & metrics** table shows the information of the selected runs with highlight. Other runs that take the outputs of the selected runs as input are also listed. 
+In the "Visualize output" panel the **Runs & metrics** table shows the information of the selected runs with highlight. Other runs that take the outputs of the selected runs as input are also listed.
 
-In the "Outputs" table, you can compare the selected batch runs by each line of sample. By clicking the "eye visualizing" icon in the "Runs & metrics" table, outputs of that run will be appended to the corresponding base run.
+In the "Outputs" table, you can compare the selected batch runs by each line of sample. By selecting the "eye visualizing" icon in the "Runs & metrics" table, outputs of that run will be appended to the corresponding base run.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-compare.png" alt-text="Screenshot of metrics compare of multiple batch runs." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-compare.png":::
 

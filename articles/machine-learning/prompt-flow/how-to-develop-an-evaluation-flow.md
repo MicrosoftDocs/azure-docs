@@ -42,7 +42,7 @@ The process of customizing and creating evaluation methods is similar to that of
 
 Find the built-in evaluation methods by selecting the  **"Create"**  button on the homepage and navigating to the Create from gallery -\> Evaluation tab. You can view more details about an evaluation method by selecting  **"View details"**.
 
-If you want to customize this evaluation method, you can click the **"Clone"** button.
+If you want to customize this evaluation method, you can select the **"Clone"** button.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-from-gallery.png" alt-text="Screenshot of the Prompt flow gallery with the evaluation tab selected. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-from-gallery.png":::
 
@@ -50,7 +50,7 @@ By the name of the flow, you can see an **"evaluation"** tag, indicating you're 
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-tag.png" alt-text="Screenshot of Classification Accuracy Evaluation with the evaluation tag underlined. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-tag.png":::
 
-Alternatively, you can customize a built-in evaluation method from a completed run by clicking the  **"Clone"**  icon when viewing its snapshot from the run detail page.
+Alternatively, you can customize a built-in evaluation method from a completed run by selecting the  **"Clone"**  icon when viewing its snapshot from the run detail page.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.png" alt-text="Gif of cloning a Web Classification batch run. " lightbox = "./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.png":::
 
@@ -120,7 +120,7 @@ To record the score for each data sample, calculate the score for each output, a
 
 We calculate this score in `line_process` node, which you can create and edit from scratch when creating by type. You can also replace this python node with an LLM node to use LLM to calculate the score.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/line-process.png" alt-text="Screenshot of line_process node in the template. " lightbox = "./media/how-to-develop-an-evaluation-flow/line-process.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/line-process.png" alt-text="Screenshot of line process node in the template. " lightbox = "./media/how-to-develop-an-evaluation-flow/line-process.png":::
 
 When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Overview ->Output** tab.
 
@@ -160,10 +160,10 @@ def calculate_accuracy(grades: List[str], variant_ids: List[str]):
 
     return aggregate_grades
 ```
+
 As you called this function in the Python node, you don't need to assign it anywhere else, and you can view the metrics later. When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Ovewview->Metrics** tab.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png" alt-text="Screenshot of the metrics tab that shows the metrics logged by log_metric. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png":::
-
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png" alt-text="Screenshot of the metrics tab that shows the metrics logged by log metric. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png":::
 
 ## Next steps
 
