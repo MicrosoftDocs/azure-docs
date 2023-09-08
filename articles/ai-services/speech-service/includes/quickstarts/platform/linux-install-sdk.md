@@ -10,7 +10,7 @@ Use the following procedure to download and install the SDK. The steps include [
 
 1. Choose a directory to which the Speech SDK files should be extracted. Set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands.
 
-   If you want to use the directory `speechsdk` in your home directory, use a command like the following example:
+   If you want to use the directory *speechsdk* in your home directory, use a command like the following example:
 
    ```sh
    export SPEECHSDK_ROOT="$HOME/speechsdk"
@@ -39,11 +39,11 @@ Use the following procedure to download and install the SDK. The steps include [
 
     | Path | Description |
     |:-----|:----|
-    | `license.md` | License
-    | `ThirdPartyNotices.md` | Third-party notices
-    | `REDIST.txt` | Redistribution notice
-    | `include` | Required header files for C++
-    | `lib/arm32` | Native library for ARM32 required to link your application
-    | `lib/arm64` | Native library for ARM64 required to link your application
-    | `lib/x64` | Native library for x64 required to link your application
-    | `lib/x86` | Native library for x86 required to link your application
+    | *license.md* | License
+    | *ThirdPartyNotices.md* | Third-party notices
+    | *REDIST.txt* | Redistribution notice
+    | *include* | Required header files for C++
+    | *lib/arm32* | Native library for ARM32 required to link your application
+    | *lib/arm64* | Native library for ARM64 required to link your application
+    | *lib/x64* | Native library for x64 required to link your application
+    | *lib/x86* | Native library for x86 required to link your application

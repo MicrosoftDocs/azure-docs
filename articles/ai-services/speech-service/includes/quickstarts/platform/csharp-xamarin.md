@@ -125,4 +125,3 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
    ```
 
 The Speech SDK is now installed. You can now delete or reuse the **helloworld** project that you created in the previous steps.
-

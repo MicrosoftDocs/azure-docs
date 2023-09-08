@@ -71,6 +71,6 @@ For more information about Visual Studio Code and Python, see [Visual Studio Cod
 
 Add the following import statement to use the Speech SDK in your Python project:
 
-```Python
+```python
 import azure.cognitiveservices.speech as speechsdk
 ```
