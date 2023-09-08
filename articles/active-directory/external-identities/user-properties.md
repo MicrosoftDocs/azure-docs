@@ -91,7 +91,7 @@ facebook.com | This user has a Facebook account and has signed up by using self-
 mail | This user has signed up by using Azure AD Email one-time passcode (OTP).
 {issuer URI} | This user is homed in an external organization that doesn't use Azure Active Directory as their identity provider, but instead uses a SAML/WS-Fed-based identity provider. The issuer URI is shown when the Identities field is clicked.
 
-The `phone`value as an identity provider is not supported for B2B accounts. 
+Phone sign-in is not supported for external users. B2B accounts cannot use `phone`value as an identity provider. 
 
 ### Directory synced
 
