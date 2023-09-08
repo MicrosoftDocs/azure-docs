@@ -110,8 +110,8 @@ Here are some example license scenarios to help you determine the number of lice
 | Scenario | Calculation | Number of licenses |
 | --- | --- | --- |
 | An Identity Governance Administrator at Woodgrove Bank creates initial catalogs. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees who **can** request the access packages | 2,000 |
-| An Identity Governance Administrator at Woodgrove Bank creates initial catalogs. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner Contoso** (guests) can request the same access packages subject to approval. Contoso has 30,000 users. 150 employees request the access packages and 10,500 users from Contoso request access. | 2,000 employees need licenses, guest users are billed on a monthly active user basis and no additional licenses are required for them. * | 2,000 |
-| An Identity Governance Administrator at Woodgrove Bank creates initial catalogs. They create an auto-assignment policy that grants **All members of the Sales department** (350 employees) access to a specific set of access packages. Another policy specifies that some users from the **Vendor Sales group** (guests) can request the same access packages subject to approval. The Vendor group has 500 users. 350 employees are auto-assigned the access packages and 300 users from the vendor sales group request access. | 350 employees need licenses, guest users are billed on a monthly active user basis and no additional licenses are required for them. * | 350 |
+| An Identity Governance Administrator at Woodgrove Bank creates initial catalogs. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees need licenses. | 2,000 |
+| An Identity Governance Administrator at Woodgrove Bank creates initial catalogs. They create an auto-assignment policy that grants **All members of the Sales department** (350 employees) access to a specific set of access packages. 350 employees are auto-assigned to the access packages. | 350 employees need licenses. | 350 |
 
 ## Access reviews
 
@@ -124,8 +124,8 @@ Here are some example license scenarios to help you determine the number of lice
 | An administrator creates an access review of Group A with 75 users and 1 group owner, and assigns the group owner as the reviewer. | 1 license for the group owner as reviewer | 1 |
 | An administrator creates an access review of Group B with 500 users and 3 group owners, and assigns the 3 group owners as reviewers. | 3 licenses for each group owner as reviewers | 3 |
 | An administrator creates an access review of Group B with 500 users. Makes it a self-review. | 500 licenses for each user as self-reviewers | 500 |
-| An administrator creates an access review of Group C with 50 member users and 25 guest users. Makes it a self-review. | 50 licenses for each user as self-reviewers.* | 50 |
-| An administrator creates an access review of Group D with 6 member users and 108 guest users. Makes it a self-review. | 6 licenses for each user as self-reviewers. Guest users are billed on a monthly active user (MAU) basis. No additional licenses are required. *  | 6 |
+| An administrator creates an access review of Group C with 50 member users. Makes it a self-review. | 50 licenses for each user as self-reviewers.* | 50 |
+| An administrator creates an access review of Group D with 6 member users. Makes it a self-review. | 6 licenses for each user as self-reviewers. No additional licenses are required. *  | 6 |
 
 ## Lifecycle Workflows
 
