@@ -52,7 +52,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 - To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
 
     ```console
-    https://github.com/Azure-Samples/ms-identity-javascript-tutorial
+    git clone https://github.com/Azure-Samples/ms-identity-javascript-tutorial
     ```
 
 - [Download the .zip file](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/archive/refs/heads/main.zip).
