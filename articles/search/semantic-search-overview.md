@@ -17,7 +17,7 @@ ms.date: 09/08/2023
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
-In Azure Cognitive Search, "semantic search" measurably improves search relevance by using language understanding to rerank an initial search result. This article is a high-level introduction to semantic reranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
+In Azure Cognitive Search, *semantic search* measurably improves search relevance by using language understanding to rerank an initial search result. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -38,7 +38,7 @@ Semantic search is a collection of query-related capabilities that improve the q
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-Although semantic search and vector search are closely related, this particular feature in Cognitive Search doesn't perform similarity search.
+<!-- Although semantic search and vector search are closely related, this particular feature in Cognitive Search doesn't perform similarity search. -->
 
 | Feature | Description |
 |---------|-------------|
@@ -48,9 +48,66 @@ Although semantic search and vector search are closely related, this particular 
 
 ## How semantic ranking works
 
-*Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense for the query. Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience.
+Semantic ranking looks for context and relatedness among terms, elevating matches that make more sense for the query. 
 
-To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default BM25 scoring algorithm](index-similarity-and-scoring.md). Semantic ranking re-scores those results based on the semantic strength of the match.
+The following illustration explains *semantic relevance*. Consider the term "capital". It has different meanings depending on whether the context is finance, law, geography, or grammar. Through language understanding, the semantic reranker can detect context and promote results that fit query intent.
+
+:::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
+
+<!-- Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience. -->
+
+Semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, inputs to the semantic ranker are consolidated and reduced so that the underlying summarization and reranking steps can be completed as quickly as possible.
+
+### How inputs are prepared
+
+If you opt-in for semantic ranking, the query subsystem must provide content that can be handled efficiently by the models. The following steps explain how the inputs are assembled.
+
+1. Content reduction starts with a [BM25-ranked search result](index-ranking-similarity.md) from a text query. Only full text queries are in scope, and only the top 50 results progress to semantic ranking, even if results include more than 50.
+
+1. From each match, for each field listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration), the query subsystem extracts the value and combines them into one long string. Typically, fields used in semantic ranking are textual and descriptive.
+
+1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step.
+
+   This trimming exercise is why it's important to add fields to your semantic configuration in priority order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
+
+Each document is now represented by a single long string.
+
+The string is composed of tokens, not characters or words. The maximum token count is 256 unique tokens. For estimation purposes, you can assume that 256 tokens are roughly equivalent to a string that is 256 words in length. 
+
+> [!NOTE]
+> Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from semantic ranking. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
+
+## How inputs are summarized
+
+After strings are prepared, it's now possible to pass the reduced inputs through machine reading comprehension and language representation models to determine which sentences and phrases best summarize the document, relative to the query. This phase extracts content from the string that will move forward to the semantic ranker.
+
+Inputs to summarization are the long strings obtained for each document in the preparation phase. From each string, the summarization model finds a passage that is the most representative.
+
+Outputs are:
+
+* A [semantic caption](semantic-how-to-query-request.md) for the document. Each caption is available in a plain text version and a highlight version, and is frequently fewer than 200 words per document.
+
+* An optional [semantic answer](semantic-answers.md), assuming you specified the `answers` parameter, the query was posed as a question, and a passage is found in the long string that provides a likely answer to the question.
+
+Captions and answers are always verbatim text from your index. There's no generative AI model in this workflow that creates or composes new content.
+
+### How summaries are scored
+
+Scoring is done over captions.
+
+1. Captions are evaluated for conceptual and semantic relevance, relative to the query provided.
+
+1. A **@search.rerankerScore** is assigned to each document based on the semantic relevance of the caption. Scores range from 4 to 0 (high to low), where a higher score indicates a stronger match.
+
+1. Matches are listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
+
+> [!NOTE]
+> Beginning on July 14, 2023, the **@search.rerankerScore** distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
+
+<!-- > [!NOTE]
+> In the 2020-06-30-preview, the "searchFields" parameter is used rather than the semantic configuration to determine which fields to use. We recommend upgrading to the 2021-04-30-preview API version for best results. -->
+
+<!-- To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default BM25 scoring algorithm](index-similarity-and-scoring.md). Semantic ranking re-scores those results based on the semantic strength of the match. -->
 
 The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
@@ -58,21 +115,21 @@ The following video provides an overview of the capabilities.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
-### Order of operations
+<!-- ### Order of operations -->
 
-Components of semantic search extend the existing query execution pipeline in both directions. If you enable spelling correction, the [speller](speller-how-to-add.md) corrects typos at query onset, before terms reach the search engine.
+<!-- Components of semantic search extend the existing query execution pipeline in both directions. If you enable spelling correction, the [speller](speller-how-to-add.md) corrects typos at query onset, before terms reach the search engine.
 
-:::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Semantic components in query execution" border="true":::
+:::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Semantic components in query execution" border="true"::: -->
 
-Query execution proceeds as usual, with term parsing, analysis, and scans over the inverted indexes. The engine retrieves documents using token matching, and scores the results using the [default scoring algorithm](index-similarity-and-scoring.md). Scores are calculated based on the degree of linguistic similarity between query terms and matching terms in the index. If you defined them, scoring profiles are also applied at this stage. Results are then passed to the semantic search subsystem.
+<!-- Query execution proceeds as usual, with term parsing, analysis, and scans over the inverted indexes. The engine retrieves documents using token matching, and scores the results using the [default scoring algorithm](index-similarity-and-scoring.md). Scores are calculated based on the degree of linguistic similarity between query terms and matching terms in the index. If you defined them, scoring profiles are also applied at this stage. Results are then passed to the semantic search subsystem. -->
 
-In the preparation step, the document corpus returned from the initial result set is analyzed at the sentence and paragraph level to find passages that summarize each document. In contrast with keyword search, this step uses machine reading and comprehension to evaluate the content. Through this stage of content processing, a semantic query returns [captions](semantic-how-to-query-request.md) and [answers](semantic-answers.md). To formulate them, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question - and answers are requested - the response includes a text passage that best answers the question, as expressed by the search query. 
+<!-- In the preparation step, the document corpus returned from the initial result set is analyzed at the sentence and paragraph level to find passages that summarize each document. In contrast with keyword search, this step uses machine reading and comprehension to evaluate the content. Through this stage of content processing, a semantic query returns [captions](semantic-how-to-query-request.md) and [answers](semantic-answers.md). To formulate them, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question - and answers are requested - the response includes a text passage that best answers the question, as expressed by the search query. 
 
-For both captions and answers, existing text is used in the formulation. The semantic models don't compose new sentences or phrases from the available content, nor does it apply logic to arrive at new conclusions. In short, the system will never return content that doesn't already exist.
+For both captions and answers, existing text is used in the formulation. The semantic models don't compose new sentences or phrases from the available content, nor does it apply logic to arrive at new conclusions. In short, the system will never return content that doesn't already exist. -->
 
-Results are then re-scored based on the [conceptual similarity](semantic-ranking.md) of query terms.
+<!-- Results are then re-scored based on the [conceptual similarity](semantic-ranking.md) of query terms. -->
 
-To use semantic capabilities in queries, you make small modifications to the [search request](semantic-how-to-query-request.md). No extra configuration or reindexing is required.
+<!-- To use semantic capabilities in queries, you make small modifications to the [search request](semantic-how-to-query-request.md). No extra configuration or reindexing is required. -->
 
 ## Semantic capabilities and limitations
 
