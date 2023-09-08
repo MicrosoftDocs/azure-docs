@@ -38,7 +38,7 @@ Microsoft has several built-in implementations for using Cognitive Search in a R
 
 + Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
 
-However, if you need a custom approach, you can roll your own RAG solution. The remainder of this article explores how Cognitive Search fits into a custom solution.
+If, you need a custom approach however, you can create your own custom RAG solution. The remainder of this article explores how Cognitive Search fits into a custom solution.
 
 > [!NOTE]
 > Prefer to look at code? You can review the [Azure Cognitive Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
