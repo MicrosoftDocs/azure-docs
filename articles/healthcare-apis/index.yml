@@ -113,8 +113,8 @@ conceptualContent:
               text: Disable events 
             - url: ./events/events-troubleshooting-guide.md
               itemType: how-to-guide
-              text: Troubleshoot events 
-          
+              text: Troubleshoot events
+             
 additionalContent:
   sections:
     - title: Other services 
