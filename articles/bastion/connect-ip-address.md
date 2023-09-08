@@ -26,6 +26,8 @@ IP-based connection lets you connect to your on-premises, non-Azure, and Azure v
 
 * Azure Active Directory authentication and custom ports and protocols aren't currently supported when connecting to a VM via native client.
 
+* UDR is not supported on Bastion subnet, including with IP-based connection. 
+
 ## Prerequisites
 
 Before you begin these steps, verify that you have the following environment set up:

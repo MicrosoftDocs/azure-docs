@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: include
 ms.date: 08/31/2023
 ---
@@ -158,12 +158,6 @@ Use the following steps to connect your service instances:
 
    ```bash
    azd auth login
-   ```
-
-1. Use the following command to enable Azure Spring Apps feature:
-
-   ```bash
-   azd config set alpha.springapp on
    ```
 
 1. Use the following command to provision the template's infrastructure to Azure:

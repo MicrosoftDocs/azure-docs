@@ -237,7 +237,8 @@ This section describes the function app configuration settings available for fun
     "version": "2.0",
     "extensions": {
         "blobs": {
-            "maxDegreeOfParallelism": 4
+            "maxDegreeOfParallelism": 4,
+            "poisonBlobThreshold": 1
         }
     }
 }
@@ -246,6 +247,7 @@ This section describes the function app configuration settings available for fun
 |Property  |Default | Description |
 |---------|---------|---------|
 |maxDegreeOfParallelism|8 * (the number of available cores)|The integer number of concurrent invocations allowed for all blob-triggered functions in a given function app. The minimum allowed value is 1.|
+|poisonBlobThreshold|5|The integer number of times to try processing a message before moving it to the poison queue. The minimum allowed value is 1.|
 
 ## Next steps
 
