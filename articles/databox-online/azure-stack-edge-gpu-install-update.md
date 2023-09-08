@@ -20,7 +20,7 @@ The procedure described in this article was performed using a different version 
 
 ## About latest updates
 
-The current update is Update 2307. This update installs two updates, the device update followed by Kubernetes updates. 
+The current update is Update 2309. This update installs two updates, the device update followed by Kubernetes updates. 
 
 The associated versions for this update are:
 
@@ -34,13 +34,19 @@ The associated versions for this update are:
 
 For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2304-release-notes.md).
 
-**To apply the 2307 update, your device must be running version 2207 or later.**
+**To apply the 2309 update, your device must be running version 2207 or later.**
 
 - If you are not running the minimum required version, you'll see this error:
  
   *Update package cannot be installed as its dependencies are not met.*
 
 - You can update to 2207 from 2106 or later, and then install 2307.
+
+Supported update paths:
+
+| Current version of Azure Stack Edge software and Kubernetes | Upgrade to software and Kubernetes | Desired update to 2309 |
+|-------|----------|------------ |
+| 2207  | 2303  | 2309  |
 
 ### Update Azure Kubernetes service on Azure Stack Edge
 
