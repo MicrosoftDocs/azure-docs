@@ -43,7 +43,8 @@ In this article:
     ```bash
     # Download, extract and install
     curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0/notation_1.0.0_linux_amd64.tar.gz
-                    
+    tar xvzf notation.tar.gz
+
     # Copy the notation cli to the desired bin directory in your PATH, for example
     cp ./notation /usr/local/bin
     ```
@@ -152,23 +153,21 @@ To import a certificate, follow these steps:
 
 ## Sign a container image with Notation CLI and AKV plugin 
 
-1. Build and push a new image with ACR Tasks. Always use `digest` to identify the image for signing, because tags are mutable and and can be overwritten.
+1. Authenticate to your ACR by using your individual Azure identity.
+
+    ```bash
+    az acr login --name $ACR_NAME
+    ```
+
+> [!IMPORTANT]
+> If you have Docker installed on your system and used `az acr login` or `docker login` to authenticate to your ACR, your credentials are already stored and available to notation. In this case, you don’t need to run `notation login` again to authenticate to your ACR. To learn more about authentication options for notation, see [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/).
+
+2. Build and push a new image with ACR Tasks. Always use `digest` to identify the image for signing, because tags are mutable and and can be overwritten.
 
     ```bash
     DIGEST=$(az acr build -r $ACR_NAME -t $REGISTRY/${REPO}:$TAG $IMAGE_SOURCE --no-logs --query "outputImages[0].digest" -o tsv)
     IMAGE=$REGISTRY/${REPO}@$DIGEST
     ```
-
-2. Authenticate with your individual Azure AD identity to use an ACR token. 
-
-    ```bash
-    export USER_NAME="00000000-0000-0000-0000-000000000000" 
-    export PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken) 
-    notation login -u $USER_NAME -p $PASSWORD $REGISTRY 
-    ```
- 
-    > [!NOTE]
-    > If notation login is failing, you may need to Configure a credentials store. Alternatively in development and testing environments, you can use environment variables to authenticate to an OCI-compliant registry. See guide [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/) for details.
 
 3. Assign access policy in AKV (Azure CLI)
 
