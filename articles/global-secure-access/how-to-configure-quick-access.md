@@ -67,7 +67,7 @@ On the Quick Access page, you provide a name for the Quick Access app, select a 
 
 ### Name and connector group
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** with the appropriate roles. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with the appropriate roles. 
 1. Browse to **Global Secure Access (preview)** > **Applications** > **Quick access**.
 1. Enter a name. *We recommend using the name Quick Access*. 
 1. Select a Connector group from the dropdown menu.
@@ -83,7 +83,7 @@ The **Add Quick Access application segment** portion of this process is where yo
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. Browse to **Global Secure Access (preview)** > **Applications** > **Quick Access**.
 1. Select **Add Quick Access application segment**.
 
@@ -134,7 +134,7 @@ You can view the properties from **Quick Access** or navigate to **Enterprise ap
 
 You can add or update the FQDNs and IP addresses included in your Quick Access app at any time.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. Browse to **Global Secure Access (preview)** > **Applications** > **Quick Access**.
     - To add an FQDN or IP address, select **Add Quick Access application segment**.
     - To edit an FQDN or IP address, select it from the **Destination type** column.
@@ -149,7 +149,7 @@ Creating a Conditional Access policy is covered in detail in [How to create a Co
 
 Once you have your Quick Access app configured, your private resources added, users assigned to the app, you can enable the Private access profile from the **Traffic forwarding** area of Global Secure Access. You can enable the profile before configuring Quick Access, but without the app and profile configured, there's no traffic to forward.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. Browse to **Global Secure Access (preview)** > **Connect** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
 

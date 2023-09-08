@@ -30,7 +30,7 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 ## Enable the Private access traffic forwarding profile
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. Browse to **Global Secure Access (preview)** > **Connect** > **Traffic forwarding**.
 1. Select the checkbox for **Private Access profile**.
 

@@ -31,7 +31,7 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 - For details on limitations for the Microsoft 365 traffic profile, see [Windows Client known limitations](how-to-install-windows-client.md#known-limitations)
 ## Enable the Microsoft 365 traffic profile
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. Browse to **Global Secure Access (preview)** > **Connect** > **Traffic forwarding**.
 1. Select the checkbox for **Microsoft 365 access profile**.
 
