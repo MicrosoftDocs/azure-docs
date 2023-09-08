@@ -44,7 +44,7 @@ Log Analytics and application insights are deeply integrated with Azure Spring A
 
 ## 4. Query logs to diagnose an application problem
 
-If you encounter production issues, find query logs for distributed applications that are spread across multiple applications. The trace data collected by Application Insight can help find the log information of all related links, including the exception stack information.
+If you encounter production issues, find query logs for distributed applications that are spread across multiple applications. The trace data collected by Application Insights can help find the log information of all related links, including the exception stack information.
 
 This section explains how to use Log Analytics to query the application logs, and use Application Insights to investigate request failures. For more information, see the following articles:
 
@@ -121,19 +121,19 @@ To investigate request failures in the application cluster and to view the faile
 
 1. On the left navigation menu, select **Application Insights** to go to the Application Insights overview page, and select **Failures**.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insight-failures.png" alt-text="Screenshot of the Azure portal that shows the failures." lightbox="media/tutorial-applications-observability/ai-failures.png":::
+   :::image type="content" source="media/tutorial-applications-observability/application-insights-failures.png" alt-text="Screenshot of the Azure portal that shows the failures." lightbox="media/tutorial-applications-observability/application-insights-failures.png":::
 
 1. On the **Failure** page, select the `PUT` operation that has the most failed requests count, select **1 Samples** to go into the details, and then select the suggested sample in the right panel.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insight-failure-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the suggested failure sample." lightbox="media/tutorial-applications-observability/ai-failure-suggested-sample.png":::
+   :::image type="content" source="media/tutorial-applications-observability/application-insights-failure-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the suggested failure sample." lightbox="media/tutorial-applications-observability/application-insights-failure-suggested-sample.png":::
 
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insight-e2e-exception.png" alt-text="Screenshot of the Azure portal that shows the failure exception." lightbox="media/tutorial-applications-observability/ai-e2e-exception.png":::
+   :::image type="content" source="media/tutorial-applications-observability/application-insights-e2e-exception.png" alt-text="Screenshot of the Azure portal that shows the failure exception." lightbox="media/tutorial-applications-observability/application-insights-e2e-exception.png":::
 
 ## 5. Improve the application performance using Application Insights
 
-If there's a performance issue, the trace data collected by Application Insight can help find the log information of all relevant links, including the execution time of each link.
+If there's a performance issue, the trace data collected by Application Insights can help find the log information of all relevant links, including the execution time of each link.
 
 To use Application Insights to investigate the performance issues, use the following steps:
 
@@ -141,15 +141,15 @@ To use Application Insights to investigate the performance issues, use the follo
 
 1. On the left navigation menu, select **Application Insights** to go to the Application Insights overview page, and select **Performance**.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-performance.png" alt-text="Screenshot of the Azure portal that shows the performance page." lightbox="media/tutorial-applications-observability/ai-performance.png":::
+   :::image type="content" source="media/tutorial-applications-observability/application-insights-performance.png" alt-text="Screenshot of the Azure portal that shows the performance page." lightbox="media/tutorial-applications-observability/application-insights-performance.png":::
 
 1. On the **Performance** page, select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to go into the details, and then select the suggested sample in the right panel.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the suggested performance sample." lightbox="media/tutorial-applications-observability/ai-performance-suggested-sample.png":::
+   :::image type="content" source="media/tutorial-applications-observability/application-insights-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the suggested performance sample." lightbox="media/tutorial-applications-observability/application-insights-performance-suggested-sample.png":::
 
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel. 
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-e2e-performance.png" alt-text="Screenshot of the Azure portal that shows the performance issue." lightbox="media/tutorial-applications-observability/ai-e2e-performance.png":::
+   :::image type="content" source="media/tutorial-applications-observability/application-insights-e2e-performance.png" alt-text="Screenshot of the Azure portal that shows the performance issue." lightbox="media/tutorial-applications-observability/application-insights-e2e-performance.png":::
 
 [!INCLUDE [clean-up-resources-portal](includes/tutorial-applications-observability/clean-up-resources.md)]
 
