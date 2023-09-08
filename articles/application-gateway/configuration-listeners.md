@@ -36,8 +36,7 @@ For the v2 SKU, multi-site listeners are processed before basic listeners, unles
 Choose the frontend IP address that you plan to associate with this listener. The listener will listen to incoming requests on this IP.
 
   > [!NOTE]
-  > Application Gateway now supports IPv6 frontend IP (Public Preview). You can now choose up to three frontend IPs: two IPv4 addresses (Public and Private) and one IPv6 
-    public IP address.
+  > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 
 ## Frontend port

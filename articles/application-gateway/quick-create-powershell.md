@@ -97,8 +97,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
   -Port 80
 ```
   > [!NOTE]
-  > Application Gateway now supports IPv6 frontend IP (Public Preview). You can now choose up to three frontend IPs: two IPv4 addresses (Public and Private) and one IPv6 
-    public IP address.
+  > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ### Create the backend pool
 
