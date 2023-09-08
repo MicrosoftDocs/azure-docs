@@ -33,7 +33,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| .NET Framework 4.8 | GA | `<<TBD>>` |
+| .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework) |
  
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
 
@@ -44,7 +44,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 | .NET 8 | Preview<sup>*</sup> | N/A |
 | [.NET 7](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | May 14, 2024 |
 | [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
-| .NET Framework 4.8 | GA | `<<TBD>>` |
+| .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework)  |
 
 <sup>*</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/).
 
@@ -62,31 +62,23 @@ The following table shows the language versions supported for Java functions. Se
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| Java 17 | GA | September 2029 |
-| Java 11 | GA | September 2026 |
-| Java 8 | GA | December 2030 |
+| [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
+| [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
+| [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
 
 For more information, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-The following table shows the runtime and language versions supported for Node.js functions. Select your preferred development language at the top of the article.
-
-### [v4.x](#tab/v4)
+The following table shows the language versions supported for Node.js functions. Select your preferred development language at the top of the article.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| Node.js 18 | GA | April, 2025|
-| Node.js 16 | GA | September, 2023 |
-| Node.js 14 | GA | `<<TBD>>` |
+| [Node.js 18](https://endoflife.date/nodejs) | GA | April, 2025|
+| [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
+| [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
 
-### [v1.x](#tab/v1)
-
-| Supported version | Support level | Expected community EOL date |
-| ---- | ---- |--- |
-| Node.js 6 | GA | `<<TBD>>` |
- 
----
+<sup>\*</sup>Support on Functions extended until June 30, 2024.
 
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  
@@ -95,7 +87,7 @@ The following table shows the language version supported for PowerShell function
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| PowerShell 7.2 | GA | November, 2024 |
+| [PowerShell 7.2](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 8, 2024 |
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
@@ -108,7 +100,9 @@ The following table shows the language versions supported for Python functions. 
 | Python 3.10 | GA | October, 2026 |
 | Python 3.9 | GA | October, 2025 |
 | Python 3.8 | GA | October, 2024 |
-| Python 3.7 | GA | `<<TBD>>` |
+| Python 3.7 | GA | June 27, 2023<sup>\*</sup> |
+
+<sup>\*</sup>Support on Functions extended until September 30, 2023.
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end

@@ -3,95 +3,121 @@ title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
-ms.date: 08/10/2023
-ms.devlang: csharp
+ms.date: 09/06/2023
 ms.custom: ignite-2022
+zone_pivot_groups: programming-languages-set-functions-full
 ---
+
 # Azure Functions developer guide
-In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
+
+In Azure Functions, all functions share some core technical concepts and components, regardless of your preferred language or development environment. This article is language-specific. Choose your preferred language at the top of the article.
 
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md).
 
-## Function code
-A *function* is the primary concept in Azure Functions. A function contains two important pieces - your code, which can be written in various languages, and some config, the function.json file. For compiled languages, this config file is generated automatically from annotations in your code. For scripting languages, you must provide the config file yourself.
+## Coding functions
 
-The function.json file defines the function's trigger, bindings, and other configuration settings. Every function has one and only one trigger. The runtime uses this config file to determine the events to monitor and how to pass data into and return data from a function execution. The following is an example function.json file.
+At the core of Azure Functions is a language-specific code project that implements one or more units of code execution called _functions_. Functions are simply methods that are executed by the Functions host based on events, in response to HTTP requests, or on a schedule. Think of your Azure Functions code project as a mechanism for organizing, deploying, and collectively managing your individual functions in the project when they're running in Azure. For more information, see [Organize your functions](functions-best-practices.md#organize-your-functions). 
 
-```json
-{
-    "disabled":false,
-    "bindings":[
-        // ... bindings here
-        {
-            "type": "bindingType",
-            "direction": "in",
-            "name": "myParamName",
-            // ... more depending on binding
-        }
-    ]
-}
-```
+All functions must have a trigger, which defines how the function starts and provides inputs to the function. Your functions can optionally define input and output bindings. These bindings simplify connections to other services without you having to work with client SDKs. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+::: zone pivot="programming-language-csharp"
+The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For detailed language-specific guidance, see the [C# developers guide](dotnet-isolated-process-guide).
+::: zone-end
+::: zone pivot="programming-language-java"
+The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Java developers guide](functions-reference-java.md).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Node.js developers guide](functions-reference-node.md).
+::: zone-end
+::: zone pivot="programming-language-powershell"
+The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [PowerShell developers guide](functions-reference-powershell.md).
+::: zone-end
+::: zone pivot="programming-language-python"
+The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Python developers guide](functions-reference-python.md).
+::: zone-end
 
-The `bindings` property is where you configure both triggers and bindings. Each binding shares a few common settings and some settings, which are specific to a particular type of binding. Every binding requires the following settings:
+To help shorten your time to deployment, Azure Functions provides a set of language-specific project and function templates that you can use to create new code projects and add functions to your project. You can use any of the tools that support Azure Functions development to generate new apps and functions using these templates.  
 
-| Property    | Values | Type | Comments|
-|---|---|---|---|
-| type  | Name of binding.<br><br>For example, `queueTrigger`. | string | |
-| direction | `in`, `out`  | string | Indicates whether the binding is for receiving data into the function or sending data from the function. |
-| name | Function identifier.<br><br>For example, `myQueue`. | string | The name that is used for the bound data in the function. For C#, this is an argument name; for JavaScript, it's the key in a key/value list. |
+## Development environments
 
-## Function app
-A function app provides an execution context in Azure in which your functions run. As such, it's the unit of deployment and management for your functions. A function app is composed of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. Think of a function app as a way to organize and collectively manage your functions. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md).
+The following tools provide an integrated development and publishing experience for Azure Functions in your preferred language:
 
-> [!NOTE]
-> All functions in a function app must be authored in the same language. In [previous versions](functions-versions.md) of the Azure Functions runtime, this wasn't required.
+::: zone pivot="programming-language-csharp" 
++ [Visual Studio](./functions-develop-vs.md)
+::: zone-end
++ [Visual Studio Code](./functions-develop-vs-code.md)
 
-## Folder structure
-[!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
++ [Azure Functions Core Tools](./functions-develop-local.md) (command prompt) 
+::: zone pivot="programming-language-java"
++ [Eclipse](functions-create-maven-eclipse.md )
 
-The above is the default (and recommended) folder structure for a Function app. If you wish to change the file location of a function's code, modify the `scriptFile` section of the _function.json_ file. We also recommend using [package deployment](deployment-zip-push.md) to deploy your project to your function app in Azure. You can also use existing tools like [continuous integration and deployment](functions-continuous-deployment.md) and Azure DevOps.
++ [Gradle](functions-create-first-java-gradle.md)
 
-> [!NOTE]
-> If deploying a package manually, make sure to deploy your _host.json_ file and function folders directly to the `wwwroot` folder. Do not include the `wwwroot` folder in your deployments. Otherwise, you end up with `wwwroot\wwwroot` folders.
++ [IntelliJ IDEA](functions-create-maven-intellij.md) 
 
-#### Use local tools and publishing
-Function apps can be authored and published using a variety of tools, including [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), and the [Azure Functions Core Tools](./functions-develop-local.md). For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).
++ [Maven](create-first-function-cli-java.md)
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
++ [Quarkus](functions-create-first-quarkus.md)
 
-## <a id="fileupdate"></a> How to edit functions in the Azure portal
-The Functions editor built into the Azure portal lets you update your code and your *function.json* file directly inline. This is recommended only for small changes or proofs of concept - best practice is to use a local development tool like VS Code.
++ [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json)
+::: zone-end
 
-## Parallel execution
-When multiple triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.  If a function app is using the [Consumption hosting plan](event-driven-scaling.md), the function app could scale out automatically.  Each instance of the function app, whether the app runs on the Consumption hosting plan or a regular [App Service hosting plan](../app-service/overview-hosting-plans.md), might process concurrent function invocations in parallel using multiple threads.  The maximum number of concurrent function invocations in each function app instance varies based on the type of trigger being used as well as the resources used by other functions within the function app.
+These tools integrate with [Azure Functions Core Tools](./functions-develop-local.md) so that you can run and debug on your local computer using the Functions runtime. For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).
 
-## Functions runtime versioning
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+<a id="fileupdate"></a> There's also an editor in the Azure portal that lets you update your code and your *function.json* definition file directly in the portal. You should only use this editor for small changes or creating proof-of-concept functions. You should always develop your functions locally, when possible.
+::: zone-end
+::: zone pivot="programming-language-csharp"
+Portal editing is only supported for [C# script functions](functions-reference-csharp.md), which uses the function.json file. 
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+Portal editing is only supported for [Node.js version 3](functions-reference-node.md?pivots=nodejs-model-v3), which uses the function.json file.
+::: zone-end
+::: zone pivot="programming-language-python"
+Portal editing is only supported for [Python version 1](functions-reference-python.md?pivots=python-mode-configuration), which uses the function.json file.
+::: zone-end
 
-You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~4" indicates that your function app uses 4.x as its major version. Function apps are upgraded to each new minor version as they're released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+## Deployment
 
-## Repositories
-The code for Azure Functions is open source and stored in GitHub repositories:
+When you publish your code project to Azure, you're essentially deploying your project to an existing function app resource. A function app provides an execution context in Azure in which your functions run. As such, it's the unit of deployment and management for your functions. From an Azure Resource perspective, a function app is equivalent to a site resource (`Microsoft.Web/sites`) in Azure App Service, such as a web app. 
 
-* [Azure Functions](https://github.com/Azure/Azure-Functions)
-* [Azure Functions host](https://github.com/Azure/azure-functions-host/)
-* [Azure Functions portal](https://github.com/azure/azure-functions-ux)
-* [Azure Functions templates](https://github.com/azure/azure-functions-templates)
-* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
-* [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+A function app is composed of one or more individual functions that are managed, deployed, and scaled together. These functions are developed and maintained as a single code project, which is deployed to the function app resource in Azure. All of the functions in a function app share the same [pricing plan](functions-scale.md), [deployment method](functions-deployment-technologies.md), and [runtime version](functions-versions.md). For more information, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
 
-## Bindings
-Here's a table of all supported bindings.
+If the function app and any other required resources don't already exist in Azure, you need to create these resources before you can deploy your project files. You can create these resources in one of these ways:
+::: zone pivot="programming-language-csharp"
++ When you publish from [Visual Studio](./functions-develop-vs.md#publish-to-azure) 
 
-[!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
++ Using [Visual Studio Code](./functions-develop-vs-code.md#create-azure-resources)
+::: zone-end 
++ Programmatically using: 
+    + [Azure CLI](./scripts/functions-cli-create-serverless.md)
+    + [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c)
+    + [ARM templates](functions-create-first-function-resource-manager.md)
+    + [Bicep templates](functions-create-first-function-bicep.md)
 
-Having issues with errors coming from the bindings? Review the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) documentation.
++ In the [Azure portal](functions-create-function-app-portal.md)
 
+In addition to tool-based publishing, Functions supports other technologies for deploying source code to an existing function app. For more information, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
+
+## Connect to services
+
+A major requirement of any cloud-based compute service is being able to read data from and write data to other cloud services. Functions provides an extensive set of bindings that make it easier for you to connect to services without having to use client SDKs. 
+
+### Bindings
+
+Functions provides bindings for many Azure services and a few third-party services. You can see the complete list [here](functions-triggers-bindings.md#supported-bindings). 
+
+Binding extensions can support both inputs and outputs, and many triggers also act as input bindings. Bindings let you configure the connection to services and Functions handles the data access for you. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+
+If you've having issues with errors coming from the bindings, see the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) documentation.
+
+### Client SDKs
+
+While Functions provides bindings to simplify data access in your function code, you're still able to use client SDKs to access a given service if you prefer. You need to explicitly use client SDKs for scenarios where the bindings don't expose the full set of functionality of the SDK. When using client SDKs, you should use the same connection string management strategies used with bindings. 
 
 ## Connections
 
-Your function project references connection information by name from its configuration provider. It doesn't directly accept the connection details, allowing them to be changed across environments. For example, a trigger definition might include a `connection` property. This might refer to a connection string, but you can't set the connection string directly in a `function.json`. Instead, you would set `connection` to the name of an environment variable that contains the connection string.
+Your functions get connection information by name from its configuration provider. You can't configure a binding directly with a connection string or key. It doesn't directly accept the connection details, allowing them to be changed across environments. For example, a trigger definition might include a `connection` property. This might refer to a connection string, but you can't set the connection string directly in a `function.json`. Instead, you would set `connection` to the name of an environment variable that contains the connection string.
 
 The default configuration provider uses environment variables. These might be set by [Application Settings](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) when running in the Azure Functions service, or from the [local settings file](functions-develop-local.md#local-settings-file) when developing locally.
 
@@ -197,15 +223,15 @@ An identity-based connection for an Azure service accepts the following common p
 | Property    |  Environment variable template | Description |
 |---|---|---|---|
 | Token Credential |  `<CONNECTION_NAME_PREFIX>__credential` | Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. |
-| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It is invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
 | Resource ID | `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` shouldn't be set.
 
-Additional options may be supported for a given connection type. Refer to the documentation for the component making the connection.
+Other options may be supported for a given connection type. Refer to the documentation for the component making the connection.
 
 ##### Local development with identity-based connections
 
 > [!NOTE]
-> Local development with identity-based connections requires updated versions of the [Azure Functions Core Tools](./functions-run-local.md). You can check your currently installed version by running `func -v`. For Functions v3, use version `3.0.3904` or later. For Functions v4, use version `4.0.3904` or later.
+> Local development with identity-based connections requires version `4.0.3904` of [Azure Functions Core Tools](functions-run-local.md), or a later version.
 
 When you're running your function project locally, the above configuration tells the runtime to use your local developer identity. The connection attempts to get a token from the following locations, in order:
 
@@ -271,11 +297,22 @@ If you're configuring `AzureWebJobsStorage` using a storage account that uses th
 ## Reporting Issues
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
+## Open source repositories
+
+The code for Azure Functions is open source, and you can find key components in these GitHub repositories:
+
+* [Azure Functions](https://github.com/Azure/Azure-Functions)
+* [Azure Functions host](https://github.com/Azure/azure-functions-host/)
+* [Azure Functions portal](https://github.com/azure/azure-functions-ux)
+* [Azure Functions templates](https://github.com/azure/azure-functions-templates)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
+* [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+
 ## Next steps
+
 For more information, see the following resources:
 
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-* [Code and test Azure Functions locally](./functions-develop-local.md)
-* [Best Practices for Azure Functions](functions-best-practices.md)
-* [Azure Functions C# developer reference](functions-dotnet-class-library.md)
-* [Azure Functions Node.js developer reference](functions-reference-node.md)
++ [Azure Functions scenarios](functions-scenarios.md)
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
++ [Code and test Azure Functions locally](./functions-develop-local.md)
++ [Best Practices for Azure Functions](functions-best-practices.md)
