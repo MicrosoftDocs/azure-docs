@@ -30,5 +30,3 @@ The following table shows the cumulative data size limit for Azure Maps accounts
 > **Azure Maps Data service Retirement**
 >
 > The Azure Maps Data service (both [v1](/rest/api/maps/data-v1) and [v2](/rest/api/maps/data-v2)) is now deprecated and will be retired on 9/16/24. The Azure Maps [Data Registry service](/rest/api/maps/data-registry) is replacing the Data service. For more information, see [How to create data registry](how-to-create-data-registries.md).
-
-For more information on the Azure Maps pricing tiers, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
