@@ -12,7 +12,7 @@ ms.date: 09/08/2023
 
 # Migrate QnA Maker to Azure OpenAI on your data 
 
-QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) service that allowed users to create a natural conversational layer over their data. This service is being retired, having been replaced by [custom question answering](../../language-service/question-answering/overview.md). AI runtimes however, are evolving due to the development of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 offered by [Azure OpenAI](../../openai/overview.md) which can address many chat-based use cases. Use this article to learn how to migrate your existing QnA Maker projects to Azure OpenAI. 
+QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) service that allowed users to create a natural conversational layer over their data. This service is being retired, having been replaced by [custom question answering](../../language-service/question-answering/overview.md). AI runtimes however, are evolving due to the development of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 offered by [Azure OpenAI](../../openai/overview.md), which can address many chat-based use cases. Use this article to learn how to migrate your existing QnA Maker projects to Azure OpenAI. 
 
 
 ## Prerequisites
@@ -59,7 +59,7 @@ QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) ser
 
     :::image type="content" source="../media/openai/data-field-mapping.png" alt-text="A screenshot showing index field mapping information for Azure Cognitive Search in Azure OpenAI Studio." lightbox="../media/openai/data-field-mapping.png":::
 
-1. Select **Next**. Select a search type from the dropdown menu. You can choose **Keyword** or **Semantic**. semantic” search requires an existing semantic search configuration which may or may not be available for your project.  
+1. Select **Next**. Select a search type from the dropdown menu. You can choose **Keyword** or **Semantic**. semantic” search requires an existing semantic search configuration, which may or may not be available for your project.  
     
     :::image type="content" source="../media/openai/data-management.png" alt-text="A screenshot showing the data management options for Azure Cognitive Search indexes." lightbox="../media/openai/data-management.png":::
     
