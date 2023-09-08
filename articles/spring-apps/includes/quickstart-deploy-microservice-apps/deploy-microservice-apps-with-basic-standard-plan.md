@@ -46,7 +46,6 @@ These steps use AZD to initialize the Pet Clinic application from the Azure Deve
 
    The following list describes the command interactions:
 
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
     - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that is created to hold all Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
@@ -130,6 +129,11 @@ Use the following steps to create the service instance:
 
    ```bash
    azd auth login
+   ```
+   The console outputs messages similar to the following example:
+
+   ```text
+   Logged in to Azure.
    ```
 
 1. Use the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and deploy the application code to those newly provisioned resources:
@@ -250,7 +254,7 @@ Use the following steps to use AZD to package the app, provision the Azure resou
    
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
 > [!NOTE]
