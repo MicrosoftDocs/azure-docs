@@ -17,7 +17,12 @@ There are two categories of services:
 
 * **Internal Services:** Ancillary services, which help in the proper functioning of the cluster directly/indirectly.
 
-To check the service health information, 
+> [!NOTE]
+> To view details in the Services tab, a user should be assigned [Azure Kubernetes Service Cluster User Role](/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) and [Azure Kubernetes Service RBAC Reader](/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-rbac-reader) roles to an AKS cluster corresponding to the cluster pool. Go to Kubernetes services in the Azure portal and search for AKS cluster with your cluster pool name and then navigate to Access control (IAM) tab to assign the roles.
+>
+> If you don't have permission to assign the roles, please contact your admin.
+
+To check the service health, 
 
 1. Sign in to [Azure portal](https://portal.azure.com).
   
@@ -37,12 +42,8 @@ To check the service health information,
    
     :::image type="content" source="./media/service-health/zookeeper-service-health.png" alt-text="Screenshot showing Zookeeper's service health." lightbox="./media/service-health/zookeeper-service-health.png":::
 
-    > [!NOTE]
-    > To view details in the Services tab, a user should be assigned [Azure Kubernetes Service Cluster User Role](/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) and [Azure Kubernetes Service RBAC Reader](/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-rbac-reader) roles to an AKS cluster corresponding to the cluster pool. Go to Kubernetes services in the Azure portal and search for AKS cluster with your cluster pool name and then navigate to Access control (IAM) tab to assign the roles.
-    >
-    > If you don't have permission to assign the roles, please contact your admin.
             
-   In case when some of the instances of the services aren't ready then, the **Ready** column indicates the warning sign with the instances running in the cluster out of total instances. 
+   In case when some of the instances of the services aren't ready then, the **Ready** column indicates the warning sign for the unhealthy instances running in the cluster out of total instances. 
 
    You can drill down further to see the details.
    
