@@ -9,7 +9,7 @@ ms.topic: how-to
 author: samuel100
 ms.author: samkemp
 ms.reviewer: franksolomon
-ms.date: 09/05/2022
+ms.date: 09/05/2023
 ms.custom: sdkv2
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
