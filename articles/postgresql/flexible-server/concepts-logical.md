@@ -81,7 +81,7 @@ Here's some sample code you can use to try out logical replication.
    CREATE TABLE basic(id SERIAL, name varchar(40));
    ```
 
-4. Create a subscription that will connect to the publication you created earlier.
+4. Create a subscription that connects to the publication you created earlier.
    ```SQL
    CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname> password=<password>' PUBLICATION pub;
    ```
@@ -101,9 +101,9 @@ Here's some sample code you can use to try out logical replication.
 Visit the PostgreSQL documentation to understand more about [logical replication](https://www.postgresql.org/docs/current/logical-replication.html).
 
 ### Using Logical Replication Between Databases on the Same Server
-When you are aiming to set up logical replication between different databases residing on the same PostgreSQL server, it's essential to follow certain guidelines to avoid implementation restrictions that are currently present. As of now, creating a subscription that connects to the same database cluster will only succeed if the replication slot is not created within the same command; otherwise, the `CREATE SUBSCRIPTION` call will hang, on a `LibPQWalReceiverReceive` wait event. This happens due to an existing restriction within Postgres engine which might be removed in future releases.
+When you're aiming to set up logical replication between different databases residing on the same PostgreSQL server, it's essential to follow certain guidelines to avoid implementation restrictions that are currently present. As of now, creating a subscription that connects to the same database cluster will only succeed if the replication slot isn't created within the same command; otherwise, the `CREATE SUBSCRIPTION` call will hang, on a `LibPQWalReceiverReceive` wait event. This happens due to an existing restriction within Postgres engine, which might be removed in future releases.
 
-To effectively set up logical replication between your "source" and "target" databases on the same server while circumventing this restriction, follow the steps outlined below:
+To effectively setup logical replication between your "source" and "target" databases on the same server while circumventing this restriction, follow the steps outlined below:
 
 First, create a table named "basic" with an identical schema in both the source and target databases:
 
@@ -112,7 +112,7 @@ First, create a table named "basic" with an identical schema in both the source 
 CREATE TABLE basic (id INTEGER NOT NULL PRIMARY KEY, a TEXT);
 ```
 
-Next, in the source database, create a publication for the table and separately create a logical replication slot using the `pg_create_logical_replication_slot` function, which helps to avert the hanging issue that typically occurs when the slot is created in the same command as the subscription. Note that you will need to use the `pgoutput` plugin:
+Next, in the source database, create a publication for the table and separately create a logical replication slot using the `pg_create_logical_replication_slot` function, which helps to avert the hanging issue that typically occurs when the slot is created in the same command as the subscription. Note that you'll need to use the `pgoutput` plugin:
 
 ```SQL
 -- Run this on the source database
@@ -129,7 +129,7 @@ CREATE SUBSCRIPTION sub
    PUBLICATION pub
    WITH (create_slot = false, slot_name='myslot');
 ```
-Having set up the logical replication, you can now test it by inserting a new record into the "basic" table in your source database and subsequently verifying that it replicates to your target database:
+Having set up the logical replication, you can now test it by inserting a new record into the "basic" table in your source database and then verifying that it replicates to your target database:
 ``` SQL
 -- Run this on the source database
 INSERT INTO basic SELECT 1, 'a';
@@ -144,7 +144,7 @@ If everything is configured correctly, you should witness the new record from th
 
 ### pglogical extension
 
-Here is an example of configuring pglogical at the provider database server and the subscriber. Refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed prerequisite tasks listed above.
+Here's an example of configuring pglogical at the provider database server and the subscriber. Refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed prerequisite tasks listed above.
 
 1. Install pglogical extension in the database in both the provider and the subscriber database servers.
     ```SQL
@@ -229,7 +229,7 @@ In the example below, we use the SQL interface with the wal2json plugin.
    SELECT data FROM pg_logical_slot_get_changes('test_slot', NULL, NULL, 'pretty-print', '1');
    ```
 
-   The output will look like:
+   The output looks like:
    ```
    {
          "change": [
@@ -272,9 +272,9 @@ Visit the PostgreSQL documentation to understand more about [logical decoding](h
 
 
 ## Monitoring
-You must monitor logical decoding. Any unused replication slot must be dropped. Slots hold on to Postgres WAL logs and relevant system catalogs until changes have been read. If your subscriber or consumer fails or if it's improperly configured, the unconsumed logs will pile up and fill your storage. Also, unconsumed logs increase the risk of transaction ID wraparound. Both situations can cause the server to become unavailable. Therefore, it's critical that logical replication slots are consumed continuously. If a logical replication slot is no longer used, drop it immediately.
+You must monitor logical decoding. Any unused replication slot must be dropped. Slots hold on to Postgres WAL logs and relevant system catalogs until changes have been read. If your subscriber or consumer fails or if it's improperly configured, the unconsumed logs pile up and fill your storage. Also, unconsumed logs increase the risk of transaction ID wraparound. Both situations can cause the server to become unavailable. Therefore, it's critical that logical replication slots are consumed continuously. If a logical replication slot is no longer used, drop it immediately.
 
-The 'active' column in the pg_replication_slots view will indicate whether there's a consumer connected to a slot.
+The 'active' column in the pg_replication_slots view indicates whether there's a consumer connected to a slot.
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
