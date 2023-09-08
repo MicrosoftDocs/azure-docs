@@ -41,7 +41,8 @@ az group create -n ${resourceGroup} -l ${location}
 
 ## Provision Azure Kubernetes Service (AKS) cluster
 
-Follow the instructions here [Quickstart: Deploy and Azure Kubernetes Service (AKS) cluster using Bicep](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-bicep?tabs=azure-cli) to create the Azure Kubernetes Service (AKS) cluster within the previously created Resource Group.
+Follow the instructions here [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md) to create the Azure Kubernetes Service (AKS) cluster within the previously created Resource Group.
+
 
 > [!NOTE]
 > Ensure that `agentCount` is set to 1. Only one node is required at this time.
@@ -52,7 +53,9 @@ az aks create -g ${resourceGroup} -n ${clusterName} --node-count 1 --generate-ss
 
 ## Enable Azure Arc
 
-Enable Azure Arc for the Azure Kubernetes Service (AKS) cluster. Follow the prerequisites outlined in [Create and manage custom locations on Azure Arc Arc-enabled Kubernetes](https://learn.microsoft.com/azure/azure-arc/kubernetes/custom-locations#Prerequisites)
+Enable Azure Arc for the Azure Kubernetes Service (AKS) cluster. Follow the prerequisites outlined in 
+[Create and manage custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md)
+
 
 ```azurecli
 az aks get-credentials --resource-group ${resourceGroup} --name ${clusterName}
