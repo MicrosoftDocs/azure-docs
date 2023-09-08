@@ -91,10 +91,10 @@ The hub virtual network is the central network of the solution. The hub network 
 
 1. Select **Enable Bastion** in the **Azure Bastion** section of the **Security** tab.
 
-    Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](../articles/bastion/bastion-overview.md)
+    Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview)
 
     >[!NOTE]
-    >[!INCLUDE [Pricing](bastion-pricing.md)]
+    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 1. Enter or select the following information in **Azure Bastion**:
 
