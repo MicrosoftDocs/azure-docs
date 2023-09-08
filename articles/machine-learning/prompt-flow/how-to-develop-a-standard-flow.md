@@ -214,7 +214,7 @@ First define flow output schema, then select in drop-down the node whose output 
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check.png" alt-text="Screenshot of Web Classification highlighting the view outputs button. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check.png":::
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check-2.png" alt-text="Screenshot of outputs which shows the status is completed and information for that output. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check-2.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check-2.png" alt-text="Screenshot of outputs, which shows the status is completed and information for that output. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check-2.png":::
 
 ## Next steps
 
