@@ -32,30 +32,27 @@ Each major process or workload that an application implements should have separa
 
 Disaster recovery isn't an automatic feature, but must be designed, built, and tested. To support a solid DR strategy, you must build an application with DR in mind from the ground up. Azure offers services, features, and guidance to help you support DR when you create apps.
 
-Designing for disaster recovery has the following main concerns: 
-
-- [Data recovery and replication](#data-recovery-and-replication) uses backups and replication to restore lost data. 
-
-- [Building resilient applications](#building-resilient-applications) requires proactive planning to recover from outages. 
-
-### Data recovery and replication 
-
-During a disaster, there are two methods of restoring data:
 
 
-- **Data Backup** restores data to a specific point in time.   By using backup, you can provide simple, secure, and cost-effective solutions to back up and recover your data to the Microsoft Azure cloud. Use [Azure Backup](/azure/backup/backup-overview) to create long-lived, read-only data snapshots for use in recovery.  
 
-- **Data Replication** creates data replicas with minimal data loss. With replication, you can create real-time or near-real-time copies of live data in multiple data store replicas. The goal of replication is to keep replicas synchronized with as little latency as possible while maintaining application responsiveness.  Most fully featured database systems and other data-storage products and services include some kind of replication as a tightly integrated feature, due to its functional and performance requirements.  Some Azure services, such as Azure Blob Storage, utilize [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) to keep your data resilient.
+### Data recovery
 
-    Different replication designs place different priorities on data consistency, performance, and cost. 
+During a disaster, there are two main methods of restoring data: backups and replication.
+
+
+**Backup** restores data to a specific point in time.   By using backup, you can provide simple, secure, and cost-effective solutions to back up and recover your data to the Microsoft Azure cloud. Use [Azure Backup](/azure/backup/backup-overview) to create long-lived, read-only data snapshots for use in recovery.  
+
+**Data Replication** creates real-time or near-real-time copies of live data in multiple data store replicas with minimal data loss in mind. The goal of replication is to keep replicas synchronized with as little latency as possible while maintaining application responsiveness.  Most fully featured database systems and other data-storage products and services include some kind of replication as a tightly integrated feature, due to its functional and performance requirements.  An example of this is [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage).
+
+Different replication designs place different priorities on data consistency, performance, and cost. 
     
-    - *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. 
+- *Active* replication requires updates to take place on multiple replicas simultaneously, guaranteeing consistency at the cost of throughput. 
     
-    - *Passive* replication does synchronization in the background, removing replication as a constraint on application performance, but increasing RPO. 
+- *Passive* replication does synchronization in the background, removing replication as a constraint on application performance, but increasing RPO. 
     
-    - *Active-active* or *multimaster* replication enables using multiple replicas simultaneously, enabling load balancing at the cost of complicating data consistency. 
+- *Active-active* or *multimaster* replication enables using multiple replicas simultaneously, enabling load balancing at the cost of complicating data consistency. 
     
-    - *Active-passive* replication reserves replicas for live use during failover only. 
+- *Active-passive* replication reserves replicas for live use during failover only. 
     
     
 
