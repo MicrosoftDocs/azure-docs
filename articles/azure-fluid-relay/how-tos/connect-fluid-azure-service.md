@@ -1,9 +1,6 @@
 ---
 title: 'How to: Connect to an Azure Fluid Relay service'
 description: How to connect to an Azure Fluid Relay service using the @fluidframework/azure-client library.
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 01/18/2023
 ms.topic: article
 ms.service: azure-fluid

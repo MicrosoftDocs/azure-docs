@@ -1,7 +1,6 @@
 ---
 title: Version compatibility with Fluid Framework releases
 description: How to determine what versions of the Fluid Framework releases are compatible with Azure Fluid Relay
-services: azure-fluid
 author: tylerbutler
 ms.author: tylerbu
 ms.date: 09/28/2021

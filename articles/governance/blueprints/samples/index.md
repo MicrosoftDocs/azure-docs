@@ -1,7 +1,7 @@
 ---
 title: Index of blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
-ms.date: 03/11/2022
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Azure Blueprints samples
