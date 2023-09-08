@@ -51,7 +51,7 @@ This functionality allows services like Microsoft Graph, Microsoft Entra ID, Sha
 
 To see source IP restoration in action, administrators can take the following steps.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
 1. Browse to **Identity** > **Users** > **All users** > select one of your test users > **Sign-in logs**.
 1. With source IP restoration enabled, you see IP addresses that include their actual IP address. 
    - If source IP restoration is disabled, you can't see their actual IP address.
