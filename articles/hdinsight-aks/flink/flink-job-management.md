@@ -130,7 +130,7 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
 
    Once the job is updated, the job status on the portal will be RUNNING.
    
-1. `SavePoint`: Take the savepoint for the Flink Job.
+1. **Savepoint:** Take the savepoint for the Flink Job.
 
     :::image type="image" source="./media/flink-job-management/savepoint-flink-job.png" alt-text="Screenshot shows savepoint for the Flink Job." border="true" lightbox="./media/flink-job-management/savepoint-flink-job.png":::
 
@@ -146,7 +146,7 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
 
     :::image type="image" source="./media/flink-job-management/delete-job-data.png" alt-text="Screenshot shows how user can delete job data from portal." border="true" lightbox="./media/flink-job-management/delete-job-data.png":::
 
-1. **View Job Details:** To view the job detail user can click on job name, it gives the details about the job and last action result.
+1. **View Job details:** To view the job detail user can click on job name, it gives the details about the job and last action result.
 
     :::image type="image" source="./media/flink-job-management/view-job-details.png" alt-text="Screenshot shows how to view job details." border="true" lightbox="./media/flink-job-management/view-job-details.png":::
 
@@ -159,10 +159,7 @@ HDInsight on AKS - Flink supports user friendly ARM Rest APIs to submit job and 
 #### Base URL format for Rest API
 
 Below is the base URL for rest API, users need to replace subscription, resource group, cluster pool, cluster name and Hilo API version in this before using it.
-
-    ```Job API
-            https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runjob?api-version={{HILO_API_VERSION}}
-    ```
+            `https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runjob?api-version={{HILO_API_VERSION}}`
 
 Using this REST API, users can initiate new jobs, stop jobs, start jobs, create savepoints, cancel jobs, and delete jobs. The current HILO_API_VERSION is 2023-06-01-preview.
 
@@ -267,7 +264,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
-1. **Start Job:** Rest API to start STOPPED job.
+1. **Start job:** Rest API to start STOPPED job.
    
    |  Option  |  Value  | 
    | -------- | ------- | 
@@ -373,7 +370,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
-1. `Savepoint`: Rest API to trigger savepoint for job.
+1. **Savepoint:** Rest API to trigger savepoint for job.
    
    |  Option  |  Value  |
    | -------- | ------- |
@@ -405,7 +402,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
-1. **List `SavePoint`:** Rest API to list all the savepoint from savepoint directory.
+1. **List savepoint:** Rest API to list all the savepoint from savepoint directory.
 
    |  Option  |  Value  |
    | -------- | ------- |
