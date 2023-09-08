@@ -34,7 +34,7 @@ AzAcSnap preview features are offered together with generally available features
 
 ## Azure NetApp Files backup
 
-When you're taking snapshots by using AzAcSnap on multiple volumes, all the snapshots have the same name by default. Due to the removal of the volume name from the resource ID hierarchy when the snapshot is archived into a Azure NetApp Files backup, you must ensure that the snapshot name is unique.
+When you're taking snapshots by using AzAcSnap on multiple volumes, all the snapshots have the same name by default. Due to the removal of the volume name from the resource ID hierarchy when the snapshot is archived into an Azure NetApp Files backup, you must ensure that the snapshot name is unique.
 
 AzAcSnap can automatically ensure the use of a unique name when it creates the snapshot, by appending the volume name to the normal snapshot name. For example, for a system that has two data volumes (`hanadata01`, `hanadata02`) when you're using `-c backup` with `--prefix daily`, the complete snapshot names become `daily__F2AFDF98703__hanadata01` and `daily__F2AFDF98703__hanadata02`.
 

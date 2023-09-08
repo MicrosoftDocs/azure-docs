@@ -271,7 +271,7 @@ If you're deploying to a centralized virtual machine, you need to install and se
 
 The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to initiate and release the database save point. The following example shows the setup of the SAP HANA 2.0 user and `hdbuserstore` for communication to the SAP HANA database.
 
-The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on a SAP HANA 2.0 database. Change the IP address, usernames, and passwords as appropriate.
+The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP HANA 2.0 database. Change the IP address, usernames, and passwords as appropriate.
 
 1. Connect to SYSTEMDB:
 
