@@ -1,13 +1,11 @@
 ---
 title: Azure AI Video Indexer labels identification overview
-titleSuffix: Azure AI Video Indexer 
 description: This article gives an overview of an Azure AI Video Indexer labels identification.
-author: juliako
-ms.author: juliako
-manager: femila
 ms.service: azure-video-indexer
 ms.date: 06/15/2022
 ms.topic: article
+author: IngridAtMicrosoft
+ms.author: inhenkel
 ---
 
 # Labels identification  
@@ -118,7 +116,15 @@ When used responsibly and carefully, Azure AI Video Indexer is a valuable tool f
 - Provide a feedback channel that allows users and individuals to report issues with the service.  
 - Be aware of any applicable laws or regulations that exist in your area regarding processing, analyzing, and sharing media containing people. 
 - Keep a human in the loop. Do not use any solution as a replacement for human oversight and decision-making.  
-- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations. 
+- Fully examine and review the potential of any AI model you're using to understand its capabilities and limitations.
+
+## Learn more about labels identification
+
+- [Transparency note](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
+- [Use cases](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note#use-cases)
+- [Capabilities and limitations](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note#system-performance-and-limitations-for-image-analysis)    
+- [Evaluation of image analysis](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note#evaluation-of-image-analysis) 
+- [Data, privacy and security](/legal/cognitive-services/computer-vision/ocr-data-privacy-security)
 
 ## Next steps
 

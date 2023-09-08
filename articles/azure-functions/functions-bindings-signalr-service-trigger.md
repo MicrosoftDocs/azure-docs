@@ -25,7 +25,7 @@ For information on setup and configuration details, see the [overview](functions
 ::: zone pivot="programming-language-csharp"
 
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)
 
@@ -249,7 +249,7 @@ The trigger input type is declared as either `InvocationContext` or a custom typ
 
 ### InvocationContext
 
-`InvocationContext` contains all the content in the message send from aa SignalR service, which includes the following properties:
+`InvocationContext` contains all the content in the message sent from a SignalR service, which includes the following properties:
 
 |Property | Description|
 |------------------------------|------------|
@@ -305,7 +305,7 @@ The `Function_App_URL` can be found on Function App's Overview page and The `API
 
 If you want to use more than one Function App together with one SignalR Service, upstream can also support complex routing rules. Find more details at [Upstream settings](../azure-signalr/concept-upstream.md).
 
-### Step by step sample
+### Step-by-step sample
 
 You can follow the sample in GitHub to deploy a chat room on Function App with SignalR Service trigger binding and upstream feature: [Bidirectional chat room sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 

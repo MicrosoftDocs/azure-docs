@@ -50,6 +50,12 @@ Spatial Analysis can also be configured to detect if a person is wearing a prote
 
 ![Spatial Analysis classifies whether people have facemasks in an elevator](https://user-images.githubusercontent.com/11428131/137015842-ce524f52-3ac4-4e42-9067-25d19b395803.png)
 
+## Input requirements
+
+Spatial Analysis works on videos that meet the following requirements:
+* The video must be in RTSP, rawvideo, MP4, FLV, or MKV format.
+* The video codec must be H.264, HEVC(H.265), rawvideo, VP9, or MPEG-4.
+
 ## Get started
 
 Follow the [quickstart](spatial-analysis-container.md) to set up the Spatial Analysis container and begin analyzing video.

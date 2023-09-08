@@ -38,5 +38,5 @@ The following example returns the constant value of Pi.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SQRT`](sqrt.md)

@@ -85,7 +85,10 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## Create more Application Insights resources
 
-To create an Applications Insights resource, see [Create an Application Insights resource](./create-new-resource.md).
+To create an Applications Insights resource, see [Create an Application Insights resource](./create-workspace-resource.md).
+
+> [!WARNING]
+> You may incur additional network costs if your Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region. Costs will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
 
 ### Get the instrumentation key
 The instrumentation key identifies the resource that you created.

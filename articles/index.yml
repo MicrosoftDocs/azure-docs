@@ -13,7 +13,7 @@ metadata:
   ms.topic: hub-page
   author: kcpitt
   ms.author: kellypi
-  ms.date: 06/23/2023
+  ms.date: 07/25/2023
   featureFlags:
   - clicktale
 highlightedContent:
@@ -248,6 +248,13 @@ productDirectory:
         - integration
       url: energy-data-services/index.yml
     # Card
+    - title: Azure Data Manager for Agriculture (Preview)
+      summary: Create a more sustainable future by innovating with agriculture data
+      imageSrc: data-manager-for-agri/media/icon/data-manager-for-agriculture.svg
+      azureCategories:
+        - integration
+      url: data-manager-for-agri/index.yml
+    # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
       imageSrc: https://static.docs.com/ui/media/product/azure/genomics.svg
@@ -328,7 +335,7 @@ productDirectory:
       azureCategories:
         - analytics
         - management-and-governance
-      url: purview/index.yml
+      url: /purview/index
     # Card
     - title: Data Factory
       summary: Hybrid data integration at enterprise scale, made easy
@@ -1674,7 +1681,7 @@ additionalContent:
           summary: A dedicated cloud for U.S. government agencies and their partners.
           url: azure-government/index.yml
         # Card
-        - title: Azure China
+        - title: Microsoft Azure operated by 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: /azure/china/
     - title: Partner solutions

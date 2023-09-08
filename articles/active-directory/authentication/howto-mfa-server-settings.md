@@ -33,6 +33,8 @@ The following MFA Server settings are available:
 
 ## One-time bypass
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The one-time bypass feature allows a user to authenticate a single time without performing multi-factor authentication. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone call, you can allow a one-time bypass so the user can access the desired resource.
 
 To create a one-time bypass, complete the following steps:

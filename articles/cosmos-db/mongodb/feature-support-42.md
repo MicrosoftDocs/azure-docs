@@ -38,7 +38,7 @@ Azure Cosmos DB for MongoDB supports the following database commands.
 
 | Command                               | Supported |
 | ------------------------------------- | --------- |
-| `[change streams](change-streams.md)` | Yes       |
+| `change streams`                      | Yes       |
 | `delete`                              | Yes       |
 | `eval`                                | No        |
 | `find`                                | Yes       |

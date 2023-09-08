@@ -11,7 +11,7 @@ ms.date: 03/15/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro"
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -48,7 +48,7 @@ With SAML/WS-Fed IdP federation, guest users sign into your Azure AD tenant usin
 
 ## Sign-in endpoints
 
-SAML/WS-Fed IdP federation guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their own credentials.
+SAML/WS-Fed IdP federation guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-process-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their own credentials.
 
 SAML/WS-Fed IdP federation guest users can also use application endpoints that include your tenant information, for example:
 
@@ -125,7 +125,7 @@ Next, your partner organization needs to configure their IdP with the required c
 
 ### SAML 2.0 configuration
 
-Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed in this section. For more information about setting up a trust between your SAML IdP and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for SSO](../hybrid/how-to-connect-fed-saml-idp.md).  
+Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed in this section. For more information about setting up a trust between your SAML IdP and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for SSO](../hybrid/connect/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > The target domain for SAML/WS-Fed IdP federation must not be DNS-verified in Azure AD. See the [Frequently asked questions](#frequently-asked-questions) section for details.
@@ -190,6 +190,8 @@ Next, configure federation with the IdP configured in step 1 in Azure AD. You ca
 - Certificate
 
 ### To configure federation in the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
 2. In the left pane, select **Azure Active Directory**.

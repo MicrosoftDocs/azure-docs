@@ -321,6 +321,14 @@ AKS uses best-effort zone balancing in node groups. During an upgrade surge, the
 
 If you have PVCs backed by Azure LRS Disks, they'll be bound to a particular zone. They may fail to recover immediately if the surge node doesn't match the zone of the PVC. This could cause downtime on your application when the upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application to allow Kubernetes to respect your availability requirements during the drain operation.
 
+## Optimize upgrades to improve performance and minimize disruptions
+
+The combination of [Planned Maintenance Window][planned-maintenance], [Max Surge](#customize-node-surge-upgrade), and [Pod Disruption Budget][pdb-spec] can significantly increase the likelihood of node upgrades completing successfully by the end of the maintenance window while also minimizing disruptions.
+
+* [Planned Maintenance Window][planned-maintenance] enables service teams to schedule auto-upgrade during a pre-defined window, typically a low-traffic period, to minimize workload impact. A window duration of at least 4 hours is recommended.
+* Max Surge on the node pool allows requesting additional quota during the upgrade process and limits the number of nodes selected for upgrade simultaneously. A higher max surge results in a faster upgrade process. However, setting it at 100% is not recommended as it would upgrade all nodes simultaneously, potentially causing disruptions to running applications. A max surge quota of 33% for production node pools is recommended.
+*  [Pod Disruption Budget][pdb-spec] is set for service applications and limits the number of pods that can be down during voluntary disruptions, such as AKS-controlled node upgrades. It can be configured as `minAvailable` replicas, indicating the minimum number of application pods that need to be active, or `maxUnavailable` replicas, indicating the maximum number of application pods that can be terminated, ensuring high availability for the application. Refer to the guidance provided for configuring [Pod Disruption Budgets (PDBs)][pdb-concepts]. PDB values should be validated to determine the settings that work best for your specific service.
+
 ## Next steps
 
 This article showed you how to upgrade an existing AKS cluster. To learn more about deploying and managing AKS clusters, see the following tutorials:
@@ -330,6 +338,8 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+[pdb-spec]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+[pdb-concepts]:https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
@@ -347,7 +357,7 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
 [planned-maintenance]: planned-maintenance.md
 [aks-auto-upgrade]: auto-upgrade-cluster.md

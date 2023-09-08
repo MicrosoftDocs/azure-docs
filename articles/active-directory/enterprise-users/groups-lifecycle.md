@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.date: 06/24/2022
 ms.author: barclayn                   
 ms.reviewer: jodah
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -71,6 +71,8 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 ## Set group expiration
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a Global Administrator in your Azure AD organization.
 
 2. Browse to **Azure Active Directory** > **Groups**, then select **Expiration** to open the expiration settings.
@@ -92,6 +94,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 > - When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
 > - Expiration notices for groups used in Teams appear in the Teams Owners feed.
 > - When you enable expiration for selected groups, you can add up to 500 groups to the list. If you need to add more than 500 groups, you can enable expiration for all your groups. In that scenario, the 500-group limitation doesn't apply.
+>- Groups do not renew immediately when auto-renew activities occur. In the event of an activity, a flag is placed on the group to indicate it is ready for renewal when it's near expiry. If the group is near expiry, then renewal will occur within 24 hours. 
 
 ## Email notifications
 
@@ -191,8 +194,8 @@ The following cmdlets can be used to configure the policy in more detail. For mo
 
 These articles provide additional information on Azure AD groups.
 
-- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage members of a group](../fundamentals/active-directory-groups-members-azure-portal.md)
-- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [See existing groups](../fundamentals/groups-view-azure-portal.md)
+- [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage members of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

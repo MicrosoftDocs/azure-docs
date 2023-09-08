@@ -7,7 +7,7 @@ ms.author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.custom: subject-monitoring
-ms.date: 06/02/2022
+ms.date: 07/28/2023
 ---
 
 # Monitoring Azure Virtual WAN

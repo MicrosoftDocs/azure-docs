@@ -284,19 +284,19 @@ ConfidentialClientApplication cca =
 ```JavaScript
 
 const msalConfig = {
-	auth: {
-		clientId: process.env.CLIENT_ID,
-		authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
-		clientSecret: process.env.CLIENT_SECRET,
-	}
+  auth: {
+    clientId: process.env.CLIENT_ID,
+    authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+  }
 };
 
 const apiConfig = {
-	uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
+  uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
 };
 
 const tokenRequest = {
-	scopes: [process.env.GRAPH_ENDPOINT + '.default'],
+  scopes: [process.env.GRAPH_ENDPOINT + '.default'],
 };
 
 const cca = new msal.ConfidentialClientApplication(msalConfig);

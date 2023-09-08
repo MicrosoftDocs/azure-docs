@@ -9,11 +9,11 @@ ms.subservice: openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2023
+ms.date: 07/26/2023
 keywords: 
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)
+[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)
 
 ## Prerequisites
 
@@ -63,59 +63,16 @@ mkdir "quickstart/src/main/java/com/azure/ai/openai/usage"
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-openai</artifactId>
-        <version>1.0.0-beta.1</version>
+        <version>1.0.0-beta.3</version>
     </dependency>
 </dependencies>
 </project>
 ```
 
-### Retrieve key and endpoint
+[!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
-To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**.
+[!INCLUDE [environment-variables](environment-variables.md)]
 
-|Variable name | Value |
-|--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in the **Azure AI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`.|
-| `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
-
-Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
-
-:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview UI for an OpenAI Resource in the Azure portal with the endpoint and access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
-
-Create and assign persistent environment variables for your key and endpoint.
-
-### Environment variables
-
-# [Command Line](#tab/command-line)
-
-```CMD
-setx AZURE_OPENAI_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
-```
-
-```CMD
-setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
-```
-
-```powershell
-[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
-```
-
-# [Bash](#tab/bash)
-
-```Bash
-echo export AZURE_OPENAI_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
-```
-
-```Bash
-echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
-```
----
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up-the-environment)
@@ -147,20 +104,20 @@ public class GetChatCompletionsSample {
         String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
         String deploymentOrModelId = "gpt-35-turbo";
 
-        OpenAIClient client = new OpenAIClientBuilder()
+      OpenAIClient client = new OpenAIClientBuilder()
             .endpoint(endpoint)
             .credential(new AzureKeyCredential(azureOpenaiKey))
             .buildClient();
 
         List<ChatMessage> chatMessages = new ArrayList<>();
-        chatMessages.add(new ChatMessage(ChatRole.SYSTEM).setContent("You are a helpful assistant."));
-        chatMessages.add(new ChatMessage(ChatRole.USER).setContent("Does Azure OpenAI support customer managed keys?"));
-        chatMessages.add(new ChatMessage(ChatRole.ASSISTANT).setContent("Yes, customer managed keys are supported by Azure OpenAI?"));
-        chatMessages.add(new ChatMessage(ChatRole.USER).setContent("Do other Azure AI services support this too?"));
+        chatMessages.add(new ChatMessage(ChatRole.SYSTEM, "You are a helpful assistant"));
+        chatMessages.add(new ChatMessage(ChatRole.USER, "Does Azure OpenAI support customer managed keys?"));
+        chatMessages.add(new ChatMessage(ChatRole.ASSISTANT, "Yes, customer managed keys are supported by Azure OpenAI?"));
+        chatMessages.add(new ChatMessage(ChatRole.USER, "Do other Azure AI services support this too?"));
 
         ChatCompletions chatCompletions = client.getChatCompletions(deploymentOrModelId, new ChatCompletionsOptions(chatMessages));
 
-        System.out.printf("Model ID=%s is created at %d.%n", chatCompletions.getId(), chatCompletions.getCreated());
+        System.out.printf("Model ID=%s is created at %s.%n", chatCompletions.getId(), chatCompletions.getCreatedAt());
         for (ChatChoice choice : chatCompletions.getChoices()) {
             ChatMessage message = choice.getMessage();
             System.out.printf("Index: %d, Chat Role: %s.%n", choice.getIndex(), message.getRole());
@@ -174,7 +131,7 @@ public class GetChatCompletionsSample {
                 + "number of completion token is %d, and number of total tokens in request and response is %d.%n",
             usage.getPromptTokens(), usage.getCompletionTokens(), usage.getTotalTokens());
     }
-}
+}  
 ```
 
 > [!IMPORTANT]

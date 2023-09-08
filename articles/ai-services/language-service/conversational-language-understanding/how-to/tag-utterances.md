@@ -138,13 +138,13 @@ Your Language resource must have identity management, to enable it using [Langua
 
 ---
 
-After enabling managed identity, assign the role `Azure AI services User` to your Azure OpenAI resource using the managed identity of your Language resource. 
+After enabling managed identity, assign the role `Cognitive Services User` to your Azure OpenAI resource using the managed identity of your Language resource. 
 
   1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure OpenAI resource.
   2. Select the Access Control (IAM) tab on the left. 
   3. Select Add > Add role assignment. 
   4. Select "Job function roles" and click Next.
-  5. Select `Azure AI services User` from the list of roles and click Next.
+  5. Select `Cognitive Services User` from the list of roles and click Next.
   6. Select Assign access to "Managed identity" and select "Select members". 
   7. Under "Managed identity" select "Language".
   8. Search for your resource and select it. Then select the Select button below and next to complete the process.

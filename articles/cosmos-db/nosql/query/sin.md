@@ -48,5 +48,5 @@ The following example calculates the sine of the specified angle using the funct
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`COS`](cos.md)

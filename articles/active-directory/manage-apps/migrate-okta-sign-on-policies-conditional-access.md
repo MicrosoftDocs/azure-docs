@@ -85,7 +85,7 @@ To enable hybrid Azure AD join on your Azure AD Connect server, run the configur
    >[!NOTE]
    >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
-1. [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
+1. [Configure hybrid Azure AD join](../devices/how-to-hybrid-join.md).
 2. On the **SCP configuration** page, select the **Authentication Service** dropdown. 
 
     ![Screenshot of the Authentication Service dropdown on the Microsoft Azure Active Directory Connect dialog.](media/migrate-okta-sign-on-policies-conditional-access/scp-configuration.png)
@@ -117,6 +117,8 @@ If you deployed hybrid Azure AD join, you can deploy another group policy to com
 * [Enroll iOS/iPadOS devices in Intune](/mem/intune/enrollment/ios-enroll)
 
 ## Configure Azure AD Multi-Factor Authentication tenant settings
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Before you convert to Conditional Access, confirm the base MFA tenant settings for your organization.
 

@@ -48,5 +48,5 @@ The following example shows how to use this function to reverse multiple strings
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`LENGTH`](length.md)
