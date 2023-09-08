@@ -1079,7 +1079,28 @@ sections:
           [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](app/opencensus-python.md) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
 
   - name: Container insights
+  
     questions:
+      - question: |
+          Why do I see info banner "You do not have the right cluster permissions which will restrict your access to Container Insights features. Please reach out to your cluster admin to get the right permission"?
+        answer: |
+          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace.
+
+          Container Insights now checks cluster-level permission to provide access to the Azure portal experience. It is recommended for users to get atleast basic read-only cluster level access through their cluster admin.
+
+          For the following cluster types
+          - AKS without Kubernetes role-based access control (RBAC) authorization enabled
+          - AKS enabled with Azure Active Directory (Azure AD) SAML-based single sign-on
+          - AKS enabled with Kubernetes RBAC authorization
+          - AKS configured with the cluster role binding clusterMonitoringUser
+
+           At a minimum, we recommend assigning the following role **Monitoring Reader**.
+          
+          For [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview), we also recommend **Monitoring Reader** role.
+
+          You can enable these roles through Azure Portal or CLI. Learn how to assign these roles for AKS [here.](https://learn.microsoft.com/azure/aks/control-kubeconfig-access#assign-role-permissions-to-a-user-or-group) & Learn more for Azure Arc for Kubernetes [here.](https://learn.microsoft.com/azure/azure-arc/kubernetes/azure-rbac?tabs=AzureCLI%2Ckubernetes-latest#enable-azure-rbac-on-the-cluster)
+
+          [Learn more for cluster admins on role assignment](https://learn.microsoft.com/azure/aks/concepts-identity)
       - question: |
           What does "Other processes" represent under the Node view?
         answer: |
