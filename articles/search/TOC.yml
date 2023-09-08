@@ -143,10 +143,10 @@
         href: vector-search-ranking.md
     - name: Semantic search
       href: semantic-search-overview.md
+  - name: Retrieval Augmented Generation (RAG)
+    href: retrieval-augmented-generation-overview.md
   - name: Indexing
     items:
-    - name: Retrieval Augmented Generation (RAG)
-      href: retrieval-augmented-generation-overview.md
     - name: Search indexes
       href: search-what-is-an-index.md
     - name: Import

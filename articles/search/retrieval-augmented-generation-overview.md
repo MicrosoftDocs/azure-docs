@@ -38,12 +38,12 @@ Microsoft has several built-in implementations for using Cognitive Search in a R
 
 + Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
 
-If, you need a custom approach however, you can create your own custom RAG solution. The remainder of this article explores how Cognitive Search fits into a custom solution.
+If you need a custom approach however, you can create your own custom RAG solution. The remainder of this article explores how Cognitive Search fits into a custom solution.
 
 > [!NOTE]
 > Prefer to look at code? You can review the [Azure Cognitive Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
 
-## RAG pattern for Cognitive Search
+## Custom RAG pattern for Cognitive Search
 
 A high-level summary of the pattern looks like this:
 
@@ -52,7 +52,7 @@ A high-level summary of the pattern looks like this:
 + Send the top ranked search results to the LLM.
 + Use the natural language understanding and reasoning capabilities of the LLM to generate a response to the initial prompt.
 
-Cognitive Search provides data to the LLM but doesn't train the model. In RAG architecture there's no additional training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
+Cognitive Search provides data to the LLM but doesn't train the model. In RAG architecture, there's no extra training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
 
 RAG patterns that include Cognitive Search have the elements indicated in the following illustration.
 
@@ -63,7 +63,7 @@ RAG patterns that include Cognitive Search have the elements indicated in the fo
 + Azure Cognitive Search (information retrieval system)
 + Azure OpenAI (LLM for generative AI)
 
-The web app provides the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. Inputs pass through the integration layer, going first to information retrieval to get the payload, but also go to the LLM to set the context and intent. 
+The web app provides the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. Inputs pass through the integration layer, going first to information retrieval to get the search results, but also go to the LLM to set the context and intent. 
 
 The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use [LangChain](https://python.langchain.com/docs/get_started/introduction) to coordinate the workflow. LangChain [integrates with Azure Cognitive Search](https://python.langchain.com/docs/integrations/retrievers/azure_cognitive_search), making it easier to include Cognitive Search as a [retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/) in your workflow.
 
@@ -235,7 +235,7 @@ print("\n-------------------\nPrompt:\n" + prompt)
 
   Here's a [similar end-to-end demo](https://github.com/Azure-Samples/openai/blob/main/End_to_end_Solutions/AOAISearchDemo/README.md) from the Azure OpenAI team. This demo uses an unstructured .pdf data consisting of publicly available documentation on Microsoft Surface devices.
 
-+ [Review indexing concepts and strategies](search-what-is-an-index.md) to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, will determine index design.
++ [Review indexing concepts and strategies](search-what-is-an-index.md) to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, determines index design.
 
 + [Review creating queries](search-query-create.md) to learn more search request syntax and requirements.
 
