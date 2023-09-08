@@ -19,7 +19,7 @@ Service Connector has been designed to bring the benefits of easy, secure, and c
 
 Unfortunately, there's some limitations in IaC(Infra as Code) where an Azure Resource Manager (ARM), Bicep or Terraform template defines these resources explicitly. When creating service connection, Service Connector modifies resources on a user’s behalf, such as adding Azure App Service's AppSettings, adding Azure SQL database's firewall rules. When reapplying ARM templates or other IaC codes, which are used to provision source compute or target backing services at first place, these configurations on these resources added by Service Connector is cleared up. If an application is already running on these resources, then the application is down between reapplying the resource provisioning IaC codes and connection setup. For example, by default, Azure Container App has managed identity (MI) disabled. User provisions an Azure Container App through an ARM template with MI disabled. Whereas Service Connector enables it if the user chooses MI as an authentication method when creating a connection. Later, user reruns the ARM template, the MI is disabled again.
 
-If you run into issues that you believe are bugs that fall outside of the scenario described here, [file an issue with us](https://github.com/Azure/ServiceConnector/issues/new). 
+If you run into any issues when using Service Connector, [file an issue with us](https://github.com/Azure/ServiceConnector/issues/new). 
 
 ## Solutions
 We suggest the following solutions: 
