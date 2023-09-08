@@ -31,7 +31,7 @@ The following table summarizes the compute platforms currently used for instance
 <sup>2</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
 > [!NOTE]
-> Currently, the `stv2` platform isn't available in the US Government cloud or in the following Azure regions: China East, China East 2, China North, China North 2.
+> Currently, the `stv2` platform isn't available in the following Azure regions: China East, China East 2, China North, China North 2.
 > 
 > Also, as Qatar Central is a recently established Azure region, only the `stv2` platform is supported for API Management services deployed in this region.
 
