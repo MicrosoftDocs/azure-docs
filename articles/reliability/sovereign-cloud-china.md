@@ -137,7 +137,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure storage | \*.blob.core.windows.net \*.queue.core.windows.net \*.table.core.windows.net  \*.dfs.core.windows.net | \*.blob.core.chinacloudapi.cn \*.queue.core.chinacloudapi.cn \*.table.core.chinacloudapi.cn   \*.dfs.core.chinacloudapi.cn|
 | Azure management|	`https://management.azure.com/` |	`https://management.chinacloudapi.cn/` |
 | Azure service management | https://management.core.windows.net | [https://management.core.chinacloudapi.cn](https://management.core.chinacloudapi.cn/) |
-| Azure Resource Manager | [https://management.azure.com](https://management.azure.com/) | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/) |
+| Azure Resource Manager | `https://management.azure.com` | `https://management.chinacloudapi.cn` |
 | Azure portal | [https://portal.azure.com](https://portal.azure.com/) | [https://portal.azure.cn](https://portal.azure.cn/) |
 | SQL Database | \*.database.windows.net | \*.database.chinacloudapi.cn |
 | SQL Azure DB management API | `https://management.database.windows.net` | `https://management.database.chinacloudapi.cn` |
