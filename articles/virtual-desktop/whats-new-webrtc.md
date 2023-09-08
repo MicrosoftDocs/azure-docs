@@ -3,7 +3,7 @@ title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 03/01/2023
+ms.date: 09/06/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -16,6 +16,17 @@ This article provides information about the latest updates to the Remote Desktop
 ## Latest versions of the Remote Desktop WebRTC Redirector Service
 
 The following sections describe what changed in each version of the Remote Desktop WebRTC Redirector Service.
+
+### Updates for version 1.43.2306.30001
+
+Date published: September 7, 2023
+
+Download: [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi)
+
+- If a user is sharing a PowerPoint edit window then selects **Present**, the shared window will automatically switch to the PowerPoint presentation window.
+- Improved WebRTC redirector service reliability and performance handling.
+- Fixed an issue where the diagnostic overlay hotkey (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>;</kbd>) caused hotkeys to be disabled for non-Teams applications during Teams calls.
+- Fixed an issue where a race condition caused a loss of audio during Teams calls.
 
 ### Updates for version 1.33.2302.07001
 

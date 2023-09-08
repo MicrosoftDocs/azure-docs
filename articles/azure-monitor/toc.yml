@@ -545,6 +545,12 @@ items:
       - name: Prometheus Azure Active Directory authorization proxy
         displayName: Prometheus
         href: containers/prometheus-authorization-proxy.md
+      - name: Private link data ingestion
+        displayName: Private link data ingestion
+        href: essentials/private-link-data-ingestion.md
+      - name: Private link data query
+        displayName: Private link data query
+        href: ../managed-grafana/how-to-connect-to-data-source-privately.md
     - name: Container insights
       items:
       - name: Overview
