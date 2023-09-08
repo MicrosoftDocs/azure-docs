@@ -39,6 +39,10 @@ As a workaround, you can follow these steps:
 </dependentAssembly>
 ```
 
+> [!NOTE]
+> The workaround replaces the file with the original if you restart MMA/server either by enabling solution or patching. For both these scenarios, we recommend that you replace the contents.
+
+
 ### <a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
 
 #### Issue
