@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Prompt flow in Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: tutorial
 author: ishinzhang
 ms.author: yijunzhang
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 09/12/2023
 ---
 
 # Get started with Prompt flow (preview)
@@ -81,14 +81,13 @@ In **Flows** tab of Prompt flow home page, select **Create** to create your firs
 
 The built-in samples are shown in the gallery.
 
-In this guide, we'll use **Web Classification** sample to walk you through the main user journey. You can select **View detail** on Web Classification tile to preview the sample. Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. Or you can just click **Clone** to clone the sample directly, then check the flow, test it, modify it.
+In this guide, we'll use **Web Classification** sample to walk you through the main user journey. You can select **View detail** on Web Classification tile to preview the sample. Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. Or you can just select **Clone** to clone the sample directly, then check the flow, test it, modify it.
 
 :::image type="content" source="./media/get-started-prompt-flow/sample-in-gallery.png" alt-text="Screenshot of create from galley highlighting web classification. " lightbox = "./media/get-started-prompt-flow/sample-in-gallery.png":::
 
-After clicking **Clone**, as shown in the right pannel, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name acccording to your preferences. 
+After selecting **Clone**, as shown in the right panel, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences.
 
-:::image type="content" source="./media/get-started-prompt-flow/specify-flow-folder-name.png" alt-text="Screenshot of specify the flow folder name when creating a flow. " lightbox = "./media/get-started-prompt-flow/specify-flow-folder-name.png":::
-
+:::image type="content" source="./media/get-started-prompt-flow/specify-flow-folder-name.png" alt-text="Screenshot of specifying the flow folder name when creating a flow. " lightbox = "./media/get-started-prompt-flow/specify-flow-folder-name.png":::
 
 ### Authoring page
 
@@ -102,7 +101,7 @@ The top right corner shows the folder structure of the flow. Each flow has a fol
 
 :::image type="content" source="./media/get-started-prompt-flow/folder-structure-view.png" alt-text="Screenshot of web classification highlighting the folder structure area." lightbox = "./media/get-started-prompt-flow/folder-structure-view.png":::
 
-In addition to inline editting the node in flatten view, you can also turn on the **Raw file mode** toggle and click the file name to edit the file in the openning file tab.
+In addition to inline editing the node in the flatten view, you can also turn on the **Raw file mode** toggle and select the file name to edit the file in the opening file tab.
 
 :::image type="content" source="./media/get-started-prompt-flow/file-edit-tab.png" alt-text="Screenshot of the file edit tab under raw file mode." lightbox = "./media/get-started-prompt-flow/file-edit-tab.png":::
 
@@ -190,16 +189,16 @@ Select **Batch run** button, then a right panel pops up. It's a wizard that guid
 
 You need to set a batch run name, description, then select a runtime first.
 
-Then select **Upload new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first 5 rows. The dataset selection drop down supports search and autosuggestion.
+Then select **Upload new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first five rows. The dataset selection drop down supports search and autosuggestion.
 
-
-In addition, the **input mapping** supports mapping your flow input to a specific data column in your dataset, which means that you can use any column as the input, even if the column names do not match.
+In addition, the **input mapping** supports mapping your flow input to a specific data column in your dataset, which means that you can use any column as the input, even if the column names don't match.
 
 :::image type="content" source="./media/get-started-prompt-flow/upload-new-data-batch-run.png" alt-text="Screenshot of Batch run and evaluate, highlighting upload new data." lightbox = "./media/get-started-prompt-flow/upload-new-data-batch-run.png":::
 
 After that, you can select the **Review+submit** button to do batch run directly, or you can select **Next** to use an evaluation method to evaluate your flow.
 
 ### Evaluate
+
 Turn on the toggle in evaluation settings tab. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the drop-down.
 
 :::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the batch run and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
@@ -218,7 +217,7 @@ When completed, select the link, go to batch run detail page.
 
 :::image type="content" source="./media/get-started-prompt-flow/batch-run-status.png" alt-text="Screenshot of Web classification showing a successful batch run and link to detail page." lightbox = "./media/get-started-prompt-flow/batch-run-status.png":::
 
-Select **Refresh** until the run is completed. The upper area displays the batch run information, the lower section shows the evaluation run. By clicking the link of run name, you can view the snapshot of a run and overview the output result.
+Select **Refresh** until the run is completed. The upper area displays the batch run information, the lower section shows the evaluation run. By selecting the link of run name, you can view the snapshot of a run and overview the output result.
 
 :::image type="content" source="./media/get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png" alt-text="Screenshot of Web classification batch run detail page." lightbox = "./media//get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png":::
 

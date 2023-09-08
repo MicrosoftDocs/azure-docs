@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to develop a chat flow in Prompt flow that can easily create a chatbot that handles chat input and output with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: Zhong-J
 ms.author: jinzhong
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 09/12/2023
 ---
 
 # Develop a chat flow
@@ -28,7 +28,7 @@ To create a chat flow, you can **either** clone an existing chat flow sample fro
 
 :::image type="content" source="./media/how-to-develop-a-chat-flow/create-chat-flow.png" alt-text="Screenshot of the Prompt flow gallery highlighting chat flow and Chat with Wikipedia. " lightbox = "./media/how-to-develop-a-chat-flow/create-chat-flow.png":::
 
-After clicking **Clone**, as shown in the right pannel, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name acccording to your preferences. 
+After selecting  **Clone**, as shown in the right panel, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences.
 
 :::image type="content" source="./media/how-to-develop-a-chat-flow/specify-flow-folder-name.png" alt-text="Screenshot of specify the flow folder name when creating a flow. " lightbox = "./media/how-to-develop-a-chat-flow/specify-flow-folder-name.png":::
 
@@ -47,7 +47,7 @@ The top right corner shows the folder structure of the flow. Each flow has a fol
 
 :::image type="content" source="./media/how-to-develop-a-chat-flow/folder-structure-view.png" alt-text="Screenshot of web classification highlighting the folder structure area." lightbox = "./media/how-to-develop-a-chat-flow/folder-structure-view.png":::
 
-In addition to inline editting the node in flatten view, you can also turn on the **Raw file mode** toggle and click the file name to edit the file in the openning file tab.
+In addition to inline editing the node in flatten view, you can also turn on the **Raw file mode** toggle and select the file name to edit the file in the opening file tab.
 
 :::image type="content" source="./media/how-to-develop-a-chat-flow/file-edit-tab.png" alt-text="Screenshot of the file edit tab under raw file mode." lightbox = "./media/how-to-develop-a-chat-flow/file-edit-tab.png":::
 

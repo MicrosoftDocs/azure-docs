@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: learn how to develop the standard flow in the authoring page in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 09/12/2023
 ---
 
 # Develop a standard flow (preview)
@@ -46,7 +46,7 @@ The top right corner shows the folder structure of the flow. Each flow has a fol
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/folder-structure-view.png" alt-text="Screenshot of web classification highlighting the folder structure area." lightbox = "./media/how-to-develop-a-standard-flow/folder-structure-view.png":::
 
-In addition to inline editting the node in flatten view, you can also turn on the **Raw file mode** toggle and click the file name to edit the file in the openning file tab.
+In addition to inline editing the node in flatten view, you can also turn on the **Raw file mode** toggle and select the file name to edit the file in the opening file tab.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/file-edit-tab.png" alt-text="Screenshot of the file edit tab under raw file mode." lightbox = "./media/how-to-develop-a-standard-flow/file-edit-tab.png":::
 
@@ -156,7 +156,7 @@ Below are common scenarios for linking nodes together.
 ### Scenario 1 - Link LLM node with flow input
 
 1. Add a new LLM node, rename it with a meaningful name, specify the connection and API type.
-2. Edit the prompt box, add an input by `{{url}}`, click **Validate and parse input**, then you'll see an input called URL is created in inputs section.
+2. Edit the prompt box, add an input by `{{url}}`, select **Validate and parse input**, then you'll see an input called URL is created in inputs section.
 3. In the value drop-down, select ${inputs.url}, then you'll see in the graph view that the newly created LLM node is linked to the flow input. When running the flow, the URL input of the node will be replaced by flow input on the fly.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1-1.png" alt-text="picture of scenario one showing the LLM tool and editing the prompt (step1). " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1-1.png":::
@@ -165,7 +165,7 @@ Below are common scenarios for linking nodes together.
 
 ### Scenario 2 - Link LLM node with single-output upstream node
 
-1. Edit the prompt box, add another input by `{{summary}}`, click **Validate and parse input**, then you'll see an input called summary is created in inputs section.
+1. Edit the prompt box, add another input by `{{summary}}`, select **Validate and parse input**, then you'll see an input called summary is created in inputs section.
 2. In the value drop-down, select ${summarize_text_content.output}, then you'll see in the graph view that the newly created LLM node is linked to the upstream summarize_text_content node. When running the flow, the summary input of the node will be replaced by summarize_text_content node output on the fly.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png" alt-text="Gif of scenario two editing the prompt and inputs. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png":::
