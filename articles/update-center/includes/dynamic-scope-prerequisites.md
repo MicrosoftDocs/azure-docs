@@ -17,7 +17,7 @@ Ensure to register the preview feature in your Azure subscription by following t
   1. Search for **Dynamic scoping**. 
   1. Select **Register** and then select **OK** to get started with Dynamic scope (preview).
 
-### [PowerShell](#tab/ps)
+#### [PowerShell](#tab/ps)
 To register the preview feature, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet
 
 ```powershell-interactive

@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Create and manage Private Link for Azure Database for MySQL - Flexible Server using the portal (Preview)
+# Create and manage Private Link for Azure Database for MySQL - Flexible Server using the portal 
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

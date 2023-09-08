@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 08/25/2023
+ms.date: 09/05/2023
 ms.author: victorh
 ---
 
@@ -57,7 +57,7 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 | BM | Bermuda|
 | BN | Brunei|
 | BO | Bolivia|
-| BQ | Bonaire|
+| BQ | Bonaire, Sint Eustatius and Saba|
 | BR | Brazil|
 | BS | Bahamas|
 | BT | Bhutan|
@@ -227,7 +227,7 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 | SG | Singapore|
 | SH | St Helena, Ascension, Tristan da Cunha|
 | SI | Slovenia|
-| SJ | Svalbard|
+| SJ | Svalbard and Jan Mayen|
 | SK | Slovakia|
 | SL | Sierra Leone|
 | SM | San Marino|
@@ -271,10 +271,7 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 | VU | Vanuatu|
 | WF | Wallis and Futuna|
 | WS | Samoa|
-| XE | Sint Eustatius|
-| XJ | Jan Mayen|
 | XK | Kosovo|
-| XS | Saba|
 | YE | Yemen|
 | YT | Mayotte|
 | ZA | South Africa|

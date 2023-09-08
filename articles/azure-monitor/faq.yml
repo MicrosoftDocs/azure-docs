@@ -1190,7 +1190,7 @@ sections:
       - question: |
           How do I enable multi-line logging?
         answer: |
-          Container insights now supports multi-line logging (preview), for more information on how to enable, checkout the [Multi-line logging in Container Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-logging-v2) docs. 
+          Container insights now supports multi-line logging (preview), for more information on how to enable, checkout the [Multi-line logging in Container Insights](/azure/azure-monitor/containers/container-insights-logging-v2) docs. 
           
           As an alternative you can also configure all the services to write in JSON format, and then Docker/Moby writes them as a single line. For example, you can wrap your log as a JSON object as shown in the following example for a sample Node.js application
           
@@ -1239,7 +1239,7 @@ sections:
       - question: |
           Does Container Insights support pod sandboxing?
         answer: |
-          Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](https://learn.microsoft.com/azure/aks/use-pod-sandboxing).
+          Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](/azure/aks/use-pod-sandboxing).
           
 
       
