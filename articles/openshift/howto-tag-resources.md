@@ -485,4 +485,6 @@ You can remediate previously assigned tags and add new tags using an Azure Polic
     	--params param-values.json
     ```
 
-1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. **Note that remediation tasks never remove tags—they only add or update tags**.
+1. Allow the remediation task time to run and observe the tags being updated on the managed resource group and its resources. 
+>[!Note]
+>Remediation tasks never remove tags—they only add or update tags.
