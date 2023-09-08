@@ -172,7 +172,7 @@ You can now use the operator information.  For this quickstart guide, we can pri
 ```java
 OperatorInformation operatorInfo = result.getValues().get(0);
 
-String numberType = operatorInfo.getNumberType() == null ? "unknown" : operatorInfo.getNumberType();
+String numberType = operatorInfo.getNumberType() == null ? "unknown" : operatorInfo.getNumberType().toString();
 String operatorName = "an unknown operator";
 if (operatorInfo.getOperatorDetails()!= null && operatorInfo.getOperatorDetails().getName() != null)
 {

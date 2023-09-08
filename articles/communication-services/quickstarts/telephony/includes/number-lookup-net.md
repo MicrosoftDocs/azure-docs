@@ -110,7 +110,7 @@ Replace `<target-phone-number>` with the phone number you're looking up, usually
 You can now use the operator information.  For this quickstart guide, we can print some of the details to the console.
 
 ```csharp
-OperatorInformation operatorInformation = searchResult.Results[0];
+OperatorInformation operatorInformation = searchResult.Values[0];
 Console.WriteLine($"{operatorInformation.PhoneNumber} is a {operatorInformation.NumberType ?? "unknown"} number, operated by {operatorInformation.OperatorDetails.Name ?? "an unknown operator"}");
 ```
 
