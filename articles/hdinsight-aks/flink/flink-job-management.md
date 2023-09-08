@@ -7,9 +7,9 @@ ms.date: 09/07/2023
 ---
 # Flink job management
 
-HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
+    HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
 
-This feature empowers users to efficiently control and monitor their Flink jobs without requiring deep cluster-level knowledge.
+    This feature empowers users to efficiently control and monitor their Flink jobs without requiring deep cluster-level knowledge.
 
 ## Benefits
 
@@ -22,7 +22,7 @@ This feature empowers users to efficiently control and monitor their Flink jobs 
 1. **Automating Flink job using azure pipeline**: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps. It empowers you to manage your Flink cluster efficiently.
 
 ## Prerequisites
-There are some prerequisites before submitting and managing jobs from portal or Rest APIs.
+    There are some prerequisites before submitting and managing jobs from portal or Rest APIs.
 1. Create a directory in the primary storage account of the cluster to upload the job jar.
 1. If the user wants to take savepoints, then create a directory in the storage account for job savepoints.
 
@@ -46,16 +46,19 @@ There are some prerequisites before submitting and managing jobs from portal or 
 1. **Delete**: Delete job history record.
 
 ## Options to manage job in Hilo Flink
-Hilo provides ways to manage Flink jobs.
-1. [Azure Portal](#azure-portal)
-1. [ARM Rest API](#arm-rest-api)
+
+    Hilo provides ways to manage Flink jobs.
+
+    1. [Azure Portal](#azure-portal)
+    1. [ARM Rest API](#arm-rest-api)
 
 ### <a id="azure-portal">Job Management from Azure Portal</a>
-To run the Flink job from portal go to:
 
-Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flink Jobs 
+    To run the Flink job from portal go to:
 
-:::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run `flink` job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
+    Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flink Jobs 
+
+    :::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run `flink` job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
 
 1. **New job:** To submit a new job, upload the job jars to the storage account and create a savepoint directory. Complete the template with the necessary configurations and then submit the job.
 
@@ -78,17 +81,17 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
 
     :::image type="image" source="./media/flink-job-management/stop-job.png" alt-text="Screenshot shows how user can stop job." border="true" lightbox="./media/flink-job-management/stop-job.png":::
 
-Once the job is stopped, the job status on the portal will be STOPPED.
+    Once the job is stopped, the job status on the portal will be STOPPED.
 
 1. **Start:** This action starts the job from savepoint. To start the job, select the stopped job and start it.
 
-:::image type="image" source="./media/flink-job-management/start-job-savepoint.png" alt-text="Screenshot shows how user start job." border="true" lightbox="./media/flink-job-management/start-job-savepoint.png":::
+    :::image type="image" source="./media/flink-job-management/start-job-savepoint.png" alt-text="Screenshot shows how user start job." border="true" lightbox="./media/flink-job-management/start-job-savepoint.png":::
 
-Fill the flow template with the required options and start it. Users need to select the savepoint from which user wants to start the job. By default, it takes the last successful savepoint.
+    Fill the flow template with the required options and start it. Users need to select the savepoint from which user wants to start the job. By default, it takes the last successful savepoint.
 
-:::image type="image" source="./media/flink-job-management/fill-flow-template.png" alt-text="Screenshot shows how fill flow template." border="true" lightbox="./media/flink-job-management/fill-flow-template.png":::
+    :::image type="image" source="./media/flink-job-management/fill-flow-template.png" alt-text="Screenshot shows how fill flow template." border="true" lightbox="./media/flink-job-management/fill-flow-template.png":::
 
-**Property details**:
+    **Property details**:
 
    | Property | Description | Default Value  | Mandatory |
    | -------- | ------- | -------- | ------- |
@@ -100,7 +103,7 @@ Fill the flow template with the required options and start it. Users need to sel
 
 1. **Update:** Update helps to restart jobs with updated job code. Users need to update the latest job jar in storage location and update the job from portal. This will stop the job with savepoint and start again with latest jar.
 
-:::image type="image" source="./media/flink-job-management/restart-job-with-updated-code.png" alt-text="Screenshot shows how restart jobs with updated job code." border="true" lightbox="./media/flink-job-management/restart-job-with-updated-code.png":::
+    :::image type="image" source="./media/flink-job-management/restart-job-with-updated-code.png" alt-text="Screenshot shows how restart jobs with updated job code." border="true" lightbox="./media/flink-job-management/restart-job-with-updated-code.png":::
 
    Template for updating job.
    
@@ -110,7 +113,7 @@ Fill the flow template with the required options and start it. Users need to sel
 
 1. **Stateless update:** This is like an update, but it involves a fresh restart of the job with the latest code.
 
-:::image type="image" source="./media/flink-job-management/stateless-update.png" alt-text="Screenshot shows fresh restart of the job with the latest code." border="true" lightbox="./media/flink-job-management/stateless-update.png":::
+    :::image type="image" source="./media/flink-job-management/stateless-update.png" alt-text="Screenshot shows fresh restart of the job with the latest code." border="true" lightbox="./media/flink-job-management/stateless-update.png":::
 
    Template for updating job.
 
@@ -126,40 +129,41 @@ Fill the flow template with the required options and start it. Users need to sel
    
 1. `SavePoint`: Take the savepoint for the Flink Job.
 
-:::image type="image" source="./media/flink-job-management/savepoint-flink-job.png" alt-text="Screenshot shows savepoint for the Flink Job." border="true" lightbox="./media/flink-job-management/savepoint-flink-job.png":::
+    :::image type="image" source="./media/flink-job-management/savepoint-flink-job.png" alt-text="Screenshot shows savepoint for the Flink Job." border="true" lightbox="./media/flink-job-management/savepoint-flink-job.png":::
 
-Savepoint is time consuming process, and it will take some time. You can see job action status as in-progress.
+    Savepoint is time consuming process, and it will take some time. You can see job action status as in-progress.
 
-:::image type="image" source="./media/flink-job-management/job-action-status.png" alt-text="Screenshot shows job action status." border="true" lightbox="./media/flink-job-management/job-action-status.png":::
+    :::image type="image" source="./media/flink-job-management/job-action-status.png" alt-text="Screenshot shows job action status." border="true" lightbox="./media/flink-job-management/job-action-status.png":::
 
 1. **Cancel:** This helps user to terminate the job.
 
- :::image type="image" source="./media/flink-job-management/terminate-job.png" alt-text="Screenshot shows how user can terminate the job." border="true" lightbox="./media/flink-job-management/terminate-job.png":::
+    :::image type="image" source="./media/flink-job-management/terminate-job.png" alt-text="Screenshot shows how user can terminate the job." border="true" lightbox="./media/flink-job-management/terminate-job.png":::
 
 1. **Delete:** Delete job data from portal.
 
-:::image type="image" source="./media/flink-job-management/delete-job-data.png" alt-text="Screenshot shows how user can delete job data from portal." border="true" lightbox="./media/flink-job-management/delete-job-data.png":::
+    :::image type="image" source="./media/flink-job-management/delete-job-data.png" alt-text="Screenshot shows how user can delete job data from portal." border="true" lightbox="./media/flink-job-management/delete-job-data.png":::
 
 1. **View Job Details:** To view the job detail user can click on job name, it gives the details about the job and last action result.
 
- :::image type="image" source="./media/flink-job-management/view-job-details.png" alt-text="Screenshot shows how to view job details." border="true" lightbox="./media/flink-job-management/view-job-details.png":::
+    :::image type="image" source="./media/flink-job-management/view-job-details.png" alt-text="Screenshot shows how to view job details." border="true" lightbox="./media/flink-job-management/view-job-details.png":::
 
-For any failed action, this job json give detailed exceptions and reasons for failure.
+    For any failed action, this job json give detailed exceptions and reasons for failure.
 
 ### <a id="arm-rest-api">Job Management Using Rest API</a>
-HDInsight on AKS - Flink supports user friendly ARM Rest APIs to submit job and manage job. Using this Flink REST API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps and empowers you to manage your Flink cluster efficiently.
+
+    HDInsight on AKS - Flink supports user friendly ARM Rest APIs to submit job and manage job. Using this Flink REST API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps and empowers you to manage your Flink cluster efficiently.
 #### Base URL format for Rest API
-Below is the base URL for rest API, users need to replace subscription, resource group, cluster pool, cluster name and Hilo API version in this before using it.
+    Below is the base URL for rest API, users need to replace subscription, resource group, cluster pool, cluster name and Hilo API version in this before using it.
 
-```Job API
-https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runjob?api-version={{HILO_API_VERSION}}
-```
+    ```Job API
+    https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runjob?api-version={{HILO_API_VERSION}}
+    ```
 
-Using this REST API, users can initiate new jobs, stop jobs, start jobs, create savepoints, cancel jobs, and delete jobs. The current HILO_API_VERSION is 2023-06-01-preview.
+    Using this REST API, users can initiate new jobs, stop jobs, start jobs, create savepoints, cancel jobs, and delete jobs. The current HILO_API_VERSION is 2023-06-01-preview.
 
 #### Rest API Authentication 
 
-To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or access token for ARM resource. To authenticate Azure ARM (Azure Resource Manager) REST API using a service principal, you can follow these general steps:
+    To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or access token for ARM resource. To authenticate Azure ARM (Azure Resource Manager) REST API using a service principal, you can follow these general steps:
 
 1. Create a Service Principal.
 
@@ -180,6 +184,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    `$data = Invoke-RestMethod -Uri $restUri -Method GET -Headers @{ Authorization = "Bearer $tok" }`
 
 #### LIST of APIs and Parameters
+
 1. **New Job:** Rest API to submit new job to Flink.
      
    |  Option  |  Value |
@@ -460,6 +465,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
 1. **Delete:** Rest API to delete job.
+
    |  Option  |  Value  |
    | -------- | ------- |
    | Method   |  POST   |
