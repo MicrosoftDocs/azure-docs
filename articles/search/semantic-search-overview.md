@@ -17,12 +17,12 @@ ms.date: 09/08/2023
 > [!IMPORTANT]
 > Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
-In Azure Cognitive Search, *semantic search* measurably improves search relevance by using language understanding to rerank an initial search result. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
+In Azure Cognitive Search, *semantic search* measurably improves search relevance by using language understanding to rerank search results. This article is a high-level introduction to semantic ranking. The [embedded video](#how-semantic-ranking-works) describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> * [Check regional and service tier requirements](#availability-and-pricing).
+> * [Check regional availability](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=search).
 > * [Enable semantic ranking](semantic-how-to-enable-disable.md) on your search service.
 > * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
 > * Add a few more query properties to also [return semantic answers](semantic-answers.md).
@@ -42,7 +42,7 @@ Semantic search is a collection of query-related capabilities that improve the q
 
 | Feature | Description |
 |---------|-------------|
-| [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning of a query to compute a new relevance score over existing BM25-ranked results. |
+| Semantic re-ranking | Uses the context or semantic meaning of a query to compute a new relevance score over existing BM25-ranked results. |
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts verbatim sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the search results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
 | [Semantic answers](semantic-answers.md) | An optional and extra substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document has text with the characteristics of an answer. |
 
@@ -60,11 +60,11 @@ Semantic ranking is both resource and time intensive. In order to complete proce
 
 ### How inputs are prepared
 
-If you opt-in for semantic ranking, the query subsystem must provide content that can be handled efficiently by the models. The following steps explain how the inputs are assembled.
+In semantic ranking, the query subsystem must provide content that can be handled efficiently by the language understanding models. The following steps explain how the inputs are assembled.
 
 1. Content reduction starts with a [BM25-ranked search result](index-ranking-similarity.md) from a text query. Only full text queries are in scope, and only the top 50 results progress to semantic ranking, even if results include more than 50.
 
-1. From each match, for each field listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration), the query subsystem extracts the value and combines them into one long string. Typically, fields used in semantic ranking are textual and descriptive.
+1. From each match, for each field listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration), the query subsystem combines values into one long string. Typically, fields used in semantic ranking are textual and descriptive.
 
 1. Excessively long strings are trimmed to ensure the overall length meets the input requirements of the summarization step.
 
@@ -75,11 +75,11 @@ Each document is now represented by a single long string.
 The string is composed of tokens, not characters or words. The maximum token count is 256 unique tokens. For estimation purposes, you can assume that 256 tokens are roughly equivalent to a string that is 256 words in length. 
 
 > [!NOTE]
-> Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from semantic ranking. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
+> Tokenization is determined in part by the [analyzer assignment](search-analyzers.md) on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from semantic ranking. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
 
 ### How inputs are summarized
 
-After strings are prepared, it's now possible to pass the reduced inputs through machine reading comprehension and language representation models to determine which sentences and phrases best summarize the document, relative to the query. This phase extracts content from the string that will move forward to the semantic ranker.
+After strings are prepared, it's now possible to pass the reduced inputs through machine reading comprehension and language representation models to determine which sentences and phrases provide the best summary, relative to the query. This phase extracts content from the string that will move forward to the semantic ranker.
 
 Inputs to summarization are the long strings obtained for each document in the preparation phase. From each string, the summarization model finds a passage that is the most representative.
 
@@ -145,20 +145,18 @@ Although semantic search isn't beneficial in every scenario, certain content can
 
 ## Availability and pricing
 
-Semantic search and spell check are available on services that meet the criteria in the following table. To use semantic search, your first need to [enable the capabilities](semantic-how-to-enable-disable.md) on your search service.
+Semantic search is available on seach services at the Basic and higher tiers, subject to [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-| Feature | Tier | Region | Sign up | Pricing |
-|---------|------|--------|---------|---------|
-| Semantic search | Basic and higher | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
-| Spell check | Basic <sup>2</sup> and higher  | All | None | None (free) |
+When you enable semantic search, choose a pricing plan for the feature:
 
-<sup>1</sup> On the pricing page, scroll down to view more features that are billed separately. At lower query volumes (under 1000 monthly), semantic search is free. To exceed that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
+* At lower query volumes (under 1000 monthly), semantic search is free.
+* At higher query volumes, choose the standard pricing plan.
 
-<sup>2</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a few services happen to have spell check on the free tier. However, spell check availability on free tier services isn't guaranteed and shouldn't be expected.
+The [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) shows you the billing rate for different currencies and intervals.
 
-Charges for semantic search are levied when query requests include "queryType=semantic" and the search string isn't empty (for example, "search=pet friendly hotels in New York"). If your search string is empty ("search=*"), you aren't charged, even if the queryType is set to "semantic".
+Charges for semantic search are levied when query requests include `queryType=semantic` and the search string isn't empty (for example, `search=pet friendly hotels in New York`). If your search string is empty (`search=*`), you aren't charged, even if the queryType is set to semantic.
 
 ## Next steps
 
-+ [Enable semantic search](semantic-how-to-enable-disable.md) for your search service.
-+ [Configure semantic ranking](semantic-how-to-query-request.md) so that you can try out semantic search on your content.
+* [Enable semantic search](semantic-how-to-enable-disable.md) for your search service.
+* [Configure semantic ranking](semantic-how-to-query-request.md) so that you can try out semantic search on your content.

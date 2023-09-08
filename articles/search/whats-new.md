@@ -22,7 +22,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| [**Enhanced semantic ranking**](semantic-ranking.md) | Feature | Upgraded models are rolling out for semantic reranking, and availability is extended to more regions. Maximum unique token counts doubled from 128 to 256. |
+| [**Enhanced semantic ranking**](semantic-search-overview.md) | Feature | Upgraded models are rolling out for semantic reranking, and availability is extended to more regions. Maximum unique token counts doubled from 128 to 256. |
 
 ## July 2023
 

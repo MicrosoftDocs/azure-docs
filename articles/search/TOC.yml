@@ -133,12 +133,8 @@
         href: search-query-overview.md
       - name: Relevance scoring
         href: index-similarity-and-scoring.md
-    - name: Semantic
-      items:
-      - name: Semantic search
-        href: semantic-search-overview.md
-      - name: Semantic ranking
-        href: semantic-ranking.md 
+    - name: Semantic search
+      href: semantic-search-overview.md
     - name: Vectors
       items:
       - name: Vector search
