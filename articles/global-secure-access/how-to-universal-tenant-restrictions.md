@@ -52,7 +52,7 @@ Universal tenant restrictions help to prevent data exfiltration across browsers,
 - If you have enabled universal tenant restrictions and you are accessing the Microsoft Entra admin center for one of the allow listed tenants, you may see an "Access denied" error. Add the following feature flag to the Microsoft Entra admin center:
     - `?feature.msaljs=true&exp.msaljsexp=true`
     - For example, you work for Contoso and you have allow listed Fabrikam as a partner tenant. You may see the error message for the Fabrikam tenant's Microsoft Entra admin center.
-        - If you received the "access denied" error message for this URL: `https://entra.microsoft.com/#home` then add the feature flag as follows: `https://entra.microsoft.com/?feature.msaljs%253Dtrue%2526exp.msaljsexp%253Dtrue#home`
+        - If you received the "access denied" error message for this URL: `https://entra.microsoft.com/` then add the feature flag as follows: `https://entra.microsoft.com/?feature.msaljs%253Dtrue%2526exp.msaljsexp%253Dtrue#home`
 
 
 Outlook uses the QUIC protocol for some communications. We don't currently support the QUIC protocol. Organizations can use a firewall policy to block QUIC and fallback to non-QUIC protocol. The following PowerShell command creates a firewall rule to block this protocol.
