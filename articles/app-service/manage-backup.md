@@ -15,10 +15,10 @@ In [Azure App Service](overview.md), you can easily restore app backups. You can
 Back up and restore are supported in **Basic**, **Standard**, **Premium**, and **Isolated** tiers. For **Basic** tier, only the production slot can be backed up and restored. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
 
 > [!NOTE]
-> For App Service environments:
+> For App Service Environments:
 > 
-> - Automatic backups can be restored to a target app within the ASE itself, not in another ASE.
-> - Custom backups can be restored to a target app in another ASE, such as from a V2 ASE to a V3 ASE.
+> - Automatic backups can be restored to a target app within the App Service environment itself, not in another App Service environment.
+> - Custom backups can be restored to a target app in another App Service environment, such as from App Service Environment v2 to App Service Environment v3.
 > - Backups can be restored to target app of the same OS platform as the source app.
 
 [!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
@@ -173,7 +173,7 @@ For troubleshooting information, see [Why is my linked database not backed up](#
 
 With [custom backups](#create-a-custom-backup), you can back up your app's files and configuration data to a firewall-protected storage account if the following requirements are fulfilled:
 
-- The app is [integrated with a virtual network](overview-vnet-integration.md), or the app is in a [v3 App Service environment](environment/app-service-app-service-environment-intro.md).
+- The app is [integrated with a virtual network](overview-vnet-integration.md), or the app is in a v3 [App Service environment](environment/app-service-app-service-environment-intro.md).
 - The storage account has [granted access from the virtual network](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) that the app is integrated with, or that the v3 App Service environment is created with.
 
 To back up and restore over Azure Virtual Network:
