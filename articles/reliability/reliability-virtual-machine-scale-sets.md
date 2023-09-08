@@ -29,17 +29,18 @@ This section contains recommendations for achieving resiliency and availability 
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-1: Deploy VMs with flexible orchestration mode](#-vmss-1-deploy-vms-with-flexible-orchestration-mode) |
-| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: Configure Virtual Machine Scale Sets Autoscale to Automatic](#-vmss-5-configure-virtual-machine-scale-sets-autoscale-to-automatic) |
+| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-1: Deploy VMs with flexible orchestration mode](#-vmss-1-deploy-vms-with-flexible-orchestration-mode)|
+| |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Enable automatic repair policy](#-vmss-4-enable-automatic-repair-policy) |
+| [**Scalability**](#scalability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-5: Configure Virtual Machine Scale Sets Autoscale to Automatic](#-vmss-5-configure-virtual-machine-scale-sets-autoscale-to-automatic) |
 | |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-6: Set Virtual Machine Scale Sets custom scale-in policies to default](#-vmss-6-set-virtual-machine-scale-sets-custom-scale-in-policies-to-default) |
-| [**High Availability**](#high-availability) |:::image type="icon" source="../reliability/media/icon-recommendation-high.svg":::| [VMSS-4: Enable automatic repair policy](#-vmss-4-enable-automatic-repair-policy) |
 | [**Disaster Recovery**](#disaster-recovery) |:::image type="icon" source="../reliability/media/icon-recommendation-low.svg":::| [VMSS-2: Enable Protection Policy for all Virtual Machine Scale Set VMs](#-vmss-2-enable-protection-policy-for-all-virtual-machine-scale-set-vms) |
 | [**Monitoring**](#monitoring) |:::image type="icon" source="../reliability/media/icon-recommendation-medium.svg":::| [VMSS-3: Enable Virtual Machine Scale Sets application health monitoring](#-vmss-3-enable-virtual-machine-scale-sets-application-health-monitoring) |
 
 
-### Scalability
 
-#### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **VMSS-1: Deploy VMs with flexible orchestration mode** 
+### High availability
+
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-1: Deploy VMs with flexible orchestration mode** 
 
 All VMs, including single instance VMs, should be deployed into a scale set using [flexible orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
 
@@ -50,6 +51,22 @@ For more information on how to use scale sets appropriately, see [When to use Vi
 :::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-1/vmss-1.kql":::
 
 ----
+
+#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-4: Enable automatic repair policy** 
+
+To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) or [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
+
+A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
+
+
+# [Azure Resource Graph](#tab/graph-4)
+
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-4/vmss-4.kql":::
+
+----
+
+### Scalability
+
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-5: Configure Virtual Machine Scale Sets Autoscale to Automatic** 
 
@@ -93,20 +110,6 @@ Only use the *Newest* and *Oldest* policies when your workload requires that the
 
 ----
 
-### High availability
-
-#### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **VMSS-4: Enable automatic repair policy** 
-
-To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) or [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) find that an instance is unhealthy, automatic instance repairs deletes the unhealthy instance and creates a new one to replace it.
-
-A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
-
-
-# [Azure Resource Graph](#tab/graph-4)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/virtual-machine-scale-sets/code/vmss-4/vmss-4.kql":::
-
-----
 
 ### Disaster recovery
 
