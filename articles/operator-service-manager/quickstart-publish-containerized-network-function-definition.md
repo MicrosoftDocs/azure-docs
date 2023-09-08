@@ -1,7 +1,7 @@
 ---
 title: Publish a network function definition
 description: Learn how to publish a network function definition.
-author: sherryg
+author: sherrygonz
 ms.author: sherryg
 ms.date: 09/07/2023
 ms.topic: quickstart
@@ -43,7 +43,8 @@ az aosm nfd generate-config --definition-type cnf
 ```
 After the input file is created, be sure to edit the input.json file, replacing the provided values with the appropriate configurations  specific to your environment details.
 
-**Note** Zip the ngnix configuration files in the format of tgz.
+> [!NOTE]
+> Zip the ngnix configuration files in the format of tgz.
 
 Here's sample Input.Json:
 

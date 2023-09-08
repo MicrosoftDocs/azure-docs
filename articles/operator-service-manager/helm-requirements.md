@@ -1,7 +1,7 @@
 ---
 title: About Helm package requirements for Azure Operator Service Manager
 description: Learn about the Helm package requirements for  Azure Operator Service Manager.
-author: sherryg
+author: sherrygonz
 ms.author: sherryg
 ms.date: 09/07/2023
 ms.topic: concept-article
@@ -76,7 +76,8 @@ During an NF deployment, the Network Function Operator (NFO) sets the registryPa
 $ helm install --set "global.registryPath=<registryURL>" --set "global.imagePullSecrets[0].name=<secretName>" releasename ./releasepackage 
 ```
 
-**Note** The registryPath is set without any prefix such as https:// or  oci://. If a prefix is required in the helm package, publishers need to define this in the package. 
+> [!NOTE]
+> The registryPath is set without any prefix such as https:// or  oci://. If a prefix is required in the helm package, publishers need to define this in the package. 
 
 `values.yaml` is a file that contains the default values for a Helm chart. It is a YAML file that defines the default values for a chart. In the values.yaml file, two types of variables must be present; imagePullSecrets and registryPath. Each are described in the table.
 
