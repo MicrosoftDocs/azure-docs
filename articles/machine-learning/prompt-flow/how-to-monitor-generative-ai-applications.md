@@ -76,7 +76,7 @@ What parameters are configured in your data asset dictates what metrics you can 
 
 ## Prerequisites
 1. **Azure OpenAI resource:** You must have an Azure OpenAI resource created with sufficient quota. This resource is used as your evaluation endpoint. 
-1. **Managed identity:**  Create a User Assigned managed Identity (UAI) and attach it to your workspace [using this guidance](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-submit-spark-jobs?view=azureml-api-2&tabs=cli#attach-user-assigned-managed-identity-using-cli-v2) with sufficient role access, as defined in the next step.
+1. **Managed identity:**  Create a User Assigned managed Identity (UAI) and attach it to your workspace using the guidance in [Attach user assigned managed identity using CLI v2](../how-to-submit-spark-jobs.md#attach-user-assigned-managed-identity-using-cli-v2)with sufficient role access, as defined in the next step.
 1. **Role access** To assign a role with the required permissions, you need to have the *owner* or *Microsoft.Authorization/roleAssignments/write* permission on your resource. Updating connections and permissions may take several minutes to take effect. These additional roles must be assigned to your UAI:
     - **Resource:** Workspace
     - **Role:** Azure Machine Learning Data Scientist
@@ -145,18 +145,18 @@ If successfully configured, your monitoring pipeline job shows the following:
 ### Monitor overview page
 
 Your monitor overview provides an overview of your signal performance. You can enter your signal details page for more information.
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-overview.png" alt-text="Screenshot showing monitor overview." lightbox="./media/how-to-monitor-generative-ai-applications/how-to-gsq-monitor-overview.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-overview.png" alt-text="Screenshot showing monitor overview." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-monitor-overview.png":::
     
 ### Signal details page
 
 The signal details page allows you to view metrics over time **(A)**  and view histograms of distribution **(B)**.
 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-details.png" alt-text="Screenshot showing a signal details page." lightbox="./media/how-to-monitor-generative-ai-applications/how-to-gsq-monitor-signal-details.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-details.png" alt-text="Screenshot showing a signal details page." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-details.png":::
 
 ### Resolve alerts 
 
 It's only possible to adjust signal thresholds: the acceptable score is fixed at 3/5, and it's only possible to adjust the 'acceptable overall % passing rate' field. 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/how-to-monitor-generative-ai-applications/how-to-gsq-monitor-signal-adjust-signal.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png":::
    
 ## Next Steps
 - [Model monitoring overview](../concept-model-monitoring.md)
