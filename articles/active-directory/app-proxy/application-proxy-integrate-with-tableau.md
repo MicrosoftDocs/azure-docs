@@ -33,6 +33,8 @@ Application Proxy supports the OAuth 2.0 Grant Flow, which is required for Table
 
 ## Publish your applications in Azure 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To publish Tableau, you need to publish an application in the Azure portal.
 
 For:
@@ -43,7 +45,7 @@ For:
 **To publish your app**: 
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator.
 
 2. Select **Azure Active Directory > Enterprise applications**. 
 

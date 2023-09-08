@@ -6,7 +6,7 @@ ms.author: dbrittain
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 5/27/2022
-ms.custom: mvc, devx-track-azurecli, devx-track-extended-java
+ms.custom: mvc, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
 ---
 
 # Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL

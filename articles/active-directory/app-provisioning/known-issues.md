@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 06/08/2023
+ms.date: 07/21/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
@@ -25,7 +25,6 @@ This article discusses known issues to be aware of when you work with app provis
 
 ### Unsupported synchronization scenarios
 
-- Restoring a previously soft-deleted user in the target tenant
 - Synchronizing groups, devices, and contacts into another tenant
 - Synchronizing users across clouds
 - Synchronizing photos across tenants

@@ -7,7 +7,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 07/25/2023
 ---
 # Import data wizard in Azure Cognitive Search
 
@@ -61,7 +61,7 @@ The wizard isn't without limitations. Constraints are summarized as follows:
 
 + A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections and uses a default naming convention. If you want to customize names or projections, you'll need to create the knowledge store through REST API or the SDKs.
 
-+ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled, you must disable it, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
++ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled or you have set a shared private link, you must disable them, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
 
 ## Workflow
 

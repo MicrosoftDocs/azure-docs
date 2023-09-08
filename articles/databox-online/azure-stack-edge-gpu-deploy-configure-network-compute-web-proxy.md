@@ -142,8 +142,9 @@ Follow these steps to add or delete virtual switches and virtual networks.
 
     1. Provide a name for your virtual switch.
     1. Choose the network interface on which the virtual switch should be created. 
-    1. If deploying 5G workloads, set **Supports accelerated networking** to **Yes**.
-    1. Select **Apply**. You can see that the specified virtual switch is created. 
+    1. Select **Apply**. You can see that the specified virtual switch is created.
+    
+       You can create Virtual Machines from Azure portal using any of the virtual networks you have created.
  
     ![Screenshot of "Advanced networking" page with virtual switch added and enabled for compute in local UI for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 

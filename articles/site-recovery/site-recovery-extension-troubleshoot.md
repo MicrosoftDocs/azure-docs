@@ -4,6 +4,7 @@ description: Troubleshoot issues with the Azure VM extension for disaster recove
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
+ms.custom: devx-track-linux
 ms.topic: troubleshooting
 ms.date: 05/03/2023
 ---

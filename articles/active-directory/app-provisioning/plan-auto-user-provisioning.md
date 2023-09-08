@@ -110,13 +110,13 @@ In this example, the users and or groups are created in a cloud HR application l
 
 ![Picture 2](./media/plan-auto-user-provisioning/workdayprovisioning.png)
 
-1.	**HR team** performs the transactions in the cloud HR app tenant.
-2.	**Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
-3.	**Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
-4.	**Azure AD Connect provisioning agent** uses a service account to manage AD account data.
-5.	**Azure AD Connect** runs delta sync to pull updates in AD.
-6.	**AD** updates are synced with Azure AD. 
-7.	**Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
+1. **HR team** performs the transactions in the cloud HR app tenant.
+2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with AD.
+3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload containing AD account create/update/enable/disable operations.
+4. **Azure AD Connect provisioning agent** uses a service account to manage AD account data.
+5. **Azure AD Connect** runs delta sync to pull updates in AD.
+6. **AD** updates are synced with Azure AD. 
+7. **Azure AD provisioning service** writebacks email attribute and username from Azure AD to the cloud HR app tenant.
 
 ## Plan the deployment project
 
@@ -124,7 +124,7 @@ Consider your organizational needs to determine the strategy for deploying user 
 
 ### Engage the right stakeholders
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 ### Plan communications
 
@@ -132,7 +132,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 ### Plan a pilot
 
-We recommend that the initial configuration of automatic user provisioning is in a test environment with a small subset of users before scaling it to all users in production. See [best practices](../fundamentals/deployment-plans.md#best-practices-for-a-pilot) for running a pilot.
+We recommend that the initial configuration of automatic user provisioning is in a test environment with a small subset of users before scaling it to all users in production. See [best practices](../architecture/deployment-plans.md#best-practices-for-a-pilot) for running a pilot.
 
 #### Best practices for a pilot  
 

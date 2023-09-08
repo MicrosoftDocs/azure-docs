@@ -45,5 +45,5 @@ The following example shows how to get the current timestamp.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`GetCurrentTimestampStatic`](getcurrenttimestampstatic.md)

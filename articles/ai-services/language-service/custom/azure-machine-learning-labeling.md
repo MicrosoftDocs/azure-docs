@@ -36,7 +36,7 @@ Before you can connect your labeling project to Azure Machine Learning, you need
 * Only Azure Machine Learning's JSONL file format can be imported into Language Studio.
 * Projects with the multi-lingual option enabled can't be connected to Azure Machine Learning, and not all languages are supported.
     * Language support is provided by the Azure Machine Learning [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true&branch=main#azureml-automl-core-constants-textdnnlanguages-supported).
-* The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to. Be sure that the Azure Machine Learning workspace has the storage blob data reader permission on the storage account. The workspace needs to have been linked to the storage account during the creation process in the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices).
+* The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to. Be sure that the Azure Machine Learning workspace has the storage blob data reader permission on the storage account. The workspace needs to have been linked to the storage account during the [creation process in the Azure portal](https://portal.azure.com/#create/Microsoft.MachineLearningServices).
 * Switching between the two labeling experiences isn't instantaneous. It may take time to successfully complete the operation.
 
 ## Import your Azure Machine Learning labels into Language Studio
@@ -55,7 +55,7 @@ Language Studio supports the JSONL file format used by Azure Machine Learning. I
 
 Before you connect to Azure Machine Learning, you need an Azure Machine Learning account with a pricing plan that can accommodate the compute needs of your project. See the [prerequisites section](#prerequisites) to make sure that you have successfully completed all the requirements to start connecting your Language Studio project to Azure Machine Learning.
 
-1.	Use the [Azure portal](https://portal.azure.com/) to navigate to the Azure Blob Storage account connected to your language resource.
+1.	Use the [Azure portal](https://portal.azure.com) to navigate to the Azure Blob Storage account connected to your language resource.
 2.	Ensure that the *Storage Blob Data Contributor* role is assigned to your AML workspace within the role assignments for your Azure Blob Storage account. 
 3.	Navigate to your project in [Language Studio](https://language.azure.com/). From the left navigation menu of your project, select **Data labeling**.
 4.	Select **use Azure Machine Learning to label** in either the **Data labeling** description, or under the **Activity pane**. 
@@ -69,7 +69,7 @@ Before you connect to Azure Machine Learning, you need an Azure Machine Learning
 1. In the window that appears, follow the prompts. Select the Azure Machine Learning workspace you’ve created previously under the same Azure subscription. Enter a name for the new Azure Machine Learning project that will be created to enable labeling in Azure Machine Learning.
 
     >[!TIP]
-    > Make sure your workspace is linked to the same Azure Blob Storage account and Language resource before continuing. You can create a new workspace and link to your storage account through the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices). Ensure that the storage account is properly linked to the workspace.
+    > Make sure your workspace is linked to the same Azure Blob Storage account and Language resource before continuing. You can create a new workspace and [link to your storage account using the Azure portal](https://portal.azure.com/#create/Microsoft.MachineLearningServices). Ensure that the storage account is properly linked to the workspace.
 
 1. (Optional) Turn on the vendor labeling toggle to use labeling vendor companies. Before choosing the vendor labeling companies, contact the vendor labeling companies on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?search=AzureMLVend) to finalize a contract with them. For more information about working with vendor companies, see [How to outsource data labeling](/azure/machine-learning/how-to-outsource-data-labeling). 
 

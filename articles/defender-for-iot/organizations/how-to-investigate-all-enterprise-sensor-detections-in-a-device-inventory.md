@@ -13,7 +13,7 @@ Use the **Device inventory** page from an on-premises management console to mana
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
-> Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
 >
 
 ## Prerequisites
@@ -22,7 +22,7 @@ Before performing the procedures in this article, make sure that you have:
 
 - An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md). To view devices by zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on the on-premises management console.
 
-- One or more OT sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated, configured](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md). To view devices per zone, make sure that each sensor is assigned to a specific zone.
+- One or OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md). To view devices per zone, make sure that each sensor is assigned to a specific zone.
 
 - Access to the on-premises management console with one of the following [user roles](roles-on-premises.md):
 
@@ -78,7 +78,8 @@ To export device inventory data, select the **Import/Export file** :::image type
 Save the exported file locally.
 
 > [!NOTE]
-> In the exported file, date values are based on the region settings for the machine you're using to access the OT sensor. We recommend exporting data only from a machine with the same region settings as the sensor that detected your data. For more information, see [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).
+> The date format on the on-premises management console is always set to DD/MM/YYYY.
+> We recommend that you use the same date format on any machine where you'll be opening exported inventory files to ensure that dates in the exported inventory files are shown correctly.
 >
 
 ## Add to and enhance device inventory data

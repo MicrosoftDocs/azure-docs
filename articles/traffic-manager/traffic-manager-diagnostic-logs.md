@@ -64,7 +64,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 To access log files follow the following steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Storage account in the portal.
 2. On the left pane of your Azure storage account, under **Data Storage** select **Containers**.
 3. For **Containers**, select **$logs**, and navigate down to the PT1H.json file and select **Download** to download and save a copy of this log file.

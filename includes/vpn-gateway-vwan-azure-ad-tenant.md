@@ -27,14 +27,14 @@
     https://login-us.microsoftonline.de/common/oauth2/authorize?client_id=538ee9e6-310a-468d-afef-ea97365856a9&response_type=code&redirect_uri=https://portal.microsoftazure.de&nonce=1234&prompt=admin_consent
     ````
 
-    Azure China 21Vianet
+    Microsoft Azure operated by 21Vianet
 
     ```
     https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
    > [!NOTE]
-   > If you're using a global admin account that is not native to the Azure AD tenant to provide consent, replace "common" with the Azure AD tenant ID in the URL. You may also have to replace "common" with your tenant ID in certain other cases as well. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](../articles/active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+   > If you're using a global admin account that is not native to the Azure AD tenant to provide consent, replace "common" with the Azure AD tenant ID in the URL. You may also have to replace "common" with your tenant ID in certain other cases as well. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
    >
 
 1. Select the account that has the **Global administrator** role if prompted.

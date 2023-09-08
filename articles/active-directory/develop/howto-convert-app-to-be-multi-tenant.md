@@ -40,42 +40,24 @@ For example, if the name of your tenant was `contoso.onmicrosoft.com` then a val
 
 ## Update your code to send requests to `/common`
 
-With a multi-tenant application, because the application can't immediately tell which tenant the user is from, requests can't be sent to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`. 
+With a multi-tenant application, because the application can't immediately tell which tenant the user is from, requests can't be sent to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`.
 
 Edit your code and change the value for your tenant to `/common`. It's important to note that this endpoint isn't a tenant or an issuer itself. When the Microsoft identity platform receives a request on the `/common` endpoint, it signs the user in, thereby discovering which tenant the user is from. This endpoint works with all of the authentication protocols supported by the Azure AD (OpenID Connect, OAuth 2.0, SAML 2.0, WS-Federation).
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the `/common` endpoint, the issuer value in the token corresponds to the user’s tenant.
 
+> [!NOTE]
+> There are, in reality 2 authorities for multi-tenant applications: 
+> - `https://login.microsoftonline.com/common` for applications processing accounts in any organizational directory (any Azure AD directory) and personal Microsoft accounts (e.g. Skype, XBox).
+> - `https://login.microsoftonline.com/organizations` for applications processing accounts in any organizational directory (any Azure AD directory):
+> 
+> The explanations in this document use `common`. But you can replace it by `organizations` if your application doesn't support Microsoft personal accounts.
+
 ## Update your code to handle multiple issuer values
 
-Web applications and web APIs receive and validate tokens from the Microsoft identity platform. Native client applications don't validate access tokens and must treat them as opaque. They instead request and receive tokens from the Microsoft identity platform, and do so to send them to APIs, where they're then validated. Multi-tenant applications can’t validate tokens by matching the issuer value in the metadata with the `issuer` value in the token. A multi-tenant application needs logic to decide which issuer values are valid and which aren't based on the tenant ID portion of the issuer value. 
+Web applications and web APIs receive and validate tokens from the Microsoft identity platform. Native client applications don't validate access tokens and must treat them as opaque. They instead request and receive tokens from the Microsoft identity platform, and do so to send them to APIs, where they're then validated. 
 
-For example, if a multi-tenant application only allows sign-in from specific tenants who have signed up for their service, then it must check either the `issuer` value or the `tid` claim value in the token to make sure that tenant is in their list of subscribers. If a multi-tenant application only deals with individuals and doesn’t make any access decisions based on tenants, then it can ignore the issuer value altogether.
-
-In the [multi-tenant samples][AAD-Samples-MT], issuer validation is disabled to enable any Azure AD tenant to sign in. Because the `/common` endpoint doesn’t correspond to a tenant and isn’t an issuer, when you examine the issuer value in the metadata for `/common`, it has a templated URL instead of an actual value:
-
-```http
-https://sts.windows.net/{tenantid}/
-```
-To ensure your app can support multiple tenants, modify the relevant section of your code to ensure that your issuer value is set to `{tenantid}`.
-
-In contrast, single-tenant applications normally take endpoint values to construct metadata URLs such as:
-
-```http
-https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-```
-
-to download two critical pieces of information that are used to validate tokens: the tenant’s signing keys and issuer value.
-
-Each Azure AD tenant has a unique issuer value of the form:
-
-```http
-https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
-```
-
-...where the GUID value is the rename-safe version of the tenant ID of the tenant. 
-
-When a single-tenant application validates a token, it checks the signature of the token against the signing keys from the metadata document. This test allows it to make sure the issuer value in the token matches the one that was found in the metadata document.
+Multi-tenant applications must perform additional checks when validating a token. A multi-tenant application is configured to consume keys metadata from `/organizations` or `/common` keys URLs. The application must validate that the `issuer` property in the published metadata matches the `iss` claim in the token, in addition to the usual check that the `iss` claim in the token contains the tenant ID (`tid`) claim. For more information see [Validate tokens](access-tokens.md#validate-tokens).
 
 ## Understand user and admin consent and make appropriate code changes
 
@@ -161,6 +143,7 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 * [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]
 * [Overview of the Consent Framework][AAD-Consent-Overview]
 * [Microsoft Graph API permission scopes][MSFT-Graph-permission-scopes]
+* [Access tokens](access-tokens.md)
 
 ## Next steps
 
@@ -171,14 +154,14 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
 [AAD-App-Branding]:howto-add-branding-in-apps.md
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:./reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Consent-Overview]:consent-framework.md
+[AAD-Auth-Scenarios]:./authentication-vs-authorization.md
+[AAD-Consent-Overview]:./application-consent-experience.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AAD-Integrating-Apps]:./quickstart-register-app.md
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
-[AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
+[AAD-Why-To-Integrate]: ./how-to-integrate.md
 [MSFT-Graph-overview]: /graph/
 [MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
@@ -189,13 +172,13 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 [Consent-Multi-Tier-Multi-Party]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-multi-tier-multi-party.svg
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:./reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
+[AAD-Auth-Scenarios]:./authentication-vs-authorization.md
+[AAD-Integrating-Apps]:./quickstart-register-app.md
+[AAD-Dev-Guide]:../develop.md
+[AAD-How-To-Integrate]: ./how-to-integrate.md
+[AAD-Security-Token-Claims]: ./authentication-vs-authorization.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
 [AAD-V2-Dev-Guide]: v2-overview.md
 [Azure portal]: https://portal.azure.com

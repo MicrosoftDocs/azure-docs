@@ -9,8 +9,7 @@ author: GabstaMSFT
 ms.reviewer: erd
 ms.collection: windows
 ms.date: 04/11/2023 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ---
 
 # Use Azure Policy to restrict extensions installation on Windows VMs

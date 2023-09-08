@@ -42,6 +42,8 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk remove group members
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk remove members of groups they own.
 1. In Azure AD, select **Groups** > **All groups**.
 1. Open the group from which you're removing members and then select **Members**.

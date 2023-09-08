@@ -10,7 +10,7 @@ ms.author: williamzhao
 ms.date: 06/08/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: devx-track-extended-java, devx-track-js
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
@@ -30,7 +30,7 @@ In this example, we configure a worker with total capacity of 100 and set the vo
 var worker = await client.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker1", totalCapacity: 100)
     {
-        QueueIds = { ["queue1"] = new RouterQueueAssignment() },
+        QueueAssignments = { ["queue1"] = new RouterQueueAssignment() },
         ChannelConfigurations =
         {
             ["voice"] = new ChannelConfiguration(capacityCostPerJob: 100),
@@ -79,8 +79,8 @@ client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
 client.createWorker(new CreateWorkerOptions("worker1", 100)
     .setQueueAssignments(Map.of("queue1", new RouterQueueAssignment()))
     .setChannelConfigurations(Map.of(
-        "voice", new ChannelConfiguration().setCapacityCostPerJob(100),
-        "chat", new ChannelConfiguration().setCapacityCostPerJob(20))))
+        "voice", new ChannelConfiguration(100),
+        "chat", new ChannelConfiguration(20))));
 ```
 
 ::: zone-end
@@ -95,7 +95,7 @@ In this example, a worker is configured with total capacity of 100.  Next, the v
 var worker = await client.CreateWorkerAsync(
     new CreateWorkerOptions(workerId: "worker1", totalCapacity: 100)
     {
-        QueueIds = { ["queue1"] = new RouterQueueAssignment() },
+        QueueAssignments = { ["queue1"] = new RouterQueueAssignment() },
         ChannelConfigurations =
         {
             ["voice"] = new ChannelConfiguration(capacityCostPerJob: 60),
@@ -147,9 +147,9 @@ client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
 client.createWorker(new CreateWorkerOptions("worker1", 100)
     .setQueueAssignments(Map.of("queue1", new RouterQueueAssignment()))
     .setChannelConfigurations(Map.of(
-        "voice", new ChannelConfiguration().setCapacityCostPerJob(60),
-        "chat", new ChannelConfiguration().setCapacityCostPerJob(10).setMaxNumberOfJobs(2),
-        "email", new ChannelConfiguration().setCapacityCostPerJob(10).setMaxNumberOfJobs(2))))
+        "voice", new ChannelConfiguration(60),
+        "chat", new ChannelConfiguration(10).setMaxNumberOfJobs(2),
+        "email", new ChannelConfiguration(10).setMaxNumberOfJobs(2))));
 ```
 
 ::: zone-end

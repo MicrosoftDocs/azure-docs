@@ -1,6 +1,6 @@
 ---
 title: Language support - Bing Spell Check API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of natural languages supported by the Bing Spell Check API.
 services: cognitive-services
 author: aahill
@@ -66,5 +66,5 @@ Please note that to work with any other language than `en-US`, the `mkt` should 
 
 ## See also
 
-- [Cognitive Services Documentation page](../index.yml)
-- [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
+- [Azure AI services documentation](../../ai-services/index.yml)
+- [Azure AI services product information](https://azure.microsoft.com/services/cognitive-services/)

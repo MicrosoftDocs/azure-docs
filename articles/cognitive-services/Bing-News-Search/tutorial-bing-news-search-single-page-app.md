@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create a single-page web app using the Bing News Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this tutorial to build a single-page web application that can send search queries to the Bing News API, and display the results within the webpage.
 services: cognitive-services
 author: aahill

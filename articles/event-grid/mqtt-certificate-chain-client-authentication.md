@@ -11,6 +11,8 @@ ms.author: veyaddan
 # Client authentication using CA certificate chain
 Use CA certificate chain in Azure Event Grid to authenticate clients while connecting to the service.
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 In this guide, you perform the following tasks:
 1. Upload a CA certificate, the immediate parent certificate of the client certificate, to the namespace.
 2. Configure client authentication settings.

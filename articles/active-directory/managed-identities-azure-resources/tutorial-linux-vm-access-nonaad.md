@@ -42,6 +42,8 @@ You learn how to:
 
 ## Create a Key Vault  
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This section shows how to grant your VM access to a secret stored in a Key Vault. Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials.
 
 First, we need to create a Key Vault and grant our VM's system-assigned managed identity access to the Key Vault.

@@ -37,7 +37,7 @@ For more information, see [Azure AI services pricing](https://azure.microsoft.co
 
 ## Create a new resource
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a new resource** for one of the applicable Azure AI services or Azure AI services listed.
 
 2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier.
 
@@ -50,7 +50,7 @@ For more information, see [Azure AI services pricing](https://azure.microsoft.co
 
 ## Purchase a commitment plan by updating your Azure resource
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure subscription.
 2. In your Azure resource for one of the applicable features listed, select **Commitment tier pricing**.
 3. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
     * **Web**: web-based APIs, where you send data to Azure for processing.

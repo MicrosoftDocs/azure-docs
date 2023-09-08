@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 08/25/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -24,42 +24,42 @@ The current update is Update 2307. This update installs two updates, the device 
 
 The associated versions for this update are:
 
-- Device software version: Azure Stack Edge 2303 (2.2.2257.1113)
-- Device Kubernetes version: Azure Stack Kubernetes Edge 2303 (2.2.2257.1113)
+- Device software version: Azure Stack Edge 2304 (2.2.2257.1193)
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2304 (2.2.2257.1193)
 - Kubernetes server version: v1.24.6
 - IoT Edge version: 0.1.0-beta15
-- Azure Arc version: 1.8.14
+- Azure Arc version: 1.10.6
 - GPU driver version: 515.65.01
 - CUDA version: 11.7
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2303-release-notes.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2304-release-notes.md).
 
-**To apply 2307 update, your device must be running version 2207 or later.**
+**To apply the 2307 update, your device must be running version 2207 or later.**
 
 - If you are not running the minimum required version, you'll see this error:
  
   *Update package cannot be installed as its dependencies are not met.*
 
-- You can update to 2207 from 2106 or later, and then install 2303.
+- You can update to 2207 from 2106 or later, and then install 2307.
 
 ### Update Azure Kubernetes service on Azure Stack Edge
 
 > [!IMPORTANT]
 > Use the following procedure only if you are an SAP or a PMEC customer.
 
-If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are either 2207 or 2209, you must update in multiple steps to apply 2303.
+If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are either 2207 or 2209, you must update in multiple steps to apply 2307.
 
-Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2303:
+Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2307:
 
-1. Update your device version to 2303.
+1. Update your device version to 2307.
 1. Update your Kubernetes version to 2210.
-1. Update your Kubernetes version to 2303.
+1. Update your Kubernetes version to 2307.
 
-If you are running 2210, you can update both your device version and Kubernetes version directly to 2303.
+If you are running 2210, you can update both your device version and Kubernetes version directly to 2307.
 
-In Azure portal, the process will require two clicks, the first update gets your device version to 2303 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2303.
+In Azure portal, the process will require two clicks, the first update gets your device version to 2307 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2307.
 
-From the local UI, you will have to run each update separately: update the device version to 2303, then update Kubernetes version to 2210, and then update Kubernetes version to 2303.
+From the local UI, you will have to run each update separately: update the device version to 2304, then update Kubernetes version to 2210, and then update Kubernetes version to 2307.
 
 ### Updates for a single-node vs two-node
 

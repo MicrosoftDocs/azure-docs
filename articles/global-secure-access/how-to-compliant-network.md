@@ -1,11 +1,11 @@
 ---
 title: Enable compliant network check with Conditional Access
-description: Require known compliant network locations with Conditional Access.
+description: Learn how to require known compliant network locations in order to connect to your secured resources with Conditional Access.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 08/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -64,7 +64,8 @@ The following example shows a Conditional Access policy that requires Exchange O
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](#user-exclusions). 
 1. Under **Target resources** > **Include**, and select **Select apps**.
-   1. Choose **Office 365 Exchange Online** and **Office 365 SharePoint Online**.
+   1. Choose **Office 365 Exchange Online** and/or **Office 365 SharePoint Online**.
+   1. Office 365 apps are currently NOT supported, so do not select this option.
 1. Under **Conditions** > **Location**.
    1. Set **Configure** to **Yes**
    1. Under **Include**, select **Any location**.
@@ -76,7 +77,7 @@ The following example shows a Conditional Access policy that requires Exchange O
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the policy settings using [report-only mode](/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ### User exclusions
 

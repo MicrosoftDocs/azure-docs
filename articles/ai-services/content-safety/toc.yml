@@ -6,6 +6,8 @@ items:
   items:
   - name: Content Safety overview
     href: overview.md
+  - name: Language support
+    href: language-support.md
   - name: Pricing
     href: https://aka.ms/content-safety-pricing
     expanded: true

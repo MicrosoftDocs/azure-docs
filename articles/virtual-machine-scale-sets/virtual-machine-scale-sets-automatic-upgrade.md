@@ -6,7 +6,8 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.date: 11/22/2022
+ms.custom: devx-track-linux
+ms.date: 07/25/2023
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
@@ -112,8 +113,7 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-smalldisk |
-| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core |
-| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core-smalldisk |
+
 
 ## Requirements for configuring automatic OS image upgrade
 
@@ -213,6 +213,7 @@ The following example describes how to set automatic OS upgrades on a scale set 
         "disableAutomaticRollback": false 
     } 
   },
+  },
 "imagePublisher": {
    "type": "string",
    "defaultValue": "MicrosoftWindowsServer"
@@ -228,8 +229,7 @@ The following example describes how to set automatic OS upgrades on a scale set 
  "imageOSVersion": {
    "type": "string",
    "defaultValue": "latest"
- } 
-}
+ }
 
 ```
 
@@ -245,6 +245,7 @@ properties: {
         enableAutomaticOSUpgrade: true 
       } 
     } 
+}
 ```
 
 ## Using Application Health Probes

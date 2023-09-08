@@ -58,7 +58,7 @@ The following links can help you locate more information when completing the ste
 + [Enable logging](monitor-azure-cognitive-search.md)
 
 
-<!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
+<!-- To move your Azure AI services account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
 
 In this article, you'll learn how to:
 

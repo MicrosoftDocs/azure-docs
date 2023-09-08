@@ -237,7 +237,7 @@ For example, if you say "Turn off the lights", pause, and then say "Turn on the 
 
 ![Audio file LUIS recognition results](media/sdk/luis-results-2.png)
 
-The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure AI services Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
+The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure AI Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
 
 ## Next steps
 

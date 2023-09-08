@@ -50,7 +50,7 @@ To access the metrics pages through links available in the studio:
 
 To access metrics directly from the Azure portal:
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the online endpoint or deployment resource.
 
     Online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.

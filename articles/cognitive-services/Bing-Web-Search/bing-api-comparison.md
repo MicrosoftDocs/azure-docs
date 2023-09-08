@@ -1,6 +1,6 @@
 ---
 title: What are the Bing Search APIs?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to learn about the Bing Search APIs, and how you can enable cognitive internet searches in your apps and services.  
 services: cognitive-services
 author: aahill

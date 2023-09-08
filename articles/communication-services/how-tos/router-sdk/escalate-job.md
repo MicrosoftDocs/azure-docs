@@ -7,9 +7,8 @@ ms.author: jassha
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 10/14/2021
-ms.custom: template-how-to, devx-track-extended-java, devx-track-js
+ms.custom: template-how-to, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
-
 #Customer intent: As a developer, I want to manage the behavior of my jobs in a queue.
 ---
 
@@ -45,7 +44,7 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
         {
             new ConditionalQueueSelectorAttachment(
                 condition: new ExpressionRouterRule("job.Escalated = true"),
-                labelSelectors: new List<RouterQueueSelector>
+                queueSelectors: new List<RouterQueueSelector>
             {
                 new (key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("XBOX_Escalation_Queue"))
             })
@@ -67,7 +66,7 @@ var classificationPolicy = await administrationClient.createClassificationPolicy
             kind: "expression-rule",
             expression: 'job.Escalated = true'
         },
-        labelSelectors: [{
+        queueSelectors: [{
             key: "Id",
             labelOperator: "equal",
             value: "XBOX_Escalation_Queue"
@@ -91,7 +90,7 @@ classification_policy: ClassificationPolicy = administration_client.create_class
         queue_selectors = [
             ConditionalQueueSelectorAttachment(
                 condition = ExpressionRouterRule(expression = 'job.Escalated = true'),
-                label_selectors = [
+                queue_selectors = [
                     RouterQueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_Escalation_Queue")
                 ]
             )
@@ -107,12 +106,10 @@ classification_policy: ClassificationPolicy = administration_client.create_class
 ClassificationPolicy classificationPolicy = administrationClient.createClassificationPolicy(
     new CreateClassificationPolicyOptions("Classify_XBOX_Voice_Jobs")
         .setName("Classify XBOX Voice Jobs")
-        .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment()
-            .setCondition(new ExpressionRouterRule().setExpression("job.Escalated = true"))
-            .setLabelSelectors(List.of(
-                new RouterQueueSelector().setKey("Id").setLabelOperator(LabelOperator.EQUAL).setValue("XBOX_Escalation_Queue"))
-            )))
-        .setPrioritizationRule(new ExpressionRouterRule().setExpression("If(job.Escalated = true, 10, 1)")));
+        .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment(
+            new ExpressionRouterRule("job.Escalated = true"),
+            List.of(new RouterQueueSelector("Id", LabelOperator.EQUAL, new LabelValue("XBOX_Escalation_Queue"))))))
+        .setPrioritizationRule(new ExpressionRouterRule("If(job.Escalated = true, 10, 1)")));
 ```
 
 ::: zone-end
@@ -188,9 +185,8 @@ administration_client.create_exception_policy(
 
 ```java
 administrationClient.createExceptionPolicy(new CreateExceptionPolicyOptions("Escalate_XBOX_Policy",
-    Map.of("Escalated_Rule", new ExceptionRule()
-        .setTrigger(new WaitTimeExceptionTrigger().setThresholdSeconds(5 * 60))
-        .setActions(Map.of("EscalateReclassifyExceptionAction", new ReclassifyExceptionAction()
+    Map.of("Escalated_Rule", new ExceptionRule(new WaitTimeExceptionTrigger(5 * 60),
+        Map.of("EscalateReclassifyExceptionAction", new ReclassifyExceptionAction()
             .setClassificationPolicyId(classificationPolicy.getId())
             .setLabelsToUpsert(Map.of("Escalated", new LabelValue(true))))))
 ).setName("Add escalated label and reclassify XBOX Job requests after 5 minutes"));
@@ -282,9 +278,9 @@ When you submit the Job, it is added to the queue `XBOX_Queue` with the `voice` 
 ```csharp
 await client.CreateJobAsync(new CreateJobOptions(jobId: "job1", channelId: "voice", queueId: defaultQueue.Value.Id)
 {
-    RequestedWorkerSelectors = new List<RouterWorkerSelector>
+    RequestedWorkerSelectors =
     {
-        new(key: "XBOX_Hardware", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7))
+        new RouterWorkerSelector(key: "XBOX_Hardware", labelOperator: LabelOperator.GreaterThanEqual, value: new LabelValue(7))
     }
 });
 ```
@@ -322,10 +318,8 @@ administration_client.create_job(
 
 ```java
 administrationClient.createJob(new CreateJobOptions("job1", "voice", defaultQueue.getId())
-    .setRequestedWorkerSelectors(List.of(new RouterWorkerSelector()
-        .setKey("XBOX_Hardware")
-        .setLabelOperator(LabelOperator.GREATER_THAN_EQUAL)
-        .setValue(new LabelValue(7)))));
+    .setRequestedWorkerSelectors(List.of(
+        new RouterWorkerSelector("XBOX_Hardware", LabelOperator.GREATER_THAN_EQUAL, new LabelValue(7)))));
 ```
 
 ::: zone-end

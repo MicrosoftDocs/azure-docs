@@ -18,7 +18,7 @@ This article describes how to add IPv6 support to connect via ExpressRoute to yo
 
 ## Sign in to the Azure portal
 
-From a browser, go to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
+From a web browser, sign in to the [Azure portal](https://portal.azure.com).
 
 ## Add IPv6 Private Peering to your ExpressRoute circuit
 

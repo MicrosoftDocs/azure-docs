@@ -96,7 +96,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/index.md",
       "redirect_url": "/azure/ai-services/index",
       "redirect_document_id": true
     },
@@ -161,12 +161,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/anomaly-detector/faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/anomaly-detector/faq.md",
       "redirect_url": "/azure/ai-services/anomaly-detector/faq",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/anomaly-detector/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/anomaly-detector/index.md",
       "redirect_url": "/azure/ai-services/anomaly-detector/index",
       "redirect_document_id": true
     },
@@ -351,7 +351,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/computer-vision/faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/computer-vision/faq.md",
       "redirect_url": "/azure/ai-services/computer-vision/faq",
       "redirect_document_id": true
     },
@@ -366,12 +366,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/computer-vision/index-spatial-analysis.yml",
+      "source_path_from_root": "/articles/cognitive-services/computer-vision/index-spatial-analysis.md",
       "redirect_url": "/azure/ai-services/computer-vision/index-spatial-analysis",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/computer-vision/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/computer-vision/index.md",
       "redirect_url": "/azure/ai-services/computer-vision/index",
       "redirect_document_id": true
     },
@@ -496,7 +496,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/containers/container-faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/containers/container-faq.md",
       "redirect_url": "/azure/ai-services/containers/container-faq",
       "redirect_document_id": true
     },
@@ -506,7 +506,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/containers/disconnected-container-faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/containers/disconnected-container-faq.md",
       "redirect_url": "/azure/ai-services/containers/disconnected-container-faq",
       "redirect_document_id": true
     },
@@ -521,7 +521,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/containers/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/containers/index.md",
       "redirect_url": "/azure/ai-services/containers/index",
       "redirect_document_id": true
     },
@@ -561,7 +561,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/content-moderator/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/content-moderator/index.md",
       "redirect_url": "/azure/ai-services/content-moderator/index",
       "redirect_document_id": true
     },
@@ -621,7 +621,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/content-safety/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/content-safety/index.md",
       "redirect_url": "/azure/ai-services/content-safety/index",
       "redirect_document_id": true
     },
@@ -686,7 +686,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/custom-vision-service/faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/custom-vision-service/faq.md",
       "redirect_url": "/azure/ai-services/custom-vision-service/faq",
       "redirect_document_id": true
     },
@@ -706,7 +706,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/custom-vision-service/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/custom-vision-service/index.md",
       "redirect_url": "/azure/ai-services/custom-vision-service/index",
       "redirect_document_id": true
     },
@@ -781,7 +781,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/language-service/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/language-service/index.md",
       "redirect_url": "/azure/ai-services/language-service/index",
       "redirect_document_id": true
     },
@@ -851,7 +851,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/luis/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/luis/index.md",
       "redirect_url": "/azure/ai-services/luis/index",
       "redirect_document_id": true
     },
@@ -1196,12 +1196,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/openai/faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/openai/faq.md",
       "redirect_url": "/azure/ai-services/openai/faq",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/openai/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/openai/index.md",
       "redirect_url": "/azure/ai-services/openai/index",
       "redirect_document_id": true
     },
@@ -1296,7 +1296,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/personalizer/frequently-asked-questions.yml",
+      "source_path_from_root": "/articles/cognitive-services/personalizer/frequently-asked-questions.md",
       "redirect_url": "/azure/ai-services/personalizer/frequently-asked-questions",
       "redirect_document_id": true
     },
@@ -1351,7 +1351,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/personalizer/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/personalizer/index.md",
       "redirect_url": "/azure/ai-services/personalizer/index",
       "redirect_document_id": true
     },
@@ -1426,7 +1426,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/qnamaker/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/index.md",
       "redirect_url": "/azure/ai-services/qnamaker/index",
       "redirect_document_id": true
     },
@@ -1532,8 +1532,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/conversation-transcription",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/conversation-transcription.md",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/custom-commands-encryption-of-data-at-rest.md",
@@ -1596,17 +1601,17 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/faq-stt.yml",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/faq-stt.md",
       "redirect_url": "/azure/ai-services/speech-service/faq-stt",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/faq-tts.yml",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/faq-tts.md",
       "redirect_url": "/azure/ai-services/speech-service/faq-tts",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/faq-voice-assistants.yml",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/faq-voice-assistants.md",
       "redirect_url": "/azure/ai-services/speech-service/faq-voice-assistants",
       "redirect_document_id": true
     },
@@ -1652,8 +1657,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-async-conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-async-conversation-transcription",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-async-conversation-transcription.md",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-audio-content-creation.md",
@@ -1887,8 +1897,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-use-conversation-transcription.md",
-      "redirect_url": "/azure/ai-services/speech-service/how-to-use-conversation-transcription",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/speech-service/how-to-use-conversation-transcription.md",
+      "redirect_url": "/azure/ai-services/speech-service/get-started-stt-diarization",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-use-custom-entity-pattern-matching.md",
@@ -1916,17 +1931,17 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/index-speech-to-text.yml",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/index-speech-to-text.md",
       "redirect_url": "/azure/ai-services/speech-service/index-speech-to-text",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/index-text-to-speech.yml",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/index-text-to-speech.md",
       "redirect_url": "/azure/ai-services/speech-service/index-text-to-speech",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/index.md",
       "redirect_url": "/azure/ai-services/speech-service/index",
       "redirect_document_id": true
     },
@@ -2091,7 +2106,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/speech-container-faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/speech-container-faq.md",
       "redirect_url": "/azure/ai-services/speech-service/speech-container-faq",
       "redirect_document_id": true
     },
@@ -2261,7 +2276,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/windows-voice-assistants-faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/windows-voice-assistants-faq.md",
       "redirect_url": "/azure/ai-services/speech-service/windows-voice-assistants-faq",
       "redirect_document_id": true
     },
@@ -2296,7 +2311,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/index.yml",
+      "source_path_from_root": "/articles/cognitive-services/translator/index.md",
       "redirect_url": "/azure/ai-services/translator/index",
       "redirect_document_id": true
     },
@@ -4346,38 +4361,38 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/context/context.yml",
-      "redirect_url": "/azure/ai-services/anomaly-detector/context/context",
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/context/context.md",
+      "redirect_url": "/azure/ai-services/anomaly-detector/?context=/azure/ai-services/anomaly-detector/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/content-moderator/context/context.yml",
-      "redirect_url": "/azure/ai-services/content-moderator/context/context",
+      "source_path_from_root": "/articles/cognitive-services/content-moderator/context/context.md",
+      "redirect_url": "/azure/ai-services/content-moderator/?context=/azure/ai-services/content-moderator/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/Computer-vision/context/context.yml",
-      "redirect_url": "/azure/ai-services/computer-vision/context/context",
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/context/context.md",
+      "redirect_url": "/azure/ai-services/computer-vision/?context=/azure/ai-services/computer-vision/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/content-safety/context/context.yml",
-      "redirect_url": "/azure/ai-services/content-safety/context/context",
+      "source_path_from_root": "/articles/cognitive-services/content-safety/context/context.md",
+      "redirect_url": "/azure/ai-services/content-safety/?context=/azure/ai-services/content-safety/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/content-safety/faq.yml",
+      "source_path_from_root": "/articles/cognitive-services/content-safety/faq.md",
       "redirect_url": "/azure/ai-services/content-safety/faq",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/custom-vision-service/context/context.yml",
-      "redirect_url": "/azure/ai-services/custom-vision-service/context/context",
+      "source_path_from_root": "/articles/cognitive-services/custom-vision-service/context/context.md",
+      "redirect_url": "/azure/ai-services/custom-vision-service/?context=/azure/ai-services/custom-vision-services/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/language-service/context/context.yml",
-      "redirect_url": "/azure/ai-services/language-service/context/context",
+      "source_path_from_root": "/articles/cognitive-services/language-service/context/context.md",
+      "redirect_url": "/azure/ai-services/language-service/?context=/azure/ai-services/langage-service/context/context",
       "redirect_document_id": false
     },
     {
@@ -4391,8 +4406,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/LUIS/context/context.yml",
-      "redirect_url": "/azure/ai-services/LUIS/context/context",
+      "source_path_from_root": "/articles/cognitive-services/LUIS/context/context.md",
+      "redirect_url": "/azure/ai-services/LUIS/?context=/azure/ai-services/LUIS/context/context",
       "redirect_document_id": false
     },
     {
@@ -4401,28 +4416,28 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/openai/context/context.yml",
-      "redirect_url": "/azure/ai-services/openai/context/context",
+      "source_path_from_root": "/articles/cognitive-services/openai/context/context.md",
+      "redirect_url": "/azure/ai-services/openai/?context=/azure/ai-services/openai/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/personalizer/context/context.yml",
-      "redirect_url": "/azure/ai-services/personalizer/context/context",
+      "source_path_from_root": "/articles/cognitive-services/personalizer/context/context.md",
+      "redirect_url": "/azure/ai-services/personalizer/?context=/azure/ai-services/personalizer/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/qnamaker/context/context.yml",
-      "redirect_url": "/azure/ai-services/qnamaker/context/context",
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/context/context.md",
+      "redirect_url": "/azure/ai-services/qnamaker/?context=/azure/ai-services/qnamaker/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/context/context.yml",
-      "redirect_url": "/azure/ai-services/speech-service/context/context",
+      "source_path_from_root": "/articles/cognitive-services/speech-service/context/context.md",
+      "redirect_url": "/azure/ai-services/speech-service/?context=/azure/ai-services/speect-service/context/context",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/Translator/context/context.yml",
-      "redirect_url": "/azure/ai-services/translator/context/context",
+      "source_path_from_root": "/articles/cognitive-services/Translator/context/context.md",
+      "redirect_url": "/azure/ai-services/translator/?context=/azure/ai-services/translator/context/context",
       "redirect_document_id": false
     },
     {

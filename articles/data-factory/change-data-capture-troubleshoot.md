@@ -70,7 +70,7 @@ The debug cluster isn't available from a warm pool. There will be a wait time in
  
 ## Issue: Trouble in tracking delete operations.
 
-Currently CDC resource supports delete operations for following sink types – Azure SQL Database & Delta. To achieve this in the column mapping page, select **keys** column that can be used to determine if a row from the source matches a row from the sink. 
+Currently CDC resource supports delete operations for following sink types - Azure SQL Database & Delta. To achieve this in the column mapping page, select **keys** column that can be used to determine if a row from the source matches a row from the sink. 
 
 ## Issue: My CDC resource fails when target SQL table has identity columns.
 

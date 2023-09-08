@@ -50,5 +50,5 @@ The following example returns the exponential value for various numeric inputs.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`LOG`](log.md)

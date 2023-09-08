@@ -164,7 +164,7 @@ Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging]
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.ServiceBus] is in preview.
+The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.ServiceBus] is in preview. Current support does not yet include message settlement scenarios for triggers.
 
 **Service Bus trigger**
 
@@ -235,6 +235,8 @@ This section describes the configuration settings available for this binding, wh
             "maxConcurrentCalls": 16,
             "maxConcurrentSessions": 8,
             "maxMessageBatchSize": 1000,
+            "minMessageBatchSize": 1,
+            "maxBatchWaitTime": "00:00:30",
             "sessionIdleTimeout": "00:01:00",
             "enableCrossEntityTransactions": false
         }
@@ -260,8 +262,12 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
 |**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that should be initiated per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `false`. This setting only applies for functions that receive a single message at a time.|
 |**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `true`. This setting only applies for functions that receive a single message at a time.|
 |**maxMessageBatchSize**|`1000`|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
+|**minMessageBatchSize**<sup>1</sup>|`1`|The minimum number of messages desired in a batch. The minimum applies only when the function is receiving multiple messages and must be less than `maxMessageBatchSize`. <br/> The minimum size isn't strictly guaranteed. A partial batch is dispatched when a full batch can't be prepared before the `maxBatchWaitTime` has elapsed.|
+|**maxBatchWaitTime**<sup>1</sup>|`00:00:30`|The maximum interval that the trigger should wait to fill a batch before invoking the function. The wait time is only considered when `minMessageBatchSize` is larger than 1 and is ignored otherwise. If less than `minMessageBatchSize` messages were available before the wait time elapses, the function is invoked with a partial batch. The longest allowed wait time is 50% of the entity message lock duration, meaning the maximum allowed is 2 minutes and 30 seconds. Otherwise, you may get lock exceptions. <br/><br/>**NOTE:** This interval is not a strict guarantee for the exact timing on which the function is invoked. There is a small magin of error due to timer precision.|
 |**sessionIdleTimeout**|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the session will be closed and the function will attempt to process another session. 
 |**enableCrossEntityTransactions**|`false`|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
+
+<sup>1</sup> Using `minMessageBatchSize` and `maxBatchWaitTime` requires [v5.10.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.10.0) of the `Microsoft.Azure.WebJobs.Extensions.ServiceBus` package, or a later version.
 
 # [Functions 2.x+](#tab/functionsv2)
 
@@ -291,7 +297,6 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
     }
 }
 ```
-
 When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `true`, the `sessionHandlerOptions` is honored.  When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `false`, the `messageHandlerOptions` is honored.
 
 |Property  |Default | Description |
