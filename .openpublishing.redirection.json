@@ -14898,6 +14898,11 @@
             "redirect_document_id": ""
         },
         {
+            "source_path_from_root": "/articles/search/semantic-ranking.md",
+            "redirect_url": "/azure/search/semantic-search-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/search/tutorial-csharp-create-first-app.md",
             "redirect_url": "/previous-versions/azure/search/tutorial-csharp-create-first-app",
             "redirect_document_id": false
