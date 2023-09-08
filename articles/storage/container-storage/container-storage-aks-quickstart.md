@@ -16,7 +16,7 @@ ms.custom:
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- You'll need an AKS cluster with an appropriate [virtual machine type](../articles/storage/container-storage/install-container-storage-aks.md#vm-types). If you don't have one, see [Create an AKS cluster](../articles/storage/container-storage/install-container-storage-aks.md#create-aks-cluster).
+- You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't already have an AKS cluster, follow [these instructions](install-container-storage-aks.md#getting-started) to create one.
 - 
 ## Install Azure Container Storage
 
