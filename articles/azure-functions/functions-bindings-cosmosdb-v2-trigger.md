@@ -397,7 +397,7 @@ _Applies only to the Python v1 programming model._
 
 # [Model v4](#tab/nodejs-v4)
 
-The following table explains the properties that you can set on the `options` object passed to the `app.cosmosDB()` method. The "type", "direction", and "name" properties can be ignored for model v4.
+The following table explains the properties that you can set on the `options` object passed to the `app.cosmosDB()` method. The `type`, `direction`, and `name` properties don't apply to the v4 model.
 
 # [Model v3](#tab/nodejs-v3)
 
