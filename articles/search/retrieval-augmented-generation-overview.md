@@ -50,7 +50,7 @@ A high-level summary of the pattern looks like this:
 + Start with a user question or request (prompt).
 + Send it to Cognitive Search to find relevant information.
 + Send the top ranked search results to the LLM.
-+ Use the language understanding and reasoning capabilities of the LLM to generate a response to the initial prompt.
++ Use the natural language understanding and reasoning capabilities of the LLM to generate a response to the initial prompt.
 
 Cognitive Search provides data to the LLM but doesn't train the model. In RAG architecture there's no additional training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
 
