@@ -15,7 +15,7 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In a Teams Interopability Chat ("Interop Chat"), we can enable file sharing between communication users and Teams users. Please note, Interop Chat is different from the Azure Communication Service Chat ("ACS Chat"). If you want to enable file sharing in an ACS Chat, please refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md).
+In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between communication users and Teams users. Note, Interop Chat is different from the Azure Communication Service Chat ("ACS Chat"). If you want to enable file sharing in an ACS Chat, refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md).
 
 >[!IMPORTANT]
 >
@@ -36,18 +36,18 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 - Using the UI library version [1.7.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.7.0-beta.1) or the latest.
 - Have a Teams meeting created and the meeting link ready.
-- Familar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
+- Be familiar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
 
 
 ## Background
 
-First of all, we need to understand that Teams Interop Chat is part of a Teams meeting. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Communication Service user joining the chat and starting to send/receive messages, they need to be admitted by a meeting participant first (a Teams user) first. Otherwise, they won't have access to the chat.
+First of all, we need to understand that Teams Interop Chat is part of a Teams meeting. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Communication Service user joining the chat and starting to send/receive messages, one meeting participant (a Teams user) will need to admit them first. Otherwise, they does have access to the chat.
 Once the Communication Service User is admitted, they would be able to start any chat related operations. 
-In this tutoria, we will be checking out how file sharing works in an Interop Chat.
+In this tutorial, we're checking out how file sharing works in an Interop Chat.
 
 ## Overview
 
-Similar to how we are [Adding Inline Image Support](./inline-image-tutorial-interop-chat.md) to the UI library, we need a `CallWithChat` Composite created like this:
+Similar to how we're [Adding Inline Image Support](./inline-image-tutorial-interop-chat.md) to the UI library, we need a `CallWithChat` Composite created like this:
 
 ```js
 export const CallWithChatExperience = (props: CallWithChatExampleProps): JSX.Element => {
@@ -76,7 +76,7 @@ export const CallWithChatExperience = (props: CallWithChatExampleProps): JSX.Ele
 
 ```
 
-Noticing it needs `CallWithChatExampleProps` which is defined as the following:
+Noticing it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
 
 ```js
 export type CallWithChatExampleProps = {
@@ -95,15 +95,15 @@ export type CallWithChatExampleProps = {
 
 ```
 
-To be able to start the Composite for meeting chat, we need to pass `TeamsMeetingLinkLocator` which looks like this:
+To be able to start the Composite for meeting chat, we need to pass `TeamsMeetingLinkLocator`, which looks like this:
 
 ```js
 { "meetingLink": "<TEAMS_MEETING_LINK>" }
 ```
 
-Please note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
+Note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
 
-And this is all you need! And there's no other set up needed to enable the Communication User to receive file attachments from the Teams user. 
+And this is all you need! And there's no other setup needed to enable the Communication User to receive file attachments from the Teams user. 
 
 ## Permissions
 
@@ -114,21 +114,21 @@ When file is shared from a Teams client, the Teams user has options to set the f
  - "People with existing access"
  - "People you choose"
 
-Specifically, the UI library currently only supports "Anyone" and "People you choose" (with email address) and all other permissions are not supported. If Teams user sent a file with unsupported permissions, the Communication user might be prompted to a login page or denied access when they click on the file attachment in the chat thread.
+Specifically, the UI library currently only supports "Anyone" and "People you choose" (with email address) and all other permissions aren't supported. If Teams user sent a file with unsupported permissions, the Communication user might be prompted to a login page or denied access when they click on the file attachment in the chat thread.
 
 
 ![Teams File Permissions](./media/file-sharing-tutorial-interop-chat-0.png "Screenshot of a Teams client listing out file permissions.")
 
 
-Moreover, the Teams user's tenant admin might impose some additional restrictions on file sharing, including disabling some file permissions or disabling file sharing all together. 
+Moreover, the Teams user's tenant admin might impose restrictions on file sharing, including disabling some file permissions or disabling file sharing all together. 
 
 ## Run the code
 
-Let's run `npm run start` then you should be able to access our sample app via `localhost:3000` like the following: 
+Let's run `npm run start` then you should be able to access our sample app via `localhost:3000` like the following screenshot: 
 
 ![ACS UI library](./media/inline-image-tutorial-interop-chat-0.png "Screenshot of a ACS UI library.")
 
-Simply click on the chat button located on lower-right to reveal the chat panel and now if Teams user sents some files, you should see something like the following:
+Simply click on the chat button located in the bottom to reveal the chat panel and now if Teams user sends some files, you should see something like the following screenshot:
 
 ![Teams sending a file](./media/file-sharing-tutorial-interop-chat-1.png "Screenshot of a Teams client sending one file.")
 
