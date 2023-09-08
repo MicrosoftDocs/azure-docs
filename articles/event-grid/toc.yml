@@ -345,6 +345,10 @@ items:
             href: event-schema-azure-signalr.md
           - name: Azure subscriptions
             href: event-schema-subscriptions.md
+          - name: Azure Resource Notifications
+            items:
+            - name: Health resources
+              href: event-schema-health-resources.md
       - name: Partner Events
         items:
         - name: Partner Events overview (customers)
