@@ -28,13 +28,13 @@ In this tutorial:
 > * Get an access token to call the Microsoft Graph API
 > * Call the Microsoft Graph API.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 - [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/downloads/).
 - An Azure AD tenant. For more information, see [How to get an Azure AD tenant](quickstart-create-new-tenant.md).
-- One or more user accounts in your Azure AD tenant. This sample won't work with a Microsoft account. If you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory, do that now.
+- One or more user accounts in your tenant. This sample won't work with a Microsoft account. If you signed in with a Microsoft account and have never created a user account in your directory, do that now.
 
 ## Scenario
 
@@ -62,7 +62,7 @@ Or [download the sample in a zip file](https://github.com/Azure-Samples/ms-ident
 
 This sample has one project. To register the application with your Azure AD tenant, you can either:
 
-- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-the-client-app-dotnet-web-daemon-v2) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant).
+- Follow the steps in [Choose the tenant](#choose-the-tenant) and [Configure the sample to use your tenant](#configure-the-sample-to-use-your-tenant).
 - Use PowerShell scripts that:
   - *Automatically* create the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
   - Modify the Visual Studio projects' configuration files.
@@ -88,18 +88,14 @@ If you want to use the automation:
 
 If you don't want to use the automation, use the steps in the following sections.
 
-### Choose the Azure AD tenant
+### Choose the tenant
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-
-
-### Register the client app (dotnet-web-daemon-v2)
-
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for your application, for example `dotnet-web-daemon-v2`. Users of your app might see this name, and you can change it later.
 1. In the **Supported account types** section, select **Accounts in any organizational directory**.
 1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter `https://localhost:44316/` and `https://localhost:44316/Account/GrantPermissions` as Redirect URIs.
@@ -121,7 +117,7 @@ If you don't want to use the automation, use the steps in the following sections
 1. In the **Application permissions** section, ensure that the right permissions are selected: **User.Read.All**.
 1. Select **Add permissions**.
 
-## Configure the sample to use your Azure AD tenant
+## Configure the sample to use your tenant
 
 In the following steps, **ClientID** is the same as "application ID" or **AppId**.
 
@@ -132,8 +128,8 @@ Open the solution in Visual Studio to configure the projects.
 If you used the setup scripts, the following changes will have been applied for you.
 
 1. Open the **UserSync\Web.Config** file.
-1. Find the app key **ida:ClientId**. Replace the existing value with the application ID of the **dotnet-web-daemon-v2** application copied from the Azure portal.
-1. Find the app key **ida:ClientSecret**. Replace the existing value with the key that you saved during the creation of the **dotnet-web-daemon-v2** app in the Azure portal.
+1. Find the app key **ida:ClientId**. Replace the existing value with the application ID of the **dotnet-web-daemon-v2** application that was previously recorded.
+1. Find the app key **ida:ClientSecret**. Replace the existing value with the key that you saved during the creation of the **dotnet-web-daemon-v2** app.
 
 ## Run the sample
 
@@ -223,9 +219,7 @@ Visual Studio will publish the project and automatically open a browser to the p
 
 ### Update the Azure AD tenant application registration for dotnet-web-daemon-v2
 
-1. Go back to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
-1. Select the **dotnet-web-daemon-v2** application.
+1. Go back to the Microsoft Entra admin center, and then select the **dotnet-web-daemon-v2** application in **App registrations**.
 1. On the **Authentication** page for your application, update the **Front-channel logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Save the configuration.

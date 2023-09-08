@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 ASE/SQL workload blueprint sample controls
 description: Control mapping of the ISO 27001 App Service Environment/SQL Database workload blueprint sample to Azure Policy and Azure RBAC.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 ASE/SQL workload blueprint sample
