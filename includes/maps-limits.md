@@ -16,7 +16,7 @@ services: azure maps
 >
 > Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account](../articles/azure-maps/how-to-manage-pricing-tier.md).
 
-The following table shows the usage limit for the Azure Maps Gen2 pricing tier. Usage limit depends on the pricing tier.
+For Azure Maps queries per second limits, see [Azure Maps QPS rate limits](https://learn.microsoft.com/azure/azure-maps/azure-maps-qps-rate-limits)
 
 | Resource                              | Gen2 pricing tier limit |
 |---------------------------------------|:-----------------------:|
