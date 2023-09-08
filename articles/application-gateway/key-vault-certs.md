@@ -80,7 +80,7 @@ When you're using a restricted Key Vault, use the following steps to configure A
 > [!TIP]
 > Steps 1-3 are not required if your Key Vault has a Private Endpoint enabled. The application gateway can access the Key Vault using the private IP address.
 
-> [!Note]
+> [!IMPORTANT]
 > If using Private Endpoints to access Key Vault, you must link the privatelink.vaultcore.azure.net private DNS zone, containing the corresponding record to the referenced Key Vault, to the virtual network containing Application Gateway. Custom DNS servers may continue to be used on the virtual network instead of the Azure DNS provided resolvers, however the private dns zone will need to remain linked to the virtual network as well.
 
 1. In the Azure portal, in your Key Vault, select **Networking**.
