@@ -85,7 +85,3 @@ To publish the Network Service Design (NSD) and its associated artifacts, issue 
 az aosm nsd publish -f input.json
 ```
 When the Publish process is complete navigate to your Publisher Resource Group to observe and review the resources and artifacts that were produced.
-
-## Next steps
-
-How to publish Network Service Design
