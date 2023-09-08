@@ -72,7 +72,7 @@ Agents|[Azure Monitor Agent overview](agents/agents-overview.md)|Azure Monitorin
 Agents|[Migrate from MMA custom text log to AMA DCR based custom text logs](agents/azure-monitor-agent-custom-text-log-migration.md)|New article that explains how to migrate from the HTTP Data Collector API to the Log Ingestion API.|
 Agents|[Azure Monitor Agent overview](agents/agents-overview.md)|Azure Monitor Agent now supports Azure Stack HCI. |
 Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Log alert rules support using managed identities to send the log query.|
-Alerts|[Monitor Azure AD B2C with Azure Monitor](https://learn.microsoft.com/azure/active-directory-b2c/azure-monitor)|Articles on action groups have been updated.|
+Alerts|[Monitor Azure AD B2C with Azure Monitor](/azure/active-directory-b2c/azure-monitor)|Articles on action groups have been updated.|
 Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Alert rules that use action groups support custom properties to add custom information to the alert notification payload.|
 Application-Insights|[Feature extensions for the Application Insights JavaScript SDK (Click Analytics)](app/javascript-feature-extensions.md)|Most of our JavaScript SDK documentation has been updated and overhauled.|
 Application-Insights|[Analyze product usage with HEART](app/usage-heart.md)|Updated and overhauled HEART framework documentation.|

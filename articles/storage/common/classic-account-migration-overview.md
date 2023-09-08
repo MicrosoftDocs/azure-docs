@@ -3,12 +3,12 @@ title: We're retiring classic storage accounts on August 31, 2024
 titleSuffix: Azure Storage
 description: Overview of migration of classic storage accounts to the Azure Resource Manager deployment model. All classic accounts must be migrated by August 31, 2024.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 07/26/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 ---

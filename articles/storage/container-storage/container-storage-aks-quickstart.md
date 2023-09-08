@@ -4,9 +4,9 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 08/03/2023
+ms.date: 09/07/2023
 ms.author: kendownie
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
@@ -14,15 +14,9 @@ ms.custom: devx-track-azurecli
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- Sign up for the public preview by completing the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
-
-- This quickstart requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-- You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't have one, see [Create an AKS cluster](install-container-storage-aks.md#create-aks-cluster).
-
-- You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
+- You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't already have an AKS cluster, follow [these instructions](install-container-storage-aks.md#getting-started) to create one.
 
 ## Install Azure Container Storage
 
@@ -48,7 +42,7 @@ Follow these instructions to install Azure Container Storage on your AKS cluster
    | -g   | --resource-group | The resource group name.|
    | -c   | --cluster-name | The name of the cluster where Azure Container Storage is to be installed.|
    | -n   | --nodepool-name | The name of the nodepool. Defaults to the first nodepool in the cluster.|
-   | -r   | --release-train | The release train for the installation. Defaults to prod.|
+   | -r   | --release-train | The release train for the installation. Defaults to stable.|
    
    For example:
 

@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a public IP address - Azure portal'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, you learn how to create a public IP address for a Standard SKU and a Basic SKU. You also learn about routing preferences and tiers.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 03/24/2023
+ms.date: 08/24/2023
 ms.custom: template-quickstart, mode-ui
 ---
 

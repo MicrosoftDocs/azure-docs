@@ -113,7 +113,9 @@ You don't need to mount the Azure file share to a particular drive letter to use
 
 `\\storageaccountname.file.core.windows.net\myfileshare`
 
-You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share.
+You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share. If you do not get prompted for credentials you can add the credentials using the following command:
+
+`cmdkey /add:StorageAccountName.file.core.windows.net /user:localhost\StorageAccountName /pass:StorageAccountKey`
 
 For Azure Government Cloud, simply change the servername to:
 

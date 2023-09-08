@@ -28,18 +28,18 @@ This article shows you how to create and manage a catalog of resources and acces
 
 A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. An administrator can create a catalog.  In addition, a user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  A nonadministrator who creates the catalog becomes the first catalog owner. A catalog owner can add more users, groups of users, or application service principals as catalog owners.
 
-**Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
+**Prerequisite roles:** Global Administrator, Identity Governance Administrator, or Catalog creator
 
 > [!NOTE]
-> Users who were assigned the User administrator role will no longer be able to create catalogs or manage access packages in a catalog they don't own. If users in your organization were assigned the User administrator role to configure catalogs, access packages, or policies in entitlement management, you should instead assign these users the Identity Governance administrator role.
+> Users who were assigned the User Administrator role will no longer be able to create catalogs or manage access packages in a catalog they don't own. If users in your organization were assigned the User Administrator role to configure catalogs, access packages, or policies in entitlement management, you should instead assign these users the Identity Governance administrator role.
 
 To create a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs**.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
 
-    ![Screenshot that shows entitlement management catalogs in the Azure portal.](./media/entitlement-management-catalog-create/catalogs.png)
+    ![Screenshot that shows entitlement management catalogs in the Entra admin center.](./media/entitlement-management-catalog-create/catalogs.png)
 
 1. Select **New catalog**.
 
@@ -78,7 +78,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups.
 
-  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give a user access to an application that uses AD security group memberships, create a new security group in Azure AD, configure [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
+  * Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give a user access to an application that uses AD security group memberships, create a new security group in Azure AD, configure [group writeback to AD](../hybrid/connect/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md), so that the cloud-created group can be used by an AD-based application.
 
   * Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either, so cannot be added to catalogs.
 
@@ -95,9 +95,11 @@ To include resources in an access package, the resources must exist in a catalog
 
 To add resources to a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to add resources to.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to add resources to.
 
 1. On the left menu, select **Resources**.
 
@@ -179,20 +181,27 @@ You can also add a resource to a catalog by using Microsoft Graph. A user in an 
 
 ### Add a resource to a catalog with PowerShell
 
-You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  The following example shows how to add a group to a catalog as a resource using Microsoft Graph beta and Microsoft Graph PowerShell cmdlets module version 1.x.x.
+You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 2.1.x or later module version.  The following example shows how to add a group to a catalog as a resource using Microsoft Graph PowerShell cmdlets module version 2.4.0.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Group.ReadWrite.All"
-Select-MgProfile -Name "beta"
+
 $g = Get-MgGroup -Filter "displayName eq 'Marketing'"
-Import-Module Microsoft.Graph.Identity.Governance
-$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
-$nr = New-Object Microsoft.Graph.PowerShell.Models.MicrosoftGraphAccessPackageResource
-$nr.OriginId = $g.Id
-$nr.OriginSystem = "AadGroup"
-$rr = New-MgEntitlementManagementAccessPackageResourceRequest -CatalogId $catalog.Id -AccessPackageResource $nr
-$ar = Get-MgEntitlementManagementAccessPackageCatalog -AccessPackageCatalogId $catalog.Id -ExpandProperty accessPackageResources
-$ar.AccessPackageResources
+
+$catalog = Get-MgEntitlementManagementCatalog -Filter "displayName eq 'Marketing'"
+$params = @{
+  requestType = "adminAdd"
+  resource = @{
+    originId = $g.Id
+    originSystem = "AadGroup"
+  }
+  catalog = @{ id = $catalog.id }
+}
+
+New-MgEntitlementManagementResourceRequest -BodyParameter $params
+sleep 5
+$ar = Get-MgEntitlementManagementCatalog -AccessPackageCatalogId $catalog.Id -ExpandProperty resources
+$ar.resources
 ```
 
 ## Remove resources from a catalog
@@ -203,9 +212,11 @@ You can remove resources from a catalog. A resource can be removed from a catalo
 
 To remove resources from a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to remove resources from.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to remove resources from.
 
 1. On the left menu, select **Resources**.
 
@@ -215,15 +226,19 @@ To remove resources from a catalog:
 
 ## Add more catalog owners
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The user who created a catalog becomes the first catalog owner. To delegate management of a catalog, add users to the catalog owner role. Adding more catalog owners helps to share the catalog management responsibilities.
 
-**Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
+**Prerequisite roles:** Global Administrator, Identity Governance Administrator, or Catalog owner
 
 To assign a user to the catalog owner role:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to add administrators to.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to add administrators to.
 
 1. On the left menu, select **Roles and administrators**.
 
@@ -237,13 +252,15 @@ To assign a user to the catalog owner role:
 
 You can edit the name and description for a catalog. Users see this information in an access package's details.
 
-**Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
+**Prerequisite roles:** Global Administrator, Identity Governance Administrator, or Catalog owner
 
 To edit a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to edit.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to edit.
 
 1. On the catalog's **Overview** page, select **Edit**.
 
@@ -257,13 +274,15 @@ To edit a catalog:
 
 You can delete a catalog, but only if it doesn't have any access packages.
 
-**Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
+**Prerequisite roles:** Global Administrator, Identity Governance Administrator, or Catalog owner
 
 To delete a catalog:
 
-1. In the Azure portal, select **Azure Active Directory** > **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Catalogs** and then open the catalog you want to delete.
+1. Browse to **Identity governance** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to delete.
 
 1. On the catalog's **Overview** page, select **Delete**.
 

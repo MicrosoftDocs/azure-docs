@@ -13,7 +13,7 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
 
 1. Set `CLUSTER_NAME`, `RESOURCE_GROUP` and `SUBSCRIPTION_ID` variables.
     ```bash
-    CLUSTER_NAME="myNexusAKSCluster"
+    CLUSTER_NAME="myNexusK8sCluster"
     RESOURCE_GROUP="myResourceGroup"
     SUBSCRIPTION_ID=<set the correct subscription_id>
     ```
@@ -32,7 +32,7 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
 4. Use `kubectl` to send requests to the cluster:
 
     ```console
-    kubectl get nodes
+    kubectl get pods -A
     ```
     You should now see a response from the cluster containing the list of all nodes.
 

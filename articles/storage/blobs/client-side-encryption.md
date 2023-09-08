@@ -5,7 +5,7 @@ description: The Blob Storage client library supports client-side encryption and
 services: storage
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: article
 ms.date: 12/12/2022
 ms.author: pauljewell

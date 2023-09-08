@@ -45,7 +45,23 @@ To update an existing agent to use the Group Managed Service Account created dur
 >[!IMPORTANT]
 > After you've installed the agent, you must configure and enable it before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud sync](how-to-configure.md).
 
-## Enable password writeback in Azure AD Connect cloud sync 
+
+
+## Enable password writeback in cloud sync 
+
+You can enable password writeback in SSPR directly in the portal or through PowerShell. 
+
+### Enable password writeback in the portal
+To use *password writeback* and enable the self-service password reset (SSPR) service to detect the cloud sync agent, using the portal, complete the following steps: 
+
+ 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
+ 2. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
+ 3. Check the option for **Enable password write back for synced users** .
+ 4. (optional) If Azure AD Connect provisioning agents are detected, you can additionally check the option for **Write back passwords with Azure AD Connect cloud sync**.   
+ 5. Check the option for **Allow users to unlock accounts without resetting their password** to *Yes*.
+ 6. When ready, select **Save**.
+
+### Using PowerShell
 
 To use *password writeback* and enable the self-service password reset (SSPR) service to detect the cloud sync agent, use the `Set-AADCloudSyncPasswordWritebackConfiguration` cmdlet and the tenant’s global administrator credentials: 
 

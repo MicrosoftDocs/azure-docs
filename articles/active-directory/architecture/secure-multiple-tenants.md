@@ -26,7 +26,7 @@ A separate tenant is useful for an organization's IT department to validate tena
 Deploying a non-production environment in a separate tenant might be necessary during development of custom applications that can change data of production user objects with MS Graph or similar APIs (for example, applications that are granted Directory.ReadWrite.All, or similar wide scope).
 
 >[!Note]
->Azure AD Connect synchronization to multiple tenants, which might be useful when deploying a non-production environment in a separate tenant. For more information, see [Azure AD Connect: Supported topologies](../hybrid/plan-connect-topologies.md).
+>Azure AD Connect synchronization to multiple tenants, which might be useful when deploying a non-production environment in a separate tenant. For more information, see [Azure AD Connect: Supported topologies](../hybrid/connect/plan-connect-topologies.md).
 
 ## Outcomes
 
@@ -177,7 +177,7 @@ Devices: This tenant contains a reduced number of devices; only those that are n
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
+* [Azure AD fundamentals](./secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

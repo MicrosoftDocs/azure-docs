@@ -60,12 +60,12 @@ Azure Active Directory (Azure AD) administrators can reset a user's password if 
 
 After you've reset your user's password, you can perform the following basic processes:
 
-- [Add or delete users](add-users-azure-active-directory.md)
+- [Add or delete users](./add-users.md)
 
-- [Assign roles to users](active-directory-users-assign-role-azure-portal.md)
+- [Assign roles to users](./how-subscriptions-associated-directory.md)
 
-- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](./how-to-manage-user-profile-info.md)
 
-- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+- [Create a basic group and add members](./how-to-manage-groups.md)
 
 Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../enterprise-users/index.yml).

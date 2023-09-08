@@ -103,6 +103,7 @@ AKS supports the following [admission controllers][admission-controllers]:
 - *NamespaceLifecycle*
 - *LimitRanger*
 - *ServiceAccount*
+- *DefaultIngressClass*
 - *DefaultStorageClass*
 - *DefaultTolerationSeconds*
 - *MutatingAdmissionWebhook*
@@ -346,7 +347,7 @@ The AKS Linux Extension is an Azure VM extension that installs and configures mo
 
 - [Node-exporter](https://github.com/prometheus/node_exporter): Collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. Then, a monitoring tool, such as Prometheus, is able to scrap these metrics.
 - [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): Aims to make various node problems visible to upstream layers in the cluster management stack. It's a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
-- [Local-gadget](https://inspektor-gadget.io/docs/v0.16.0): Uses in-kernel eBPF helper programs to monitor events related to syscalls from userspace programs in a pod.
+- [Local-gadget](https://inspektor-gadget.io/docs/v0.18.1): Uses in-kernel eBPF helper programs to monitor events related to syscalls from userspace programs in a pod.
 
 These tools help provide observability around many node health related problems, such as:
 

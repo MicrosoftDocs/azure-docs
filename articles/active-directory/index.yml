@@ -20,13 +20,13 @@ highlightedContent:
   items:
     - title: What is Azure AD?
       itemType: overview # controls the icon image and super-title text
-      url: ./fundamentals/active-directory-whatis.md
+      url: ./fundamentals/whatis.md
     - title: What's new in Azure AD?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
     - title: Azure AD feature deployment guide
       itemType: concept
-      url: ./fundamentals/active-directory-deployment-checklist-p2.md
+      url: ./fundamentals/concept-secure-remote-workers.md
     - title: Microsoft Entra
       itemType: get-started
       url: /entra
