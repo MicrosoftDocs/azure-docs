@@ -484,6 +484,8 @@ items:
         href: question-answering/how-to/best-practices.md
       - name: Troubleshooting
         href: question-answering/how-to/troubleshooting.md
+      - name: Connect to Azure OpenAI
+        href: question-answering/how-to/azure-openai-integration.md
     - name: Concepts
       items:
       - name: Development lifecycle
