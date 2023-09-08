@@ -40,6 +40,11 @@ The **Monitoring** tab on the **Overview** page offers a quick way to get starte
 
 :::image type="content" source="media/monitor-aks/overview.png" alt-text="Screenshot of AKS overview page." lightbox="media/monitor-aks/overview.png":::
 
+The **Overview** page also includes links to [Managed Prometheus](#integrations) and  [Container insights](#integrations) for the current cluster. If you haven't already enabled these tools, you'll be prompted to do so. You may also see a banner at the top of the screen recommending that you enable additional features to improve monitoring of your cluster.
+
+:::image type="content" source="media/monitor-aks/integration-buttons.png" alt-text="Screenshot of integration buttons on AKS overview page." lightbox="media/monitor-aks/integration-buttons.png":::
+
+
 > [!TIP]
 > Access monitoring features for all AKS clusters in your subscription from the **Monitoring** menu in the Azure portal, or for a single AKS cluster from the **Monitor** section of the **Kubernetes services** menu.
 
