@@ -66,7 +66,7 @@ Here's some sample code you can use to try out logical replication.
 
 1. Connect to the publisher database. Create a table and add some data.
    ```SQL
-   CREATE TABLE basic(id SERIAL, name TEXT);
+   CREATE TABLE basic (id INTEGER NOT NULL PRIMARY KEY, a TEXT);
    INSERT INTO basic(name) VALUES ('apple');
    INSERT INTO basic(name) VALUES ('banana');
    ```
@@ -78,12 +78,12 @@ Here's some sample code you can use to try out logical replication.
 
 3. Connect to the subscriber database. Create a table with the same schema as on the publisher.
    ```SQL
-   CREATE TABLE basic(id SERIAL, name varchar(40));
+   CREATE TABLE basic (id INTEGER NOT NULL PRIMARY KEY, a TEXT);
    ```
 
 4. Create a subscription that connects to the publication you created earlier.
    ```SQL
-   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname> password=<password>' PUBLICATION pub;
+   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<rep_user> dbname=<dbname> password=<password>' PUBLICATION pub;
    ```
 
 5. You can now query the table on the subscriber. You'll see that it has received data from the publisher.
@@ -100,7 +100,7 @@ Here's some sample code you can use to try out logical replication.
 
 Visit the PostgreSQL documentation to understand more about [logical replication](https://www.postgresql.org/docs/current/logical-replication.html).
 
-### Using Logical Replication Between Databases on the Same Server
+### Using logical replication between databases on the same server
 When you're aiming to set up logical replication between different databases residing on the same PostgreSQL server, it's essential to follow certain guidelines to avoid implementation restrictions that are currently present. As of now, creating a subscription that connects to the same database cluster will only succeed if the replication slot isn't created within the same command; otherwise, the `CREATE SUBSCRIPTION` call will hang, on a `LibPQWalReceiverReceive` wait event. This happens due to an existing restriction within Postgres engine, which might be removed in future releases.
 
 To effectively setup logical replication between your "source" and "target" databases on the same server while circumventing this restriction, follow the steps outlined below:
@@ -125,7 +125,7 @@ Thereafter, in your target database, create a subscription to the previously cre
 ``` SQL
 -- Run this on the target database
 CREATE SUBSCRIPTION sub
-   CONNECTION 'dbname=source host=target.postgres.database.azure.com port=5432 user=rep_user password=******'
+   CONNECTION 'dbname=<source dbname> host=<server>.postgres.database.azure.com port=5432 user=<rep_user> password=<password>'
    PUBLICATION pub
    WITH (create_slot = false, slot_name='myslot');
 ```
