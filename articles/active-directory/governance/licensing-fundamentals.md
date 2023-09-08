@@ -148,5 +148,11 @@ Here are some example license scenarios to help you determine the number of lice
 | Graphic Design Institute has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are three different users in the organization who can approve activations. | 14 licenses for the eligible roles + three approvers | 17 |
 | Contoso has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are five different users in the organization who can approve activations. Contoso also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which six aren't in administrator roles managed by PIM. | 42 licenses for the eligible roles + five approvers + six reviewers | 53 |
 
+## Licensing FAQs
+
+### Do licenses need to be assigned to users to use Identity Governance features?
+
+Users do not need to be assigned an Identity Governance license, but there needs to be as many licenses in the tenant to include all users in scope of, or who configures, the Identity Governance features.
+
 ## Next steps
 - [What is Microsoft Entra ID Governance?](identity-governance-overview.md)
