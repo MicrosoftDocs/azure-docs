@@ -101,6 +101,99 @@ The following table shows what features are available with each license.  Note t
 |Insights and reporting - Inactive guest accounts (Preview)||||x| 
 
 
+## Entitlement Management
+
+To use Entitlement Management in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have the valid license. Licenses must also be assigned to the administrators and relevant users.
+
+### How many licenses must you have?
+
+Ensure that your directory has at least as many Microsoft Entra Premium P2 or Microsoft Entra ID Governance licenses as you have:
+
+- Member users who *can* request an access package.
+- Member users who *request* an access package.
+- Member users who *approve requests* for an access package.
+- Member users who *review assignments* for an access package.
+- Member users who have a *direct assignment* or an *automatic assignment* to an access package.
+
+For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance usage:
+- Guest users who *request* an access package.
+- Guest users who *approve requests* for an access package.
+- Guest users who *review assignments* for an access package.
+- Guest users who have a *direct assignment* to an access package.
+
+Microsoft Azure AD Entra P2 or Microsoft Entra ID Governance licenses are **not** required for the following tasks:
+
+- No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
+- No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
+- No licenses are required for guests who have **a privilege to request access packages** but they **do not choose** to request them.
+
+For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
+
+### Example license scenarios
+
+Here are some example license scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Number of licenses |
+| --- | --- | --- |
+| A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to six other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees who **can** request the access packages | 2,000 |
+| A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to six other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner Contoso** (guests) can request the same access packages subject to approval. Contoso has 30,000 users. 150 employees request the access packages and 10,500 users from Contoso request access. | 2,000 employees need licenses, guest users are billed on a monthly active user basis and no additional licenses are required for them. * | 2,000 |
+
+\* Azure AD External Identities (guest user) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This model replaces the 1:5 ratio billing model, which allowed up to five guest users for each Azure AD Premium license in your tenant. When your tenant is linked to a subscription and you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU-based billing model. For more information, see [Billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md).
+
+
+## Access reviews
+
+To use Access reviews in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have the valid license. Licenses must also be assigned to the administrators and relevant users.
+
+### How many licenses must you have?
+
+Your directory needs at least as many Microsoft Entra Premium P2 licenses as the number of employees who will be performing the following tasks:
+
+-	Member users who are assigned as reviewers
+-	Member users who perform a self-review
+-	Member users as group owners who perform an access review
+-	Member users as application owners who perform an access review
+
+For guest users, licensing needs will depend on the licensing model you’re using. However, the below guest users’ activities are considered Microsoft Entra Premium P2 usage:
+
+-	Guest users who are assigned as reviewers
+-	Guest users who perform a self-review
+-	Guest users as group owners who perform an access review
+-	Guest users as application owners who perform an access review
+
+
+Microsoft Entra P2 licenses are **not** required for users with the Global Administrator or User Administrator roles who set up access reviews, configure settings, or apply the decisions from the reviews.
+
+Azure AD guest user access is based on a monthly active users (MAU) billing model, which replaces the 1:5 ratio billing model. For more information, see [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md).
+
+For more information about licenses, see [Assign or remove licenses using the Azure portal](../fundamentals/license-users-groups.md).
+
+### Example license scenarios
+
+Here are some example license scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Number of licenses |
+| --- | --- | --- |
+| An administrator creates an access review of Group A with 75 users and 1 group owner, and assigns the group owner as the reviewer. | 1 license for the group owner as reviewer | 1 |
+| An administrator creates an access review of Group B with 500 users and 3 group owners, and assigns the 3 group owners as reviewers. | 3 licenses for each group owner as reviewers | 3 |
+| An administrator creates an access review of Group B with 500 users. Makes it a self-review. | 500 licenses for each user as self-reviewers | 500 |
+| An administrator creates an access review of Group C with 50 member users and 25 guest users. Makes it a self-review. | 50 licenses for each user as self-reviewers.* | 50 |
+| An administrator creates an access review of Group D with 6 member users and 108 guest users. Makes it a self-review. | 6 licenses for each user as self-reviewers. Guest users are billed on a monthly active user (MAU) basis. No additional licenses are required. *  | 6 |
+
+\* Azure AD External Identities (guest user) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This model replaces the 1:5 ratio billing model, which allowed up to five guest users for each Microsoft Entra Premium license in your tenant. When your tenant is linked to a subscription and you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU-based billing model. For more information, see [Billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md).
+
+> [!NOTE]
+> Access reviews for Service Principals requires an Entra Workload Identities Premium plan in addition to Microsoft Entra Premium P2 license. You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
+
+## Lifecycle Workflows
+
+With Entra Governance licenses for Lifecycle Workflows, you can:
+
+- Create, manage, and delete workflows up to the total limit of 50 workflows.
+- Trigger on-demand and scheduled workflow execution.
+- Manage and configure existing tasks to create workflows that are specific to your needs.
+- Create up to 100 custom task extensions to be used in your workflows.
+
 ## Privileged Identity Management
 
 To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have a valid license. Licenses must also be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.  To use Privileged Identity Management, you must have one of the following licenses:
