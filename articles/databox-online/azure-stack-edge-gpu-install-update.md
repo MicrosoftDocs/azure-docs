@@ -64,8 +64,12 @@ Use the following steps to update your Azure Stack Edge version and Kubernetes v
 1. Update your device version to 2303.
 1. Update your Kubernetes version to 2210.
 1. Update your Kubernetes version to 2303.
+1. Update both device software and Kubernetes to 2309.
 
 If you are running 2210, you can update both your device version and Kubernetes version directly to 2303 and then to 2309.
+
+If you are running 2303, you can update both your device version and Kubernetes version directly to
+2309.
 
 In Azure portal, the process will require two clicks, the first update gets your device version to 2307 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2307.
 
