@@ -5,8 +5,8 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/22/2023
-ms.author: ladolan
-author: lauradolan
+ms.author: sagarkeswani
+author: sagarkeswani
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
 ---
 
@@ -51,9 +51,12 @@ The following operating system (OS) software versions are compatible with these 
 
 | Publisher | Image and Image Version | Supported SAP Software Version |
 | --------- | ----------------------- | ------------------------------ |
-| Red Hat | Red Hat Enterprise Linux 8.2 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| Red Hat | Red Hat Enterprise Linux 8.4 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
-| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 15 SP3 - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| Red Hat | Red Hat Enterprise Linux 8.6 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| Red Hat | Red Hat Enterprise Linux 8.4 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| Red Hat | Red Hat Enterprise Linux 8.2 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 15 SP4 - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 15 SP3 - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP5 - x64 Gen2 latest | S/4HANA 1909 SPS 03 |
 | SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP4 - x64 Gen2 latest | S/4HANA 1909 SPS 03 |
 
 - You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforeseen issue, the deployment may fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
