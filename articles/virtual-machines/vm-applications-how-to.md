@@ -6,8 +6,8 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/03/2022
-ms.reviewer: amjads
+ms.date: 09/08/2023
+ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -44,7 +44,7 @@ if ($remainder -ne 0){
     }
 ```
 
-You need to make sure the files are publicly available, or you'll need the SAS URI for the files in your storage account. You can use [Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md) to quickly create a SAS URI if you don't already have one.
+Ensure the storage account has public level access or use an SAS URI with read privilege, as other restriction levels fail deployments. You can use [Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md) to quickly create a SAS URI if you don't already have one.
 
 If you're using PowerShell, you need to be using version 3.11.0 of the Az.Storage module.
 
