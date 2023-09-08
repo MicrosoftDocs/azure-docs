@@ -13,7 +13,7 @@ ms.date: 08/31/2023
 
 # Retrieval Augmented Generation (RAG) in Azure Cognitive Search
 
-Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM. For an enterprise solution, RAG means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
+Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM. For an enterprise solution, RAG architecture means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
 
 The decision about which information retrieval system to use is critical because it determines the inputs to the LLM. The information retrieval system should provide:
 
