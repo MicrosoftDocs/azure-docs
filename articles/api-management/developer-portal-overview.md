@@ -6,8 +6,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: article
-ms.date: 08/09/2023
+ms.topic: conceptual
+ms.date: 09/08/2023
 ms.author: danlep 
 ---
 
@@ -15,7 +15,7 @@ ms.author: danlep
 
 The API Management *developer portal* is an automatically generated, fully customizable website with the documentation of your APIs. It's where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-This article introduces features of the developer portal, including ways you can customize and extend the developer portal for your specific users and scenarios. 
+This article introduces features of the developer portal, the types of content the portal presents, and ways to customize and extend the developer portal for your specific users and scenarios. 
 
 :::image type="content" source="media/developer-portal-overview/cover.png" alt-text="Screenshot of the API Management developer portal.":::
 
@@ -23,11 +23,15 @@ This article introduces features of the developer portal, including ways you can
 
 ## Customize and style the portal
 
-Out of the box, the developer portal is managed and maintained by Azure but already populated with your APIs and products and ready to be customized for your needs. As an API publisher, you can use the developer portal's administrative interface to customize the appearance and functionality of the developer portal. Access the administrative interface from the Azure portal interface and readily make changes to placeholder content provided by default.
+Out of the box, the developer portal is already populated with your published APIs and products and ready to be customized for your needs. As an API publisher, you use the developer portal's administrative interface to customize the appearance and functionality of the developer portal. 
+
+If you're accessing the portal for the first time, the portal includes placeholder pages, content, and navigation menus. The placeholder content you see has been designed to showcase the portal's capabilities and minimize the customizations needed to personalize your portal. 
 
 For a step-by-step walkthrough of customizing the developer portal, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 
 ### Visual editor
+
+The developer portal's administrative interface provides a visual editor for customize the portal's content and styling. You can add, remove, and rearrange pages, sections, and widgets. You can also change the styling of the portal's elements, such as fonts, colors, and spacing.
 
 [!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]
 
@@ -35,15 +39,12 @@ For a step-by-step walkthrough of customizing the developer portal, see [Tutoria
 * Add a section to a page by hovering over a blank area then click on a blue icon with a plus sign. 
 
     :::image type="content" source="media/developer-portal-overview/add-section.png" alt-text="Screenshot showing the add section icon in the developer portal." border="false":::
+
 * Add a widget (for example, text, image, custom widget, or APIs list) by hovering over a blank area, then click a grey icon with a plus sign.
 
     :::image type="content" source="media/developer-portal-overview/add-widget.png" alt-text="Screenshot showing the add widget icon in the developer portal." border="false":::
 
 * Rearrange items in a page by drag-and-drop. 
-
-### Default content 
-
-If you're accessing the portal for the first time, the default content is automatically provisioned in the background. The placeholder content you see has been designed to showcase the portal's capabilities and minimize the customizations needed to personalize your portal. 
 
 ### Layouts and pages
 
@@ -59,8 +60,6 @@ The preprovisioned content in the developer portal showcases pages with commonly
 
 > [!NOTE]
 > Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
-
-
 
 ### Styles
 
@@ -85,13 +84,13 @@ In some cases you might need functionality beyond the customization and styling 
 
 ## API Management content
 
-The developer portal synchronizes with your API Management instance to display content such as the APIs, operations, products, subscriptions, and user profiles.
+The developer portal synchronizes with your API Management instance to display content such as the APIs, operations, products, subscriptions, and user profiles. APIs and products must be in a *published* state to be visible in the developer portal.
 
 ### Content visibility and access
 
 In API Management, [groups of users](api-management-howto-create-groups.md) are used to manage the visibility of products and their associated APIs to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups.
 
-You can also control the other portal content (such as pages and sections) appears to different users, based on their identity. For example, you might want to display certain pages only to users who have access to a specific product or API. Or, make a section of a page appear only for certain [groups of users](api-management-howto-create-groups.md). The developer portal has built-in controls for these needs.
+You can also control how other portal content (such as pages and sections) appears to different users, based on their identity. For example, you might want to display certain pages only to users who have access to a specific product or API. Or, make a section of a page appear only for certain [groups of users](api-management-howto-create-groups.md). The developer portal has built-in controls for these needs.
 
 > [!NOTE]
 > Visibility and access controls are supported only in the managed developer portal. They aren't supported in the [self-hosted portal](developer-portal-self-host.md).
@@ -126,14 +125,14 @@ By default, the developer portal also provides a "Try it" capability on the API 
 
 :::image type="content" source="media/developer-portal-overview/try-it.png" alt-text="Screenshot of the test console in the API Management developer portal.":::
 
-The test console supports APIs that require no authorization, or that require a subscription key or OAuth 2.0 authorization. In the latter case, you can configure the test console to generate a valid OAuth token on behalf of the test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md).
+The test console supports APIs with different authorization models - for example, APIs that require no authorization, or that require a subscription key or OAuth 2.0 authorization. In the latter case, you can configure the test console to generate a valid OAuth token on behalf of the test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md).
 
 > [!IMPORTANT]
 > To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see [Enable CORS for interactive console in the API Management developer portal](enable-cors-developer-portal.md).
 
 ## Manage portal access
 
-By default, the developer portal enables anonymous access. This means that anyone can view the portal and its content without signing in, although functionality such as using the test console is restricted. You can enable a developer setting to require users to sign-in to access the portal. 
+By default, the developer portal enables anonymous access. This means that anyone can view the portal and its content without signing in, although functionality such as using the test console may be restricted. You can enable a developer setting to require users to sign-in to access the portal. 
 
 The portal supports several options for user sign-up and sign-in:
 
@@ -152,14 +151,14 @@ After you update the developer portal content or configuration, you need to save
 ### Save the portal
 :::image type="content" source="media/developer-portal-overview/save-button.png" alt-text="Screenshot of the Save button in the developer portal." :::
 
-Whenever you make a change in the portal, you need to save it manually by selecting the **Save** button in the menu at the top, or press [Ctrl]+[S]. When you save your changes, the modified content is automatically uploaded to your API Management service. If you need to, you can **Undo** your last saved changes.
+Whenever you make a change in the portal, you need to save it manually by selecting the **Save** button in the menu at the top, or press [Ctrl]+[S]. If you need to, you can **Undo** your last saved changes. Saved changes are visible only to you and aren't visible to portal visitors until you publish them.
 
 > [!NOTE]
 > The managed developer portal receives and applies updates automatically. Changes that you've saved but not published to the developer portal remain in that state during an update.
 
 ## Publish the portal
 
-To make your portal and its latest changes available to visitors, you need to *publish* it. You can publish the portal within the portal's administrative interface or from the Azure portal.
+To make your portal and its latest changes available to visitors, you need to *publish* it. You publish the portal within the portal's administrative interface or from the Azure portal.
 
 > [!IMPORTANT]
 > You need to publish the portal any time you make changes to the portal's content or styling. The portal also needs to be republished after API Management service configuration changes. For example, republish the portal after assigning a custom domain, updating the identity providers, setting delegation, or specifying sign-in and product terms.
@@ -179,9 +178,6 @@ To make your portal and its latest changes available to visitors, you need to *p
 1. In the **Portal overview** window, select **Publish**.
 
     :::image type="content" source="media/developer-portal-overview/pubish-portal-azure-portal.png" alt-text="Publish portal from Azure portal":::
-
-
-
 
 ## Migrate from the legacy portal
 

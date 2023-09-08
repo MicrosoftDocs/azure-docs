@@ -1,19 +1,19 @@
 ---
 title: Enable CORS for Azure API Management developer portal 
-description: How to configure CORS to enable the developer portal's interactive test console.
+description: How to configure CORS to enable the Azure API Management developer portal's interactive test console.
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/06/2023
+ms.date: 09/08/2023
 ms.author: danlep
 ---
 
 # Enable CORS for interactive console in the API Management developer portal 
 Cross-origin resource sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. 
 
-To let visitors to the developer portal use the interactive test console in the API reference pages, enable a [CORS policy](cors-policy.md) for APIs in your API Management instance. If the developer portal's domain name isn't an allowed origin for cross-domain API requests, test console users will see a CORS error.  
+To let visitors to the API Management [developer portal](developer-portal-overview.md) use the interactive test console in the API reference pages, enable a [CORS policy](cors-policy.md) for APIs in your API Management instance. If the developer portal's domain name isn't an allowed origin for cross-domain API requests, test console users will see a CORS error.  
 
 For certain scenarios, you can configure the developer portal as CORS proxy instead of enabling a CORS policy for APIs.
 
@@ -26,7 +26,7 @@ For certain scenarios, you can configure the developer portal as CORS proxy inst
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
 
-## Enable CORS for APIs
+## Enable CORS policy for APIs
 
 You can enable a setting to configure a CORS policy automatically for all APIs in your API Management instance. You can also configure a CORS policy manually.
 
@@ -36,7 +36,7 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 ### Enable CORS policy automatically
 
 1. In the left menu of your API Management instance, under **Developer portal**, select **Portal overview**.
-1. Under **Enable CORS**, the status of CORS policy configuration is displayed. A  warning box indicates an absent or misconfigured policy.
+1. Under **Enable CORS**, the status of CORS policy configuration is displayed. A warning box indicates an absent or misconfigured policy.
 1. To enable CORS from the developer portal for all APIs, select **Enable CORS**.
 
 ![Screenshot that shows where you can check the status of your CORS policy.](media/enable-cors-developer-portal/cors-azure-portal.png)
@@ -55,11 +55,11 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 >
 > The browser automatically issues an `OPTIONS` HTTP request, which doesn't contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the `OPTIONS` call with a Product, so it can't apply the CORS policy.
 >
-> As a workaround you can pass the subscription key in a query parameter.
+> As a workaround, you can pass the subscription key in a query parameter.
 
 ## CORS proxy option
 
-For some scenarios (for example, if the API Management gateway is network isolated), you can choose to configure the developer portal as a CORS proxy itself, instead of enabling a CORS policy for your APIs. The CORS proxy routes the interactive console's API calls through the portal's backend in your API Management service.
+For some scenarios (for example, if the API Management gateway is network isolated), you can choose to configure the developer portal as a CORS proxy itself, instead of enabling a CORS policy for your APIs. The CORS proxy routes the interactive console's API calls through the portal's backend in your API Management instance.
 
 > [!NOTE]
 > If the APIs are exposed through a self-hosted gateway or your service is in a virtual network, the connectivity from the API Management developer portal's backend service to the gateway is required. 
@@ -75,7 +75,7 @@ To configure the CORS proxy, access the developer portal as an administrator:
 
 ## CORS configuration for self-hosted developer portal
 
-If you [self-host the developer portal](developer-portal-self-host.md), the following configuration is needed to enable CORS:
+If you [self-host](developer-portal-self-host.md) the developer portal, the following configuration is needed to enable CORS:
 
 * Specify the portal's backend endpoint using the `backendUrl` option in the configuration files. Otherwise, the self-hosted portal isn't aware of the location of the backend service.
 
