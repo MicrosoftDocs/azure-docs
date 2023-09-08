@@ -44,14 +44,12 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: What is disaster recovery?
+            url: disaster-recovery-overview.md
           - text: Business continuity management program
             url: business-continuity-management-program.md
-          - text: Cross-region replication
+          - text: Cross-region pairs
             url: cross-region-replication-azure.md
-          - text: Use Azure Site Recovery
-            url: ../site-recovery/index.yml
-          - text: Use Azure Backup
-            url: ../backup/index.yml
   # Service availability
   - title: Service availability
     linkLists:

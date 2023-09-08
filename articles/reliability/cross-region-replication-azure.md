@@ -1,6 +1,6 @@
 ---
 title: Cross-region replication in Azure
-description: Learn about Cross-region replication in Azure.
+description: Learn about Cross-region pairs in Azure.
 author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
@@ -10,9 +10,9 @@ ms.author: anaharris
 ms.custom: references_regions
 ---
 
-# Cross-region replication in Azure: Business continuity and disaster recovery 
+# Cross-region pairs
 
-Many organizations require both high availability provided by availability zones that are also supported with protection from large-scale phenomena and regional disasters. Azure regions are designed to offer protection against local disasters with availability zones. But they can also provide protection from regional or large geography disasters with disaster recovery by making use of another region that uses *cross-region replication*.
+Many organizations require both high availability provided by availability zones that are also supported with protection from large-scale phenomena and regional disasters. Azure regions are designed to offer protection against local disasters with availability zones. But they can also provide protection from regional or large geography disasters with disaster recovery by making use of another region (region pair) that uses *cross-region replication*.
 
 ## Cross-region replication
 
@@ -110,6 +110,6 @@ The table below lists Azure reasons that don't have a region pair:
 ## Next steps
 
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)
-- [Availability zones guidance by service]()
-- [Disaster recovery guidance by service]()
 - [Reliability guidance by services](reliability-guidance-overview.md)
+- [Business continuity management program in Azure](./business-continuity-management-program.md)
+- [Add Reliability guidance overview for Microsoft Azure products and services](./reliability-guidance-overview.md)
