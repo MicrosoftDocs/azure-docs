@@ -23,7 +23,7 @@ This article provides details about the features and enhancements made to Azure 
 
 ## September 2023
 
-Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](index.md). Also, fixes to breadcrumbs across the FHIR, DICOM, and MedTech services documentation and ./../the table of contents make it easier and more intuitive to find the documentation you need.
+Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](./index.yml). Also, fixes to breadcrumbs across the FHIR, DICOM, and MedTech services documentation and ./../the table of contents make it easier and more intuitive to find the documentation you need.
 
 ## August 2023
 
@@ -165,7 +165,7 @@ General availability (GA) of Azure Health Data services in Japan East region.
 
 **Introduction of _till parameters and throughput improvement by 50x**
 
-_till parameter is introduced as optional parameter and allows you to export resources that have been modified till the specified time. 
+_till parameter is introduced as optional parameter and allows you to export resources that have been modified until the specified time. 
 This feature improvement is applicable to System export, for more information on export, visit [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html)
 
 Also visit [Export your FHIR data by invoking the $export command on the FHIR service | Microsoft Learn](./../healthcare-apis/fhir/export-data.md)
