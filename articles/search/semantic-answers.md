@@ -174,5 +174,5 @@ For best results, return semantic answers on a document corpus having the follow
 
 + [Semantic search overview](semantic-search-overview.md)
 + [Semantic ranking algorithm](semantic-ranking.md)
-+ [Similarity ranking algorithm](index-ranking-similarity.md)
++ [Configure BM25 ranking](index-ranking-similarity.md)
 + [Configure semantic ranking](semantic-how-to-query-request.md)
