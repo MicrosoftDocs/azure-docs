@@ -15,21 +15,23 @@ In this article, learn about Service Connector's existing limitations and how to
 
 ## Limitations to automation
 
-Service Connector has been designed to bring the benefits of easy, secure, and consistent backing service connections to as many Azure services as possible. To do so, Service Connector has been developed as a plugin-resource provider. This allows Service Connector to be integrated into other services. 
+Service Connector has been designed to bring the benefits of easy, secure, and consistent backing service connections to as many Azure services as possible. To do so, Service Connector has been developed as an extension resource provider.
 
-Unfortunately, this also has some limitations. These mainly impact automation scenarios where an Azure Resource Manager (ARM), Bicep or Terraform template defines these resources explicitly. Since Service Connector often modifies resources on a user’s behalf, this behavior can cause conflicts between the way a compute service instance, such as Azure Container Apps, and a Service Connector connection are created. For example, by default, the container application has managed identity (MI) disabled, whereas Service Connector enables it if the user chooses MI as an authentication method. If you run into issues which you believe are bugs that fall outside of the scenario described here, please [file an issue with us](https://github.com/microsoft/azure-container-apps/issues/new/choose). 
+Unfortunately, there's some limitations in IaC(Infra as Code) where an Azure Resource Manager (ARM), Bicep or Terraform template defines these resources explicitly. When creating service connection, Service Connector modifies resources on a user’s behalf, such as adding Azure App Service's AppSettings, adding Azure SQL database's firewall rules. When reapplying ARM template or other IaC scripts used to provision resources, these configurations added by Service Connector is cleared up before connection is setup again. If an application is already running on these resources, then the application is down between reapplying resource provisioning IaC codes and connection setup steps. For example, by default, Azure Container App has managed identity (MI) disabled. User provisions an Azure Container App through an ARM template with MI disabled. Whereas Service Connector enables it if the user chooses MI as an authentication method when creating a connection. Later, user rerun the ARM template, the MI is disabled again.
 
-We’re working on improving this experience over the next releases. Until then, we suggest the following: 
+If you run into issues that you believe are bugs that fall outside of the scenario described here, [file an issue with us](https://github.com/Azure/ServiceConnector/issues/new). 
 
-- When automating an Azure Container App application using Service Connector, we recommend the use of the [multiple revision mode](../container-apps/revisions.md#revision-modes) to avoid sending traffic to a temporarily non-functional app because the Service Connector resource hasn’t been created yet and the application therefore won’t be able to rely on it. 
+## Solutions
+We suggest the following solutions: 
 
-- The order in which automation operations are performed matters greatly. Ensure your connection endpoints are there before the connection itself is created. Ideally, create the backing service, then the compute service, and then the connection between the two. This ensures that Service Connector has the ability to interact with both ends of the connection in order to configure them appropriately. 
+- Use Service Connector in Azure portal or Azure CLI to setup connections between compute and backing services, export ARM template from the existing resources via Azure portal or Azure CLI. Then use the exported ARM template as basis to craft automation ARM template. This way, the exported ARM templates contain configurations added by Service Connector, reapplying the ARM templates doesn't affect existing application.
 
-- Prior to crafting your automation templates, check to see if there’s been any configuration drift, and whether a resource might have been changed. A good way of doing this would be to use the portal to create and configure your resources as desired and then utilize the available ARM export functionality to pull the latest configuration in the form of an ARM template format as your basis for your automation template.
+- If CI/CD pipelines contain ARM templates of source compute or backing services, suggested flow is: reapplying the ARM templates, adding sanity check or smoke tests to make sure the application is up and running, then allowing live traffic to the application. The flow adds verification step before allowing live traffic.
 
-## Limitations to Azure App Service deployment slots
+- When automating an Azure Container App application using Service Connector, we recommend the use of the [multiple revision mode](../container-apps/revisions.md#revision-modes), to avoid sending traffic to a temporarily nonfunctional app. Because the Service Connector resource hasn’t been created and the application therefore not able to rely on it. 
 
-If you’re using App Service and have [more than one deployment slot](../app-service/deploy-staging-slots.md), Service Connector won't work. If deployment slots are critical to your way of working, we recommend [using app settings](../app-service/configure-common.md). 
+- The order in which automation operations are performed matters greatly. Ensure your connection endpoints are there before the connection itself is created. Ideally, create the backing service, then the compute service, and then the connection between the two. So Service Connector can configure both the compute service and the backing service appropriately. 
+
 
 ## Next steps
 
