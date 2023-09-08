@@ -2,13 +2,13 @@
 title: Tutorial to export data from Azure Data Box | Microsoft Docs
 description: Learn the deployment prerequisites and how to export data from an Azure Data Box
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
 ms.date: 06/16/2022
-ms.author: alkohli
+ms.author: shaas
 ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -63,7 +63,7 @@ Perform the following steps in the Azure portal to order a device.
 
     |Setting  |Value  |
     |---------|---------|
-    |Transfer type     | Select **Export to Azure**.        |
+    |Transfer type     | Select **Export from Azure**.        |
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group     |    Select an existing resource group. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Source Azure region    |    Select the Azure region where your data currently is.         |
