@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot Custom image templates - Azure Virtual Desktop
-description: Troubleshoot Custom image templates in Azure Virtual Desktop.
+title: Troubleshoot custom image templates - Azure Virtual Desktop
+description: Troubleshoot custom image templates in Azure Virtual Desktop.
 ms.topic: troubleshooting
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 09/08/2023
 ---
 
-# Troubleshoot Custom image templates in Azure Virtual Desktop
+# Troubleshoot custom image templates in Azure Virtual Desktop
 
 Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). This article helps troubleshoot some issues you could run into.
 

@@ -1,13 +1,13 @@
 ---
-title: Use Custom image templates to create custom images - Azure Virtual Desktop
-description: Learn how to use Custom image templates to create custom images when deploying session hosts in Azure Virtual Desktop.
+title: Use custom image templates to create custom images - Azure Virtual Desktop
+description: Learn how to use custom image templates to create custom images when deploying session hosts in Azure Virtual Desktop.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 09/08/2023
 ---
 
-# Use Custom image templates to create custom images in Azure Virtual Desktop
+# Use custom image templates to create custom images in Azure Virtual Desktop
 
 Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates are built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop.
 
