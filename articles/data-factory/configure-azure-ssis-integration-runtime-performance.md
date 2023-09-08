@@ -1,7 +1,7 @@
 ---
 title: Configure performance for the Azure-SSIS Integration Runtime 
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: integration-services

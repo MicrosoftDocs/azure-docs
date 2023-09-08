@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with LoginRadius | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with LoginRadius'
 description: Learn how to configure single sign-on between Azure Active Directory and LoginRadius.
 services: active-directory
 author: jeevansd
@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the LoginRadius Admin Con
 
 	1. In **ID Provider Logout URL**, enter the SIGN-OUT ENDPOINT, which you get from your Azure AD account.
  
-  	1. In **ID Provider Certificate**, enter the Azure AD certificate, which you get from your Azure AD account. Enter the certificate value with the header and footer. Example: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
+  	1. In **ID Provider Certificate**, enter the Azure AD certificate, which you get from your Azure AD account. Enter the certificate value with the header and footer. Example: `-----BEGIN CERTIFICATE-----<certificate value>-----END CERTIFICATE-----`
 
   	1. In **Service Provider Certificate** and **Server Provider Certificate Key**, enter your certificate and key. 
 
@@ -144,8 +144,8 @@ In this section, you enable Azure AD single sign-on in the LoginRadius Admin Con
 
 	   > [!NOTE]
 	   > Be sure to enter the certificate and certificate key values with the header and footer:
-	   > - Certificate value example format: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
-	   > - Certificate key value example format: `-----BEGIN RSA PRIVATE KEY-----<certifciate key value>-----END RSA PRIVATE KEY-----`
+	   > - Certificate value example format: `-----BEGIN CERTIFICATE-----<certificate value>-----END CERTIFICATE-----`
+	   > - Certificate key value example format: `-----BEGIN RSA PRIVATE KEY-----<certificate key value>-----END RSA PRIVATE KEY-----`
 
 5. In the **Data Mapping** section, select the fields (SP fields) and enter the corresponding Azure AD fields(IdP fields).
 

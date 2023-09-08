@@ -9,11 +9,11 @@ metadata:
   services: key-vault
   ms.subservice: general
   ms.service: key-vault
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 09/19/2019 #Required; mm/dd/yyyy format.
+  ms.date: 09/19/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

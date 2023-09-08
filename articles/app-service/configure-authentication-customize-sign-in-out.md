@@ -3,6 +3,9 @@ title: Customize sign-ins and sign-outs
 description: Use the built-in authentication and authorization in App Service and at the same time customize the sign-in and sign-out behavior.
 ms.topic: article
 ms.date: 03/29/2021
+ms.custom: AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Customize sign-in and sign-out in Azure App Service authentication
@@ -56,7 +59,7 @@ The token format varies slightly according to the provider. See the following ta
 | `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
 | `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value will add an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
-| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<access_token_secret>"}` | |
 | | | |
 
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 

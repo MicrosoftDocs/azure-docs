@@ -27,69 +27,27 @@ Apache Spark history server is the web user interface for completed and running 
 
 2. Select **Monitor**, then select **Apache Spark Applications**.
 
-    ![Select monitor then select spark application.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+    ![Screenshot showing select monitor then select Spark application.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
 3. Select an application, then open **Log query** by selecting it.
 
-    ![Open log query window.](./media/apache-spark-history-server/open-application-window.png)
+    ![Screenshot showing open log query window.](./media/apache-spark-history-server/open-application-window.png)
 
-4. Select **Spark history server**, then the Spark History Server web UI will show up.
+4. Select **Spark history server**, then the Spark History Server web UI will show up. For a running Spark application, the button is **Spark UI**.
 
-    ![Open spark history server.](./media/apache-spark-history-server/open-spark-history-server.png)
+    ![Screenshot showing open Spark history server.](./media/apache-spark-history-server/open-spark-history-server.png)
+    ![Screenshot showing open Spark UI.](./media/apache-spark-history-server/apache-spark-ui.png)
 
 ### Open the Spark History Server web UI from Data node
 
 1. From your Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
 
-   ![Launch Spark history server 1](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
+   ![Screenshot showing launch Spark history server 1.](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
 
 2. Select **Spark history server** from the slide out panel.
 
-   ![Launch Spark history server 2](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
+   ![Screenshot showing launch Spark history server 2.](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
 
-## Explore the Data tab in Spark history server
-
-Select the Job ID for the job you want to view. Then select **Data** on the tool menu to get the data view. This section shows you how to do various tasks in the Data tab.
-
-* Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
-
-    ![Data for Spark application tabs](./media/apache-spark-history-server/apache-spark-data-tabs.png)
-
-* Copy all rows by selecting **Copy**.
-
-    ![Data for Spark application copy](./media/apache-spark-history-server/apache-spark-data-copy.png)
-
-* Save all data as CSV file by selecting **csv**.
-
-    ![Data for Spark application save](./media/apache-spark-history-server/apache-spark-data-save.png)
-
-* Search by entering keywords in field **Search**. The search results display immediately.
-
-    ![Data for Spark application search](./media/apache-spark-history-server/apache-spark-data-search.png)
-
-* Select the column header to sort table, select the plus sign to expand a row to show more details, or select the minus sign to collapse a row.
-
-    ![Data for Spark application table](./media/apache-spark-history-server/apache-spark-data-table.png)
-
-* Download a single file by selecting **Partial Download**. The selected file is downloaded to local. If the file no longer exists, a new tab appears with an error message.
-
-    ![Data for Spark application download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
-
-* To copy a full path or relative path, select the **Copy Full Path** or **Copy Relative Path** options that expand from the drop-down menu. For Azure Data Lake Storage files, **Open in Azure Storage Explorer** launches Azure Storage Explorer and locates the folder when you are signed in.
-
-    ![Data for Spark application copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
-
-* Select page numbers below the table to navigate pages when there are too many rows to display in one page.
-
-    ![Data for Spark application page](./media/apache-spark-history-server/apache-spark-data-page.png)
-
-* Hover on the question mark beside **Data** to show the tooltip, or select the question mark to get more information.
-
-    ![Data for Spark application more info](./media/apache-spark-history-server/sparkui-data-more-info.png)
-
-* Send feedback with issues by selecting **Provide us feedback**.
-
-    ![Spark graph provide us feedback again](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
 ## Graph tab in Apache Spark history server
 
@@ -99,17 +57,17 @@ Select the Job ID for the job you want to view. Then, select **Graph** on the to
 
 You can see an overview of your job in the generated job graph. By default, the graph shows all jobs. You can filter this view by **Job ID**.
 
-![Spark application and job graph job ID](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
+![Screenshot showing Spark application and job graph job ID.](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
 ### Display
 
 By default, the **Progress** display is selected. You can check the data flow by selecting **Read** or **Written** in the **Display** dropdown list.
 
-![Spark application and job graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
+![Screenshot showing Spark application and job graph display.](./media/apache-spark-history-server/sparkui-graph-display.png)
 
 The graph node displays the colors shown in the heatmap legend.
 
-![Spark application and job graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
+![Screenshot showing Spark application and job graph heatmap.](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
 
 ### Playback
 
@@ -125,15 +83,15 @@ To playback the job, select **Playback**. You can select **Stop** at any time to
 
 The following image shows Green, Orange, and Blue status colors.
 
-![Spark application and job graph color sample, running](./media/apache-spark-history-server/sparkui-graph-color-running.png)
+![Screenshot showing Spark application and job graph color sample, running.](./media/apache-spark-history-server/sparkui-graph-color-running.png)
 
 The following image shows Green and White status colors.
 
-![Spark application and job graph color sample, skip](./media/apache-spark-history-server/sparkui-graph-color-skip.png)
+![Screenshot showing Spark application and job graph color sample, skip.](./media/apache-spark-history-server/sparkui-graph-color-skip.png)
 
 The following image shows Red and Green status colors.
 
-![Spark application and job graph color sample, failed](./media/apache-spark-history-server/sparkui-graph-color-failed.png)
+![Screenshot showing Spark application and job graph color sample, failed.](./media/apache-spark-history-server/sparkui-graph-color-failed.png)
 
 > [!NOTE]  
 > Playback for each job is allowed. For incomplete jobs, playback is not supported.
@@ -142,13 +100,13 @@ The following image shows Red and Green status colors.
 
 Use your mouse scroll to zoom in and out on the job graph, or select **Zoom to fit** to make it fit to screen.
 
-![Spark application and job graph zoom to fit](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
+![Screenshot showing Spark application and job graph zoom to fit.](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
 
 ### Tooltips
 
 Hover on graph node to see the tooltip when there are failed tasks, and select a stage to open its stage page.
 
-![Spark application and job graph tooltip](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
+![Screenshot showing Spark application and job graph tooltip.](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
 
 On the job graph tab, stages have a tooltip and a small icon displayed if they have tasks that meet the following conditions:
 
@@ -157,7 +115,7 @@ On the job graph tab, stages have a tooltip and a small icon displayed if they h
 |Data skew|data read size > average data read size of all    tasks inside this stage * 2 and data read size > 10 MB|
 |Time skew|execution time > average execution time of all    tasks inside this stage * 2 and execution time > 2 minutes|
    
-![Spark application and job graph skew icon](./media/apache-spark-history-server/sparkui-graph-skew-icon.png)
+![Screenshot showing Spark application and job graph skew icon.](./media/apache-spark-history-server/sparkui-graph-skew-icon.png)
 
 ### Graph node description
 
@@ -181,7 +139,7 @@ The job graph node displays the following information of each stage:
 
 Send feedback with issues by selecting **Provide us feedback**.
 
-![Spark application and job graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
+![Screenshot showing Spark application and job graph feedback.](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
 ## Explore the Diagnosis tab in Apache Spark history server
 
@@ -189,7 +147,7 @@ To access the Diagnosis tab, select a job ID. Then select **Diagnosis** on the t
 
 Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
 
-![SparkUI diagnosis data skew tab again](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
+![Screenshot showing Spark UI diagnosis data skew tab again.](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### Data Skew
 
@@ -199,11 +157,11 @@ When you select the **Data Skew** tab, the corresponding skewed tasks are displa
 
 * **Skewed Stage** - The second section displays stages, which have skewed tasks meeting the criteria specified above. If there is more than one skewed task in a stage, the skewed stage table only displays the most skewed task (for example, the largest data for data skew).
 
-    ![sparkui diagnosis data skew tab](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+    ![Screenshot showing Spark UI diagnosis data skew tab.](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
 * **Skew Chart** – When a row in the skew stage table is selected, the skew chart displays more task distribution details based on data read and execution time. The skewed tasks are marked in red and the normal tasks are marked in blue. The chart displays up to 100 sample tasks, and the task details are displayed in right bottom panel.
 
-    ![sparkui skew chart for stage 10](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+    ![Screenshot showing Spark UI skew chart for stage 10.](./media/apache-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
 ### Time Skew
 
@@ -213,7 +171,7 @@ The **Time Skew** tab displays skewed tasks based on task execution time.
 
 * Select **Time Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. Select one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task details are displayed in right bottom panel.
 
-    ![sparkui diagnosis time skew section](./media/apache-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+    ![Screenshot showing Spark UI diagnosis time skew section.](./media/apache-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
 ### Executor Usage Analysis
 
@@ -221,11 +179,28 @@ The Executor Usage Graph visualizes the Spark job executor's allocation and runn
 
 1. Select **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, **Idle Executors**, and **Max Executor Instances**. For allocated executors, each "Executor added" or "Executor removed" event increases or decreases the allocated executors. You can check "Event Timeline" in the "Jobs" tab for more comparison.
 
-   ![sparkui diagnosis executors tab](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
+   ![Screenshot showing Spark UI diagnosis executors tab.](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 
 2. Select the color icon to select or unselect the corresponding content in all drafts.
 
-    ![sparkui diagnoses select chart](./media/apache-spark-history-server/sparkui-diagnosis-select-chart.png)
+    ![Screenshot showing Spark UI diagnoses select chart.](./media/apache-spark-history-server/sparkui-diagnosis-select-chart.png)
+
+### Troubleshooting guide for 404 in Spark UI 
+
+In some cases, for long-running Spark applications with massive jobs and stages, when opening Spark UI, it may fail with the following page show up:
+
+![Screenshot showing the troubleshooting guide for 404 in Spark UI.](./media/apache-spark-history-server/404-in-spark-ui.png)
+
+As a workaround, an extra Spark configuration can be applied to the Spark pool: 
+```
+spark.synapse.history.rpc.memoryNeeded 1g 
+```
+
+![Screenshot showing add Spark configuration.](./media/apache-spark-history-server/add-spark-configuration.png)
+
+For existing running Spark applications, in Spark UI page, add this query string at the end of the browser’s address bar: **?feature.enableStandaloneHS=false**
+
+![Screenshot showing add this query string at the end of the browser’s address bar.](./media/apache-spark-history-server/spark-server-enable.png)
 
 ## Known issues
 
@@ -234,5 +209,5 @@ Input/output data using Resilient Distributed Datasets (RDDs) doesn't show in th
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [.NET for Apache Spark documentation](/dotnet/spark)
+- [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 

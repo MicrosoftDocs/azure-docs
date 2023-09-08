@@ -2,13 +2,13 @@
 title: Introduction to Azure Storage - Cloud storage on Azure
 description: The Azure Storage platform is Microsoft's cloud storage solution. Azure Storage provides highly available, secure, durable, massively scalable, and redundant storage for data objects in the cloud. Learn about the services available in Azure Storage and how you can use them in your applications, services, or enterprise solutions.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 01/10/2023
-ms.author: tamram
-ms.subservice: common
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
 ms.custom: ignite-2022
 ---
 
@@ -35,7 +35,7 @@ The Azure Storage platform includes the following data services:
 - [Azure Elastic SAN](../elastic-san/elastic-san-introduction.md) (preview): A fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN in Azure.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
-- [Azure Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
+- [Azure managed Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
 
 Each service is accessed through a storage account with a unique address. To get started, see [Create a storage account](storage-account-create.md).
 

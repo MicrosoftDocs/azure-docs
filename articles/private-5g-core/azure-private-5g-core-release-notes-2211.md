@@ -14,11 +14,9 @@ The following release notes identify the new features, critical open issues, and
 
 This article applies to the AP5GC 2211 release (PMN-2211-0). This release is compatible with the ASE Pro GPU running the ASE 2210 release and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
 
-## Support
+## Support lifetime
 
-The default support lifetime for a Packet Core version is roughly two calendar months from release. 
-
-The support lifetime for version 2211 is extended – due to the December holiday period – to three calendar months and will end on February 28, 2023. Please be prepared to plan your Packet Core upgrade to a future version before 2211 goes out of support on this date. 
+Packet core versions are supported until two subsequent versions have been released (unless otherwise noted). This is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
 
 ## What's new
 

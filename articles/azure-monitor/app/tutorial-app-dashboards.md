@@ -43,18 +43,18 @@ A single dashboard can contain resources from multiple applications, resource gr
 
 1. In the menu dropdown on the left in the Azure portal, select **Dashboard**.
 
-    ![Screenshot that shows the Azure portal menu dropdown.](media/tutorial-app-dashboards/dashboard-from-menu.png)
+    :::image type="content" source="media/tutorial-app-dashboards/dashboard-from-menu.png" lightbox="media/tutorial-app-dashboards/dashboard-from-menu.png" alt-text="Screenshot that shows the Azure portal menu dropdown.":::
 
 1. On the **Dashboard** pane, select **New dashboard** > **Blank dashboard**.
 
-   ![Screenshot that shows the Dashboard pane.](media/tutorial-app-dashboards/new-dashboard.png)
+   :::image type="content" source="media/tutorial-app-dashboards/new-dashboard.png" lightbox="media/tutorial-app-dashboards/new-dashboard.png" alt-text="Screenshot that shows the Dashboard pane.":::
 
 1. Enter a name for the dashboard.
 1. Look at the **Tile Gallery** for various tiles that you can add to your dashboard. You can also pin charts and other views directly from Application Insights to the dashboard.
 1. Locate the **Markdown** tile and drag it on to your dashboard. With this tile, you can add text formatted in Markdown, which is ideal for adding descriptive text to your dashboard. To learn more, see [Use a Markdown tile on Azure dashboards to show custom content](../../azure-portal/azure-portal-markdown-tile.md).
 1. Add text to the tile's properties and resize it on the dashboard canvas.
 
-    [![Screenshot that shows the Edit Markdown tile.](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/markdown.png#lightbox)
+    [:::image type="content" source="media/tutorial-app-dashboards/markdown.png" lightbox="media/tutorial-app-dashboards/markdown.png" alt-text="Screenshot that shows the Edit Markdown tile.":::
 
 1. Select **Done customizing** at the top of the screen to exit tile customization mode.
 
@@ -65,12 +65,12 @@ A dashboard with static text isn't very interesting, so add a tile from Applicat
 Start by adding the standard health overview for your application. This tile requires no configuration and allows minimal customization in the dashboard.
 
 1. Select your **Application Insights** resource on the home screen.
-1. On the **Overview** pane, select the pin icon ![pin icon](media/tutorial-app-dashboards/pushpin.png) to add the tile to a dashboard.
+1. On the **Overview** pane, select the pin icon :::image type="content" source="media/tutorial-app-dashboards/pushpin.png" lightbox="media/tutorial-app-dashboards/pushpin.png" alt-text="pin icon"::: to add the tile to a dashboard.
 1. On the **Pin to dashboard** tab, select which dashboard to add the tile to or create a new one.
 1. At the top right, a notification appears that your tile was pinned to your dashboard. Select **Pinned to dashboard** in the notification to return to your dashboard or use the **Dashboard** pane.
 1. Select **Edit** to change the positioning of the tile you added to your dashboard. Select and drag it into position and then select **Done customizing**. Your dashboard now has a tile with some useful information.
 
-    [![Screenshot that shows the dashboard in edit mode.](media/tutorial-app-dashboards/dashboard-edit-mode.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
+    [:::image type="content" source="media/tutorial-app-dashboards/dashboard-edit-mode.png" lightbox="media/tutorial-app-dashboards/dashboard-edit-mode.png" alt-text="Screenshot that shows the dashboard in edit mode.":::
 
 ## Add custom metric chart
 
@@ -80,7 +80,7 @@ You can use the **Metrics** panel to graph a metric collected by Application Ins
 1. Select **Metrics**.
 1. An empty chart appears, and you're prompted to add a metric. Add a metric to the chart and optionally add a filter and a grouping. The following example shows the number of server requests grouped by success. This chart gives a running view of successful and unsuccessful requests.
 
-	[![Screenshot that shows adding a metric.](media/tutorial-app-dashboards/metrics.png)](media/tutorial-app-dashboards/metrics.png#lightbox)
+	[:::image type="content" source="media/tutorial-app-dashboards/metrics.png" lightbox="media/tutorial-app-dashboards/metrics.png" alt-text="Screenshot that shows adding a metric.":::
 
 1. Select **Pin to dashboard** on the right.
 
@@ -104,7 +104,7 @@ Application Insights Logs provides a rich query language that you can use to ana
     ```
 
 1. Select **Run** to validate the results of the query.
-1. Select the pin icon ![Pin icon](media/tutorial-app-dashboards/pushpin.png) and then select the name of your dashboard.
+1. Select the pin icon :::image type="content" source="media/tutorial-app-dashboards/pushpin.png" lightbox="media/tutorial-app-dashboards/pushpin.png" alt-text="Pin icon"::: and then select the name of your dashboard.
 
 1. Before you go back to the dashboard, add another query, but render it as a chart. Now you'll see the different ways to visualize a logs query in a dashboard. Start with the following query that summarizes the top 10 operations with the most exceptions:
 
@@ -117,11 +117,11 @@ Application Insights Logs provides a rich query language that you can use to ana
 
 1. Select **Chart** and then select **Doughnut** to visualize the output.
 
-	[![Screenshot that shows the doughnut chart with the preceding query.](media/tutorial-app-dashboards/logs-doughnut.png)](media/tutorial-app-dashboards/logs-doughnut.png#lightbox)
+	[:::image type="content" source="media/tutorial-app-dashboards/logs-doughnut.png" lightbox="media/tutorial-app-dashboards/logs-doughnut.png" alt-text="Screenshot that shows the doughnut chart with the preceding query.":::
 
-1. Select the pin icon ![Pin icon](media/tutorial-app-dashboards/pushpin.png) at the top right to pin the chart to your dashboard. Then return to your dashboard.
+1. Select the pin icon :::image type="content" source="media/tutorial-app-dashboards/pushpin.png" lightbox="media/tutorial-app-dashboards/pushpin.png" alt-text="Pin icon"::: at the top right to pin the chart to your dashboard. Then return to your dashboard.
 1. The results of the queries are added to your dashboard in the format that you selected. Select and drag each result into position. Then select **Done customizing**.
-1. Select the pencil icon ![Pencil icon](media/tutorial-app-dashboards/pencil.png) on each title and use it to make the titles descriptive.
+1. Select the pencil icon :::image type="content" source="media/tutorial-app-dashboards/pencil.png" lightbox="media/tutorial-app-dashboards/pencil.png" alt-text="Pencil icon"::: on each title and use it to make the titles descriptive.
 
 ## Share dashboard
 

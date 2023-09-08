@@ -1,5 +1,5 @@
 ---
-title: Application Proxy cookie settings - Azure Active Directory
+title: Application Proxy cookie settings
 description:  Azure Active Directory (Azure AD) has access and session cookies for accessing on-premises applications through Application Proxy. In this article, you'll find out how to use and configure the cookie settings. 
 services: active-directory
 author: kenwith
@@ -7,6 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 11/17/2022
 ms.author: kenwith
@@ -40,9 +41,12 @@ Additionally, if your back-end application has cookies that need to be available
 
 
 ## Set the cookie settings - Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To set the cookie settings using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Azure Active Directory** > **Enterprise applications** > **All applications**.
 3. Select the application for which you want to enable a cookie setting.
 4. Click **Application Proxy**.

@@ -13,9 +13,8 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/04/2021
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurecli 
+ms.custom: seodec18, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
-
 ---
 
 # Application Gateway integration

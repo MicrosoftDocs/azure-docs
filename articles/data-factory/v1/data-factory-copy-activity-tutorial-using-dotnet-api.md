@@ -1,11 +1,12 @@
-﻿---
+---
 title: 'Tutorial: Create a pipeline with Copy Activity using .NET API '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-azurepowershell, devx-track-dotnet
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.author: jianleishen
 robots: noindex
 ---
@@ -40,7 +41,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.
@@ -516,4 +517,3 @@ In this tutorial, you used Azure blob storage as a source data store and Azure S
 [!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 To learn about how to copy data to/from a data store, click the link for the data store in the table.
-

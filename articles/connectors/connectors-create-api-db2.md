@@ -65,8 +65,7 @@ which map to the corresponding actions in the connector:
 
 * An IBM DB2 database, either cloud-based or on-premises
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basic knowledge about how to create logic apps. For more information, see [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
 * The logic app where you want to access your DB2 database. 
 This connector provides only actions, so to start your logic app, 
@@ -437,5 +436,6 @@ For more technical details about this connector, such as triggers, actions, and 
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

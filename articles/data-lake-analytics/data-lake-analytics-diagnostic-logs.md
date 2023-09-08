@@ -3,7 +3,7 @@ title: Enable and view diagnostic logs for Azure Data Lake Analytics
 description: Understand how to set up and access diagnostic logs for Azure Data Lake Analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 03/16/2023
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics
 
@@ -31,7 +31,7 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
 
      * Select **Archive to a storage account** to store logs in an Azure storage account. Use this option if you want to archive the data. If you select this option, you must provide an Azure storage account to save the logs to.
 
-     * Select **Stream to an event hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline that is analyzing incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+     * Select **Stream to an event hub** to stream log data to an Azure Event Hubs. Use this option if you have a downstream processing pipeline that is analyzing incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hubs you want to use.
 
      * Select **Send to Log Analytics workspace** to send the data to the Azure Monitor service. Use this option if you want to use Azure Monitor logs to gather and analyze logs.
 
@@ -83,6 +83,10 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
     Similarly, the complete path to a request log could be:
 
     `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+
+## Process the log data
+
+Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## Log structure
 
@@ -144,8 +148,8 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | Path |String |The path the operation was performed on |
 | RequestContentLength |int |The content length of the HTTP request |
 | ClientRequestId |String |The identifier that uniquely identifies this request |
-| StartTime |String |The time at which the server received the request |
-| EndTime |String |The time at which the server sent a response |
+| StartTime |String |The time when the server received the request |
+| EndTime |String |The time when the server sent a response |
 
 ### Audit logs
 
@@ -181,7 +185,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | category |String |The log category. For example, **Audit**. |
 | operationName |String |Name of the operation that is logged. For example, JobSubmitted. |
 | resultType |String |A substatus for the job status (operationName). |
-| resultSignature |String |Additional details on the job status (operationName). |
+| resultSignature |String |Extra details on the job status (operationName). |
 | identity |String |The user that requested the operation. For example, susan@contoso.com. |
 | properties |JSON |See the next section (Audit log properties schema) for details |
 
@@ -205,10 +209,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime**, and **Parallelism** provide information on an operation. These entries only contain a value if that operation has started or completed. For example, **SubmitTime** only contains a value after **operationName** has the value **JobSubmitted**.
 
-## Process the log data
-
-Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
-
 ## Next steps
 
 [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
+[Troubleshoot U-SQL jobs](runtime-troubleshoot.md)

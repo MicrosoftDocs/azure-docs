@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Spotinst | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Spotinst'
 description: Learn how to configure single sign-on between Azure Active Directory and Spotinst.
 services: active-directory
 author: jeevansd

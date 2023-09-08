@@ -11,7 +11,7 @@ ms.author: austinmc
 
 Use a search job when you start an investigation to find specific events in logs up to seven years ago. You can search events across all your logs, including events in Analytics, Basic, and Archived log plans. Filter and look for events that match your criteria.
 
-For more information on search job concepts, see [Start an investigation by searching large datasets](investigate-large-datasets.md) and [Search jobs in Azure Monitor](../azure-monitor/logs/search-jobs.md).
+For more information on search job concepts and limitations, see [Start an investigation by searching large datasets](investigate-large-datasets.md) and [Search jobs in Azure Monitor](../azure-monitor/logs/search-jobs.md).
 
 ## Start a search job
 

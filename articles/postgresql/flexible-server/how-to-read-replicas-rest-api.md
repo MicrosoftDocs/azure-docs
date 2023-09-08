@@ -9,7 +9,7 @@ author: AwdotiaRomanowna
 ms.date: 12/06/2022
 ---
 
-# Create and manage read replicas from the Azure REST API Preview
+# Create and manage read replicas from the Azure REST API
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL by using the REST API [Azure REST API](/rest/api/azure/). To learn more about read replicas, see the [overview](concepts-read-replicas.md).

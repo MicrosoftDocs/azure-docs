@@ -1,7 +1,7 @@
 ---
-title: Microsoft Defender for Cloud's main dashboard or 'overview' page
+title: Main overview page
 description: Learn about the features of the Defender for Cloud overview page
-ms.date: 01/10/2023
+ms.date: 07/20/2023
 ms.topic: conceptual
 ms.custom: ignite-2022
 ---
@@ -12,7 +12,7 @@ Microsoft Defender for Cloud's overview page is an interactive dashboard that pr
 
 You can select any element on the page to get more detailed information.
 
-:::image type="content" source="./media/overview-page/overview-01-2023.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview-01-2023.png":::
+:::image type="content" source="./media/overview-page/overview-07-2023.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview-07-2023.png":::
 
 ## Features of the overview page
 
@@ -39,10 +39,10 @@ The center of the page displays the **feature tiles**, each linking to a high pr
 
 The **Insights** pane offers customized items for your environment including:
 
-- Your most attacked resources
-- Your [security controls](secure-score-security-controls.md) that have the highest potential to increase your secure score
-- The active recommendations with the most resources impacted
-- Recent blog posts by Microsoft Defender for Cloud experts
+- Actionable items to enhance your security.
+- Tips to handle alerts and recommendations.
+- Recommendations on how to to upgrade your service to enhance your environments protections.
+- Recent blog posts by Microsoft Defender for Cloud experts.
 
 ## Next steps
 

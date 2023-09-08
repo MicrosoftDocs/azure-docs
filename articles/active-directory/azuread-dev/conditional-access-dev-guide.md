@@ -89,7 +89,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/active-directory-whatis.md). You can learn more about licensing requirements in the [unlicensed usage report](../reports-monitoring/overview-reports.md). Developers can join the [Microsoft Developer Network](/), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
+Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/whatis.md). You can learn more about licensing requirements in the [unlicensed usage report](../reports-monitoring/overview-reports.md). Developers can join the [Microsoft Developer Network](/), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
 
 ### Considerations for specific scenarios
 

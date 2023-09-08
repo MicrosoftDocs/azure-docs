@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hootsuite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SSO integration with Hootsuite'
 description: Learn how to configure single sign-on between Azure Active Directory and Hootsuite.
 services: active-directory
 author: jeevansd
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 05/10/2023
 ms.author: jeedes
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Hootsuite
 
-In this tutorial, you'll learn how to integrate Hootsuite with Azure Active Directory (Azure AD). When you integrate Hootsuite with Azure AD, you can:
+In this tutorial, you learn how to integrate Hootsuite with Azure Active Directory (Azure AD). When you integrate Hootsuite with Azure AD, you can:
 
 * Control in Azure AD who has access to Hootsuite.
 * Enable your users to be automatically signed-in to Hootsuite with their Azure AD accounts.
@@ -74,23 +74,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    In the **Reply URL** text box, type a URL using one of the following patterns:
-
-    | Reply URL |
-    |---|
-    |`https://hootsuite.com/member/sso-complete`|
-    |`https://hootsuite.com/sso/<ORG_ID>`|
-    |
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type the URL:
     `https://hootsuite.com/login`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL. Contact [Hootsuite Client support team](https://hootsuite.com/about/contact-us#) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -102,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -114,7 +103,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Hootsuite.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Hootsuite.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Hootsuite**.

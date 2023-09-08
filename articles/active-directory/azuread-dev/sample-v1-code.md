@@ -1,5 +1,5 @@
 ---
-title: Code samples for Azure Active Directory v1.0 | Microsoft Docs
+title: Code samples for Azure Active Directory v1.0
 description: Provides an index of Azure Active Directory (v1.0 endpoint) code samples, organized by scenario.
 documentationcenter: dev-center-name
 author: jmprieur
@@ -27,7 +27,7 @@ This section provides links to samples you can use to learn more about the Azure
 > If you are interested in Azure AD V2 code samples, see [v2.0 code samples by scenario](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 > [!WARNING]
-> Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](..\develop\msal-migration.md).
+> Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](../develop/msal-migration.md).
 
 To understand the basic scenario for each sample type, see [Authentication scenarios for Azure AD](v1-authentication-scenarios.md).
 

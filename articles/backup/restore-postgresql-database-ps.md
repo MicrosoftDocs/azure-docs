@@ -4,8 +4,9 @@ description: Learn how to restore Azure PostgreSQL databases using Azure PowerSh
 ms.topic: conceptual
 ms.date: 01/24/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+ms.custom: devx-track-azurepowershell
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure PostgreSQL databases using Azure PowerShell

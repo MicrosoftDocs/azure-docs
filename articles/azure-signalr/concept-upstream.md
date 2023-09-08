@@ -60,7 +60,7 @@ To enable managed identity in your SignalR service instance and grant it Key Vau
 3. Replace your sensitive text with the below syntax in the upstream endpoint URL Pattern:
    ```
    {@Microsoft.KeyVault(SecretUri=<secret-identity>)}
-   ``
+   ```
    `<secret-identity>` is the full data-plane URI of a secret in Key Vault, optionally including a version, e.g., https://myvault.vault.azure.net/secrets/mysecret/ or https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931
    
    For example, a complete reference would look like the following:

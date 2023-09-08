@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use a custom container with an open-source server to deploy a model in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
@@ -16,9 +16,7 @@ ms.devlang: azurecli
 
 # Use a custom container to deploy a model to an online endpoint
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to use a custom container for deploying a model to an online endpoint in Azure Machine Learning.
 
@@ -45,7 +43,7 @@ This article focuses on serving a TensorFlow model with TensorFlow (TF) Serving.
 
 ## Prerequisites
 
-[!INCLUDE [cli & sdk](../../includes/machine-learning-cli-sdk-v2-prereqs.md)]
+[!INCLUDE [cli & sdk](includes/machine-learning-cli-sdk-v2-prereqs.md)]
 
 * You, or the service principal you use, must have `Contributor` access to the Azure Resource Group that contains your workspace. You'll have such a resource group if you configured your workspace using the quickstart article.
 

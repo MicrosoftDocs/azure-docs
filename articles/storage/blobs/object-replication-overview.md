@@ -6,9 +6,8 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 05/04/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: engagement-fy23
 ---
 
@@ -43,6 +42,8 @@ Object replication is supported for accounts that are encrypted with either micr
 Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
+
+Object replication is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## How object replication works
 
@@ -206,7 +207,27 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Billing
 
-Object replication incurs additional costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed.
+There is no cost to configure object replication. This includes the task of enabling change feed, enabling versioning, as well as adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed. 
+
+Here's a breakdown of the costs. To find the price of each cost component, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+| Cost to update a blob in the source account | Cost to replicate data in the destination account |
+|---|---|
+|Transaction cost of a write operation|Transaction cost to read a change feed record|
+|Storage cost of the blob and each blob version<sup>1</sup>|Transaction cost to read the blob and blob versions<sup>2</sup>|
+|Cost to add a change feed record|Transaction cost to write the blob and blob versions<sup>2</sup>|
+||Storage cost of the blob and each blob version<sup>1</sup>|
+||Cost of network egress<sup>2</sup>|
+
+
+
+<sup>1</sup>    See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
+
+<sup>2</sup>    This includes only blob versions created since the last replication completed.
+
+<sup>3</sup>    See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+
 
 ## Next steps
 
@@ -214,3 +235,5 @@ Object replication incurs additional costs on read and write transactions agains
 - [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
+
+

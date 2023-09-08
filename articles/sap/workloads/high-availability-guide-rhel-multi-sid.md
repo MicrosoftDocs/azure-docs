@@ -5,18 +5,12 @@ services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/13/2022
+ms.date: 06/21/2023
 ms.author: radeltch
-
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID
@@ -26,7 +20,6 @@ ms.author: radeltch
 [planning-guide]:planning-guide.md
 
 [anf-azure-doc]:../../azure-netapp-files/azure-netapp-files-introduction.md
-[anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -37,14 +30,8 @@ ms.author: radeltch
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[1410736]:https://launchpad.support.sap.com/#/notes/1410736
-
-[sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
-
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
-[glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
 
 This article describes how to deploy multiple SAP NetWeaver highly available systems (multi-SID) in a two node cluster on Azure VMs with Red Hat Enterprise Linux for SAP applications.  
 
@@ -108,7 +95,7 @@ The virtual machines that participate in the cluster must be sized to be able to
 
 To achieve high availability, SAP NetWeaver requires highly available shares. This article shows examples with the SAP shares deployed on [Azure NetApp Files NFS volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md). You could instead host the shares on highly available [GlusterFS cluster](./high-availability-guide-rhel-glusterfs.md), which can be used by multiple SAP systems.  
 
-![Diagram shows S A P NetWeaver High Availability overview with Pacemaker cluster and S A P N F S shares.](./media/high-availability-guide-rhel/ha-rhel-multi-sid.png)
+![Diagram shows S A P NetWeaver High Availability overview with Pacemaker cluster and SAP NFS shares.](./media/high-availability-guide-rhel/ha-rhel-multi-sid.png)
 
 > [!IMPORTANT]
 > The support for multi-SID clustering of SAP ASCS/ERS with Red Hat Linux as guest operating system in Azure VMs is limited to *five* SAP SIDs on the same cluster. Each new SID increases the complexity. A mix of SAP Enqueue Replication Server 1 and Enqueue Replication Server 2 on the same cluster is not supported. Multi-SID clustering describes the installation of multiple SAP ASCS/ERS instances with different SIDs in one Pacemaker cluster. Currently multi-SID clustering is only supported for ASCS/ERS.  
@@ -136,7 +123,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, and SAP NetWeaver ERS use virtual hostnam
 
 SAP NetWeaver requires shared storage for the transport, profile directory, and so on. For highly available SAP system, it's important to have highly available shares. You need to decide on the architecture for your SAP shares. One option is to deploy the shares on [Azure NetApp Files NFS volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md).  With Azure NetApp Files, you get built-in high availability for the SAP NFS shares.
 
-Another option is to build [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md), which can be shared between multiple SAP systems. 
+Another option is to build [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md), which can be shared between multiple SAP systems.
 
 ## Deploy the first SAP system in the cluster
 
@@ -174,7 +161,7 @@ This article assumes that:
 
 ### Prepare for SAP NetWeaver Installation
 
-1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-linux-manually-via-azure-portal). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
+1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-azure-load-balancer-via-azure-portal). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
 
 2. **[A]** Set up name resolution for the more SAP systems. You can either use DNS server or modify */etc/hosts* on all nodes. This example shows how to use the */etc/hosts* file.  Adapt the IP addresses and the host names to your environment.
 
@@ -479,7 +466,7 @@ This article assumes that:
    > The timeouts in the above configuration are just examples and might need to be adapted to the specific SAP setup.
 
    Make sure that the cluster status is ok and that all resources are started. It's not important on which node the resources are running.
-   The following example shows the cluster resources status, after SAP systems `NW2` and `NW3` were added to the cluster. 
+   The following example shows the cluster resources status, after SAP systems `NW2` and `NW3` were added to the cluster.
 
     ```cmd
     sudo pcs status
@@ -586,11 +573,11 @@ This article assumes that:
    sudo firewall-cmd --zone=public --add-port=52216/tcp
    ```
 
-### Proceed with the SAP installation 
+### Proceed with the SAP installation
 
 Complete your SAP installation by:
 
-* [Preparing your SAP NetWeaver application servers](./high-availability-guide-rhel-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7).
+* [Preparing your SAP NetWeaver application servers](./high-availability-guide-rhel-netapp-files.md#sap-netweaver-application-server-preparation).
 * [Installing a DBMS instance](./high-availability-guide-rhel-netapp-files.md#install-database).
 * [Installing A primary SAP application server](./high-availability-guide-rhel-netapp-files.md#sap-netweaver-application-server-installation).
 * Installing one or more other SAP application instances.

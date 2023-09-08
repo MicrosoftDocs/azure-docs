@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Mercer BenefitsCentral (MBC) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Mercer BenefitsCentral (MBC)'
 description: Learn how to configure single sign-on between Azure Active Directory and Mercer BenefitsCentral (MBC).
 services: active-directory
 author: jeevansd

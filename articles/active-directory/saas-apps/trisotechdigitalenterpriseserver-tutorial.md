@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Trisotech Digital Enterprise Server | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Trisotech Digital Enterprise Server'
 description: Learn how to configure single sign-on between Azure Active Directory and Trisotech Digital Enterprise Server.
 services: active-directory
 author: jeevansd

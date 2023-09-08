@@ -10,7 +10,7 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 01/24/2023
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Bring your own key specification
@@ -187,4 +187,3 @@ Request body when importing an EC key:
 
 ## Next steps
 * Step-by-step BYOK instructions: [Import HSM-protected keys to Key Vault (BYOK)](hsm-protected-keys-byok.md)
-

@@ -9,9 +9,9 @@ ms.subservice: extensions
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 12/17/2018
 ms.author: trinadhk
-
 ---
 # VM Snapshot Linux extension for Azure Backup
 

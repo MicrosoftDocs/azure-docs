@@ -5,12 +5,13 @@ description: Learn how network traffic flows between components when your Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, moe-wsvnet
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 10/03/2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Network traffic flow when using a secured workspace
@@ -93,7 +94,7 @@ The following features of Azure Machine Learning studio use _data profiling_:
 * AutoML: View a data preview/profile and choose a target column.
 * Labeling
 
-Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _doesn't exist in your VNet_, so can’t directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
+Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _doesn't exist in your VNet_, so can't directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
 
 > [!TIP]
 > You can provide a service principal when creating the workspace. If you do not, one is created for you and will have the same name as your workspace.
@@ -130,29 +131,25 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
+:::moniker range="azureml-api-2"
 ## Scenario: Use online endpoints
 
-Securing an online endpoint with a private endpoint is a preview feature.
+Security for inbound and outbound communication are configured separately for managed online endpoints.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+#### Inbound communication
 
-__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
+__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` ensures that the online endpoint receives traffic only from a client's virtual network through the Azure Machine Learning workspace's private endpoint.
 
-__Outbound__ communication from a deployment can be secured on a per-deployment basis by using the `egress_public_network_access` flag. Outbound communication in this case is from the deployment to Azure Container Registry, storage blob, and workspace. Setting the flag to `true` will restrict communication with these resources to the virtual network.
+The `public_network_access` flag of the Azure Machine Learning workspace also governs the visibility of the online endpoint. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
 
-> [!NOTE]
-> For secure outbound communication, a private endpoint is created for each deployment where `egress_public_network_access` is set to `disabled`.
+#### Outbound communication
 
-Visibility of the endpoint is also governed by the `public_network_access` flag of the Azure Machine Learning workspace. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
+__Outbound__ communication from a deployment can be secured at the workspace level by enabling managed virtual network isolation for your Azure Machine Learning workspace (preview). Enabling this setting causes Azure Machine Learning to create a managed virtual network for the workspace. Any deployments in the workspace's managed virtual network can use the virtual network's private endpoints for outbound communication.
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-### Supported configurations
+The [legacy network isolation method for securing outbound communication](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) worked by disabling a deployment's `egress_public_network_access` flag. We strongly recommend that you secure outbound communication for deployments by using a [workspace managed virtual network](concept-secure-online-endpoint.md) instead. Unlike the legacy approach, the `egress_public_network_access` flag for the deployment no longer applies when you use a workspace managed virtual network with your deployment (preview). Instead, outbound communication will be controlled by the rules set for the workspace's managed virtual network.
 
-| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
-| -------- | -------------------------------- | --------------------------------- | --------- |
-| secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
-| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
-| public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
+:::moniker-end
 
 ## Scenario: Use Azure Kubernetes Service
 

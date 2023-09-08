@@ -1,6 +1,6 @@
 ---
 
-title: Secure access practices for administrators in Azure AD | Microsoft Docs
+title: Secure access practices for administrators in Azure AD
 description: Ensure that your organization's administrative access and administrator accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: "martincoetzer; MarkMorow"
 ms.collection: M365-identity-device-management
 ---
@@ -156,7 +156,7 @@ Ensure all users have signed into their administrative accounts and changed thei
 
 Azure AD Connect synchronizes a hash of the hash of a user's password from on-premises Active Directory to a cloud-based Azure AD organization. You can use password hash synchronization as a backup if you use federation with Active Directory Federation Services (AD FS). This backup can be useful if your on-premises Active Directory or AD FS servers are temporarily unavailable.
 
-Password hash sync enables users to sign in to a service by using the same password they use to sign in to their on-premises Active Directory instance. Password hash sync allows Identity Protection to detect compromised credentials by comparing password hashes with passwords known to be compromised. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
+Password hash sync enables users to sign in to a service by using the same password they use to sign in to their on-premises Active Directory instance. Password hash sync allows Identity Protection to detect compromised credentials by comparing password hashes with passwords known to be compromised. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md).
 
 #### Require multi-factor authentication for users in privileged roles and exposed users
 
@@ -208,7 +208,7 @@ Microsoft accounts from other programs, such as Xbox, Live, and Outlook, shouldn
 
 #### Monitor Azure activity
 
-The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/alerts/alerts-activity-log.md).
+The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD
 
@@ -293,7 +293,7 @@ If your Azure Active Directory is connected to on-premises Active Directory, the
 * Deploy Privileged Access Workstations for all administrators
 * Require MFA
 * Use Just Enough Admin for domain controller maintenance, lowering the attack surface of domains
-* Deploy Advanced Threat Assessment for attack detection
+* Deploy [Advanced Threat Analytics](/advanced-threat-analytics/) for attack detection
 
 ### Additional steps for organizations managing access to Azure
 
@@ -382,7 +382,7 @@ Determine if current built-in Azure AD administrator roles are still up to date 
 
 #### Review users who have administration of Azure AD joined devices
 
-For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md).
+For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-join-plan.md).
 
 #### Review members of [built-in Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Skip this step if you're not using Microsoft 365.

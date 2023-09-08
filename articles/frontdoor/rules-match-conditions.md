@@ -30,7 +30,7 @@ You can use a match condition to:
 
 ::: zone pivot="front-door-standard-premium"
 
-* Filter requests based on a specific IP address, port, country, or region.
+* Filter requests based on a specific IP address, port, or country/region.
 * Filter requests by header information.
 * Filter requests from mobile devices or desktop devices.
 * Filter requests from request file name and file extension.
@@ -40,7 +40,7 @@ You can use a match condition to:
 
 ::: zone pivot="front-door-classic"
 
-* Filter requests based on a specific IP address, country, or region.
+* Filter requests based on a specific IP address, or country/region.
 * Filter requests by header information.
 * Filter requests from mobile devices or desktop devices.
 * Filter requests from request file name and file extension.

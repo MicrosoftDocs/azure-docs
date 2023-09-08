@@ -1,13 +1,13 @@
 ---
 title: What is automated app user provisioning in Azure Active Directory
-description: An introduction to how you can use Azure Active Directory to automatically provision, de-provision, and continuously update user accounts across multiple third-party applications.
+description: An introduction to how you can use Azure Active Directory to automatically provision, deprovision, and continuously update user accounts across multiple third-party applications.
 author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 02/21/2023
+ms.date: 08/14/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -15,14 +15,22 @@ ms.reviewer: arvinh
 # What is app provisioning in Azure Active Directory?
 
 In Azure Active Directory (Azure AD), the term *app provisioning* refers to automatically creating user identities and roles for applications.
-	
+
 ![Diagram that shows provisioning scenarios.](../governance/media/what-is-provisioning/provisioning.png)
 
 Azure AD application provisioning refers to automatically creating user identities and roles in the applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into SaaS applications like [Dropbox](../../active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md), and many more.
 
-Azure AD also supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. Your application must support [SCIM](https://aka.ms/scimoverview). Or, you must build a SCIM gateway to connect to your legacy application. If so, you can use the Azure AD Provisioning agent to [directly connect](./on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](./on-premises-ldap-connector-configure.md) user store or a [SQL](./tutorial-ecma-sql-connector.md) database, Azure AD can support these applications as well. 
+Azure AD also supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. The table below provides a mapping of protocols to connectors supported. 
 
-App provisioning lets you:
+|Protocol |Connector|
+|-----|-----|
+| SCIM | [SCIM - SaaS](use-scim-to-provision-users-and-groups.md) <br />[SCIM - On-prem / Private network](./on-premises-scim-provisioning.md) |
+| LDAP | [LDAP](./on-premises-ldap-connector-configure.md)|
+| SQL  | [SQL](./tutorial-ecma-sql-connector.md) |
+| REST | [Web Services](./on-premises-web-services-connector.md)|
+| SOAP | [Web Services](./on-premises-web-services-connector.md)|
+| Flat-file| [PowerShell](./on-premises-powershell-connector.md) |
+| Custom | [Custom ECMA connectors](./on-premises-custom-connector.md) <br /> [Connectors and gateways built by partners](./partner-driven-integrations.md)|
 
 - **Automate provisioning**: Automatically create new accounts in the right systems for new people when they join your team or organization.
 - **Automate deprovisioning**: Automatically deactivate accounts in the right systems when people leave the team or organization.
@@ -68,9 +76,9 @@ Azure AD user provisioning can help address these challenges. To learn more abou
 
 ## What applications and systems can I use with Azure AD automatic user provisioning?
 
-Azure AD features pre-integrated support for many popular SaaS apps and human resources systems, and generic support for apps that implement specific parts of the [SCIM 2.0 standard](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
+Azure AD features preintegrated support for many popular SaaS apps and human resources systems, and generic support for apps that implement specific parts of the [SCIM 2.0 standard](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
-* **Pre-integrated applications (gallery SaaS apps)**: You can find all applications for which Azure AD supports a pre-integrated provisioning connector in [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). The pre-integrated applications listed in the gallery generally use SCIM 2.0-based user management APIs for provisioning. 
+* **Preintegrated applications (gallery SaaS apps)**: You can find all applications for which Azure AD supports a preintegrated provisioning connector in [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). The preintegrated applications listed in the gallery generally use SCIM 2.0-based user management APIs for provisioning. 
 
    ![Image that shows logos for DropBox, Salesforce, and others.](./media/user-provisioning/gallery-app-logos.png)
 
@@ -80,7 +88,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
 ## How do I set up automatic provisioning to an application?
 
-For pre-integrated applications listed in the gallery, use existing step-by-step guidance to set up automatic provisioning, see [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). The following video shows you how to set up automatic user provisioning for SalesForce.
+For preintegrated applications listed in the gallery, use existing step-by-step guidance to set up automatic provisioning, see [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). The following video shows you how to set up automatic user provisioning for SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 

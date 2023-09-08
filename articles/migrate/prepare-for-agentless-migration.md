@@ -4,8 +4,9 @@ description: Learn how to prepare on-premises machines for agentless migration w
 author: vijain
 ms.author: vijain
 ms.topic: conceptual
-ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.service: azure-migrate
+ms.date: 09/01/2023
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
 # Prepare for VMware agentless migration
@@ -18,12 +19,13 @@ Azure Migrate automatically handles these configuration changes for the followin
 **Operating system versions supported for hydration**
 
 - Windows Server 2008 or later
-- Red Hat Enterprise Linux 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
-- CentOS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
-- Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
-- Debian 10, 9, 8, 7 
-- Oracle Linux 8, 7.7-CI, 7.7, 6
+- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- CentOS 9.x (Release and Stream), 8.x (Release and Stream), 7.7, 7.6, 7.5, 7.4, 6.x
+- SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
+- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
+- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)
+- Debian 11, 10, 9, 8, 7 
+- Oracle Linux 9, 8, 7.7-CI, 7.7, 6
 
 You can also use this article to manually prepare the VMs for migration to Azure for operating systems versions not listed above. At a high level, these changes include:
 
@@ -105,7 +107,7 @@ The preparation script executes the following changes based on the OS type of th
 
    To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
-   ```
+   ```powershell
    Get-Service -Name Dhcp
    Where-Object StartType -ne Automatic
    Set-Service -StartupType Automatic
@@ -173,17 +175,17 @@ The preparation script executes the following changes based on the OS type of th
       An illustrative example for rebuilding initrd
 
       - Back up the existing initrd image
-
-        ```
+      
+       ```bash
         cd /boot
         sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
-        ```
+       ```
 
       - Rebuild the initrd with the hv_vmbus and hv_storvsc kernel modules:
 
-        ```
+       ```bash
           sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
-        ```
+       ```
    Most new versions of Linux distributions have this included by default. If not included, install manually for all versions except those called out, using the aforementioned steps.
 
 1. **Enable Azure Serial Console logging**
@@ -192,13 +194,13 @@ The preparation script executes the following changes based on the OS type of th
 
    Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
 
-   ```
+   ```config
     console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
    ```
 
    We also recommend removing the following parameters if they exist.
 
-   ```
+   ```config
    rhgb quiet crashkernel=auto
    ```
     [Refer to this article](../virtual-machines/linux/create-upload-generic.md#general-linux-system-requirements) for specific changes.
@@ -211,9 +213,9 @@ The preparation script executes the following changes based on the OS type of th
 
       An illustrative example for RedHat servers
 
-      ```console
-        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+      ```bash
+         sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+         sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
       ```
 
    1. Remove Network Manager if necessary. Network Manager can interfere with the Azure Linux agent for a few OS versions. It's recommended to make these changes for servers running RedHat and Ubuntu distributions.
@@ -222,8 +224,8 @@ The preparation script executes the following changes based on the OS type of th
     
       An illustrative example for RedHat servers
 
-      ```console
-         # sudo rpm -e --nodeps NetworkManager
+      ```bash
+         sudo rpm -e --nodeps NetworkManager
       ```
 
    1. Backup existing NIC settings and create eth0 NIC configuration file with DHCP settings. To do this, the script will create or edit the /etc/sysconfig/network-scripts/ifcfg-eth0 file, and add the following text:
@@ -270,9 +272,9 @@ The preparation script executes the following changes based on the OS type of th
     You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
     Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
 
-   ```
-    $ vgchange -an <vg-name>
-    $ blockdev –flushbufs <disk-device-name>
+   ```bash
+      sudo vgchange -an <vg-name>
+      sudo lockdev –flushbufs <disk-device-name>
    ```
 
    [Learn more on the changes for Linux servers.](../virtual-machines/linux/create-upload-generic.md)

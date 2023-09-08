@@ -3,8 +3,8 @@ title: Use Azure AD and Kubernetes RBAC for clusters
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 02/13/2023
-
 ---
 
 # Use Kubernetes role-based access control with Azure Active Directory in Azure Kubernetes Service
@@ -461,7 +461,7 @@ az ad group delete --group opssre
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
-[azure-ad-aks-cli]: managed-aad.md
+[azure-ad-aks-cli]: managed-azure-ad.md
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-ad-group-create]: /cli/azure/ad/group#az_ad_group_create
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
@@ -471,4 +471,4 @@ az ad group delete --group opssre
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [terraform-on-azure]: /azure/developer/terraform/overview
-[enable-azure-ad-integration-existing-cluster]: managed-aad.md#enable-aks-managed-azure-ad-integration-on-your-existing-cluster
+[enable-azure-ad-integration-existing-cluster]: managed-azure-ad.md#use-an-existing-cluster

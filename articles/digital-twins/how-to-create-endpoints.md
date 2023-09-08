@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Create endpoints
 titleSuffix: Azure Digital Twins
 description: Learn how to set up endpoints for Azure Digital Twins data
@@ -8,10 +7,10 @@ ms.author: baanders # Microsoft employees only
 ms.date: 02/08/2023
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -44,8 +43,6 @@ These services are the supported types of endpoints that you can create for your
 * [Event Hubs](../event-hubs/event-hubs-about.md) hub
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) topic
 
->[!TIP]
-> For more information on the different endpoint types, see [Choose between Azure messaging services](../event-grid/compare-messaging-services.md).
 
 To link an endpoint to Azure Digital Twins, the Event Grid topic, event hub, or Service Bus topic that you're using for the endpoint needs to exist already.
 

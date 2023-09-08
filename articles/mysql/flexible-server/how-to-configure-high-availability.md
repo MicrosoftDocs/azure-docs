@@ -1,6 +1,6 @@
 ---
-title: Manage zone redundant high availability - Azure portal - Azure Database for MySQL Flexible Server
-description: This article describes how to enable or disable zone redundant high availability in Azure Database for MySQL flexible Server through the Azure portal.
+title: Manage zone redundant high availability - Azure portal - Azure Database for MySQL - Flexible Server
+description: This article describes how to enable or disable zone redundant high availability in Azure Database for MySQL - Flexible Server through the Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.custom: references_regions, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
-# Manage zone redundant high availability in Azure Database for MySQL Flexible Server 
+# Manage zone redundant high availability in Azure Database for MySQL - Flexible Server 
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -50,7 +50,7 @@ This section provides details specifically for HA-related fields. You can follow
 
 Follow these steps to disable high availability for your flexible server that is already configured with zone redundancy.
 
-1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL - Flexible Server.
 
 2. On the flexible server page, Select **High Availability** from the front panel to open high availability page.
 
@@ -66,7 +66,7 @@ Follow these steps to disable high availability for your flexible server that is
 
 Follow these steps to force failover from your primary to standby flexible server
 
-1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server which has high availability feature enabled.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL - Flexible Server which has high availability feature enabled.
 
 2. On the flexible server page, Select **High Availability** from the front panel to open high availability page.
 

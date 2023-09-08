@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure 8x8 for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure 8x8 for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to 8x8.
 services: active-directory
 author: twimmers

@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 robots: noindex
 ---
 
@@ -30,7 +30,7 @@ The following are error conditions that result in an exception:
 > [!NOTE]
 > The following samples are for Azure SQL and Azure Blob but are applicable to any data store that supports rectangular datasets. Adjust dataset and linked service definitions in examples to point to data in the relevant data source.
 
-## Sample 1 – column mapping from Azure SQL to Azure blob
+## Sample 1 - column mapping from Azure SQL to Azure blob
 In this sample, the input table has a structure and it points to a SQL table in Azure SQL Database.
 
 ```json
@@ -131,7 +131,7 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
 
 :::image type="content" source="./media/data-factory-map-columns/column-mapping-flow.png" alt-text="Column mapping flow":::
 
-## Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
+## Sample 2 - column mapping with SQL query from Azure SQL to Azure blob
 In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in "structure" section. 
 
 ```json

@@ -7,7 +7,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 03/10/2022
 ms.devlang: php
-ms.custom: mode-other, devdivchpfy22
+ms.custom: mode-other, devdivchpfy22, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -159,7 +159,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
   
 1. From the left navigation, select **Deployment Center**.
 
-    ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-php/azure-portal-configure-app-service-deployment-center.png)  
+    ![Screenshot of the App Service in the Azure portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-php/azure-portal-configure-app-service-deployment-center.png)  
 
 1. Under **Settings**, select a **Source**. For this quickstart, select *GitHub*.
 

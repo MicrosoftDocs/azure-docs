@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Ardoq for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Ardoq for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Ardoq.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 0339e63a-5262-4019-a85d-18c9617fc4b3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * If you don't intend to use the provisioning features of Azure AD along with SSO, please reach out to Ardoq customer support and they'll manually enable support for provisioning.
 
-Before we proceed we need to obtain a *Tenant Url* and a *Secret Token*, to configure secure communcation between Azure AD and Ardoq.
+Before we proceed we need to obtain a *Tenant Url* and a *Secret Token*, to configure secure communication between Azure AD and Ardoq.
 
 
 
@@ -56,7 +56,7 @@ Before we proceed we need to obtain a *Tenant Url* and a *Secret Token*, to conf
 1. To create your *tenant URL*, use this template: `https://<YOUR-SUBDOMAIN>.ardoq.com/api/scim/v2` by replacing the placeholder text `<YOUR-SUBDOMAIN>`.This value will be entered in the **Tenant Url** field in the Provisioning tab of your Ardoq application in the Azure portal.
 
 	>[!NOTE]
-	>`<YOUR-SUBDOMAIN>` is the subdomain your organization has chosen to access Ardoq. This is the same URL segment you use when you access the Ardoq app. For example, if your organization accesses Ardoq at `https://acme.ardoq.com` you'd fill in `acme.  If you're in the US and access Ardoq at `https://piedpiper.us.ardoq.com`  then you'd fill in `piedpiper.us`.
+	>`<YOUR-SUBDOMAIN>` is the subdomain your organization has chosen to access Ardoq. This is the same URL segment you use when you access the Ardoq app. For example, if your organization accesses Ardoq at `https://acme.ardoq.com` you'd fill in `acme`.  If you're in the US and access Ardoq at `https://piedpiper.us.ardoq.com`  then you'd fill in `piedpiper.us`.
 
 ## Step 3. Add Ardoq from the Azure AD application gallery
 

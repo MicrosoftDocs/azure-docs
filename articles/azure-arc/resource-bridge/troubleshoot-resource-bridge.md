@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 01/26/2023
+ms.date: 03/15/2023
 ms.topic: conceptual
 ---
 
@@ -67,8 +67,8 @@ To resolve this problem, delete the resource bridge, register the providers, the
 1. Register the providers:
 
    ```azurecli
-   az provider register --namespace Microsoft.ExtendedLocation –wait
-   az provider register --namespace Microsoft.ResourceConnector –wait
+   az provider register --namespace Microsoft.ExtendedLocation –-wait
+   az provider register --namespace Microsoft.ResourceConnector –-wait
    ```
 
 1. Redeploy the resource bridge.
@@ -76,11 +76,33 @@ To resolve this problem, delete the resource bridge, register the providers, the
 > [!NOTE]
 > Partner products (such as Arc-enabled VMware vSphere) may have their own required providers to register. To see additional providers that must be registered, see the product's documentation.
 
+### Expired credentials in the appliance VM
+
+Arc resource bridge consists of an appliance VM that is deployed to the on-premises infrastructure. The appliance VM maintains a connection to the management endpoint of the on-premises infrastructure using locally stored credentials. If these credentials are not updated, the resource bridge is no longer able to communicate with the management endpoint. This may cause problems when trying to upgrade the resource bridge or manage VMs through Azure.
+
+To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
+
+
+
 ## Networking issues
 
-### Restricted outbound connectivity
+### Back-off pulling image error
 
-If you are experiencing connectivity, check to make sure your network allows all of the firewall and proxy URLs that are required to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+When trying to deploy Arc resource bridge, you may see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM can't reach the URL specified in the error. To resolve this issue, make sure the appliance VM meets system requirements, including internet access connectivity to [required allowlist URLs](network-requirements.md).
+
+### Not able to connect to URL
+
+If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md). 
+
+### .local not supported
+
+When trying to set the configuration for Arc resource bridge, you may receive an error message similar to: 
+
+`"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
+
+This occurs when a `.local` path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (such as vCenter). Arc resource bridge appliance VM uses Azure Linux OS, which doesn't support `.local` by default. A workaround could be to provide the IP address where applicable.
+
+
 
 ### Azure Arc resource bridge is unreachable
 
@@ -127,9 +149,9 @@ To resolve the error, one or more network misconfigurations may need to be addre
 
 1. Appliance VM IP and Control Plane IP must be able to communicate with the management machine and vCenter endpoint (for VMware) or MOC cloud agent endpoint (for HCI). Work with your network administrator to ensure the network is configured to permit this. This may require adding a firewall rule to open port 443 from the Appliance VM IP and Control Plane IP to vCenter or port 65000 and 55000 for Azure Stack HCI MOC cloud agent. Review [network requirements for Azure Stack HCI](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites#network-port-requirements) and [VMware](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md) for Arc resource bridge.
 
-1. Appliance VM IP and Control Plane IP need internet access to [these required URLs](#restricted-outbound-connectivity). Azure Stack HCI requires [additional URLs](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites). Work with your network administrator to ensure that the IPs can access the required URLs.
+1. Appliance VM IP and Control Plane IP need internet access to [these required URLs](#not-able-to-connect-to-url). Azure Stack HCI requires [additional URLs](/azure-stack/hci/manage/azure-arc-vm-management-prerequisites). Work with your network administrator to ensure that the IPs can access the required URLs.
 
-1. In a non-proxy environment, the management machine must have external and internal DNS resolution. The management machine must be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to [resolve external addresses](#restricted-outbound-connectivity), such as Azure URLs and OS image download URLs. Work with your system administrator to ensure that the management machine has internal and external DNS resolution. In a proxy environment, the DNS resolution on the proxy server should resolve internal endpoints and [required external addresses](#restricted-outbound-connectivity).
+1. In a non-proxy environment, the management machine must have external and internal DNS resolution. The management machine must be able to reach a DNS server that can resolve internal names such as vCenter endpoint for vSphere or cloud agent endpoint for Azure Stack HCI. The DNS server also needs to be able to [resolve external addresses](#not-able-to-connect-to-url), such as Azure URLs and OS image download URLs. Work with your system administrator to ensure that the management machine has internal and external DNS resolution. In a proxy environment, the DNS resolution on the proxy server should resolve internal endpoints and [required external addresses](#not-able-to-connect-to-url).
 
    To test DNS resolution to an internal address from the management machine in a non-proxy scenario, open command prompt and run `nslookup <vCenter endpoint or HCI MOC cloud agent IP>`. You should receive an answer if the management machine has internal DNS resolution in a non-proxy scenario.  
 
@@ -137,9 +159,12 @@ To resolve the error, one or more network misconfigurations may need to be addre
 
    Verify that the DNS server IP used to create the configuration files has internal and external address resolution. If not, [delete the appliance](/cli/azure/arcappliance/delete), recreate the Arc resource bridge configuration files with the correct DNS server settings, and then deploy Arc resource bridge using the new configuration files.
 
-## Azure-Arc enabled VMs on Azure Stack HCI issues
+## Move Arc resource bridge location 
+Resource move of Arc resource bridge isn't currently supported. You'll need to delete the Arc resource bridge, then re-deploy it to the desired location. 
 
-For general help resolving issues related to Azure-Arc enabled VMs on Azure Stack HCI, see [Troubleshoot Azure Arc-enabled virtual machines](/azure-stack/hci/manage/troubleshoot-arc-enabled-vms).
+## Azure Arc-enabled VMs on Azure Stack HCI issues
+
+For general help resolving issues related to Azure Arc-enabled VMs on Azure Stack HCI, see [Troubleshoot Azure Arc-enabled virtual machines](/azure-stack/hci/manage/troubleshoot-arc-enabled-vms).
 
 ### Authentication handshake failure
 
@@ -195,7 +220,8 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 
 When deploying the resource bridge on VMware Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
 
-```
+
+```python
 "Datastore.AllocateSpace"
 "Datastore.Browse"
 "Datastore.DeleteFile"
@@ -211,6 +237,7 @@ When deploying the resource bridge on VMware Vcenter, you may get an error sayin
 "Resource.AssignVMToPool"
 "Resource.HotMigrate"
 "Resource.ColdMigrate"
+"Sessions.ValidateSession"
 "StorageViews.View"
 "System.Anonymous"
 "System.Read"
@@ -319,3 +346,4 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+

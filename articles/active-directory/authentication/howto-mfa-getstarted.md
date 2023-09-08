@@ -3,6 +3,7 @@ title: Deployment considerations for Azure AD Multi-Factor Authentication
 description: Learn about deployment considerations and strategy for successful implementation of Azure AD Multi-Factor Authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 03/06/2023
 ms.author: justinha
@@ -90,7 +91,7 @@ Common use cases to require Azure AD Multi-Factor Authentication include:
 - To [specific applications](tutorial-enable-azure-mfa.md)
 - For [all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - For [Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- From [network locations you don't trust](../conditional-access/untrusted-networks.md)
+- From [network locations you don't trust](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 
 ### Named locations
 
@@ -156,11 +157,7 @@ A major step in every multifactor authentication deployment is getting users reg
 
 ### Combined registration for SSPR and Azure AD MFA
 
-> [!NOTE]
-> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
-> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. 
-
-We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
+[The combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) enables users to register for both MFA and SSPR in a unified experience. SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
 It's critical to inform users about upcoming changes, registration requirements, and any necessary user actions. We provide [communication templates](https://aka.ms/mfatemplates) and [user documentation](https://support.microsoft.com/account-billing/set-up-security-info-from-a-sign-in-page-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout. Send users to https://myprofile.microsoft.com to register by selecting the **Security Info** link on that page.
 
@@ -173,7 +170,7 @@ If you use Azure AD Identity Protection, [configure the Azure AD MFA registratio
 
 If you don't have licenses that enable Azure AD Identity Protection, users are prompted to register the next time that MFA is required at sign-in. 
 To require users to use MFA, you can use Conditional Access policies and target frequently used applications like HR systems. 
-If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with conditional access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
+If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with Conditional Access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
 You can further secure the process by also requiring a [Temporary Access Pass](howto-authentication-temporary-access-pass.md). A time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones.
 
 ### Increase the security of registered users
@@ -242,7 +239,7 @@ Azure AD has reports that provide technical and business insights, follow the pr
 
 You can monitor authentication method registration and usage across your organization using the [Authentication Methods Activity dashboard](howto-authentication-methods-activity.md). This helps you understand what methods are being registered and how they're being used.
 
-#### Sign in report to review MFA events
+#### Sign-in report to review MFA events
 
 The Azure AD sign-in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
 
@@ -253,6 +250,10 @@ For more information, and additional Azure AD Multi-Factor Authentication report
 ### Troubleshoot Azure AD Multi-Factor Authentication
 See [Troubleshooting Azure AD Multi-Factor Authentication](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) for common issues.
 
+## Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Microsoft 365 Configure multifactor authentication guided walkthrough](https://go.microsoft.com/fwlink/?linkid=2221401).
+
 ## Next steps
 
-[Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+[Deploy other identity features](../architecture/deployment-plans.md)

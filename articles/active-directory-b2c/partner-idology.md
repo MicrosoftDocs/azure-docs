@@ -55,7 +55,7 @@ The following architecture diagram shows the implementation.
 
 1. IDology provides a variety of solutions, which you can find [here](https://www.idology.com/solutions/). For this sample, we use ExpectID.
 
-2. To create an IDology account, contact [IDology](https://www.idology.com/request-a-demo/microsoft-integration-signup/).
+2. To create an IDology account, contact [IDology](https://www.idology.com/talk-to-a-trust-expert/).
 
 3. Once an account is created, you'll receive the information you need for API configuration. The following sections describe the process.
 

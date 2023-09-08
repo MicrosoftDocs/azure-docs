@@ -3,11 +3,10 @@ title: Azure Monitor workbook dropdown parameters
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks containing dropdown parameters.
 services: azure-monitor
 manager: carmonm
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ---
 
 # Workbook dropdown parameters
@@ -38,13 +37,13 @@ The easiest way to specify a dropdown parameter is by providing a static list in
 
 1. Select **Update**.
 1. Select **Save** to create the parameter.
-1. The **Environment** parameter will be a dropdown list with the three values.
+1. The **Environment** parameter is a dropdown list with the three values.
 
     ![Screenshot that shows the creation of a static dropdown parameter.](./media/workbooks-dropdowns/dropdown-create.png)
 
 ## Create a static dropdown list with groups of items
 
-If your query result/JSON contains a `group` field, the dropdown list will display groups of values. Follow the preceding sample, but use the following JSON instead:
+If your query result/JSON contains a `group` field, the dropdown list displays groups of values. Follow the preceding sample, but use the following JSON instead:
 
 ```json
 [
@@ -79,7 +78,7 @@ If your query result/JSON contains a `group` field, the dropdown list will displ
 
 1. Select **Run Query**.
 1. Select **Save** to create the parameter.
-1. The **RequestName** parameter will be a dropdown list with the names of all requests in the app.
+1. The **RequestName** parameter is a dropdown list with the names of all requests in the app.
 
     ![Screenshot that shows the creation of a dynamic dropdown parameter.](./media/workbooks-dropdowns/dropdown-dynamic.png)
 
@@ -142,7 +141,7 @@ The examples so far explicitly set the parameter to select only one value in the
 
 You can specify the format of the result set via the **Delimiter** and **Quote with** settings. The default returns the values as a collection in the form of **a**, **b**, **c**. You can also limit the number of selections.
 
-The KQL referencing the parameter will need to change to work with the format of the result. The most common way to enable it is via the `in` operator.
+The KQL referencing the parameter needs to change to work with the format of the result. The most common way to enable it is via the `in` operator.
 
 ```kusto
 dependencies
@@ -153,6 +152,40 @@ dependencies
 This example shows the multi-select dropdown parameter at work:
 
 ![Screenshot that shows a multi-select dropdown parameter.](./media/workbooks-dropdowns/dropdown-multiselect.png)
+
+## Dropdown special selections
+
+Dropdown parameters also allow you to specify special values that will also appear in the dropdown:
+* Any one
+* Any three
+* ...
+* Any 100
+* Any custom limit
+* All
+
+When these special items are selected, the parameter value is automatically set to the specific number of items, or all values.
+
+### Special casing All
+
+When you select the **All** option, an extra field appears, which allows you to specify that a special value will be used for the parameter if the **All** option is selected. This special value is useful for cases where "All" could be a large number of items and could generate a very large query.
+
+:::image type="content" source="./media/workbooks-dropdowns/dropdown-all.png" alt-text="Screenshot of the New Parameter window in the Azure portal. The All option is selected and the All option and Select All value field are highlighted." lightbox="./media/workbooks-dropdowns/dropdown-all.png":::
+
+In this specific case, the string `[]` is used instead of a value. This string can be used to generate an empty array in the logs query, like:
+
+```kusto
+let selection = dynamic([{Selection}]);
+SomeQuery 
+| where array_length(selection) == 0 or SomeField in (selection)
+```
+
+If all items are selected, the value of `Selection` is `[]`, producing an empty array for the `selection` variable in the query.  If no values are selected, the value of `Selection` will be an empty string, also resulting in an empty array.  If any values are selected, they are formatted inside the dynamic part of the query, causing the array to have those values. You can then test for `array_length` of 0 to have the filter not apply or use the `in` operator to filter on the values in the array.
+
+Other common examples use '*' as the special marker value when a parameter is required, and then test with:
+
+```kusto
+| where "*" in ({Selection}) or SomeField in ({Selection})
+```
 
 ## Next steps
 

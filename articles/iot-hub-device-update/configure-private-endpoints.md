@@ -6,7 +6,7 @@ ms.author: darkoa
 ms.date: 07/06/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli
 ---
 
 # Configure private endpoints for Device Update for IoT Hub accounts

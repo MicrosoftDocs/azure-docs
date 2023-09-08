@@ -1,11 +1,8 @@
 ---
-title: Assign a managed identity to an application role using Azure CLI - Azure AD
+title: Assign a managed identity to an application role using Azure CLI
 description: Step-by-step instructions for assigning a managed identity access to another application's role, using Azure CLI.
 services: active-directory
-documentationcenter: 
 author: xstof
-manager:
-editor: 
 
 ms.service: active-directory
 ms.subservice: msi
@@ -15,7 +12,7 @@ ms.workload: identity
 ms.date: 11/03/2021
 ms.author: christoc
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -79,7 +76,7 @@ In this article, you learn how to assign a managed identity to an application ro
     echo "object id for server service principal is: $serverSPOID"
     ```
 
-1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 3. You can create the role using the Azure portal or using Microsoft Graph. For example, you could add an app role like this:
+1. Add an [app role](../develop/howto-add-app-roles-in-apps.md) to the application you created in step 3. You can create the role using the Azure portal or using Microsoft Graph. For example, you could add an app role like this:
 
     ```json
     {

@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 02/21/2023
+ms.date: 04/27/2023
 ms.author: mattmcinnes
 
 ---
@@ -63,8 +63,7 @@ On your local computer, open a PowerShell prompt and type:
 ssh -i <path to the .pem file> username@<ipaddress of the VM>
 ```
 
-For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
-
+For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890` and replace the example IP address at the end of the command with your VM's [public IP address](/azure/virtual-network/ip-services/public-ip-addresses).
 
 ## Upload an SSH key
 

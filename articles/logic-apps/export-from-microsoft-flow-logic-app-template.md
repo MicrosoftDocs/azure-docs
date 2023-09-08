@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, azla
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 01/23/2023
 ---
 
@@ -18,7 +19,7 @@ To extend and expand your flow's capabilities, you can migrate that flow from [P
 > Export to Azure Logic Apps is unavailable for Power Automate flows created after August 2020. In October 2020, Power Automate 
 > standardized new flow creation on the [OpenAPI 2.0 protocol](https://swagger.io/specification/v2/). New flows based on 
 > this protocol are incompatible with Azure Logic Apps workflows, so exporting these flows to Azure Logic Apps was disabled. 
-> Instead, you must manually [create a logic app workflow](quickstart-create-first-logic-app-workflow.md) for these flows.
+> Instead, you must manually [create a Consumption logic app workflow](quickstart-create-example-consumption-workflow.md) for these flows.
 
 Not all Power Automate connectors are available in Azure Logic Apps. You can migrate only Power Automate flows that have the equivalent connectors in Azure Logic Apps. For example, the Button trigger, the Approval connector, and Notification connector are specific to Power Automate. 
 

@@ -40,7 +40,7 @@ In addition to collecting alerts from these components and other services, Micro
 
 ## Connecting to Microsoft 365 Defender
 
-Once you have enabled the Microsoft 365 Defender data connector to [collect incidents and alerts](connect-microsoft-365-defender.md), Microsoft 365 Defender incidents will appear in the Microsoft Sentinel incidents queue, with **Microsoft 365 Defender** in the **Product name** field, shortly after they are generated in Microsoft 365 Defender.
+Install the Microsoft 365 Defender solution for Microsoft Sentinel and enable the Microsoft 365 Defender data connector to [collect incidents and alerts](connect-microsoft-365-defender.md). Microsoft 365 Defender incidents appear in the Microsoft Sentinel incidents queue, with **Microsoft 365 Defender** in the **Product name** field, shortly after they are generated in Microsoft 365 Defender.
 - It can take up to 10 minutes from the time an incident is generated in Microsoft 365 Defender to the time it appears in Microsoft Sentinel.
 
 - Incidents will be ingested and synchronized at no extra cost.

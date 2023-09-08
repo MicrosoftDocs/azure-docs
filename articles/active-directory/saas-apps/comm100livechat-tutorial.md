@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Comm100 Live Chat | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Comm100 Live Chat'
 description: Learn how to configure single sign-on between Azure Active Directory and Comm100 Live Chat.
 services: active-directory
 author: jeevansd

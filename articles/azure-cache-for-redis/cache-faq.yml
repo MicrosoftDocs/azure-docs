@@ -56,7 +56,9 @@ sections:
             
           - Migrate to a new cache in a new Azure Resource Manager VNet subnet.  
 
-             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. We have migrated most caches from being built on Cloud Services (class) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
+             Creating a cache within a Classic VNET creates a Cloud Services (classic) cache and not an Azure Virtual Machine Scale Sets cache. Migrating to a new cache in a new Azure Resource Manager VNet subnet fixes the underlying dependency on Cloud Services while maintaining a similar VNet experience. 
+             
+             We have migrated most caches from being built on Cloud Services (classic) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. We highly recommend not using old subnets while migrating caches. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
 
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |
@@ -70,6 +72,19 @@ sections:
 
           The new pair of geo-replicated  caches won't have the same dependency on Cloud Services.
 
+      - question: What should I do if I am unable to create a new cache instance with the error message "the subnet is affected by Cloud Services retirement"?
+        answer: |
+          We are starting to block the creation of new caches using the Cloud Services (classic) deployment model. 
+          New caches can still be created using this old deployment model if they're created in a VNet subnet that once contained a Cloud Services cache or if a cache is deployed into a classic VNet.
+          If you see this message, please create a new subnet in your VNet in which to deploy your cache. This will ensure that a cache is created without the Cloud Services dependency. 
+
+          To check if you have one or more Cloud Services based caches in your subnet, you can check [Azure Advisor](cache-faq.yml#how-do-i-know-if-a-cache-is-affected) in the portal or use the [resource-navigation-links REST API](/rest/api/virtualnetwork/resource-navigation-links/list?tabs=HTTP). 
+          As shown in the example on the API page, once you enter your subscription ID, resource group name, virtual network name, and subnet name, the API will return any caches in that subnet that are using Cloud Services. 
+
+          If you are creating a new cache using the REST API, also ensure that you are not passing the redis-configuration `{"CacheVmType": "CloudService"}` along with the create request. This is an undocumented parameter, so the odds you are doing this is low.
+
+          If you need to create new caches using the Cloud Services (classic) deployment model, please reach out to azurecachemigration@microsoft.com or create a support request to request an exemption.
+      
       - question: What happens if caches aren't upgraded/migrated by August 31, 2024? 
         answer: |
           These caches will be shut down, and you'll lose any data in your caches.  

@@ -172,9 +172,15 @@ directCommands:
       ```azstatic-cli
       swa start ./my-dist --api-location http://localhost:7071
       ```
-  syntax: >-
-    swa start
-              [--yes]
+    
+    #### Database connections
+
+    To start your application with a [database connection](database-overview.md), use the `--data-api-location` parameter and point to the folder containing the *staticwebapp.database.config.json* file. 
+
+      ```azstatic-cli
+      swa start ./src --data-api-location swa-db-connections
+      ```
+
   examples:
   - summary: Start the application with defaults.
     syntax: swa start
@@ -189,6 +195,8 @@ directCommands:
     summary: The folder containing the source code of the API application.
   - name: --output-location, -O <PATH>
     summary: The folder containing the built source of the front end application. The path is relative to `--app-location`. Default is `.`.
+  - name: --data-api-location
+    summary: The folder containing the *staticwebapp.database.config.json* file.
   - name: --app-devserver-url, -D <URL>
     summary: Connect to the app dev server at this URL instead of using output location.
   - name: --api-devserver-url, -is <URL>
@@ -405,41 +413,29 @@ directCommands:
     syntax: swa deploy --print-token
   - summary: Deploy to a specific environment
     syntax: swa deploy --env production
+- uid: swa_db
+  name: swa db
+  summary: Generate and edit your Static Web Apps database connections configuration. 
+  description: >-
+    Use `swa db init` to generate a sample *swa-db-connections* folder, along with a *staticwebapp.database.config.json* configuration file. If you are using a Cosmos DB for NoSQL database, this will also generate a sample *staticwebapp.database.schema.gql* schema file. 
+  syntax: >-
+    swa db init --database-type <DATABASE_TYPE>
+  examples:
+  - summary: Generate a sample database connection configuration folder for an Azure SQL database.
+    syntax: swa db init --database-type mssql 
   optionalParameters:
-  - name: --app-location, -a <PATH>
-    summary: the folder containing the source code of the front-end application. Default is `.`.
-  - name: --api-location, -i <PATH>
-    summary: The folder containing the source code of the API application.
-  - name: --output-location, -O <PATH>
-    summary: The folder containing the built source of the front end application. The path is relative to `--app-location`. Default is `.`.
-  - name: --swa-config-location, -w <SWA_CONFIG_FILE_LOCATION>
-    summary: The directory where the `staticwebapp.config.json` file is located.
-  - name: --deployment-token, -d <SECRET>
-    summary: The secret token used to authenticate with the Static Web Apps.
-  - name: --dry-run, -dr
-    summary: Simulate a deploy process without actually running it. Default is `false`.
-  - name: --print-token, -pt
-    summary: Print the deployment token. Default is `false`.
-  - name: --env <ENVIRONMENT>
-    summary: The type of deployment environment where to deploy the project. Default is `preview`.
-  - name: --subscription-id, -S <SUBSCRIPTION_ID>
-    summary: Azure subscription ID used by this project. Default is `process.env.AZURE_SUBSCRIPTION_ID`.
-  - name: --resource-group, -R <RESOURCE_GROUP_NAME>
-    summary: The Azure resource group used by this project.
-  - name: --tenant-id, -T <TENANT_ID>
-    summary: Azure tenant ID. Default is `process.env.AZURE_TENANT_ID`.
-  - name: --client-id, -C <CLIENT_ID>
-    summary: Azure client ID
-  - name: --client-secret, -CS <CLIENT_SECRET>
-    summary: Azure client secret.
-  - name: -n, --app-name <APP_NAME>
-    summary: Azure Static Web Apps application name.
-  - name: -cc, --clear-credentials
-    summary: Clear persisted credentials before login. Default is `false`.
-  - name: --use-keychain, -u
-    summary: Enable use of the operating system native keychain for persistent credentials. Default is `true`.
-  - name: --no-use-keychain, -nu
-    summary: Disable using the operating system native keychain.
+  - name: --database-type, -t <DATABASE_TYPE>
+    summary: (Required) The type of the database you want to connect (mssql, postgresql, cosmosdb_nosql, mysql).
+  - name: --folder-name, -f <FOLDER_NAME>
+    summary: A folder name to override the convention database connection configuration folder name (ensure that you update your CI/CD workflow files accordingly). The default value is `swa-db-connections`.
+  - name: ---connection-string, -cs <CONNECTION_STRING>
+    summary: The connection string of the database you want to connect.
+  - name: --cosmosdb_nosql-database, -nd <COSMOSDB_NOSQL_DATABASE>
+    summary: The database of your Cosmos DB account you want to connect (only needed if using cosmosdb_nosql database type).
+  - name:  --cosmosdb_nosql-container, -nc <COSMOSDB_NOSQL_CONTAINER>
+    summary:  The container of your cosmosdb account you want to connect.
+  - name: --help, -h
+    summary: Display help for command.
 globalParameters:
 - name: --version, v
   summary: Display the version number.
@@ -458,5 +454,6 @@ commands:
 - swa_build
 - swa_start
 - swa_deploy
+- swa_db
 metadata:
   description: Azure Static Web Apps CLI

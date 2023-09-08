@@ -3,6 +3,7 @@ title: Manage server - Azure CLI - Azure Database for PostgreSQL
 description: Learn how to manage an Azure Database for PostgreSQL server from the Azure CLI.
 ms.service: postgresql
 ms.subservice: single-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: andrela
 author: ajlam
@@ -12,6 +13,8 @@ ms.date: 06/24/2022
 # Manage an Azure Database for PostgreSQL Single server using the Azure CLI
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This article shows you how to manage your Single servers deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 

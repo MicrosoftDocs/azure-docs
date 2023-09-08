@@ -11,6 +11,7 @@ ms.author: alainli
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade parallel run step to SDK v2

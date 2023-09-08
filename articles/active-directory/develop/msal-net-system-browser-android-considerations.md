@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: henrymbugua
 ms.reviewer: saeeda, Dickson-Mwendia
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: devx-track-csharp, aaddev, devx-track-dotnet
 #Customer intent: As an application developer, I want to learn about considerations for using Xamarin Android and MSAL.NET so I can decide if this platform meets my application development needs.
 ---
 

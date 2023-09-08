@@ -1,6 +1,5 @@
 ---
 title: Tutorial - Connect an IoT Edge device to your application
-titleSuffix: Azure IoT Central
 description: This tutorial shows you how to register, provision, and connect an IoT Edge device to your IoT Central application.
 author: dominicbetts
 ms.author: dobett

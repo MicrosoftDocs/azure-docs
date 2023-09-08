@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Help Scout | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Help Scout'
 description: Learn how to configure single sign-on between Azure Active Directory and Help Scout.
 services: active-directory
 author: jeevansd
@@ -117,15 +117,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Help Scout SSO
 
-1. To automate the configuration within Help Scout, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up Help Scout** will direct you to the Help Scout application. From there, provide the admin credentials to sign into Help Scout. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup Help Scout manually, open a new web browser window and sign into your Help Scout company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Help Scout company site as an administrator
 
 1. Click on **Manage** from the top menu and then select **Company** from the dropdown menu.
 

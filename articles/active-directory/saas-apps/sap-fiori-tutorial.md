@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Fiori.
 services: active-directory
 author: jeevansd
@@ -8,6 +8,7 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 01/16/2020
 ms.author: owenrichards
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 #Customer intent: As an application developer, I want to learn about passing custom state in authentication requests so I can create more robust applications.
 ---
 

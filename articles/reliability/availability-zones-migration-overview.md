@@ -14,6 +14,8 @@ ms.custom: subject-reliability
 
 Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.  For that reason, resources that don't currently have availability zone support, may have an opportunity to gain that support. The Migration Guides section offers a collection of guides for each service that requires certain procedures in order to move a resource from non-availability zone support to availability support. You'll find information on prerequisites for migration, download requirements, important migration considerations and recommendations.
 
+To check the readiness of your application for availability zone support, see [Azure availability zone migration baseline](./availability-zones-baseline.md).
+
 The table below lists each product that offers migration guidance and/or information. 
 
 ## Azure services migration guides
@@ -24,9 +26,14 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) |
 | [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)  | 
+| [Azure Functions](migrate-functions.md)|
+| [Azure Load Balancer](migrate-load-balancer.md)|
+| [Azure Service Fabric](migrate-service-fabric.md)  | 
+| [Azure SQL Database](migrate-sql-database.md) |
 | [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md) |
 | [Azure Storage: Managed Disks](migrate-vm.md)|
 | [Azure Virtual Machines and Azure Virtual Machine Scale Sets](migrate-vm.md)|  
+
 
 \*VMs that support availability zones: AV2-series, B-series, DSv2-series, DSv3-series, Dv2-series, Dv3-series, ESv3-series, Ev3-series, F-series, FS-series, FSv2-series, and M-series.
 
@@ -36,13 +43,14 @@ The table below lists each product that offers migration guidance and/or informa
 | --- | 
 | [Azure API Management](migrate-api-mgt.md)|
 | [Azure App Configuration](migrate-app-configuration.md)|
-| [Azure App Service](migrate-app-service.md)|
-| [Azure App Service: App Service Environment](migrate-app-service-environment.md)|
 | [Azure Cache for Redis](migrate-cache-redis.md)|
 | [Azure Cognitive Search](migrate-search-service.md)|
 | [Azure Container Instances](migrate-container-instances.md)|
 | [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)|
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)|
+| [Azure SQL Managed Instance](migrate-sql-managed-instance.md)|
+
+
 
 ## Workload and general guidance
 | **Workloads**   | 
@@ -51,6 +59,8 @@ The table below lists each product that offers migration guidance and/or informa
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Azure availability zone migration baseline](availability-zones-baseline.md)
 
 > [!div class="nextstepaction"]
 > [Azure services and regions with availability zones](availability-zones-service-support.md)

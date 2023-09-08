@@ -17,7 +17,15 @@ Azure confidential computing supports multiple deployment models. These differen
 
 ## Infrastructure as a Service (IaaS)
 
-For Infrastructure as a Service (IaaS), you can use confidential virtual machines (VMs) in confidential computing. You can use VMs based on [Intel Software Guard Extensions (SGX) application enclaves](confidential-computing-enclaves.md) or AMD SEV-SNP technology.
+Under Infrastructure as a Service (IaaS) deployment model, you can use confidential virtual machines (VMs) in confidential computing. You can use VMs based on [AMD Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP)](confidential-vm-overview.md), [Intel Trust Domain Extensions (TDX)](tdx-confidential-vm-overview.md) or [Intel Software Guard Extensions (SGX) application enclaves](confidential-computing-enclaves.md).
+
+Infrastructure as a Service (IaaS) is a cloud computing deployment model that grants access to scalable computing resources, such as servers, storage, networking, and virtualization, on demand. By adopting IaaS deployment model, organizations can forego the process of procuring, configuring, and managing their own infrastructure, instead only paying for the resources they utilize. This makes it a cost-effective solution.
+
+In the domain of cloud computing, IaaS deployment model enables businesses to rent individual services from cloud service providers like Azure. Azure assumes responsibility for managing and maintaining the infrastructure, empowering organizations to concentrate on installing, configuring, and managing their software. Azure also offers supplementary services such as comprehensive billing management, logging, monitoring, storage resiliency, and security.
+
+Scalability constitutes another significant advantage of IaaS deployment model in cloud computing. Enterprises can swiftly scale their resources up and down according to their requirements. This flexibility facilitates faster development life cycles, accelerating time to market for new products and ideas. Additionally, IaaS deployment model ensures reliability by eliminating single points of failure. Even in the event of a hardware component failure, the service remains accessible.
+
+In conclusion, IaaS deployment model in combination with Azure Confidential Computing offers benefits, including cost savings, increased efficiency, innovation opportunities, reliability, high scalability, and all secured by a robust and comprehensive security solution designed specifically to protect highly sensitive data.
 
 ## Platform as a Service (PaaS)
 
@@ -49,7 +57,9 @@ You might opt for a confidential container-based approach when:
 - You're building a modern cloud-native solution. You also have full control of source code and the deployment process.
 - You need multi-cloud support.
 
-Both options offer the highest security level for Azure services. There are some differences in the security postures of [confidential VMs](#confidential-vms-on-amd-sev-snp) and [confidential containers](#secure-enclaves-on-intel-sgx) as follows.
+Both options offer the highest security level for Azure services. 
+
+There are some differences in the security postures of [confidential VMs](#confidential-vms-on-amd-sev-snp) and [confidential containers](#secure-enclaves-on-intel-sgx) as follows.
 
 ### Confidential VMs on AMD SEV-SNP
 

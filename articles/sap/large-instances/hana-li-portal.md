@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 >[!NOTE]
 >For Rev 4.2, follow the instructions in the [Manage BareMetal Instances through the Azure portal](../../baremetal-infrastructure/connect-baremetal-infrastructure.md) topic.
 
-This document covers the way how [HANA Large Instances](./hana-overview-architecture.md) are presented in [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
+This document covers the way how [HANA Large Instances](./hana-overview-architecture.md) are presented in the [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
 
 ## Register HANA Large Instance Resource Provider
 Usually your Azure subscription you were using for HANA Large Instance deployments is registered for the HANA Large Instance Resource Provider. However, if you can’t see you deployed HANA Large Instance units, you should register the Resource Provider in your Azure subscription. There are two ways in registering the HANA Large Instance Resource provider

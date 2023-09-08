@@ -1,5 +1,5 @@
 ---
-title: App permissions for custom roles in Azure Active Directory | Microsoft Docs
+title: App permissions for custom roles in Azure Active Directory
 description: Preview enterprise app permissions for custom Azure AD roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 01/31/2023
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ---
 
 # Enterprise application permissions for custom roles in Azure Active Directory

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hightail | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hightail'
 description: Learn how to configure single sign-on between Azure Active Directory and Hightail.
 services: active-directory
 author: jeevansd
@@ -137,15 +137,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Hightail SSO
 
-1. To automate the configuration within Hightail, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up Hightail** will direct you to the Hightail application. From there, provide the admin credentials to sign into Hightail. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup Hightail manually, in another browser window, open the **Hightail** admin portal.
+1. In a different web browser window, sign in to your Hightail company site as an administrator
 
 1. Click on **User icon** from the top right corner of the page. 
 

@@ -2,8 +2,6 @@
 title: Monitor AKS hybrid clusters
 ms.date: 01/10/2023
 ms.topic: article
-author: austonli
-ms.author: aul
 description: Collect metrics and logs of AKS hybrid clusters using Azure Monitor.
 ms.reviewer: aul
 ---
@@ -85,7 +83,7 @@ curl -L https://aka.ms/existingClusterParam.json -o existingClusterParam.json
   - For clusterResourceId and clusterRegion, use the values on the Overview page for the LCM cluster
   - For workspaceResourceId, use the resource ID of your Log Analytics workspace
   - For workspaceRegion, use the Location of your Log Analytics workspace
-  - For workspaceDomain, use the workspace domain value as “opinsights.azure.com” for public cloud and for Azure China cloud as “opinsights.azure.cn”
+  - For workspaceDomain, use the workspace domain value as “opinsights.azure.com” for public cloud and for Microsoft Azure operated by 21Vianet cloud as “opinsights.azure.cn”
   - For resourceTagValues, leave as empty if not specific
 
 3. Deploy the ARM template

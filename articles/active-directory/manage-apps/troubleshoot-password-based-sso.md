@@ -7,9 +7,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/11/2017
+ms.date: 09/07/2023
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: enterprise-apps
 ---
 
 # Troubleshoot password-based single sign-on
@@ -18,7 +19,7 @@ To use password-based single sign-on (SSO) in My Apps, the browser extension mus
 
 ## My Apps browser extension not installed
 
-Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](my-apps-deployment-plan.md).
+Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](./myapps-overview.md).
 
 ## Single sign-on not configured
 
@@ -82,22 +83,19 @@ There are two ways to capture sign-in fields for your custom apps:
 
 In general, if automatic sign-in field capture doesn't work, try the manual option.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ### Automatically capture sign-in fields for an app
 
 To configure password-based SSO by using automatic sign-in field capture, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
-2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
-3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
-4. Select **Enterprise Applications** in the Azure AD navigation pane.
-5. Select **All Applications** to view a list of your apps.
-   > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications** list. Set the **Show** option to "All Applications."
-6. Select the app that you want to configure for SSO.
-7. After the app loads, select **Single sign-on** in the navigation pane on the left side.
-8. Select **Password-based Sign-on** mode.
-9. Enter the **Sign-on URL**, which is the URL of the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
-10. Select **Save**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app that you want to configure for SSO.
+1. After the app loads, select **Single sign-on** in the navigation pane on the left side.
+1. Select **Password-based Sign-on** mode.
+1. Enter the **Sign-on URL**, which is the URL of the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
+1. Select **Save**.
     The page is automatically scraped for the user name and password input boxes. You can now use Azure AD to securely transmit passwords to that app by using the My Apps browser extension.
 
 ### Manually capture sign-in fields for an app
@@ -106,22 +104,17 @@ To manually capture sign-in fields, you must have the My Apps browser extension 
 
 To configure password-based SSO for an app by using manual sign-in field capture, follow these steps:
 
-1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
-2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
-3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
-4. Select **Enterprise Applications** in the Azure AD navigation pane.
-5. Select **All Applications** to view a list of your apps.
-   > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications** list. Set the **Show** option to "All Applications."
-6. Select the app that you want to configure for SSO.
-7. After the app loads, select **Single sign-on** in the navigation pane on the left side.
-8. Select **Password-based Sign-on** mode.
-9. Enter the **Sign-on URL**, which is the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
-10. Select **Configure *&lt;appname&gt;* Password Single Sign-on Settings**.
-11. Select **Manually detect sign-in fields**.
-12. Select **Ok**.
-13. Select **Save**.
-14. Follow the instructions to use My Apps.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app that you want to configure for SSO.
+1. After the app loads, select **Single sign-on** in the navigation pane on the left side.
+1. Select **Password-based Sign-on** mode.
+1. Enter the **Sign-on URL**, which is the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
+1. Select **Configure *&lt;appname&gt;* Password Single Sign-on Settings**.
+1. Select **Manually detect sign-in fields**.
+1. Select **Ok**.
+1. Select **Save**.
+1. Follow the instructions to use My Apps.
 
 ## Troubleshoot problems
 
@@ -180,8 +173,8 @@ If you get an error message when you set up SSO and assign users, open a support
 
 To see the details of any portal notification, follow these steps:
 
-1. Select the **Notifications** icon (the bell) in the upper-right corner of the Azure portal.
-2. Select any notification that shows an *Error* state. (They have a red "!".)
+1. Select the **Notifications** icon (the bell) in the upper-right corner of the Microsoft Entra admin center.
+2. Select any notification that shows an **Error** state. (They have a red "!".)
    > [!NOTE]
    > You can't select notifications that are in the *Successful* or *In Progress* state.
 3. The **Notification Details** pane opens. Read the information to learn about the problem.
@@ -258,4 +251,4 @@ The following information explains what each notification item means and provide
 ## Next steps
 
 - [Quickstart Series on Application Management](view-applications-portal.md)
-- [Plan a My Apps deployment](my-apps-deployment-plan.md)
+- [Plan a My Apps deployment](./myapps-overview.md)

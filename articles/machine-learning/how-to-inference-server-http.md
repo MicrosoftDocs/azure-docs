@@ -7,7 +7,7 @@ ms.author: shnagata
 ms.reviewer: mopeakande
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 11/29/2022
@@ -21,7 +21,7 @@ The server can also be used to create validation gates in a continuous integrati
 
 This article mainly targets users who want to use the inference server to debug locally, but it will also help you understand how to use the inference server with online endpoints.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Online endpoint local debugging
 
@@ -227,7 +227,7 @@ In this section, we'll run the server locally with [sample files](https://github
     Use the `curl` command to send an example request to the server and receive a scoring result.
 
     ```bash
-    curl --request POST "127.0.0.1:5001/score" --header 'Content-Type: application/json' --data @sample-request.json
+    curl --request POST "127.0.0.1:5001/score" --header 'Content-Type:application/json' --data @sample-request.json
     ```
 
     The scoring result will be returned if there's no problem in your scoring script. If you find something wrong, you can try to update the scoring script, and launch the server again to test the updated script.
@@ -255,8 +255,6 @@ The following table contains the parameters accepted by the server:
 | appinsights_instrumentation_key | False    | N/A     | The instrumentation key to the application insights where the logs will be published.                              |
 | access_control_allow_origins    | False    | N/A     | Enable CORS for the specified origins. Separate multiple origins with ",". <br> Example: "microsoft.com, bing.com" |
 
-> [!TIP]
-> CORS (Cross-origin resource sharing) is a way to allow resources on a webpage to be requested from another domain. CORS works via HTTP headers sent with the client request and returned with the service response. For more information on CORS and valid headers, see [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in Wikipedia. See [here](v1/how-to-deploy-advanced-entry-script.md#cross-origin-resource-sharing-cors) for an example of the scoring script.
 
 ## Request flow
 
@@ -372,7 +370,7 @@ There are six levels of logging in Python, with numbers associated with severity
 ## Troubleshooting guide
 In this section, we'll provide basic troubleshooting tips for Azure Machine Learning inference HTTP server. If you want to troubleshoot online endpoints, see also [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 
-[!INCLUDE [inference server TSGs](../../includes/machine-learning-inference-server-troubleshooting.md)]
+[!INCLUDE [inference server TSGs](includes/machine-learning-inference-server-troubleshooting.md)]
 
 ## Next steps
 

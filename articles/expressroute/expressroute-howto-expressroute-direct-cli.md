@@ -9,8 +9,7 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: devx-track-azurecli
 ---
 
 # Configure ExpressRoute Direct by using the Azure CLI

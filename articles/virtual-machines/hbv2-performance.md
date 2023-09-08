@@ -5,6 +5,7 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
+ms.custom: devx-track-linux
 ms.topic: article 
 ms.date: 03/04/2023 
 ms.reviewer: cynthn
@@ -53,7 +54,7 @@ MPI bandwidth test from the OSU microbenchmark suite is run. Sample scripts are 
 The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below. 
 
 
-```console
+```bash
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 

@@ -36,7 +36,7 @@ Non-string fields and non-searchable string fields don't undergo lexical analysi
 
 ## Add text translation
 
-This article assumes you have translated strings in place. If that's not the case, you can attach Cognitive Services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during data ingestion. Text translation takes a dependency on the indexer feature and Cognitive Services, but all setup is done within Azure Cognitive Search. 
+This article assumes you have translated strings in place. If that's not the case, you can attach Azure AI services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during data ingestion. Text translation takes a dependency on the indexer feature and Azure AI services, but all setup is done within Azure Cognitive Search. 
 
 To add text translation, follow these steps:
 
@@ -50,7 +50,7 @@ To add text translation, follow these steps:
 
 1. Create an index that includes fields for translated strings. Most of this article covers index design and field definitions for indexing and querying multi-language content.
 
-1. [Attach a multi-region Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to your skillset.
+1. [Attach a multi-region Azure AI services resource](cognitive-search-attach-cognitive-services.md) to your skillset.
 
 1. [Create and run the indexer](search-howto-create-indexers.md), and then apply the guidance in this article to query just the fields of interest.
 
@@ -85,7 +85,7 @@ The "analyzer" property on a field definition is used to set the [language analy
 
 ## Build and load an index
 
-An intermediate step is [building and populating the index](search-get-started-dotnet.md) before formulating a query. We mention this step here for completeness. One way to determine index availability is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate step is [building and populating the index](search-get-started-text.md) before formulating a query. We mention this step here for completeness. One way to determine index availability is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Constrain the query and trim results
 

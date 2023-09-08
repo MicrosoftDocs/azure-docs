@@ -7,7 +7,7 @@ ms.author: sidontha
 ms.service: data-share
 ms.topic: article
 ms.date: 10/31/2022 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Use PowerShell to view the details of a sent data share

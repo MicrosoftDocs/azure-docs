@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Simple Sign | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Simple Sign'
 description: Learn how to configure single sign-on between Azure Active Directory and Simple Sign.
 services: active-directory
 author: jeevansd

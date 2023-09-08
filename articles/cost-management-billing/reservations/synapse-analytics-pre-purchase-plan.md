@@ -6,7 +6,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 03/28/2023
 ms.author: banders
 ---
 
@@ -14,11 +14,15 @@ ms.author: banders
 
 You can save on your Azure Synapse Analytics costs when you prepurchase Azure Synapse commit units (SCU) for one year. You can use the prepurchased SCUs at any time during the purchase term. Unlike VMs, the prepurchased units don't expire on an hourly basis and you use them at any time during the term of the purchase.
 
-Any Azure Synapse Analytics use deducts from the prepurchased SCUs automatically. You don't need to redeploy or assign a Pre-Purchased Plan to your Azure Synapse Analytics workspaces to get the prepurchase discounts.
+Any Azure Synapse Analytics usage deducts from the prepurchased SCUs automatically. You don't need to redeploy or assign a Pre-Purchased Plan to your Azure Synapse Analytics workspaces to get the prepurchase discounts.
 
 ## Determine the right size to buy
 
 A synapse prepurchase applies to all Synapse workloads and tiers. You can think of the Pre-Purchase Plan as a pool of prepaid Synapse commit units. Usage is deducted from the pool, regardless of the workload or tier. Integrated services such as VMs for SHIR, Azure Storage accounts, and networking components are charged separately.
+
+There’s no ratio on which the SCUs are applied. SCUs are equivalent to the purchase currency value and are deducted at retail prices. Like other reservations, the benefit of a pre-purchase plan is discounted pricing by committing to a purchase term. The more you buy, the larger the discount you receive.
+
+For example, if you want to use your SCUs for Data Warehousing – Dedicated SQL pool in West US 2, and you consume 1 hour of SQL Dedicated Pool DWU100 that has a retail price of $1.20, then 1.2 SCUs are consumed.
 
 The Synapse prepurchase discount applies to usage from the following products:
 
@@ -30,7 +34,7 @@ The Synapse prepurchase discount applies to usage from the following products:
 - Azure Synapse Analytics Data Flow - Basic
 - Azure Synapse Analytics Data Flow - Standard
 
-For more information about available SCU tiers and pricing discounts, you'll use the reservation purchase experience in the following section.
+For more information about available SCU tiers and pricing discounts, you use the reservation purchase experience in the following section.
 
 ## Purchase Synapse commit units
 
@@ -51,7 +55,7 @@ You buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a 
     - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
     - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment.
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
-1. Select how many Azure Synapse commit units you want to purchase and then complete the purchase.  
+1. Select how many SCUs you want to purchase and then complete the purchase.  
     :::image type="content" source="./media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png" alt-text="Screenshot showing the Select the product experience for the Azure Synapse Analytics Pre-Purchase Plan." lightbox="./media/synapse-analytics-pre-purchase-plan/buy-synapse-analytics-pre-purchase-plan.png" :::
 
 ## Change scope and ownership

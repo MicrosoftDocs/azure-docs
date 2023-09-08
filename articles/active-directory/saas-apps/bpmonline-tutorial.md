@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Creatio | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Creatio'
 description: Learn how to configure single sign-on between Azure Active Directory and Creatio.
 services: active-directory
 author: jeevansd

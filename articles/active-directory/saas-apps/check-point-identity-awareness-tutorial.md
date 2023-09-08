@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point Identity Awareness | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point Identity Awareness'
 description: Learn how to configure single sign-on between Azure Active Directory and Check Point Identity Awareness.
 services: active-directory
 author: jeevansd

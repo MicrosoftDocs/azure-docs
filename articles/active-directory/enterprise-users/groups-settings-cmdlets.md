@@ -1,5 +1,5 @@
 ---
-title: Configure group settings using PowerShell - Azure AD | Microsoft Docs
+title: Configure group settings using PowerShell
 description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 06/24/2022
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory cmdlets for configuring group settings
@@ -327,5 +327,5 @@ To configure and manage group settings using Microsoft Graph, see the [groupSett
 
 ## Additional reading
 
-* [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md)
 * [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

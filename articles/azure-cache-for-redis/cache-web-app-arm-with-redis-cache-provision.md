@@ -3,14 +3,13 @@ title: Provision Web App with Azure Cache for Redis
 description: Use Azure Resource Manager template to deploy web app with Azure Cache for Redis.
 services: app-service
 author: flang-msft
-
-ms.service: app-service
+ms.service: cache
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: franlanglois 
-ms.custom: devx-track-azurepowershell
-
 ---
+
 # Create a Web App plus Azure Cache for Redis using a template
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

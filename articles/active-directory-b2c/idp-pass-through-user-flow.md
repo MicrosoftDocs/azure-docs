@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2022
+ms.date: 03/16/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -149,6 +149,77 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
     You should see something similar to the following example:
 
     ![Decoded token in jwt.ms with idp_access_token block highlighted](./media/idp-pass-through-user-flow/identity-provider-pass-through-token-custom.png)
+
+## Pass the IDP refresh token (optional)
+
+The access token the identity provider returns is valid for a short period of time. Some identity providers also issue a refresh token along with the access token. Your client application can then exchange the identity provider's refresh token for a new access token when needed. 
+
+Azure AD B2C custom policy supports passing the refresh token of OAuth 2.0 identity providers, which includes [Facebook](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook-with-access-token), [Google](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook-with-access-token) and [GitHub](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#github-with-access-token).
+
+To pass the identity provider's refresh token, follow these steps:
+
+1. Open your *TrustframeworkExtensions.xml* file and add the following **ClaimType** element with an identifier of `identityProviderRefreshToken` to the **ClaimsSchema** element.
+    
+    ```xml
+    <ClaimType Id="identityProviderRefreshToken">
+        <DisplayName>Identity provider refresh token</DisplayName>
+        <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+1. Add the **OutputClaim** element to the **TechnicalProfile** element for each OAuth 2.0 identity provider that you would like the refresh token for. The following example shows the element added to the Facebook technical profile:
+    
+    ```xml
+    <ClaimsProvider>
+      <DisplayName>Facebook</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Facebook-OAUTH">
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="identityProviderRefreshToken" PartnerClaimType="{oauth2:refresh_token}" />
+          </OutputClaims>
+          ...
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+1. Some identity providers require you to include metadata or scopes to the identity provider's technical profile.
+
+    - For Google identity provider, add two claim types `access_type` and `prompt`. Then add the following input claims to the identity provider's technical profile:
+
+        ```xml
+        <InputClaims>
+            <InputClaim ClaimTypeReferenceId="access_type" PartnerClaimType="access_type" DefaultValue="offline" AlwaysUseDefaultValue="true" />
+    
+            <!-- The refresh_token is return only on the first authorization for a given user. Subsequent authorization request doesn't return the refresh_token.
+                To fix this issue we add the prompt=consent query string parameter to the authorization request-->
+            <InputClaim ClaimTypeReferenceId="prompt" PartnerClaimType="prompt" DefaultValue="consent" AlwaysUseDefaultValue="true" />
+        </InputClaims>
+        ```
+    
+    - Other identity providers may have different methods to issue a refresh token. Follow the identity provider's audience and add the necessary elements to your identity provider's technical profile. 
+
+1. Save the changes you made in your *TrustframeworkExtensions.xml* file.
+1. Open your relying party policy file, such as *SignUpOrSignIn.xml*, and add the **OutputClaim** element to the **TechnicalProfile**:
+
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <TechnicalProfile Id="PolicyProfile">
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="identityProviderRefreshToken" PartnerClaimType="idp_refresh_token"/>
+        </OutputClaims>
+        ...
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+1. Save the changes you made in your policy's relying party policy file.
+1. Upload the *TrustframeworkExtensions.xml* file, and then the relying party policy file.
+1. [Test your policy](#test-your-policy)
+ 
+
+ 
 
 ::: zone-end
 

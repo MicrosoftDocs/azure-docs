@@ -5,8 +5,9 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 01/13/2023
 ms.custom: mvc
+ms.reviewer: mattmcinnes
 ---
 
 # Azure Red Hat OpenShift

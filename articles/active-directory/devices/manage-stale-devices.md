@@ -1,10 +1,11 @@
 ---
-title: How to manage stale devices in Azure AD | Microsoft Docs
+title: How to manage stale devices in Azure AD
 description: Learn how to remove stale devices from your database of registered devices in Azure Active Directory.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 09/27/2022
 
@@ -13,9 +14,8 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: spunukol
 
-#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
-
 ms.collection: M365-identity-device-management
+#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
 ---
 # How To: Manage stale devices in Azure AD
 
@@ -41,7 +41,7 @@ Because a stale device is defined as a registered device that hasn't been used t
 
 The evaluation of the activity timestamp is triggered by an authentication attempt of a device. Azure AD evaluates the activity timestamp when:
 
-- A Conditional Access policies requiring [managed devices](../conditional-access/require-managed-devices.md) or [approved client apps](../conditional-access/app-based-conditional-access.md) has been triggered.
+- A Conditional Access policies requiring [managed devices](../conditional-access/concept-conditional-access-grant.md) or [approved client apps](../conditional-access/howto-policy-approved-app-or-app-protection.md) has been triggered.
 - Windows 10 or newer devices that are either Azure AD joined or hybrid Azure AD joined are active on the network. 
 - Intune managed devices have checked in to the service.
 
@@ -51,11 +51,11 @@ If the delta between the existing value of the activity timestamp and the curren
 
 You have two options to retrieve the value of the activity timestamp:
 
-- The **Activity** column on the [devices page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) in the Azure portal
+- The **Activity** column on the [devices page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
 
-    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Screenshot of a page in the Azure portal listing the name, owner, and other information on devices. One column lists the activity time stamp." border="false":::
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Screenshot listing the name, owner, and other information of devices. One column lists the activity time stamp." border="false":::
 
-- The [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
+- The [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet.
 
     :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot showing command-line output. One line is highlighted and lists a time stamp for the ApproximateLastLogonTimeStamp value." border="false":::
 
@@ -90,7 +90,7 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These devices are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `Get-AzureADDevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These devices are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned.
 
 ### Hybrid Azure AD joined devices
 
@@ -150,6 +150,9 @@ $dt = (Get-Date).AddDays(-90)
 Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-90days-summary.csv -NoTypeInformation
 ```
 
+> [!WARNING]
+> [Some active devices may have a blank time stamp.](#why-is-the-timestamp-not-updated-more-frequently)
+
 #### Set devices to disabled
 
 Using the same commands we can pipe the output to the set command to disable the devices over a certain age.
@@ -183,7 +186,7 @@ Remove-AzureADDevice -ObjectId $Device.ObjectId
 
 ### Why is the timestamp not updated more frequently?
 
-The timestamp is updated to support device lifecycle scenarios. This attribute isn't an audit. Use the sign-in audit logs for more frequent updates on the device.
+The timestamp is updated to support device lifecycle scenarios. This attribute isn't an audit. Use the sign-in audit logs for more frequent updates on the device. Some active devices may have a blank time stamp.
 
 ### Why should I worry about my BitLocker keys?
 
@@ -213,4 +216,4 @@ Any authentication where a device is being used to authenticate to Azure AD are 
 
 Devices managed with Intune can be retired or wiped, for more information see the article [Remove devices by using wipe, retire, or manually unenrolling the device](/mem/intune/remote-actions/devices-wipe).
 
-To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md)
+To get an overview of how to manage devices, see [managing devices using the Azure portal](manage-device-identities.md)

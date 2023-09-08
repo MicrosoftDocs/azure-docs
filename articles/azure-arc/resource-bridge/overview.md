@@ -75,7 +75,7 @@ You can connect an SCVMM management server to Azure by deploying Azure Arc resou
 
 ### Supported regions
 
-In order to use Arc resource bridge in a region, Arc resource bridge and the private cloud product must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and Azure Stack HCI must be supported in East US. Please check with the private cloud product for their region availability - it is typically called out in their deployment instructions of Arc resource bridge. There are instances where Arc Resource Bridge may be available in a region where private cloud support is not yet available.
+In order to use Arc resource bridge in a region, Arc resource bridge and the arc-enabled feature for a private cloud must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and the Arc VM management feature for Azure Stack HCI must be supported in East US. Please check with the private cloud product for their feature region availability - it is typically in their [deployment guide](deploy-cli.md#az-arcappliance-createconfig) for Arc resource bridge. There are instances where Arc Resource Bridge may be available in a region where the private cloud feature is not yet available. 
 
 Arc resource bridge supports the following Azure regions:
 
@@ -91,7 +91,6 @@ Arc resource bridge supports the following Azure regions:
 * Australia East
 * Southeast Asia
 
-
 ### Regional resiliency
 
 While Azure has a number of redundancy features at every level of failure, if a service impacting event occurs, this preview release of Azure Arc resource bridge does not support cross-region failover or other resiliency capabilities. In the event of the service becoming unavailable, the on-premises VMs continue to operate unaffected. Management from Azure is unavailable during that service outage.
@@ -100,7 +99,7 @@ While Azure has a number of redundancy features at every level of failure, if a 
 
 The following private cloud environments and their versions are officially supported for Arc resource bridge:
 
-* VMware vSphere version 6.7, 7.0
+* VMware vSphere version 6.7, 7.0, 8.0
 * Azure Stack HCI
 * SCVMM
 
@@ -111,11 +110,7 @@ The following private cloud environments and their versions are officially suppo
 
 ### Networking
 
-Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol.
-
-You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#restricted-outbound-connectivity) by your firewall or proxy server.
-
-For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#not-able-to-connect-to-url) by your firewall or proxy server. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
 ## Next steps
 

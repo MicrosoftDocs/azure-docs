@@ -1,13 +1,10 @@
 ---
 title: Create UI definition date functions
 description: Describes the functions to use when working with date values.
-author: davidsmatlak
-
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: davidsmatlak
-
 ---
+
 # CreateUiDefinition date functions
 
 The functions to use when working with date values.

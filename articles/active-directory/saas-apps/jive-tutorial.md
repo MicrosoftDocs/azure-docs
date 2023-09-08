@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Jive | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Jive'
 description: Learn how to configure single sign-on between Azure Active Directory and Jive.
 services: active-directory
 author: jeevansd

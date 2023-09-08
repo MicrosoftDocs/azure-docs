@@ -5,7 +5,7 @@ description: Available deep learning frameworks and tools on Azure Data Science 
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python
+ms.custom:
 
 author: michalmar
 ms.author: mimarusa

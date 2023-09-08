@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP Qualtrics | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAP Qualtrics'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Qualtrics.
 services: active-directory
 author: jeevansd
@@ -148,4 +148,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-After you configure SAP Qualtrics, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+After you configure SAP Qualtrics, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

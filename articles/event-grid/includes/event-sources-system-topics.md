@@ -19,6 +19,7 @@
 - [Azure Container Registry](../event-schema-container-registry.md)
 - [Azure Data Box](../event-schema-data-box.md)
 - [Azure Data Manager for Agriculture](../event-schema-data-manager-for-agriculture.md)
+- [Azure Event Grid](../event-schema-event-grid-namespace.md)
 - [Azure Event Hubs](../event-schema-event-hubs.md)
 - [Azure Health Data Services](../event-schema-azure-health-data-services.md)
 - [Azure IoT Hub](../event-schema-iot-hub.md)

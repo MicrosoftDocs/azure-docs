@@ -1,19 +1,16 @@
 ---
-title: User scenarios for Azure Deployment Environments
-description: Learn about scenarios enabled by Azure Deployment Environments.
+title: Usage scenarios for Azure Deployment Environments
+description: Learn how Azure Deployment Environments can be integrated into CI/CD pipelines, create sandboxes, and hackathon environments.
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ---
-# Scenarios for using Azure Deployment Environments Preview
+# Scenarios for using Azure Deployment Environments
 
-This article discusses a few possible scenarios for Azure Deployment Environments Preview, along with the resources that an organization can use to implement those scenarios. Azure Deployment Environments can be configured to meet the needs of an enterprise. 
-
-> [!IMPORTANT]
-> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article discusses a few possible scenarios for Azure Deployment Environments, along with the resources that an organization can use to implement those scenarios. Azure Deployment Environments can be configured to meet the needs of an enterprise. 
 
 ## Environments as part of a CI/CD pipeline
 
@@ -42,7 +39,7 @@ In this scenario, Azure Deployment Environments provides the following benefits:
 - Teams can access a fully configured environment when it's needed. 
 - Developers can test the latest version of an application by using reusable templates to quickly create new ad hoc environments.
 
-## Trainings, hands-on labs, and hackathons
+## Training, hands-on labs, and hackathons
 
 A project in Azure Deployment Environments acts as a container for transient activities like workshops, hands-on labs, trainings, or hackathons. You can create a project to provide custom templates to each user.
 

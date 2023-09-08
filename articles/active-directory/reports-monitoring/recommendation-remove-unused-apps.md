@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Remove unused apps (preview) | Microsoft Docs
+title: Azure Active Directory recommendation - Remove unused apps (preview)
 description: Learn why you should remove unused apps.
 services: active-directory
 author: shlipsey3
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/07/2023
+ms.date: 05/24/2023
 ms.author: sarahlipsey
 ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
@@ -32,6 +32,9 @@ Applications that the recommendation identified appear in the list of **Impacted
 
 1. Take note of the application name and ID that the recommendation identified.
 1. Go to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
+
+    ![Screenshot of the Azure AD app registration page.](media/recommendation-remove-unused-apps/app-registrations-list.png)
+
 1. Determine if the identified application is needed.
     - If the application is no longer needed, remove it from your tenant.
     - If the application is needed, we suggest you take appropriate steps to ensure the application is used in intervals of less than 30 days.
@@ -49,7 +52,7 @@ Take note of the following common scenarios or known limitations of the "Remove 
     - App proxy
     - Add-in apps
 
-* This recommendation currently surfaces applications that were created within the past 30 days *and* shows as unused. Updates to the recommendation to filter out recently created apps so that they can complete a full cycle are in progress.
+* The current unused app processor identifies any apps that were created recently. In some instances newly created apps might need more time to deploy the code that uses the application registration. Progress is underway to filter out apps that were created within the past 60 days so they don't show as unused.
 
 ## Next steps
 

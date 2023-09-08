@@ -1,6 +1,6 @@
 ---
 
-title: 'Troubleshoot audit data of verified domain change  | Microsoft Docs'
+title: 'Troubleshoot audit data of verified domain change '
 description: Provides you with information that will appear in the Azure Active Directory activity logs when you change a users verified domain.
 services: active-directory
 author: shlipsey3
@@ -65,4 +65,4 @@ Additionally, in most cases, there are no changes to users as their **UserPrinci
 
 ## Next Steps
 
-[Azure AD Connect sync service shadow attributes](../hybrid/how-to-connect-syncservice-shadow-attributes.md)
+[Azure AD Connect sync service shadow attributes](../hybrid/connect/how-to-connect-syncservice-shadow-attributes.md)

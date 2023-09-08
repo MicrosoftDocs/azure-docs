@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: how-to 
 ms.date: 06/14/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure an application security group (ASG) with a private endpoint
@@ -38,7 +38,7 @@ Azure Private endpoints support application security groups for network security
   
    If you don't have the latest version of the Azure CLI, update it by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. 
 
 ## Create private endpoint with an ASG
 
@@ -204,5 +204,3 @@ az network private-endpoint asg add \
 For more information about Azure Private Link, see:
 
 - [What is Azure Private Link?](private-link-overview.md)
-
-

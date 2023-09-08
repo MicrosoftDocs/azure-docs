@@ -38,7 +38,7 @@ The benefits of migrating to Azure Monitor include:
 
 |Splunk offering|Azure offering|
 |---|---|
-|Splunk Observability|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments, built over a powerful data ingestion pipeline that's shared with Microsoft Sentinel. Azure Monitor offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights-and-visualizations), and [alerts and response](../overview.md#respond) capabilities.|
+|Splunk Observability|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments, built over a powerful data ingestion pipeline that's shared with Microsoft Sentinel. Azure Monitor offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights), and [alerts and response](../overview.md#respond) capabilities.|
 |Splunk Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that runs over the Azure Monitor platform to provide intelligent security analytics and threat intelligence across the enterprise.|
 ## Introduction to key concepts
 

@@ -4,8 +4,7 @@ description: Learn how to choose an Azure solution for data transfer based on da
 services: storage
 author: stevenmatthew
 
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: shaas

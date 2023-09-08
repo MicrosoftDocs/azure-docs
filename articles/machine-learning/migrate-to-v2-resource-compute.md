@@ -11,6 +11,7 @@ ms.author: vijetaj
 ms.date: 02/14/2023
 ms.reviewer: franksolomon
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade compute management to v2
@@ -93,5 +94,5 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Next steps
 
-* [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
+* [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md)
 * [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)

@@ -5,7 +5,7 @@ description: Learn how to set up and configure an HDInsight cluster integrated w
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperf-fy21q2
-ms.date: 04/01/2022
+ms.date: 04/25/2023
 ---
 
 # Configure HDInsight clusters for Azure Active Directory integration with Enterprise Security Package

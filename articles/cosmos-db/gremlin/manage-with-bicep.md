@@ -4,7 +4,7 @@ description: Use Bicep to create and configure Azure Cosmos DB for Gremlin.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-bicep
 ms.topic: how-to
 ms.date: 9/13/2021
 ms.author: sidandrews

@@ -2,11 +2,10 @@
 title: Create an Azure File Sync server endpoint
 description: Understand the options during server endpoint creation and how to best apply them to your situation.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Create an Azure File Sync server endpoint
@@ -111,4 +110,4 @@ There's more to discover about Azure file shares and Azure File Sync. The follow
 * [Migration overview](../files/storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 * [Create a file share](../files/storage-how-to-create-file-share.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

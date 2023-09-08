@@ -2,14 +2,14 @@
 title: Azure Quickstart - Create an Azure key vault and a key by using Azure Resource Manager template | Microsoft Docs
 description: Quickstart showing how to create Azure key vaults, and add key to the vaults by using Azure Resource Manager template (ARM template).
 services: key-vault
-author: sebansal
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 06/28/2022
-ms.author: sebansal
+ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
@@ -111,8 +111,9 @@ To complete this article:
       "location": "[parameters('location')]",
       "properties": {
         "accessPolicies": [],
-        "enableRbacAuthorization": false,
-        "enableSoftDelete": false,
+        "enableRbacAuthorization": true,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": "90",
         "enabledForDeployment": false,
         "enabledForDiskEncryption": false,
         "enabledForTemplateDeployment": false,

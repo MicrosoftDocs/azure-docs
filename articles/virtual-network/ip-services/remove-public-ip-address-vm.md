@@ -3,14 +3,14 @@ title: Dissociate a public IP address from an Azure VM
 titlesuffix: Azure Virtual Network
 description: Learn how to dissociate a public IP address from an Azure virtual machine (VM) using the Azure portal, Azure CLI or Azure PowerShell.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 12/16/2022
-ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Dissociate a public IP address from an Azure VM 
@@ -100,7 +100,7 @@ az network nic ip-config update \
 
 ## PowerShell
 
-Install [PowerShell](/powershell/azure/install-az-ps), or use the [Azure Cloud Shell](../../cloud-shell/overview.md). The Azure Cloud Shell is a free shell that you can run directly within the Azure portal. It has PowerShell preinstalled and configured to use with your account.
+Install [PowerShell](/powershell/azure/install-azure-powershell), or use the [Azure Cloud Shell](../../cloud-shell/overview.md). The Azure Cloud Shell is a free shell that you can run directly within the Azure portal. It has PowerShell preinstalled and configured to use with your account.
 
 - If using PowerShell locally, sign in to Azure with `Connect-AzAccount`.
 
@@ -168,4 +168,3 @@ In this article, you learned how to dissociate a public IP address from a virtua
 - Learn how to [associate a public IP address to a VM](./associate-public-ip-address-vm.md).
 
 - Learn how to [configure IP addresses for an Azure network interface](./virtual-network-network-interface-addresses.md).
-

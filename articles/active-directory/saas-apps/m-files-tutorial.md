@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with M-Files | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with M-Files'
 description: Learn how to configure single sign-on between Azure Active Directory and M-Files.
 services: active-directory
 author: jeevansd

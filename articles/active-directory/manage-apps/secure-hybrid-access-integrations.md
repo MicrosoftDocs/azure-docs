@@ -11,6 +11,8 @@ ms.workload: identity
 ms.date: 01/19/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
+
 ---
 
 # Secure hybrid access with Azure Active Directory partner integrations
@@ -35,10 +37,10 @@ The solution that you build can include the following parts:
 
 * **App discovery** - Often, customers aren't aware of every application in use
   * Application discovery finds applications, facilitating app integrating with Azure AD
-* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure AD portal
+* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure portal
   * Integrate apps that customers use today
 * **Legacy authentication support** - Connect apps with legacy authentication methods and single sign-on (SSO)
-* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure AD portal
+* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure portal
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md) 
 
@@ -58,7 +60,7 @@ There are several ways to enable SSO for IT administrators to your solution. See
 
 Microsoft Graph uses OIDC/OAuth. Customers use OIDC to sign in to your solution. Use the JSON Web Token (JWT) Azure AD issues to interact with Microsoft Graph. See, [OpenID Connect on the Microsoft identity platform](../develop/v2-protocols-oidc.md).
 
-If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md).
+If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/saml-protocol-reference.md).
 
 You can use one of the following SAML approaches:
 
@@ -379,7 +381,7 @@ Method: PATCH
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/{policyid}
 {
-    "displayName":"Existing CA Policy",
+    "displayName":"Existing Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -416,7 +418,7 @@ Method: POST
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/
 {
-    "displayName":"New CA Policy",
+    "displayName":"New Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -572,7 +574,7 @@ To help protect legacy applications, while using networking and delivery control
 * **Citrix ADC**
   * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)
 * **F5 BIG-IP Access Policy Manager**
-  * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](./f5-aad-integration.md)
+  * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](./f5-integration.md)
 * **Kemp LoadMaster**
   * [Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](../saas-apps/kemp-tutorial.md)
 * **Pulse Secure Virtual Traffic Manager**
@@ -585,7 +587,7 @@ The following VPN solution providers connect with Azure AD to enable modern auth
 * **Fortinet FortiGate**
   * [Tutorial: Azure AD SSO integration with FortiGate SSL VPN](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 * **F5 BIG-IP Access Policy Manager**
-  * [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](./f5-aad-password-less-vpn.md)
+  * [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](./f5-passwordless-vpn.md)
 * **Palo Alto Networks GlobalProtect**
   * [Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI](../saas-apps/paloaltoadmin-tutorial.md)
 * **Pulse Connect Secure**
@@ -594,11 +596,11 @@ The following VPN solution providers connect with Azure AD to enable modern auth
 The following software-defined perimeter (SDP) solutions providers connect with Azure AD for authentication and authorization methods like SSO and MFA.
 
 * **Datawiza Access Broker**
-  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
+  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-configure-sha.md)
 * **Perimeter 81**
   * [Tutorial: Azure AD SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 * **Silverfort Authentication Platform**
-  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](./silverfort-azure-ad-integration.md)
+  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](./silverfort-integration.md)
 * **Strata Maverics Identity Orchestrator**
   * [Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 * **Zscaler Private Access**

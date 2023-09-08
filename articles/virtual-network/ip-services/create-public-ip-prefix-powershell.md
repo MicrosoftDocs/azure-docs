@@ -3,13 +3,13 @@ title: 'Quickstart: Create a public IP address prefix - PowerShell'
 titleSuffix: Azure Virtual Network
 description: Learn how to create a public IP address prefix using PowerShell.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
-ms.date: 10/01/2021
-ms.author: allensu
-ms.custom: mode-api
+ms.date: 08/24/2023
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a public IP address prefix using PowerShell
@@ -23,7 +23,7 @@ When you create a public IP address resource, you can assign a static public IP 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -41,7 +41,7 @@ New-AzResourceGroup @rg
 
 ## Create a public IP address prefix
 
-In this section, you'll create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
+In this section, you create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
 
 The prefixes in the examples are:
 
@@ -109,6 +109,26 @@ The removal of the **`-Zone`** parameter in the command is valid in all regions.
 
 The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
+# [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
+
+To create a IPv4 public IP prefix with routing preference Internet, create an **IpTag** with an **ipTagType** 'Routing Preference' and **Tag** 'Internet'.
+
+```azurepowershell-interactive
+$tagproperty = @{
+IpTagType = 'RoutingPreference'
+Tag = 'Internet'
+}
+$routingprefinternettag = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSPublicIpPrefixTag -Property $tagproperty 
+$ipv4 =@{
+    Name = 'myPublicIpPrefix-routingprefinternet'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
+    Location = 'eastus2'
+    PrefixLength = '28'
+    IpAddressVersion = 'IPv4'
+    IpTag = $routingprefinternettag
+}
+New-AzPublicIpPrefix @ipv4
+```
 ---
 
 ## IPv6
@@ -171,7 +191,7 @@ The removal of the **`-Zone`** parameter is the default selection for standard p
 
 ## Create a static public IP address from a prefix
 
-Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
+Once you create a prefix, you must create static IP addresses from the prefix. In this section, you create a static IP address from the prefix you created earlier.
 
 Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) in the **myPublicIpPrefix** prefix.
 
@@ -229,7 +249,7 @@ New-AzPublicIpAddress @ipv6
 
 ## Delete a prefix
 
-In this section, you'll learn how to delete a prefix.
+In this section, you learn how to delete a prefix.
 
 To delete a public IP prefix, use [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix).
 

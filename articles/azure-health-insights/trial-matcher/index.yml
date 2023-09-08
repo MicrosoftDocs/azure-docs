@@ -1,0 +1,48 @@
+### YamlMime:Landing
+
+title: Trial Matcher documentation
+summary: The Trial Matcher is designed to match patients to potentially suitable clinical trials and find group of potentially eligible patients to a list of clinical trials.
+
+metadata:
+  title: Trial Matcher documentation
+  titleSuffix: Project Health Insights
+  description: The Trial Matcher is designed to match patients to potentially suitable clinical trials and find group of potentially eligible patients to a list of clinical trials.
+  ms.service: Project Health Insights
+  ms.topic: landing-page 
+  author: iBoonZ
+  ms.collection: collection
+  ms.author: behoorne
+  ms.date: 01/27/2023
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new 
+
+landingContent:
+  - title: About Trial Matcher
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Trial Matcher?
+            url: overview.md
+          - text: Trial Matcher modes
+            url: trial-matcher-modes.md 
+      - linkListType: concept
+        links:
+          - text: Model configuration
+            url: model-configuration.md
+          - text: Patient information
+            url: patient-info.md
+          - text: Inference information
+            url: inferences.md
+  - title: Use the Trial Matcher
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the Portal
+            url: get-started.md   
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Support and help options
+            url: support-and-help.md
