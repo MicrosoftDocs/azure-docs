@@ -5,22 +5,27 @@ ms.topic: conceptual
 ms.date: 09/08/2023
 ---
 
-# Azure Resouce Notifications - health resources events in Azure Event Grid
-This article provides the properties and schema for Azure Resource Notification - health resources events. For an introduction to event schemas in general, see [Azure Event Grid event schema](event-schema.md). 
+# Azure Resource Notifications - Health Resources events in Azure Event Grid
+This article provides the schema for events raised by Azure Resource Notifications - Health Resources. For an introduction to event schemas in general, see [Azure Event Grid event schema](event-schema.md). The article also provides you with examples for the events and a link to an article that shows how to create a system topic for this type of resource. 
 
 ## Event types
-Event Grid uses [event subscriptions](concepts.md#event-subscriptions) to route event messages to subscribers. Azure Resource Notifications - health resources emit the following event types: 
+The system topic supported by Azure Resource Notifications - Health Resources supports the following event types: 
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged | Raised when the availability of a virtual machine (VM) changes. |
-| Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated | Raised when the health of your VM is impacted by availability impacting disruptions (see [Resource types and health checks](../service-health/resource-health-checks-resource-types.md)), the platform emits context as to why the disruption has occurred to assist you in responding appropriately. |
+| Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged | Raised when the availability status of a virtual machine (VM) changes. |
+| Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated | Raised when the health of a VM is impacted by availability impacting disruptions (see [Resource types and health checks](../service-health/resource-health-checks-resource-types.md)). The platform emits context as to why the disruption has occurred to assist you in responding appropriately.|
+
+These events are emitted for standalone VMs and VMs that are a part of Virtual Machine Scale Sets in the Azure subscription in which the system topic is created. The advantages of these new types of events are:
+
+- Ability to receive near real-time push-based notifications with the complete payload that can be used to perform the necessary mitigation actions to meet business SLAs.
+- Advanced filtering capabilities provided by Event Grid can be applied to the payload properties to filter notifications based on custom scenarios.
 
 ## Event schemas
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-Here is the schema:
+Here's the schema:
 
 ```json
 {
@@ -33,7 +38,7 @@ Here is the schema:
             "name": string,
             "type": string,
             "properties": {
-                <<Different for AvailabilityStatusChanged event and ResourceAnnotatedEvent>>
+                <<Different for AvailabilityStatusChanged event and ResourceAnnotated event>>
             }
         },
         "apiVersion ": string 
@@ -50,7 +55,7 @@ An event has the following top-level data:
 | Property | Type | Description |
 | -------- | ---- | ----------- | 
 | `id` | String | Unique identifier of the event |
-| `topic` | String | The azure subscription for which this system topic is being created |
+| `topic` | String | The Azure subscription for which this system topic is being created |
 | `subject` | String | Publisher defined path about the event subject. Indicates what the event is about |
 | `data` | Object | Contains event data specific to the resource provider. For more information, see the next table. |
 | `eventType` | String | Registered event type of this system topic type |
@@ -62,7 +67,7 @@ An event has the following top-level data:
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-Here is the schema:
+Here's the schema:
 
 ```json
 {
@@ -77,7 +82,7 @@ Here is the schema:
             "name": string,
             "type": string,
             "properties": {
-                <<Different for AvailabilityStatusChanged event and ResourceAnnotatedEvent>>
+                <<Different for AvailabilityStatusChanged event and ResourceAnnotated event>>
             }
         },
         "apiVersion": string 
@@ -91,7 +96,7 @@ An event has the following top-level data:
 | Property | Type | Description |
 | -------- | ---- | ----------- | 
 | `id` | String | Unique identifier of the event |
-| `source` | String | The azure subscription for which this system topic is being created |
+| `source` | String | The Azure subscription for which this system topic is being created |
 | `subject` | String | Publisher defined path about the event subject. Indicates what the event is about |
 | `type` | String | Registered event type of this system topic type |
 | `time` | String <br/> Format: `2022-11-07T18:43:09.2894075Z` | The time the event is generated based on the provider's UTC time |
@@ -114,7 +119,7 @@ The `resourceInfo` object has the following properties:
 | `id` | String | Publisher defined path to the event subject |
 | `properties` | Object | Payload of the resource. For more information, see the next table. |
 | `name` | String | This value is always **current** for availability status events |
-| `type` | String | The type of event that is being emitted. In this context it is `Microsoft.ResourceHealth/AvailabilityStatuses` |
+| `type` | String | The type of event that is being emitted. In this context, it's `Microsoft.ResourceHealth/AvailabilityStatuses` |
 
 
 The `properties` within the `data` object is different for `AvailabilityStatusChanged` and `ResourceAnnotated` events. 
@@ -168,7 +173,7 @@ For the `ResourceAnnotated` event, the `properties` object has the following pro
 | `reason` | String | Brief statement on why resource availability has changed or was influenced |
 | `summary` | String | Detailed statement on the activity and cause for resource availability to change or be influenced |
 | `context` | String | Determines whether resource availability was influenced due to Azure or user caused activity |
-| `category` | String | Determines whether resource availability was influenced due to planned or unplanned activity. This is only applicable to `Platform-Initiated` events. |
+| `category` | String | Determines whether resource availability was influenced due to planned or unplanned activity. This property is only applicable to `Platform-Initiated` events. |
 
 
 ## Example events
@@ -315,7 +320,7 @@ The following example shows the schema of a key-value modified event:
 | [Use Event Grid for data change notifications](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Learn how to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. |
 
 ## Next steps
+See the following articles:
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
-* For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* For an introduction to working with Azure App Configuration events, see [Use Event Grid for data change notifications](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+- [What is Event Grid?](overview.md)
+- [Event Grid subscription schema](subscription-creation-schema.md)
