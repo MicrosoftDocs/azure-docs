@@ -101,10 +101,4 @@ For release notes on the latest versions of HDInsight on AKS, see [release notes
 * HDInsight on AKS reserves the right to change the default version without prior notice. If you have a version dependency, specify the HDInsight on AKS version when you create your clusters.
 * HDInsight on AKS may retire an OSS component version before retiring the HDInsight on AKS version, based on the upstream support of open-source or AKS dependencies.
 
-## Functionality
 
-During public preview, HDInsight on AKS may have limited or restricted functionality.
-
-## Availability
-
-During public preview, HDInsight on AKS may not be available in all geographic areas. For more information, see [region availability](./overview.md#region-availability-public-preview)
