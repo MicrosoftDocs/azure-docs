@@ -48,7 +48,7 @@ Viewing the enriched Microsoft 365 logs is a two-step process. First, you need t
 
 To enable the Enriched Microsoft 365 logs:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator)..
 1. Browse to **Global Secure Access (preview)** > **Global settings** > **Logging**.
 1. Select the type of Microsoft 365 logs you want to enable.
 1. Select **Save**.
@@ -73,7 +73,7 @@ To view the enriched Microsoft 365 logs, you must export or stream the logs to a
 
 With your endpoint created, you can configure Diagnostic settings.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator or Security Administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator).
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Select **Add Diagnostic setting**.
 1. Give your diagnostic setting a name.

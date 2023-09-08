@@ -73,8 +73,7 @@ For more information to configure these policies, see the article [Set up tenant
 Once you have created the tenant restriction v2 policies, you can utilize Global Secure Access to apply tagging for tenant restrictions v2. An administrator with both the [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference) and [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) roles must take the following steps to enable enforcement with Global Secure Access.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../roles/permissions-reference.md#global-secure-access-administrator).
-1. Browse to **Global Secure Access** > **Global Settings** > **Session Management**.
-1. Select the **Tenant Restrictions** tab.
+1. Browse to **Global Secure Access** > **Global Settings** > **Session Management** > **Tenant Restrictions**.
 1. Select the toggle to **Enable tagging to enforce tenant restrictions on your network**.
 1. Select **Save**.
 

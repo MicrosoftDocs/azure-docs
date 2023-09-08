@@ -32,7 +32,7 @@ Within each log instance, you can see the connection ID and transaction ID in th
 
 ## How to view the traffic logs
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) using a Reports Reader role.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](/azure/active-directory/roles/permissions-reference#reports-reader).
 1. **Global Secure Access (Preview)** > **Monitor** > **Traffic logs**.
 
 The top of the page displays a summary of all transactions as well as a breakdown for each type of traffic. Select the **Microsoft 365** or **Private access** buttons to filter the logs to each traffic type.
