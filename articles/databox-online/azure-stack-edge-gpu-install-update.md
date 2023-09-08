@@ -44,24 +44,28 @@ For information on what's new in this update, go to [Release notes](azure-stack-
 
 Supported update paths:
 
-| Current version of Azure Stack Edge software and Kubernetes | Upgrade to software and Kubernetes | Desired update to 2309 |
+| Current version of Azure Stack Edge software and Kubernetes | Upgrade to Azure Stack Edge software and Kubernetes | Desired update to 2309 |
 |-------|----------|------------ |
 | 2207  | 2303  | 2309  |
+| 2209  | 2303  | 2309  |
+| 2210  | 2303  | 2309  |
+| 2301  | 2303  | 2309  |
+| 2303  | Directly to | 2309  |
 
 ### Update Azure Kubernetes service on Azure Stack Edge
 
 > [!IMPORTANT]
 > Use the following procedure only if you are an SAP or a PMEC customer.
 
-If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are either 2207 or 2209, you must update in multiple steps to apply 2307.
+If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are either 2207 or 2209, you must update in multiple steps to apply 2309.
 
-Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2307:
+Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2309:
 
-1. Update your device version to 2307.
+1. Update your device version to 2303.
 1. Update your Kubernetes version to 2210.
-1. Update your Kubernetes version to 2307.
+1. Update your Kubernetes version to 2303.
 
-If you are running 2210, you can update both your device version and Kubernetes version directly to 2307.
+If you are running 2210, you can update both your device version and Kubernetes version directly to 2303 and then to 2309.
 
 In Azure portal, the process will require two clicks, the first update gets your device version to 2307 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2307.
 
