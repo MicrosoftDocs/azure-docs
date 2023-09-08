@@ -245,8 +245,8 @@ The following example shows how to read metric data on the metric supporting mul
 You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow these steps.
 
 1. Go to your storage account in the [Azure portal](https://portal.azure.com). 
-1. From the left nagivation, select **Data storage** > **File shares**. Select the file share you want to monitor.
-1. From the left nagivation, select **Monitoring** > **Metrics**.
+1. From the left navigation, select **Data storage** > **File shares**. Select the file share you want to monitor.
+1. From the left navigation, select **Monitoring** > **Metrics**.
 1. When using Azure Monitor for Azure Files, it’s important to always select the **Files** metric namespace. Select **Add metric**.
 1. Under **Metric namespace** select **File**.
 
@@ -266,7 +266,7 @@ The two most important latency metrics are **Success E2E Latency** and **Success
 
 In the following charts, the blue line indicates how much time is spent in total latency (Success E2E Latency), and the pink line indicates time spent only in the Azure Files service (Success Server Latency).
 
-This chart is an example of a client machine that has mounted an Azure file share from an on-premise environment. This will likely represent a typical user connecting from either an office, home, or other remote location. You'll see that the physical distance between the client and Azure region is closely correlated to the corresponding client-side latency, which represents the difference between the E2E and Server latency.
+This chart is an example of a client machine that has mounted an Azure file share from an on-premises environment. This will likely represent a typical user connecting from either an office, home, or other remote location. You'll see that the physical distance between the client and Azure region is closely correlated to the corresponding client-side latency, which represents the difference between the E2E and Server latency.
 
 :::image type="content" source="media/analyze-files-metrics/latency-remote.png" alt-text="Screenshot showing latency metrics with a remote user connecting to an Azure file share." lightbox="media/analyze-files-metrics/latency-remote.png" border="false":::
 
@@ -286,7 +286,7 @@ If you're using the **Egress** or **Ingress** metrics to determine the volume of
 
 You can also select **Apply splitting** on response types (success, failures, errors) or API operations (read, write, create, close) to display additional details as shown in the following chart.
 
-:::image type="content" source="media/analyze-files-metrics/utilization-apply-splitting.png" alt-text="Screenshot showing utilization metrics split by A P I name." lightbox="media/analyze-files-metrics/utilization-apply-splitting.png" border="false":::
+:::image type="content" source="media/analyze-files-metrics/utilization-apply-splitting.png" alt-text="Screenshot showing utilization metrics split by API name." lightbox="media/analyze-files-metrics/utilization-apply-splitting.png" border="false":::
 
 To determine the average I/O per second (IOPS) for your workload, first determine the total number of transactions over a minute and then divide that number by 60 seconds. For example, 120,000 transactions in 1 minute / 60 seconds = 2,000 average IOPS.
 
@@ -306,7 +306,7 @@ The following chart shows a workload that generated 2.63 million transactions ov
 
 Now when we compare the average IOPS against the **Transactions by Max IOPS**, we see that under peak load we were achieving 1,840 IOPS, which is a better representation of the workload's ability at scale.
 
-:::image type="content" source="media/analyze-files-metrics/transactions-by-max-iops.png" alt-text="Screenshot showing transactions by max I O P S." lightbox="media/analyze-files-metrics/transactions-by-max-iops.png" border="false":::
+:::image type="content" source="media/analyze-files-metrics/transactions-by-max-iops.png" alt-text="Screenshot showing transactions by max IOPS." lightbox="media/analyze-files-metrics/transactions-by-max-iops.png" border="false":::
 
 Select **Add metric** to combine the **Ingress** and **Egress metrics** on a single graph. This displays that 76.2 GiB (78,028 MiB) was transferred over one hour, which gives us an average throughput of 21.67 MiB over that same hour.
 
@@ -314,7 +314,7 @@ Select **Add metric** to combine the **Ingress** and **Egress metrics** on a sin
 
 Compared against the **Bandwidth by Max MiB/s**, we achieved 123 MiB/s at peak.
 
-:::image type="content" source="media/analyze-files-metrics/bandwidth-by-max-mibs.png" alt-text="Screenshot showing bandwidth by max M I B S." lightbox="media/analyze-files-metrics/bandwidth-by-max-mibs.png" border="false":::
+:::image type="content" source="media/analyze-files-metrics/bandwidth-by-max-mibs.png" alt-text="Screenshot showing bandwidth by max MIBS." lightbox="media/analyze-files-metrics/bandwidth-by-max-mibs.png" border="false":::
 
 ## Analyze logs
 
