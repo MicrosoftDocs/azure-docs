@@ -141,7 +141,7 @@ To create a certificate issued by a CA, follow these steps:
 1. Create a certificate signing request (CSR) by following the instructions in [create certificate signing request](../key-vault/certificates/create-certificate-signing-request.md).
 2. When merging the CSR, make sure you merge the entire chain that brought back from the CA vendor.
 
-### Import a certificate, follow these steps:
+### Import a certificate in AKV
 
 To import a certificate, follow these steps:
 
