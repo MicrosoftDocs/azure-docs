@@ -71,7 +71,7 @@ The information retrieval system provides the searchable index, query logic, and
 
 The LLM receives the original prompt, plus the results from Cognitive Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a back and forth conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
 
-Cognitive Search doesn't provide native LLM integration, web front ends, or vector encoding (embeddings) out of the box, so you need to write code that handles those parts of the solution. You can review demo source ([Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)) for a blueprint of what a full solution entails.
+Cognitive Search doesn't provide native LLM integration, web frontends, or vector encoding (embeddings) out of the box, so you need to write code that handles those parts of the solution. You can review demo source ([Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)) for a blueprint of what a full solution entails.
 
 ## Searchable content in Cognitive Search
 
