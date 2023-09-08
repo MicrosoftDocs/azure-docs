@@ -50,7 +50,7 @@ You can set your Spot Priority Mix by using an ARM template to add the following
 
 You can refer to this [ARM template example](https://paste.microsoft.com/f84d2f83-f6bf-4d24-aa03-175b0c43da32) for more context.
 
-### [Portal](#tab/portal) 
+### [Portal](#tab/portal1) 
 
 You can set your Spot Priority Mix in the Spot tab of the Virtual Machine Scale Sets creation process in the Azure portal. The following steps instruct you on how to access this feature during that process. 
 
@@ -62,7 +62,7 @@ You can set your Spot Priority Mix in the Spot tab of the Virtual Machine Scale 
 1. Fill out the **Base VM (uninterruptible) count** and **Instance distribution** fields to configure your percentage split between Spot and Standard VMs.
 1. Continue through the Virtual Machine Scale Set creation process. 
 
-### [Azure CLI](#tab/cli)
+### [Azure CLI](#tab/cli1)
 
 You can set your Spot Priority Mix using Azure CLI by setting the `priority` flag to `Spot` and including the `regular-priority-count` and `regular-priority-percentage` flags.  
 
@@ -80,7 +80,7 @@ az vmss create -n myScaleSet \
 		--single-placement-group False \
 ```
 
-### [Azure PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell1)
 
 You can set your Spot Priority Mix using Azure PowerShell by setting the `Priority` parameter to `Spot` and including the `BaseRegularPriorityCount` and `RegularPriorityPercentage` parameters.  
 
@@ -106,7 +106,7 @@ New-AzVmss `
 ## Updating your Spot Priority Mix
 Should your ideal percentage split of Spot and Standard VMs change, you can update your Spot Priority Mix after your scale set has been deployed. Updating your Spot Priority Mix will apply for all scale set actions *after* the change is made, existing VMs will remain as is.
 
-### [Portal](#tab/portal)
+### [Portal](#tab/portal2)
 You can update your existing Spot Priority Mix in the Configuration tab of the Virtual Machine Scale Set resource page in the Azure portal. The following steps instruct you on how to access this feature during that process. Note: in Portal, you can only update the Spot Priority Mix for scale sets that already have Spot Priority Mix enabled.
 
 You can update your existing Spot Priority Mix in the Configuration tab of the Virtual Machine Scale Set resource page in the Azure portal. The following steps instruct you on how to access this feature during that process. Note: in Portal, you can only update the Spot Priority Mix for scale sets that already have Spot Priority Mix enabled.
@@ -117,7 +117,7 @@ You can update your existing Spot Priority Mix in the Configuration tab of the V
 1. Update your Spot Mix as needed.
 1. Press the **Save** button to apply your changes. 
 
-### [Azure CLI](#tab/cli)
+### [Azure CLI](#tab/cli2)
 
 You can update your Spot Priority Mix using Azure CLI by updating the `regular-priority-count` and `regular-priority-percentage` parameters.  
 
@@ -128,7 +128,7 @@ az vmss update --resource-group myResourceGroup \
         --regular-priority-percentage 80 \
 ```
 
-### [Azure PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell2)
 
 You can update your Spot Priority Mix using Azure PowerShell by updating the `BaseRegularPriorityCount` and `RegularPriorityPercentage` parameters.  
 
