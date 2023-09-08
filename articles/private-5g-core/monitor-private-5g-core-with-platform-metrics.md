@@ -21,7 +21,7 @@ Platform metrics are available for monitoring and retrieval for up to 92 days. I
 
 If you want to use the Azure portal to analyze your packet core metrics, see [Visualize metrics using the Azure portal](#visualize-metrics-using-the-azure-portal).
 
-If you want to export metrics for analysis using your tool of choice or for longer storage periods, see [Export metrics using the Azure Monitor REST API](#export-metrics-using-the-azure-monitor-rest-api).
+If you want to export metrics for analysis using your tool of choice or for longer storage periods, see [Export metrics using the Azure Monitor REST API](#export-metrics-using-the-azure-monitor-rest-api). 
 
 ## Visualize metrics using the Azure portal
 
