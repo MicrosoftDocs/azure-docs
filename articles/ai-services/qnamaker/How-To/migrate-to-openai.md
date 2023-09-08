@@ -12,8 +12,8 @@ ms.date: 09/08/2023
 
 # Migrate QnA Maker to Azure OpenAI on your data 
 
-QnA Maker, a feature introduced in the Azure Cognitive Services for Language became Generally Available in 2018. This feature was designed to be a cloud-based Natural Language Processing (NLP) service that allowed users to create a natural conversational layer over their data. In 2018, the QnA Maker service started evolving as the Question Answering feature and the original QnA Maker feature was put on a retirement path and scheduled for deprecation on March 31, 2025. In the meanwhile, existing QnA Maker customers have an option to migrate to the Custom Question Answering (CQA) feature as announced in November 2021. However, many customers have also informed us that they want to leverage the power of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 as offered by the Azure Open AI (AOAI) Service to address their use cases.   
-In fact, the AOAI Service can increasingly address most of the chat-based use cases supported by QnA Maker and Question Answering with much more sophistication and without the need to train or fine-tune LLM models. To empower existing customers of QnA Maker and Question Answering service, Microsoft is offering an additional migration path for their existing projects by leveraging the underlying capability of Azure Cognitive Search indexes to connect to AOAI’s On Your Data (OYD) (Preview) feature, so that users can chat with their own data as explained in the steps below.
+QnA Maker was designed to be a cloud-based Natural Language Processing (NLP) service that allowed users to create a natural conversational layer over their data. This service is being retired, having been replaced by [custom question answering](../../language-service/question-answering/overview.md). AI runtimes however, are evolving due to the development of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 offered by [Azure OpenAI](../../openai/overview.md) which can address many chat-based use cases. Use this article to learn how to migrate your existing QnA Maker projects to Azure OpenAI. 
+
 
 ## Prerequisites
 
