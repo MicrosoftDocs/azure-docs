@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # How to create a `WebPubSubServiceClient` with Java and Azure Identity
 
-This how-to guide shows you how to create a `WebPubSubServiceClient` with Java and Azure Identity.
+This how-to guide shows you how to create a `WebPubSubServiceClient` using Microsoft Entra ID in Java.
 
 ## Requirements
 
@@ -103,4 +103,4 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` with Java a
 
 ## Complete sample
 
-- [Simple chatroom with AAD Auth](https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp-aad)
+- [Simple chatroom with Microsoft Entra ID authorization](https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp-aad)

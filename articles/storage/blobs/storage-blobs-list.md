@@ -36,7 +36,7 @@ To list the blobs in a storage account, call one of these methods:
 
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to return results in pages.
+By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to return results in pages. To learn more about pagination concepts, see [Pagination with the Azure SDK for .NET](/dotnet/azure/sdk/pagination).
 
 ### Filter results with a prefix
 

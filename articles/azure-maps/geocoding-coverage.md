@@ -227,7 +227,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Burkina Faso                                        |                |              |       ✓      |      ✓     |        ✓          |
 | Burundi                                             |                |              |       ✓      |      ✓     |        ✓          |
 | Cameroon                                            |                |              |       ✓      |      ✓     |        ✓          |
-| Cape Verde                                          |                |              |       ✓      |      ✓     |        ✓          |
+| Cabo Verde                                          |                |              |       ✓      |      ✓     |        ✓          |
 | Central African Republic                            |                |              |       ✓      |      ✓     |        ✓          |
 | Chad                                                |                |              |              |      ✓     |        ✓          |
 | Congo                                               |                |              |              |      ✓     |        ✓          |
@@ -269,7 +269,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Qatar                                               |        ✓       |              |       ✓     |      ✓     |        ✓          |
 | Réunion                                             |        ✓       |        ✓     |       ✓     |      ✓     |        ✓          |
 | Rwanda                                              |                |              |       ✓      |      ✓     |        ✓          |
-| Saint Helena                                        |                |              |              |      ✓     |        ✓          |
+| Saint Helena, Ascension, and Tristan da Cunha       |                |              |              |      ✓     |        ✓          |
 | São Tomé & Príncipe                                 |                |              |       ✓      |      ✓     |        ✓          |
 | Saudi Arabia                                        |        ✓       |              |       ✓      |      ✓     |        ✓          |
 | Senegal                                             |                |              |       ✓      |      ✓     |        ✓          |

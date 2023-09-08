@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: jesakowi
-ms.custom: aaddev
+ms.custom: aaddev, has-azure-ad-ps-ref
 ROBOTS: NOINDEX
 ---
 

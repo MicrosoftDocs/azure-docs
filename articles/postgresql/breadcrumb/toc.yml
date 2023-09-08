@@ -4,8 +4,8 @@ items:
   topicHref: /azure/index
   items:
   - name: PostgreSQL
-    tocHref: /azure/security-center/
+    tocHref: /azure/defender-for-cloud/
     topicHref: /azure/postgresql/index
   - name: PostgreSQL
     tocHref: /azure/reliability
-    
+    topicHref: /azure/postgresql/index

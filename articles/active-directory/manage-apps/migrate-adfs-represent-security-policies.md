@@ -52,7 +52,7 @@ Explicit group authorization in AD FS:
 
 To map this rule to Azure AD:
 
-1. In the [Entra portal](https://entra.microsoft.com/#home), [create a user group](../fundamentals/how-to-manage-groups.md) that corresponds to the group of users from AD FS.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com/#home), [create a user group](../fundamentals/how-to-manage-groups.md) that corresponds to the group of users from AD FS.
 1. Assign app permissions to the group:
 
    :::image type="content" source="media/migrate-adfs-represent-security-policies/allow-a-group-explicitly-2.png" alt-text="Screenshot shows how to add a user assignment to the app.":::
@@ -65,7 +65,7 @@ Explicit user authorization in AD FS:
 
 To map this rule to Azure AD:
 
-* In the [Entra portal](https://entra.microsoft.com/#home), add a user to the app through the Add Assignment tab of the app as shown below:
+* In the [Microsoft Entra admin center](https://entra.microsoft.com/#home), add a user to the app through the Add Assignment tab of the app as shown below:
 
   :::image type="content" source="media/migrate-adfs-represent-security-policies/authorize-a-specific-user-2.png" alt-text="Screenshot shows My SaaS apps in Azure.":::
 
@@ -77,7 +77,7 @@ The following are examples of types of MFA rules in AD FS, and how you can map t
 
 MFA rule settings in AD FS:
 
-:::image type="content" source="media/migrate-adfs-represent-security-policies/mfa-settings-common-for-all-examples.png" alt-text="Screenshot shows Conditions for Azure AD in the Entra portal.":::
+:::image type="content" source="media/migrate-adfs-represent-security-policies/mfa-settings-common-for-all-examples.png" alt-text="Screenshot shows Conditions for Azure AD in the Microsoft Entra admin center.":::
 
 ### Example 1: Enforce MFA based on users/groups
 
@@ -126,7 +126,7 @@ Emit attributes as Claims rule in AD FS:
 
 To map the rule to Azure AD:
 
-1. In the [Entra portal](https://entra.microsoft.com/#home), select **Enterprise Applications** and then **Single sign-on** to view the SAML-based sign-on configuration:
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com/#home), select **Enterprise Applications** and then **Single sign-on** to view the SAML-based sign-on configuration:
 
    :::image type="content" source="media/migrate-adfs-represent-security-policies/map-emit-attributes-as-claims-rule-2.png" alt-text="Screenshot shows the Single sign-on page for your Enterprise Application.":::
 
@@ -154,7 +154,7 @@ In this table, we've listed some useful Permit and Except options and how they m
 | From Devices with Specific Trust Level| Set this from the **Device State** control under Assignments -> Conditions| Use the **Exclude** option under Device State Condition and Include **All devices** |
 | With Specific Claims in the Request| This setting can't be migrated| This setting can't be migrated |
 
-Here's an example of how to configure the Exclude option for trusted locations in the Entra portal:
+Here's an example of how to configure the Exclude option for trusted locations in the Microsoft Entra admin center:
 
 :::image type="content" source="media/migrate-adfs-represent-security-policies/map-built-in-access-control-policies-3.png" alt-text="Screenshot of mapping access control policies.":::
 
@@ -179,7 +179,7 @@ Your existing external users can be set up in these two ways in AD FS:
 As you progress with your migration, you can take advantage of the benefits that [Azure AD B2B](../external-identities/what-is-b2b.md) offers by migrating these users to use their own corporate identity when such an identity is available. This streamlines the process of signing in for those users, as they're often signed in with their own corporate sign-in. Your organization's administration is easier as well, by not having to manage accounts for external users.
 
 - **Federated external Identities**—If you're currently federating with an external organization, you have a few approaches to take:
-  - [Add Azure Active Directory B2B collaboration users in the Entra portal](../external-identities/add-users-administrator.md). You can proactively send B2B collaboration invitations from the Azure AD administrative portal to the partner organization for individual members to continue using the apps and assets they're used to.
+  - [Add Azure Active Directory B2B collaboration users in the Microsoft Entra admin center](../external-identities/add-users-administrator.md). You can proactively send B2B collaboration invitations from the Azure AD administrative portal to the partner organization for individual members to continue using the apps and assets they're used to.
   - [Create a self-service B2B sign-up workflow](../external-identities/self-service-portal.md) that generates a request for individual users at your partner organization using the B2B invitation API.
 
 No matter how your existing external users are configured, they likely have permissions that are associated with their account, either in group membership or specific permissions. Evaluate whether these permissions need to be migrated or cleaned up.

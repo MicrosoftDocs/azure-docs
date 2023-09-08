@@ -46,11 +46,11 @@ The following error types are available:
 
 - `AuthError`: Base error class for the MSAL.js library, also used for unexpected errors.
 
-- `ClientAuthError`: Error class, which denotes an issue with Client authentication. Most errors that come from the library will be ClientAuthErrors. These errors result from things like calling a login method when login is already in progress, the user cancels the login, and so on.
+- `ClientAuthError`: Error class which denotes an issue with Client authentication. Most errors that come from the library are ClientAuthErrors. These errors result from things like calling a login method when login is already in progress, the user cancels the login, and so on.
 
 - `ClientConfigurationError`: Error class, extends `ClientAuthError` thrown before requests are made when the given user config parameters are malformed or missing.
 
-- `ServerError`: Error class, represents the error strings sent by the authentication server. These may be errors such as invalid request formats or parameters, or any other errors that prevent the server from authenticating or authorizing the user.
+- `ServerError`: Error class, represents the error strings sent by the authentication server. These errors may be invalid request formats or parameters, or any other errors that prevent the server from authenticating or authorizing the user.
 
 - `InteractionRequiredAuthError`: Error class, extends `ServerError` to represent server errors, which require an interactive call. This error is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include `"interaction_required"`, `"login_required"`, and `"consent_required"`.
 
@@ -71,7 +71,7 @@ myMSALObj.handleRedirectPromise()
 myMSALObj.acquireTokenRedirect(request);
 ```
 
-The methods for pop-up experience (`loginPopup`, `acquireTokenPopup`) return promises, so you can use the promise pattern (.then and .catch) to handle them as shown:
+The methods for pop-up experience (`loginPopup`, `acquireTokenPopup`) return promises, so you can use the promise pattern (`.then` and `.catch`) to handle them as shown:
 
 ```javascript
 myMSALObj.acquireTokenPopup(request).then(
@@ -143,6 +143,10 @@ Interactively acquiring the token prompts the user and gives them the opportunit
 When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claims` parameter in the [access token request object](msal-js-pass-custom-state-authentication-request.md) to satisfy the appropriate policy. 
 
 See [How to use Continuous Access Evaluation enabled APIs in your applications](./app-resilience-continuous-access-evaluation.md) for more detail.
+
+### Using other frameworks
+
+Using toolkits like Tauri for registered single page applications (SPAs) with the identity platform are not recognized for production apps. SPAs only support URLs that start with `https` for production apps and `http://localhost` for local development. Prefixes like `tauri://localhost` cannot be used for browser apps. This format can only be supported for mobile or web apps as they have a confidential component unlike browser apps.
 
 [!INCLUDE [Active directory error handling retries](./includes/error-handling-and-tips/error-handling-retries.md)]
 

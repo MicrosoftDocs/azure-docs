@@ -106,6 +106,9 @@ System-assigned identity:
 5. To view the identity's Enterprise application in Azure Active Directory, select the “Managed Identity ID” column.
 6. To view the Azure resource or user-assigned managed identity, search by name in the search bar of the Azure portal.
 
+ > [!NOTE] 
+ > Since managed identity authentication requests originate within the Azure infrastructure, the IP Address value is excluded here.
+
 ## Next steps
 
 * [Managed identities for Azure resources](./overview.md)

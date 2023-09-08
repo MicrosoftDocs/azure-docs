@@ -84,7 +84,7 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-terraform.md
 
   # Card
-  - title: Develop and debug applications
+  - title: Deploy an application in 5 minutes 
     linkLists:
       - linkListType: quickstart
         links:
@@ -92,6 +92,10 @@ landingContent:
             url: quickstart-helm.md
           - text: Develop with Dapr
             url: quickstart-dapr.md
+          - text: Use Draft and the DevX extension for Visual Studio Code
+            url: draft-devx-extension-aks.md
+          - text: Use Automated Deployments
+            url: automated-deployments.md
       - linkListType: how-to-guide
         links:
           - text: Use Bridge to Kubernetes with Visual Studio Code

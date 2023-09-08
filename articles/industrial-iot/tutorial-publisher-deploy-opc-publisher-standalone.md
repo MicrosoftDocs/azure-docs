@@ -53,7 +53,7 @@ A typical set of IoT Edge Module Container Create Options for OPC Publisher is:
 {
     "Hostname": "opcpublisher",
     "Cmd": [
-        "--pf=./pn.json",
+        "--pf=/appdata/pn.json",
         "--aa"
     ],
     "HostConfig": {

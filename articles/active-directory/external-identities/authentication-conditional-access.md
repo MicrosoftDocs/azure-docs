@@ -5,6 +5,7 @@ description: Learn how to enforce multi-factor authentication policies for Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 04/17/2023
 

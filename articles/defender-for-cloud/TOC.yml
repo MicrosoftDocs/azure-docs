@@ -288,6 +288,9 @@
       - name: Build queries with cloud security explorer
         displayName: queries, security explorer, explorer, templates, query
         href: how-to-manage-cloud-security-explorer.md
+      - name: Testing the attack path and security explorer
+        displayName: attack paths, paths, security explorer, test 
+        href: how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md
   - name: Data-aware security posture
     items:
     - name: Enable data-aware security posture
@@ -672,7 +675,7 @@
       href: defender-for-storage-malware-scan.md
     - name: Sensitive data threat detection
       href: defender-for-storage-data-sensitivity.md
-    - name: Enable and configure with Defender for Storage
+    - name: Enable and configure Defender for Storage
       items:
       - name: Protect your storage with Defender for Storage
         href: tutorial-enable-storage-plan.md
@@ -694,6 +697,8 @@
         href: defender-for-storage-configure-malware-scan.md
       - name: Test and run a proof of concept
         href: defender-for-storage-test.md
+      - name: Understanding malware scanning results
+        href: understand-malware-scan-results.md  
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md
     - name: Common questions about Defender for Storage
@@ -874,7 +879,11 @@
     - name: Understanding the DevOps Threat Matrix
       href: episode-thirty-four.md
     - name: Security alert correlation
-      href: episode-thirty-five.md                 
+      href: episode-thirty-five.md
+    - name: Defender CSPM support for GCP and more updates
+      href: episode-thirty-six.md
+    - name: Capabilities to counter identity-based supply chain attacks
+      href: episode-thirty-seven.md               
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

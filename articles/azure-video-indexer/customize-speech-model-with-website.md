@@ -3,6 +3,8 @@ title: Customize a speech model with Azure AI Video Indexer website
 description: Learn how to customize a speech model with the Azure AI Video Indexer website.
 ms.topic: how-to
 ms.date: 03/06/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Customize a speech model in the website
