@@ -30,20 +30,33 @@ In the Prompt flow​​​​​​​ homepage, you can create a standard flow
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-create-standard.png" alt-text="Screenshot of the Prompt flow home page showing create a new flow with standard flow highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-create-standard.png":::
 
-## Authoring page - flatten view and graph view
+After selecting **Create**, as shown in the right panel, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences.
+
+:::image type="content" source="./media/how-to-develop-a-standard-flow/specify-flow-folder-name.png" alt-text="Screenshot of specify the flow folder name when creating a flow. " lightbox = "./media/how-to-develop-a-standard-flow/specify-flow-folder-name.png":::
+
+## Authoring page
 
 After the creation, you'll enter the authoring page for flow developing.
 
-At the left, it's the flatten view, the main working area where you can author the flow, for example add tools in your flow, edit the prompt, set the flow input data, run your flow, view the output, etc.
+At the left, it's the flatten view, the main working area where you can author the flow, for example add a new node, edit the prompt, select the flow input data, etc.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-flatten-view.png" alt-text="Screenshot of Web Classification highlighting the main working area. " lightbox = "./media/how-to-develop-a-standard-flow/flow-flatten-view.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-flatten-view.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/how-to-develop-a-standard-flow/flow-flatten-view.png":::
 
-At the right, it's the graph view for visualization only. It shows the flow structure you're developing, including the tools and their links. You can zoom in, zoom out, auto layout, etc.
+The top right corner shows the folder structure of the flow. Each flow has a folder that contains a flow.dag.yaml file, source code files, and system folders. You can export or import a flow easily for testing, deployment, or collaborative purposes.
+
+:::image type="content" source="./media/how-to-develop-a-standard-flow/folder-structure-view.png" alt-text="Screenshot of web classification highlighting the folder structure area." lightbox = "./media/how-to-develop-a-standard-flow/folder-structure-view.png":::
+
+In addition to inline editting the node in flatten view, you can also turn on the **Raw file mode** toggle and click the file name to edit the file in the openning file tab.
+
+:::image type="content" source="./media/how-to-develop-a-standard-flow/file-edit-tab.png" alt-text="Screenshot of the file edit tab under raw file mode." lightbox = "./media/how-to-develop-a-standard-flow/file-edit-tab.png":::
+
+In the bottom right corner, it's the graph view for visualization only. You can zoom in, zoom out, auto layout, etc.
 
 > [!NOTE]
 > You cannot edit the graph view. To edit one tool node, you can double-click the node to locate to the corresponding tool card in the flatten view, then do the inline edit.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of Web Classification highlighting the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of web classification highlighting graph view area." lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
+
 
 ## Select runtime
 
@@ -96,9 +109,9 @@ In the LLM tool, select Connection to select one to set the LLM key or credentia
 
 In the LLM tool and python tool, it's available to inline edit the prompt or code. Go to the card in the flatten view, select the prompt section or code section, then you can make your change there.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.gif" alt-text="Gif of inline editing the prompt in the LLM tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.png" alt-text="Gif of inline editing the prompt in the LLM tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.png":::
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit.gif" alt-text="Gif of inline editing the code in the Python tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit.png" alt-text="Gif of inline editing the code in the Python tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit.png":::
 
 ### Validate and run
 
@@ -120,7 +133,7 @@ LLM node has only one output, the completion given by LLM provider.
 
 As for inputs, we offer a templating strategy that can help you create parametric prompts that accept different input values. Instead of fixed text, enclose your input name in `{{}}`, so it can be replaced on the fly. We use **Jinja** as our templating language.
 
-Select **Edit** next to prompt box to define inputs using `{{input_name}}`.
+Edit the prompt box to define inputs using `{{input_name}}`.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-interface.png" alt-text="Screenshot of editing the prompt box to define inputs. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-interface.png":::
 
@@ -143,17 +156,19 @@ Below are common scenarios for linking nodes together.
 ### Scenario 1 - Link LLM node with flow input
 
 1. Add a new LLM node, rename it with a meaningful name, specify the connection and API type.
-2. Select **Edit** next to the prompt box, add an input by `{{url}}`, then you'll see an input called URL is created in inputs section.
+2. Edit the prompt box, add an input by `{{url}}`, click **Validate and parse input**, then you'll see an input called URL is created in inputs section.
 3. In the value drop-down, select ${inputs.url}, then you'll see in the graph view that the newly created LLM node is linked to the flow input. When running the flow, the URL input of the node will be replaced by flow input on the fly.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1.gif" alt-text="Gif of scenario one showing the LLM tool and editing the prompt. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1-1.png" alt-text="picture of scenario one showing the LLM tool and editing the prompt (step1). " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1-1.png":::
+
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1-2.png" alt-text="picture of scenario one showing the LLM tool and editing the prompt (step2). " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1-2.png":::
 
 ### Scenario 2 - Link LLM node with single-output upstream node
 
-1. Select **Edit** next to the prompt box, add another input by `{{summary}}`, then you'll see an input called summary is created in inputs section.
+1. Edit the prompt box, add another input by `{{summary}}`, click **Validate and parse input**, then you'll see an input called summary is created in inputs section.
 2. In the value drop-down, select ${summarize_text_content.output}, then you'll see in the graph view that the newly created LLM node is linked to the upstream summarize_text_content node. When running the flow, the summary input of the node will be replaced by summarize_text_content node output on the fly.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.gif" alt-text="Gif of scenario two editing the prompt and inputs. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png" alt-text="Gif of scenario two editing the prompt and inputs. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png":::
 
 We support search and autosuggestion here in the drop-down. You can search by node name if you have many nodes in the flow.
 
@@ -161,7 +176,7 @@ We support search and autosuggestion here in the drop-down. You can search by no
 
 You can also navigate to the node you want to link with, copy the node name, navigate back to the newly created LLM node, paste in the input value field.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.gif" alt-text="Gif of the LLM node showing how copying the node name works. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.png" alt-text="Gif of the LLM node showing how copying the node name works. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.png":::
 
 ### Scenario 3 - Link LLM node with multi-output upstream node
 
