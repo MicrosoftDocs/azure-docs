@@ -124,31 +124,31 @@ Follow the steps below to configure the Infoblox CDC to send BloxOne data to Mic
 1. Navigate to **Manage > Data Connector**.
 1. Click the **Destination Configuration** tab at the top.
 1. Click **Create > Syslog**. 
- - **Name**: Give the new Destination a meaningful **name**, such as **Microsoft-Sentinel-Destination**.
- - **Description**: Optionally give it a meaningful **description**.
- - **State**: Set the state to **Enabled**.
- - **Format**: Set the format to **CEF**.
- - **FQDN/IP**: Enter the IP address of the Linux device on which the Linux agent is installed.
- - **Port**: Leave the port number at **514**.
- - **Protocol**: Select desired protocol and CA certificate if applicable.
- - Click **Save & Close**.
+   - **Name**: Give the new Destination a meaningful **name**, such as **Microsoft-Sentinel-Destination**.
+   - **Description**: Optionally give it a meaningful **description**.
+   - **State**: Set the state to **Enabled**.
+   - **Format**: Set the format to **CEF**.
+   - **FQDN/IP**: Enter the IP address of the Linux device on which the Linux agent is installed.
+   - **Port**: Leave the port number at **514**.
+   - **Protocol**: Select desired protocol and CA certificate if applicable.
+   - Click **Save & Close**.
 1. Click the **Traffic Flow Configuration** tab at the top.
 1. Click **Create**.
- - **Name**: Give the new Traffic Flow a meaningful **name**, such as **Microsoft-Sentinel-Flow**.
- - **Description**: Optionally give it a meaningful **description**. 
- - **State**: Set the state to **Enabled**. 
- - Expand the **CDC Enabled Host** section. 
+   - **Name**: Give the new Traffic Flow a meaningful **name**, such as **Microsoft-Sentinel-Flow**.
+   - **Description**: Optionally give it a meaningful **description**. 
+   - **State**: Set the state to **Enabled**. 
+   - Expand the **CDC Enabled Host** section. 
     - **On-Prem Host**: Select your desired on-premises host for which the Data Connector service is enabled. 
- - Expand the **Source Configuration** section.  
+   - Expand the **Source Configuration** section.  
     - **Source**: Select **BloxOne Cloud Source**. 
     - Select all desired **log types** you wish to collect. Currently supported log types are:
       - Threat Defense Query/Response Log
       - Threat Defense Threat Feeds Hits Log
       - DDI Query/Response Log
       - DDI DHCP Lease Log
- - Expand the **Destination Configuration** section.  
+   - Expand the **Destination Configuration** section.  
     - Select the **Destination** you just created. 
- - Click **Save & Close**. 
+   - Click **Save & Close**. 
 1. Allow the configuration some time to activate.
 
 3. Validate connection
