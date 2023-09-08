@@ -258,9 +258,10 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
 1. **Start Job:** Rest API to start STOPPED job.
-   |  Option  |  Value  |
-   | -------- | ------- |
-   | Method   |  POST   |
+   
+   |  Option  |  Value  | 
+   | -------- | ------- | 
+   | Method   |  POST   | 
    | URL      | `https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runJob?api-version={{HILO_API_VERSION}}` |
    | Header   | Authorization = "Bearer $token" |
 
@@ -292,6 +293,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
 1. **Update job:** Rest API for updating current running job.
+
    |  Option  |  Value  |
    | -------- | ------- |
    | Method   |  POST   |
@@ -328,6 +330,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
 1. **Stateless update job:** Rest API for stateless update.
+   
    |  Option  |  Value  |
    | -------- | ------- |
    | Method   |  POST   |
@@ -361,6 +364,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
 1. `Savepoint`: Rest API to trigger savepoint for job.
+   
    |  Option  |  Value  |
    | -------- | ------- |
    | Method   |  POST   |
