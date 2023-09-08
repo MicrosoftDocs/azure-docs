@@ -13,13 +13,13 @@ This feature empowers users to efficiently control and monitor their Flink jobs 
 
 ## Benefits
 
-1. **Simplified Job Management**: With the native integration of Apache Flink in the Azure portal, users no longer require extensive knowledge of Flink clusters to submit, manage, and monitor jobs.
+1. **Simplified job management**: With the native integration of Apache Flink in the Azure portal, users no longer require extensive knowledge of Flink clusters to submit, manage, and monitor jobs.
 
 1. **User-Friendly REST API**: HDInsight on AKS provides user friendly ARM Rest APIs to submit and manage Flink jobs. Users can submit Flink jobs from any azure service using these Rest APIs.
 
-1. **Effortless Job Updates and State Management**: The native Azure portal integration provides a hassle-free experience for updating jobs and restoring them to their last saved state (savepoint). This functionality ensures continuity and data integrity throughout the job lifecycle.
+1. **Effortless job updates and state management**: The native Azure portal integration provides a hassle-free experience for updating jobs and restoring them to their last saved state (savepoint). This functionality ensures continuity and data integrity throughout the job lifecycle.
 
-1. **Automating Flink Job using Azure Pipeline**: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps and empowers you to manage your Flink cluster efficiently.
+1. **Automating Flink job using azure pipeline**: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps. It empowers you to manage your Flink cluster efficiently.
 
 ## Prerequisites
 There are some prerequisites before submitting and managing jobs from portal or Rest APIs.
@@ -55,7 +55,7 @@ To run the Flink job from portal go to:
 
 Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flink Jobs 
 
-:::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run flink job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
+:::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run `flink` job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
 
 1. **New job:** To submit a new job, upload the job jars to the storage account and create a savepoint directory. Complete the template with the necessary configurations and then submit the job.
 
@@ -124,7 +124,7 @@ Fill the flow template with the required options and start it. Users need to sel
 
    Once the job is updated, the job status on the portal will be RUNNING.
    
-1. **SavePoint:** Take the savepoint for the Flink Job.
+1. `SavePoint`: Take the savepoint for the Flink Job.
 
 :::image type="image" source="./media/flink-job-management/savepoint-flink-job.png" alt-text="Screenshot shows savepoint for the Flink Job." border="true" lightbox="./media/flink-job-management/savepoint-flink-job.png":::
 
@@ -359,7 +359,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
-1. **Savepoint:** Rest API to trigger savepoint for job.
+1. `Savepoint`: Rest API to trigger savepoint for job.
    |  Option  |  Value  |
    | -------- | ------- |
    | Method   |  POST   |
@@ -390,7 +390,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
-1. **List SavePoint:** Rest API to list all the savepoint from savepoint directory.
+1. **List `SavePoint`:** Rest API to list all the savepoint from savepoint directory.
 
    |  Option  |  Value  |
    | -------- | ------- |
@@ -446,7 +446,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
 
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
-   | jobType  |	Type of Job. It should be “FlinkJob” | 	|	Yes |
+   | jobType  |	Type of Job. It should be `FlinkJob` | 	|	Yes |
    | jobName  |	Job Name that is used for launching the job. |	| Yes |
    | action	  | It should be CANCEL. | | Yes |
 
