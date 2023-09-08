@@ -24,7 +24,7 @@ App Service follows community support timelines for the lifecycle of the runtime
 >
 
 ## Notifications
-End-of-life dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service.  App Service will send reminder notifications to subscription owners for upcoming end-of-life runtime versions 12 months prior to the end-of-life date.
+End-of-life dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service.  App Service will send reminder notifications to subscription owners for upcoming end-of-life runtime versions when they become available for each language.
 
 Those who receive notifications include account administrators, service administrators, and co-administrators.  Contributors, readers, or other roles won't directly receive notifications, unless they opt-in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 
