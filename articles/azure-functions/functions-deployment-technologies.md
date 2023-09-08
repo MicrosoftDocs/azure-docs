@@ -172,7 +172,7 @@ You can use local Git to push code from your local machine to Azure Functions by
 
 >__How to use it:__ Follow the instructions in [Local Git deployment to Azure App Service](../app-service/deploy-local-git.md).
 
->__When to use it:__ In general, we recommend that you use a different deployment method. When you publish from local Git, you must [manually sync triggers](#trigger-syncing).
+>__When to use it:__ To minimize the probability of errors, we generally do not recommend deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Instead, we recommend [zip deployment](run-functions-from-deployment-package.md).
 
 >__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
@@ -182,7 +182,7 @@ Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions
 
 >__How to use it:__ Follow the instructions in [Sync content from a cloud folder](../app-service/deploy-content-sync.md).
 
->__When to use it:__ In general, we recommend other deployment methods. When you publish by using cloud sync, you must [manually sync triggers](#trigger-syncing).
+>__When to use it:__ To minimize the probability of errors, we generally do not recommend deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Instead, we recommend [zip deployment](run-functions-from-deployment-package.md).
 
 >__Where app content is stored:__ The app content is in the cloud store, but a local copy is stored on the app file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
@@ -190,9 +190,9 @@ Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions
 
 You can use FTP to directly transfer files to Azure Functions.
 
->__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md).
+>__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md). Note that FTP/s deployment is not available in the function app portal, but it can be performed with CLI or PowerShell.
 
->__When to use it:__ In general, we recommend other deployment methods. When you publish by using FTP, you must [manually sync triggers](#trigger-syncing).
+>__When to use it:__ To minimize the probability of errors, we generally do not recommend deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Instead, we recommend [zip deployment](run-functions-from-deployment-package.md). 
 
 >__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
