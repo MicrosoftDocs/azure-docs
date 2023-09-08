@@ -31,9 +31,15 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource. 
 
+::: zone pivot="programming-language-javascript"
+
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
+
+::: zone-end
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OVERVIEW&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Prerequisites)
+
 
 [!INCLUDE [Connect your data to OpenAI](includes/connect-your-data-studio.md)]
 

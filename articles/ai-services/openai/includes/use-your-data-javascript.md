@@ -9,13 +9,8 @@ ms.topic: include
 ms.date: 09/06/2023
 ---
 
-## Set up
-
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
 
-
-> [!div class="nextstepaction"]
-> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Set-up-the-environment)
 
 ## Create a Node application
 
@@ -27,10 +22,10 @@ npm init
 
 ## Install the client library
 
-Install the Azure OpenAI client library for JavaScript with npm:
+Install the Azure OpenAI client and Azure Identity libraries for JavaScript with npm:
 
 ```console
-npm install @azure/openai
+npm install @azure/openai @azure/identity
 ```
 
 Your app's _package.json_ file will be updated with the dependencies.
@@ -42,6 +37,8 @@ Open a command prompt where you want the new project, and create a new file name
 ```javascript
 const { OpenAIClient } = require("@azure/openai");
 const { DefaultAzureCredential } = require("@azure/identity")
+
+// Set the Azure and Cognitive Search values from environment variables
 const endpoint = process.env["AOAIEndpoint"];
 const azureApiKey = process.env["AOAIKey"];
 const searchEndpoint = process.env["SearchEndpoint"];
@@ -57,6 +54,7 @@ async function main() {
     { role: "user", content: "What are the differences between Azure Machine Learning and Azure AI services?" },
   ];
 
+  // Get chat responses from Azure OpenAI deployment using your own data via Azure Cognitive Search
   const events = client.listChatCompletions(deploymentId, messages, { 
     azureExtensionOptions: {
       extensions: [
@@ -71,11 +69,13 @@ async function main() {
       ],
     },
   });
+
+  // Display chat responses
   for await (const event of events) {
     for (const choice of event.choices) {
       const delta = choice.delta?.content;
       const role = choice.delta?.role;
-      if (delta !== undefined && role !== undefined) {
+      if (delta && role) {
         console.log(`${role}: ${delta}`);
 
         const contextMessages = choice.delta?.context?.messages;
@@ -85,6 +85,7 @@ async function main() {
             console.log("Context information (e.g. citations) from chat extensions:");
             console.log("===");
             for (const message of contextMessages) {
+                // Display context included with chat responses (such as citations)
                 console.log(message.content);
             }
         }
