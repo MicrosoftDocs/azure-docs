@@ -14,15 +14,16 @@ recommendations: false
 zone_pivot_groups: openai-use-your-data
 ---
 
+# Quickstart: Chat with Azure OpenAI models using your own data
+
+In this quickstart you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
+
 ::: zone pivot="programming-language-javascript"
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai) | [Package (npm)](https://www.npmjs.com/package/@azure/openai) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
 
 ::: zone-end
 
-# Quickstart: Chat with Azure OpenAI models using your own data
-
-In this quickstart you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
 
 ## Prerequisites
 
