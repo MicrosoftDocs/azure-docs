@@ -347,7 +347,7 @@ items:
             href: event-schema-subscriptions.md
           - name: Azure Resource Notifications
             items:
-            - name: Health resources
+            - name: Health Resources
               href: event-schema-health-resources.md
       - name: Partner Events
         items:
@@ -494,6 +494,8 @@ items:
         href: how-to-event-domains.md
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
+      - name: Subscribe to Azure Resource Notifications - Health Resources events
+        href: subscribe-to-resource-notifications-health-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
       - name: Move

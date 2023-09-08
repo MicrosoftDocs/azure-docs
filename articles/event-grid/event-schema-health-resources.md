@@ -310,17 +310,5 @@ The following example shows the schema of a key-value modified event:
 
 ---
 
-
-
-## How-tos
-
-|Title | Description |
-|---------|---------|
-| [React to Azure App Configuration events by using Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure App Configuration with Event Grid. |
-| [Use Event Grid for data change notifications](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Learn how to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. |
-
 ## Next steps
-See the following articles:
-
-- [What is Event Grid?](overview.md)
-- [Event Grid subscription schema](subscription-creation-schema.md)
+See [Subscribe to Azure Resource Notifications - Health Resources events](subscribe-to-resource-notifications-health-resources-events.md).
