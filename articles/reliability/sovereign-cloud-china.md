@@ -75,14 +75,14 @@ This section outlines variations and considerations when using Azure Arc-enabled
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| API Management | API Management on Arc-enabled Kubernetes is not supported in Azure China |
-| App service | App service on Arc-enabled Kubernetes is not supported in Azure China |
-| Container Apps | Container Apps on Arc-enabled Kubernetes is not supported in Azure China |
-| Dapr | Dapr extension for Arc-enabled Kubernetes is not supported in Azure China |
-| Event Grid | Event Grid on Arc-enabled Kubernetes is not supported in Azure China |
-| Machine Learning | Azure Machine Learning on Arc-enabled Kubernetes is not supported in Azure China |
-| Microsoft Defender for Cloud | Microsoft Defender for Cloud on Arc-enabled Kubernetes is not supported in Azure China |
-| Open Service Mesh | Open Service Mesh on Arc-enabled Kubernetes is not supported in Azure China |
+| API Management | API Management on Arc-enabled Kubernetes isn't supported in Azure China |
+| App service | App service on Arc-enabled Kubernetes isn't supported in Azure China |
+| Container Apps | Container Apps on Arc-enabled Kubernetes isn't supported in Azure China |
+| Dapr | Dapr extension for Arc-enabled Kubernetes isn't supported in Azure China |
+| Event Grid | Event Grid on Arc-enabled Kubernetes isn't supported in Azure China |
+| Machine Learning | Azure Machine Learning on Arc-enabled Kubernetes isn't supported in Azure China |
+| Microsoft Defender for Cloud | Microsoft Defender for Cloud on Arc-enabled Kubernetes isn't supported in Azure China |
+| Open Service Mesh | Open Service Mesh on Arc-enabled Kubernetes isn't supported in Azure China |
 
 
 ### Azure Container Apps
@@ -91,7 +91,7 @@ This section outlines variations and considerations when using Azure Container A
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure Monitor| The Azure Monitor integration is not supported in Azure China |
+| Azure Monitor| The Azure Monitor integration isn't supported in Azure China |
 
 ### Azure China Commercial Marketplace operated by 21Vianet
  
@@ -156,7 +156,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
 | Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external environment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
-| Azure Container Apps Event Stream Endpoint | `\<region\>.azurecontainerapps.dev`` | `\<region\>.chinanorth3.azurecontainerapps-dev.cn``  |
+| Azure Container Apps Event Stream Endpoint | `\<region\>.azurecontainerapps.dev` | `\<region\>.chinanorth3.azurecontainerapps-dev.cn``  |
 
 ### Application Insights
 
@@ -165,7 +165,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 
 ### SDK endpoint modifications
 
-In order to send data from Application Insights in this region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
+In order to send data from Application Insights in this region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
 
 ### .NET with applicationinsights.config
 
