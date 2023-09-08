@@ -280,9 +280,9 @@ In this example, you install IIS on the virtual machines to verify Azure created
       -Location WestCentralUS
     ```
 
- See the following example:
+    See the following example:
 
- ![Install custom extension](./media/ipv6-application-gateway-portal/install-extension.png)
+    ![Install custom extension](./media/ipv6-application-gateway-portal/install-extension.png)
 
 ### Add backend servers to backend pool
 
@@ -307,8 +307,8 @@ Previously, we assigned the DNS name **myipv6appgw.westcentralus.cloudapp.azure.
 
    ![Test the IPv6 connection](./media/ipv6-application-gateway-portal/ipv6-test-connection.png)
 
-> [!IMPORTANT]
-> If the connection to the DNS name or IPv6 address fails, it might be because you can't browse IPv6 addresses from your device. To check if this is your problem, also test the IPv4 address of the application gateway. If the IPv4 address connects successfully, then it's likely you don't have a public IPv6 address assigned to your device. If this is the case, you can try testing the connection with a [dual-stack VM](../virtual-network/ip-services/create-vm-dual-stack-ipv6-portal.md).
+    > [!IMPORTANT]
+    > If the connection to the DNS name or IPv6 address fails, it might be because you can't browse IPv6 addresses from your device. To check if this is your problem, also test the IPv4 address of the application gateway. If the IPv4 address connects successfully, then it's likely you don't have a public IPv6 address assigned to your device. If this is the case, you can try testing the connection with a [dual-stack VM](../virtual-network/ip-services/create-vm-dual-stack-ipv6-portal.md).
 
 ## Clean up resources
 
