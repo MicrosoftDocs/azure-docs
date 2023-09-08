@@ -23473,11 +23473,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/develop/msal-net-provide-httpclient.md",
-            "redirect_url": "/entra/msal/dotnet/advanced/httpclient",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/active-directory/develop/msal-net-token-cache-serialization.md",
             "redirect_url": "/entra/msal/dotnet/how-to/token-cache-serialization",
             "redirect_document_id": false
