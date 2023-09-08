@@ -732,7 +732,13 @@ Starting from version 3.2.0, you can enable the following preview instrumentatio
       "grizzly": {
         "enabled": true
       },
+      "ktor": {
+        "enabled": true
+      },
       "play": {
+        "enabled": true
+      },
+      "r2dbc": {
         "enabled": true
       },
       "springIntegration": {

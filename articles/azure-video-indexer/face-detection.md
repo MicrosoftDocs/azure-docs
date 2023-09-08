@@ -1,13 +1,11 @@
 ---
 title: Face detection overview
-titleSuffix: Azure AI Video Indexer 
 description: Get an overview of face detection in Azure AI Video Indexer.
-author: juliako
-ms.author: juliako
-manager: femila
 ms.service: azure-video-indexer
 ms.date: 04/17/2023
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Face detection  

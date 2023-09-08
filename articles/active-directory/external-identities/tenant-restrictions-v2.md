@@ -391,7 +391,7 @@ To test the tenant restrictions v2 policy on a device, follow these steps.
 
 > [!NOTE]
 >
-> - The device must be running Windows 10, Windows 11, or Windows Server 2022 with the latest updates.
+> - The device must be running Windows 10 or Windows 11 with the latest updates.
 
 1. On the Windows computer, press the Windows key, type **gpedit**, and then select **Edit group policy (Control panel)**.
 

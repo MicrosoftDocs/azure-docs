@@ -28,7 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a Dynamic scope
 
-To create a dynamic scope, follow the steps:
+To create a dynamic scope, follow these steps:
+
+#### [Azure portal](#tab/az-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update Manager (preview).
 1. Select **Overview** > **Schedule updates** > **Create a maintenance configuration**.
@@ -39,8 +41,22 @@ To create a dynamic scope, follow the steps:
 1. Provide the tags in **Tags** tab.
 1. Select  **Review** and then **Review + Create**.
 
->[!NOTE]
+> [!NOTE]
 > A dynamic scope exists within the context of a schedule only. You can use one schedule to link to a machine, dynamic scope, or both. One dynamic scope cannot have more than one schedule.
+
+
+#### [Azure CLI](#tab/az-cli)
+
+```azurecli
+
+    az maintenance assignment create-or-update-subscription --maintenance-configuration-id "/subscriptions/{subscription_id}/resourcegroups/{rg}/providers/Microsoft.Maintenance/maintenanceConfigurations/clitestmrpconfinguestadvanced" --name cli_dynamicscope_recording01 --filter-locations eastus2euap centraluseuap --filter-os-types windows linux --filter-tags {{tagKey1:[tagKey1Val1,tagKey1Val2],tagKey2:[tagKey2Val1,tagKey2Val2]}} --filter-resource-group rg1, rg2 --filter-tags-operator All -l global
+```
+#### [PowerShell](#tab/az-ps)
+
+```powershell
+    New-AzConfigurationAssignment -ConfigurationAssignmentName $maintenanceConfigurationName -MaintenanceConfigurationId $maintenanceConfigurationInGuestPatchCreated.Id -FilterLocation eastus2euap,centraluseuap -FilterOsType Windows,Linux -FilterTag '{"tagKey1" : ["tagKey1Value1", "tagKey1Value2"], "tagKey2" : ["tagKey2Value1", "tagKey2Value2", "tagKey2Value3"] }' -FilterOperator "Any"
+```
+---
 
 ## Provide the consent
 Obtaining consent to apply updates is an important step in the workflow of scheduled patching and follow the steps on various ways to [provide the consent](manage-dynamic-scoping.md#provide-consent-to-apply-updates).
