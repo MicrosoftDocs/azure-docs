@@ -186,6 +186,8 @@ User Defined Routes (UDR) and controlled egress through NAT Gateway are supporte
 
 - UDR isn't supported for external environments.
 
+- Also note that if you have a peering configured on your VNET with the feature "Use remote virtual network gateway or route server" enabled, this may also cause consumption-only environment deployments to fail or deployed environments to stop functioning.
+
 :::image type="content" source="media/networking/udr-architecture.png" alt-text="Diagram of how UDR is implemented for Container Apps.":::
 
 Azure creates a default route table for your virtual networks upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. For example, you can create a UDR that routes all traffic to the firewall.
