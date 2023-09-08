@@ -52,7 +52,7 @@ The following table shows the consent prompt behavior for source tenant users wh
 | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
 | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
 | **Inbound** | **Outbound** |  |
-| ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
+| ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | Suppressed |
 | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
 | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for check mark.](../media/automatic-redemption-include/icon-check-mark.png) | Not suppressed |
 | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | ![Icon for clear check mark.](../media/automatic-redemption-include/icon-check-mark-clear.png) | Not suppressed |
