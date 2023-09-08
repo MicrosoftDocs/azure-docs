@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Configure Microsoft Dev Box'
-description: In this quickstart, you learn how to configure the Microsoft Dev Box service to provide dev boxes for users.
+description: In this quickstart, you learn how to configure the Microsoft Dev Box service to provide dev box workstations for users.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -12,13 +12,15 @@ ms.date: 04/25/2023
 
 # Quickstart: Configure Microsoft Dev Box 
 
-This quickstart describes how to set up Microsoft Dev Box to enable development teams to self-serve their dev boxes. The setup process involves two distinct phases. In the first phase, platform engineers configure the necessary Microsoft Dev Box resources through the Azure portal. After this phase is complete, users can proceed to the next phase, creating and managing their dev boxes through the developer portal. This quickstart shows you how to complete the first phase.
+This quickstart describes how to set up Microsoft Dev Box to enable development teams to self-serve their dev boxes. A dev box is a virtual machine (VM) preconfigured with the tools and resources the developer needs for a project. A dev box acts as a day-to-day workstation for the developer. 
+
+The process of setting up Microsoft Dev Box involves two distinct phases. In the first phase, platform engineers configure the necessary Microsoft Dev Box resources through the Azure portal. After this phase is complete, users can proceed to the next phase, creating and managing their dev boxes through the developer portal. This quickstart shows you how to complete the first phase.
 
 The following graphic shows the steps required to configure Microsoft Dev Box in the Azure portal. 
 
 :::image type="content" source="media/quickstart-configure-dev-box-service/dev-box-build-stages.png" alt-text="Graphic showing the stages required to configure Microsoft Dev Box.":::
 
-First, you create a dev center to organize your dev box resources. Next, you configure network components to enable dev boxes to connect to your organizational resources. Then, you create a dev box definition that is used to create dev boxes. After that, you create a project and a dev box pool. Users who have access to a project can create dev boxes from the pools associated with that project.
+First, you create a dev center and a project to organize your dev box resources. Next, you configure network components to enable dev boxes to connect to your organizational resources. Then, you create a dev box definition that is used to create dev boxes. After that, you create a dev box pool to define the network connection and dev box definition that dev boxes to use. Users who have access to a project can create dev boxes from the pools associated with that project.
 
 After you complete this quickstart, you'll have Microsoft Dev Box set up ready for users to create and connect to dev boxes. 
 
@@ -30,7 +32,8 @@ To complete this quickstart, you need:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Owner or Contributor role on an Azure subscription or resource group.
-- User licenses. To use Dev Box , each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory (Azure AD) P1. These licenses are available independently and are included in the following subscriptions:
+- Azure AD. Your organization must use Azure AD for identity and access management.
+- User licenses. To use Dev Box, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Azure Active Directory (Azure AD) P1. These licenses are available independently and are included in the following subscriptions:
   - Microsoft 365 F3
   - Microsoft 365 E3, Microsoft 365 E5
   - Microsoft 365 A3, Microsoft 365 A5
@@ -78,9 +81,46 @@ Use the following steps to create a dev center so that you can manage your dev b
 
 1. When the deployment is complete, select **Go to resource**. Confirm that the dev center page appears.
 
+### Create a project
+
+Dev box projects enable you to manage team-level settings. These settings include providing access to development teams so that developers can create dev boxes. Each dev center needs at least one project.
+
+To create and configure a project in a dev box:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
+
+1. On the **Projects** page, select **Create**.
+
+1. On the **Create a project** pane, on the **Basics** tab, enter the following values:
+
+   |Name|Value|
+   |----|----|
+   |**Subscription**|Select the subscription in which you want to create the project.|
+   |**Resource group**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
+   |**Dev center**|Select the dev center that you want to associate with this project. All the settings at the dev center level apply to the project.|
+   |**Name**|Enter a name for the project. |
+   |**Description**|Enter a brief description of the project. |
+
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev box project.":::
+
+1. On the **Dev box management** tab, ensure **No** is selected. </br>
+   You can select **Yes** to limit the number of dev boxes per developer, and specify the maximum number of dev boxes that a developer can create. The default, **No**, means developers can create an unlimited number of dev boxes.
+
+1. (Optional) On the **Tags** tab, enter a name/value pair that you want to assign.
+
+1. Select **Review + Create**.
+
+1. On the **Review** tab, select **Create**.
+
+1. Confirm that the project is created successfully by checking the notifications. Select **Go to resource**.
+
+1. Verify that the project appears on the **Projects** page.
+
 ## 2. Configure a network connection
 
-Network connections determine the region in which dev boxes are deployed. They also allow dev boxes to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box . 
+Network connections determine the region in which dev boxes are deployed. They also allow dev boxes to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box. 
 
 ### Create a virtual network and subnet
 
@@ -111,7 +151,7 @@ You must have a virtual network and subnet available for your network connection
 
 ### Create the network connection
 
-You now need a network connection to associate the virtual network and subnet with the dev center. A network connection specifies the type of join dev boxes use to join your Azure AD domain, either an Azure AD join or a hybrid Active Directory join.
+You now need a [network connection](concept-dev-box-concepts.md#network-connection) to associate the virtual network and subnet with the dev center. A network connection specifies the type of join dev boxes use to join your Azure AD domain, either an Azure AD join or a hybrid Active Directory join. Choose an Azure AD join unless you have a specific requirement for a hybrid join, like connecting to on-premises resources.
 
 - To determine which type of join is appropriate for your dev boxes, refer to:
    
@@ -203,6 +243,13 @@ After you attach a network connection, the Azure portal runs several health chec
 
 To resolve any errors, see [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
 
+Dev boxes automatically register with Microsoft Intune when they're created. If your network connection displays a warning for the Intune Enrollment Restrictions Allow Windows Enrollment test, check the Intune Windows platform restriction policy, as it may block you from provisioning. 
+
+:::image type="content" source="media/quickstart-configure-dev-box-service/network-connection-intune-warning.png" alt-text="Intune warning":::
+
+To learn more, see [Step 5 – Enroll devices in Microsoft Intune: Windows enrollment methods](/mem/intune/fundamentals/deployment-guide-enroll?tabs=work-profile%2Ccorporate-owned-apple%2Cautomatic-enrollment#windows-enrollment-methods).
+  
+
 ## 3. Create a dev box definition
 
 Dev box definitions define the image and SKU (compute + storage) that's used in the creation of the dev boxes. To create and configure a dev box definition:
@@ -226,40 +273,6 @@ Dev box definitions define the image and SKU (compute + storage) that's used in 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/recommended-test-image.png" alt-text="Screenshot that shows the page for creating a dev box definition.":::
 
 1. Select **Create**.
-
-## 4. Create a project
-
-Dev box projects enable you to manage team-level settings. These settings include providing access to development teams so that developers can create dev boxes.
-
-To create and configure a project in a dev box:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **projects**. In the list of results, select **Projects**.
-
-1. On the **Projects** page, select **Create**.
-
-1. On the **Create a project** pane, on the **Basics** tab, enter the following values:
-
-   |Name|Value|
-   |----|----|
-   |**Subscription**|Select the subscription in which you want to create the project.|
-   |**Resource group**|Select an existing resource group, or select **Create new** and then enter a name for the new resource group.|
-   |**Dev center**|Select the dev center that you want to associate with this project. All the settings at the dev center level apply to the project.|
-   |**Name**|Enter a name for the project. |
-   |**Description**|Enter a brief description of the project. |
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev box project.":::
-
-1. (Optional) On the **Tags** tab, enter a name/value pair that you want to assign.
-
-1. Select **Review + Create**.
-
-1. On the **Review** tab, select **Create**.
-
-1. Confirm that the project is created successfully by checking the notifications. Select **Go to resource**.
-
-1. Verify that the project appears on the **Projects** page.
 
 ## 5. Create a dev box pool
 
@@ -288,7 +301,7 @@ To create a dev box pool that's associated with a project:
    |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes that are created in this pool.|
    |**Dev box Creator Privileges**|Select **Local Administrator** or **Standard User**.|
    |**Enable Auto-stop**|**Yes** is the default. Select **No** to disable an auto-stop schedule. You can configure an auto-stop schedule after the pool is created.|
-   |**Stop time**| Select a time to shut down all the dev boxes in the pool. All dev boxes in this pool will shut down at this time every day.|
+   |**Stop time**| Select a time to shut down all the dev boxes in the pool. All dev boxes in this pool shut down at this time every day.|
    |**Time zone**| Select the time zone that the stop time is in.|
    |**Licensing**| Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
@@ -338,7 +351,7 @@ To assign roles:
 
 ## Project Admins
 
-Microsoft Dev Box  makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams, like creating and managing dev box pools. To give users permissions to manage projects, assign the DevCenter Project Admin role to them.
+Microsoft Dev Box  makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams. They can create and manage [dev box pools](./how-to-manage-dev-box-pools.md), set [dev box limits](./tutorial-dev-box-limits.md), and configure [auto-stop schedules](./how-to-configure-stop-schedule.md). To give users permissions to manage projects, assign the DevCenter Project Admin role to them.
 
 You can assign the DevCenter Project Admin role by using the steps described earlier in [6. Provide access to a dev box project](#6-provide-access-to-a-dev-box-project) and select the Project Admin role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
 
@@ -350,4 +363,3 @@ In this quickstart, you configured the Microsoft Dev Box resources that are requ
 
 > [!div class="nextstepaction"]
 > [Create a dev box](./quickstart-create-dev-box.md)
-
