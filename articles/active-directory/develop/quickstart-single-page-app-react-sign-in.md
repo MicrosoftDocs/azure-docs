@@ -18,7 +18,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 
 # Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using React
 
-This guide uses a sample React single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
+This quickstart uses a sample React single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
 
 In this article you'll register a SPA in the Microsoft Entra admin center, and download a sample React SPA. Next, you'll run the sample application, sign in with your personal Microsoft account or a work or school account, and sign out.
 
@@ -37,6 +37,11 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 1. When the **Register an application** page appears, enter a name for your application, such as *identity-client-app*.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. The application's overview pane is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
+1. Select **Register**.
+1. The application's Overview pane displays upon successful registration. Record the **Application (client) ID** and **Directory (tenant) ID** to be used in your application source code.
+
+## Add a redirect URI
+
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
 1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
@@ -46,7 +51,7 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 
 ## Clone or download the sample application
 
-To obtain the sample application, you can either clone it from GitHub or download it as a .zip file.
+To obtain the sample application, you can either clone it from GitHub or download it as a *.zip* file.
 
 - To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
 
