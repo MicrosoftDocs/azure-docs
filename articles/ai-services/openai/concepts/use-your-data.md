@@ -67,9 +67,13 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 ## Virtual network support & private endpoint support
 
+### Azure OpenAI resources
+
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
 
-If you have Azure OpenAI resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaionyourdata). The application will be reviewed in five business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
+### Azure Cognitive Search resources
+
+If you have an Azure Cognitive Search resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaionyourdata). The application will be reviewed in five business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
@@ -79,7 +83,7 @@ After you approve the request in your search service, you can start using the [c
 
 > [!NOTE]
 > Virtual networks & private endpoints are only supported for the API, and not currently supported for Azure OpenAI Studio. 
-### Storage accounts in private virtual networks
+### Storage accounts
 
 Storage accounts in virtual networks and private endpoints are currently not supported by Azure OpenAI on your data.
 

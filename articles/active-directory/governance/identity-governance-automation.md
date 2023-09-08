@@ -171,8 +171,12 @@ $TenantId = Get-AutomationVariable -Name 'TenantId'
 $Thumbprint = Get-AutomationVariable -Name 'Thumbprint'
 $auth = Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $Thumbprint
 Import-Module Microsoft.Graph.Identity.Governance
-$ap = Get-MgEntitlementManagementAccessPackage -All -ErrorAction Stop
-$ap | Select-Object -Property Id,DisplayName | ConvertTo-Json
+$ap = @(Get-MgEntitlementManagementAccessPackage -All -ErrorAction Stop)
+if ($null -eq $ap -or $ap.Count -eq 0) {
+   ConvertTo-Json @()
+} else {
+   $ap | Select-Object -Property Id,DisplayName | ConvertTo-Json -AsArray
+}
 ```
 
 2. Select **Test pane**, and select **Start**.  Wait a few seconds for the Azure Automation processing of your runbook script to complete.

@@ -191,6 +191,10 @@
     items:
     - name: Monitor Azure Files
       href: storage-files-monitoring.md
+    - name: Analyze metrics
+      href: analyze-files-metrics.md
+    - name: Create alerts
+      href: files-monitoring-alerts.md           
   - name: Migrate
     items:
     - name: Migrate to Azure file shares
