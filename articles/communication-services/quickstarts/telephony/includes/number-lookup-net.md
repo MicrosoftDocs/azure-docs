@@ -6,7 +6,6 @@ Get started with the Phone Numbers client library for C# to look up operator inf
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To enable Number Lookup service on your Azure Communication Services subscription, complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allowlist your subscription. 
 - The latest version of [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
@@ -47,7 +46,7 @@ More detailed information and other options for connecting to the dev feed can b
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.2.0-alpha.20230531.2
+dotnet add package Azure.Communication.PhoneNumbers --version 1.3.0-beta.2
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.

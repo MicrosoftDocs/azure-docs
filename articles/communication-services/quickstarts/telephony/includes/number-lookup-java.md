@@ -6,7 +6,6 @@ Get started with the Phone Numbers client library for Java to look up operator i
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To enable Number Lookup service on your Azure Communication Services subscription, complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allowlist your subscription. 
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
@@ -73,7 +72,7 @@ Add the following dependency elements to the group of dependencies in the **pom.
   <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.2.0-alpha.20230726.3</version>
+    <version>1.2.0-beta.1</version>
   </dependency>
 
   <dependency>
