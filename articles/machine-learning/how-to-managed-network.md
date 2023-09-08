@@ -48,6 +48,17 @@ The following diagram shows a managed virtual network configured to __allow only
 
 :::image type="content" source="./media/how-to-managed-network/only-approved-outbound.svg" alt-text="Diagram of managed network isolation configured for allow only approved outbound." lightbox="./media/how-to-managed-network/only-approved-outbound.svg":::
 
+### Azure Machine Learning studio
+
+If you want to use the integrated notebook or create datasets in the default storage account from studio, your client needs access to the default storage account. Create a _private endpoint_ or _service endpoint_ for the default storage account in the Azure Virtual Network that the clients use.
+
+Part of Azure Machine Learning studio runs locally in the client's web browser, and communicates directly with the default storage for the workspace. Creating a private endpoint or service endpoint for the default storage account in the virtual network ensures that the client can communicate with the storage account.
+
+> [!TIP]
+> A using a service endpoint in this configuration can reduce costs.
+
+For more information on creating a private endpoint or service endpoint, see the [Connect privately to a storage account](/azure/storage/common/storage-private-endpoints) and [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) articles.
+
 ## Supported scenarios
 
 |Scenarios|Supported|
@@ -121,7 +132,9 @@ Before following the steps in this article, make sure you have the following pre
 ## Configure a managed virtual network to allow internet outbound
 
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. __If you plan to submit serverless spark jobs__, [Manually start provisioning](#configure-for-serverless-spark-jobs).
+> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision-network` command from the Azure CLI. For example, `az ml workspace provision-network --name ws --resource-group rg`.
+>
+> __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -335,7 +348,9 @@ To configure a managed VNet that allows internet outbound communications, use th
 ## Configure a managed virtual network to allow only approved outbound
 
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. __If you plan to submit serverless spark jobs__, [Manually start provisioning](#configure-for-serverless-spark-jobs).
+> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision-network` command from the Azure CLI. For example, `az ml workspace provision-network --name ws --resource-group rg`.
+>
+> __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -787,7 +802,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless spark support.
 
-    ---
+    --- 
 
 ## Manage outbound rules
 
@@ -869,9 +884,42 @@ __Outbound__ service tag rules:
 __Inbound__ service tag rules:
 * `AzureMachineLearning`
 
-## List of recommended outbound rules
+## List of scenario specific outbound rules
+
+### Scenario: Access public machine learning packages
+
+To allow installation of __Python packages for training and deployment__, add outbound _FQDN_ rules to allow traffic to the following host names:
 
 [!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
+
+### Scenario: Use Visual Studio Code desktop or web with compute instance
+
+If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbound _FQDN_ rules to allow traffic to the following hosts:
+
+* `*.vscode.dev`
+* `vscode.blob.core.windows.net`
+* `*.gallerycdn.vsassets.io`
+* `raw.githubusercontent.com`
+* `*.vscode-unpkg.net`
+* `*.vscode-cdn.net`
+* `*.vscodeexperiments.azureedge.net`
+* `default.exp-tas.com`
+* `code.visualstudio.com`
+* `update.code.visualstudio.com`
+* `*.vo.msecnd.net`
+* `marketplace.visualstudio.com`
+
+### Scenario: Use batch endpoints
+
+If you plan to use __Azure Machine Learning batch endpoints__ for deployment, add outbound _private endpoint_ rules to allow traffic to the following sub resources for the default storage account:
+
+* `queue`
+* `table`
+
+### Scenario: Use prompt flow with Azure Open AI, content safety, and cognitive search
+
+* Private endpoint to Azure AI Services
+* Private endpoint to Azure Cognitive Search
 
 ## Private endpoints
 
@@ -883,6 +931,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Container Registry
 * Azure Key Vault
 * Azure AI services
+* Azure Cognitive Search
 * Azure SQL Server
 * Azure Data Factory
 * Azure Cosmos DB (all sub resource types)
@@ -906,7 +955,10 @@ When you create a private endpoint for Azure Machine Learning dependency resourc
 The Azure Machine Learning managed virtual network feature is free. However, you're charged for the following resources that are used by the managed virtual network:
 
 * Azure Private Link - Private endpoints used to secure communications between the managed virtual network and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. 
+
+    > [!IMPORTANT]
+    > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## Limitations
 
@@ -927,3 +979,4 @@ If you have an existing workspace and want to enable managed virtual network for
 ## Next steps
 
 * [Troubleshoot managed virtual network](how-to-troubleshoot-managed-network.md)
+* [Configure managed computes in a managed virtual network](how-to-managed-network-compute.md)
