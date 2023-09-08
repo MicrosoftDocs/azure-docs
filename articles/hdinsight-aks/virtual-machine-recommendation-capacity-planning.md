@@ -20,16 +20,16 @@ If your use case requires the usage of Memory Optimized VMs, the default recomme
 
 If there is insufficient capacity/quota on the recommended VM Families, look for alternatives in the table that lists all the VM Families currently supported in HDInsight on AKS for cluster creation:
 
-|	Type	|	VM Family	|	Temp Storage	|	Premium Storage Support	|
+|	Type	|	Virtual machine family	|	Temp storage	|	Premium storage support	|
 |--|--|--|--|
-|	Memory Optimized	|	[Eadsv5](/azure/virtual-machines/easv5-eadsv5-series)	|	Yes	|	Yes	|
+|	Memory optimized	|	[Eadsv5](/azure/virtual-machines/easv5-eadsv5-series)	|	Yes	|	Yes	|
 |		|	[Easv5](/azure/virtual-machines/easv5-eadsv5-series)	|	No	|	Yes	|
 |		|	[Edsv5](/azure/virtual-machines/edv5-edsv5-series)	|	Yes	|	Yes	|
 |		|	[Edv5](/azure/virtual-machines/edv5-edsv5-series)	|	Yes	|	No	|
 |		|	[Easv4](/azure/virtual-machines/eav4-easv4-series)	|	Yes	|	Yes	|
 |		|	[Eav4](/azure/virtual-machines/eav4-easv4-series)	|	Yes	|	No	|
 |		|	[Edv4](/azure/virtual-machines/edv4-edsv4-series)	|	Yes	|	No	|
-|	General Purpose	|	[Dadsv5](/azure/virtual-machines/dasv5-dadsv5-series)	|	Yes	|	Yes	|
+|	General purpose	|	[Dadsv5](/azure/virtual-machines/dasv5-dadsv5-series)	|	Yes	|	Yes	|
 |		|	[Ddsv5](/azure/virtual-machines/ddv5-ddsv5-series)	|	Yes	|	Yes	|
 |		|	[Ddv5](/azure/virtual-machines/ddv5-ddsv5-series)	|	Yes	|	No	|
 |		|	[Dasv4](/azure/virtual-machines/dav4-dasv4-series)	|	Yes	|	Yes	|
