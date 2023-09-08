@@ -103,6 +103,8 @@ New-AzVmss `
 
 ```
 
+---
+
 ## Updating your Spot Priority Mix
 Should your ideal percentage split of Spot and Standard VMs change, you can update your Spot Priority Mix after your scale set has been deployed. Updating your Spot Priority Mix will apply for all scale set actions *after* the change is made, existing VMs will remain as is.
 
@@ -145,6 +147,8 @@ Update-AzVmss `
         -RegularPriorityPercentage 80;
 
 ```
+
+---
 
 ## Examples
 
