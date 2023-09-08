@@ -1,7 +1,7 @@
 ---
 title: Glossary for Azure Operator Service Manager
 description: Learn about terminology specific to Azure Operator Service Manager.
-author: sherryg
+author: sherrygonz
 ms.author: sherryg
 ms.date: 08/15/2023
 ms.topic: glossary
