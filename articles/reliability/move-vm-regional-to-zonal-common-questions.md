@@ -11,25 +11,23 @@ ms.author: ankitadutta
 
 # Frequently asked questions - Move Azure single instance VMs from regional to zonal target availability zones
 
-This article answers common questions about Azure virtual machines - Regional to Zonal Move.
+This article answers common questions about Azure Virtual Machines - Regional to Zonal Move.
 
 ## Regional to zonal move
 
 ### Can I move VM(s) in all Azure regions?
 
-Currently, you can move VM(s) across all public regions that are supported by Availability zones. Learn more about the availability zone service and regional support.
+Currently, you can move VM(s) across all public regions that are supported by Availability Zones. Learn more about the availability zone service and regional support.
 
 ### Where is the metadata stored?
 
-The metadata associated with the move is stored in an Azure Cosmos DB database located in either the East US2 or North Europe regions, and in Azure Blob storage in a Microsoft subscription.
+The metadata associated with the move is stored in an Azure Cosmos DB database located in either the East US2 or North Europe regions and in Azure Blob storage in a Microsoft subscription.
 
-Although the coverage will eventually extend to other regions, this doesn't restrict you from moving VMs in other regions. The service does not retain any customer data, and no customer data goes outside of the source VM region.
+Although the coverage will eventually extend to other regions, this doesn't restrict you from moving VMs to other regions. The service does not retain any customer data, and no customer data goes outside of the source VM region.
 
 ### Is the collected metadata encrypted?
 
-Yes, the collected metadata is encrypted both during transit and at rest. While in transit, the metadata is securely sent to the Resource Mover service over the internet using HTTPS.
-
-Additionally, the metadata is also encrypted while in storage.
+Yes, the collected metadata is encrypted both during transit and at rest. While in transit, the metadata is securely sent to the Resource Mover service over the internet using HTTPS. The metadata is also encrypted while in storage.
 
 ### What resources are supported for this Zonal Move?
 
@@ -37,8 +35,8 @@ Currently, managed disks are supported for VMs that only have a single instance.
 
 ### What source resources can be leveraged in the target zonal configuration, if preferred?
 
-The following resources can be leveraged:
-- Networking resources such as VNET, Subnet, NSG can be re-used.
+The following resources can be leveraged in the target zonal configuration:
+- Networking resources such as VNET, Subnet, and NSG can be re-used.
 - Public IP address (Standard SKU)
 - Load Balancers (Standard SKU)
 
@@ -49,10 +47,10 @@ The following resource are created in the target zonal configuration:
 
 - **Resource group**: By default, a new resource group is automatically created. The source resource group cannot be used, as we are using the same source VM name in the target zone and two identical VMs cannot co-exist in the same resource group. However, you can still modify the properties of the new resource group or choose a different target resource group. 
 - **VM**: A copy of the source VM is created in the target zonal configuration. The source VM remains unchanged and is stopped after the transfer.
-- **Disks**: The disks attached to the source VM is recreated in the target zonal configuration.
+- **Disks**: The disks attached to the source VM are recreated in the target zonal configuration.
 - **NIC**: A new network interface card (NIC) is produced and linked to the newly created VM in the designated zone.
 
-### What managed identity permissions/access requirements do I need?
+### What permissions do I need to use managed identity?
 
 To use the managed identity service, you must have the following permissions:
 
@@ -60,45 +58,41 @@ To use the managed identity service, you must have the following permissions:
 - Permission to create role assignments (which is available with the *Owner* or *User Access Administrator* roles, or, custom roles that have the Microsoft.Authorization or role assignments or write permission assigned). 
     This permission is not required if the data share resource's managed identity has already been granted access to the Azure data store. 
 
-When adding resources in the  portal, permissions are automatically handled as long as the user has the appropriate permissions.
+When adding resources in the portal, permissions to use managed identity are handled automatically as long as you have the appropriate role assignments.
 
 
 > [!IMPORTANT]
 > We recommend that you don't modify or remove identity role assignments.
 
-
 ### What if I don't have permissions to assign role identity?
 
-There are a couple of reasons you might not have permission. Consider the following scenarios:
+There are a couple of reasons you might not have the permissions. Consider the following scenarios:
 
-| Possible cause | Recommendation |
+| Scenario | Resolution |
 | --- | --- |
-| You don't have Contributor and User Access Administrator (or Owner) permissions, when you add a resource for the first time.	| Use an account with Contributor and User Access Administrator (or Owner) permissions for the subscription.|
-| The Resource Mover managed identity doesn't have the necessary role. | To resolve this, add the Contributor and User Access Administrator roles. |
+| You don't have Contributor and User Access Administrator (or Owner) permissions when you add a resource for the first time.	| Use an account with Contributor and User Access Administrator (or Owner) permissions for the subscription.|
+| The Resource Mover managed identity doesn't have the necessary role. | Add the Contributor and User Access Administrator roles. |
 
 
 ### How is managed identity used?
 
-Managed identity previously known as Managed Service Identity (MSI), is a feature that provides Azure services with an automatically managed identity in Azure AD. This identity is used to access Azure subscriptions and perform various tasks, such as moving resources to availability zones.
+Managed identity previously known as Managed Service Identity (MSI), is a feature that provides Azure services with an automatically managed identity in Azure AD. This identity is used to access Azure subscriptions and perform various tasks, such as moving resources to Availability Zones.
 
-- Managed identity is used so that we can access Azure subscriptions to move resources to availability zones.
+- Managed identity is used so that you can access Azure subscriptions to move resources to availability zones.
 - To move resources using a move collection, you need a system-assigned identity that has access to the subscription containing the resources you want to move. 
--  If you're using the Azure portal to move VMs, this process is automated once the user consent is provided. The process typically takes a few minutes to complete.
+-  If you're using the Azure portal to move the VMs, this process is automated once the user consent is provided. The process typically takes a few minutes to complete.
 
 ### Can I move my resources from Regional to Zonal and across subscriptions?
 
-Move within the same subscription is supported.
-
 You can use Azure Resource Manager to move VMs from a regional to a zonal deployment within the same subscription, and then move them across subscriptions.
-
 
 ### Are Azure Backup/DR, RBAC, Tags, Policies, and extensions on VMs supported?
 
-Only Tags and User Assigned Managed Identities are replicated to the target zones. RBAC, Policies and extensions must be re-configured after the move. See the support matrix for further details.
+Only tags and user assigned managed identities are replicated to the target zones. RBAC, policies and extensions must be re-configured after the move. See the support matrix for further details.
 
 ### Is customer data stored during the move?
 
-Customer data is not stored. The system only stores metadata information that helps track and monitor the progress of the resources being moved.
+Customer data is not stored during the move. The system only stores metadata information that helps track and monitor the progress of the resources being moved.
 
 ### What happens to the source VM(s)?
 
@@ -112,15 +106,14 @@ When you select **Move**, the following steps are performed on the source VMs:
 
 ### Is there any cost associated as part of this move?
 
-The Zonal Move feature of VMs is offered at free of cost, but you may incur cost of goods for the creation of disk snapshots or restore point.
+The Zonal Move feature of VMs is offered free of cost, but you may incur cost of goods for the creation of disk snapshots or restore points.
 
 > [!NOTE]
 > The snapshot of VM or disks is automatically deleted after the move is complete.
 
-
 ### Can I retain my Public IP of the source VM?
 
-Review the following scenarios where you can or cannot retain Public IP addresses associated to the source VM.
+Review the following scenarios where you can or cannot retain Public IP addresses associated with the source VM.
 
 | Source Property| Description |
 | --- | --- |    
