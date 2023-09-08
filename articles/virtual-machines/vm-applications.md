@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/17/2023
+ms.date: 09/08/2023
 author: ericd-mst-github
 ms.author: nikhilpatel
 ms.reviewer: erd
@@ -47,7 +47,7 @@ The VM application packages use multiple resource types:
 
 - **No more than 3 replicas per region**: When you're creating a VM Application version, the maximum number of replicas per region is three.
 
-- **Public access on storage**: Only public level access to storage accounts work, as other restriction levels fail deployments.
+- **Storage with public access or SAS URI with read privilege:** The storage account needs to has public level access or use an SAS URI with read privilege, as other restriction levels fail deployments.
 
 - **Retrying failed installations**: Currently, the only way to retry a failed installation is to remove the application from the profile, then add it back.
 
