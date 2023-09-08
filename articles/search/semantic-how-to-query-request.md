@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 8/15/2023
+ms.date: 09/08/2023
 ---
 
 # Configure semantic ranking and return captions in search results
