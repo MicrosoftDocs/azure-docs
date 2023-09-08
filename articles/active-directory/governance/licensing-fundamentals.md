@@ -91,11 +91,12 @@ The following table shows what features are available with each license.  Note t
 |Privileged Identity Management (PIM)|||x|x| 
 |PIM For Groups|||x|x| 
 |PIM CA Controls|||x|x| 
-|Access Reviews - Basic access certifications and reviews|||x|x| 
+|Access Reviews - Basic access certifications and reviews|||x|x|
 |Access reviews - PIM For Groups - Public Preview||||x| 
-|Access reviews - Inactive Users||||x| 
+|Access reviews - Inactive Users reviews||||x|
+|Access Reviews - Inactive Users recommendations|||x|x|
 |Access reviews - Machine learning assisted access certifications and reviews||||x| 
-|Lifecycle Workflows (LCW) J/M/L||||x|
+|Lifecycle Workflows (LCW)||||x|
 |LCW + Custom Extensions (Logic Apps)||||x|   
 |Identity governance dashboard - Public Preview||x|x|x|
 |Insights and reporting - Inactive guest accounts (Preview)||||x| 
