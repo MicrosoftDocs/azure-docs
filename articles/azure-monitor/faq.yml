@@ -1084,9 +1084,9 @@ sections:
       - question: |
           Why do I see info banner "You do not have the right cluster permissions which will restrict your access to Container Insights features. Please reach out to your cluster admin to get the right permission"?
         answer: |
-          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace. It now checks cluster-level permission to provide access to the Azure portal experience. You should get at least basic read-only cluster level access through your cluster admin.
+          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace. It now checks cluster-level permission to provide access to the Azure portal experience. You may need your cluster admin to assign this permission.
 
-          You should assign the **Monitoring Reader** role for the following types of clusters.
+          For basic read-only cluster level access, assign the **Monitoring Reader** role for the following types of clusters.
 
           - AKS without Kubernetes role-based access control (RBAC) authorization enabled
           - AKS enabled with Azure Active Directory (Azure AD) SAML-based single sign-on
@@ -1094,7 +1094,7 @@ sections:
           - AKS configured with the cluster role binding clusterMonitoringUser
           - [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview)
 
-          See [https://learn.microsoft.com/en-us/azure/aks/control-kubeconfig-access#assign-role-permissions-to-a-user-or-group](https://learn.microsoft.com/azure/aks/control-kubeconfig-access#assign-role-permissions-to-a-user-or-group) & Learn more for Azure Arc for Kubernetes [here.](https://learn.microsoft.com/azure/azure-arc/kubernetes/azure-rbac#enable-azure-rbac-on-the-cluster) for details on enabling these roles using the Azure portal or CLI and [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md) to learn more about role assignments.
+          See [Assign role permissions to a user or group](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)  and [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md) to learn more about role assignments.
       - question: |
           What does "Other processes" represent under the Node view?
         answer: |
