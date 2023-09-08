@@ -1,7 +1,7 @@
 ---
 title: Stages of a blueprint deployment
 description: Learn the security and artifact-related steps the Azure Blueprints services goes through while creating a blueprint assignment.
-ms.date: 08/17/2021
+ms.date: 09/07/2023
 ms.topic: conceptual
 ---
 # Stages of a blueprint deployment
