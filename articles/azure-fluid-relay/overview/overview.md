@@ -1,9 +1,6 @@
 ---
 title: Azure Fluid Relay overview
 description: Overview of the Fluid Framework and Azure Fluid Relay.
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 08/19/2021
 ms.topic: overview
 ms.service: azure-fluid
@@ -52,4 +49,3 @@ The following steps are a typical flow.
 1. Fluid service sequences that operation and broadcasts it to all clients.
 1. Fluid runtime incorporates that operation into local data and raises a "valueChanged" event.
 1. Client code handles that event (updates view, runs business logic).
-
