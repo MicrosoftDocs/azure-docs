@@ -77,6 +77,7 @@ This section outlines variations and considerations when using Azure Arc-enabled
 |---------|--------|------------|
 | API Management | API Management on Arc-enabled Kubernetes isn't supported in Azure China |
 | App service | App service on Arc-enabled Kubernetes isn't supported in Azure China |
+| Azure Monitor container insights | Azure Monitor container insights on Arc-enabled Kubernetes isn't supported in Azure China |
 | Container Apps | Container Apps on Arc-enabled Kubernetes isn't supported in Azure China |
 | Dapr | Dapr extension for Arc-enabled Kubernetes isn't supported in Azure China |
 | Event Grid | Event Grid on Arc-enabled Kubernetes isn't supported in Azure China |
