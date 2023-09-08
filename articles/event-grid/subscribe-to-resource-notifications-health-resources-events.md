@@ -1,5 +1,5 @@
 ---
-title: Subscribe to Resource Notifications - Health Resources Event Gridevents
+title: Subscribe to Resource Notifications - Health Resources Event Grid events
 description: This article explains how to subscribe to events published by Azure Resource Notifications - Health Resources. 
 ms.topic: how-to
 ms.date: 09/08/2023
@@ -12,7 +12,7 @@ This article describes steps to subscribe to events published by Azure Resource 
 
 # [Azure CLI](#azure-cli)
 
-1. Set the account to the azure subscription where you wish to create the system topic.
+1. Set the account to the Azure subscription where you wish to create the system topic.
 
     ```azurecli-interactive
     az account set –s AZURESUBSCRIPTIONID
@@ -24,7 +24,7 @@ This article describes steps to subscribe to events published by Azure Resource 
     ```
 # [Azure PowerShell](#azure-powershell)
 
-1. Set the account to the azure subscription where you wish to create the system topic. 
+1. Set the account to the Azure subscription where you wish to create the system topic. 
 
     ```azurepowershell-interactive
     Set-AzContext -Subscription AZURESUBSCRIPTIONID
@@ -64,10 +64,37 @@ If you don't specify `IncludedEventType`, all the event types are included by de
 ### [Azure portal](#azure-portal)
 Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
 
+---
+
 ### Filter events
 
 
 ## Subscribe to ResourceAnnotated event
+
+# [Azure CLI](#azure-cli)
+Create an event subscription for the above topic using the [`az eventgrid system-topic event-subscription create`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-create) command.
+
+```azurecli-interactive
+az eventgrid system-topic event-subscription create --name EVENTSUBSCRIPTIONNAME --resource-group RESOURCEGROUPNAME --system-topic-name SYSTEMTOPICNAME –included-event-types Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated --endpoint /subscriptions/AZURESUBSCRIPTIONID/ resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/MYEVENTHUBSNAMESPACE/eventhubs/MYEVENTHUB --endpoint-type eventhub        
+```
+
+If you don't specify `included-event-types`, all the event types are included by default.    
+
+# [Azure PowerShell](#azure-powershell)
+
+Create an event subscription for the above topic using the [New-AzEventGridSystemTopicEventSubscription](/powershell/module/az.eventgrid/new-azeventgridsystemtopiceventsubscription) command. 
+
+```azurecli-interactive
+New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIPTIONNAME -ResourceGroupName RESOURCEGROUPNAME -SystemtopicName SYSTEMTOPICNAME -IncludedEventType Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated -Endpoint /subscriptions/AZURESUBSCRIPTIONID/ resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBSNAMESPACE/eventhubs/EVENTHUB -EndpointType eventhub
+```
+
+If you don't specify `IncludedEventType`, all the event types are included by default.    
+
+### [Azure portal](#azure-portal)
+Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
+
+---
+
 
 ### Filter events
 
