@@ -100,6 +100,48 @@ Here's some sample code you can use to try out logical replication.
 
 Visit the PostgreSQL documentation to understand more about [logical replication](https://www.postgresql.org/docs/current/logical-replication.html).
 
+### Using Logical Replication Between Databases on the Same Server
+When you are aiming to set up logical replication between different databases residing on the same PostgreSQL server, it's essential to follow certain guidelines to avoid implementation restrictions that are currently present. As of now, creating a subscription that connects to the same database cluster will only succeed if the replication slot is not created within the same command; otherwise, the `CREATE SUBSCRIPTION` call will hang, on a `LibPQWalReceiverReceive` wait event. This happens due to an existing restriction within Postgres engine which might be removed in future releases.
+
+To effectively set up logical replication between your "source" and "target" databases on the same server while circumventing this restriction, follow the steps outlined below:
+
+First, create a table named "basic" with an identical schema in both the source and target databases:
+
+```SQL
+-- Run this on both source and target databases
+CREATE TABLE basic (id INTEGER NOT NULL PRIMARY KEY, a TEXT);
+```
+
+Next, in the source database, create a publication for the table and separately create a logical replication slot using the `pg_create_logical_replication_slot` function, which helps to avert the hanging issue that typically occurs when the slot is created in the same command as the subscription. Note that you will need to use the `pgoutput` plugin:
+
+```SQL
+-- Run this on the source database
+CREATE PUBLICATION pub FOR TABLE basic;
+SELECT pg_create_logical_replication_slot('myslot', 'pgoutput');
+```
+
+Thereafter, in your target database, create a subscription to the previously created publication, ensuring that `create_slot` is set to `false` to prevent PostgreSQL from creating a new slot, and correctly specifying the slot name that was created in the previous step. Before running the command, replace the placeholders in the connection string with your actual database credentials:
+
+``` SQL
+-- Run this on the target database
+CREATE SUBSCRIPTION sub
+   CONNECTION 'dbname=source host=target.postgres.database.azure.com port=5432 user=rep_user password=******'
+   PUBLICATION pub
+   WITH (create_slot = false, slot_name='myslot');
+```
+Having set up the logical replication, you can now test it by inserting a new record into the "basic" table in your source database and subsequently verifying that it replicates to your target database:
+``` SQL
+-- Run this on the source database
+INSERT INTO basic SELECT 1, 'a';
+
+-- Run this on the target database
+TABLE basic;
+```
+
+If everything is configured correctly, you should witness the new record from the source database in your target database, confirming the successful setup of logical replication.
+
+
+
 ### pglogical extension
 
 Here is an example of configuring pglogical at the provider database server and the subscriber. Refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed prerequisite tasks listed above.
