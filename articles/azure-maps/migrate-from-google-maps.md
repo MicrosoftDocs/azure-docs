@@ -75,7 +75,6 @@ Here are some related resources for Azure Maps:
 
 * [Azure Maps pricing page]
 * [Azure pricing calculator]
-* [Choose the right pricing tier in Azure Maps]
 * [Azure Maps term of use] - included in the Microsoft Online Services Terms.
 
 ## Suggested migration plan
@@ -139,7 +138,6 @@ Learn the details of how to migrate your Google Maps application with these arti
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
 [Azure subscription]: https://azure.com
 [Azure support options]: https://azure.microsoft.com/support/options
-[Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
 [free account]: https://azure.microsoft.com/free/
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
