@@ -7,7 +7,7 @@ ms.date: 09/06/2023
 ms.author: cmulligan
 ---
 
-## Find the application (client) ID
+## Find the Application (client) ID
 
 After you register a new application, you can find the Application (client) ID from the overview in the Microsoft Entra admin center. 
 
