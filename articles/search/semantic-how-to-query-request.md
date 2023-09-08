@@ -184,7 +184,7 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Pre-processing during semantic ranking](semantic-ranking.md#pre-processing).
+Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Pre-processing during semantic ranking](semantic-search-overview.md#how-inputs-are-prepared).
 
 + If you're specifying just one field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
 
@@ -366,4 +366,3 @@ Recall that semantic ranking and responses are built over an initial result set.
 + [Similarity ranking algorithm](index-similarity-and-scoring.md)
 + [Scoring profiles](index-add-scoring-profiles.md)
 + [Semantic search overview](semantic-search-overview.md)
-+ [Semantic ranking algorithm](semantic-ranking.md)

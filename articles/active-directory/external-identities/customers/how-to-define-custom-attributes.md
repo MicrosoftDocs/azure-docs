@@ -49,7 +49,7 @@ If your application relies on certain built-in or custom user attributes, you ca
 
 1. Select **Create**. The custom attribute is now available in the list of user attributes and can be [added to your user flows](#include-custom-attributes-in-a-sign-up-flow).
 
-### About referencing custom attributes
+### Referencing custom attributes
 
 The custom attributes you create are added to the *b2c-extensions-app* registered in your customer tenant. If you want to call a custom attribute from an application or manage it via Microsoft Graph, use the naming convention `extension_<b2c-extensions-app-id>_<custom-attribute-name>` where:
 
