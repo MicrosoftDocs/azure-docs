@@ -5,7 +5,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 06/08/2023
+ms.date: 09/08/2023
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---
@@ -32,7 +32,7 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 
 ## <a name="sku"></a>SKUs
 
-Azure Bastion has two available SKUs, Basic and Standard. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article.
+Azure Bastion has multiple SKUs. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article.
 
 The following table shows features and corresponding SKUs.
 
