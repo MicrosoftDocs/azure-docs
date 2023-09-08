@@ -1,0 +1,46 @@
+items:
+  - name: Azure IoT Operations
+    href: index.yml
+    items:
+    - name: Get started
+      items:
+      - name: Overview
+        href: get-started/overview-iot-operations.md
+      - name: Deploy IoT Operations
+        href: get-started/quickstart-deploy.md
+    - name: Deploy
+      items:
+      - name: Overview
+        href: deploy/overview-deploy-iot-operations.md
+    - name: Manage devices and assets
+      items:
+      - name: Overview
+        href: manage-devices-assets/overview-manage-assets.md
+    - name: Route messages
+      items:
+      - name: Overview
+        href: route-messages/overview-route-messages.md
+    - name: Process messages
+      items:
+      - name: Overview
+        href: process-data/overview-data-processor.md
+    - name: Connect to the cloud
+      items:
+      - name: Overview
+        href: connect-to-cloud/overview-connect-to-cloud.md
+    - name: Visualize and analyze telemetry
+      items:
+      - name: Overview
+        href: analyze-telemetry/overview-analyze-telemetry.md
+    - name: Developer guide
+      items:
+      - name: Overview
+        href: develop/overview-develop-customizations.md
+    - name: Administrator guide
+      items:
+      - name: Overview
+        href: administer/overview-manage-solution.md
+    - name: Troubleshoot
+      href: troubleshoot/troubleshoot.md
+    - name: Reference # supporting information like APIs, tools, code libraries
+    - name: Resources # could include links to related libraries
