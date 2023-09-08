@@ -123,6 +123,8 @@
     href: samples-rest.md
 - name: Concepts
   items:
+  - name: Retrieval Augmented Generation (RAG)
+    href: retrieval-augmented-generation-overview.md
   - name: Search
     items:
     - name: Full-text search
@@ -143,8 +145,6 @@
         href: vector-search-ranking.md
     - name: Semantic search
       href: semantic-search-overview.md
-  - name: Retrieval Augmented Generation (RAG)
-    href: retrieval-augmented-generation-overview.md
   - name: Indexing
     items:
     - name: Search indexes
