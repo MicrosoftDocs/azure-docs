@@ -21,8 +21,8 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
-- Complete the Quickstart: Design a Network Service Design for Nginx Container as CNF.
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Complete the [Quickstart: Design a Network Service Design for Nginx Container as CNF.](quickstart-containerized-network-function-network-design.md)
 
 ## Create a Site
 
@@ -39,7 +39,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
     > This example features a single Network Function Virtual Infrastructure (NFVI) named nginx_NFVI. If you modified the nsdg_name in the input.json file while publishing NSD, the NFVI name should be <nsdg_name>_NFVI. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.  
 1. Select **Review + create**, then select **Create**.
 
-## Delete Site
+## Delete a Site
 
 In Azure Operator Service Manager (AOSM), deleting a site requires careful consideration of the associated child resources. To ensure a smooth deletion process, it's important to follow specific guidelines based on the presence of child resources. 
 
