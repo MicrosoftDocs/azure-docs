@@ -136,7 +136,7 @@ spring:
 ```
 
 > [!NOTE]
-> Any prefix such as `/application/` which is automatically trimed when using a key filter will need to be specified for snapshots or they will not be properly mapped to the correct `@ConfigurationProperties` classes.
+> Any prefix such as `/application/` which is automatically trimmed when using a key filter will need to be specified for snapshots or they will not be properly mapped to the correct `@ConfigurationProperties` classes.
 > Snapshot support is available if you use version **4.12.0-beta.1**/**5.6.0-beta.1** or later of any of the following packages.
 > - `spring-cloud-azure-appconfiguration-config`
 > - `spring-cloud-azure-appconfiguration-config-web`
