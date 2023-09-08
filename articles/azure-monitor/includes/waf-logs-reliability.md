@@ -15,6 +15,7 @@ The reliability situations to consider for Log Analytics workspaces are availabi
 > - If you collect enough data for a dedicated cluster, create a dedicated cluster in an availability zone.
 > - If you require the workspace to be available in the case of a region failure, or you don't collect enough data for a dedicated cluster, configure data collection to send critical data to multiple workspaces in different regions.
 > - If you require data to be protected in the case of datacenter or region failure, configure data export from the workspace to save data in an alternate location.
+> - For mission-critical workloads requiring high availability, consider implementing a federated workspace model.
 > - Monitor the health of your Log Analytics workspaces.
  
 ### Configuration recommendations
