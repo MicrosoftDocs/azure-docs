@@ -87,9 +87,8 @@ Evaluates the similarity between a ground truth sentence (or document) and the p
 #### Metric configuration requirements
 
 The following inputs (data column names) are required to measure generation safety & quality: 
-
-- **prompt text** - the original prompt given 
-- **completion text** - the final completion from the API call that is returned
+- **prompt text** - the original prompt given (also known as "inputs" or "question")
+- **completion text** - the final completion from the API call that is returned (also known as "outputs" or "answer")
 - **context text** - any context data that is sent to the API call, together with original prompt. For example, if you hope to get search results only from certain certified information sources/website, you can define in the evaluation steps. This is an optional step that can be configured through PromptFlow.
 - **ground truth text** - the user-defined text as the "source of truth" (optional)
 
@@ -114,8 +113,8 @@ What parameters are configured in your data asset dictates what metrics you can 
     -  **API version:** 2023-03-15-preview
 1. **Promptflow deployment:** Create a prompt flow runtime [following this guidance](how-to-create-manage-runtime.md), run your flow, and ensure your [deployment is configured using this article as a guide](how-to-deploy-for-real-time-inference.md) 
     - **Flow inputs & outputs:** You will need to name your flow outputs appropriately and remember these column names when creating your monitor. In this article, we'll use the following:
-        - **Inputs (required):** "prompt" (also known as "inputs" or "question")
-        - **Outputs (required):** "completion" (also known as "outputs" or "answer")
+        - **Inputs (required):** "prompt" 
+        - **Outputs (required):** "completion" 
             - **Outputs (optional):** "context" | "ground truth" 
     - **Data collection:** in the "Deployment" _(Step #2 of the PromptFlow deployment wizard)_, the 'inference data collection' toggle must be enabled using [Model Data Collector](../concept-data-collection.md) 
     - **Outputs:** In the Outputs _(Step #3 of the PromptFlow deployment wizard)_, confirm you have selected the required outputs listed above (e.g. completion | context | ground_truth) that meet your [metric configuration requirements](#metric-configuration-requirements) 
