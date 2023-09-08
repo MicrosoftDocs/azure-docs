@@ -1079,7 +1079,22 @@ sections:
           [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](app/opencensus-python.md) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
 
   - name: Container insights
+  
     questions:
+      - question: |
+          Why do I see info banner "You do not have the right cluster permissions which will restrict your access to Container Insights features. Please reach out to your cluster admin to get the right permission"?
+        answer: |
+          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace. It now checks cluster-level permission to provide access to the Azure portal experience. You may need your cluster admin to assign this permission.
+
+          For basic read-only cluster level access, assign the **Monitoring Reader** role for the following types of clusters.
+
+          - AKS without Kubernetes role-based access control (RBAC) authorization enabled
+          - AKS enabled with Azure Active Directory (Azure AD) SAML-based single sign-on
+          - AKS enabled with Kubernetes RBAC authorization
+          - AKS configured with the cluster role binding clusterMonitoringUser
+          - [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview)
+
+          See [Assign role permissions to a user or group](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md) to learn more about role assignments.
       - question: |
           What does "Other processes" represent under the Node view?
         answer: |
