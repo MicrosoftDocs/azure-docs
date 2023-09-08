@@ -258,11 +258,11 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
 1. **Start Job:** Rest API to start STOPPED job.
- | Option   | Value                                                |
-| -------- | ---------------------------------------------------- |
-| Method   | POST                                               |
-| URL      | `https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runJob?api-version={{HILO_API_VERSION}}` |
-| Header   | Authorization = "Bearer $token"                    |
+   |  Option  |  Value  |
+   | -------- | ------- |
+   | Method   |  POST   |
+   | URL      | `https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runJob?api-version={{HILO_API_VERSION}}` |
+   | Header   | Authorization = "Bearer $token" |
 
 
    *Request Body*
@@ -295,7 +295,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    |  Option  |  Value  |
    | -------- | ------- |
    | Method   |  POST   |
-   | URL      | `https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runJob?api-version={{HILO_API_VERSION}}` 
+   | URL      | `https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{HILO_CLUSER_POOL}}/clusters/{{HILO_FLINK_CLUSTER}}/runJob?api-version={{HILO_API_VERSION}}` |
    | Header   | Authorization = "Bearer $token" |
 
    *Request Body*
