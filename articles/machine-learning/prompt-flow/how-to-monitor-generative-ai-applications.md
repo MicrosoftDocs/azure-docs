@@ -89,7 +89,9 @@ What parameters are configured in your data asset dictates what metrics you can 
             - **Outputs (optional):** "context" | "ground truth" 
     - **Data collection:** in the "Deployment" _(Step #2 of the PromptFlow deployment wizard)_, the 'inference data collection' toggle must be enabled using [Model Data Collector](../concept-data-collection.md) 
     - **Outputs:** In the Outputs _(Step #3 of the PromptFlow deployment wizard)_, confirm you have selected the required outputs listed above (for example, completion | context | ground_truth) that meet your [metric configuration requirements](#metric-configuration-requirements) 
-     
+
+> [!NOTE]
+> If your compute instance is behind a VNet, see [Compute instance behind VNet](how-to-create-manage-runtime.md#compute-instance-behind-vnet).
 
 ## Create your monitor 
 
