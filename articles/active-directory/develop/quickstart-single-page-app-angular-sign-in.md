@@ -85,7 +85,7 @@ Run the project with a web server by using Node.js:
 1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
 1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
 
-    :::image type="content" source="./media/quickstarts/angular-spa/quickstart-angular-spa-sign-in.png" alt-text="Screenshot of Angular App depicting the results of the API call.":::
+    :::code language="csharp" source="~/ms-identity-docs-code-javascript/angular-spa/readme-files/angular-spa-sign-in.png":::
 
 ## Sign-out from the application
 
