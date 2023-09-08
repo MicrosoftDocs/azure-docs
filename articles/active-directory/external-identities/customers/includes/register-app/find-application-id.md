@@ -15,4 +15,4 @@ After you register a new application, you can find the Application (client) ID f
 1. Select the application to open its **Overview** page. 
 1. Under **Essentials** you find all the app details including the Application (client) ID.
 
-    :::image type="content" source="../../media/common/application-client-id.png" alt-text="Screenshot showing the application (client) ID.":::
+    :::image type="content" source="../../media/common/application-client-id.png" alt-text="Screenshot showing the application (client) ID." lightbox="../../media/common/application-client-id.png":::
