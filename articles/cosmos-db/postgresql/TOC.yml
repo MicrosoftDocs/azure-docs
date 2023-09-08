@@ -71,6 +71,8 @@
   items:
     - name: Clusters
       href: concepts-cluster.md
+    - name: Sharding models
+      href: concepts-sharding-models.md
     - name: Distributed data
       items:
         - name: Nodes and tables
