@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/15/2023
+ms.date: 09/08/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -343,7 +343,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
                                                           "isDhcpEnabled":  false,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.100.10",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.255.0",
                                                                        "gateway":  null
                                                                    },
@@ -359,7 +359,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
                                                           "isDhcpEnabled":  false,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.100.10",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.255.0",
                                                                        "gateway":  null
                                                                    },
@@ -375,7 +375,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "10.126.76.140",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.248.0",
                                                                        "gateway":  "10.126.72.1"
                                                                    },
@@ -394,7 +394,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "10.126.77.49",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.248.0",
                                                                        "gateway":  "10.126.72.1"
                                                                    },
@@ -413,7 +413,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.6.195",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.0.0",
                                                                        "gateway":  null
                                                                    },
@@ -431,7 +431,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.6.0",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.0.0",
                                                                        "gateway":  null
                                                                    },
@@ -449,7 +449,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.6.123",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.0.0",
                                                                        "gateway":  null
                                                                    },
@@ -485,7 +485,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.2.161",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.0.0",
                                                                        "gateway":  null
                                                                    },
@@ -503,7 +503,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.3.255",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.0.0",
                                                                        "gateway":  null
                                                                    },
@@ -521,7 +521,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "b4eeebad-9395-4aa8-b6b4-2f2d66eccf58",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.2.159",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.0.0",
                                                                        "gateway":  null
                                                                    },
@@ -539,7 +539,7 @@ Run the following cmdlets in PowerShell:
                                                           "nodeId":  "9b1817b9-67f5-4631-8466-447b89b829f3",
                                                           "isDhcpEnabled":  true,
                                                           "iPv4":  {
-                                                                       "address":  "192.168.3.227",
+                                                                       "address":  "192.0.2.0/24",
                                                                        "subnetMask":  "255.255.0.0",
                                                                        "gateway":  null
                                                                    },
@@ -606,13 +606,13 @@ Run the following cmdlets in PowerShell:
                                                                "vSwitchName":  "TestvSwitch",
                                                                "vlanId":  0,
                                                                "subnetMask":  "255.255.255.0",
-                                                               "gateway":  "172.0.5.1",
-                                                               "network":  "172.0.5.0",
+                                                               "gateway":  "192.0.2.0/24",
+                                                               "network":  "192.0.2.0/24",
                                                                "enabledForKubernetes":  false,
                                                                "ipAddressPools":  [
                                                                                       {
                                                                                           "name":  "VirtualMachineIPs",
-                                                                                          "ipAddressRange":  "172.0.5.0/24"
+                                                                                          "ipAddressRange":  "192.0.2.0/24"
                                                                                       }
                                                                                   ]
                                                            }

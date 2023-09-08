@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 09/08/2023
 ms.author: alkohli
 ---
 
@@ -154,9 +154,9 @@ EnabledForStorage             : False
 EnabledForMgmt                : False
 SupportsAcceleratedNetworking : True
 DbeDhcpHostVnicName           : ed7eb61d-7dd8-4648-bb8e-04fe5b0b6fd6
-VirtualNetworks               : {Name: 'TestvSwitch-internal', AddressSpace: '172.0.5.0/24', SwitchName:
-                                'TestvSwitch', GatewayIPAddress: '172.0.5.1', DnsServers: '172.0.5.1', VlanId:
-                                '0'EnabledForK8s: FalseIPAddressPools:    VirtualMachineIPs , 172.0.5.0/24}
+VirtualNetworks               : {Name: 'TestvSwitch-internal', AddressSpace: '192.0.2.0/24', SwitchName:
+                                'TestvSwitch', GatewayIPAddress: '192.0.2.0/24', DnsServers: '192.0.2.0/24', VlanId:
+                                '0'EnabledForK8s: FalseIPAddressPools:    VirtualMachineIPs , 192.0.2.0/24}
 EnableEmbeddedTeaming         : False
 InternalVnetName              : TestvSwitch-internal
 Type                          : External

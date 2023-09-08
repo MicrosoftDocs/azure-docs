@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/16/2023
+ms.date: 09/08/2023
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -443,7 +443,7 @@ After the cluster is formed and configured, you can now create new virtual switc
 1. In the  local UI, go to **Advanced networking** page. 
 1. In the **Virtual switch** section, add or delete virtual switches. Select **Add virtual switch** to create a new switch.
 
-   ![The Add a virtual switch option on the Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch.png)
+   ![Screenshot of the Add a virtual switch option on the Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch.png)
 
 1. In the **Network settings** be, if using a new virtual switch, provide the following:
 
@@ -465,15 +465,15 @@ After the cluster is formed and configured, you can now create new virtual switc
 
     If a virtual network interface is created on the virtual switch, the interface will use the specified MTU setting. If this virtual switch is enabled for compute, the Azure Kubernetes Service VMs and container network interfaces (CNIs) will use the specified MTU as well.
 
-   ![The Add a virtual switch settings on the Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
+   ![Screenshot of the Add a virtual switch settings on the Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
 
    When you create a virtual switch, the MTU column is populated with its MTU value.
 
-   ![MTU setting in Advanced networking in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
+   ![Screenshot of the MTU setting in Advanced networking in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
-   ![Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
+   ![Screenshot of the Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
 1. You can create more than one switch by following the steps described earlier.
 
@@ -494,7 +494,8 @@ You can add or delete virtual networks associated with your virtual switches. To
     1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
     1. Select **Apply**.
 
-    ![UPDATE THIS screen - Screenshot of how to add virtual network in "Advanced networking" page in local UI for two node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-virtual-network-one-node-1.png)
+    ![Screenshot of how to add virtual network in "Advanced networking" page in local UI for two node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-virtual-network-one-node-1.png)
+    <!--UPDATE this screen.-->
 
 1. To delete a virtual network, under the **Virtual network** section, select **Delete virtual network** and select the virtual network you want to delete.
 
@@ -507,7 +508,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
 1. In the local UI, go to the **Kubernetes** page.
 1. Specify a workload from the options provided. If prompted, confirm the option you selected and then select **Apply**.
 
-   ![Workload selection options on the Kubernetes page of the local UI for two node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-k8s-workload-selection.png)
+   ![Screenshot of the Workload selection options on the Kubernetes page of the local UI for two node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-kubernetes-workload-selection.png)
 
 1. From the dropdown list, select the virtual switch you want to enable for Kubernetes compute traffic.
 1. Assign **Kubernetes node IPs**. These static IP addresses are for the Kubernetes VMs.  
