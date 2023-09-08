@@ -13,7 +13,7 @@ ms.date: 08/31/2023
 
 # Retrieval Augmented Generation (RAG) in Azure Cognitive Search
 
-Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM. For an enterprise solution, RAG means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
+Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT by adding an information retrieval system that provides the data. Adding an information retrieval system gives you control over the data used by an LLM. For an enterprise solution, RAG architecture means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
 
 The decision about which information retrieval system to use is critical because it determines the inputs to the LLM. The information retrieval system should provide:
 
@@ -34,11 +34,11 @@ Azure Cognitive Search is a [proven solution for information retrieval](https://
 
 Microsoft has several built-in implementations for using Cognitive Search in a RAG solution.
 
-+ Azure AI Studio, [using your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio and start chatting right away.
++ Azure AI Studio, [using your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio and start chatting right away. If you don't have an index, you can [create one by uploading your data](/azure/ai-services/openai/use-your-data-quickstart) using the studio.
 
 + Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
 
-However, if you need a custom approach, you can roll your own RAG solution. The remainder of this article explores how Cognitive Search fits into a custom solution.
+If, you need a custom approach however, you can create your own custom RAG solution. The remainder of this article explores how Cognitive Search fits into a custom solution.
 
 > [!NOTE]
 > Prefer to look at code? You can review the [Azure Cognitive Search OpenAI demo](https://github.com/Azure-Samples/azure-search-openai-demo) for an example.
@@ -50,9 +50,9 @@ A high-level summary of the pattern looks like this:
 + Start with a user question or request (prompt).
 + Send it to Cognitive Search to find relevant information.
 + Send the top ranked search results to the LLM.
-+ Use the language understanding and reasoning capabilities of the LLM to generate a response to the initial prompt.
++ Use the natural language understanding and reasoning capabilities of the LLM to generate a response to the initial prompt.
 
-Cognitive Search provides the data, but doesn't train the model. In RAG there's no training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
+Cognitive Search provides data to the LLM but doesn't train the model. In RAG architecture there's no additional training. The LLM is pretrained using public data, but it generates responses that are augmented by information from the retriever.
 
 RAG patterns that include Cognitive Search have the elements indicated in the following illustration.
 
@@ -71,7 +71,7 @@ The information retrieval system provides the searchable index, query logic, and
 
 The LLM receives the original prompt, plus the results from Cognitive Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a back and forth conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
 
-Cognitive Search doesn't provide native LLM integration, web front ends, or vector encoding (embeddings) out of the box, so you need to write code that handles those parts of the solution. You can review demo source ([Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)) for a blueprint of what a full solution entails.
+Cognitive Search doesn't provide native LLM integration, web frontends, or vector encoding (embeddings) out of the box, so you need to write code that handles those parts of the solution. You can review demo source ([Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)) for a blueprint of what a full solution entails.
 
 ## Searchable content in Cognitive Search
 
