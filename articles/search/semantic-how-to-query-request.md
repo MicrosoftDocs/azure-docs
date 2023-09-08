@@ -96,7 +96,6 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
    Select **OK** to save the changes.
 
-
 ### [**REST API**](#tab/rest)
 
 1. Formulate a [Create or Update Index](/rest/api/searchservice/preview-api/create-or-update-index?branch=main) request.
@@ -235,7 +234,7 @@ Your next step is adding parameters to the query request. To be successful, your
 
 1. Using options, specify that you want to use semantic search and select a query language. If you don't see these options, make sure semantic search is enabled and also refresh your browser.
 
-:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
+    :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
 
 ### [**REST API**](#tab/rest-query)
 
