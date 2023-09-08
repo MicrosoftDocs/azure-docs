@@ -110,7 +110,7 @@ This preview is available for connections associated to ExpressRoute Direct circ
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 > 
 ## Limited General Availability (GA)
-FastPath Private Endpoint/Private Link support for 100Gbps ExpressRoute Direct connections is available for limited scenarios. To review the supported scenarios and enroll in the limited GA offering, please send an email **exrpm@microsoft.com** with the following information:
+FastPath Private Endpoint/Private Link support for 100Gbps ExpressRoute Direct connections is available for limited scenarios. To review the supported scenarios and enroll in the limited GA offering, please send an email to **exrpm@microsoft.com** with the following information:
 - Azure subscription ID
 - Virtual Network(s) Azure Resource ID(s)
 - ExpressRoute Circuit(s) Azure Resource ID(s)
