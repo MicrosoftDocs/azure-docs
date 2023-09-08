@@ -181,6 +181,8 @@ items:
     items:
     - name: Map control
       items:
+      - name: Web SDK v1 migration guide
+        href: web-sdk-migration-guide.md
       - name: Use the Azure Maps map control
         href: how-to-use-map-control.md
       - name: Use the Azure Maps npm package
