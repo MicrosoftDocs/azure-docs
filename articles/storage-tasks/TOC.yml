@@ -35,8 +35,6 @@ items:
   expanded: true
 - name: Reference
   items:
-  - name: REST API
-    href: /rest/api/storageservices/blob-service-rest-api
   - name: Monitoring data Reference
     href: storage-tasks-monitor-data-reference.md
   - name: Storage Tasks events
@@ -46,8 +44,4 @@ items:
   items:
     - name: Known issues and limitations
       href: storage-task-known-issues.md
-    - name: Azure Storage Tasks on Microsoft Q&A
-      href: /answers/topics/azure-blob-storage.html
-    - name: Azure Storage Tasks on Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-blob-storage
   expanded: true

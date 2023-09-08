@@ -18,7 +18,6 @@ In this how-to article, you'll learn how to create a storage task.
 > [!IMPORTANT]
 > Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see \<sign-up form link here\>.
 
 ## Create a task
 

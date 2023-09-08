@@ -20,7 +20,6 @@ As part of creating an assignment, you must choose an Azure Built-in or custom r
 > [!IMPORTANT]
 > Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see \<sign-up form link here\>.
 
 ## Built-in roles and RBAC actions
 

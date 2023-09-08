@@ -17,7 +17,6 @@ This article describes limitations and known issues of Azure Storage Tasks. The 
 > [!IMPORTANT]
 > Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see \<sign-up form link here\>.
 
 ## Storage account regions
 
@@ -29,7 +28,9 @@ During the public preview, you can target only storage accounts that are in the 
 |---|---|
 | Storage tasks per subscription | 100 |
 | Storage task assignments per storage task | 50 |
+| Storage task assignments per storage account | 50 |
 | Storage task definition versions | 50 |
+| Maximum number of blobs that a storage task can process in a storage account | 5 billion |
 
 ## String operators on container metadata, blob metadata, and blob index tags don't work if the values are numbers
 

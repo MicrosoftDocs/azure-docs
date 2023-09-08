@@ -19,7 +19,6 @@ Azure Storage Tasks can perform operations on containers and blobs in Azure Stor
 > [!IMPORTANT]
 > Azure Storage Tasks is currently in PREVIEW and is available these [regions](#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see \<sign-up form link here\>.
 
 ## Anatomy of a storage task
 
@@ -77,7 +76,10 @@ See the [Azure Storage Tasks events schema](../event-grid/event-schema-storage-t
 
 ## Supported Regions
 
-List supported regions here.
+Azure Storage tasks are supported in the following public regions:
+
+- France Central
+- Canada Central
 
 ## Pricing and billing
 
