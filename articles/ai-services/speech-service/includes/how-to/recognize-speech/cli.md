@@ -42,5 +42,5 @@ The Speech CLI shows a text transcription of the speech on the screen.
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
 
