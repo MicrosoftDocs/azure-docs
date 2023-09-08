@@ -24,7 +24,7 @@ This quickstart shows you how to observe your production applications deployed o
 - **Reliability**: Check that the application is reliable and can be used normally.
 - **Failure**: Understand that the application isn't working properly and further fixes are required.
 - **Performance**: Understand which performance issue the application encounters, need further attention, and find out the root cause of the problem.
-- **Alerts**: Know the current state of the application. Proactively notify others and take necessary actions when the application is not working properly.
+- **Alerts**: Know the current state of the application. Proactively notify others and take necessary actions when the application isn't working properly.
 
 In this quickstart, we use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as the production application. For more information on how to deploy the PetClinic sample app to Azure Spring Apps, see the following articles:
 

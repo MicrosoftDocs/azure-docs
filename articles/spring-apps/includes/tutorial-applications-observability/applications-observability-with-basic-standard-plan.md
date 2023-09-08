@@ -80,7 +80,7 @@ To check the liveness for each app on Azure Spring Apps, use the following steps
 
 A dashboard is a cognitive awareness and communication tool that is designed to visually identify trends, patterns, anomalies, and help to make effective decisions. It can aggregate various metric charts, quick links, and other important information.
 
-To create a custom dashboard, and pin various quickstart blades and metrics charts to the dashboard, use the following steps. If you choose to use the built-in dashboard of Application Insights created by Azure Spring Apps, you can skip the creation of the dashboard and properly customize the dashboard chart. For more information, see [Application Insights Overview dashboard](../../../azure-monitor/app/overview-dashboard.md).
+To create a custom dashboard, and pin various quickstart blades and metrics charts to the dashboard, use the following steps. If you choose to use the built-in dashboard of Application Insights created by the Azure Spring Apps, you can skip creating the dashboard and customizing the dashboard chart. For more information, see [Application Insights Overview dashboard](../../../azure-monitor/app/overview-dashboard.md).
 
 1. From the Azure portal menu, select **Dashboard**. Your default view might already be set to dashboard.
 
@@ -178,7 +178,7 @@ The indicators of the number of HTTP requests, response time, abnormal requests,
 
 #### 2.3.3. Database performance monitoring
 
-Database performance is the cornerstone of normal service for all applications. Actually, there are many application performance downgrades caused by the slow database or exhausted database connection pool It's necessary to ensure that the performance at the database level meets expectations, otherwise, it causes chain issues.
+Database performance is the cornerstone of normal service for all applications. Actually, there are many application performance downgrades caused by the slow database or exhausted database connection pool. It's necessary to ensure that the performance at the database level meets expectations, otherwise, it causes chain issues.
 
 #### 2.3.4. Pin the "Active MySQL connections" chart
 
