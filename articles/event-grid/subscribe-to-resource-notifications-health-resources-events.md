@@ -10,19 +10,19 @@ This article describes steps to subscribe to events published by Azure Resource 
 
 ## Create Microsoft.ResourceNotifications.HealthResources system topic
 
-# [Azure CLI](#azure-cli)
+### [Azure CLI](#azure-cli)
 
 1. Set the account to the Azure subscription where you wish to create the system topic.
 
     ```azurecli-interactive
     az account set –s AZURESUBSCRIPTIONID
     ```
-2. Create a system topic of type `microsoft.resourcenotifications.healthresources` using the [`az eventgrid system-topic create`](/cli/azure/eventgrid/system-topicaz-eventgrid-system-topic-create) command.
+2. Create a system topic of type `microsoft.resourcenotifications.healthresources` using the [`az eventgrid system-topic create`](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-create) command.
 
     ```azurecli-interactive
     az eventgrid system-topic create --name SYSTEMTOPICNAME --resource-group RESOURCEGROUPNAME --source /subscriptions/AZURESUBSCRIPTIONID --topic-type microsoft.resourcenotifications.healthresources --location Global        
     ```
-# [Azure PowerShell](#azure-powershell)
+### [Azure PowerShell](#azure-powershell)
 
 1. Set the account to the Azure subscription where you wish to create the system topic. 
 
@@ -42,7 +42,7 @@ Currently, you can't create a system topic for the Azure Resource Notifications 
 
 ## Subscribe to events
 
-# [Azure CLI](#azure-cli)
+### [Azure CLI](#azure-cli)
 Create an event subscription for the above topic using the [`az eventgrid system-topic event-subscription create`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-create) command.
 
 The following sample command creates an event subscription for the **AvailabilityStatusChanged** event. 
@@ -65,7 +65,7 @@ To **filter events** from a specific resource, use the `--subject-begins-with` p
 az eventgrid system-topic event-subscription create --name EVENTSUBSCRIPTIONNAME --resource-group RESOURCEGROUPNAME --system-topic-name SYSTEMTOPICNAME –included-event-types Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged --endpoint /subscriptions/AZURESUBSCRIPTIONID/ resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/MYEVENTHUBSNAMESPACE/eventhubs/MYEVENTHUB --endpoint-type eventhub --subject-begins-with /subscriptions/AZURESUBSCRIPTIONID/resourceGroups/SOURCERESOURCEGROUP/  
 ```
 
-# [Azure PowerShell](#azure-powershell)
+### [Azure PowerShell](#azure-powershell)
 
 Create an event subscription for the above topic using the [New-AzEventGridSystemTopicEventSubscription](/powershell/module/az.eventgrid/new-azeventgridsystemtopiceventsubscription) command. 
 
