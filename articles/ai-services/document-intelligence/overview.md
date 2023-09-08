@@ -92,7 +92,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row-end:::
 :::row:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-w2.png" link="#w-2":::</br>
+      :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-form":::</br>
     [**US Tax W-2 form**](#us-tax-w-2-form) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::

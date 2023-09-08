@@ -120,12 +120,12 @@ The health insurance card model combines powerful Optical Character Recognition 
 
 The US tax document models analyze and extract key fields and line items from a select group of tax documents. The API supports the analysis of English-language US tax documents of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The following models are currently supported:
 
-    |Model|Description|ModelID|
-    |---|---|---|
-    |US Tax W-2|Extract taxable compensation details.|**prebuilt-tax.us.W-2**|
-    |US Tax 1098|Extract mortgage interest details.|**prebuilt-tax.us.1098**|
-    |US Tax 1098-E|Extract student loan interest details.|**prebuilt-tax.us.1098E**|
-    |US Tax 1098-T|Extract qualified tuition details.|**prebuilt-tax.us.1098T**|
+  |Model|Description|ModelID|
+  |---|---|---|
+  |US Tax W-2|Extract taxable compensation details.|**prebuilt-tax.us.W-2**|
+  |US Tax 1098|Extract mortgage interest details.|**prebuilt-tax.us.1098**|
+  |US Tax 1098-E|Extract student loan interest details.|**prebuilt-tax.us.1098E**|
+  |US Tax 1098-T|Extract qualified tuition details.|**prebuilt-tax.us.1098T**|
 
 ***Sample W-2 document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
@@ -243,7 +243,10 @@ A composed model is created by taking a collection of custom models and assignin
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | [prebuilt-read](concept-read.md#data-detection-and-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
 | [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-tax.us.1098E](concept-tax-document.md#field-extraction-1098-e) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
+| [prebuilt-tax.us.1098T](concept-tax-document.md#field-extraction-1098-t) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |

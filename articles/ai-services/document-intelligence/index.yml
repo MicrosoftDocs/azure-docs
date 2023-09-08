@@ -63,8 +63,8 @@ landingContent:
                url:  concept-health-insurance-card.md
              - text: Custom model
                url: concept-custom.md
-             - text: W-2 Form model
-               url: concept-w2.md
+             - text: Tax document models
+               url: concept-tax-document.md
              - text: Invoice model
                url: concept-invoice.md
              - text: Receipt model
