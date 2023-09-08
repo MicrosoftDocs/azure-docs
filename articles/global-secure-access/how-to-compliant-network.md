@@ -57,7 +57,7 @@ To enable the required setting to allow the compliant network check, an administ
 The following example shows a Conditional Access policy that requires Exchange Online and SharePoint Online to be accessed from behind a compliant network as part of the preview.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Microsoft Entra ID** > **Protection** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
