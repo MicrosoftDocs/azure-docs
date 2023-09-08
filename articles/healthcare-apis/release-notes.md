@@ -23,7 +23,7 @@ This article provides details about the features and enhancements made to Azure 
 
 ## September 2023
 
-Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](./index.yml). Also, fixes to breadcrumbs across the FHIR, DICOM, and MedTech services documentation and ./../the table of contents make it easier and more intuitive to find the documentation you need.
+Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](./index.yml). Also, fixes to breadcrumbs across the FHIR, DICOM, and MedTech services documentation and the table of contents make it easier and more intuitive to find the documentation you need.
 
 ## August 2023
 
