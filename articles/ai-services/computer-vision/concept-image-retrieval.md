@@ -54,6 +54,15 @@ Vector embeddings are a way of representing content&mdash;text or images&mdash;a
 1. Measure similarity: Vector search systems typically use distance metrics, such as cosine distance or Euclidean distance, to compare vectors and rank them by similarity. The [Vision studio](https://portal.vision.cognitive.azure.com/) demo uses [cosine distance](./how-to/image-retrieval.md#calculate-vector-similarity) to measure similarity.  
 1. Retrieve Images: Use the top _N_ vectors similar to the search query and retrieve images corresponding to those vectors from your photo library to  provide as the final result.
 
+### Relevance score 
+
+The image and video retrieval services return a field called "relevance." The term "relevance" denotes a measure of similarity score between a query and image or video frame embeddings. The relevance score is comprised of two components:
+1. The cosine similarity (that falls in the range of [0,1]) between the query and image or video frame embeddings.
+1. A metadata score, which reflects the similarity between the query and the metadata associated with the image or video frame.
+
+> [!IMPORTANT]
+> The relevance score is a good measure to rank results such as images or video frames with respect to a single query. However, the relevance score cannot be accurately compared across queries. Therefore, it's not possible to easily map the relevance score to a confidence level. It's also not possible to trivially create a threshold algorithm to eliminate irrelevant results based solely on the relevance score. 
+
 ## Next steps
 
 Enable image retrieval for your search service and follow the steps to generate vector embeddings for text and images.  
