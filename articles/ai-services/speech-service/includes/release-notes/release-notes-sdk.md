@@ -6,6 +6,24 @@ ms.date: 07/31/2023
 ms.author: eur
 ---
 
+### Speech SDK 1.32.1: September 2023 release
+
+#### Upcoming Patch Release:
+
+* For Linux and Android users: With the impending End of Life for OpenSSL 1.1.1 on 9/11 there will be a patch release containing support for OpenSSL 3.0 before the next regular Speech SDK release. This will streamline usage on Linux Distributions with OpenSSL 3.0 pre-installed (such as Ubuntu 22.04)
+
+#### New features
+    
+
+#### Bug fixes
+* Android packages updates with latest security fixes from OpenSSL1.1.1v
+* JS – WebWorkerLoadType property added to allow bypass of data URL load for timeout worker	* JS – Fix Conversation Translation disconnect after 10 minutes
+* JS – Conversation Translation auth token from Conversation now propagates to Translation service connection
+    
+
+#### Samples
+
+
 ### Speech SDK 1.31.0: August 2023 release
 
 #### New Features
