@@ -104,9 +104,9 @@ What parameters are configured in your data asset dictates what metrics you can 
 
 
 ## Prerequisites
-1. **Azure OpenAI resource:** You must have an Azure OpenAI resource created with sufficient quota. 
-1. **Managed identity:**  Create a User Assigned Identity (UAI) and attach it to your workspace [using this guidance](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-submit-spark-jobs?view=azureml-api-2&tabs=cli#attach-user-assigned-managed-identity-using-cli-v2)
-1. **Role access** The following roles must be assigned to your UAI:
+1. **Azure OpenAI resource:** You must have an Azure OpenAI resource created with sufficient quota which will be used as your evaluation endpoint. 
+1. **Managed identity:**  Create a User Assigned managed Identity (UAI) and attach it to your workspace [using this guidance](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-submit-spark-jobs?view=azureml-api-2&tabs=cli#attach-user-assigned-managed-identity-using-cli-v2) with sufficient role access (outlined below)
+1. **Role access** To assign a role with enough permission, you need to have owner or have _'Microsoft.Authorization/roleAssignments/write'_ permission on your resource. Updating connections and permissions may take several minutes to take effect. The following roles must be assigned to your UAI:
     - **Resource:** Workspace
     - **Role:** Azure Machine Learning Data Scientist
 1. **Workspace connection:** [following this guidance](get-started-prompt-flow.md#connection), you'll use a managed identity which will represent the credentials to the Azure OpenAI endpoint leveraged to calculate the monitoring metrics. **DO NOT** delete the connection once it's used in the flow.
@@ -119,7 +119,10 @@ What parameters are configured in your data asset dictates what metrics you can 
     - **Data collection:** in the "Deployment" _(Step #2 of the PromptFlow deployment wizard)_, the 'inference data collection' toggle must be enabled using [Model Data Collector](../concept-data-collection.md) 
     - **Outputs:** In the Outputs _(Step #3 of the PromptFlow deployment wizard)_, confirm you have selected the required outputs listed above (e.g. completion | context | ground_truth) that meet your [metric configuration requirements](#metric-configuration-requirements) 
      
-    
+> [!NOTE]
+> If your compute instance behind VNet, please follow [Compute instance behind VNet](prompt-flow/how-to-create-manage-runtime.md#compute-instance-behind-vnet) to configure the network.
+
+
 ## Create your monitor 
 Create your monitor in the Monitoring overview page 
 :::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-create-monitor.png" alt-text="Screenshot showing how to configure basic monitoring settings for generative AI." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-create-monitor.png":::
