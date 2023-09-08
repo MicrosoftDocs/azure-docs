@@ -93,9 +93,13 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
 If you want your customer users to only sign in and not sign up, you can disable sign-up experience in your user flow by using [Microsoft Graph API](microsoft-graph-operations.md). You need to know the ID of the user flow that you want whose sign-up you want to disable. You can't read the user flow ID from the Microsoft Entra Admin center, but you can retrieve it via Microsoft Graph API if you know the app associated with it.
 
-1. Read the application ID associated with the user flow.
-
-1. Identify the user flow ID of the user flow whose sign-up you want to disable. To do so, [List the user flow associated with the specific application](/graph/api/identitycontainer-list-authenticationeventsflows?#example-4-list-user-flow-associated-with-specific-application-id). This's a Microsoft Graph API, which requires you to know the application ID you obtained from the previous step. 
+1. Read the application ID associated with the user flow:
+    1. Browse to **Identity > External Identities > User flows**.
+    1. From the list, select your user flow.
+    1. In the left menu, under **Use**, select **Applications**.
+    1. From the list, under **Application (client) ID** column, copy the Application (client) ID.
+    
+1. Identify the ID of the user flow whose sign-up you want to disable. To do so, [List the user flow associated with the specific application](/graph/api/identitycontainer-list-authenticationeventsflows?#example-4-list-user-flow-associated-with-specific-application-id). This's a Microsoft Graph API, which requires you to know the application ID you obtained from the previous step. 
 
 1. [Update your user flow](/graph/api/authenticationeventsflow-update) to disable sign-up. 
 
