@@ -23403,6 +23403,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/msal-python-python-adfs-support.md",
+            "redirect_url": "/entra/msal/python/advanced/msal-python-adfs-support",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-dotnet.md",
             "redirect_url": "/entra/msal/dotnet/advanced/exceptions/msal-error-handling",
             "redirect_document_id": false
