@@ -77,7 +77,7 @@ Instead of performing these actions from a selected Azure VM or Azure Arc-enable
 
 Update Manager (preview) in Azure enables you to browse information about your Azure VMs and Azure Arc-enabled servers across your Azure subscriptions relevant to Update Manager (preview).
 
-This section shows how you can filter information to understand the update status of your machine resources. For multiple machines, you can see how to initiate an update assessment, initiate an update deployment, and manage their update settings.
+This section shows how you can filter information to understand the update status of your machine resources. For multiple machines, you can see how to begin an update assessment, begin an update deployment, and manage their update settings.
 
  On the **Update Manager (preview)** page, select **Machines** from the left menu.
 
@@ -113,19 +113,19 @@ For machines that haven't had a compliance assessment scan for the first time, y
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-multi-selection-inline.png" alt-text="Screenshot that shows initiating a scan assessment for selected machines with the Check for updates option." lightbox="./media/manage-multiple-machines/update-center-assess-now-multi-selection-expanded.png":::
 
-  Otherwise, a compliance scan is initiated, and the results are forwarded and stored in Azure Resource Graph. This process takes several minutes. When the assessment is finished, a confirmation message appears on the page.
+  Otherwise, a compliance scan begins and the results are forwarded and stored in Azure Resource Graph. This process takes several minutes. When the assessment is finished, a confirmation message appears on the page.
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-complete-banner-inline.png" alt-text="Screenshot that shows an assessment banner on the Manage Machines page." lightbox="./media/manage-multiple-machines/update-center-assess-now-complete-banner-expanded.png":::
 
-Select a machine from the list to open Update Manager (preview) scoped to that machine. Here, you can view its detailed assessment status and update history, configure its patch orchestration options, and initiate an update deployment.
+Select a machine from the list to open Update Manager (preview) scoped to that machine. Here, you can view its detailed assessment status and update history, configure its patch orchestration options, and begin an update deployment.
 
 ### Deploy the updates
 
-For assessed machines that are reporting updates available, select one or more of the machines from the list and initiate an update deployment that starts immediately. Select the machine and go to **One-time update**.
+For assessed machines that are reporting updates available, select one or more of the machines from the list and begin an update deployment that starts immediately. Select the machine and go to **One-time update**.
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-inline.png" alt-text="Screenshot that shows installing one-time updates for machines on the Updates (Preview) page." lightbox="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-expanded.png":::
 
- A notification confirms when an activity starts and another tells you when it's finished. After it's successfully finished, the installation operation results are available to view. You can use the **Update history** tab, when you select the machine from the **Machines** page. You can also select the **History** page. You're redirected to this page automatically after you initiate the update deployment. You can view the status of the operation at any time from the [Azure activity log](../azure-monitor/essentials/activity-log.md).
+ A notification confirms when an activity starts and another tells you when it's finished. After it's successfully finished, the installation operation results are available to view. You can use the **Update history** tab, when you select the machine from the **Machines** page. You can also select the **History** page. You're redirected to this page automatically after you begin the update deployment. You can view the status of the operation at any time from the [Azure activity log](../azure-monitor/essentials/activity-log.md).
 
 ### Set up a recurring update deployment
 
