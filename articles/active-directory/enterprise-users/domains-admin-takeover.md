@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/06/2023
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
 
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Microsoft Entra ID (Azure AD). When a self-service user signs up for a cloud service that uses Microsoft Entra ID, they're added to an unmanaged Entra ID directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Microsoft Entra ID?](directory-self-service-signup.md)
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Microsoft Entra ID formerly known as Azure AD. When a self-service user signs up for a cloud service that uses Microsoft Entra ID, they're added to an unmanaged Entra ID directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Microsoft Entra ID?](directory-self-service-signup.md)
 
 
 > [!VIDEO https://www.youtube.com/embed/GOSpjHtrRsg]
@@ -106,7 +106,6 @@ External admin takeover isn't supported for any service that has service plans t
 > [!NOTE]
 > External admin takeover is not supported cross cloud boundaries (ex. Azure Commercial to Azure Government).  In these scenarios it is recommended to perform External admin takeover into another Azure Commercial tenant, and then delete the domain from this tenant so you may verify successfully into the destination Azure Government tenant.
 
-You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged organization and verifying it on the desired organization. 
 
 #### More information about RMS for individuals
 
