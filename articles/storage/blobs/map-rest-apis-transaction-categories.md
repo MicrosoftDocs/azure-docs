@@ -12,7 +12,7 @@ ms.custom: subject-cost-optimization
 
 # Map each REST operation to a price
 
-This article helps you determine the price of each REST operation that a client can execute against the Azure Blob Storage service. 
+This article helps you find the price of each REST operation that clients can execute against the Azure Blob Storage service. 
 
 Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
 
@@ -20,7 +20,9 @@ To determine the price of each operation, you must first determine how that oper
 
 ## Operation type of each Blob Storage REST operation
 
-The following table maps each Blob Storage REST operation to a operation type. The price of each type appears in the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
+The following table maps each Blob Storage REST operation to a operation type.
+
+The price of each type appears in the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
 
 | Operation                                                                                 | Premium block blob        | Standard general-purpose v2 | Standard general-purpose v1 |
 |-------------------------------------------------------------------------------------------|---------------------------|-----------------------------|-----------------------------|
@@ -83,7 +85,9 @@ Read                        |
 
 ## Operation type of each Data Lake Storage Gen2 REST operation
 
-The following table maps each Data Lake Storage Gen2 REST operation to a operation type. The price of each type appears in the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
+The following table maps each Data Lake Storage Gen2 REST operation to a operation type. 
+
+The price of each type appears in the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
 | Operation                                                                                              | Premium block blob | Standard general-purpose v2 |
 |--------------------------------------------------------------------------------------------------------|--------------------|-----------------------------|
