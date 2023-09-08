@@ -51,8 +51,8 @@ This technique has shown strong empirical results and high correlation with huma
 
 #### Coherence
 Evaluates how well the language model can produce output that is coherent: it flows smoothly, reads naturally, and resembles human-like language. Answers are scored in their clarity, brevity, linguistic quality, and ability to match defined user needs and expectations.  **How to interpret:** 
-- **5 = “perfectly coherent”:** suggests that the AI system generates seamless, well-structured text with smooth transitions and consistent context throughout the text that enhances readability and understanding. 
-- **1 = “incoherent”:** suggests that the quality of the sentences in a model's predicted answer is poor, and they do not fit together naturally. The generated text may lack a logical flow, and the sentences may appear disjointed, making it challenging for readers to understand the overall context or intended message.  
+- 5 = “perfectly coherent”: suggests that the AI system generates seamless, well-structured text with smooth transitions and consistent context throughout the text that enhances readability and understanding. 
+- 1 = “incoherent”: suggests that the quality of the sentences in a model's predicted answer is poor, and they do not fit together naturally. The generated text may lack a logical flow, and the sentences may appear disjointed, making it challenging for readers to understand the overall context or intended message.  
 
 **Use-case:** You would like to test the readability and user-friendliness of your model's generated responses in real-world applications.
 
@@ -72,7 +72,7 @@ Evaluates how well the model's generated answers align with information from the
 
 #### Relevance
 Evaluates the extent to which the model's generated responses are pertinent and directly related to the given questions. When users interact with a generative AI model, they pose questions or input prompts, expecting meaningful and contextually appropriate answers. Answers are scored in their ability to capture the key points of the question from the context in the ground truth source. **How to interpret:** 
-- 5 ="perfect relevance" suggests contextually appropriate outputs. 
+- 5 = "perfect relevance" suggests contextually appropriate outputs. 
 - 1 = "irrelevant" suggests that the generated responses might be off-topic, lack context, or fail to address the user's intended queries adequately.    
 
 **Use-case:** You would like to achieve high relevance for your application's answers to enhance the user experience and utility of your generative AI systems.
