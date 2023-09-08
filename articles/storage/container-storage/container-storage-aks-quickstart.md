@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 08/18/2023
+ms.date: 09/07/2023
 ms.author: kendownie
 ms.custom:
 ---
@@ -14,15 +14,9 @@ ms.custom:
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- This quickstart requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-- You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't have one, see [Create an AKS cluster](install-container-storage-aks.md#create-aks-cluster).
-
-- You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
-
-- Optional: We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
+- You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't already have an AKS cluster, follow [these instructions](install-container-storage-aks.md#getting-started) to create one.
 
 ## Install Azure Container Storage
 
