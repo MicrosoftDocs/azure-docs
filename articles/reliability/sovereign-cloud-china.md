@@ -75,15 +75,15 @@ This section outlines variations and considerations when using Azure Arc-enabled
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| API Management | API Management on Arc-enabled Kubernetes isn't supported in Azure in China |
-| App service | App service on Arc-enabled Kubernetes isn't supported in Azure in China |
-| Azure Monitor container insights | Azure Monitor container insights on Arc-enabled Kubernetes isn't supported in Azure in China |
-| Container Apps | Container Apps on Arc-enabled Kubernetes isn't supported in Azure in China |
-| Dapr | Dapr extension for Arc-enabled Kubernetes isn't supported in Azure in China |
-| Event Grid | Event Grid on Arc-enabled Kubernetes isn't supported in Azure in China |
-| Machine Learning | Azure Machine Learning on Arc-enabled Kubernetes isn't supported in Azure in China |
-| Microsoft Defender for Cloud | Microsoft Defender for Cloud on Arc-enabled Kubernetes isn't supported in Azure in China |
-| Open Service Mesh | Open Service Mesh on Arc-enabled Kubernetes isn't supported in Azure in China |
+| API Management | API Management on Arc-enabled Kubernetes isn't supported for Azure in China |
+| App service | App service on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Azure Monitor container insights | Azure Monitor container insights on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Container Apps | Container Apps on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Dapr | Dapr extension for Arc-enabled Kubernetes isn't supported for Azure in China |
+| Event Grid | Event Grid on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Machine Learning | Azure Machine Learning on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Microsoft Defender for Cloud | Microsoft Defender for Cloud on Arc-enabled Kubernetes isn't supported for Azure in China |
+| Open Service Mesh | Open Service Mesh on Arc-enabled Kubernetes isn't supported for Azure in China |
 
 
 ### Azure Container Apps
@@ -92,7 +92,7 @@ This section outlines variations and considerations when using Azure Container A
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure Monitor| The Azure Monitor integration isn't supported in Azure in China |
+| Azure Monitor| The Azure Monitor integration isn't supported for Azure in China |
 
 ### Azure China Commercial Marketplace operated by 21Vianet
  
