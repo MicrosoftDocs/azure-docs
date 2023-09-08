@@ -23,6 +23,32 @@ Azure Health Data Services is a set of managed API services based on open standa
 #### Azure Health Data Services
 
 #### FHIR service
+
+**Incremental Import feature is Generally Available (GA)**
+
+$Import operation now supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
+
+With Incremental Load mode, customers can:
+1.	Perform concurrent ingestion of data while simultaneously executing API CRUD operations on the FHIR server.
+1.	Ingest versioned FHIR resources.
+1.	Maintain the lastUpdated field value in FHIR resources during ingestion.
+1. Supports conditional references
+For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
+
+**Batch-Bundle parellization capability available in Public Preview**
+
+Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we're enabling parallel processing of batch bundles.For details, visit [Batch Bundle Parellization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+> [!IMPORTANT]
+> Bundle parallel processing is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review Supplemental Terms of Use for Microsoft Azure Previews 
+
+**Decimal value precision in FHIR service is updated per FHIR specification**
+
+Prior to the fix, FHIR service allowed precision value of [18,6]. The service is updated to support decimal value precision of [36,18] per FHIR specification. For details, visit [FHIR specification Data Types](https://www.hl7.org/fhir/datatypes.html)
+
+**Reindex on targeted search parameter sets the status correctly**
+
+We identified a bug where after performing targeted search parameter reindex, resource data with search parameter was still not searchable. This bug was addressed by changing the status of the search parameter. The issue is fixed, for details visit [3400](https://github.com/microsoft/fhir-server/pull/3400).
+
 **$convert-data documentation updates**
 
 Customers can now find detailed documentation on the $convert-data operation, allowing them to have an easier self-service experience. This includes an [overview](./fhir/overview-of-convert-data.md), how to [configure settings](./fhir/configure-settings-convert-data.md), a ready-made [pipeline template](./fhir/convert-data-with-azure-data-factory.md) in Azure Data Factory, [troubleshooting](./fhir/troubleshoot-convert-data.md) tips, and an [FAQ](./fhir/frequently-asked-questions-convert-data.md).
@@ -57,12 +83,6 @@ With Incremental Load mode, customers can:
 1.	Perform concurrent ingestion of data while simultaneously executing API CRUD operations on the FHIR server.
 1.	Ingest versioned FHIR resources.
 1.	Maintain the lastUpdated field value in FHIR resources during ingestion.
-
-> [!IMPORTANT]
-> Incremental import mode is currently in public preview
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
 
 **Reindex operation provides job status at resource level**
