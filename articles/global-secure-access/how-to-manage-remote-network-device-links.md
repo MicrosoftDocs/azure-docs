@@ -29,7 +29,7 @@ To configure remote networks, you must have:
 
 You can add a device link to a remote network at any time.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../roles/permissions-reference.md#global-secure-access-administrator). 
 1. Browse to **Global Secure Access (preview)** > **Devices** > **Remote network**.
 1. Select a remote network from the list.
 1. Select **Links** from the menu.
