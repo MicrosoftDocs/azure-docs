@@ -23,7 +23,7 @@ This article provides details about the features and enhancements made to Azure 
 
 ## September 2023
 
-Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](./../healthcare-apis/index.md). Also, working breadcrumbs across the FHIR, DICOM, and MedTech services documentation and updates to the table of contents makef it easier and more intuitive to find the documentation you need.
+Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](index.md). Also, fixes to breadcrumbs across the FHIR, DICOM, and MedTech services documentation and ./../the table of contents make it easier and more intuitive to find the documentation you need.
 
 ## August 2023
 
@@ -111,7 +111,7 @@ Per FHIR specification, metadata endpoint URL in capability statement needs to b
 
 **Fixed issue where DICOM events and Change Feed may miss changes**
 
-The DICOM Change Feed API could previously return results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the Change Feed resource could have resulted in new change events appearing in the middle of the result set. For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call could have incorrectly returned `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid System Topics, and could have resulted in missing events in downstream event handlers. For more details, see [#2611](https://github.com/microsoft/dicom-server/pull/2611).
+The DICOM Change Feed API could previously return results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the Change Feed resource could have resulted in new change events appearing in the middle of the result set. For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call could have incorrectly returned `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid System Topics, and could have resulted in missing events in downstream event handlers. For more information, see [#2611](https://github.com/microsoft/dicom-server/pull/2611).
 
 ### MedTech service 
 
@@ -127,11 +127,11 @@ Customers can include encounter identifiers in the device message so that they c
 **SMART on FHIR : Fixed clinical scope mapping for applications**
 
 This bug fix addresses issue with clinical scope not interpreted correctly for backend applications. 
-For more details, visit [#3250](https://github.com/microsoft/fhir-server/pull/3250)
+For more information, visit [#3250](https://github.com/microsoft/fhir-server/pull/3250)
 
 **Addresses duplicate key error when passed in request parameters and body**
 
-This bug fix handles the issue, when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns 415 Unsupported Media Type. This issue is due to repeating a query parameter in the URL query string and the request body. This fix considers all the query parameters from request and body as input. For more details, visit [#3232](https://github.com/microsoft/fhir-server/pull/3232)
+This bug fix handles the issue, when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns 415 Unsupported Media Type. This issue is due to repeating a query parameter in the URL query string and the request body. This fix considers all the query parameters from request and body as input. For more information, visit [#3232](https://github.com/microsoft/fhir-server/pull/3232)
 
 ## April 2023
 ### Azure Health Data Services
@@ -145,12 +145,12 @@ General availability (GA) of Azure Health Data services in West Central US regio
 **Fixed performance for Search Queries with identifiers**
 
 This bug fix addresses timeout issues observed for search queries with identifiers, by using the OPTIMIZE clause.
-For more details, visit [#3207](https://github.com/microsoft/fhir-server/pull/3207)
+For more information, visit [#3207](https://github.com/microsoft/fhir-server/pull/3207)
 
 **Fixed transient issues associated with loading custom search parameters**
 
-This bug fix addresses the issue, where the FHIR service would not load the latest SearchParameter status in event of failure.
-For more details, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
+This bug fix addresses the issue, where the FHIR service wouldn't load the latest SearchParameter status in event of failure.
+For more information, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
 
 ## March 2023
 ### Azure Health Data Services
@@ -175,7 +175,7 @@ Also visit [Export your FHIR data by invoking the $export command on the FHIR se
 
 This bug fix addresses the issue and identified resources, per search criteria with :contains modifier are returned. 
 
-For more details, visit [#2990](https://github.com/microsoft/fhir-server/pull/2990) 
+For more information, visit [#2990](https://github.com/microsoft/fhir-server/pull/2990) 
 
 
 
@@ -184,17 +184,17 @@ For more details, visit [#2990](https://github.com/microsoft/fhir-server/pull/29
 
 Previous to this change, during pagination Cosmos DB continuation token had a default limit of 3 Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value that can be used to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
 
-For more details, visit [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](./../healthcare-apis/azure-api-for-fhir/overview-of-search.md)
+For more information, visit [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](./../healthcare-apis/azure-api-for-fhir/overview-of-search.md)
 
 
 **Fixed issue related to HTTP Status code 500 was encountered when :not modifier was used with chained searches**
 
-This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier . for more details on bug fix visit [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
+This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier . for more information on bug fix visit [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
 
 
 **Versioning policy enabled at resource level still required If-match header for transaction requests.**
 
-Bug fix addresses the issue and versioned policy at resource level does not require if-match header, for more details on bug fix visit [#2994](https://github.com/microsoft/fhir-server/pull/2994)
+Bug fix addresses the issue and versioned policy at resource level doesn't require if-match header, for more information on bug fix visit [#2994](https://github.com/microsoft/fhir-server/pull/2994)
 
 
 
@@ -226,7 +226,7 @@ The MedTech service has an error message feature that allows you to easily view 
 
 **Validation errors included with the FailedSOPSequence**
 
-Previously, DICOM validation failures returned by the Store (STOW) API have lacked the detail necessary to diagnose and resolve problems. The latest API changes improve the error messages by including more details about the specific attributes that failed validation and the reason for the failures. See the [conformance statement](dicom/dicom-services-conformance-statement.md#store-response-payload) for details.
+Previously, DICOM validation failures returned by the Store (STOW) API have lacked the detail necessary to diagnose and resolve problems. The latest API changes improve the error messages by including more information about the specific attributes that failed validation and the reason for the failures. See the [conformance statement](dicom/dicom-services-conformance-statement.md#store-response-payload) for details.
 
 
 ### Toolkit and Samples Open Source
@@ -325,7 +325,7 @@ The issue is fixed and querying with :not operator should provide correct result
 
 **Provided an Error message for failure in export resulting from long time span**
 
-With failure in export job due to a long time span, customer will see `RequestEntityTooLarge` HTTP status code. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2790).
+With failure in export job due to a long time span, a customer will see `RequestEntityTooLarge` HTTP status code. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2790).
 
 **Fixed issue in a query sort, where functionality throws an error when chained search is performed with same field value.**
 
@@ -352,18 +352,18 @@ Performance improvements have cut the time to deploy new instances of the DICOM 
 
 **Reduced strictness when validating STOW requests**
 
-Some customers have run into issues storing DICOM files that do not perfectly conform to the specification. To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. 
+Some customers have run into issues storing DICOM files that don't  perfectly conform to the specification. To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. 
 
 The service accepts the following: 
 * DICOM UIDs that contain trailing whitespace 
-* IS, DS, SV, and UV VRs that are not valid numbers
+* IS, DS, SV, and UV VRs that aren't valid numbers
 * Invalid private creator tags
 
 ### Toolkit and Samples Open Source
 
 **The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit) is in the public preview.** 
 
-The toolkit is open-source and allows to easily customize and extend the functionality of their Azure Health Data Services implementations. 
+The toolkit is open-source and allows you to easily customize and extend the functionality of their Azure Health Data Services implementations. 
 
 ## August 2022**
 
@@ -492,7 +492,7 @@ All REST API requests to the DICOM service must include the API version in the U
 
 **Index the first value for DICOM tags that incorrectly specify multiple values**
 
-Attributes that are defined to have a single value but have specified multiple values will be leniently accepted. The first value for such attributes will be indexed.
+Attributes that are defined to have a single value but have specified multiple values are leniently accepted. The first value for such attributes are indexed.
 
 ## April 2022
 
@@ -506,7 +506,7 @@ FHIRPath Patch was added as a feature to both the Azure API for FHIR. This imple
 
 **Handles invalid header on versioned update**
 
- When the versioning policy is set to "versioned-update", we required that the most recent version of the resource is provided in the request's if-match header on an update. The specified version must be in ETag format. Previously, a 500 would be returned if the version was invalid or in an incorrect format. This update returns a 400 Bad Request. For more information, see [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). 
+ When the versioning policy is set to versioned-update, we required that the most recent version of the resource is provided in the request's if-match header on an update. The specified version must be in ETag format. Previously, a 500 would be returned if the version was invalid or in an incorrect format. This update returns a 400 Bad Request. For more information, see [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). 
 
 
 **Bulk import in public preview**
@@ -528,7 +528,7 @@ When value representation (VR) is a decimal string (DS)/ integer string (IS), `f
 
 **Correctly parse a range of input in the content negotiation headers**
 
-Currently, WADO with Accept: multipart/related; type=application/dicom will throw an error. It accepts Accept: multipart/related; type="application/dicom", but they should be equivalent. For more information, see [PR #1462](https://github.com/microsoft/dicom-server/pull/1462). 
+Currently, WADO with Accept: multipart/related; type=application/dicom throws an error. It accepts Accept: multipart/related; type="application/dicom", but they should be equivalent. For more information, see [PR #1462](https://github.com/microsoft/dicom-server/pull/1462). 
 
 
 **Fixed an issue where parallel upload of images in a study could fail under certain circumstances**
@@ -549,7 +549,7 @@ With Private Link, you can access Azure Health Data Services securely from your 
 
 
 **SQL timeout that returns 408 status code**
-Previously, a SQL timeout would return a 500. Now a timeout in SQL will return a FHIR OperationOutcome with a 408 status code. For more information, see [PR #2497](https://github.com/microsoft/fhir-server/pull/2497). 
+Previously, a SQL timeout would return a 500. Now a timeout in SQL returns a FHIR OperationOutcome with a 408 status code. For more information, see [PR #2497](https://github.com/microsoft/fhir-server/pull/2497). 
 
 **Fixed issue related to duplicate resources in search with `_include`**
 Fixed issue where a single resource can be returned twice in a search that has `_include`. For more information, see [PR #2448](https://github.com/microsoft/fhir-server/pull/2448). 
