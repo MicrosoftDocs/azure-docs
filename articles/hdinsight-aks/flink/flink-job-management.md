@@ -7,7 +7,7 @@ ms.date: 09/07/2023
 ---
 # Flink job management
 
-HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal (user-friendly interface) and ARM Rest API’s. 
+HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
 
 This feature empowers users to efficiently control and monitor their Flink jobs without requiring deep cluster-level knowledge.
 
@@ -15,14 +15,14 @@ This feature empowers users to efficiently control and monitor their Flink jobs 
 
 1. **Simplified Job Management**: With the native integration of Apache Flink in the Azure portal, users no longer require extensive knowledge of Flink clusters to submit, manage, and monitor jobs.
 
-1. **User-Friendly REST API**: HDInsight on AKS provides user friendly ARM Rest APIs to submit and manage Flink jobs. Users can submit Flink jobs from any azure service using these Rest API’s.
+1. **User-Friendly REST API**: HDInsight on AKS provides user friendly ARM Rest APIs to submit and manage Flink jobs. Users can submit Flink jobs from any azure service using these Rest APIs.
 
 1. **Effortless Job Updates and State Management**: The native Azure portal integration provides a hassle-free experience for updating jobs and restoring them to their last saved state (savepoint). This functionality ensures continuity and data integrity throughout the job lifecycle.
 
 1. **Automating Flink Job using Azure Pipeline**: Using HDInsight on AKS, Flink users have access to user-friendly ARM Rest API, you can seamlessly integrate Flink job operations into your Azure Pipeline. Whether you're launching new jobs, updating running jobs, or performing various job operations, this streamlined approach eliminates manual steps and empowers you to manage your Flink cluster efficiently.
 
 ## Prerequisites
-There are some prerequisites before submitting and managing jobs from portal or Rest API’s.
+There are some prerequisites before submitting and managing jobs from portal or Rest APIs.
 1. Create a directory in the primary storage account of the cluster to upload the job jar.
 1. If the user wants to take savepoints, then create a directory in the storage account for job savepoints.
 
@@ -57,7 +57,7 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
 
 :::image type="image" source="./media/flink-job-management/run-flink-jobs.png" alt-text="Screenshot shows how to run flink job." border="true" lightbox="./media/flink-job-management/run-flink-jobs.png":::
 
-1. **New Job:** To submit a new job, upload the job jars to the storage account and create a savepoint directory. Complete the template below with the necessary configurations and then submit the job.
+1. **New Job:** To submit a new job, upload the job jars to the storage account and create a savepoint directory. Complete the template with the necessary configurations and then submit the job.
 
     :::image type="image" source="./media/flink-job-management/create-new-job.png" alt-text="Screenshot shows how to create new job." border="true" lightbox="./media/flink-job-management/create-new-job.png":::
 
@@ -84,7 +84,7 @@ Once the job is stopped, the job status on the portal will be STOPPED.
 
 :::image type="image" source="./media/flink-job-management/start-job-savepoint.png" alt-text="Screenshot shows how user start job." border="true" lightbox="./media/flink-job-management/start-job-savepoint.png":::
 
-Fill the flow template with the required options and start it. Users need to select the savepoint from which user wants to start the job. By default, it will take the last successful savepoint.
+Fill the flow template with the required options and start it. Users need to select the savepoint from which user wants to start the job. By default, it takes the last successful savepoint.
 
 :::image type="image" source="./media/flink-job-management/fill-flow-template.png" alt-text="Screenshot shows how fill flow template." border="true" lightbox="./media/flink-job-management/fill-flow-template.png":::
 
@@ -114,7 +114,7 @@ Fill the flow template with the required options and start it. Users need to sel
 
    Template for updating job.
 
-   :::image type="image" source="./media/flink-job-management/template-for-updating-stateless-job.png" alt-text="Screenshot shows template for updating statelees job." border="true" lightbox="./media/flink-job-management/template-for-updating-stateless-job.png":::
+   :::image type="image" source="./media/flink-job-management/template-for-updating-stateless-job.png" alt-text="Screenshot shows template for updating stateless job." border="true" lightbox="./media/flink-job-management/template-for-updating-stateless-job.png":::
 
    **Property details**:
    
@@ -132,7 +132,7 @@ Savepoint is time consuming process, and it will take some time. You can see job
 
 :::image type="image" source="./media/flink-job-management/job-action-status.png" alt-text="Screenshot shows job action status." border="true" lightbox="./media/flink-job-management/job-action-status.png":::
 
-1. **Cancel:** This will help the user to terminate the job.
+1. **Cancel:** This helps user to terminate the job.
 
  :::image type="image" source="./media/flink-job-management/terminate-job.png" alt-text="Screenshot shows how user can terminate the job." border="true" lightbox="./media/flink-job-management/terminate-job.png":::
 
@@ -140,9 +140,9 @@ Savepoint is time consuming process, and it will take some time. You can see job
 
 :::image type="image" source="./media/flink-job-management/delete-job-data.png" alt-text="Screenshot shows how user can delete job data from portal." border="true" lightbox="./media/flink-job-management/delete-job-data.png":::
 
-1. **View Job Details:** To view the job detail user can click on job name, it will give the details about the job and last action result.
+1. **View Job Details:** To view the job detail user can click on job name, it gives the details about the job and last action result.
 
- :::image type="image" source="./media/flink-job-management/view-job-details.png" alt-text="Screenshot shows to view job details." border="true" lightbox="./media/flink-job-management/view-job-details.png":::
+ :::image type="image" source="./media/flink-job-management/view-job-details.png" alt-text="Screenshot shows how to view job details." border="true" lightbox="./media/flink-job-management/view-job-details.png":::
 
 For any failed action, this job json give detailed exceptions and reasons for failure.
 
@@ -216,7 +216,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | action   | It will indicate operation type on job. It should be “NEW” always for new job launch. | | Yes |
    | jobJarDirectory |	Storage path for job jar directory. Users should create directory in cluster storage and upload job jar.| Yes |
    | jarName |	Name of job jar. | | Yes |
-   |entryClass | Entry class for job from which job execution will start. |  |	Yes |
+   |entryClass | Entry class for job from which job execution starts. |  |	Yes |
    | args | Argument for main program of job. All arguments should be separated by space. |	| No |
    | parallelism | Job Flink Parallelism. | 2 | Yes |
    | savepoint.directory | Savepoint directory for job. It is recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints`| No |
@@ -250,8 +250,8 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
    | jobType  | Type of Job. It should be “FlinkJob” | Yes |
-   | jobName  | Job Name which is used for launching the job. | Yes |
-   | action   | It should be “STOP”. |	Yes |
+   | jobName  | Job Name which is used for launching the job | Yes |
+   | action   | It should be “STOP” |	Yes |
 
    Example: 
    
@@ -282,7 +282,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
    | jobType  | Type of Job. It should be “FlinkJob” | Yes |
-   | jobName  | Job Name which is used for launching the job. | Yes |
+   | jobName  | Job Name that is used for launching the job. | Yes |
    | action   | It should be “START”. |	Yes |
    | savePointName | Save point name to start the job. It is optional property, by default start operation will take last successful savepoint. | No |
 
@@ -317,7 +317,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
    | jobType  |	Type of Job. It should be “FlinkJob” | 	|	Yes |
-   | jobName  |	Job Name which is used for launching the job. |	| Yes |
+   | jobName  |	Job Name that is used for launching the job. |	| Yes |
    | action	  | It should be “UPDATE” always for new job launch. | | Yes |
    | args	  | Job JVM arguments |  | No |
    | savePointName | Save point name to start the job. It is optional property, by default start operation will take last successful savepoint.| |	No |
@@ -351,7 +351,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
    | jobType  |	Type of Job. It should be “FlinkJob” | 	|	Yes |
-   | jobName  |	Job Name which is used for launching the job. |	| Yes |
+   | jobName  |	Job Name that is used for launching the job. |	| Yes |
    | action	  | It should be “STATELESS_UPDATE” always for new job launch. | | Yes |
    | args	  | Job JVM arguments |  | No |
 
@@ -383,7 +383,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
    | jobType  |	Type of Job. It should be “FlinkJob” | 	|	Yes |
-   | jobName  |	Job Name which is used for launching the job. |	| Yes |
+   | jobName  |	Job Name that is used for launching the job. |	| Yes |
    | action	  | It should be “SAVEPOINT” always for new job launch. | | Yes |
 
    **Example:**
@@ -415,8 +415,8 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
    | jobType  |	Type of Job. It should be “FlinkJob” | 	|	Yes |
-   | jobName  |	Job Name which is used for launching the job. |	| Yes |
-   | action	  | It should be “LIST_SAVEPOINT”.. | | Yes |
+   | jobName  |	Job Name which is used for launching the job |	| Yes |
+   | action	  | It should be “LIST_SAVEPOINT” | | Yes |
 
    **Example:**
    
@@ -447,7 +447,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
    | jobType  |	Type of Job. It should be “FlinkJob” | 	|	Yes |
-   | jobName  |	Job Name which is used for launching the job. |	| Yes |
+   | jobName  |	Job Name that is used for launching the job. |	| Yes |
    | action	  | It should be CANCEL. | | Yes |
 
    **Example:**
@@ -478,7 +478,7 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    | Property | Description | Default Value |	Mandatory |
    | -------- | ----------- | ------------- |  --------- |
    | jobType  |	Type of Job. It should be “FlinkJob” | 	|	Yes |
-   | jobName  |	Job Name which is used for launching the job. |	| Yes |
+   | jobName  |	Job Name that is used for launching the job. |	| Yes |
    | action	  | It should be DELETE. | | Yes |
 
    **Example:** 
@@ -522,4 +522,4 @@ To authenticate Hilo Flink ARM Rest API users, need to get the bearer token or a
    }
    ```
 
-**Note:** When any action is in progress, actionResult will indicate it by “IN_PROGRESS” value. On successful completion it will “SUCCESS” and on failure it will be “FAILED”.
+**Note:** When any action is in progress, actionResult will indicate it by “IN_PROGRESS” value. On successful completion, it will “SUCCESS” and on failure it will be “FAILED”.
