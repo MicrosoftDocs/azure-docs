@@ -261,7 +261,7 @@ In this step, you create the connection from the hub virtual network to the on-p
 1. For the **Second virtual network gateway**, select **GW-Onprem**.
 1. For **Shared key (PSK)**, type **AzureA1b2C3**.
 1. Select **Review + Create**.
-1. Select **Create**
+1. Select **Create**.
 
 Create the on-premises to hub virtual network connection. This step is similar to the previous one, except you create the connection from VNet-Onprem to VNet-hub. Make sure the shared keys match. The connection will be established after a few minutes.
 
@@ -275,7 +275,7 @@ Create the on-premises to hub virtual network connection. This step is similar t
 1. For the **Second virtual network gateway**, select **GW-hub**.
 1. For **Shared key (PSK)**, type **AzureA1b2C3**.
 1. Select **Review + Create**.
-1. Select **Create**
+1. Select **Create**.
 
 #### Verify the connection
 
