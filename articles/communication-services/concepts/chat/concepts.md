@@ -39,10 +39,9 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 Typically the thread creator and participants have same level of access to the thread and can execute all related operations available in the SDK, including deleting it. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they get an error. 
 
 ### Chat Data 
-Azure Communication Services stores chat messages indefinitely today till they are deleted by the customer. Chat thread participants can use `ListMessages` to view  message history for a particular thread.  
-Users that are removed from a chat thread are able to view previous message history but cannot send or receive new messages. Accidental deletion of messages are not recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md).  
+Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but cannot send or receive new messages. Accidental deletion of messages are not recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md).  
 
-Starting in Q1, a customer must explicitly specify whether they want to keep the messages indefinetely or they will be deleted after 90 days. Please note that the new functionality does not affect existing messages in the service but a customer can choose to set the retention of 90 days at that time. 
+Next year, new functionality will be introduced where customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected.
 
 For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](../interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
 
