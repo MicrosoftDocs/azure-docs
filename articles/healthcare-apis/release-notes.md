@@ -19,11 +19,11 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
-This article provides details about the features and enhancements made to Azure Health Data Services, including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
 ## September 2023
 
-Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](/healthcare-apis/). You'll also see working breadcrumbs across the FHIR, DICOM, and MedTech services documentation and updates to the table of contents, making it easier and more intuitive to find the documentation you need.
+Documentation navigation improvements include a new hub page for Azure Health Data Services: [Azure Health Data Services Documentation | Microsoft Learn](./../healthcare-apis/index.md). Also, working breadcrumbs across the FHIR, DICOM, and MedTech services documentation and updates to the table of contents makef it easier and more intuitive to find the documentation you need.
 
 ## August 2023
 
@@ -40,7 +40,7 @@ With Incremental Load mode, customers can:
 1. Supports conditional references
 For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
 
-**Batch-Bundle parellization capability available in Public Preview**
+**Batch-Bundle parallelization capability available in Public Preview**
 
 Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we're enabling parallel processing of batch bundles.For details, visit [Batch Bundle Parellization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 > [!IMPORTANT]
@@ -56,18 +56,18 @@ We identified a bug where after performing targeted search parameter reindex, re
 
 **$convert-data documentation updates**
 
-Customers can find detailed documentation on the $convert-data operation, allowing them to have an easier self-service experience. This includes an [overview](./fhir/overview-of-convert-data.md), how to [configure settings](./fhir/configure-settings-convert-data.md), a ready-made [pipeline template](./fhir/convert-data-with-azure-data-factory.md) in Azure Data Factory, [troubleshooting](./fhir/troubleshoot-convert-data.md) tips, and an [FAQ](./fhir/frequently-asked-questions-convert-data.md).
+Customers can find detailed documentation on the $convert-data operation, allowing them to have an easier self-service experience. The documentation includes an [overview](./fhir/overview-of-convert-data.md), how to [configure settings](./fhir/configure-settings-convert-data.md), a ready-made [pipeline template](./fhir/convert-data-with-azure-data-factory.md) in Azure Data Factory, [troubleshooting](./fhir/troubleshoot-convert-data.md) tips, and an [FAQ](./fhir/frequently-asked-questions-convert-data.md).
 
 ## July 2023
 
 ### FHIR Service
-**Continous retry on Import operation**
+**Continuous retry on Import operation**
 
-We observed an issue where $import kept on retrying when NDJSON file size is greater than 2GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
+We observed an issue where $import kept on retrying when NDJSON file size is greater than 2 GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
 
 **Patient and Group level export job restart**
 
-Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
+Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last successfully completed page of results. For more information, visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
 
 ### DICOM Service
 **API Version 2 is Generally Available (GA)**
@@ -117,7 +117,7 @@ The DICOM Change Feed API could previously return results that incorrectly skipp
 
 **Encounter identifiers included in the device message**
 
-Customers can include encounter identifiers in the device message so that they can look up the corresponding FHIR encounter and link it to the observation created in the FHIR transformation. This look up feature is supported in OSS and was an ask from customers for the PaaS MedTech service.
+Customers can include encounter identifiers in the device message so that they can look up the corresponding FHIR encounter and link it to the observation created in the FHIR transformation. This look up feature is supported in OSS and was a request from customers for the PaaS MedTech service.
 
 
 ## May 2023
@@ -144,7 +144,7 @@ General availability (GA) of Azure Health Data services in West Central US regio
 
 **Fixed performance for Search Queries with identifiers**
 
-This bug fix addresses timeout issues observed for search queries with identifiers, by leveraging OPTIMIZE clause.
+This bug fix addresses timeout issues observed for search queries with identifiers, by using the OPTIMIZE clause.
 For more details, visit [#3207](https://github.com/microsoft/fhir-server/pull/3207)
 
 **Fixed transient issues associated with loading custom search parameters**
@@ -173,7 +173,7 @@ Also visit [Export your FHIR data by invoking the $export command on the FHIR se
 
 **Fixed issue for Chained search with :contains modifier results with no resources are returned**
 
-This bug-fix addresses the issue and identified resources, per search criteria with :contains modifier are returned. 
+This bug fix addresses the issue and identified resources, per search criteria with :contains modifier are returned. 
 
 For more details, visit [#2990](https://github.com/microsoft/fhir-server/pull/2990) 
 
@@ -182,14 +182,14 @@ For more details, visit [#2990](https://github.com/microsoft/fhir-server/pull/29
 **Provide the ability to tweak continuation token size limit with header.**
 
 
-Previous to this change, during pagination Cosmos DB continuation token had a default limit of 3Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value that can be used to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
+Previous to this change, during pagination Cosmos DB continuation token had a default limit of 3 Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value that can be used to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
 
 For more details, visit [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](./../healthcare-apis/azure-api-for-fhir/overview-of-search.md)
 
 
 **Fixed issue related to HTTP Status code 500 was encountered when :not modifier was used with chained searches**
 
-This bug-fix addresses the issue. Identified resources are returned per search criteria with :contains modifier . for more details on bug fix visit [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
+This bug fix addresses the issue. Identified resources are returned per search criteria with :contains modifier . for more details on bug fix visit [#3041](https://github.com/microsoft/fhir-server/pull/3041) 
 
 
 **Versioning policy enabled at resource level still required If-match header for transaction requests.**
@@ -211,7 +211,7 @@ For more information, visit [How to use the MedTech service Mapping debugger - A
 
 **Error Message released in private-preview**
 
-The MedTech service has an error message feature that allows you to easily view any errors generated, as well as the message that caused each error. You can understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/troubleshoot-errors-logs.md)
+The MedTech service has an error message feature that allows you to easily view any errors generated, and the message that caused each error. You can understand the context behind any errors without manual effort. For more info on error logs, visit [Troubleshoot errors using the MedTech service logs - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/troubleshoot-errors-logs.md)
 
 
 
@@ -226,7 +226,7 @@ The MedTech service has an error message feature that allows you to easily view 
 
 **Validation errors included with the FailedSOPSequence**
 
-Previously, DICOM validation failures returned by the Store (STOW) API have lacked the detail necessary to diagnose and resolve problems. The latest API changes improve the error messages by including additional details about the specific attributes that failed validation and the reason for the failures. See the [conformance statement](dicom/dicom-services-conformance-statement.md#store-response-payload) for details.
+Previously, DICOM validation failures returned by the Store (STOW) API have lacked the detail necessary to diagnose and resolve problems. The latest API changes improve the error messages by including more details about the specific attributes that failed validation and the reason for the failures. See the [conformance statement](dicom/dicom-services-conformance-statement.md#store-response-payload) for details.
 
 
 ### Toolkit and Samples Open Source
@@ -285,7 +285,7 @@ Azure Health Data Services [Events](events/events-overview.md) include a public 
 
 **Fixed the Error generated when resource is updated using if-match header and PATCH**
 
-Bug is fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
+Bug is fixed and Resource is updated if it matches the Etag header. For details, see [#2877](https://github.com/microsoft/fhir-server/issues/2877)
 
 
 ### Toolkit and Samples Open Source
@@ -293,7 +293,7 @@ Bug is fixed and Resource will be updated if matches the Etag header. For detail
 
 **Azure Health Data Services Toolkit is released**
 
-The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a pre-release state, is in **Public Preview** . The toolkit is open-source project and allows customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
+The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit), which was previously in a prerelease state, is in **Public Preview** . The toolkit is open-source project and allows customers to more easily customize and extend the functionality of their Azure Health Data Services implementations. The NuGet packages of the toolkit are available for download from the NuGet gallery, and you can find links to them from the repo documentation. 
 
 ## October 2022**
 ### MedTech service
@@ -354,7 +354,7 @@ Performance improvements have cut the time to deploy new instances of the DICOM 
 
 Some customers have run into issues storing DICOM files that do not perfectly conform to the specification. To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. 
 
-The service will accept the following: 
+The service accepts the following: 
 * DICOM UIDs that contain trailing whitespace 
 * IS, DS, SV, and UV VRs that are not valid numbers
 * Invalid private creator tags
@@ -371,7 +371,7 @@ The toolkit is open-source and allows to easily customize and extend the functio
 
 **Azure Health Data services availability expands to new regions**
 
- Azure Health Data services is available in the following regions: Central India, Korea Central, and Sweden Central.
+ Azure Health Data Services is available in the following regions: Central India, Korea Central, and Sweden Central.
  
 **`$import` is Generally Available.**
 
@@ -394,7 +394,7 @@ Analytics pipeline can process FHIR extensions to generate parquet data. See [FH
 
 **Fixed issue related to History bundles being sorted with the oldest version first.** 
 
-We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last.This bug fix, addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).
+We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per FHIR specification, the sorting of versions defaults to the oldest version last. This bug fix addresses FHIR server behavior for sorting history bundle. <br><br>We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP GET command utilized for retrieving history. <br><br>For example: `<server URL>/_history?_sort=_lastUpdated` <br><br>For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689).
 
 **Fixed issue where Queries were not providing consistent result count after appended with `_sort` operator.**
 The issue is fixed and queries should provide consistent result count, with and without sort operator. 
@@ -409,7 +409,7 @@ Customers can see predefined metrics graphs in the MedTech landing page, complet
 
 **Availability of Diagnostic Logs**
 
-There are pre-defined queries with relevant logs for common issues so that customers can easily debug and diagnose issues in their MedTech service.
+There are predefined queries with relevant logs for common issues so that customers can easily debug and diagnose issues in their MedTech service.
 
 ### DICOM service
 
@@ -424,7 +424,7 @@ The modality worklists (UPS-RS) service is generally available. Learn more about
 
 
 **(Open Source) History bundles were sorted with the oldest version first.**
-We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix, addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
+We've recently identified an issue with the sorting order of history bundles on FHIR® server. History bundles were sorted with the oldest version first. Per [FHIR specification](https://hl7.org/fhir/http.html#history), the sorting of versions defaults to the oldest version last. This bug fix addresses FHIR server behavior for sorting history bundle.<br /><br />We understand if you would like to keep the sorting per existing behavior (oldest version first). To support existing behavior, we recommend you append `_sort=_lastUpdated` to the HTTP `GET` command utilized for retrieving history. <br /><br />For example: `<server URL>/_history?_sort=_lastUpdated` <br /><br />For more information, see [#2689](https://github.com/microsoft/fhir-server/pull/2689). 
 
 
 ### MedTech service 
@@ -446,7 +446,7 @@ The DICOM Service is available in the following [regions](https://azure.microsof
 
 **Fast retrieval of individual DICOM frames**
 
-For DICOM images containing multiple frames, performance improvements have been made to enable fast retrieval of individual frames (60 KB frames as fast as 60 MS). These improved performance characteristics enable workflows such as [viewing digital pathology images](https://microsofthealth.visualstudio.com/DefaultCollection/Health/_git/marketing-azure-docs?version=GBmain&path=%2Fimaging%2Fdigital-pathology%2FDigital%20Pathology%20using%20Azure%20DICOM%20service.md&_a=preview), which require rapid retrieval of individual frames. 
+For DICOM images containing multiple frames, performance improvements have been made to enable fast retrieval of individual frames (60-KB frames as fast as 60 MS). These improved performance characteristics enable workflows such as [viewing digital pathology images](https://microsofthealth.visualstudio.com/DefaultCollection/Health/_git/marketing-azure-docs?version=GBmain&path=%2Fimaging%2Fdigital-pathology%2FDigital%20Pathology%20using%20Azure%20DICOM%20service.md&_a=preview), which require rapid retrieval of individual frames. 
 
 ## June 2022
 
@@ -470,7 +470,7 @@ Removes retry on SQL command for upsert. The error still occurs, but data is sav
 
 **Added handling for SqlTruncate errors**
 
-Added a check for SqlTruncate exceptions and tests. In particular, exceptions and tests will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). 
+Added a check for SqlTruncate exceptions and tests. In particular, exceptions and tests catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). 
 
 ### DICOM service
 
@@ -528,7 +528,7 @@ When value representation (VR) is a decimal string (DS)/ integer string (IS), `f
 
 **Correctly parse a range of input in the content negotiation headers**
 
-Currently, WADO with Accept: multipart/related; type=application/dicom will throw an error. It will accept Accept: multipart/related; type="application/dicom", but they should be equivalent. For more information, see [PR #1462](https://github.com/microsoft/dicom-server/pull/1462). 
+Currently, WADO with Accept: multipart/related; type=application/dicom will throw an error. It accepts Accept: multipart/related; type="application/dicom", but they should be equivalent. For more information, see [PR #1462](https://github.com/microsoft/dicom-server/pull/1462). 
 
 
 **Fixed an issue where parallel upload of images in a study could fail under certain circumstances**
@@ -620,7 +620,7 @@ You can find the publisher in the capability statement at `CapabilityStatement.n
 
 **Fixed 500 error when `SearchParameter` Code is null**
 
-Fixed an issue with `SearchParameter` if it had a null value for Code, the result would be a 500. Now it will result in an `InvalidResourceException` like the other values do. [#2343](https://github.com/microsoft/fhir-server/pull/2343)
+Fixed an issue with `SearchParameter` if it had a null value for Code, the result would be a 500. Now it results in an `InvalidResourceException` like the other values do. [#2343](https://github.com/microsoft/fhir-server/pull/2343)
  
 **Returned `BadRequestException` with valid message when input JSON body is invalid**
 
@@ -640,7 +640,7 @@ If SQL Server timed out, the PUT `/resource{id}` returned a 500 error. Now we ha
 We've expanded the Patient-everything capabilities to process patient links [#2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links) documentation. 
 
 **Added software name and version to capability statement.**
-In the capability statement, the software name distinguishes if you're using Azure API for FHIR or Azure Health Data Services. The software version will specify which open-source [release package](https://github.com/microsoft/fhir-server/releases) is live in the managed service [#2294](https://github.com/microsoft/fhir-server/pull/2294). Addresses: [#1778](https://github.com/microsoft/fhir-server/issues/1778) and [#2241](https://github.com/microsoft/fhir-server/issues/2241) 
+In the capability statement, the software name distinguishes if you're using Azure API for FHIR or Azure Health Data Services. The software version specifies which open-source [release package](https://github.com/microsoft/fhir-server/releases) is live in the managed service [#2294](https://github.com/microsoft/fhir-server/pull/2294). Addresses: [#1778](https://github.com/microsoft/fhir-server/issues/1778) and [#2241](https://github.com/microsoft/fhir-server/issues/2241) 
 
 
 **Compress continuation tokens**
