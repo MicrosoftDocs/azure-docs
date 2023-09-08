@@ -1094,7 +1094,7 @@ sections:
           - AKS configured with the cluster role binding clusterMonitoringUser
           - [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview)
 
-          See [Assign role permissions to a user or group](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)  and [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md) to learn more about role assignments.
+          See [Assign role permissions to a user or group](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md) to learn more about role assignments.
       - question: |
           What does "Other processes" represent under the Node view?
         answer: |
