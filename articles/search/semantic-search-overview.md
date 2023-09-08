@@ -9,7 +9,6 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2023
-
 ---
 
 # Semantic search in Azure Cognitive Search
@@ -22,7 +21,7 @@ In Azure Cognitive Search, *semantic search* measurably improves search relevanc
 Semantic search is a premium feature that's billed by usage. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> * [Check regional availability](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=search).
+> * [Check regional availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search).
 > * [Enable semantic ranking](semantic-how-to-enable-disable.md) on your search service.
 > * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
 > * Add a few more query properties to also [return semantic answers](semantic-answers.md).
@@ -38,8 +37,6 @@ Semantic search is a collection of query-related capabilities that improve the q
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
-<!-- Although semantic search and vector search are closely related, this particular feature in Cognitive Search doesn't perform similarity search. -->
-
 | Feature | Description |
 |---------|-------------|
 | Semantic re-ranking | Uses the context or semantic meaning of a query to compute a new relevance score over existing BM25-ranked results. |
@@ -50,11 +47,9 @@ Semantic search is a collection of query-related capabilities that improve the q
 
 Semantic ranking looks for context and relatedness among terms, elevating matches that make more sense for the query. 
 
-The following illustration explains *semantic relevance*. Consider the term "capital". It has different meanings depending on whether the context is finance, law, geography, or grammar. Through language understanding, the semantic reranker can detect context and promote results that fit query intent.
+The following illustration explains the concept. Consider the term "capital". It has different meanings depending on whether the context is finance, law, geography, or grammar. Through language understanding, the semantic reranker can detect context and promote results that fit query intent.
 
 :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
-
-<!-- Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience. -->
 
 Semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, inputs to the semantic ranker are consolidated and reduced so that the underlying summarization and reranking steps can be completed as quickly as possible.
 
@@ -104,32 +99,11 @@ Scoring is done over captions.
 > [!NOTE]
 > Beginning on July 14, 2023, the **@search.rerankerScore** distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
 
-<!-- > [!NOTE]
-> In the 2020-06-30-preview, the "searchFields" parameter is used rather than the semantic configuration to determine which fields to use. We recommend upgrading to the 2021-04-30-preview API version for best results. -->
-
-<!-- To maintain the fast performance that users expect from search, semantic summarization and ranking are applied to just the top 50 results, as scored by the [default BM25 scoring algorithm](index-similarity-and-scoring.md). Semantic ranking re-scores those results based on the semantic strength of the match. -->
-
 The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
 The following video provides an overview of the capabilities.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
-
-<!-- ### Order of operations -->
-
-<!-- Components of semantic search extend the existing query execution pipeline in both directions. If you enable spelling correction, the [speller](speller-how-to-add.md) corrects typos at query onset, before terms reach the search engine.
-
-:::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Semantic components in query execution" border="true"::: -->
-
-<!-- Query execution proceeds as usual, with term parsing, analysis, and scans over the inverted indexes. The engine retrieves documents using token matching, and scores the results using the [default scoring algorithm](index-similarity-and-scoring.md). Scores are calculated based on the degree of linguistic similarity between query terms and matching terms in the index. If you defined them, scoring profiles are also applied at this stage. Results are then passed to the semantic search subsystem. -->
-
-<!-- In the preparation step, the document corpus returned from the initial result set is analyzed at the sentence and paragraph level to find passages that summarize each document. In contrast with keyword search, this step uses machine reading and comprehension to evaluate the content. Through this stage of content processing, a semantic query returns [captions](semantic-how-to-query-request.md) and [answers](semantic-answers.md). To formulate them, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question - and answers are requested - the response includes a text passage that best answers the question, as expressed by the search query. 
-
-For both captions and answers, existing text is used in the formulation. The semantic models don't compose new sentences or phrases from the available content, nor does it apply logic to arrive at new conclusions. In short, the system will never return content that doesn't already exist. -->
-
-<!-- Results are then re-scored based on the [conceptual similarity](semantic-ranking.md) of query terms. -->
-
-<!-- To use semantic capabilities in queries, you make small modifications to the [search request](semantic-how-to-query-request.md). No extra configuration or reindexing is required. -->
 
 ## Semantic capabilities and limitations
 
@@ -145,7 +119,7 @@ Although semantic search isn't beneficial in every scenario, certain content can
 
 ## Availability and pricing
 
-Semantic search is available on seach services at the Basic and higher tiers, subject to [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
+Semantic search is available on search services at the Basic and higher tiers, subject to [regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
 When you enable semantic search, choose a pricing plan for the feature:
 
