@@ -109,7 +109,7 @@ In this step, you can specify the following properties:
 |Property| Description |
 |---|-----|
 |Deployment name| - Within the same endpoint, deployment name should be unique. <br> - If you select an existing endpoint in the previous step, and input an existing deployment name, then that deployment will be overwritten with the new configurations. |
-|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [model monitoring.](https://learn.microsoft.com/azure/machine-learning/how-to-monitor-model-performance)|
+|Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an Azure Machine Learning data asset, and can be used for later monitoring. To learn more, see [model monitoring.](./how-to-monitor-generative-ai-applications)|
 |Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc) will be collected into workspace default Application Insights. To learn more, see [prompt flow serving metrics](#view-prompt-flow-endpoints-specific-metrics-optional).|
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png" alt-text="Screenshot of the deployment step in the deploy wizard in the studio UI." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png":::
