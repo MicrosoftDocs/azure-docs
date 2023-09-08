@@ -37,9 +37,11 @@ Semantic search is a collection of query-related capabilities that improve the q
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
+Here are the features of semantic search.
+
 | Feature | Description |
 |---------|-------------|
-| Semantic re-ranking | Uses the context or semantic meaning of a query to compute a new relevance score over existing BM25-ranked results. |
+| Semantic reranking | Uses the context or semantic meaning of a query to compute a new relevance score over existing BM25-ranked results. |
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts verbatim sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the search results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
 | [Semantic answers](semantic-answers.md) | An optional and extra substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document has text with the characteristics of an answer. |
 
@@ -111,9 +113,9 @@ Semantic search is a newer technology so it's important to set expectations abou
 
 * Promote matches that are semantically closer to the intent of original query.
 
-* Find and extract strings in each result to use as captions and answers. Captions and answers are returned in the response and can be rendered on a search results page.
+* Find strings to use as captions and answers. Captions and answers are returned in the response and can be rendered on a search results page.
 
-What it can't do is rerun the query over the entire corpus to find semantically relevant results. Semantic search re-ranks the *existing* result set, consisting of the top 50 results as scored by the default ranking algorithm. Furthermore, semantic search can't create new information or strings. Captions and answers are extracted verbatim from your content so if the results don't include answer-like text, the language models won't produce one.
+What semantic search can't do is rerun the query over the entire corpus to find semantically relevant results. Semantic search reranks the *existing* result set, consisting of the top 50 results as scored by the default ranking algorithm. Furthermore, semantic search can't create new information or strings. Captions and answers are extracted verbatim from your content so if the results don't include answer-like text, the language models won't produce one.
 
 Although semantic search isn't beneficial in every scenario, certain content can benefit significantly from its capabilities. The language models in semantic search work best on searchable content that is information-rich and structured as prose. A knowledge base, online documentation, or documents that contain descriptive content see the most gains from semantic search capabilities.
 
