@@ -34,7 +34,7 @@ Azure Cognitive Search is a [proven solution for information retrieval](https://
 
 Microsoft has several built-in implementations for using Cognitive Search in a RAG solution.
 
-+ Azure AI Studio, [using your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio and start chatting right away.
++ Azure AI Studio, [using your data with an Azure OpenAI Service](/azure/ai-services/openai/concepts/use-your-data). Azure AI Studio integrates with Azure Cognitive Search for storage and retrieval. If you already have a search index, you can connect to it in Azure AI Studio and start chatting right away. If you don't have an index, you can [create one by uploading your data](/azure/ai-services/openai/use-your-data-quickstart) using the studio.
 
 + Azure Machine Learning, a search index can be used as a [vector store](/azure/machine-learning/concept-vector-stores). You can [create a vector index in an Azure Machine Learning prompt flow](/azure/machine-learning/how-to-create-vector-index) that uses your Cognitive Search service for storage and retrieval.
 
