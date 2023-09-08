@@ -244,7 +244,7 @@ In this release, we've made the following changes:
 - Addressed issues where window titles in the list of connected remote apps were blank.
 - Addressed multi-monitor issue where the mouse cursor shape would not update correctly when dragging between monitors.
 - Added a checkbox to General Preferences to enable/disable Microsoft Teams optimizations.
-- Added a UI to report if a remote app could not be launched on the server due to not being on the system allow list.
+- Added a UI to report if a remote app could not be launched on the server due to not being on the system allowlist.
 - Addressed issues where the session window could not expand when placed at the top or bottom of the screen.
 - Addressed scenarios where the mouse cursor would disappear while connected to a remote PC.
 - Deletion of an Azure Virtual Desktop workspace now correctly removes all associated workspaces.
