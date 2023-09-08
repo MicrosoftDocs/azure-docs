@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: overview
 ms.date: 03/28/2023
 ms.author: hangwan
-ms.custom: devx-track-java, devx-track-extended-java, contperf-fy21q2, event-tier1-build-2022
+ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 ---
 
 # Manage costs for Azure Spring Apps

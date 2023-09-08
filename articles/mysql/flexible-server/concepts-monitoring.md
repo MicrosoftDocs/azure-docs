@@ -39,7 +39,8 @@ These metrics are available for Azure Database for MySQL:
 |Host Network out|network_bytes_egress|Bytes|Total sum of outgoing network traffic on the server for a selected period. This metric includes traffic from your database and from Azure MySQL features like monitoring, logs etc.|
 |Active Connections|active_connection|Count|The number of active connections to the server. Active connections are the total number of [threads connected](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Threads_connected) to your server, which also includes threads from [azure_superuser](../single-server/how-to-create-users.md).|
 |Backup Storage Used|backup_storage_used|Bytes|The amount of backup storage used.|
-|IO percent|io_consumption_percent|Percent|The percentage of IO in use over selected period. IO percent is for both read and write IOPS.|
+|Storage IO percent|io_consumption_percent|Percent|The percentage of IO in use over selected period. IO percent is for both read and write IOPS.|
+|Storage IO Count|storage_io_count|Count|The total count of I/O operations (both read and write) utilized by server per minute.|
 |Host Memory Percent|memory_percent|Percent|The total percentage of memory in use on the server, including memory utilization from both database workload and other Azure MySQL processes. This metric shows total consumption of memory of underlying host similar to consumption of memory on any virtual machine.|
 |Storage Limit|storage_limit|Bytes|The maximum storage for this server.|
 |Storage Percent|storage_percent|Percent|The percentage of storage used out of the server's maximum.|

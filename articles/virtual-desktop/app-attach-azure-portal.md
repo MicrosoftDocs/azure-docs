@@ -88,7 +88,7 @@ host pool.
 
 ## Publish MSIX apps to an application group
 
-Next, you'll need to publish the apps to an application group. You'll need to do this for both desktop and remote app application groups.
+Next, you'll need to publish the apps to an application group. You'll need to do this for both desktop and RemoteApp application groups.
 
 To publish the apps:
 
@@ -97,7 +97,7 @@ To publish the apps:
 2. Select the application group you want to publish the apps to.
 
    >[!NOTE]
-   >MSIX applications can be delivered with MSIX app attach to both remote app and desktop application groups. When a MSIX package is assigned to a RemoteApp application group and Desktop application group from the same host pool the Desktop application group will be displayed in the feed.
+   >MSIX applications can be delivered with MSIX app attach to both RemoteApp and desktop application groups. When a MSIX package is assigned to a RemoteApp application group and Desktop application group from the same host pool the Desktop application group will be displayed in the feed.
 
 3. Once you're in the application group, select the **Applications** tab. The **Applications** grid will display all existing apps within the application group.
 

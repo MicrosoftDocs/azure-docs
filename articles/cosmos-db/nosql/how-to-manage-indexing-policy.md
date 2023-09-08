@@ -100,10 +100,12 @@ Here are some examples of indexing policies shown in [their JSON format](../inde
 
 ## <a id="composite-index"></a>Composite indexing policy examples
 
-In addition to including or excluding paths for individual properties, you can also specify a composite index. To perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](../index-policy.md#composite-indexes) is required on those properties. Composite indexes also have a performance benefit for queries that have multiple filters or both a filter and an ORDER BY clause.
+In addition to including or excluding paths for individual properties, you can also specify a composite index. To perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](../index-policy.md#composite-indexes) is required on those properties. If the query includes filters along with sorting on multiple properties, you may need more than one composite index.
+
+Composite indexes also have a performance benefit for queries that have multiple filters or both a filter and an ORDER BY clause.
 
 > [!NOTE]
-> Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path.
+> Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path. Composite paths are also case-sensitive.
 
 ### Composite index defined for (name asc, age desc)
 

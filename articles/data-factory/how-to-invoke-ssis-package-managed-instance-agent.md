@@ -6,7 +6,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Run SSIS packages by using Azure SQL Managed Instance Agent

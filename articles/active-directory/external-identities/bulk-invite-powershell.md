@@ -7,11 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 11/18/2022
+ms.date: 07/31/2023
 
 ms.author: cmulligan
 author: csmulligan
-manager: celestedg
+manager: CelesteDG
 ms.custom: engagement-fy23
 
 # Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users
 
-If you use [Azure Active Directory (Azure AD) B2B collaboration](what-is-b2b.md) to work with external partners, you can invite multiple guest users to your organization at the same time [via the portal](tutorial-bulk-invite.md) or via PowerShell. In this tutorial, you learn how to use PowerShell to send bulk invitations to external users. Specifically, you do the following:
+If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time via the portal or via PowerShell. In this tutorial, you learn how to use PowerShell to send bulk invitations to external users. Specifically, you do the following:
 
 > [!div class="checklist"]
 > * Prepare a comma-separated value (.csv) file with the user information
@@ -127,7 +127,7 @@ To verify that the invited users were added to Azure AD, run the following comma
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-You should see the users that you invited listed, with a [user principal name (UPN)](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *msullivan_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
 ## Clean up resources
 
@@ -137,11 +137,11 @@ When no longer needed, you can delete the test user accounts in the directory. R
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
 
-For example: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
+For example: `Remove-AzureADUser -ObjectId "msullivan_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 ## Next steps
 
-In this tutorial, you sent bulk invitations to guest users outside of your organization. Next, learn how the invitation redemption process works and how to enforce MFA for guest users.
+In this tutorial, you sent bulk invitations to guest users outside of your organization. Next, learn how to bulk invite guest users on the portal and how to enforce MFA for them.
 
-- [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
+- [Bulk invite guest users via the portal](tutorial-bulk-invite.md)
 - [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)

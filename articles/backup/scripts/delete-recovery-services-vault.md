@@ -47,16 +47,16 @@ $NWversion = $NWmodule.Version.ToString()
 
 if($RSversion -lt "5.3.0")
 {
-	Uninstall-Module -Name Az.RecoveryServices
-	Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-	Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
+    Uninstall-Module -Name Az.RecoveryServices
+    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+    Install-Module -Name Az.RecoveryServices -Repository PSGallery -Force -AllowClobber
 }
 
 if($NWversion -lt "4.15.0")
 {
-	Uninstall-Module -Name Az.Network
-	Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-	Install-Module -Name Az.Network -Repository PSGallery -Force -AllowClobber
+    Uninstall-Module -Name Az.Network
+    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+    Install-Module -Name Az.Network -Repository PSGallery -Force -AllowClobber
 }
 
 Connect-AzAccount
@@ -102,7 +102,7 @@ foreach($item in $backupItemsVM)
     }
 Write-Host "Disabled and deleted Azure VM backup items"
 
-foreach($item in $backupItemsSQL) 
+foreach($item in $backupItemsSQL)
     {
         Disable-AzRecoveryServicesBackupProtection -Item $item -VaultId $VaultToDelete.ID -RemoveRecoveryPoints -Force #stop backup and delete SQL Server in Azure VM backup items
     }
@@ -118,9 +118,9 @@ foreach($item in $backupContainersSQL)
     {
         Unregister-AzRecoveryServicesBackupContainer -Container $item -Force -VaultId $VaultToDelete.ID #unregister SQL Server in Azure VM protected server
     }
-Write-Host "Deleted SQL Servers in Azure VM containers" 
+Write-Host "Deleted SQL Servers in Azure VM containers"
 
-foreach($item in $backupItemsSAP) 
+foreach($item in $backupItemsSAP)
     {
         Disable-AzRecoveryServicesBackupProtection -Item $item -VaultId $VaultToDelete.ID -RemoveRecoveryPoints -Force #stop backup and delete SAP HANA in Azure VM backup items
     }
@@ -139,26 +139,26 @@ foreach($item in $backupItemsAFS)
 Write-Host "Disabled and deleted Azure File Share backups"
 
 foreach($item in $StorageAccounts)
-    {   
+    {
         Unregister-AzRecoveryServicesBackupContainer -container $item -Force -VaultId $VaultToDelete.ID #unregister storage accounts
     }
 Write-Host "Unregistered Storage Accounts"
 
-foreach($item in $backupServersMARS) 
+foreach($item in $backupServersMARS)
     {
-    	Unregister-AzRecoveryServicesBackupContainer -Container $item -Force -VaultId $VaultToDelete.ID #unregister MARS servers and delete corresponding backup items
+        Unregister-AzRecoveryServicesBackupContainer -Container $item -Force -VaultId $VaultToDelete.ID #unregister MARS servers and delete corresponding backup items
     }
 Write-Host "Deleted MARS Servers"
 
 foreach($item in $backupServersMABS)
-    { 
-	    Unregister-AzRecoveryServicesBackupManagementServer -AzureRmBackupManagementServer $item -VaultId $VaultToDelete.ID #unregister MABS servers and delete corresponding backup items
+    {
+        Unregister-AzRecoveryServicesBackupManagementServer -AzureRmBackupManagementServer $item -VaultId $VaultToDelete.ID #unregister MABS servers and delete corresponding backup items
     }
 Write-Host "Deleted MAB Servers"
 
-foreach($item in $backupServersDPM) 
+foreach($item in $backupServersDPM)
     {
-	    Unregister-AzRecoveryServicesBackupManagementServer -AzureRmBackupManagementServer $item -VaultId $VaultToDelete.ID #unregister DPM servers and delete corresponding backup items
+        Unregister-AzRecoveryServicesBackupManagementServer -AzureRmBackupManagementServer $item -VaultId $VaultToDelete.ID #unregister DPM servers and delete corresponding backup items
     }
 Write-Host "Deleted DPM Servers"
 
@@ -166,54 +166,54 @@ Write-Host "Deleted DPM Servers"
 
 $fabricObjects = Get-AzRecoveryServicesAsrFabric
 if ($null -ne $fabricObjects) {
-	# First DisableDR all VMs.
-	foreach ($fabricObject in $fabricObjects) {
-		$containerObjects = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabricObject
-		foreach ($containerObject in $containerObjects) {
-			$protectedItems = Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $containerObject
-			# DisableDR all protected items
-			foreach ($protectedItem in $protectedItems) {
-				Write-Host "Triggering DisableDR(Purge) for item:" $protectedItem.Name
-				Remove-AzRecoveryServicesAsrReplicationProtectedItem -InputObject $protectedItem -Force
-				Write-Host "DisableDR(Purge) completed"
-			}
-			
-			$containerMappings = Get-AzRecoveryServicesAsrProtectionContainerMapping `
-				-ProtectionContainer $containerObject
-			# Remove all Container Mappings
-			foreach ($containerMapping in $containerMappings) {
-				Write-Host "Triggering Remove Container Mapping: " $containerMapping.Name
-				Remove-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainerMapping $containerMapping -Force
-				Write-Host "Removed Container Mapping."
-			}			
-		}
-		$NetworkObjects = Get-AzRecoveryServicesAsrNetwork -Fabric $fabricObject 
-		foreach ($networkObject in $NetworkObjects) 
-		{
-			#Get the PrimaryNetwork
-			$PrimaryNetwork = Get-AzRecoveryServicesAsrNetwork -Fabric $fabricObject -FriendlyName $networkObject
-			$NetworkMappings = Get-AzRecoveryServicesAsrNetworkMapping -Network $PrimaryNetwork
-			foreach ($networkMappingObject in $NetworkMappings) 
-			{
-				#Get the Neetwork Mappings
-				$NetworkMapping = Get-AzRecoveryServicesAsrNetworkMapping -Name $networkMappingObject.Name -Network $PrimaryNetwork
-				Remove-AzRecoveryServicesAsrNetworkMapping -InputObject $NetworkMapping
-			}
-		}		
-		# Remove Fabric
-		Write-Host "Triggering Remove Fabric:" $fabricObject.FriendlyName
-		Remove-AzRecoveryServicesAsrFabric -InputObject $fabricObject -Force
-		Write-Host "Removed Fabric."
-	}
+    # First DisableDR all VMs.
+    foreach ($fabricObject in $fabricObjects) {
+        $containerObjects = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabricObject
+        foreach ($containerObject in $containerObjects) {
+            $protectedItems = Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $containerObject
+            # DisableDR all protected items
+            foreach ($protectedItem in $protectedItems) {
+                Write-Host "Triggering DisableDR(Purge) for item:" $protectedItem.Name
+                Remove-AzRecoveryServicesAsrReplicationProtectedItem -InputObject $protectedItem -Force
+                Write-Host "DisableDR(Purge) completed"
+            }
+
+            $containerMappings = Get-AzRecoveryServicesAsrProtectionContainerMapping `
+                -ProtectionContainer $containerObject
+            # Remove all Container Mappings
+            foreach ($containerMapping in $containerMappings) {
+                Write-Host "Triggering Remove Container Mapping: " $containerMapping.Name
+                Remove-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainerMapping $containerMapping -Force
+                Write-Host "Removed Container Mapping."
+            }
+        }
+        $NetworkObjects = Get-AzRecoveryServicesAsrNetwork -Fabric $fabricObject
+        foreach ($networkObject in $NetworkObjects)
+        {
+            #Get the PrimaryNetwork
+            $PrimaryNetwork = Get-AzRecoveryServicesAsrNetwork -Fabric $fabricObject -FriendlyName $networkObject
+            $NetworkMappings = Get-AzRecoveryServicesAsrNetworkMapping -Network $PrimaryNetwork
+            foreach ($networkMappingObject in $NetworkMappings)
+            {
+                #Get the Neetwork Mappings
+                $NetworkMapping = Get-AzRecoveryServicesAsrNetworkMapping -Name $networkMappingObject.Name -Network $PrimaryNetwork
+                Remove-AzRecoveryServicesAsrNetworkMapping -InputObject $NetworkMapping
+            }
+        }
+        # Remove Fabric
+        Write-Host "Triggering Remove Fabric:" $fabricObject.FriendlyName
+        Remove-AzRecoveryServicesAsrFabric -InputObject $fabricObject -Force
+        Write-Host "Removed Fabric."
+    }
 }
 
 foreach($item in $pvtendpoints)
-	{
-		$penamesplit = $item.Name.Split(".")
-		$pename = $penamesplit[0]
-		Remove-AzPrivateEndpointConnection -ResourceId $item.Id -Force #remove private endpoint connections
-		Remove-AzPrivateEndpoint -Name $pename -ResourceGroupName $ResourceGroup -Force #remove private endpoints
-	}	 
+    {
+        $penamesplit = $item.Name.Split(".")
+        $pename = $penamesplit[0]
+        Remove-AzPrivateEndpointConnection -ResourceId $item.Id -Force #remove private endpoint connections
+        Remove-AzPrivateEndpoint -Name $pename -ResourceGroupName $ResourceGroup -Force #remove private endpoints
+    }
 Write-Host "Removed Private Endpoints"
 
 #Recheck ASR items in vault
@@ -222,21 +222,21 @@ $ASRProtectedItems = 0
 $ASRPolicyMappings = 0
 $fabricObjects = Get-AzRecoveryServicesAsrFabric
 if ($null -ne $fabricObjects) {
-	foreach ($fabricObject in $fabricObjects) {
-		$containerObjects = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabricObject
-		foreach ($containerObject in $containerObjects) {
-			$protectedItems = Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $containerObject
-			foreach ($protectedItem in $protectedItems) {
-				$ASRProtectedItems++
-			}
-			$containerMappings = Get-AzRecoveryServicesAsrProtectionContainerMapping `
-				-ProtectionContainer $containerObject
-			foreach ($containerMapping in $containerMappings) {
-				$ASRPolicyMappings++
-			}			
-		}
-		$fabricCount++
-	}
+    foreach ($fabricObject in $fabricObjects) {
+        $containerObjects = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabricObject
+        foreach ($containerObject in $containerObjects) {
+            $protectedItems = Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $containerObject
+            foreach ($protectedItem in $protectedItems) {
+                $ASRProtectedItems++
+            }
+            $containerMappings = Get-AzRecoveryServicesAsrProtectionContainerMapping `
+                -ProtectionContainer $containerObject
+            foreach ($containerMapping in $containerMappings) {
+                $ASRPolicyMappings++
+            }
+        }
+        $fabricCount++
+    }
 }
 #Recheck presence of backup items in vault
 $backupItemsVMFin = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $VaultToDelete.ID

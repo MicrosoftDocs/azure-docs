@@ -57,3 +57,5 @@ If you are unable to use a configuration metadata document, you will need to gat
 ## <a name="related-content"> </a>Next steps
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
+
+[Azure portal]: https://portal.azure.com

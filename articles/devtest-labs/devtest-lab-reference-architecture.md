@@ -6,6 +6,7 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/14/2022
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # DevTest Labs enterprise reference architecture

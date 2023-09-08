@@ -23,7 +23,7 @@ Custom security attributes in Azure Active Directory (Azure AD) are business-spe
 
 ## Why use custom security attributes?
 
-- Extend user profiles, such as add Employee Hire Date and Hourly Salary to all my employees.
+- Extend user profiles, such as add Hourly Salary to all my employees.
 - Ensure only administrators can see the Hourly Salary attribute in my employees' profiles.
 - Categorize hundreds or thousands of applications to easily create a filterable inventory for auditing.
 - Grant users access to the Azure Storage blobs belonging to a project.
@@ -56,13 +56,19 @@ Currently, you can add custom security attributes for the following Azure AD obj
 - Azure AD enterprise applications (service principals)
 - Managed identities for Azure resources
 
-## How do custom security attributes compare with directory extensions?
+## How do custom security attributes compare with extensions?
 
-Here are some ways that custom security attributes compare with [directory extensions](../develop/active-directory-schema-extensions.md):
+While both extensions and custom security attributes can be used to extend objects in Azure AD and Microsoft 365, they are suitable for fundamentally different custom data scenarios. Here are some ways that custom security attributes compare with [extensions](/graph/extensibility-overview):
 
-- Directory extensions cannot be used for authorization scenarios and attributes because the access control for the extension attributes is tied to the Azure AD object. Custom security attributes can be used for authorization and attributes needing access control because the custom security attributes can be managed and protected through separate permissions.
-- Directory extensions are tied to an application and share the lifecycle of an application. Custom security attributes are tenant wide and not tied to an application.
-- Directory extensions support assigning a single value to an attribute. Custom security attributes support assigning multiple values to an attribute.
+| Capability | Extensions | Custom security attributes |
+|--|--|--|
+| Extend Azure AD and Microsoft 365 objects | Yes | Yes |
+| Supported objects | Depends on the extension type | Users and service principals |
+| Restricted access | No. Anyone with permissions to read the object can read the extension data. | Yes. Read and write access is restricted through a separate set of permissions and RBAC. |
+| When to use | Store data to be used by an application <br/> Store non-sensitive data | Store sensitive data <br/> Use for authorization scenarios |
+| License requirements | Available in all editions of Azure AD | Requires an Azure AD Premium P1 or P2 license |
+
+For more information about working with extensions, see [Add custom data to resources using extensions](/graph/extensibility-overview).
 
 ## Steps to use custom security attributes
 

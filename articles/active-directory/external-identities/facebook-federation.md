@@ -63,6 +63,9 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 Now you'll set the Facebook client ID and client secret, either by entering it in the Azure portal or by using PowerShell. You can test your Facebook configuration by signing up via a user flow on an app enabled for self-service sign-up.
 
 ### To configure Facebook federation in the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
@@ -89,6 +92,7 @@ Now you'll set the Facebook client ID and client secret, either by entering it i
 You can delete your Facebook federation setup. If you do so, any users who have signed up through user flows with their Facebook accounts will no longer be able to sign in. 
 
 ### To delete Facebook federation in the Azure portal: 
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD tenant.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.

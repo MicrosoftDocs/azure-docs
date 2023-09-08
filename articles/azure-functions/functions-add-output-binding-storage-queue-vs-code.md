@@ -4,7 +4,7 @@ description: Learn how to connect Azure Functions to an Azure Queue Storage by a
 ms.date: 01/31/2023
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-azurepowershell, devx-track-extended-java
+ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---

@@ -37,7 +37,7 @@ The application object describes three aspects of an application:
 - The resources that the application might need to access
 - The actions that the application can take
 
-You can use the **App registrations** page in the [Azure portal][azure-portal] to list and manage the application objects in your home tenant.
+You can use the **App registrations** page in the [Azure portal] to list and manage the application objects in your home tenant.
 
 ![App registrations blade](./media/app-objects-and-service-principals/app-registrations-blade.png)
 
@@ -136,4 +136,4 @@ Learn how to create a service principal:
 
 [ms-graph-app-entity]: /graph/api/resources/application
 [ms-graph-sp-entity]: /graph/api/resources/serviceprincipal
-[azure-portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

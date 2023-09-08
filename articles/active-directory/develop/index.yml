@@ -103,16 +103,16 @@ conceptualContent:
     - title: Sign in users
       links:
         - text: Single-page web app (SPA)
-          url: single-page-app-quickstart.md
+          url: quickstart-single-page-app-react-sign-in.md
           itemType: quickstart
         - text: Web app
-          url: web-app-quickstart.md
+          url: quickstart-web-app-aspnet-sign-in.md
           itemType: quickstart
         - text: Desktop app
-          url: desktop-app-quickstart.md
+          url: quickstart-desktop-app-nodejs-electron-sign-in.md
           itemType: quickstart
         - text: Mobile app
-          url: mobile-app-quickstart.md
+          url: quickstart-mobile-app-android-sign-in.md
           itemType: quickstart
     ## CARD 2 ######################
     - title: Protect a web API
@@ -124,7 +124,7 @@ conceptualContent:
           url: web-api-tutorial-01-register-app.md
           itemType: quickstart
         - text: Call an API from a non-interactive app or script
-          url: console-app-quickstart.md
+          url: quickstart-web-api-aspnet-protect-api.md
           itemType: quickstart
     ## CARD 3 ######################
     - title: Test and deploy apps
@@ -185,7 +185,7 @@ tools:
     url: /javascript/api/@azure/msal-node
     imageSrc: ./media/hub/node.svg
   - title: Python
-    url: /entra/msal/python
+    url: /entra/msal/python/
     imageSrc: /media/logos/logo_python.svg
   - title: React
     url: /javascript/api/@azure/msal-react

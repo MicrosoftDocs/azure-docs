@@ -17,7 +17,7 @@ ms.reviewer: ludwignick
 
 You can configure optional claims for your application through the Azure portal or application manifest.
 
-1. Go to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
 1. Choose the application for which you want to configure optional claims based on your scenario and desired outcome.
@@ -97,6 +97,8 @@ When configuring directory extension optional claims using the application manif
 Within the JWT, these claims are emitted with the following name format:  `extn.<attributename>`. Within the SAML tokens, these claims are emitted with the following URI format: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
 ## Configure groups optional claims
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the Azure portal or application manifest. Group optional claims are only emitted in the JWT for user principals. Service principals aren't included in group optional claims emitted in the JWT.
 

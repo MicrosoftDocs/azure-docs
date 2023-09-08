@@ -68,45 +68,6 @@ The following example shows a [C# function](dotnet-isolated-process-guide.md) th
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a Service Bus trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Here's the C# script code:
-
-```cs
-using System;
-
-public static void Run(string myQueueItem,
-    Int32 deliveryCount,
-    DateTime enqueuedTimeUtc,
-    string messageId,
-    TraceWriter log)
-{
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"DeliveryCount={deliveryCount}");
-    log.Info($"MessageId={messageId}");
-}
-```
 ---
 
 ::: zone-end
@@ -356,7 +317,7 @@ def main(msg: azf.ServiceBusMessage) -> str:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs) attribute to define the function trigger. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs) attribute to define the function trigger. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#service-bus-trigger).
 
 # [In-process](#tab/in-process)
 
@@ -385,23 +346,6 @@ The following table explains the properties you can set using this trigger attri
 |**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 |**IsBatched**| Messages are delivered in batches. Requires an array or collection type. |
 |**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-
-# [C# script](#tab/csharp-script)
-
-C# script uses a *function.json* file for configuration instead of attributes. The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** |  Must be set to `serviceBusTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | The name of the variable that represents the queue or topic message in function code. |
-|**queueName**| Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
-|**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
-|**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
-|**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br/><br/>This property is available only in Azure Functions 2.x and higher. |
 
 ---
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -520,26 +464,11 @@ In [C# class libraries](functions-dotnet-class-library.md), the attribute's cons
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-Messaging-specific types are not yet supported.
+Earlier versions of this extension in the isolated worker process only support binding to messaging-specific types. Additional options are available to **extension 5.x and higher**
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Messaging-specific types are not yet supported.
-
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
-
-Use the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) type to receive message metadata from Service Bus Queues and Subscriptions. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
-
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
-
-Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type to receive messages with metadata. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-The following parameter types are available for the queue or topic message:
-
-* [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method.
-* [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container, which is required when `autoComplete` is set to `false`.
+Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 
@@ -637,18 +566,6 @@ These properties are members of the [BrokeredMessage](/dotnet/api/microsoft.serv
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Messaging-specific types are not yet supported.
-
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
-
-Messaging-specific types are not yet supported.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Messaging-specific types are not yet supported.
-
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
-
 These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) class.
 
 |Property|Type|Description|
@@ -665,43 +582,14 @@ These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azur
 |`Subject`|`string`|The application-specific label which can be used in place of the `Label` metadata property.|
 |`To`|`string`|The send to address.|
 
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
 
-These properties are members of the [Message](/dotnet/api/microsoft.azure.servicebus.message) class.
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-|Property|Type|Description|
-|--------|----|-----------|
-|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
-|`CorrelationId`|`string`|The correlation ID.|
-|`DeliveryCount`|`Int32`|The number of deliveries.|
-|`ScheduledEnqueueTimeUtc`|`DateTime`|The scheduled enqueued time in UTC.|
-|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
-|`Label`|`string`|The application-specific label.|
-|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|`ReplyTo`|`string`|The reply to queue address.|
-|`To`|`string`|The send to address.|
-|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. |
+Earlier versions of this extension in the isolated worker process only support binding to messaging-specific types. Additional options are available to **Extension 5.x and higher**
 
-# [Functions 1.x](#tab/functionsv1/csharp-script)
+# [Functions 1.x](#tab/functionsv1/isolated-process)
 
-These properties are members of the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) and [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) classes.
-
-|Property|Type|Description|
-|--------|----|-----------|
-|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
-|`CorrelationId`|`string`|The correlation ID.|
-|`DeadLetterSource`|`string`|The dead letter source.|
-|`DeliveryCount`|`Int32`|The number of deliveries.|
-|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
-|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
-|`Label`|`string`|The application-specific label.|
-|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|`MessageReceiver`|`MessageReceiver`|Service Bus message receiver. Can be used to abandon, complete, or deadletter the message.|
-|`MessageSession`|`MessageSession`|A message receiver specifically for session-enabled queues and topics.|
-|`ReplyTo`|`string`|The reply to queue address.|
-|`SequenceNumber`|`long`|The unique number assigned to a message by the Service Bus.|
-|`To`|`string`|The send to address.|
-|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. |
+Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 
@@ -713,3 +601,4 @@ These properties are members of the [BrokeredMessage](/dotnet/api/microsoft.serv
 
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md

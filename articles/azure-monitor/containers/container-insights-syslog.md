@@ -8,7 +8,7 @@ ms.reviewer: damendo
 
 # Syslog collection with Container Insights (preview)
 
-Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Customers can use Syslog for monitoring security and health events, typically by ingesting syslog into SIEM systems like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
+Container Insights offers the ability to collect Syslog events from Linux nodes in your [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. This includes the ability to collect logs from control plane componemts like kubelet. Customers can also use Syslog for monitoring security and health events, typically by ingesting syslog into a SIEM system like [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/#overview).  
 
 > [!IMPORTANT]
 > Syslog collection with Container Insights is a preview feature. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
@@ -127,9 +127,11 @@ The following table provides different examples of log queries that retrieve Sys
 | Query | Description |
 |:--- |:--- |
 | `Syslog` |All Syslogs |
-| `Syslog | where SeverityLevel == "error"` |All Syslog records with severity of error |
-| `Syslog | summarize AggregatedValue = count() by Computer` |Count of Syslog records by computer |
-| `Syslog | summarize AggregatedValue = count() by Facility` |Count of Syslog records by facility |  
+| `Syslog | where SeverityLevel == "error"` | All Syslog records with severity of error |
+| `Syslog | summarize AggregatedValue = count() by Computer` | Count of Syslog records by computer |
+| `Syslog | summarize AggregatedValue = count() by Facility` | Count of Syslog records by facility |  
+| `Syslog | where ProcessName == "kubelet"` | All Syslog records from the kubelet process |
+| `Syslog | where ProcessName == "kubelet" and  SeverityLevel == "error"` | Syslog records from kubelet process with errors |
 
 ## Editing your Syslog collection settings
 

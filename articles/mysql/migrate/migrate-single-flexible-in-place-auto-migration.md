@@ -7,10 +7,7 @@ ms.date: 07/10/2023
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom:
-  - mvc
-  - devx-track-azurecli
-  - mode-api
+ms.custom: mvc, mode-api
 ---
 # In-place automigration from Azure Database for MySQL – Single Server to Flexible Server
 
@@ -47,6 +44,11 @@ Following described are the ways to review your migration schedule once you have
 * If you wish to defer the migration, you can defer by a month at a time by navigating to the Migration blade of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month.
 * If your Single Server has General Purpose SKU, you have the other option to enable High Availability when reviewing the migration schedule. As High Availability can only be enabled during create time for a MySQL Flexible Server, it's highly recommended that you enable this feature when reviewing the migration schedule.
 
+## Pre-requisite checks for in-place auto-migration
+
+* The Single Server instance should be in ready state and should not be in stopped state during the planned maintenance window for automigration to take place.
+* For Single Server instance with SSL enabled, ensure you have both certificates (BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 Root CA) available in the trusted root store. Additionally, if you have the certificate pinned to the connection string create a combined CA certificate before scheduled auto-migration by following steps [here](../single-server/concepts-certificate-rotation.md#create-a-combined-ca-certificate) to ensure business continuity post-migration.
+
 ## How is the target MySQL Flexible Server auto-provisioned?
 
 * The compute tier and SKU for the target flexible server is provisioned based on the source single server’s pricing tier and VCores based on the detail in the following table.
@@ -71,6 +73,9 @@ Following described are the ways to review your migration schedule once you have
 * Both connection string formats – Single Server and Flexible Server are supported on the migrated Flexible Server.
 
 ## Post-migration steps
+
+> [!NOTE]
+> Post-migration do no restart the stopped Single Server instance as it may hamper your client's and application connectivity.
 
 Copy the following properties from the source Single Server to target Flexible Server post in-place migration operation is completed successfully:
 

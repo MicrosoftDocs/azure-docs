@@ -21,9 +21,12 @@ A user's profile information and settings can be managed on an individual basis 
 This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). 
 
 ## Add or change profile information
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When new users are created, only some details are added to their user profile. If your organization needs more details, they can be added after the user is created. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
 
 1. Go to **Azure Active Directory** > **Users** and select a user.
    

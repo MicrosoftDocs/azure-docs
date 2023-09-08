@@ -104,6 +104,8 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - While it's possible to create NSG rules for IPv4 and IPv6 within the same NSG, it isn't currently possible to combine an IPv4 subnet with an IPv6 subnet in the same rule when specifying IP prefixes.
 
+- When using a dual stack configuration with a load balancer, health probes will not function for IPv6 if a Network Security Group is not active.
+
 - ICMPv6 isn't currently supported in Network Security Groups.
 
 - Azure Virtual WAN currently supports IPv4 traffic only.

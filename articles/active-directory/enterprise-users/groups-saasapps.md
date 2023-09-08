@@ -26,7 +26,9 @@ Using Azure Active Directory (Azure AD), part of Microsoft Entra, with an Azure 
 
 ## To assign access for a user or group to a SaaS application
 
-1. In the [Azure portal](https://portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Select an application that you added from the Application Gallery to open it.
 1. Select **Users and groups**, and then select **Add user**.

@@ -1,6 +1,6 @@
 ---
-title: Customize a speech model with the Azure Video Indexer API
-description: Learn how to customize a speech model with the Azure Video Indexer API.
+title: Customize a speech model with the Azure AI Video Indexer API
+description: Learn how to customize a speech model with the Azure AI Video Indexer API.
 ms.topic: how-to
 ms.date: 03/06/2023
 ---
@@ -9,11 +9,11 @@ ms.date: 03/06/2023
 
 [!INCLUDE [speech model](./includes/speech-model.md)]
 
-Azure Video Indexer lets you create custom language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to or aligning word or name pronunciation with how it should be written. 
+Azure AI Video Indexer lets you create custom language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to or aligning word or name pronunciation with how it should be written. 
 
-For a detailed overview and best practices for custom speech models, see [Customize a speech model with Azure Video Indexer](customize-speech-model-overview.md). 
+For a detailed overview and best practices for custom speech models, see [Customize a speech model with Azure AI Video Indexer](customize-speech-model-overview.md). 
 
-You can use the Azure Video Indexer APIs to create and edit custom language models in your account. You can also use the website, as described in [Customize speech model using the Azure Video Indexer website](customize-speech-model-with-website.md). 
+You can use the Azure AI Video Indexer APIs to create and edit custom language models in your account. You can also use the website, as described in [Customize speech model using the Azure AI Video Indexer website](customize-speech-model-with-website.md). 
 
 The following are descriptions of some of the parameters: 
 

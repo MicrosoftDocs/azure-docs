@@ -91,4 +91,4 @@ The following important considerations apply when administering a managed domain
 
 ## Next steps
 
-To get started, [enroll in the Azure CSP program](/partner-center/enrolling-in-the-csp-program). You can then enable Azure AD Domain Services using [the Azure portal](tutorial-create-instance.md) or [Azure PowerShell](powershell-create-instance.md).
+To get started, [enroll in the Azure CSP program](/partner-center/enrolling-in-the-csp-program). You can then enable Azure AD Domain Services using the [Azure portal](tutorial-create-instance.md) or [Azure PowerShell](powershell-create-instance.md).

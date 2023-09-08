@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - data reference
 description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel solution for SAP® applications.
-author: MSFTandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 05/24/2023

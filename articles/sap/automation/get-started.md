@@ -80,7 +80,7 @@ The ~/Azure_SAP_Automated_Deployment/samples folder contains a set of sample con
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp samples/Terraform/WORKSPACES config/WORKSPACES
+cp -Rp samples/Terraform/WORKSPACES config
 ```
 
 

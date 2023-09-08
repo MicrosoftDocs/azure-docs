@@ -53,7 +53,7 @@ On 8 June 2022, The Reserve Bank of India (RBI) increased the limit of e-mandate
 
 On 30 September 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you'll need to add and verify your payment method to make a payment in the Azure portal for all invoices.
 
-[Learn about the Reserve Bank of India directive; Restriction on storage of actual card data ](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF)
+[Learn about the Reserve Bank of India directive; Restriction on storage of actual card data](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF)
 
 ### UPI and NetBanking payment options
 
@@ -270,7 +270,7 @@ If your default payment method is wire transfer, check your invoice for payment 
 
 To pay invoices in the Azure portal, you must have the correct [MCA permissions](../manage/understand-mca-roles.md) or be the Billing Account admin. The Billing Account admin is the user who originally signed up for the MCA account.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search on **Cost Management + Billing**.
 1. In the left menu, select **Invoices** under **Billing**.
 1. If any of your eligible invoices are due or past due, you'll see a blue **Pay now** link for that invoice. Select **Pay now**.

@@ -145,7 +145,7 @@ The Usage Analytics feature needs to gather and analyze data, so the Azure AD Co
 1. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it's not listed, select **Add User or Group**, and add the AD FS service account to the list. Then select **OK**.
 1. To enable auditing, open a Command Prompt window as administrator, and then run the following command:
 
-    `auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable`
+    `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
 
 1. Close **Local Security Policy**.
 

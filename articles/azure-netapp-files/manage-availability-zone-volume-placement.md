@@ -11,6 +11,7 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 01/13/2023
 ms.author: anfdocs
@@ -34,27 +35,6 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 * VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature doesn't create zonal VMs upon volume creation, or vice versa.
 
 [!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
-
-## Register the feature 
-
-The feature of availability zone volume placement is currently in preview. If you're using this feature for the first time, you need to register the feature first.
-
-1.  Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAvailabilityZone
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAvailabilityZone
-    ```
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Create a volume with an availability zone 
 
@@ -83,19 +63,16 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Populate an existing volume with availability zone information
 
-1. The feature to populate existing volumes with availability zone information is currently in preview. If you're using this feature for the first time, you need to register the feature first. You need to register for both `ANFAvailabilityZone` and `ANFPopulateAvailabilityZone`.   
+1. The feature to populate existing volumes with availability zone information is currently in preview. If you're using this feature for the first time, you need to register the feature first.  
     1. Register the feature: 
 
     ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAvailabilityZone
-    
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
+     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
     ```   
     2. Check the status of the feature registration: 
 
     ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAvailabilityZone
-    
+   
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
     ```
 

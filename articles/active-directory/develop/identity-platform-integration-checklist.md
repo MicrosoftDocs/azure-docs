@@ -37,7 +37,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 ## Branding
 
-![checkbox](./media/integration-checklist/checkbox-two.svg) Adhere to the [Branding guidelines for applications](howto-add-branding-in-apps.md).
+![checkbox](./media/integration-checklist/checkbox-two.svg) Adhere to the [Branding guidelines for applications](/azure/active-directory/develop/howto-add-branding-in-apps).
 
 ![checkbox](./media/integration-checklist/checkbox-two.svg) Provide a meaningful name and logo for your application. This information appears on your [application’s consent prompt](application-consent-experience.md). Make sure your name and logo are representative of your company/product so that users can make informed decisions. Ensure that you're not violating any trademarks.
 

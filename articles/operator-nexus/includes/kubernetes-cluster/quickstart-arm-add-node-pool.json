@@ -167,6 +167,7 @@
           "type": "CustomLocation"
         },
         "properties": {
+          "administratorConfiguration": {},
           "count": "[parameters('agentPoolNodeCount')]",
           "mode": "[parameters('agentPoolMode')]",
           "vmSkuName": "[parameters('agentVmSku')]",

@@ -5,7 +5,7 @@ ms.service: azure-operator-nexus
 author: dramasamy
 ms.author: dramasamy
 ms.topic: quickstart-arm
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 ms.date: 05/14/2023
 ---
 
@@ -86,4 +86,3 @@ Once you have reviewed and saved the template file named ```kubernetes-add-agent
 ## Next steps
 
 [!INCLUDE [quickstart-nextsteps](./includes/kubernetes-cluster/quickstart-nextsteps.md)]
-

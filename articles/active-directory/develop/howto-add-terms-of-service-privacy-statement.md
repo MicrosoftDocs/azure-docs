@@ -52,6 +52,9 @@ When the terms of service and privacy statement are ready, you can add links to 
 * [Using the Microsoft Graph API](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>Using the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps in the Azure portal.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select the correct Azure AD tenant(not B2C).

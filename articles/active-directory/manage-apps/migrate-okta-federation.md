@@ -81,13 +81,15 @@ For this tutorial, you configure password hash synchronization and seamless SSO.
 
 ## Configure staged rollout features
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before you test defederating a domain, in Azure AD use a cloud authentication staged rollout to test defederating users. 
 
 Learn more: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md)
 
 After you enable password hash sync and seamless SSO on the Azure AD Connect server, configure a staged rollout:
 
-1. In the [Azure portal](https://portal.azure.com/#home), select **View** or **Manage Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **View** or **Manage Azure Active Directory**.
 
    ![Screenshot of the Azure portal with welcome message.](media/migrate-okta-federation/portal.png)
 
@@ -123,7 +125,7 @@ Users that converted to managed authentication might need access to applications
 
 Configure the enterprise application registration for Okta.
 
-1. In the [Azure portal](https://portal.azure.com/#home), under **Manage Azure Active Directory**, select **View**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then under **Manage Azure Active Directory**, select **View**.
 2. On the left menu, under **Manage**, select **Enterprise applications**.
 
    ![Screenshot of the left menu of the Azure portal.](media/migrate-okta-federation/enterprise-application.png)

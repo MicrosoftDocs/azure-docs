@@ -9,7 +9,7 @@ ms.date: 06/28/2023
 ms.custom: template-reference
 ---
 
-# Nexus Limits and Quotas
+# Azure Operator Nexus limits and quotas
 
 This document provides an overview of the resource limits that apply to the components used in the Nexus solution, encompassing the resources created within Azure cloud and in on-premises instance. It outlines the specific limitations and restrictions that operators should be aware of when deploying and managing the Nexus instance across these environments.
 
@@ -41,6 +41,7 @@ The creation of the Network Fabric related resources is subject to the following
 | Layer 2 Isolation domains   | 3500 isolation domains per Nexus instance |
 | Layer 3 Isolation domains   | 200 isolation domains per Nexus instance |
 | Route policies              | 400 route policies per Nexus instance |
+| Isolation domain MTU | 1500 - 9200 |
 
 > [!NOTE]
 > * The number of Nexus instances a pair of NFC + CM can handle has been set to 20 based on some theoretical study for ExpressRoute. These numbers will be refined after more testing. 
@@ -52,7 +53,7 @@ The creation of the Network Cloud specific resources is subject to the following
 | Resource Type               | Notes |
 | --------------------------- | -------------------------|
 | Cluster Manager             |	1:1 mapping with Network Fabric Controller |
-| Cluster                     |	Up to 20 Nexus Cluster instances per Cluster Manager (within same region) [To be updated] |
+| Cluster                     |	Up to 20 Nexus Cluster instances per Cluster Manager (within same region) |
 | Racks                       |	Up to BOM-specified Compute Racks per Nexus Cluster |
 | Bare Metal Machines         |	Up to BOM-specified BareMetal machines per Rack |
 | Storage Appliances          |	Up to BOM-specified Storage appliances per Nexus Cluster instance |

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 07/21/2023
 ms.author: jfields
 ---
 
@@ -19,7 +19,7 @@ This article describes how to enable Microsoft Entra Permissions Management in y
 > [!NOTE]
 > To complete this task, you must have *Microsoft Entra Permissions Management Administrator* permissions. You can't enable Permissions Management as a user from another tenant who has signed in via B2B or via Azure Lighthouse.
 
-:::image type="content" source="media/onboard-enable-tenant/dashboard.png" alt-text="A preview of what the permissions management dashboard looks like." lightbox="media/onboard-enable-tenant/dashboard.png":::
+:::image type="content" source="media/onboard-enable-tenant/dashboard.png" alt-text="Screenshot of the Entra Permissions Management dashboard." lightbox="media/onboard-enable-tenant/dashboard.png":::
 
 ## Prerequisites
 

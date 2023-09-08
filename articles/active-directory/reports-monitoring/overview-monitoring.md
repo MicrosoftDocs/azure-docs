@@ -51,7 +51,7 @@ Depending on the final destination of your log data, you'll need one of the foll
 
 ## Diagnostic settings configuration
 
-To configure monitoring settings for Azure AD activity logs, first sign-in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the diagnostic settings configuration page in two ways:
+To configure monitoring settings for Azure AD activity logs, first sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the diagnostic settings configuration page in two ways:
 
 * Select **Diagnostic settings** from the **Monitoring** section.
 

@@ -1,11 +1,11 @@
 ---
 title: Enable compliant network check with Conditional Access
-description: Require known compliant network locations with Conditional Access.
+description: Learn how to require known compliant network locations in order to connect to your secured resources with Conditional Access.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 07/07/2023
+ms.date: 08/09/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -45,7 +45,7 @@ To enable the required setting to allow the compliant network check, an administ
 1. Sign in to the **Microsoft Entra admin center** as a Global Secure Access Administrator.
 1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
 1. Browse to **Microsoft Entra ID Conditional Access** > **Named locations**.
-   1. Confirm you have a location called **All Network Access locations of my tenant** with location type **Network Access**. Organizations can optionally mark this location as trusted.
+   1. Confirm you have a location called **All Compliant Network locations** with location type **Network Access**. Organizations can optionally mark this location as trusted.
 
 :::image type="content" source="media/how-to-compliant-network/toggle-enable-signaling-in-conditional-access.png" alt-text="Screenshot showing the toggle to enable signaling in Conditional Access.":::
 
@@ -64,19 +64,20 @@ The following example shows a Conditional Access policy that requires Exchange O
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](#user-exclusions). 
 1. Under **Target resources** > **Include**, and select **Select apps**.
-   1. Choose **Office 365 Exchange Online** and **Office 365 SharePoint Online**.
+   1. Choose **Office 365 Exchange Online** and/or **Office 365 SharePoint Online**.
+   1. Office 365 apps are currently NOT supported, so do not select this option.
 1. Under **Conditions** > **Location**.
    1. Set **Configure** to **Yes**
    1. Under **Include**, select **Any location**.
    1. Under **Exclude**, select **Selected locations**
-      1. Select the **All Network Access locations of my tenant** location.
+      1. Select the **All Compliant Network locations** location.
    1. Select **Select**.
 1. Under **Access controls**: 
    1. **Grant**, select **Block Access**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the policy settings using [report-only mode](/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ### User exclusions
 

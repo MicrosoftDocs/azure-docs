@@ -32,7 +32,7 @@ To get started:
 ## Create storage in Azure
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
-1. Create a storage account in your subscription in the [Azure portal][portal].
+1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
    
     ![Screenshot of the Azure portal, choose New, Data, Storage then select Classic, Create and provide a Storage name.](./media/app-insights-export-sql-stream-analytics/040-store.png)
 2. Create a container
@@ -73,7 +73,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to SQL Database. That will make it easy to run lots of interesting queries.
 
 ## Create an Azure SQL Database
-Once again starting from your subscription in [Azure portal][portal], create the database (and a new server, unless you've already got one) to which you'll write the data.
+Once again starting from your subscription in [Azure portal](https://portal.azure.com), create the database (and a new server, unless you've already got one) to which you'll write the data.
 
 ![Screenshot of the Azure portal, create, Data+ storage, and SQL Database.](./media/app-insights-export-sql-stream-analytics/090-sql.png)
 
@@ -251,6 +251,4 @@ FROM [dbo].[PageViewsTable]
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [export]: /previous-versions/azure/azure-monitor/app/export-telemetry
 [metrics]: ../azure-monitor/essentials/metrics-charts.md
-[portal]: https://portal.azure.com/
 [start]: ../azure-monitor/app/app-insights-overview.md
-

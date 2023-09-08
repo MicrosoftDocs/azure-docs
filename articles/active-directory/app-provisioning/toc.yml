@@ -43,8 +43,18 @@ items:
         href: inbound-provisioning-api-configure-app.md
       - name: Grant permissions for API-driven provisioning
         href: inbound-provisioning-api-grant-access.md
+      - name: Sync custom attributes
+        href: inbound-provisioning-api-custom-attributes.md
       - name: Quickstart using cURL
         href: inbound-provisioning-api-curl-tutorial.md
+      - name: Quickstart with Postman
+        href: inbound-provisioning-api-postman.md
+      - name: Quickstart with Graph Explorer
+        href: inbound-provisioning-api-graph-explorer.md
+      - name: Quickstart with Powershell
+        href: inbound-provisioning-api-powershell.md
+      - name: Quickstart with Azure Logic Apps
+        href: inbound-provisioning-api-logic-apps.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts

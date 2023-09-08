@@ -33,6 +33,8 @@ You must be in the Global Administrator role to configure guest user access. The
 
 ## Update in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 We’ve made changes to the existing Azure portal controls for guest user permissions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with Global Administrator permissions.

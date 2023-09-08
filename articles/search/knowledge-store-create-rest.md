@@ -2,7 +2,6 @@
 title: Create a knowledge store using REST
 titleSuffix: Azure Cognitive Search
 description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting AI enrichments from skillset.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -35,7 +34,7 @@ To make the initial data set available, the hotel reviews are first imported int
 
 ## Load data
 
-This step uses Azure Cognitive Search, Azure Blob Storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching a Cognitive Services resource.
+This step uses Azure Cognitive Search, Azure Blob Storage, and [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching an Azure AI multi-service resource.
 
 1. [Download HotelReviews_Free.csv](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_data.csv). This CSV contains 19 pieces of customer feedback about a single hotel (originates from Kaggle.com). The file is in a repo with other sample data. If you don't want the whole repo, copy the raw content and paste it into a spreadsheet app on your device.
 
@@ -429,7 +428,7 @@ If you're using a free service, remember that you're limited to three indexes, i
 
 ## Next steps
 
-Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
+Now that you've enriched your data by using Azure AI services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
 
 > [!div class="nextstepaction"]
 > [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)

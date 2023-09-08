@@ -33,15 +33,6 @@ For each Dedicated workload profile in your environment, you can:
 
 You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This configuration is ideal for deploying a microservice solution where each app can run on the appropriate compute infrastructure.
 
-## Supported regions
-
-All regions are supported except for the following regions that are not supported during preview:
-
-- West US 2
-- Central US
-- UAE North
-- Germany West Central
-
 ## Profile types
 
 There are different types and sizes of workload profiles available by region. By default each Consumption + Dedicated plan structure includes a Consumption profile, but you can also add any of the following profiles:

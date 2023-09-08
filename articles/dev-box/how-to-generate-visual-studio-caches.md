@@ -19,7 +19,7 @@ With [Visual Studio 17.7 Preview 3](https://visualstudio.microsoft.com/vs/previe
 
 Benefits of precaching your Visual Studio solution on a dev box image include:
 - You can reduce the time it takes to load your solution for the first time. 
-- You can quickly access and use key IDE features like Find In Files and IntelliSense in Visual Studio.
+- You can quickly access and use key IDE features like [**Find In Files**](/visualstudio/ide/find-in-files) and [**Intellisense**](/visualstudio/ide/using-intellisense) in Visual Studio.
 - You can improve the Git performance on large repositories.
 
 > [!NOTE]
@@ -32,13 +32,12 @@ To leverage precaching of your source code and Visual Studio IDE customizations 
 - Create a dev center and configure the Microsoft Dev Box service. If you don't have one available, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create a dev center and configure a dev box.
 - [Create a custom VM image for dev box](how-to-customize-devbox-azure-image-builder.md) that includes your source code and pregenerated caches. 
 
-  This article guides you through the creation of an Azure Resource Manager template. In the following sections, you'll modify that template to include processes to [generate the Visual Studio solution cache](#enable-caches-in-dev-box-images) and further improve Visual Studio performance by [preparing the git commit graph](#enable-git-commit-graph-optimizations) for your project.
+  This article guides you through the creation of an Azure Resource Manager template. In the following sections, you'll modify that template to include processes to [generate the Visual Studio solution cache](#enable-visual-studio-caches-in-dev-box-images) and further improve Visual Studio performance by [preparing the git commit graph](#enable-git-commit-graph-optimizations-in-dev-box-images) for your project. 
+  You can then use the resulting image to [create new dev boxes](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition) for your team.
 
-You can then use the resulting image to [create new dev boxes](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition) for your team.
+## Enable Visual Studio caches in dev box images
 
-## Enable caches in dev box images
-
-You can generate caches for your Visual Studio solution as part of an automated pipeline that builds custom dev box images. To do so, you must meet the following requirements:
+You can generate caches for your Visual Studio solution as part of an automated pipeline that builds custom dev box images. To enable Visual Studio caches in your dev box image:
 
 * Within the [Azure Resource Manager template](../azure-resource-manager/templates/overview.md), add a customized step to clone the source repository of your project into a nonuser specific location on the VM.
 * With the project source located on disk you can now run the `PopulateSolutionCache` feature to generate the project caches. To do this, add the following PowerShell command to your template's customized steps:
@@ -54,16 +53,17 @@ You can generate caches for your Visual Studio solution as part of an automated 
 
 When a dev box user opens the solution on a dev box based off the customized image, Visual Studio will read the already generated caches and skip the cache generation altogether. 
 
-## Enable Git commit-graph optimizations
+## Enable Git commit-graph optimizations in dev box images
 
-Beyond the [standalone commit-graph feature that was made available with Visual Studio 17.2 Preview 3](https://devblogs.microsoft.com/visualstudio/supercharge-your-git-experience-in-vs/), you can also enable commit-graph optimizations as part of an automated pipeline that generates custom dev box images. To do so, you must meet the following requirements:
+Beyond the [standalone commit-graph feature that was made available with Visual Studio 17.2 Preview 3](https://aka.ms/devblogs-commit-graph), you can also enable commit-graph optimizations as part of an automated pipeline that generates custom dev box images. 
 
+You can enable Git commit-graph optimizations in your dev box image if you meet the following requirements:
 * You're using a [Microsoft Dev Box](overview-what-is-microsoft-dev-box.md) as your development workstation.
 * The source code for your project is saved in a non-user specific location to be included in the image.
 * You can [create a custom dev box image](how-to-customize-devbox-azure-image-builder.md) that includes the Git source code repository for your project.
 * You're using [Visual Studio 17.7 Preview 3 or higher](https://visualstudio.microsoft.com/vs/preview/).
  
-To enable this optimization, execute the following `git` commands from your Git repository’s location as part of your image build process: 
+To enable the commit-graph optimization, execute the following `git` commands from your Git repository’s location as part of your custom image build process: 
 
 ```bash
 # Enables the Git repo to use the commit-graph file, if the file is present 

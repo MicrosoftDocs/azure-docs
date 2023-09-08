@@ -45,7 +45,7 @@ The following are available input parameters:
 
   | Name | Type | Description | Required |
   | ---- | ---- | ----------- | -------- |
-  | connection | CognitiveSearchConnection | The created workspace connection for accessing to Cognitive Search endpoint. | Yes |
+  | connection | CognitiveSearchConnection | The created workspace connection for accessing to Cognitive Search service endpoint. | Yes |
   | index_name | string | The index name created in Cognitive Search resource. | Yes |
   | text_field | string | The text field name. The returned text filed will populate the result of text. | No |
   | vector_field | string | The vector field name. The target vector is searched in this vector field. | Yes |

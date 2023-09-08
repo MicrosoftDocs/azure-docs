@@ -97,7 +97,7 @@ For example, suppose you've provisioned 1000 RU/s on a container. There's an ong
 ### Known issues
 For certain scenarios, the effects of a delete by partition key operation isn't guaranteed to be immediately reflected. The effect may be partially seen as the operation progresses. 
 
-- [Aggregate queries](query/aggregate-functions.md) that use the index - for example, COUNT queries - that are issued during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
+- Aggregate queries that use the index - for example, COUNT queries - that are issued during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
 - Queries issued against the [analytical store](../analytical-store-introduction.md) during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
 - [Continuous backup (point in time restore)](../continuous-backup-restore-introduction.md) - a restore that is triggered during an ongoing delete by partition key operation may contain the results of the documents to be deleted in the restored collection. It isn't recommended to use this preview feature if you have a scenario that requires continuous backup. 
 

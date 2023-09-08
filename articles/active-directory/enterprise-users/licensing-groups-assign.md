@@ -31,6 +31,8 @@ In this example, the Azure AD organization contains a security group called **HR
 
 ## Step 1: Assign the required licenses
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with a license administrator account. To manage licenses, the account must be a License Administrator, User Administrator, or Global Administrator.
 
 1. Browse to **Azure Active Directory** > **Licenses** to open a page where you can see and manage all licensable products in the organization.

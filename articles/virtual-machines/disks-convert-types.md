@@ -3,8 +3,9 @@ title: Convert managed disks storage between different disk types
 description: How to convert Azure managed disks between the different disks types by using Azure PowerShell, Azure CLI, or the Azure portal.
 author: roygara
 ms.service: azure-disk-storage
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/21/2023
+ms.date: 08/08/2023
 ms.author: rogarana
 ---
 
@@ -23,7 +24,7 @@ Because conversion requires a restart of the virtual machine (VM), schedule the 
 
 ## Restrictions
 
-- You can only change disk type once per day.
+- You can only change disk type twice per day.
 - You can only change the disk type of managed disks. If your disk is unmanaged, convert it to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to switch between disk types.
 
 ## Switch all managed disks of a VM between from one account to another
@@ -153,6 +154,9 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 # [Azure CLI](#tab/azure-cli)
 
 
+
+
+
  ```azurecli
 
 #resource group that contains the managed disk
@@ -203,7 +207,9 @@ The disk type conversion is instantaneous. You can start your VM after the conve
 
 ## Migrate to Premium SSD v2 or Ultra Disk
 
-Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through snapshots. Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
+Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through snapshots stored on Standard Storage. Migration with snapshots stored on Premium storage is not supported.
+
+Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
 
 > [!IMPORTANT]
 > When migrating a Standard HDD, Standard SSD, or Premium SSD to either an Ultra Disk or Premium SSD v2, the logical sector size must be 512.
@@ -297,8 +303,12 @@ The following steps assume you already have a snapshot. To learn how to create o
 1. Continue to the **Advanced** tab.
 1. Select **512** for **Logical sector size (bytes)**.
 1. Select **Review+Create** and then **Create**.
+
+
 ---
 
 ## Next steps
 
 Make a read-only copy of a VM by using a [snapshot](snapshot-copy-managed-disk.md).
+
+

@@ -392,6 +392,13 @@ Replace the contents of **Program.cs** with the following code:
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub sent events to the receiving app" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
 
+## Schema validation for Event Hubs SDK based applications
+
+You can use Azure Schema Registry to perform schema validation when you stream data with your Event Hubs SDK-based applications. 
+Azure Schema Registry of Event Hubs provides a centralized repository for managing schemas and you can seamlessly connect your new or existing applications with Schema Registry. 
+
+To learn more, see [Validate schemas with Event Hubs SDK](schema-registry-dotnet-send-receive-quickstart.md). 
+
 ## Clean up resources
 Delete the resource group that has the Event Hubs namespace or delete only the namespace if you want to keep the resource group. 
 

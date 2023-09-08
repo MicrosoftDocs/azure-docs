@@ -13,7 +13,7 @@ metadata:
   ms.topic: hub-page
   author: kcpitt
   ms.author: kellypi
-  ms.date: 06/23/2023
+  ms.date: 07/25/2023
   featureFlags:
   - clicktale
 highlightedContent:
@@ -47,53 +47,138 @@ productDirectory:
        #  - iot
      #  url: azure-percept/index.yml
     # Card
+    - title: Azure AI services
+      summary: Build cutting-edge, market-ready, responsible applications for your organization with AI
+      imageSrc: ai-services/media/service-icons/cognitive-services.svg
+      azureCategories:
+        - featured
+        - ai-machine-learning
+        - mobile
+      url: ai-services/index.yml
+    # Card
+    - title: Azure OpenAI Service
+      summary: Apply advanced coding and language models to a variety of use cases
+      imageSrc: ai-services/openai/media/icon/azure-openai-dark.svg
+      azureCategories:
+        - featured
+        - ai-machine-learning
+      url: ai-services/openai/index.yml
+    # Card
+    - title: Speech
+      summary: Speech to text, text to speech, translation and speaker recognition
+      imageSrc: ai-services/media/service-icons/speech.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ./ai-services/speech-service/index.yml
+    # Card
+    - title: Language
+      summary: Easily evaluate sentiment and topics to understand what users want
+      imageSrc: ai-services/media/service-icons/language.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ai-services/language-service/index.yml
+    # Card
+    - title: Translator
+      summary: Easily conduct machine translation with a simple REST API call
+      imageSrc: ai-services/media/service-icons/translator.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ai-services/translator/index.yml
+    # Card
+    - title: Vision
+      summary: Distill actionable information from images
+      imageSrc: ai-services/media/service-icons/vision.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ai-services/computer-vision/index.yml
+    # Card
+    - title: Custom Vision
+      summary: Easily customize your own state-of-the-art computer vision models for your unique use case
+      imageSrc: ai-services/media/service-icons/custom-vision.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ai-services/custom-vision-service/index.yml
+    # Card
+    - title: Face
+      summary: Detect, identify, analyze, organize, and tag faces in photos
+      imageSrc: ai-services/media/service-icons/face.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ai-services/computer-vision/overview-identity.md
+    # Card
     - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
-      imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
+      imageSrc: ai-services/media/service-icons/anomaly-detector.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/anomaly-detector/index.yml
+      url: ai-services/anomaly-detector/index.yml
     # Card
-    - title: Azure Applied AI Services
-      summary: Specialized services that enable organizations to accelerate time to value in applying AI to solve common scenarios
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+    - title: Content Safety
+      summary: An AI service that detects unwanted contents
+      imageSrc: ai-services/media/service-icons/content-safety.svg
       azureCategories:
         - ai-machine-learning
-      url: ./applied-ai-services/index.yml
+      url: ai-services/content-moderator/index.yml
     # Card
-    - title: Azure Bot Service
+    - title: Personalizer
+      summary: An AI service that delivers a personalized user experience
+      imageSrc: ai-services/media/service-icons/personalizer.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ai-services/personalizer/index.yml
+    # Card
+    - title: Azure AI Bot Service
       summary: Intelligent, serverless bot service that scales on demand
-      imageSrc: https://static.docs.com/ui/media/product/azure/bot-service.svg
+      imageSrc: ai-services/media/service-icons/bot-services.svg
       azureCategories:
         - ai-machine-learning
       url: /azure/bot-service/
     # Card
+    - title: Document Intelligence
+      summary: The AI-powered document extraction service that understands your forms
+      imageSrc: ai-services/media/service-icons/document-intelligence.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ./ai-services/document-intelligence/index.yml
+    # Card
     - title: Azure Cognitive Search
       summary: AI-powered cloud search service for mobile and web app development
-      imageSrc: https://static.docs.com/ui/media/product/azure/search.svg
+      imageSrc: ai-services/media/service-icons/cognitive-search.svg
       azureCategories:
         - ai-machine-learning
         - mobile
         - web
       url: search/index.yml
     # Card
-    - title: Azure Cognitive Services
-      summary: Add smart API capabilities to enable contextual interactions
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+    - title: Metrics Advisor
+      summary: An AI service that monitors metrics and diagnoses issues
+      imageSrc: ai-services/media/service-icons/metrics-advisor.svg
       azureCategories:
-        - featured
         - ai-machine-learning
-        - mobile
-      url: cognitive-services/index.yml
+      url: ai-services/metrics-advisor/index.yml
     # Card
-    - title: Azure OpenAI Service
-      summary: Apply advanced coding and language models to a variety of use cases
-      imageSrc: cognitive-services/openai/media/icon/azure-openai-dark.svg
+    - title: Azure AI Video Indexer
+      summary: Unlock video insights
+      imageSrc: ai-services/media/service-icons/video-indexer.svg
       azureCategories:
-        - featured
         - ai-machine-learning
-      url: cognitive-services/openai/index.yml
-
+        - media
+      url: ./azure-video-indexer/index.yml
+    # Card
+    - title: Immersive Reader
+      summary: Empower users of all ages and abilities to read and comprehend text
+      imageSrc: ai-services/media/service-icons/immersive-reader.svg
+      azureCategories:
+        - ai-machine-learning
+      url: ./ai-services/immersive-reader/index.yml
+    # Card
+    - title: Azure Machine Learning
+      summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
+      imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
+      azureCategories:
+        - ai-machine-learning
+        - iot
+      url: machine-learning/index.yml
     # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
@@ -109,14 +194,6 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: /azure/health-bot/
-    # Card
-    - title: Azure Machine Learning
-      summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
-      imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
-      azureCategories:
-        - ai-machine-learning
-        - iot
-      url: machine-learning/index.yml
     # Card
     - title: Azure Open Datasets
       summary: Cloud platform to host and share curated open datasets to accelerate development of machine learning models
@@ -148,54 +225,12 @@ productDirectory:
         - 5g-space
       url: communications-gateway/index.yml
     # Card
-    - title: Computer Vision
-      summary: Distill actionable information from images
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/computer-vision/index.yml
-    # Card
-    - title: Content Moderator
-      summary: Automated image, text, and video moderation
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/content-moderator/index.yml
-    # Card
-    - title: Custom Vision
-      summary: Easily customize your own state-of-the-art computer vision models for your unique use case
-      imageSrc: https://static.docs.com/ui/media/product/azure/custom-vision.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/custom-vision-service/index.yml
-    # Card
     - title: Data Science Virtual Machines
       summary: Rich pre-configured environment for AI development
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
       azureCategories:
         - ai-machine-learning
       url: machine-learning/data-science-virtual-machine/index.yml
-    # Card
-    - title: Face
-      summary: Detect, identify, analyze, organize, and tag faces in photos
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/computer-vision/index-identity.yml
-    # Card
-    - title: Form Recognizer
-      summary: The AI-powered document extraction service that understands your forms
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ./applied-ai-services/form-recognizer/index.yml
-    # Card
-    - title: Immersive Reader
-      summary: Empower users of all ages and abilities to read and comprehend text
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ./applied-ai-services/immersive-reader/index.yml
     # Card
     - title: Kinect DK
       summary: Build computer vision and speech models using a developer kit with advanced AI sensors
@@ -205,13 +240,6 @@ productDirectory:
         - iot
         - mixed-reality
       url: kinect-dk/index.yml
-    # Card
-    - title: Language Understanding
-      summary: Teach your apps to understand commands from your users
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/luis/index.yml
     # Card
     - title: Microsoft Azure Data Manager for Energy (Preview)
       summary: Accelerate your journey to energy data modernization and digital transformation
@@ -227,83 +255,12 @@ productDirectory:
         - ai-machine-learning
       url: genomics/index.yml
     # Card
-    - title: Metrics Advisor
-      summary: An AI service that monitors metrics and diagnoses issues
-      imageSrc: ./media/index/metrics-advisor.svg
-      azureCategories:
-        - ai-machine-learning
-      url: applied-ai-services/metrics-advisor/index.yml
-    # Card
-    - title: Personalizer
-      summary: An AI service that delivers a personalized user experience
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/personalizer/index.yml
-    # Card
     - title: Project Bonsai (Preview)
       summary: A machine teaching service for creating intelligent industrial control systems using simulations
       imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
       azureCategories:
         - ai-machine-learning
       url: /bonsai/
-    # Card
-    - title: QnA Maker
-      summary: Distill information into conversational, easy-to-navigate answers
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/qnamaker/index.yml
-    # Card
-    - title: Speaker Recognition (Preview)
-      summary: Use speech to identify and verify individual speakers
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ./cognitive-services/speech-service/speaker-recognition-overview.md
-    # Card
-    - title: Speech to Text
-      summary: Convert spoken audio to text for more natural interactions
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ./cognitive-services/speech-service/index-speech-to-text.yml
-    # Card
-    - title: Speech Translation
-      summary: Easily integrate real-time speech translation to your app
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ./cognitive-services/speech-service/index-speech-translation.yml
-    # Card
-    - title: Text Analytics
-      summary: Easily evaluate sentiment and topics to understand what users want
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/text-analytics/index.yml
-    # Card
-    - title: Text to Speech
-      summary: Convert text to speech to create more natural, accessible interfaces
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: ./cognitive-services/speech-service/index-text-to-speech.yml
-    # Card
-    - title: Translator
-      summary: Easily conduct machine translation with a simple REST API call
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/translator/index.yml
-    # Card
-    - title: Azure Video Indexer
-      summary: Unlock video insights
-      imageSrc: applied-ai-services/media/video-indexer.svg
-      azureCategories:
-        - ai-machine-learning
-        - media
-      url: ./azure-video-indexer/index.yml
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
@@ -371,7 +328,7 @@ productDirectory:
       azureCategories:
         - analytics
         - management-and-governance
-      url: purview/index.yml
+      url: /purview/index
     # Card
     - title: Data Factory
       summary: Hybrid data integration at enterprise scale, made easy
@@ -1717,7 +1674,7 @@ additionalContent:
           summary: A dedicated cloud for U.S. government agencies and their partners.
           url: azure-government/index.yml
         # Card
-        - title: Azure China
+        - title: Microsoft Azure operated by 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: /azure/china/
     - title: Partner solutions

@@ -104,7 +104,7 @@ The following table lists the route definitions. All the properties are optional
 | title       | A title to apply to methods in the generated OpenAPI documentation.                                                                                                                    |
 | description | A description to apply to methods in the generated OpenAPI documentation.                                                                                                              |
 | uri         | The full URI, which overrides the name of app that the requests route to.                                                                                                          |
-| ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso).           |
+| ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on).           |
 | tokenRelay  | Passes the currently authenticated user's identity token to the application.                                                                                                           |
 | predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-predicates). |
 | filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-filters).          |

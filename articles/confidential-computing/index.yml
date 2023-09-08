@@ -90,6 +90,8 @@ landingContent:
             url: guest-attestation-example.md
           - text: Create a custom image for a confidential VM
             url: how-to-create-custom-image-confidential-vm.md
+          - text: Harden a Linux image to remove sudo users
+            url: harden-the-linux-image-to-remove-sudo-users.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 
@@ -109,14 +111,14 @@ landingContent:
   - title: Container compute
     linkLists:
       - linkListType: overview
-        links: 
+        links:
         - text: Confidential containers on Azure overview
           url: confidential-containers.md
         - text: Confidential VM with AMD SEV-SNP node pools in AKS
           url: confidential-node-pool-aks.md
         - text: App enclave nodes with Intel SGX in AKS
           url: confidential-nodes-aks-overview.md
-       
+
       - linkListType: quickstart
         links:
           - text: Hello world with Confidential containers with Azure Container Instances (ACI)
@@ -176,7 +178,7 @@ landingContent:
             url: ../virtual-machines/dcv3-series.md
 ## Row 2
 # Card
-  - title: Concepts
+  - title: Secure key release (SKR)
     linkLists:
       - linkListType: concept
         links: 

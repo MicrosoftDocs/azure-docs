@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # The elements of the B2B collaboration invitation email
 
-Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. It’s [not required that you send an email to invite someone using B2B collaboration](redemption-experience.md#redemption-through-a-direct-link), but it gives the user all the information they need to decide if they accept your invite or not. It also gives them a link they can always refer to in the future when they need to return to your resources.
+Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. It’s [not required that you send an email to invite someone using B2B collaboration](redemption-experience.md#redemption-process-through-a-direct-link), but it gives the user all the information they need to decide if they accept your invite or not. It also gives them a link they can always refer to in the future when they need to return to your resources.
 
 ![Screenshot showing the B2B invitation email](media/invitation-email-elements/invitation-email.png)
 

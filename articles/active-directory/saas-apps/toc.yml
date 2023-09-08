@@ -46,6 +46,8 @@
         href: a-cloud-guru-tutorial.md
       - name: ACLP
         href: aclp-tutorial.md
+      - name: Acoustic Connect
+        href: acoustic-connect-tutorial.md
       - name: AcquireIO
         href: acquireio-tutorial.md
       - name: Active and Thriving
@@ -538,6 +540,8 @@
         href: newsignature-tutorial.md
       - name: CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME
         href: cloud-attendance-management-system-king-of-time-tutorial.md
+      - name: CloudBees CI
+        href: cloudbees-ci-tutorial.md
       - name: CloudCords
         href: cloudcords-tutorial.md
       - name: CloudKnox Permissions Management Platform
@@ -1057,6 +1061,8 @@
         href: fuse-tutorial.md
       - name: Fuze
         href: fuze-tutorial.md  
+      - name: Gainsight SAML
+        href: gainsight-saml-tutorial.md
       - name: gamba!
         href: gamba-tutorial.md
       - name: Google Cloud / G Suite Connector
@@ -1411,6 +1417,8 @@
         href: justlogin-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
+      - name: KanbanBOX
+        href: kanbanbox-tutorial.md
       - name: Kanbanize
         href: kanbanize-tutorial.md
       - name: Kantega SSO for Bamboo
@@ -2815,6 +2823,8 @@
         href: whimsical-tutorial.md
       - name: Whitesource
         href: whitesource-tutorial.md
+      - name: WhosOff
+        href: whosoff-tutorial.md
       - name: WhosOffice
         href: whosoffice-tutorial.md
       - name: WhosOnLocation
@@ -2978,6 +2988,8 @@
         href: adobe-identity-management-provisioning-tutorial.md
       - name: Adobe Identity Management (OIDC)
         href: adobe-identity-management-provisioning-oidc-tutorial.md
+      - name: Airbase
+        href: airbase-provisioning-tutorial.md
       - name: Airstack
         href: airstack-provisioning-tutorial.md
       - name: Akamai Enterprise Application Access
@@ -3240,6 +3252,8 @@
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: Keepabl
         href: keepabl-provisioning-tutorial.md
+      - name: Kintone
+        href: kintone-provisioning-tutorial.md
       - name: Kisi Physical Security
         href: kisi-physical-security-provisioning-tutorial.md
       - name: Klaxoon SAML
@@ -3264,6 +3278,8 @@
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
+      - name: Litmos
+        href: litmos-provisioning-tutorial.md
       - name: Lucid (All Products)
         href: lucid-all-products-provisioning-tutorial.md
       - name: Lucidchart
@@ -3330,6 +3346,8 @@
         href: oracle-cloud-infrastructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: O'Reilly learning platform
+        href: oreilly-learning-platform-provisioning-tutorial.md
       - name: Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service
         href: palo-alto-networks-cloud-identity-engine-provisioning-tutorial.md
       - name: Palo Alto Networks SCIM Connector
@@ -3450,6 +3468,8 @@
       items:
       - name: Tableau Cloud
         href: tableau-online-provisioning-tutorial.md
+      - name: Tailscale
+        href: tailscale-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md
       - name: Tanium SSO
@@ -3498,6 +3518,8 @@
         href: uni-tel-as-provisioning-tutorial.md
       - name: Vault Platform
         href: vault-platform-provisioning-tutorial.md
+      - name: Vbrick Rev Cloud
+        href: vbrick-rev-cloud-provisioning-tutorial.md
       - name: V-Client
         href: v-client-provisioning-tutorial.md
       - name: Velpic
@@ -3508,6 +3530,8 @@
         href: visibly-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
+      - name: VMware Identity Service
+        href: vmware-identity-service-provisioning-tutorial.md
       - name: Vonage
         href: vonage-provisioning-tutorial.md
       - name: Webroot Security Awareness Training

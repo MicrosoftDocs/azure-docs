@@ -39,8 +39,6 @@
     href: tutorial-private-endpoint-storage-portal.md
   - name: Connect to an Azure Cosmos DB account
     href: tutorial-private-endpoint-cosmosdb-portal.md
-  - name: Connect to a web app
-    href: tutorial-private-endpoint-webapp-portal.md
   - name: SQL
     items:
     - name: Connect to a SQL server - Azure portal
@@ -66,7 +64,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
+      href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
   - name: Configure an application security group

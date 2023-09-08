@@ -29,6 +29,10 @@ In this tutorial you learn how to:
 > * Set up authentication methods and registration options
 > * Test the SSPR process as a user
 
+> [!IMPORTANT]
+> In March 2023, we announced the deprecation of managing authentication methods in the legacy multifactor authentication (MFA) and self-service password reset (SSPR) policies. Beginning September 30, 2024, authentication methods can't be managed in these legacy MFA and SSPR policies. We recommend customers use the manual migration control to migrate to the Authentication methods policy by the deprecation date.
+
+
 ## Video tutorial
 
 You can also follow along in a related video: [How to enable and configure SSPR in Azure AD](https://www.youtube.com/embed/rA8TvhNcCvQ?azure-portal=true).
@@ -47,6 +51,8 @@ To finish this tutorial, you need the following resources and privileges:
     * If you need to create a group, see [Create a basic group and add members using Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## Enable self-service password reset
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and the time is right to communicate the requirements with a broader set of users, you can select a group of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
 

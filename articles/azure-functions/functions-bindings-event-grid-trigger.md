@@ -121,55 +121,6 @@ The following example shows how the custom type is used in both the trigger and 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-33":::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows an Event Grid trigger defined in the *function.json* file.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Here's an example of a C# script function that uses an  `EventGridEvent` binding parameter:
-
-```csharp
-#r "Microsoft.Azure.EventGrid"
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Extensions.Logging;
-
-public static void Run(EventGridEvent eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.Data.ToString());
-}
-```
-
-For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
-
-
-Here's an example of a C# script function that uses a `JObject` binding parameter:
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 ---
 
 ::: zone-end
@@ -362,7 +313,7 @@ def main(event: func.EventGridEvent):
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file.    
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#event-grid-trigger).
 
 # [In-process](#tab/in-process)
 
@@ -378,18 +329,6 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 Here's an `EventGridTrigger` attribute in a method signature:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
-
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes. 
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
-
-|function.json property |Description|
-|---------|---------|
-| **type** | Required - must be set to `eventGridTrigger`. |
-| **direction** | Required - must be set to `in`. |
-| **name** | Required - the variable name used in function code for the parameter that receives the event data. |
 
 ---
 
@@ -453,30 +392,6 @@ Requires you to define a custom type, or use a string. See the [Example section]
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
 Functions version 1.x doesn't support the isolated worker process. 
-
-# [Extension v3.x](#tab/extensionv3/csharp-script)
-
-In-process C# class library functions supports the following types:
-
-+ [Azure.Messaging.CloudEvent][CloudEvent]
-+ [Azure.Messaging.EventGrid][EventGridEvent2]
-+ [Newtonsoft.Json.Linq.JObject][JObject]
-+ [System.String][String]
-
-# [Extension v2.x](#tab/extensionv2/csharp-script)
-
-In-process C# class library functions supports the following types:
-
-+ [Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent]
-+ [Newtonsoft.Json.Linq.JObject][JObject]
-+ [System.String][String]
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-In-process C# class library functions supports the following types:
-
-+ [Newtonsoft.Json.Linq.JObject][JObject]
-+ [System.String][String]
 
 ---
 

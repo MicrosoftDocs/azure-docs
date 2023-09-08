@@ -5,7 +5,7 @@ description: Learn how to create and manage clients that interact with data reso
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 02/08/2023
 ms.author: pauljewell

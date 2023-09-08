@@ -6,7 +6,7 @@ ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 07/10/2023
-ms.custom: template-how-to-pattern
+ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Operator Nexus virtual machine by using Azure CLI

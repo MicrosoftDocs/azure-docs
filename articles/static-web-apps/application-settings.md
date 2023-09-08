@@ -2,11 +2,11 @@
 title: Configure application settings for Azure Static Web Apps
 description: Learn how to configure application settings for Azure Static Web Apps.
 services: static-web-apps
-author: burkeholland
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 01/10/2023
-ms.author: buhollan
+ms.author: cshoe
 ms.custom: engagement-fy23
 ---
 

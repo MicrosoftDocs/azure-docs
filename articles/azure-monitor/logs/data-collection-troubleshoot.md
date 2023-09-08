@@ -2,7 +2,7 @@
 title: Troubleshoot why data is no longer being collected in Azure Monitor
 description: Steps to take if data is no longer being collected in Log Analytics workspace in Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 07/25/2023
 ---
  
 # Troubleshoot why data is no longer being collected in Azure Monitor

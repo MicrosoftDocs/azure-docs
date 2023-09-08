@@ -94,6 +94,8 @@ If CBA enabled user cannot use MF cert (such as on mobile device without smart c
 
 ## MFA with Single-factor certificate-based authentication
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. 
 Some of the supported combinations are
 
@@ -115,7 +117,7 @@ For passwordless sign-in to work, users should disable legacy notification throu
 1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
 
    >[!IMPORTANT]
-   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose      **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", the user can use either push or passwordless. If passwordless is preferred over push but still wants to allow push, admin can still choose "Any" but configure system preferred MFA or configure authentication strengths. 
+   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", CBA + PSI will not work.
 
 1. Select **Azure Active Directory** > **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
 
@@ -280,7 +282,7 @@ Sign-in logs provide information about sign-ins and how your resources are used 
 
 Let's walk through two scenarios, one where the certificate satisfies single-factor authentication and another where the certificate satisfies MFA.
 
-For the test scenarios, choose a user with a conditional access policy that requires MFA. 
+For the test scenarios, choose a user with a Conditional Access policy that requires MFA. 
 Configure the user binding policy by mapping SAN Principal Name to UserPrincipalName.
 
 The user certificate should be configured like this screenshot:
@@ -293,7 +295,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
-1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication.
 1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
 
    Let's look closer at some of the entries you can find in the **Sign-in logs**.
@@ -320,7 +322,7 @@ For the next test scenario, configure the authentication policy where the **poli
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
-1. Sign in to the Azure portal using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
+1. Sign in to the [Azure portal](https://portal.azure.com) using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
 1. Click **Azure Active Directory** > **Sign-ins**.
 
    You'll see several entries in the Sign-in logs, including an entry with **Interrupted** status. 
@@ -391,4 +393,3 @@ For more information about how to enable **Trust multi-factor authentication fro
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 - [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
-

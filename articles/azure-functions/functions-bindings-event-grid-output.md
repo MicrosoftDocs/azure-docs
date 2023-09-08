@@ -40,8 +40,7 @@ This article supports both programming models.
 The type of the output parameter used with an Event Grid output binding depends on the Functions runtime version, the binding extension version, and the modality of the C# function. The C# function can be created using one of the following C# modes:
 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
-* [Isolated worker process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process isolated from the runtime. 
-* [C# script](functions-reference-csharp.md): used primarily when creating C# functions in the Azure portal.
+* [Isolated worker process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process isolated from the runtime.
 
 # [In-process](#tab/in-process)
 
@@ -177,48 +176,6 @@ The following example shows how the custom type is used in both the trigger and 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows the Event Grid output binding data in the *function.json* file.
-
-```json
-{
-    "type": "eventGrid",
-    "name": "outputEvent",
-    "topicEndpointUri": "MyEventGridTopicUriSetting",
-    "topicKeySetting": "MyEventGridTopicKeySetting",
-    "direction": "out"
-}
-```
-
-Here's C# script code that creates one event:
-
-```cs
-#r "Microsoft.Azure.EventGrid"
-using System;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Extensions.Logging;
-
-public static void Run(TimerInfo myTimer, out EventGridEvent outputEvent, ILogger log)
-{
-    outputEvent = new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
-}
-```
-
-Here's C# script code that creates multiple events:
-
-```cs
-#r "Microsoft.Azure.EventGrid"
-using System;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Extensions.Logging;
-
-public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent, ILogger log)
-{
-    outputEvent.Add(new EventGridEvent("message-id-1", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
-    outputEvent.Add(new EventGridEvent("message-id-2", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
-}
-```
 ---
 
 ::: zone-end  
@@ -529,7 +486,7 @@ def main(eventGridEvent: func.EventGridEvent,
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.    
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#event-grid-output).
 
 The attribute's constructor takes the name of an application setting that contains the name of the custom topic, and the name of an application setting that contains the topic key. 
 
@@ -550,20 +507,6 @@ The following table explains the parameters for the `EventGridOutputAttribute`.
 |---------|---------|----------------------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
-
-# [C# Script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes. 
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|---------|----------------------|
-|**type** |  Must be set to `eventGrid`. |
-|**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
-|**name** | The variable name used in function code that represents the event. |
-|**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
-|**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 
 ---
 
@@ -653,36 +596,6 @@ Requires you to define a custom type, or use a string. See the [Example section]
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
 Functions version 1.x doesn't support isolated worker process. 
-
-# [Extension v3.x](#tab/extensionv3/csharp-script)
-
-C# script functions support the following types:
-
-+ [Azure.Messaging.CloudEvent][CloudEvent]
-+ [Azure.Messaging.EventGrid][EventGridEvent]
-+ [Newtonsoft.Json.Linq.JObject][JObject]
-+ [System.String][String]
-
-Send messages by using a method parameter such as `out EventGridEvent paramName`. 
-To write multiple messages, you can instead use `ICollector<EventGridEvent>` or `IAsyncCollector<EventGridEvent>`.
-
-# [Extension v2.x](#tab/extensionv2/csharp-script)
-
-C# script functions support the following types:
-
-+ [Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent]
-+ [Newtonsoft.Json.Linq.JObject][JObject]
-+ [System.String][String]
-
-Send messages by using a method parameter such as `out EventGridEvent paramName`. 
-To write multiple messages, you can instead use `ICollector<EventGridEvent>` or `IAsyncCollector<EventGridEvent>`.
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-C# script functions support the following types:
-
-+ [Newtonsoft.Json.Linq.JObject][JObject]
-+ [System.String][String]
 
 ---
 

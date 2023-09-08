@@ -29,7 +29,7 @@ Before you begin, have the following prerequisites in place:
 + Azure Storage account with Blob Storage.
 
 > [!NOTE]
-> This quickstart uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. You can complete this exercise without having to create a Cognitive Services resource.
+> This quickstart uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. You can complete this exercise without having to create an Azure AI multi-service resource.
 
 ## Set up your data
 
@@ -83,9 +83,9 @@ If you get "Error detecting index schema from data source", the indexer that's p
 
 Next, configure AI enrichment to invoke OCR, image analysis, and natural language processing. 
 
-1. For this quickstart, we're using the **Free** Cognitive Services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
+1. For this quickstart, we're using the **Free** Azure AI services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Azure AI services is sufficient for this quickstart. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Screenshot of the Attach Cognitive Services tab." border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Screenshot of the Attach Azure AI services tab." border="true":::
 
 1. Expand **Add enrichments** and make six selections. 
 

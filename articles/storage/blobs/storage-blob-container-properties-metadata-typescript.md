@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 03/21/2023
 
@@ -17,6 +17,14 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 # Manage container properties and metadata with TypeScript
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
+
+## Prerequisites
+
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with container properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
+    - [Get Container Properties](/rest/api/storageservices/get-container-properties#authorization)
+    - [Set Container Metadata](/rest/api/storageservices/set-container-metadata#authorization)
+    - [Get Container Metadata](/rest/api/storageservices/get-container-metadata#authorization)
 
 ## About properties and metadata
 

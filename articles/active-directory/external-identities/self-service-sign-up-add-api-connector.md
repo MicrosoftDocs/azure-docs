@@ -4,7 +4,7 @@ description: Configure a web API to be used in a user flow.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/16/2023
 
 ms.author: mimart
@@ -25,7 +25,9 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 ## Create an API connector
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
 4. Select **All API connectors**, and then select **New API connector**.
@@ -91,7 +93,7 @@ Additionally, the claims are typically sent in all request:
 
 Follow these steps to add an API connector to a self-service sign-up user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.

@@ -15,7 +15,7 @@ Your AKS cluster has regular maintenance performed on it automatically. By defau
 
 There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
 
-- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a Virtual Machine Scale Sets instance. It's a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
+- `default` corresponds to a basic configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
 
 - `aksManagedAutoUpgradeSchedule` controls when cluster upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default` configuration. For more information on cluster auto-upgrade, see [Automatically upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 

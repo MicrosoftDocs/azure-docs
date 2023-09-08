@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Virtual Desktop documentation
-summary: Securely deliver virtual desktops and remote apps with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 11 and Windows 10 experience, with exceptional scale and reduced IT costs.
+summary: Securely deliver virtual desktops and applications remotely with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 11 and Windows 10 experience, with exceptional scale and reduced IT costs.
 
 metadata:
   title: Azure Virtual Desktop documentation
-  description: Azure Virtual Desktop securely delivers virtual desktops and remote apps and provide users with the only multi-session Windows 11 and Windows 10 experience.
+  description: Azure Virtual Desktop securely delivers virtual desktops and applications remotely and provide users with the only multi-session Windows 11 and Windows 10 experience.
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
@@ -108,7 +108,7 @@ landingContent:
             url: /rest/api/desktopvirtualization/
 
   # Card
-  - title: Remote app streaming with Azure Virtual Desktop
+  - title: RemoteApp streaming with Azure Virtual Desktop
     linkLists:
       - linkListType: overview
         links:

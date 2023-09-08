@@ -40,9 +40,12 @@ Additionally, if your back-end application has cookies that need to be available
 
 
 ## Set the cookie settings - Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To set the cookie settings using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Azure Active Directory** > **Enterprise applications** > **All applications**.
 3. Select the application for which you want to enable a cookie setting.
 4. Click **Application Proxy**.

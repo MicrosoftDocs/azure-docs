@@ -11,7 +11,21 @@ ms.topic: conceptual
 ms.date: 03/09/2023
 ---
 
+
 # Options for migrating data to Azure Cosmos DB for MongoDB vCore
+
+## Pre-migration assessment
+
+
+
+Assessment involves finding out whether you're using the [features and syntax that are supported](./compatibility.md). The aim of this stage is to create a list of incompatibilities and warnings, if any. After you have the assessment results, you can try to address the findings during rest of the migration planning.
+
+The [Azure Cosmos DB Migration for MongoDB extension](/sql/azure-data-studio/extensions/database-migration-for-mongo-extension) in Azure Data Studio helps you assess a MongoDB workload for migrating to Azure Cosmos DB for MongoDB. You can use this extension to run an end-to-end assessment on your workload and find out the actions that you may need to take to seamlessly migrate your workloads on Azure Cosmos DB. During  the assessment of a MongoDB endpoint, the extension reports all the discovered resources.
+
+
+> [!NOTE]
+> We recommend you to go through [the supported features and syntax](./compatibility.md) in detail, as well as perform a proof-of-concept prior to the actual migration.
+
 
 This document describes the various options to lift and shift your MongoDB workloads to Azure Cosmos DB for MongoDB vCore-based offering.
 

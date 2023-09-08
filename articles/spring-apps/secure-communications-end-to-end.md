@@ -7,7 +7,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 08/15/2022
 ms.author: asirveda
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Secure communications end-to-end for Spring Boot apps in a Zero Trust environment

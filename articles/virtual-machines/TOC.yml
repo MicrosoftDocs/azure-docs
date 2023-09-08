@@ -15,8 +15,11 @@
     - name: PowerShell
       href: ./linux/quick-create-powershell.md
     - name: Terraform
-      displayName: Terraform
-      href: ./linux/quick-create-terraform.md
+      items:
+      - name: Terraform VM
+        href: ./linux/quick-create-terraform.md
+      - name: Terraform VM cluster
+        href: ./linux/quick-cluster-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./linux/quick-create-bicep.md
@@ -32,8 +35,11 @@
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
     - name: Terraform
-      displayName: Terraform
-      href: ./windows/quick-create-terraform.md
+      items:
+      - name: Terraform VM
+        href: ./windows/quick-create-terraform.md
+      - name: Terraform VM cluster
+        href: ./windows/quick-cluster-create-terraform.md
     - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: ./windows/quick-create-bicep.md
@@ -316,6 +322,8 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
+      - name: NDm-H100-v5-series
+        href: nd-h100-v5-series.md
       - name: NGads V620-series (preview)
         href: ngads-v-620-series.md
       - name: NV-series
@@ -704,7 +712,7 @@
         href: image-builder-reliability.md
       - name: Image Optimization
         displayName: Image builder, images, building, boot, optimization, prefetch
-        href: image-builder-prefetch.md
+        href: vm-boot-optimization.md
     - name: Build image with Packer
       items:
       - name: Linux
@@ -1046,6 +1054,8 @@
         href: ./extensions/chef.md
       - name: Stackify Retrace
         href: ./extensions/stackify-retrace-linux.md
+      - name: Tenable
+        href: ./extensions/tenable.md
     - name: Restrict extension installation
       items:
       - name: Linux
@@ -1064,7 +1074,7 @@
     href: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
   - name: Migrate to Azure Resource Manager
     items:
-    - name: Retirement starting September 1, 2023
+    - name: Retirement starting September 6, 2023
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: classic-vm-deprecation.md
     - name: Migration Overview
@@ -1369,6 +1379,8 @@
       href: ephemeral-os-disks-faq.md
   - name: Securely import/export a disk
     items:
+    - name: Options for restricting access
+      href: disks-restrict-import-export-overview.md
     - name: Configure private links for disks - CLI
       href: ./linux/disks-export-import-private-links-cli.md
     - name: Configure private links for disks - Portal
@@ -1916,7 +1928,7 @@
   items:
   - name: Reliability in Virtual Machines
     displayName: Reliability in Virtual Machines
-    href: virtual-machines-reliability.md
+    href: ../reliability/reliability-virtual-machines.md?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
   - name: Service disruptions
     href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs

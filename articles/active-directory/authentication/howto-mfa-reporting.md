@@ -24,6 +24,8 @@ This article shows you how to view the Azure AD sign-ins report in the Azure por
 
 ## View the Azure AD sign-ins report
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The sign-ins report provides you with information about the usage of managed applications and user sign-in activities, which includes information about multi-factor authentication (MFA) usage. The MFA data gives you insights into how MFA is working in your organization. It answers questions like:
 
 - Was the sign-in challenged with MFA?

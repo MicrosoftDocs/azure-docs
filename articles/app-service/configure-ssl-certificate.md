@@ -205,9 +205,8 @@ If your certificate authority gives you multiple certificates in the certificate
 Now, export your merged TLS/SSL certificate with the private key that was used to generate your certificate request. If you generated your certificate request using OpenSSL, then you created a private key file.
 
 > [!NOTE]
-> OpenSSL v3 creates certificate serials with 20 octets (40 chars) as the X.509 specification allows. Currently only 10 octets (20 chars) is supported when uploading certificate PFX files.
-> OpenSSL v3 also changed default cipher from 3DES to AES256, but this can be overridden on the command line.
-> OpenSSL v1 uses 3DES as default and only uses 8 octets (16 chars) in the serial, so the PFX files generated are supported without any special modifications.
+> OpenSSL v3 changed default cipher from 3DES to AES256, but this can be overridden on the command line -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg SHA1.
+> OpenSSL v1 uses 3DES as default, so the PFX files generated are supported without any special modifications.
 
 1. To export your certificate to a PFX file, run the following command, but replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 

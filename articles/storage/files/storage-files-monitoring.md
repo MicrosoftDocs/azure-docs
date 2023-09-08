@@ -1,12 +1,12 @@
 ---
 title: Monitoring Azure Files
 description: Learn how to monitor the performance and availability of Azure Files. Monitor Azure Files data, learn about configuration, and analyze metric and log data.
-author: normesta
+author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/11/2023
-ms.author: normesta
+ms.date: 08/07/2023
+ms.author: kendownie
 ms.devlang: csharp
 ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
@@ -58,6 +58,8 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 | StorageRead | Read operations on objects. |
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
+
+The **audit** resource log category group allows you to collect the baseline of resource logs that Microsoft deems necessary for auditing your resource. What's collected is dynamic, and Microsoft may change it over time as new resource log categories become available. If you choose the **audit** category group, you can't specify any other resource categories, because the system will decide which logs to collect. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](../../azure-monitor/essentials/diagnostic-settings.md#resource-logs).
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 

@@ -161,7 +161,7 @@ App Service Environment v3 is available in the following regions:
 | US Gov Texas         | ✅                           |                             | ✅                         |
 | US Gov Virginia      | ✅                           |✅                          | ✅                         |
 
-### Azure China:
+### Microsoft Azure operated by 21Vianet:
 
 | Region               | Single zone support          | Availability zone support   | Single zone support         |
 | -------------------- | :--------------------------: | :-------------------------: | :-------------------------: |

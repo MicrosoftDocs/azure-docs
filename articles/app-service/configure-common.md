@@ -295,7 +295,7 @@ $webapp=Get-AzWebApp -ResourceGroupName <group-name> -Name <app-name>
 # Copy connection strings to a new hashtable
 $connStrings = @{}
 ForEach ($item in $webapp.SiteConfig.ConnectionStrings) {
-$connStrings[$item.Name] = @{value=$item.Value; type=item.Type}
+    $connStrings[$item.Name] = @{value=$item.ConnectionString; type=$item.Type.ToString()}
 }
 
 # Add or edit one or more connection strings
@@ -603,7 +603,7 @@ To add a custom handler:
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Set up staging environments in Azure App Service]: ./deploy-staging-slots.md
 [How to: Monitor web endpoint status]: ./web-sites-monitor.md

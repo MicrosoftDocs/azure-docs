@@ -3,7 +3,7 @@ title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/20/2023
+ms.date: 08/08/2023
 ---
 
 # Configure your Bicep environment

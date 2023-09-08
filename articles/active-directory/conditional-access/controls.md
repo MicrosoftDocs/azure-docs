@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/02/2023
+ms.date: 07/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,6 +19,14 @@ ms.collection: M365-identity-device-management
 
 Custom controls are a preview capability of the Azure Active Directory. When using custom controls, your users are redirected to a compatible service to satisfy authentication requirements outside of Azure Active Directory. To satisfy this control, a user's browser is redirected to the external service, performs any required authentication, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
 
+> [!NOTE]
+> As Alex Simons mentioned in his blog post [Upcoming changes to Custom Controls](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/upcoming-changes-to-custom-controls/ba-p/1144696):
+> 
+> ...We are planning to replace the current preview with an approach which will allow partner-provided authentication capabilities to work seamlessly with the Azure AD administrator and end user experiences. Today, partner MFA solutions can only function after a password has been entered, don’t serve as MFA for step-up authentication on other key scenarios, and don’t integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios including registration, usage, MFA claims, step-up authentication, reporting, and logging.
+> 
+> The current, limited approach will be supported in preview until the new design is completed, previews, and reaches “General Availability.” At that point, we will provide time for customers to migrate to the new implementation. Because of the limitations of the current approach, we will not onboard any new providers until the new capabilities are ready.
+> 
+> We are working closely with customers and providers and will communicate timeline as we get closer...
 
 ## Creating custom controls
 
@@ -57,4 +65,4 @@ Custom controls can't be used with Identity Protection's automation requiring Az
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
 - [Report-only mode](concept-conditional-access-report-only.md)
-- [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+- [Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)

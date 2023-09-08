@@ -91,7 +91,7 @@ internal class Program
 
 ### Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resource in the [Azure portal][azure_portal].
+Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com).
 It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code.
 
 ```csharp

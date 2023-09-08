@@ -22,7 +22,7 @@ This document contains information about new features and other changes to the M
 
 - Dynamic pixel ratio fixed in underlying maplibre-gl dependency.
 
-- Fixed an issue where `sortKey`, `radialOffset`, `variableAnchor` is not applied when used in `SymbolLayer` options.
+- Fixed an issue where `sortKey`, `radialOffset`, `variableAnchor` isn't applied when used in `SymbolLayer` options.
 
 #### Installation (3.0.0-preview.10)
 
@@ -307,15 +307,27 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2 (latest)
 
+### [2.3.2] (August 11, 2023)
+
+#### Bug fixes (2.3.2)
+
+- Fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called.
+
+- Fixed zoom control to take into account the `maxBounds` [CameraOptions].
+
+#### Other changes (2.3.2)
+
+- Added the `mvc` parameter to encompass the map control version in both definitions and style requests.
+
 ### [2.3.1] (June 27, 2023)
 
 #### Bug fixes (2.3.1)
 
-- fix `ImageSpriteManager` icon images may get removed during style change 
+- Fix `ImageSpriteManager` icon images may get removed during style change 
 
 #### Other changes (2.3.1)
 
-- security: insecure-randomness fix in UUID generation.
+- Security: insecure-randomness fix in UUID generation.
 
 ### [2.3.0] (June 2, 2023)
 
@@ -325,7 +337,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Bug fixes (2.3.0)
 
-- Fixed an exception that occurred while updating the property of a layout that that no longer exists.
+- Fixed an exception that occurred while updating the property of a layout that no longer exists.
 
 - Fixed an issue where BubbleLayer's accessible indicators didn't update when the data source was modified.
 
@@ -434,6 +446,7 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.2]: https://www.npmjs.com/package/azure-maps-control/v/2.3.2
 [2.3.1]: https://www.npmjs.com/package/azure-maps-control/v/2.3.1
 [2.3.0]: https://www.npmjs.com/package/azure-maps-control/v/2.3.0
 [2.2.7]: https://www.npmjs.com/package/azure-maps-control/v/2.2.7
@@ -446,6 +459,7 @@ Stay up to date on Azure Maps:
 [adal-angular]: https://github.com/AzureAD/azure-activedirectory-library-for-js
 [@azure/msal-browser]: https://github.com/AzureAD/microsoft-authentication-library-for-js
 [migration guide]: ../active-directory/develop/msal-compare-msal-js-and-adal-js.md
+[CameraOptions]: /javascript/api/azure-maps-control/atlas.cameraoptions?view=azure-maps-typescript-latest
 [CameraBoundsOptions]: /javascript/api/azure-maps-control/atlas.cameraboundsoptions?view=azure-maps-typescript-latest
 [Map.dispose()]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-dispose
 [Map.setCamera(options)]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setcamera

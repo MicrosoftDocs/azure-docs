@@ -230,14 +230,14 @@ Use the following commands to link a workspace to a cluster:
 ```azurecli
 # Find cluster resource ID
 az account set --subscription "cluster-subscription-id"
-$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, 'cluster-name')].[id]" --output tsv
 
 # Link workspace
 az account set --subscription "workspace-subscription-id"
 az monitor log-analytics workspace linked-service create --no-wait --name cluster --resource-group "resource-group-name" --workspace-name "workspace-name" --write-access-resource-id $clusterResourceId
 
 # Wait for job completion when `--no-wait` was used
-$workspaceResourceId = az monitor log-analytics workspace list --resource-group "resource-group-name" --query "[?contains(name, "workspace-name")].[id]" --output tsv
+$workspaceResourceId = az monitor log-analytics workspace list --resource-group "resource-group-name" --query "[?contains(name, 'workspace-name')].[id]" --output tsv
 az resource wait --deleted --ids $workspaceResourceId --include-response-body true
 ```
 

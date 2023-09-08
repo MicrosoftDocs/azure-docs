@@ -2,10 +2,10 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 07/21/2023
 ms.custom: references_regions, engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Create and configure a Recovery Services vault
@@ -55,6 +55,7 @@ Before you begin, consider the following information:
 - After you opt in, it might take up to 48 hours for the backup items to be available in secondary regions.
 - Cross Region Restore currently can't be reverted to GRS or LRS after the protection starts for the first time.
 - Currently, secondary region RPO is 36 hours. This is because the RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.
+- Review the [permissions required to use Cross Region Restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-vm-backup).
 
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault has a banner that links to the documentation. 
 

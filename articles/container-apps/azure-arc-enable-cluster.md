@@ -4,7 +4,7 @@ description: 'Tutorial: learn how to set up Azure Container Apps in your Azure A
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: tutorial
 ms.date: 3/24/2023
 ms.author: v-wellsjason

@@ -4,7 +4,7 @@ description: Quickly get Oracle ASM up and running in your Azure environment.
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 07/13/2022

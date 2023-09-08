@@ -210,46 +210,45 @@ if ($count -le 0) {
 Connect-MgGraph -Scopes "User.Read.All"
 
 # Get all users using Get-MgUser with a filter
-$users = Get-MgUser -Filter "accountEnabled eq true"
+$users = Get-MgUser -All -Property AssignedLicenses, LicenseAssignmentStates, DisplayName | Select-Object DisplayName, AssignedLicenses -ExpandProperty LicenseAssignmentStates | Select-Object DisplayName, AssignedByGroup, State, Error, SkuId
 
-# Create a hash table to store the SKU IDs for each user
-$skus = @{}
+$output = @()
 
-# Loop through all users and get their license details using Get-MgUserLicenseDetail
+
+# Loop through all users and get the AssignedByGroup Details which will list the groupId
 foreach ($user in $users) {
-    $userSkus = @{}
-
-    # Get the user's license details using Get-MgUserLicenseDetail
-    $licenseDetails = Get-MgUserLicenseDetail -UserId $user.Id
-
-    # Loop through all the licenses and add the SKU ID to the hash table
-    foreach ($license in $licenseDetails) {
-        $userSkus[$license.SkuId] = @{
-            AssignedDirectly = $license.AssignedLicenses.Count -gt 0
-            AssignedThroughGroups = $license.AssignedLicensesViaGroup.Count -gt 0
+    # Get the group ID if AssignedByGroup is not empty
+    if ($user.AssignedByGroup -ne $null)
+    {
+        $groupId = $user.AssignedByGroup
+        $groupName = Get-MgGroup -GroupId $groupId | Select-Object -ExpandProperty DisplayName  
+        Write-Host "$($user.DisplayName) is assigned by group - $($groupName)" -ErrorAction SilentlyContinue -ForegroundColor Yellow
+        $result = [pscustomobject]@{
+            User=$user.DisplayName
+            AssignedByGroup=$true
+            GroupName=$groupName
+            GroupId=$groupId
         }
+        $output += $result
     }
 
-    # Add the user's SKU IDs to the main hash table
-    $skus[$user.Id] = $userSkus
-}
-
-# Display the SKU IDs for each user
-foreach ($userId in $skus.Keys) {
-    $user = Get-MgUser -Filter "userPrincipalName eq '$userId'"
-    Write-Host "User: $($user.UserPrincipalName)"
-    Write-Host "SKU IDs:"
-
-    foreach ($skuId in $skus[$userId].Keys) {
-        $sku = Get-MgSubscribedSku -SubscribedSkuId $skuId
-        Write-Host "- $($sku.DisplayName)"
-        Write-Host "  Assigned directly: $($skus[$userId][$skuId].AssignedDirectly)"
-        Write-Host "  Assigned through groups: $($skus[$userId][$skuId].AssignedThroughGroups)"
+    else {
+    $result = [pscustomobject]@{
+            User=$user.DisplayName
+            AssignedByGroup=$false
+            GroupName="NA"
+            GroupId="NA"
+        }
+        $output += $result
+        Write-Host "$($user.DisplayName) is Not assigned by group" -ErrorAction SilentlyContinue -ForegroundColor Cyan
     }
-
-    Write-Host ""
+        
+    
 }
 
+# Display the result
+$output | ft
+```
 
 
 ## Remove direct licenses for users with group licenses

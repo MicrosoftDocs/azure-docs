@@ -6,7 +6,7 @@ ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 07/05/2023
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
@@ -38,6 +38,7 @@ When you create an instance of Azure Spring Apps Enterprise, you must choose a d
 - [Node.js Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tanzu-nodejs-buildpack)
 - [Python Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tanzu-python-buildpack/)
 - [Java Native Image Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tanzu-java-native-image-buildpack/)
+- [PHP Buildpack for VMware Tanzu](https://network.tanzu.vmware.com/products/tbs-dependencies/#/releases/1335849/artifact_references)
 
 For more information, see [Language Family Buildpacks for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-index.html).
 
@@ -158,9 +159,9 @@ Use the following steps to switch the container registry associated with the bui
 
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service** in the navigation pane.
-1. Select **Referred container registry** to update the container registry for the build service.
+1. Select **Referenced container registry** to update the container registry for the build service.
 
-   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png" alt-text="Screenshot of the Azure portal showing the Build Service page with Referred container registry highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png" alt-text="Screenshot of the Azure portal showing the Build Service page with referenced container registry highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -446,7 +447,7 @@ The following table indicates the features supported for each language.
 | E2E TLS                                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | Advanced troubleshooting - thread/heap/JFR dump                 | ✔️  |        |      |           |    |                                                         |                   |
 | Bring your own storage                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
-| Integrate service binding with Resource Connector               | ✔️  |        |      |           |    |                                                         |                   |
+| Integrate service binding with Resource Connector               | ✔️  |        |      |           |    |                                                         |   ✔️              |
 | Availability Zone                                               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | App Lifecycle events                                            | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
 | Reduced app size - 0.5 vCPU and 512 MB                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
@@ -482,7 +483,7 @@ The following features aren't supported in Azure Spring Apps due to the limitati
 | Managed identity                                  | Azure SDKs doesn't support native image.                          |
 | Advanced troubleshooting – thread/heap/JFR dump   | GraalVM built native images doesn't support thread/heap/JFR dump. |
 | Remote debugging                                  | GraalVM Native Image doesn't support Remote Debugging.            |
-| Integrate service binding with Resource Connector | JDBC driver or resource SDK doesn't support native image.         |
+| Passwordless connection using Service Connector     | Azure Java SDK doesn't support native image.                      |
 
 > [!NOTE]
 > In the following different language build and deploy configuration sections, `--build-env` means the environment is used in the build phase. `--env` means the environment is used in the runtime phase.
@@ -568,6 +569,7 @@ The following table lists the features supported in Azure Spring Apps:
 | Add CA certificates to the system trust store at build and runtime.  | See the [Configure CA certificates for app builds and deployments](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#configure-ca-certificates-for-app-builds-and-deployments) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                  |
 | Integrate with Dynatrace, Elastic, New Relic, App Dynamic APM agent. | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).                                                                                                                                                                                                          | N/A                                                                                                                   | N/A                                  |
 | Enable configuration of labels on the created image.                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                                                                                                           | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>` |
+| Deploy an Angular application with Angular Live Development Server.   | Specify the host before running `ng serve` in the [package.json](https://github.com/paketo-buildpacks/samples/blob/main/nodejs/angular-npm/package.json): `ng serve --host 0.0.0.0 --port 8080 --public-host <your application domain name>`. The domain name of the application is available in the application **Overview** page, in the **URL** section. Remove the protocol `https://` before proceeding.                                                                                                                                                                             | `BP_NODE_RUN_SCRIPTS` <br> `NODE_ENV` | `--build-env BP_NODE_RUN_SCRIPTS=build NODE_ENV=development` |
 
 ### Deploy WebServer applications
 
@@ -594,6 +596,22 @@ The following table lists the features supported in Azure Spring Apps:
 | Add CA certificates to the system trust store at build and runtime. | See the [Use CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#use-ca-certificates) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md). | Not applicable.                                                                                                       | Not applicable.                                               |
 | Enable configuration of labels on the created image                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                                   | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>`                          |
 | Support building Maven-based applications from source.              | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty).                                                                                                                                    | `BP_MAVEN_BUILT_MODULE`                                                                                               | `--build-env BP_MAVEN_BUILT_MODULE=./gateway`                 |
+
+### Deploy PHP applications
+
+The buildpack for deploying PHP applications is [tanzu-buildpacks/php](https://network.tanzu.vmware.com/products/tbs-dependencies/#/releases/1335849/artifact_references).
+
+The Tanzu PHP buildpack is only compatible with the Full OS Stack. We recommend using a builder with the `Jammy Full` OS stack. For more information, see the [OS stack recommendations](#os-stack-recommendations) section.
+
+The following table lists the features supported in Azure Spring Apps:
+
+| Feature description                                                 | Comment                                                                                                                                                                                                                                                                                                                                    | Environment variable | Usage                               |
+|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|-------------------------------------|
+| Specify the PHP version.                                            | Configures the PHP version. Currently supported: PHP *8.0.\**, *8.1.\**, and *8.2.\**. The default value is *8.1.\**                                                                                                                                                                                                                       | `BP_PHP_VERSION`     | `--build-env BP_PHP_VERSION=8.0.*`  |
+| Add CA certificates to the system trust store at build and runtime. | See the [Configure CA certificates for app builds and deployments](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#configure-ca-certificates-for-app-builds-and-deployments) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md). | N/A                  | N/A                                 |
+| Integrate with Dynatrace, New Relic, App Dynamic APM agent.         | See [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).                                                                                                                                                                                                          | N/A                  | N/A                                 |
+| Select a Web Server.                                                | The setting options are *php-server*, *httpd*, and *nginx*. The default value is *php-server*.                                                                                                                                                                                                                                             | `BP_PHP_SERVER`      | `--build-env BP_PHP_SERVER=httpd`   |
+| Configure Web Directory.                                            | When the web server is HTTPD or NGINX, the web directory defaults to *htdocs*. When the web server is the PHP built-in server, the web directory defaults to */workspace*.                                                                                                                                                                 | `BP_PHP_WEB_DIR`     | `--build-env BP_PHP_WEB_DIR=htdocs` |
 
 ## Next steps
 

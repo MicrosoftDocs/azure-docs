@@ -53,7 +53,7 @@ To secure your AKS clusters, see [Integrate Azure AD with AKS][aks-aad].
 
 Container Insights has native integration with AKS, like collecting critical metrics and logs, alerting on identified issues, and providing visualization with workbooks or integration with Grafana. It can also collect Prometheus metrics and send them to [Azure Monitor managed service for Prometheus][azure-monitor-managed-prometheus], and all together deliver end-to-end observability.
 
-Logs from the AKS control plane components are collected separately in Azure as resource logs and sent to different locations, such as [Azure Monitor Logs][azure-monitor-logs]. For more information, see [Collect resource logs][collect-resource-logs].
+Logs from the AKS control plane components are collected separately in Azure as resource logs and sent to different locations, such as [Azure Monitor Logs][azure-monitor-logs]. For more information, see [Collect control plane logs][monitor-aks.md#collect-control-plane-logs].
 
 ## Clusters and nodes
 
@@ -175,7 +175,7 @@ Learn more about deploying and managing AKS.
 [azure-monitor-overview]: ../azure-monitor/overview.md
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [azure-monitor-managed-prometheus]: ../azure-monitor/essentials/prometheus-metrics-overview.md
-[collect-resource-logs]: monitor-aks.md#collect-resource-logs
+[collect-control-plane-logs]: monitor-aks.md#collect-control-plane-logs
 [azure-monitor-logs]: ../azure-monitor/logs/data-platform-logs.md
 [helm]: quickstart-helm.md
 [aks-best-practices]: best-practices.md

@@ -25,7 +25,7 @@ For information on setup and configuration details, see the [overview](functions
 ::: zone pivot="programming-language-csharp"
 
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)
 
@@ -249,7 +249,7 @@ The trigger input type is declared as either `InvocationContext` or a custom typ
 
 ### InvocationContext
 
-`InvocationContext` contains all the content in the message send from aa SignalR service, which includes the following properties:
+`InvocationContext` contains all the content in the message sent from a SignalR service, which includes the following properties:
 
 |Property | Description|
 |------------------------------|------------|

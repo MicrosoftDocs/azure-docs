@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Interactive map search with Azure Maps'
 titeSuffix: Microsoft Azure Maps
-description: 'Quickstart: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get the subscription key, and use the Web SDK to set up map applications'
+description: A quickstart that demonstrates how to create interactive, searchable maps.
 author: eriklindeman
 ms.author: eriklind
 ms.date: 12/23/2021
@@ -13,19 +13,19 @@ ms.custom: mvc, mode-other
 
 # Quickstart: Create an interactive search map with Azure Maps
 
-In this quickstart, you will learn how to use Azure Maps to create a map that gives users an interactive search experience. It walks you through these basic steps:
+This quickstart demonstrates how to use Azure Maps to create a map that gives users an interactive search experience. It walks you through these basic steps:
 
 * Create your own Azure Maps account.
 * Get your Azure Maps subscription key to use in the demo web application.
 * Download and open the demo map application.
 
-This quickstart uses the Azure Maps Web SDK, however the Azure Maps service can be used with any map control, such as these popular [open-source map controls](open-source-projects.md#third-part-map-control-plugins) that the Azure Maps team has created plugin's for.
+This quickstart uses the Azure Maps Web SDK, however the Azure Maps service can be used with any map control, such as these popular [open-source map controls] that the Azure Maps team has created plugin's for.
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account] before you begin.
 
-* Sign in to the [Azure portal](https://portal.azure.com).
+* Sign in to the [Azure portal].
 
 <a id="createaccount"></a>
 
@@ -33,7 +33,7 @@ This quickstart uses the Azure Maps Web SDK, however the Azure Maps service can 
 
 Create a new Azure Maps account with the following steps:
 
-1. Select **Create a resource** in the upper left-hand corner of the [Azure portal](https://portal.azure.com).
+1. Select **Create a resource** in the upper left-hand corner of the [Azure portal].
 2. Type **Azure Maps** in the *Search services and Marketplace* box.
 3. Select **Azure Maps** in the drop-down list that appears, then select the **Create** button.
 4. On the **Create an Azure Maps Account resource** page, enter the following values then select the **Create** button:
@@ -58,11 +58,11 @@ Once your Azure Maps account is successfully created, retrieve the subscription 
 :::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
 
 >[!NOTE]
-> This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
+> This quickstart uses the [Shared Key] authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory] authentication.
 
 ## Download and update the Azure Maps demo
 
-1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Interactive%20Search/Interactive%20Search%20Quickstart.html). Copy the contents of the file.
+1. Copy the contents of the file: [Interactive Search Quickstart.html].
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Add the **Primary Key** value you got in the preceding section
     1. Comment out all of the code in the `authOptions` function, this code is used for Azure Active Directory authentication.
@@ -81,8 +81,8 @@ Once your Azure Maps account is successfully created, retrieve the subscription 
 
 ## Clean up resources
 
->[!WARNING]
->The tutorials listed in the [Next Steps](#next-steps) section detail how to use and configure Azure Maps with your account. Don't clean up the resources created in this quickstart if you plan to continue to the tutorials.
+>[!IMPORTANT]
+>The tutorials listed in the [Next Steps] section detail how to use and configure Azure Maps with your account. Don't clean up the resources created in this quickstart if you plan to continue to the tutorials.
 
 If you don't plan to continue to the tutorials, take these steps to clean up the resources:
 
@@ -92,12 +92,23 @@ If you don't plan to continue to the tutorials, take these steps to clean up the
 
 For more code examples and an interactive coding experience, see these articles:
 
-* [Find an address with Azure Maps search service](how-to-search-for-address.md)
-* [Use the Azure Maps Map Control](how-to-use-map-control.md)
+* [Find an address with Azure Maps search service]
+* [Use the Azure Maps Map Control]
 
 ## Next steps
 
 In this quickstart, you created an Azure Maps account and a demo application. Take a look at the following tutorials to learn more about Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Search nearby points of interest with Azure Maps](tutorial-search-location.md)
+> [Search nearby points of interest with Azure Maps]
+
+[Azure Active Directory]: azure-maps-authentication.md#azure-ad-authentication
+[Azure portal]: https://portal.azure.com
+[Find an address with Azure Maps search service]: how-to-search-for-address.md
+[free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[Interactive Search Quickstart.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Interactive%20Search/Interactive%20Search%20Quickstart.html
+[Next Steps]: #next-steps
+[open-source map controls]: open-source-projects.md#third-party-map-control-plugins
+[Search nearby points of interest with Azure Maps]: tutorial-search-location.md
+[Shared Key]: azure-maps-authentication.md#shared-key-authentication
+[Use the Azure Maps Map Control]: how-to-use-map-control.md

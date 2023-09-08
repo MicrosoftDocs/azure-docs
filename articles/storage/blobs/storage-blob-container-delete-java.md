@@ -5,9 +5,9 @@ description: Learn how to delete and restore a blob container in your Azure Stor
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 08/02/2023
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
@@ -16,6 +16,13 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 # Delete and restore a blob container with Java
 
 This article shows how to delete containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob container, or to restore a soft-deleted container. To learn more, see the authorization guidance for the following REST API operations:
+    - [Delete Container](/rest/api/storageservices/delete-container#authorization)
+    - [Restore Container](/rest/api/storageservices/restore-container#authorization)
 
 ## Delete a container
 

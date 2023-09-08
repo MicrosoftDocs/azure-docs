@@ -52,7 +52,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 The resource group contains all the resources for the tutorial.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page, then select **Add**. Enter or select the following values:
 
     | Setting  | Value  |

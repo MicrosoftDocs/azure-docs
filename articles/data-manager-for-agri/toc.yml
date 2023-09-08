@@ -59,6 +59,10 @@ items:
       items:
       - name: Overview
         href: /rest/api/data-manager-for-agri/
+    - name: SDKs
+      items:
+      - name: Overview
+        href: reference-sdk.md
 
   - name: Resources
     items:

@@ -176,7 +176,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.applicationinsights.us (optional)| Upload appliance logs used for internal monitoring.  
 
 
-### Azure China 21Vianet (Azure China) URLs
+### Microsoft Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet) URLs
 
 **URL** | **Details**  
 --- | --- |
@@ -194,7 +194,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.blob.core.chinacloudapi.cn  |  **Used for VMware agentless migration.**<br><br>Upload data to storage for migration.
 *.applicationinsights.azure.cn | Upload appliance logs used for internal monitoring.
 
-### Azure China URLs
+### Microsoft Azure operated by 21Vianet URLs
 
 
 **URL** | **Details**  

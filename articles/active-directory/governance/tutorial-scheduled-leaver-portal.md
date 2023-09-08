@@ -2,14 +2,14 @@
 title: Automate employee offboarding tasks after their last day of work with Azure portal
 description: Tutorial for post off-boarding users from an organization using Lifecycle workflows with Azure portal.
 services: active-directory
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 08/18/2022
-ms.author: amsliu
+ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
@@ -30,7 +30,7 @@ This post off-boarding scenario runs a scheduled workflow and accomplishes the f
 
 ##  Before you begin
 
-As part of the prerequisites for completing this tutorial, you'll need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you'll need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-user-accounts.md).
 
 The scheduled leaver scenario can be broken down into the following:
 -	**Prerequisite:** Create a user account that represents an employee leaving your organization
@@ -40,13 +40,16 @@ The scheduled leaver scenario can be broken down into the following:
 -	Verify that the workflow was successfully executed
 
 ## Create a workflow using scheduled leaver template
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to create a scheduled leaver workflow that will configure off-boarding tasks for employees after their last day of work with Lifecycle workflows using the Azure portal.
 
- 1.  Sign in to Azure portal.
- 2.  On the right, select **Azure Active Directory**.
- 3.  Select **Identity Governance**.
- 4.  Select **Lifecycle workflows**.
- 5.  On the **Overview** page, select **New workflow**. 
+ 1. Sign in to the [Azure portal](https://portal.azure.com).
+ 2. On the right, select **Azure Active Directory**.
+ 3. Select **Identity Governance**.
+ 4. Select **Lifecycle workflows**.
+ 5. On the **Overview** page, select **New workflow**. 
     :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
  6. From the templates, select **Select** under **Post-offboarding of an employee**.
@@ -75,31 +78,30 @@ Now that the workflow is created, it will automatically run the workflow every 3
 
 To run a workflow on-demand, for users using the Azure portal, do the following steps:
 
- 1. On the workflow screen, select the specific workflow you want to run.
- 2. Select **Run on demand**.
- 3. On the **select users** tab, select **add users**.
- 4. Add a user.
- 5. Select **Run workflow**.
+1. On the workflow screen, select the specific workflow you want to run.
+2. Select **Run on demand**.
+3. On the **select users** tab, select **add users**.
+4. Add a user.
+5. Select **Run workflow**.
 
- 
 ## Check tasks and workflow status
 
 At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks that are currently available. You may learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md). In the course of this tutorial, we'll look at the status using the user focused reports.
 
- 1. To begin, select the **Workflow history** tab on the left to view the user summary and associated workflow tasks and statuses.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png" alt-text="Screenshot of the workflow history summary." lightbox="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png":::
+1. To begin, select the **Workflow history** tab on the left to view the user summary and associated workflow tasks and statuses.
+    :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png" alt-text="Screenshot of the workflow history summary." lightbox="media/tutorial-lifecycle-workflows/workflow-history-post-offboard.png":::
 
 1. Once the **Workflow history** tab has been selected, you'll land on the workflow history page as shown.
- :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png" alt-text="Screenshot of the workflow history overview." lightbox="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png" alt-text="Screenshot of the workflow history overview." lightbox="media/tutorial-lifecycle-workflows/user-summary-post-offboard.png":::
 
 1. Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
- :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png" alt-text="Screenshot of workflow's total tasks." lightbox="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png" alt-text="Screenshot of workflow's total tasks." lightbox="media/tutorial-lifecycle-workflows/total-tasks-post-offboard.png":::
 
 1. To add an extra layer of granularity, you may select **Failed tasks** for the user Wade Warren to view the total number of failed tasks assigned to the user Wade Warren.
- :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png" alt-text="Screenshot of workflow failed tasks." lightbox="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png" alt-text="Screenshot of workflow failed tasks." lightbox="media/tutorial-lifecycle-workflows/failed-tasks-post-offboard.png":::
 
 1. Similarly, you may select **Unprocessed tasks** for the user Wade Warren to view the total number of unprocessed or canceled tasks assigned to the user Wade Warren.
- :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png" alt-text="Screenshot of workflow unprocessed tasks." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png" alt-text="Screenshot of workflow unprocessed tasks." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-post-offboard.png":::
 
 ## Enable the workflow schedule
 
@@ -108,12 +110,5 @@ After running your workflow on-demand and checking that everything is working fi
   :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of workflow enabled schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
-- [Preparing user accounts for Lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
+- [Preparing user accounts for Lifecycle workflows](tutorial-prepare-user-accounts.md)
 - [Automate employee offboarding tasks after their last day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-scheduled-leaver)
-
-
-
-
-
-
-

@@ -43,7 +43,8 @@ This configuration registers an app in Azure AD that represents the external API
 1. Search and select permission **AuditLog.Read.All** and **SynchronizationData-User.Upload**.
 1. Click on **Grant admin consent** on the next screen to complete the permission assignment. Click Yes on the confirmation dialog. Your app should have the following permission sets.
       [![Screenshot of app permissions.](media/inbound-provisioning-api-grant-access/api-client-permissions.png)](media/inbound-provisioning-api-grant-access/api-client-permissions.png#lightbox)  
-1. You're now ready to use the service principal with your API client. 
+1. You're now ready to use the service principal with your API client.
+1. For production workloads, we recommend using [client certificate-based authentication](../develop/howto-authenticate-service-principal-powershell.md) with the service principal or managed identities. 
 
 ## Configure a managed identity
 
@@ -54,10 +55,11 @@ This section describes how you can assign the necessary permissions to a managed
 
       [![Screenshot of managed identity name.](media/inbound-provisioning-api-grant-access/managed-identity-name.png)](media/inbound-provisioning-api-grant-access/managed-identity-name.png#lightbox) 
 
-1. Run the following PowerShell script to assign permissions to your managed identity. 
+1. Run the following PowerShell script to assign permissions to your managed identity.
+
       ```powershell
       Install-Module Microsoft.Graph -Scope CurrentUser
-     
+
       Connect-MgGraph -Scopes "Application.Read.All","AppRoleAssignment.ReadWrite.All,RoleManagement.ReadWrite.Directory"
       Select-MgProfile Beta
       $graphApp = Get-MgServicePrincipal -Filter "AppId eq '00000003-0000-0000-c000-000000000000'"
@@ -74,7 +76,7 @@ This section describes how you can assign the necessary permissions to a managed
       $managedID = Get-MgServicePrincipal -Filter "DisplayName eq 'CSV2SCIMBulkUpload'"
       New-MgServicePrincipalAppRoleAssignment -PrincipalId $managedID.Id -ServicePrincipalId $managedID.Id -ResourceId $graphApp.Id -AppRoleId $AppRole.Id
       ```
-1. To confirm that the permission was applied, find the managed identity service principal under **Enterprise Applications** in Azure AD. Remove the **Application type** filter to see all service principals. 
+1. To confirm that the permission was applied, find the managed identity service principal under **Enterprise Applications** in Azure AD. Remove the **Application type** filter to see all service principals.
       [![Screenshot of managed identity principal.](media/inbound-provisioning-api-grant-access/managed-identity-principal.png)](media/inbound-provisioning-api-grant-access/managed-identity-principal.png#lightbox) 
 1. Click on the **Permissions** blade under **Security**. Ensure the permission is set. 
       [![Screenshot of managed identity permissions.](media/inbound-provisioning-api-grant-access/managed-identity-permissions.png)](media/inbound-provisioning-api-grant-access/managed-identity-permissions.png#lightbox) 
@@ -82,6 +84,8 @@ This section describes how you can assign the necessary permissions to a managed
 
 
 ## Next steps
-- [Invoke inbound provisioning API using cURL](inbound-provisioning-api-curl-tutorial.md)
+- [Quick start using cURL](inbound-provisioning-api-curl-tutorial.md)
+- [Quick start using Postman](inbound-provisioning-api-postman.md)
+- [Quick start using Postman](inbound-provisioning-api-graph-explorer.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
 

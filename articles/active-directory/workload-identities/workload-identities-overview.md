@@ -7,9 +7,9 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 08/08/2023
 ms.author: ryanwi
-ms.reviewer: udayh, ilanas, naha
+ms.reviewer: arluca, ilanas, naha
 ms.custom: aaddev 
 #Customer intent: As a developer, I want workload identities so I can authenticate with Azure AD and access Azure AD protected resources.
 ---

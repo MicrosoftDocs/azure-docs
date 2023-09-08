@@ -5,7 +5,7 @@ ms.service: azure-operator-nexus
 author: dramasamy
 ms.author: dramasamy
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 05/13/2023
 ---
 

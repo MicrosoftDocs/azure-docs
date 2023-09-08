@@ -174,6 +174,8 @@
         href: entitlement-management-reprocess-access-package-requests.md
       - name: View, add, and remove assignments
         href: entitlement-management-access-package-assignments.md
+      - name: Convert users to governed
+        href: entitlement-management-access-package-manage-lifecycle.md  
       - name: Reprocess assignments
         href: entitlement-management-reprocess-access-package-assignments.md
       - name: Hide or delete
@@ -261,6 +263,8 @@
   items:
   - name: Identity Governance Dashboard
     href: governance-dashboard.md
+  - name: Licensing fundamentals
+    href: licensing-fundamentals.md
   - name: Services and integration partners
     href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell
@@ -278,7 +282,7 @@
     - name: Set EmployeeLeaveDateTime for leaver workflows
       href: /graph/tutorial-lifecycle-workflows-set-employeeleavedatetime?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
     - name: Preparing user accounts for Lifecycle workflows tutorials
-      href: tutorial-prepare-azure-ad-user-accounts.md 
+      href: tutorial-prepare-user-accounts.md 
     - name: Configure a Logic App for Lifecycle Workflow use
       href: configure-logic-app-lifecycle-workflows.md
       

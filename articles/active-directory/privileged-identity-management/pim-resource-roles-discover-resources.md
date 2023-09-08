@@ -31,7 +31,9 @@ You can view and manage the management groups or subscriptions to which you have
 
 ## Discover resources
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open **Azure AD Privileged Identity Management**.
 

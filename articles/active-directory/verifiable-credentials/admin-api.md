@@ -418,7 +418,7 @@ Content-type: application/json
 
 ### Remarks
 
->You can create multiple authorities with their own DID and private keys, these will not be visible in the UI of the azure portal. Currently we only support having 1 authority. We have not fully tested all scenarios with multiple created authorities. If you are trying this please let us know your experience.
+>You can create multiple authorities with their own DID and private keys, these will not be visible in the UI of the Azure portal. Currently we only support having 1 authority. We have not fully tested all scenarios with multiple created authorities. If you are trying this please let us know your experience.
 
 ### Update authority
 
@@ -1229,12 +1229,12 @@ You are able to [search](how-to-issuer-revoke.md) for verifiable credentials wit
   string claimvalue = "Bowen";
   string contractid = "ZjViZjJmYzYtNzEzNS00ZDk0LWE2ZmUtYzI2ZTQ1NDNiYzVhdGVzdDM";
   string output;
-		
+
   using (var sha256 = SHA256.Create())
   {
-	var input = contractid + claimvalue;
-	byte[] inputasbytes = Encoding.UTF8.GetBytes(input);
-	hashedsearchclaimvalue = Convert.ToBase64String(sha256.ComputeHash(inputasbytes));
+    var input = contractid + claimvalue;
+    byte[] inputasbytes = Encoding.UTF8.GetBytes(input);
+    hashedsearchclaimvalue = Convert.ToBase64String(sha256.ComputeHash(inputasbytes));
   }
 ```
 

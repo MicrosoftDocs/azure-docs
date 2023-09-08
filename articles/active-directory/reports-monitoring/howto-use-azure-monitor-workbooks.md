@@ -8,13 +8,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/01/2023
+ms.date: 07/28/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar
 ---
-# How to use Azure Monitor workbooks for Azure Active Directory
+# How to use Azure Active Directory Workbooks
 
-When using Azure Workbooks, you can either start with an empty workbook, or use an existing template. Workbook templates enable you to quickly get started using workbooks without needing to build from scratch. 
+Workbooks are found in Azure AD and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks, however, workbooks for Azure Active Directory (AD) cover only those identity management scenarios that are associated with Azure AD.
+
+When using workbooks, you can either start with an empty workbook, or use an existing template. Workbook templates enable you to quickly get started using workbooks without needing to build from scratch. 
 
 - **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#the-gallery) are a good starting point when you're just getting started with workbooks.
 - **Private templates** are helpful when you start building your own workbooks and want to save one as a template to serve as the foundation for multiple workbooks in your tenant.
@@ -22,31 +24,50 @@ When using Azure Workbooks, you can either start with an empty workbook, or use 
 ## Prerequisites
 
 To use Azure Workbooks for Azure AD, you need:
-- An Azure Active Directory (Azure AD) tenant with a premium (P1 or P2) license. Learn how to [get a premium license](../fundamentals/active-directory-get-started-premium.md)
-- The appropriate roles for the Log Analytics workspace *and* Azure AD
-- A Log Analytics workspace
 
-1. Create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
-    - Access to the Log Analytics workspace is determined by the workspace settings, access to the resources sending the data to the workspace, and the method used to access the workspace.
-    - To ensure you have the right access, review the Azure workspace permissions in the [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md?tabs=tabs=portal#azure-rbac) article.
+- An Azure AD tenant with a [Premium P1 license](../fundamentals/active-directory-get-started-premium.md)
+- A Log Analytics workspace *and* access to that workspace
+- The appropriate roles for Azure Monitor *and* Azure AD
 
-2. Ensure that you have one of the following roles in Azure AD (if you're accessing the workspace through the Azure portal):
+### Log Analytics workspace
+
+You must create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) *before* you can use Azure AD Workbooks. There are a combination of factors that determine access to Log Analytics workspaces. You need the right roles for the workspace *and* the resources sending the data.
+
+For more information, see [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md).
+
+### Azure Monitor roles
+
+Azure Monitor provides [two built-in roles](../../azure-monitor/roles-permissions-security.md#monitoring-reader) for viewing monitoring data and editing monitoring settings. Azure role-based access control (RBAC) also provides two Log Analytics built-in roles that grant similar access.
+
+- **View**:
+    - Monitoring Reader
+    - Log Analytics Reader
+
+- **View and modify settings**:
+    - Monitoring Contributor
+    - Log Analytics Contributor
+
+For more information on the Azure Monitor built-in roles, see [Roles, permissions, and security in Azure Monitor](../../azure-monitor/roles-permissions-security.md#monitoring-reader).
+
+For more information on the Log Analytics RBAC roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
+
+### Azure AD roles
+
+Read only access allows you to view Azure AD log data inside a workbook, query data from Log Analytics, or read logs in the Azure AD portal. Update access adds the ability to create and edit diagnostic settings to send Azure AD data to a Log Analytics workspace.
+
+- **Read**:
+  - Reports Reader
+  - Security Reader
+  - Global Reader
+
+- **Update**:
     - Security Administrator
-    - Security Reader
-    - Reports Reader
-    - Global Administrator
 
-3. Ensure that you have the one of the following Azure roles for the subscription:
-    - Global Reader
-    - Reports Reader
-    - Security Reader
-    - Application Administrator 
-    - Cloud Application Administrator
-    - Company Administrator
-    - Security Administrator
-    - For more information on Azure subscription roles, see [Roles, permissions, and security in Azure Monitor](../../azure-monitor/roles-permissions-security.md).
+For more information on Azure AD built-in roles, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
 ## How to access Azure Workbooks for Azure AD
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 

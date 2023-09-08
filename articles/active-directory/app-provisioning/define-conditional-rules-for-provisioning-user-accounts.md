@@ -67,6 +67,8 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
 ### Create a scoping filter
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 ::: zone pivot="app-provisioning"

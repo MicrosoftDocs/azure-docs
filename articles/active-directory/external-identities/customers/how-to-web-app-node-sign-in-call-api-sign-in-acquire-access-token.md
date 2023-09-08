@@ -119,7 +119,7 @@ The `/` route is the entry point to the application. It renders the `views/index
 
 1. In your code editor, open *auth/AuthProvider.js* file, then add the code from [AuthProvider.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/auth/AuthProvider.js) to it.
 
-The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth.js* file, but their logic live in *auth/AuthProvider.js* file.
+The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth.js* file, but you implement their logic in *auth/AuthProvider.js* file.
 
 - The `login` method handles`/signin` route:
     
@@ -259,7 +259,7 @@ In your code editor, open *routes/users.js* file, then add the following code:
         
         module.exports = router;
 ```
-If the user is authenticated, the `/id` route displays ID token claims by using the `views/id.hbs` view. You added this view earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
+If the user is authenticated, the `/id` route displays ID token claims by using the `views/id.hbs` view. You added this view earlier in [Build app UI components](tutorial-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
 To extract a specific ID token claim, such as *given name*: 
 ```javascript
     const givenName = req.session.account.idTokenClaims.given_name

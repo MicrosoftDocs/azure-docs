@@ -72,7 +72,7 @@ Microsoft Entra helps you protect all identities and secure network access every
 
 ### Where can I manage Microsoft Entra ID?
 
-You can manage Microsoft Entra ID and all other Microsoft Entra solutions in the [Microsoft Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com).
+You can manage Microsoft Entra ID and all other Microsoft Entra solutions in the [Microsoft Entra admin center](https://entra.microsoft.com) or the [Azure portal](https://portal.azure.com).
 
 ### What are the display names for service plans and SKUs?
 

@@ -59,7 +59,7 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 ### Microsoft Entra Verified ID service
 
-![Diagram of Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
+![Diagram of Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-verifiable-credentials-vc-services.png)
 
 The Microsoft Entra Verified ID service enables you to issue and revoke VCs based on your configuration. The service:
 
@@ -183,8 +183,6 @@ Model based on throughput:
       * One for the VC created
 
       * One for the contract download
-
-* Maximum signing performance of a Key Vault is 2,000 signing/~10 seconds. This is about 12,000 signings per minute. This means your solution can support up to 4,000 VC issuances per minute.
 
 * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md). 
 

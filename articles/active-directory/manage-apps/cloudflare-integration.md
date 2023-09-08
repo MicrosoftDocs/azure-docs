@@ -18,8 +18,6 @@ ms.custom: not-enterprise-apps
 
 In this tutorial, learn to integrate Azure Active Directory (Azure AD) with Cloudflare Zero Trust. Build rules based on user identity and group membership. Users authenticate with Azure AD credentials and connect to Zero Trust protected applications.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 * An Azure AD subscription
@@ -63,9 +61,11 @@ Integrate Cloudflare Zero Trust account with an instance of Azure AD.
 
 ## Register Cloudflare with Azure AD
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the instructions in the following three sections to register Cloudflare with Azure AD.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Under **Azure Services**, select **Azure Active Directory**.
 3. In the left menu, under **Manage**, select **App registrations**.
 4. Select the **+ New registration** tab.

@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 08/14/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -66,7 +66,7 @@ You can scope the agent to synchronize specific users and groups by using on-pre
   :::image type="content" source="media/how-to-configure/new-ux-configure-4.png" alt-text="Screenshot of scoping filters icon." lightbox="media/how-to-configure/new-ux-configure-4.png":::
 
 
-You can't configure groups and organizational units within a configuration. 
+You can configure groups and organizational units within a configuration. 
  >[!NOTE]
  >  You cannot use nested groups with group scoping.  Nested objects beyond the first level will not be included when scoping using security groups. Only use group scope filtering for pilot scenarios as there are limitations to syncing large groups. 
  

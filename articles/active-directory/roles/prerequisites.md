@@ -184,6 +184,8 @@ To use AzureADPreview, follow these steps to make sure it is imported into the c
 
 ## Graph Explorer
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To manage Azure AD roles using the [Microsoft Graph API](/graph/overview) and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview), you must do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

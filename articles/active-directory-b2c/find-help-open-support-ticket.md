@@ -35,7 +35,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 > [!NOTE]
 > For billing or subscription issues, use the [Microsoft 365 admin center](https://admin.microsoft.com).  
 
-1. Sign in to [the Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your Azure subscription:
 

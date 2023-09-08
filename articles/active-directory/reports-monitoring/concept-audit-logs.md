@@ -74,7 +74,7 @@ To access the audit log for a tenant, you must have one of the following roles:
 - Global Reader
 - Global Administrator
 
-Sign in to the Azure portal and go to **Azure AD** and select **Audit log** from the **Monitoring** section.  
+Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure AD** and select **Audit log** from the **Monitoring** section.
 
 The audit activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you can access the audit log through the [Microsoft Graph API](/graph/api/resources/azure-ad-auditlog-overview). See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in Graph after you upgrade to a premium license with no data activities before the upgrade.
 

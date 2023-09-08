@@ -3,7 +3,7 @@ title: 'Tutorial: Trigger Azure Functions on blob containers using an event subs
 description: This tutorial shows how to create a low-latency, event-driven trigger on an Azure Blob Storage container using an Event Grid event subscription. 
 author: cachai2
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 3/1/2021
 ms.author: cachai
 zone_pivot_groups: programming-languages-set-functions-lang-workers

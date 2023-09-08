@@ -88,7 +88,6 @@ This script below illustrates using the `v1.0` profile, to create a policy for a
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "v1.0"
 
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
 

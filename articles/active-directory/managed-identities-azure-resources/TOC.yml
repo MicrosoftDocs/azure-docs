@@ -157,7 +157,7 @@
   - name: Azure services that support managed identities for Azure resources
     href: managed-identities-status.md
   - name: Azure services that support Azure Active Directory authentication
-    href: services-azure-active-directory-support.md
+    href: services-id-authentication-support.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-managed-identity
   - name: Azure AD Developers forum

@@ -1,7 +1,8 @@
 ---
-title: Connect your AWS account to Microsoft Defender for Cloud
+title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
+ms.custom: devx-track-linux
 ms.date: 06/28/2023
 ---
 
@@ -32,7 +33,7 @@ To complete the procedures in this article, you need:
 - **Contributor** permission for the relevant Azure subscription, and **Administrator** permission on the AWS account.
 
 > [!NOTE]
-> The AWS connector is not available on the national government clouds (Azure Government, Azure China 21Vianet).
+> The AWS connector is not available on the national government clouds (Azure Government, Microsoft Azure operated by 21Vianet).
 
 ### Defender for Containers
 
@@ -113,6 +114,10 @@ To connect your AWS to Defender for Cloud by using a native connector:
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Screenshot that shows the tab for entering account details for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
 
     Optionally, select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Auto-provisioning is enabled for all of the newly onboarded accounts.
+
+## Select Defender plans
+
+In this section of the wizard, you select the Defender for Cloud plans that you want to enable.
 
 1. Select **Next: Select plans**.
 

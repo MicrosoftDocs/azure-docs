@@ -23,14 +23,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a new tenant for your organization
 
-After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+After you sign in to the [Azure portal](https://portal.azure.com), you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
 
 >[!Note]
 >If you're unable to create Azure AD or Azure AD B2C tenant, review your user settings page to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
 
 ### To create a new tenant
 
-1. Sign in to your organization's [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the Azure portal menu, select **Azure Active Directory**.
 
@@ -38,7 +40,7 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
  
 1. Select **Create**.
 
-    ![Azure Active Directory - Overview page - Create a tenant](media/active-directory-access-create-new-tenant/azure-ad-portal.png) 
+    ![Azure Active Directory - Overview page - Create a tenant](media/create-new-tenant/portal.png) 
 
 1. On the Basics tab, select the type of tenant you want to create, either **Azure Active Directory** or **Azure Active Directory (B2C)**.
 
@@ -46,7 +48,7 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
 1.  On the Configuration tab, enter the following information:
 
-    ![Azure Active Directory - Create a tenant page - configuration tab ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+    ![Azure Active Directory - Create a tenant page - configuration tab ](media/create-new-tenant/create-new-tenant.png)
 
     - Type your desired Organization name (for example _Contoso Organization_) into the **Organization name** box.
 
@@ -76,7 +78,7 @@ If you're not going to continue to use this application, you can delete the tena
 
     The tenant and its associated information are deleted.
 
-    ![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Overview page, with highlighted Delete directory button](media/create-new-tenant/delete-new-tenant.png)
 
 ## Next steps
 

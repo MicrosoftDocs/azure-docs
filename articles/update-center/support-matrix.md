@@ -137,7 +137,7 @@ The table lists the operating systems supported on [Azure Arc-enabled servers](.
    |-------------|
    | Windows Server 2012 R2 and higher (including Server Core) |
    | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
-   | Ubuntu 16.04, 18.04, and 20.04 LTS (x64) |
+   | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
    | CentOS Linux 7 and 8 (x64) |   
    | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
    | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |    

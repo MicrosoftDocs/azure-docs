@@ -36,6 +36,8 @@ With the web API registered, you can add scopes to the API's code so it can prov
 
 ## Add a scope
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The code in a client application requests permission to perform operations defined by your web API by passing an access token along with its requests to the protected resource (the web API). Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation.
 
 First, follow these steps to create an example scope named `Employees.Read.All`:

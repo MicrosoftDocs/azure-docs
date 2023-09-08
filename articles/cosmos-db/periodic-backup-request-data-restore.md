@@ -76,7 +76,7 @@ After the restore operation completes, you may want to know the source account d
 
 Use the following steps to get the restore details from Azure portal:
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to the restored account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the restored account.
 
 1. Open the **Tags** page.
 

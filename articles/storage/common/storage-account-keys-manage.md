@@ -5,7 +5,7 @@ description: Learn how to view, manage, and rotate your storage account access k
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 03/22/2023
 ms.author: tamram

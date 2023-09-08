@@ -43,6 +43,8 @@ Object replication isn't supported for blobs in the source account that are encr
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
 
+Object replication is not supported for blobs that are uploaded to the Data Lake Storage endpoint (`dfs.core.windows.net`) by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
+
 ## How object replication works
 
 Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.

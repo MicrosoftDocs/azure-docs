@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/07/2023
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan
-  ms.date: 03/17/2023
+  ms.date: 07/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -41,7 +41,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Onboarding to Microsoft Teams 
+          - text: Onboarding and the Included Benefits
             url: onboarding.md
       - linkListType: deploy
         links:
@@ -61,6 +61,8 @@ landingContent:
             url: monitor-azure-communications-gateway.md
       - linkListType: how-to-guide
         links:
+          - text: Manage enterprises and numbers in the Number Management Portal
+            url: manage-enterprise.md
           - text: Get support or request changes
             url: request-changes.md
           - text: Set up user roles

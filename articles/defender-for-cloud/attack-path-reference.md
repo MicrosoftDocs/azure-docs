@@ -1,6 +1,5 @@
 ---
 title: Reference list of attack paths and cloud security graph components
-titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
@@ -33,6 +32,11 @@ Prerequisite: For a list of prerequisites, see the [Availability table](how-to-m
 | VM has high severity vulnerabilities and read permission to a data store with sensitive data | A virtual machine has high severity vulnerabilities and read permission to a data store containing sensitive data. <br/>Prerequisite: [Enable data-aware security for storage accounts in Defender CSPM](data-security-posture-enable.md), or [leverage Microsoft Purview Data Catalog to protect sensitive data](information-protection.md). |
 | VM has high severity vulnerabilities and read permission to a key vault | A virtual machine has high severity vulnerabilities and read permission to a key vault. |
 | VM has high severity vulnerabilities and read permission to a data store | A virtual machine has high severity vulnerabilities and read permission to a data store. |
+| Internet exposed VM has high severity vulnerability and insecure SSH private key that can authenticate to another VM | An Azure virtual machine is reachable from the internet, has high severity vulnerabilities and has plaintext SSH private key that can authenticate to another AWS EC2 instance |
+| Internet exposed VM has high severity vulnerabilities and has insecure secret that is used to authenticate to a SQL server | An Azure virtual machine is reachable from the internet, has high severity vulnerabilities and has plaintext SSH private key that can authenticate to an SQL server |
+| VM has high severity vulnerabilities and has insecure secret that is used to authenticate to a SQL server | An Azure virtual machine has high severity vulnerabilities and has plaintext SSH private key that can authenticate to an SQL server |
+| VM has high severity vulnerabilities and has insecure plaintext secret that is used to authenticate to storage account | An Azure virtual machine has high severity vulnerabilities and has plaintext SSH private key that can authenticate to an Azure storage account |
+| Internet expsed VM has high severity vulnerabilities and has insecure secret that is used to authenticate to storage account | An Azure virtual machine is reachable from the internet, has high severity vulnerabilities and has secret that can authenticate to an Azure storage account |
 
 ### AWS EC2 instances
 
@@ -50,6 +54,10 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | EC2 instance with high severity vulnerabilities has read permissions to a data store |An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an S3 bucket via an IAM policy or via a bucket policy, or via both an IAM policy and a bucket policy. |
 | EC2 instance with high severity vulnerabilities has read permissions to a data store with sensitive data | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an S3 bucket containing sensitive data via an IAM policy or via a bucket policy, or via both an IAM and bucket policy. <br/> Prerequisite: [Enable data-aware security for S3 buckets in Defender CSPM](data-security-posture-enable.md), or [leverage Microsoft Purview Data Catalog to protect sensitive data](information-protection.md).  |
 | EC2 instance with high severity vulnerabilities has read permissions to a KMS key | An AWS EC2 instance has high severity vulnerabilities and has an IAM role attached which is granted with permissions to an AWS Key Management Service (KMS) key via an IAM policy, or via an AWS Key Management Service (KMS) policy, or via both an IAM and AWS KMS policy.  |
+| Internet exposed EC2 instance has high severity vulnerability and insecure SSH private key that can authenticate to another AWS EC2 instance | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has plaintext SSH private key that can authenticate to another AWS EC2 instance |
+| Internet exposed EC2 instance has high severity vulnerabilities and has insecure secret that is used to authenticate to a RDS resource | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has plaintext SSH private key that can authenticate to an AWS RDS resource |
+| EC2 instance has high severity vulnerabilities and has insecure plaintext secret that is used to authenticate to a RDS resource | An AWS EC2 instance has high severity vulnerabilities and has plaintext SSH private key that can authenticate to an AWS RDS resource |
+| Internet exposed AWS EC2 instance has high severity vulnerabilities and has insecure secret that has permission to S3 bucket via an IAM policy, or via a bucket policy, or via both an IAM policy and a bucket policy. | An AWS EC2 instance is reachable from the internet, has high severity vulnerabilities and has insecure secret that has permissions to S3 bucket via an IAM policy, a bucket policy or both |
 
 ### Azure data
 
@@ -61,7 +69,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | SQL on VM has a user account with commonly used username and known vulnerabilities (Preview) | SQL on VM has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)|
 | Managed database with excessive internet exposure allows basic (local user/password) authentication (Preview) | Database can be accessed through the internet from any public IP and allows authentication using username and password (basic authentication mechanism) which exposes the DB to brute force attacks. |
 | Internet exposed VM has high severity vulnerabilities and a hosted database installed (Preview) | An attacker with network access to the DB machine can exploit the vulnerabilities and gain remote code execution.|
-| Private Azure blob storage container replicates data to internet exposed and publicly accessible Azure blob storage container | An internal Azure storage container replicates its data to another Azure storage container which is reachable from the internet and allows public access, and poses this data at risk. |
+| Private Azure blob storage container replicates data to internet exposed and publicly accessible Azure blob storage container | An internal Azure storage container replicates its data to another Azure storage container that is reachable from the internet and allows public access, and poses this data at risk. |
 | Internet exposed Azure Blob Storage container with sensitive data is publicly accessible | A blob storage account container with sensitive data is reachable from the internet and allows public read access without authorization required. <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender CSPM](data-security-posture-enable.md).|
 
 ### AWS data

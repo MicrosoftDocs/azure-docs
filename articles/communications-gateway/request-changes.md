@@ -20,8 +20,8 @@ Perform initial troubleshooting to help determine if you should raise an issue w
 
 Raise an issue with Azure Communications Gateway if you experience an issue with:
 - SIP and RTP exchanged by Azure Communications Gateway and your network.
+- The Number Management Portal.
 - Your Azure bill relating to Azure Communications Gateway.
-- The API Bridge, including the API Bridge Number Management Portal.
 
 You must have an **Owner**, **Contributor**, or **Support Request Contributor** role in your Azure Communications Gateway subscription, or a custom role with [Microsoft.Support/*](../role-based-access-control/resource-provider-operations.md#microsoftsupport) at the subscription level.
 
@@ -40,7 +40,7 @@ You must have an **Owner**, **Contributor**, or **Support Request Contributor** 
 1. A new **Service** option will appear giving you the option to select either **My services** or **All services**. Select **My services**.
 1. In **Service type** select **Azure Communications Gateway** from the drop-down menu.
 1. A new **Problem type** option will appear. Select the problem type that most accurately describes your issue from the drop-down menu.
-    * Select **API Bridge Issue** if your API Bridge Number Management Portal is returning errors when you try to gain access or carry out actions.
+    * Select **API Bridge Issue** if your Number Management Portal is returning errors when you try to gain access or carry out actions.
     * Select **Configuration and Setup** if you experience issues during initial provisioning and onboarding, or if you want to change configuration for an existing deployment.
     * Select **Monitoring** for issues with metrics and logs.
     * Select **Voice Call Issue** if calls aren't connecting, have poor quality, or show unexpected behavior.

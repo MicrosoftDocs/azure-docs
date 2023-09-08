@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/18/2022
+ms.date: 08/02/2023
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -408,6 +408,14 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | databaseAccounts | global | 3-44 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 
+## Microsoft.ElasticSan (preview)
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | elasticSans | global | 3-24 | Lowercase letters, numbers, hyphens and underscores.<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or a number.<br><br>Each hyphen and underscore must be preceded and followed by an alphanumeric character. |
+> | elasticSans / volumeGroups | elastic san | 3-63 | Lowercase letters, numbers and hyphens.<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or a number.<br><br>Each hyphen must be preceded and followed by an alphanumeric character. |
+
 ## Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
@@ -416,7 +424,7 @@ In the following tables, the term alphanumeric refers to:
 > | domains | resource group | 3-50 | Alphanumerics and hyphens. |
 > | domains / topics | domain | 3-50 | Alphanumerics and hyphens. |
 > | eventSubscriptions | resource group | 3-64 | Alphanumerics and hyphens. |
-> | topics | resource group | 3-50 | Alphanumerics and hyphens. |
+> | topics | region | 3-50 | Alphanumerics and hyphens. |
 
 ## Microsoft.EventHub
 

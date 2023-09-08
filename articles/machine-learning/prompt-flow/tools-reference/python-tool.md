@@ -5,6 +5,7 @@ description: The Python Tool empowers users to offer customized code snippets as
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: devx-track-python
 ms.topic: reference
 author: likebupt
 ms.author: keli19

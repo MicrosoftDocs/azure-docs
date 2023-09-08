@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 08/08/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -29,6 +29,8 @@ This section describes how the roles assigned to a group can be viewed using the
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -51,7 +53,7 @@ Get-AzureADMSGroup -SearchString "Contoso_Helpdesk_Administrators"
 ### View role assignment to a group
 
 ```powershell
-Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>" 
+Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>'" 
 ```
 
 ## Microsoft Graph API

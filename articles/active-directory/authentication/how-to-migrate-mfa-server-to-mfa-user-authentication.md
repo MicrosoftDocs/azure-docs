@@ -48,7 +48,7 @@ Groups are used in three capacities for MFA migration.
   >Nested and dynamic groups aren't supported for Staged Rollout. Don't use these types of groups.
 
 * **Conditional Access policies**. 
-  You can use either Azure AD or on-premises groups for conditional access.
+  You can use either Azure AD or on-premises groups for Conditional Access.
 
 * **To invoke Azure AD MFA for AD FS applications with claims rules.**
   This step applies only if you use applications with AD FS.
@@ -245,9 +245,9 @@ You can synchronize phone numbers, hardware tokens, and device registrations suc
 
 ### Add users to the appropriate groups 
 
-* If you created new conditional access policies, add the appropriate users to those groups. 
+* If you created new Conditional Access policies, add the appropriate users to those groups. 
 * If you created on-premises security groups for claims rules, add the appropriate users to those groups. 
-* Only after you add users to the appropriate conditional access rules, add users to the group that you created for Staged Rollout. Once done, they'll begin to use the Azure authentication method that you selected (PHS or PTA) and Azure AD MFA when they're required to perform MFA.
+* Only after you add users to the appropriate Conditional Access rules, add users to the group that you created for Staged Rollout. Once done, they'll begin to use the Azure authentication method that you selected (PHS or PTA) and Azure AD MFA when they're required to perform MFA.
 
 > [!IMPORTANT] 
 > Nested and dynamic groups aren't supported for Staged Rollout. Do not use these types of groups. 

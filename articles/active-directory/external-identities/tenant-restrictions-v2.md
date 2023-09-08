@@ -170,6 +170,8 @@ Settings for tenant restrictions V2 are located in the Azure portal under **Cros
 
 ### To configure default tenant restrictions
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or Conditional Access administrator account. Then open the **Azure Active Directory** service.
 
 1. Select **External Identities**

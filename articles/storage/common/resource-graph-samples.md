@@ -7,7 +7,7 @@ author: tamram
 ms.date: 07/07/2022
 ms.topic: sample
 ms.author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.custom: subject-resourcegraph-sample
 ---
 

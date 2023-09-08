@@ -1,7 +1,7 @@
 ---
 title: How to consume and export scan results
 description: Learn how to consume and export Defender for SQL's scan results.
-titleSuffix: Defender for Cloud
+
 ms.topic: how-to
 ms.date: 06/04/2023
 ---
@@ -18,7 +18,7 @@ This article describes several ways to consume and export your scan results.
 
 **To query and export your findings with ARG with Defender for Cloud**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
@@ -45,7 +45,7 @@ These queries are editable and can be customized to a specific resource, set of 
 
 **To query and export your findings with ARG**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Resource Graph Explorer**.
 
@@ -85,7 +85,7 @@ This query is editable and can be customized to a specific resource, set of find
 
 **To open a query from your SQL database**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to `Your SQL database` > **Microsoft Defender for Cloud**.
 

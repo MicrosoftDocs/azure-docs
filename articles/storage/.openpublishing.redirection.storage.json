@@ -46,6 +46,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/blob-inventory-faq.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-faq#multiple-inventory-file-output",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/anonymous-read-access-client.md",
             "redirect_url": "/azure/storage/blobs/anonymous-read-access-prevent",
             "redirect_document_id": false

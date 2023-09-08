@@ -41,6 +41,10 @@ Select the **Run** button to execute your SQL script. The results are displayed 
 
 ![new sql script results table](media/author-sql-script/new-sql-script-results-table.png)
 
+Synapse Studio creates a new session for each SQL script execution. Once a SQL script execution completes, the session is automatically closed.
+
+Temporary tables are only visible to the session in which they were created and are automatically dropped when the session closes.
+
 ## Export your results
 
 You can export the results to your local storage in different formats (including CSV, Excel, JSON, XML) by selecting "Export results" and choosing the extension.

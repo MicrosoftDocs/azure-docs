@@ -1,7 +1,7 @@
 ---
-title: Introduction to Azure Video Indexer audio effects detection
-titleSuffix: Azure Video Indexer 
-description: An introduction to Azure Video Indexer audio effects detection component responsibly.
+title: Introduction to Azure AI Video Indexer audio effects detection
+titleSuffix: Azure AI Video Indexer 
+description: An introduction to Azure AI Video Indexer audio effects detection component responsibly.
 author: Juliako
 ms.author: juliako
 manager: femila
@@ -12,7 +12,7 @@ ms.topic: article
 
 # Audio effects detection 
 
-Audio effects detection is an Azure Video Indexer feature that detects insights on various acoustic events and classifies them into acoustic categories. Audio effect detection can detect and classify different categories such as laughter, crowd reactions, alarms and/or sirens.  
+Audio effects detection is an Azure AI Video Indexer feature that detects insights on various acoustic events and classifies them into acoustic categories. Audio effect detection can detect and classify different categories such as laughter, crowd reactions, alarms and/or sirens.  
 
 When working on the website, the instances are displayed in the Insights tab. They can also be generated in a categorized list in a JSON file that includes the category ID, type, name, and instances per category together with the specific timeframes and confidence score. 
 
@@ -70,7 +70,7 @@ To display the JSON file, do the following:
     ],
     ```
 
-To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 ## Audio effects detection components 
 
@@ -105,7 +105,7 @@ During the audio effects detection procedure, audio in a media file is processed
     - A group of people laughing might be classified as both laughter and crowd. 
     - Natural and nonsynthetic gunshot and explosions sounds are supported. 
 
-When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
+When used responsibly and carefully, Azure AI Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:   
 
 - Always respect an individual’s right to privacy, and only ingest audio for lawful and justifiable purposes.   
 - Don't purposely disclose inappropriate audio of young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.   
@@ -127,7 +127,7 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 - [Face detection](face-detection.md)
 - [OCR](ocr.md)

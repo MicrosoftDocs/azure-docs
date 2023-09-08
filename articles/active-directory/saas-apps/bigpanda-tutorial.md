@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 07/19/2023
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ To integrate Azure Active Directory with BigPanda, you need:
 * An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* BigPanda single sign-on (SSO) enabled subscription.
+* A BigPanda account with the Single Sign On role set to Full Access. See [Roles and Resource Permissions](https://docs.bigpanda.io/docs/roles-management#roles-and-resource-permissions) in the BigPanda documentation for more information.
 
 ## Add application and assign a test user
 
@@ -74,23 +74,19 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://api.bigpanda.io/login/<INSTANCE>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Reply URL and Sign on URL. Contact [BigPanda support team](mailto:support@bigpanda.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Reply URL and Sign on URL. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the file and save it on your computer.
 
-    ![Screenshot shows the Certificate download link.](common/certificateraw.png "Certificate")
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
-1. On the **Set up BigPanda** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up BigPanda** section, copy the **Login URL**.
 
 	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
 ## Configure BigPanda SSO
 
-To configure single sign-on on **BigPanda** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [BigPanda support team](mailto:support@bigpanda.io). They set this setting to have the SAML SSO connection set properly on both sides.
-
-### Create BigPanda test user
-
-In this section, a user called B.Simon is created in BigPanda. BigPanda supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in BigPanda, a new one is commonly created after authentication.
+To configure single sign-on on **BigPanda** side, please follow the instructions from [BigPanda documentation](https://docs.bigpanda.io/docs/azure-ad-active-directory). 
 
 ## Test SSO 
 

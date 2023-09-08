@@ -121,6 +121,8 @@ This section provides instructions for configuring RDS infrastructure to use Azu
 
 ### Acquire Azure Active Directory tenant ID
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 As part of the configuration of the NPS extension, you need to supply admin credentials and the Azure AD ID for your Azure AD tenant. To get the tenant ID, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
@@ -344,7 +346,7 @@ To query successful sign-in events in the Gateway operational logs _(Event Viewe
 * `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '200'} | FL`
 * This command displays the events that show when user met connection authorization policy requirements.
 
-![viewing the connection authorization policy using PowerShell](./media/howto-mfa-nps-extension-rdg/image29.png)
+![Viewing the connection authorization policy using PowerShell](./media/howto-mfa-nps-extension-rdg/image29.png)
 
 You can also view this log and filter on event IDs, 300 and 200. To query successful logon events in the Security event viewer logs, use the following command:
 
@@ -363,7 +365,7 @@ On the server where you installed the NPS extension for Azure AD MFA, you can fi
 
 ## Troubleshoot Guide
 
-If the configuration is not working as expected, the first place to start to troubleshoot is to verify that the user is configured to use Azure AD MFA. Have the user connect to the [Azure portal](https://portal.azure.com). If users are prompted for secondary verification and can successfully authenticate, you can eliminate an incorrect configuration of Azure AD MFA.
+If the configuration is not working as expected, the first place to start to troubleshoot is to verify that the user is configured to use Azure AD MFA. Have the user sign in to the [Azure portal](https://portal.azure.com). If users are prompted for secondary verification and can successfully authenticate, you can eliminate an incorrect configuration of Azure AD MFA.
 
 If Azure AD MFA is working for the user(s), you should review the relevant Event logs. These include the Security Event, Gateway operational, and Azure AD MFA logs that are discussed in the previous section.
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud's security recommendations for MFA
+title: Security recommendations for multi-factor authentication
 description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
 ms.topic: conceptual
 ms.date: 06/28/2023

@@ -52,7 +52,7 @@ Further prompts can be expected in various scenarios:
 
 To ensure the permissions granted for the application are up-to-date, you can compare the permissions that are being requested by the application with the permissions already granted in the tenant. 
 
-1. Sign-in to the Azure portal with an administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Select the application in question from the list.
 4. Under Security in the left-hand navigation, choose **Permissions**
@@ -64,7 +64,7 @@ To ensure the permissions granted for the application are up-to-date, you can co
 
 If the application requires assignment, individual users can't consent for themselves. To check if assignment is required for the application, do the following:
 
-1. Sign-in to the Azure portal with an administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Select the application in question from the list.
 4. Under Manage in the left-hand navigation, choose **Properties**.
@@ -75,7 +75,7 @@ If the application requires assignment, individual users can't consent for thems
 
 Determining whether an individual user can consent to an application can be configured by every organization, and may differ from directory to directory. Even if every permission doesn't require admin consent by default, your organization may have disabled user consent entirely, preventing an individual user to consent for themselves for an application. To view your organization's user consent settings, do the following:
 
-1. Sign-in to the Azure portal with an administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Under Security in the left-hand navigation, choose **Consent and permissions**.
 4. View the user consent settings. If set to *Do not allow user consent*, users will never be able to consent on behalf of themselves for an application.

@@ -45,12 +45,11 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 This section guides you through connecting your Azure AD to LinkedIn Elevate's SCIM user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in LinkedIn Elevate based on user and group assignment in Azure AD.
 
-**Tip:** You may also choose to enabled SAML-based Single Sign-On for LinkedIn Elevate, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other.
+**Tip:** You may also choose to enabled SAML-based Single Sign-On for LinkedIn Elevate, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other.
 
 ### To configure automatic user account provisioning to LinkedIn Elevate in Azure AD:
 
-The first step is to retrieve your LinkedIn access token. If you are an Enterprise administrator, you can self-provision an
-    access token. In your account center, go to **Settings &gt; Global Settings** and open the **SCIM Setup** panel.
+The first step is to retrieve your LinkedIn access token. If you are an Enterprise administrator, you can self-provision an access token. In your account center, go to **Settings &gt; Global Settings** and open the **SCIM Setup** panel.
 
 > [!NOTE]
 > If you are accessing the account center directly rather than through a link, you can reach it using the following steps.
@@ -73,11 +72,9 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
     ![Screenshot shows the S C I M Setup page.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
-5. Click **Generate token**. You should see your access token display
-    under the **Access token** field.
+5. Click **Generate token**. You should see your access token display under the **Access token** field.
 
-6. Save your access token to your clipboard or computer before leaving
-    the page.
+6. Save your access token to your clipboard or computer before leaving the page.
 
 7. Next, sign in to the [Azure portal](https://portal.azure.com), and browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
 
@@ -95,8 +92,7 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
     * In the **Secret Token** field, enter the access token you generated in step 1 and click **Test Connection** .
 
-    * You should see a success notification on the upper-right side of
-    your portal.
+    * You should see a success notification on the upper-right side of your portal.
 
 12. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 

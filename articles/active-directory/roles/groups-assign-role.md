@@ -32,6 +32,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Assigning an Azure AD role to a group is similar to assigning users and service principals except that only groups that are role-assignable can be used.
 
 > [!TIP]
@@ -74,7 +76,7 @@ $group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description
 
 ### Get the role definition you want to assign
 
-Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.devicemanagement.enrolment/get-mgrolemanagementdirectoryroledefinition?branch=main) command to get a role definition.
+Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition?view=graph-powershell-1.0) command to get a role definition.
 
 ```powershell
 $roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'"
@@ -82,7 +84,7 @@ $roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayNa
 
 ### Create a role assignment
 
-Use the [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment?branch=main) command to assign the role.
+Use the [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0) command to assign the role.
 
 ```powershell
 $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id

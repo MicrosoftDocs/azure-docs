@@ -2,6 +2,7 @@
 author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 07/11/2023
 ---

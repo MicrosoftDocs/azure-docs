@@ -5,7 +5,7 @@ description: Learn how to use gateways with Windows 10 or later Always On to est
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---

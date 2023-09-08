@@ -238,12 +238,11 @@ In this section, you configure your VPN server to use RADIUS authentication. The
 
 7. In the **Add RADIUS Server** window, do the following:
 
-    a. In the **Server name** box, enter the name or IP address of the RADIUS server that you configured in the previous section.
+    1. In the **Server name** box, enter the name or IP address of the RADIUS server that you configured in the previous section.
 
-    b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
+    1. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
-    c. In the **Time-out (seconds)** box, enter a value of **60**.  
-    To minimize discarded requests, we recommend that VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
+    1. In the **Time-out (seconds)** box, enter a value of **60**. To minimize discarded requests, we recommend that VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
 
 8. Select **OK**.
 
@@ -323,6 +322,8 @@ If the value is set to *TRUE* or is blank, all authentication requests are subje
 
 
 ### Obtain the Azure Active Directory tenant ID
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 
@@ -430,7 +431,7 @@ Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
 
 ## Troubleshooting guide
 
-If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user connect to the [Azure portal](https://portal.azure.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
+If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user sign in to the [Azure portal](https://portal.azure.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
 
 If MFA is working for the user, review the relevant Event Viewer logs. The logs include the security event, Gateway operational, and Azure AD Multi-Factor Authentication logs that are discussed in the previous section.
 

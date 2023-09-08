@@ -44,7 +44,6 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Visual Studio** | Visual Studio Professional³         | MSDN_2014-09-01 | MS-AZR-0059P | October 2, 2018 |
 | **Visual Studio** | Visual Studio Test Professional³    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | October 2, 2018 |
 | **Visual Studio** | Visual Studio Enterprise³           | MSDN_2014-09-01 | MS-AZR-0063P | October 2, 2018 |
-| **Visual Studio** | Visual Studio Enterprise: BizSpark³ | MSDN_2014-09-01 | MS-AZR-0064P | October 2, 2018 |
 
 _¹ For data before May 2014, visit the [Azure Enterprise portal](https://ea.azure.com)._
 
@@ -172,7 +171,7 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 - Azure Pass (MS-AZR-0120P, MS-AZR-0123P, MS-AZR-0125P, MS-AZR-0128P, MS-AZR-0129P)
 - Free Trial (MS-AZR-0044P)
 - MSDN (MS-AZR-0062P)
-- Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
+- Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P)
 
 ## Next steps
 

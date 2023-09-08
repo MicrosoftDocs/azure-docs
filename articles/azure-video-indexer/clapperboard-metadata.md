@@ -12,7 +12,7 @@ ms.author: juliako
 
 A clapperboard insight is used to detect clapperboard instances and information written on each. For example, *head* or *tail* (the board is upside-down), *production*, *roll*, *scene*, *take*, *date*, etc. The [clapperboard](https://en.wikipedia.org/wiki/Clapperboard)'s extracted metadata is most useful to customers involved in the movie post-production process. 
 
-When the movie is being edited, a clapperboard is removed from the scene; however, the information that was written on the clapperboard is important. Azure Video Indexer extracts the data from clapperboards, preserves, and presents the metadata. 
+When the movie is being edited, a clapperboard is removed from the scene; however, the information that was written on the clapperboard is important. Azure AI Video Indexer extracts the data from clapperboards, preserves, and presents the metadata. 
 
 This article shows how to enable the post-production insight and view clapperboard instances with extracted metadata.
 

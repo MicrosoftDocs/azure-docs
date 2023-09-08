@@ -3,13 +3,13 @@ title: Manage Cloud NGFW by Palo Alto Networks resource through the Azure portal
 description: This article describes management functions for Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks on the Azure portal. 
 
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 07/17/2023
 
 ---
 
-# Manage your Cloud NGFW by Palo Alto Networks Preview through the portal
+# Manage your Cloud NGFW by Palo Alto Networks through the portal
 
-Once your Cloud NGFW by Palo Alto Networks Preview resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your Palo Alto resource.
+Once your Cloud NGFW by Palo Alto Networks resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your Palo Alto resource.
 
 - [Networking and NAT](#networking-and-nat)
 - [Rulestack](#rulestack)

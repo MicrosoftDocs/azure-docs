@@ -4,7 +4,7 @@ description: Learn how to integrate a VNET with an external Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.topic:  how-to
 ms.date: 08/31/2022
 ms.author: cshoe

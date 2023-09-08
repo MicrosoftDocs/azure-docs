@@ -36,6 +36,8 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the administrative units for a single user, group, or device
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.

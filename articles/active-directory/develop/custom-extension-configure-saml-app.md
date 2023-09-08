@@ -26,7 +26,7 @@ This article describes how to configure a SAML application to receive tokens wit
 Before configuring a SAML application to receive tokens with external claims, first follow these sections:
 
 - [Create a custom claims provider API](custom-extension-get-started.md#step-1-create-an-azure-function-app)
-- [Register a custom claims extension](custom-extension-get-started.md#step-2-register-a-custom-extension)
+- [Register a custom claims extension](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension)
 
 ## Configure a SAML application that receives enriched tokens
 
@@ -36,9 +36,13 @@ The following steps are for registering a demo [XRayClaims](https://adfshelp.mic
 
 ### Add a new SAML application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Add a new, non-gallery SAML application in your tenant:
 
-1. In the [Azure portal](https://portal.azure.com), go to **Azure Active Directory** and then **Enterprise applications**.  Select **New application** and then **Create your own application**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Go to **Azure Active Directory** and then **Enterprise applications**.  Select **New application** and then **Create your own application**.
 
 1. Add a name for the app.  For example, **AzureADClaimsXRay**.  Select the **Integrate any other application you don't find in the gallery (Non-gallery)** option and select **Create**.
 
@@ -66,7 +70,7 @@ Attributes that return by your custom claims provider API aren't automatically i
 
 1. Select on **Configure** for **Custom claims provider**.
 
-1. Select the custom extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-extension) in the **Custom claims provider** dropdown.  Select **Save**.
+1. Select the custom authentication extension you [registered previously](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension) in the **Custom claims provider** dropdown.  Select **Save**.
 
 1. Select **Add new claim** to add a new claim.
 
@@ -86,7 +90,7 @@ Before testing the user sign-in, you must assign a user or group of users to the
 
 1. In the **Users and groups** page, select **Add user/group**.
 
-1. Search for and select the user to sign into the app.  Select the **Assign** button.
+1. Search for and select the user to sign in to the app.  Select the **Assign** button.
 
 ### Test the application
 

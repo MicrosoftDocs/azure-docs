@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Configure CMMC Level 2 Identification and Authentication (IA) controls
 
-Azure Active Directory helps you meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To complete other configurations or processes to be compliant with [CMMC V2.0 level 2](https://cmmc-coe.org/maturity-level-two/)requirements, is the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD).
+Azure Active Directory helps you meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To complete other configurations or processes to be compliant with CMMC V2.0 level 2 requirements, is the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD).
 
 CMMC Level 2 has 13 domains that have one or more practices related to identity. The domains are:
 

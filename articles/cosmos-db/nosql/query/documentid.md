@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/19/2023
 ms.custom: query-reference
 ---
 
@@ -38,55 +38,19 @@ Integer identifying an item within a physical partition.
 
 This example illustrates using this function to extract and return the integer identifier relative to a physical partition.
 
-```json
-[
-  {
-    "id": "63700",
-    "name": "Joltage Kid's Vest"
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid/seed.novalidate.json" highlight="3":::
 
-```sql
-SELECT
-    p.id,
-    p._rid,
-    DOCUMENTID(p) AS documentId
-FROM  
-    product p
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/documentid/query.novalidate.sql" highlight="4":::  
 
-```json
-[
-  {
-    "id": "63700",
-    "_rid": "36ZyAPW+uN8NAAAAAAAAAA==",
-    "documentId": 13
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid/result.novalidate.json":::
 
 This function can also be used as a filter.
 
-```sql
-SELECT
-    p.id,
-    DOCUMENTID(p) AS documentId
-FROM  
-    product p
-WHERE
-    DOCUMENTID(p) >= 5 AND
-    DOCUMENTID(p) <= 15
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/seed.novalidate.json" highlight="3":::
 
-```json
-[
-  {
-    "id": "63700",
-    "documentId": 13
-  }
-]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/query.novalidate.sql" highlight="3,7-8":::  
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/documentid-filter/result.novalidate.json":::
 
 ## Remarks
 

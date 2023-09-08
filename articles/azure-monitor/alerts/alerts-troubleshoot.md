@@ -166,7 +166,7 @@ If you have received a notification for an alert (such as an email or an SMS) mo
 ## Action or notification has an unexpected content
 Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible. You can know that you are recieving a degraded experience, if there is a note at the top of your email notification that says: 
 
-"This is a degraded email experience. That means the formatting may be off or details could be missing. For more infomration on teh degraded emaiol experience, read here."
+"This is a degraded email experience. That means the formatting may be off or details could be missing. For more infomration on the degraded email experience, read here."
 
 If your notification does not contain this note and you have received the alert, but believe some of its fields are missing or incorrect, follow these steps: 
 

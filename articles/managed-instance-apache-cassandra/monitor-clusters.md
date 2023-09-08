@@ -35,7 +35,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 ## <a id="create-setting-portal"></a> Create diagnostic settings via the Azure portal
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Managed Instance for Apache Cassandra cluster resource. 
 

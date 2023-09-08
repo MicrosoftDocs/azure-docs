@@ -3,7 +3,7 @@ title: Azure VM Image Builder overview
 description: In this article, you learn about VM Image Builder for virtual machines in Azure.
 author: sumit-kalra
 ms.author: sukalra
-ms.date: 05/30/2023
+ms.date: 07/31/2023
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -150,6 +150,20 @@ VM Image Builder supports the following Azure Marketplace base operating system 
 
 > [!NOTE]
 > You can now use the Azure Image Builder service inside the portal as of March 2023. [Get started](https://ms.portal.azure.com/#create/Microsoft.ImageTemplate) with building and validating custom images inside the portal.
+
+## Confidential VM and Trusted Launch Support
+
+VM Image Builder has extended support for TrustedLaunchSupported and ConfidentialVMSupported images, with certain constraints. Below is the list of constraints:
+
+| SecurityType | Support status |
+|--------------|----------------|
+| TrustedLaunchSupported | Support as a source image for image builds |
+| ConfidentialVMSupported | Support as a source image for image builds |
+| TrustedLaunch | Not supported as a source image |
+| ConfidentialVM | Not supported as a source image |
+
+> [!NOTE]
+> When using TrustedLaunchSupported images, it's important that the source and distribute must both be TrustedLaunchSupported for it to be supported. If the source is normal and the distribute is TrustedLaunchSupported, or if the source is TrustedLaunchSupported and the distribute is normal Gen2, it's not supported.
 
 ## How it works
 

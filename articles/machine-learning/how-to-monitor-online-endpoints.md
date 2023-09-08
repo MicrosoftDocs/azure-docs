@@ -5,10 +5,10 @@ description: Monitor online endpoints and create alerts with Application Insight
 services: machine-learning
 ms.service: machine-learning
 ms.reviewer: mopeakande 
-author: Bozhong68
-ms.author: bozhlin
+author: dem108
+ms.author: sehan
 ms.subservice: mlops
-ms.date: 08/29/2022
+ms.date: 07/17/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
@@ -50,7 +50,7 @@ To access the metrics pages through links available in the studio:
 
 To access metrics directly from the Azure portal:
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the online endpoint or deployment resource.
 
     Online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
@@ -122,7 +122,7 @@ You can also create custom alerts to notify you of important status updates to y
 
 There are three logs that can be enabled for online endpoints:
 
-* **AMLOnlineEndpointTrafficLog** (preview): You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
+* **AMLOnlineEndpointTrafficLog**: You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
 
     * If the response isn't 200, check the value of the column "ResponseCodeReason" to see what happened. Also check the reason in the "HTTPS status codes" section of the [Troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md#http-status-codes) article.
 
@@ -142,7 +142,7 @@ There are three logs that can be enabled for online endpoints:
 
     * You may also use this log for performance analysis in determining the time required by the model to process each request. 
 
-* **AMLOnlineEndpointEventLog** (preview): Contains event information regarding the container's life cycle. Currently, we provide information on the following types of events: 
+* **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
 
     | Name | Message |
     | ----- | ----- | 
@@ -194,7 +194,7 @@ You can find example queries on the __Queries__ tab while viewing logs. Search f
 
 The following tables provide details on the data stored in each log:
 
-**AMLOnlineEndpointTrafficLog** (preview)
+**AMLOnlineEndpointTrafficLog**
 
 [!INCLUDE [endpoint-monitor-traffic-reference](includes/endpoint-monitor-traffic-reference.md)]
 
@@ -202,7 +202,7 @@ The following tables provide details on the data stored in each log:
 
 [!INCLUDE [endpoint-monitor-console-reference](includes/endpoint-monitor-console-reference.md)]
 
-**AMLOnlineEndpointEventLog** (preview)
+**AMLOnlineEndpointEventLog**
 
 [!INCLUDE [endpoint-monitor-event-reference](includes/endpoint-monitor-event-reference.md)]
 

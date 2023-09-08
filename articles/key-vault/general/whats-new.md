@@ -19,6 +19,12 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## July 2023
+
+Built-in policy to govern the key rotation configuration in Azure Key Vault. With this policy, you can audit existing keys in key vaults to ensure that all keys are configured for rotation and comply with your organization's standards. 
+
+For more information, see [Configure key rotation governance](../keys/how-to-configure-key-rotation.md#configure-key-rotation-policy-governance)
+
 ## June 2023
 
 Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).

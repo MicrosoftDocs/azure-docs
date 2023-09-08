@@ -21,15 +21,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: ASP.NET
-            url: web-app-quickstart.md?pivots=devlang-aspnet
+            url: quickstart-web-app-aspnet-sign-in.md
           - text: ASP.NET Core
-            url: web-app-quickstart.md?pivots=devlang-aspnet-core
+            url: quickstart-web-app-aspnet-core-sign-in.md
           - text: Java
-            url: web-app-quickstart.md?pivots=devlang-java
+            url: quickstart-web-app-java-sign-in.md
           - text: Node.js with MSAL
-            url: web-app-quickstart.md?pivots=devlang-nodejs-msal
+            url: quickstart-web-app-nodejs-msal-sign-in.md
           - text: Python
-            url: web-app-quickstart.md?pivots=devlang-python
+            url: quickstart-web-app-python-sign-in.md
   - title: "Learn by building"
     linkLists:
       - linkListType: tutorial

@@ -29,7 +29,7 @@ This article is applicable only to the following devices:
 
 For Windows 10 or newer and Windows Server 2016, see [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
 
-This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
+This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-join-plan.md) to support the following scenarios:
 
 - Device-based Conditional Access
 

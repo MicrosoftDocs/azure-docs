@@ -50,7 +50,7 @@ If you select the **Private access** option on the **Networking** page of the na
 
 If you already have an existing namespace, you can create a private endpoint by following these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type in **Service Bus**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 2. On the left menu, select **Networking** option under **Settings**.  

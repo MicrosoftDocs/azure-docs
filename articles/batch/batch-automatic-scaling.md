@@ -3,8 +3,7 @@ title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
 ms.date: 05/26/2023
-ms.custom: "H1Hack27Feb2017, fasttrack-edit, devx-track-csharp"
-
+ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp, devx-track-linux
 ---
 
 # Create a formula to automatically scale compute nodes in a Batch pool

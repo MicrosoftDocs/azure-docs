@@ -27,17 +27,20 @@ Azure AD stores audit events for up to 30 days in the audit log. However, you ca
 
 
 ## Configure Azure AD to use Azure Monitor
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before you use the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
 
 Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor in [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
 
 **Prerequisite role**: Global Administrator
 
-1. Sign in to the Azure portal as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user who is a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
 1. Select **Azure Active Directory** then select **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
 
-1. If there isn't already a setting, select **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) to send the Azure AD audit log to the Azure Monitor workspace.
+1. If there isn't already a setting, select **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to send the Azure AD audit log to the Azure Monitor workspace.
 
     ![Diagnostics settings pane](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
 
@@ -183,6 +186,29 @@ You can also retrieve entitlement management events using a query like:
 $bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
+```
+
+### Using query filters
+
+You can include the `TimeGenerated` field to scope a query to a particular time range. For example, to retrieve the audit log events for entitlement management access package assignment policies being created or updated in the last 90 days, you can supply a query that includes this field as well the category and operation type.
+
+```
+AuditLogs | 
+where TimeGenerated > ago(90d) and Category == "EntitlementManagement" and Result == "success" and (AADOperationType == "CreateEntitlementGrantPolicy" or AADOperationType == "UpdateEntitlementGrantPolicy") | 
+project ActivityDateTime,OperationName, InitiatedBy, AdditionalDetails, TargetResources
+```
+
+For audit events of some services such as entitlement management, you can also expand and filter on the affected properties of the resources being changed.  For example, you can view just those audit log records for access package assignment policies being created or updated, that do not require approval for users to have an assignment added.
+
+```
+AuditLogs | 
+where TimeGenerated > ago(90d) and Category == "EntitlementManagement" and Result == "success" and (AADOperationType == "CreateEntitlementGrantPolicy" or AADOperationType == "UpdateEntitlementGrantPolicy") | 
+mv-expand TargetResources | 
+where TargetResources.type == "AccessPackageAssignmentPolicy" | 
+project ActivityDateTime,OperationName,InitiatedBy,PolicyId=TargetResources.id,PolicyDisplayName=TargetResources.displayName,MP1=TargetResources.modifiedProperties | 
+mv-expand MP1 | 
+where (MP1.displayName == "IsApprovalRequiredForAdd" and MP1.newValue == "\"False\"") |
+order by ActivityDateTime desc 
 ```
 
 ## Next steps

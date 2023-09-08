@@ -14,6 +14,8 @@ In this article, you’ll learn how to configure SQL Azure hybrid benefits to an
 
 For example, if each host in Azure VMware Solution has 36 cores and you signal that two hosts run SQL, then SQL Azure hybrid benefit will apply to 72 cores irrespective of the number of SQL or other virtual machines on that host.
 
+You can also choose to view a video tutorial for configuring SQL Azure hybrid benefits for Azure VMware Solution [here](https://www.youtube.com/watch?v=vJIQ1K2KTa0).
+
 ## Configure host-VM placement policy
 1.	From your Azure VMware Solution private cloud, select Azure hybrid benefit, then Create host-VM placement policy.
  :::image type="content" source="media/sql-azure-hybrid-benefit/azure-hybrid-benefit.png" alt-text="Diagram that shows how to create a host new virtual machine placement policy.":::

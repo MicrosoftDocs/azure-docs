@@ -32,6 +32,292 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## July 2023
+
+### General Availability: Azure Active Directory (Azure AD) is being renamed.
+
+**Type:** Changed feature       
+**Service category:**  N/A                          
+**Product capability:** End User Experiences                
+
+**No action is required from you, but you may need to update some of your own documentation.**
+
+Azure AD is being renamed to Microsoft Entra ID. The name change rolls out across all Microsoft products and experiences throughout the second half of 2023. 
+
+Capabilities, licensing, and usage of the product isn't changing. To make the transition seamless for you, the pricing, terms, service level agreements, URLs, APIs, PowerShell cmdlets, Microsoft Authentication Library (MSAL) and developer tooling remain the same.   
+
+Learn more and get renaming details: [New name for Azure Active Directory](../fundamentals/new-name.md).
+
+---
+
+### General Availability - Include/exclude My Apps in Conditional Access policies
+
+**Type:** Fixed       
+**Service category:** Conditional Access                            
+**Product capability:** End User Experiences                  
+
+My Apps can now be targeted in Conditional Access policies. This solves a top customer blocker. The functionality is available in all clouds. GA also brings a new app launcher, which improves app launch performance for both SAML and other app types. 
+
+Learn More about setting up Conditional Access policies here: [Azure AD Conditional Access documentation](../conditional-access/index.yml).
+
+---
+
+### General Availability - Conditional Access for Protected Actions
+
+**Type:** New feature         
+**Service category:** Conditional Access                            
+**Product capability:** Identity Security & Protection                    
+
+Protected actions are high-risk operations, such as altering access policies or changing trust settings, that can significantly impact an organization's security. To add an extra layer of protection, Conditional Access for Protected Actions lets organizations define specific conditions for users to perform these sensitive tasks. For more information, see: [What are protected actions in Azure AD?](../roles/protected-actions-overview.md).
+
+---
+
+### General Availability - Access Reviews for Inactive Users
+
+**Type:** New feature         
+**Service category:** Access Reviews                            
+**Product capability:** Identity Governance                      
+
+This new feature, part of the Microsoft Entra ID Governance SKU, allows admins to review and address stale accounts that haven’t been active for a specified period. Admins can set a specific duration to determine inactive accounts that weren't used for either interactive or non-interactive sign-in activities. As part of the review process, stale accounts can automatically be removed. For more information, see: [Microsoft Entra ID Governance Introduces Two New Features in Access Reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-id-governance-introduces-two-new-features-in/ba-p/2466930).
+
+---
+
+### General Availability - Automatic assignments to access packages in Microsoft Entra ID Governance
+
+**Type:** Changed feature       
+**Service category:** Entitlement Management                          
+**Product capability:** Entitlement Management                
+
+Microsoft Entra ID Governance includes the ability for a customer to configure an assignment policy in an entitlement management access package that includes an attribute-based rule, similar to dynamic groups, of the users who should be assigned access. For more information, see: [Configure an automatic assignment policy for an access package in entitlement management](../governance/entitlement-management-access-package-auto-assignment-policy.md).
+
+---
+
+### General Availability - Custom Extensions in Entitlement Management 
+
+**Type:** New feature       
+**Service category:** Entitlement Management                          
+**Product capability:** Entitlement Management                
+
+Custom extensions in Entitlement Management are now generally available, and allow you to extend the access lifecycle with your organization-specific processes and business logic when access is requested or about to expire. With custom extensions you can create tickets for manual access provisioning in disconnected systems, send custom notifications to additional stakeholders, or automate additional access-related configuration in your business applications such as assigning the correct sales region in Salesforce. You can also leverage custom extensions to embed external governance, risk, and compliance (GRC) checks in the access request.
+
+For more information, see:
+
+- [Microsoft Entra ID Governance Entitlement Management New Generally Available Capabilities](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-id-governance-entitlement-management-new/ba-p/2466929)
+- [Trigger Logic Apps with custom extensions in entitlement management](../governance/entitlement-management-logic-apps-integration.md)
+
+---
+
+### General Availability - Conditional Access templates
+
+**Type:** Plan for change         
+**Service category:** Conditional Access                             
+**Product capability:** Identity Security & Protection                  
+
+Conditional Access templates are predefined set of conditions and controls that provide a convenient method to deploy new policies aligned with Microsoft recommendations. Customers are assured that their policies reflect modern best practices for securing corporate assets, promoting secure, optimal access for their hybrid workforce. For more information, see: [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md).
+
+---
+
+### General Availability - Lifecycle Workflows
+
+**Type:** New feature       
+**Service category:** Lifecycle Workflows                            
+**Product capability:** Identity Governance                  
+
+User identity lifecycle is a critical part of an organization’s security posture, and when managed correctly, can have a positive impact on their users’ productivity for Joiners, Movers, and Leavers. The ongoing digital transformation is accelerating the need for good identity lifecycle management. However, IT and security teams face enormous challenges managing the complex, time-consuming, and error-prone manual processes necessary to execute the required onboarding and offboarding tasks for hundreds of employees at once. This is an ever present and complex issue IT admins continue to face with digital transformation across security, governance, and compliance.
+
+Lifecycle Workflows, one of our newest Microsoft Entra ID Governance capabilities is now generally available to help organizations further optimize their user identity lifecycle. For more information, see: [Lifecycle Workflows is now generally available!](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/lifecycle-workflows-is-now-generally-available/ba-p/2466931)
+
+---
+
+### General Availability - Enabling extended customization capabilities for sign-in and sign-up pages in Company Branding capabilities.
+
+**Type:** New feature       
+**Service category:** User Experience and Management                            
+**Product capability:** User Authentication                
+
+Update the Microsoft Entra ID and Microsoft 365 sign in experience with new Company Branding capabilities. You can apply your company’s brand guidance to authentication experiences with predefined templates. For more information, see: [Company Branding](../fundamentals/how-to-customize-branding.md) 
+
+---
+
+### General Availability - Enabling customization capabilities for the Self-Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icons in Company Branding.
+
+**Type:** Changed feature       
+**Service category:** User Experience and Management                            
+**Product capability:** End User Experiences                  
+
+Update the Company Branding functionality on the Microsoft Entra ID/Microsoft 365 sign in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks, and a browser icon. For more information, see: [Company Branding](../fundamentals/how-to-customize-branding.md) 
+
+---
+
+### General Availability - User-to-Group Affiliation recommendation for group Access Reviews
+
+**Type:** New feature       
+**Service category:** Access Reviews                            
+**Product capability:** Identity Governance                  
+
+This feature provides Machine Learning based recommendations to the reviewers of Azure AD Access Reviews to make the review experience easier and more accurate. The recommendation leverages machine learning based scoring mechanism and compares users’ relative affiliation with other users in the group, based on the organization’s reporting structure. For more information, see:  [Review recommendations for Access reviews](../governance/review-recommendations-access-reviews.md) and [Introducing Machine Learning based recommendations in Azure AD Access reviews](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/introducing-machine-learning-based-recommendations-in-azure-ad/ba-p/2466923)
+
+---
+
+### Public Preview - Inactive guest insights
+
+**Type:** New feature       
+**Service category:** Reporting                            
+**Product capability:** Identity Governance                  
+
+Monitor guest accounts at scale with intelligent insights into inactive guest users in your organization. Customize the inactivity threshold depending on your organization’s needs, narrow down the scope of guest users you want to monitor and identify the guest users that may be inactive. For more information, see: [Monitor and clean up stale guest accounts using access reviews](../enterprise-users/clean-up-stale-guest-accounts.md).
+
+---
+
+### Public Preview - Just-in-time application access with PIM for Groups
+
+**Type:** New feature       
+**Service category:** Privileged Identity Management                            
+**Product capability:** Privileged Identity Management                  
+
+You can minimize the number of persistent administrators in applications such as [AWS](../saas-apps/aws-single-sign-on-provisioning-tutorial.md#just-in-time-jit-application-access-with-pim-for-groups-preview)/[GCP](../saas-apps/g-suite-provisioning-tutorial.md#just-in-time-jit-application-access-with-pim-for-groups-preview) and get JIT access to groups in AWS and GCP. While PIM for Groups is publicly available, we’ve released a public preview that integrates PIM with provisioning and reduces the activation delay from 40+ minutes to 1 – 2 minutes.
+
+---
+
+### Public Preview - Graph beta API for PIM security alerts on Azure AD roles
+
+**Type:** New feature       
+**Service category:** Privileged Identity Management                            
+**Product capability:** Privileged Identity Management                 
+
+Announcing API support (beta) for managing PIM security alerts for Azure AD roles. [Azure Privileged Identity Management (PIM)](../privileged-identity-management/index.yml) generates alerts when there's suspicious or unsafe activity in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra. You can now manage these alerts using REST APIs. These alerts can also be [managed through the Azure portal](../privileged-identity-management/pim-resource-roles-configure-alerts.md). For more information, see:  [unifiedRoleManagementAlert resource type](/graph/api/resources/unifiedrolemanagementalert).
+
+---
+
+### General Availability - Reset Password on Azure Mobile App
+
+**Type:** New feature       
+**Service category:** Other                            
+**Product capability:** End User Experiences                
+
+The Azure mobile app has been enhanced to empower admins with specific permissions to conveniently reset their users' passwords. Self Service Password Reset will not be supported at this time. However, users can still more efficiently control and streamline their own sign-in and auth methods. The mobile app can be downloaded for each platform here:
+
+- Android: https://aka.ms/AzureAndroidWhatsNew
+- IOS: https://aka.ms/ReferAzureIOSWhatsNew
+
+---
+
+### Public Preview - API-driven inbound user provisioning 
+
+**Type:** New feature       
+**Service category:** Provisioning                              
+**Product capability:** Inbound to Azure AD                  
+
+With API-driven inbound provisioning, Microsoft Entra ID provisioning service now supports integration with any system of record. Customers and partners can use any automation tool of their choice to retrieve workforce data from any system of record for provisioning into Entra ID and connected on-premises Active Directory domains. The IT admin has full control on how the data is processed and transformed with attribute mappings. Once the workforce data is available in Entra ID, the IT admin can configure appropriate joiner-mover-leaver business processes using Entra ID Governance Lifecycle Workflows. For more information, see: [API-driven inbound provisioning concepts (Public preview)](../app-provisioning/inbound-provisioning-api-concepts.md).
+
+---
+
+### Public Preview - Dynamic Groups based on EmployeeHireDate User attribute
+
+**Type:** New feature       
+**Service category:** Group Management                                
+**Product capability:** Directory                    
+
+This feature enables admins to create dynamic group rules based on the user objects' employeeHireDate attribute. For more information, see: [Properties of type string](../enterprise-users/groups-dynamic-membership.md#properties-of-type-string).
+
+---
+
+### General Availability - Enhanced Create User and Invite User Experiences
+
+**Type:** Changed feature       
+**Service category:** User Management                                  
+**Product capability:** User Management                      
+
+We have increased the number of properties admins are able to define when creating and inviting a user in the Entra admin portal, bringing our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, and assign roles. For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+
+---
+
+### General Availability - All Users and User Profile
+
+**Type:** Changed feature       
+**Service category:** User Management                                  
+**Product capability:** User Management                   
+
+The All Users list now features an infinite scroll, and admins can now modify more properties in the User Profile. For more information, see: [How to create, invite, and delete users](../fundamentals/how-to-create-delete-users.md).
+
+---
+
+### Public Preview - Windows MAM
+
+**Type:** New feature       
+**Service category:** Conditional Access                                
+**Product capability:** Identity Security & Protection                    
+
+“*When will you have MAM for Windows?*” is one of our most frequently asked customer questions. We’re happy to report that the answer is: “Now!” We’re excited to offer this new and long-awaited MAM Conditional Access capability in Public Preview for Microsoft Edge for Business on Windows.
+
+Using MAM Conditional Access, Microsoft Edge for Business provides users with secure access to organizational data on personal Windows devices with a customizable user experience. We’ve combined the familiar security features of app protection policies (APP), Windows Defender client threat defense, and Conditional Access, all anchored to Azure AD identity to ensure un-managed devices are healthy and protected before granting data access. This can help businesses to improve their security posture and protect sensitive data from unauthorized access, without requiring full mobile device enrollment.
+
+The new capability extends the benefits of app layer management to the Windows platform via Microsoft Edge for Business. Admins are empowered to configure the user experience and protect organizational data within Microsoft Edge for Business on un-managed Windows devices.
+
+For more information, see: [Require an app protection policy on Windows devices (preview)](../conditional-access/how-to-app-protection-policy-windows.md).
+
+---
+
+### General Availability - New Federated Apps available in Azure AD Application gallery - July 2023
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                
+**Product capability:** 3rd Party Integration          
+
+In July 2023 we've added the following 10 new applications in our App gallery with Federation support:    
+
+[Gainsight SAML](../saas-apps/gainsight-saml-tutorial.md), [Dataddo](https://www.dataddo.com/), [Puzzel](https://www.puzzel.com/), [Worthix App](../saas-apps/worthix-app-tutorial.md), [iOps360 IdConnect](https://iops360.com/iops360-id-connect-azuread-single-sign-on/), [Airbase](../saas-apps/airbase-tutorial.md), [Couchbase Capella - SSO](../saas-apps/couchbase-capella-sso-tutorial.md), [SSO for Jama Connect®](../saas-apps/sso-for-jama-connect-tutorial.md), [mediment (メディメント)](https://mediment.jp/), [Netskope Cloud Exchange Administration Console](../saas-apps/netskope-cloud-exchange-administration-console-tutorial.md), [Uber](../saas-apps/uber-tutorial.md), [Plenda](https://app.plenda.nl/), [Deem Mobile](../saas-apps/deem-mobile-tutorial.md), [40SEAS](https://www.40seas.com/), [Vivantio](https://www.vivantio.com/), [AppTweak](https://www.apptweak.com/), [ioTORQ EMIS](https://www.iotorq.com/), [Vbrick Rev Cloud](../saas-apps/vbrick-rev-cloud-tutorial.md), [OptiTurn](../saas-apps/optiturn-tutorial.md), [Application Experience with Mist](https://www.mist.com/), [クラウド勤怠管理システムKING OF TIME](../saas-apps/cloud-attendance-management-system-king-of-time-tutorial.md), [Connect1](../saas-apps/connect1-tutorial.md), [DB Education Portal for Schools](../saas-apps/db-education-portal-for-schools-tutorial.md), [SURFconext](../saas-apps/surfconext-tutorial.md), [Chengliye Smart SMS Platform](../saas-apps/chengliye-smart-sms-platform-tutorial.md), [CivicEye SSO](../saas-apps/civic-eye-sso-tutorial.md), [Colloquial](../saas-apps/colloquial-tutorial.md), [BigPanda](../saas-apps/bigpanda-tutorial.md), [Foreman](https://foreman.mn/)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
+
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
+
+---
+
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - July 2023
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration    
+      
+
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Albert](../saas-apps/albert-provisioning-tutorial.md)
+- [Rhombus Systems](../saas-apps/rhombus-systems-provisioning-tutorial.md)
+- [Axiad Cloud](../saas-apps/axiad-cloud-provisioning-tutorial.md)
+- [Dagster Cloud](../saas-apps/dagster-cloud-provisioning-tutorial.md)
+- [WATS](../saas-apps/wats-provisioning-tutorial.md)
+- [Funnel Leasing](../saas-apps/funnel-leasing-provisioning-tutorial.md)
+
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+
+---
+
+### General Availability - Microsoft Authentication Library for .NET 4.55.0
+
+**Type:** New feature       
+**Service category:** Other                                    
+**Product capability:** User Authentication                     
+
+Earlier this month we announced the release of [MSAL.NET 4.55.0](https://www.nuget.org/packages/Microsoft.Identity.Client/4.55.0), the latest version of the [Microsoft Authentication Library for the .NET platform](/entra/msal/dotnet/). The new version introduces support for user-assigned [managed identity](/entra/msal/dotnet/advanced/managed-identity) being specified through object IDs, CIAM authorities in the `WithTenantId` API, better error messages when dealing with cache serialization, and improved logging when using the [Windows authentication broker](/entra/msal/dotnet/acquiring-tokens/desktop-mobile/wam).
+
+---
+
+### General Availability - Microsoft Authentication Library for Python 1.23.0
+
+**Type:** New feature       
+**Service category:** Other                                    
+**Product capability:** User Authentication                  
+
+Earlier this month, the Microsoft Authentication Library team announced the release of [MSAL for Python version 1.23.0](https://pypi.org/project/msal/1.23.0/). The new version of the library adds support for better caching when using client credentials, eliminating the need to request new tokens repeatedly when cached tokens exist.
+
+To learn more about MSAL for Python, see: [Microsoft Authentication Library (MSAL) for Python](/entra/msal/python/).
+
+---
+
 ## June 2023
 
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - June 2023
@@ -65,7 +351,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Entitlement Management                          
 **Product capability:** Entitlement Management                
 
-The Entitlement Management service can now be targeted in the conditional access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “Azure AD Identity Governance - Entitlement Management” in the cloud apps picker. The Entitlement Management app includes the entitlement management part of My Access, the Entitlement Management part of the Entra and Azure portals, and the Entitlement Management part of MS Graph. For more information, see:  [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies).
+The Entitlement Management service can now be targeted in the Conditional Access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “Azure AD Identity Governance - Entitlement Management” in the cloud apps picker. The Entitlement Management app includes the entitlement management part of My Access, the Entitlement Management part of the Entra and Azure portals, and the Entitlement Management part of MS Graph. For more information, see:  [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies).
 
 ---
 
@@ -97,7 +383,7 @@ Starting today the modernized experience for viewing previously accepted terms o
 **Service category:** Privileged Identity Management                               
 **Product capability:** Privileged Identity Management                 
 
-Privileged Identity Management for Groups is now generally available. With this feature, you have the ability to grant users just-in-time membership in a group, which in turn provides access to Azure Active Directory roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, as well as third-party applications. Through one activation, you can conveniently assign a combination of permissions across different applications and RBAC systems.
+Privileged Identity Management for Groups is now generally available. With this feature, you have the ability to grant users just-in-time membership in a group, which in turn provides access to Azure Active Directory roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications. Through one activation, you can conveniently assign a combination of permissions across different applications and RBAC systems.
 
 PIM for Groups offers can also be used for just-in-time ownership. As the owner of the group, you can manage group properties, including membership. For more information, see: [Privileged Identity Management (PIM) for Groups](../privileged-identity-management/concept-pim-for-groups.md).
 
@@ -109,7 +395,7 @@ PIM for Groups offers can also be used for just-in-time ownership. As the owner 
 **Service category:** Privileged Identity Management                               
 **Product capability:** Privileged Identity Management                    
 
-The Privileged Identity Management (PIM) integration with Conditional Access authentication context is generally available. You can require users to meet a variety of requirements during role activation such as:
+The Privileged Identity Management (PIM) integration with Conditional Access authentication context is generally available. You can require users to meet various requirements during role activation such as:
 
 - Have specific authentication method through [Authentication Strengths](../authentication/concept-authentication-strengths.md)
 - Activate from a compliant device 
@@ -150,7 +436,7 @@ The Converged Authentication Methods Policy enables you to manage all authentica
 **Service category:** Provisioning                        
 **Product capability:** Azure Active Directory Connect Cloud Sync                
 
-Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to simply map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
+Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
 
 ---
 
@@ -357,7 +643,7 @@ The Azure AD on-premises application provisioning feature now supports both the 
 **Service category:** Identity Protection                          
 **Product capability:** Identity Security & Protection               
 
-Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-ins performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
+Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-ins performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins by using risk-based Conditional Access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
 
 ---
 
@@ -462,7 +748,7 @@ To address this challenge, we're introducing a new system-preferred authenticati
 **Service category:** User Management                     
 **Product capability:** User Management            
 
-Admins can now define more properties when creating and inviting a user in the Entra admin portal. These improvements bring our UX to parity with our [Create User APIS](/graph/api/user-post-users). Additionally, admins can now add users to a group or administrative unit, and assign roles.  For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+We have increased the number of properties that admins are able to define when creating and inviting a user in the Entra admin portal. This brings our UX to parity with our Create User APIs. Additionally, admins can now add users to a group or administrative unit, and assign roles. For more information, see:  [How to create, invite, and delete users](../fundamentals/how-to-create-delete-users.md).
 
 ---
 
@@ -482,7 +768,7 @@ The protected actions public preview introduces the ability to apply Conditional
 **Service category:** Conditional Access                  
 **Product capability:** User Authentication          
 
-Token Protection for sign-in sessions is our first release on a road-map to combat attacks involving token theft and replay. It provides conditional access enforcement of token proof-of-possession for supported clients and services that ensure that access to specified resources is only from a device to which the user has signed in. For more information, see: [Conditional Access: Token protection (preview)](../conditional-access/concept-token-protection.md).
+Token Protection for sign-in sessions is our first release on a road-map to combat attacks involving token theft and replay. It provides Conditional Access enforcement of token proof-of-possession for supported clients and services that ensure that access to specified resources is only from a device to which the user has signed in. For more information, see: [Conditional Access: Token protection (preview)](../conditional-access/concept-token-protection.md).
 
 ---
 
@@ -728,7 +1014,7 @@ If you utilize Conditional Access or Identity Protection, and have IPv6 enabled 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 - Microsoft Azure commercial and Microsoft Azure Government
-- Microsoft Azure commercial and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial and Microsoft Azure operated by 21Vianet
 
 For more information about Microsoft cloud settings for B2B collaboration, see [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
 
@@ -848,88 +1134,3 @@ For more information about how to better secure your organization by using autom
 
 
 ---
-
-## January 2023
-
-### Public Preview - Cross-tenant synchronization
-
-**Type:** New feature   
-**Service category:** Provisioning               
-**Product capability:** Collaboration          
-
-Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure AD B2B functionality and automates creating, updating, and deleting B2B users. For more information, see: [What is cross-tenant synchronization? (preview)](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
-
-
----
-
-### General Availability - New Federated Apps available in Azure AD Application gallery - January 2023
-
-
-
-**Type:** New feature   
-**Service category:** Enterprise Apps                
-**Product capability:** 3rd Party Integration          
-
-In January 2023 we've added the following 10 new applications in our App gallery with Federation support:
-
-[MINT TMS](../saas-apps/mint-tms-tutorial.md),  [Exterro Legal GRC Software Platform](../saas-apps/exterro-legal-grc-software-platform-tutorial.md), [SIX.ONE Identity Access Manager](https://portal.six.one/), [Lusha](../saas-apps/lusha-tutorial.md), [Descartes](../saas-apps/descartes-tutorial.md), [Travel Management System](https://tms.billetkontoret.dk/), [Pinpoint (SAML)](../saas-apps/pinpoint-tutorial.md), [my.sdworx.com](../saas-apps/mysdworxcom-tutorial.md), [itopia Labs](https://labs.itopia.com/), [Better Stack](https://betteruptime.com/users/sign-up).
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
-
-For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
-
-
----
-
-### Public Preview - New provisioning connectors in the Azure AD Application Gallery - January 2023
-
-
-
-**Type:** New feature   
-**Service category:** App Provisioning               
-**Product capability:** 3rd Party Integration         
-
-We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
-
-- [SurveyMonkey Enterprise](../saas-apps/surveymonkey-enterprise-provisioning-tutorial.md)
-
-
-For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
-
-
----
-
-### Public Preview - Azure AD cloud sync new user experience
-
-
-**Type:** Changed feature   
-**Service category:** Azure AD Connect Cloud Sync                  
-**Product capability:** Identity Governance         
-
-Try out the new guided experience for syncing objects from AD to Azure AD using Azure AD Cloud Sync in Azure portal. With this new experience, Hybrid Identity Administrators can easily determine which sync engine to use for their scenarios and learn more about the various options they have with our sync solutions. With a rich set of tutorials and videos, customers are able to learn everything about Azure AD cloud sync in one single place. 
-
-This experience helps administrators walk through the different steps involved in setting up a cloud sync configuration and an intuitive experience to help them easily manage it. Admins can also get insights into their sync configuration by using the "Insights" option, which integrates with Azure Monitor and Workbooks. 
-
-For more information, see:
-
-- [Create a new configuration for Azure AD Connect cloud sync](../cloud-sync/how-to-configure.md)
-- [Attribute mapping in Azure AD Connect cloud sync](../cloud-sync/how-to-attribute-mapping.md)
-- [Azure AD cloud sync insights workbook](../cloud-sync/how-to-cloud-sync-workbook.md)
-
----
-
-### Public Preview - Support for Directory Extensions using Azure AD cloud sync
-
-
-
-**Type:** New feature   
-**Service category:** Provisioning               
-**Product capability:** Azure AD Connect Cloud Sync         
-
-Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
-
-For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../cloud-sync/custom-attribute-mapping.md)
-
-
----
-

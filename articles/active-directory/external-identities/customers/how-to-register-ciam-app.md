@@ -24,7 +24,7 @@ During app registration, you specify the redirect URI. The redirect URI is the e
 
 Azure AD for customers supports authentication for various modern application architectures, for example web app or single-page app. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
 
-In this article, you’ll learn how to register an application in your customer tenant.
+In this article, you learn how to register an application in your customer tenant.
 
 ## Prerequisites
 
@@ -34,9 +34,11 @@ In this article, you’ll learn how to register an application in your customer 
 ## Choose your app type
 
 # [Single-page app (SPA)](#tab/spa)
-## How to register your Single-page app?
+## Register your Single-page app
 
-The following steps show you how to register your app in the admin center:
+Azure AD for customers supports authentication for Single-page apps (SPAs).
+
+The following steps show you how to register your SPA in the Microsoft Entra admin center:
 
 1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
@@ -54,7 +56,7 @@ The following steps show you how to register your app in the admin center:
 
 1. In the **Register an application page** that appears, enter your application's registration information:
     
-    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    1. In the **Name** section, enter a meaningful application name that is displayed to users of the app, for example *ciam-client-app*.
     
     1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 	
@@ -66,12 +68,15 @@ The following steps show you how to register your app in the admin center:
 
 [!INCLUDE [add about redirect URI](../customers/includes/register-app/about-redirect-url.md)]  
 
-### Add delegated permissions
+### Grant delegated permissions
 This app signs in users. You can add delegated permissions to it, by following the steps below:
 
 [!INCLUDE [grant permision for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
 
-### To call an API follow the steps below (optional):
+### Grant API permissions (optional):
+
+If your SPA needs to call an API, you must grant your SPA API permissions so it can call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call. 
+
 [!INCLUDE [grant permisions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 If you'd like to learn how to expose the permissions by adding a link, go to the [Web API](how-to-register-ciam-app.md?tabs=webapi) section.
@@ -82,9 +87,11 @@ If you'd like to learn how to expose the permissions by adding a link, go to the
 - [Sign in users in a sample vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-sample-sign-in.md) 
 
 # [Web app](#tab/webapp)
-## How to register your Web app?
+## Register your Web app
 
-The following steps show you how to register your app in the admin center:
+Azure AD for customers supports authentication for web apps.
+
+The following steps show you how to register your web app in the Microsoft Entra admin center:
 
 1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
@@ -102,11 +109,11 @@ The following steps show you how to register your app in the admin center:
 
 1. In the **Register an application page** that appears, enter your application's registration information:
     
-    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    1. In the **Name** section, enter a meaningful application name that is displayed to users of the app, for example *ciam-client-app*.
     
     1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 	
-	1. Under **Redirect URI (optional)**, select **Web** and then, in the URL box, enter `http://localhost:3000/`.
+	1. Under **Redirect URI (optional)**, select **Web** and then, in the URL box, enter a URL such as, `http://localhost:3000/`.
 
 1. Select **Register**.
 
@@ -122,7 +129,10 @@ This app signs in users. You can add delegated permissions to it, by following t
 ### Create a client secret 
 [!INCLUDE [add a client secret](../customers/includes/register-app/add-app-client-secret.md)]
 
-### To call an API follow the steps below (optional):
+### Grant API permissions (optional)
+
+If your web app needs to call an API, you must grant your web app API permissions so it can call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call.
+
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps
@@ -131,7 +141,8 @@ This app signs in users. You can add delegated permissions to it, by following t
 - [Sign in users in a sample Node.js web app](how-to-web-app-node-sample-sign-in.md) 
 
 # [Web API](#tab/webapi)
-## How to register your Web API?
+## Register your Web API
+
 
 [!INCLUDE [register app](../customers/includes/register-app/register-api-app.md)]
 
@@ -139,7 +150,7 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 [!INCLUDE [expose permissions](../customers/includes/register-app/add-api-scopes.md)]
 
-### To add app roles follow the steps below (optional):
+### Add app roles
 
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
@@ -148,9 +159,9 @@ This app signs in users. You can add delegated permissions to it, by following t
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md) 
 
 # [Desktop or Mobile app](#tab/desktopmobileapp)
-## How to register your Desktop or Mobile app?
+## Register your Desktop or Mobile app
 
-The following steps show you how to register your app in the admin center:
+The following steps show you how to register your app in the Microsoft Entra admin center:
 
 1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
@@ -168,7 +179,7 @@ The following steps show you how to register your app in the admin center:
 
 1. In the **Register an application page** that appears, enter your application's registration information:
     
-    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
+    1. In the **Name** section, enter a meaningful application name that is displayed to users of the app, for example *ciam-client-app*.
     
     1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 	
@@ -181,7 +192,9 @@ The following steps show you how to register your app in the admin center:
 ### Add delegated permissions
 [!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)]
 
-### To call an API follow the steps below (optional):
+### Grant API permissions (optional)
+
+If your mobile app needs to call an API, you must grant your mobile app API permissions so it can call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call.
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps
@@ -190,12 +203,13 @@ The following steps show you how to register your app in the admin center:
 - [Sign in users in a sample Electron desktop app](how-to-desktop-app-electron-sample-sign-in.md) 
 
 # [Daemon app](#tab/daemonapp)
-## How to register your Daemon app?
+## Register your Daemon app
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/register-daemon-app.md)]
 
-### To call an API follow the steps below (optional)
-A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), you add application permissions, which is required by apps that authenticate as themselves:
+### Grant API permissions
+
+A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). You grant application permissions (app roles), which is required by apps that authenticate as themselves. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that your daemon app needs to call. 
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/grant-api-permissions-app-permissions.md)]
 
@@ -205,7 +219,7 @@ A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/a
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
 
 # [Microsoft Graph API](#tab/graphapi)
-## How to register a Microsoft Graph API application?
+## Register a Microsoft Graph API application
 [!INCLUDE [register client app](../customers/includes/register-app/register-client-app-common.md)]
 
 ### Grant API Access to your application

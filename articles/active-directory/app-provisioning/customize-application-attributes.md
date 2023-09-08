@@ -27,6 +27,8 @@ You can customize the default attribute-mappings according to your business need
 
 ## Editing user attribute-mappings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to access the **Mappings** feature of user provisioning:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -118,7 +120,7 @@ Applications and systems that support customization of the attribute list includ
 
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the [attribute list](#editing-the-list-of-supported-attributes). 
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the [attribute list](#editing-the-list-of-supported-attributes). 
 
 > [!NOTE]
 > When a directory extension attribute in Azure AD doesn't show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
@@ -141,6 +143,7 @@ When you're editing the list of supported attributes, the following properties a
 - **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and can't be edited using the Azure portal. However, you can edit them using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### Provisioning a custom extension attribute to a SCIM compliant application
+
 The SCIM RFC defines a core user and group schema, while also allowing for extensions to the schema to meet your application's needs. To add a custom attribute to a SCIM application:
    1. Sign in to the [Azure portal](https://portal.azure.com), select **Enterprise Applications**, select your application, and then select **Provisioning**.
    2. Under **Mappings**, select the object (user or group) for which you'd like to add a custom attribute.
@@ -157,60 +160,63 @@ Custom attributes can't be referential attributes, multi-value or complex-typed 
 **Example representation of a user with an extension attribute:**
 
 ```json
-   {
-     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
-     "userName":"bjensen",
-     "id": "48af03ac28ad4fb88478",
-     "externalId":"bjensen",
-     "name":{
-       "formatted":"Ms. Barbara J Jensen III",
-       "familyName":"Jensen",
-       "givenName":"Barbara"
-     },
-     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-     "employeeNumber": "701984",
-     "costCenter": "4130",
-     "organization": "Universal Studios",
-     "division": "Theme Park",
-     "department": "Tour Operations",
-     "manager": {
-       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
-       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
-       "displayName": "John Smith"
-     }
-   },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
-     "CustomAttribute": "701984",
-   },
-   "meta": {
-     "resourceType": "User",
-     "created": "2010-01-23T04:56:22Z",
-     "lastModified": "2011-05-13T04:42:34Z",
-     "version": "W\/\"3694e05e9dff591\"",
-     "location":
- "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
-   }
- }
+{
+  "schemas":[
+    "urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  ],
+  "userName":"bjensen",
+  "id": "48af03ac28ad4fb88478",
+  "externalId":"bjensen",
+  "name":{
+    "formatted":"Ms. Barbara J Jensen III",
+    "familyName":"Jensen",
+    "givenName":"Barbara"
+  },
+  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+    "employeeNumber": "701984",
+    "costCenter": "4130",
+    "organization": "Universal Studios",
+    "division": "Theme Park",
+    "department": "Tour Operations",
+    "manager": {
+      "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+      "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+      "displayName": "John Smith"
+    }
+  },
+  "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
+    "CustomAttribute": "701984",
+  },
+  "meta": {
+    "resourceType": "User",
+    "created": "2010-01-23T04:56:22Z",
+    "lastModified": "2011-05-13T04:42:34Z",
+    "version": "W\/\"3694e05e9dff591\"",
+    "location": "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+  }
+}
 ```
-
 
 ## Provisioning a role to a SCIM app
 Use the steps in the example to provision roles for a user to your application. The description is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the predefined role mappings. The bullets describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
 - Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **shouldn't be mapped directly** to a role attribute without using an expression to parse the role details. 
 
-- **SingleAppRoleAssignment** 
+- **SingleAppRoleAssignment**
+
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
   - **How to configure:** Use the steps described to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (`roles[primary eq "True"].display`, `roles[primary eq "True"].type`, and `roles[primary eq "True"].value`). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.
 
-  ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+    ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+
   - **Things to consider**
     - Ensure that multiple roles aren't assigned to a user. There's no guarantee which role is provisioned.
     - SingleAppRoleAssignments isn't compatible with setting scope to "Sync All users and groups." 
+
   - **Example request (POST)** 
 
-   ```json
+    ```json
     {
       "schemas": [
           "urn:ietf:params:scim:schemas:core:2.0:User"
@@ -229,25 +235,29 @@ Use the steps in the example to provision roles for a user to your application. 
                "value": "Admin"
          }
       ]
-   }
-   ```
-  
+    }
+    ```
+
   - **Example output (PATCH)** 
-    
-   ```json
-   "Operations": [
-     {
-       "op": "Add",
-       "path": "roles",
-       "value": [
-         {
-           "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
-         }
-       ]
-   ```  
+
+    ```json
+    "Operations": [
+      {
+        "op": "Add",
+        "path": "roles",
+        "value": [
+          {
+            "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+          }
+        ]
+      }
+    ]
+    ```
+
 The request formats in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
-- **AppRoleAssignmentsComplex** 
+- **AppRoleAssignmentsComplex**
+
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
   - **How to configure:** Edit the list of supported attributes as described to include a new attribute for roles: 
   
@@ -256,16 +266,18 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
     Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image:
 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+
   - **Things to consider**
+
     - All roles are provisioned as primary = false.
     - The POST contains the role type. The PATCH request doesn't contain type. We're working on sending the type in both POST and PATCH requests.
     - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups."
     - The AppRoleAssignmentsComplex only supports the PATCH add function. For multi-role SCIM applications, roles deleted in Azure Active Directory will therefore not be deleted from the application. We're working to support additional PATCH functions and address the limitation. 
     
-  - **Example output** 
+  - **Example output**
   
-   ```json
-   {
+    ```json
+    {
        "schemas": [
            "urn:ietf:params:scim:schemas:core:2.0:User"
       ],
@@ -290,35 +302,33 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
              "value": "User"
          }
       ]
-   }
-   ```
-
-  
-
+    }
+    ```
 
 ## Provisioning a multi-value attribute
+
 Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression for multi-value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
 
-* phoneNumbers[type eq "work"].value
-* phoneNumbers[type eq "mobile"].value
-* phoneNumbers[type eq "fax"].value
+* `phoneNumbers[type eq "work"].value`
+* `phoneNumbers[type eq "mobile"]`.value
+* `phoneNumbers[type eq "fax"].value`
 
-   ```json
-   "phoneNumbers": [
-       {
-         "value": "555-555-5555",
-         "type": "work"
-      },
-      {
-         "value": "555-555-5555",
-         "type": "mobile"
-      },
-      {
-         "value": "555-555-5555",
-         "type": "fax"
-      }
-   ]
-   ```
+  ```json
+  "phoneNumbers": [
+     {
+        "value": "555-555-5555",
+        "type": "work"
+     },
+     {
+        "value": "555-555-5555",
+        "type": "mobile"
+     },
+     {
+        "value": "555-555-5555",
+        "type": "fax"
+     }
+  ]
+  ```
 
 ## Restoring the default attributes and attribute-mappings
 

@@ -97,7 +97,7 @@ For a guided walkthrough of many of the recommendations in this article, see the
 
 The following example describes the password reset solution architecture for common hybrid environments.
 
-![diagram of solution architecture](./media/howto-sspr-deployment//solutions-architecture.png)
+![Diagram of solution architecture](./media/howto-sspr-deployment//solutions-architecture.png)
 
 Description of workflow
 
@@ -224,8 +224,8 @@ By default, Azure AD unlocks accounts when it performs a password reset.
 
 Administrator accounts have elevated permissions. The on-premises enterprise or domain administrators can't reset their passwords through SSPR. On-premises admin accounts have the following restrictions:
 
-* can only change their password in their on-prem environment.
-* can never use the secret questions and answers as a method to reset their password.
+* Can only change their password in their on-prem environment.
+* Can never use the secret questions and answers as a method to reset their password.
 
 We recommend that you don't sync your on-prem Active Directory admin accounts with Azure AD.
 
@@ -277,9 +277,9 @@ To enable your support team's success, you can create a FAQ based on questions y
 
 To roll back the deployment:
 
-* for a single user, remove the user from the security group 
+* For a single user, remove the user from the security group 
 
-* for a group, remove the group from SSPR configuration
+* For a group, remove the group from SSPR configuration
 
 * For everyone, disable SSPR for the Azure AD tenant
 
@@ -322,7 +322,7 @@ Azure AD can provide additional information on your SSPR performance through aud
 You can use pre-built reports on Azure portal to measure the SSPR performance. If you're appropriately licensed, you can also create custom queries. For more information, see [Reporting options for Azure AD password management](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
+>  You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure portal at least once. Until then, the data doesn't collect for your organization.
 
 Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
 

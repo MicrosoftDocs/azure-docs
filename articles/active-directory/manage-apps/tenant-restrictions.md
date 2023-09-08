@@ -160,7 +160,7 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
 
    1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
 
-   2. Add the following lines at the beginning of the `OnBeforeRequest` function. Replace \<List of tenant identifiers\> with a domain registered with your tenant (for example, `contoso.onmicrosoft.com`). Replace \<directory ID\> with your tenant's Azure AD GUID identifier.  You **must** include the correct GUID identifier in order for the logs to appear in your tenant.
+   2. Add the following lines within the `OnBeforeRequest` function. Replace \<List of tenant identifiers\> with a domain registered with your tenant (for example, `contoso.onmicrosoft.com`). Replace \<directory ID\> with your tenant's Azure AD GUID identifier.  You **must** include the correct GUID identifier in order for the logs to appear in your tenant.
 
    ```JScript.NET
     // Allows access to the listed tenants.

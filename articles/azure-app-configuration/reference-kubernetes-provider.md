@@ -16,11 +16,12 @@ The following reference outlines the properties supported by the Azure App Confi
 
 ## Properties
 
-An `AzureAppConfigurationProvider` resource has the following top-level child properties under the `spec`.
+An `AzureAppConfigurationProvider` resource has the following top-level child properties under the `spec`. Either `endpoint` or `connectionStringReference` has to be specified.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from|true|string|
+|endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from|alternative|string|
+|connectionStringReference|The name of the Kubernetes Secret that contains Azure App Configuration connection string|alternative|string|
 |target|The destination of the retrieved key-values in Kubernetes|true|object|
 |auth|The authentication method to access Azure App Configuration|false|object|
 |keyValues|The settings for querying and processing key-values|false|object|
@@ -45,6 +46,7 @@ The `spec.keyValues` has the following child properties. The `spec.keyValues.key
 |selectors|The list of selectors for key-value filtering|false|object array|
 |trimKeyPrefixes|The list of key prefixes to be trimmed|false|string array|
 |keyVaults|The settings for Key Vault references|conditional|object|
+|refresh|The settings for refreshing the key-values in ConfigMap or Secret|false|object|
 
 If the `spec.keyValues.selectors` property isn't set, all key-values with no label will be downloaded. It contains an array of *selector* objects, which have the following child properties.
 
@@ -52,7 +54,6 @@ If the `spec.keyValues.selectors` property isn't set, all key-values with no lab
 |---|---|---|---|
 |keyFilter|The key filter for querying key-values|true|string|
 |labelFilter|The label filter for querying key-values|false|string|
-
 
 The `spec.keyValues.keyVaults` property has the following child properties.
 
@@ -82,6 +83,20 @@ The authentication method of each *vault* can be specified with the following pr
 |uri|The URI of a vault|true|string|
 |managedIdentityClientId|The client ID of a user-assigned managed identity used for authentication with a vault|false|string|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a vault|false|string|
+
+The `spec.keyValues.refresh` property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|monitoring|The key-values that are monitored by the provider, provider automatically refreshes the ConfigMap or Secret if value change in any designated key-value|true|object|
+|interval|The interval for refreshing, default value is 30 seconds, must be greater than 1 second|false|duration string|
+
+The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|key|The key of a key-value|true|string|
+|label|The label of a key-value|false|string|
 
 ## Examples
 
@@ -142,6 +157,22 @@ The authentication method of each *vault* can be specified with the following pr
         configMapName: configmap-created-by-appconfig-provider
       auth:
         servicePrincipalReference: <your-service-principal-secret-name>
+    ```
+
+#### Use Connection String
+
+1. Create a Kubernetes Secret in the same namespace as the `AzureAppConfigurationProvider` resource and add Azure App Configuration connection string with key *azure_app_configuration_connection_string* in the Secret.
+2. Set the `spec.connectionStringReference` property to the name of the Secret in the following sample `AzureAppConfigurationProvider` resource and deploy it to the Kubernetes cluster.
+
+    ``` yaml
+    apiVersion: azconfig.io/v1beta1
+    kind: AzureAppConfigurationProvider
+    metadata:
+      name: appconfigurationprovider-sample
+    spec:
+      connectionStringReference: <your-connection-string-secret-name>
+      target:
+        configMapName: configmap-created-by-appconfig-provider
     ```
 
 ### Key-value selection
@@ -221,4 +252,35 @@ spec:
         vaults:
           - uri: <your-key-vault-uri>
             servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
+```
+
+### Dynamically refresh ConfigMap and Secret
+
+Setting the `spec.keyValues.refresh` property enables dynamic configuration data refresh in ConfigMap and Secret by monitoring designated key-values. The provider periodically polls the key-values, if there is any value change, provider triggers ConfigMap and Secret refresh in accordance with the present data in Azure App Configuration.
+
+The following sample instructs monitoring two key-values with 1 minute polling interval.
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  keyValues:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+      - keyFilter: app1*
+        labelFilter: development
+    refresh:
+      interval: 1m
+      monitoring:
+        keyValues:
+          - key: sentinelKey
+            label: common
+          - key: sentinelKey
+            label: development
 ```

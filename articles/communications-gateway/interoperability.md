@@ -32,7 +32,7 @@ Azure Communications Gateway provides all the features of a traditional session 
 
 Azure Communications Gateway also offers metrics for monitoring your deployment.
 
-You must provide the networking connection between Azure Communications Gateway and your core networks. For Teams Phone Mobile, you must also provide a network element that can route calls into the Microsoft Phone System for call anchoring.
+You must provide the networking connection between Azure Communications Gateway and your core networks.
 
 ### Compliance with Certified SBC specifications
 

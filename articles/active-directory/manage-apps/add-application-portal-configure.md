@@ -21,8 +21,6 @@ ms.custom: enterprise-apps
 
 This article shows you where you can configure the properties of an enterprise application in your Azure Active Directory (Azure AD) tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To configure the properties of an enterprise application, you need:
@@ -32,13 +30,15 @@ To configure the properties of an enterprise application, you need:
 
 ## Configure application properties
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Application properties control how the application is represented and how the application is accessed.
 
 :::zone pivot="portal"
 
 To configure the application properties:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use.
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 1. On the **Properties** pane, you may want to configure the following properties for your application:
@@ -61,26 +61,26 @@ You'll need to consent to the `Application.ReadWrite.All` permission.
 Import-Module Microsoft.Graph.Applications
 
 $params = @{
-	Tags = @(
-		"HR"
-		"Payroll"
-		"HideApp"
-	)
-	Info = @{
-		LogoUrl = "https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"
-		MarketingUrl = "https://www.contoso.com/app/marketing"
-		PrivacyStatementUrl = "https://www.contoso.com/app/privacy"
-		SupportUrl = "https://www.contoso.com/app/support"
-		TermsOfServiceUrl = "https://www.contoso.com/app/termsofservice"
-	}
-	Web = @{
-		HomePageUrl = "https://www.contoso.com/"
-		LogoutUrl = "https://www.contoso.com/frontchannel_logout"
-		RedirectUris = @(
-			"https://localhost"
-		)
-	}
-	ServiceManagementReference = "Owners aliases: Finance @ contosofinance@contoso.com; The Phone Company HR consulting @ hronsite@thephone-company.com;"
+    Tags = @(
+        "HR"
+        "Payroll"
+        "HideApp"
+    )
+    Info = @{
+        LogoUrl = "https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"
+        MarketingUrl = "https://www.contoso.com/app/marketing"
+        PrivacyStatementUrl = "https://www.contoso.com/app/privacy"
+        SupportUrl = "https://www.contoso.com/app/support"
+        TermsOfServiceUrl = "https://www.contoso.com/app/termsofservice"
+    }
+    Web = @{
+        HomePageUrl = "https://www.contoso.com/"
+        LogoutUrl = "https://www.contoso.com/frontchannel_logout"
+        RedirectUris = @(
+            "https://localhost"
+        )
+    }
+    ServiceManagementReference = "Owners aliases: Finance @ contosofinance@contoso.com; The Phone Company HR consulting @ hronsite@thephone-company.com;"
 }
 
 Update-MgApplication -ApplicationId $applicationId -BodyParameter $params

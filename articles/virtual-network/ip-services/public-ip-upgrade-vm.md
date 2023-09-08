@@ -40,7 +40,7 @@ The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, crea
 
 ## Download the script
 
-Download the migration script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureVMPublicIPUpgrade/1.0.0).
+Download the migration script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureVMPublicIPUpgrade).
 
 ```powershell
 PS C:\> Install-Module -Name AzureVMPublicIPUpgrade -Scope CurrentUser -Repository PSGallery -Force

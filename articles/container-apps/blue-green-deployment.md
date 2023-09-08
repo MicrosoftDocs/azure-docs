@@ -4,7 +4,7 @@ description: Minimize downtime and reduce the risks associated with new releases
 services: container-apps
 author: ruslany
 ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
 ms.date: 06/23/2023
 ms.author: ruslany

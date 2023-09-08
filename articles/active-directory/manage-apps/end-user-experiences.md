@@ -37,7 +37,7 @@ For more information on Azure AD My Apps, see the [introduction to My Apps](http
 
 ## Microsoft 365 application launcher
 
-For organizations that have deployed Microsoft 365, applications assigned to users through Azure AD will also appear in the Office 365 portal at [https://portal.office.com/myapps](https://portal.office.com/myapps). It makes it convenient for users in an organization to launch their apps without using a second portal. Microsoft 365 application launcher is the recommended app launching solution for organizations using Microsoft 365.
+Microsoft 365 application launcher is the recommended app launching solution for organizations using Microsoft 365.
 
 For more information about the Office 365 application launcher, see [Have your app appear in the Office 365 app launcher](/previous-versions/office/office-365-api/).
 
@@ -73,7 +73,7 @@ As an admin, you can choose to try out new app launcher features while they are 
 
 To enable or disable previews for your app launchers:
 
-- Sign in to the Azure portal as a global administrator, application administrator or cloud application administrator for your directory.
+- Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, application administrator or cloud application administrator for your directory.
 - Search for and select **Azure Active Directory**, then select **Enterprise applications**.
 - On the left menu, select **App launchers**, then select **Settings**.
 - Under **Preview settings**, toggle the checkboxes for the previews you want to enable or disable. To opt into a preview, toggle the associated checkbox to the checked state. To opt out of a preview, toggle the associated checkbox to the unchecked state.

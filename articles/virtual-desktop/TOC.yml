@@ -1,10 +1,14 @@
 - name: Azure Virtual Desktop
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Virtual Desktop?
     displayName: overview, get started
     href: overview.md
+  - name: Terminology
+    displayName: azure virtul desktop, avd, overview, what is
+    href: terminology.md
   - name: Prerequisites
     displayName: overview, get started
     href: prerequisites.md
@@ -23,7 +27,7 @@
       displayName: what's new, profile, profiles
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
     - name: WebRTC Redirector Service
-      displayName: what's new
+      displayName: what's new, teams
       href: whats-new-webrtc.md
     - name: Multimedia redirection
       displayName: what's new, mmr
@@ -62,9 +66,6 @@
     href: tutorial-create-connect-personal-desktop.md
 - name: Concepts
   items:
-  - name: Azure Virtual Desktop terminology
-    displayName: avd
-    href: terminology.md
   - name: Deploy
     items:
     - name: Session hosts
@@ -190,6 +191,8 @@
       items:
       - name: Security best practices
         href: security-guide.md
+      - name: Apply Zero Trust principles
+        href: /security/zero-trust/azure-infrastructure-avd?context=/azure/virtual-desktop/context/context
       - name: Security baseline
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
     - name: Tag resources
@@ -281,7 +284,7 @@
             displayName: msix app attach, applications, apps
             href: msixmgr-tool-syntax-description.md 
         - name: Use Microsoft Teams
-          displayName: applications, apps
+          displayName: applications, apps, webrtc
           href: teams-on-avd.md
         - name: Set up Windows Sandbox
           displayName: applications, apps

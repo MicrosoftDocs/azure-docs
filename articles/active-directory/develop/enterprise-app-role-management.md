@@ -30,9 +30,12 @@ You can customize the role claim in the access token that is received after an a
 
 ## Locate the enterprise application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to locate the enterprise application:
 
-1. In the [Azure portal](https://portal.azure.com/), in the left pane, select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the left pane, select **Azure Active Directory**.
 1. Select **Enterprise applications**, and then select **All applications**.
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. After the application is selected, copy the object ID from the overview pane.

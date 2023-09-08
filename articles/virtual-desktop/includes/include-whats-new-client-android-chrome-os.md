@@ -56,7 +56,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- We've made an in-session UI that switches between remote apps and PCs.
+- We've made an in-session UI that switches between workspaces and PCs.
 - Updated language support for Input Method Editors (IME) and external keyboards.
 - Added support for Azure Virtual Desktop workspace subscriptions that use multiple identities for the same URL.
 - We added a warning message that says you shouldn't use the RD Gateway for local addresses.

@@ -21,8 +21,6 @@ In this quickstart, you learn how to use the Azure portal to search for and view
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To view applications that have been registered in your Azure AD tenant, you need:
@@ -33,9 +31,11 @@ To view applications that have been registered in your Azure AD tenant, you need
 
 ## View a list of applications
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To view the enterprise applications registered in your tenant:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. Browse to **Azure Active Directory** and select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant.
 
     :::image type="content" source="media/view-applications-portal/view-enterprise-applications.png" alt-text="View the registered applications in your Azure AD tenant.":::

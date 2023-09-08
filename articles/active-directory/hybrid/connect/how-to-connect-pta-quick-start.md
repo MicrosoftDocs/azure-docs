@@ -173,6 +173,6 @@ Smart Lockout assists in locking out bad actors who are trying to guess your use
 - [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get technical information on the Pass-through Authentication feature.
-- [Hybrid Azure AD join](../../devices/howto-hybrid-azure-ad-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.  
+- [Hybrid Azure AD join](../../devices/how-to-hybrid-join.md): Configure Hybrid Azure AD join capability on your tenant for SSO across your cloud and on-premises resources.  
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
 - [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Use the Azure Active Directory Forum to file new feature requests.

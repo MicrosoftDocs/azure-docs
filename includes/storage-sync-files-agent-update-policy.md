@@ -1,6 +1,6 @@
 ---
 author: roygara
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 5/13/2022
 ms.author: rogarana

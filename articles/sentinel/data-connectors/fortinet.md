@@ -3,7 +3,7 @@ title: "Fortinet connector for Microsoft Sentinel"
 description: "Learn how to install the connector Fortinet to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -45,7 +45,7 @@ CommonSecurityLog
    | where DeviceProduct startswith "Fortigate"
 
             
-   | summarize count() by DestinationIP, DestinationPort​
+   | summarize count() by DestinationIP, DestinationPort, TimeGenerated​
             
    | sort by TimeGenerated
    ```

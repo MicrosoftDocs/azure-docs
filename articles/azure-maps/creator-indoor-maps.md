@@ -361,4 +361,3 @@ The following example shows how to update a dataset, create a new tileset, and d
 [sprites]: https://docs.mapbox.com/help/glossary/sprite/
 [style layers]: https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layout
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-

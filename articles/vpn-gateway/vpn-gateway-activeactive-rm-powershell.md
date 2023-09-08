@@ -5,13 +5,13 @@ description: Learn how to configure active-active connections with VPN gateways 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 07/19/2023
 ms.author: cherylmc
 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure active-active S2S VPN connections with Azure VPN Gateways
+# Configure active-active S2S VPN connections with Azure VPN gateways
 
 This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and PowerShell. You can also configure an active-active gateway in the Azure portal.
 
@@ -31,15 +31,16 @@ If you already have a VPN gateway, you can:
 You can combine these together to build a more complex, highly available network topology that meets your needs.
 
 > [!IMPORTANT]
-> The active-active mode is available for all SKUs except Basic.
+> The active-active mode is available for all SKUs except Basic or Standard. For more information, see [Configuration settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+>
 
 ## <a name ="aagateway"></a>Part 1 - Create and configure active-active VPN gateways
 
 The following steps configure your Azure VPN gateway in active-active modes. The key differences between the active-active and active-standby gateways:
 
-* You need to create two Gateway IP configurations with two public IP addresses
-* You need set the EnableActiveActiveFeature flag
-* The gateway SKU must be VpnGw1, VpnGw2, VpnGw3, or HighPerformance (legacy SKU).
+* You need to create two Gateway IP configurations with two public IP addresses.
+* You need set the EnableActiveActiveFeature flag.
+* The gateway SKU must not be Basic or Standard.
 
 The other properties are the same as the non-active-active gateways. 
 

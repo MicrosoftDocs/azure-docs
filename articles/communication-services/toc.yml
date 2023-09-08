@@ -39,6 +39,8 @@ items:
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
       href: concepts/network-traversal.md
+    - name: Job Router
+      href: concepts/router/concepts.md
   - name: Common scenarios
     items:
     - name: Virtual visit
@@ -98,6 +100,12 @@ items:
             href: quickstarts/manage-teams-identity.md                
           - name: Add Teams video calling to your app
             href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md   
+    - name: Connect to a Teams calling applications
+      items:
+        - name: Connect to Call Queue
+          href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
+        - name: Connect to Auto Attendant
+          href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
     - name: Connect to a Room call
       items:
       - name: Create a room 
@@ -108,6 +116,8 @@ items:
       href: quickstarts/ui-library/get-started-composites.md
     - name: Add data channel messaging to your calling app
       href: quickstarts/voice-video-calling/get-started-data-channel.md
+    - name: Set video constraints in your calling app
+      href: quickstarts/voice-video-calling/get-started-video-constraints.md
   - name: Chat
     items:
     - name: Connect to a chat 
@@ -166,10 +176,14 @@ items:
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with ACS Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
+  - name: Job Router
+    items: 
+      - name: Submit a job for queuing and routing
+        href: quickstarts/router/get-started-router.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
-      href: quickstarts/relay-token.md  
+      href: quickstarts/relay-token.md
 - name: Tutorials
   items:
   - name: SMS
@@ -214,6 +228,8 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
+    - name: Using Event Grid to send VOIP push notifications to devices
+      href: tutorials/add-voip-push-notifications-event-grid.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
     - name: Survey users
@@ -255,6 +271,8 @@ items:
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
         href: how-tos/calling-sdk/lobby.md
+      - name: Manage Audio Filters
+        href: how-tos/calling-sdk/manage-audio-filters.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
@@ -411,6 +429,8 @@ items:
       items:
       - name: Control and steer calls
         href: how-tos/call-automation/actions-for-call-control.md
+      - name: Control mid call media actions
+        href: how-tos/call-automation/control-mid-call-media-actions.md
       - name: Customize voice prompts to users with play action 
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
@@ -463,6 +483,30 @@ items:
         href: concepts/analytics/insights/email-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
+  - name: Job Router
+    items: 
+    - name: Manage queues 
+      href: how-tos/router-sdk/manage-queue.md
+    - name: Classify a job
+      href: how-tos/router-sdk/job-classification.md
+    - name: Accept or decline a job
+      href: how-tos/router-sdk/accept-decline-offer.md
+    - name: Get wait time and job position
+      href: how-tos/router-sdk/estimated-wait-time.md
+    - name: Escalate a job
+      href: how-tos/router-sdk/escalate-job.md  
+    - name: Target a Preferred Worker
+      href: how-tos/router-sdk/preferred-worker.md
+    - name: Scheduling a job
+      href: how-tos/router-sdk/scheduled-jobs.md
+    - name: Azure function rule engine
+      href: how-tos/router-sdk/azure-function.md
+    - name: Customize how worker ranking for best worker mode
+      href: how-tos/router-sdk/customize-worker-scoring.md  
+    - name: Events
+      items:
+      - name: Subscribe to Job Router Events
+        href: how-tos/router-sdk/subscribe-events.md
 - name: Samples 
   items:
   - name: Voice and Video
@@ -674,6 +718,8 @@ items:
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
+    - name: User experience
+      href: concepts/voice-video-calling/user-experience.md
     - name: Known issues
       href: concepts/known-issues.md
   - name: Chat
@@ -806,6 +852,34 @@ items:
         href: concepts/analytics/logs/email-logs.md
       - name: Email metrics overview
         href: concepts/email-metrics.md
+  - name: Job Router
+    items:
+    - name: Overview
+      href: concepts/router/concepts.md
+    - name: How jobs are matched to workers
+      href: concepts/router/matching-concepts.md
+    - name: How worker capacity is configured
+      href: concepts/router/worker-capacity-concepts.md
+    - name: Distribution modes
+      href: concepts/router/distribution-concepts.md
+    - name: Exception Policies
+      href: concepts/router/exception-policy.md
+    - name: Classification concepts
+      href: concepts/router/classification-concepts.md
+    - name: Router Rule concepts
+      href: concepts/router/router-rule-concepts.md
+    - name: Events
+      items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+      - name: Job Router events
+        href: ../event-grid/communication-services-router-events.md
+    - name: Analytics
+      items:
+      - name: Job Router logs
+        href: concepts/analytics/logs/router-logs.md
+      - name: Job Router metrics
+        href: concepts/router/metrics.md
   - name: Network Traversal
     items:
     - name: Overview

@@ -5,7 +5,7 @@ description: Learn how to use the .NET client library to create a previous versi
 author: tamram
 
 ms.author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 02/14/2023
 ms.devlang: csharp
