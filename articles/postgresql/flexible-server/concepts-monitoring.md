@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 8/30/2023
+ms.date: 9/5/2023
 ---
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
@@ -152,7 +152,7 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 
 ### List of autovacuum metrics
 
-|Display name                           |Metric ID                        |Unit   |Description                                                                                                |Dimension   |Default enabled|
+|Display name                           |Metric ID                        |Unit   |Description                                                                                               |Dimension   |Default enabled|
 |---------------------------------------|---------------------------------|-------|-----------------------------------------------------------------------------------------------------------|------------|---------------|
 |**Analyze Counter User Tables**        |`analyze_count_user_tables`      |Count  |Number of times user-only tables have been manually analyzed in this database.                             |DatabaseName|No             |
 |**AutoAnalyze Counter User Tables**    |`autoanalyze_count_user_tables`  |Count  |Number of times user-only tables have been analyzed by the autovacuum daemon in this database.             |DatabaseName|No             |
@@ -161,7 +161,6 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 |**Estimated Dead Rows User Tables**    |`n_dead_tup_user_tables`         |Count  |Estimated number of dead rows for user-only tables in this database.                                       |DatabaseName|No             |
 |**Estimated Live Rows User Tables**    |`n_live_tup_user_tables`         |Count  |Estimated number of live rows for user-only tables in this database.                                       |DatabaseName|No             |
 |**Estimated Modifications User Tables**|`n_mod_since_analyze_user_tables`|Count  |Estimated number of rows that were modified since user-only tables were last analyzed.                     |DatabaseName|No             |
-|**Transactions per second (Preview)**  |`tps`                            |Count  |Number of transactions executed within a second.                                                           |DatabaseName|No             |
 |**User Tables Analyzed**               |`tables_analyzed_user_tables`    |Count  |Number of user-only tables that have been analyzed in this database.                                       |DatabaseName|No             |
 |**User Tables AutoAnalyzed**           |`tables_autoanalyzed_user_tables`|Count  |Number of user-only tables that have been analyzed by the autovacuum daemon in this database.              |DatabaseName|No             |
 |**User Tables AutoVacuumed**           |`tables_autovacuumed_user_tables`|Count  |Number of user-only tables that have been vacuumed by the autovacuum daemon in this database.              |DatabaseName|No             |

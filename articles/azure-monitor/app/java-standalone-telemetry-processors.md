@@ -260,7 +260,7 @@ The `mask` action requires the following settings:
 * `replace`
 * `action`: `mask`
 
-`pattern` can contain a named group placed betwen `?<` and `>:`. Example: `(?<userGroupName>[a-zA-Z.:\/]+)\d+`? The gorup is `(?<userGroupName>[a-zA-Z.:\/]+)` and `userGroupName` is the name of the group. `pattern` can then contain the same named group placed between `${` and `}` followed by the masK. Example where the mask is **: `${userGroupName}**`.
+`pattern` can contain a named group placed betwen `?<` and `>:`. Example: `(?<userGroupName>[a-zA-Z.:\/]+)\d+`? The group is `(?<userGroupName>[a-zA-Z.:\/]+)` and `userGroupName` is the name of the group. `pattern` can then contain the same named group placed between `${` and `}` followed by the mask. Example where the mask is **: `${userGroupName}**`.
 
 See  [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md) for masking examples.
 
