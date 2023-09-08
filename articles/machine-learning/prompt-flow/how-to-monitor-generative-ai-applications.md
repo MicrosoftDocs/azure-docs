@@ -113,12 +113,14 @@ What parameters are configured in your data asset dictates what metrics you can 
 1. **Workspace connection:** [following this guidance](get-started-prompt-flow.md#connection), you'll use a managed identity which will represent the credentials to the Azure OpenAI endpoint leveraged to calculate the monitoring metrics. **DO NOT** delete the connection once it's used in the flow.
     -  **API version:** 2023-03-15-preview
 1. **Promptflow deployment:** Create a prompt flow runtime [following this guidance](how-to-create-manage-runtime.md), run your flow, and ensure your [deployment is configured using this article as a guide](how-to-deploy-for-real-time-inference.md) 
-    - **Flow inputs & outputs:** in this article, we'll use the following:
+    - **Flow inputs & outputs:** You will need to name your flow outputs appropriately and remember these column names when creating your monitor. In this article, we'll use the following:
         - **Inputs (required):** "prompt" (also known as "inputs" or "question")
         - **Outputs (required):** "completion" (also known as "outputs" or "answer")
             - **Outputs (optional):** "context" | "ground truth" 
-    - **Data collection:** in the "Deployment" Step #2 of the PromptFlow deployment wizard, the 'inference data collection' toggle must be enabled using [Model Data Collector](../concept-data-collection.md) and needs model inputs ("prompt") and outputs ("completion") columns.
-
+    - **Data collection:** in the "Deployment" _(Step #2 of the PromptFlow deployment wizard)_, the 'inference data collection' toggle must be enabled using [Model Data Collector](../concept-data-collection.md) 
+    - **Outputs:** In the Outputs _(Step #3 of the PromptFlow deployment wizard)_, confirm you have selected the required outputs listed above (e.g. completion | context | ground_truth) that meet your [metric configuration requirements](#metric-configuration-requirements) 
+     
+    
 ## Create your monitor 
 Create your monitor in the Monitoring overview page 
 :::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-create-monitor.png" alt-text="Screenshot showing how to configure basic monitoring settings for generative AI." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-create-monitor.png":::
