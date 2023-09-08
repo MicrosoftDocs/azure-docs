@@ -49,7 +49,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
     import sys
     from pyspark.sql.types import *
 
-    from pyspark.mllib.classification import LogisticRegressionWithSGD
+    from pyspark.mllib.classification import LogisticRegressionWithLBFGS
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
