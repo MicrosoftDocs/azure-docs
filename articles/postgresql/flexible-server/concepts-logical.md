@@ -67,8 +67,8 @@ Here's some sample code you can use to try out logical replication.
 1. Connect to the publisher database. Create a table and add some data.
    ```SQL
    CREATE TABLE basic (id INTEGER NOT NULL PRIMARY KEY, a TEXT);
-   INSERT INTO basic(name) VALUES ('apple');
-   INSERT INTO basic(name) VALUES ('banana');
+   INSERT INTO basic VALUES (1, 'apple');
+   INSERT INTO basic VALUES (2, 'banana');
    ```
 
 2. Create a publication for the table.
@@ -132,7 +132,7 @@ CREATE SUBSCRIPTION sub
 Having set up the logical replication, you can now test it by inserting a new record into the "basic" table in your source database and then verifying that it replicates to your target database:
 ``` SQL
 -- Run this on the source database
-INSERT INTO basic SELECT 1, 'a';
+INSERT INTO basic SELECT 3, 'mango';
 
 -- Run this on the target database
 TABLE basic;
