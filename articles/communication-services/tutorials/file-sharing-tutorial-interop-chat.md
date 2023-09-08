@@ -41,7 +41,7 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 
 ## Background
 
-First of all, we need to understand that Teams Interop Chat is part of a Teams meeting. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Communication Service user joining the chat and starting to send/receive messages, one meeting participant (a Teams user) will need to admit them first. Otherwise, they does have access to the chat.
+First of all, we need to understand that Teams Interop Chat is part of a Teams meeting. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Communication Service user joining the chat and starting to send/receive messages, one meeting participant (a Teams user) will need to admit them first. Otherwise, they don't have access to the chat.
 Once the Communication Service User is admitted, they would be able to start any chat related operations. 
 In this tutorial, we're checking out how file sharing works in an Interop Chat.
 
