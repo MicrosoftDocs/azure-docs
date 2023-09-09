@@ -116,7 +116,7 @@ The health insurance card model combines powerful Optical Character Recognition 
 
 ### US tax documents
 
-:::image type="icon" source="media/studio/tax.png":::
+:::image type="icon" source="media/studio/tax-documents.png":::
 
 The US tax document models analyze and extract key fields and line items from a select group of tax documents. The API supports the analysis of English-language US tax documents of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The following models are currently supported:
 
