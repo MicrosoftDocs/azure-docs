@@ -66,7 +66,7 @@ dotnet add package Azure.AI.OpenAI --prerelease
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
 
-## Create .NET application
+## Create a sample application
 
 From the project directory, open the *program.cs* file and replace with the following code:
 
