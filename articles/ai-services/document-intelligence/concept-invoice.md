@@ -203,7 +203,7 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; CAD | Canadian Dollar (`ca`) |
 | &bullet; CLP | Chilean Peso (`cl`) |
 | &bullet; CNY | Chinese Yuan (`cn`) |
-| &bullet; COP | Columbian Peso (`co`) |
+| &bullet; COP | Colombian Peso (`co`) |
 | &bullet; CRC | Costa Rican Coldón (`us`) |
 | &bullet; CZK | Czech Koruna (`cz`) |
 | &bullet; DKK | Danish Krone (`dk`) |
