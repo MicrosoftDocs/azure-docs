@@ -12,11 +12,11 @@ The following example shows the function definition after adding a [Queue Storag
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18" highlight="4":::
 
 ### [Isolated process](#tab/isolated-process)
-Because an HTTP triggered function also returns a HTTP response, the function returns a `MultiResponse` object, which represents both the HTTP and queue output.
+Because an HTTP triggered function also returns an HTTP response, the function returns a `MultiResponse` object, which represents both the HTTP and queue output.
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-14":::
 
-The following is the definition of the `MultiResponse` object that includes the output binding.
+This example is the definition of the `MultiResponse` object that includes the output binding:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38" highlight="3":::
 

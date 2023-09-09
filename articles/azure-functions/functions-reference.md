@@ -5,7 +5,7 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 09/06/2023
 ms.custom: ignite-2022
-zone_pivot_groups: programming-languages-set-functions-full
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions developer guide
@@ -14,11 +14,30 @@ In Azure Functions, all functions share some core technical concepts and compone
 
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md).
 
-## Coding functions
+::: zone pivot="programming-language-csharp"
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md), or from the [command prompt](./create-first-function-cli-csharp.md).
+::: zone-end
+::: zone pivot="programming-language-java"
+If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](create-first-function-cli-java.md) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md).
+::: zone-end
+::: zone pivot="programming-language-javascript"
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-javascript.md) or from the [command prompt](./create-first-function-cli-javascript.md).
+::: zone-end
+::: zone pivot="programming-language-typescript"
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-typescript.md) or from the [command prompt](./create-first-function-cli-typescript.md).
+::: zone-end
+::: zone pivot="programming-language-powershell"
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-powershell.md) or from the [command prompt](./create-first-function-cli-powershell.md).
+::: zone-end
+::: zone pivot="programming-language-python"
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-python.md) or from the [command prompt](./create-first-function-cli-python.md).
+::: zone-end
+
+## Code project
 
 At the core of Azure Functions is a language-specific code project that implements one or more units of code execution called _functions_. Functions are simply methods that are executed by the Functions host based on events, in response to HTTP requests, or on a schedule. Think of your Azure Functions code project as a mechanism for organizing, deploying, and collectively managing your individual functions in the project when they're running in Azure. For more information, see [Organize your functions](functions-best-practices.md#organize-your-functions). 
 
-All functions must have a trigger, which defines how the function starts and provides inputs to the function. Your functions can optionally define input and output bindings. These bindings simplify connections to other services without you having to work with client SDKs. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+All functions must have a trigger, which defines how the function starts and can provide input to the function. Your functions can optionally define input and output bindings. These bindings simplify connections to other services without you having to work with client SDKs. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 ::: zone pivot="programming-language-csharp"
 The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For detailed language-specific guidance, see the [C# developers guide](dotnet-isolated-process-guide).
@@ -38,7 +57,7 @@ The way that you lay out your code project and how you indicate which methods in
 
 To help shorten your time to deployment, Azure Functions provides a set of language-specific project and function templates that you can use to create new code projects and add functions to your project. You can use any of the tools that support Azure Functions development to generate new apps and functions using these templates.  
 
-## Development environments
+## Development tools
 
 The following tools provide an integrated development and publishing experience for Azure Functions in your preferred language:
 
@@ -65,7 +84,7 @@ The following tools provide an integrated development and publishing experience 
 These tools integrate with [Azure Functions Core Tools](./functions-develop-local.md) so that you can run and debug on your local computer using the Functions runtime. For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-<a id="fileupdate"></a> There's also an editor in the Azure portal that lets you update your code and your *function.json* definition file directly in the portal. You should only use this editor for small changes or creating proof-of-concept functions. You should always develop your functions locally, when possible.
+<a id="fileupdate"></a> There's also an editor in the Azure portal that lets you update your code and your *function.json* definition file directly in the portal. You should only use this editor for small changes or creating proof-of-concept functions. You should always develop your functions locally, when possible. For more information, see [Create your first function in the Azure portal](functions-create-function-app-portal.md).
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 Portal editing is only supported for [C# script functions](functions-reference-csharp.md), which uses the function.json file. 
@@ -81,9 +100,9 @@ Portal editing is only supported for [Python version 1](functions-reference-pyth
 
 When you publish your code project to Azure, you're essentially deploying your project to an existing function app resource. A function app provides an execution context in Azure in which your functions run. As such, it's the unit of deployment and management for your functions. From an Azure Resource perspective, a function app is equivalent to a site resource (`Microsoft.Web/sites`) in Azure App Service, such as a web app. 
 
-A function app is composed of one or more individual functions that are managed, deployed, and scaled together. These functions are developed and maintained as a single code project, which is deployed to the function app resource in Azure. All of the functions in a function app share the same [pricing plan](functions-scale.md), [deployment method](functions-deployment-technologies.md), and [runtime version](functions-versions.md). For more information, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
+A function app is composed of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same [pricing plan](functions-scale.md), [deployment method](functions-deployment-technologies.md), and [runtime version](functions-versions.md). For more information, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
 
-If the function app and any other required resources don't already exist in Azure, you need to create these resources before you can deploy your project files. You can create these resources in one of these ways:
+When the function app and any other required resources don't already exist in Azure, you first need to create these resources before you can deploy your project files. You can create these resources in one of these ways:
 ::: zone pivot="programming-language-csharp"
 + When you publish from [Visual Studio](./functions-develop-vs.md#publish-to-azure) 
 
@@ -101,25 +120,29 @@ In addition to tool-based publishing, Functions supports other technologies for 
 
 ## Connect to services
 
-A major requirement of any cloud-based compute service is being able to read data from and write data to other cloud services. Functions provides an extensive set of bindings that make it easier for you to connect to services without having to use client SDKs. 
+A major requirement of any cloud-based compute service is reading data from and writing data to other cloud services. Functions provides an extensive set of bindings that makes it easier for you to connect to services without having to work with client SDKs. 
 
 ### Bindings
 
-Functions provides bindings for many Azure services and a few third-party services. You can see the complete list [here](functions-triggers-bindings.md#supported-bindings). 
+Functions provides bindings for many Azure services and a few third-party services, which are implemented as extensions. For more information, see the [complete list of supported bindings](functions-triggers-bindings.md#supported-bindings). 
 
-Binding extensions can support both inputs and outputs, and many triggers also act as input bindings. Bindings let you configure the connection to services and Functions handles the data access for you. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+Binding extensions can support both inputs and outputs, and many triggers also act as input bindings. Bindings let you configure the connection to services so that the Functions host can handle the data access for you. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-If you've having issues with errors coming from the bindings, see the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) documentation.
+If you're having issues with errors coming from bindings, see the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) documentation.
 
 ### Client SDKs
 
-While Functions provides bindings to simplify data access in your function code, you're still able to use client SDKs to access a given service if you prefer. You need to explicitly use client SDKs for scenarios where the bindings don't expose the full set of functionality of the SDK. When using client SDKs, you should use the same connection string management strategies used with bindings. 
+While Functions provides bindings to simplify data access in your function code, you're still able to use a client SDK in your project to directly access a given service, if you prefer. You might need to use client SDKs directly should your functions require a functionality of the underlying SDK that's not supported by the binding extension. 
+
+When using client SDKs, you should use the same process for [storing and accessing connection strings](#connections) used by the bindings. When you create a client SDK instance in your functions, you can obtain the required connection information from settings as environment variables in your code. 
 
 ## Connections
 
-Your functions get connection information by name from its configuration provider. You can't configure a binding directly with a connection string or key. It doesn't directly accept the connection details, allowing them to be changed across environments. For example, a trigger definition might include a `connection` property. This might refer to a connection string, but you can't set the connection string directly in a `function.json`. Instead, you would set `connection` to the name of an environment variable that contains the connection string.
+As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed in your apps as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key. While aiding in security, this also makes it easier to change connections across environments. 
 
-The default configuration provider uses environment variables. These might be set by [Application Settings](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) when running in the Azure Functions service, or from the [local settings file](functions-develop-local.md#local-settings-file) when developing locally.
+For example, consider a trigger definition that has a `connection` property. Instead of the connection string, you set `connection` to the name of an environment variable that contains the connection string.
+
+The default configuration provider uses environment variables. These are defined in [application settings](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) when running in the Azure and in the [local settings file](functions-develop-local.md#local-settings-file) when developing locally.
 
 ### Connection values
 
@@ -244,7 +267,7 @@ If none of these options are successful, an error occurs.
 
 Your identity may already have some role assignments against Azure resources used for development, but those roles may not provide the necessary data access. Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) aren't sufficient. Double-check what permissions are required for connections for each component, and make sure that you have them assigned to yourself.
 
-In some cases, you may wish to specify use of a different identity. You can add configuration properties for the connection that point to the alternate identity based on a client ID and client Secret for an Azure Active Directory service principal. **This configuration option is not supported when hosted in the Azure Functions service.** To use an ID and secret on your local machine, define the connection with the following additional properties:
+In some cases, you may wish to specify use of a different identity. You can add configuration properties for the connection that point to the alternate identity based on a client ID and client Secret for an Azure Active Directory service principal. **This configuration option is not supported when hosted in the Azure Functions service.** To use an ID and secret on your local machine, define the connection with the following extra properties:
 
 | Property    | Environment variable template | Description |
 |---|---|---|
@@ -286,7 +309,7 @@ To use an identity-based connection for `AzureWebJobsStorage`, configure the fol
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
-If you're configuring `AzureWebJobsStorage` using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service will be inferred for this account. This won't work if the storage account is in a sovereign cloud or has a custom DNS.
+If you're configuring `AzureWebJobsStorage` using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service will be inferred for this account. This does't work when the storage account is in a sovereign cloud or has a custom DNS.
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|

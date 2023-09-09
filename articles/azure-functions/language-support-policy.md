@@ -11,15 +11,15 @@ This article explains Azure functions language runtime support policy.
 
 ## Retirement process
 
-Azure Functions runtime is built around various components, including operating systems, the Azure Functions host, and language-specific workers. To maintain full-support coverages for function apps, Functions support aligns with end-of-life support for a given language. To achieve this, Functions implements a phased reduction in support as programming language versions reach their end-of-life dates. For most language versions, the retirement date coincides with the community end-of-life date.
+Azure Functions runtime is built around various components, including operating systems, the Azure Functions host, and language-specific workers. To maintain full-support coverages for function apps, Functions support aligns with end-of-life support for a given language. To achieve this goal, Functions implements a phased reduction in support as programming language versions reach their end-of-life dates. For most language versions, the retirement date coincides with the community end-of-life date.
 
 ### Notification phase
 
-We'll send notification emails to function app users about upcoming language version retirements. The notifications will be at least one year before the date of retirement. Upon the notification, you should prepare to upgrade the language version that your functions apps use to a supported version.
+The Functions team sends notification emails to function app users about upcoming language version retirements. The notifications are sent at least one year before the date of retirement. When you receive the notification, you should prepare to upgrade functions apps to use to a supported version.
 
 ### Retirement phase
 
-After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However your apps won't be eligible for new features, security patches, and performance optimizations until you upgrade them to a supported language version.
+After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However your apps aren't eligible for new features, security patches, and performance optimizations until you upgrade them to a supported language version.
 
 > [!IMPORTANT]
 >You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
@@ -28,7 +28,7 @@ After the language end-of-life date, function apps that use retired language ver
 
 ## Retirement policy exceptions
 
-There are few exceptions to the retirement policy outlined above. Here is a list of languages that are approaching or have reached their end-of-life (EOL) dates but continue to be supported on the platform until further notice. When these languages versions reach their end-of-life dates, they are no longer updated or patched. Because of this, we discourage you from developing and running your function apps on these language versions.
+There are few exceptions to the retirement policy outlined above. Here's a list of languages that are approaching or have reached their end-of-life (EOL) dates but continue to be supported on the platform until further notice. When these languages versions reach their end-of-life dates, they're no longer updated or patched. Because of this, we discourage you from developing and running your function apps on these language versions.
 
 |Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
