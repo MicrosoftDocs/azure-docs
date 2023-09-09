@@ -34,32 +34,6 @@ keywords:
 
 [!INCLUDE [environment-variables](environment-variables.md)]
 
-Change your directory to the newly created app folder. You can build the application with:
-
-```dotnetcli
-dotnet build
-```
-
-The build output should contain no warnings or errors.
-
-```output
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-Install the OpenAI .NET client library with:
-
-```console
-dotnet add package Azure.AI.OpenAI --prerelease
-```
-
-[!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
-
-[!INCLUDE [environment-variables](environment-variables.md)]
-
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
