@@ -45,11 +45,10 @@ Learn how to work with custom attributes for applications in Azure AD.
 
 :::zone pivot="portal"
 
-Undertake the following steps to assign custom security attributes through the Azure portal.
+Undertake the following steps to assign custom security attributes through the Microsoft Entra admin center.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory**, then select **Enterprise applications**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**. 
 
 1. Find and select the application you want to add a custom security attribute to.
 
@@ -73,9 +72,8 @@ Undertake the following steps to assign custom security attributes through the A
 
 ### Update custom security attribute assignment values for an application
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory**, then select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. Find and select the application that has a custom security attribute assignment value you want to update.
 
@@ -93,9 +91,8 @@ Undertake the following steps to assign custom security attributes through the A
 
 You can filter the list of custom security attributes assigned to applications on the **All applications** page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory**, then select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. Select **Add filters** to open the Pick a field pane.
 
@@ -115,9 +112,8 @@ You can filter the list of custom security attributes assigned to applications o
 
 ### Remove custom security attribute assignments from applications
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory**, then select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. Find and select the application that has the custom security attribute assignments you want to remove.
 

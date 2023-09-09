@@ -24,8 +24,6 @@ items:
       href: concept-environments-key-concepts.md
     - name: Usage scenarios
       href: concept-environments-scenarios.md
-    - name: Deployment Environments and Dev Box components 
-      href: concept-common-components.md
     - name: Reliability in Azure Deployment Environments
       href: concept-environments-reliability-availability.md  
 - name: How-to guides
