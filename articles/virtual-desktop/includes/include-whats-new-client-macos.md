@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 08/21/2023
+ms.date: 09/08/2023
 ---
 
 ## Latest client versions
@@ -14,9 +14,17 @@ The following table lists the current versions available for the public and beta
 | Public  | 10.9.0         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
 | Beta    | 10.9.0         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
 
+## Updates for version 10.9.1
+
+*Date published: September 5, 2023*
+
+In this release, we've made the following changes:
+
+- Addressed clipboard redirection issue for macOS 11.
+
 ## Updates for version 10.9.0
 
-Date published: August 16, 2023
+*Date published: August 16, 2023*
 
 In this release,  we added two new features for Azure Virtual Desktop and addressed a number of reported bugs and incidents. 
 
@@ -30,7 +38,7 @@ In this release,  we added two new features for Azure Virtual Desktop and addres
 
 ## Updates for Version 10.8.4
 
-Date published: June 16, 2023
+*Date published: June 16, 2023*
 
 In this release, we've made the following changes:
 
@@ -43,7 +51,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.3
 
-Date published: May 20, 2023
+*Date published: May 20, 2023*
 
 In this release, we've made the following changes:
 
@@ -124,7 +132,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.7
 
-*Date Published: Jun 23, 2022*
+*Date Published: June 23, 2022*
 
 In this release we added the following new features:
 
@@ -196,6 +204,14 @@ In this release, we've made the following changes:
 - Updates and enhancements to Teams redirection (only available in Azure Virtual Desktop scenarios).
 - Addressed reliability issues identified through crash reporting and feedback.
 
+## Updates for version 10.7.1
+
+*Date published: November 4, 2021*
+
+In this release, we've made the following changes:
+
+- Addressed issues that caused the app to crash.
+
 ## Updates for version 10.7.0
 
 *Date published: October 21, 2021*
@@ -212,6 +228,32 @@ In this release, we've made the following changes:
 - Addressed an issue that allowed folders to be redirected multiple times.
 - Added a link to the new support forum at **Help** > **Submit feedback**.
 - Updates improving security, connectivity and performance while connecting to Azure Virtual Desktop.
+
+## Updates for version 10.6.8
+
+*Date published: August 16, 2021*
+
+In this release, we've made the following changes:
+
+- Added background refresh for subscribed workspaces.
+- Addressed issues where the session window may switch to another monitor when auto-reconnecting.
+- Addressed issues where the session window would intermittently enlarge after connecting.
+- Addressed issues where the name of a redirected folder would be incorrect in the remote session.
+- Addressed issues when resizing remote app windows.
+- Improved error messages that are displayed when user accounts fail to update.
+- Addressed issues where window titles in the list of connected remote apps were blank.
+- Addressed multi-monitor issue where the mouse cursor shape would not update correctly when dragging between monitors.
+- Added a checkbox to General Preferences to enable/disable Microsoft Teams optimizations.
+- Added a UI to report if a remote app could not be launched on the server due to not being on the system allowlist.
+- Addressed issues where the session window could not expand when placed at the top or bottom of the screen.
+- Addressed scenarios where the mouse cursor would disappear while connected to a remote PC.
+- Deletion of an Azure Virtual Desktop workspace now correctly removes all associated workspaces.
+- Addressed issues where adding a folder to redirect to a bookmark would enable the "Add" button with an empty PC name.
+- Addressed issues where double-clicking the title bar incorrectly stretches the session window.
+- Updated the mouse to change to a hand glyph when hovering over a red input error indicator.
+- Addressed issues where the session window would flash rapidly in the "Mission Control" or "Application windows" view.
+- Improved connectivity and performance metrics when connecting to Azure Virtual Desktop.
+- Subscribed workspaces are refreshed every six hours, by default, and can be changed using **ClientSettings.WorkspaceAutoRefreshInterval** (minimum interval is 30 minutes and 24 hours is the maximum).
 
 ## Updates for version 10.6.7
 

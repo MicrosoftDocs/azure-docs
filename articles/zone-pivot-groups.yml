@@ -630,6 +630,16 @@ groups:
     title: C++
   - id: programming-language-rest-api
     title: REST API
+- id: programming-languages-vision-40-sdk
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-cpp
+    title: C++
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
@@ -855,6 +865,8 @@ groups:
     title: Azure portal
   - id: azcli
     title: Azure CLI
+  - id: azpowershell
+    title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
   - id: programming-language-java
@@ -1728,12 +1740,16 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
   - id: rest-api
     title: REST
 - id: openai-chat
@@ -1762,6 +1778,8 @@ groups:
     title: Portal
   - id: cli
     title: CLI
+  - id: ps
+    title: PowerShell
 # Owner: mbullwin
 - id: openai-fine-tuning
   title: Programming languages
@@ -1779,9 +1797,11 @@ groups:
   prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
-    title: Azure OpenAI Studio
+    title: Studio
+  - id: programming-language-csharp
+    title: C#
   - id: rest-api
-    title: REST API
+    title: REST
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages
@@ -1799,6 +1819,8 @@ groups:
     title: Go
   - id: programming-language-python
     title: Python
+  - id: programming-language-powershell
+    title: PowerShell
   - id: rest-api
     title: REST
 # Owner: diberry
@@ -2271,21 +2293,21 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-standard
-    title: Basic/Standard
   - id: sc-enterprise
     title: Enterprise
+  - id: sc-standard
+    title: Basic/Standard
 # Owner: karler
 - id: spring-apps-plan-selection
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
+  - id: sc-enterprise
+    title: Enterprise
   - id: sc-consumption-plan
     title: Standard consumption and dedicated (Preview)
   - id: sc-standard
     title: Basic/Standard
-  - id: sc-enterprise
-    title: Enterprise
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)
@@ -2585,17 +2607,17 @@ groups:
   - id: ms-graph
     title: Microsoft Graph
 # Owner: daknappe (Azure Virtual Desktop)
-- id: azure-virtual-desktop-host-pool-types
+- id: azure-virtual-desktop-host-pool-management-types
   title: Azure Virtual Desktop host pool management type
-  prompt: Choose a host pool management type
+  prompt: "Choose a host pool management type:"
   pivots:
   - id: host-pool-standard
-    title: Standard host pool
+    title: Standard
   - id: host-pool-automated
-    title: Automated host pool (preview)
+    title: Automated (preview)
 - id: azure-virtual-desktop-app-attach
   title: Azure Virtual Desktop app attach version
-  prompt: Choose an app attach version
+  prompt: "Choose an app attach version:"
   pivots:
   - id: msix-app-attach
     title: MSIX app attach

@@ -54,7 +54,7 @@ Then once the access package is created, you can [change the hidden setting](ent
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To complete the following steps, you need a role of global administrator, Identity Governance administrator, user administrator, catalog owner, or access package manager.
+To complete the following steps, you need a role of global Administrator, Identity Governance Administrator, catalog owner, or access package manager.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -72,11 +72,11 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 1. In the **Catalog** dropdown list, select the catalog where you want to put the access package. For example, you might have a catalog owner who manages all the marketing resources that can be requested. In this case, you could select the marketing catalog.
 
-    You see only catalogs that you have permission to create access packages in. To create an access package in an existing catalog, you must be a global administrator, Identity Governance administrator, or user administrator. Or you must be a catalog owner or access package manager in that catalog.
+    You see only catalogs that you have permission to create access packages in. To create an access package in an existing catalog, you must be a Global Administrator or Identity Governance Administrator. Or you must be a catalog owner or access package manager in that catalog.
 
     ![Screenshot that shows basic information for a new access package.](./media/entitlement-management-access-package-create/basics.png)
 
-    If you're a global administrator, an Identity Governance administrator, a user administrator, or catalog creator, and you want to create your access package in a new catalog that's not listed, select **Create new catalog**. Enter the catalog name and description, and then select **Create**.
+    If you're a global Administrator, an Identity Governance Administrator, or catalog creator, and you want to create your access package in a new catalog that's not listed, select **Create new catalog**. Enter the catalog name and description, and then select **Create**.
 
     The access package that you're creating, and any resources included in it, are added to the new catalog. Later, you can add more catalog owners or add attributes to the resources that you put in the catalog. To learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles, read [Add resource attributes in the catalog](entitlement-management-catalog-create.md#add-resource-attributes-in-the-catalog).
 
@@ -94,11 +94,11 @@ If you're not sure which resource roles to include, you can skip adding them whi
 
     ![Screenshot that shows the panel for selecting applications for resource roles in a new access package.](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    If you're creating the access package in the general catalog or a new catalog, you can choose any resource from the directory that you own. You must be at least a global administrator, a user administrator, or catalog creator.
+    If you're creating the access package in the general catalog or a new catalog, you can choose any resource from the directory that you own. You must be at least a global administrator, an Identity Governance Administrator, or catalog creator.
 
     If you're creating the access package in an existing catalog, you can select any resource that's already in the catalog without owning it.
 
-    If you're a global administrator, a user administrator, or catalog owner, you have the additional option of selecting resources that you own but that aren't yet in the catalog. If you select resources not currently in the selected catalog, these resources are also added to the catalog for other catalog administrators to build access packages with. To see all the resources that can be added to the catalog, select the **See all** checkbox at the top of the panel. If you want to select only resources that are currently in the selected catalog, leave the **See all** checkbox cleared (the default state).
+    If you're a global administrator, an Identity Governance Administrator, or catalog owner, you have the additional option of selecting resources that you own but that aren't yet in the catalog. If you select resources not currently in the selected catalog, these resources are also added to the catalog for other catalog administrators to build access packages with. To see all the resources that can be added to the catalog, select the **See all** checkbox at the top of the panel. If you want to select only resources that are currently in the selected catalog, leave the **See all** checkbox cleared (the default state).
 
 1. In the **Role** list, select the role that you want users to be assigned for the resource. For more information on selecting the appropriate roles for a resource, read [Add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
 
@@ -151,18 +151,18 @@ You can create an access package by using Microsoft Graph. A user in an appropri
 
 ### Create an access package by using Microsoft PowerShell
 
-You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
+You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 2.4.0.
 
-First, retrieve the ID of the catalog (and of the resources and their roles in that catalog) that you want to include in the access package. Use a script similar to the following example:
+First, retrieve the ID of the catalog (and of the resource and its roles in that catalog) that you want to include in the access package. Use a script similar to the following example:
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-Select-MgProfile -Name "beta"
-$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
 
-$rsc = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
-$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc[0].Id + "')"
-$rr = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
+$catalog = Get-MgBetaEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
+
+$rsc = Get-MgBetaEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
+$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc.Id + "')"
+$rr = Get-MgBetaEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
 ```
 
 Then, create the access package:
@@ -174,10 +174,10 @@ $params = @{
     Description = "outside sales representatives"
 }
 
-$ap = New-MgEntitlementManagementAccessPackage -BodyParameter $params
+$ap = New-MgBetaEntitlementManagementAccessPackage -BodyParameter $params
 ```
 
-After you create the access package, assign the resource roles to it.  For example, if you want to include the second resource role of the first resource returned earlier as a resource role of the new access package, you can use a script similar to this one:
+After you create the access package, assign the resource roles to it.  For example, if you want to include the second resource role of the resource returned earlier as a resource role of the new access package, you can use a script similar to this one:
 
 ```powershell
 $rparams = @{
@@ -186,18 +186,18 @@ $rparams = @{
        DisplayName = $rr[2].DisplayName
        OriginSystem = $rr[2].OriginSystem
        AccessPackageResource = @{
-          Id = $rsc[0].Id
-          ResourceType = $rsc[0].ResourceType
-          OriginId = $rsc[0].OriginId
-          OriginSystem = $rsc[0].OriginSystem
+          Id = $rsc.Id
+          ResourceType = $rsc.ResourceType
+          OriginId = $rsc.OriginId
+          OriginSystem = $rsc.OriginSystem
        }
     }
     AccessPackageResourceScope = @{
-       OriginId = $rsc[0].OriginId
-       OriginSystem = $rsc[0].OriginSystem
+       OriginId = $rsc.OriginId
+       OriginSystem = $rsc.OriginSystem
     }
 }
-New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $ap.Id -BodyParameter $rparams
+New-MgBetaEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $ap.Id -BodyParameter $rparams
 ```
 
 Finally, create the policies.  In this policy, only the administrator can assign access, and there are no access reviews. For more examples, see [Create an assignment policy through PowerShell](entitlement-management-access-package-request-policy.md#create-an-access-package-assignment-policy-through-powershell) and [Create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true).

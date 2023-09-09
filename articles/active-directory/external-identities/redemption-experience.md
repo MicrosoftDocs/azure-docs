@@ -66,7 +66,7 @@ Sometimes the invited external guest user's email may conflict with an existing 
 
 However, the following scenarios should continue to work:
 -	Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](./direct-federation.md), [Email One-Time Passcode](./one-time-passcode.md), and [Google Federation](./google-federation.md) accounts.
--	Signing back into an application after redemption process using [SAML/WS-Fed IdP](./direct-federation.md) and [Google Federation](./google-federation.md) accounts.
+-	Signing back into an application after redemption process using [SAML/WS-Fed IdP](./direct-federation.md), [Email One-Time Passcode](./one-time-passcode.md), and [Google Federation](./google-federation.md) accounts.
 
 To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact), follow these steps:
 1. Delete the conflicting Contact object.

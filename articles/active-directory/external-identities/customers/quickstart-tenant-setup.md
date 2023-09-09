@@ -69,6 +69,22 @@ In this quickstart, you'll learn how to create a tenant with customer configurat
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-successfully-created.png" alt-text="Screenshot that shows the link to the new tenant.":::
 
+## Customize your tenant with a guide
+
+Our guide will walk you through the process of setting up a user and configuring a sample app in just a few minutes. This means that you can quickly and easily test out different sign-in and sign-up options and set up a sample app to see what works best for you. This guide is available in any customer tenant.
+
+> [!NOTE]
+> The guide won’t run automatically in customer tenants that you created with the steps above. If you want to run the guide, follow the steps below.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
+1. Browse to **Home** > **Go to Microsoft Entra ID** 
+1. On the Get started tab, select **Start the guide**.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/guide-link.png" alt-text="Screenshot that shows how to start the guide.":::
+
+This link will take you to the [guide](quickstart-get-started-guide.md), where you can customize your tenant in three easy steps.
+
 ## Clean up resources
 
 If you're not going to continue to use this tenant, you can delete it using the following steps:
@@ -86,6 +102,5 @@ The tenant and its associated information are deleted.
 
 
 ## Next steps
-- [Customize the sign-in experience](how-to-customize-branding-customers.md) 
-- [Register an app](how-to-register-ciam-app.md)
-- [Create user flows](how-to-user-flow-sign-up-sign-in-customers.md)
+
+To learn more about the set-up guide and how to customize your tenant, see the [Get started guide](quickstart-get-started-guide.md) article.

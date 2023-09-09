@@ -28,13 +28,11 @@ keywords:
 
 ## Set up
 
-### Create a new .NET Core application
+[!INCLUDE [Create a new .NET application](./dotnet-new-application.md)]
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `azure-openai-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
+[!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
-```dotnetcli
-dotnet new console -n azure-openai-quickstart
-```
+[!INCLUDE [environment-variables](environment-variables.md)]
 
 Change your directory to the newly created app folder. You can build the application with:
 

@@ -33,14 +33,14 @@ The configuration page for password-based SSO is simple. It includes only the UR
 
 To configure password-based SSO in your Azure AD tenant, you need:
 -	An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
--	Global Administrator, or owner of the service principal.
+-	Global Administrator, Cloud Application Administrator, or owner of the service principal.
 -	An application that supports password-based SSO.
 
 ## Configure password-based single sign-on
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the appropriate role.
-1. Select **Azure Active Directory** in Azure Services, and then select **Enterprise applications**.
-1. Search for and select the application that you want to add password-based SSO.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. Select **Single sign-on** and then select **Password-based**.
 1. Enter the URL for the sign-in page of the application.
 1. Select **Save**. 
