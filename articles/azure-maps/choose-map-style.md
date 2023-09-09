@@ -154,7 +154,7 @@ See the following articles for more code samples to add to your maps:
 [base map styles]: supported-map-styles.md
 
 [grayscale_dark]: supported-map-styles.md#grayscale_dark
-[setStyle]: /javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setstyle
+[setStyle]: /javascript/api/azure-maps-control/atlas.map#azure-maps-control-atlas-map-setstyle
 [Style Control Options]: /javascript/api/azure-maps-control/atlas.stylecontroloptions
 [Map]: /javascript/api/azure-maps-control/atlas.map
 [StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
