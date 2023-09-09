@@ -96,25 +96,25 @@ What parameters are configured in your data asset dictates what metrics you can 
 ## Create your monitor 
 
 Create your monitor in the Monitoring overview page 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-create-monitor.png" alt-text="Screenshot showing how to create a monitor for your application." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-create-monitor.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/create-monitor.png" alt-text="Screenshot showing how to create a monitor for your application." lightbox="./media/how-to-monitor-generative-ai-applications/create-monitor.png":::
 
 
 ### Configure basic monitoring settings
 
 In the monitoring creation wizard, change **model task type** to **prompt & completion**, as shown by (A) in the screenshot.
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-basic-settings.png" alt-text="Screenshot showing how to configure basic monitoring settings for generative AI." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-basic-settings.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/configure-basic-settings.png" alt-text="Screenshot showing how to configure basic monitoring settings for generative AI." lightbox="./media/how-to-monitor-generative-ai-applications/configure-basic-settings.png":::
 
 ### Configure data asset
 
 If you have used [Model Data Collector](../concept-data-collection.md), select your two data assets (inputs & outputs). 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-data-asset.png" alt-text="Screenshot showing how to configure your data asset for generative AI." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-data-asset.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/configure-data-asset.png" alt-text="Screenshot showing how to configure your data asset for generative AI." lightbox="./media/how-to-monitor-generative-ai-applications/configure-data-asset.png":::
     
 ### Select monitoring signals
 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal2.png" alt-text="Screenshot showing monitoring signal configuration options on the monitoring settings dialog." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal2.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/configure-signal-2.png" alt-text="Screenshot showing monitoring signal configuration options on the monitoring settings dialog." lightbox="./media/how-to-monitor-generative-ai-applications/configure-signal-2.png":::
 1. Configure workspace connection **(A)** in the screenshot. 
     1. You need to configure your workspace connection correctly, or you see this: 
-    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal1.png" alt-text="Screenshot showing an unconfigured monitoring signal." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal1.png":::
+    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/configure-signal-1.png" alt-text="Screenshot showing an unconfigured monitoring signal." lightbox="./media/how-to-monitor-generative-ai-applications/configure-signal-1.png":::
 1. Enter your Azure OpenAI evaluator deployment name **(B)**.
 1. (Optional) Join your production data inputs & outputs: your production model inputs and outputs are automatically joined by the Monitoring service **(C)**. You can customize this if needed, but no action is required. By default, the join column is **correlationid**. 
 1. (Optional) Configure metric thresholds: An acceptable per-instance score is fixed at 3/5. You can adjust your acceptable overall % passing rate between the range [1,99] % 
@@ -123,40 +123,40 @@ If you have used [Model Data Collector](../concept-data-collection.md), select y
 - (optional) Set sampling rate **(F)**
 
 - Once configured, your signal will no longer show a warning.
-    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal3.png" alt-text="Screenshot showing monitoring signal configurations without a warning." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-signal3.png":::
+    :::image type="content" source="./media/how-to-monitor-generative-ai-applications/configure-signal-3.png" alt-text="Screenshot showing monitoring signal configurations without a warning." lightbox="./media/how-to-monitor-generative-ai-applications/configure-signal-3.png":::
 
 ### Configure notifications
 
 No action is required. You can configure more recipients if needed.
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-configure-notifications.png" alt-text="Screenshot showing monitoring notification configurations." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-configure-notifications.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/configure-notifications.png" alt-text="Screenshot showing monitoring notification configurations." lightbox="./media/how-to-monitor-generative-ai-applications/configure-notifications.png":::
 
 ### Confirm monitoring signal configuration  
 
 When successfully configured, your monitor should look like this:
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-confirm-configuration.png" alt-text="Screenshot showing a configured monitoring signal." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-confirm-configuration.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/confirm-configuration.png" alt-text="Screenshot showing a configured monitoring signal." lightbox="./media/how-to-monitor-generative-ai-applications/confirm-configuration.png":::
 
 ## Confirm monitoring status
 
 If successfully configured, your monitoring pipeline job shows the following:
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-confirm-job-success.png" alt-text="Screenshot showing a successfully configured monitoring signal." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-confirm-job-success.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/confirm-job-success.png" alt-text="Screenshot showing a successfully configured monitoring signal." lightbox="./media/how-to-monitor-generative-ai-applications/confirm-job-success.png":::
 
 ## Consume results  
 
 ### Monitor overview page
 
 Your monitor overview provides an overview of your signal performance. You can enter your signal details page for more information.
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-overview.png" alt-text="Screenshot showing monitor overview." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-monitor-overview.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/monitor-overview.png" alt-text="Screenshot showing monitor overview." lightbox="./media/how-to-monitor-generative-ai-applications/monitor-overview.png":::
     
 ### Signal details page
 
 The signal details page allows you to view metrics over time **(A)**  and view histograms of distribution **(B)**.
 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-details.png" alt-text="Screenshot showing a signal details page." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-details.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/monitor-signal-details.png" alt-text="Screenshot showing a signal details page." lightbox="./media/how-to-monitor-generative-ai-applications/monitor-signal-details.png":::
 
 ### Resolve alerts 
 
 It's only possible to adjust signal thresholds: the acceptable score is fixed at 3/5, and it's only possible to adjust the 'acceptable overall % passing rate' field. 
-:::image type="content" source="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/how-to-monitor-generative-ai-applications/gsq-monitor-signal-adjust-signal.png":::
+:::image type="content" source="./media/how-to-monitor-generative-ai-applications/monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/how-to-monitor-generative-ai-applications/monitor-signal-adjust-signal.png":::
    
 ## Next Steps
 - [Model monitoring overview](../concept-model-monitoring.md)
