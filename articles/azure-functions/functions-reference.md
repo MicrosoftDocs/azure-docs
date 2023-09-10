@@ -21,7 +21,7 @@ If you prefer to jump right in, you can complete a quickstart tutorial using [Vi
 If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](create-first-function-cli-java.md) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio Code](./create-first-function-vs-code-java.md).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-javascript.md) or from the [command prompt](./create-first-function-cli-javascript.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-node.md) or from the [command prompt](./create-first-function-cli-node.md).
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
 If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-typescript.md) or from the [command prompt](./create-first-function-cli-typescript.md).
@@ -38,7 +38,7 @@ If you prefer to jump right in, you can complete a quickstart tutorial using [Vi
 At the core of Azure Functions is a language-specific code project that implements one or more units of code execution called _functions_. Functions are simply methods that run in the Azure cloud based on events, in response to HTTP requests, or on a schedule. Think of your Azure Functions code project as a mechanism for organizing, deploying, and collectively managing your individual functions in the project when they're running in Azure. For more information, see [Organize your functions](functions-best-practices.md#organize-your-functions). 
 
 ::: zone pivot="programming-language-csharp"
-The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For detailed language-specific guidance, see the [C# developers guide](dotnet-isolated-process-guide).
+The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For detailed language-specific guidance, see the [C# developers guide](dotnet-isolated-process-guide.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Java developers guide](functions-reference-java.md).
@@ -103,7 +103,7 @@ When the function app and any other required resources don't already exist in Az
 ::: zone pivot="programming-language-csharp"
 + During [Visual Studio](./functions-develop-vs.md#publish-to-azure) publishing   
 ::: zone-end 
-+ Using [Visual Studio Code](./functions-develop-vs-code.md#create-azure-resources)
++ Using [Visual Studio Code](./functions-develop-vs-code.md#publish-to-azure)
 
 + Programmatically using [Azure CLI](./scripts/functions-cli-create-serverless.md), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep templates](functions-create-first-function-bicep.md)
 
