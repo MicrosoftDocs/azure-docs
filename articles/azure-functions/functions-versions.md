@@ -21,6 +21,8 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article details some of the differences between supported versions, how you can create each version, and how to change the version on which your functions run.
 
+## Levels of support
+
 [!INCLUDE [functions-support-levels](../../includes/functions-support-levels.md)]
 
 ## Languages

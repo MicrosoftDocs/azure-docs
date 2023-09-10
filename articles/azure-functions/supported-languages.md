@@ -14,8 +14,6 @@ This article explains the levels of support offered for your preferred language 
 
 ## Languages by runtime version 
 
-[Several versions of the Azure Functions runtime](functions-versions.md) are available. 
-
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)] 
 
 [!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
