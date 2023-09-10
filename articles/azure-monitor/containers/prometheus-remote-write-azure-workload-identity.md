@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.author: edbaynash
 ms.topic: how-to
-ms.date: 09/04/2023
+ms.date: 09/10/2023
 ms.reviewer: rapadman
 ---
 
@@ -37,7 +37,7 @@ ms.reviewer: rapadman
     export SERVICE_ACCOUNT_ISSUER="<your service account issuer url>"
     ```
     
-    For `SERVICE_ACCOUNT_NAME`, check if there's a service account (apart from the "default" service account) already associated with Prometheus pod, check for the value of `service accountName` or `service account` (deprecated) in the `spec` of your Prometheus pod and use this value if it exists. If not, provide the name of the service account you would like to associate with your Prometheus pod.
+    For `SERVICE_ACCOUNT_NAME`, check if there's a service account (apart from the "default" service account) already associated with Prometheus pod, check for the value of `serviceaccountName` or `serviceAccount` (deprecated) in the `spec` of your Prometheus pod and use this value if it exists. If not, provide the name of the service account you would like to associate with your Prometheus pod.
 
 1. Create an Azure Active Directory app or user assigned managed identity and grant permission to publish metrics to Azure Monitor workspace.
     ```azurecli
@@ -130,10 +130,11 @@ Use the sample yaml below if you're using kube-prometheus-stack:
 ```yml
 prometheus:
   prometheusSpec:
+    externalLabels:
+          cluster: <AKS-CLUSTER-NAME>
     podMetadata:
         labels:
             azure.workload.identity/use: "true"
-
     ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
     remoteWrite:
     - url: 'http://localhost:8081/api/v1/write'
@@ -155,17 +156,13 @@ prometheus:
 ```
 
 1. Replace the following values in the YAML.
-    
+  
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230505.1`<br>The remote write container image version. |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1` <br>The remote write container image version. |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
-    | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
-    | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |
-    | `<CERT-NAME>` | Name of the certificate  |
-    | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
-    
+
 1. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands. 
 
     ```azurecli
@@ -178,9 +175,9 @@ prometheus:
 
 ## Next steps
 
-- [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
-- [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
-- [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
-- [Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory](./prometheus-remote-write-active-directory.md)
-- [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
-- [Configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)
+* [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
+* [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)
+* [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
+* [Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory](./prometheus-remote-write-active-directory.md)
+* [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
+* [Configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)
