@@ -2,7 +2,7 @@
 title: Template deployment what-if
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 09/06/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -136,18 +136,14 @@ For REST API, use:
 
 ## Change types
 
-The what-if operation lists six different types of changes:
+The what-if operation lists seven different types of changes:
 
 - **Create**: The resource doesn't currently exist but is defined in the template. The resource will be created.
-
 - **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](./deployment-complete-mode-deletion.md) are included in this change type.
-
 - **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified. When you reach the limits for expanding nested templates, you will encounter this change type. See [What-if limits](#what-if-limits).
-
 - **NoChange**: The resource exists, and is defined in the template. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
-
+- **NoEffect**: The property is ready-only and will be ignored by the service. For example, the `sku.tier` property is always set to match `sku.name` in the [`Microsoft.ServiceBus`](/azure/templates/microsoft.servicebus/namespaces) namespace.
 - **Modify**: The resource exists, and is defined in the template. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
-
 - **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 
 ## Result format
@@ -185,7 +181,6 @@ The following results show the two different output formats:
         ]
       ~ properties.subnets: [
         - 0:
-
           name:                     "subnet001"
           properties.addressPrefix: "10.0.0.0/24"
 

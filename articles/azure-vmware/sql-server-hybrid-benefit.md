@@ -35,6 +35,6 @@ Now that you've covered Azure Hybrid benefit, you may want to learn about:
 
 - [Migrate Microsoft SQL Server Standalone to Azure VMware Solution](migrate-sql-server-standalone-cluster.md)
 - [Migrate SQL Server failover cluster to Azure VMware Solution](migrate-sql-server-failover-cluster.md)
-- [Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution](migrate-sql-server-always-on-cluster.md)
+- [Migrate Microsoft SQL Server Always-On Availability Group to Azure VMware Solution](migrate-sql-server-always-on-availability-group.md)
 - [Enable SQL Azure hybrid benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md)
 - [Configure Windows Server Failover Cluster on Azure VMware Solution vSAN](configure-windows-server-failover-cluster.md)
