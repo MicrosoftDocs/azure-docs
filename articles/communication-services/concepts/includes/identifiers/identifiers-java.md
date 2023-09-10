@@ -101,7 +101,7 @@ var gcchBotIdentifier = new MicrosoftBotIdentifier(bot.id, true, CommunicationCl
 
 #### API reference
 
-[MicrosoftBotIdentifier](/java/api/com.azure.communication.common.microsoftbotidentifier?view=azure-java-preview)
+[MicrosoftBotIdentifier](/java/api/com.azure.communication.common.microsoftbotidentifier?view=azure-java-preview&preserve-view=true)
 
 ### Unknown
 
