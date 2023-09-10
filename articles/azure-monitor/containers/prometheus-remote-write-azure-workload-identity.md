@@ -1,5 +1,5 @@
 ---
-title: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory workload identity (preview) 
+title: Configure remote write for Azure managed service for Prometheus using Azure Active Directory workload identity (preview) 
 description: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory workload identity (preview)
 author: EdB-MSFT
 services: azure-monitor
@@ -9,21 +9,22 @@ ms.date: 09/10/2023
 ms.reviewer: rapadman
 ---
 
-# Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory workload identity (preview). 
+# Configure remote write for Azure managed service for Prometheus using Azure Active Directory workload identity (preview)
 
+This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from your Azure managed Prometheus cluster using Azure Active Directory workload identity.
 
-## Prerequisites:
-1. The cluster must have OIDC-specific feature flags and an OIDC issuer URL: 
-    * For managed clusters (AKS/EKS/GKE), see [Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html)
-    * For self-managed clusters, see [Self-Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters.html) 
-1. Installed mutating admission webhook. For more information, see [Mutating Admission Webhook - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html)
-1. The cluster already has Prometheus running. This guide assumes that the Prometheus is set up using [kube-prometheus-stack](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html), however, you can set up Prometheus any other way.
+## Prerequisites
 
+* The cluster must have OIDC-specific feature flags and an OIDC issuer URL: 
+  * For managed clusters (AKS/EKS/GKE), see [Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html)
+  * For self-managed clusters, see [Self-Managed Clusters - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters.html)  
+* Installed mutating admission webhook. For more information, see [Mutating Admission Webhook - Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html)
+* The cluster already has Prometheus running. This guide assumes that the Prometheus is set up using [kube-prometheus-stack](https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html), however, you can set up Prometheus any other way.
 
 ## Configure workload identity
 
-1.  Export the following environment variables:
-    
+1. Export the following environment variables:  
+
     ```bash
     # [OPTIONAL] Only set this if you're using a Azure AD Application
     export APPLICATION_NAME="<your application name>"
@@ -35,8 +36,8 @@ ms.reviewer: rapadman
     export SERVICE_ACCOUNT_NAMESPACE="<namespace of Prometheus pod>"
     export SERVICE_ACCOUNT_NAME="<name of service account associated with Prometheus pod>"
     export SERVICE_ACCOUNT_ISSUER="<your service account issuer url>"
-    ```
-    
+    ```  
+
     For `SERVICE_ACCOUNT_NAME`, check if there's a service account (apart from the "default" service account) already associated with Prometheus pod, check for the value of `serviceaccountName` or `serviceAccount` (deprecated) in the `spec` of your Prometheus pod and use this value if it exists. If not, provide the name of the service account you would like to associate with your Prometheus pod.
 
 1. Create an Azure Active Directory app or user assigned managed identity and grant permission to publish metrics to Azure Monitor workspace.
