@@ -126,8 +126,6 @@ The Functions extension lets you create a function app project, along with your 
 
 1. A function is created in your chosen language and in the template for an HTTP-triggered function.
 
-    :::image type="content" source="./media/functions-develop-vs-code/new-function-created.png" alt-text="Screenshot for H T T P-triggered function template in Visual Studio Code.":::
-
 ### Generated project files
 
 The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
@@ -196,10 +194,12 @@ Files generated depend on the chosen Python programming model for Functions:
 
 ::: zone-end  
 
-At this point, you can do one of the following:
+At this point, you can do one of these tasks:
 
 + [Add input or output bindings to an existing function](#add-input-and-output-bindings).
 + [Add a new function to your project](#add-a-function-to-your-project).
++ [Run your functions locally](#run-functions-locally).
++ [Publish your project to Azure](#publish-to-azure).
 
 ## Add a function to your project
 
