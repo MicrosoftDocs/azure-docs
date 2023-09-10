@@ -91,8 +91,8 @@ Configuration for SAP **/hana/data** volume:
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 6,848 GB | 1,200 MBps| 17,000 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 80,000 | 9,120 GB | 1,250 MBps| 20,000 | 
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 13,680 GB | 1,300 MBps| 25,000 | 
-| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
-| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -127,8 +127,8 @@ For the **/hana/log** volume. the configuration would look like:
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416s_8_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
-| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
-| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -151,9 +151,9 @@ A few examples on how combining multiple Premium SSD v2 disks with a stripe set 
 | M416ms_v2 | 11,400 GiB | 1 | 13,680 | 25,000 | 3,000 | 22,000 | 1,200 MBps | 125 MBps | 1,075 MBps |
 | M416ms_v2 | 11,400 GiB | 2 | 6,840 | 25,000 | 6,000 | 19,000 | 1,200 MBps | 250 MBps | 950 MBps |
 | M416ms_v2 | 11,400 GiB | 4 | 3,420 | 25,000 | 12,000 | 13,000 | 1,200 MBps | 500 MBps | 700 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 2 | 7,451 GB | 40,000 | 6,000 | 34,000 | 2,000 MBps | 250 MBps | 1750 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 4 | 3,726 GB | 40,000 | 12,000 | 28,000 | 2,000 MBps | 500 MBps | 1500 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 8 | 1,863 GB | 40,000 | 24,000 | 16,000 | 2,000 MBps | 1,000 MBps | 1000 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 2 | 7,451 GB | 40,000 | 6,000 | 34,000 | 2,000 MBps | 250 MBps | 1750 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 4 | 3,726 GB | 40,000 | 12,000 | 28,000 | 2,000 MBps | 500 MBps | 1500 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 8 | 1,863 GB | 40,000 | 24,000 | 16,000 | 2,000 MBps | 1,000 MBps | 1000 MBps |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -169,8 +169,8 @@ For **/hana/log**, a similar approach of using two disks could look like:
 | M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2 | 256 GB | 4,000 | 6,000 | 0 | 300 MBps | 250 MBps | 50 MBps |
 | M416ms_v2 | 11,400 GiB | 1 | 512 GB | 5,000 | 3,000 | 2,000 | 400 MBps | 125 MBps | 275 MBps |
 | M416ms_v2 | 11,400 GiB | 2 | 256 GB | 5,000 | 6,000 | 0 | 400 MBps | 250 MBps | 150 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 1 | 512 GB | 9,000 | 3,000 | 6,000 | 600 MBps | 125 MBps | 475 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 2 | 256 GB | 9,000 | 6,000 | 3,000 | 600 MBps | 250 MBps | 350 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 1 | 512 GB | 9,000 | 3,000 | 6,000 | 600 MBps | 125 MBps | 475 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 2 | 256 GB | 9,000 | 6,000 | 3,000 | 600 MBps | 250 MBps | 350 MBps |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
