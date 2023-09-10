@@ -18,7 +18,7 @@ This article assumes that you've already read the [Azure Functions overview](fun
 If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md), or from the [command prompt](./create-first-function-cli-csharp.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](create-first-function-cli-java.md) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio Code](./create-first-function-vs-code-csharp.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](create-first-function-cli-java.md) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio Code](./create-first-function-vs-code-java.md).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-javascript.md) or from the [command prompt](./create-first-function-cli-javascript.md).
@@ -73,8 +73,6 @@ The following tools provide an integrated development and publishing experience 
 
 + [IntelliJ IDEA](functions-create-maven-intellij.md) 
 
-+ [Maven](create-first-function-cli-java.md)
-
 + [Quarkus](functions-create-first-quarkus.md)
 
 + [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json)
@@ -115,7 +113,9 @@ In addition to tool-based publishing, Functions supports other technologies for 
 
 ## Connect to services
 
-A major requirement of any cloud-based compute service is reading data from and writing data to other cloud services. Functions provides an extensive set of bindings that makes it easier for you to connect to services without having to work with client SDKs. 
+A major requirement of any cloud-based compute service is reading data from and writing data to other cloud services. Functions provides an extensive set of bindings that makes it easier for you to connect to services without having to work with client SDKs.
+
+Whether you use the binding extensions provided by Functions or you work with client SDKs directly, you securely store connection data and do not include it in your code. For more information, see [Connections](#connections).   
 
 ### Bindings
 
@@ -129,7 +129,22 @@ If you're having issues with errors coming from bindings, see the [Azure Functio
 
 While Functions provides bindings to simplify data access in your function code, you're still able to use a client SDK in your project to directly access a given service, if you prefer. You might need to use client SDKs directly should your functions require a functionality of the underlying SDK that's not supported by the binding extension. 
 
-When using client SDKs, you should use the same process for [storing and accessing connection strings](#connections) used by the bindings. When you create a client SDK instance in your functions, you can obtain the required connection information from settings as environment variables in your code. 
+When using client SDKs, you should use the same process for [storing and accessing connection strings](#connections) used by binding extensions.  
+::: zone pivot="programming-language-csharp"
+When you create a client SDK instance in your functions, you should get the connection info required by the client from [Environment variables](functions-dotnet-class-library.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-java"
+When you create a client SDK instance in your functions, you should get the connection info required by the client from [Environment variables](functions-reference-java.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+When you create a client SDK instance in your functions, you should get the connection info required by the client from [Environment variables](functions-reference-node.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-powershell"
+When you create a client SDK instance in your functions, you should get the connection info required by the client from [Environment variables](functions-reference-powershell.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-python"
+When you create a client SDK instance in your functions, you should get the connection info required by the client from [Environment variables](functions-reference-python.md#environment-variables).
+::: zone-end
 
 ## Connections
 
