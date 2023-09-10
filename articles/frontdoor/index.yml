@@ -128,7 +128,7 @@ landingContent:
             url: standard-premium/how-to-enable-private-link-web-app.md
           - text: Configure WAF policy
             url: ../web-application-firewall/afds/waf-front-door-create-portal.md
-          - text: Configure Azure Firewall Manager
+          - text: Use Firewall Manager
             url: ../web-application-firewall/shared/manage-policies.md
           - text: Use Microsoft Sentinel
             url: ../web-application-firewall/waf-sentinel.md
