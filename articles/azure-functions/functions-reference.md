@@ -18,7 +18,7 @@ This article assumes that you've already read the [Azure Functions overview](fun
 If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md), or from the [command prompt](./create-first-function-cli-csharp.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](create-first-function-cli-java.md) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](create-first-function-cli-java.md) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio Code](./create-first-function-vs-code-csharp.md).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-javascript.md) or from the [command prompt](./create-first-function-cli-javascript.md).
@@ -35,9 +35,7 @@ If you prefer to jump right in, you can complete a quickstart tutorial using [Vi
 
 ## Code project
 
-At the core of Azure Functions is a language-specific code project that implements one or more units of code execution called _functions_. Functions are simply methods that are executed by the Functions host based on events, in response to HTTP requests, or on a schedule. Think of your Azure Functions code project as a mechanism for organizing, deploying, and collectively managing your individual functions in the project when they're running in Azure. For more information, see [Organize your functions](functions-best-practices.md#organize-your-functions). 
-
-All functions must have a trigger, which defines how the function starts and can provide input to the function. Your functions can optionally define input and output bindings. These bindings simplify connections to other services without you having to work with client SDKs. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+At the core of Azure Functions is a language-specific code project that implements one or more units of code execution called _functions_. Functions are simply methods that run in the Azure cloud based on events, in response to HTTP requests, or on a schedule. Think of your Azure Functions code project as a mechanism for organizing, deploying, and collectively managing your individual functions in the project when they're running in Azure. For more information, see [Organize your functions](functions-best-practices.md#organize-your-functions). 
 
 ::: zone pivot="programming-language-csharp"
 The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For detailed language-specific guidance, see the [C# developers guide](dotnet-isolated-process-guide).
@@ -54,8 +52,9 @@ The way that you lay out your code project and how you indicate which methods in
 ::: zone pivot="programming-language-python"
 The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Python developers guide](functions-reference-python.md).
 ::: zone-end
+All functions must have a trigger, which defines how the function starts and can provide input to the function. Your functions can optionally define input and output bindings. These bindings simplify connections to other services without you having to work with client SDKs. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-To help shorten your time to deployment, Azure Functions provides a set of language-specific project and function templates that you can use to create new code projects and add functions to your project. You can use any of the tools that support Azure Functions development to generate new apps and functions using these templates.  
+Azure Functions provides a set of language-specific project and function templates that make it easy to create new code projects and add functions to your project. You can use any of the tools that support Azure Functions development to generate new apps and functions using these templates.  
 
 ## Development tools
 
@@ -104,15 +103,11 @@ A function app is composed of one or more individual functions that are managed,
 
 When the function app and any other required resources don't already exist in Azure, you first need to create these resources before you can deploy your project files. You can create these resources in one of these ways:
 ::: zone pivot="programming-language-csharp"
-+ When you publish from [Visual Studio](./functions-develop-vs.md#publish-to-azure) 
-
-+ Using [Visual Studio Code](./functions-develop-vs-code.md#create-azure-resources)
++ During [Visual Studio](./functions-develop-vs.md#publish-to-azure) publishing   
 ::: zone-end 
-+ Programmatically using: 
-    + [Azure CLI](./scripts/functions-cli-create-serverless.md)
-    + [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c)
-    + [ARM templates](functions-create-first-function-resource-manager.md)
-    + [Bicep templates](functions-create-first-function-bicep.md)
++ Using [Visual Studio Code](./functions-develop-vs-code.md#create-azure-resources)
+
++ Programmatically using [Azure CLI](./scripts/functions-cli-create-serverless.md), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep templates](functions-create-first-function-bicep.md)
 
 + In the [Azure portal](functions-create-function-app-portal.md)
 
@@ -138,15 +133,15 @@ When using client SDKs, you should use the same process for [storing and accessi
 
 ## Connections
 
-As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed in your apps as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key. While aiding in security, this also makes it easier to change connections across environments. 
+As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed in your apps as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key. 
 
-For example, consider a trigger definition that has a `connection` property. Instead of the connection string, you set `connection` to the name of an environment variable that contains the connection string.
+For example, consider a trigger definition that has a `connection` property. Instead of the connection string, you set `connection` to the name of an environment variable that contains the connection string. Using this secrets access strategy both makes your apps more secure and makes it easier for you to change connections across environments. For even more security, you can use identity-based connections.
 
-The default configuration provider uses environment variables. These are defined in [application settings](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) when running in the Azure and in the [local settings file](functions-develop-local.md#local-settings-file) when developing locally.
+The default configuration provider uses environment variables. These variables are defined in [application settings](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) when running in the Azure and in the [local settings file](functions-develop-local.md#local-settings-file) when developing locally.
 
 ### Connection values
 
-When the connection name resolves to a single exact value, the runtime identifies the value as a _connection string_, which typically includes a secret. The details of a connection string are defined by the service to which you wish to connect.
+When the connection name resolves to a single exact value, the runtime identifies the value as a _connection string_, which typically includes a secret. The details of a connection string depend on the service to which you connect.
 
 However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores `__`. The group can then be referenced by setting the connection name to this prefix.
 
@@ -195,7 +190,7 @@ The following components support identity-based connections:
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
-Choose a tab below to learn about permissions for each component:
+Choose one of these tabs to learn about permissions for each component:
 
 # [Azure Blobs extension](#tab/blob)
 
@@ -292,7 +287,7 @@ Here's an example of `local.settings.json` properties required for identity-base
 
 #### Connecting to host storage with an identity
 
-The Azure Functions host uses the `AzureWebJobsStorage` connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This can be configured to use an identity as well.
+The Azure Functions host uses the `AzureWebJobsStorage` connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This connection can also be configured to use an identity.
 
 > [!CAUTION]
 > Other components in Functions rely on `AzureWebJobsStorage` for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs, Event Hubs, and Durable Functions. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
@@ -309,7 +304,7 @@ To use an identity-based connection for `AzureWebJobsStorage`, configure the fol
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
-If you're configuring `AzureWebJobsStorage` using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service will be inferred for this account. This does't work when the storage account is in a sovereign cloud or has a custom DNS.
+If you're configuring `AzureWebJobsStorage` using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service are inferred for this account. This doesn't work when the storage account is in a sovereign cloud or has a custom DNS.
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
