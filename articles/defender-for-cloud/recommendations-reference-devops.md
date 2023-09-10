@@ -4,7 +4,7 @@ description: This article lists Microsoft Defender for Cloud's DevOps security r
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 09/06/2023
+ms.date: 09/10/2023
 ms.author: dacurwin
 ms.custom: generated
 ---
