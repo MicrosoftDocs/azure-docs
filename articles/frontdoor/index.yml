@@ -150,7 +150,7 @@ landingContent:
           - text: Azure Spring Apps
             url: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy
           - text: Azure Static Web Apps
-            url: ../static-web-apps/front-door-manual?tabs=azure-portal&pivots=swa-afd-manual-afd.md
+            url: ../static-web-apps/front-door-manual.md
           - text: Scalable and secure WordPress on Azure
             url: /azure/architecture/example-scenario/infrastructure/wordpress
 
