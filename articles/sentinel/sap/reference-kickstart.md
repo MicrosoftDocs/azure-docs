@@ -320,7 +320,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** No.
 
-**Explanation:** The agent will use the host based networking, this can solve internal DNS resolution issues in some cases.
+**Explanation:** If this switch is specified, the agent will use host-based networking configuration. This can solve internal DNS resolution issues in some cases.
 
 #### Confirm all prompts
 
