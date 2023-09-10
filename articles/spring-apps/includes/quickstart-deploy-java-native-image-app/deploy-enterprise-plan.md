@@ -136,6 +136,7 @@ Azure Spring Apps is used to host the Spring Petclinic app. Use the following st
 
    ```azurecli
    az spring build-service builder create \
+       --service ${AZURE_SPRING_APPS_NAME} \
        --name ${NATIVE_BUILDER} \
        --builder-file builder-native.json
    ```

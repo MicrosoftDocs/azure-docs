@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 09/06/2023
+ms.date: 09/07/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -29,6 +29,8 @@ A rollout may take several weeks before the agent is available in all environmen
 |--|--|
 | Production | 1.0.7033.1401 |
 | Validation | 1.0.7255.800 |
+
+The agent is automatically installed when adding session hosts in most scenarios. If you need to download the agent, you find it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
 ## Version 1.0.7255.800 (validation)
 
