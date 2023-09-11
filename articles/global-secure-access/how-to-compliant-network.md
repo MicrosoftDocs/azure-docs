@@ -97,7 +97,7 @@ After administrators confirm the policy settings using [report-only mode](/azure
 
 Verify the new named location was automatically created using [Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). 
 
-GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations 
+`GET https://graph.microsoft.com/beta/identity/conditionalAccess/namedLocations`
 
 :::image type="content" source="media/how-to-compliant-network/graph-explorer-expected-result-location-creation.png" alt-text="Screenshot showing Graph Explorer results of query":::
 
