@@ -79,10 +79,10 @@ To use Private Access, install a connector on each Windows server you're using f
 
 **To install the connector**:
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Administrator of the directory that uses Application Proxy.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator of the directory that uses Application Proxy.
     -  For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
-1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**.
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Connectors**.
 1. Select **Download connector service**.
 
     ![Screenshot of the Download connector service button in the App proxy page.](media/how-to-configure-connectors/app-proxy-download-connector-service.png)
@@ -107,8 +107,8 @@ You can use the Global Secure Access portal or your Windows server to confirm th
 
 To confirm the connector installed and registered correctly:
 
-1. Sign in to your tenant directory in the Microsoft Entra admin center.
-1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator of the directory that uses Application Proxy.
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Connectors**
     - All of your connectors and connector groups appear on this page.
 1. View a connector to verify its details. 
     - Expand the connector to view the details if it's not already expanded.
@@ -135,7 +135,7 @@ To confirm the connector installed and registered correctly:
 
 To create as many connector groups as you want:
 
-1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**.
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Connectors**.
 1. Select **New connector group**. 
 1. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
 1. Select **Save**.
