@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Uni-tel A/S for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Uni-tel A/S and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Uni-tel A/S](https://beta-dashboard.one-connect.dk) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Uni-tel A/S and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Uni-tel A/S](https://uni-tel.dk/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities

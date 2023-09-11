@@ -185,7 +185,7 @@ npm install @azure/msal-node
     - `authCodeRequest`: The configuration object used to retrieve authorization code. 
     - `tokenRequest`: The configuration object used to acquire a token by authorization code.
     - `sessionConfig`: The configuration object for express session. 
-    - `getAuthCode`: A method that creates the URL of the authorization request, letting the user input credentials and consent to the application. It uses the `getAuthCodeUrl` method, which is defined in the [ConfidentialClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.confidentialclientapplication.html) class.
+    - `getAuthCode`: A method that creates the URL of the authorization request, letting the user input credentials and consent to the application. It uses the `getAuthCodeUrl` method, which is defined in the [ConfidentialClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.ConfidentialClientApplication.html) class.
     
     **Express routes**:
     - `/`: 
