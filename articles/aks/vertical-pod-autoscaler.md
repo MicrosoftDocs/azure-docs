@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 09/05/2023
+ms.date: 09/11/2023
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
@@ -32,7 +32,7 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
 
-* VPA might recommend more resources than available in the cluster. As a result, this prevents the pod from being assigned to a node and run, because the node doesn't have sufficient resources. You can overcome this limitation by setting the *LimitRange* to the maximum available resources per namespace, which ensures pods don't ask for more resources than specified. Additionally, you can set maximum allowed resource recommendations per pod in a `VerticalPodAutoscaler` object.
+* VPA might recommend more resources than available in the cluster. As a result, this prevents the pod from being assigned to a node and run, because the node doesn't have sufficient resources. You can overcome this limitation by setting the *LimitRange* to the maximum available resources per namespace, which ensures pods don't ask for more resources than specified. Additionally, you can set maximum allowed resource recommendations per pod in a `VerticalPodAutoscaler` object. Be aware that VPA cannot fully overcome an insufficient node resource issue. The limit range is fixed, but the node resource usage is changed dynamically.
 
 * We don't recommend using Vertical Pod Autoscaler with [Horizontal Pod Autoscaler][horizontal-pod-autoscaler-overview], which scales based on the same CPU and memory usage metrics.
 
@@ -40,7 +40,7 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * VPA does not support JVM-based workloads due to limited visibility into actual memory usage of the workload.
 
-* It is not recommended or supported to run your own implementation of VPA alongside this managed implementation of VPA.
+* It is not recommended or supported to run your own implementation of VPA alongside this managed implementation of VPA. Having an extra or customized recommender is supported.
 
 * AKS Windows containers are not supported.
 
@@ -48,7 +48,7 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * AKS cluster is running Kubernetes version 1.24 and higher.
 
-* The Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* The Azure CLI version 2.52.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 * `kubectl` should be connected to the cluster you want to install VPA.
 
@@ -64,11 +64,13 @@ The VPA object consists of three components:
 
 - **Updater** - it checks which of the managed pods have correct resources set and, if not, kills them so that they can be recreated by their controllers with the updated requests.
 
-- **Admission Plugin** - it sets the correct resource requests on new pods (either created or recreated by their controller due to the Updater's activity).
+- **VPA Admission controller** - it sets the correct resource requests on new pods (either created or recreated by their controller due to the Updater's activity).
 
 ### VPA admission controller
 
-VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller runs a job to create and renew the `vpa-tls-certs` secret.
+VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod.
+
+A standalone job runs outside of the VPA admission controller, called `overlay-vpa-cert-webhook-check`. It's used to create/renew the certificates and register the VPA admission controller as a mutating admission webhook.
 
 For high availability, AKS supports two admission controller replicas.
 
@@ -408,7 +410,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 
     The Vertical Pod Autoscaler uses the `lowerBound` and `upperBound` attributes to decide whether to delete a pod and replace it with a new pod. If a pod has requests less than the lower bound or greater than the upper bound, the Vertical Pod Autoscaler deletes the pod and replaces it with a pod that meets the target attribute.
 
-## Customized Recommender for Vertical Pod Autoscaler
+## Extra Recommender for Vertical Pod Autoscaler
 
 In the VPA, one of the core components is the Recommender. It provides recommendations for resource usage based on real time resource consumption. AKS deploys a recommender when a cluster enables VPA. You can deploy a customized recommender or an extra recommender with the same image as the default one. The benefit of having a customized recommender is that you can customize your recommendation logic. With an extra recommender, you can partition VPAs to multiple recommenders if there are many VPA objects.
 
