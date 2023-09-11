@@ -90,6 +90,8 @@ You can use Azure PowerShell to configure a custom error page. For example, a gl
 $appgw   = Get-AzApplicationGateway -Name <app-gateway-name> -ResourceGroupName <resource-group-name>
 
 $updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl "http://<website-url>"
+
+Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
 Or a listener level error page:
@@ -100,6 +102,8 @@ $appgw   = Get-AzApplicationGateway -Name <app-gateway-name> -ResourceGroupName 
 $listener01 = Get-AzApplicationGatewayHttpListener -Name <listener-name> -ApplicationGateway $appgw
 
 $updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl "http://<website-url>"
+
+Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
 For more information, see [Add-AzApplicationGatewayCustomError](/powershell/module/az.network/add-azapplicationgatewaycustomerror) and [Add-AzApplicationGatewayHttpListenerCustomError](/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror).
