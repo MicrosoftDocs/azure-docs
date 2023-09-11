@@ -28,7 +28,7 @@ Operation throttles are rate limitations that are applied in minute ranges and a
 
 It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, see [Retry patterns](../iot-develop/concepts-manage-device-reconnections.md#retry-patterns).
 
-For information on which opperations are charged under what circumstances please refer to the [billing information](iot-hub-devguide-pricing).
+For information on which opperations are charged under what circumstances please refer to the [billing information](../iot-hub-devguide-pricing).
 
 ### Basic and standard tier operations
 
