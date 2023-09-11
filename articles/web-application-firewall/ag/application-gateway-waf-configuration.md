@@ -100,7 +100,7 @@ The below table shows some examples of how you might structure your exclusion fo
 | Header | RequestHeaderValues | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
 | Header | RequestHeaderValues | EqualsAny | "" | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
 | Cookie | RequestCookieKeys | Contains | `/etc/passwd` | Header: `{"Cookie": "/etc/passwdtest=hello1"}` | `/etc/passwdtest` |
-| Cookie | RequestCookieKeys | EqualsAny | "" | Header: `{"Cookie": "/etc/passwdtest=hello1", "Cookie": ".htaccess=test1}` | `/etc/passwdtest` and `.htaccess` |
+| Cookie | RequestCookieKeys | EqualsAny | "" | Header: `{"Cookie": "/etc/passwdtest=hello1", "Cookie": ".htaccess=test1"}` | `/etc/passwdtest` and `.htaccess` |
 | Cookie | RequestCookieNames | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
 | Cookie | RequestCookieNames | EqualsAny | "" | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
 | Cookie | RequestCookieValues | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
