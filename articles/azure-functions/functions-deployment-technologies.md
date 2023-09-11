@@ -190,7 +190,7 @@ Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions
 
 You can use FTP to directly transfer files to Azure Functions.
 
->__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md). Note that FTP/s deployment is not available in the function app portal, but it can be performed with CLI or PowerShell.
+>__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md&tabs=cli). Note that FTP/S deployment isn't available in the Azure portal, but you can use [Azure CLI](../app-service/deploy-ftp.md&tabs=cli) or [Azure PowerShell](../app-service/deploy-ftp.md&tabs=powershell).
 
 >__When to use it:__ To reduce the chance of errors, you should avoid using deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Use [zip deployment](run-functions-from-deployment-package.md) when possible.
 
