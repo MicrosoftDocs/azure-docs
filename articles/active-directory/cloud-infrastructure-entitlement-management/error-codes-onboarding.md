@@ -28,7 +28,7 @@ This account does not have permissions to view ```Service Last Acc
 
 ## AWS_CLOUDTRAIL_DISABLED
 
-The AWS environment doesn't have CloudTrail configured, or you don't have permissions to access CloudTrail. 
+The AWS environment doesn't have CloudTrail configured, or you don't have permissions to access CloudTrail.
 
 ### Proposed solution
 
