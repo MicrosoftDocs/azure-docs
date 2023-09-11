@@ -68,6 +68,11 @@ Resource-specific mode is recommended for AKS for the following reasons:
 
 For more details on the difference between collection modes including how to change an existing setting, see [Select the collection mode](../azure-monitor/essentials/resource-logs.md#select-the-collection-mode).
 
+> [!NOTE]
+> The ability to select the collection mode isn't available in the Azure portal in all regions yet. For those regions where it's not yet available, use CLI to create the diagnostic setting with a command such as the following:
+> 
+> `az monitor diagnostic-settings create --name AKS-Diagnostics --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerService/managedClusters/my-cluster --logs '[{""category"": ""kube-audit"",""enabled"": true}, {""category"": ""kube-audit-admin"", ""enabled"": true}, {""category"": ""kube-apiserver"", ""enabled"": true}, {""category"": ""kube-controller-manager"", ""enabled"": true}, {""category"": ""kube-scheduler"", ""enabled"": true}, {""category"": ""cluster-autoscaler"", ""enabled"": true}, {""category"": ""cloud-controller-manager"", ""enabled"": true}, {""category"": ""guard"", ""enabled"": true}, {""category"": ""csi-azuredisk-controller"", ""enabled"": true}, {""category"": ""csi-azurefile-controller"", ""enabled"": true}, {""category"": ""csi-snapshot-controller"", ""enabled"": true}]'  --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace --export-to-resource-specific true`
+
 ## Sample log queries
 
 > [!IMPORTANT]
