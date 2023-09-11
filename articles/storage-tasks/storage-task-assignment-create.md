@@ -120,6 +120,14 @@ The assignment is disabled by default. To enable the assignment so that it will 
 
 After the task runs, an execution report is generated and then stored in the container that you specified when you created the assignment. For more information about that report as well as how to view metrics that capture the number of objects targeted, the number of operations attempted, and the number of operations that succeeded, see [Analyze Storage Task Runs](storage-task-runs.md).
 
+## Edit an assignment
+
+An assignment becomes a sub resource of the targeted storage account. Therefore, after you create the assignment, you can edit only the its run frequency. The other fields of an assignment become read only. The **Single run (only once)** option becomes read only as well.
+
+- To edit the run frequency of an assignment in the context of a storage task, navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**.
+
+- To edit the run frequency of an assignment in the context of a storage account, navigate to the storage account in the Azure portal and then under **Data management**, select **Storage tasks**.
+
 ## See also
 
 - [Azure Storage Tasks Overview](overview.md)
