@@ -155,7 +155,7 @@ The signal details page allows you to view metrics over time **(A)**  and view h
 
 ### Resolve alerts 
 
-It's only possible to adjust signal thresholds: the acceptable score is fixed at 3/5, and it's only possible to adjust the 'acceptable overall % passing rate' field. 
+It's only possible to adjust signal thresholds. The acceptable score is fixed at 3/5, and it's only possible to adjust the 'acceptable overall % passing rate' field. 
 :::image type="content" source="./media/how-to-monitor-generative-ai-applications/monitor-signal-adjust-signal.png" alt-text="Screenshot adjusting signal thresholds." lightbox="./media/how-to-monitor-generative-ai-applications/monitor-signal-adjust-signal.png":::
    
 ## Next Steps
