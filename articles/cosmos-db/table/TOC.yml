@@ -448,6 +448,10 @@
       href: /rest/api/storageservices/table-service-rest-api
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-cosmos-db
+    - name: Emulator
+      items:
+        - name: Release notes
+          href: ../emulator-release-notes.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
