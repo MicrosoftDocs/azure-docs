@@ -36,17 +36,17 @@ Each plan has different behaviors. Not all deployment technologies are available
 
 | Deployment technology | Windows Consumption | Windows Premium | Windows Dedicated  | Linux Consumption | Linux Premium | Linux Dedicated |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
-| External package URL<sup>1</sup> |✔|✔|✔|✔|✔|✔|
-| Zip deploy |✔|✔|✔|✔|✔|✔|
-| Docker container | | | | |✔|✔|
-| Web Deploy |✔|✔|✔| | | |
-| Source control |✔|✔|✔| |✔|✔|
-| Local Git<sup>1</sup> |✔|✔|✔| |✔|✔|
-| Cloud sync<sup>1</sup> |✔|✔|✔| |✔|✔|
-| FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
-| In-portal editing<sup>2</sup> |✔|✔|✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|
+| [External package URL](#external-package-url)<sup>1</sup> |✔|✔|✔|✔|✔|✔|
+| [Zip deploy](#zip-deploy) |✔|✔|✔|✔|✔|✔|
+| [Docker container](#docker-container) | | | | |✔|✔|
+| [Web Deploy](#web-deploy-msdeploy) |✔|✔|✔| | | |
+| [Source control](#source-control) |✔|✔|✔| |✔|✔|
+| [Local Git](#local-git)<sup>1</sup> |✔|✔|✔| |✔|✔|
+| [Cloud sync](#cloud-sync)<sup>1</sup> |✔|✔|✔| |✔|✔|
+| [FTPS](#ftps)<sup>1</sup> |✔|✔|✔| |✔|✔|
+| [In-portal editing](#portal-editing)<sup>2</sup> |✔|✔|✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|
 
-<sup>1</sup> Deployment technology that requires [manual trigger syncing](#trigger-syncing).  Deployment Center no longer shows the FTP/FTPS Credentials. If these are still needed then you can download the publishing profile. 
+<sup>1</sup> Deployment technologies that require you to [manually sync triggers](#trigger-syncing) aren't recommended.   
 <sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).  
 <sup>3</sup> In-portal editing is enabled only for HTTP and Timer triggered functions running on Linux in Premium and Dedicated plans.  
 
@@ -186,11 +186,11 @@ Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions
 
 >__Where app content is stored:__ The app content is in the cloud store, but a local copy is stored on the app file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
-### FTP
+### FTPS
 
-You can use FTP to directly transfer files to Azure Functions.
+You can use FTPS to directly transfer files to Azure Functions, athough this deployment method isn't recommended.
 
->__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md&tabs=cli). Note that FTP/S deployment isn't available in the Azure portal, but you can use [Azure CLI](../app-service/deploy-ftp.md&tabs=cli) or [Azure PowerShell](../app-service/deploy-ftp.md&tabs=powershell).
+>__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md?tabs=cli). Note that FTP/S deployment isn't available in the Azure portal, but you can use [Azure CLI](../app-service/deploy-ftp.md?tabs=cli) or [Azure PowerShell](../app-service/deploy-ftp.md&tabs=powershell).
 
 >__When to use it:__ To reduce the chance of errors, you should avoid using deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Use [zip deployment](run-functions-from-deployment-package.md) when possible.
 
