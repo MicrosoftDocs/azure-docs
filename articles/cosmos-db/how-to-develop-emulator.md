@@ -1,0 +1,416 @@
+---
+title: Use the emulator for development and CI
+titleSuffix: Azure Cosmos DB
+description: Use the Azure Cosmos DB emulator to develop your applications locally and test then with a working database.
+author: sajeetharan
+ms.author: sasinnat
+ms.reviewer: sidandrews
+ms.service: cosmos-db
+ms.topic: how-to
+ms.date: 09/11/2023
+zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb-cassandra-gremlin-table
+# CustomerIntent: As a developer, I want to use the Azure Cosmos DB emulator so that I can develop my application against a database during development.
+---
+
+# Develop locally using the Azure Cosmos DB emulator
+
+A common use case for the emulator is to serve as a development database while you are building your applications. Using the emulator for development can ensure help you learn characteristics of creating and modeling data for a database like Azure Cosmos DB without incurring any service costs. Additionally, using the emulator for as part of an automation workflow can ensure that you can run the same suite of integration tests both locally on your development machine and remotely in a continuous integration job.
+
+## Prerequisites
+
+- **Windows emulator**
+  - 64-bit Windows Server 2016, 2019, Windows 10, or Windows 11.
+  - Minimum hardware requirements:
+    - 2-GB RAM
+    - 10-GB available hard disk space
+- **Docker emulator**
+  - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+## Install the emulator
+
+There are multiple variations of the emulator and each variation has a relatively frictionless install process.
+
+### [Docker (Linux container)](#tab/docker-linux)
+
+To get started, get the Linux-variant of the container image from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com).
+
+1. Pull the `` Linux container image from the container registry to the local Docker host.
+
+    ```bash
+    
+    ```
+
+### [Docker (Windows container)](#tab/docker-windows)
+
+To get started, get the Windows-variant of the container image from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com).
+
+1. Pull the `` Windows container image from the container registry to the local Docker host.
+
+    ```powershell
+    
+    ```
+
+### [Windows (local)](#tab/windows)
+
+To get started, download and install the latest version of Azure Cosmos DB Emulator on your local computer.
+
+> [!TIP]
+> The [emulator release notes](local-emulator-release-notes.md) article lists all the available versions and the feature updates that were made in each release.
+
+:::image type="icon" source="media/local-emulator/download-icon.png" border="false":::**[Download the Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator)**
+
+1. Download the [Azure Cosmos DB emulator](https://aka.ms/cosmosdb-emulator).
+
+1. Run the installer on your local machine with **administrative privileges**.
+
+1. The emulator will automatically install the appropriate developer certificates and configure firewall rules on your local machine.
+
+---
+
+## Start the emulator
+
+TODO
+
+::: zone pivot="api-apache-cassandra,api-apache-gremlin,api-table"
+
+### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
+
+### [Windows (local)](#tab/windows)
+
+---
+
+::: zone-end
+
+::: zone pivot="api-nosql"
+
+### [Docker (Linux container)](#tab/docker-linux)
+
+### [Docker (Windows container)](#tab/docker-windows)
+
+### [Windows (local)](#tab/windows)
+
+---
+
+::: zone-end
+
+::: zone pivot="api-mongodb"
+
+### [Docker (Linux container)](#tab/docker-linux)
+
+### [Docker (Windows container)](#tab/docker-windows)
+
+### [Windows (local)](#tab/windows)
+
+---
+
+::: zone-end
+
+## Export the emulator's TLS/SSL certificate
+
+TODO
+
+### [Docker (Linux container)](#tab/docker-linux)
+
+TODO
+
+1. TODO
+
+### [Docker (Windows container)](#tab/docker-windows)
+
+TODO
+
+1. TODO
+
+### [Windows (local)](#tab/windows)
+
+TODO
+
+1. TODO
+
+---
+
+## Connect to the emulator from the SDK
+
+TODO
+
+::: zone pivot="api-nosql"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+  ```bash
+
+  ```
+
+1. TODO
+
+  ```bash
+
+  ```
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+  ```bash
+  npm init --force
+  ```
+
+1. TODO
+
+  ```bash
+  npm install --save 
+  ```
+
+::: zone-end
+
+::: zone pivot="api-mongodb"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+::: zone pivot="api-apache-cassandra"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+::: zone pivot="api-apache-gremlin"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+::: zone pivot="api-table"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+---
+
+## Perform operations in the emulator using the SDK
+
+TODO
+
+::: zone pivot="api-nosql"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+::: zone pivot="api-mongodb"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+::: zone pivot="api-apache-cassandra"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+::: zone pivot="api-apache-gremlin"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+::: zone pivot="api-table"  
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+::: zone-end
+
+---
+
+## Use the emulator in a GitHub Actions CI workflow
+
+TODO
+
+1. TODO
+
+1. TODO
+
+1. TODO
+
+### [C#](#tab/csharp)
+
+TODO
+
+1. TODO
+
+### [Python](#tab/python)
+
+TODO
+
+1. TODO
+
+### [Node.js](#tab/nodejs)
+
+TODO
+
+1. TODO
+
+---
+
+## Next step
+
+[Get started with Azure Cosmos DB](../index.yml)
