@@ -529,7 +529,7 @@ TODO
 
 ## Perform operations in the emulator using the SDK
 
-To validate the emulator works, perform a simple series of operations using the SDK's implementation.
+To validate the emulator works, perform a series of operations using the SDK's implementation.
 
 ::: zone pivot="api-nosql"  
 
@@ -645,7 +645,7 @@ TODO
 
 ## Use the emulator in a GitHub Actions CI workflow
 
-Use the Azure Cosmos DB emulator with a test suite from your framework of choice to run a continuous integration workload that automatically validates your application. The Azure Cosmos DB emulator is pre-installed in the [`windows-latest`](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md) variant of GitHub Action's hosted runners.
+Use the Azure Cosmos DB emulator with a test suite from your framework of choice to run a continuous integration workload that automatically validates your application. The Azure Cosmos DB emulator is preinstalled in the [`windows-latest`](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md) variant of GitHub Action's hosted runners.
 
 ### [C#](#tab/csharp)
 
@@ -685,7 +685,7 @@ Test your Python application and database operations using [`pytest`](https://py
 
 ### [Node.js](#tab/nodejs)
 
-Use [`mocha`](https://www.npmjs.com/package/mocha) to test your Node.js application and it's database modifications.
+Use [`mocha`](https://www.npmjs.com/package/mocha) to test your Node.js application and its database modifications.
 
 1. TODO
 
