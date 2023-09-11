@@ -36,70 +36,70 @@ Follow the guidelines to set up and run the snapshots and disaster-recovery comm
 1. Install the database. Follow the instructions for the supported database that you're using.
 1. Select the storage back end that you're using for your deployment. For more information, see [Enable communication with storage](#enable-communication-with-storage) later in this article.
 
-   # [Azure NetApp Files](#tab/azure-netapp-files)
+    # [Azure NetApp Files](#tab/azure-netapp-files)
 
-   Either set up a system-managed identity or generate the service principal's authentication file.
+    Either set up a system-managed identity or generate the service principal's authentication file.
 
-   When you're validating communication with Azure NetApp Files, communication might fail or time out. Check that firewall rules aren't blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
+    When you're validating communication with Azure NetApp Files, communication might fail or time out. Check that firewall rules aren't blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
 
-   - (https://)management.azure.com:443
-   - (https://)login.microsoftonline.com:443
+    - (https://)management.azure.com:443
+    - (https://)login.microsoftonline.com:443
 
-   # [Azure Large Instances (bare metal)](#tab/azure-large-instance)
+    # [Azure Large Instances (bare metal)](#tab/azure-large-instance)
 
-   Generate a Secure Shell (SSH) private/public key pair. For each node where you'll run the snapshot tools, provide the generated public key to Microsoft Operations so it can install on the storage back end.
+    Generate a Secure Shell (SSH) private/public key pair. For each node where you'll run the snapshot tools, provide the generated public key to Microsoft Operations so it can install on the storage back end.
 
-   Test connectivity by using SSH to connect to one of the nodes (for example, `ssh -l <Storage Username> <Storage IP Address>`). Enter `exit` to log out of the storage prompt.
+    Test connectivity by using SSH to connect to one of the nodes (for example, `ssh -l <Storage Username> <Storage IP Address>`). Enter `exit` to log out of the storage prompt.
 
-   Microsoft Operations provides the storage username and storage IP address at the time of provisioning.
+    Microsoft Operations provides the storage username and storage IP address at the time of provisioning.
 
-   ---
+    ---
 
 1. Enable communication with the database. For more information, see [Enable communication with the database](#enable-communication-with-the-database) later in this article.
 
-   # [SAP HANA](#tab/sap-hana)
+    # [SAP HANA](#tab/sap-hana)
 
-   Set up an appropriate SAP HANA user by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
+    Set up an appropriate SAP HANA user by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
 
-   After setup, you can test the connection from the command line by using the following examples. The following examples are for non-SSL communication to SAP HANA.
+    After setup, you can test the connection from the command line by using the following examples. The following examples are for non-SSL communication to SAP HANA.
 
-   HANA 1.0:
+    HANA 1.0:
 
-   `hdbsql -n <HANA IP address> -i <HANA instance> -U <HANA user> "\s"`
+    `hdbsql -n <HANA IP address> -i <HANA instance> -U <HANA user> "\s"`
 
-   HANA 2.0:
+    HANA 2.0:
 
-   `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
+    `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
 
-   # [Oracle](#tab/oracle)
+    # [Oracle](#tab/oracle)
 
-   Set up an appropriate Oracle database and Oracle wallet by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
+    Set up an appropriate Oracle database and Oracle wallet by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
 
-   After setup, you can test the connection from the command line by using the following example:
+    After setup, you can test the connection from the command line by using the following example:
 
-   `sqlplus /@<ORACLE_USER> as SYSBACKUP`
+    `sqlplus /@<ORACLE_USER> as SYSBACKUP`
 
-   # [IBM Db2](#tab/db2)
+    # [IBM Db2](#tab/db2)
 
-   Set up an appropriate IBM Db2 connection method by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
+    Set up an appropriate IBM Db2 connection method by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
 
-   After setup, test the connection from the command line by using the following examples:
+    After setup, test the connection from the command line by using the following examples:
 
-   - Install onto the database server, and then complete the setup with [Db2 local connectivity](#db2-local-connectivity):
+    - Install onto the database server, and then complete the setup with [Db2 local connectivity](#db2-local-connectivity):
 
-     `db2 "QUIT"`
+      `db2 "QUIT"`
 
-   - Install onto a centralized backup system, and then complete the setup with [Db2 remote connectivity](#db2-remote-connectivity):
+    - Install onto a centralized backup system, and then complete the setup with [Db2 remote connectivity](#db2-remote-connectivity):
 
-     `ssh <InstanceUser>@<ServerAddress> 'db2 "QUIT"'`
+      `ssh <InstanceUser>@<ServerAddress> 'db2 "QUIT"'`
 
-   The preceding commands should produce the following output:
+    The preceding commands should produce the following output:
 
-   ```output
-   DB20000I  The QUIT command completed successfully.
-   ```
+    ```output
+    DB20000I  The QUIT command completed successfully.
+    ```
 
-   ---
+    ---
 
 ## Enable communication with storage
 
