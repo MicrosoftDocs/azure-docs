@@ -15,9 +15,9 @@ ms.custom: prompt-flow
 
 # Secure your RAG workflows with network isolation (preview)
 
-You can secure your Retrieval Augmented Generation (RAG) flows by using private networks in Azure Machine Learning with two network management options: **Managed Virtual Network**, which is the in-house offering, or **"Bring Your Own" Virtual Network**, which is useful when you want full control over setup for your Virtual Networks / Subnets, Firewalls, Network Security Group rules, etc. 
+You can secure your Retrieval Augmented Generation (RAG) flows by using private networks in Azure Machine Learning with two network management options. These options are: **Managed Virtual Network**, which is the in-house offering, or **"Bring Your Own" Virtual Network**, which is useful when you want full control over setup for your Virtual Networks / Subnets, Firewalls, Network Security Group rules, etc. 
 
-Within the Azure Machine Learning managed network option, there are two secured suboptions offered which you can select from: _Allow Internet Outbound_ and _Allow Only Approved Outbound_. 
+Within the Azure Machine Learning managed network option, there are two secured suboptions offered which you can select from: **Allow Internet Outbound** and **Allow Only Approved Outbound**. 
 
 ![Screenshot of Managed Vnet Options in Azure Machine Learning](./media/how-to-secure-rag-workflows/private-managed-vnet-options.png)
 
@@ -25,10 +25,10 @@ Within the Azure Machine Learning managed network option, there are two secured 
 Depending on your setup and scenario, RAG workflows in Azure Machine Learning may require other steps for network isolation.
 
 ## Pre-requisites
-- An Azure subscription
-- Access to Azure OpenAI Service
-- A secure Azure Machine Learning workspace: either with Workspace Managed Virtual Network or "Bring Your Own" Virtual Network setup
-- Prompt flows enabled in your Azure Machine Learning workspace. You can enable prompt flows by turning on Build AI solutions with Prompt flow on the Manage preview features panel.
+* An Azure subscription
+* Access to Azure OpenAI Service
+* A secure Azure Machine Learning workspace: either with Workspace Managed Virtual Network or "Bring Your Own" Virtual Network setup
+* Prompt flows enabled in your Azure Machine Learning workspace. You can enable prompt flows by turning on Build AI solutions with Prompt flow on the Manage preview features panel.
 
 ## With Azure Machine Learning Workspace Managed Vnet:
 
@@ -52,7 +52,7 @@ The Azure Machine Learning workspace creates a private endpoint in the related r
 
 6. (optional) To add an outgoing FQDN rule, in the Azure portal, select **Networking** under the **Settings** tab in the left-hand menu. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbound rule**. Select **FQDN Rule** under **Destination type**. Enter your endpoint URL in **FQDN Destination**. To find your endpoint URL, navigate to deployed endpoints in the Azure Portal, select your desired endpoints and copy the endpoint URL from the details section.
 
-If you're using an **Allow only approved outbound** Managed Vnet workspace and a <u>public</u> Azure Open AI resource, you need to **add an outgoing FQDN rule** for your Azure Open AI endpoint. This will enable data plane operations which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, won't be allowed to be accessed.
+If you're using an **Allow only approved outbound** Managed Vnet workspace and a `public` Azure Open AI resource, you need to **add an outgoing FQDN rule** for your Azure Open AI endpoint. This will enable data plane operations which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, won't be allowed to be accessed.
 
 7. (optional) In order to upload data files beforehand or to use **Local Folder Upload** for RAG when the storage account is made is private, the workspace must be accessed from a Virtual Machine behind a Vnet, and subnet must be allow-listed in the Storage Account. This can be done by selecting **Storage Account**, then **Networking setting**. Select **Enable for selected virtual network and IPs**, then add your workspace Subnet.
 
@@ -70,7 +70,7 @@ If you're using an **Allow only approved outbound** Managed Vnet workspace and a
 
 - If your workspace runs into network related issues where your compute is unable to create or start a compute, try adding a placeholder FQDN rule in the **Networking** tab of your workspace in the Azure portal, in order to initiate a managed network update. Then, re-create the Compute in the Azure Machine Learning workspace.
 
-- You might see an error message related to ```"< Resource > is not registered with Microsoft.Network resource provider."``` In which case, you should **ensure the subscription which your AOAI/ACS resource is registered with a Microsoft Network resource provider**. To do so, navigate to **Subscription**, then **Resource Providers** for the same tenant as your Managed Vnet Workspace.
+- You might see an error message related to `< Resource > is not registered with Microsoft.Network resource provider.` In which case, you should **ensure the subscription which your AOAI/ACS resource is registered with a Microsoft Network resource provider**. To do so, navigate to **Subscription**, then **Resource Providers** for the same tenant as your Managed Vnet Workspace.
 
 - **Note**: it is expected for a first-time serverless job in the workspace to be Queued an additional 10-15 mins while Managed Network is provisioning Private Endpoints for the first time. With Compute Instance and Compute Cluster, this process happens during the compute creation.
 
