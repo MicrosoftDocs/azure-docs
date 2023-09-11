@@ -461,7 +461,7 @@
         - name: Release notes
           href: ../emulator-release-notes.md
         - name: Windows command-line arguments
-          href: ../emulator-windows-arguments.pdf
+          href: ../emulator-windows-arguments.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
