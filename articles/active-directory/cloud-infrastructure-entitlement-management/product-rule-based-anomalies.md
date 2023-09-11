@@ -1,6 +1,6 @@
 ---
 title: Create and view rule-based anomaly alerts and alert triggers in Permissions Management
-description: How to create and view rule-based anomaly alerts and aalert triggers in Permissions Management.
+description: How to create and view rule-based anomaly alerts and alert triggers in Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
