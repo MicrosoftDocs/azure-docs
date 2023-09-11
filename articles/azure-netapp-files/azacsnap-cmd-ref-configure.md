@@ -18,11 +18,11 @@ ms.author: phjensen
 
 # Configure the Azure Application Consistent Snapshot tool
 
-This article shows you how to run the `-c configure` command of the Azure Application Consistent Snapshot tool (AzAcSnap) that you can use with Azure NetApp Files.
+This article shows you how to run the `azacsnap -c configure` command of the Azure Application Consistent Snapshot tool (AzAcSnap) that you can use with Azure NetApp Files.
 
-## Command and options
+## Commands for the configuration file
 
-You can create or edit the configuration file by using the `azacsnap -c configure` command. The command has the following options:
+You can create or edit the configuration file for AzAcSnap by using the `azacsnap -c configure` command. The command has the following options:
 
 - `--configuration new` to create a new configuration file
 
@@ -30,11 +30,9 @@ You can create or edit the configuration file by using the `azacsnap -c configur
 
 - `[--configfile <config filename>]` (optional parameter) to allow for custom configuration file names
 
-## Configuration file for the snapshot tool
+By default, the name of the configuration file is *azacsnap.json*. You can use a custom file name with the `--configfile=` parameter (for example, `--configfile=<customname>.json`).
 
-You can create a configuration file by running `azacsnap -c configure --configuration new`. By default, the configuration file name is *azacsnap.json*. You can use a custom file name with the `--configfile=` parameter (for example, `--configfile=<customname>.json`).
-
-The following example is for an Azure Large Instances configuration:
+The following example creates a configuration file for an Azure Large Instances configuration:
 
 ```bash
 azacsnap -c configure --configuration new
@@ -76,7 +74,7 @@ Enter the database type to add, 'hana', 'oracle', or 'exit' (for no database): e
 Editing configuration complete, writing output to 'azacsnap.json'
 ```
 
-## Required values
+## Required values for the configuration file
 
 The following sections provide detailed guidance on required values for the database section of the configuration file.
 
@@ -174,7 +172,7 @@ When you add *Azure NetApp Files storage* to a database section, the following v
 
 ---
 
-## Configuration file overview (azacsnap.json)
+## Example configuration file
 
 In the following example, *azacsnap.json* is configured with the one SID.
 
@@ -226,7 +224,7 @@ cat azacsnap.json
 ```
 
 > [!NOTE]
-> For a disaster recovery (DR) scenario where you'll run backups at the DR site, the HANA server name that's configured in the DR configuration file (for example, *DR.json*) at the DR site should be the same as the production server name.
+> For a disaster recovery (DR) scenario where you'll run backups at the DR site, the HANA server name that's configured in the DR configuration file (for example, `DR.json`) at the DR site should be the same as the production server name.
 >
 > For Azure Large Instances, your storage IP address must be in the same subnet as your server pool. For example, in this case, the server pool subnet is 172.18.18.0/24 and the assigned storage IP address is 172.18.18.11.
 
