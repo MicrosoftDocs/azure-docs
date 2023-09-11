@@ -18,6 +18,14 @@ ms.custom: not-enterprise-apps
 
 In this tutorial, you'll learn how to migrate your applications from Okta to Azure Active Directory (Azure AD).
 
+## Prerequisites
+
+To manage the application in Azure AD, you need:
+
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+
+
 ## Create an inventory of current Okta applications
 
 Before migration, document the current environment and application settings. You can use the Okta API to collect this information. Use an API explorer tool such as [Postman](https://www.postman.com/).
@@ -84,11 +92,8 @@ We recommend you copy and convert this JSON list to a CSV format:
 
 To migrate a SAML 2.0 application to Azure AD, configure the application in your Azure AD tenant for application access. In this example, we convert a Salesforce instance. 
 
-1. To configure the applications, follow the tutorial [Azure Active Directory single sign-on (SSO) integration with Salesforce](../saas-apps/salesforce-tutorial.md).
-
-To complete the migration, repeat the configuration for all applications in the Okta tenant.
-
-2. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Enterprise applications** > **+ New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**, then select **New application**.
 
     ![Screenshot of the New Application option on All applications.](media/migrate-applications-from-okta/list-of-new-applications.png)
 
@@ -108,7 +113,7 @@ To complete the migration, repeat the configuration for all applications in the 
 
     ![Screenshot of the New from Metadata File option under Single Sign On Settings.](media/migrate-applications-from-okta/salesforce-admin-console.png)
 
-7. Upload the XML file you downloaded from the Azure portal. Then select **Create**.
+7. Upload the XML file you downloaded from the Microsoft Entra admin center. Then select **Create**.
 8. Upload the certificate you downloaded from Azure. Select **Save**.
 
     ![Screenshot of the Identity Provider Certificate entry under SAML Single Sign On.](media/migrate-applications-from-okta/create-saml-provider.png)
@@ -123,7 +128,7 @@ To complete the migration, repeat the configuration for all applications in the 
 
     ![Screenshot of the Download Metadata option, also entries for Entity ID and Your Organization.](media/migrate-applications-from-okta/record-values-for-azure.png)
 
-11. To upload the file to the Azure portal, in the Azure AD **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file**.  
+11. To upload the file to the Microsoft Entra admin center, in the Azure AD **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file**.  
 12. Ensure the imported values match the recorded values. Select **Save**.
 
     ![Screenshot of entries for SAML-based sign-on, and Basic SAML Configuration.](media/migrate-applications-from-okta/upload-metadata-file.png)
@@ -170,8 +175,9 @@ To migrate an OpenID Connect (OIDC) or OAuth 2.0 application to Azure AD, in you
 
 To complete the migration, repeat configuration for all applications in the Okta tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory** > **Enterprise applications**. 
-2. Under **All applications**, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+2. Select **New application**.
 3. Select **Create your own application**. 
 4. On the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. 
 5. Select **Create**.
