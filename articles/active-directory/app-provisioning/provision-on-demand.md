@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/05/2023
+ms.date: 09/11/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
@@ -147,7 +147,7 @@ The **View details** section displays the attributes that were modified in the t
 
 #### Troubleshooting tips
 
-* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) for common failures.
+* Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/howto-analyze-provisioning-logs.md#error-codes) for common failures.
 * On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. There's a replication delay of up to a few minutes between when an object is assigned to an application and when that assignment is honored in on-demand provisioning. You may need to wait a few minutes and try again.  
 
 ## Frequently asked questions
