@@ -328,7 +328,7 @@ The data of generated ConfigMap with different setting of `configMapData.type` p
 
 #### [default](#tab/default)
 
-``` json
+``` yaml
 data:
   key1: value1
   key2: value2
@@ -337,7 +337,7 @@ data:
 
 #### [json](#tab/json)
 
-``` json
+``` yaml
 data:
   appSettings.json: >-
     {"key1":"value1","key2":"value2","key3":"value3"}
@@ -345,7 +345,7 @@ data:
 
 #### [yaml](#tab/yaml)
 
-``` json
+``` yaml
 data:
   appSettings.json: >-
     key1: value1
@@ -355,7 +355,7 @@ data:
 
 #### [properties](#tab/properties)
 
-``` json
+``` yaml
 data:
   appSettings.json: >-
     key1=value1
