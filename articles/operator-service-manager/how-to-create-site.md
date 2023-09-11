@@ -8,6 +8,6 @@ ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
 
-# How-to create a site
+# Create a site in Azure Operator Service Manager
 
 Content under development.
