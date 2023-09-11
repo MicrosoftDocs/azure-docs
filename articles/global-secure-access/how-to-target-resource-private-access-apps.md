@@ -34,8 +34,8 @@ This article describes how to apply Conditional Access policies to your Quick Ac
 
 You can create a Conditional Access policy for your Quick Access or Private Access apps from Global Secure Access. Starting the process from Global Secure Access automatically adds the selected app as the **Target resource** for the policy. All you need to do is configure the policy settings.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
-1. Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications.**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator).
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Enterprise applications.**
 1. Select an application from the list.
 
     ![Screenshot of the Enterprise applications details.](media/how-to-target-resource-private-access-apps/enterprise-apps.png)
