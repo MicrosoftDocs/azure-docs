@@ -767,6 +767,8 @@
       href: how-to-use-parallel-job-in-pipeline.md
     - name: How to do hyperparameter sweep in pipeline
       href: how-to-use-sweep-in-pipeline.md
+  - name: How to manage inputs and ouputs in pipelines 
+    href: how-to-manage-inputs-and-outputs-in-pipeline.md
   - name: How to use pipeline components in pipeline 
     href: how-to-use-pipeline-component.md
   - name: Schedule a pipeline job
