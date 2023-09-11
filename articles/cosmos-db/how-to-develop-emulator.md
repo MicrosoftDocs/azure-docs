@@ -106,7 +106,7 @@ To get started, download and install the latest version of Azure Cosmos DB Emula
 
 ### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
 
-The Docker container variant of the emulator doesn't support the API for Apache Cassandra, API for Apache Gremlin, or API for Table.
+The Docker container variant (Linux or Windows) of the emulator doesn't support the API for Apache Cassandra, API for Apache Gremlin, or API for Table.
 
 ### [Windows (local)](#tab/windows)
 
@@ -332,6 +332,40 @@ The Docker (Windows) container image doesn't support the API for MongoDB.
 
 Export the certificate for the emulator to use the emulator with your preferred developer SDK without disable TLS/SSL on the client.
 
+::: zone pivot="api-apache-cassandra,api-apache-gremlin,api-table"
+
+### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
+
+The Docker container variant (Linux or Windows) of the emulator doesn't support the API for Apache Cassandra, API for Apache Gremlin, or API for Table.
+
+### [Windows (local)](#tab/windows)
+
+The Windows local installation of the emulator automatically imports the TLS/SSL certificates. No further action is necessary.
+
+::: zone-end
+
+::: zone pivot="api-mongodb"
+
+### [Docker (Linux container)](#tab/docker-linux)
+
+The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container. Use `curl` to download the certificate from the running container to your local machine.
+
+```bash
+curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+```
+
+### [Docker (Windows container)](#tab/docker-windows)
+
+The Docker (Windows) container image doesn't support the API for MongoDB.
+
+### [Windows (local)](#tab/windows)
+
+The Windows local installation of the emulator automatically imports the TLS/SSL certificates. No further action is necessary.
+
+::: zone-end
+
+::: zone pivot="api-nosql"
+
 ### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
 
 The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container. Use `curl` to download the certificate from the running container to your local machine.
@@ -354,6 +388,8 @@ cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
 The Windows local installation of the emulator automatically imports the TLS/SSL certificates. No further action is necessary.
 
 ---
+
+::: zone-end
 
 ## Connect to the emulator from the SDK
 
