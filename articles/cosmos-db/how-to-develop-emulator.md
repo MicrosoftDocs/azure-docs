@@ -330,25 +330,28 @@ The Docker (Windows) container image doesn't support the API for MongoDB.
 
 ## Export the emulator's TLS/SSL certificate
 
-TODO
+Export the certificate for the emulator to use the emulator with your preferred developer SDK without disable TLS/SSL on the client.
 
-### [Docker (Linux container)](#tab/docker-linux)
+### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
 
-TODO
+The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container. Use `curl` to download the certificate from the running container to your local machine.
 
-1. TODO
+```bash
+curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+```
 
-### [Docker (Windows container)](#tab/docker-windows)
+> [!NOTE]
+> You may need to change the host (or IP address) and port number if you have previously modified those values.
 
-TODO
+Install the certificate according to the process typically used for your operating system. For example, in Linux you would copy the certificate to the  `/usr/local/share/ca-certificats/` path.
 
-1. TODO
+```bash
+cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
+```
 
 ### [Windows (local)](#tab/windows)
 
-TODO
-
-1. TODO
+The Windows local installation of the emulator automatically imports the TLS/SSL certificates. No further action is necessary.
 
 ---
 
