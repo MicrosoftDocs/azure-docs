@@ -1,6 +1,6 @@
 ---
 title: Best practices for Azure Operator Service Manager - Publisher
-description: Understand best Ppactices for Azure Operator Service Manager - Publisher.
+description: Understand best Practices for Azure Operator Service Manager - Publisher.
 author: sherrygonz
 ms.author: sherryg
 ms.date: 09/11/2023
