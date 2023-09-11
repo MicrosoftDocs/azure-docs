@@ -10,7 +10,7 @@ ms.author: eur
 
 #### Upcoming Patch Release:
 
-* For Linux and Android users: With the impending End of Life for OpenSSL 1.1.1 on 9/11 there will be a patch release containing support for OpenSSL 3.0 before the next regular Speech SDK release. This will streamline usage on Linux Distributions with OpenSSL 3.0 pre-installed (such as Ubuntu 22.04)
+* For Linux and Android users: With the End of Life for OpenSSL 1.1.1 on September 11th there will be a patch release containing support for OpenSSL 3.0 before the next major Speech SDK release. This will streamline usage on Linux Distributions with OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
 
     
 
