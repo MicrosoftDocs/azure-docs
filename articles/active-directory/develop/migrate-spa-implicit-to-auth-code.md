@@ -54,7 +54,7 @@ You can also [create a new app registration](scenario-spa-app-registration.md) i
 
 ## Update your code to MSAL.js 2.x
 
-In MSAL 1.x, you created a application instance by initializing a [UserAgentApplication][msal-js-useragentapplication] as follows:
+In MSAL 1.x, you created a application instance by initializing a UserAgentApplication as follows:
 
 ```javascript
 // MSAL 1.x
@@ -91,5 +91,4 @@ To learn more about the authorization code flow, including the differences betwe
 If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.
 
 <!-- LINKS - external -->
-[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.PublicClientApplication.html

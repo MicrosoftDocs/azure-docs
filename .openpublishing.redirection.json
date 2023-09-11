@@ -23403,6 +23403,111 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/msal-python-adfs-support.md",
+            "redirect_url": "/entra/msal/python/advanced/msal-python-adfs-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-error-handling-dotnet.md",
+            "redirect_url": "/entra/msal/dotnet/advanced/exceptions/msal-error-handling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-logging-dotnet.md",
+            "redirect_url": "/entra/msal/dotnet/advanced/exceptions/msal-logging",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-acquire-token-silently.md",
+            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/acquire-token-silently",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-adfs-support.md",
+            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/desktop-mobile/adfs-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-b2c-considerations.md",
+            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/desktop-mobile/social-identities",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-clear-token-cache.md",
+            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/clear-token-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-client-assertions.md",
+            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/msal-net-client-assertions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-differences-adal-net.md",
+            "redirect_url": "/entra/msal/dotnet/how-to/differences-adal-msal-net",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-initializing-client-applications.md",
+            "redirect_url": "/entra/msal/dotnet/getting-started/initializing-client-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-instantiate-confidential-client-config-options.md",
+            "redirect_url": "/entra/msal/dotnet/getting-started/instantiate-confidential-client-config-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-instantiate-public-client-config-options.md",
+            "redirect_url": "/entra/msal/dotnet/getting-started/instantiate-public-client-config-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-migration-confidential-client.md",
+            "redirect_url": "/entra/msal/dotnet/how-to/migrate-confidential-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-migration-public-client.md",
+            "redirect_url": "/entra/msal/dotnet/how-to/migrate-public-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-provide-httpclient.md",
+            "redirect_url": "/entra/msal/dotnet/advanced/httpclient",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-token-cache-serialization.md",
+            "redirect_url": "/entra/msal/dotnet/how-to/token-cache-serialization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-user-gets-consent-for-multiple-resources.md",
+            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/user-gets-consent-for-multiple-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-uwp-considerations.md",
+            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/desktop-mobile/uwp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-web-browsers.md",
+            "redirect_url": "/entra/msal/dotnet/acquiring-tokens/using-web-browsers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/msal-net-migration.md",
+            "redirect_url": "/entra/msal/dotnet/how-to/msal-net-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/microsoft-identity-web.md",
+            "redirect_url": "/entra/msal/dotnet/microsoft-identity-web/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false
