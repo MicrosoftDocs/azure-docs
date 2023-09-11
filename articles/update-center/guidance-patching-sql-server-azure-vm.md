@@ -4,7 +4,7 @@ description: An overview on patching guidance for SQL Server on Azure VMs using 
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.author: sudhirsneha
 ---
 

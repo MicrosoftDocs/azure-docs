@@ -2,7 +2,7 @@
 title: Configure schedule patching on Azure VMs to ensure business continuity in Azure Update Manager.
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha

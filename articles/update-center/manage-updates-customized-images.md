@@ -4,7 +4,7 @@ description: The article describes about customized images, how to register, val
 ms.service: azure-update-manager
 author: snehasudhirG
 ms.author: sudhirsneha
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 ---
 

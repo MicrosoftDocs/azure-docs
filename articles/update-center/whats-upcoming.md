@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ---
 
 # What are the upcoming features in Azure Update Manager

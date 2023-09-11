@@ -2,7 +2,7 @@
 title: Deploy updates and track results in Azure Update Manager.
 description: The article details how to use Azure Update Manager in the Azure portal to deploy updates and view results for supported machines.
 ms.service: azure-update-manager
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha

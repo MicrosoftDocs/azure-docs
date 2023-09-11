@@ -4,7 +4,7 @@ description: The article tells what Azure Update Manager in Azure is and the sys
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.topic: overview
 ---
 

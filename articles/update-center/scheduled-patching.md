@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Azure Update Manager (preview)
 description: The article details how to use Azure Update Manager in Azure to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
