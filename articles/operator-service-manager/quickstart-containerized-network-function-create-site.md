@@ -30,11 +30,11 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 1. Select **Create a resource**.
 1. Search for **Sites**, then select **Create**.
 1. On the **Basics tab**, enter or select your **Subscription**, **Resource group**, and the **Name** and **Region** of your instance. 
-    :::image type="content" source="media/create-site-basics-tab.png" alt-text="Shows the Basic tab to enter Project details and Instance details for your site.":::
+    :::image type="content" source="media/create-site-basics-tab.png" alt-text="Screenshot showing the the Basic tab to enter Project details and Instance details for your site.":::
     > [!NOTE]
     > The site must be located in the same region as the prerequisite resources.  
 1. Navigate to the **NFVI** tab and enter "nginx_NFVI" for the **NFVI name**, select Azure Core as the **NFVI type** and select UK South for the **NFVI location**.
-:::image type="content" source="media/create-site-add-nfvis.png" alt-text="Shows the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
+:::image type="content" source="media/create-site-add-nfvis.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
     > [!NOTE]
     > This example features a single Network Function Virtual Infrastructure (NFVI) named nginx_NFVI. If you modified the nsdg_name in the input.json file while publishing NSD, the NFVI name should be <nsdg_name>_NFVI. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.  
 1. Select **Review + create**, then select **Create**.
