@@ -193,7 +193,7 @@ See how data, including customer information, vendor details, and line items, is
 | &bullet; Albanian (`sq`) | Albania (`al`)|
 | &bullet; Swedish (`sv`) | Sweden (`se`)|
 | &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
-| &bullet; Chinese (traditional (zh-hant)) | Hong Kong (zh-hant-hk), Taiwan (zh-hant-tw)|
+| &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
