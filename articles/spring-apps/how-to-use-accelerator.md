@@ -305,7 +305,7 @@ az spring application-accelerator customized-accelerator create \
 
 ---
 
-1. Change *accelerator.yaml* file in your accelerator project by using **imports** instruction under **accelerator** section and using **InvokeFragment** instruction in **engine** section to reference fragment in accelerator.
+2. Change *accelerator.yaml* file in your accelerator project by using **imports** instruction under **accelerator** section and using **InvokeFragment** instruction in **engine** section to reference fragment in accelerator.
 
 The following YAML file as an example:
 ```yaml
@@ -326,6 +326,25 @@ engine:
     - type: InvokeFragment
       reference: <fragment-accelerator-name>
 ```
+
+3. Create or update your customized accelerator using the Azure portal or Azure CLI to refresh the change.
+
+#### [Azure portal](#tab/Portal)
+
+The open the **Accelerators** section and then select **Sync certificate**.
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to sync change for an accelerator:
+
+```azurecli
+az spring application-accelerator customized-accelerator sync-cert \
+    --name <customized-accelerator-name> \
+    --service <service-instance-name> \
+    --resource-group <resource-group-name>
+```
+
+---
 
 For more information, see [Use fragments in Application Accelerator](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-creating-accelerators-composition.html) in the VMware documentation.
 
