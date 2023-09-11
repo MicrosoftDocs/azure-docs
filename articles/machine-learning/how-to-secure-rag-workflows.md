@@ -44,13 +44,15 @@ The Azure Machine Learning workspace will create a private endpoint in the relat
 
     ![Screenshot of how to add private cognitive services user outbound rule](./media/how-to-secure-rag-workflows/add-private-cognitive-services.png)
 
-4. Add **“Storage Data Blob Contributor”** and **“Storage Data Table Contributor”** access to Workspace Managed Identity. This can be done _Storage Account > Access Control > Add Managed Identity_.
+4. Navigate to the settings of the storage account associated with your workspace. Select **Access Control (IAM)** in the left-hand menu. Select **Add Role Assignment**. Add **Storage Data Blob Contributor** and **Storage Data Table Contributor** access to Workspace Managed Identity. This can be done typing **Storage Data Blob Contributor** and **Storage Data Table Contributor** into the search bar. You will need to complete this step and the next step twice. Once for Blob Contributor and the second time for Table Contributor. 
+
+5. Ensure the **Managed Identity** option is selected. Then select **Select Members**. Select **Azure Machine Learning Workspace** under the drop down for **Managed Identity**. Then select your managed identity of the workspace. 
 
     ![Screenshot of adding Workspace Managed Identity to Blob/Table access in Storage Account](./media/how-to-secure-rag-workflows/storage-add-blob-table-managed-identity.png)
 
-5. If using an "Allow only approved outbound" Managed Vnet workspace and a <u>public</u> Azure Open AI resource, **add an outgoing FQDN rule** for your Azure Open AI endpoint. This will enable data plane operations which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, will not be allowed to be accessed.
+6. If using an "Allow only approved outbound" Managed Vnet workspace and a <u>public</u> Azure Open AI resource, **add an outgoing FQDN rule** for your Azure Open AI endpoint. This will enable data plane operations which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, will not be allowed to be accessed.
 
-6. In order to upload data files beforehand or use "Local Folder Upload" for RAG when the storage account is made is private, the workspace must be accessed from a Virtual Machine behind a Vnet, and subnet must be allow-listed in the Storage Account. This can be done by going to _Storage Account > Networking setting >  “Enable for selected virtual network and IPs”_, and adding your workspace Subnet.
+7. In order to upload data files beforehand or use "Local Folder Upload" for RAG when the storage account is made is private, the workspace must be accessed from a Virtual Machine behind a Vnet, and subnet must be allow-listed in the Storage Account. This can be done by going to _Storage Account > Networking setting >  “Enable for selected virtual network and IPs”_, and adding your workspace Subnet.
 
     ![Screenshot of private storage settings required for secure data upload](./media/how-to-secure-rag-workflows/storage-setting-for-private-data-upload.png)
 
