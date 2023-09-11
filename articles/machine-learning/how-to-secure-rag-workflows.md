@@ -24,7 +24,7 @@ Within the Azure Machine Learning managed network option, there are two secured 
 
 Depending on your setup and scenario, RAG workflows in Azure Machine Learning may require other steps for network isolation.
 
-## Pre-requisites
+## Prerequisites
 * An Azure subscription
 * Access to Azure OpenAI Service
 * A secure Azure Machine Learning workspace: either with Workspace Managed Virtual Network or "Bring Your Own" Virtual Network setup
@@ -50,19 +50,19 @@ The Azure Machine Learning workspace creates a private endpoint in the related r
 
     ![Screenshot of adding Workspace Managed Identity to Blob/Table access in Storage Account](./media/how-to-secure-rag-workflows/storage-add-blob-table-managed-identity.png)
 
-6. (optional) To add an outgoing FQDN rule, in the Azure portal, select **Networking** under the **Settings** tab in the left-hand menu. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbound rule**. Select **FQDN Rule** under **Destination type**. Enter your endpoint URL in **FQDN Destination**. To find your endpoint URL, navigate to deployed endpoints in the Azure Portal, select your desired endpoints and copy the endpoint URL from the details section.
+6. (optional) To add an outgoing FQDN rule, in the Azure portal, select **Networking** under the **Settings** tab in the left-hand menu. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbound rule**. Select **FQDN Rule** under **Destination type**. Enter your endpoint URL in **FQDN Destination**. To find your endpoint URL, navigate to deployed endpoints in the Azure portal, select your desired endpoints and copy the endpoint URL from the details section.
 
-If you're using an **Allow only approved outbound** Managed Vnet workspace and a `public` Azure Open AI resource, you need to **add an outgoing FQDN rule** for your Azure Open AI endpoint. This will enable data plane operations which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, won't be allowed to be accessed.
+If you're using an **Allow only approved outbound** Managed Vnet workspace and a `public` Azure Open AI resource, you need to **add an outgoing FQDN rule** for your Azure Open AI endpoint. This enables data plane operations, which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, isn't allowed to be accessed.
 
 7. (optional) In order to upload data files beforehand or to use **Local Folder Upload** for RAG when the storage account is made is private, the workspace must be accessed from a Virtual Machine behind a Vnet, and subnet must be allow-listed in the Storage Account. This can be done by selecting **Storage Account**, then **Networking setting**. Select **Enable for selected virtual network and IPs**, then add your workspace Subnet.
 
     ![Screenshot of private storage settings required for secure data upload](./media/how-to-secure-rag-workflows/storage-setting-for-private-data-upload.png)
 
-    Here is a tutorial of [how to connect to a private storage](../private-link/tutorial-private-endpoint-storage-portal.md) from an Azure Virtual Machine.
+    Follow this tutorial tutorial for [how to connect to a private storage](../private-link/tutorial-private-endpoint-storage-portal.md) from an Azure Virtual Machine.
 
 ## With BYO Custom Vnet
 
-1. Select **Use my Own Virtual Network** when configuring your Azure Machine Learning workspace. In this scenario, it's up to the user to configure the network rules and private endpoints to related resources correctly, as the workspace doesn't auto-configure it.
+1. Select **Use my Own Virtual Network** when configuring your Azure Machine Learning workspace. In this scenario, it's up to the user to configure the network rules and private endpoints to related resources correctly, as the workspace doesn't autoconfigure it.
 
 2. In the Vector Index creation Wizard, make sure to select **Compute Instance** or **Compute Cluster** from the compute options dropdown, as this scenario isn't supported with Serverless Compute.
 
@@ -72,7 +72,7 @@ If you're using an **Allow only approved outbound** Managed Vnet workspace and a
 
 - You might see an error message related to `< Resource > is not registered with Microsoft.Network resource provider.` In which case, you should **ensure the subscription which your AOAI/ACS resource is registered with a Microsoft Network resource provider**. To do so, navigate to **Subscription**, then **Resource Providers** for the same tenant as your Managed Vnet Workspace.
 
-- **Note**: it is expected for a first-time serverless job in the workspace to be Queued an additional 10-15 mins while Managed Network is provisioning Private Endpoints for the first time. With Compute Instance and Compute Cluster, this process happens during the compute creation.
+- **Note**: it's expected for a first-time serverless job in the workspace to be Queued an additional 10-15 mins while Managed Network is provisioning Private Endpoints for the first time. With Compute Instance and Compute Cluster, this process happens during the compute creation.
 
 ## Next Steps
 
