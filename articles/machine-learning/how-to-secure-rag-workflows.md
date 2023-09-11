@@ -17,12 +17,12 @@ ms.custom: prompt-flow
 
 You can secure your Retrieval Augmented Generation (RAG) flows by using private networks in Azure Machine Learning with two network management options: **Managed Virtual Network**, which is the in-house offering, or **"Bring Your Own" Virtual Network**, which is useful when you want full control over setup for your Virtual Networks / Subnets, Firewalls, Network Security Group rules, etc. 
 
-Within the Azure Machine Learning managed network option, there are 2 secured sub-options offered which you can select from: _Allow Internet Outbound_ and _Allow Only Approved Outbound_. 
+Within the Azure Machine Learning managed network option, there are two secured suboptions offered which you can select from: _Allow Internet Outbound_ and _Allow Only Approved Outbound_. 
 
 ![Screenshot of Managed Vnet Options in Azure Machine Learning](./media/how-to-secure-rag-workflows/private-managed-vnet-options.png)
 
 
-Depending on your setup and scenario, RAG workflows in Azure Machine Learning may require additional steps for network isolation.
+Depending on your setup and scenario, RAG workflows in Azure Machine Learning may require other steps for network isolation.
 
 ## Pre-requisites
 - An Azure subscription
@@ -30,7 +30,7 @@ Depending on your setup and scenario, RAG workflows in Azure Machine Learning ma
 - A secure Azure Machine Learning workspace: either with Workspace Managed Virtual Network or "Bring Your Own" Virtual Network setup
 - Prompt flows enabled in your Azure Machine Learning workspace. You can enable prompt flows by turning on Build AI solutions with Prompt flow on the Manage preview features panel.
 
-## With AzureML Workspace Managed Vnet:
+## With Azure Machine Learning Workspace Managed Vnet:
 
 1. Follow [Workspace managed network isolation](../how-to-managed-network.md) to enable workspace managed VNet.
 
@@ -38,19 +38,19 @@ Depending on your setup and scenario, RAG workflows in Azure Machine Learning ma
 
 To allow your RAG workflow to communicate with [<u>private</u> Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) such as Azure Open AI or Azure Cognitive Search during Vector Index creation, you need to define a related user outbound rule to a related resource. 
 
-3. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbount rule**. Enter in a **Rule name**. Then select your resource you want to add the rule to using the **Resource name** text box.
+3. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbound rule**. Enter in a **Rule name**. Then select your resource you want to add the rule to using the **Resource name** text box.
 
-The Azure Machine Learning workspace will create a private endpoint in the related resource with auto-approve. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
+The Azure Machine Learning workspace creates a private endpoint in the related resource with autoapprove. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
     ![Screenshot of how to add private cognitive services user outbound rule](./media/how-to-secure-rag-workflows/add-private-cognitive-services.png)
 
-4. Navigate to the settings of the storage account associated with your workspace. Select **Access Control (IAM)** in the left-hand menu. Select **Add Role Assignment**. Add **Storage Data Blob Contributor** and **Storage Data Table Contributor** access to Workspace Managed Identity. This can be done typing **Storage Data Blob Contributor** and **Storage Data Table Contributor** into the search bar. You will need to complete this step and the next step twice. Once for Blob Contributor and the second time for Table Contributor. 
+4. Navigate to the settings of the storage account associated with your workspace. Select **Access Control (IAM)** in the left-hand menu. Select **Add Role Assignment**. Add **Storage Data Blob Contributor** and **Storage Data Table Contributor** access to Workspace Managed Identity. This can be done typing **Storage Data Blob Contributor** and **Storage Data Table Contributor** into the search bar. You'll need to complete this step and the next step twice. Once for Blob Contributor and the second time for Table Contributor. 
 
-5. Ensure the **Managed Identity** option is selected. Then select **Select Members**. Select **Azure Machine Learning Workspace** under the drop down for **Managed Identity**. Then select your managed identity of the workspace. 
+5. Ensure the **Managed Identity** option is selected. Then select **Select Members**. Select **Azure Machine Learning Workspace** under the drop-down for **Managed Identity**. Then select your managed identity of the workspace. 
 
     ![Screenshot of adding Workspace Managed Identity to Blob/Table access in Storage Account](./media/how-to-secure-rag-workflows/storage-add-blob-table-managed-identity.png)
 
-6. If using an "Allow only approved outbound" Managed Vnet workspace and a <u>public</u> Azure Open AI resource, **add an outgoing FQDN rule** for your Azure Open AI endpoint. This will enable data plane operations which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, will not be allowed to be accessed.
+6. If using an "Allow only approved outbound" Managed Vnet workspace and a <u>public</u> Azure Open AI resource, **add an outgoing FQDN rule** for your Azure Open AI endpoint. This will enable data plane operations which are required to perform Embeddings in RAG. Without this, the AOAI resource, even if public, won't be allowed to be accessed.
 
 7. In order to upload data files beforehand or use "Local Folder Upload" for RAG when the storage account is made is private, the workspace must be accessed from a Virtual Machine behind a Vnet, and subnet must be allow-listed in the Storage Account. This can be done by going to _Storage Account > Networking setting >  “Enable for selected virtual network and IPs”_, and adding your workspace Subnet.
 
@@ -60,13 +60,13 @@ The Azure Machine Learning workspace will create a private endpoint in the relat
 
 ## With BYO Custom Vnet
 
-1. Select "Use my Own Virtual Network" when configuring your Azure Machine Learning workspace. In this scenario, it is upto the user to configure the network rules and private endpoints to related resources correctly, as the workspace does not auto-configure it.
+1. Select "Use my Own Virtual Network" when configuring your Azure Machine Learning workspace. In this scenario, it's upto the user to configure the network rules and private endpoints to related resources correctly, as the workspace doesn't auto-configure it.
 
-2. In the Vector Index creation Wizard, make sure to select **"Compute Instance"** or **"Compute Cluster"** from the compute options dropdown, as this scenario is not supported with Serverless Compute.
+2. In the Vector Index creation Wizard, make sure to select **"Compute Instance"** or **"Compute Cluster"** from the compute options dropdown, as this scenario isn't supported with Serverless Compute.
 
 ## Troubleshooting Common Problems
 
-- In the case that your workspace runs into network related issues where your compute is unable to create or start, try adding a placeholder FQDN rule in the "Networking" tab of your workspace in the Azure Portal, in order to initiate a managed network update. Then, re-create the Compute in the Azure Machine Learning workspace.
+- In the case that your workspace runs into network related issues where your compute is unable to create or start, try adding a placeholder FQDN rule in the "Networking" tab of your workspace in the Azure portal, in order to initiate a managed network update. Then, re-create the Compute in the Azure Machine Learning workspace.
 
 - You might see error message related to _"< Resource > is not registered with Microsoft.Network resource provider."_ In which case, you should **ensure the subscription which your AOAI/ACS resource is registered with Microsoft.Network resource provider** (Navigate to Subscription > "Resource Providers"), and in the same tenant as your Managed Vnet Workspace.
 
