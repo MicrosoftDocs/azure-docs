@@ -5,13 +5,19 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 08/16/2023
+ms.date: 09/11/2023
 ms.custom: references_regions
 ---
 
 # What's new with Azure Red Hat OpenShift?
 
 Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
+
+## Update - September 2023
+
+To create a private cluster without a public IP address, you can now add the parameter `--outbound-type UserDefinedRouting` to the `aro create` command. See [Create a private cluster without a public IP address](howto-create-private-cluster-4x.md#create-a-private-cluster-without-a-public-ip-address) for details.
+
+When creating a cluster, the `--outbound` type must be either `LoadBalancer` (the default) or `UserDefinedRouting`.
 
 ## Version 4.12 - August 2023
 
