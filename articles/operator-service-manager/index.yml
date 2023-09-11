@@ -42,6 +42,8 @@ landingContent:
         links:
           - text: Containerized Network Function (CNF)
             url: quickstart-containerized-network-function-prerequisites.md
+          - text: Virtualized Network Function (VNF)
+            url: quickstart-virtualized-network-function-prerequisites.md
       - linkListType: how-to-guide
         links:
           - text: Create a site
