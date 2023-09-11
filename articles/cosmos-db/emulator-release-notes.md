@@ -110,7 +110,7 @@ Only the most recent version of the Azure Cosmos DB emulator is actively support
 
 - This release adds two new Azure Cosmos DB Emulator startup options:
   - `/EnablePreview` - Enables preview features for the Azure Cosmos DB Emulator. The preview features that are still under development and are available via CI and sample writing.
-  - `/EnableAadAuthentication` - Enables the emulator to accept custom Azure Active Directory tokens as an alternative to the Azure Cosmos DB primary keys. This feature is still under development; specific role assignments and other permission-related settings aren't currently supported.
+  - `/EnableAadAuthentication` - Enables the emulator to accept custom Microsoft Entra ID tokens as an alternative to the Azure Cosmos DB primary keys. This feature is still under development; specific role assignments and other permission-related settings aren't currently supported.
 
 ### ``2.11.2`` (July 7, 2020)
 
