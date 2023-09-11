@@ -33,8 +33,8 @@ To open the settings for an Azure AD role:
 
 1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles** > **Roles**.
 
-1. This page shows a list of Azure AD roles available in the tenant, including built-in and custom roles.
-    :::image type="content" source="media/pim-how-to-change-default-settings/role-settings.png" alt-text="Screenshot that shows the list of Azure AD roles available in the tenant, including built-in and custom roles." lightbox="media/pim-how-to-change-default-settings/role-settings.png":::
+1. On this page you see a list of Azure AD roles available in the tenant, including built-in and custom roles.
+        :::image type="content" source="media/pim-how-to-change-default-settings/role-settings.png" alt-text="Screenshot that shows the list of Azure AD roles available in the tenant, including built-in and custom roles." lightbox="media/pim-how-to-change-default-settings/role-settings.png":::
 
 1. Select the role whose settings you want to configure.
 
