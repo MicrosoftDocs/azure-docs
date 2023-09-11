@@ -142,7 +142,7 @@ az keyvault set-policy -g testGroup -n testVault --object-id $identityPrincipalI
   --key-permissions wrapKey unwrapKey get list
 
 # trigger mysql import for CMK enabled single server
-az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server" --key <key identifier of testKey> --identity testIdentity
+az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server" --key $keyIdentifier --identity testIdentity
 ```
 
 Here are the details for the arguments above:
