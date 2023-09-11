@@ -54,3 +54,4 @@ If you no longer need a Grafana team, follow these steps to delete it, which als
 ## Next steps
 
 In this how-to guide, you learned how to set up Grafana teams backed by Azure AD groups. To learn how to use teams to control access to dashboards in your workspace, see [Manage dashboard permissions](https://grafana.com/docs/grafana/latest/administration/user-management/manage-dashboard-permissions/).
+
