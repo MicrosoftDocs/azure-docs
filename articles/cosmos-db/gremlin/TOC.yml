@@ -290,6 +290,8 @@
           href: headers.md
         - name: Limits
           href: limits.md
+    - name: Develop with the emulator
+      href: ../how-to-develop-emulator.md
     - name: Use developer tools
       items:
         - name: Develop locally with emulator

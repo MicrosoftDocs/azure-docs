@@ -323,6 +323,8 @@
               href: ../notebooks-faq.yml
     - name: How to
       items:
+        - name: Develop with the emulator
+          href: ../how-to-develop-emulator.md
         - name: Use developer tools
           items:
             - name: MongoDB extension commands
