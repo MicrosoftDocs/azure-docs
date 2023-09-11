@@ -146,7 +146,7 @@ With Entra Governance licenses for Lifecycle Workflows, you can:
 
 ## Privileged Identity Management
 
-### Example license scenarios for PIM
+### Example license scenarios
 
 Here are some example license scenarios to help you determine the number of licenses you must have.
 
