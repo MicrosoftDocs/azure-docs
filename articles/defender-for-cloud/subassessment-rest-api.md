@@ -97,7 +97,7 @@ Scopes
         {
             "type": "Microsoft.Security/assessments/subAssessments",
             "id": "/subscriptions/{SubscriptionID}/resourceGroups/PytorchEnterprise/providers/Microsoft.ContainerRegistry/registries/ptebic/providers/Microsoft.Security/assessments/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5/subassessments/3f069764-2777-3731-9698-c87f23569a1d",
-            "name": "3f069764-2777-3731-9698-c87f23569a1d",
+            "name": "{name}",
             "properties": {
                 "id": "CVE-2021-39537",
                 "displayName": "CVE-2021-39537",
