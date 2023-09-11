@@ -27,9 +27,9 @@ To complete this quickstart, you need:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-2. Select **+ Add dev box**.
+2. Select **Get started**.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal and the button for adding a dev box.":::
+   :::image type="content" source="./media/quickstart-create-dev-box/welcome-to-developer-portal.png" alt-text="Screenshot of the developer portal and the button for adding a dev box.":::
 
 3. In **Add a dev box**, enter the following values:
 
