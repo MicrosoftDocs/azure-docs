@@ -321,7 +321,24 @@ Optimal performance is based on efficient client-server communication. Increasin
 
 It's important that you perform testing to find an rsize and wsize that sustains efficent packet transfer, where it doesn't decrease throughput and increase latency.
 
-For more information on optimizing rsize and wsize, see [Linux NFS mount options best practices for Azure NetApp Files][azure-netapp-files-mount-options-best-practices]. 
+For more information on optimizing rsize and wsize, see [Linux NFS mount options best practices for Azure NetApp Files][azure-netapp-files-mount-options-best-practices].
+
+For example, to configure a maximum *rsize* and *wsize* of 256-KiB, configure the `mountOptions` in the storage class as follows:
+
+```yml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azurefile-csi-nfs
+provisioner: file.csi.azure.com
+allowVolumeExpansion: true
+parameters:
+  protocol: nfs
+mountOptions:
+  - nconnect=4
+  - rsize=262144
+  - wsize=262144
+```
 
 ### Create NFS file share storage class
 
