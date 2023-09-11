@@ -31,14 +31,14 @@ The `spec.target` property has the following child property.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |configMapName|The name of the ConfigMap to be created|true|string|
-|configMapData|The settings for the data of ConfigMap to be created|false|object|
+|configMapData|The setting that specifies how the retrieved data should be populated in the generated ConfigMap|false|object|
 
-The `spec.target.configMapData` property has the following child property.
+If the `spec.target.configMapData` property is not set, the generated ConfigMap will be populated with the list of key-values retrieved from Azure App Configuration, which allows the ConfigMap to be consumed as environment variables. Update this property if you wish to consume the ConfigMap as a mounted file. This property has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|type|The type of data to dictate how the key-values are constructed in ConfigMap, `environmentVariables`, `json`, `yaml` and `properties` types are supported|true|string|
-|key|The key of the bundled values, required if `json`, `yaml` or `properties` type is set|conditional|string|
+|type|The type that indicates how the retrieved data is constructed in the generated ConfigMap. The allowed values include `default`, `json`, `yaml` and `properties`|optional|string|
+|key|The key name of the retrieved data when the `type` is set to `json`, `yaml` or `properties`. Set it to the file name if the ConfigMap is set up to be consumed as a mounted file|conditional|string|
 
 If the `spec.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties. Only one authentication method should be set.
 
@@ -293,15 +293,11 @@ spec:
             label: development
 ```
 
-### Types of ConfigMap data
+### Consume ConfigMap
 
-Supporting different type of ConfigMap data is useful when you want to consume the ConfigMap through different approaches. 
+Applications running in Kubernetes typically consume the ConfigMap either as environment variables or as configuration files. If the `configMapData.type` property is absent or is set to environment variables, the ConfigMap is populated with the itemized list of data retrieved from Azure App Configuration, which can be easily consumed as environment variables. If the `configMapData.type` property is set to json, yaml or properties, data retrieved from Azure App Configuration is grouped into one item with key name specified by the `configMapData.key` property in the generated ConfigMap, which can be consumed as a mounted file.
 
-Key-values that are fetched from Azure App Configuration are stored in the ConfigMap as is by default, the ConfigMap you get contains the same number of data items as the key-values you selected from Azure App Configuration.
-
-Set to `json`, `yaml` or `properties` if you want to bundle all selected key-values into single data item in different types, and consume the ConfigMap as a mounted file. In this case, the ConfigMap you get contains a single data item that use the `configMapData.key` as key, all bundled key-values as the value.
-
-For example, you can create an `AzureAppConfigurationProvider` with following settings.
+For example, you can create an `AzureAppConfigurationProvider` with following settings to populate the ConfigMap with grouped values in json type.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -328,10 +324,41 @@ Assume these key-values are selected from Azure App Configuration:
 |key2|value2|
 |key3|value3|
 
-The data of ConfigMap created by the provider will be:
+The data of generated ConfigMap with different setting of `configMapData.type` property would be:
+
+#### [default](#tab/default)
+
+``` json
+data:
+  key1: value1
+  key2: value2
+  key3: value3
+```
+
+#### [json](#tab/json)
 
 ``` json
 data:
   appSettings.json: >-
     {"key1":"value1","key2":"value2","key3":"value3"}
+```
+
+#### [yaml](#tab/yaml)
+
+``` json
+data:
+  appSettings.json: >-
+    key1: value1
+    key2: value2
+    key3: value3
+```
+
+#### [properties](#tab/properties)
+
+``` json
+data:
+  appSettings.json: >-
+    key1=value1
+    key2=value2
+    key3=value3
 ```
