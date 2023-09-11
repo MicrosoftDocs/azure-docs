@@ -26,18 +26,18 @@ To use Azure AD group sync, you add a new team to your Grafana workspace and lin
 1. Select the group name in the search result.
 1. Copy the value in the *Object Id* field. You need to provide this information later.
 
-    :::image type="content" source="media/Azure AD-group-sync/find-Azure AD-group-object-id.png" alt-text="Screenshot of the Azure Active Directory. Finding group object ID.":::
+    :::image type="content" source="media/aad-group-sync/find-aad-group-object-id.png" alt-text="Screenshot of the Azure Active Directory. Finding group object ID.":::
 
 1. Open your Azure Managed Grafana workspace.
 1. Select **Administration > Teams**.
 1. Select **New Team**, enter a name for the team, and select **Create**.
 
-    :::image type="content" source="media/Azure AD-group-sync/create-new-grafana-team.png" alt-text="Screenshot of the Grafana platform. Creating a new Grafana team.":::
+    :::image type="content" source="media/aad-group-sync/create-new-grafana-team.png" alt-text="Screenshot of the Grafana platform. Creating a new Grafana team.":::
 
 1. Select the **External group sync** tab, and **Add group**.
 1. Enter the Azure AD group object ID obtained before, and select **Add group** to link to that group.
 
-    :::image type="content" source="media/Azure AD-group-sync/link-Azure AD-group.png" alt-text="Screenshot of the Grafana platform. Configuring Grafana team to sync with Azure AD group.":::
+    :::image type="content" source="media/aad-group-sync/link-aad-group.png" alt-text="Screenshot of the Grafana platform. Configuring Grafana team to sync with Azure AD group.":::
 
 ## Remove Azure AD group sync
 
@@ -47,7 +47,7 @@ If you no longer need a Grafana team, follow these steps to delete it, which als
 1. Select **Administration > Teams**.
 1. Select the **X** button to the right of a team you're deleting.
 
-    :::image type="content" source="media/Azure AD-group-sync/remove-Azure AD-group-sync.png" alt-text="Screenshot of the Grafana platform. Removing a Grafana team.":::
+    :::image type="content" source="media/aad-group-sync/remove-aad-group-sync.png" alt-text="Screenshot of the Grafana platform. Removing a Grafana team.":::
 
 1. Select **Delete** to confirm.
 
