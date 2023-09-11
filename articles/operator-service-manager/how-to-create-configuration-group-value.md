@@ -1,6 +1,6 @@
 ---
 title: How to create configuration group value
-description: Learn how to create configuration group value in Azure Opeartor Service Manager.
+description: Learn how to create configuration group value in Azure Operator Service Manager.
 author: sherrygonz
 ms.author: sherryg
 ms.date: 09/11/2023
