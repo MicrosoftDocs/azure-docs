@@ -11,7 +11,6 @@ ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: pauljewell
 ms.reviewer: ozgun
-ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---

@@ -11,7 +11,6 @@ ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: akashdubey
 ms.reviewer: nachakra
-ms.subservice: storage-common-concepts
 ---
 
 # Configure Azure Storage connection strings
