@@ -153,7 +153,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** | Supported | Supported | Doha<br/>Doha2<br/>London2<br/>Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Supported | Supported | Melbourne<br/>Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin2 Frankfurt<br/>Hong Kong<br/>Johannesburg<br/>London<br/>London2<br/>Mumbai2<br/>Melbourne<br/>Paris<br/>Sao Paulo<br/>Silicon 
-| **Orange Poland** | Supported | Supported | Warsaw |
+| **[Orange Poland](https://www.orange.pl/duze-firmy)** | Supported | Supported | Warsaw |
 | **[Orixcom](https://www.orixcom.com/solutions/azure-expressroute)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** | Supported | Supported | Amsterdam<br/>Chicago<br/>Dallas<br/>Denver<br/>Las Vegas<br/>London<br/>Los Angeles2<br/>Miami<br/>New York<br/>Seattle<br/>Silicon Valley<br/>Toronto<br/>Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** | Supported | Supported | Chicago<br/>Hong Kong<br/>Hong Kong2<br/>London<br/>Singapore<br/>Singapore2<br/>Tokyo2 |
@@ -187,7 +187,8 @@ The following table shows locations by service provider. If you want to view ava
 | **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | Supported | Supported | Osaka<br/>Tokyo2 |
 | **TPG Telecom**| Supported | Supported | Melbourne<br/>Sydney |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** | Supported | Supported | Dallas<br/>Queretaro(Mexico City)|
-| **[T-Mobile/Sprint](https://www.t-mobile.com/business/solutions/networking/cloud-networking )** |Supported |Supported | Chicago<br/>Silicon Valley<br/>Washington DC |
+| **[T-Mobile/Sprint](https://www.t-mobile.com/business/solutions/networking/cloud-networking)** |Supported |Supported | Chicago<br/>Silicon Valley<br/>Washington DC |
+| **[T-Mobile Poland](https://biznes.t-mobile.pl/pl/produkty-i-uslugi/sieci-teleinformatyczne/cloud-on-edge)** |Supported |Supported | warsaw |
 | **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported | Supported | Frankfurt |
 | **UOLDIVEO** | Supported | Supported | Sao Paulo |
 | **[UIH](https://www.uih.co.th/products-services/managed-services/cloud-direct/)** | Supported | Supported | Bangkok |
