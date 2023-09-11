@@ -44,10 +44,10 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 ## Default environment variable names or application properties and Sample codes
 
-Reference the connection details and sample codes in following tables, accordling to your connection's authentication type and client type, to connect compute services to Azure Database for MySQL. 
+Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for MySQL. 
 
 
-### System assigned Managed Identity
+### System-assigned Managed Identity
 
 #### [.NET](#tab/dotnet)
 
@@ -139,7 +139,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 
 
 
-### User assigned Managed Identity
+### User-assigned Managed Identity
 #### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
