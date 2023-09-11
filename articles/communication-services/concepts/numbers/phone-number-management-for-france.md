@@ -20,7 +20,6 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Toll-Free   |-  | - | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
 |Alphanumeric Sender ID\**|Public Preview|-|-|-|
 
