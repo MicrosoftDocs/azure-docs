@@ -27,7 +27,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 | [Combined security information registration](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Windows 10 version 1903 or higher | X | X |
-| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1909 or higher | X |   |
+| [Azure AD joined devices](../devices/concept-directory-join.md) require Windows 10 version 1909 or higher | X |   |
 | [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md) require Windows 10 version 2004 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
 | [Azure AD Hybrid Authentication Management module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/2.1.1.0) |   | X |

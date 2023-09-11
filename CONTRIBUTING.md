@@ -22,7 +22,7 @@ Please use the Feedback tool at the bottom of any article to submit bugs and sug
 
 ### Editing in GitHub
 
-Follow the guidance for [Quick edits to existing documents](https://learn.microsoft.com/contribute/#quick-edits-to-documentation) in our contributor guide.
+Follow the guidance for [Quick edits to existing documents](https://learn.microsoft.com/contribute/content/#quick-edits-to-documentation) in our contributor guide.
 
 ### Pull requests
 

@@ -37,7 +37,7 @@ There are a few different strategies that you can use to upgrade Azure AD Connec
 | Method | Description | Pros | Cons |
 | --- | --- | --- | --- |
 | [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) |This is the easiest method for customers with an express installation |No manual intervention |Auto-upgrade version might not include the latest features |
-| [In-place upgrade](#in-place-upgrade) |If you have a single server, you can upgrade the installation in-place on the same server |Doesn't require another server |If there's an issue while in-place upgrading, you can't roll back the new release or configuration and change the active server when you are ready |Safest approach and smoother transition to a newer version. Supports Windows OS (Operating Systems) upgrade. Sync is not interrupted and doesn't impose a risk to production |Requires another server|
+| [In-place upgrade](#in-place-upgrade) |If you have a single server, you can upgrade the installation in-place on the same server |- Doesn't require another server<br/><br/> - Safest approach and smoother transition to a newer version. Supports Windows OS (Operating Systems) upgrade. Sync is not interrupted and doesn't impose a risk to production |- If there's an issue while in-place upgrading, you can't roll back the new release or configuration and change the active server when you are ready <br/><br/>- Requires another server|
 
 For permissions information, see the [permissions required for an upgrade](reference-connect-accounts-permissions.md#upgrade).
 
@@ -80,7 +80,7 @@ These steps also work to move from Azure AD Sync or a solution with FIM + Azure 
 ### Use a swing migration to upgrade
 1. If you only have one Azure AD Connect server, if you are upgrading from AD Sync, or upgrading from an old version, it's a good idea to install the new version on a new Windows Server. If you already have two Azure AD Connect servers, upgrade the staging server first. and promote the staging to active. It's recommended to always keep a pair of active/staging server running the same version, but it's not required.
 2. If you have made a custom configuration and your staging server doesn't have it, follow the steps under [Move a custom configuration from the active server to the staging server](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
-3.	Let the sync engine run full import and full synchronization on your staging server.
+3. Let the sync engine run full import and full synchronization on your staging server.
 4. Verify that the new configuration did not cause any unexpected changes by using the steps under "Verify" in [Verify the configuration of a server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). If something is not as expected, correct it, run a sync cycle, and verify the data until it looks good.
 5. Before upgrading the other server, switch it to staging mode and promote the staging server to be the active server. This is the last step "Switch active server" in the process to [Verify the configuration of a server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
 6. Upgrade the server that is now in staging mode to the latest release. Follow the same steps as before to get the data and configuration upgraded. If you upgrade from Azure AD Sync, you can now turn off and decommission your old server.

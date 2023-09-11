@@ -1,18 +1,19 @@
 ---
-title: 'Endpoints in Azure Front Door'
+title: Endpoints in Azure Front Door
+TitleSuffix: Azure Front Door
 description: Learn about endpoints when using Azure Front Door.
 services: frontdoor
-author: johndowns
+author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/22/2022
-ms.author: jodowns
+ms.date: 08/09/2023
+ms.author: duau
 ---
 
 # Endpoints in Azure Front Door
 
-In Azure Front Door Standard/Premium, an *endpoint* is a logical grouping of one or more routes that are associated with domain names. Each endpoint is [assigned a domain name](#endpoint-domain-names) by Front Door, and you can associate your own custom domains by using routes.
+In Azure Front Door, an *endpoint* is a logical grouping of one or more routes that are associated with domain names. Each endpoint is [assigned a domain name](#endpoint-domain-names) by Front Door, and you can associate your own custom domains by using routes.
 
 ## How many endpoints should I create?
 
@@ -29,8 +30,8 @@ When you're planning the endpoints to create, consider the following factors:
 Endpoint domain names are automatically generated when you create a new endpoint. Front Door generates a unique domain name based on several components, including:
 
 - The endpoint's name.
-- A pseudorandom hash value, which is determined by Front Door. By using hash values as part of the domain name, Front Door helps to protect against [subdomain takeover](../security/fundamentals/subdomain-takeover.md) attacks.
-- The base domain name for your Front Door environment. This is generally `z01.azurefd.net`.
+- A pseudorandom hash value, which gets determined by Front Door. By using hash values as part of the domain name, Front Door helps to protect against [subdomain takeover](../security/fundamentals/subdomain-takeover.md) attacks.
+- The base domain name for your Front Door environment. Generally is `z01.azurefd.net`.
 
 For example, suppose you have created an endpoint named `myendpoint`. The endpoint domain name might be `myendpoint-mdjf2jfgjf82mnzx.z01.azurefd.net`.
 
@@ -50,8 +51,8 @@ The following table lists the allowable values for the endpoint's domain reuse b
 |--|--|
 | `TenantReuse` | This is the default value. Endpoints with the same name in the same Azure Active Directory tenant receive the same domain label. |
 | `SubscriptionReuse` | Endpoints with the same name in the same Azure subscription receive the same domain label. |
-| `ResourceGroupReuse` | Endpoints with the same name in the same resource group will receive the same domain label. |
-| `NoReuse` | Endpoints will always receive a new domain label. |
+| `ResourceGroupReuse` | Endpoints with the same name in the same resource group receives the same domain label. |
+| `NoReuse` | Endpoints always receive a new domain label. |
 
 > [!NOTE]
 > You can't modify the reuse behavior of an existing Front Door endpoint. The reuse behavior only applies to newly created endpoints.

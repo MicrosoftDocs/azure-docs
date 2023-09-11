@@ -34,7 +34,7 @@ To complete this article, you need the following resources and privileges:
   * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription.
 
-  * If needed, [create an Azure Active Directory tenant](../fundamentals/sign-up-organization.md) or [associate an Azure subscription with your account](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+  * If needed, [create an Azure Active Directory tenant](../fundamentals/sign-up-organization.md) or [associate an Azure subscription with your account](../fundamentals/how-subscriptions-associated-directory.md).
 * You need *Global Administrator* privileges in your Azure AD tenant to enable SMS-based authentication.
 * Each user who's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD or Microsoft 365 licenses:
 
@@ -57,7 +57,7 @@ Once you have configured administrative units, you can apply this scope to your 
 > [!Note]
 > Only users who've been assigned an admin role can access My Staff. If you enable My Staff for a user who is not assigned an admin role, they won't be able to access My Staff.
 
-## Conditional access
+## Conditional Access
 
 You can protect the My Staff portal using Azure AD Conditional Access policy. Use it for tasks like requiring multi-factor authentication before accessing My Staff.
 
@@ -65,7 +65,7 @@ We strongly recommend that you protect My Staff using [Azure AD Conditional Acce
 
 You'll see the service principal when you create a Conditional Access policy that applies to the My Staff cloud application.
 
-![Create a conditional access policy for the My Staff app](./media/my-staff-configure/conditional-access.png)
+![Create a Conditional Access policy for the My Staff app](./media/my-staff-configure/conditional-access.png)
 
 ## Using My Staff
 

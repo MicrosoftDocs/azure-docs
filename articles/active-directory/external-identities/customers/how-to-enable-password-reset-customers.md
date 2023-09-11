@@ -3,12 +3,12 @@ title: Enable self-service password reset
 description: Learn how to enable self-service password reset so your customers can reset their own passwords without admin assistance.
 services: active-directory
 author: csmulligan
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 07/28/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -34,10 +34,9 @@ The following screenshots show the self-service password rest flow. From the app
 
 ## Enable self-service password reset for customers
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the customer tenant you created earlier.
-1. In the navigation pane, select **Azure Active Directory**.
-1. Select **External Identities** > **User flows**.
+1. Browse to **Identity** > **External Identities** > **User flows**.
 1. From the list of **User flows**, select the user flow you want to enable SSPR.
 1. Make sure that the sign-up user flow registers **Email with password** as an authentication method under **Identity providers**.
 
@@ -47,9 +46,11 @@ The following screenshots show the self-service password rest flow. From the app
 
 To enable self-service password reset, you need to enable the email one-time passcode (Email OTP) authentication method for all users in your tenant. To ensure that the Email OTP feature is enabled follow the steps below:
 
-   1. Select **Protect & secure** from the sidebar under **Azure Active Directory** and then **Authentication methods** > **Policies**.
+   1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+   
+   1. Browse to **Identity** > **Protection** > **Authentication methods**. 
 
-   1. Under **Method** select **Email OTP (preview)**.
+   1. Under **Policies** > **Method** select **Email OTP (preview)**.
    
       :::image type="content" source="media/how-to-enable-password-reset-customers/authentication-methods.png" alt-text="Screenshot that shows authentication methods.":::
    
@@ -59,9 +60,19 @@ To enable self-service password reset, you need to enable the email one-time pas
 
 1. Select **Save**.
 
-## Customize the password reset flow
+### Enable the password reset link
 
-You can configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page. For details, see [To customize self-service password reset](how-to-customize-branding-customers.md#to-customize-self-service-password-reset) in the article [Customize the neutral branding in your customer tenant](how-to-customize-branding-customers.md).
+You can hide, show or customize the self-service password reset link on the sign-in page. 
+
+1. In the search bar, type and select **Company Branding**.
+1. Under **Default sign-in** select **Edit**.
+1. On the **Sign-in form** tab, scroll to the **Self-service password reset** section and select **Show self-service password reset**. 
+   
+   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png" alt-text="Screenshot of the company branding Self-service password reset.":::
+
+1. Select **Review + save** and **Save** on the **Review** tab. 
+
+For more details, check out the [Customize the neutral branding in your customer tenant](how-to-customize-branding-customers.md#to-customize-self-service-password-reset) article.
 
 ## Test self-service password reset
 

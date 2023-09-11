@@ -63,9 +63,10 @@ The following videos help you learn about access reviews:
 
 ### Licenses
 
-You need a valid Azure AD Premium (P2) license for each person, other than Global administrators or User administrators, who will create or do access reviews. For more information, see [Access reviews license requirements](access-reviews-overview.md).
+[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
-You might also need other Identity Governance features, such as [entitlement lifecycle management](entitlement-management-overview.md) or PIM. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+>[!NOTE]
+>Creating a review on inactive users and with [user-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
 
 ## Plan the access reviews deployment project
 
@@ -73,7 +74,7 @@ Consider your organizational needs to determine the strategy for deploying acces
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that project roles are clear.
+When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md) and that project roles are clear.
 
 For access reviews, you'll likely include representatives from the following teams within your organization:
 
@@ -137,7 +138,7 @@ In your pilot, we recommend that you:
 * Document any access removed as a part of the pilot in case you need to quickly restore it.
 * Monitor audit logs to ensure all events are properly audited.
 
-For more information, see [Best practices for a pilot](../fundamentals/deployment-plans.md).
+For more information, see [Best practices for a pilot](../architecture/deployment-plans.md).
 
 ## Introduction to access reviews
 
@@ -150,7 +151,7 @@ After you integrate your organization's resources with Azure AD, such as users, 
 Typical targets for review include:
 
 * [Applications integrated with Azure AD for single sign-on](../manage-apps/what-is-application-management.md), such as SaaS and line of business.
-* Group [membership](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) synchronized to Azure AD, or created in Azure AD or Microsoft 365, including Microsoft Teams.
+* Group [membership](../fundamentals/concept-learn-about-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) synchronized to Azure AD, or created in Azure AD or Microsoft 365, including Microsoft Teams.
 * [Access package](./entitlement-management-overview.md) that groups resources such as groups, apps, and sites into a single package to manage access.
 * [Azure AD roles​ and Azure resource roles](../privileged-identity-management/pim-resource-roles-assign-roles.md) as defined in PIM.
 
@@ -256,7 +257,7 @@ Select the **Lifecycle** tab and scroll down to access reviews.
 
 ## Plan access reviews for groups
 
-Besides access packages, reviewing group membership is the most effective way of governing access. Assign access to resources via [Security groups or Microsoft 365 groups](../fundamentals/active-directory-manage-groups.md). Add users to those groups to gain access.
+Besides access packages, reviewing group membership is the most effective way of governing access. Assign access to resources via [Security groups or Microsoft 365 groups](../fundamentals/concept-learn-about-groups.md). Add users to those groups to gain access.
 
 A single group can be granted access to all appropriate resources. You can assign the group access to individual resources or to an access package that groups applications and other resources. With this method, you can review access to the group rather than an individual's access to each application.
 
@@ -293,7 +294,7 @@ To learn how to review guest users' access to group memberships, see [Manage gue
 
 ### Review access to on-premises groups
 
-Access reviews can't change the group membership of groups that you synchronize from on-premises with [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). This restriction is because the source of authority is on-premises.
+Access reviews can't change the group membership of groups that you synchronize from on-premises with [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md). This restriction is because the source of authority is on-premises.
 
 You can still use access reviews to schedule and maintain regular reviews of on-premises groups. Reviewers will then take action in the on-premises group. This strategy keeps access reviews as the tool for all reviews.
 
@@ -387,9 +388,9 @@ Follow the instructions in the articles listed in the table.
 
 | How-to articles | Description |
 | - | - |
- [Create access reviews](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM. |
-| [Self-review your access](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you're assigned to an administrative role, approve or deny access to your role. |
-| [Complete an access review](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an access review and apply the results. |
+ [Create access reviews](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| Create access reviews for privileged Azure AD roles in PIM. |
+| [Self-review your access](../privileged-identity-management/pim-perform-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| If you're assigned to an administrative role, approve or deny access to your role. |
+| [Complete an access review](../privileged-identity-management/pim-complete-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| View an access review and apply the results. |
 
 ### Review Azure resource roles
 
@@ -401,9 +402,9 @@ Follow the instructions in the articles listed in the table.
 
 | How-to articles| Description |
 | - | -|
-| [Create access reviews](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure resource roles in PIM. |
-| [Self-review your access](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you're assigned to an administrative role, approve or deny access to your role. |
-| [Complete an access review](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an access review and apply the results. |
+| [Create access reviews](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| Create access reviews for privileged Azure resource roles in PIM. |
+| [Self-review your access](../privileged-identity-management/pim-perform-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| If you're assigned to an administrative role, approve or deny access to your role. |
+| [Complete an access review](../privileged-identity-management/pim-complete-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| View an access review and apply the results. |
 
 ## Use the Access Reviews API
 

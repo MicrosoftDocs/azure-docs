@@ -4,6 +4,8 @@ description: Learn how to restore backups of your apps in Azure App Service or c
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 04/25/2023
+author: msangapu-msft
+ms.author: msangapu
 ---
 
 # Back up and restore your app in Azure App Service

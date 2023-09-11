@@ -26,7 +26,7 @@ This article describes how you can create and configure a self-hosted IR.
 ## Considerations for using a self-hosted IR
 
 - You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory within the same Azure Active Directory (Azure AD) tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
-- You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace.  Synapse workspace does not support Integration Runtime Sharing.
+- You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace.  Synapse workspace doesn't support Integration Runtime Sharing.
 - The self-hosted integration runtime doesn't need to be on the same machine as the data source. However, having the self-hosted integration runtime close to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that differs from the one that hosts the on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime doesn't compete with the data source for resources.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, if you have two self-hosted integration runtimes that serve two data factories, the same on-premises data source can be registered with both data factories.
 - Use a self-hosted integration runtime to support data integration within an Azure virtual network.
@@ -42,7 +42,7 @@ This article describes how you can create and configure a self-hosted IR.
 
 When you move data between on-premises and the cloud, the activity uses a self-hosted integration runtime to transfer the data between an on-premises data source and the cloud.
 
-Here is a high-level summary of the data-flow steps for copying with a self-hosted IR:
+Here's a high-level summary of the data-flow steps for copying with a self-hosted IR:
 
 :::image type="content" source="media/create-self-hosted-integration-runtime/high-level-overview.png" alt-text="The high-level overview of data flow":::
 
@@ -460,6 +460,21 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 
 > [!NOTE]
 > It is not right to install both Integration Runtime and Power BI gateway in same machine, because mainly Integration Runtime uses port number 443, which is one of the main ports being used by Power BI gateway as well.
+
+
+### Self-contained interactive authoring (preview)
+In order to perform interactive authoring actions such as data preview and connection testing, the self-hosted integration runtime requires a connection to Azure Relay. If the connection is not established, there are two possible solutions to ensure uninterrupted functionality. The first option is to add the Azure Relay endpoints to your firewall's allowlist [Get URL of Azure Relay](#get-url-of-azure-relay). Alternatively, you can enable self-contained interactive authoring.
+
+> [!NOTE]
+> If the self-hosted integration runtime fails to establish a connection to Azure Relay, its status will be marked as "limited".
+
+ :::image type="content" source="media/create-self-hosted-integration-runtime/self-contained-interactive-authoring.png" alt-text="Screenshot of self-contained interactive authoring.":::
+
+> [!NOTE]
+> While self-contained interactive authoring is enabled, all interactive authoring traffic will be routed exclusively through this functionality, bypassing Azure Relay. The traffic will only be redirected back to Azure Relay once you choose to disable this feature.
+
+> [!NOTE]
+> Both "Get IP" and "Send log" are not supported when self-contained interactive authoring is enabled.
 
 ### Get URL of Azure Relay
 

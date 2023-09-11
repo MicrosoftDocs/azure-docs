@@ -7,7 +7,7 @@ ms.devlang: powershell
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, has-azure-ad-ps-ref
 ms.date: 07/17/2023
 ---
 
@@ -25,7 +25,9 @@ For more info about the managed identity for your ADF, see [Managed identity for
 
 > [!NOTE]
 > - In this scenario, Azure AD authentication with the specified system/user-assigned managed identity for your ADF is only used in the provisioning and subsequent starting operations of your Azure-SSIS IR that will in turn provision and or connect to SSISDB. For SSIS package executions, your Azure-SSIS IR will still connect to SSISDB to fetch packages using SQL authentication with fully managed accounts (*AzureIntegrationServiceDbo* and *AzureIntegrationServiceWorker*) that are created during SSISDB provisioning.
->
+> 
+> - To use **connection manager user-assigned managed identity** feature, [OLEDB connection manager](/sql/integration-services/connection-manager/ole-db-connection-manager) for example, SSIS IR needs to be provisioned with the same user-assigned managed identity used in connection manager.  
+> 
 > - If you have already created your Azure-SSIS IR using SQL authentication, you can not reconfigure it to use Azure AD authentication via PowerShell at this time, but you can do so via Azure portal/ADF app. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

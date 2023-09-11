@@ -1,7 +1,7 @@
 ---
 title: An overview of dynamic scoping (preview) 
 description: This article provides information about dynamic scoping (preview), its purpose and advantages.
-ms.service: update-management-center
+ms.service: azure-update-manager
 ms.date: 07/05/2023
 ms.topic: conceptual
 author: SnehaSudhir 
@@ -29,26 +29,8 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
   > [!NOTE]
   > You can associate one dynamic scope to one schedule.
 
-## Prerequisites
 
-#### [Azure VMs](#tab/avms)
-
-- Patch Orchestration must be set to Customer Managed Schedules (Preview). This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
-- Associate a Schedule with the VM.
-- Ensure to register the preview feature in your Azure subscription by following these steps:
-
-  1. Sign in to the [Azure portal](https://portal.azure.com).
-  1. In search, enter and select **Subscriptions**.
-  1. In **Subscriptions** home page, select your subscription from the list.
-  1. In the **Subscription | Preview features** page, under **Settings**, select **Preview features**.
-  1. Search for **Dynamic Scope (preview)**. 
-  1. Select **Register** and then select **OK** to get started with Dynamic scope (preview).
-             
-#### [Arc-enabled VMs](#tab/arcvms)
-
-There are no pre-requisities for patch orchestration. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
-
----
+[!INCLUDE [dynamic-scope-prerequisites.md](includes/dynamic-scope-prerequisites.md)]
 
 ## Permissions
 

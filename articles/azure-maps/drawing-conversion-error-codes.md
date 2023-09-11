@@ -508,10 +508,10 @@ To fix a **verticalPenetrationError** error, read about how to use a vertical pe
 > [Creator for indoor mapping]
 
 [Conversion service]: /rest/api/maps/v2/conversion
-[Drawing package requirements]: drawing-requirements.md
-[Drawing files requirements]: drawing-requirements.md#drawing-package-requirements
-[The JavaScript Object Notation (JSON) Data Interchange Format]: https://tools.ietf.org/html/rfc7159
-[manifest section in the Drawing package requirements]: drawing-requirements.md#manifest-file-requirements
-[How to use Azure Maps Drawing error visualizer]: drawing-error-visualizer.md
-[Drawing Package Guide]: drawing-package-guide.md
 [Creator for indoor mapping]: creator-indoor-maps.md
+[Drawing files requirements]: drawing-requirements.md#drawing-package-requirements
+[Drawing Package Guide]: drawing-package-guide.md
+[Drawing package requirements]: drawing-requirements.md
+[How to use Azure Maps Drawing error visualizer]: drawing-error-visualizer.md
+[manifest section in the Drawing package requirements]: drawing-requirements.md#manifest-file-requirements
+[The JavaScript Object Notation (JSON) Data Interchange Format]: https://tools.ietf.org/html/rfc7159

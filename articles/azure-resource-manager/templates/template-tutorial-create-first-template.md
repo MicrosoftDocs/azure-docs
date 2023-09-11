@@ -1,11 +1,9 @@
 ---
 title: Tutorial - Create and deploy template
 description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
-author: mumian
-ms.date: 06/15/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
-ms.author: jgao
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Azure Resource Manager templates, so I can use them to deploy Azure resources.
 ---
 
@@ -137,7 +135,7 @@ New-AzResourceGroup `
 ```azurecli
 az group create \
   --name myResourceGroup \
-  --location "Central US"
+  --location 'Central US'
 ```
 
 ---

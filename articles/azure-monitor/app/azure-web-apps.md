@@ -2,7 +2,7 @@
 title: Monitor Azure App Service performance | Microsoft Docs
 description: Application performance monitoring for Azure App Service. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 08/11/2023
 ms.custom:
 ---
 

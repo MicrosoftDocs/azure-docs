@@ -1,5 +1,5 @@
 ---
-title: "Reference: Document Intelligence Errors"
+title: "Reference: Document Intelligence (formerly Form Recognizer) Errors"
 titleSuffix: Azure AI services
 description: Learn how errors are represented in Document Intelligence and find a list of possible errors returned by the service.
 author: paulhsu
@@ -9,11 +9,11 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: paulhsu
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
-# Document Intelligence error guide v3.0
+# Document Intelligence error guide v3.0 and v3.1
 
 Document Intelligence uses a unified design to represent all errors encountered in the REST APIs.  Whenever an API operation returns a 4xx or 5xx status code, additional information about the error is returned in the response JSON body as follows:
 
