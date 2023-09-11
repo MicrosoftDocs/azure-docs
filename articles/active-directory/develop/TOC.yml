@@ -643,6 +643,8 @@
         - name: National clouds and MSAL
           displayName: china, germany, gov, 21vianet
           href: msal-national-cloud.md
+        - name: Application configuration
+          href: msal-client-application-configuration.md
         - name: MSAL Android
           items:
             - name: Library initialization
