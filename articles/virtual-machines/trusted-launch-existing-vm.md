@@ -75,6 +75,16 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 
 7. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
+8. **(Recommended)** Post-Migration enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Ensure that both **Secure Boot** and **vTPM** are enabled before enabling this option.
+
+    1. Click the `Security Type` in the `Overview`, which navigates to `Configuration`.
+    2. Select `Integrity Monitoring`.
+    3. Save the configuration.
+
+    :::image type="content" source="./media/trusted-launch/verify-integrity-boot-on.png" alt-text="Enable Boot integrity monitoring of Trusted Launch VM.":::
+
+The required **Guest Attestation VM extension** is installed post which Integrity Monitoring is enabled for Trusted Launch VM.
+
 ### [CLI](#tab/cli)
 
 This section steps through using the Azure CLI to enable Trusted Launch on existing Azure Generation 2 VM.
@@ -134,6 +144,8 @@ az vm start \
 
 6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
+7. **(Recommended)** Post-Migration enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Refer to [Step 8 of Portal](#portal) for more details.
+
 ### [PowerShell](#tab/powershell)
 
 This section steps through using the Azure PowerShell to enable Trusted Launch on existing Azure Generation 2 VM.
@@ -187,6 +199,8 @@ Start-AzVM -ResourceGroupName myResourceGroup -Name myVm
 ```
 
 6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
+
+7. **(Recommended)** Post-Migration enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Refer to [Step 8 of Portal](#portal) for more details.
 
 ### [Template](#tab/template)
 
@@ -301,21 +315,11 @@ New-AzResourceGroupDeployment `
 
 :::image type="content" source="./media/trusted-launch/gen2-tvm-settings.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
-6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM)
+6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
+
+7. **(Recommended)** Post-Migration enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Refer to [Step 8 of Portal](#portal) for more details.
 
 ---
-
-## (Recommended) Post-Migration enable Integrity Monitoring
-
-It is recommended to enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Ensure that both **Secure Boot** and **vTPM** are enabled before enabling this option.
-
-1. Click the `Security Type` in the `Overview`, which navigates to `Configuration`.
-2. Select `Integrity Monitoring`.
-3. Save the configuration.
-
-:::image type="content" source="./media/trusted-launch/verify-integrity-boot-on.png" alt-text="Enable Boot integrity monitoring of Trusted Launch VM.":::
-
-The required **Guest Attestation VM extension** is installed post which Integrity Monitoring is enabled for Trusted Launch VM.
 
 ## Next steps
 
