@@ -60,7 +60,7 @@ For this tutorial, you configure password hash synchronization and seamless SSO.
 
    ![Screenshot of the Azure AD Connect app with the page for changing user sign-in.](media/migrate-okta-federation/change-user-signin.png)
 
-5. Enter Global Administrator credentials.
+5. Enter the credentials of the Global Administrator of the Azure AD Connect server.
 
    ![Screenshot of the Azure A D Connect app that shows where to enter Global Administrator credentials.](media/migrate-okta-federation/global-admin-credentials.png)
 
