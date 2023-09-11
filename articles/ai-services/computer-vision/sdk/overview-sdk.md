@@ -33,13 +33,13 @@ The Vision SDK supports the following languages and platforms:
 
 <sup>2 ANSI-C isn't a supported programming language for the Vision SDK.</sup>
 
-### GitHub samples
+## GitHub samples
 
 Numerous samples are available in the [Azure-Samples/azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository on GitHub.
 
 ## Getting help
 
-If you need assistance using the Vision SDK, would like to report a bug or suggest new features, open a [GitHub issue in the samples repository](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues). The SDK development team monitors these issues.
+If you need assistance using the Vision SDK or would like to report a bug or suggest new features, open a [GitHub issue in the samples repository](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues). The SDK development team monitors these issues.
 
 Before you create a new issue:
 * Make sure you first scan to see if a similar issue already exists.
