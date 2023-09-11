@@ -31,42 +31,42 @@ In this tutorial, you learn how to:
 
 ### Install Go
 
-You could download and install the latest version of Go from [here](https://go.dev/doc/install). It will replace the existing Go on your machine. If you want to install multiple Go versions on the same machine, you could refer this [doc](https://go.dev/doc/manage-install).
+You can download and install the latest version of [Go](https://go.dev/doc/install). It will replace the existing Go on your machine. If you want to install multiple Go versions on the same machine, see [Managing Go installations](https://go.dev/doc/manage-install).
 
 ### Authentication
 
-You need to get authentication before you using any Azure service. You could either use Azure CLI to sign in or set authentication environment variables.
+You need to get authentication before you use any Azure service. You could either use Azure CLI to sign in or set authentication environment variables.
 
-#### Using Azure CLI to Sign In
+#### Use Azure CLI to sign in
 
-You could easily use `az login` in command line to sign in to Azure via your default browser. Detail instructions can be found in [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+You can use `az login` in the command line to sign in to Azure via your default browser. Detailed instructions can be found in [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
-#### Setting Environment Variables
+#### Set environment variables
 
-You will need the following values to authenticate to Azure
+You need the following values to authenticate to Azure:
 
 -   **Subscription ID**
 -   **Client ID**
 -   **Client Secret**
 -   **Tenant ID**
 
-These values can be obtained from the portal, here's the instructions:
+Obtain these values from the portal by following these instructions:
 
 - Get Subscription ID
 
     1.  Login into your Azure account
-    2.  Select Subscriptions in the left sidebar
+    2.  Select **Subscriptions** in the left sidebar
     3.  Select whichever subscription is needed
-    4.  Click on Overview
+    4.  Select **Overview**
     5.  Copy the Subscription ID
 
 - Get Client ID / Client Secret / Tenant ID
 
-    For information on how to get Client ID, Client Secret, and Tenant ID, please refer to [this document](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+    For information on how to get Client ID, Client Secret, and Tenant ID, see [Create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 - Setting Environment Variables
 
-    After you obtained the values, you need to set the following values as your environment variables
+    After you obtain the values, you need to set the following values as your environment variables:
 
     -   `AZURE_CLIENT_ID`
     -   `AZURE_CLIENT_SECRET`
@@ -75,15 +75,15 @@ These values can be obtained from the portal, here's the instructions:
 
     To set the following environment variables on your development system:
 
-    Windows (Note: Administrator access is required)
+    **Windows** (Administrator access is required)
 
     1.  Open the Control Panel
-    2.  Click System Security, then System
-    3.  Click Advanced system settings on the left
-    4.  Inside the System Properties window, click the `Environment Variables…` button.
-    5.  Click on the property you would like to change, then click the `Edit…` button. If the property name is not listed, then click the `New…` button.
+    2.  Select **System Security** > **System**
+    3.  Select **Advanced system settings** on the left
+    4.  Inside the System Properties window, select the `Environment Variables…` button.
+    5.  Select the property you would like to change, then select **Edit…**. If the property name is not listed, then select **New…**.
 
-    Linux-based OS :
+    **Linux-based OS** :
 
         export AZURE_CLIENT_ID="__CLIENT_ID__"
         export AZURE_CLIENT_SECRET="__CLIENT_SECRET__"
@@ -94,7 +94,7 @@ These values can be obtained from the portal, here's the instructions:
 
 The new SDK uses Go modules for versioning and dependency management.
 
-Run following command to install the packages for this tutorial under your project folder:
+Run the following command to install the packages for this tutorial under your project folder:
 
 ```sh
 go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute/v5
