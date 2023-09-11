@@ -440,8 +440,6 @@ There are several limitations with the virtual hub router upgrade
 
 * Your Virtual WAN hub router can not currently be upgraded if you have a network virtual appliance in the virtual hub. We're actively working on removing this limitation. 
 
-* If your Virtual WAN hub is connected to more than 100 spoke virtual networks, then the upgrade may fail. 
-
 If the update fails for any reason, your hub will be auto recovered to the old version to ensure there's still a working setup.
 
 Additional things to note:
