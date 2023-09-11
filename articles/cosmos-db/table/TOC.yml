@@ -298,7 +298,7 @@
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
     - name: Develop with the emulator
-      href: ../how-to-develop-emulator.md&pivots=api-table
+      href: ../how-to-develop-emulator.md?pivots=api-table
     - name: Use developer tools
       items:
         - name: Develop locally with emulator

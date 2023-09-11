@@ -393,7 +393,7 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ## Connect to the emulator from the SDK
 
-TODO
+Each SDK includes a client class typically used to connect the SDK to your Azure Cosmos DB account. Using the [emulator's credentials](emulator.md#authentication), you can connect the SDK to the emulator instance instead.
 
 ::: zone pivot="api-nosql"  
 
@@ -529,7 +529,7 @@ TODO
 
 ## Perform operations in the emulator using the SDK
 
-TODO
+To validate the emulator works, perform a simple series of operations using the SDK's implementation.
 
 ::: zone pivot="api-nosql"  
 
@@ -645,31 +645,61 @@ TODO
 
 ## Use the emulator in a GitHub Actions CI workflow
 
-TODO
-
-1. TODO
-
-1. TODO
-
-1. TODO
+Use the Azure Cosmos DB emulator with a test suite from your framework of choice to run a continuous integration workload that automatically validates your application. The Azure Cosmos DB emulator is pre-installed in the [`windows-latest`](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md) variant of GitHub Action's hosted runners.
 
 ### [C#](#tab/csharp)
 
-TODO
+Run a test suite using the built-in test driver for .NET and a testing framework such as **MSTest**, **NUnit**, or **XUnit**.
+
+1. Validate that the test suite for your application works as expected.
+
+    ```bash
+    
+    ```
 
 1. TODO
+
+1. TODO
+
+    ```yaml
+    
+    ```
 
 ### [Python](#tab/python)
 
-TODO
+Test your Python application and database operations using [`pytest`](https://pypi.org/project/pytest/).
 
 1. TODO
+
+    ```bash
+    
+    ```
+
+1. TODO
+
+1. TODO
+
+    ```yaml
+    
+    ```
 
 ### [Node.js](#tab/nodejs)
 
-TODO
+Use [`mocha`](https://www.npmjs.com/package/mocha) to test your Node.js application and it's database modifications.
 
 1. TODO
+
+    ```bash
+    
+    ```
+
+1. TODO
+
+1. TODO
+
+    ```yaml
+    
+    ```
 
 ---
 
