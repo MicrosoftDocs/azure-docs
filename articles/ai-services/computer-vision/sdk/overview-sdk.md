@@ -17,7 +17,7 @@ ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
 
 The Vision SDK (Preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref).
 
-[!INCLUDE [License Notice](./license-notice-sdk.md)]
+[!INCLUDE [License Notice](../includes/setup-sdk/license-notice-sdk.md)]
 
 ## Supported languages
 

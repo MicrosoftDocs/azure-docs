@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-vision-40-sdk
 
 # Install the Vision SDK
 
-[!INCLUDE [License Notice](./license-notice-sdk.md)]
+[!INCLUDE [License Notice](../includes/setup-sdk/license-notice-sdk.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](../includes/setup-sdk/csharp.md)]
