@@ -19,7 +19,7 @@ ms.custom: aaddev, identitypla | Azuretformtop40
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
 
-Shared device mode allows you to configure an Android device so that it can be easily shared by multiple employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device and it will be immediately ready for the next employee to use.
+Shared device mode allows you to configure an Android device so that it can be easily shared by multiple employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device, and it will be immediately ready for the next employee to use.
 
 Shared device mode also provides Microsoft identity backed management of the device.
 
@@ -56,7 +56,7 @@ The following object model illustrates the type of object you may receive and wh
 
 ![public client application inheritance model](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-You'll need to do a type check and cast to the appropriate interface when you get your `PublicClientApplication` object. The following code checks for multiple account mode or single account mode, and casts the application object appropriately:
+You need to do a type check and cast to the appropriate interface when you get your `PublicClientApplication` object. The following code checks for multiple account modes or single account modes, and casts the application object appropriately:
 
 ```java
 private IPublicClientApplication mApplication;
@@ -83,7 +83,7 @@ The following differences apply depending on whether your app is running on a sh
 
 ## Why you may want to only support single-account mode
 
-If you're writing an app that will only be used for frontline workers using a shared device, we recommend you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
+If you're writing an app that will only be used for frontline workers using a shared device, we recommend you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the other features that are part of multiple-account apps.
 
 ## What happens when the device mode changes
 
@@ -110,7 +110,7 @@ These third-party MDMs support Azure AD's shared device mode:
 
 ## Shared device sign-out and the overall app lifecycle
 
-When a user signs out, you'll need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for data privacy and check every time it enters the foreground.
+When a user signs out, you need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for data privacy and check every time it enters the foreground.
 
 When your app uses MSAL to sign out the user in an app running on device that is in shared mode, the signed-in account and cached tokens are removed from both the app and the device.
 
