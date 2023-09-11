@@ -75,7 +75,7 @@ This section steps through using the Azure portal to enable Trusted Launch on ex
 
 7. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
-8. **(Recommended)** Post-Migration enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Ensure that both **Secure Boot** and **vTPM** are enabled before enabling this option.
+8. **(Recommended)** Post-Upgrades enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Ensure that both **Secure Boot** and **vTPM** are enabled before enabling this option.
 
     1. Click the `Security Type` in the `Overview`, which navigates to `Configuration`.
     2. Select `Integrity Monitoring`.
@@ -144,7 +144,7 @@ az vm start \
 
 6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
-7. **(Recommended)** Post-Migration enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Refer to [Step 8 of Portal](#portal) for more details.
+7. **(Recommended)** Post-Upgrades enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. For more information, see [Step 8 of Portal](#portal).
 
 ### [PowerShell](#tab/powershell)
 
@@ -165,7 +165,9 @@ Stop-AzVM -ResourceGroupName myResourceGroup -Name myVm
 ```
 
 3. Enable Trusted Launch by setting `--security-type` to `TrustedLaunch`. 
+
 > [!NOTE]
+>
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
@@ -200,7 +202,7 @@ Start-AzVM -ResourceGroupName myResourceGroup -Name myVm
 
 6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
-7. **(Recommended)** Post-Migration enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Refer to [Step 8 of Portal](#portal) for more details.
+7. **(Recommended)** Post-Upgrades enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. For more information, see [Step 8 of Portal](#portal).
 
 ### [Template](#tab/template)
 
@@ -289,6 +291,7 @@ location    |    Location of Azure Generation 2 VM    |    "westus3"
 secureBootEnabled    |    Enable secure boot with Trusted Launch security type    |    true
 
 > [!NOTE]
+>
 > - After enabling Trusted Launch, currently virtual machine cannot be rolled back to security type **Standard** (Non-Trusted Launch configuration).
 > - **vTPM** is enabled by default.
 > - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
@@ -317,7 +320,7 @@ New-AzResourceGroupDeployment `
 
 6. Start the upgraded Trusted Launch VM and ensure that it has started successfully and verify that you are able to log in to the VM using either RDP (for Windows VM) or SSH (for Linux VM).
 
-7. **(Recommended)** Post-Migration enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. Refer to [Step 8 of Portal](#portal) for more details.
+7. **(Recommended)** Post-Upgrades enable [Boot Integrity Monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud. For more information, see [Step 8 of Portal](#portal).
 
 ---
 
