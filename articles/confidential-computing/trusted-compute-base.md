@@ -13,7 +13,7 @@ ms.custom: template-concept
 The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical." If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
 
 
-The following diagram shows what is "in" and what is "outside' of the trusted compute base. The intent is that the workload and data that the customer provide and manage is inside the TCB, and the elements managed by the cloud provider (Microsoft Azure) is outside. 
+The following diagram shows what is "in" and what is "outside' of the trusted compute base. The intent is that the workload and data that the customer operator provide and manage is inside the TCB, and the elements managed by the cloud provider (Microsoft Azure) are outside. 
 
 
 :::image type="content" source="./media/trusted-compute-base/acc-zero-trust-architecture.jpg" alt-text="Image showing the Trusted Compute Base (TCB) concept.":::

@@ -13,9 +13,11 @@ ms.custom: ignite-fall-2021, inspire-july-2022
 
 # What is confidential computing?
 
-Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC) - a foundation dedicated to defining and accelerating the adoption of confidential computing. The CCC defines confidential computing as: The protection of data in use by performing computations in a hardware-based Trusted Execution Environment (TEE).
+Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC) - a foundation which Microsoft co-founded in September 2019 dedicated to defining and accelerating the adoption of confidential computing. 
 
-A TEE is an environment that enforces execution of only authorized code. Any code outside TEE can't read or tamper with data inside the TEE. The confidential computing threat model aims at removing or reducing the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed.
+The CCC defines confidential computing as: as the protection of data in use via hardware based Trusted Execution Environments (TEEs). These TEEs prevent unauthorized access or modification of applications and data during computation, thereby always protecting data. The TEEs are a trusted environment providing assurance of data integrity, data confidentiality, and code integrity. 
+
+Any code outside TEE can't read or tamper with data inside the TEE. The confidential computing threat model aims at removing or reducing the ability for a cloud provider operator or other actors in the tenant's domain accessing code and data while it's being executed.
 
 :::image type="content" source="media/overview/three-states-and-ccc-definition.png" alt-text="Graphic of three states of data protection, with confidential computing's data in use highlighted.":::
 
@@ -35,9 +37,7 @@ The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware,
 
 ## Industry Leadership
 
-Microsoft are a founding member of the Confidential Computing Consortium (https://confidentialcomputing.io/), an industry body driving the adoption and standardization of confidential computing.
-
-:::image type="content" source="media/overview/CCC-membership.jpg" alt-text="Graphic showing the members of the Confidential Computing Consortium, Microsoft are a founding member and chair of the technical advisory council (TAC)":::
+Microsoft are a founding member of the [Confidential Computing Consortium](https://confidentialcomputing.io/) and chairs both the governing body and the Technical Advisory Council (TAC) of this open-source community
 
 ### Next steps
 [Microsoft's offerings](https://aka.ms/azurecc) for confidential computing extend from Infrastructure as a Service (IaaS) to Platform as a Service (PaaS) and as well as developer tools to support your journey to data and code confidentiality in the cloud.
