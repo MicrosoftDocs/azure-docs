@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: What is confidential computing?
             url: overview.md
-          - text: What is Azure confidential computing?
+          - text: What products are available?
             url: overview-azure-products.md
           - text: Choose your confidential computing offering
             url: use-cases-scenarios.md 
