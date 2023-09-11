@@ -30,6 +30,8 @@ A common use case for the emulator is to serve as a development database while y
 
 There are multiple variations of the emulator and each variation has a relatively frictionless install process.
 
+::: zone pivot="api-nosql"
+
 ### [Docker (Linux container)](#tab/docker-linux)
 
 To get started, get the Linux-variant of the container image from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com).
@@ -37,7 +39,7 @@ To get started, get the Linux-variant of the container image from the [Microsoft
 1. Pull the `mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator` Linux container image from the container registry to the local Docker host.
 
     ```bash
-    docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
     ```
 
 ### [Docker (Windows container)](#tab/docker-windows)
@@ -65,9 +67,40 @@ To get started, download and install the latest version of Azure Cosmos DB Emula
 
 ---
 
-## Start the emulator
+::: zone-end
 
-TODO
+::: zone pivot="api-mongodb"
+
+### [Docker (Linux container)](#tab/docker-linux)
+
+To get started, get the Linux-variant of the container image from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com).
+
+1. Pull the `mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator` Linux container image using the `mongodb` tag from the container registry to the local Docker host.
+
+    ```bash
+    docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
+    ```
+
+### [Docker (Windows container)](#tab/docker-windows)
+
+The Docker (Windows) container image doesn't support the API for MongoDB.
+
+### [Windows (local)](#tab/windows)
+
+To get started, download and install the latest version of Azure Cosmos DB Emulator on your local computer.
+
+> [!TIP]
+> The [emulator release notes](local-emulator-release-notes.md) article lists all the available versions and the feature updates that were made in each release.
+
+1. Download the [Azure Cosmos DB emulator](https://aka.ms/cosmosdb-emulator).
+
+1. Run the installer on your local machine with **administrative privileges**.
+
+1. The emulator automatically installs the appropriate developer certificates and configures firewall rules on your local machine.
+
+---
+
+::: zone-end
 
 ::: zone pivot="api-apache-cassandra,api-apache-gremlin,api-table"
 
@@ -77,15 +110,104 @@ The Docker container variant of the emulator doesn't support the API for Apache 
 
 ### [Windows (local)](#tab/windows)
 
-1. TODO
+To get started, download and install the latest version of Azure Cosmos DB Emulator on your local computer.
 
-    | | Value |
+> [!TIP]
+> The [emulator release notes](local-emulator-release-notes.md) article lists all the available versions and the feature updates that were made in each release.
+
+1. Download the [Azure Cosmos DB emulator](https://aka.ms/cosmosdb-emulator).
+
+1. Run the installer on your local machine with **administrative privileges**.
+
+1. The emulator automatically installs the appropriate developer certificates and configures firewall rules on your local machine.
+
+---
+
+::: zone-end
+
+## Start the emulator
+
+Once downloaded, start the emulator with your specified API enabled.
+
+::: zone pivot="api-apache-cassandra"
+
+### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
+
+The Docker container variant of the emulator doesn't support the API for Apache Cassandra.
+
+### [Windows (local)](#tab/windows)
+
+1. Start the emulator's executable (`Microsoft.Azure.Cosmos.Emulator.exe`) at the `%ProgramFiles%\Azure Cosmos DB Emulator` path. Use these parameters to configure the emulator:
+
+    | | Description |
     | --- | --- |
-    | **``** | `` |
+    | **`EnableCassandraEndpoint`** | *Enables API for Apache Cassandra endpoint.* |
+    | **`CassandraPort`** | *Port number to use for endpoint.* |
 
     ```powershell
-    
+    Microsoft.Azure.Cosmos.Emulator.exe /EnableCassandraEndpoint /CassandraPort=65200
     ```
+
+    > [!NOTE]
+    > For more information on command-line arguments, see [command-line parameters](emulator-windows-arguments.md#manage-the-emulator-with-command-line-syntax).
+
+1. The emulator automatically opens the data explorer using the URL `https://localhost:8081/_explorer/index.html`.
+
+---
+
+::: zone-end
+
+::: zone pivot="api-apache-gremlin"
+
+### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
+
+The Docker container variant of the emulator doesn't support the API for Apache Gremlin.
+
+### [Windows (local)](#tab/windows)
+
+1. Start the emulator's executable (`Microsoft.Azure.Cosmos.Emulator.exe`) at the `%ProgramFiles%\Azure Cosmos DB Emulator` path. Use these parameters to configure the emulator:
+
+    | | Description |
+    | --- | --- |
+    | **`EnableGremlinEndpoint`** | *Enables API for Apache Gremlin endpoint.* |
+    | **`GremlinPort`** | *Port number to use for endpoint.* |
+
+    ```powershell
+    Microsoft.Azure.Cosmos.Emulator.exe /EnableGremlinEndpoint /GremlinPort=65400
+    ```
+
+    > [!NOTE]
+    > For more information on command-line arguments, see [command-line parameters](emulator-windows-arguments.md#manage-the-emulator-with-command-line-syntax).
+
+1. The emulator automatically opens the data explorer using the URL `https://localhost:8081/_explorer/index.html`.
+
+---
+
+::: zone-end
+
+::: zone pivot="api-table"
+
+### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
+
+The Docker container variant of the emulator doesn't support the API for Table.
+
+### [Windows (local)](#tab/windows)
+
+1. Start the emulator's executable (`Microsoft.Azure.Cosmos.Emulator.exe`) at the `%ProgramFiles%\Azure Cosmos DB Emulator` path. Use these parameters to configure the emulator:
+
+    | | Description |
+    | --- | --- |
+    | **`EnableTableEndpoint`** | *Enables API for Table endpoint.* |
+    | **`TablePort`** | *Port number to use for endpoint.* |
+
+    ```powershell
+    Microsoft.Azure.Cosmos.Emulator.exe /EnableTableEndpoint /TablePort=65500
+    ```
+
+    > [!NOTE]
+    > For more information on command-line arguments, see [command-line parameters](emulator-windows-arguments.md#manage-the-emulator-with-command-line-syntax).
+
+1. The emulator automatically opens the data explorer using the URL `https://localhost:8081/_explorer/index.html`.
 
 ---
 
@@ -97,37 +219,61 @@ The Docker container variant of the emulator doesn't support the API for Apache 
 
 1. Run a new container using the container image and the following configuration:
 
-    | | Value |
+    | | Description |
     | --- | --- |
-    | **``** | `` |
+    | **`AZURE_COSMOS_EMULATOR_PARTITION_COUNT` *(Optional)*** | *Specify the number of partitions to use.* |
+    | **`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE` *(Optional)*** | *Enable data persistence between emulator runs.* |
+    | **`AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE` *(Optional)*** | *Override the emulator's default IP address.* |
 
     ```bash
-    
+    docker run \
+        --publish 8081:8081 \
+        --publish 10251-10254:10251-10254 \
+        --interactive \
+        --tty \
+        mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest    
     ```
 
 ### [Docker (Windows container)](#tab/docker-windows)
 
 1. Run a new container using the container image and the following configuration:
 
-    | | Value |
+    | | Description |
     | --- | --- |
-    | **``** | `` |
+    | **`AZURE_COSMOS_EMULATOR_PARTITION_COUNT` *(Optional)*** | *Specify the number of partitions to use.* |
+    | **`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE` *(Optional)*** | *Enable data persistence between emulator runs.* |
+    | **`AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE` *(Optional)*** | *Override the emulator's default IP address.* |
 
     ```powershell
-    
+    $parameters = @(
+        '--publish 8081:8081'
+        '--publish 10251-10254:10251-10254'
+        '--interactive'
+        '--tty'
+    )
+    docker run @parameters mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     ```
 
 ### [Windows (local)](#tab/windows)
 
-1. TODO
+1. Start the emulator by selecting the application in the Windows **Start menu**.
 
-    | | Value |
+1. Alternatively, you can start the emulator's executable (`Microsoft.Azure.Cosmos.Emulator.exe`) at the `%ProgramFiles%\Azure Cosmos DB Emulator` path.
+
+1. Also, you can start the emulator from the command-line. Use these parameters to configure the emulator:
+
+    | | Description |
     | --- | --- |
-    | **``** | `` |
+    | **`Port`** | *Port number to use for the API for NoSQL endpoint.* |
 
     ```powershell
-    
+    Microsoft.Azure.Cosmos.Emulator.exe /Port=65000
     ```
+
+    > [!NOTE]
+    > For more information on command-line arguments, see [command-line parameters](emulator-windows-arguments.md#manage-the-emulator-with-command-line-syntax).
+
+1. The emulator automatically opens the data explorer using the URL `https://localhost:8081/_explorer/index.html`.
 
 ---
 
@@ -139,12 +285,21 @@ The Docker container variant of the emulator doesn't support the API for Apache 
 
 1. Run a new container using the container image and the following configuration:
 
-    | | Value |
+    | | Description |
     | --- | --- |
-    | **``** | `` |
+    | **`AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT`** | *Specify the version of the MongoDB endpoint to use. Supported endpoints include: `3.2`, `3.6`, or `4.0`.* |
+    | **`AZURE_COSMOS_EMULATOR_PARTITION_COUNT` *(Optional)*** | *Specify the number of partitions to use.* |
+    | **`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE` *(Optional)*** | *Enable data persistence between emulator runs.* |
+    | **`AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE` *(Optional)*** | *Override the emulator's default IP address.* |
 
     ```bash
-    
+    docker run \
+        --publish 8081:8081 \
+        --publish 10250:10250 \
+        --env AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT=4.0 \
+        --interactive \
+        --tty \
+        mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
     ```
 
 ### [Docker (Windows container)](#tab/docker-windows)
@@ -153,15 +308,21 @@ The Docker (Windows) container image doesn't support the API for MongoDB.
 
 ### [Windows (local)](#tab/windows)
 
-1. TODO
+1. Start the emulator's executable (`Microsoft.Azure.Cosmos.Emulator.exe`) at the `%ProgramFiles%\Azure Cosmos DB Emulator` path. Use these parameters to configure the emulator:
 
-    | | Value |
+    | | Description |
     | --- | --- |
-    | **``** | `` |
+    | **`EnableMongoDbEndpoint`** | *Enables API for MongoDB endpoint at specified MongoDB version.* |
+    | **`MongoPort`** | *Port number to use for endpoint.* |
 
     ```powershell
-    
+    Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=4.0 /MongoPort=65200
     ```
+
+    > [!NOTE]
+    > For more information on command-line arguments and MongoDB versions supported by the emulator, see [command-line parameters](emulator-windows-arguments.md#manage-the-emulator-with-command-line-syntax).
+
+1. The emulator automatically opens the data explorer using the URL `https://localhost:8081/_explorer/index.html`.
 
 ---
 
