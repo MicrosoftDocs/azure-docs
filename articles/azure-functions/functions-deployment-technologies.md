@@ -182,7 +182,7 @@ Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions
 
 >__How to use it:__ Follow the instructions in [Sync content from a cloud folder](../app-service/deploy-content-sync.md).
 
->__When to use it:__ To minimize the probability of errors, we generally do not recommend deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Instead, we recommend [zip deployment](run-functions-from-deployment-package.md).
+>__When to use it:__ To reduce the chance of errors, you should avoid using deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Use [zip deployment](run-functions-from-deployment-package.md) when possible.
 
 >__Where app content is stored:__ The app content is in the cloud store, but a local copy is stored on the app file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
