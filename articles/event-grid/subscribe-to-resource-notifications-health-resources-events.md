@@ -92,21 +92,37 @@ New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIP
 # [Azure portal](#tab/azure-portal)
 Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
 
+[!INCLUDE [system-topics](./includes/system-topics.md)] 
+1. On the **Event Grid System Topic** page, select **+ Event Subscription**  on the toolbar. 
+1. Confirm that the **Topic Type**, **Source Resource**, and **Topic Name** are automatically populated. 
+1. Enter a name for the event subscription. 
+1. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
+
+    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/event-subscription.png" alt-text="Screenshot that shows the Create Event Subscription page.":::
+1. Select the **Filters** tab to provide subject filtering and advanced filtering. For example, to filter for events from resources in a specific resource group, follow these steps:
+    1. Select **Enable subject filtering**. 
+    1. In the **Subject Filters** section, for **Subject begins with**, provide the value of the resource group in this format: `/subscriptions/{subscription-id}/resourceGroups/{resourceGroup-id}`
+
+        :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/filter.png" alt-text="Screenshot that shows the Filters tab of the Create Event Subscription page.":::
+    ---
+
+## Delete system topic and event subscription
+
+# [Azure CLI](#tab/azure-cli)
+To delete a system topic, use the [`az eventgrid system-topic delete`](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-delete) command, and to delete an event subscription, use the [`az eventgrid system-topic event-subscription delete`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-delete) command.
+
+# [Azure PowerShell](#tab/azure-powershell)
+To delete a system topic, use the [`Remove-AzEventGridSystemTopic`](/powershell/module/az.eventgrid/remove-azeventgridsystemtopic) command, and to delete an event subscription, use the [`Remove-AzEventGridSystemTopicEventSubscription`](/powershell/module/az.eventgrid/remove-azeventgridsystemtopiceventsubscription) command.
+
+
+# [Azure portal](#tab/azure-portal)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, type **Event Grid System Topics**, and press ENTER.
 1. Select the system topic.
-1. On the **Event Grid System Topic** page, select **+ Event Subscription**  on the toolbar. 
-1. Confirm that the **TOpic Type**, **Source Resource**, and **Topic Name** are automatically populated. 
-1. Enter a name for the event subscription. 
-1. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
-1. Select the **Filters** tab to provide subject filtering and advanced filtering. 
+1. On the **Event Grid System Topic** page, select **Delete**  on the toolbar. 
 
 ---
-
-## Delete system topic and event subscription
-To delete a system topic, use the [`az eventgrid system-topic delete`](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-delete) command, and to delete an event subscription, use the [`az eventgrid system-topic event-subscription delete`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-delete) command.
-
-
 
 ## Next steps
 
