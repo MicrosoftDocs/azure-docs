@@ -555,7 +555,7 @@ If you encounter issues when starting or running the container, see [Telemetry a
 
 The Spatial Analysis container sends billing information to Azure, using a Vision resource on your Azure account. The use of Spatial Analysis in public preview is currently free. 
 
-Azure AI services containers aren't licensed to run without being connected to the metering / billing endpoint. You must always enable the containers to communicate billing information with the billing endpoint. Azure AI services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
+Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. You must always enable the containers to communicate billing information with the billing endpoint. Azure AI containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
 
 ## Summary

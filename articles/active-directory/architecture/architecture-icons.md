@@ -41,12 +41,8 @@ Helping our customers design and architect new solutions is core to the Microsof
 
 Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
 
-<div id="consent-checkbox">
-I agree to the above terms.
-</div>
-
  > [!div class="button"]
- > [Download icons](https://download.microsoft.com/download/a/4/2/a4289cad-4eaf-4580-87fd-ce999a601516/Microsoft-Entra-architecture-icons.zip?wt.mc_id=microsoftentraicons_downloadmicrosoftentraicons_content_cnl_csasci)
+ > [I agree to the above terms. Download icons.](https://download.microsoft.com/download/a/4/2/a4289cad-4eaf-4580-87fd-ce999a601516/Microsoft-Entra-architecture-icons.zip?wt.mc_id=microsoftentraicons_downloadmicrosoftentraicons_content_cnl_csasci)
 
 ## More icon sets from Microsoft
 

@@ -1,7 +1,8 @@
 ---
 title: 'Tutorial: PHP app with MySQL and Redis' 
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database and a Redis cache in Azure. Laravel is used in the tutorial.
-
+author: msangapu-msft
+ms.author: msangapu
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
@@ -49,7 +50,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the Azure portal:
+        **Step 1:** In the Azure portal:
         1. Enter "web app database" in the search bar at the top of the Azure portal.
         1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
         You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
@@ -60,7 +61,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the **Create Web App + Database** page, fill out the form as follows.
+        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
         1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-laravel-mysql-tutorial**.
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-laravel-mysql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
@@ -77,7 +78,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
         - **Resource group** &rarr; The container for all the created resources.
         - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service** &rarr; Represents your app and runs in the App Service plan.
@@ -97,7 +98,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the App Service page, in the left menu, select **Configuration**.
+        **Step 1:** In the App Service page, in the left menu, select **Configuration**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-get-connection-string-1.png":::
@@ -105,7 +106,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** 
+        **Step 2:** 
         1. Find app settings that begin with **AZURE_MYSQL_**. They were generated from the new MySQL database by the creation wizard.
         1. Also, find app settings that begin with **AZURE_REDIS_**. They were generated from the new Redis cache by the creation wizard. To set up your application, this name is all you need.
         1. If you want, you can select the **Edit** button to the right of each setting and see or copy its value.
@@ -117,7 +118,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** In the **Application settings** tab of the **Configuration** page, create a `CACHE_DRIVER` setting:
+        **Step 3:** In the **Application settings** tab of the **Configuration** page, create a `CACHE_DRIVER` setting:
         1. Select **New application setting**.
         1. In the **Name** field, enter *CACHE_DRIVER*.
         1. In the **Value** field, enter *redis*.
@@ -130,7 +131,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** Using the same steps in **Step 3**, create the following app settings:
+        **Step 4:** Using the same steps in **Step 3**, create the following app settings:
         - **MYSQL_ATTR_SSL_CA**: Use */home/site/wwwroot/ssl/DigiCertGlobalRootCA.crt.pem* as the value. This app setting points to the path of the [TLS/SSL certificate you need to access the MySQL server](../mysql/flexible-server/how-to-connect-tls-ssl.md#download-the-public-ssl-certificate). It's included in the sample repository for convenience.
         - **LOG_CHANNEL**: Use *stderr* as the value. This setting tells Laravel to pipe logs to stderr, which makes it available to the App Service logs.
         - **APP_DEBUG**: Use *true* as the value. It's a [Laravel debugging variable](https://laravel.com/docs/10.x/errors#configuration) that enables debug mode pages.
@@ -152,7 +153,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In a new browser window:
+        **Step 1:** In a new browser window:
         1. Sign in to your GitHub account.
         1. Navigate to [https://github.com/Azure-Samples/laravel-tasks](https://github.com/Azure-Samples/laravel-tasks).
         1. Select **Fork**.
@@ -164,7 +165,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the GitHub page, open Visual Studio Code in the browser by pressing the `.` key.
+        **Step 2:** In the GitHub page, open Visual Studio Code in the browser by pressing the `.` key.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png":::
@@ -172,7 +173,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** In Visual Studio Code in the browser, open *config/database.php* in the explorer. Find the `mysql` section and make the following changes:
+        **Step 3:** In Visual Studio Code in the browser, open *config/database.php* in the explorer. Find the `mysql` section and make the following changes:
         1. Replace `DB_HOST` with `AZURE_MYSQL_HOST`.
         1. Replace `DB_DATABASE` with `AZURE_MYSQL_DBNAME`.
         1. Replace `DB_USERNAME` with `AZURE_MYSQL_USERNAME`.
@@ -186,7 +187,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** In *config/database.php* scroll to the Redis `cache` section and make the following changes:
+        **Step 4:** In *config/database.php* scroll to the Redis `cache` section and make the following changes:
         1. Replace `REDIS_HOST` with `AZURE_REDIS_HOST`.
         1. Replace `REDIS_PASSWORD` with `AZURE_REDIS_PASSWORD`.
         1. Replace `REDIS_PORT` with `AZURE_REDIS_PORT`.
@@ -200,7 +201,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.**
+        **Step 5:**
         1. Select the **Source Control** extension.
         1. In the textbox, type a commit message like `Configure DB & Redis variables`.
         1. Select **Commit and Push**.
@@ -211,7 +212,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** Back in the App Service page, in the left menu, select **Deployment Center**. 
+        **Step 6:** Back in the App Service page, in the left menu, select **Deployment Center**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-6.png":::
@@ -219,7 +220,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** In the Deployment Center page:
+        **Step 7:** In the Deployment Center page:
         1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
         1. Sign in to your GitHub account and follow the prompt to authorize Azure.
         1. In **Organization**, select your account.
@@ -233,7 +234,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8.** In the Deployment Center page:
+        **Step 8:** In the Deployment Center page:
         1. Select **Logs**. A deployment run is already started.
         1. In the log item for the deployment run, select **Build/Deploy Logs**. 
     :::column-end:::
@@ -243,7 +244,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 9.** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 15 minutes.
+        **Step 9:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 15 minutes.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-9.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-9.png":::
@@ -256,7 +257,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Back in the App Service page, in the left menu, select **SSH**. 
+        **Step 1:** Back in the App Service page, in the left menu, select **SSH**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-generate-db-schema-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-php-mysql-app/azure-portal-generate-db-schema-1.png":::
@@ -264,7 +265,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the SSH terminal:
+        **Step 2:** In the SSH terminal:
         1. Run `cd /home/site/wwwroot`. Here are all your deployed files.
         1. Run `php artisan migrate --force`. If it succeeds, App Service is connecting successfully to the MySQL database.
         Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
@@ -280,7 +281,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 
 :::row:::
     :::column span="2":::
-        **Step 1.**
+        **Step 1:**
         1. From the left menu, select **Configuration**.
         1. Select the **General settings** tab.
     :::column-end:::
@@ -290,7 +291,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the General settings tab:
+        **Step 2:** In the General settings tab:
         1. In the **Startup Command** box, enter the following command: *cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service nginx reload*.
         1. Select **Save**.
         The command replaces the Nginx configuration file in the PHP container and restarts Nginx. This configuration ensures that the same change is made to the container each time it starts.
@@ -304,7 +305,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the App Service page:
+        **Step 1:** In the App Service page:
         1. From the left menu, select **Overview**.
         1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
     :::column-end:::
@@ -314,7 +315,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Add a few tasks to the list.
+        **Step 2:** Add a few tasks to the list.
         Congratulations, you're running a secure data-driven PHP app in Azure App Service.
     :::column-end:::
     :::column:::
@@ -331,7 +332,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the App Service page:
+        **Step 1:** In the App Service page:
         1. From the left menu, select **App Service logs**.
         1. Under **Application logging**, select **File System**.
     :::column-end:::
@@ -341,7 +342,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
+        **Step 2:** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-php-mysql-app/azure-portal-stream-diagnostic-logs-2.png":::
@@ -354,7 +355,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the search bar at the top of the Azure portal:
+        **Step 1:** In the search bar at the top of the Azure portal:
         1. Enter the resource group name.
         1. Select the resource group.
     :::column-end:::
@@ -364,7 +365,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the resource group page, select **Delete resource group**.
+        **Step 2:** In the resource group page, select **Delete resource group**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-clean-up-resources-2.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-php-mysql-app/azure-portal-clean-up-resources-2.png":::
@@ -372,7 +373,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** 
+        **Step 3:** 
         1. Enter the resource group name to confirm your deletion.
         1. Select **Delete**.
     :::column-end:::

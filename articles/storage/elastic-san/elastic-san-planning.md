@@ -81,6 +81,10 @@ Elastic SAN supports the [internet Small Computer Systems Interface](https://en.
 - VERIFY (16)
 - SYNCHRONIZE CACHE (10)
 - SYNCHRONIZE CACHE (16)
+- RESERVE
+- RELEASE
+- PERSISTENT RESERVE IN
+- PERSISTENT RESERVE OUT
 
 The following iSCSI features aren't currently supported:
 - CHAP authorization

@@ -82,6 +82,20 @@ landingContent:
              url: howto-cluster-metrics-configuration-management.md
 #
   # Card
+  - title: Security
+    linkLists:
+      - linkListType: concept
+        links:
+           - text: Security concepts
+             url: concepts-security.md 
+      - linkListType: how-to-guide
+        links:
+           - text: Set up Defender for Cloud security
+             url: howto-set-up-defender-for-cloud-security.md
+           - text: Use Azure Policy to protect AKS clusters
+             url: howto-use-azure-policy-for-aks-cluster-security.md
+#
+  # Card
   - title: References
     linkLists:
       - linkListType: reference

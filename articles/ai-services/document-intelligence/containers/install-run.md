@@ -51,10 +51,6 @@ In this article you learn how to download, install, and run Document Intelligenc
 
 ::: moniker-end
 
-> [!IMPORTANT]
->
-> * To use Document Intelligence containers, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container).
-
 ## Prerequisites
 
 To get started, you need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
@@ -87,12 +83,6 @@ You also need an **Azure AI Vision API resource to process business cards, ID do
   * **{COMPUTER_VISION_KEY}**: one of the two available resource keys.
   * **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.
 :::moniker-end
-
-## Request approval to run container
-
-Complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate) to request access to the container.
-
-[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
 ## Host computer requirements
 
@@ -575,75 +565,75 @@ http {
  ```yml
 version: '3.3'
 services:
- nginx:
-  image: nginx:alpine
-  container_name: reverseproxy
-  volumes:
-    - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
-  ports:
-    - "5000:5000"
- layout:
-  container_name: azure-cognitive-service-layout
-  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest
-  environment:
-    eula: accept
-    apikey: ${FORM_RECOGNIZER_KEY}
-    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
-    Logging:Console:LogLevel:Default: Information
-    SharedRootFolder: /shared
-    Mounts:Shared: /shared
-    Mounts:Output: /logs
-  volumes:
-    - type: bind
-      source: ${SHARED_MOUNT_PATH}
-      target: /shared
-    - type: bind
-      source: ${OUTPUT_MOUNT_PATH}
-      target: /logs
-  expose:
-    - "5000"
+  nginx:
+    image: nginx:alpine
+    container_name: reverseproxy
+    volumes:
+      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
+    ports:
+      - "5000:5000"
+  layout:
+    container_name: azure-cognitive-service-layout
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest
+    environment:
+      eula: accept
+      apikey: ${FORM_RECOGNIZER_KEY}
+      billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+      Logging:Console:LogLevel:Default: Information
+      SharedRootFolder: /shared
+      Mounts:Shared: /shared
+      Mounts:Output: /logs
+    volumes:
+      - type: bind
+        source: ${SHARED_MOUNT_PATH}
+        target: /shared
+      - type: bind
+        source: ${OUTPUT_MOUNT_PATH}
+        target: /logs
+    expose:
+      - "5000"
 
- custom-template:
-  container_name: azure-cognitive-service-custom-template
-  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-template-3.0:latest
-  restart: always
-  depends_on:
-    - layout
-  environment:
-    AzureCognitiveServiceLayoutHost: http://azure-cognitive-service-layout:5000
-    eula: accept
-    apikey: ${FORM_RECOGNIZER_KEY}
-    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
-    Logging:Console:LogLevel:Default: Information
-    SharedRootFolder: /shared
-    Mounts:Shared: /shared
-    Mounts:Output: /logs
-  volumes:
-    - type: bind
-      source: ${SHARED_MOUNT_PATH}
-      target: /shared
-    - type: bind
-      source: ${OUTPUT_MOUNT_PATH}
-      target: /logs
-  expose:
-    - "5000"
+  custom-template:
+    container_name: azure-cognitive-service-custom-template
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-template-3.0:latest
+    restart: always
+    depends_on:
+      - layout
+    environment:
+      AzureCognitiveServiceLayoutHost: http://azure-cognitive-service-layout:5000
+      eula: accept
+      apikey: ${FORM_RECOGNIZER_KEY}
+      billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+      Logging:Console:LogLevel:Default: Information
+      SharedRootFolder: /shared
+      Mounts:Shared: /shared
+      Mounts:Output: /logs
+    volumes:
+      - type: bind
+        source: ${SHARED_MOUNT_PATH}
+        target: /shared
+      - type: bind
+        source: ${OUTPUT_MOUNT_PATH}
+        target: /logs
+    expose:
+      - "5000"
 
- studio:
-  container_name: form-recognizer-studio
-  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/studio:3.0
-  environment:
-    ONPREM_LOCALFILE_BASEPATH: /onprem_folder
-    STORAGE_DATABASE_CONNECTION_STRING: /onprem_db/Application.db
-  volumes:
-    - type: bind
-      source: ${FILE_MOUNT_PATH} # path to your local folder
-      target: /onprem_folder
-    - type: bind
-      source: ${DB_MOUNT_PATH} # path to your local folder
-      target: /onprem_db
-  ports:
-    - "5001:5001"
-  user: "1000:1000" # echo $(id -u):$(id -g)
+  studio:
+    container_name: form-recognizer-studio
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/studio:3.0
+    environment:
+      ONPREM_LOCALFILE_BASEPATH: /onprem_folder
+      STORAGE_DATABASE_CONNECTION_STRING: /onprem_db/Application.db
+    volumes:
+      - type: bind
+        source: ${FILE_MOUNT_PATH} # path to your local folder
+        target: /onprem_folder
+      - type: bind
+        source: ${DB_MOUNT_PATH} # path to your local folder
+        target: /onprem_db
+    ports:
+      - "5001:5001"
+    user: "1000:1000" # echo $(id -u):$(id -g)
 
  ```
 
@@ -1051,7 +1041,7 @@ http {
 2. The following code sample is a self-contained `docker compose` example to run Document Intelligence Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
  ```yml
- version: '3.3'
+version: '3.3'
 services:
  nginx:
   image: nginx:alpine

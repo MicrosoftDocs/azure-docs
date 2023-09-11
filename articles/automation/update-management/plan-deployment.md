@@ -9,21 +9,21 @@ ms.topic: conceptual
 
 # Plan your Update Management deployment
 
-## Step 1 - Automation account
+## Step 1: Automation account
 
 Update Management is an Azure Automation feature, and therefore requires an Automation account. You can use an existing Automation account in your subscription, or create a new account dedicated only for Update Management and no other Automation features.
 
-## Step 2 - Azure Monitor Logs
+## Step 2: Azure Monitor Logs
 
 Update Management depends on a Log Analytics workspace in Azure Monitor to store assessment and update status log data collected from managed machines. Integration with Log Analytics also enables detailed analysis and alerting in Azure Monitor. You can use an existing workspace in your subscription, or create a new one dedicated only for Update Management.
 
 If you are new to Azure Monitor Logs and the Log Analytics workspace, you should review the [Design a Log Analytics workspace](../../azure-monitor/logs/workspace-design.md) deployment guide. 
 
-## Step 3 - Supported operating systems
+## Step 3: Supported operating systems
 
 Update Management supports specific versions of the Windows Server and Linux operating systems. Before you enable Update Management, confirm that the target machines meet the [operating system requirements](operating-system-requirements.md). 
 
-## Step 4 - Log Analytics agent
+## Step 4: Log Analytics agent
 
 The [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows and Linux is required to support Update Management. The agent is used for both data collection, and the Automation system Hybrid Runbook Worker role to support Update Management runbooks used to manage the assessment and update deployments on the machine. 
 
@@ -47,21 +47,21 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../.
 
 If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
 
-## Step 6 - Permissions
+## Step 6: Permissions
 
 To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
-## Step 7 - Windows Update Agent
+## Step 7: Windows Update Agent
 
 Azure Automation Update Management relies on the Windows Update Agent to download and install Windows updates. There are specific group policy settings that are used by Windows Update Agent (WUA) on machines to connect to Windows Server Update Services (WSUS) or Microsoft Update. These group policy settings are also used to successfully scan for software update compliance, and to automatically update the software updates. To review our recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
 
-## Step 8 - Linux repository
+## Step 8: Linux repository
 
 VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace are registered to access the Red Hat Update Infrastructure (RHUI) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by that distribution.
 
 To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
-## Step 9 - Plan deployment targets
+## Step 9: Plan deployment targets
 
 Update Management allows you to target updates to a dynamic group representing Azure or non-Azure machines, so you can ensure that specific machines always get the right updates at the most convenient times. A dynamic group is resolved at deployment time and is based on the following criteria:
 

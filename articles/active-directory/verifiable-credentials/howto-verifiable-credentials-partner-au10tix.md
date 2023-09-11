@@ -48,7 +48,7 @@ For incorporating identity verification into your Apps, using AU10TIX  “Govern
 
 As a developer you can share these steps with your tenant administrator to obtain the verification request URL, and body for your application or website to request Verified IDs from your users.
 
-1. Go to [Microsoft Entra portal -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade). 
+1. Go to [Microsoft Entra admin center -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade). 
 
    >[!NOTE]
    > Make sure this is the tenant you set up for Verified ID per the pre-requisites.
