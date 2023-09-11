@@ -6,7 +6,7 @@ ms.date: 09/08/2023
 ---
 
 # Subscribe to events raised by Azure Resource Notifications - Health Resources
-This article describes steps to subscribe to events published by Azure Resource Notification - Health Resources. 
+This article describes steps to subscribe to events published by Azure Resource Notification - Health Resources. For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).
 
 ## Create Health Resources system topic
 
@@ -126,5 +126,5 @@ To delete a system topic, use the [`Remove-AzEventGridSystemTopic`](/powershell/
 ---
 
 ## Next steps
-
+For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).
 
