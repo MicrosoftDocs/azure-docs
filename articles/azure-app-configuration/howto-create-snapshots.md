@@ -118,6 +118,9 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ---
 
+> [!NOTE]
+> In order to use snapshots as shown in the code samples, snapshots must be created using the default composition type `Key`.
+
 ## Manage active snapshots
 
 The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App Configuration store.
