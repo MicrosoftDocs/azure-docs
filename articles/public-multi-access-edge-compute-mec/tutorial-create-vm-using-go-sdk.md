@@ -39,7 +39,7 @@ You need to get authentication before you use any Azure service. You could eithe
 
 #### Use Azure CLI to sign in
 
-You can use `az login` in the command line to sign in to Azure via your default browser. Detailed instructions can be found in [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+You can use `az login` in the command line to sign in to Azure via your default browser. Detailed instructions can be found in [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 #### Set environment variables
 
@@ -62,7 +62,7 @@ Obtain these values from the portal by following these instructions:
 
 - Get Client ID / Client Secret / Tenant ID
 
-    For information on how to get Client ID, Client Secret, and Tenant ID, see [Create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+    For information on how to get Client ID, Client Secret, and Tenant ID, see [Create an Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
 
 - Setting Environment Variables
 
@@ -85,10 +85,10 @@ Obtain these values from the portal by following these instructions:
 
     **Linux-based OS** :
 
-        export AZURE_CLIENT_ID="__CLIENT_ID__"
+    ```export AZURE_CLIENT_ID="__CLIENT_ID__"
         export AZURE_CLIENT_SECRET="__CLIENT_SECRET__"
         export AZURE_TENANT_ID="__TENANT_ID__"
-        export AZURE_SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"
+        export AZURE_SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"````
 
 ## Install the package
 
