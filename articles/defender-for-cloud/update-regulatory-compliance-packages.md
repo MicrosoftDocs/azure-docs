@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard
 description: Learn how to assign and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 09/11/2023
 ms.custom: ignite-2022
 ---
 
@@ -79,7 +79,7 @@ To add standards to your dashboard:
 
 ### Add a standard to your Azure subscriptions
 
-1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you'll see the compliance standards assigned to the currently selected subscriptions.
+1. From Defender for Cloud's menu, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards assigned to the currently selected subscriptions.
 
 1. From the top of the page, select **Manage compliance policies**.
 
