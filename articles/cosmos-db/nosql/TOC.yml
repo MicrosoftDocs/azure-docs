@@ -406,6 +406,8 @@
           href: ../notebooks-overview.md
         - name: FAQ
           href: ../notebooks-faq.yml
+    - name: Emulator
+      href: ../emulator.md
 - name: How to
   items:
     - name: Access preview features
