@@ -108,11 +108,11 @@ Here are some sample Azure Log Analytics queries that use the new Azure Resource
 - Create an alert rule that applies only to certain resources taken from an ARG query:
    - Exclude resources based on tags – for example, not to trigger alerts for VMs with a “Test” tag.
 
-        ```kusto
-        arg("").Resources
-        | where tags.environment=~'Test'
-        | project name 
-        ```
+       ```kusto
+       arg("").Resources
+       | where tags.environment=~'Test'
+       | project name 
+       ```
 
     - Retrieve performance data related to CPU utilization and filter to resources with the “prod” tag.
     
