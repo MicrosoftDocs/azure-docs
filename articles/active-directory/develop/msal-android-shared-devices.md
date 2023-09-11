@@ -101,6 +101,13 @@ These Microsoft applications support Azure AD's shared device mode:
 - [Microsoft Power BI Mobile](/power-bi/consumer/mobile/mobile-app-shared-device-mode) (preview)
 - [Microsoft Viva Engage](/viva/engage/overview) (previously [Yammer](/yammer))
 
+## Third-party MDMs that support shared device mode
+
+These third-party MDMs support Azure AD's shared device mode:
+
+- [VMware Workspace ONE](https://blogs.vmware.com/euc/2023/08/announcing-general-availability-of-shared-device-conditional-access-with-vmware-workspace-one-and-microsoft-entra-id.html)
+- [SOTI MobiControl](https://soti.net/shareddevicemode)
+
 ## Shared device sign-out and the overall app lifecycle
 
 When a user signs out, you'll need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for data privacy and check every time it enters the foreground.
