@@ -14,7 +14,7 @@ zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb-cassandra-gremlin-table
 
 # Develop locally using the Azure Cosmos DB emulator
 
-A common use case for the emulator is to serve as a development database while you are building your applications. Using the emulator for development can ensure help you learn characteristics of creating and modeling data for a database like Azure Cosmos DB without incurring any service costs. Additionally, using the emulator for as part of an automation workflow can ensure that you can run the same suite of integration tests both locally on your development machine and remotely in a continuous integration job.
+A common use case for the emulator is to serve as a development database while you're building your applications. Using the emulator for development can help you learn characteristics of creating and modeling data for a database like Azure Cosmos DB without incurring any service costs. Additionally, using the emulator as part of an automation workflow can ensure that you can run the same suite of integration tests. You can ensure that the same tests run both locally on your development machine and remotely in a continuous integration job.
 
 ## Prerequisites
 
@@ -34,20 +34,20 @@ There are multiple variations of the emulator and each variation has a relativel
 
 To get started, get the Linux-variant of the container image from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com).
 
-1. Pull the `` Linux container image from the container registry to the local Docker host.
+1. Pull the `mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator` Linux container image from the container registry to the local Docker host.
 
     ```bash
-    
+    docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
     ```
 
 ### [Docker (Windows container)](#tab/docker-windows)
 
 To get started, get the Windows-variant of the container image from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com).
 
-1. Pull the `` Windows container image from the container registry to the local Docker host.
+1. Pull the `mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator` Windows container image from the container registry to the local Docker host.
 
     ```powershell
-    
+    docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     ```
 
 ### [Windows (local)](#tab/windows)
@@ -57,13 +57,11 @@ To get started, download and install the latest version of Azure Cosmos DB Emula
 > [!TIP]
 > The [emulator release notes](local-emulator-release-notes.md) article lists all the available versions and the feature updates that were made in each release.
 
-:::image type="icon" source="media/local-emulator/download-icon.png" border="false":::**[Download the Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator)**
-
 1. Download the [Azure Cosmos DB emulator](https://aka.ms/cosmosdb-emulator).
 
 1. Run the installer on your local machine with **administrative privileges**.
 
-1. The emulator will automatically install the appropriate developer certificates and configure firewall rules on your local machine.
+1. The emulator automatically installs the appropriate developer certificates and configures firewall rules on your local machine.
 
 ---
 
@@ -75,7 +73,19 @@ TODO
 
 ### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
 
+The Docker container variant of the emulator doesn't support the API for Apache Cassandra, API for Apache Gremlin, or API for Table.
+
 ### [Windows (local)](#tab/windows)
+
+1. TODO
+
+    | | Value |
+    | --- | --- |
+    | **``** | `` |
+
+    ```powershell
+    
+    ```
 
 ---
 
@@ -85,9 +95,39 @@ TODO
 
 ### [Docker (Linux container)](#tab/docker-linux)
 
+1. Run a new container using the container image and the following configuration:
+
+    | | Value |
+    | --- | --- |
+    | **``** | `` |
+
+    ```bash
+    
+    ```
+
 ### [Docker (Windows container)](#tab/docker-windows)
 
+1. Run a new container using the container image and the following configuration:
+
+    | | Value |
+    | --- | --- |
+    | **``** | `` |
+
+    ```powershell
+    
+    ```
+
 ### [Windows (local)](#tab/windows)
+
+1. TODO
+
+    | | Value |
+    | --- | --- |
+    | **``** | `` |
+
+    ```powershell
+    
+    ```
 
 ---
 
@@ -97,9 +137,31 @@ TODO
 
 ### [Docker (Linux container)](#tab/docker-linux)
 
+1. Run a new container using the container image and the following configuration:
+
+    | | Value |
+    | --- | --- |
+    | **``** | `` |
+
+    ```bash
+    
+    ```
+
 ### [Docker (Windows container)](#tab/docker-windows)
 
+The Docker (Windows) container image doesn't support the API for MongoDB.
+
 ### [Windows (local)](#tab/windows)
+
+1. TODO
+
+    | | Value |
+    | --- | --- |
+    | **``** | `` |
+
+    ```powershell
+    
+    ```
 
 ---
 
