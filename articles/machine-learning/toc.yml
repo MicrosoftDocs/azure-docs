@@ -608,6 +608,8 @@
               href: ./prompt-flow/concept-tools.md
             - name: Variants
               href: ./prompt-flow/concept-variants.md
+            - name: Evaluation monitoring metrics
+              href: ./prompt-flow/concept-model-monitoring-generative-ai-evaluation-metrics.md
         - name: Get started in Prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
         - name: Set up infrastructure
@@ -634,6 +636,8 @@
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
         - name: Deploy flows for real-time inference
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
+        - name: Monitor generative AI applications in production
+          href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
         - name: Tools Reference
           items:
             - name: LLM tool
@@ -1040,11 +1044,11 @@
   items:
     - name: Model data collection
       href: concept-data-collection.md
-    - name: Model monitoring
-      href: concept-model-monitoring.md
     - name: Collect inferencing data from production
       displayName: model data collection, data drift, data quality, model quality
       href: how-to-collect-production-data.md
+    - name: Model monitoring
+      href: concept-model-monitoring.md
     - name: Perform continuous monitoring
       displayName: model monitoring, data drift, data quality, model quality
       href: how-to-monitor-model-performance.md

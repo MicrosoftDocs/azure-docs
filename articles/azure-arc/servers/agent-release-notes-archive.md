@@ -52,7 +52,7 @@ Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb
 
 ### Fixed
 
-- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Manager
 - Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
 - Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
 - Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
@@ -95,7 +95,7 @@ Download for [Windows](https://download.microsoft.com/download/f/9/d/f9d60cc9-7c
   - Logs from extensions are now collected
 - Agent telemetry is no longer sent to `dc.services.visualstudio.com`. You may be able to remove this URL from any firewall or proxy server rules if no other applications in your environment require it.
 - Failed extension installs can now be retried without removing the old extension as long as the extension settings are different
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Azure Update Management Center extension on Linux to reduce downtime during update operations
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Azure Update Manager extension on Linux to reduce downtime during update operations
 
 ### Fixed
 

@@ -183,19 +183,18 @@ Required claims for the WS-Fed token issued by the IdP:
 
 ## Step 3: Configure SAML/WS-Fed IdP federation in Azure AD
 
-Next, configure federation with the IdP configured in step 1 in Azure AD. You can use either the Azure portal or the [Microsoft Graph API](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true). It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
+Next, configure federation with the IdP configured in step 1 in Azure AD. You can use either the Microsoft Entra admin center or the [Microsoft Graph API](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true). It might take 5-10 minutes before the federation policy takes effect. During this time, don't attempt to redeem an invitation for the federation domain. The following attributes are required:
 
 - Issuer URI of the partner's IdP
 - Passive authentication endpoint of partner IdP (only https is supported)
 - Certificate
 
-### To configure federation in the Azure portal
+### To configure federation in the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
-2. In the left pane, select **Azure Active Directory**.
-3. Select **External Identities** > **All identity providers**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 4. Select **New SAML/WS-Fed IdP**.
 
     ![Screenshot showing button for adding a new SAML or WS-Fed IdP.](media/direct-federation/new-saml-wsfed-idp.png)
@@ -237,7 +236,7 @@ Next, configure federation with the IdP configured in step 1 in Azure AD. You ca
 You can use the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true) resource type to set up federation with an identity provider that supports either the SAML or WS-Fed protocol.
 
 ## Step 4: Test SAML/WS-Fed IdP federation in Azure AD
-Now test your federation setup by inviting a new B2B guest user. For details, see [Add Azure AD B2B collaboration users in the Azure portal](add-users-administrator.md).
+Now test your federation setup by inviting a new B2B guest user. For details, see [Add Azure AD B2B collaboration users in the Microsoft Entra admin center](add-users-administrator.md).
  
 ## How do I update the certificate or configuration details?
 
@@ -245,10 +244,8 @@ On the **All identity providers** page, you can view the list of SAML/WS-Fed ide
 
 ![Screenshot showing an identity provider in the SAML WS-Fed list](media/direct-federation/new-saml-wsfed-idp-list-multi.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
-2. In the left pane, select **Azure Active Directory**.
-3. Select **External Identities**.
-4. Select **All identity providers**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 5. Under **SAML/WS-Fed identity providers**, scroll to an identity provider in the list or use the search box.
 6. To update the certificate or modify configuration details:
    - In the **Configuration** column for the identity provider, select the **Edit** link.
@@ -276,11 +273,10 @@ On the **All identity providers** page, you can view the list of SAML/WS-Fed ide
 ## How do I remove federation?
 
 You can remove your federation configuration. If you do, federation guest users who have already redeemed their invitations can no longer sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
-To remove a configuration for an IdP in the Azure portal:
+To remove a configuration for an IdP in the Microsoft Entra admin center:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**.
-1. Select **External Identities**.
-1. Select **All identity providers**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 1. Under **SAML/WS-Fed identity providers**, scroll to the identity provider in the list or use the search box.
 1. Select the link in the **Domains** column to view the IdP's domain details.
 2. Delete all but one of the domains in the **Domain name** list.

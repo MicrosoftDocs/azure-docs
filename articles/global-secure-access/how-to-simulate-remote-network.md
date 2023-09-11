@@ -161,7 +161,7 @@ You need the public IP addresses of your virtual network gateway. These IP addre
 
 :::image type="content" source="media/how-to-simulate-remote-network/virtual-network-gateway-public-ip-addresses.png" alt-text="Screenshot showing how to find the public IP addresses of a virtual network gateway." lightbox="media/how-to-simulate-remote-network/virtual-network-gateway-public-ip-addresses.png":::
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md#global-secure-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md#global-secure-access-administrator).
 1. Browse to **Global Secure Access Preview** > **Remote network** > **Create remote network**.
 1. Provide a **Name** for your network, select an appropriate **Region**, then select **Next: Connectivity**.
 1. On the **Connectivity** tab, select **Add a link**.
