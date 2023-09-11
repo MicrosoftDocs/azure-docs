@@ -539,6 +539,9 @@ items:
         - name: Azure Active Directory pod identity
           displayName: Prometheus,remote-write
           href: containers/prometheus-remote-write-azure-ad-pod-identity.md  
+        - name: Azure Active Directory workload identity (preview)
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-azure-workload-identity.md
       - name: KEDA integration
         displayName: Prometheus
         href: containers/integrate-keda.md    
