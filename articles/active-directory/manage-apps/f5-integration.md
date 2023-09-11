@@ -36,7 +36,7 @@ When Azure AD pre-authenticates access to BIG-IP published services, there are m
 Other benefits include:
 
 - One control plane to govern identity and access
-  - The [Azure portal](https://azure.microsoft.com/features/azure-portal/)
+  - The [Microsoft Entra admin center](https://entra.microsoft.com)
 - Preemptive [Conditional Access](../conditional-access/overview.md)
 - [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 - Adaptive protection through user and session risk profiling
