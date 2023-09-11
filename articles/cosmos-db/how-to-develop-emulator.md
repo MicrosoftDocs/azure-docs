@@ -636,4 +636,5 @@ TODO
 
 ## Next step
 
-[Get started with Azure Cosmos DB](../index.yml)
+> [!div class="nextstepaction"]
+> [Review the emulator's release notes](emulator-release-notes.md)
