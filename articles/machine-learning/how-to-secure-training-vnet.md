@@ -155,6 +155,9 @@ To create a compute cluster in an Azure Virtual Network in a different region th
 
 ## Compute instance/cluster with no public IP
 
+> [!WARNING]
+> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
+
 > [!IMPORTANT]
 > If you have been using compute instances or compute clusters configured for no public IP without opting-in to the preview, you will need to delete and recreate them after January 20, 2023 (when the feature is generally available).
 > 
@@ -251,6 +254,9 @@ ml_client.begin_create_or_update(entity=compute)
 ---
 
 ## Compute instance/cluster with public IP
+
+> [!IMPORTANT]
+> This information is only valid when using an _Azure Virtual Network_. If you are using a _managed virtual network_, see [managed compute with a managed network](how-to-managed-network-compute.md).
 
 The following configurations are in addition to those listed in the [Prerequisites](#prerequisites) section, and are specific to **creating** compute instances/clusters that have a public IP:
 
