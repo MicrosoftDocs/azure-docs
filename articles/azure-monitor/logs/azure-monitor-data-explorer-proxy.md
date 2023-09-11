@@ -51,8 +51,7 @@ union customEvents, adx('https://help.kusto.windows.net/Samples').StormEvents
 ```kusto
 let CL1 = adx('https://help.kusto.windows.net/Samples').StormEvents;
 union customEvents, CL1 | take 10
-
-```sql
+```
 
 > [!TIP]
 > Shorthand format is allowed: *ClusterName*/*InitialCatalog*. For example, `adx('help/Samples')` is translated to `adx('help.kusto.windows.net/Samples')`.
@@ -61,7 +60,7 @@ When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator
 
 For example:
 
-kusto
+```kusto
 AzureDiagnostics
 | join hint.remote=left adx("cluster=ClusterURI").AzureDiagnostics on (ColumnName)
 ```
@@ -95,40 +94,39 @@ Here are some sample Azure Log Analytics queries that use the new Azure Resource
 
 - Filter a Log Analytics query based on the results of an Azure Resource Graph query:
 
-```kusto
-arg("").Resources 
-| where type == "microsoft.compute/virtualmachines" and properties.hardwareProfile.vmSize startswith "Standard_D"
-| join (
-    Heartbeat
-    | where TimeGenerated > ago(1d)
-    | distinct Computer
-    )
-    on $left.name == $right.Computer
-```
+    ```kusto
+    arg("").Resources 
+    | where type == "microsoft.compute/virtualmachines" and properties.hardwareProfile.vmSize startswith "Standard_D"
+    | join (
+        Heartbeat
+        | where TimeGenerated > ago(1d)
+        | distinct Computer
+        )
+        on $left.name == $right.Computer
+    ```
 
 - Create an alert rule that applies only to certain resources taken from an ARG query:
    - Exclude resources based on tags – for example, not to trigger alerts for VMs with a “Test” tag.
 
-```kusto
-arg("").Resources
-| where tags.environment=~'Test'
-| project name 
+       ```kusto
+       arg("").Resources
+       | where tags.environment=~'Test'
+       | project name 
+       ```
 
-```
-
-- Retrieve performance data related to CPU utilization and filter to resources with the “prod” tag.
-
-```kusto
-InsightsMetrics
-| where Name == "UtilizationPercentage"
-| lookup (
-    arg("").Resources 
-    | where type == 'microsoft.compute/virtualmachines' 
-    | project _ResourceId=tolower(id), tags
-    )
-    on _ResourceId
-| where tostring(tags.Env) == "Prod"
-```
+    - Retrieve performance data related to CPU utilization and filter to resources with the “prod” tag.
+    
+        ```kusto
+        InsightsMetrics
+        | where Name == "UtilizationPercentage"
+        | lookup (
+            arg("").Resources 
+            | where type == 'microsoft.compute/virtualmachines' 
+            | project _ResourceId=tolower(id), tags
+            )
+            on _ResourceId
+        | where tostring(tags.Env) == "Prod"
+        ```
 
 More use cases:
 -	Use a tag to determine whether VMs should be running 24x7 or should be shut down at night.
@@ -147,16 +145,14 @@ union AzureActivity, arg("").Resources
 ```kusto
 let CL1 = arg("").Resources ;
 union AzureActivity, CL1 | take 10
+```
 
-```sql
+When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you need to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in Azure Resource Graph with data in the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
 
-When you use the [`join` operator](/azure/data-explorer/kusto/query/joinoperator) instead of union, you're required to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to combine the data in Azure Resource Graph with the Log Analytics workspace. Use `Hint.remote={Direction of the Log Analytics Workspace}`. For example:
-
-kusto
+```kusto
 Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory")
 | extend _ResourceId = replace_string(replace_string(replace_string(_ResourceId, 'microsoft.compute', 'Microsoft.Compute'), 'virtualmachines','virtualMachines'),"resourcegroups","resourceGroups")
 | join hint.remote=left (arg("").Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project _ResourceId=id, tags) on _ResourceId | project-away _ResourceId1 | where tostring(tags.env) == "prod"
-
 ```
 
 ## Create an alert based on a cross-service query

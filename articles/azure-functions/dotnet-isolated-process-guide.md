@@ -431,8 +431,6 @@ Each trigger and binding extension also has its own minimum version requirement,
 
 <sup>3</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
-The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/WorkerBindingSamples) show examples of working with the various supported types.
-
 > [!NOTE]
 > When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
 

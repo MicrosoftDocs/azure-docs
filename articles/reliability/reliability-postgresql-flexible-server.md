@@ -253,8 +253,7 @@ Application downtime is expected to start after step #1 and persists until step 
 
 **Zonal**. To recover from a zone-level failure, you can [perform point-in-time restore](#point-in-time-restore-of-high-availability-servers) using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server is deployed in another nonaffected zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.
 
-For more information on point-in-time restore, see [Backup and restore in Azure Database for PostgreSQL-Flexible Server]
-(/azure/postgresql/flexible-server/concepts-backup-restore).
+For more information on point-in-time restore, see [Backup and restore in Azure Database for PostgreSQL-Flexible Server](/azure/postgresql/flexible-server/concepts-backup-restore).
 
 **Zone-redundant**. Flexible server is automatically failed over to the standby server within 60-120 s with zero data loss.
 
