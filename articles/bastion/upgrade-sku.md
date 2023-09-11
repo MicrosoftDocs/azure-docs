@@ -1,7 +1,7 @@
 ---
 title: 'Upgrade or view a SKU: portal'
 titleSuffix: Azure Bastion
-description: Learn how to view a SKU and change tiers from the Basic to the Standard SKU.
+description: Learn how to view a SKU and upgrade SKU tiers.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
