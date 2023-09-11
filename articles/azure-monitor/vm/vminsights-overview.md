@@ -19,7 +19,7 @@ VM insights supports Windows and Linux operating systems on:
 - On-premises virtual machines.
 - Virtual machines hosted in another cloud environment.
 
-VM insights provides a set of predefined workbooks that allow you to view trending of [collected performance data](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-log-query#performance-records) over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of multiple VMs.
+VM insights provides a set of predefined workbooks that allow you to view trending of [collected performance data](vminsights-log-query.md#performance-records) over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of multiple VMs.
 
 ![Screenshot that shows the VM insights perspective in the Azure portal.](media/vminsights-overview/vminsights-azmon-directvm.png)
 
