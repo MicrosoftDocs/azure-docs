@@ -104,7 +104,8 @@ Currently, you can't create a system topic for the Azure Resource Notifications 
     1. In the **Subject Filters** section, for **Subject begins with**, provide the value of the resource group in this format: `/subscriptions/{subscription-id}/resourceGroups/{resourceGroup-id}`
 
         :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/filter.png" alt-text="Screenshot that shows the Filters tab of the Create Event Subscription page.":::
-    ---
+
+---
 
 ## Delete system topic and event subscription
 
