@@ -158,3 +158,29 @@ landingContent:
             url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
           - text: Azure SDK for Python (Policy Insights)
             url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
+
+  - title: Resources
+    linkLists:
+      - linkListType: tools
+        links:
+          - text: GitHub - Azure Policy samples
+            url: https://github.com/Azure/azure-policy
+          - text: Enterprise-scale - Reference implementation
+            url: https://github.com/Azure/Enterprise-Scale#enterprise-scale---reference-implementation
+          - text: Community tools
+      - linkListType: tools (community)
+        links:
+          - text: GitHub - Community Policy repo
+            url: https://github.com/Azure/Community-Policy
+          - text: GitHub Action for Azure Policy Compliance Scan
+            url: https://github.com/marketplace/actions/azure-policy-compliance-scan
+          - text: CCO Azure Governance Dashboard
+            url: https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages
+          - text: AzAdvertizer
+            url: https://www.azadvertizer.net/
+          - text: Azure Governance Visualizer
+            url: https://github.com/julianhayward/azure-mg-sub-governance-reporting
+          - text: Azure Policy scripts for Azure Monitor
+            url: https://github.com/JimGBritt/AzurePolicy/tree/master/AzureMonitor/Scripts
+          - text: Enterprise Azure Policy as Code
+            url: https://github.com/Azure/enterprise-azure-policy-as-code
