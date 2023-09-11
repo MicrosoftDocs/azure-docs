@@ -78,7 +78,7 @@ To check if you're running the latest version of the Azure connected machine age
 - The scheduled task that checks for agent updates no longer outputs a file
 - Improved formatting for clock skew calculations
 - Improved reliability when upgrading extensions by explicitly asking extensions to stop before trying to upgrade.
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Update Management Center extension for Linux, Microsoft Defender Endpoint for Linux, and Azure Security Agent for Linux to prevent timeouts during installation
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Update Manager extension for Linux, Microsoft Defender Endpoint for Linux, and Azure Security Agent for Linux to prevent timeouts during installation
 - [azcmagent disconnect](azcmagent-disconnect.md) now closes any active SSH or Windows Admin Center connections
 - Improved output of the [azcmagent check](azcmagent-check.md) command
 - Better handling of spaces in the `--location` parameter of [azcmagent connect](azcmagent-connect.md)

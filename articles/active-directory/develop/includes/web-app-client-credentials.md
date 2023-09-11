@@ -39,7 +39,7 @@ In the following example, the `GraphBeta` section specifies these settings.
  },
  "GraphBeta": {
     "BaseUrl": "https://graph.microsoft.com/beta",
-    "Scopes": "user.read"
+    "Scopes": ["user.read"]
     }
 }
 ```
@@ -67,7 +67,7 @@ Instead of a client secret, you can provide a client certificate. The following 
   },
   "GraphBeta": {
     "BaseUrl": "https://graph.microsoft.com/beta",
-    "Scopes": "user.read"
+    "Scopes": ["user.read"]
   }
 }
 ```

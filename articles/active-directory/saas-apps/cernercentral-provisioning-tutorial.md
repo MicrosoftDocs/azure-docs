@@ -92,10 +92,10 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
    * In the **Tenant URL** field, enter a URL in the format below, replacing "User-Roster-Realm-ID" with the realm ID you acquired in step #4.
 
     > Sandbox:
-    > https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > ```https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/```
     > 
     > Production:
-    > https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > ```https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/``` 
 
    * In the **Secret Token** field, enter the OAuth bearer token you generated in step #3 and click **Test Connection**.
 

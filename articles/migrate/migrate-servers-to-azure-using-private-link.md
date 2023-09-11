@@ -166,7 +166,7 @@ For migrating Hyper-V VMs, the Migration and modernization tool installs softwar
 1. Select **Create resources**. This creates an Azure Site Recovery vault in the background. Don't close the page during the creation of resources. If you have already set up migration with the Migration and modernization tool, this option won't appear since resources were set up previously. 
     - This step creates a Recovery Services vault in the background and enables a managed identity for the vault. A Recovery Services vault is an entity that contains the replication information of servers and is used to trigger replication operations.
     - If the Azure Migrate project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.
-    - The five domain names are formatted in this pattern:  _{Vault-ID}-asr-pod01-{type}-.{target-geo-code}_.privatelink.siterecovery.windowsazure.com
+    - The five domain names are formatted in this pattern:  *{Vault-ID}-asr-pod01-{type}-.{target-geo-code}*.privatelink.siterecovery.windowsazure.com
     - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS is then linked to the private endpoint virtual network.
 1. In **Prepare Hyper-V host servers**, download the Hyper-V Replication provider, and the registration key file. 
 
@@ -207,7 +207,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Replication storage account**, select the Azure storage account in which replicated data will be stored in Azure.  
 
-1. Next, [**create a private endpoint for the storage account**](https://learn.microsoft.com/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentlessvmware#create-a-private-endpoint-for-the-storage-account) and [**grant permissions to the Recovery Services vault managed identity**](https://learn.microsoft.com/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentbased#grant-access-permissions-to-the-recovery-services-vault-1) to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
+1. Next, [**create a private endpoint for the storage account**](/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentlessvmware#create-a-private-endpoint-for-the-storage-account) and [**grant permissions to the Recovery Services vault managed identity**](/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentbased#grant-access-permissions-to-the-recovery-services-vault-1) to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
 
     -  For Hyper-V VM migrations to Azure, if the replication storage account is of *Premium* type, you must select another storage account of *Standard* type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
@@ -301,7 +301,7 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 
 ## Create a private endpoint for the storage account 
 
-To replicate by using ExpressRoute with private peering, [create a private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) for the cache/replication storage accounts (target subresource: _blob_).
+To replicate by using ExpressRoute with private peering, [create a private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) for the cache/replication storage accounts (target subresource: *blob*).
 
 >[!Note]
 > You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
@@ -324,7 +324,7 @@ Ensure that the replication provider has network connectivity to the storage acc
 
 
 >[!Note]
-> For Hyper-V VM migrations to Azure, if the replication storage account is of _Premium_ type, you must select another storage account of _Standard_ type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account. 
+> For Hyper-V VM migrations to Azure, if the replication storage account is of *Premium* type, you must select another storage account of *Standard* type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account. 
 
 
 ## Next steps
@@ -354,7 +354,7 @@ The tool uses a replication appliance to replicate your servers to Azure. Follow
 1. Select **Create resources** to create the required Azure resources. Don't close the page during the creation of resources.
     - This step creates a Recovery Services vault in the background and enables a managed identity for the vault. A Recovery Services vault is an entity that contains the replication information of servers and is used to trigger replication operations.
     - If the Azure Migrate project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.
-    - The five domain names are formatted in this pattern:  _{Vault-ID}-asr-pod01-{type}-.{target-geo-code}_.privatelink.siterecovery.windowsazure.com
+    - The five domain names are formatted in this pattern:  *{Vault-ID}-asr-pod01-{type}-.{target-geo-code}*.privatelink.siterecovery.windowsazure.com
     - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS is then linked to the private endpoint virtual network.
 
 >[!Note]
@@ -485,7 +485,7 @@ The role permissions for the Azure Resource Manager vary depending on the type o
 
 ## Create a private endpoint for the storage account
 
-To replicate by using ExpressRoute with private peering, [create a private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) for the cache/replication storage accounts (target subresource: _blob_).
+To replicate by using ExpressRoute with private peering, [create a private endpoint](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) for the cache/replication storage accounts (target subresource: *blob*).
 
 >[!Note]
 > You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
