@@ -23403,7 +23403,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/develop/msal-python-python-adfs-support.md",
+            "source_path_from_root": "/articles/active-directory/develop/msal-python-adfs-support.md",
             "redirect_url": "/entra/msal/python/advanced/msal-python-adfs-support",
             "redirect_document_id": false
         },
