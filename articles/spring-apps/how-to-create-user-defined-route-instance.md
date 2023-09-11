@@ -214,7 +214,8 @@ az network firewall network-rule create \
     --protocols 'TCP' \
     --source-addresses '*' \
     --destination-addresses "AzureCloud" \
-    --destination-ports 443 445
+    --destination-ports 443 445 \
+    --action allow --priority 100
 
 # Add firewall application rules.
 
