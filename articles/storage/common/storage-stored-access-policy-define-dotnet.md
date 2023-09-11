@@ -6,6 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: pauljewell
