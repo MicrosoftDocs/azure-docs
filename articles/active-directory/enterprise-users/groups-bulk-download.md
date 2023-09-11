@@ -27,8 +27,9 @@ You can download a list of all the groups in your organization to a comma-separa
 >[!NOTE]
 > The columns downloaded are pre-defined
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account in your organization.
-1. In Azure AD, select **Groups** > **Download groups**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Groups** > **Download groups**.
 1. On the **Groups download** page, select **Start** to receive a CSV file listing your groups.
 
    ![The download groups command is on the All groups page](./media/groups-bulk-download/bulk-download.png)

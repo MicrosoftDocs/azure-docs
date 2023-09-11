@@ -98,7 +98,7 @@ These Microsoft applications support Azure AD's shared device mode:
 - [Microsoft Edge](/microsoft-edge)
 - [Outlook](/mem/intune/apps/app-configuration-policies-outlook)
 - [Microsoft Power Apps](/power-apps)
-- [Microsoft Power BI Mobile](/power-bi/consumer/mobile/) (preview)
+- [Microsoft Power BI Mobile](/power-bi/consumer/mobile/mobile-app-shared-device-mode) (preview)
 - [Microsoft Viva Engage](/viva/engage/overview) (previously [Yammer](/yammer))
 
 ## Shared device sign-out and the overall app lifecycle
