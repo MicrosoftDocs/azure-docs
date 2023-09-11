@@ -40,7 +40,7 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Get Container ACL](/rest/api/storageservices/get-container-acl)                          | Other                     | Other                       | Read                        |
 | [Set Container ACL](/rest/api/storageservices/set-container-acl)                          | Other                     | Other                       | Write                       |
 | [Delete Container](/rest/api/storageservices/delete-container)                            | Free                      | Free                        | Free                        |
-| [Lease Container](/rest/api/storageservices/lease-container) (acquire, lease, renew)      | Other                     | Other                       | Read                        |
+| [Lease Container](/rest/api/storageservices/lease-container) (acquire, release, renew)      | Other                     | Other                       | Read                        |
 | [Lease Container](/rest/api/storageservices/lease-container) (break, change)              | Other                     | Other                       | Write                       |
 | [Restore Container](/rest/api/storageservices/restore-container)                          |List and create container                    | List and create container                       | List and create container                       |
 | [List Blobs](/rest/api/storageservices/list-blobs)                                        | List and create container | List and create container   | List and create container   |
