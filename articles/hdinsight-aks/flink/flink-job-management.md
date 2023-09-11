@@ -48,7 +48,7 @@ There are some prerequisites before submitting and managing jobs from portal or 
 
 - **Delete**: Delete job history record.
 
-## Options to manage job HDInsight on AKS
+## Options to manage jobs in HDInsight on AKS
 
 HDInsight on AKS provides ways to manage Flink jobs.
 
