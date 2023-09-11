@@ -3,12 +3,12 @@ title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
 description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/06/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli

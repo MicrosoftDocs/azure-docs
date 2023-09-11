@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 02/23/2023
+ms.date: 08/24/2023
 ms.author: owinfrey
 ms.reviewer: sponnada
 ms.collection: M365-identity-device-management

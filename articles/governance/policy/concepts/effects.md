@@ -490,10 +490,7 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 When a request call with an applicable action name and targeted scope is submitted, `denyAction` prevents the request from succeeding. The request is returned as a `403 (Forbidden)`. In the portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
 assignment.
 
-`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
-
-> [!NOTE]
-> Under preview, assignments with `denyAction` effect will show a `Not Started` compliance state.
+`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, `Microsoft.Resources/subscriptions` and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
 
 #### Subscription deletion
 

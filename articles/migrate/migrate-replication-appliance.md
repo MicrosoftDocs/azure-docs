@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 02/27/2023
+ms.date: 08/29/2023
 ms.custom: engagement-fy23
 ---
 
@@ -37,7 +37,7 @@ The replication appliance is deployed when you set up agent-based migration of V
 
 ## Appliance requirements
 
-When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2022 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
+When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
 
 **Component** | **Requirement**
 --- | ---
@@ -50,12 +50,12 @@ RAM | 16 GB
 Number of disks | Two: The OS disk and the process server cache disk.
 Free disk space (cache) | 600 GB
 **Software settings** |
-Operating system | Windows Server 2022 or Windows Server 2012 R2
-License | The appliance comes with a Windows Server 2022 evaluation license, which is valid for 180 days. <br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
+Operating system | Windows Server 2016 or Windows Server 2012 R2
+License | The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. <br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
 Operating system locale | English (en-us)
 TLS | TLS 1.2 should be enabled.
 .NET Framework | .NET Framework 4.6 or later should be installed on the machine (with strong cryptography enabled.
-MySQL | MySQL should be installed on the appliance. <br> MySQL should be installed. You can install manually, or Azure Migrate can install it during appliance deployment.
+MySQL | MySQL should be installed on the appliance. <br> MySQL should be installed. You can install it manually, or Azure Migrate can install it during the appliance deployment.
 Other apps | Don't run other apps on the replication appliance.
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10)).
@@ -63,7 +63,7 @@ IIS | - No pre-existing default website <br> - No pre-existing website/applicati
 **Network settings** |
 IP address type | Static
 Ports | 443 (Control channel orchestration)<br>9443 (Data transport)
-IP address | Make sure that configuration server and process server have a static IPv4 address, and don't have NAT configured.
+IP address | Make sure that the configuration server and process server have a static IPv4 address and don't have NAT configured.
 NIC type | VMXNET3
 
 ## MySQL installation 
@@ -82,15 +82,15 @@ The replication appliance needs access to these URLs in the Azure public cloud.
 
 **URL** | **Details**
 --- | ---
-*.backup.windowsazure.com | Used for replicated data transfer and coordination
-*.store.core.windows.net | Used for replicated data transfer and coordination
-*.blob.core.windows.net | Used to access storage account that stores replicated data
-*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
-https://management.azure.com | Used for replication management operations and coordination.
-*.services.visualstudio.com | (Optional) Used for logging purposes. 
-time.windows.com | Used to check time synchronization between system and global time.
-https://login.microsoftonline.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
-https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
+`*.backup.windowsazure.com` | Used for replicated data transfer and coordination
+`*.store.core.windows.net` | Used for replicated data transfer and coordination
+`*.blob.core.windows.net` | Used to access storage account that stores replicated data
+`*.hypervrecoverymanager.windowsazure.com` | Used for replication management operations and coordination
+`https://management.azure.com` | Used for replication management operations and coordination.
+`*.services.visualstudio.com` | (Optional) Used for logging purposes. 
+`time.windows.com` | Used to check time synchronization between system and global time.
+`https://login.microsoftonline.com` <br> `https://login.live.com` <br> `https://graph.windows.net` <br> `https://login.windows.net` <br> `https://www.live.com` <br> `https://www.microsoft.com` | Appliance setup needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
+`https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi` | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
 
 ## Azure Government URL access
 
@@ -98,22 +98,22 @@ The replication appliance needs access to these URLs in Azure Government.
 
 **URL** | **Details**
 --- | ---
-*.backup.windowsazure.us | Used for replicated data transfer and coordination
-*.store.core.windows.net | Used for replicated data transfer and coordination
-*.blob.core.windows.net | Used to access storage account that stores replicated data
-*.hypervrecoverymanager.windowsazure.us | Used for replication management operations and coordination
-https://management.usgovcloudapi.net | Used for replication management operations and coordination
-*.services.visualstudio.com | (Optional) Used for logging purposes.
-time.nist.gov | Used to check time synchronization between system and global time.
-https://login.microsoftonline.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
-https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.  
+`*.backup.windowsazure.us` | Used for replicated data transfer and coordination
+`*.store.core.windows.net` | Used for replicated data transfer and coordination
+`*.blob.core.windows.net` | Used to access storage account that stores replicated data
+`*.hypervrecoverymanager.windowsazure.us` | Used for replication management operations and coordination
+`https://management.usgovcloudapi.net` | Used for replication management operations and coordination
+`*.services.visualstudio.com` | (Optional) Used for logging purposes.
+`time.nist.gov` | Used to check time synchronization between system and global time.
+`https://login.microsoftonline.com` <br> `https://login.live.com` <br> `https://graph.windows.net` <br> `https://login.windows.net` <br> `https://www.live.com` <br> `https://www.microsoft.com`  | Appliance setup with OVA needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
+`https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi` | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.  
 
 >[!Note]
 >
 > If your Migrate project has private endpoint connectivity, you will need access to the following URLs over and above private link access:   
-> - *.blob.core.windows.com - To access storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
-> - https://management.azure.com for replication management operations and coordination. 
->- https://login.microsoftonline.com <br>https://login.windows.net <br> https://www.live.com and <br> https://www.microsoft.com for access control and identity management by Azure Active Directory
+> - `*.blob.core.windows.com` - To access the storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
+> - `https://management.azure.com` for replication management operations and coordination. 
+>- `https://login.microsoftonline.com` <br>`https://login.windows.net` <br> `https://www.live.com` and <br> `https://www.microsoft.com` for access control and identity management by Azure Active Directory
 
 ## Microsoft Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet) URL access
 
@@ -121,15 +121,15 @@ The replication appliance needs access to these URLs.
 
 **URL** | **Details**
 --- | ---
-*.backup.windowsazure.cn | Used for replicated data transfer and coordination.
-*.store.core.chinacloudapi.cn | Used for replicated data transfer and coordination.
-*.blob.core.chinacloudapi.cn | Used to access storage account that stores replicated data.
-*.hypervrecoverymanager.windowsazure.cn | Used for replication management operations and coordination.
-https://management.chinacloudapi.cn | Used for replication management operations and coordination.
-*.services.visualstudio.com | (Optional) Used for logging purposes.
-time.windows.cn | Used to check time synchronization between system and global time.
-https:\//login.microsoftonline.cn <br/> https:\//secure.aadcdn.microsoftonline-p.cn <br/> https:\//login.live.com <br/> https://graph.chinacloudapi.cn <br/> https://login.chinacloudapi.cn <br/> https://www.live.com <br/> https://www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
-https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
+`*.backup.windowsazure.cn` | Used for replicated data transfer and coordination.
+`*.store.core.chinacloudapi.cn` | Used for replicated data transfer and coordination.
+`*.blob.core.chinacloudapi.cn` | Used to access storage account that stores replicated data.
+`*.hypervrecoverymanager.windowsazure.cn` | Used for replication management operations and coordination.
+`https://management.chinacloudapi.cn` | Used for replication management operations and coordination.
+`*.services.visualstudio.com` | (Optional) Used for logging purposes.
+`time.windows.cn` | Used to check time synchronization between system and global time.
+`https://login.microsoftonline.cn` <br/> `https://secure.aadcdn.microsoftonline-p.cn` <br/> `https://login.live.com` <br/> `https://graph.chinacloudapi.cn` <br/> `https://login.chinacloudapi.cn` <br/> `https://www.live.com` <br/> `https://www.microsoft.com`  | Appliance setup with OVA needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
+`https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi` | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
 
 ## Port access
 
@@ -160,7 +160,7 @@ The appliance is upgraded manually from the Azure Migrate hub. We recommend that
 
 1. In Azure Migrate > Servers > Azure Migrate: Server Assessment, Infrastructure servers, select **Configuration servers**.
 2. In **Configuration servers**, a link appears in **Agent Version** when a new version of the replication appliance is available. 
-3. Download the installer to the replication appliance machine, and install the upgrade. The installer detects the version current running on the appliance.
+3. Download the installer to the replication appliance machine, and install the upgrade. The installer detects the version currently running on the appliance.
  
 ## Next steps
 
