@@ -9,7 +9,7 @@ ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # OpenID Connect on the Microsoft identity platform

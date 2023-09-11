@@ -144,12 +144,12 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
     Document = Row("id", "SystemInfo")
-    test = sc.parallelize([(1L, "20 25"),
-                    (2L, "4 15"),
-                    (3L, "16 9"),
-                    (4L, "9 22"),
-                    (5L, "17 10"),
-                    (6L, "7 22")]) \
+    test = sc.parallelize([("1L", "20 25"),
+                    ("2L", "4 15"),
+                    ("3L", "16 9"),
+                    ("4L", "9 22"),
+                    ("5L", "17 10"),
+                    ("6L", "7 22")]) \
         .map(lambda x: Document(*x)).toDF()
     ```
 
@@ -160,7 +160,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
     prediction = model.transform(test)
     selected = prediction.select("SystemInfo", "prediction", "probability")
     for row in selected.collect():
-        print row
+        print (row)
     ```
 
     The output is similar to:
