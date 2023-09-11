@@ -101,7 +101,8 @@ Rehydration of an archived blob may take up to 15 hours, and it is inefficient t
 
 Azure Event Grid raises one of the following two events on blob rehydration, depending on which operation was used to rehydrate the blob:
 
-- The **Microsoft.Storage.BlobCreated** event fires when a blob is created. In the context of blob rehydration, this event fires when a [Copy Blob](/rest/api/storageservices/copy-blob) operation creates a new destination blob in either the Hot or Cool tier and the blob's data is fully rehydrated from the Archive tier.
+- The **Microsoft.Storage.BlobCreated** event fires when a blob is created. In the context of blob rehydration, this event fires when a [Copy Blob](/rest/api/storageservices/copy-blob) operation creates a new destination blob in either the Hot or Cool tier and the blob's data is fully rehydrated from the Archive tier. If the account has the **hierarchical namespace** feature enabled on it, the `CopyBlob` operation works a little differently. In that case, the **Microsoft.Storage.BlobCreated** event is triggered when the `CopyBlob` operation is **initiated** and not when the Block Blob is completely committed.
+  
 - The **Microsoft.Storage.BlobTierChanged** event fires when a blob's tier is changed. In the context of blob rehydration, this event fires when a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation successfully changes an archived blob's tier to the Hot or Cool tier.
 
 To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
