@@ -1,7 +1,7 @@
 ---
 
-title: Prerequisites for Using Azure Operator Service Manager
-description: Use this Quickstart to install and configure the necessary prerequisites for Azure Operator Service Manager
+title: Prerequisites for Using Azure Operator Service Manager with VNF
+description: Use this Quickstart to install and configure the necessary prerequisites for Azure Operator Service Manager with VNF
 author: HollyCl
 ms.author: hollycl
 ms.service: azure-operator-service-manager

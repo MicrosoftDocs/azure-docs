@@ -12,6 +12,8 @@
     href: roles-interfaces.md
   - name: Helm Package Requirements
     href: helm-requirements.md
+  - name: Publisher Resource Preview Management
+    href: publisher-resource-preview-management.md
 - name: Quickstarts
   expanded: false
   items:
@@ -28,6 +30,19 @@
         href: quickstart-containerized-network-function-operator.md
       - name: Create a Site
         href: quickstart-containerized-network-function-create-site.md
+  - name: Virtualized Network Function (VNF)
+    expanded: false
+    items:
+      - name: Prerequisites for using Azure Operator Service Manager
+        href: quickstart-virtualized-network-function-prerequisites.md
+      - name: Publish a Network Function Definition
+        href: quickstart-publish-virtualized-network-function-definition.md
+      - name: Design a Network Service Design
+        href: quickstart-virtualized-network-function-network-design.md
+      - name: Prerequisites for Operator
+        href: quickstart-virtualized-network-function-operator.md
+      - name: Create a Site
+        href: quickstart-virtualized-network-function-create-site.md
 - name: Resources
   expanded: false
   items:
