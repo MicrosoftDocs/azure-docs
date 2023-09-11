@@ -269,7 +269,9 @@
         - name: Overview
           href: ../notebooks-overview.md
         - name: FAQ
-          href: ../notebooks-faq.yml
+          href: ../notebooks-faq.yml    
+    - name: Emulator
+      href: ../emulator.md
 - name: How to
   items:
     - name: Develop applications
