@@ -48,7 +48,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 
 ## 1.2. Set service sensitivity
 > [!NOTE]
-> Although it is not required, to set a service to a max sensitivity service, it is recommended to set the corresponding MaximumLoad to avoid overflowing the node capacity when multiple max sensitivity service collocate on the same node. Check section [Set maximum load](#set-maximum-load) for details.
+> Although it is not required, to set a service to a max sensitivity service, it is recommended to set the corresponding MaximumLoad to avoid overflowing the node capacity when multiple max sensitivity service collocate on the same node. Check section [Set maximum load](#13-set-maximum-load) for details.
 
 ### 1.2.1. Use service Manifest
 ```xml
