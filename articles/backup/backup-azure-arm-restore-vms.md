@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 09/05/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -36,7 +36,7 @@ Azure Backup provides several ways to restore a VM.
 Some details about storage accounts:
 
 - **Create VM**: When you create a new VM with managed disks, nothing is placed in the storage account you specify. If using unmanaged disks, the VHD files for the VM's disks will be placed in the storage account you specify.
-- **Restore disk**: The restore job generates a template that you can download and use to specify custom VM settings. This template is placed in the specified storage account. VHD files are also copied to the storage account when you restore managed disks from a Vault-Standard recovery point if the disk size is less than 4 TB, or when you restore unmanaged disks. 
+- **Restore disk**: The restore job generates a template that you can download and use to specify custom VM settings. This template is placed in the specified storage account. VHD files are also copied to the storage account, when you restore managed disks of size less than 4 TB, from a Vault-Standard recovery point, or when you restore unmanaged disks. The files are then copied to Managed storage. To avoid unnecessary charge, delete the VHD files from the Staging Storage Account. 
 - **Replace disk**: When you replace a managed disk from a Vault-Standard recovery point and the disk size is less than 4 TB, a VHD file with the data from the chosen recovery point is created in the specified storage account. After the replace disk operation, the disks of the source Azure VM are left in the specified Resource group for your operation and the VHDs are stored in the specified storage account. You can choose to delete or retain these VHDs and disks.
 - **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
 - **Storage type**: Blob storage isn't supported.

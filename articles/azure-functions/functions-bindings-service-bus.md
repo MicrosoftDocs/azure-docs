@@ -5,7 +5,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/12/2022
 ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Service Bus bindings for Azure Functions
@@ -76,7 +76,7 @@ Functions version 1.x doesn't support the isolated worker process.
 ---
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
