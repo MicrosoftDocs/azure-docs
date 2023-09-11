@@ -52,6 +52,15 @@ sections:
           Create and capture a VM image, and then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md).
 
       - question: |
+          What is the difference betweeen OS Image Upgrade and Reimage?
+        answer: |
+          OS Image Upgrade is a gradual and non-disruptive process that updates the OS image for the entire Virtual Machine Scale Set over time, ensuring minimal impact on running workloads. 
+          
+          Reimage is a more immediate and disruptive action that affects only the selected VM instance, stopping it temporarily and reinstalling the OS.
+
+          Learn more about the [difference between OS Image Upgrade and Reimage](virtual-machine-scale-sets-automatic-upgrade.md#os-image-upgrade-versus-reimage).
+
+      - question: |
           If I reduce my scale set capacity from 20 to 15, which VMs are removed?
         answer: |
           By default, virtual machines are removed from the scale set evenly across availability zones (if the scale set is deployed in zonal configuration) and fault domains, to maximize availability. VMs with the highest IDs are removed first.
