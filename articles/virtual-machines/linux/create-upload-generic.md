@@ -19,12 +19,12 @@ The Azure platform SLA applies to virtual machines running the Linux OS only whe
 * [Linux on Azure - Endorsed Distributions](endorsed-distros.md)
 * [Support for Linux images in Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
-All other, non-Azure Marketplace, distributions running on Azure have a number of prerequisites. This article can't be comprehensive, as every distribution is different. Even if you meet all the criteria below, you may need to significantly tweak your Linux system for it to run properly.
+All other, non-Azure Marketplace, distributions running on Azure have a number of prerequisites. This article can not be comprehensive, as every distribution is different. Even if you meet all the criteria below, you may need to significantly tweak your Linux system for it to run properly.
 
 This article focuses on general guidance for running your Linux distribution on Azure.
 
 ## General Linux Installation Notes
-1. The Hyper-V virtual hard disk (VHDX) format isn't supported in Azure, only *fixed VHD*.  You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD](/powershell/module/hyper-v/convert-vhd) cmdlet. If you're using VirtualBox, select **Fixed size** rather than the default (dynamically allocated) when creating the disk.
+1. The Hyper-V virtual hard disk (VHDX) format is not supported in Azure, only *fixed VHD*.  You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD](/powershell/module/hyper-v/convert-vhd) cmdlet. If you're using VirtualBox, select **Fixed size** rather than the default (dynamically allocated) when creating the disk.
 
 2. Azure supports Gen1 (BIOS boot) & Gen2 (UEFI boot) Virtual machines.
 
@@ -36,15 +36,15 @@ This article focuses on general guidance for running your Linux distribution on 
 
 6. Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
 
-7. Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+7. Linux kernel versions earlier than 2.6.37 do not support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 
-8. Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
+8. Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
 
 10. All VHDs on Azure must have a virtual size aligned to 1 MB (1024 &times; 1024 bytes). When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
 
 11. Use the most up-to-date distribution version, packages, and software.
 
-12. Remove users and system accounts, public keys, sensitive data, unnecessary software and application.
+12. Remove users and system accounts, public keys, sensitive data, unnecessary software, and application.
 
 
 > [!NOTE]
@@ -71,11 +71,11 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
     ```
 
 ### Resizing VHDs
-VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs created using Hyper-V are aligned correctly.  If the VHD isn't aligned correctly, you may receive an error message similar to the following when you try to create an image from your VHD.
+VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs created using Hyper-V are aligned correctly.  If the VHD is not aligned correctly, you may receive an error message similar to the following when you try to create an image from your VHD.
    ```config
    The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
    ```
-In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
+In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell cmdlet.  If you are not running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
 
 > [!NOTE]
 > There is a [known bug in qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. We recommend using either `qemu-img` 2.2.0 or lower, or 2.6 or higher.
@@ -122,11 +122,11 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 
 ## Linux Kernel Requirements
 
-The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (such as 3.x) have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible we recommend running an [endorsed distribution](endorsed-distros.md) that includes these fixes and updates.
+The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (such as 3.x) have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible, we recommend running an [endorsed distribution](endorsed-distros.md) that includes these fixes and updates.
 
-If you're running a variant of Red Hat Enterprise Linux versions 6.0 to 6.3, then you'll need to install the [latest LIS drivers for Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Beginning with RHEL 6.4+ (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed.
+If you are running a variant of Red Hat Enterprise Linux versions 6.0 to 6.3, then you will need to install the [latest LIS drivers for Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Beginning with RHEL 6.4+ (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed.
 
-If a custom kernel is required, we recommend a recent kernel version (such as 3.8+). For distributions or vendors who maintain their own kernel, you'll need to regularly backport the LIS drivers from the upstream kernel to your custom kernel.  Even if you're already running a relatively recent kernel version, we highly recommend keeping track of any upstream fixes in the LIS drivers and backport them as needed. The locations of the LIS driver source files are specified in the [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) file in the Linux kernel source tree:
+If a custom kernel is required, we recommend a recent kernel version (such as 3.8+). For distributions or vendors who maintain their own kernel, you will need to regularly backport the LIS drivers from the upstream kernel to your custom kernel.  Even if you are already running a relatively recent kernel version, we highly recommend keeping track of any upstream fixes in the LIS drivers and backport them as needed. The locations of the LIS driver source files are specified in the [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) file in the Linux kernel source tree:
 ```
     F:    arch/x86/include/asm/mshyperv.h
     F:    arch/x86/include/uapi/asm/hyperv.h
@@ -140,7 +140,7 @@ If a custom kernel is required, we recommend a recent kernel version (such as 3.
     F:    include/linux/hyperv.h
     F:    tools/hv/
 ```
-The following patches must be included in the kernel. This list can't be complete for all distributions.
+The following patches must be included in the kernel. This list can not be complete for all distributions.
 
 * [ata_piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 * [storvsc: Account for in-transit packets in the RESET path](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
@@ -174,7 +174,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
     ```config
     rhgb quiet crashkernel=auto
     ```
-    Graphical and quiet boot isn't useful in a cloud environment, where we want all logs sent to the serial port. The `crashkernel` option may be left configured if needed, but note that this parameter reduces the amount of available memory in the VM by at least 128 MB, which may be problematic for smaller VM sizes.
+    Graphical and quiet boot is not useful in a cloud environment, where we want all logs sent to the serial port. The `crashkernel` option may be left configured if needed but note that this parameter reduces the amount of available memory in the VM by at least 128 MB, which may be problematic for smaller VM sizes.
 
 2.	After you are done editing /etc/default/grub, run the following command to rebuild the grub configuration:
     ```bash
@@ -200,13 +200,13 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    sudo mkinitramfs -o initrd.img-<kernel-version> <kernel-version>  --with=hv_vmbus,hv_netvsc,hv_storvsc
    sudo update-grub 
    ```
-4. Ensure that the SSH server is installed, and configured to start at boot time. This configuration is usually the default.
+4. Ensure that the SSH server is installed and configured to start at boot time. This configuration is usually the default.
 
 5. Install the Azure Linux Agent.
    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
    
    > [!NOTE]
-   > Make sure 'udf' and 'vfat' modules are enable. `Blocklisting` or removing the udf module will cause a provisioning failure.  `Blocklisting` or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+   > Make sure 'udf' and 'vfat' modules are enabled. Removing/disabling them will cause a provisioning/boot failure.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
    
    Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
@@ -231,7 +231,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 
 6. Swap: Do not create swap space on the OS disk.
 
-   The Azure Linux Agent or Cloud-init can be used to configure swap space using the local resource disk.  This resource disk is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. The following blocks show how to configure this swap.
+   The Azure Linux Agent or Cloud-init can be used to configure swap space using the local resource disk.  This resource disk is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk and might be emptied when the VM is deprovisioned. The following blocks show how to configure this swap.
 
    Azure Linux Agent 
    Modify the following parameters in /etc/waagent.conf
@@ -334,7 +334,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 	
 8. Deprovision.
    > [!CAUTION]
-   > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command waagent -force -deprovision+user will render the source machine unusable, this step is intended only to create a generalized image.
+   > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command waagent -force -deprovision+user will render the source machine unusable this step is intended only to create a generalized image.
 
    Run the following commands to deprovision the virtual machine.
   
