@@ -93,13 +93,13 @@ New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIP
 Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
 
 [!INCLUDE [system-topics](./includes/system-topics.md)] 
-1. On the **Event Grid System Topic** page, select **+ Event Subscription**  on the toolbar. 
-1. Confirm that the **Topic Type**, **Source Resource**, and **Topic Name** are automatically populated. 
-1. Enter a name for the event subscription. 
-1. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
+5. On the **Event Grid System Topic** page, select **+ Event Subscription**  on the toolbar. 
+6. Confirm that the **Topic Type**, **Source Resource**, and **Topic Name** are automatically populated. 
+7. Enter a name for the event subscription. 
+8. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
 
     :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/event-subscription.png" alt-text="Screenshot that shows the Create Event Subscription page.":::
-1. Select the **Filters** tab to provide subject filtering and advanced filtering. For example, to filter for events from resources in a specific resource group, follow these steps:
+9. Select the **Filters** tab to provide subject filtering and advanced filtering. For example, to filter for events from resources in a specific resource group, follow these steps:
     1. Select **Enable subject filtering**. 
     1. In the **Subject Filters** section, for **Subject begins with**, provide the value of the resource group in this format: `/subscriptions/{subscription-id}/resourceGroups/{resourceGroup-id}`
 
