@@ -18,7 +18,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. Some aspects of this feature may change prior to general availability (GA).
 
 
-Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. The [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) may find that an instance is unhealthy. Automatic instance repairs will attempt to recover unhealthy instances through repair actions such as deleting the unhealthy instance and creating a new one to replace it, reimaging the unhealthy instance (Preview), or restarting the unhealthy instance (Preview).
+Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. If an unhealthy instance is found by [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md), automatic instance repairs will attempt to recover the instance by triggering repair actions such as deleting the unhealthy instance and creating a new one to replace it, reimaging the unhealthy instance (Preview), or restarting the unhealthy instance (Preview).
 
 ## Requirements for using automatic instance repairs
 
@@ -28,7 +28,7 @@ The scale set should have application health monitoring for instances enabled. H
 
 **Configure endpoint to provide health status**
 
-Before enabling automatic instance repairs policy, ensure that your scale set instances have application endpoint configured to emit the application health status. To configure health status on Application Health extension, you can use either [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) or [Rich Health States](./virtual-machine-scale-sets-health-extension.md#rich-health-states). To configure health status using Load balancer health probes, see [probe up behavior](../load-balancer/load-balancer-custom-probe-overview.md).
+Before enabling automatic instance repairs policy, ensure that your scale set instances have an application endpoint configured to emit the application health status. To configure health status on Application Health extension, you can use either [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) or [Rich Health States](./virtual-machine-scale-sets-health-extension.md#rich-health-states). To configure health status using Load balancer health probes, see [probe up behavior](../load-balancer/load-balancer-custom-probe-overview.md).
 
 For instances marked as "Unhealthy" or "Unknown" (*Unknown* state is only available with [Application Health extension - Rich Health States](./virtual-machine-scale-sets-health-extension.md#unknown-state)), automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
 
@@ -48,7 +48,7 @@ This feature is currently not supported for service fabric scale sets.
 
 **Restriction for VMs with provisioning errors**
 
-Automatic repairs don't currently support scenarios where a VM instance is marked *Unhealthy* due to a provisioning failure. VMs must be successfully initialized to enable health monitoring and automatic repair capabilities.
+Automatic repairs currently do not support scenarios where a VM instance is marked *Unhealthy* due to a provisioning failure. VMs must be successfully initialized to enable health monitoring and automatic repair capabilities.
 
 ## How do automatic instance repairs work?
 
@@ -60,7 +60,7 @@ Automatic instance repair feature relies on health monitoring of individual inst
 > The `repairAction` setting, is currently under PREVIEW and not suitable for production workloads. To preview the **Restart** and **Reimage** repair actions, you must register your Azure subscription with the AFEC flag `AutomaticRepairsWithConfigurableRepairActions` and your compute API version must be 2021-11-01 or higher. 
 > For more information, see [set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md).
 
-There are three available repair actions for automatic instance repairs – Replace, Reimage (Preview), and Restart (Preview). Replace is the default repair action. Reimage (Preview) and Restart (Preview) can be configured as the desired repair action by enrolling in the preview and using the `repairAction` setting under `automaticRepairsPolicy` object.
+There are three available repair actions for automatic instance repairs – Replace, Reimage (Preview), and Restart (Preview). The default repair action is Replace, but you can switch to Reimage (Preview) or Restart (Preview) by enrolling in the preview and modifying the `repairAction` setting under `automaticRepairsPolicy` object.
 
 - **Replace** deletes the unhealthy instance and creates a new instance to replace it. The latest Virtual Machine Scale Set model is used to create the new instance. This repair action is the default.
 
@@ -311,7 +311,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 
 ### [Azure CLI](#tab/cli-3)
 
-This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy, using using *[az vmss update](/cli/azure/vmss#az-vmss-update)*.
+This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy, using *[az vmss update](/cli/azure/vmss#az-vmss-update)*.
 
 **Disable the existing automatic repairs policy on your scale set**
 ```azurecli-interactive
@@ -333,7 +333,7 @@ az vmss update \
 
 ### [Azure PowerShell](#tab/powershell-3)
 
-This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy, using [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
+This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy, using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). Use PowerShell Version 7.3.6 or higher. 
 
 **Disable the existing automatic repairs policy on your scale set**
 ```azurepowershell-interactive 
