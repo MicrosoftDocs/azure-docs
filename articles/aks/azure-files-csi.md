@@ -321,6 +321,8 @@ Optimal performance is based on efficient client-server communication. Increasin
 
 It's important that you perform testing to find an rsize and wsize that sustains efficent packet transfer, where it doesn't decrease throughput and increase latency.
 
+For more information on optimizing rsize and wsize, see [Linux NFS mount options best practices for Azure NetApp Files][azure-netapp-files-mount-options-best-practices]. 
+
 ### Create NFS file share storage class
 
 Create a file named `nfs-sc.yaml` and copy the manifest below.
@@ -489,3 +491,4 @@ The output of the commands resembles the following example:
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
 [statically-provision-a-volume]: azure-csi-files-storage-provision.md#statically-provision-a-volume
 [azure-private-endpoint-dns]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration
+[azure-netapp-files-mount-options-best-practices]: /azure-netapp-files/performance-linux-mount-options.md#rsize-and-wsize
