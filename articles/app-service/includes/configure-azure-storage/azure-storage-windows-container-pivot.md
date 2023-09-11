@@ -93,10 +93,10 @@ You need to obtain the access key from your storage account. <!--link or instruc
 Before you can mount storage using Key Vault access, you need to get the Key Vault secret and add it as an application setting in your app.  
 
 1. In the portal, browse to your Key Vault secret and copy the **Secret Identifier** into your clipboard.
-:::image type="content" source="../../media/configure-azure-storage/key-vault-secret-identifier.png" alt-text="Screenshot of Key Vault secret identifier":::
+:::image type="content" source="../../media/configure-azure-storage/key-vault-secret-identifier.png" alt-text="Screenshot of Key Vault secret identifier.":::
 
 1. Back in your app, create an [**application setting**](../../configure-common.md?tabs=portal#configure-app-settings) and paste the Key Vault **Secret Identifier** into **Value**.
-:::image type="content" source="../../media/configure-azure-storage/secret-identifier-application-setting.png" alt-text="Screenshot of Secret Identifier application setting":::
+:::image type="content" source="../../media/configure-azure-storage/secret-identifier-application-setting.png" alt-text="Screenshot of Secret Identifier application setting.":::
 
 Now you're ready to use Key Vault to access your storage account.
 
