@@ -45,7 +45,7 @@ The following diagram illustrates that you can generate the code for automated M
 
 * Automated ML code generation is only available for experiments run on remote Azure Machine Learning compute targets. Code generation isn't supported for local runs.
 
-* All automated ML runs triggered through Azure Machine Learning Studio, SDKv2 or CLIv2 will have code generation enabled.
+* All automated ML runs triggered through Azure Machine Learning studio, SDKv2 or CLIv2 will have code generation enabled.
 
 ## Get generated code and model artifacts
 By default, each automated ML trained model generates its training code after training completes. Automated ML saves this code in the experiment's `outputs/generated_code` for that specific model. You can view them in the Azure Machine Learning studio UI on the **Outputs + logs** tab of the selected model. 
@@ -68,9 +68,9 @@ If you're using the Python SDKv2, you can also download the "script.py" and the 
 
 ## Limitations
 
-There is a known issue where selecting **View Generated Code**. This action fails to redirect to the Notebooks portal when the storage is behind a VNet. As a workaround, the user can manually download the **script.py** and the **script_run_notebook.ipynb** files by navigating to the **Outputs + Logs** tab under the **outputs>generated_code** folder. These files can be uploaded manually to the notebooks folder to run or edit them. Follow this link to learn more about [VNets](how-to-enable-studio-virtual-network.md) in Azure Machine Learning. 
+There's a known issue where selecting **View Generated Code**. This action fails to redirect to the Notebooks portal when the storage is behind a VNet. As a workaround, the user can manually download the **script.py** and the **script_run_notebook.ipynb** files by navigating to the **Outputs + Logs** tab under the **outputs>generated_code** folder. These files can be uploaded manually to the notebooks folder to run or edit them. Follow this link to learn more about [VNets](how-to-enable-studio-virtual-network.md) in Azure Machine Learning. 
 
-:::image type="content" source="media/how-to-generate-automl-training-code/view-generated-code.png" alt-text="Screenshot showing Outputs and Logs tab, as well as having a the outputs and generated code folder selected, as explained in the above text.":::
+:::image type="content" source="media/how-to-generate-automl-training-code/view-generated-code.png" alt-text="Screenshot showing Outputs and Logs tab, as well as having the outputs and generated code folder selected, as explained in the above text.":::
 
 
 ## script.py
@@ -133,7 +133,7 @@ def prepare_data(dataframe):
     return X, y, sample_weights
 ```
 
-If you want to do any additional data preparation, it can be done in this step by adding your custom data preparation code.
+If you want to do any more data preparation, it can be done in this step by adding your custom data preparation code.
 
 ### Data featurization code
 
@@ -180,7 +180,7 @@ def get_mapper_0(column_names):
     return mapper
 ```
 
-Be aware that if you have many columns that need to have the same featurization/transformation applied (for example, 50 columns in several column groups), these columns are handled by grouping based on type. 
+If you have many columns that need to have the same featurization/transformation applied (for example, 50 columns in several column groups), these columns are handled by grouping based on type. 
 
 In the following example, notice that each group has a unique mapper applied. This mapper is then applied to each of the columns of that group.
 
@@ -214,7 +214,7 @@ The function `generate_preprocessor_config()`, if present, specifies a preproces
 
 Normally, this preprocessing step only consists of data standardization/normalization that's accomplished with [`sklearn.preprocessing`](https://scikit-learn.org/stable/modules/preprocessing.html).
 
-Automated ML only specifies a preprocessing step for non-ensemble classification and regression models.
+Automated ML only specifies a preprocessing step for nonensemble classification and regression models.
 
 Here's an example of a generated preprocessor code:
 
@@ -274,7 +274,7 @@ def generate_algorithm_config():
 
 The generated code in most cases uses open source software (OSS) packages and classes. There are instances where intermediate wrapper classes are used to simplify more complex code. For example, XGBoost classifier and other commonly used libraries like LightGBM or Scikit-Learn algorithms can be applied. 
 
-As an ML Professional, you are able to customize that algorithm's configuration code by tweaking its hyperparameters as needed based on your skills and experience for that algorithm and your particular ML problem.
+As an ML Professional, you're able to customize that algorithm's configuration code by tweaking its hyperparameters as needed based on your skills and experience for that algorithm and your particular ML problem.
 
 For ensemble models, `generate_preprocessor_config_N()` (if needed) and `generate_algorithm_config_N()` are defined for each learner in the ensemble model, where `N` represents the placement of each learner in the ensemble model's list. For stack ensemble models, the meta learner `generate_algorithm_config_meta()` is defined.
 
