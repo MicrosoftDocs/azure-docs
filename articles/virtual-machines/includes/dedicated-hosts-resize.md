@@ -6,7 +6,7 @@ author: mattmcinnes
 ms.topic: include
 ms.service: virtual-machines
 ms.subservice: azure-dedicated-host
-ms.date: 07/12/2023
+ms.date: 09/11/2023
 ms.author: mattmcinnes
 ms.reviewer: vamckMS
 ms.custom: include file
@@ -68,6 +68,22 @@ az vm host resize \
 
 ### [PowerShell](#tab/powershell)
 
-PowerShell support for host resize is coming soon.
+When using Powershell, the resize feature is referred to as a host 'Update'. Use the following commands to update the host:
+
+```azurepowershell-interactive
+Update-AzHost
+      [-ResourceGroupName] <String>
+      [-HostGroupName] <String>
+      [-Name] <String>
+      [-Sku <String>]
+      [-AutoReplaceOnFailure <Boolean>]
+      [-LicenseType <DedicatedHostLicenseTypes>]
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
+```
+
+For additional info on Update-AzHost, check out the [Update-AzHost reference docs](https://learn.microsoft.com/powershell/module/az.compute/update-azhost).
 
 ---
