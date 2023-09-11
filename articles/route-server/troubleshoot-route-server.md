@@ -22,7 +22,7 @@ When your NVA advertises the default route, Azure Route Server programs it for a
 
 ### Why can't I TCP ping from my NVA to the BGP peer IP of the Azure Route Server after I set up the BGP peering between them?
 
-In some NVAs, you need to add a static route for the Azure Route Server subnet. For example, if Azure Route Server is in 10.0.255.0/27 and your NVA is in 10.0.1.0/24, you need to add the following route to the routing table in the NVA:
+In some NVAs, you need to add a static route to the Azure Route Server subnet to be able to TCP ping the Route Server from the NVA and to avoid BGP peering flapping. For example, if Azure Route Server is in 10.0.255.0/27 and your NVA is in 10.0.1.0/24, you need to add the following route to the routing table in the NVA:
 
 | Route | Next hop |
 |-------|----------|
