@@ -66,6 +66,16 @@ When your environment is threatened, security alerts right away indicate the nat
 
 [!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 
+##  NEEDS TO BE REWRITTEN Defender for Cloud and Microsoft Defender 365 Defender integration
+
+While cloud apps continue to be a target for adversaries trying to exfiltrate corporate data, sophisticated attacks often cross modalities—moving laterally from email as the most common entry point, to compromise endpoints and identities, before ultimately gaining access to in-app data.
+
+Defender for Cloud Apps offers built-in adaptive access control (AAC), provides user and entity behavior analysis (UEBA), and helps you mitigate malware.
+
+Defender for Cloud Apps is also integrated directly into Microsoft 365 Defender, correlating XDR signals from the Microsoft Defender suite and providing incident-level detection, investigation, and powerful response capabilities. Integrating SaaS security into Microsoft's XDR experience gives SOC teams full kill chain visibility and improves operational efficiency and effectivity.
+
+For more information, see Microsoft Defender for Cloud Apps in Microsoft 365 Defender.
+
 ## Learn More
 
 For more information about Defender for Cloud and how it works, check out:
