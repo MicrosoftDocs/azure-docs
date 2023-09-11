@@ -51,13 +51,15 @@ For example, if you're looking into changes to Azure AD groups, you can access t
 
 ### Customize the layout of the audit logs
 
-Audit logs can be customized like the sign-in logs. There aren't as many column options, but it's as important to make sure you're seeing the columns you need. The **Service**, **Category** and **Activity** columns are related to each other, so these columns should always be visible. 
+Customize the columns in the audit logs to view only the information you need. The **Service**, **Category** and **Activity** columns are related to each other, so these columns should always be visible. 
+
+![Screenshot of the Columns button on the audit logs.](media/howto-customize-filter-logs/audit-log-columns.png)
 
 ### Filter the audit logs
 
 When you filter the logs by **Service**, the **Category** and **Activity** details automatically change. In some cases, there may only be one Category or Activity. For a detailed table of all potential combinations of these details, see [Audit activities](reference-audit-activities.md).
 
-:::image type="content" source="media/howto-customize-filter-logs/audit-log-activities-filter.png" alt-text="Screenshot of the audit log activities filter with Conditional Access as the service." lightbox="media/howto-customize-filter-logs/audit-log-activities-filter-expanded.png":::
+:::image type="content" source="media/howto-customize-filter-logs/audit-log-activities-filter.png" alt-text="Screenshot of the audit log filter with Conditional Access as the service." lightbox="media/howto-customize-filter-logs/audit-log-activities-filter-expanded.png":::
 
 - **Service**: Defaults to all available services, but you can filter the list to one or more by selecting an option from the dropdown list.
 
@@ -65,7 +67,7 @@ When you filter the logs by **Service**, the **Category** and **Activity** detai
 
 - **Activity**: Based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all.
  
-    You can get the list of all Audit Activities using the Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+    You can get the list of all Audit Activities using the Microsoft Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 - **Status**: Allows you to look at result based on if the activity was a success or failure.
 
@@ -78,7 +80,7 @@ When you filter the logs by **Service**, the **Category** and **Activity** detai
 
 ## [Sign-in logs](#tab/sign-in-logs)
 
-On the sign-in logs page, you can switch between four sign-in log types. For more information on the logs, see [What are Azure AD sign-in logs?](concept-sign-ins.md).
+On the sign-in logs page, you can switch between four sign-in log types. For more information on the four types of logs, see [What are Azure AD sign-in logs?](concept-sign-ins.md).
 
 :::image type="content" source="media/howto-customize-filter-logs/sign-in-logs-types.png" alt-text="Screenshot of the sign-in log types." lightbox="media/howto-customize-filter-logs/sign-in-logs-types-expanded.png":::
 
@@ -92,7 +94,7 @@ On the sign-in logs page, you can switch between four sign-in log types. For mor
 
 ### Customize the layout of the sign-in logs
 
-To more effectively view the sign-ins log, spend a few moments customizing the view for your needs. You can only customize the column for the interactive user sign-in log. The sign-ins log has a default view, but you can customize the view using over 30 column options.
+You can customize the columns for the interactive user sign-in log using over 30 column options. To more effectively view the sign-in log, spend a few moments customizing the view for your needs. 
 
 1. Select **Columns** from the menu at the top of the log.
 1. Select the columns you want to view and select the **Save** button at the bottom of the window.
@@ -179,9 +181,7 @@ The provisioning log has a default view, but you can customize columns.
 1. Select **Columns** from the menu at the top of the log.
 1. Select the columns you want to view and select the **Save** button at the bottom of the window.
 
-![Screenshot that shows the button for customizing columns.](./media/concept-provisioning-logs/column-chooser.png "Column chooser")
-
-This area enables you to display more fields or remove fields that are already displayed.
+![Screenshot that shows the button for customizing columns.](media/howto-customize-filter-logs/provisioning-logs-columns.png)
 
 ## Filter the results
 

@@ -118,7 +118,7 @@ Here are some tips and considerations for analyzing the provisioning logs:
 
 ## Error codes
 
-Use the following table to better understand how to resolve errors that you find in the provisioning logs. For any error codes that are missing, provide feedback by using the link at the bottom of this page. 
+Use the following table to better understand how to resolve errors that you find in the provisioning logs.
 
 |Error code|Description|
 |---|---|
@@ -147,7 +147,7 @@ Use the following table to better understand how to resolve errors that you find
 
 ## Error codes for cross-tenant synchronization
 
-Use the following table to better understand how to resolve errors that you find in the provisioning logs for [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md). For any error codes that are missing, provide feedback by using the link at the bottom of this page.
+Use the following table to better understand how to resolve errors that you find in the provisioning logs for [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md).
 
 | Error code | Cause | Solution |
 | --- | --- | --- |

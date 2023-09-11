@@ -38,13 +38,13 @@ You can use the provisioning logs to find answers to questions like:
 
 When you select an item in the provisioning list view, you get more details about this item, such as the steps taken to provision the user and tips for troubleshooting issues. The details are grouped into four tabs.
 
-- **Steps**: Outlines the steps taken to provision an object. Provisioning an object can include the following steps. Not all steps are applicable to all provisioning events.
+- **Steps**: This tab outlines the steps taken to provision an object. Provisioning an object can include the following steps, but not all steps are applicable to all provisioning events.
   
-  1. Import the object.
-  1. Match the object between source and target.
-  1. Determine if the object is in scope.
-  1. Evaluate the object before synchronization.
-  1. Provision the object (create, update, delete, or disable).
+  - Import the object.
+  - Match the object between source and target.
+  - Determine if the object is in scope.
+  - Evaluate the object before synchronization.
+  - Provision the object (create, update, delete, or disable).
 
   ![Screenshot shows the provisioning steps on the Steps tab.](./media/concept-provisioning-logs/steps.png "Filter")
 
