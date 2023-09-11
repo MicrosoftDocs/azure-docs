@@ -30,6 +30,10 @@ landingContent:
             url: helm-requirements.md
           - text: Roles and interfaces
             url: roles-interfaces.md
+          - text: Publisher resource preview management
+            url: publisher-resource-preview-management.md
+          - text: Metaschema
+            url: metaschema.md
 
   # Card
   - title: Get started with Azure Operator Service Manager
@@ -38,3 +42,27 @@ landingContent:
         links:
           - text: Containerized Network Function (CNF)
             url: quickstart-containerized-network-function-prerequisites.md
+          - text: Virtualized Network Function (VNF)
+            url: quickstart-virtualized-network-function-prerequisites.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a site
+            url: how-to-create-site.md
+          - text: Create configuration group value
+            url: how-to-create-configuration-group-value.md
+          - text: Create site network service
+            url: how-to-create-site-network-service.md
+
+  # Card
+  - title: Additional Resources
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Best Practices for Designer
+            url: designer-best-practices.md
+          - text: Best Practices for Publisher
+            url: publisher-best-practices.md
+      - linkListType: reference
+        links:
+          - text: Glossary
+            url: glossary.md
