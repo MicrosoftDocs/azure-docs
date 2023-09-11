@@ -73,14 +73,14 @@ Here's the architecture at a high level:
    The configurator has a new option to define the mount point for the logical volume. After you put the database into backup mode and after the I/O cache is flushed (dependent on Linux kernel parameter `fs.xfs.xfssyncd_centisecs`), this parameter is passed to `xfs_freeze` to block the I/O.
 1. Install and configure `xfs_freeze` to be run as a non-privileged user:
 
-   1. Create an executable file called *$HOME/bin/xfs_freeze* with the following content:
+   1. Create an executable file called `$HOME/bin/xfs_freeze` with the following content:
 
       ```bash
       #!/bin/sh
       /usr/bin/sudo /usr/sbin/xfs_freeze $1 $2
       ```
 
-   1. Create a sudoers file called */etc/sudoers.d/azacsnap* to allow the azacsnap user to run `xfs_freeze` with the following content:
+   1. Create a sudoers file called `/etc/sudoers.d/azacsnap` to allow the `azacsnap` user to run `xfs_freeze` with the following content:
 
       ```bash
       #
@@ -93,7 +93,7 @@ Here's the architecture at a high level:
       AZACSNAP ALL=(ALL) NOPASSWD: /usr/sbin/xfs_freeze
       ```
 
-   1. Test that the azacsnap user can freeze and unfreeze I/O to the target mount point by running the following code as the azacsnap user.
+   1. Test that the `azacsnap` user can freeze and unfreeze I/O to the target mount point by running the following code as the `azacsnap` user.
 
       This example runs each command twice to show that it worked the first time, because there's no command to confirm if `xfs_freeze` has frozen I/O.
   

@@ -55,13 +55,13 @@ Follow the guidelines to set up and run the snapshots and disaster-recovery comm
 
    ---
 
-1. Enable communication with the database.
+1. Enable communication with the database. For more information, see [Enable communication with the database](#enable-communication-with-the-database) later in this article.
 
    # [SAP HANA](#tab/sap-hana)
 
    Set up an appropriate SAP HANA user by following the instructions in the [Enable communication with the database](#enable-communication-with-the-database) section of this article.
 
-   After setup, you can test the connection from the command line by using the following examples. These examples are for non-SSL communication to SAP HANA.
+   After setup, you can test the connection from the command line by using the following examples. The following examples are for non-SSL communication to SAP HANA.
 
    HANA 1.0:
 
@@ -354,7 +354,7 @@ SSL communication also requires key-store and trust-store files. It's possible f
 
 #### Key-store files
 
-If you're using multiple SIDs with the same key material, it's easier to create links into the `securityPath` location as defined in the AzAcSnap configuration file. Ensure that these values exist for every SID that uses SSL.
+If you're using multiple system identifiers (SIDs) with the same key material, it's easier to create links into the `securityPath` location as defined in the AzAcSnap configuration file. Ensure that these values exist for every SID that uses SSL.
 
 - For `openssl`: `ln $HOME/.ssl/key.pem <securityPath>/<SID>_keystore`
 - For `commoncrypto`: `ln $SECUDIR/sapcli.pse <securityPath>/<SID>_keystore`
@@ -781,7 +781,7 @@ usermod -a -G db2iadm1 azacsnap
 
 ##### azacsnap user profile
 
-The `azacsnap` user needs to be able to run the `db2` command. By default, the `db2` command isn't in the `azacsnap` user's $PATH. 
+The `azacsnap` user needs to be able to run the `db2` command. By default, the `db2` command isn't in the `azacsnap` user's `$PATH` information.
 
 Add the following code to the user's `.bashrc` file. Use your own IBM Db2 installation value for `INSTHOME`.
 
@@ -951,8 +951,7 @@ END   : Test process complete for 'db2'
 
 ## Install the snapshot tools
 
-The downloadable self-installer makes the snapshot tools easy to set up and run with non-root user privileges (for example, `azacsnap`). The installer sets up the user and puts the snapshot tools
-into the users `$HOME/bin` subdirectory. The default is `/home/azacsnap/bin`.
+The downloadable self-installer makes the snapshot tools easy to set up and run with non-root user privileges (for example, `azacsnap`). The installer sets up the user and puts the snapshot tools into the user's `$HOME/bin` subdirectory. The default is `/home/azacsnap/bin`.
 
 The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the previous setup steps to enable communication with storage and SAP HANA were run as root, the installation copies the private key and `hdbuserstore` to the backup user's location. A knowledgeable administrator can manually take the steps to enable communication with the storage back end and database after the installation.
 
@@ -1113,7 +1112,7 @@ As the root superuser, you can follow these steps for a manual installation:
     echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$NEW_LIB_PATH\"" >> /home/azacsnap/.profile
     ```
 
-1. Take the following actions, depending on storage back end:
+1. Take the following actions, depending on the storage back end:
 
     # [Azure NetApp Files (with VM)](#tab/azure-netapp-files)
 

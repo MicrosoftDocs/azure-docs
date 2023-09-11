@@ -129,7 +129,7 @@ The command options are as follows. The main bullets are commands, and the inden
   For more information, see the [delete command reference](azacsnap-cmd-ref-delete.md).
 - `-c restore` provides two methods to restore a snapshot to a volume.
   - `--restore snaptovol` creates a new volume based on the latest snapshot on the target volume.
-  - `-c restore --restore revertvolume` reverts the target volume to a prior state based on the most recent snapshot.
+  - `-c restore --restore revertvolume` reverts the target volume to a prior state, based on the most recent snapshot.
 
   For more information, see the [restore command reference](azacsnap-cmd-ref-restore.md).
 - `[--configfile <configfilename>]` is an optional command-line parameter to provide a different file name for the JSON configuration. It's useful for creating a separate configuration file per security ID (for example, `--configfile H80.json`).

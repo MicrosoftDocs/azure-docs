@@ -115,7 +115,7 @@ Editing the configuration as described sets the `autoDisableEnableBackint` value
 
 # [Oracle](#tab/oracle)
 
-When you add an *Oracle database* to the configuration, the following values are required:
+When you add an Oracle database to the configuration, the following values are required:
 
 - `Oracle DB Server's Address`: The database server's host name or IP address.
 - `SID`: The database system ID.
@@ -123,7 +123,7 @@ When you add an *Oracle database* to the configuration, the following values are
 
 # [IBM Db2](#tab/db2)
 
-When you add a *Db2 database* to the configuration, the following values are required:
+When you add a Db2 database to the configuration, the following values are required:
 
 - `Db2 Server's Address`: The database server's host name or IP address.
 
@@ -138,9 +138,9 @@ When you add a *Db2 database* to the configuration, the following values are req
 
 ---
 
-# [Azure Large Instance (bare metal)](#tab/azure-large-instance)
+# [Azure Large Instances (bare metal)](#tab/azure-large-instance)
 
-When you add HANA Large Instances storage to a database section, the following values are required:
+When you add Azure Large Instances storage to a database section, the following values are required:
 
 - `Storage User Name`: The user name for establishing the SSH connection to the storage.
 - `Storage IP Address`: The IP address of the storage system.
@@ -159,7 +159,7 @@ When you add HANA Large Instances storage to a database section, the following v
 
 # [Azure NetApp Files (with a virtual machine)](#tab/azure-netapp-files)
 
-When you add *Azure NetApp Files storage* to a database section, the following values are required:
+When you add Azure NetApp Files storage to a database section, the following values are required:
 
 - `Service Principal Authentication filename` (JSON field: `authFile`):
   - To use a system-managed identity, leave this field empty with no value, and then select the Enter key to go to the next field.
