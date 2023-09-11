@@ -114,7 +114,7 @@ When a user signs out, you need to take action to protect the privacy and data o
 
 When your app uses MSAL to sign out the user in an app running on device that is in shared mode, the signed-in account and cached tokens are removed from both the app and the device.
 
-The following diagram shows the overall app lifecycle and common events that may occur while your app runs. The diagram covers from the time an activity launches, signing in and signing out an account, and how events such as pausing, resuming, and stopping the activity fit in.
+The following diagram shows the overall app lifecycle and common events that may occur while your app runs. The diagram covers from the time an activity launch, signing in and signing out an account, and how events such as pausing, resuming, and stopping the activity fit in.
 
 ![Shared device app lifecycle](media/v2-shared-device-mode/lifecycle.png)
 
