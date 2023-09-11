@@ -20,9 +20,9 @@ Video Retrieval APIs are hosted by Azure Computer Vision and enable developers t
 
 ## Prerequisites
 1. Azure Subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-2. Once you have your Azure subscription, [create a Cognitive Services resource using the portal](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account). For this preview, you must create your resource in the East US region.
-3. An Azure Storage resource - [Create one](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal)
-4. Open the Azure Portal, then copy the key and endpoint required to make the call. For details on how to do this see, [Get the keys for your resource](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account#get-the-keys-for-your-resource).
+2. Once you have your Azure subscription, [create a Cognitive Services resource using the portal](/azure/cognitive-services/cognitive-services-apis-create-account). For this preview, you must create your resource in the East US region.
+3. An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
+4. Open the Azure Portal, then copy the key and endpoint required to make the call. For details on how to do this see, [Get the keys for your resource](/azure/cognitive-services/cognitive-services-apis-create-account#get-the-keys-for-your-resource).
 
 ## Usage
 ### Basic Example
