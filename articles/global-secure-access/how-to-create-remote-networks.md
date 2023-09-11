@@ -41,8 +41,8 @@ To configure remote networks, you must have:
 
 Before you can set up remote networks, you need to onboard your tenant information with Microsoft. This one-time process enables your tenant to use remote network connectivity.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
-1. Go to **Global Secure Access (preview)** > **Devices** > **Remote network**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
+1. Browse to **Global Secure Access (preview)** > **Devices** > **Remote network**.
 1. Select the link to the **Onboarding form** in the message at the top of the page.
 
     ![Screenshot of the onboarding form link.](media/how-to-create-remote-networks/create-remote-network-onboarding-form-link.png)
@@ -71,8 +71,8 @@ Remote networks are configured on three tabs. You must complete each tab in orde
 ### Basics
 The first step is to provide the name and location of your remote network. Completing this tab is required.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
-1. Go to **Global Secure Access (preview)** > **Devices** > **Remote network**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
+1. Browse to **Global Secure Access (preview)** > **Devices** > **Remote network**.
 1. Select the **Create remote network** button and provide the following details:
     - **Name**
     - **Region**
