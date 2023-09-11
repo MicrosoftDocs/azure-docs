@@ -41,7 +41,7 @@ See [Azure AI Video Indexer account types](/azure/azure-video-indexer/accounts-o
 
 **New accounts:** As of January 15, all newly created AVI accounts will be non-AMS dependent accounts. You'll no longer be able to create AMS-dependent accounts.
 
-**Existing accounts**: Existing accounts will continue to work through June 30, 2024. To continue using the account beyond June 30, customers must go through the process to convert their account to an non-AMS dependent account. If you don’t convert your account to a non-AMS dependent account, you won't be able to access the account or use it beyond June 30.
+**Existing accounts**: Existing accounts will continue to work through June 30, 2024. To continue using the account beyond June 30, customers must go through the process to convert their account to a non-AMS dependent account. If you don’t convert your account to a non-AMS dependent account, you won't be able to access the account or use it beyond June 30.
 
 ### Classic accounts
 
@@ -97,4 +97,4 @@ As of July 1, 2024, AVI won’t use AMS for encoding or streaming. As a result, 
 
 This graphic shows the timeline for the changes.
 
-:::image type="content" source="media/avi-ams-retirement-announcement/avi-ams-changes.png" lightbox="media/avi-ams-retirement-announcement/avi-ams-changes.png" alt-text="AVI changes timeline that visually represents what has been discussed in the document":::
+:::image type="content" source="media/avi-ams-retirement-announcement/avi-ams-changes.png" lightbox="media/avi-ams-retirement-announcement/avi-ams-changes.png" alt-text="Diagram of AVI changes timeline that visually represents what has been discussed in the document.":::
