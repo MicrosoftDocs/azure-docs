@@ -12,7 +12,7 @@ ms.date: 09/11/2023
 
 ## Connectivity issues
 
-### Why does my network virtual applicance (NVA) lose Internet connectivity after it advertises the default route (0.0.0.0/0) to Azure Route Server?
+### Why does my network virtual appliance (NVA) lose Internet connectivity after it advertises the default route (0.0.0.0/0) to Azure Route Server?
 
 When your NVA advertises the default route, Azure Route Server programs it for all the virtual machines (VMs) in the virtual network including the NVA itself. This default route sets the NVA as the next hop for all Internet-bound traffic. If your NVA needs internet connectivity, you need to configure a [User Defined Route](../virtual-network/virtual-networks-udr-overview.md) to override this default route from the NVA and attach the UDR to the subnet where the NVA is hosted. Otherwise, the NVA host machine keeps sending the internet-bound traffic including the one sent by the NVA back to the NVA itself.
 
@@ -32,7 +32,7 @@ In some NVAs, you need to add a static route to the Azure Route Server subnet to
 
 ### Why do I lose connectivity to my on-premises network over ExpressRoute and/or Azure VPN when I'm deploying Azure Route Server to a virtual network that already has ExpressRoute gateway and/or Azure VPN gateway?
 
-When you deploy Azure Route Server to a virtual network, we need to update the control plane between the gateways and the virtual network. During this update, there's a period of time when the VMs in the virtual network lose connectivity to the on-premises network. We strongly recommend that you schedule a maintenance to deploy Azure Route Server in your production environment.  
+When you deploy Azure Route Server to a virtual network, we need to update the control plane between the gateways and the virtual network. During this update, there's a period of time when the VMs in the virtual network lose connectivity to the on-premises network. We strongly recommend that you schedule maintenance to deploy Azure Route Server in your production environment.  
 
 ## Control plane issues
 
@@ -62,4 +62,4 @@ When you advertise the same routes from your on-premises network to Azure over m
 
 ## Next steps
 
-Learn how to [configure an Azure Route Server](quickstart-configure-route-server-powershell.md)
+Learn how to [configure an Azure Route Server](quickstart-configure-route-server-powershell.md).
