@@ -161,6 +161,7 @@ Only the most recent version of the Azure Cosmos DB emulator is actively support
 
 - Fixed an issue with emulator failing to start when network monitoring apps, such as Pulse Client, are present on the host computer.
 
-## Next steps
+## Next step
 
-- [Get started with Azure Cosmos DB](../index.yml)
+> [!div class="nextstepaction"]
+> [Review the emulator's command-line arguments](emulator-windows-arguments.md)

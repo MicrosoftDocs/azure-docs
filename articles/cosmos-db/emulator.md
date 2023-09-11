@@ -79,4 +79,4 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB](../index.yml)
+> [Get started using the Azure Comsos DB emulator for development](how-to-develop-emulator.md)
