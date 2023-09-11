@@ -4,9 +4,9 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/25/2023
+ms.date: 09/07/2023
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurepowershell, references_regions, engagement
+ms.custom: ignite-2022, devx-track-azurepowershell, references_regions, engagement, devx-track-azurecli
 ---
 
 # Configure networking for an Elastic SAN Preview
@@ -48,9 +48,7 @@ The process for enabling each type of endpoint follows:
 ### Configure a private endpoint
 
 > [!IMPORTANT]
-> - For Elastic SANs using [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option, private endpoints are supported in all regions that Elastic SAN is available. Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
->
-> - Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
+> - For Elastic SANs using [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option, private endpoints are supported in all regions where Elastic SAN is available. Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
 
 There are two steps involved in configuring a private endpoint connection:
 

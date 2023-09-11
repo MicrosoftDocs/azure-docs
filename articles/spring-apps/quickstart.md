@@ -43,7 +43,7 @@ The application code used in this tutorial is a simple app. When you've complete
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- [Azure Developer CLI(AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
+- [Azure Developer CLI (AZD)](/azure/developer/azure-developer-cli/install-azd), version 1.2.0 or higher.
 
 ---
 
