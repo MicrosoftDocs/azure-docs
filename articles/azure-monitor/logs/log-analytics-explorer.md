@@ -15,6 +15,8 @@ Log Analytics now features a simplified user interface and two modes for analyzi
 
 You can use both modes at the same time on different query tabs, and you can switch from one mode to the other at any time on each tab.
 
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
+
 Simple mode provides an easy, spreadsheet-like experience for navigating your logs and arriving at insights in Log Analytics, without writing queries. Similar to working with data in Excel, you can scroll through entries, search for specific values, filter and sort, hide columns you don't need, and aggregate data, all without any query language expertise.
 
 Advanced mode provides a full-featured query editor for writing and running queries. You can use the query editor to write queries in Kusto Query Language (KQL) to analyze your log data. You can also use the query editor to write queries in Power Query Formula Language (PQFL) to transform your log data.
