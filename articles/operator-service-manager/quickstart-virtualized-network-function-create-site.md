@@ -1,6 +1,6 @@
 ---
 title: Create a Virtualized Network Functions (VNF) Site
-description: TBD
+description: Learn how to create a Virtualized Network Functions (VNF) Site
 author: sherryg
 ms.author: sherryg
 ms.date: 09/11/2023
