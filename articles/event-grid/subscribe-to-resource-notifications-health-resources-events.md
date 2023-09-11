@@ -10,7 +10,7 @@ This article describes steps to subscribe to events published by Azure Resource 
 
 ## Create Health Resources system topic
 
-# [Azure CLI](#tab/#azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 1. Set the account to the Azure subscription where you wish to create the system topic.
 
@@ -22,7 +22,7 @@ This article describes steps to subscribe to events published by Azure Resource 
     ```azurecli-interactive
     az eventgrid system-topic create --name SYSTEMTOPICNAME --resource-group RESOURCEGROUPNAME --source /subscriptions/AZURESUBSCRIPTIONID --topic-type microsoft.resourcenotifications.healthresources --location Global        
     ```
-# [Azure PowerShell](#tab/#azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 1. Set the account to the Azure subscription where you wish to create the system topic. 
 
@@ -35,14 +35,14 @@ This article describes steps to subscribe to events published by Azure Resource 
     New-AzEventGridSystemTopic -name SYSTEMTOPICNAME -resourcegroup RESOURCEGROUPNAME -source /subscriptions/AZURESUBSCRIPTIONID -topictype microsoft.resourcenotifications.healthresources -location global    
     ```
 
-# [Azure portal](#tab/#azure-portal)
+# [Azure portal](#tab/azure-portal)
 Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
 
 ---
 
 ## Subscribe to events
 
-# [Azure CLI](#tab/#azure-cli)
+# [Azure CLI](#tab/azure-cli)
 Create an event subscription for the above topic using the [`az eventgrid system-topic event-subscription create`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-create) command.
 
 The following sample command creates an event subscription for the **AvailabilityStatusChanged** event. 
@@ -65,7 +65,7 @@ To **filter events** from a specific resource, use the `--subject-begins-with` p
 az eventgrid system-topic event-subscription create --name EVENTSUBSCRIPTIONNAME --resource-group RESOURCEGROUPNAME --system-topic-name SYSTEMTOPICNAME –included-event-types Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged --endpoint /subscriptions/AZURESUBSCRIPTIONID/ resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/MYEVENTHUBSNAMESPACE/eventhubs/MYEVENTHUB --endpoint-type eventhub --subject-begins-with /subscriptions/AZURESUBSCRIPTIONID/resourceGroups/SOURCERESOURCEGROUP/  
 ```
 
-# [Azure PowerShell](#tab/#azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Create an event subscription for the above topic using the [New-AzEventGridSystemTopicEventSubscription](/powershell/module/az.eventgrid/new-azeventgridsystemtopiceventsubscription) command. 
 
@@ -89,8 +89,17 @@ To **filter events** from a specific resource, use the `--subject-begins-with` p
 New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIPTIONNAME -ResourceGroupName RESOURCEGROUPNAME -SystemtopicName SYSTEMTOPICNAME -IncludedEventType Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged -Endpoint /subscriptions/AZURESUBSCRIPTIONID/ resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBSNAMESPACE/eventhubs/EVENTHUB -EndpointType eventhub -SubjectBeginsWith /subscriptions/AZURESUBSCRIPTIONID/resourceGroups/SOURCERESOURCEGROUP/
 ```
 
-# [Azure portal](#tab/#azure-portal)
+# [Azure portal](#tab/azure-portal)
 Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search bar, type **Event Grid System Topics**, and press ENTER.
+1. Select the system topic.
+1. On the **Event Grid System Topic** page, select **+ Event Subscription**  on the toolbar. 
+1. Confirm that the **TOpic Type**, **Source Resource**, and **Topic Name** are automatically populated. 
+1. Enter a name for the event subscription. 
+1. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
+1. Select the **Filters** tab to provide subject filtering and advanced filtering. 
 
 ---
 
