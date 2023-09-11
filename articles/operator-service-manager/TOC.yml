@@ -37,7 +37,7 @@
         href: quickstart-containerized-network-function-network-design.md
       - name: Prerequisites for Operator
         href: quickstart-containerized-network-function-operator.md
-      - name: Create a Site
+      - name: Create a site
         href: quickstart-containerized-network-function-create-site.md
   - name: Virtualized Network Function (VNF)
     expanded: false
@@ -50,7 +50,7 @@
         href: quickstart-virtualized-network-function-network-design.md
       - name: Prerequisites for Operator
         href: quickstart-virtualized-network-function-operator.md
-      - name: Create a Site
+      - name: Create a site
         href: quickstart-virtualized-network-function-create-site.md
 - name: How-to guides
   expanded: false
