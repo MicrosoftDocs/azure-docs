@@ -18,9 +18,9 @@ A Max Sensitivity Replica (MSR) can only be moved or swapped in the following ca
 * Swap during upgrade
 * Node capacity violation with only MSR(s) on the node (i.e., if any other non-MSR is present on the node, the MSR should not be movable.)
 
-**Add description about maxLoad here**
-
+The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Sensitivity feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is below or equal to the node capacity of that metric.
 ## 1.1. Enable/Disable service sensitivity
+
 Sensitivity feature is turned on/off by setting config `EnableServiceSensitivity` in `PlacementAndLoadBalancing` section of cluster manifest either using XML or JSON:
 
 In ClusterManifest.xml:
@@ -48,7 +48,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 
 ## 1.2. Set service sensitivity
 > [!NOTE]
-> Although it is not required, to set a service as max sensitivity service, it is recommended to set the corresponding MaximumLoad to avoid overflowing the node capacity when multiple max sensitivity service collocate on the same node. Check section [Set maximum load](#set-maximum-load) for details.
+> Although it is not required, to set a service to a max sensitivity service, it is recommended to set the corresponding MaximumLoad to avoid overflowing the node capacity when multiple max sensitivity service collocate on the same node. Check section [Set maximum load](#set-maximum-load) for details.
 
 ### 1.2.1. Use service Manifest
 ```xml
@@ -65,17 +65,46 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ```
 
 ### 1.2.2. Use Powershell API
-
+To specify the sensitivity for a service when it is created:
 ```posh
 $sensitivity = New-Object -TypeName System.Fabric.Description.ServiceSensitivityDescription
 $sensitivity.PrimaryDefaultSensitivity = 10
 $sensitivity.SecondaryDefaultSensitivity = 10
 $sensitivity.AuxiliaryDefaultSensitivity = 10
 $sensitivity.IsMaximumSensitivity = $false
+
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -ServiceSensitivityDescription $sensitivity
+```
+
+To specify or update sensitivity dynamically for an existing service: 
+```posh
+$sensitivity = New-Object -TypeName System.Fabric.Description.ServiceSensitivityDescription
+$sensitivity.PrimaryDefaultSensitivity = 10
+$sensitivity.SecondaryDefaultSensitivity = 10
+$sensitivity.AuxiliaryDefaultSensitivity = 10
+$sensitivity.IsMaximumSensitivity = $false
+
 Update-ServiceFabricService -Stateful -ServiceName fabric:/AppName/ServiceName -ServiceSensitivityDescription $sensitivity
 ```
 
 ### 1.2.3. Use C# API
+To specify the sensitivity for a service when it is created:
+```posh
+FabricClient fabricClient = new FabricClient();
+
+ServiceSensitivityDescription serviceSensitivity = new ServiceSensitivityDescription();
+serviceSensitivity.PrimaryDefaultSensitivity = 10
+serviceSensitivity.SecondaryDefaultSensitivity = 10
+serviceSensitivity.AuxiliaryDefaultSensitivity = 10
+serviceSensitivity.IsMaximumSensitivity = $false
+
+StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
+serviceDescription.ServiceSensitivityDescription = serviceSensitivity; 
+
+await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
+```
+
+To specify or update sensitivity dynamically for an existing service: 
 ```csharp
 FabricClient fabricClient = new FabricClient();
 
@@ -102,10 +131,35 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 
 ```
 ### 1.3.2. Use Powershell API
+To specify the max load for a service when it is created:
+```posh
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("CPU,High,10,5,5,20")
+```
+
+To specify or update the max load for an existing service:
 ```posh
 Update-ServiceFabricService -Stateful -ServiceName fabric:/AppName/ServiceName -Metric @("CPU,High,10,5,5,20")
 ```
 ### 1.3.3. Use C# API
+To specify the sensitivity for a service when it is created:
+```csharp
+FabricClient fabricClient = new FabricClient();
+
+StatefulServiceLoadMetricDescription cpuMetric = new StatefulServiceLoadMetricDescription();
+cpuMetric.Name = "CPU";
+cpuMetric.PrimaryDefaultLoad = 10;
+cpuMetric.SecondaryDefaultLoad = 5;
+cpuMetric.AuxiliaryDefaultLoad = 5;
+cpuMetric.Weight = ServiceLoadMetricWeight.High;
+cpuMetric.MaximumLoad = 20;
+
+StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
+serviceDescription.Metrics["CPU"] = cpuMetric;
+
+await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
+```
+
+To specify or update the max load for an existing service:
 ```csharp
 FabricClient fabricClient = new FabricClient();
 
