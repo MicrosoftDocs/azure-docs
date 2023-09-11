@@ -28,7 +28,7 @@ You can configure the Standard service level with cool access on a volume by spe
 
 After inactive data is moved to the cool tier and if it's read randomly again, it becomes “warm” and is moved back to the standard tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data and won't trigger inactive data to be moved back to the standard tier. 
 
-Metadata is never cooled and always remains in the standard tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't impacted by tiering.
+Metadata is never cooled and always remains in the standard tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't affected by tiering.
 
 ## Supported regions 
 
