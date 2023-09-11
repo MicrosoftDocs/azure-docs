@@ -8,6 +8,13 @@
 - name: Concepts
   expanded: false
   items:
+  - name: Best Practices
+    expanded: false
+    items:
+      - name: Publisher
+        href: publisher-best-practices.md
+      - name: Designer
+        href: designer-best-practices.md
   - name: Roles and Interfaces
     href: roles-interfaces.md
   - name: Helm Package Requirements
