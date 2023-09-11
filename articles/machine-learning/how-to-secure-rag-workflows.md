@@ -42,13 +42,13 @@ To allow your RAG workflow to communicate with [<u>private</u> Azure Cognitive S
 
 The Azure Machine Learning workspace creates a private endpoint in the related resource with autoapprove. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
-    ![Screenshot of how to add private cognitive services user outbound rule](./media/how-to-secure-rag-workflows/add-private-cognitive-services.png)
+![Screenshot of how to add private cognitive services user outbound rule](./media/how-to-secure-rag-workflows/add-private-cognitive-services.png)
 
 4. Navigate to the settings of the storage account associated with your workspace. Select **Access Control (IAM)** in the left-hand menu. Select **Add Role Assignment**. Add **Storage Data Blob Contributor** and **Storage Data Table Contributor** access to Workspace Managed Identity. This can be done typing **Storage Data Blob Contributor** and **Storage Data Table Contributor** into the search bar. You'll need to complete this step and the next step twice. Once for Blob Contributor and the second time for Table Contributor. 
 
 5. Ensure the **Managed Identity** option is selected. Then select **Select Members**. Select **Azure Machine Learning Workspace** under the drop-down for **Managed Identity**. Then select your managed identity of the workspace. 
 
-    ![Screenshot of adding Workspace Managed Identity to Blob/Table access in Storage Account](./media/how-to-secure-rag-workflows/storage-add-blob-table-managed-identity.png)
+![Screenshot of adding Workspace Managed Identity to Blob/Table access in Storage Account](./media/how-to-secure-rag-workflows/storage-add-blob-table-managed-identity.png)
 
 6. (optional) To add an outgoing FQDN rule, in the Azure portal, select **Networking** under the **Settings** tab in the left-hand menu. Select **Workspace managed outbound access** at the top of networking settings. Then select **+Add user-defined outbound rule**. Select **FQDN Rule** under **Destination type**. Enter your endpoint URL in **FQDN Destination**. To find your endpoint URL, navigate to deployed endpoints in the Azure portal, select your desired endpoints and copy the endpoint URL from the details section.
 
