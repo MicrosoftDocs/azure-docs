@@ -23,9 +23,9 @@ When you troubleshoot agent problems, you verify that the agent was installed co
 - Is the agent in the portal?
 - Is the agent marked as healthy?
 
-You can verify these items in the Azure portal and on the local server that's running the agent.
+You can verify these items in the portal and on the local server that's running the agent.
 
-### Azure portal agent verification
+### Entra portal agent verification
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -142,7 +142,7 @@ To gather additional details for troubleshooting agent-related problems, follow 
 
 ## Object synchronization problems
 
-In the Azure portal, you can use provisioning logs to help track down and troubleshoot object synchronization problems. To view the logs, select **Logs**.
+In the portal, you can use provisioning logs to help track down and troubleshoot object synchronization problems. To view the logs, select **Logs**.
 
 ![Screenshot that shows the logs button.](media/how-to-troubleshoot/log-1.png)
 
@@ -192,7 +192,7 @@ Then you should see the status on your agent as healthy.
 
 #### Restart the provisioning job
 
-Use the Azure portal to restart the provisioning job. On the agent configuration page, select **Restart sync**.
+Use the portal to restart the provisioning job. On the agent configuration page, select **Restart sync**.
 
   ![Screenshot that shows options on the agent configuration page.](media/how-to-troubleshoot/quarantine-3.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 'Install the Azure AD Connect provisioning agent'
-description: Learn how to install the Azure AD Connect provisioning agent and how to configure it in the Azure portal.
+description: Learn how to install the Azure AD Connect provisioning agent and how to configure it in the Entra portal.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Install the Azure AD Connect provisioning agent
 
-This article walks you through the installation process for the Azure Active Directory (Azure AD) Connect provisioning agent and how to initially configure it in the Azure portal.
+This article walks you through the installation process for the Azure Active Directory (Azure AD) Connect provisioning agent and how to initially configure it in the Entra portal.
 
 > [!IMPORTANT]
 > The following installation instructions assume that you've met all the [prerequisites](how-to-prerequisites.md).

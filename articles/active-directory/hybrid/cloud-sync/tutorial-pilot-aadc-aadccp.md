@@ -153,33 +153,28 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 Use the following steps to configure provisioning:
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
- 
- :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX cloud sync screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
- 
- 4. Select **New configuration**.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)] 
+ 3. Select **New configuration**.
  :::image type="content" source="media/how-to-configure/new-ux-configure-1.png" alt-text="Screenshot of adding a configuration." lightbox="media/how-to-configure/new-ux-configure-1.png":::
- 5. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
+ 4. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
  
  :::image type="content" source="media/how-to-configure/new-ux-configure-2.png" alt-text="Screenshot of a new configuration." lightbox="media/how-to-configure/new-ux-configure-2.png":::
 
- 6.  The **Get started** screen will open.  
+ 5.  The **Get started** screen will open.  
 
   :::image type="content" source="media/how-to-configure/new-ux-configure-3.png" alt-text="Screenshot of the getting started screen." lightbox="media/how-to-configure/new-ux-configure-3.png":::
 
- 7.  On the **Get started** screen, click either **Add scoping filters** next to the **Add scoping filters** icon or on the click **Scoping filters** on the left under **Manage**.
+ 6.  On the **Get started** screen, click either **Add scoping filters** next to the **Add scoping filters** icon or on the click **Scoping filters** on the left under **Manage**.
 
    :::image type="content" source="media/how-to-configure/new-ux-configure-5.png" alt-text="Screenshot of scoping filters." lightbox="media/how-to-configure/new-ux-configure-5.png":::
  
- 8. Select the scoping filter. For this tutorial select:
+ 7. Select the scoping filter. For this tutorial select:
      - **Selected organizational units**: Scopes the configuration to apply to specific OUs. 
- 9. In the box, enter "OU=CPUsers,DC=contoso,DC=com".
+ 8. In the box, enter "OU=CPUsers,DC=contoso,DC=com".
  
    :::image type="content" source="media/tutorial-migrate-aadc-aadccp/configure-1.png" alt-text="Screenshot of the scoping filter." lightbox="media/tutorial-migrate-aadc-aadccp/configure-1.png":::
  
- 10.  Click **Add**. Click **Save**.
+ 9.  Click **Add**. Click **Save**.
 
 
 
@@ -203,7 +198,7 @@ Once the scheduler is enabled, Azure AD Connect will stop exporting any changes 
 
 In case the pilot doesn't work as expected, you can go back to the Azure AD Connect sync setup by following the steps below:
 
-1. Disable provisioning configuration in the Azure portal.
+1. Disable provisioning configuration in the portal.
 2. Disable all the custom sync rules created for Cloud Provisioning using the Sync Rule Editor tool. Disabling should cause full sync on all the connectors.
 
 ## Next steps
