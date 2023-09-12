@@ -78,6 +78,7 @@ The alert condition for stateful alerts is `fired`, until it is considered resol
 For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
 This table describes when a stateful alert is considered resolved:
+
     |Alert type |The alert is resolved when |
     |---------|---------|
     |Metric alerts|The alert condition isn't met for three consecutive checks.|
