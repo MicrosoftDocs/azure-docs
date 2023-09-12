@@ -9,14 +9,14 @@ ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 09/5/2023
 ---
-# How-to: build a real-time collaborative whiteboard using Web PubSub for Socket.IO and deploy it to Azure App Service
+# How-to: Build a real-time collaborative whiteboard using Web PubSub for Socket.IO and deploy it to Azure App Service
 
 A new class of applications is reimagining what modern work could be. While [Microsoft Word](https://www.microsoft.com/microsoft-365/word) brings editors together, [Figma](https://www.figma.com) gathers up designers on the same creative endeavor. This class of applications builds on a user experience that makes us feel connected with our remote collaborators. From a technical point of view, user's activities need to be synchronized across users' screens at a low latency.
 
 ## Overview
 In this how-to guide, we take a cloud-native approach and use Azure services to build a real-time collaborative whiteboard and we deploy the project as a Web App to Azure App Service. The whiteboard app is accessible in the browser and allows anyone can draw on the same canvas.
 
-:::image type="content" source="./media/howto-integrate-app-service/result.gif" alt-text="Gif of finished project.":::
+:::image type="content" source="./media/socket-io-howto-integrate-web-app/result.gif" alt-text="Animation of the overview of the finished project.":::
 
 ## Prerequisites
  
@@ -26,7 +26,7 @@ In order to follow the step-by-step guide, you need
 > * [Azure CLI](/cli/azure/install-azure-cli) (version 2.39.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 
 ## Create Azure resources using Azure CLI
-### 1. Sign in
+### Sign in
 1. Sign in to Azure CLI by running the following command.
     ```azurecli-interactive
     az login
@@ -39,7 +39,7 @@ In order to follow the step-by-step guide, you need
       --name "<resource-group-name>"
     ```
 
-### 2. Create a Web App resource
+### Create a Web App resource
 1. Create a free App Service plan.
     ```azurecli-interactive
     az appservice plan create \ 
@@ -58,7 +58,7 @@ In order to follow the step-by-step guide, you need
       --runtime "NODE:16-lts"
     ```
 
-### 3. Create a Web PubSub for Socket.IO
+### Create a Web PubSub for Socket.IO
 1. Create a Web PubSub resource.
     ```azurecli-interactive
     az webpubsub create \
@@ -74,7 +74,6 @@ In order to follow the step-by-step guide, you need
       --name "<socketio-name>" \
       --resource-group "<resource-group-name>"
     ```
----
 
 ## Get the application code
 Run the following command to get a copy of the application code.
