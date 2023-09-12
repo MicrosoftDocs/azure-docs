@@ -26,7 +26,7 @@ An alert rule combines:
  - The signal or data from the resource.
  - Conditions.
 
-An **alert** is triggered if the the conditions of the alert rule are met. The alert initiates the associated action group and updates the state of the alert. If you're monitoring more than one resource, the alert rule condition is evaluated separately for each of the resources, and alerts are fired for each resource separately. 
+An **alert** is triggered if the conditions of the alert rule are met. The alert initiates the associated action group and updates the state of the alert. If you're monitoring more than one resource, the alert rule condition is evaluated separately for each of the resources, and alerts are fired for each resource separately. 
 
 Alerts are stored for 30 days and are deleted after the 30-day retention period. You can see all alert instances for all of your Azure resources on the [Alerts page](alerts-manage-alert-instances.md) in the Azure portal.
 
