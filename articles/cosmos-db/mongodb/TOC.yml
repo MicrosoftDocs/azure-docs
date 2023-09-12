@@ -8,8 +8,8 @@
       href: index.yml
     - name: Overview
       items:
-        - name: What is Azure Cosmos DB for MongoDB?
-          href: introduction.md
+        - name: What is RU-based Azure Cosmos DB for MongoDB?
+          href: ru/introduction.md
         - name: API versions
           items:
             - name: API version 4.2
