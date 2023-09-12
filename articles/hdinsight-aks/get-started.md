@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Getting started with one-click deployment
+# Get started with one-click deployment
 
 One-click deployments are designed for users to experience zero touch creation of HDInsight on AKS. It eliminates the need to manually perform certain steps. 
 This article describes how to use readily available ARM templates to create a cluster pool and cluster in few clicks. 
@@ -68,7 +68,9 @@ When you click on one of these templates, it launches Custom deployment page in 
 
    :::image type="content" source="./media/get-started/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
 
-   :::image type="icon" source="./media/get-started/notifications.png" alt-text="Screenshot showing notifications icon in the Azure portal.":::
+   
+
+   If you navigate away from the page, you can check the status of the deployment by clicking Notifications :::image type="icon" source="./media/get-started/notifications.png" alt-text="Screenshot showing notifications icon in the Azure portal."::: in the Azure portal.
    
    > [!TIP]
    >

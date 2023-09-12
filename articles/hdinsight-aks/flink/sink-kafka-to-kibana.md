@@ -113,7 +113,7 @@ In order to make Kibana accessible from output, need to set network.host to 0.0.
 configure /etc/kibana/kibana.yml  on Ubuntu VM
 
 > [!NOTE]
-> 10.0.0.7 is a local private IP, that we have used which can be accessed in maven project develop Windows VM. You're required to make modifications according to your network security requirements. We use the same IP later to demo for performing analytics on Kibana.
+> 10.0.1.4 is a local private IP, that we have used which can be accessed in maven project develop Windows VM. You're required to make modifications according to your network security requirements. We use the same IP later to demo for performing analytics on Kibana.
 
 ```
 server.host: "0.0.0.0"
@@ -184,7 +184,7 @@ public class kafkaSinkToElastic {
         kafka.sinkTo(
                 new Elasticsearch7SinkBuilder<String>()
                         .setBulkFlushMaxActions(1)
-                        .setHosts(new HttpHost("10.0.0.7", 9200, "http"))
+                        .setHosts(new HttpHost("10.0.1.4", 9200, "http"))
                         .setEmitter(
                                 (element, context, indexer) -> indexer.add(createIndexRequest(element)))
                         .build());

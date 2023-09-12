@@ -34,7 +34,7 @@ You can customize configurations using following options:
 1. Go to "Configuration management" blade in the left menu.
    
     :::image type="content" source="./media/service-configuration/configuration-management-tab.png" alt-text="Screenshot showing Configuration Management tab.":::
-   
+  
 1. Depending on the cluster type, configurations files are listed. For more information, see [Trino](./trino/trino-service-configuration.md), [Flink](./flink/flink-configuration-management.md), and [Spark](./spark/configuration-management.md) configurations.
   
 1. Add new or update the existing key-value pair for the configurations you want to modify.
