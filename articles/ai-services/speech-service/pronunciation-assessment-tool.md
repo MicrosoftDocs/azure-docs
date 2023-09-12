@@ -5,8 +5,7 @@ description: The pronunciation assessment tool in Speech Studio gives you feedba
 services: cognitive-services
 author: sally-baolian
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 09/08/2022
 ms.author: v-baolianzou
