@@ -27,10 +27,6 @@ with the Azure Spring Apps Enterprise plan, you don't have to create or start th
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan instance with Tanzu Service Registry enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > To use Tanzu Service Registry, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
-
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Create applications that use Service Registry

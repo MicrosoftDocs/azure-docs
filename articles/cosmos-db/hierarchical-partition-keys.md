@@ -64,7 +64,7 @@ Find the latest preview version of each supported SDK:
 | --- | --- | --- |
 | .NET SDK v3 | >= 3.33.0 | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0/> |
 | Java SDK v4 | >= 4.42.0 | <https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#4420-2023-03-17/> |
-| JavaScript SDK v3 | 3.17.4-beta.1 | <https://www.npmjs.com/package/@azure/cosmos/v/3.17.4-beta.1/> |
+| JavaScript SDK v4 | 4.0.0 | <https://www.npmjs.com/package/@azure/cosmos/> |
 
 ## Create a container by using hierarchical partition keys
 
@@ -346,6 +346,25 @@ ItemResponse<UserSession> readResponse = await container.ReadItemAsync<UserSessi
 ##### [Java SDK v4](#tab/java-v4)
 
 ```java
+// Store the unique identifier
+String id = "f7da01b0-090b-41d2-8416-dacae09fbb4a"; 
+
+// Build the full partition key path
+PartitionKey partitionKey = new PartitionKeyBuilder()
+    .add("Microsoft") //TenantId
+    .add("8411f20f-be3e-416a-a3e7-dcd5a3c1f28b") //UserId
+    .add("0000-11-0000-1111") //SessionId
+    .build();
+    
+// Perform a point read
+Mono<CosmosItemResponse<UserSession>> readResponse = container.readItem(id, partitionKey, UserSession.class);
+```
+
+---
+
+##### [JavaScript SDK v4](#tab/javascript-v4)
+
+```javascript
 // Store the unique identifier
 String id = "f7da01b0-090b-41d2-8416-dacae09fbb4a"; 
 
