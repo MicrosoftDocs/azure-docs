@@ -60,7 +60,7 @@ If none of the preceding methods works, contact Microsoft for help.
 
 #### Symptoms
 
-You created managed private endpoint from ADF and obtained an approved private endpoint. But, after deleting or rejecting the private endpoint later, the managed private endpoint in ADF still persists to exist and shows “Approved”.
+You created managed private endpoint from ADF and obtained an approved private endpoint. But, after deleting or rejecting the private endpoint later, the managed private endpoint in ADF still persists to exist and shows "Approved".
 
 #### Cause 
 
@@ -118,7 +118,7 @@ To resolve the issue, do the following:
 
 You're unable to register the IR authentication key on the self-hosted VM because the private link is enabled. You receive the following error message:
 
-"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 second, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection."
+"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 second, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn't access the public network thereby not able to reach out to the cloud to make the successful connection."
 
 #### Cause
 
@@ -167,21 +167,21 @@ Try to enable public network access on the user interface, as shown in the follo
 
 ---
 
-### Service private DNS zone overrides Azure Resource Manager DNS resolution causing ‘Not found’ error
+### Service private DNS zone overrides Azure Resource Manager DNS resolution causing 'Not found' error
 
 #### Cause
-Both Azure Resource Manager and the service are using the same private zone creating a potential conflict on customer’s private DNS with a scenario where the Azure Resource Manager records will not be found.
+Both Azure Resource Manager and the service are using the same private zone creating a potential conflict on customer's private DNS with a scenario where the Azure Resource Manager records will not be found.
 
 #### Resolution
 1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/private-dns-zones.png" alt-text="Screenshot of finding Private DNS zones.":::
 2. Check if there is an A record **adf**.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/a-record.png" alt-text="Screenshot of A record.":::
-3.	Go to **Virtual network links**, delete all records.
+3.    Go to **Virtual network links**, delete all records.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/virtual-network-link.png" alt-text="Screenshot of virtual network link.":::
-4.	Navigate to your service in Azure portal and recreate the private endpoint for the portal.
+4.    Navigate to your service in Azure portal and recreate the private endpoint for the portal.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/create-private-endpoint.png" alt-text="Screenshot of recreating private endpoint.":::
-5.	Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
+5.    Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/check-dns-record.png" alt-text="Screenshot of new DNS record.":::
 
 ### Connection error in public endpoint
@@ -224,7 +224,7 @@ You can reassign access to the following permissions: **Get, Unwrap Key, and Wra
  
 * Customer deleted Key Vault / CMK before deleting the service. 
 CMK in the service should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
-Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates ) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
 * User Assigned Managed Identity (UA-MI) was deleted before the service. 
 You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.
