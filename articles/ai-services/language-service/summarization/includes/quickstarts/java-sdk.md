@@ -1,8 +1,7 @@
 ---
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/12/2022
 ms.custom: devx-track-java, ignite-fall-2021

@@ -5,8 +5,7 @@ description: Quickly start building an AI model to categorize and extract inform
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 04/14/2023
 ms.author: aahi

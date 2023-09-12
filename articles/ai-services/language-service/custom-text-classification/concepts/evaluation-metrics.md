@@ -5,8 +5,7 @@ description: Learn about evaluation metrics in custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 08/08/2022
 ms.author: aahi

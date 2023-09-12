@@ -5,8 +5,7 @@ description: Learn about how to train your model for custom Text Analytics for h
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 04/14/2023
 ms.author: aahi

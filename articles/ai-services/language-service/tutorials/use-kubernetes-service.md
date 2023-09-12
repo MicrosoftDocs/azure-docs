@@ -5,8 +5,7 @@ description: Deploy a key phrase extraction container image to Azure Kubernetes 
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 ms.date: 05/27/2022
 ms.author: aahi

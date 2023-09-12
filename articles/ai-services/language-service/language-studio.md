@@ -5,8 +5,7 @@ description: Use this article to learn about Language Studio, and testing featur
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.date: 01/03/2023
 ms.topic: quickstart
 ms.custom: ignite-fall-2021

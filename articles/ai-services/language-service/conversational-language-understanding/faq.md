@@ -5,8 +5,7 @@ description: Use this article to quickly get the answers to FAQ about conversati
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: faq
 ms.date: 09/29/2022
 ms.author: aahi

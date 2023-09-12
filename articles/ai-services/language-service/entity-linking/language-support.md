@@ -5,8 +5,7 @@ description: A list of natural languages supported by the entity linking API
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
