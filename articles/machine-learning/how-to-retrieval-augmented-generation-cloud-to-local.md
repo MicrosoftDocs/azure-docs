@@ -99,17 +99,14 @@ If you prefer to use Azure CLI instead of the VS Code extension you can create a
 > [!NOTE]
 > The rest of this article details how to use the VS code extension to edit the files, you can follow this [quick start on how to edit your files with CLI instructions](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html#quick-start).
 
-
 ## Check and modify the flow files
-
-# [VS Code Extension](#tab/vscode)
 
 1. Open "flow.dag.yaml" and select "Visual editor"
 
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/visual-editor.png" alt-text="Screenshot of the flow dag yaml file with the visual editor highlighted in VS Code." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/visual-editor.png":::
 
    > [!NOTE]
-   > When legacy tools switching to code first mode, "not found" error may occur, refer to [Vector DB/Faiss Index/Vector Index Lookup tool](/tools-reference/troubleshoot-guidance.md) rename reminder
+   > When legacy tools switching to code first mode, "not found" error may occur, refer to [Vector DB/Faiss Index/Vector Index Lookup tool](./prompt-flow/tools-reference/troubleshoot-guidance.md) rename reminder
 
 2. Jump to the "embed_the_question" node, make sure the connection is the local connection you have created, and double check the deployment_name, which is the model you use here for the embedding.
 
@@ -152,4 +149,4 @@ For batch run and evaluation, you can refer to [Submit flow run to Azure Machine
 
 ## Next steps
 
-- [Submit runs to cloud for large scale testing and ops integration](how-to-integrate-with-llm-app-devops.md#submitting-runs-to-the-cloud-from-local-repository)
+- [Submit runs to cloud for large scale testing and ops integration](./prompt-flow/how-to-integrate-with-llm-app-devops.md#submitting-runs-to-the-cloud-from-local-repository)
