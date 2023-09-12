@@ -11,12 +11,12 @@ ms.date:     09/12/2023
 
 # B Series CPU Credit Model
 
-While traditional Azure virtual machines provides fixed CPU performance, B-series virtual machines are the only VM type that use credits for CPU performance provisioning. B-series VMs utilize a CPU credit model to track how much CPU is consumed - the virtual machine accumuates CPU credits when a workload is operating below the base CPU performance threshold and, uses credits when running above the base CPU performance threshold until all of its credits are consumed. Upon consuming all the CPU credits, a B-series virtual machine is throttled back to its base CPU performance until it accumulates the credits to CPU burst again.
+While traditional Azure virtual machines provide fixed CPU performance, B-series virtual machines are the only VM type that use credits for CPU performance provisioning. B-series VMs utilize a CPU credit model to track how much CPU is consumed - the virtual machine accumulates CPU credits when a workload is operating below the base CPU performance threshold and, uses credits when running above the base CPU performance threshold until all of its credits are consumed. Upon consuming all the CPU credits, a B-series virtual machine is throttled back to its base CPU performance until it accumulates the credits to CPU burst again.
 
 ## Credit concepts and definitions 
-- Base CPU perfomrance = The minimum CPU performance threshold a VM will have available at all times. This level sets the bar for net credit accumulation when the CPU utilzation is below the base CPU performance level and, net credit consumption when the CPU utilization is above the base CPU performance. 
+- Base CPU performance = The minimum CPU performance threshold a VM will have available at all times. This level sets the bar for net credit accumulation when the CPU utilzation is below the base CPU performance level and, net credit consumption when the CPU utilization is above the base CPU performance. 
 
-- Intial Credits = The number of credits allocated to a B-series virtual machine when a VM is deployed. 
+- Initial Credits = The number of credits allocated to a B-series virtual machine when a VM is deployed. 
 
 - Credits banked/hour = The number of credits a B-seires virtual machine accumulates per hour if the VM is idle (no CPU performance consumption). 
 
@@ -24,7 +24,7 @@ While traditional Azure virtual machines provides fixed CPU performance, B-serie
 
 - CPU Credits Consumed = The number of CPU credits spent during the measurement time-period.
 
-- CPU Credits Remaining = The number of CPU credit available to consume for a given B-series VM.
+- CPU Credits Remaining = The number of CPU credits available to consume for a given B-series VM.
 
 - Percentage CPU = CPU performance of a given VM during a measurement period. 
 
@@ -41,7 +41,7 @@ Similarly, utilizing the example of a Standard_B32as_v2 VM size, if the workload
  
 
 ## Credit monitoring
-To monitor B-series specific credit metrics, customers can utilize the Azure monitor data platform, see [Overview of metrics in Microsoft Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/data-platform). Azure montitor data platform can be accessed via Azure portal and other orchestration paths, as well as via programatic API calls to azure monitor.
+To monitor B-series specific credit metrics, customers can utilize the Azure monitor data platform, see [Overview of metrics in Microsoft Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/data-platform). Azure monitor data platform can be accessed via Azure portal and other orchestration paths, as well as via programmatic API calls to Azure monitor.
 Via Azure montior data platform, customers can access B-series credit model specific metrics such as 'CPU Credits Consumed', 'CPU Credits Remaining' and 'Percentage CPU' for their given B-series size in real time.  
 
 
