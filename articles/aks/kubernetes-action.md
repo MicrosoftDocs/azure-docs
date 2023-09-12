@@ -19,7 +19,7 @@ ms.custom: github-actions-azure
 
 ## GitHub Actions for AKS
 
-GitHub Actions helps you automate your software development workflows from within GitHub. For more details on using GitHub Actions with Azure, see [GitHub Actions for Azure][github-actions].
+With GiHub Actions, you can automate your software development workflows from within GitHub. For more information, see [GitHub Actions for Azure][github-actions].
 
 The following table lists the available actions for AKS:
 
@@ -43,7 +43,7 @@ The following table lists the available actions for AKS:
 As an example, you can use GitHub Actions to deploy an application to your AKS cluster every time a change is pushed to your GitHub repository. This example uses the [Azure Vote][gh-azure-vote] application.
 
 > [!NOTE]
-> This example uses a service principal for authentication with your ACR and AKS cluster. Alternatively, you can configure Open ID Connect (OIDC) and update the `azure/login` action to use OIDC. For more details, see [Set up Azure Login with OpenID Connect authentication][oidc-auth].
+> This example uses a service principal for authentication with your ACR and AKS cluster. Alternatively, you can configure Open ID Connect (OIDC) and update the `azure/login` action to use OIDC. For more information, see [Set up Azure Login with OpenID Connect authentication][oidc-auth].
 
 ### Fork and update the repository
 
@@ -155,9 +155,9 @@ For more information about creating secrets, see [Encrypted Secrets][github-acti
               pull-images: false 
     ```
 
-    The `on` section contains the event that triggers the action. In the above file, the action triggers when a change is pushed to the `azure-vote` directory.
+    The `on` section contains the event that triggers the action. In the example file, the action triggers when a change is pushed to the `azure-vote` directory.
 
-    The `steps` section contains each distinct action, which execute in order:
+    The `steps` section contains each distinct action:
 
       1. *Checkout source code* uses the [GitHub Actions Checkout Action][actions/checkout] to clone the repository.
       2. *ACR build* uses the [Azure Container Registry Build Action][azure/acr-build] to build the image and upload it to your registry.
