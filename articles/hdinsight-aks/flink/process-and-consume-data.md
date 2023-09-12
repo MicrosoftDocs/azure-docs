@@ -108,7 +108,7 @@ public class SinKafkaToKafka {
     }
 }
 ```
-**Writing a java program Event.java**
+**Writing a Java program Event.java**
 ``` java
 import java.sql.Timestamp;
 
