@@ -15,7 +15,7 @@ ms.devlang: csharp, golang, java, javascript, php, python
 There's an industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later. TLS versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. They also don't support the modern encryption methods and cipher suites recommended by Payment Card Industry (PCI) compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more detail.
 
 > [!IMPORTANT]
-  > TLS 1.2 will now be enforced starting August 1, 2024.
+  > TLS 1.2 will now be enforced starting October 1, 2024.
   > 
 
 As a part of this effort, we'll be making the following changes to Azure Cache for Redis:
