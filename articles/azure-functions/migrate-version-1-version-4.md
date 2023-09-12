@@ -40,6 +40,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
 
+> [!IMPORTANT]
+> [Support will end for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). We highly recommend that you migrate your apps to version 4.x by following the instructions in this article.
+
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
 If you are running version 1.x of the runtime in Azure Stack Hub, see [Considerations for Azure Stack Hub](#considerations-for-azure-stack-hub) first.
@@ -166,7 +169,7 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-2](../../includes/functions-dotnet-migrate-project-v4-isolated-2.md)]
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
 
@@ -192,7 +195,7 @@ Based on the model you are migrating to, you may need to upgrade or change the p
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -220,7 +223,7 @@ A program.cs file isn't required when running in-process.
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
 
@@ -248,7 +251,7 @@ To run on version 4.x, you must add `"version": "2.0"` to the host.json file. Yo
 
 :::code language="json" source="~/functions-quickstart-templates//Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
 
@@ -285,7 +288,7 @@ When you upgrade to version 4.x, make sure that your local.settings.json file ha
 > [!NOTE]
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -332,7 +335,7 @@ Some key classes changed names between version 1.x and version 4.x. These change
 | `HttpRequestMessage` | `HttpRequestData`, `HttpRequest` (using [ASP.NET Core integration])|
 | `HttpResponseMessage` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 | Version 1.x | .NET Framework 4.8 | 
 | --- | --- | 
@@ -415,7 +418,7 @@ In version 4.x, the HTTP trigger template looks like the following example:
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
