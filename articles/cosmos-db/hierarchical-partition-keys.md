@@ -362,7 +362,7 @@ Mono<CosmosItemResponse<UserSession>> readResponse = container.readItem(id, part
 
 ---
 
-##### [Javascript SDK v4](#tab/javascript-v4)
+##### [JavaScript SDK v4](#tab/javascript-v4)
 
 ```javascript
 // Store the unique identifier
