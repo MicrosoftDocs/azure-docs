@@ -69,6 +69,9 @@ The following image shows an example where Azure AD is the authorization provide
 
 Although the access token sent along with the HTTP request is intended for the backend API, API Management still allows for a defense in depth approach. For example, configure policies to [validate the JWT](validate-jwt-policy.md), rejecting requests that arrive without a token, or a token that's not valid for the intended backend API. You can also configure API Management to check other claims of interest extracted from the token. 
 
+> [!NOTE]
+> If you secure an API exposed through Azure API Management with OAuth 2.0 in this way, you can configure API Management to generate a valid token for test purposes on behalf of an Azure portal or developer portal test console user. You need to add an OAuth 2.0 server to your API Management instance and enable OAuth 2.0 authorization settings in the API. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md).
+
 Example:
 
 * [Protect an API in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](api-management-howto-protect-backend-with-aad.md)
