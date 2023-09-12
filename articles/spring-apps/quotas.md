@@ -35,7 +35,7 @@ The following table defines limits for the pricing plans in Azure Spring Apps.
 | Inbound Public Endpoints            | per Azure Spring Apps service instance | 10 <sup>1</sup>    | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                       |
 | Outbound Public IPs                 | per Azure Spring Apps service instance | 1 <sup>2</sup>     | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup>       |
 | User-assigned managed identities    | per app instance                       | 20                 | 20                                              | 20                                              | Not available during preview                    | Not available during preview                          |
-| Requests per second/Throughput                 | per Azure Spring Apps service instance | 5000 <sup>3</sup>              | 10000 <sup>3</sup>                                          | 20000 <sup>3</sup>                                             | Not applicable                    | Not applicable                          |
+| Requests per second/Throughput      | per Azure Spring Apps service instance | 5000 <sup>3</sup>  | 10000 <sup>3</sup>                              | 20000 <sup>3</sup>                              | Not applicable                                  | Not applicable                                        |
 
 <sup>1</sup> You can increase this limit via support request to a maximum of 1 per app.
 
