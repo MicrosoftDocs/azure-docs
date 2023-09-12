@@ -13,7 +13,7 @@ ms.date: 09/04/2023
 
 The new Log Analytics features a simplified user interface and two modes for exploring and working with log data: simple and advanced. 
 
-Simple mode provides a spreadsheet-like experience to get you started quickly. Similar to working in Excel, you can navigate your data and apply a set of operators without writing any KQL. For more complex analysis, switch to advanced mode and take advantage Azure Monitor's full data analysis capabilities.
+Simple mode provides a spreadsheet-like experience to get you started quickly. Similar to working in Excel, you can navigate your data and apply a set of operators without writing any KQL. For more complex analysis, switch to advanced mode to use Azure Monitor's full data analysis capabilities.
 
 This article explains the new Log Analytics interface and how to use simple and advanced modes to explore and analyze data in Azure Monitor Logs.     
 
@@ -27,7 +27,7 @@ The new Log Analytics is currently in preview and available to a limited number 
 
 To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
 
-When you switch from simple to advanced mode, the query editor populates the query for the work you did in simple mode. You can then edit and continue working with the query.
+When you begin to query logs in simple mode and then switch to advanced mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
 
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
