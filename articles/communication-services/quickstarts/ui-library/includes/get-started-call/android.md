@@ -539,6 +539,42 @@ callComposite.addOnCallStateChangedEventHandler(callStateChangedEvent -> {
 ```
 
 ---
+### Dismiss CallComposite and subscribe to dismissed event
+
+To receive dismiss, call `addOnDismissedEventHandler` with `CallComposite`.
+
+The following example shows an event for a call state changed.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+callComposite.addOnDismissedEventHandler { callCompositeDismissedEvent ->
+    println(callCompositeDismissedEvent.errorCode)
+}
+```
+
+#### [Java](#tab/java)
+
+```java
+callComposite.addOnDismissedEventHandler(callCompositeDismissedEvent -> {
+    System.out.println(callCompositeDismissedEvent.getErrorCode());
+});
+```
+To dismiss CallComposite, call `dismiss`.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+callComposite.dismiss()
+```
+
+#### [Java](#tab/java)
+
+```java
+callComposite.dismiss();
+```
+
+---
 ### More features
 
 The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information about more features.
