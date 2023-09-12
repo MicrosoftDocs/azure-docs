@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 03/03/2022
 ms.topic: article
-ms.service: storage
+ms.service: azure-blob-storage
 ms.reviewer: sadodd
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet

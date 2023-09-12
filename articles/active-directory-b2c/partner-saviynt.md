@@ -118,7 +118,7 @@ Learn more: [Application and service principal objects in Azure AD](../active-di
 
 1. Install the latest version of Microsoft Graph PowerShell Module on a Windows workstation or server.
 
-For more information, see [Microsoft Graph PowerShell documentation](/powershell/microsoftgraph).
+For more information, see [Microsoft Graph PowerShell documentation](/powershell/microsoftgraph/).
 
 2. Connect to the PowerShell module and execute the following commands:
 
