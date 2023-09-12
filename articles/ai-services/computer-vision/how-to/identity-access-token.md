@@ -6,8 +6,8 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: how-to
 ms.date: 05/11/2023
 ms.author: pafarley
