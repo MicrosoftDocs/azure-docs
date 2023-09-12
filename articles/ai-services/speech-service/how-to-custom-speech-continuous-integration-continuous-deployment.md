@@ -5,8 +5,7 @@ description: Apply DevOps with Custom Speech and CI/CD workflows. Implement an e
 services: cognitive-services
 author: nitinme
 manager: cmayomsft
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 05/08/2022
 ms.author: nitinme
