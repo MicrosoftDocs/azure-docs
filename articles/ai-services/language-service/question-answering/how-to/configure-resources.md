@@ -1,8 +1,7 @@
 ---
 title: Configure Question Answering service
 description: This document outlines advanced configurations for custom question answering enabled resources.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback
