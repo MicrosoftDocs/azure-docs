@@ -69,7 +69,7 @@ The ASN that Azure Route Server uses is 65515. Make sure you configure a differe
 
 ### Why is the Equal-Cost Multi-Path (ECMP) function of my ExpressRoute turned off after I deploy Azure Route Server to the virtual network?
 
-When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your on-premises network. However, after the route server is deployed, the multiple-path information is lost in the BGP exchange between ExpressRoute and Azure Route Server, and consequently traffic from Azure will traverse only on one of the ExpressRoute connections. This limitation will be lifted in the future release of Azure Route Server.  
+When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your on-premises network. However, after the route server is deployed, the multiple-path information is lost in the BGP exchange between ExpressRoute and Azure Route Server, and consequently traffic from Azure will traverse only on one of the ExpressRoute connections.
 
 ## Next steps
 
