@@ -613,7 +613,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     });
     ```
 
-1. Use <xref:@azure/cosmos.Databases.createIfNotExists> and <xref:@azure/cosmos.Containers.createIfNotExists> to create a database and container.
+1. Use [Databases.createIfNotExists](xref:@azure/cosmos.Databases.createIfNotExists) and <xref:@azure/cosmos.Containers.createIfNotExists> to create a database and container.
 
     ```javascript
     const { database } = await cosmosClient.databases.createIfNotExists({ 
