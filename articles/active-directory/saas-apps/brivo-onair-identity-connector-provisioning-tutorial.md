@@ -112,7 +112,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Brivo Onair Identity Connector**.
 
-    ![Brivo Onair Identity Connector User Mappings](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png )
+    ![Brivo Onair Identity Connector User Mappings](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Brivo Onair Identity Connector in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Brivo Onair Identity Connector for update operations. Select the **Save** button to commit any changes.
 
