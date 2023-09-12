@@ -31,7 +31,8 @@ The following tutorial notebook shows an example of training machine learning mo
     :::image type="content" source="./media/use-machine-learning-notebook-on-spark/jupyter-notebook.png" alt-text="Screenshot showing Jupyter Notebook.":::
 
 1. Import Spark MLlib Libraries to create the pipeline
-    ```>>import pyspark
+    ```
+    import pyspark
     from pyspark.ml import Pipeline, PipelineModel
     from pyspark.ml.classification import LogisticRegression
     from pyspark.ml.feature import VectorAssembler, StringIndexer, IndexToString
@@ -41,15 +42,15 @@ The following tutorial notebook shows an example of training machine learning mo
 
 1. Read the CSV into a Spark dataframe
 
-    `>>df = spark.read.("abfss:///iris_csv.csv",inferSchema=True,header=True)`
+    `df = spark.read.("abfss:///iris_csv.csv",inferSchema=True,header=True)`
 1. Split the data for training and testing
 
-    `>>iris_train, iris_test = df.randomSplit([0.7, 0.3], seed=123)`
+    `iris_train, iris_test = df.randomSplit([0.7, 0.3], seed=123)`
 
 1. Create the pipeline and train the model
 
     ```
-    >>assembler = VectorAssembler(inputCols=['sepallength', 'sepalwidth', 'petallength', 'petalwidth'],outputCol="features",handleInvalid="skip")
+    assembler = VectorAssembler(inputCols=['sepallength', 'sepalwidth', 'petallength', 'petalwidth'],outputCol="features",handleInvalid="skip")
     indexer = StringIndexer(inputCol="class", outputCol="classIndex", handleInvalid="skip")
     classifier = LogisticRegression(featuresCol="features",
                                     labelCol="classIndex",
@@ -60,8 +61,12 @@ The following tutorial notebook shows an example of training machine learning mo
     model = pipeline.fit(iris_train)
     
     # Create a test `dataframe` with predictions from the trained model
+
+    test_model = model.transform(iris_test)
+
+    # Taking an output from the test dataframe with predictions
     
-    >>test_model.take(1)
+    test_model.take(1)
     ```
 
     :::image type="content" source="./media/use-machine-learning-notebook-on-spark/test-model.png" alt-text="Screenshot showing how to run the test model.":::
@@ -69,10 +74,10 @@ The following tutorial notebook shows an example of training machine learning mo
 1. Evaluate the model accuracy
 
     ```
-    >>import pyspark.ml.evaluation as ev
+    import pyspark.ml.evaluation as ev
     evaluator = ev.MulticlassClassificationEvaluator(labelCol='classIndex')
 
-    >>print(evaluator.evaluate(test_model,{evaluator.metricName: 'accuracy'}))
+    print(evaluator.evaluate(test_model,{evaluator.metricName: 'accuracy'}))
     ```
     :::image type="content" source="./media/use-machine-learning-notebook-on-spark/print-output.png" alt-text="Screenshot showing how to print output.":::
 

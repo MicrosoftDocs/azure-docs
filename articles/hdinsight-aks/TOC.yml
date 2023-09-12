@@ -1,8 +1,13 @@
 items:
 - name: Azure HDInsight on AKS documentation
   href: index.yml
-- name: What is HDInsight on AKS?
-  href: overview.md
+  items:
+- name: Overview
+  items:
+  - name: What is HDInsight on AKS?
+    href: overview.md
+  - name: Whats new on HDInsight on AKS?
+    href: whats-new.md  
 - name: Quickstarts
   items:
   - name: Subscription prerequisites

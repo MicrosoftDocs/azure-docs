@@ -320,5 +320,5 @@ Use the following steps in the Azure portal to remove AKS.
 
 ## Next steps
 
-- [AKS troubleshooting documentation](https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes).
+- [AKS troubleshooting documentation](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes).
  
