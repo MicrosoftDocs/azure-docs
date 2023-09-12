@@ -105,11 +105,11 @@ MaxNetworkInterfaces                         8
 
 See the list of [OS versions supported with Trusted Launch](trusted-launch.md#operating-systems-supported),
 
-#### Marketplace OS Image
+**Marketplace OS Image**
 
 The following commands can be used to check if a Marketplace OS image supports Trusted Launch.
 
-##### [CLI](#tab/cli)
+#### [CLI](#tab/cli)
 
 ```azurecli
 az vm image show --urn "MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest"
@@ -164,13 +164,67 @@ The response is similar to the following form. **hyperVGeneration** `v2` and **S
 }
 ```
 
+#### [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Get-AzVMImage -Skus 22_04-lts-gen2 -PublisherName Canonical -Offer 0001-com-ubuntu-server-jammy -Location westus3 -Version latest
+```
+
+The response of above command can be used with [Virtual Machines - Get API](/rest/api/compute/virtual-machine-images/get). The response is similar to the following form. **hyperVGeneration** `v2` and **SecurityType** contains `TrustedLaunch` in the output indicates that the Generation 2 OS Image supports Trusted Launch.
+
+```json
+{
+    "properties": {
+        "hyperVGeneration": "V2",
+        "architecture": "x64",
+        "replicaType": "Managed",
+        "replicaCount": 10,
+        "disallowed": {
+            "vmDiskType": "Unmanaged"
+        },
+        "automaticOSUpgradeProperties": {
+            "automaticOSUpgradeSupported": false
+        },
+        "imageDeprecationStatus": {
+            "imageState": "Active"
+        },
+        "features": [
+            {
+                "name": "SecurityType",
+                "value": "TrustedLaunchSupported"
+            },
+            {
+                "name": "IsAcceleratedNetworkSupported",
+                "value": "True"
+            },
+            {
+                "name": "DiskControllerTypes",
+                "value": "SCSI, NVMe"
+            },
+            {
+                "name": "IsHibernateSupported",
+                "value": "True"
+            }
+        ],
+        "osDiskImage": {
+            "operatingSystem": "Linux",
+            "sizeInGb": 30
+        },
+        "dataDiskImages": []
+    },
+    "location": "WestUS3",
+    "name": "22.04.202309080",
+    "id": "/Subscriptions/00000000-0000-0000-0000-000000000000/Providers/Microsoft.Compute/Locations/WestUS3/Publishers/Canonical/ArtifactTypes/VMImage/Offers/0001-com-ubuntu-server-jammy/Skus/22_04-lts-gen2/Versions/22.04.202309080"
+}
+```
+
 ---
 
-#### Azure Compute Gallery OS Image
+**Azure Compute Gallery OS Image**
 
 The following commands can be used to check if a [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images) OS image supports Trusted Launch.
 
-##### [CLI](#tab/cli)
+#### [CLI](#tab/cli)
 
 ```azurecli
 az sig image-definition show `
@@ -218,7 +272,7 @@ The response is similar to the following form. **hyperVGeneration** `v2` and **S
 }
 ```
 
-##### [PowerShell](#tab/PowerShell)
+#### [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 Get-AzGalleryImageDefinition -ResourceGroupName myImageGalleryRg `
