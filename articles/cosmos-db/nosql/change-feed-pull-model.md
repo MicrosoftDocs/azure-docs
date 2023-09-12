@@ -303,7 +303,6 @@ Machine 2:
 To process the change feed by using the pull model, create an instance of `ChangeFeedPullModelIterator`. When you initially create `ChangeFeedPullModelIterator`, you must specify a required `changeFeedStartFrom` value inside the `ChangeFeedIteratorOptions` which consists of both the starting position for reading changes and the resource(a partition key or a FeedRange) for which changes are to be fetched.
 > [!NOTE]
 > If no `changeFeedStartFrom` value is specified, then changefeed will be fetched for an entire container from Now().
-
 > Currently, only [latest version](change-feed-modes.md#latest-version-change-feed-mode) is supported by JS SDK and is selected by default.
 
 You can optionally use `maxItemCount` in `ChangeFeedIteratorOptions` to set the maximum number of items received per page.
