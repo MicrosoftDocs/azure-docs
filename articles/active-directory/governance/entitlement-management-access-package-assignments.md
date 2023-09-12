@@ -70,7 +70,7 @@ You can perform this query in PowerShell with the `Get-MgEntitlementManagementAs
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayName eq 'Marketing Campaign'"
-$assignments = Get-MgEntitlementManagementAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target -All -ErrorAction Stop
+$assignments = @(Get-MgEntitlementManagementAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target -All -ErrorAction Stop)
 $assignments | ft Id,state,{$_.Target.id},{$_.Target.displayName}
 ```
 
@@ -181,7 +181,7 @@ For example, if you want to ensure all the users who are currently members of a 
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
-$members = Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15" -All
+$members = @(Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15" -All)
 
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty "assignmentPolicies"
 $policy = $accesspackage.AssignmentPolicies[0]
