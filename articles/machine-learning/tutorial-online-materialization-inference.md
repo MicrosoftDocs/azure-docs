@@ -103,7 +103,7 @@ This tutorial uses Azure Cache for Redis as the online materialization store. Yo
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=redis-settings)]
 
-1. You can create a new Redis instance. You would select the Redis cache tier (basic, standard, premium, or enterprise). Choose an SKU family available for the cache tier you select. For more information about tiers and cache performance, see [this resource](../azure-cache-for-redis/azure-cache-for-redis/cache-best-practices-performance.md). For more information about SKU tiers and Azure cache families, see [this resource](https://azure.microsoft.com/pricing/details/cache/).
+1. You can create a new Redis instance. You would select the Redis cache tier (basic, standard, premium, or enterprise). Choose an SKU family available for the cache tier you select. For more information about tiers and cache performance, see [this resource](../azure-cache-for-redis/cache-best-practices-performance.md). For more information about SKU tiers and Azure cache families, see [this resource](https://azure.microsoft.com/pricing/details/cache/).
 
 Execute this code cell to create an Azure Cache for Redis with premium tier, SKU family `P`, and cache capacity 2. It may take from five to 10 minutes to prepare the Redis instance.
 
