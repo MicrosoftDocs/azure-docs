@@ -193,6 +193,8 @@
         items:
         - name: B-series V1
           href: sizes-b-series-burstable.md
+        - name: B-series CPU Credit Model
+          href: ./b-series-cpu-credit-model/b-series-cpu-creditmodel.md
         - name: Bsv2-series 
           href: bsv2-series.md 
         - name: Basv2-series  
