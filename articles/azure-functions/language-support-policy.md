@@ -62,12 +62,14 @@ This historical table shows the highest language level for specific Azure Functi
 
 |Language                                 |2.x | 3.x | 
 |-----------------------------------------|---| --- | 
-|[C#](functions-dotnet-class-library.md)|GA (.NET Core 2.1)| GA (.NET Core 3.1)<br/> | 
+|[C#](functions-dotnet-class-library.md)|GA (.NET Core 2.1)| GA (.NET Core 3.1 & .NET 5<sup>*</sup>) | 
 |[JavaScript/TypeScript](functions-reference-node.md?tabs=javascript)|GA (Node.js 10 & 8)| GA (Node.js 14, 12, & 10) | 
 |[Java](functions-reference-java.md)|GA (Java 8)| GA (Java 11 & 8)| 
 |[PowerShell](functions-reference-powershell.md) |N/A|N/A| 
 |[Python](functions-reference-python.md#python-version)|GA (Python 3.7)| GA (Python 3.9, 3.8, 3.7)| 
 |[TypeScript](functions-reference-node.md?tabs=typescript) |GA| GA | 
+
+<sup>*</sup>.NET 5 was only supported for C# apps running in the [isolated worker model](dotnet-isolated-process-guide.md). 
 
 For the language levels currently supported by Azure Functions, see [Languages by runtime version](supported-languages.md#languages-by-runtime-version). 
 

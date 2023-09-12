@@ -124,7 +124,7 @@ You can make the following updates to function apps to locally change the target
 
 ### Visual Studio runtime versions
 
-In Visual Studio, you select the runtime version when you create a project. Azure Functions tools for Visual Studio supports the three major runtime versions. The correct version is used when debugging and publishing based on project settings. The version settings are defined in the `.csproj` file in the following properties:
+In Visual Studio, you select the runtime version when you create a project. Azure Functions tools for Visual Studio supports the two major runtime versions. The correct version is used when debugging and publishing based on project settings. The version settings are defined in the `.csproj` file in the following properties:
 
 # [Version 4.x](#tab/v4)
 
@@ -138,14 +138,6 @@ You can also choose `net6.0`, `net7.0`, `net8.0`, or `net48` as the target frame
 > [!NOTE]
 > Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.
 
-# [Version 3.x](#tab/v3)
-
-Reached the end of life (EOL) on December 13, 2022. We highly recommend you [migrating your apps to version 4.x](migrate-version-3-version-4.md) for full support.
-
-# [Version 2.x](#tab/v2)
-
-Reached the end of life (EOL) on December 13, 2022. We highly recommend you [migrating your apps to version 4.x](migrate-version-3-version-4.md) for full support.
-
 # [Version 1.x](#tab/v1)
 
 ```xml
@@ -154,7 +146,7 @@ Reached the end of life (EOL) on December 13, 2022. We highly recommend you [mig
 ```
 ---
 
-### VS Code and Azure Functions Core Tools
+### Visual Studio Code and Azure Functions Core Tools
 
 [Azure Functions Core Tools](functions-run-local.md) is used for command-line development and also by the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. For more information, see [Install the Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 

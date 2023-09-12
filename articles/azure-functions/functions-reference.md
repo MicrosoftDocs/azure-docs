@@ -335,11 +335,32 @@ If you're configuring `AzureWebJobsStorage` using a storage account that uses th
 The code for Azure Functions is open source, and you can find key components in these GitHub repositories:
 
 * [Azure Functions](https://github.com/Azure/Azure-Functions)
+
 * [Azure Functions host](https://github.com/Azure/azure-functions-host/)
+
 * [Azure Functions portal](https://github.com/azure/azure-functions-ux)
+
 * [Azure Functions templates](https://github.com/azure/azure-functions-templates)
+
 * [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
+
 * [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+::: zone pivot="programming-language-csharp"
+* [Azure Functons .NET worker (isolated process)](https://github.com/Azure/azure-functions-dotnet-worker)
+::: zone-end
+::: zone pivot="programming-language-java"
+* [Azure Functions Java worker](https://github.com/Azure/azure-functions-java-worker)
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+* [Azure Functions Node.js Programming Model](https://github.com/Azure/azure-functions-nodejs-library)
+::: zone-end
+::: zone pivot="programming-language-powershell"
+* [Azure Functions PowerShell worker](https://github.com/Azure/azure-functions-powershell-worker)
+::: zone-end
+::: zone pivot="programming-language-python"
+* [Azure Functions Python worker](https://github.com/Azure/azure-functions-python-worker)
+::: zone-end
+
 
 ## Next steps
 
