@@ -119,7 +119,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ---
 
 > [!NOTE]
-> In order to use snapshots as shown in the code samples, snapshots must be created using the default composition type `Key`.
+> Only snapshots created with composition type `Key` can be loaded using the code samples shown above.
 
 ## Manage active snapshots
 
