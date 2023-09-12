@@ -176,7 +176,7 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 > [!NOTE]
 > The `Override template parameters` is not applicable for ARM --v2 builds since parameters are passed as objects. To address this, it's recommended to include a PowerShell script in your pipeline to read the parameter file as JSON and make the necessary parameter modifications.
 >
-> For more guidance on adding the PowerShell script, please refer to [ConvertFrom-Json](https://learn.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) and [Update Object in JSON file](https://stackoverflow.com/questions/65753594/update-object-in-json-file-using-powershell).
+> For more guidance on adding the PowerShell script, please refer to [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) and [Update Object in JSON file](https://stackoverflow.com/questions/65753594/update-object-in-json-file-using-powershell).
 
 1. From the tasks dropdown, select **Deploy job to test environment**.
 
