@@ -309,7 +309,7 @@ Assume these key-values are selected from Azure App Configuration:
 
 #### [default](#tab/default)
 
-Use the following sample `AzureAppConfigurationProvider` with `configMapData.type` property absent or set to `default`.
+`configMapData.type` property absent or set to `default`.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -347,7 +347,7 @@ data:
 
 #### [json](#tab/json)
 
-Use the following sample `AzureAppConfigurationProvider` with `configMapData.type` property set to `json`.
+Set `configMapData.type` property to `json`.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -373,7 +373,7 @@ data:
 
 #### [yaml](#tab/yaml)
 
-Use the following sample `AzureAppConfigurationProvider` with `configMapData.type` property set to `yaml`.
+Set `configMapData.type` property to `yaml`.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -401,7 +401,7 @@ data:
 
 #### [properties](#tab/properties)
 
-Use the following sample `AzureAppConfigurationProvider` with `configMapData.type` property set to `properties`.
+Set `configMapData.type` property to `properties`.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
