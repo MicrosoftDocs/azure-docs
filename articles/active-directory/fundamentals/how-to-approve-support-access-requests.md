@@ -10,9 +10,7 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 08/10/2023
-ms.collection: M365-identity-device-management
-
+ms.date: 09/12/2023
 ---
 # Approving Microsoft Support access requests (preview)
 
@@ -44,7 +42,9 @@ This cross-tenant scenario is the primary scenario where a support access reques
 
 When you have a pending support access request, you can view and approve that request from a couple places.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) and navigate to **Diagnose and solve problems**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Service Support Administrator](../roles/permissions-reference.md#service-support-administrator).
+
+1. Browse to **Learn & support** > **Diagnose and solve problems**.
 
 1. Select the link from the banner message at the top of the page.
 

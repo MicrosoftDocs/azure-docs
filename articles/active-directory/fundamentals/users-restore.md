@@ -12,8 +12,6 @@ ms.topic: how-to
 ms.date: 11/07/2022
 ms.author: barclayn 
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
-ms.collection: M365-identity-device-management
 ---
 
 # Restore or remove a recently deleted user using Azure Active Directory
@@ -29,13 +27,13 @@ You can view your restorable users, restore a deleted user, or permanently delet
 
 You must have one of the following roles to restore and permanently delete users.
 
-- Global administrator
+- Global Administrator
 
 - Partner Tier1 Support
 
 - Partner Tier2 Support
 
-- User administrator
+- User Administrator
 
 ## View your restorable users
 
@@ -45,7 +43,7 @@ You can see all the users that were deleted less than 30 days ago. These users c
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select **Deleted users**.
 

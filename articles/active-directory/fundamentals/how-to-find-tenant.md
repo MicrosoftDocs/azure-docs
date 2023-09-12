@@ -9,13 +9,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 09/12/2023
 ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
-
 # How to find your Azure Active Directory tenant ID
 
 Azure subscriptions have a trust relationship with Azure Active Directory (Azure AD). Azure AD is trusted to authenticate the subscription's users, services, and devices. Each subscription has a tenant ID associated with it, and there are a few ways you can find the tenant ID for your subscription.
@@ -24,9 +22,9 @@ Azure subscriptions have a trust relationship with Azure Active Directory (Azure
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
  
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Overview**.
 
 1. Select **Properties**.
 

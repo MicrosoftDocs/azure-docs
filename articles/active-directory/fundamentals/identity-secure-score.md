@@ -6,16 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/23/2023
+ms.date: 09/12/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: guptashi
-
-#Customer intent: As an IT admin, I want understand the identity secure score, so that I can maximize the security posture of my tenant.
-
-ms.collection: M365-identity-device-management
 ---
 # What is identity secure score?
 
@@ -43,7 +39,10 @@ By following the improvement actions, you can:
 
 ## How do I get my secure score?
 
-Identity secure score is available to free and paid customers. Organizations can access their identity secure score in the [Microsoft Entra admin center](https://entra.microsoft.com/) under **Protection** > **Identity Secure Score**.
+Identity secure score is available to free and paid customers. 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Protection** > **Identity Secure Score**.
 
 ## How does it work?
 
@@ -87,7 +86,7 @@ With read-only access, you aren't able to edit status for an improvement action.
 
 * Helpdesk Administrator
 * User Administrator
-* Service support Administrator
+* Service Support Administrator
 * Security Reader
 * Security Operator
 * Global Reader

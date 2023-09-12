@@ -14,9 +14,6 @@ ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: barclayn
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
-
-ms.collection: M365-identity-device-management
 ---
 # Reset a user's password using Azure Active Directory
 
@@ -34,7 +31,7 @@ Azure Active Directory (Azure AD) administrators can reset a user's password if 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user administrator, or password administrator. For more information about the available roles, see [Azure AD built-in roles](../roles/permissions-reference.md)
+1. Sign in to the [Azure portal](https://portal.azure.com) as a User Administrator, or Password Administrator. For more information about the available roles, see [Azure AD built-in roles](../roles/permissions-reference.md)
 
 2. Select **Azure Active Directory**, select **Users**, search for and select the user that needs the reset, and then select **Reset Password**.
 
