@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure p
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 09/12/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -100,6 +100,9 @@ $VolumeName = "<VolumeName>"
 $Location   = "<Location>"
 $Zone       = <Zone>
 
+# Connect to Azure
+Connect-AzAccount
+
 # Create the SAN.
 New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS
 ```
@@ -142,6 +145,10 @@ VolumeName="<VolumeName>"
 Location="<Location>"
 Zone=<Zone>
 
+# Connect to Azure
+az login
+
+# Create an Elastic SAN
 az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}" --availability-zones $Zone
 ```
 
