@@ -18,6 +18,8 @@ A common use case for the emulator is to serve as a development database while y
 
 ## Prerequisites
 
+- [.NET 6 or later](https://dotnet.microsoft.com/download), [Node.js LTS](https://nodejs.org/en/download/), or [Python 3.7 or later](https://www.python.org/downloads/)
+  - Ensure that all required executables are available in your `PATH`.
 - **Windows emulator**
   - 64-bit Windows Server 2016, 2019, Windows 10, or Windows 11.
   - Minimum hardware requirements:
@@ -228,31 +230,32 @@ The Docker container variant of the emulator doesn't support the API for Table.
     ```bash
     docker run \
         --publish 8081:8081 \
-        --publish 10251-10254:10251-10254 \
+        --publish 10250-10255:10250-10255 \
         --interactive \
         --tty \
         mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest    
     ```
 
+1. Navigate to `https://localhost:8081/_explorer/index.html` to access the data explorer.
+
 ### [Docker (Windows container)](#tab/docker-windows)
 
-1. Run a new container using the container image and the following configuration:
+1. Create a new directory for the bind mount
 
-    | | Description |
-    | --- | --- |
-    | **`AZURE_COSMOS_EMULATOR_PARTITION_COUNT` *(Optional)*** | *Specify the number of partitions to use.* |
-    | **`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE` *(Optional)*** | *Enable data persistence between emulator runs.* |
-    | **`AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE` *(Optional)*** | *Override the emulator's default IP address.* |
+1. Run a new container using the container image.
 
     ```powershell
     $parameters = @(
-        '--publish 8081:8081'
-        '--publish 10251-10254:10251-10254'
-        '--interactive'
-        '--tty'
+        "--publish", "8081:8081"
+        "--publish", "10250-10255:10250-10255"
+        "--memory", "2GB"
+        "--interactive"
+        "--tty"
     )
     docker run @parameters mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     ```
+
+1. Navigate to `https://localhost:8081/_explorer/index.html` to access the data explorer.
 
 ### [Windows (local)](#tab/windows)
 
@@ -301,6 +304,8 @@ The Docker container variant of the emulator doesn't support the API for Table.
         --tty \
         mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
     ```
+
+1. Navigate to `https://localhost:8081/_explorer/index.html` to access the data explorer.
 
 ### [Docker (Windows container)](#tab/docker-windows)
 
@@ -368,20 +373,22 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
 
-The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container. Use `curl` to download the certificate from the running container to your local machine.
+The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container.
 
-```bash
-curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
-```
+1. Use `curl` to download the certificate from the running container to your local machine.
 
-> [!NOTE]
-> You may need to change the host (or IP address) and port number if you have previously modified those values.
+    ```bash
+    curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+    ```
 
-Install the certificate according to the process typically used for your operating system. For example, in Linux you would copy the certificate to the  `/usr/local/share/ca-certificats/` path.
+    > [!NOTE]
+    > You may need to change the host (or IP address) and port number if you have previously modified those values.
 
-```bash
-cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
-```
+1. Install the certificate according to the process typically used for your operating system. For example, in Linux you would copy the certificate to the  `/usr/local/share/ca-certificats/` path.
+
+    ```bash
+    cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
+    ```
 
 ### [Windows (local)](#tab/windows)
 
@@ -399,57 +406,255 @@ Each SDK includes a client class typically used to connect the SDK to your Azure
 
 ### [C#](#tab/csharp)
 
-TODO
+Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to interact with an account from a .NET application.
 
-1. TODO
+1. Start in an empty folder
+
+1. Create a new .NET console application
 
     ```bash
-    
+    dotnet new console
     ```
 
-1. TODO
+1. Add the [`Microsoft.Azure.Cosmos`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) package from NuGet.
 
-1. TODO
+    ```bash
+    dotnet add package Microsoft.Azure.Cosmos
+    ```
+
+1. Build your .NET project
+
+    ```bash
+    dotnet build
+    ```
+
+1. Open the **Program.cs** file.
+
+1. Delete any existing content within the file.
+
+1. Add a using block for the `Microsoft.Azure.Cosmos` namespace. Then, create a new instance of <xref:Microsoft.Azure.Cosmos.CosmosClient> using the emulator's credentials.
 
     ```csharp
+    using Microsoft.Azure.Cosmos;
     
+    using CosmosClient client = new(
+        accountEndpoint: "https://localhost:8081/",
+        authKeyOrResourceToken: "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+    );
     ```
+
+1. Create a new database and container using <xref:Microsoft.Azure.Cosmos.CosmosClient.CreateDatabaseIfNotExistsAsync%2A> and <xref:Microsoft.Azure.Cosmos.Database.CreateContainerIfNotExistsAsync%2A>.
+
+    ```csharp
+    Database database = await client.CreateDatabaseIfNotExistsAsync(
+        id: "cosmicworks",
+        throughput: 400
+    );
+    
+    Container container = await database.CreateContainerIfNotExistsAsync(
+        id: "products",
+        partitionKeyPath: "/id"
+    );
+    ```
+
+1. Create a new item in the container using <xref:Microsoft.Azure.Cosmos.Container.UpsertItemAsync%2A>.
+
+    ```csharp
+    var item = new
+    {
+        id = "68719518371",
+        name = "Kiama classic surfboard"
+    };
+    
+    await container.UpsertItemAsync(item);
+    ```
+
+1. Run the .NET application.
+
+    ```bash
+    dotnet run
+    ```
+
+    > [!WARNING]
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the `CosmosClient` class to disable TLS/SSL validation:
+    >
+    > ```csharp
+    > CosmosClientOptions options = new ()
+    > {
+    >     HttpClientFactory = () => new HttpClient(new HttpClientHandler()
+    >     {
+    >         ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+    >     }),
+    >     ConnectionMode = ConnectionMode.Gateway
+    > };
+    > 
+    > using CosmosClient client = new(
+    >     accountEndpoint: "https://localhost:8081/",
+    >     authKeyOrResourceToken: "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+    >     clientOptions: options
+    > );
+    > ```
+    >
+
+> [!TIP]
+> Refer to the [.NET developer guide](nosql/how-to-dotnet-get-started.md) for more operations you can perform using the .NET SDK.
 
 ### [Python](#tab/python)
 
-TODO
+Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) to interact with an account from a Python application.
 
-1. TODO
+1. Import the [`azure-cosmos`](https://pypi.org/project/azure-cosmos/) package from the Python Package Index.
 
     ```bash
-    
+    pip install azure-cosmos
     ```
 
-1. TODO
+1. Create the **app.py** file.
 
-1. TODO
+1. Import the `os` and `json` modules. Then, import `CosmosClient` and `PartitionKey` from the `azure.cosmos` module.
 
     ```python
+    import os
+    import json
     
+    from azure.cosmos import CosmosClient, PartitionKey
     ```
+
+1. Create a new <xref:azure.cosmos.CosmosClient> using the emulator's credentials.
+
+    ```python
+    client = CosmosClient(
+        url="<https://localhost:8081>",
+        credential="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+    )
+    ```
+
+1. Create a new database and container using <xref:azure.cosmos.CosmosClient.create_database_if_not_exists> and <xref:azure.cosmos.DatabaseProxy.create_container_if_not_exists>.
+
+    ```python
+    database = client.create_database_if_not_exists(
+        id="cosmicworks",
+        offer_throughput=400,
+    )
+
+    container = database.create_container_if_not_exists(
+        id="products",
+        partition_key=PartitionKey(
+            path="/id",
+        ),
+    )
+    ```
+
+1. Use <xref:azure.cosmos.ContainerProxy.upsert_item> to create a new item in the container.
+
+    ```python
+    item = {
+        "id": "68719518371",
+        "name": "Kiama classic surfboard"
+    }
+
+    container.upsert_item(item)
+    ```
+
+1. Run the Python application.
+
+    ```bash
+    python app.py
+    ```
+
+    > [!WARNING]
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the `CosmosClient` class to disable TLS/SSL validation:
+    >
+    > ```python
+    > import urllib3
+    >
+    > urllib3.disable_warnings()
+    > client = CosmosClient(
+    >     url="https://localhost:8081",
+    >     credential="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+    > )
+    > ```
+    >
 
 ### [Node.js](#tab/nodejs)
 
-TODO
+Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) to interact with an account from a Node.js/JavaScript application.
 
-1. TODO
+1. Initialize a new module.
 
     ```bash
-    
+    npm init es6 --yes
     ```
 
-1. TODO
+1. Install the [`@azure/cosmos`](https://www.npmjs.com/package/@azure/cosmos) package from Node Package Manager.
 
-1. TODO
+    ```bash
+    npm install --save @azure/cosmos
+    ```
+
+1. Create the **index.js** file.
+
+1. Import the `CosmosClient` type from the `@azure/cosmos` module.
 
     ```javascript
-    
+    import { CosmosClient } from "@azure/cosmos";
     ```
+
+1. Use <xref:@azure/cosmos.CosmosClient> to create a new client instance using the emulator's credentials.
+
+    ```javascript
+    const cosmosClient = new CosmosClient({
+        endpoint: 'https://localhost:8081/',
+        key: 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=='
+    });
+    ```
+
+1. Use <xref:@azure/cosmos.Databases.createIfNotExists> and <xref:@azure/cosmos.Containers.createIfNotExists> to create a database and container.
+
+    ```javascript
+    const { database } = await cosmosClient.databases.createIfNotExists({ 
+        id: 'cosmicworks',
+        throughput: 400
+    });
+    
+    const { container } = await database.containers.createIfNotExists({
+        id: 'products',
+        partitionKey: {
+            paths: ["/id"]
+        }
+    });
+    ```
+
+1. Upsert a new item using <xref:@azure/cosmos.Items.upsert>.
+
+    ```javascript
+    var item = {
+        "id": "68719518371",
+        "name": "Kiama classic surfboard"
+    };
+    
+    await container.items.upsert(item);
+    ```
+
+1. Run the Node.js application.
+
+    ```bash
+    node index.js
+    ```
+
+    > [!WARNING]
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the `CosmosClient` class to disable TLS/SSL validation:
+    >
+    > ```javascript
+    > process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+    > const cosmosClient = new CosmosClient({
+    >     endpoint: '<https://localhost:8081/>',
+    >     key: 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=='
+    > });
+    > ```
+    >
+
+---
 
 ::: zone-end
 
@@ -509,6 +714,8 @@ TODO
     
     ```
 
+---
+
 ::: zone-end
 
 ::: zone pivot="api-apache-cassandra"  
@@ -566,6 +773,8 @@ TODO
     ```javascript
     
     ```
+
+---
 
 ::: zone-end
 
@@ -625,6 +834,8 @@ TODO
     
     ```
 
+---
+
 ::: zone-end
 
 ::: zone pivot="api-table"  
@@ -683,365 +894,9 @@ TODO
     
     ```
 
-::: zone-end
-
 ---
 
-## Perform operations in the emulator using the SDK
-
-To validate the emulator works, perform a series of operations using the SDK's implementation.
-
-::: zone pivot="api-nosql"  
-
-### [C#](#tab/csharp)
-
-TODO
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-### [Python](#tab/python)
-
-TODO
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-### [Node.js](#tab/nodejs)
-
-TODO
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
 ::: zone-end
-
-::: zone pivot="api-mongodb"  
-
-### [C#](#tab/csharp)
-
-TODO
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-### [Python](#tab/python)
-
-TODO
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-### [Node.js](#tab/nodejs)
-
-TODO
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-::: zone-end
-
-::: zone pivot="api-apache-cassandra"  
-
-### [C#](#tab/csharp)
-
-TODO
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-### [Python](#tab/python)
-
-TODO
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-### [Node.js](#tab/nodejs)
-
-TODO
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-::: zone-end
-
-::: zone pivot="api-apache-gremlin"  
-
-### [C#](#tab/csharp)
-
-TODO
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-### [Python](#tab/python)
-
-TODO
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-### [Node.js](#tab/nodejs)
-
-TODO
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-::: zone-end
-
-::: zone pivot="api-table"  
-
-### [C#](#tab/csharp)
-
-TODO
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-1. TODO
-
-    ```csharp
-    
-    ```
-
-### [Python](#tab/python)
-
-TODO
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-1. TODO
-
-    ```python
-    
-    ```
-
-### [Node.js](#tab/nodejs)
-
-TODO
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-1. TODO
-
-    ```javascript
-    
-    ```
-
-::: zone-end
-
----
 
 ## Use the emulator in a GitHub Actions CI workflow
 
