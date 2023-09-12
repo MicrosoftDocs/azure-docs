@@ -124,32 +124,18 @@ To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM temp
 
 Azure Machine Learning supports model deployment to online endpoints for coders and non-coders alike, by providing options for _no-code deployment_, _low-code deployment_, and _Bring Your Own Container (BYOC) deployment_.
 
-#### No-code model deployment
-
-No-code deployment provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton. 
-
-To learn more about no-code deployment for MLflow models, see [Deploy MLflow models to online endpoints](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints).
-
-#### Low-code model deployment
-
-Low-code deployment allows you to provide minimal code along with your ML model for deployment. 
-
-​To learn more about low-code deployment for ML models, see [Deploy an ML model with an online endpoint](/azure/machine-learning/how-to-deploy-online-endpoints).
-
-#### Bring Your Own Container (BYOC) deployment
-
-BYOC deployment lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​. 
-
-To learn how to deploy with custom containers, see [Use a custom container to deploy a model to an online endpoint](/azure/machine-learning/how-to-deploy-custom-container).
+- **No-code deployment** provides out-of-box inferencing for common frameworks (for example, scikit-learn, TensorFlow, PyTorch, and ONNX) via MLflow and Triton.
+- **Low-code deployment** allows you to provide minimal code along with your ML model for deployment.
+- **BYOC deployment** lets you virtually bring any containers to run your online endpoint. You can use all the Azure Machine Learning platform features such as autoscaling, GitOps, debugging, and safe rollout to manage your MLOps pipelines​.
 
 The following table highlights key aspects about the online deployment options:
 
 |  | No-code | Low-code | BYOC |
 |--|--|--|--|
-| **Summary** | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX via MLflow and Triton. | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks. You provide scoring script and/or Python dependencies. | You provide your complete stack via Azure Machine Learning's support for [custom images](/azure/machine-learning/how-to-deploy-custom-container). |
-| **Custom code** | No | Yes, bring your scoring script. | Yes, bring your scoring script. |
-| **Custom dependencies** | No | Yes, bring an Azure Machine Learning environment in which the model runs: either a Docker image with conda dependencies, or a dockerfile​. | Yes |
-| **Custom base image** | No | No | Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container. |
+| **Summary** | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX, via MLflow and Triton. For more information, see [Deploy MLflow models to online endpoints](how-to-deploy-mlflow-models-online-endpoints.md). | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks, with updates every two weeks to address vulnerabilities. You provide scoring script and/or Python dependencies. For more information, see [Azure Machine Learning Curated Environments](resource-curated-environments.md). | You provide your complete stack via Azure Machine Learning's support for custom images. For more information, see [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md). |
+| **Custom base image** | No, curated environment will provide this for easy deployment. | Yes and No, you can either use curated image or your customized image. | Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container. |
+| **Custom dependencies** | No, curated environment will provide this for easy deployment. | Yes, bring the Azure Machine Learning environment in which the model runs; either a Docker image with Conda dependencies, or a dockerfile​. | Yes, this will be included in the container image. |
+| **Custom code** | No, scoring script will be auto-generated for easy deployment. | Yes, bring your scoring script. | Yes, this will be included in the container image. |
 
 > [!NOTE]
 > AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
