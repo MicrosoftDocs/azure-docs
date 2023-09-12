@@ -295,8 +295,6 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 > [!NOTE]
 > The complete deletion may take approximately 20 minutes.
 
-
-
 ## Next Steps
 
 - [Iterate and optimize your flow by tuning prompts using variants](how-to-tune-prompts-using-variants.md)

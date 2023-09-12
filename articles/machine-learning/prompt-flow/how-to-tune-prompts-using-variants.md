@@ -9,7 +9,7 @@ ms.topic: how-to
 author: ishinzhang
 ms.author: yijunzhang
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 09/12/2023
 ---
 
 # Tune prompts using variants (preview)
@@ -157,7 +157,7 @@ You can submit a batch run, which allows you test the variants with a large amou
 ### Visualize outputs
 
 1. After the batch run and evaluation run complete, in the run detail page, multi-select the batch runs for each variant, then select **Visualize outputs**. You will see the metrics of 3 variants for the **classify_with_llm** node and LLM predicted outputs for each record of data.
-   :::image type="content" source="./media/how-to-tune-prompts-using-variants/visualize_outputs.png" alt-text="Screenshot of visualizing outputs. " lightbox = "./media/how-to-tune-prompts-using-variants/3-2-variants.png":::
+   :::image type="content" source="./media/how-to-tune-prompts-using-variants/visualize-outputs.png" alt-text="Screenshot of runs showing visualize outputs. " lightbox = "./media/how-to-tune-prompts-using-variants/3-2-variants.png":::
 2. After you identify which variant is the best, you can go back to the flow authoring page and set that variant as default variant of the node
 3. You can repeat the above steps to evaluate the variants of **summarize_text_content** node as well.
 

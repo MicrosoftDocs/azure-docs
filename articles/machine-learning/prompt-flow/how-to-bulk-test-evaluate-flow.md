@@ -9,7 +9,7 @@ ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 09/12/2023
 ---
 
 # Submit batch run and evaluate a flow (preview)
