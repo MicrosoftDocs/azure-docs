@@ -85,17 +85,17 @@ sections:
           Absolutely. For more information, see [Adding guest users to a role](./add-users-administrator.md).
           
       - question: |
-          Does Azure AD B2B collaboration allow B2B users to access the Azure portal?
+          Does Azure AD B2B collaboration allow B2B users to access the Microsoft Entra admin center?
         answer: |
-          Unless a user is assigned the role of limited administrator, B2B collaboration users won't require access to the Azure portal. However, B2B collaboration users who are assigned the role of limited administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
+          Unless a user is assigned the role of limited administrator, B2B collaboration users won't require access to the Microsoft Entra admin center. However, B2B collaboration users who are assigned the role of limited administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
 
       - question: |
-          Can I block access to the Azure portal for guest users?
+          Can I block access to the Microsoft Entra admin center for guest users?
         answer: |
-          Yes, you can create a Conditional Access policy that blocks all guest and external users from accessing the Azure portal. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
+          Yes, you can create a Conditional Access policy that blocks all guest and external users from accessing the Microsoft Entra admin center. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
           
-          1. Sign in to the [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
-          2. In the Azure portal, select **Azure Active Directory**. 
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as a security administrator or a Conditional Access administrator.
+          2. In the Microsoft Entra admin center, select **Azure Active Directory**. 
           3. Under **Manage**, select **Security**.
           4. Under **Protect**, select **Conditional Access**. Select **New policy**.
           5. On the **New** page, in the **Name** textbox, enter a name for the policy (for example "Block guests from accessing the portal").
@@ -115,14 +115,14 @@ sections:
       - question: |
           Do you support password reset for Azure AD B2B collaboration users?
         answer: |
-          If your Azure AD tenant is the home directory for a user, you can [reset the user's password](../fundamentals/users-reset-password-azure-portal.md) from the Azure portal. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Azure AD directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
+          If your Azure AD tenant is the home directory for a user, you can [reset the user's password](../fundamentals/users-reset-password-azure-portal.md) from the Microsoft Entra admin center. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Azure AD directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
            
           * Guest users in an Azure AD tenant that are marked "Guest" (UserType==Guest) can't register for SSPR through [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). These type of guest user can only perform SSPR through [https://aka.ms/sspr](https://aka.ms/sspr). 
           * Guest users who sign in with a Microsoft account (for example guestuser@live.com) can reset their own passwords using Microsoft account self-service password reset (SSPR). See [How to reset your Microsoft account password](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
           * Guest users who sign in with a Google account or another external identity provider can reset their own passwords using their identity provider's SSPR method. For example, a guest user with the Google account guestuser@gmail.com can reset their password by following the instructions in [Change or reset your password](https://support.google.com/accounts/answer/41078).
           * If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password. Sometimes an organization will [take over management of viral tenants](../enterprise-users/domains-admin-takeover.md) that are created when employees use their work email addresses to sign up for services. After the organization takes over a viral tenant, only an administrator in that organization can reset the user's password or enable SSPR. If necessary, as the inviting organization, you can remove the guest user account from your directory and resend an invitation.
           
-          * If the guest user's home directory is your Azure AD tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Azure portal.
+          * If the guest user's home directory is your Azure AD tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Microsoft Entra admin center.
           
       - question: |
           Does Microsoft Dynamics 365 provide online support for Azure AD B2B collaboration?

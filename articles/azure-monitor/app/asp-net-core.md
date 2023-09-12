@@ -658,7 +658,7 @@ For more information about custom data reporting in Application Insights, see [A
 
 The default setting for Application Insights is to only capture **Warning** and more severe logs.
 
-Capture **Information** and more severe logs by changing the logging configuration for the Application Insights provider as follows.
+Capture **Information** and less severe logs by changing the logging configuration for the Application Insights provider as follows.
 
 ```json
 {
