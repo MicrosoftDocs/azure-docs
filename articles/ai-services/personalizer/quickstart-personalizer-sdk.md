@@ -4,8 +4,7 @@ description: This quickstart shows you how to create and manage a Personalizer l
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: quickstart
 ms.date: 02/02/2023
 ms.devlang: csharp, javascript, python

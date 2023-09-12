@@ -4,8 +4,7 @@ description: The machine-learned model and learning settings can be exported for
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
 ---

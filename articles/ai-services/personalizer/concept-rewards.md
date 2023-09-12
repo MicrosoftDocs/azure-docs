@@ -4,8 +4,7 @@ description: The reward score indicates how well the personalization choice, Rew
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
 ---

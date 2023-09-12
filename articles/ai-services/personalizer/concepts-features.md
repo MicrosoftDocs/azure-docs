@@ -5,8 +5,7 @@ description: Personalizer uses features, information about actions and context, 
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 12/28/2022
 ---

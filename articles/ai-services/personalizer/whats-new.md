@@ -5,8 +5,7 @@ description: This article contains news about Personalizer.
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: whats-new
 ms.date: 05/28/2021
 ---

@@ -5,8 +5,7 @@ description: Personalizer can return feature scores in each Rank call to provide
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 09/20/2022
 ---

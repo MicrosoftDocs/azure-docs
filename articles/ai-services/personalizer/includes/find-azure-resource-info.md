@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 services: cognitive-services
 author: jcodella
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: include 
 ms.date: 08/25/2019
 ms.author: jacodel

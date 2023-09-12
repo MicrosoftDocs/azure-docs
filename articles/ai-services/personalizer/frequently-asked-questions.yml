@@ -2,8 +2,7 @@
 metadata:
   title: Frequently asked questions - Personalizer
   description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
-  ms.service: cognitive-services
-  ms.subservice: personalizer
+  ms.service: azure-ai-personalizer
   ms.topic: faq
   ms.date: 03/14/2022
   ms.author: jacodel
