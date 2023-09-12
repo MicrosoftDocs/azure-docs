@@ -87,8 +87,10 @@ To configure Google federation by using PowerShell, follow these steps:
 At this point, the Google identity provider has been set up in your Azure AD, but it's not yet available in any of the sign-in pages. To add the Google identity provider to a user flow:
 
 1. In your customer tenant, browse to **Identity** > **External Identities** > **User flows**.
-1. Select the user flow where you want to add the Facebook identity provider.
-1. Under Settings, select **Identity providers**
+1. Select the user flow where you want to add the Google identity provider.
+
+1. Under Settings, select **Identity providers.**
+
 1. Under **Other Identity Providers**, select **Google**.
 
    <!-- ![Screenshot that shows how to add Google identity provider a user flow.](./media/sign-in-with-google/add-google-idp-to-user-flow.png)-->
@@ -99,3 +101,5 @@ At this point, the Google identity provider has been set up in your Azure AD, bu
 
 - [Add Facebook as an identity provider](how-to-facebook-federation-customers.md)
 - [Customize the branding for customer sign-in experiences](how-to-customize-branding-customers.md)
+
+

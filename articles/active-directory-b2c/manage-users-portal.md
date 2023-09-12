@@ -28,7 +28,7 @@ As described in [Overview of user accounts in Azure AD B2C](user-overview.md), t
 * Guest
 * Consumer
 
-This article focuses on working with **consumer accounts** in the Azure portal. For information about creating and deleting Work and Guest accounts, see [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
+This article focuses on working with **consumer accounts** in the Azure portal. For information about creating and deleting Work and Guest accounts, see [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users.md).
 
 ## Create a consumer user
 
@@ -71,7 +71,7 @@ To reset a user's password:
 1. In your Azure AD B2C directory, select **Users**, and then select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../active-directory/fundamentals/active-directory-users-restore.md).
+For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../active-directory/fundamentals/users-restore.md).
 
 
 ## Export consumer users

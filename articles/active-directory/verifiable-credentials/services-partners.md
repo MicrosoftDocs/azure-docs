@@ -12,11 +12,11 @@ ms.author: barclayn
 
 # Entra Verified ID Services and solution partners
 
-Our Services partner network extends and accelerates Microsoft Entra Verified ID adoption. Service partners offer advisory, implementation, integration and managed service capabilities that can help you build seamless end-user experiences using Verified ID.
+Our Services and solutions partner network extends and accelerates Microsoft Entra Verified ID adoption. Service partners offer advisory, implementation, integration and managed service capabilities that can help you build seamless end-user experiences using Verified ID.
 
 ## Services and solution partner list
 
-You could select a partner from the list and build seamless end-user experiences for onboarding, secure access to critical services, self-service and custom business application scenarios. 
+You could select a partner from the list and build seamless end-user experiences for onboarding, secure access to critical services, self-service and custom business application scenarios. If you're a Services or solution Partner and would like to be considered into Entra Verified ID partner documentation, submit your application [request](https://forms.microsoft.com/r/AGVsXmf4EZ)
 
 
 | Services and solution partner | Website |

@@ -5,7 +5,7 @@ description: Manage blobs with Azure CLI
 author: StevenMatthew
 
 ms.author: shaas
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/28/2023
 ms.devlang: azurecli
