@@ -195,11 +195,10 @@ Now that you have our Active Directory environment, you need to a test account. 
 
 Now you need to create an Azure AD tenant so that you can synchronize our users to the cloud.  To create a new Azure AD tenant, do the following.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
-2. Select the **plus icon (+)** and search for **Azure Active Directory**.
-3. Select **Azure Active Directory** in the search results.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and sign in with an account that has your Entra subscription.
+2. Click **Overview**.
+3. Click **Manage tenants**.
 4. Select **Create**.</br>
-![Screenshot that shows the Azure Active Directory page in the Azure portal.](media/tutorial-single-forest/create-1.png)</br>
 5. Provide a **name for the organization** along with the **initial domain name**. Then select **Create**. This will create your directory.
 6. Once this has completed, click the **here** link, to manage the directory.
 

@@ -22,7 +22,7 @@ You can use the cloud sync attribute mapping feature to map attributes between y
 You can customize (change, delete, or create) the default attribute mappings according to your business needs. For a list of attributes that are synchronized, see [Attributes synchronized to Azure Active Directory](../connect/reference-connect-sync-attributes-synchronized.md).
 
 > [!NOTE]
-> This article describes how to use the Azure portal to map attributes.  For information on using Microsoft Graph, see [Transformations](how-to-transformation.md).
+> This article describes how to use the Entra portal to map attributes.  For information on using Microsoft Graph, see [Transformations](how-to-transformation.md).
 
 ## Understand types of attribute mapping
 With attribute mapping, you control how attributes are populated in Azure AD. Azure AD supports four mapping types:
@@ -97,34 +97,30 @@ The following are the attributes supported by an expression mapping:
 
 To use attribute mapping, follow these steps:
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
- 
- :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
 
- 4. Under **Configuration**, select your configuration.
- 5. On the left, select **Attribute mapping**.
- 6. At the top, ensure that you have the correct object type selected.  That is, user, group, or contact.
- 7. Click **Add attribute mapping**.
+[!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 3. Under **Configuration**, select your configuration.
+ 4. On the left, select **Attribute mapping**.
+ 5. At the top, ensure that you have the correct object type selected.  That is, user, group, or contact.
+ 6. Click **Add attribute mapping**.
 
  :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-3.png" alt-text="Screenshot of adding an attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-3.png":::
 
- 8. Select the mapping type. This can be one of the following:
+ 7. Select the mapping type. This can be one of the following:
      - **Direct**: The target attribute is populated with the value of an attribute of the linked object in Active Directory.
      - **Constant**: The target attribute is populated with a specific string that you specify.
      - **Expression**: The target attribute is populated based on the result of a script-like expression. 
      - **None**: The target attribute is left unmodified. 
     
- 9. Depending on what you have selected in the previous step, different options will be available for filling in.  
- 10. Select when to apply this mapping, and then select **Apply**.
+ 8. Depending on what you have selected in the previous step, different options will be available for filling in.  
+ 9. Select when to apply this mapping, and then select **Apply**.
  :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-4.png" alt-text="Screenshot of saving an attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-4.png":::
 
- 11. Back on the **Attribute mappings** screen, you should see your new attribute mapping.
- 12. Select **Save schema**.  You will be notified that once you save the schema, a synchronization will occur.  Click **OK**.
+ 10. Back on the **Attribute mappings** screen, you should see your new attribute mapping.
+ 11. Select **Save schema**.  You will be notified that once you save the schema, a synchronization will occur.  Click **OK**.
  :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-5.png" alt-text="Screenshot of saving schema." lightbox="media/how-to-attribute-mapping/new-ux-mapping-5.png":::
 
- 13. Once the save is successful you will see a notification on the right.
+ 12. Once the save is successful you will see a notification on the right.
 
  :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-6.png" alt-text="Screenshot of successful schema save." lightbox="media/how-to-attribute-mapping/new-ux-mapping-6.png":::
 
@@ -132,16 +128,14 @@ To use attribute mapping, follow these steps:
 
 To test your attribute mapping, you can use [on-demand provisioning](how-to-on-demand-provision.md): 
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
- 4. Under **Configuration**, select your configuration.
- 5. On the left, select **Provision on demand**.
- 6. Enter the distinguished name of a user and select the **Provision** button.
+[!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 3. Under **Configuration**, select your configuration.
+ 4. On the left, select **Provision on demand**.
+ 5. Enter the distinguished name of a user and select the **Provision** button.
  
  :::image type="content" source="media/how-to-on-demand-provision/new-ux-2.png" alt-text="Screenshot of user distinguished name." lightbox="media/how-to-on-demand-provision/new-ux-2.png":::    
 
- 7. After provisioning finishes, a success screen appears with four green check marks. Any errors appear to the left.
+ 6. After provisioning finishes, a success screen appears with four green check marks. Any errors appear to the left.
 
  :::image type="content" source="media/how-to-on-demand-provision/new-ux-3.png" alt-text="Screenshot of on-demand success." lightbox="media/how-to-on-demand-provision/new-ux-3.png":::  
 

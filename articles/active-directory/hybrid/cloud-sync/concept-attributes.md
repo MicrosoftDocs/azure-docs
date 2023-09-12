@@ -64,7 +64,7 @@ The following table lists common attributes and how they're synchronized to Azur
 
 ## View the schema
 > [!WARNING]
-> The cloud sync configuration creates a service principal. The service principal is visible in the Azure portal. You should not modify the attribute mappings using the service principal experience in the Azure portal.  This is not supported.
+> The cloud sync configuration creates a service principal. The service principal is visible in the Entra portal. You should not modify the attribute mappings using the service principal experience in the Entra portal.  This is not supported.
 
 To view the schema and verify it, follow these steps.
 

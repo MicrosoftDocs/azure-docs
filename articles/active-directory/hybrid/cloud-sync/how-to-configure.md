@@ -30,23 +30,21 @@ For additional information and an example of how to configure cloud sync, see th
 ## Configure provisioning
 To configure provisioning, follow these steps.
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
  
  :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
  
- 4. Select **New configuration**.
+ 3. Select **New configuration**.
  :::image type="content" source="media/how-to-configure/new-ux-configure-1.png" alt-text="Screenshot of adding a configuration." lightbox="media/how-to-configure/new-ux-configure-1.png":::
- 5. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
+ 4. On the configuration screen, select your domain and whether to enable password hash sync.  Click **Create**.  
  
  :::image type="content" source="media/how-to-configure/new-ux-configure-2.png" alt-text="Screenshot of a new configuration." lightbox="media/how-to-configure/new-ux-configure-2.png":::
 
- 6.  The **Get started** screen will open.  From here, you can continue configuring cloud sync.
+ 5.  The **Get started** screen will open.  From here, you can continue configuring cloud sync.
 
   :::image type="content" source="media/how-to-configure/new-ux-configure-3.png" alt-text="Screenshot of the getting started screen." lightbox="media/how-to-configure/new-ux-configure-3.png":::
 
- 7. The configuration is split in to the following 5 sections.
+ 6. The configuration is split in to the following 5 sections.
 
 |Section|Description|
 |-----|-----|
@@ -151,9 +149,7 @@ Cloud sync monitors the health of your configuration and places unhealthy object
 
 ## Restart provisioning 
 If you don't want to wait for the next scheduled run, trigger the provisioning run by using the **Restart sync** button. 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
  4. Under **Configuration**, select your configuration.
 
  :::image type="content" source="media/how-to-configure/new-ux-configure-14.png" alt-text="Screenshot of restarting sync." lightbox="media/how-to-configure/new-ux-configure-14.png":::
@@ -163,14 +159,12 @@ If you don't want to wait for the next scheduled run, trigger the provisioning r
 ## Remove a configuration
 To delete a configuration, follow these steps.
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
- 4. Under **Configuration**, select your configuration.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 3. Under **Configuration**, select your configuration.
 
  :::image type="content" source="media/how-to-configure/new-ux-configure-15.png" alt-text="Screenshot of deletion." lightbox="media/how-to-configure/new-ux-configure-15.png":::
 
- 5. At the top of the configuration screen, select **Delete configuration**.
+ 4. At the top of the configuration screen, select **Delete configuration**.
 
 >[!IMPORTANT]
 >There's no confirmation prior to deleting a configuration. Make sure this is the action you want to take before you select **Delete**.

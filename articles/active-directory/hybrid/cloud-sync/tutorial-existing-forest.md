@@ -64,33 +64,18 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 Use the following steps to configure provisioning:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory**
-3. Select **Azure AD Connect**
-4. Select **Manage cloud sync**
-
-    ![Screenshot showing "Manage cloud sync" link.](media/how-to-configure/manage-1.png)
-
-5. Select **New Configuration**
-
-    ![Screenshot of Azure AD Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)
-
-6. On the configuration screen, enter a **Notification email**, move the selector to **Enable** and select **Save**.
-
-    ![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/how-to-configure/configure-2.png)
-
-7. The configuration status should now be **Healthy**.
-
-    ![Screenshot of Azure AD Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)
+[!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 3. Select **New Configuration**
+ 4. On the configuration screen, enter a **Notification email**, move the selector to **Enable** and select **Save**.
+ 5. The configuration status should now be **Healthy**.
 
 ## Verify users are created and synchronization is occurring
 
 You'll now verify that the users that you had in our on-premises directory have been synchronized and now exist in our Azure AD tenant.  This process may take a few hours to complete.  To verify users are synchronized, do the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
-2. On the left, select **Azure Active Directory**
-3. Under **Manage**, select **Users**.
-4. Verify that you see the new users in our tenant
+ 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../articles/active-directory/roles/permissions-reference.md#hybrid-identity-administrator).
+ 2. Browse to **Identity** > **Users**.
+ 3. Verify that you see the new users in our tenant
 
 ## Test signing in with one of our users
 
