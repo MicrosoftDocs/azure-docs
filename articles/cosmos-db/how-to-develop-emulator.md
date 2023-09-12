@@ -604,7 +604,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     import { CosmosClient } from "@azure/cosmos";
     ```
 
-1. Use <xref:@azure/cosmos.CosmosClient> to create a new client instance using the emulator's credentials.
+1. Use <xref:&#64;azure/cosmos.CosmosClient> to create a new client instance using the emulator's credentials.
 
     ```javascript
     const cosmosClient = new CosmosClient({
