@@ -42,7 +42,7 @@ items:
     href: ./release-notes/hdinsight-aks-release-notes.md
   - name: Archived release notes
     href: ./release-notes/hdinsight-aks-release-notes-archive.md
-- name: Getting started
+- name: Get started
   items:
   - name: Create a cluster pool and cluster
     href: quickstart-create-cluster.md
