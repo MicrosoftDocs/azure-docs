@@ -107,6 +107,9 @@ That granularity allows you to set access according to your needs, per workspace
 
 Blocking queries from public networks means clients like machines and SDKs outside of the connected AMPLSs can't query data in the resource. That data includes logs, metrics, and the live metrics stream. Blocking queries from public networks affects all experiences that run these queries, such as workbooks, dashboards, insights in the Azure portal, and queries run from outside the Azure portal.
 
+> [!NOTE]
+> There are certain exceptions where these settings do not apply. You can find details in [the following section](#exceptions).
+
 Your [data collection endpoints](../essentials/data-collection-endpoint-overview.md) can be set to accept or block access from public networks (networks not connected to the resource AMPLS).
 
 For configuration information, see [Set resource access flags](./private-link-configure.md#set-resource-access-flags).

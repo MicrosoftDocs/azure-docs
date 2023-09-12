@@ -85,8 +85,6 @@ Before you begin, you must have the following prerequisites:
     metadata:
       annotations:
         azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-      labels:
-        azure.workload.identity/use: "true"
       name: ${SERVICE_ACCOUNT_NAME}
       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
     EOF
@@ -142,6 +140,8 @@ Before you begin, you must have the following prerequisites:
     apiVersion: v1
     metadata:
       name: busybox-secrets-store-inline-wi
+      labels:  
+        azure.workload.identity/use: "true"
     spec:
       serviceAccountName: "workload-identity-sa"
       containers:
