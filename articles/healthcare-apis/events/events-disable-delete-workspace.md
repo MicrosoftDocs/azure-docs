@@ -1,5 +1,5 @@
 ---
-title: How to disable the events and delete Azure Health Data Services workspaces - Azure Health Data Services
+title: How to disable events and delete Azure Health Data Services workspaces - Azure Health Data Services
 description: Learn how to disable events and delete Azure Health Data Services workspaces.
 services: healthcare-apis
 author: msjasteppe
@@ -10,7 +10,7 @@ ms.date: 07/11/2023
 ms.author: jasteppe
 ---
 
-# How to disable the events and delete Azure Health Data Services workspaces
+# How to disable events and delete Azure Health Data Services workspaces
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
