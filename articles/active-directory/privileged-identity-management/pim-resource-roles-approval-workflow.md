@@ -23,8 +23,6 @@ With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), 
 
 Follow the steps in this article to approve or deny requests for Azure resource roles.
 
->[!NOTE]
-> Approval for **extend and renew** requests is currently not supported by the Microsoft Graph API
 
 ## View pending requests
 
