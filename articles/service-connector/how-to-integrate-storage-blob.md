@@ -11,7 +11,7 @@ ms.date: 06/13/2022
 
 # Integrate Azure Blob Storage with Service Connector
 
-This page shows the supported authentication types, client types and sample codes of Azure Blob Storageusing Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. Also detail steps with sample codes about how to make connection to the blob storage. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types, client types and sample codes of Azure Blob Storage using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. Also detail steps with sample codes about how to make connection to the blob storage. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 ## Supported compute service
 
