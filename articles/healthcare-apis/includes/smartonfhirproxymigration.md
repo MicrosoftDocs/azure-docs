@@ -13,7 +13,7 @@ ms.custom: "include file"
 SMART on FHIR proxy will be retiring, transition to the SMART on FHIR (Enhanced) which uses [Azure Health Data and AI OSS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir) by 21st September 2026.
 After 21st September 2026, applications relying on SMART on FHIR proxy will report errors in accessing the FHIR service.
 
-SMART on FHIR (Enhanced) provides added capabilities than SMART on FHIR proxy and can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion.](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg)
+SMART on FHIR (Enhanced) provides additional capabilities compared to SMART on FHIR proxy. SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion.](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg)
 The following table lists the difference between SMART on FHIR proxy and SMART on FHIR (Enhanced).
 
 |Capability|SMART on FHIR (Enhanced)|SMART on FHIR proxy|
@@ -26,15 +26,14 @@ The following table lists the difference between SMART on FHIR proxy and SMART o
 
 ### Migration Steps from SMART on FHIR Proxy to SMART on FHIR(Enhanced)
 * Step 1: Set up FHIR SMART user role 
-Follow the steps listed under section [Manage Users: Assign Users to Role](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+Follow the steps listed under section [Manage Users: Assign Users to Role](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to SMART user role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide. 
 * Step 2: Deploy SMART on FHIR sample under [Azure Health Data and AI OSS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)
-* Step 3: Update endpoint of the FHIR service url to <baseurl from APIM>/smart
-* Step 4: Uncheck the SMART on FHIR proxy setting
-Uncheck the SMART on FHIR proxy setting under Authentication blade in Azure Portal for FHIR service. 
+* Step 3: Update endpoint of the FHIR service url to '<baseurl from APIM>/smart'.
+* Step 4: Uncheck the SMART on FHIR proxy setting under Authentication blade in Azure Portal for FHIR service. 
 
 ### Validate the migration to SMART on FHIR(Enhanced)
 Below steps provide guidance to validate migration from SMART on FHIR proxy to SMART on FHIR(Enhanced)
-* Step 1: You are able to query FHIR service capability statement against the APIM endpoint
+* Step 1: You're able to query FHIR service capability statement against the APIM endpoint
 * Step 2: Postman Query ?
 
-If you have questions, you can get answers from community experts in [Microsoft Q&A[(https://aka.ms/SMARTonFHIRproxydeprecation). For technical support you can also create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).  
+If you have questions, you can get answers from community experts in [Microsoft Q&A[(https://aka.ms/SMARTonFHIRproxydeprecation). For technical support, you can also create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).  
