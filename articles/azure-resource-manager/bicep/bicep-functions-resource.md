@@ -185,6 +185,8 @@ Returns a secret from an _Azure Key Vault_. Use this function to pass a secret t
 You can use the `az.getSecret()` function from within a `.bicepparam` file.
 
 ```bicep
+using './main.bicep'
+
 param secureUserName = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>', '<secretVersion>')
 param securePassword = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>')
 ```
@@ -212,12 +214,16 @@ The value for the secret.
 The following `.bicepparam` file has a `securePassword` parameter that will have the latest value of the _\<secretName\>_ secret.
 
 ```bicep
+using './main.bicep'
+
 param securePassword = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>')
 ```
 
 The following `.bicepparam` file has a `securePassword` parameter that will have the value of the _\<secretName\>_ secret, but it's pinned to a specific _\<secretValue\>_.
 
 ```bicep
+using './main.bicep'
+
 param securePassword = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>', '<secretVersion>')
 ```
 

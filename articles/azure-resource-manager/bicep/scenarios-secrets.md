@@ -87,6 +87,8 @@ When you use `.bicepparam` file format, you can provide secure values to paramet
 Reference the KeyVault by providing the subscription ID, resource group name, and key vault name. You can get the value of the secret by providing the secret name. You can optionally provide the secret version. If you don't provide the secret version, the latest version is used.
 
 ```bicep
+using './main.bicep'
+
 param secureUserName = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>', '<secretVersion>')
 param securePassword = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>')
 ```
