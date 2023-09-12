@@ -398,4 +398,4 @@ If you created an OpenAI resource solely for completing this tutorial and want t
 Learn more about Azure OpenAI's models:
 > [!div class="nextstepaction"]
 > [Azure OpenAI Service models](../concepts/models.md)
-- Perform Vector (similarity) search with your embeddings using [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md) or [Azure Cosmos DB for NoSQL](../../../cosmos-db/rag-data-openai.md)
+* Store your embeddings and perform vector (similarity) search using [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md) or [Azure Cosmos DB for NoSQL](../../../cosmos-db/rag-data-openai.md)
