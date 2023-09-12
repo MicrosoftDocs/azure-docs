@@ -120,6 +120,10 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
 
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
+
 ---
 
 ### Package and namespace changes
@@ -139,6 +143,10 @@ Based on the model you are migrating to, you may need to upgrade or change the p
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
 # [.NET Framework 4.8](#tab/v4)
+
+[!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -163,6 +171,10 @@ A program.cs file isn't required when running in-process.
 # [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
+
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
 
 ---
 
@@ -191,6 +203,13 @@ When you upgrade to version 4.x, make sure that your local.settings.json file ha
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
 
 # [.NET Framework 4.8](#tab/v4)
+
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
+
+> [!NOTE]
+> When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -243,6 +262,17 @@ Some key classes changed names between versions. These changes are a result eith
 | `IActionResult` | `HttpResponseData` | `HttpResponseData`|
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
 
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+| .NET Core 3.1  | .NET 5 | .NET 7 | 
+| --- | --- | --- | 
+| `FunctionName` (attribute) | `Function` (attribute) | `Function` (attribute) | 
+| `ILogger` | `ILogger` | `ILogger`, `ILogger<T>` |
+| `HttpRequest` | `HttpRequestData` | `HttpRequestData`, `HttpRequest` (using [ASP.NET Core integration])|
+| `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
+| `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
+
+
 ---
 
 [ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
@@ -270,6 +300,10 @@ Sames as version 3.x (in-process).
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
 # [.NET Framework 4.8](#tab/v4)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
