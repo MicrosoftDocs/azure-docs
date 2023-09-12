@@ -100,7 +100,7 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 * Management of Websocket APIs
 * Requests to the gateway over localhost
 * Self-hosted gateway (*Standard v2*)
-* Rate limit by key policy
+* Rate limit by key and quota by key policies
 
 ## Deployment
 
