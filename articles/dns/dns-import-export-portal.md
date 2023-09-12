@@ -56,50 +56,128 @@ The following notes provide more details about the zone import process.
 * The name server record set at the zone apex is also created automatically by Azure DNS when the zone is created. Only the TTL of this record set is imported. These records contain the name server names provided by Azure DNS. The record data isn't overwritten by the values contained in the imported zone file.
 * During Public Preview, Azure DNS supports only single-string TXT records. Multistring TXT records are to be concatenated and truncated to 255 characters.
 
+## Enable public preview
+
+To enable the import and export UI during public preview, open a new Azure portal window [using this link](https://ms.portal.azure.com/?feature.zoneimportexport=true). The link temporarily enables the **zoneimportexport** feature.
 
 ## Import a zone file
 
-If you don't have a resource group in Azure, create a resource group using Azure portal or Azure CLI. For example: **myresourcegroup**. 
+1. Obtain a copy of the zone file for the zone you wish to import.
 
-The following zone file and parameters are used in this example:
+    The following small zone file and names are used in this example:
 
-```text
-$ORIGIN contoso.com. 
-$TTL 86400 
-@	IN	SOA	dns1.contoso.com.	hostmaster.contoso.com. (
-			2001062501 ; serial                     
+    ```text
+    $ORIGIN adatum.com. 
+    $TTL 86400 
+    @	IN	SOA	dns1.adatum.com.	hostmaster.adatum.com. (
+			2023091201 ; serial                     
 			21600      ; refresh after 6 hours                     
 			3600       ; retry after 1 hour                     
 			604800     ; expire after 1 week                     
 			86400 )    ; minimum TTL of 1 day  	     
 	           
-	IN	NS	dns1.contoso.com.       
-	IN	NS	dns2.contoso.com.        
+	IN	NS	dns1.adatum.com.       
+	IN	NS	dns2.adatum.com.        
 
-	IN	MX	10	mail.contoso.com.       
-	IN	MX	20	mail2.contoso.com.        
+	IN	MX	10	mail.adatum.com.       
+	IN	MX	20	mail2.adatum.com.        
 
-dns1	IN	A	5.4.3.2
-dns2	IN	A	4.3.2.1		       
-server1	IN	A	4.4.3.2        
-server2	IN	A	5.5.4.3
-ftp	IN	A	3.3.2.1
-	IN	A	3.3.3.2
-mail	IN	CNAME	server1
-mail2	IN	CNAME	server2
-www	IN	CNAME	server1
-```
+    dns1	IN	A	5.4.3.2
+    dns2	IN	A	4.3.2.1		       
+    server1	IN	A	4.4.3.2        
+    server2	IN	A	5.5.4.3
+    ftp	IN	A	3.3.2.1
+	    IN	A	3.3.3.2
+    mail	IN	CNAME	server1
+    mail2	IN	CNAME	server2
+    www	    IN	CNAME	server1
+    ```
+    Names used:
+    - Origin zone name: **adatum.com** 
+    - Destination zone name: **adatum.com** 
+    - Zone filename: **adatum.com.txt** 
+    - Resource group: **myresourcegroup** 
+2. Open the **DNS zones** overview page and select **Create**.
+3. On the **Create DNS zone** page, type or select the following values:
+- **Resource group**: Choose an existing resource group, or select **Create new**, enter **myresourcegroup**, and select **OK**. The resource group name must be unique within the Azure subscription.
+- **Name**: Type **adatum.com** for this example. The DNS zone name can be any value that is not already configured on the Azure DNS servers. A real-world value would be a domain that you bought from a domain name registrar.
+4. Select **Review create** and then select **Create**.
+5. When deployment is complete, select **Go to resource**. NS and SOA records compatible with Azure public DNS are automatically added to the zone. See the following example:
+    ![The adatum.com zone overview](./media/dns-import-export-portal/adatum-overview.png)
+6. Select **Import** and then on the **Import DNS zone** page, select **Browse**.
+7. Select the **adatum.com.txt** file and then select **Open**. The zone file is displayed in the DNS Zone Editor. See the following example:
+    ![The adatum.com zone displayed in the DNS Zone Editor](./media/dns-import-export-portal/dns-zone-editor.png)
+8. Edit the zone data values before proceeding to the next step. 
+    > [!NOTE]
+    > If old NS records are present in the zone file, a non-blocking error is displayed during zone import. Azure NS records are not overwritten. Ideally the old NS records are removed prior to import.<br>
+    > If you wish to reset the zone serial number, delete the old serial number from the SOA prior to import. 
+9. Select **Review Create** and review information in the DNS Zone Diff Viewer. See the following example:
+    ![The adatum.com zone displayed in the DNS Zone Diff Viewer](./media/dns-import-export-portal/diff-viewer.png)
+10. Select **Create**. The zone data is imported and the zone is displayed. See the following example:
+    ![The adatum.com zone displayed in the overview pane](./media/dns-import-export-portal/adatum-imported.png)
 
-Origin zone name: **contoso.com** 
-Zone filename: **contoso.com.txt** 
-Destination zone name: **newzone.com** 
-Resource group: **myresourcegroup** 
+## Export a zone file
 
-[Link to use](https://ms.portal.azure.com/?feature.zoneimportexport=true)
+1. Open the **DNS zones** overview page and select the zone you wish to export. For example, **adatum.com**. See the following example:
+    ![The adatum.com zone ready to export](./media/dns-import-export-portal/adatum-export.png)
+2. Select **Export**.  The file is downloaded to your default downloads directory as a text file with the name AzurePublicDnsZone-adatum.com`number`.txt where `number` is an auto-generated index number.
+3. Open the file to view the contents. See the following example:
+    ```text
+    ; 	Exported zone file from Azure DNS
+    ; 	Zone name: adatum.com
+    ; 	Date and time (UTC): Tue, 12 Sep 2023 21:33:17 GMT
 
-To import the zone file:
+    $TTL 86400
+    $ORIGIN adatum.com
 
-1. In the Azure portal, go to the DNS zones overview page.
+    ; SOA Record
+    @	 3600		IN	SOA	SOA	dns1.adatum.com.	(
+    	 	 	0	 ;serial
+    	 	 	21600	 ;refresh
+    	 	 	3600	 ;retry
+    	 	 	604800	 ;expire
+    	 	 	86400	 ;minimum ttl
+    )
+
+    ; NS Records
+    @	172800	IN	NS	ns1-36.azure-dns.com.
+    @	172800	IN	NS	ns2-36.azure-dns.net.
+    @	172800	IN	NS	ns3-36.azure-dns.org.
+    @	172800	IN	NS	ns4-36.azure-dns.info.
+
+    ; MX Records
+    @	3600	IN	MX	10	mail.adatum.com.
+    @	3600	IN	MX	20	mail2.adatum.com.
+
+    ; A Records
+    dns1	3600	IN	A	5.4.3.2
+    dns2	3600	IN	A	4.3.2.1
+    ftp	3600	IN	A	3.3.2.1
+    ftp	3600	IN	A	3.3.3.2
+    server1	3600	IN	A	4.4.3.2
+    server2	3600	IN	A	5.5.4.3
+
+    ; AAAA Records
+
+    ; CNAME Records
+    mail	3600	IN	CNAME	server1
+    mail2	3600	IN	CNAME	server2
+    www	3600	IN	CNAME	server1
+
+    ; PTR Records
+
+    ; TXT Records
+
+    ; SRV Records
+
+    ; SPF Records
+
+    ; CAA Records
+
+    ; DS Records
+
+    ; Azure Alias Records
+    ```
 
 ## Next steps
 
