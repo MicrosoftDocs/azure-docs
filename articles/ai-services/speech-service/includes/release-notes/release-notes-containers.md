@@ -6,6 +6,10 @@ ms.date: 03/16/2023
 ms.author: eur
 ---
 
+### 2023-September release
+Add support for the latest model versions:
+- Speech language identification 1.12.0
+
 ### 2023-July release
 
 Add support for the latest model versions:
