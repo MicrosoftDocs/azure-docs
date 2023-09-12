@@ -406,7 +406,7 @@ Each SDK includes a client class typically used to connect the SDK to your Azure
 
 ### [C#](#tab/csharp)
 
-Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to interact with an account from a .NET application.
+Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to use the emulator from a .NET application.
 
 1. Start in an empty folder
 
@@ -501,7 +501,7 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
 
 ### [Python](#tab/python)
 
-Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) to interact with an account from a Python application.
+Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) to use the emulator from a Python application.
 
 1. Start in an empty folder
 
@@ -580,7 +580,7 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
 
 ### [Node.js](#tab/nodejs)
 
-Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) to interact with an account from a Node.js/JavaScript application.
+Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
 1. Start in an empty folder
 
@@ -666,7 +666,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
 
 ### [C#](#tab/csharp)
 
-TODO
+Use the [MongoDB .NET driver](mongodb/quickstart-dotnet.md) to use the emulator from a .NET application.
 
 1. Start in an empty folder
 
@@ -686,27 +686,77 @@ TODO
 
 ### [Python](#tab/python)
 
-TODO
+Use the [MongoDB Python driver](mongodb/quickstart-python.md) to use the emulator from a Python application.
 
 1. Start in an empty folder
 
-1. TODO
+1. Import the [`pymongo`](https://pypi.org/project/pymongo/) package from the Python Package Index.
 
     ```bash
-    
+    pip install pymongo
     ```
 
-1. TODO
+1. Create the **app.py** file.
 
-1. TODO
+1. Import the `os`, `sys`, and `pymongo` modules.
 
     ```python
-    
+    import os
+    import sys
+    import pymongo
+    ```
+
+1. Create a new [`MongoClient`](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) using the emulator's credentials.
+
+    ```python
+    client = pymongo.MongoClient(
+        host="mongodb://localhost:C2y6yDjf5%2FR%2Bob0N8A7Cgv30VRDJIWEHLM%2B4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw%2FJw%3D%3D@localhost:10255/admin?ssl=true",
+        tls=True
+    )
+    ```
+
+1. Create a new database and container using [`list_database_names`](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) and [`list_collection_names`](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) along with the [`CreateDatabase`](mongodb/custom-commands.md#create-database) and [`CreateCollection`](mongodb/custom-commands.md#create-collection) custom commands.
+
+    ```python
+    db = client["cosmicworks"]
+    if "cosmicworks" not in client.list_database_names():
+        db.command({
+            "customAction": "CreateDatabase",
+            "offerThroughput": 400,
+        })
+
+    collection = db["products"]
+    if "products" not in db.list_collection_names():
+        db.command({
+            "customAction": "CreateCollection",
+            "collection": "products"
+        })
+    ```
+
+1. Use [`update_one`](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one) to create a new item in the container.
+
+    ```python
+    item = {
+        "id": "68719518371",
+        "name": "Kiama classic surfboard"
+    }
+
+    collection.update_one(
+        filter={"id": item["id"]},
+        update={"$set": item},
+        upsert=True
+    )
+    ```
+
+1. Run the Python application.
+
+    ```bash
+    python app.py
     ```
 
 ### [Node.js](#tab/nodejs)
 
-TODO
+Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to use the emulator from a Node.js/JavaScript application.
 
 1. Start in an empty folder
 
@@ -752,22 +802,75 @@ TODO
 
 ### [Python](#tab/python)
 
-TODO
+Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to use the emulator from a Python application.
 
 1. Start in an empty folder
 
-1. TODO
+1. Import the [`cassandra-driver`](https://pypi.org/project/cassandra-driver/) package from the Python Package Index.
 
     ```bash
-    
+    pip install cassandra-driver
     ```
 
-1. TODO
+1. Create the **app.py** file.
 
-1. TODO
+1. Import `PROTOCOL_TLS_CLIENT`, `SSLContext`, and `CERT_NONE` from the `ssl` module. Then, import `Cluster` from the `cassandra.cluster` module. Finally, import `PlainTextAuthProvider` from the `cassandra.auth` module.
 
     ```python
-    
+    from ssl import PROTOCOL_TLS_CLIENT, SSLContext, CERT_NONE
+    from cassandra.cluster import Cluster
+    from cassandra.auth import PlainTextAuthProvider
+    ```
+
+1. Create a new TLS/SSL context variable using `SSLContext`. Configure the context to not verify the emulator's self-signed certificate.
+
+    ```python
+    ssl_context = SSLContext(PROTOCOL_TLS_CLIENT)
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = CERT_NONE
+    ```
+
+1. Create a new `session` using the emulator's credentials, `PlainTextAuthProvider`, `Cluster`, and `cluster.connect()`.
+
+    ```python
+    auth_provider = PlainTextAuthProvider(
+        username="localhost", 
+        password="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+    )
+    cluster = Cluster(
+        ["localhost"], 
+        port = "10350", 
+        auth_provider=auth_provider,
+        ssl_context=ssl_context
+    )
+    session = cluster.connect()
+    ```
+
+1. Create a new keyspace and table using `session.execute`.
+
+    ```python
+    session.execute("CREATE KEYSPACE IF NOT EXISTS cosmicworks WITH replication = {'class':'basicclass', 'replication_factor': 1};")
+
+    session.execute("CREATE TABLE IF NOT EXISTS cosmicworks.products (id text PRIMARY KEY, name text)")
+    ```
+
+1. Use `session.execute` to create a new item in the table.
+
+    ```python
+    item = {
+        "id": "68719518371",
+        "name": "Kiama classic surfboard"
+    }
+    session.execute(
+        "INSERT INTO cosmicworks.products (id, name) VALUES (%s, %s)", 
+        [item["id"], item["name"]]
+    )
+    ```
+
+1. Run the Python application.
+
+    ```bash
+    python app.py
     ```
 
 ### [Node.js](#tab/nodejs)
@@ -818,22 +921,56 @@ TODO
 
 ### [Python](#tab/python)
 
-TODO
+Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to use the emulator from a Python application.
 
 1. Start in an empty folder
 
-1. TODO
+1. Import the [`gremlinpython`](https://pypi.org/project/gremlinpython/) package from the Python Package Index.
 
     ```bash
-    
+    pip install gremlinpython
     ```
 
-1. TODO
+1. Create the **app.py** file.
 
-1. TODO
+1. Import `client` from the `gremlin_python.driver` module.
 
     ```python
-    
+    from gremlin_python.driver import client
+    ```
+
+1. Create a new `Client` using the emulator's credentials.
+
+    ```python
+    client = client.Client(
+        url="ws://localhost:8901/",
+        traversal_source="g",
+        username="/dbs/db1/colls/coll1",
+        password="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+    )
+    ```
+
+1. Clean up the graph using `client.submit`.
+
+    ```python
+    client.submit(
+        message="g.V().drop()"
+    )
+    ```
+
+1. Use `client.submit` to add a new item.
+
+    ```python
+    client.submit(
+        message="g.addV('product').property('id', prop_id).property('name', prop_name)", 
+        bindings={ "prop_id": "68719518371", "prop_name": "Kiama classic surfboard"}
+    )
+    ```
+
+1. Run the Python application.
+
+    ```bash
+    python app.py
     ```
 
 ### [Node.js](#tab/nodejs)
@@ -884,22 +1021,59 @@ TODO
 
 ### [Python](#tab/python)
 
-TODO
+Use the [Azure Tables Python SDK](table/quickstart-python.md) to use the emulator from a Python application.
 
 1. Start in an empty folder
 
-1. TODO
+1. Import the [`azure-data-tables`](https://pypi.org/project/azure-data-tables/) package from the Python Package Index.
 
     ```bash
-    
+    pip install azure-data-tables
     ```
 
-1. TODO
+1. Create the **app.py** file.
 
-1. TODO
+1. Import [`TableServiceClient`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient) and [`UpdateMode`](/python/api/azure-data-tables/azure.data.tables.updatemode) from the `azure.data.tables` module.
 
     ```python
-    
+    from azure.data.tables import TableServiceClient, UpdateMode
+    ```
+
+1. Use [`TableServiceClient.from_connection_string`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient#azure-data-tables-tableserviceclient-from-connection-string) to create a new service-level client.
+
+    ```python
+    service = TableServiceClient.from_connection_string(
+        conn_str="DefaultEndpointsProtocol=http;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=http://localhost:8902/;"
+    )
+    ```
+
+1. Create a new table-level client using [`create_table_if_not_exists`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient#azure-data-tables-tableserviceclient-create-table-if-not-exists).
+
+    ```python
+    client = service.create_table_if_not_exists(
+        table_name="cosmicworksproducts"
+    )
+    ```
+
+1. Use [`upsert_entity`](/python/api/azure-data-tables/azure.data.tables.tableclient#azure-data-tables-tableclient-upsert-entity) to create a new item in the container.
+
+    ```python
+    item = {
+        "PartitionKey": "68719518371",
+        "RowKey": "Surfboards",
+        "name": "Kiama classic surfboard"
+    }
+
+    client.upsert_entity(
+        entity=item,
+        mode=UpdateMode.REPLACE
+    )
+    ```
+
+1. Run the Python application.
+
+    ```bash
+    python app.py
     ```
 
 ### [Node.js](#tab/nodejs)
