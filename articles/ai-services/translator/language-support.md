@@ -280,7 +280,7 @@ ms.author: lajanuar
 
 ## Transliteration
 
-The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
+The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the `To/From`, `<-->` indicates that the language can be transliterated from or to either of the scripts listed. The `-->` indicates that the language can only be transliterated from one script to the other.
 
 | Language    | Language code | Script | To/From | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|

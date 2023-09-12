@@ -35,16 +35,16 @@ Translator service supports language translation for more than 100 languages. If
 |Kinyarwanda|RW|✔|✔|The national language of Rwanda with more than 12 million speakers primarily in East and Central Africa.|
 |Lingala|LN|✔|✔|One of four official languages of the Democratic Republic of the Congo with more than 60 million speakers.|
 |Luganda|LUG|✔|✔|A major language of Uganda with more than 5 million speakers.|
-|Nyanja|NYA|✔|✔|Also known as Chewa, Nynaja is spoken mainly in Malawi and has more than 2 million native speakers.|
-|Rundi|RUN|✔|✔|Also known as Kirundi, Rundi is the national language of Burandi and has more than 6 million native speakers.|
-|Sesotho|ST|✔|✔|Also know as Sotho, Sesotho is the national and official language of Lesotho, one of 12 official languages of South Africa, and one of 16 official languages of Zimbabwe. It has more than 5 native speakers.
-|Sesotho sa Leboa|NSO|✔|✔|Also known as Northern Sotho, it is the native language of more than 5 million people in South Africa.|
-|Setswana|TN|✔|✔|Also known as Tswana, is an official langauge of Botswana and South Africa and has more than 5 million speakers.|
+|Nyanja|NYA|✔|✔| Nynaja, also known as Chewa, is spoken mainly in Malawi and has more than 2 million native speakers.|
+|Rundi|RUN|✔|✔| Rundi, also known as Kirundi, is the national language of Burundi and has more than 6 million native speakers.|
+|Sesotho|ST|✔|✔| Sesotho, also know as Sotho, is the national and official language of Lesotho, one of 12 official languages of South Africa, and one of 16 official languages of Zimbabwe. It has more than 5.6 native speakers.
+|Sesotho sa Leboa|NSO|✔|✔|Sesotho, also known as Northern Sotho, it's the native language of more than 4.6 million people in South Africa.|
+|Setswana|TN|✔|✔|Setswana, also known as Tswana, is an official language of Botswana and South Africa and has more than 5 million speakers.|
 |Xhosa|XH|✔|✔|An official language of South Africa and Zimbabwe, Xhosa has more than 20 million speakers.|
 |Yoruba|YO|✔|✔|The principal native language of the Yoruba people of West Africa, it has more than 50 million speakers.|
 |Konkani|GOM|✔|✔|The official language of the Indian state of Goa with more than 7 million speakers worldwide.|
 |Maithili|MAI|✔|✔|One of the 22 officially recognized languages of India and the second most spoken language in Nepal. It has more than 20 million speakers.|
-|Sindhi|SD|✔|✔|An official language of the Sindhprovince of Pakistan and the Rajasthan state in India. It has more than 33 million speakers worldwide.|
+|Sindhi|SD|✔|✔|Sindhi is an official language of the Sindh province of Pakistan and the Rajasthan state in India. It has more than 33 million speakers worldwide.|
 |Sinhala|Si|✔|✔|One of the official and national languages of Sri Lanka, Sinhala has more than 16 million native speakers.|
 |Lower Sorbian|DSB|✔|Currently, not supported in containers |A West Slavic language spoken primarily in eastern Germany. It has approximately 7,000 speakers.|
 
