@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: "Quickstart: Create an object detection project, add custom tags, upload images, train the model, and detect objects in images using the Custom Vision client library."
 author: PatrickFarley
 ms.author: pafarley
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: quickstart
 ms.date: 11/03/2022
 ms.devlang: csharp, golang, java, javascript, python

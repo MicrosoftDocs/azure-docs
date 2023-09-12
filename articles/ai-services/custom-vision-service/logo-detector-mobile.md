@@ -5,8 +5,7 @@ description: In this tutorial, you will step through a sample app that uses Cust
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: tutorial
 ms.date: 07/04/2023
 ms.author: pafarley
