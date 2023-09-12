@@ -7,6 +7,8 @@ ms.service: service-connector
 ms.topic: how-to
 ms.date: 11/29/2022
 ms.custom: event-tier1-build-2022, engagement-fy23
+zone_pivot_group_filename: service-connector/zone-pivot-groups.json
+zone_pivot_groups: howto-postgresql-authtype
 ---
 
 # Integrate Azure Database for PostgreSQL with Service Connector
@@ -42,6 +44,9 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 ## Default environment variable names or application properties and Sample codes
 
 Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL.
+
+
+::: zone pivot="system-identity"
 
 ### System-assigned Managed Identity
 
@@ -109,7 +114,6 @@ Reference the connection details and sample codes in following tables, according
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
 | `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby postgres connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>@<servername>` |
 
-
 ---
 
 #### Sample codes
@@ -117,6 +121,10 @@ Reference the connection details and sample codes in following tables, according
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql system mi](./includes/code-postgres-aad.md)]
 
+::: zone-end
+
+
+::: zone pivot="user-identity"
 
 ### User-assigned Managed Identity
 
@@ -126,7 +134,6 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 |------------------------------------|-----------------------------------|---------------------------------------------------------|
 | `AZURE_POSTGRESQL_CLIENTID`          | Your client ID                    | `<identity-client-ID>`                                  |
 | `AZURE_POSTGRESQL_CONNECTIONSTRING`  | .NET PostgreSQL connection string | `Server=<PostgreSQL-server-name>.postgres.database.azure.com;Database=<database-name>;Port=5432;Ssl Mode=Require;User Id=<username>@<PostgreSQL-server-name>;` |
-
 
 #### [Java](#tab/java)
 
@@ -200,9 +207,14 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql user mi](./includes/code-postgres-aad.md)]
 
+::: zone-end
+
+
+::: zone pivot="connection-string"
+
 ### Connection String
 
-#### [.Net](#tab/dotnet)
+#### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                          | Example value                                                                                                                                                                      |
 |-----------------------------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -273,6 +285,10 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql secrets](./includes/code-postgres-secret.md)]
 
+::: zone-end
+
+
+::: zone pivot="service-principal"
 
 ### Service Principal
 
@@ -374,6 +390,9 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql service principal](./includes/code-postgres-aad.md)]
+
+::: zone-end
+
 
 ## Next steps
 
