@@ -1,19 +1,22 @@
 ---
-title: Import and export a domain zone file - Azure portal
+title: Import and export a domain zone file - Azure portal (preview)
 titleSuffix: Azure DNS
 description: Learn how to import and export a DNS (Domain Name System) zone file to Azure DNS by using Azure portal 
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.custom: devx-track-azurecli
 ms.date: 09/11/2023
 ms.author: greglin
 ms.topic: how-to
 ---
 
-# Import and export a DNS zone file using the Azure portal
+# Import and export a DNS zone file using the Azure portal (preview)
 
-In this article, you learn how to  import and export a DNS zone file in Azure DNS using Azure portal.
+In this article, you learn how to  import and export a DNS zone file in Azure DNS using Azure portal (preview).
+
+> [!NOTE] 
+> DNS zone import and export using the Azure portal is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Introduction to DNS zone migration
 
@@ -64,7 +67,7 @@ To enable the import and export UI during public preview, open a new Azure porta
 
 1. Obtain a copy of the zone file for the zone you wish to import.
 
-    The following small zone file and names are used in this example:
+    The following small zone file and resource records are used in this example:
 
     ```text
     $ORIGIN adatum.com. 
@@ -99,29 +102,41 @@ To enable the import and export UI during public preview, open a new Azure porta
     - Resource group: **myresourcegroup** 
 2. Open the **DNS zones** overview page and select **Create**.
 3. On the **Create DNS zone** page, type or select the following values:
-- **Resource group**: Choose an existing resource group, or select **Create new**, enter **myresourcegroup**, and select **OK**. The resource group name must be unique within the Azure subscription.
-- **Name**: Type **adatum.com** for this example. The DNS zone name can be any value that is not already configured on the Azure DNS servers. A real-world value would be a domain that you bought from a domain name registrar.
+    - **Resource group**: Choose an existing resource group, or select **Create new**, enter **myresourcegroup**, and select **OK**. The resource group name must be unique within the Azure subscription.
+    - **Name**: Type **adatum.com** for this example. The DNS zone name can be any value that is not already configured on the Azure DNS servers. A real-world value would be a domain that you bought from a domain name registrar.
 4. Select **Review create** and then select **Create**.
 5. When deployment is complete, select **Go to resource**. NS and SOA records compatible with Azure public DNS are automatically added to the zone. See the following example:
+
     ![The adatum.com zone overview](./media/dns-import-export-portal/adatum-overview.png)
+
 6. Select **Import** and then on the **Import DNS zone** page, select **Browse**.
 7. Select the **adatum.com.txt** file and then select **Open**. The zone file is displayed in the DNS Zone Editor. See the following example:
+
     ![The adatum.com zone displayed in the DNS Zone Editor](./media/dns-import-export-portal/dns-zone-editor.png)
+
 8. Edit the zone data values before proceeding to the next step. 
+
     > [!NOTE]
     > If old NS records are present in the zone file, a non-blocking error is displayed during zone import. Azure NS records are not overwritten. Ideally the old NS records are removed prior to import.<br>
     > If you wish to reset the zone serial number, delete the old serial number from the SOA prior to import. 
+
 9. Select **Review Create** and review information in the DNS Zone Diff Viewer. See the following example:
+
     ![The adatum.com zone displayed in the DNS Zone Diff Viewer](./media/dns-import-export-portal/diff-viewer.png)
+
 10. Select **Create**. The zone data is imported and the zone is displayed. See the following example:
-    ![The adatum.com zone displayed in the overview pane](./media/dns-import-export-portal/adatum-imported.png)
+
+    [ ![The adatum.com zone displayed in the overview pane](./media/dns-import-export-portal/adatum-imported.png) ](./media/dns-import-export-portal/adatum-imported.png#lightbox)
 
 ## Export a zone file
 
 1. Open the **DNS zones** overview page and select the zone you wish to export. For example, **adatum.com**. See the following example:
-    ![The adatum.com zone ready to export](./media/dns-import-export-portal/adatum-export.png)
+
+    [ ![The adatum.com zone ready to export](./media/dns-import-export-portal/adatum-export.png) ](./media/dns-import-export-portal/adatum-export.png#lightbox)
+
 2. Select **Export**.  The file is downloaded to your default downloads directory as a text file with the name AzurePublicDnsZone-adatum.com`number`.txt where `number` is an auto-generated index number.
 3. Open the file to view the contents. See the following example:
+
     ```text
     ; 	Exported zone file from Azure DNS
     ; 	Zone name: adatum.com
