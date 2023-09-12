@@ -29,9 +29,9 @@ You can manage assignments in PIM for Azure AD roles and PIM for Groups using Mi
 Find more details about APIs that allow to manage assignments in the documentation: 
 
 - [PIM for Azure AD roles API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)
-- [PIM for Azure resource roles API reference](/rest/api/authorization/roleeligibilityschedulerequests)
+- [PIM for Azure resource roles API reference](/rest/api/authorization/privileged-role-eligibility-rest-sample)
 - [PIM for Groups API reference](/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview)
-- [PIM Alerts for Azure AD Roles API reference](/graph/api/resources/unifiedrolemanagementalert)
+- [PIM Alerts for Azure AD Roles API reference](/graph/api/resources/privilegedidentitymanagementv3-overview?view=graph-rest-beta#building-blocks-of-the-pim-alerts-apis)
 - [PIM Alerts for Azure Resources API reference](/rest/api/authorization/role-management-alert-rest-sample)
 
 
