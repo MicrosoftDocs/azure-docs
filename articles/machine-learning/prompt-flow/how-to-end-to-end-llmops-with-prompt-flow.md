@@ -144,7 +144,7 @@ Prompt flow's runtime provides the computing resources required for the applicat
 
 In this guide, we will use a runtime to run your prompt flow. You need to create your own [Prompt flow runtime](how-to-create-manage-runtime.md)
 
-Please go to workspace portal, click `Prompt flow` -> `Runtime` -> `Add`, then follow the instruction to create your own connections
+Go to workspace portal, select **Prompt flow** -> **Runtime** -> **Add**, then follow the instruction to create your own connections
 
 ## Setup variables with for prompt flow and GitHub Actions
 
