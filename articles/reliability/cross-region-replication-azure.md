@@ -92,6 +92,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 
 > [!IMPORTANT]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
+> - West US3 is paired in one direction with East US. Also, East US is bidirectionally paired with West US.
 > - Brazil South is unique because it's paired with a region outside of its geography. Brazil South's secondary region is South Central US. The secondary region of South Central US isn't Brazil South.
 
 ## Regions with availability zones and no region pair
