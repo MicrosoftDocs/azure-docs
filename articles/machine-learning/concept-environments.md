@@ -116,7 +116,6 @@ You'll need to update associated Azure Machine Learning assets to use the newly 
 
 If you provide your own images, you are responsible for updating them.
 
-Please note that you may need to update associated Azure Machine Learning assets to use the newly patched image. For example, when working with an managed online endpoint, you will need to redeploy your endpoint to use the patched image. 
 
 For more information on the base images, see the following links:
 
