@@ -21,7 +21,7 @@ In this tutorial, you'll learn to implement secure hybrid access (SHA) with sing
 * Improved [Zero Trust](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) governance through Azure AD pre-authentication, and use of the Conditional Access security policy enforcement solution. 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
 * Full SSO between Azure AD and BIG-IP published services
-* Identity management and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
+* Identity management and access from a single control plane, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 To learn more about benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-integration.md).
 
