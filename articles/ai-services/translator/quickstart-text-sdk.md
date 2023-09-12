@@ -5,8 +5,7 @@ description: "Learn to translate text with the Translator service SDks in a prog
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: quickstart
 ms.date: 09/06/2023
 ms.author: lajanuar

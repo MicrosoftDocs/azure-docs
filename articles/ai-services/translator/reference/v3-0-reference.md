@@ -5,8 +5,7 @@ description: Reference documentation for the Translator V3.0. Version 3 of the T
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 07/18/2023
 ms.author: lajanuar
