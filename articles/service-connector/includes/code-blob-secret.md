@@ -63,6 +63,19 @@ var blobServiceClient = new BlobServiceClient(connectionString);
    blob_service_client = BlobServiceClient.from_connection_string(connection_str)
    ```
 
+### [Django](#tab/django)
+1. Install dependencies.
+   ```bash
+   pip install django-storages[azure]
+   ```
+
+1. In setting file, add following lines. For more information, see [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html).
+   ```python
+   # in your setting file, eg. settings.py
+   AZURE_CONNECTION_STRING = os.getenv('AZURE_STORAGEBLOB_CONNECTIONSTRING')
+   
+   ```
+
 ### [Go](#tab/go)
 
 1. Install dependencies.

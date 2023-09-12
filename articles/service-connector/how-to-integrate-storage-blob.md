@@ -69,12 +69,12 @@ Follow these steps and sample codes to connect to Azure Blob Storage with user-a
 
 ### Connection string
 
-#### Others(#tab/other)
+#### other client types
 | Default environment variable name  | Description                    | Example value                                                                                                       |
 |------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
 
-#### SpringBoot(#tab/spring)
+#### SpringBoot client type
 
 | Application properties      | Description                    | Example value                                           |
 |-----------------------------|--------------------------------|---------------------------------------------------------|
