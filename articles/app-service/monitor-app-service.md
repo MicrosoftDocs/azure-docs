@@ -35,6 +35,8 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 The metrics and logs you can collect are discussed in the following sections.
 
+[!INCLUDE [audit log categories tip](/articles/azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
+
 ## Analyzing metrics
 
 You can analyze metrics for *App Service* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. 
