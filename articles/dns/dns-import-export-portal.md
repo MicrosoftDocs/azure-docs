@@ -6,7 +6,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.custom: devx-track-azurecli
-ms.date: 08/22/2023
+ms.date: 09/11/2023
 ms.author: greglin
 ms.topic: how-to
 ---
@@ -46,12 +46,12 @@ Importing a zone file creates a new zone in Azure DNS if the zone doesn't alread
 
 ### Additional information about importing
 
-The following notes provide more technical details about the zone import process.
+The following notes provide more details about the zone import process.
 
 * The `$TTL` directive is optional, and is supported. When no `$TTL` directive is given, records without an explicit TTL are imported set to a default TTL of 3600 seconds. When two records in the same record set specify different TTLs, the lower value is used.
 * The `$ORIGIN` directive is optional, and is supported. When no `$ORIGIN` is set, the default value used is the zone name as specified on the command line, including the ending dot (.).
 * The `$INCLUDE` and `$GENERATE` directives aren't supported.
-* These record types are supported: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV, and TXT.
+* The following record types are supported: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV, and TXT.
 * The SOA record is created automatically by Azure DNS when a zone is created. When you import a zone file, all SOA parameters are taken from the zone file *except* the `host` parameter. This parameter uses the value provided by Azure DNS because it needs to refer to the primary name server provided by Azure DNS.
 * The name server record set at the zone apex is also created automatically by Azure DNS when the zone is created. Only the TTL of this record set is imported. These records contain the name server names provided by Azure DNS. The record data isn't overwritten by the values contained in the imported zone file.
 * During Public Preview, Azure DNS supports only single-string TXT records. Multistring TXT records are to be concatenated and truncated to 255 characters.
@@ -59,10 +59,47 @@ The following notes provide more technical details about the zone import process
 
 ## Import a zone file
 
-1. If you don't have a resource group in Azure, create a resource group using Azure portal or Azure CLI. For example: **myresourcegroup**. 
-2. To import the zone contoso.com from the file contoso.com.txt into your new DNS zone newDNSzone.com in the resource group myresourcegroup, you need to perform the following actions. 
+If you don't have a resource group in Azure, create a resource group using Azure portal or Azure CLI. For example: **myresourcegroup**. 
+
+The following zone file and parameters are used in this example:
+
+```text
+$ORIGIN contoso.com. 
+$TTL 86400 
+@	IN	SOA	dns1.contoso.com.	hostmaster.contoso.com. (
+			2001062501 ; serial                     
+			21600      ; refresh after 6 hours                     
+			3600       ; retry after 1 hour                     
+			604800     ; expire after 1 week                     
+			86400 )    ; minimum TTL of 1 day  	     
+	           
+	IN	NS	dns1.contoso.com.       
+	IN	NS	dns2.contoso.com.        
+
+	IN	MX	10	mail.contoso.com.       
+	IN	MX	20	mail2.contoso.com.        
+
+dns1	IN	A	5.4.3.2
+dns2	IN	A	4.3.2.1		       
+server1	IN	A	4.4.3.2        
+server2	IN	A	5.5.4.3
+ftp	IN	A	3.3.2.1
+	IN	A	3.3.3.2
+mail	IN	CNAME	server1
+mail2	IN	CNAME	server2
+www	IN	CNAME	server1
+```
+
+Origin zone name: **contoso.com** 
+Zone filename: **contoso.com.txt** 
+Destination zone name: **newzone.com** 
+Resource group: **myresourcegroup** 
 
 [Link to use](https://ms.portal.azure.com/?feature.zoneimportexport=true)
+
+To import the zone file:
+
+1. In the Azure portal, go to the DNS zones overview page.
 
 ## Next steps
 
