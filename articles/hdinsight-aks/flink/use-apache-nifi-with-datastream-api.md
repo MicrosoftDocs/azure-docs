@@ -326,7 +326,7 @@ Once you have assigned a managed identity to the Azure VM, you need to make sure
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-7-nifi-ui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step7." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-7-nifi-ui-kafka-consumption-nifi-flow.png":::
 
-### Lets check output in ADLS gen2
+### Lets check output in ADLS Gen2
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-7-result-azure-data-lake-storage-gen2.png" alt-text="Validating the output in ADLS Gen2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-7-result-azure-data-lake-storage-gen2.png":::
 

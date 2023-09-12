@@ -41,7 +41,7 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
   'uri'='thrift://hive-metastore:9083',
   'clients'='5',
   'property-version'='1',
-  'warehouse'='abfs://container@storage_account.dfs.core.windows.net/ieberg-output’;
+  'warehouse'='abfs://container@storage_account.dfs.core.windows.net/ieberg-output');
 ```
 > [!NOTE]
 > - In the above step, the container and storage account *need not be same* as specified during the cluster creation.
