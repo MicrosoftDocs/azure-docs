@@ -1,6 +1,6 @@
 ---
-title: Explore and analyze log data in Azure Monitor using Log Analytics 
-description: This article describes how to use simple query mode in Log Analytics
+title: Explore and analyze log data in Azure Monitor using the new Log Analytics 
+description: This article explains the new Log Analytics interface and how to use simple and advanced modes to explore and analyze data in Azure Monitor Logs.
 ms.topic: conceptual
 author: guywild
 ms.author: guywild
@@ -9,9 +9,9 @@ ms.date: 09/04/2023
 
 ---
 
-# Explore and analyze log data in Azure Monitor using Log Analytics 
+# Explore and analyze log data in Azure Monitor using the new Log Analytics 
 
-Log Analytics now features a simplified user interface and two modes for exploring and working with log data: simple and advanced. 
+The new Log Analytics features a simplified user interface and two modes for exploring and working with log data: simple and advanced. 
 
 Use simple mode to get started quickly - navigate, explore, and drill down to the data you need - without writing KQL. For more complex analysis, switch to advanced mode and take advantage Azure Monitor's full data analysis capabilities.
 
