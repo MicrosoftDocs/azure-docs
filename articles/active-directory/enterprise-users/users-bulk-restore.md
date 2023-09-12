@@ -5,12 +5,12 @@ services: active-directory
 author: barclayn
 ms.author: barclayn
 manager: amycolannino
-ms.date: 06/24/2022
+ms.date: 09/08/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
@@ -42,8 +42,11 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk restore users
 
-1. [Sign in to the Azure portal](https://portal.azure.com) with an account that is a User Administrator in the Azure AD organization.
-1. Browse to **Azure Active Directory** > **Users** > **Deleted**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **All users**  > **Users** > **Deleted**.
 1. On the **Deleted users** page, select **Bulk restore** to upload a valid CSV file of properties of the users to restore.
 
     ![Select the bulk restore command on the Deleted users page](./media/users-bulk-restore/bulk-restore.png)
@@ -69,9 +72,9 @@ Next, you can check to see that the users you restored exist in the Azure AD org
 
 ## View restored users in the Azure portal
 
-1. [Sign in to the Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
-1. In the navigation pane, select **Azure Active Directory**.
-1. Under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **All users** Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** and verify that the users you restored are listed.
 
 ### View users with PowerShell
@@ -79,7 +82,7 @@ Next, you can check to see that the users you restored exist in the Azure AD org
 Run the following command:
 
 ``` PowerShell
-Get-AzureADUser -Filter "UserType eq 'Member'"
+Get-MgUser -Filter "UserType eq 'Member'"
 ```
 
 You should see that the users that you restored are listed.

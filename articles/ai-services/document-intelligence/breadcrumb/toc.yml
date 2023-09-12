@@ -14,10 +14,20 @@
   topicHref: /azure/index
   items:
   - name: Azure AI services                # Original doc set name
-    tocHref: /legal/cognitive-services/form-recognizer    # Destination doc set route
-    topicHref: /azure/ai-services/index.yml    # Original doc set route
+    tocHref: /legal/cognitive-services/document-intelligence    # Destination doc set route
+    topicHref: /azure/ai-services/index    # Original doc set route
     items:
     - name: Document Intelligence           # Destination doc set name
-      tocHref: /legal/cognitive-services/form-recognizer      # Destination doc set route
+      tocHref: /legal/cognitive-services/document-intelligence      # Destination doc set route
       topicHref: /azure/ai-services/document-intelligence/index    # Original doc set route
-
+- name: Azure
+  tocHref: /ai-builder/
+  topicHref: /azure/index
+  items:
+  - name: Azure AI services                # Original doc set name
+    tocHref: /ai-builder/    # Destination doc set route
+    topicHref: /azure/ai-services/index    # Original doc set route
+    items:
+    - name: Document Intelligence           # Destination doc set name
+      tocHref: /ai-builder/      # Destination doc set route
+      topicHref: /azure/ai-services/document-intelligence/index    # Original doc set route      

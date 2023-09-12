@@ -191,7 +191,6 @@ You can request billing ownership of products for the following subscription typ
 - [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
 - [Microsoft Cloud Partner Program](https://azure.microsoft.com/offers/ms-azr-0025p/)¹
 - [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)¹
-- [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)¹
 - [Visual Studio Enterprise (Cloud Partner Program) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)¹
 - [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)¹
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)¹

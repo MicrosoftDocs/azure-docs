@@ -74,7 +74,7 @@ If the userPrincipalName attribute value doesn't correspond to a verified domain
 
 Use our best practices to test bulk UPN changes. Have a tested roll-back plan for reverting UPNs if issues can't be resolved. After your pilot is running, target small user sets, with organizational roles, and sets of apps or devices. This process helps you understand the user experience. Include this information in your communications to stakeholders and users.
 
-Learn more: [Azure Active Directory deployment plans](../../fundamentals/deployment-plans.md)
+Learn more: [Azure Active Directory deployment plans](../../architecture/deployment-plans.md)
 
 Create a procedure to change UPNs for individual users. We recommend a procedure that includes documentation about known issues and workarounds.
 
@@ -112,7 +112,7 @@ Learn more: [What is a device identity?](../../devices/overview.md)
 
 Azure AD joined devices are joined to Azure AD. Users sign in to the device using their organization identity.
 
-Learn more: [Azure AD joined devices](../../devices/concept-azure-ad-join.md)
+Learn more: [Azure AD joined devices](../../devices/concept-directory-join.md)
 
 ### Known issues and resolution
 
@@ -128,7 +128,7 @@ Allow enough time for the UPN change to sync to Azure AD. After you verify the n
 
 Hybrid Azure AD joined devices are joined to Active Directory and Azure AD. You can implement Hybrid Azure AD join if your environment has an on-premises Active Directory footprint.
  
-Learn more: [Hybrid Azure AD joined devices](../../devices/concept-azure-ad-join-hybrid.md)
+Learn more: [Hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md)
 
 ### Known issues and resolution
 

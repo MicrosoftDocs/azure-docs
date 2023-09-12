@@ -1,7 +1,7 @@
 ---
 title: CONCAT
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that returns
+description: An Azure Cosmos DB for NoSQL system function that returns a string concatenated from two or more strings.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
@@ -63,5 +63,5 @@ This example uses the function to select two expressions from the item.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`CONTAINS`](contains.md)

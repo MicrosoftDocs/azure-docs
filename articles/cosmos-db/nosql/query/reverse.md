@@ -1,53 +1,52 @@
 ---
-title: REVERSE in Azure Cosmos DB query language
-description: Learn about SQL system function REVERSE in Azure Cosmos DB.
-author: ginamr
+title: REVERSE
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a reversed string.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/24/2023
+ms.custom: query-reference
 ---
-# REVERSE (Azure Cosmos DB)
+
+# REVERSE (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the reverse order of a string value.  
-  
+Returns the reverse order of a string value.  
+
 ## Syntax
-  
+
 ```sql
-REVERSE(<str_expr>)  
-```  
-  
+REVERSE(<string_expr>)  
+```
+
 ## Arguments
-  
-*str_expr*  
-   Is a string expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`string_expr`** | A string expression. |
+
 ## Return types
-  
-  Returns a string expression.  
-  
+
+Returns a string expression.  
+
 ## Examples
-  
-  The following example shows how to use `REVERSE` in a query.  
-  
-```sql
-SELECT REVERSE("Abc") AS reverse  
-```  
-  
- Here is the result set.  
-  
-```json
-[{"reverse": "cbA"}]  
-```  
+
+The following example shows how to use this function to reverse multiple strings.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/reverse/query.sql" highlight="2-4":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/reverse/result.json":::
 
 ## Remarks
 
-This system function will not utilize the index.
+- This function doesn't use the index.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`LENGTH`](length.md)

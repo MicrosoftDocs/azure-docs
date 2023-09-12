@@ -802,7 +802,7 @@ Server-side programming mappings
 
 | HBase    | Azure Cosmos DB   | Description |
 | ----------------------- | ---------------- | ----------- |
-| Custom filters   | WHERE Clause  | If the processing implemented by the custom filter cannot be achieved by the WHERE clause in Azure Cosmos DB, use UDF in combination. See [UDF examples](query/udfs.md#examples) for an example of using UDF to further filter the results of the WHERE clause. |
+| Custom filters   | WHERE Clause  | If the processing implemented by the custom filter cannot be achieved by the WHERE clause in Azure Cosmos DB, use UDF in combination. |
 | Coprocessor  (Observer) | Trigger  | Observer is a trigger that executes before and after a particular event. Just as Observer supports pre- and post-calls, Azure Cosmos DB's Trigger also supports pre- and post-triggers. |
 | Coprocessor  (Endpoint) | Stored Procedure | Endpoint is a server-side data processing mechanism that is executed for each region. This is similar to an RDBMS stored procedure. Azure Cosmos DB stored procedures are written using JavaScript. It provides access to all the operations you can perform on Azure Cosmos DB through stored procedures. |
 

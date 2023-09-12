@@ -4,8 +4,9 @@ description: See a reference architecture and considerations for Azure DevTest L
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/14/2022
+ms.date: 09/30/2023
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # DevTest Labs enterprise reference architecture

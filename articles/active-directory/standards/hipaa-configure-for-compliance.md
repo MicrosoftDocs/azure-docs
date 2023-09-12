@@ -43,7 +43,7 @@ The remaining articles in this series provide guidance and links to resources, o
 
 * [HHS Zero Trust in Healthcare pdf](https://www.hhs.gov/sites/default/files/zero-trust.pdf)
 
-* [Combined regulation text](https://www.hhs.gov/ocr/privacy/hipaa/administrative/combined/index.html?language=es) of all HIPAA Administrative Simplification Regulations found at 45 CFR 160, 162, and 164
+* [Combined regulation text](https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/combined-regulation-text/index.html) of all HIPAA Administrative Simplification Regulations found at 45 CFR 160, 162, and 164
 
 * [Code of Federal Regulations (CFR) Title 45](https://www.ecfr.gov/current/title-45) describing the public welfare portion of the regulation
 
@@ -51,7 +51,7 @@ The remaining articles in this series provide guidance and links to resources, o
 
 * [Part 164](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164) Subparts A and C describing the security and privacy requirements of Title 45
 
-* [HIPAA Security Risk Safeguard Tool](https://www.healthit.gov/providers-professionals/security-risk-assessment-tool)
+* [HIPAA Security Risk Safeguard Tool](https://www.healthit.gov/topic/privacy-security-and-hipaa/security-risk-assessment-tool)
 
 * [NIST HSR Toolkit](http://scap.nist.gov/hipaa/)
 

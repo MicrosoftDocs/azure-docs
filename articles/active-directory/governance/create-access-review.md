@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access.
 
-Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or User administrator enables the setting via the **Access Reviews Settings** pane. For more information about these scenarios, see [Manage access reviews](manage-access-review.md).
+Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or Identity Governance Administrator enables the setting via the **Access Reviews Settings** pane. For more information about these scenarios, see [Manage access reviews](manage-access-review.md).
 
 Watch a short video that talks about enabling access reviews.
 
@@ -31,8 +31,8 @@ This article describes how to create one or more access reviews for group member
 ## Prerequisites
 
 - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance licenses.  
-- Creating a review on [inactive user](review-recommendations-access-reviews.md#inactive-user-recommendations) and with [use-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
-- Global administrator, User administrator, or Identity Governance administrator to create reviews on groups or applications.
+- Creating a review on inactive users and with [user-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
+- Global administrator or Identity Governance administrator to create reviews on groups or applications.
 - Global administrators and Privileged Role administrators can create reviews on role-assignable groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 - Microsoft 365 and Security group owner.
 
@@ -43,9 +43,10 @@ If you're reviewing access to an application, then before creating the review, s
 ## Create a single-stage access review
 
 ### Scope
-1. Sign in to the Azure portal and open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
-2. On the left menu, select **Access reviews**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+
+1. Browse to **Identity governance** > **Access Reviews**.
 
 3. Select **New access review** to create a new access review.
 
@@ -233,11 +234,9 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 
 Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the Azure portal as a Global Administrator, User Admin or Identity Governance Admin.
-  
-1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. On the left menu, select **Access reviews**.
+1. Browse to **Identity governance** > **Access Reviews**.
 
 1. Select **+ New access review**.
 
@@ -266,11 +265,13 @@ Use the following instructions to create an access review on a team with shared 
 
 ## Allow group owners to create and manage access reviews of their groups
 
-The prerequisite role is a Global or User administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+The prerequisite role is a Global or Identity Governance Administrator.
 
-1. On the menu on the left, under **Access reviews**, select **Settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
+
+1. Browse to **Identity governance** > **Access Reviews** > **Settings**.
 
 1. On the **Delegate who can create and manage access reviews** page, set **Group owners can create and manage access reviews for groups they own** to **Yes**.
 
@@ -312,6 +313,3 @@ After one or more access reviews have started, you might want to modify or updat
 - [Create an access review of PIM for Groups (preview)](create-access-review-pim-for-groups.md)
 - [Review access to groups or applications](perform-access-review.md)
 - [Review access for yourself to groups or applications](review-your-access.md)
-
-
-

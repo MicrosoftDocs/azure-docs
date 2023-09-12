@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 09/08/2023
 
 ms.author: justinha
 author: mjsantani
@@ -74,8 +74,9 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 To enable a registration campaign in the Azure portal, complete the following steps:
 
-1. In the Azure portal, click **Security** > **Authentication methods** > **Registration campaign**.
-1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either enabled or disabled. For the registration campaign, the Microsoft managed value is Enabled for voice call and SMS users with free and trial subscriptions. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Registration campaign**.
+1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. For the registration campaign, the Microsoft managed value is Enabled for voice call and text message users with free and trial subscriptions. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
    
    ![Screenshot of enabling a registration campaign.](./media/how-to-nudge-authenticator-app/registration-campaign.png)
 
@@ -266,9 +267,14 @@ No. This feature is available only for users using Azure AD Multi-Factor Authent
 
 Nudge is available only on browsers and not on applications.
 
+**Can users be nudged on a mobile device?** 
+
+Nudge is not available on mobile devices.
+
 **How long will the campaign run for?** 
 
 You can use the APIs to enable the campaign for as long as you like. Whenever you want to be done running the campaign, simply use the APIs to disable the campaign.  
+
 **Can each group of users have a different snooze duration?** 
 
 No. The snooze duration for the prompt is a tenant-wide setting and applies to all groups in scope. 
@@ -295,7 +301,7 @@ No. The feature, for now, aims to nudge users to set up the Authenticator app on
 
 **Is there a way for me to hide the snooze option and force my users to setup the Authenticator app?**  
 
-There is no way to hide the snooze option on the nudge. You can set the snoozeDuration to 0, which will ensure that users will see the nudge during each MFA attempt.  
+Users in organizations with free and trial subscriptions can postpone the app setup up to three times. There is no way to hide the snooze option on the nudge for organizations with paid subscriptions yet. You can set the snoozeDuration to 0, which will ensure that users will see the nudge during each MFA attempt.  
 
 **Will I be able to nudge my users if I am not using Azure AD Multi-Factor Authentication?** 
 
@@ -309,11 +315,20 @@ Yes. If they have been scoped for the nudge using the policy.
 
 It's the same as snoozing.
 
-**Why don’t some users see a nudge when there is a conditional access policy for "Register security information"?**
+**Why don’t some users see a nudge when there is a Conditional Access policy for "Register security information"?**
 
-A nudge won't appear if a user is in scope for a conditional access policy that blocks access to the **Register security information** page.
+A nudge won't appear if a user is in scope for a Conditional Access policy that blocks access to the **Register security information** page.
+
+**Do users see a nudge when there is a terms of use (ToU) screen presented to the user during sign-in?**
+
+A nudge won't appear if a user is presented with the [terms of use (ToU)](/azure/active-directory/conditional-access/terms-of-use) screen during sign-in.
+
+**Do users see a nudge when Conditional Access custom controls are applicable to the sign-in?**
+
+A nudge won't appear if a user is redirected during sign-in due to [Conditional Access custom controls](/azure/active-directory/conditional-access/controls) settings.
 
 ## Next steps
 
 [Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)
+
 

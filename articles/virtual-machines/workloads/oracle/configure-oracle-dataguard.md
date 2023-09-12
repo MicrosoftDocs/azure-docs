@@ -4,7 +4,7 @@ description: Quickly get Oracle Data Guard up and running in your Azure environm
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 03/23/2023
@@ -761,4 +761,3 @@ az group delete --name $RESOURCE_GROUP
 
 - [Tutorial: Create highly available virtual machines](../../linux/create-cli-complete.md)
 - [Explore Azure CLI samples for VM deployment](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
-

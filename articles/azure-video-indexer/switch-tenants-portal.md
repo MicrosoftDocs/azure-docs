@@ -3,6 +3,8 @@ title: Switch between tenants on the Azure AI Video Indexer website
 description: This article shows how to switch between tenants in the Azure AI Video Indexer website. 
 ms.topic: how-to
 ms.date: 01/24/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Switch between multiple tenants
@@ -33,7 +35,7 @@ This article shows two options to solve the same problem - how to switch tenants
     > [!div class="mx-imgBorder"]
     > ![Screenshot of a tenant list.](./media/switch-directory/tenants.png)
 
-    Once clicked, the logged-in credentials will be used to relog-in to the Azure AI Video Indexer website with the new directory. 
+    Once clicked, the authenticated credentials will be used to sign in again to the Azure AI Video Indexer website with the new directory.
 
 ## Switch tenants from outside the Azure AI Video Indexer website
 
@@ -41,7 +43,7 @@ This section shows how to get the domain name from the Azure portal. You can the
 
 ### Get the domain name
 
-1. In the [Azure portal](https://portal.azure.com/), sign in with the same subscription tenant in which your Azure AI Video Indexer Azure Resource Manager (ARM) account was created. 
+1. Sign in to the [Azure portal](https://portal.azure.com) using the same subscription tenant in which your Azure AI Video Indexer Azure Resource Manager (ARM) account was created. 
 1. Hover over your account name (in the right-top corner). 
 
     > [!div class="mx-imgBorder"]

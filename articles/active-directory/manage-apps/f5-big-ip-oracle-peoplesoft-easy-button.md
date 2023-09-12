@@ -24,7 +24,7 @@ Integrate BIG-IP with Azure AD for many benefits:
   * See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)  
   * See, [What is Conditional Access?](../conditional-access/overview.md)
 * Single sign-on (SSO) between Azure AD and BIG-IP published services
-* Manage identities and access from the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from the [Azure portal](https://portal.azure.com)
 
 Learn more: 
 
@@ -74,7 +74,7 @@ For this scenario, SHA supports SP- and IdP-initiated flows. The following diagr
     * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
     * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to the on-premises directory
-  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 * An account with Azure AD Application Admin permissions
   * See, [Azure AD built-in roles](../roles/permissions-reference.md)
 * An SSL Web certificate to publish services over HTTPS, or use default BIG-IP certs for testing
@@ -92,13 +92,15 @@ With the Easy Button, admins don't go between Azure AD and a BIG-IP to enable se
 
 ## Register the Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
 Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 The following instructions help you create a tenant app registration to authorize Easy Button access to Graph. With these permissions, the BIG-IP pushes the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrative permissions.
 2. From the left navigation pane, select the **Azure Active Directory** service.
 3. Under **Manage**, select **App registrations > New registration**.
 4. Enter an application **Name**.

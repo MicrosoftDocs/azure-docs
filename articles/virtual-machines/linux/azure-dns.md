@@ -4,11 +4,11 @@ description: Name Resolution scenarios for Linux virtual machines in Azure IaaS,
 author: RicksterCDN
 ms.service: virtual-machines
 ms.subservice: networking
+ms.custom: devx-track-linux
 ms.topic: conceptual
 ms.date: 04/11/2023
 ms.author: rclaus
 ms.collection: linux
-
 ---
 # DNS Name Resolution options for Linux virtual machines in Azure
 

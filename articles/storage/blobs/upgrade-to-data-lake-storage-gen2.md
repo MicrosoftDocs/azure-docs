@@ -2,7 +2,7 @@
 title: Upgrading Azure Blob Storage to Azure Data Lake Storage Gen2 
 description: Description goes here.
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 01/25/2022
 ms.author: normesta

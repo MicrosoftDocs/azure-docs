@@ -11,6 +11,7 @@ ms.date: 12/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom: has-azure-ad-ps-ref
 ---
 # Calling capabilities supported for Teams users in Calling SDK
 

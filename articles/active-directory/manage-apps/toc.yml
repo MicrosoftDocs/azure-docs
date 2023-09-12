@@ -136,6 +136,8 @@
           href: configure-permission-classifications.md
         - name: Manage app consent policies
           href: manage-app-consent-policies.md
+        - name: Manage app consent policies for group owner
+          href: manage-group-owner-consent-policies.md
         - name: Configure admin consent workflow
           href: configure-admin-consent-workflow.md
         - name: Review admin consent requests

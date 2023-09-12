@@ -32,7 +32,7 @@ ms.author: eur
 | `bn-BD` | Bangla (Bangladesh) | `bn-BD-NabanitaNeural`<sup>2</sup> (Female)<br/>`bn-BD-PradeepNeural`<sup>2</sup> (Male) |
 | `bn-IN` | Bengali (India) | `bn-IN-TanishaaNeural`<sup>2</sup> (Female)<br/>`bn-IN-BashkarNeural`<sup>2</sup> (Male) |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | `bs-BA-VesnaNeural`<sup>2</sup> (Female)<br/>`bs-BA-GoranNeural`<sup>2</sup> (Male) |
-| `ca-ES` | Catalan (Spain) | `ca-ES-JoanaNeural` (Female)<br/>`ca-ES-EnricNeural` (Male)<br/>`ca-ES-AlbaNeural` (Female) |
+| `ca-ES` | Catalan | `ca-ES-JoanaNeural` (Female)<br/>`ca-ES-EnricNeural` (Male)<br/>`ca-ES-AlbaNeural` (Female) |
 | `cs-CZ` | Czech (Czechia) | `cs-CZ-VlastaNeural` (Female)<br/>`cs-CZ-AntoninNeural` (Male) |
 | `cy-GB` | Welsh (United Kingdom) | `cy-GB-NiaNeural`<sup>2</sup> (Female)<br/>`cy-GB-AledNeural`<sup>2</sup> (Male) |
 | `da-DK` | Danish (Denmark) | `da-DK-ChristelNeural` (Female)<br/>`da-DK-JeppeNeural` (Male) |
@@ -52,7 +52,7 @@ ms.author: eur
 | `en-PH` | English (Philippines) | `en-PH-RosaNeural` (Female)<br/>`en-PH-JamesNeural` (Male) |
 | `en-SG` | English (Singapore) | `en-SG-LunaNeural` (Female)<br/>`en-SG-WayneNeural` (Male) |
 | `en-TZ` | English (Tanzania) | `en-TZ-ImaniNeural` (Female)<br/>`en-TZ-ElimuNeural` (Male) |
-| `en-US` | English (United States) | `en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-JennyMultilingualV2Neural` (Female)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-RyanMultilingualNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male)<br/>`en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-BlueNeural`<sup>1</sup> (Neutral) |
+| `en-US` | English (United States) | `en-US-JennyMultilingualNeural`<sup>3</sup> (Female)<br/>`en-US-JennyNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-AriaNeural` (Female)<br/>`en-US-DavisNeural` (Male)<br/>`en-US-AmberNeural` (Female)<br/>`en-US-AnaNeural` (Female, Child)<br/>`en-US-AshleyNeural` (Female)<br/>`en-US-BrandonNeural` (Male)<br/>`en-US-ChristopherNeural` (Male)<br/>`en-US-CoraNeural` (Female)<br/>`en-US-ElizabethNeural` (Female)<br/>`en-US-EricNeural` (Male)<br/>`en-US-JacobNeural` (Male)<br/>`en-US-JaneNeural` (Female)<br/>`en-US-JasonNeural` (Male)<br/>`en-US-MichelleNeural` (Female)<br/>`en-US-MonicaNeural` (Female)<br/>`en-US-NancyNeural` (Female)<br/>`en-US-RogerNeural` (Male)<br/>`en-US-SaraNeural` (Female)<br/>`en-US-SteffanNeural` (Male)<br/>`en-US-TonyNeural` (Male)<br/>`en-US-AIGenerate1Neural`<sup>1</sup> (Male)<br/>`en-US-AIGenerate2Neural`<sup>1</sup> (Female)<br/>`en-US-BlueNeural`<sup>1</sup> (Neutral)<br/>`en-US-JennyMultilingualV2Neural`<sup>1,3</sup> (Female)<br/>`en-US-RyanMultilingualNeural`<sup>1,3</sup> (Male) |
 | `en-ZA` | English (South Africa) | `en-ZA-LeahNeural` (Female)<br/>`en-ZA-LukeNeural` (Male) |
 | `es-AR` | Spanish (Argentina) | `es-AR-ElenaNeural` (Female)<br/>`es-AR-TomasNeural` (Male) |
 | `es-BO` | Spanish (Bolivia) | `es-BO-SofiaNeural` (Female)<br/>`es-BO-MarceloNeural` (Male) |
@@ -140,7 +140,7 @@ ms.author: eur
 | `ta-SG` | Tamil (Singapore) | `ta-SG-VenbaNeural` (Female)<br/>`ta-SG-AnbuNeural` (Male) |
 | `te-IN` | Telugu (India) | `te-IN-ShrutiNeural` (Female)<br/>`te-IN-MohanNeural` (Male) |
 | `th-TH` | Thai (Thailand) | `th-TH-PremwadeeNeural` (Female)<br/>`th-TH-NiwatNeural` (Male)<br/>`th-TH-AcharaNeural` (Female) |
-| `tr-TR` | Turkish (Turkey) | `tr-TR-EmelNeural` (Female)<br/>`tr-TR-AhmetNeural` (Male) |
+| `tr-TR` | Turkish (Türkiye) | `tr-TR-EmelNeural` (Female)<br/>`tr-TR-AhmetNeural` (Male) |
 | `uk-UA` | Ukrainian (Ukraine) | `uk-UA-PolinaNeural` (Female)<br/>`uk-UA-OstapNeural` (Male) |
 | `ur-IN` | Urdu (India) | `ur-IN-GulNeural` (Female)<br/>`ur-IN-SalmanNeural` (Male) |
 | `ur-PK` | Urdu (Pakistan) | `ur-PK-UzmaNeural` (Female)<br/>`ur-PK-AsadNeural` (Male) |

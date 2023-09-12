@@ -14,7 +14,7 @@ ms.date: 06/30/2023
 
 # Azure Translator tool (preview)
 
-Azure Cognitive Services Translator is a cloud-based machine translation service you can use to translate text in with a simple REST API call. See the [Azure Translator API](../../../cognitive-services/translator/index.yml) for more information.
+Azure AI Translator is a cloud-based machine translation service you can use to translate text in with a simple REST API call. See the [Azure Translator API](../../../ai-services/translator/index.yml) for more information.
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -26,7 +26,7 @@ Azure Cognitive Services Translator is a cloud-based machine translation service
 
 ## Prerequisites
 
-- [Create a Translator resource](../../../cognitive-services/translator/create-translator-resource.md).
+- [Create a Translator resource](../../../ai-services/translator/create-translator-resource.md).
 
 ## Inputs
 

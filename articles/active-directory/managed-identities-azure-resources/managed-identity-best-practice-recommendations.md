@@ -24,7 +24,7 @@ ms.author: barclayn
 
 User-assigned managed identities are more efficient in a broader range of scenarios than system-assigned managed identities. See the table below for some scenarios and the recommendations for user-assigned or system-assigned.
 
-User-assigned identities can be used by multiple resources, and their life cycles are decoupled from the resources’ life cycles with which they’re associated. [Read which resources support managed identities](./services-support-managed-identities.md).
+User-assigned identities can be used by multiple resources, and their life cycles are decoupled from the resources’ life cycles with which they’re associated. [Read which resources support managed identities](./managed-identities-status.md).
 
 This life cycle allows you to separate your resource creation and identity administration responsibilities. User-assigned identities and their role assignments can be configured in advance of the resources that require them. Users who create the resources only require the access to assign a user-assigned identity, without the need to create new identities or role assignments. 	
 
@@ -82,16 +82,17 @@ and for [custom roles and role assignments](../../azure-resource-manager/managem
 
 When granting any identity, including a managed identity, permissions to access services, always grant the least permissions needed to perform the desired actions. For example, if a managed identity is used to read data from a storage account, there is no need to allow that identity permissions to also write data to the storage account. Granting extra permissions, for example, making the managed identity a contributor on an Azure subscription when it’s not needed, increases the security blast radius associated with the identity. One must always minimize the security blast radius so that compromising that identity causes minimum damage.
 
-### Consider the effect of assigning managed identities to Azure resources
+### Consider the effect of assigning managed identities to Azure resources and/or granting assign permissions to a user
 
 It is important to note that when an Azure resource, such as an Azure Logic App, an Azure function, or a Virtual Machine, etc. is assigned a managed identity, all the permissions granted to the managed identity are now available to the Azure resource. This is important because if a user has access to install or execute code on this resource, then the user has access to all the identities assigned/associated to the Azure resource. The purpose of managed identity is to give code running on an Azure resource access to other resources, without developers needing to handle or put credentials directly into code to get that access.
 
-For example, if a managed Identity (ClientId = 1234) has been granted read/write access to ***StorageAccount7755*** and has been assigned to ***LogicApp3388***, then Alice, who does not have any direct permissions over the managed identity or the storage account but has permission to execute code within ***LogicApp3388*** can also read/write data to/from ***StorageAccount7755*** by executing the code that uses the managed identity.
+For example, if a managed Identity (ClientId = 1234) has been granted read/write access to ***StorageAccount7755*** and has been assigned to ***LogicApp3388***, then Alice, who does not have direct access to the storage account but has permission to execute code within ***LogicApp3388*** can also read/write data to/from ***StorageAccount7755*** by executing the code that uses the managed identity.
+
+Similarly, if Alice has permissions to assign the managed identity herself, she can assign it to a different Azure resource and have access to all the permissions available to the managed identity. 
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/security-considerations.png" alt-text="security scenario":::
 
 In general, when granting a user administrative access to a resource that can execute code (such as a Logic App) and has a managed identity, consider if the role being assigned to the user can install or run code on the resource, and if yes only assign that role if the user really needs it.
-
 
 ## Maintenance
 
@@ -114,7 +115,7 @@ Get-AzRoleAssignment | Where-Object {$_.ObjectType -eq "Unknown"} | Remove-AzRol
 
 ## Limitation of using managed identities for authorization
 
-Using Azure AD **groups** for granting access to services is a great way to simplify the authorization process. The idea is simple – grant permissions to a group and add identities to the group so that they inherit the same permissions. This is a well-established pattern from various on-premises systems and works well when the identities represent users. Another option to control authorization in Azure AD is by using [App Roles](../develop/howto-add-app-roles-in-azure-ad-apps.md), which allows you to declare **roles** that are specific to an app (rather than groups, which are a global concept in the directory). You can then [assign app roles to managed identities](how-to-assign-app-role-managed-identity-powershell.md) (as well as users or groups).
+Using Azure AD **groups** for granting access to services is a great way to simplify the authorization process. The idea is simple – grant permissions to a group and add identities to the group so that they inherit the same permissions. This is a well-established pattern from various on-premises systems and works well when the identities represent users. Another option to control authorization in Azure AD is by using [App Roles](../develop/howto-add-app-roles-in-apps.md), which allows you to declare **roles** that are specific to an app (rather than groups, which are a global concept in the directory). You can then [assign app roles to managed identities](how-to-assign-app-role-managed-identity-powershell.md) (as well as users or groups).
 
 In both cases, for non-human identities such as Azure AD Applications and Managed identities, the exact mechanism of how this authorization information is presented to the application is not ideally suited today. Today's implementation with Azure AD and Azure Role Based Access Control (Azure RBAC) uses access tokens issued by Azure AD for authentication of each identity. If the identity is added to a group or role, this is expressed as claims in the access token issued by Azure AD. Azure RBAC uses these claims to further evaluate the authorization rules for allowing or denying access.
 

@@ -30,7 +30,7 @@ Start by navigating to the Dapr component creation feature.
 
 1. In the Azure portal, navigate to your Container Apps environment.
 1. In the left-side menu, under **Settings**, select **Dapr components**. 
-1. From the top menu, select **Add** > **Azure component (preview)** to open the **Add Dapr Component** configuration pane.
+1. From the top menu, select **Add** > **Azure component** to open the **Add Dapr Component** configuration pane.
 
    :::image type="content" source="media/dapr-component-connection/select-azure-component.png" alt-text="Screenshot of selecting Azure Component from the drop down menu.":::
 

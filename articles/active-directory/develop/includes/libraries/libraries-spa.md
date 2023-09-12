@@ -19,7 +19,7 @@ ms.author: henrymbugua
 | Vue | [Vue MSAL]( https://github.com/mvertopoulos/vue-msal) | [vue-msal]( https://www.npmjs.com/package/vue-msal) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
 -->
 
-<sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in _Public preview_.
+<sup>1</sup> [Universal License Terms for Online Services][preview-tos] apply to libraries in _Public preview_.
 
 <sup>2</sup> [Auth code flow][auth-code-flow] with PKCE only (Recommended).
 
@@ -34,6 +34,6 @@ ms.author: henrymbugua
 
 [aad-app-model-v2-overview]: v2-overview.md
 [microsoft-sdl]: https://www.microsoft.com/securityengineering/sdl/
-[preview-tos]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[preview-tos]: https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all
 [auth-code-flow]: ../../v2-oauth2-auth-code-flow.md
 [implicit-flow]: ../../v2-oauth2-implicit-grant-flow.md

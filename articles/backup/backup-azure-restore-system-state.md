@@ -2,10 +2,10 @@
 title: Restore System State to a Windows Server
 description: Step-by-step explanation for restoring Windows Server System State from a backup in Azure.
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 08/14/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore System State to Windows Server
 
@@ -14,6 +14,7 @@ This article explains how to restore Windows Server System State backups from an
 1. Restore System State as files from Azure Backup. When restoring System State as files from Azure Backup, you can either:
    * Restore System State to the same server where the backups were taken, or
    * Restore System State file to an alternate server.
+   * If you have Cross Region Restore enabled in your vault, you can restore the backup data from a secondary region.
 
 2. Apply the restored System State files to a Windows Server using the Windows Server Backup utility.
 
@@ -32,6 +33,10 @@ The following steps explain how to roll back your Windows Server configuration t
 3. On the **Getting Started** pane, to restore the data to the same server or computer, select **This server (`<server name>`)** and select **Next**.
 
     ![Choose this server option to restore the data to the same machine](./media/backup-azure-restore-system-state/samemachine.png)
+
+   If you have enabled Cross Region Restore (preview) and want to restore from the secondary region, select **Secondary Region**. Else, select **Primary Region**.
+
+   :::image type="content" source="./media/backup-azure-restore-windows-server/select-source-region-for-restore.png" alt-text="Screenshot shows the selection of the source region of recovery point.":::
 
 4. On the **Select Recovery Mode** pane, choose **System State** and then select **Next**.
 
@@ -83,6 +88,10 @@ The terminology used in these steps includes:
     ![Another Server](./media/backup-azure-restore-system-state/anotherserver.png)
 
 5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired), download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the Recovery Services vault associated with the vault credential file appears.
+
+   If you want to use Cross Region Restore to restore the backup data from the secondary region, you need to download the *Secondary Region vault credential file* from the Azure portal, and then pass the file in the MARS agent.
+
+   :::image type="content" source="./media/backup-azure-restore-windows-server/pass-vault-credentials-in-mars-agent.png" alt-text="Screenshot shows the secondary vault credentials passed in MARS agent.":::
 
 6. On the Select Backup Server pane, select the *Source machine* from the list of displayed machines.
 7. On the Select Recovery Mode pane, choose **System State** and select **Next**.

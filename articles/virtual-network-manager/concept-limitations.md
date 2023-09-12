@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Limitations with Azure Virtual Network Manager
 
-This article provides an overview of the current limitations when using [Azure Virtual Network Manager](overview.md) to manage virtual networks. As a network administrator, it's important to understand these limitations in order to properly deploy an Azure Virtual Network Manager features in your environment. The article covers various limitations related to Azure Virtual Network Manager, including the maximum number of virtual networks, overlapping IP spaces, and policy compliance evaluation cycle. 
+This article provides an overview of the current limitations when using [Azure Virtual Network Manager](overview.md) to manage virtual networks. As a network administrator, it's important to understand these limitations to properly deploy an Azure Virtual Network Manager instance in your environment. The article covers various limitations related to Azure Virtual Network Manager, including the maximum number of virtual networks, overlapping IP spaces, and policy compliance evaluation cycle. 
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 

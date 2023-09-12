@@ -351,6 +351,8 @@ Select **Start Debugging** or select **F5**. Select the process to attach to. In
 
 The Docker and Moby engines support SSH connections to containers allowing you to debug in Visual Studio Code connected to a remote device. You need to meet the following prerequisites before you can use this feature.
 
+Remote SSH debugging prerequisites may be different depending on the language you are using. The following sections describe the setup for .NET. For information on other languages, see [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh) for an overview. Details about how to configure remote debugging are included in debugging sections for each language in the Visual Studio Code documentation.
+
 ### Configure Docker SSH tunneling
 
 1. Follow the steps in [Docker SSH tunneling](https://code.visualstudio.com/docs/containers/ssh#_set-up-ssh-tunneling) to configure SSH tunneling on your development computer. SSH tunneling requires public/private key pair authentication and a Docker context defining the remote device endpoint.

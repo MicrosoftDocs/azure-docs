@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2023
+ms.date: 09/08/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -888,7 +888,7 @@ organization.",
 
 **TLS Protocol Versions**
 
-The only acceptable protocol versions are TLS 1.2 and TLS 1.3. No other SSL/TLS versions are permitted.
+The only acceptable protocol version is TLS 1.2. No other SSL/TLS version is permitted.
 
 - RSA keys must be at least 2,048 bits.
 - ECC keys must be at least 256 bits, generated using an approved elliptic curve
@@ -1304,6 +1304,8 @@ Check with your application provider, or your application provider's documentati
 
 ### Getting started
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Applications that support the SCIM profile described in this article can be connected to Azure AD using the "non-gallery application" feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process. The process runs every 40 minutes. The process queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
 
 **To connect an application that supports SCIM:**
@@ -1403,7 +1405,7 @@ It's recommended, but not required, that you support multiple secrets for easy r
 
 #### How to set up OAuth code grant flow
 
-1. Sign in to the Azure portal, go to **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
+1. Sign in to the [Azure portal](https://portal.azure.com), go to **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
 
    1. Azure portal redirects user to the Authorization URL (sign in page for the third party app).
 

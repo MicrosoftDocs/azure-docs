@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/19/2023
 ms.custom: query-reference
 ---
 
@@ -35,28 +35,18 @@ COT(<numeric_expr>)
 Returns a numeric expression.  
   
 ## Examples
-  
+
 The following example calculates the cotangent of the specified angle using the function.
-  
-```sql
-SELECT VALUE {
-    cotangent: COT(124.1332)
-} 
-```  
-  
-```json
-[
-  {
-    "cotangent": -0.040311998371148884
-  }
-]
-```  
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/cot/query.sql" highlight="2":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/cot/result.json":::
 
 ## Remarks
 
-- This system function doesn't utilize the index.
+- This function doesn't use the index.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`TAN`](tan.md)

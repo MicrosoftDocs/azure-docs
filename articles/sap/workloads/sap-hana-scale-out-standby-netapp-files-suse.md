@@ -620,7 +620,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 ## Test SAP HANA failover
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
 
 1. Simulate a node crash on an SAP HANA worker node. Do the following:
 

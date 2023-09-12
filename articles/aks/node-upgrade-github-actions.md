@@ -209,7 +209,7 @@ jobs:
 
 - See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][cluster-upgrades-article].
-- Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
+- Learn more about multiple node pools with [Create multiple node pools][use-multiple-node-pools].
 - Learn more about [system node pools][system-pools]
 - To learn how to save costs using Spot instances, see [add a spot node pool to AKS][spot-pools]
 
@@ -227,7 +227,7 @@ jobs:
 [cluster-upgrades-article]: upgrade-cluster.md
 [system-pools]: use-system-pools.md
 [spot-pools]: spot-node-pool.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md
 [auto-upgrade-node-image]: auto-upgrade-node-image.md
 [azure-built-in-roles]: ../role-based-access-control/built-in-roles.md
 [azure-rbac-scope-levels]: ../role-based-access-control/scope-overview.md#scope-format

@@ -5,8 +5,8 @@ ms.topic: sample
 ms.custom: devx-track-arm-template
 author: guywi-ms
 ms.author: guywild
-ms.date: 04/26/2022
-ms.reviewer: shseth
+ms.date: 07/19/2023
+ms.reviewer: jeffwo
 ---
 
 # Resource Manager template samples for agents in Azure Monitor

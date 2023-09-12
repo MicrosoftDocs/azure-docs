@@ -6,7 +6,7 @@ ms.service: api-center
 ms.topic: tutorial
 ms.date: 06/05/2023
 ms.author: danlep
-ms.custom: 
+ms.custom:
 ---
 
 # Tutorial: Get started with your API center (preview)
@@ -27,12 +27,6 @@ For background information about the assets you can organize in API Center, see 
 
 
 ## Prerequisites
-
-* Access to the API Center preview. See [access instructions](https://aka.ms/apicenter/joinpreview):
-
-    1. Register the **Azure API Center Preview** feature in your subscription (or subscriptions).
-    1. Submit the access request form.
-    1. Wait for a notification email from Microsoft that access to API Center is enabled in the requested Azure subscription.
 
 * At least a Contributor role assignment or equivalent permissions in the Azure subscription. 
 
@@ -243,3 +237,4 @@ In this tutorial, you learned how to use the portal to:
 
 > [!div class="nextstepaction"]
 > [Learn more about API Center](key-concepts.md)
+

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 07/20/2023
 manager: nitinme
 ---
 
@@ -89,7 +89,7 @@ from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 token = credential.get_token("https://cognitiveservices.azure.com/.default")
 
-openai.api_type = "azuread"
+openai.api_type = "azure_ad"
 openai.api_key = token.token
 openai.api_base = "https://example-endpoint.openai.azure.com"
 openai.api_version = "2023-05-15"  # subject to change
@@ -161,9 +161,9 @@ embedding = openai.Embedding.create(
 </tr>
 </table>
 
-## Azure OpenAI embeddings doesn't support multiple inputs
+## Azure OpenAI embeddings multiple input support
 
-Many examples show passing multiple inputs into the embeddings API. For Azure OpenAI, currently we must pass a single text input per call.
+OpenAI currently allows a larger number of array inputs with text-embedding-ada-002. Azure OpenAI currently supports input arrays up to 16 for text-embedding-ada-002 Version 2. Both require the max input token limit per API request to remain under 8191 for this model.
 
 <table>
 <tr>
@@ -173,7 +173,7 @@ Many examples show passing multiple inputs into the embeddings API. For Azure Op
 <td>
 
 ```python
-inputs = ["A", "B", "C"]
+inputs = ["A", "B", "C"] 
 
 embedding = openai.Embedding.create(
   input=inputs,
@@ -187,14 +187,13 @@ embedding = openai.Embedding.create(
 <td>
 
 ```python
-inputs = ["A", "B", "C"]
+inputs = ["A", "B", "C"] #max array size=16
 
-for text in inputs:
-    embedding = openai.Embedding.create(
-        input=text,
-        deployment_id="text-embedding-ada-002"
-        #engine="text-embedding-ada-002"
-    )
+embedding = openai.Embedding.create(
+  input=inputs,
+  deployment_id="text-embedding-ada-002"
+  #engine="text-embedding-ada-002"
+)
 ```
 
 </td>

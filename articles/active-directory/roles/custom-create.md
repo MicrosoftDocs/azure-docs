@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Create and assign a custom role in Azure Active Directory
@@ -32,6 +32,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 ## Create a role in the Azure portal
 
 ### Create a new custom role to grant access to manage app registrations
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -57,10 +59,10 @@ Your custom role will show up in the list of available roles to assign.
 
 ### Connect to Azure
 
-To connect to Azure Active Directory, use the following command:
+To connect to Microsoft Graph PowerShell, use the following command:
 
 ``` PowerShell
-Connect-AzureAD
+Connect-MgGraph -Scopes "RoleManagement.Read.All"
 ```
 
 ### Create the custom role
@@ -79,10 +81,10 @@ $allowedResourceAction =
     "microsoft.directory/applications/basic/update",
     "microsoft.directory/applications/credentials/update"
 )
-$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+$rolePermissions = @(@{AllowedResourceActions= $allowedResourceAction})
  
 # Create new custom admin role
-$customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+$customAdmin = New-MgRoleManagementDirectoryRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -IsEnabled -Description $description -TemplateId $templateId
 ```
 
 ### Assign the custom role using PowerShell
@@ -91,15 +93,15 @@ Assign the role using the below PowerShell script:
 
 ``` PowerShell
 # Get the user and role definition you want to link
-$user = Get-AzureADUser -Filter "userPrincipalName eq 'cburl@f128.info'"
-$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
+$user = Get-MgUser -Filter "userPrincipalName eq 'cburl@f128.info'"
+$roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "DisplayName eq 'Application Support Administrator'"
 
 # Get app registration and construct resource scope for assignment.
-$appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
+$appRegistration = Get-MgApplication -Filter "Displayname eq 'POSTMAN'"
 $resourceScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId $resourcescope -RoleDefinitionId $roledefinition.Id -PrincipalId $user.Id
 ```
 
 ## Create a role with the Microsoft Graph API

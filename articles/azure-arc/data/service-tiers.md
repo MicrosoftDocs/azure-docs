@@ -8,8 +8,8 @@ ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 03/01/2022
-ms.topic: overview
+ms.date: 07/19/2023
+ms.topic: conceptual
 ---
 
 # Azure Arc-enabled SQL Managed Instance service tiers

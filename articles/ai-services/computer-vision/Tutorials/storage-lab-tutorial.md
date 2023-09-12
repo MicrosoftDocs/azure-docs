@@ -45,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In this section, you'll use the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
 
-1. Open the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you're asked to sign in, do so using your Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you're asked to sign in, do so using your Microsoft account.
 1. To create a storage account, select **+ Create a resource** in the ribbon on the left. Then select **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)
@@ -403,7 +403,7 @@ Navigate to the *Web.config* file at the root of the project. Add the following 
 <add key="VisionEndpoint" value="VISION_ENDPOINT" />
 ```
 
-Then in the Solution Explorer, right-click the project and use the **Manage NuGet Packages** command to install the package **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. This package contains the types needed to call the Azure AI Vision API.
+In the Solution Explorer. right-click on the project solution and select **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for **Azure.AI.Vision.ImageAnalysis**. Select **Install**.
 
 ### Add metadata generation code
 
@@ -412,29 +412,38 @@ Next, you'll add the code that actually uses the Azure AI Vision service to crea
 1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statements at the top of the file:
 
     ```csharp
-    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+    using Azure.AI.Vision.Common;
+    using Azure.AI.Vision.ImageAnalysis;
     ```
 
 1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Azure AI Vision to generate a description for that image. The Azure AI Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
 
     ```csharp
     // Submit the image to the Azure AI Vision API
-    ComputerVisionClient vision = new ComputerVisionClient(
-        new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
-        new System.Net.Http.DelegatingHandler[] { });
-    vision.Endpoint = ConfigurationManager.AppSettings["VisionEndpoint"];
+    var serviceOptions = new VisionServiceOptions(
+        Environment.GetEnvironmentVariable(ConfigurationManager.AppSettings["VisionEndpoint"]),
+            new AzureKeyCredential(ConfigurationManager.AppSettings["SubscriptionKey"]));
 
-    List<VisualFeatureTypes?> features = new List<VisualFeatureTypes?>() { VisualFeatureTypes.Description };
-    var result = await vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
+    var analysisOptions = new ImageAnalysisOptions()
+        {
+            Features = ImageAnalysisFeature.Caption | ImageAnalysisFeature.Tags,
+            Language = "en",
+            GenderNeutralCaption = true
+        };
+
+    using var imageSource = VisionSource.FromUrl(
+        new Uri(photo.Uri.ToString()));
+
+    using var analyzer = new ImageAnalyzer(serviceOptions, imageSource, analysisOptions);
+    var result = analyzer.Analyze();
 
     // Record the image description and tags in blob metadata
-    photo.Metadata.Add("Caption", result.Description.Captions[0].Text);
+    photo.Metadata.Add("Caption", result.Caption.ContentCaption.Content);
 
-    for (int i = 0; i < result.Description.Tags.Count; i++)
+    for (int i = 0; i < result.Tags.ContentTags.Count; i++)
     {
         string key = String.Format("Tag{0}", i);
-        photo.Metadata.Add(key, result.Description.Tags[i]);
+        photo.Metadata.Add(key, result.Tags.ContentTags[i]);
     }
 
     await photo.SetMetadataAsync();

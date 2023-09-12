@@ -5,7 +5,7 @@ ms.service: azure-operator-nexus
 author: dramasamy
 ms.author: dramasamy
 ms.topic: quickstart-arm
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 ms.date: 05/14/2023
 ---
 
@@ -54,7 +54,7 @@ Once you have reviewed and saved the template file named ```kubernetes-deploy.js
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
 
 ## Add an agent pool
-The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ARM template. The following example creates an agent pool named ```myNexusAKSCluster-nodepool-2```:
+The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ARM template. The following example creates an agent pool named ```myNexusK8sCluster-nodepool-2```:
 
 1. Review the template.
 
@@ -86,4 +86,3 @@ Once you have reviewed and saved the template file named ```kubernetes-add-agent
 ## Next steps
 
 [!INCLUDE [quickstart-nextsteps](./includes/kubernetes-cluster/quickstart-nextsteps.md)]
-

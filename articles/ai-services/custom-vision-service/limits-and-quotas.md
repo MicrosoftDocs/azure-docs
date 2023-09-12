@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Limits and quotas
 
-There are two tiers of keys for the Custom Vision service. You can sign up for a F0 (free) or S0 (standard) subscription through the Azure portal. See the corresponding [Azure AI services Pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for details on pricing and transactions.
+There are two tiers of keys for the Custom Vision service. You can sign up for a F0 (free) or S0 (standard) subscription through the Azure portal. See the corresponding [Azure AI services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for details on pricing and transactions.
 
 The number of training images per project and tags per project are expected to increase over time for S0 projects.
 

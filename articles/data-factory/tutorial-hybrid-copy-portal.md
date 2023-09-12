@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage

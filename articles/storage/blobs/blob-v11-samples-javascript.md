@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: View code samples that use the Azure Blob Storage client library for JavaScript version 11.x.
 services: storage
 author: pauljewellmsft
-ms.service: storage
+ms.service: azure-blob-storage
 ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 04/03/2023

@@ -4,7 +4,7 @@ description: Learn to execute a cluster runtime upgrade for Operator Nexus
 author: gedrivera
 ms.author: eduardori
 ms.service: azure-operator-nexus
-ms.custom: azure-operator-nexus
+ms.custom: azure-operator-nexus, devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/06/2023
 # ms.custom: template-include
@@ -17,7 +17,7 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 ## Prerequisites
 
 1. The [Install Azure CLI][installation-instruction] must be installed.
-2. the `networkcloud` extension is required.  If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
+2. The `networkcloud` cli extension is required.  If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
 3. Access to the Azure portal for the target cluster to be upgraded.
 4. You must be logged in to the same subscription as your target cluster via `az login`
 5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
@@ -51,7 +51,7 @@ In the output, you can find the `availableUpgradeVersions` property and look at 
       "expectedDuration": "Upgrades may take up to 4 hours + 2 hours per rack",
       "impactDescription": "Workloads will be disrupted during rack-by-rack upgrade",
       "supportExpiryDate": "2023-07-31",
-      "targetClusterVersion": "3.2.0",
+      "targetClusterVersion": "3.3.0",
       "workloadImpact": "True"
     }
   ],
@@ -68,7 +68,9 @@ az networkcloud cluster update-version --cluster-name "clusterName" --target-clu
   "versionNumber" --resource-group "resourceGroupName"
 ```
 
-The runtime upgrade is a long process. The upgrade is considered to be finished 80% of compute nodes and 100% of management/control nodes have been successfully upgraded.
+The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially rack by rack for the worker nodes.
+The upgrade is considered to be finished when 80% of worker nodes per rack and 100% of management nodes have been successfully upgraded.
+Workloads may be impacted while the worker nodes in a rack is in the process of being upgraded, however workloads in all other racks will not be impacted. Consideration of workload placement in light of this implementation design is encouraged.
 
 Upgrading all the nodes takes multiple hours but can take more if other processes, like firmware updates, are also part of the upgrade.
 Due to the length of the upgrade process, it's advised to check the Cluster's detail status periodically for the current state of the upgrade.
@@ -105,7 +107,7 @@ If the rack's spec wasn't updated to the upgraded runtime version before the har
 
 ### After a runtime upgrade the cluster shows "Failed" Provisioning State
 
-During a runtime upgrade the cluster will enter a state of "Upgrading."  In the event of a failure of the runtime upgrade, for reasons related to the resources, the cluster will go into a "Failed" Provisioning state.  This state could be linked to the lifecycle of the components related to the cluster (e.g StorageAppliance) and may be necessary to diagnose the failure with Microsoft support.
+During a runtime upgrade the cluster will enter a state of `Upgrading`  In the event of a failure of the runtime upgrade, for reasons related to the resources, the cluster will go into a `Failed` provisioning state.  This state could be linked to the lifecycle of the components related to the cluster (e.g StorageAppliance) and may be necessary to diagnose the failure with Microsoft support.
 
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli

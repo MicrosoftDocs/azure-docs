@@ -5,24 +5,18 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 09/01/2023
 ms.author: mmitrik
 ---
 
-# Overview of the DICOM service
-
-This article describes the concepts of DICOM and the DICOM service.
-
-## DICOM
+# What is the DICOM service?
 
 DICOM (Digital Imaging and Communications in Medicine) is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare. 
 
-## DICOM service
-
-The DICOM service is a managed service within [Azure Health Data Services](../healthcare-apis-overview.md) that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb&trade; enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](dicom-services-conformance-statement.md#store-stow-rs), [Search (QIDO-RS)](dicom-services-conformance-statement.md#search-qido-rs), [Retrieve (WADO-RS)](dicom-services-conformance-statement.md#retrieve-wado-rs). It's backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) compliance that you can upload PHI data to the DICOM service and exchange it through secure networks. 
+The DICOM service is a managed service within [Azure Health Data Services](../healthcare-apis-overview.md) that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb&trade; enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs), [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs), [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs). It's backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) compliance that you can upload PHI data to the DICOM service and exchange it through secure networks. 
 
 - **PHI Compliant**: Protect your PHI with unparalleled security intelligence. Your data is isolated to a unique database per API instance and protected with multi-region failover. The DICOM service implements a layered, in-depth defense and advanced threat protection for your data.
-- **Extended Query Tags**: Additionally index DICOM studies, series, and instances on both standard and private DICOM tags by expanding list of tags that are already specified within [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+- **Extended Query Tags**: Additionally index DICOM studies, series, and instances on both standard and private DICOM tags by expanding list of tags that are already specified within [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 - **Change Feed**: Access ordered, guaranteed, immutable, read-only logs of all the changes that occur in DICOM service. Client applications can read these logs at any time independently, in parallel and at their own pace.
 - **DICOMcast**: Via DICOMcast, the DICOM service can inject DICOM metadata into a FHIR service, or FHIR server, as an imaging study resource allowing a single source of truth for both clinical data and imaging metadata. This feature is available as an open-source feature that can be self-hosted in Azure.  Learn more about [deploying DICOMcast](https://github.com/microsoft/dicom-server/blob/main/docs/quickstarts/deploy-dicom-cast.md).
 - **Region availability**: DICOM service has wide-range of [availability across many regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=all) with multi-region failover protection and continuously expanding.

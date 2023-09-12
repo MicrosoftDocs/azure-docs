@@ -19,6 +19,9 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # Add a self-service sign-up user flow to an app
 
+> [!TIP]
+> This article applies to B2B collaboration user flows. If your tenant is configured for customer identity and access management, see [Create a sign-up and sign-in user flow for customers](customers/how-to-user-flow-sign-up-sign-in-customers.md).
+
 For applications you build, you can create user flows that allow a user to sign up for an app and create a new guest account. A self-service sign-up user flow defines the series of steps the user will follow during sign-up, the [identity providers](identity-providers.md) you'll allow them to use, and the user attributes you want to collect. You can associate one or more applications with a single user flow.
 
 > [!NOTE]
@@ -40,6 +43,8 @@ Azure AD is the default identity provider for self-service sign-up. This means t
 User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
 
 ## Enable self-service sign-up for your tenant
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Before you can add a self-service sign-up user flow to your applications, you need to enable the feature for your tenant. After it's enabled, controls become available in the user flow that let you associate the user flow with an application.
 
@@ -83,7 +88,7 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 
 You can choose order in which the attributes are displayed on the sign-up page. 
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
 2. Select **External Identities**, select **User flows**.
 3. Select the self-service sign-up user flow from the list.
 4. Under **Customize**, select **Page layouts**.

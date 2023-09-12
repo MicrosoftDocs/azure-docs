@@ -1,9 +1,6 @@
 ---
 title: 'How to: Use test automation with Azure Fluid Relay'
 description: How to use test automation libraries to create automated tests for Fluid applications
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid

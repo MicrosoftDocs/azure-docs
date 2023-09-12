@@ -48,5 +48,5 @@ The following example illustrates how to get the length of an array using the fu
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ARRAY_SLICE`](array-slice.md)

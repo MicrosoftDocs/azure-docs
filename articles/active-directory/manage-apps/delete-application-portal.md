@@ -12,8 +12,7 @@ ms.date: 06/21/2023
 ms.author: jomondi
 ms.reviewer: sureshja
 zone_pivot_groups: enterprise-apps-all
-ms.custom: enterprise-apps
-
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 #Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---
 
@@ -32,14 +31,15 @@ To delete an enterprise application, you need:
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - An [enterprise application added to your tenant](add-application-portal.md)
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Delete an enterprise application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 :::zone pivot="portal"
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
-1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to delete. In this article, we use the **Azure AD SAML Toolkit 1** as an example.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results. In this article, we use the **Azure AD SAML Toolkit 1** as an example.
 1. In the **Manage** section of the left menu, select **Properties**.
 1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
 
@@ -58,7 +58,7 @@ To delete an enterprise application, you need:
     Import-Module AzureAD
     ```
 
-1. Connect to Azure AD PowerShell:
+1. Connect to Azure AD PowerShell and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator):
 
    ```powershell
    Connect-AzureAD
@@ -78,7 +78,7 @@ To delete an enterprise application, you need:
 
 :::zone pivot="ms-powershell"
 
-1. Connect to Microsoft Graph PowerShell:
+1. Connect to Microsoft Graph PowerShell and sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator):
 
    ```powershell
    Connect-MgGraph -Scopes 'Application.Read.All'
@@ -102,7 +102,8 @@ To delete an enterprise application, you need:
 
 :::zone pivot="ms-graph"
 
-Delete an enterprise application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+To delete an enterprise application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), you need to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+
 1. To get the list of service principals in your tenant, run the following query.
 
    # [HTTP](#tab/http)

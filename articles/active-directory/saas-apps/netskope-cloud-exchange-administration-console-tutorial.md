@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 07/19/2023
 ms.author: jeedes
 
 ---
@@ -69,7 +69,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	`https://<Cloud_Exchange_FQDN>/login`
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Netskope Cloud Exchange Administration Console support team](mailto:support@netskope.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL based on your cloud exchange deployment. You can also contact [Netskope Cloud Exchange Administration Console support team](mailto:support@netskope.com) to get help to determine these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Netskope Cloud Exchange Administration Console application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -85,9 +85,9 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
    > [!NOTE]
    > Please click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to know how to configure Role in Azure AD.
 
-1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-    ![Screenshot shows the Certificate download link.](common/certificateraw.png "Certificate")
+    ![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
 1. On the **Set up Netskope Cloud Exchange Administration Console** section, copy the appropriate URL(s) based on your requirement.
 
@@ -95,7 +95,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Netskope Cloud Exchange Administration Console SSO
 
-To configure single sign-on on **Netskope Cloud Exchange Administration Console** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Netskope Cloud Exchange Administration Console support team](mailto:support@netskope.com). They set this setting to have the SAML SSO connection set properly on both sides
+To configure single sign-on on **Netskope Cloud Exchange Administration Console** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Netskope Cloud Exchange Administration Console support team](mailto:support@netskope.com). They set this setting to have the SAML SSO connection set properly on both sides
 
 ### Create Netskope Cloud Exchange Administration Console test user
 
