@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 08/29/2023
 ---
 
-# Apache flink configuration management
+# Apache Flink configuration management
 
 HDInsight on AKS provides a set of default configurations of Apache Flink for most properties and a few based on common application profiles. However, in case you're required to tweak Flink configuration properties to improve performance for certain applications with state usage, parallelism, or memory settings, you can change certain properties at cluster level using **Configuration management** section in HDInsight on AKS Flink.
 
