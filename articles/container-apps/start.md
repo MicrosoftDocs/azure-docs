@@ -23,10 +23,10 @@ To begin, select the scenario that best describes your needs.
 
 :::row:::
     :::column:::
-### I'm new to containers
+        **I'm new to containers**
     :::column-end:::
     :::column:::
-### I'm using serverless containers
+        **I'm using serverless containers**
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -39,11 +39,9 @@ To begin, select the scenario that best describes your needs.
 :::row-end:::
 ::row:::
     :::column:::
-> [!div class="nextstepaction"]
-> [Learn more about containers](start-containers.md)
+      [Learn more about containers](start-containers.md)
     :::column-end:::
     :::column:::
-> [!div class="nextstepaction"]
-> [Learn more about serverless containers](start-serverless-containers.md)
+      [Learn more about serverless containers](start-serverless-containers.md)
     :::column-end:::
 :::row-end:::
