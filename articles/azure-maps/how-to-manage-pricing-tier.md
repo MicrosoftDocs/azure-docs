@@ -12,7 +12,7 @@ services: azure-maps
 
 # Manage the pricing tier of your Azure Maps account
 
-You can manage the pricing tier of your Azure Maps account through the Azure portal. You can also view or change your account's pricing tier after you create an [Azure account].
+You can manage the pricing tier of your Azure Maps account through the [Azure portal] or an [Azure Resource Manager (ARM) template].
 
 > [!NOTE]
 >
@@ -32,12 +32,48 @@ To view your chosen pricing tier, navigate to the **Pricing Tier** option in the
 
 ## Change a pricing tier
 
+### Azure portal
+
 After you create your Azure Maps account, you can upgrade or downgrade the pricing tier for your Azure Maps account. To upgrade or downgrade, navigate to the **Pricing Tier** option in the settings menu. Select the pricing tier from drop-down list.  Note – current pricing tier is the default selection.  Select the **Save** button to save your chosen pricing tier option.
 
 > [!NOTE]
 > You don't have to generate new subscription keys, client ID (for Azure AD authentication) or shared access signature (SAS) tokens if you change the pricing tier for your Azure Maps account.
 
 :::image type="content" source="./media/how-to-manage-pricing-tier/change-pricing-tier.png" border="true" alt-text="Change a pricing tier":::
+
+### ARM Template
+
+To change your pricing tier from Gen1 to Gen2 in the ARM template, update `pricingTier` to **G2** and `kind` to **Gen2**. For more info on using ARM templates, see [Create account with ARM template].
+
+:::image type="content" source="./media/how-to-manage-pricing-tier/arm-template.png" border="true" alt-text="Screenshot of an ARM template that demonstrates updating pricingTier to G2 and kind to Gen2.":::
+
+<!------
+```json
+        "pricingTier": { 
+            "type": "string", 
+            "allowedValues":[ 
+                "G2"
+            ], 
+            "defaultValue": "G2",
+            "metadata": { 
+                "description": "The pricing tier SKU for the account." 
+            } 
+        }, 
+        "kind": { 
+            "type": "string", 
+            "allowedValues":[ 
+                "Gen2" 
+            ], 
+            "defaultValue": "Gen2", 
+            "metadata": { 
+                "description": "The pricing tier for the account." 
+            } 
+        } 
+```
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json" highlight="27-46":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json" range="27-46":::
+--->
 
 ## Next steps
 
@@ -46,6 +82,8 @@ Learn how to see the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
 > [View usage metrics]
 
-[Azure account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [Azure Maps pricing]: https://azure.microsoft.com/pricing/details/azure-maps/
+[Azure Portal]: https://portal.azure.com/
+[Azure Resource Manager (ARM) template]: how-to-create-template.md
+[Create account with ARM template]: how-to-create-template.md
 [View usage metrics]: how-to-view-api-usage.md
