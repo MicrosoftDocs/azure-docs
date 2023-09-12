@@ -37,7 +37,7 @@ If the `spec.target.configMapData` property is not set, the generated ConfigMap 
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|type|The type that indicates how the retrieved data is constructed in the generated ConfigMap. The allowed values include `default`, `json`, `yaml` and `properties`|optional|string|
+|type|The setting that indicates how the retrieved data is constructed in the generated ConfigMap. The allowed values include `default`, `json`, `yaml` and `properties`|optional|string|
 |key|The key name of the retrieved data when the `type` is set to `json`, `yaml` or `properties`. Set it to the file name if the ConfigMap is set up to be consumed as a mounted file|conditional|string|
 
 If the `spec.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties. Only one authentication method should be set.
@@ -297,7 +297,57 @@ spec:
 
 Applications running in Kubernetes typically consume the ConfigMap either as environment variables or as configuration files. If the `configMapData.type` property is absent or is set to environment variables, the ConfigMap is populated with the itemized list of data retrieved from Azure App Configuration, which can be easily consumed as environment variables. If the `configMapData.type` property is set to json, yaml or properties, data retrieved from Azure App Configuration is grouped into one item with key name specified by the `configMapData.key` property in the generated ConfigMap, which can be consumed as a mounted file.
 
-For example, you can create an `AzureAppConfigurationProvider` with following settings to populate the ConfigMap with grouped values in json type.
+Following examples show you how the data is populated in the generated ConfigMap with different setting of `configMapData.type` property.
+
+Assume these key-values are selected from Azure App Configuration:
+
+|key|value|
+|---|---|
+|key1|value1|
+|key2|value2|
+|key3|value3|
+
+#### [default](#tab/default)
+
+Use the following sample `AzureAppConfigurationProvider` with `configMapData.type` property absent or set to `default`.
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+```
+or 
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+    configMapData:
+      type: default
+```
+
+The generated ConfigMap is populated with the following data:
+
+``` yaml
+data:
+  key1: value1
+  key2: value2
+  key3: value3
+```
+
+#### [json](#tab/json)
+
+Use the following sample `AzureAppConfigurationProvider` with `configMapData.type` property set to `json`.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -311,31 +361,9 @@ spec:
     configMapData:
       type: json
       key: appSettings.json
-  keyValues:
-    selectors:
-      - keyFilter: key1, key2, key3
 ```
 
-Assume these key-values are selected from Azure App Configuration:
-
-|key|value|
-|---|---|
-|key1|value1|
-|key2|value2|
-|key3|value3|
-
-The data of generated ConfigMap with different setting of `configMapData.type` property would be:
-
-#### [default](#tab/default)
-
-``` yaml
-data:
-  key1: value1
-  key2: value2
-  key3: value3
-```
-
-#### [json](#tab/json)
+The generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -345,9 +373,27 @@ data:
 
 #### [yaml](#tab/yaml)
 
+Use the following sample `AzureAppConfigurationProvider` with `configMapData.type` property set to `yaml`.
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+    configMapData:
+      type: yaml
+      key: appSettings.yaml
+```
+
+The generated ConfigMap is populated with the following data:
+
 ``` yaml
 data:
-  appSettings.json: >-
+  appSettings.yaml: >-
     key1: value1
     key2: value2
     key3: value3
@@ -355,9 +401,27 @@ data:
 
 #### [properties](#tab/properties)
 
+Use the following sample `AzureAppConfigurationProvider` with `configMapData.type` property set to `properties`.
+
+``` yaml
+apiVersion: azconfig.io/v1beta1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+    configMapData:
+      type: properties
+      key: app.properties
+```
+
+The generated ConfigMap is populated with the following data:
+
 ``` yaml
 data:
-  appSettings.json: >-
+  app.properties: >-
     key1=value1
     key2=value2
     key3=value3
