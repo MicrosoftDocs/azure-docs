@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: ramyerrabotu
-author: raiy
+author: rkniyer999
 ms.date: 08/30/2023
 ---
 
