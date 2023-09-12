@@ -125,6 +125,8 @@ The following functions are available for working with objects. All of these fun
 
 The [readEnvironmentVariable function](./bicep-functions-parameters-file.md) is available in Bicep to read environment variable values. This function is in the `sys` namespace.
 
+The [getSecret function](./bicep-functions-parameters-file.md) is available in Bicep to get secure value from a KeyVault. This function is in the `az` namespace.
+
 ## Resource functions
 
 The following functions are available for getting resource values. Most of these functions are in the `az` namespace. The list functions and the getSecret function are called directly on the resource type, so they don't have a namespace qualifier.

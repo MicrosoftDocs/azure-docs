@@ -137,7 +137,7 @@ The secret value for the secret name.
 
 ### Example
 
-The following Bicep file is used as a module.  It has an `adminPassword` parameter defined with the `@secure()` decorator.
+The following Bicep file is used as a module. It has an `adminPassword` parameter defined with the `@secure()` decorator.
 
 ```bicep
 param sqlServerName string
@@ -174,6 +174,51 @@ module sql './sql.bicep' = {
     adminPassword: keyVault.getSecret('vmAdminPassword')
   }
 }
+```
+
+## az.getSecret
+
+`az.getSecret(subscriptionId, resourceGroupName, keyVaultName, secretName, secretVersion)`
+
+Returns a secret from an _Azure Key Vault_. Use this function to pass a secret to a secure string parameter of a Bicep module.
+
+You can use the `az.getSecret()` function from within a `.bicepparam` file.
+
+```bicep
+param secureUserName = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>', '<secretVersion>')
+param securePassword = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>')
+```
+
+You'll get an error if you use this function with string interpolation.
+
+A [namespace qualifier](bicep-functions.md#namespaces-for-functions) (`az`) isn't needed because the function is available from the _default_ Azure Namespace.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId | Yes | string | The id of the subscription that has the KeyVault resource. |
+| resourceGroupName | Yes | string | The name of the resource group that has the KeyVault resource. |
+| keyVaultName | Yes | string | The name of the key vault. |
+| secretName | Yes | string | The name of the secret stored in the key vault. |
+| secretVersion | No | string | The version of the secret stored in the key vault. |
+
+### Return value
+
+The value for the secret.
+
+### Example
+
+The following `.bicepparam` file has a `securePassword` parameter that will have the latest value of the _\<secretName\>_ secret.
+
+```bicep
+param securePassword = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>')
+```
+
+The following `.bicepparam` file has a `securePassword` parameter that will have the value of the _\<secretName\>_ secret, but it's pinned to a specific _\<secretValue\>_.
+
+```bicep
+param securePassword = az.getSecret('<subscriptionId>', '<resourceGroupName>', '<keyVaultName>', '<secretName>', '<secretVersion>')
 ```
 
 <a id="listkeys"></a>
