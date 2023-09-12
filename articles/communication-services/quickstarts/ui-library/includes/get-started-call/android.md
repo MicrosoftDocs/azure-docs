@@ -507,19 +507,6 @@ CallComposite callComposite =
 
 To receive call state changed events, call `addOnCallStateChangedEventHandler` with `CallComposite`.
 
-The following `CallCompositeCallStateCode` values be sent to the handler:
-
-- `CallCompositeCallStateCode.NONE`
-- `CallCompositeCallStateCode.EARLY_MEDIA`
-- `CallCompositeCallStateCode.CONNECTING`
-- `CallCompositeCallStateCode.RINGING`
-- `CallCompositeCallStateCode.CONNECTED`
-- `CallCompositeCallStateCode.LOCAL_HOLD`
-- `CallCompositeCallStateCode.DISCONNECTING`
-- `CallCompositeCallStateCode.DISCONNECTED`
-- `CallCompositeCallStateCode.IN_LOBBY`
-- `CallCompositeCallStateCode.REMOTE_HOLD`
-
 The following example shows an event for a call state changed.
 
 #### [Kotlin](#tab/kotlin)
@@ -541,7 +528,7 @@ callComposite.addOnCallStateChangedEventHandler(callStateChangedEvent -> {
 ---
 ### Dismiss CallComposite and subscribe to dismissed event
 
-To receive dismiss, call `addOnDismissedEventHandler` with `CallComposite`.
+To receive dismiss, call `addOnDismissedEventHandler` with `CallComposite`. To dismiss CallComposite, call `dismiss`.
 
 The following example shows an event for a call state changed.
 
@@ -551,6 +538,8 @@ The following example shows an event for a call state changed.
 callComposite.addOnDismissedEventHandler { callCompositeDismissedEvent ->
     println(callCompositeDismissedEvent.errorCode)
 }
+
+callComposite.dismiss()
 ```
 
 #### [Java](#tab/java)
@@ -559,18 +548,7 @@ callComposite.addOnDismissedEventHandler { callCompositeDismissedEvent ->
 callComposite.addOnDismissedEventHandler(callCompositeDismissedEvent -> {
     System.out.println(callCompositeDismissedEvent.getErrorCode());
 });
-```
-To dismiss CallComposite, call `dismiss`.
 
-#### [Kotlin](#tab/kotlin)
-
-```kotlin
-callComposite.dismiss()
-```
-
-#### [Java](#tab/java)
-
-```java
 callComposite.dismiss();
 ```
 
