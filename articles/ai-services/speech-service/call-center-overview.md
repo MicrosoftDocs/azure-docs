@@ -5,8 +5,7 @@ description: Azure AI services for Language and Speech can help you realize part
 services: cognitive-services
 author: goergenj
 ms.author: jagoerge
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/18/2022
 ---
