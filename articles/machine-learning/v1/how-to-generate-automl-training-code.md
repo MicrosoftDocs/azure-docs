@@ -56,7 +56,7 @@ By default, each automated ML trained model generates its training code after tr
 
 After the automated ML training run completes, there are you can access the `script.py` and the `script_run_notebook.ipynb` files via the Azure Machine Learning studio UI. 
 
-To do so, navigate to the **Models** tab of the automated ML experiment parent run page. After you select one of the trained models, you can select the **View generated code** button. This button redirects you to the **Notebooks** portal extension, where you can view, edit and run the generated code for that particular selected model.
+To do so, navigate to the **Models** tab of the automated ML experiment parent run's page. After you select one of the trained models, you can select the **View generated code** button. This button redirects you to the **Notebooks** portal extension, where you can view, edit and run the generated code for that particular selected model.
 
 ![parent run models tab view generate code button](./media/how-to-generate-automl-training-code/parent-run-view-generated-code.png)
 
@@ -68,7 +68,7 @@ If you're using the Python SDKv2, you can also download the "script.py" and the 
 
 ## Limitations
 
-There's a known issue where selecting **View Generated Code**. This action fails to redirect to the Notebooks portal when the storage is behind a VNet. As a workaround, the user can manually download the **script.py** and the **script_run_notebook.ipynb** files by navigating to the **Outputs + Logs** tab under the **outputs>generated_code** folder. These files can be uploaded manually to the notebooks folder to run or edit them. Follow this link to learn more about [VNets](how-to-enable-studio-virtual-network.md) in Azure Machine Learning. 
+There's a known issue when selecting **View Generated Code**. This action fails to redirect to the Notebooks portal when the storage is behind a VNet. As a workaround, the user can manually download the **script.py** and the **script_run_notebook.ipynb** files by navigating to the **Outputs + Logs** tab under the **outputs>generated_code** folder. These files can be uploaded manually to the notebooks folder to run or edit them. Follow this link to learn more about [VNets](../how-to-enable-studio-virtual-network.md) in Azure Machine Learning. 
 
 :::image type="content" source="media/how-to-generate-automl-training-code/view-generated-code.png" alt-text="Screenshot showing Outputs and Logs tab, as well as having the outputs and generated code folder selected, as explained in the above text.":::
 
