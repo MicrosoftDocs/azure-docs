@@ -1,6 +1,6 @@
 ---
 title: Add your custom domain
-description: Instructions about how to add a custom domain using Azure Active Directory.
+description: Instructions about how to add your custom domain name to your tenant.
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.date: 09/12/2023
 ms.author: barclayn
 ms.reviewer: elkuzmen
 ---
-# Add your custom domain name using the Azure portal
+# Add your custom domain name to your tenant
 
 Azure Active Directory (Azure AD) tenants come with an initial domain name like, `domainname.onmicrosoft.com`. You can't change or delete the initial domain name, but you can add your organization's names. Adding custom domain names helps you to create user names that are familiar to your users, such as `alain@contoso.com`.
 
@@ -21,11 +21,11 @@ Azure Active Directory (Azure AD) tenants come with an initial domain name like,
 
 Before you can add a custom domain name, create your domain name with a domain registrar. For an accredited domain registrar, see [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html).
 
-## Create your directory in Azure AD
+## Create your directory
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-After you get your domain name, you can create your first Azure AD directory. Sign in to the [Azure portal](https://portal.azure.com) for your directory, using an account with the [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+After you get your domain name, you can create your first directory. Sign in to the [Azure portal](https://portal.azure.com) for your directory, using an account with the [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
 
 Create your new directory by following the steps in [Create a new tenant for your organization](./create-new-tenant.md#create-a-new-tenant-for-your-organization).
 
@@ -37,9 +37,9 @@ For more information about subscription roles, see [Azure roles](../../role-base
 > [!TIP]
 > If you plan to federate on-premises Windows Server Active Directory with Azure AD, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Azure AD Connect tool to synchronize your directories.
 >
-> You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. To see what that setup looks like, see [Verify the Azure AD domain selected for federation](../hybrid/connect/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you don't have the Azure AD Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
+> You also need to register the same domain name you select for federating with your on-premises directory in the **Azure AD Domain** step in the wizard. To see what that setup looks like, see [Verify the domain selected for federation](../hybrid/connect/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you don't have the Azure AD Connect tool, you can [download it here](https://go.microsoft.com/fwlink/?LinkId=615771).
 
-## Add your custom domain name to Azure AD
+## Add your custom domain name
 
 After you create your directory, you can add your custom domain name.
 
@@ -62,7 +62,7 @@ After you create your directory, you can add your custom domain name.
 
 ## Add your DNS information to the domain registrar
 
-After you add your custom domain name to Azure AD, you must return to your domain registrar and add the Azure AD DNS information from your copied from the previous step. Creating this TXT or MX record for your domain verifies ownership of your domain name.
+After you add your custom domain name, you must return to your domain registrar and add the DNS information from your copied from the previous step. Creating this TXT or MX record for your domain verifies ownership of your domain name.
 
 Go back to your domain registrar and create a new TXT or MX record for your domain based on your copied DNS information. Set the time to live (TTL) to 3600 seconds (60 minutes), and then save the record.
 
@@ -83,7 +83,7 @@ To verify your custom domain name, follow these steps:
 
     ![Fabrikam - Custom domain names page, with contoso highlighted](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 
-1. On the **contoso.com** page, select **Verify** to make sure your custom domain is properly registered and is valid for Azure AD.
+1. On the **contoso.com** page, select **Verify** to make sure your custom domain is properly registered and is valid.
 
     ![Contoso page with DNS entry information and the Verify button](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
@@ -101,7 +101,7 @@ If you can't verify a custom domain name, try the following suggestions:
 
 - **Make sure the domain name isn't already in use in another directory.** A domain name can only be verified in one directory. If your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this duplication problem, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../enterprise-users/domains-manage.md).
 
-- **Make sure you don't have any unmanaged Power BI tenants.** If your users have activated Power BI through self-service sign-up and created an unmanaged tenant for your organization, you must take over management as an internal or external admin, using PowerShell. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../enterprise-users/domains-admin-takeover.md).
+- **Make sure you don't have any unmanaged Power BI tenants.** If your users have activated Power BI through self-service sign-up and created an unmanaged tenant for your organization, you must take over management as an internal or external admin, using PowerShell. For more information, see [Take over an unmanaged directory](../enterprise-users/domains-admin-takeover.md).
 
 ## Next steps
 

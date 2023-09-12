@@ -17,7 +17,7 @@ ms.reviewer: jeffsta
 
 A user's profile information and settings can be managed on an individual basis and for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
 
-This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Microsoft Entra ID administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](./add-users.md). 
+This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Microsoft Entra ID administration portal. Some settings may be managed in more than one area. For more information about adding new users, see [How to add or delete users in Azure Active Directory](./add-users.md). 
 
 ## Add or change profile information
 
@@ -80,14 +80,14 @@ All your changes are saved for the user.
 
 ## Manage settings for all users
 
-In the **User settings** area of Azure AD, you can adjust several settings that affect all users. Some settings are managed in a separate area of Azure AD and linked from this page. These settings require the Global Administrator role.
+In the **User settings** area, you can adjust several settings that affect all users. Some settings are managed in a separate area linked from this page. These settings require the Global Administrator role.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Browse to **Identity** > **Users** > **User settings**.
 
 [ ![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings.png) ](media/how-to-manage-user-profile-info/user-settings.png#lightbox)
 
-The following settings can be managed from Azure AD **User settings**.
+The following settings can be managed from **User settings**.
 
 - Allow users to register their own applications
 - Prevent non-admins from creating their own tenants

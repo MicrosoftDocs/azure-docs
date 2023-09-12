@@ -47,7 +47,7 @@ Activity logs for Microsoft Support access requests fall into two categories: us
 
 ### User-initiated activities
 
-There are three user-initiated activities that you can see in your Azure AD audit logs. These are actions requested by administrators of your tenant.
+There are three user-initiated activities that you can see in your audit logs. These are actions requested by administrators of your tenant.
 
 - Approval of a Microsoft Support access request
 - Rejection of a Microsoft Support access request

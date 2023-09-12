@@ -38,7 +38,7 @@ Microsoft Q&A is Azure's recommended source for community support. We recommend 
 | [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html)                 |
 | All other authentication and authorization areas                            | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 
-## Open a support request in Azure Active Directory
+## Open a support request
 
 If you're unable to find answers by using self-help resources, you can open an online support request. You should open a support request for only a single problem, so that we can connect you to the support engineers who are subject matter experts for your problem. Azure AD engineering teams prioritize their work based on incidents that are generated from support, so you're often contributing to service improvements.
 

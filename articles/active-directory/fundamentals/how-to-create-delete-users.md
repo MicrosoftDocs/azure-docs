@@ -12,11 +12,9 @@ ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: adelle.dimitui
 ---
-# How to create, invite, and delete users (preview)
+# How to create, invite, and delete users
 
-This article explains how to create a new user, invite an external guest, and delete a user in your Azure Active Directory (Azure AD) tenant. 
-
-The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
+This article explains how to create a new user, invite an external guest, and delete a user in your tenant. 
 
 Instructions for the legacy create user process can be found in the [Add or delete users](./add-users.md) article.
 
@@ -76,7 +74,7 @@ Either select the **Review + create** button to create the new user or **Next: P
 
 ### Properties
 
-There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Azure AD** > **Users** and select a user to update.
+There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Identity** > **Users** > **All users** and select a user to update.
 
 - **Identity:** Enter the user's first and last name. Set the User type as either Member or Guest. 
 - **Job information:** Add any job-related information, such as the user's job title, department, or manager.

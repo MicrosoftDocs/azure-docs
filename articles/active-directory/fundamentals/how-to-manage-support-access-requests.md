@@ -14,7 +14,7 @@ ms.date: 09/12/2023
 ---
 # Manage Microsoft Support access requests (preview)
 
-You can use the Microsoft Entra admin center and the Azure Active Directory (Azure AD) portal to manage Microsoft Support access requests (preview). Microsoft Support access requests enable you to [give Microsoft Support engineers access to identity diagnostic data](concept-support-access-requests.md) in your identity service to help solve support requests you submitted to Microsoft.
+You can use the Microsoft Entra admin center and the Azure portal to manage Microsoft Support access requests (preview). Microsoft Support access requests enable you to [give Microsoft Support engineers access to identity diagnostic data](concept-support-access-requests.md) in your identity service to help solve support requests you submitted to Microsoft.
 
 ## Prerequisites
 

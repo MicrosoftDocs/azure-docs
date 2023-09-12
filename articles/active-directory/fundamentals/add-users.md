@@ -13,9 +13,9 @@ ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: krbain
 ---
-# Add or delete users using Azure Active Directory
+# Add or delete users
 
-Add new users or delete existing users from your Azure Active Directory (Azure AD) tenant. To add or delete users, you must be a User Administrator or Global Administrator. 
+Add new users or delete existing users from your tenant. To add or delete users, you must be a User Administrator or Global Administrator. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -61,12 +61,12 @@ If you have an environment with both Azure Active Directory (cloud) and Windows 
 
 ## Delete a user
 
-You can delete an existing user using Azure portal.
+You can delete an existing user using Microsoft Entra admin center.
 
 - You must have a Global Administrator, Privileged Authentication Administrator or User Administrator role assignment to delete users in your organization.
 - Global Admins and Privileged Authentication Admins can delete any users including other admins.
 - User Administrators can delete any non-admin users, Helpdesk Administrators and other User Administrators.
-- For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+- For more information, see [Administrator role permissions](../roles/permissions-reference.md).
 
 To delete a user, follow these steps:
 
@@ -74,13 +74,13 @@ To delete a user, follow these steps:
 
 1. Browse to **Identity** > **Users** > **All users**.
 
-1. Search for and select the user you want to delete from your Azure AD tenant.
+1. Search for and select the user you want to delete.
 
 1. Select **Delete**.
 
     ![Screenshot of the All users page with a user selected and the Delete button highlighted.](media/add-users-azure-active-directory/delete-existing-user.png)
 
-The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](./users-restore.md).
+The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user](./users-restore.md).
 
 When a user is deleted, any licenses consumed by the user are made available for other users.
 

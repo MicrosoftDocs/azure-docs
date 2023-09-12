@@ -17,7 +17,7 @@ ms.reviewer: jeffsta
 
 After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started and can't be stopped. During this time, the management of soft-deleted users is blocked. This limitation also applies to restoring a soft-deleted user via a match during Tenant sync cycle for on-premises hybrid scenarios.
 
-You can view your restorable users, restore a deleted user, or permanently delete a user using Azure Active Directory (Azure AD) in the Azure portal.
+You can view your restorable users, restore a deleted user, or permanently delete a user using the Microsoft Entra admin center.
 
 > [!IMPORTANT]
 > Neither you nor Microsoft customer support can restore a permanently deleted user.

@@ -24,7 +24,9 @@ Administrators can reset a user's password if the password is forgotten, if the 
 >
 > Unless your tenant is the home directory for a user, you won't be able reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.
 >
-> If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback and the user domain is managed. Changing the user password from Azure Active Directory for federated domains is not supported. In this case, you should change the user password in the on-premises Active Directory.<br><br>If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an administrator in that tenant, can reset the password.
+> If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback and the user domain is managed. Changing the user password for federated domains is not supported. In this case, you should change the user password in the on-premises Active Directory.
+>
+> If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an administrator in that tenant, can reset the password.
 
 ## To reset a password
 
