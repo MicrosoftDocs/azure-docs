@@ -192,4 +192,4 @@ az group delete --name AzureFunctionsContainers-rg
 > [!div class="nextstepaction"]  
 > [Working with containers and Azure Functions](./functions-how-to-custom-container.md)  
 > [!div class="nextstepaction"]  
-> [Help us improve (take a survey)](https://microsoft.qualtrics.com/jfe/form/SV_byFGULLJlKPh9Xw)  
+> [Help make the experience better](https://microsoft.qualtrics.com/jfe/form/SV_byFGULLJlKPh9Xw)  
