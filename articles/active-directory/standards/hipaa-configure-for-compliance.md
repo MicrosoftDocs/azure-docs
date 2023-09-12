@@ -51,7 +51,7 @@ The remaining articles in this series provide guidance and links to resources, o
 
 * [Part 164](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164) Subparts A and C describing the security and privacy requirements of Title 45
 
-* [HIPAA Security Risk Safeguard Tool](https://www.healthit.gov/providers-professionals/security-risk-assessment-tool)
+* [HIPAA Security Risk Safeguard Tool](https://www.healthit.gov/topic/privacy-security-and-hipaa/security-risk-assessment-tool)
 
 * [NIST HSR Toolkit](http://scap.nist.gov/hipaa/)
 

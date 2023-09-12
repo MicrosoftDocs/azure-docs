@@ -4,7 +4,7 @@ description: An overview of Azure page blobs and their advantages, including use
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: article
 ms.date: 05/11/2023
 ms.author: akashdubey
