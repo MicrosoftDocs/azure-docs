@@ -5,8 +5,7 @@ description: In this quickstart, learn how to get started with the Azure AI Cont
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: include
 ms.date: 09/15/2020
 ms.custom: "cog-serv-seo-aug-2020"

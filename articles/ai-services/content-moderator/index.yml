@@ -7,8 +7,7 @@ metadata:
   title: Content Moderator Documentation - Quickstarts, Tutorials, API Reference - Azure AI services  | Microsoft Docs
   description: The Azure AI Content Moderator API checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
   services: cognitive-services
-  ms.service: cognitive-services
-  ms.subservice: content-moderator
+  ms.service: azure-ai-content-moderator
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley

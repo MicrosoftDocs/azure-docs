@@ -5,8 +5,7 @@ description: Learn how to use Content Moderator to track, flag, assess, and filt
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: overview
 ms.date: 11/06/2021
 ms.author: pafarley
