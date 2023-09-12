@@ -142,6 +142,21 @@ This cmdlet modifies *AADConnectProvisioningAgent.exe.config* to disable verbose
 
 This cmdlet pauses synchronization.
 
+### Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention
+
+Disables accidentalDeletionPrevention tenant feature
+``` powershell
+Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId <TenantId>
+```
+
+This cmdlet requires `TenantId` of the Azure AD tenant. It will verify if Accidental Deletion Prevention feature, set on the tenant with Azure AD Connect (ADSync, not Cloud Sync), is enabled and disables it.
+
+#### Example:
+``` powershell
+Disable-AADCloudSyncToolsDirSyncAccidentalDeletionPrevention -tenantId "340ab039-1234-5678-9012-28fe88f83980"
+```
+
+
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
