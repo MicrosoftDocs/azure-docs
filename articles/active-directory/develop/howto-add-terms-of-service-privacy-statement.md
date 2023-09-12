@@ -47,27 +47,25 @@ Examples: `https://myapp.com/terms-of-service` and `https://myapp.com/privacy-st
 
 When the terms of service and privacy statement are ready, you can add links to these documents in your app using one of these methods:
 
-* [Through the Azure portal](#azure-portal)
+* [Through the Microsoft Entra admin center](#entra-admin-center)
 * [Using the app object JSON](#app-object-json)
 * [Using the Microsoft Graph API](#msgraph-rest-api)
 
-### <a name="azure-portal"></a>Using the Azure portal
+### <a name="entra-admin-center"></a>Using the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Follow these steps in the Azure portal.
+Follow these steps to add links:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select the correct Azure AD tenant(not B2C).
-2. Navigate to the **App registrations** section and select your app.
-3. Under **Manage**, select **Branding & properties**.
-4. Fill out the **Terms of service URL** and **Privacy statement URL** fields.
-5. Select **Save**.
-
-    ![App properties contains terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **User experiences** > **Company branding**.
+1. Select **Getting started**, and then select **Edit** for the **Default sign-in experience**.
+1. Select **Footer** and fill out the URL for **Terms of Use** and **Privacy & Cookies**.
+1. Select **Review + save**.
 
 ### <a name="app-object-json"></a>Using the app object JSON
 
-If you prefer to modify the app object JSON directly, you can use the manifest editor in the Azure portal or Application Registration Portal to include links to your app's terms of service and privacy statement.
+If you prefer to modify the app object JSON directly, you can use the manifest editor to include links to your app's terms of service and privacy statement.
 
 1. Navigate to the **App Registrations** section and select your app.
 2. Open the **Manifest** pane.

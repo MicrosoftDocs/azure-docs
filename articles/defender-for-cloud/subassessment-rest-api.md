@@ -4,7 +4,7 @@ title: Container vulnerability assessments powered by Microsoft Defender Vulnera
 description: Learn about container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments 
 author: dcurwin
 ms.author: dacurwin
-ms.date: 08/16/2023
+ms.date: 09/11/2023
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ For more information on how to get started with our REST API, see [Azure REST AP
 | Name              | In    | Required | Type   | Description                                                  |
 | ----------------- | ----- | -------- | ------ | ------------------------------------------------------------ |
 | assessmentName    | path  | True     | string | The  Assessment Key - Unique key for the assessment type     |
-| scope             | path  | True     | string | Scope of the  query. Can be subscription  (/subscriptions/0b06d9ea-afe6-4779-bd59-30e5c2d9d13f) or management group  (/providers/Microsoft.Management/managementGroups/mgName). |
+| scope             | path  | True     | string | Scope of the  query. Can be subscription  (/subscriptions/{SubscriptionID}) or management group  (/providers/Microsoft.Management/managementGroups/mgName). |
 | subAssessmentName | path  | True     | string | The  Sub-Assessment Key - Unique key for the subassessment type |
 | api-version       | query | True     | string | API version  for the operation                               |
 
@@ -87,7 +87,7 @@ Scopes
 
 #### GET
 
-`https://management.azure.com/subscriptions/ 6ebb89c4-0e91-4f62-888f-c9518e662293/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/providers/Microsoft.Security/assessments/ cf02effd-8e33-4b84-a012-1e61cf1a5638/subAssessments?api-version=2019-01-01-preview`
+`https://management.azure.com/subscriptions/{SubscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/providers/Microsoft.Security/assessments/{SubscriptionID}/subAssessments?api-version=2019-01-01-preview`
 
 #### Sample Response
 
@@ -96,8 +96,8 @@ Scopes
     "value": [
         {
             "type": "Microsoft.Security/assessments/subAssessments",
-            "id": "/subscriptions/3905431d-c062-4c17-8fd9-c51f89f334c4/resourceGroups/PytorchEnterprise/providers/Microsoft.ContainerRegistry/registries/ptebic/providers/Microsoft.Security/assessments/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5/subassessments/3f069764-2777-3731-9698-c87f23569a1d",
-            "name": "3f069764-2777-3731-9698-c87f23569a1d",
+            "id": "/subscriptions/{SubscriptionID}/resourceGroups/PytorchEnterprise/providers/Microsoft.ContainerRegistry/registries/ptebic/providers/Microsoft.Security/assessments/c0b7cfc6-3172-465a-b378-53c7ff2cc0d5/subassessments/3f069764-2777-3731-9698-c87f23569a1d",
+            "name": "{name}",
             "properties": {
                 "id": "CVE-2021-39537",
                 "displayName": "CVE-2021-39537",
@@ -253,7 +253,7 @@ Context details for the affected container image
 | artifactType               | String:  ContainerImage |                                      |
 | mediaType                  | String                  | Layer media type                     |
 | Digest                     | String                  | Digest of vulnerable  image          |
-| Tags                       | String[]                | Tags of  vulnerable image            |
+| Tags                       | String                  | Tags of  vulnerable image            |
 
 ### Software Details
 
@@ -269,7 +269,7 @@ Details for the affected software package
 | vendor       | String       |                                                              |
 | packageName  | String       |                                                              |
 | fixStatus    | String       | Unknown,      FixAvailable,      NoFixAvailable,      Scheduled,      WontFix |
-| evidence     | String[]     | Evidence for  the package                                    |
+| evidence     | String       | Evidence for  the package                                    |
 | fixReference | FixReference |                                                              |
 
 ### FixReference
@@ -303,9 +303,9 @@ Details on the detected vulnerability
 | publishedDate            | Timestamp                  | Published  date                                      |
 | ExploitabilityAssessment | ExploitabilityAssessment   |                                                      |
 | CVSS                     | Dictionary  <string, CVSS> | Dictionary  from cvss version to cvss details object |
-| Workarounds              | Workaround[]               | Published  workarounds for vulnerability             |
+| Workarounds              | Workaround                 | Published  workarounds for vulnerability             |
 | References               | VulnerabilityReference      |                                                      |
-| Weaknesses               | Weakness[]                 |                                                      |
+| Weaknesses               | Weakness                   |                                                      |
 | cveId                    | String                     | CVE ID                                               |
 | Cpe                      | CPE                        |                                                      |
 
@@ -329,7 +329,7 @@ Details on the detected vulnerability
 
 | **Name** | **Type** | **Description** |
 | -------- | -------- | --------------- |
-| Cwe      | Cwe[]    |                 |
+| Cwe      | Cwe      |                 |
 
 ### Cwe (Common weakness enumeration)
 
@@ -354,11 +354,11 @@ Reference links to an example exploit
 
 | **Name**              | **Type** | **Description**                                              |
 | --------------------- | -------- | ------------------------------------------------------------ |
-| exploitUris           | String[] |                                                              |
+| exploitUris           | String   |                                                              |
 | exploitStepsPublished | Boolean  | Had the  exploits steps been published                       |
 | exploitStepsVerified  | Boolean  | Had the  exploit steps verified                              |
 | isInExploitKit        | Boolean  | Is part of  the exploit kit                                  |
-| types                 | String[] | Exploit  types, for example: NotAvailable, Dos, Local, Remote, WebApps, PrivilegeEscalation |
+| types                 | String   | Exploit  types, for example: NotAvailable, Dos, Local, Remote, WebApps, PrivilegeEscalation |
 
 ### AzureResourceDetails
 
@@ -375,9 +375,9 @@ Common error response for all Azure Resource Manager APIs to return error detail
 
 | **Name**             | **Type**                                                     | **Description**            |
 | -------------------- | ------------------------------------------------------------ | -------------------------- |
-| error.additionalInfo | [ErrorAdditionalInfo](/rest/api/defenderforcloud/sub-assessments/list#erroradditionalinfo)[] | The error additional info. |
+| error.additionalInfo | [ErrorAdditionalInfo](/rest/api/defenderforcloud/sub-assessments/list#erroradditionalinfo) | The error additional info. |
 | error.code           | string                                                       | The error code.            |
-| error.details        | [CloudErrorBody](/rest/api/defenderforcloud/sub-assessments/list?tabs=HTTP#clouderrorbody)[] | The error details.         |
+| error.details        | [CloudErrorBody](/rest/api/defenderforcloud/sub-assessments/list?tabs=HTTP#clouderrorbody) | The error details.         |
 | error.message        | string                                                       | The error message.         |
 | error.target         | string                                                       | The error target.          |
 
@@ -387,9 +387,9 @@ The error detail.
 
 | **Name**       | **Type**                                                     | **Description**            |
 | -------------- | ------------------------------------------------------------ | -------------------------- |
-| additionalInfo | [ErrorAdditionalInfo](/rest/api/defenderforcloud/sub-assessments/list#erroradditionalinfo)[] | The error additional info. |
+| additionalInfo | [ErrorAdditionalInfo](/rest/api/defenderforcloud/sub-assessments/list#erroradditionalinfo) | The error additional info. |
 | code           | string                                                       | The error code.            |
-| details        | [CloudErrorBody](/rest/api/defenderforcloud/sub-assessments/list#clouderrorbody)[] | The error details.         |
+| details        | [CloudErrorBody](/rest/api/defenderforcloud/sub-assessments/list#clouderrorbody) | The error details.         |
 | message        | string                                                       | The error message.         |
 | target         | string                                                       | The error target.          |
 
@@ -429,4 +429,4 @@ List of security subassessments
 | **Name** | **Type**                                                     | **Description**                       |
 | -------- | ------------------------------------------------------------ | ------------------------------------- |
 | nextLink | string                                                       | The URI to fetch the next page.       |
-| value    | [SecuritySubAssessment](/rest/api/defenderforcloud/sub-assessments/list?tabs=HTTP#securitysubassessment)[] | Security subassessment on a resource |
+| value    | [SecuritySubAssessment](/rest/api/defenderforcloud/sub-assessments/list?tabs=HTTP#securitysubassessment) | Security subassessment on a resource |
