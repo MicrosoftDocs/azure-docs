@@ -14855,47 +14855,47 @@
         {
             "source_path_from_root": "/articles/scheduler/scheduler-intro.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/scheduler/scheduler-advanced-complexity.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/scheduler/scheduler-concepts-terms.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/scheduler/scheduler-powershell-reference.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/scheduler/scheduler-plans-billing.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/scheduler/scheduler-limits-defaults-errors.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/scheduler/scheduler-high-availability-reliability.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/scheduler/scheduler-outbound-authentication.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/scheduler/get-started-portal.md",
             "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/search/semantic-ranking.md",
@@ -17100,7 +17100,7 @@
         {
             "source_path_from_root": "/articles/service-fabric/service-fabric-deploy-multiple-apps.md",
             "redirect_url": "/azure/service-fabric/service-fabric-deploy-existing-app",
-            "redirect_document_id": ""
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/service-fabric/service-fabric-automate-powershell.md",
@@ -23820,27 +23820,27 @@
         {
             "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
             "redirect_url": "/azure/aks/intro-kubernetes",
-            "redirect_document_id": "false"
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy-service-principal-encryption.md",
             "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
-            "redirect_document_id": "false"
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy.md",
             "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
-            "redirect_document_id": "false"
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-arc/kubernetes/plan-at-scale-deployment.md",
             "redirect_url": "/azure/azure-arc/kubernetes/overview",
-            "redirect_document_id": "false"
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-arc/kubernetes/tutorial-workload-management.md",
             "redirect_url": "/azure/azure-arc/kubernetes/workload-management",
-            "redirect_document_id": "true"
+            "redirect_document_id": true
         },
         {
           "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
@@ -23850,7 +23850,7 @@
         {
             "source_path_from_root": "/articles/aks/uptime-sla.md",
             "redirect_url": "/azure/aks/free-standard-pricing-tiers",
-            "redirect_document_id": "false"
+            "redirect_document_id": false
         },
         {
           "source_path": "articles/dotnet-develop-multitenant-applications.md",

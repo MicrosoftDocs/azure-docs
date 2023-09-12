@@ -26,15 +26,17 @@ A role can be assigned to a user directly or transitively via a group. This arti
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Follow these steps to list Azure AD roles for a user using the Azure portal. Your experience will be different depending on whether you have [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled.
+Follow these steps to list Azure AD roles for a user using the Microsoft Entra admin center. Your experience will be different depending on whether you have [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) enabled.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-2. Select **Azure Active Directory** > **Users** > *user name* > **Assigned roles**.
+1. Browse to **Identity** > **Users** > **All users**.
+
+1. Select *user name* > **Assigned roles**.
 
     You can see the list of roles assigned to the user at different scopes. Additionally, you can see whether the role has been assigned directly or via group.
     
