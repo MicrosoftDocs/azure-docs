@@ -14,14 +14,12 @@ You can use [`azure-identity`](https://www.nuget.org/packages/Azure.Identity/) t
 Install dependencies
 ```bash
 dotnet add package Azure.Identity
-dotnet add package Microsoft.Extensions.Azure
 ```
 
 Here's sample codes to connect to Blob storage using managed identity or service principal.
 ```csharp
-using Azure.Core;
 using Azure.Identity;
-using Microsoft.Extensions.Azure;
+using Azure.Storage.Blobs;
 
 // get blob endpoint
 var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
@@ -158,7 +156,6 @@ var blobServiceClient = new BlobServiceClient(
 1. Install dependencies.
    ```bash
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-   go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
    go get "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
    ```
 2. In code, authenticate via `azidentity` library. Get blob storage endpoint url from the environment variable added by Service Connector.
@@ -166,7 +163,6 @@ var blobServiceClient = new BlobServiceClient(
    import (
      "context"
      
-     "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
      "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
      "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
    )
