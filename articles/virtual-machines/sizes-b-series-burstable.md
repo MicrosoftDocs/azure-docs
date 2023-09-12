@@ -33,18 +33,18 @@ The B-series comes in the following VM sizes:
 <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_B1ls<sup>2</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 160/10    | 4000/100  | 2 |
-| Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 320/10    | 4000/100  | 2 |
-| Standard_B1ms             | 1  | 2   | 4   | 20%  | 100%  | 30  | 12  | 288  | 2  | 640/10    | 4000/100  | 2 |
-| Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1280/15   | 4000/100  | 3 |
-| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 1920/22.5 | 4000/100  | 3 |
-| Standard_B4ms             | 4  | 16  | 32  | 90%  | 400%  | 120 | 54  | 1296 | 8  | 2880/35   | 8000/200  | 4 |
-| Standard_B8ms             | 8  | 32  | 64  | 135% | 800%  | 240 | 81  | 1944 | 16 | 4320/50   | 8000/200  | 4 |
-| Standard_B12ms            | 12 | 48  | 96  | 202% | 1200% | 360 | 121 | 2909 | 16 | 4320/50   | 16000/400 | 6 |
-| Standard_B16ms            | 16 | 64  | 128 | 270% | 1600% | 480 | 162 | 3888 | 32 | 4320/50   | 16000/400 | 8 |
-| Standard_B20ms            | 20 | 80  | 160 | 337% | 2000% | 600 | 203 | 4860 | 32 | 4320/50   | 16000/400 | 8 |
+| Size           | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Performance of VM (%) | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps1 | Max NICs |
+|----------------|------|-------------|------------------------|--------------------------------|-----------------|---------------------|--------------------|----------------|-----------------------------------------|------------------------------------------------|----------|
+| Standard_B1ls2 | 1    | 0.5         | 4                      | 10                             | 30              | 3                   | 72                 | 2              | 160/10                                  | 4000/100                                       | 2        |
+| Standard_B1s   | 1    | 1           | 4                      | 20                             | 30              | 6                   | 144                | 2              | 320/10                                  | 4000/100                                       | 2        |
+| Standard_B1ms  | 1    | 2           | 4                      | 40                             | 30              | 12                  | 288                | 2              | 640/10                                  | 4000/100                                       | 2        |
+| Standard_B2s   | 2    | 4           | 8                      | 40                             | 60              | 24                  | 576                | 4              | 1280/15                                 | 4000/100                                       | 3        |
+| Standard_B2ms  | 2    | 8           | 16                     | 60                             | 60              | 36                  | 864                | 4              | 1920/22.5                               | 4000/100                                       | 3        |
+| Standard_B4ms  | 4    | 16          | 32                     | 45                             | 120             | 54                  | 1296               | 8              | 2880/35                                 | 8000/200                                       | 4        |
+| Standard_B8ms  | 8    | 32          | 64                     | 33                             | 240             | 81                  | 1944               | 16             | 4320/50                                 | 8000/200                                       | 4        |
+| Standard_B12ms | 12   | 48          | 96                     | 36                             | 360             | 121                 | 2909               | 16             | 4320/50                                 | 16000/400                                      | 6        |
+| Standard_B16ms | 16   | 64          | 128                    | 40                             | 480             | 162                 | 3888               | 32             | 4320/50                                 | 16000/400                                      | 8        |
+| Standard_B20ms | 20   | 80          | 160                    | 40                             | 600             | 203                 | 4860               | 32             | 4320/50                                 | 16000/400                                      | 8        |
 
 <sup>1</sup> B-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
