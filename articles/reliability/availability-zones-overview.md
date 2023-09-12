@@ -14,52 +14,60 @@ ms.custom: references_regions
 
 # What are Azure regions and availability zones?
 
-Azure regions and availability zones are designed to help you achieve  reliability for your business-critical workloads. Azure maintains multiple geographies. These discrete demarcations define disaster recovery and data residency boundaries across one or multiple Azure regions. Maintaining many regions ensures customers are supported across the world.
+An Azure region is a geographic perimeter that contains a set of datacenters. 
 
-## Regions
+Azure regions have a variety of configurations, which are also called *region architectures*.
 
-Each Azure region features datacenters deployed within a latency-defined perimeter. They're connected through a dedicated regional low-latency network. This design ensures that Azure services within any region offer the best possible performance and security. 
+Many Azure regions provide availability zones, which are separated groups of datacenters. Within a region, availability zones are close enough to have low-latency connections to other availability zones, but they're far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones.
+
+The following diagram shows several example Azure regions. Regions 1 and 2 support availability zones.
+
+![Image showing physically separate availability zone locations within an Azure region.](media/regions-availability-zones.png)
 
 To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
+
+## Paired and unpaired regions
+
+Many regions also have a [*paired region*](./cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). Paired regions support certain types of multi-region deployment approaches. Some newer regions have [multiple availability zones and don't have a paired region](./cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair). You can still deploy multi-region solutions into these regions, but the approaches you use might be different.
+
 ## Availability zones
 
-Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.
+If you deploy into an Azure region that contains availability zones, you can use multiple availability zones together. By using multiple availability zones, you can keep separate copies of your application and data within separate physical datacenters in a large metropolitan area.
 
-Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. They help your data stay synchronized and accessible when things go wrong. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. Availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.
+There are two ways to use availability zones in a solution:
 
-![Image showing physically separate availability zone locations within an Azure region.](media/availability-zones.png)
+- **Zonal** resources are pinned to a specific availability zone. You can combine multiple zonal deployments across different zones to meet high reliability requirements. You're responsible for managing data replication and distributing requests across zones. If an outage occurs in a single availability zone, you're responsible for failover to another availability zone.
 
-Datacenter locations are selected by using rigorous vulnerability risk assessment criteria. This process identifies all significant datacenter-specific risks and considers shared risks between availability zones.
+- **Zone-redundant** resources are spread across multiple availability zones. Microsoft manages spreading requests across zones and the replication of data across zones. If an outage occurs in a single availability zone, Microsoft manages failover automatically.
 
-With availability zones, you can design and operate applications and databases that automatically transition between zones without interruption. Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple datacenter infrastructures.
+Azure services support one or both of these approaches. Platform as a service (PaaS) services typically support zone-redundant deployments. Infrastructure as a service (IaaS) services typically support zonal deployments. For more information about how Azure services work with availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
 
-Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM API called: [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers) to compare zone mapping for resilient solutions that span across multiple subscriptions. 
+For information on service-specific reliability support using availability zones as well as recommended disaster recovery guidance see [Reliability guidance overview](./reliability-guidance-overview.md).
 
-You can design resilient solutions by using Azure services that use availability zones. Co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones.
 
-Azure Services that support availability zones are designed to provide the right level of resiliency and flexibility for their resources. The resources can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal (zone aligned to a specific zone). You can combine these approaches across different resources.
+## Availability zones and Azure updates
 
-Some organizations require high availability of availability zones and protection from large-scale phenomena and regional disasters. Azure regions are designed to offer protection against localized disasters with availability zones and protection from regional or large geography disasters with disaster recovery, by making use of another region. To learn more about business continuity, disaster recovery, and cross-region replication, see [Cross-region replication in Azure](cross-region-replication-azure.md).
+Microsoft aims to deploy updates to Azure services to a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, because the workload can continue to run in other zones while the update is in process. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
 
-![Image showing availability zones that protect against localized disasters and regional or large geography disasters by using another region.](media/availability-zones-region-geography.png)
+## Shared responsibility model
 
-To see which services support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+The [shared responsibility principle](./overview.md#shared-responsibility) describes how responsibilities are divided between the cloud provider (Microsoft) and you. Depending on the type of services you use, you might take on more or less responsibility for operating the service.
 
+Microsoft provides availability zones and regions to give you flexibility in how you design your solution to meet your requirements. When you use managed services, Microsoft takes on more of the management responsibilities for your resources, which might even include data replication, failover, failback, and other tasks related to operating a distributed system.
+
+<!--
+Regardless of the approach you use, your own code needs to follow [recommended practices for handling transient failures](handle-transient-faults.md). These practices are even more important in a multi-zone or multi-region solution, because failover between zones or regions usually requires that your application retry connections to services.
+-->
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Azure services and regions with availability zones](availability-zones-service-support.md)
+- [Azure services and regions with availability zones](availability-zones-service-support.md)
 
-> [!div class="nextstepaction"]
-> [Availability zone migration guidance](availability-zones-migration-overview.md)
+- [Availability zone migration guidance](availability-zones-migration-overview.md)
 
-> [!div class="nextstepaction"]
-> [Availability of service by category](availability-service-by-category.md)
+- [Availability of service by category](availability-service-by-category.md)
 
-> [!div class="nextstepaction"]
-> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
+- [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 
-> [!div class="nextstepaction"]
-> [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
