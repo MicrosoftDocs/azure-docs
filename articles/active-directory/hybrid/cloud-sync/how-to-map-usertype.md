@@ -30,26 +30,24 @@ Before you add a mapping for the **UserType** attribute, you must first decide h
 ## Add the UserType mapping
 To add the **UserType** mapping:
 
- 1. In the Azure portal, select **Azure Active Directory**.
- 1. Select **Azure AD Connect**.
- 1. Select **Manage cloud sync**.
- 1. Under **Configuration**, select your configuration.
- 1. Under **Manage attributes**, select **Click to edit mappings**.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 2. Under **Configuration**, select your configuration.
+ 3. Under **Manage attributes**, select **Click to edit mappings**.
  
     ![Screenshot that shows editing the attribute mappings.](media/how-to-map-usertype/usertype-1.png) 
 
- 1. Select **Add attribute mapping**.
+ 4. Select **Add attribute mapping**.
  
     ![Screenshot that shows adding a new attribute mapping.](media/how-to-map-usertype/usertype-2.png) 
-1. Select the mapping type. You can do the mapping in one of three ways:
+ 5. Select the mapping type. You can do the mapping in one of three ways:
    - A direct mapping, for example, from an Active Directory attribute
    - An expression, such as IIF(InStr([userPrincipalName], "@partners") > 0,"Guest","Member")
    - A constant, for example, make all user objects as Guest
  
      ![Screenshot that shows adding a UserType attribute.](media/how-to-map-usertype/usertype-3.png)
 
-1. In the **Target attribute** dropdown box, select **UserType**.
-1. Select **Apply** at the bottom of the page to create a mapping for the Azure AD **UserType** attribute.
+6. In the **Target attribute** dropdown box, select **UserType**.
+7. Select **Apply** at the bottom of the page to create a mapping for the Azure AD **UserType** attribute.
 
 ## Next steps 
 
