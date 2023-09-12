@@ -503,6 +503,8 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
 
 Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) to interact with an account from a Python application.
 
+1. Start in an empty folder
+
 1. Import the [`azure-cosmos`](https://pypi.org/project/azure-cosmos/) package from the Python Package Index.
 
     ```bash
@@ -579,6 +581,8 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
 ### [Node.js](#tab/nodejs)
 
 Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) to interact with an account from a Node.js/JavaScript application.
+
+1. Start in an empty folder
 
 1. Initialize a new module.
 
@@ -664,6 +668,8 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
 
 TODO
 
+1. Start in an empty folder
+
 1. TODO
 
     ```bash
@@ -682,6 +688,8 @@ TODO
 
 TODO
 
+1. Start in an empty folder
+
 1. TODO
 
     ```bash
@@ -699,6 +707,8 @@ TODO
 ### [Node.js](#tab/nodejs)
 
 TODO
+
+1. Start in an empty folder
 
 1. TODO
 
@@ -724,6 +734,8 @@ TODO
 
 TODO
 
+1. Start in an empty folder
+
 1. TODO
 
     ```bash
@@ -742,6 +754,8 @@ TODO
 
 TODO
 
+1. Start in an empty folder
+
 1. TODO
 
     ```bash
@@ -759,6 +773,8 @@ TODO
 ### [Node.js](#tab/nodejs)
 
 TODO
+
+1. Start in an empty folder
 
 1. TODO
 
@@ -784,6 +800,8 @@ TODO
 
 TODO
 
+1. Start in an empty folder
+
 1. TODO
 
     ```bash
@@ -802,6 +820,8 @@ TODO
 
 TODO
 
+1. Start in an empty folder
+
 1. TODO
 
     ```bash
@@ -819,6 +839,8 @@ TODO
 ### [Node.js](#tab/nodejs)
 
 TODO
+
+1. Start in an empty folder
 
 1. TODO
 
@@ -844,6 +866,8 @@ TODO
 
 TODO
 
+1. Start in an empty folder
+
 1. TODO
 
     ```bash
@@ -862,6 +886,8 @@ TODO
 
 TODO
 
+1. Start in an empty folder
+
 1. TODO
 
     ```bash
@@ -879,6 +905,8 @@ TODO
 ### [Node.js](#tab/nodejs)
 
 TODO
+
+1. Start in an empty folder
 
 1. TODO
 
