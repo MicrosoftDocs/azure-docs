@@ -123,8 +123,7 @@ Make sure you, the user or service principal that will authenticate to Azure AD,
 
 To set the role assignment and create a query, do the following steps:
 
-1. In the Azure portal, locate the [Log Analytics workspace](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
-).
+1. In the Azure portal, locate the [Log Analytics workspace](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces).
 
 1. Select **Access Control (IAM)**.
 
