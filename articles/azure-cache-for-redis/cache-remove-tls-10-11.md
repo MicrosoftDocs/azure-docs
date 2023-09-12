@@ -15,8 +15,10 @@ ms.devlang: csharp, golang, java, javascript, php, python
 There's an industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later. TLS versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. They also don't support the modern encryption methods and cipher suites recommended by Payment Card Industry (PCI) compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more detail.
 
 > [!IMPORTANT]
-> On August 1, 2024, the TLS 1.2 requirement will be enforced.
+> On October 1, 2024, the TLS 1.2 requirement will be enforced.
 >
+>
+
 
 As a part of this effort, we're making the following changes to Azure Cache for Redis:
 
@@ -26,9 +28,9 @@ As a part of this effort, we're making the following changes to Azure Cache for 
 | Date    | Description |
 |-------- |-------------|
 | September 2023 | TLS 1.0/1.1 retirement announcement |
-| March 1, 2024 | Beginning March 1, 2024, you aren't able to set the Minimum TLS version for any cache to 1.0 or 1.1.
-| July 31, 2024 | Ensure that all your applications are connecting to Azure Cache for Redis using TLS 1.2 and Minimum TLS version on your cache settings is set to 1.2
-| August 1, 2024 | The minimum TLS version for all cache instances is updated to 1.2. Azure Cache for Redis instances reject connections using TLS 1.0 or 1.1.
+| March 1, 2024 | Beginning March 1, 2024, you will not be able to set the Minimum TLS version for any cache to 1.0 or 1.1. 
+| September 30, 2024 | Ensure that all your applications are connecting to Azure Cache for Redis using TLS 1.2 and Minimum TLS version on your cache settings is set to 1.2
+| October 1, 2024 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances will reject connections using TLS 1.0 or 1.1.
   
   > [!IMPORTANT]
   > The content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash as the Enterprise tiers support TLS 1.2 only.
