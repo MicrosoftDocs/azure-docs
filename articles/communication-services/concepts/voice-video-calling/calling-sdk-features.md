@@ -44,6 +44,7 @@ The following list presents the set of features that are currently available in 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Mute other participants                                                                                             |✔️ <sup>3</sup>        |          |                  |           |
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Active speaker                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -85,6 +86,7 @@ The following list presents the set of features that are currently available in 
 
 1. The Share screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 2. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
+3. The capability to Mute Others is currently in public preview.
 
 ## UI Library
 
@@ -184,5 +186,5 @@ For more information, see the following articles:
 
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
-- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications. 
+- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications.
 - [Plan your PSTN solution](../telephony/plan-solution.md)
