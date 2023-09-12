@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 09/12/2022
 ms.author: jeedes
 
 ---
@@ -76,9 +76,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, perform the following step:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    In the **Reply URL** textbox, type a URL using the following pattern:
+    a. In the **Identifier** textbox, type a URL using the following pattern:
+    `https://id.planview.com/<EntityID>`
+
+    b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<Region>.id.planview.com/api/loginsso/callback`
 
 1. Click **Set additional URLs** and perform the following step, if you wish to configure the application in **SP** initiated mode:    
@@ -87,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<Region>.id.planview.com`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Reply URL and Sign on URL. Contact [Planview ID support team](mailto:jordan.nguyen@planview.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Planview ID support team](mailto:jordan.nguyen@planview.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
