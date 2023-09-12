@@ -86,7 +86,7 @@ When you develop a function app locally, you must maintain local copies of these
 
 ## FTPS deployment settings
 
-Azure Functions supports deploying code to your function app by using FTPS. Because this deployment method requires you to [sync triggers](functions-deployment-technologies.md#trigger-syncing), it's not recommended. T securely transfer project files, always use FTPS and not FTP.
+Azure Functions supports deploying project code to your function app by using FTPS. Because this deployment method requires you to [sync triggers](functions-deployment-technologies.md#trigger-syncing), it's not recommended. To securely transfer project files, always use FTPS and not FTP.
 
 You can get the credentials required for FTPS deployment using one of these methods:
 
@@ -112,6 +112,16 @@ az functionapp deployment list-publishing-profiles --name <APP_NAME> --resource-
 In this example, replace `<APP_NAME>` with your function app name and `<GROUP_NAME>` with the resource group. The returned `URL`, `username`, and `password` columns contain the target URL and credentials for FTPS publishing.
 
 ### [Azure PowerShell](#tab/azure-powershell)
+
+Run this Azure PowerShell command that returns the FTPS credentials from the publishing profile.
+
+```azurepowershell
+$profile = [xml](Get-AzWebAppPublishingProfile -ResourceGroupName "<GROUP_NAME>" -Name "<APP_NAME>" -Format "Ftp") 
+$profile.publishData.publishProfile | Where-Object -Property publishMethod -eq Ftp | Select-Object -Property @{Name="URL"; Expression = {$_.publishUrl}}, 
+@{Name="username"; Expression = {$_.userName}}, @{Name="password"; Expression = {$_.userPWD}} | Format-Table
+```
+
+In this example, replace `<APP_NAME>` with your function app name and `<GROUP_NAME>` with the resource group. The returned `URL`, `username`, and `password` columns contain the target URL and credentials for FTPS publishing.
 
 ---
 

@@ -12,27 +12,28 @@ You can use a few different technologies to deploy your Azure Functions project 
 
 ## Deployment methods
 
-The deployment technology you use to publish code to Azure is generally determined by the way in which you publish your app. The appropriate deployment method is determined by specific needs and the point in the development cycle. For example, during development and testing you may deploy directly from your development tool, such as Visual Studio Code. When your app is in production, you are more likely to publish continuously from source control or by using an automated publishing pipeline, which includes additional validation and testing.  
+The deployment technology you use to publish code to your function app in Azure depends on your specific needs and the point in the development cycle. For example, during development and testing you may deploy directly from your development tool, such as Visual Studio Code. When your app is in production, you're more likely to publish continuously from source control or by using an automated publishing pipeline, which can include validation and testing.  
 
-The following table describes the available deployment methods for your Function project.
+The following table describes the available deployment methods for your code project.
 
 | Deployment&nbsp;type | Methods | Best for... |
-| -- | -- | -- |
-| Tools-based |	&bull;&nbsp;[Visual&nbsp;Studio&nbsp;Code&nbsp;publish](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio publish](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Core Tools publish](functions-run-local.md#publish) | Deployments during development and other ad hoc deployments. Deployments are managed locally by the tooling. |
+| --- | --- | --- |
+| Tools-based |	&bull;&nbsp;[Visual&nbsp;Studio&nbsp;Code&nbsp;publish](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio publish](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Core Tools publish](functions-run-local.md#publish) | Deployments during development and other improvised deployments. Deploying your code on-demand using [local development tools](functions-develop-local.md#local-development-environments). |
 | App Service-managed| &bull;&nbsp;[Deployment&nbsp;Center&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container&nbsp;deployments](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) |  Continuous deployment (CI/CD) from source control or from a container registry. Deployments are managed by the App Service platform (Kudu).|
-| External pipelines|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub Actions](functions-how-to-github-actions.md) | Production and Azure pipelines that include additional validation, testing, and other actions be run as part of an automated deployment. Deployments are managed by the pipeline. |
+| External pipelines|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub Actions](functions-how-to-github-actions.md) | Production pipelines that include validation, testing, and other actions that must be run as part of an automated deployment. Deployments are managed by the pipeline. |
 
-While specific Functions deployments use the best technology based on their context, most deployment methods are based on [zip deployment](#zip-deploy).
+Specific deployments should use the best technology based on the specific scenario. Many of the deployment methods are based on [zip deployment](#zip-deploy), which is recommended for deployment.
 
 ## Deployment technology availability
 
-Azure Functions supports cross-platform local development and hosting on Windows and Linux. Currently, three hosting plans are available:
+The deployment method also depends on the hosting plan and operating system on which you run your function app.  
+Currently, Functions offers three hosting plans:
 
 + [Consumption](consumption-plan.md)
 + [Premium](functions-premium-plan.md)
 + [Dedicated (App Service)](dedicated-plan.md)
 
-Each plan has different behaviors. Not all deployment technologies are available for each flavor of Azure Functions. The following chart shows which deployment technologies are supported for each combination of operating system and hosting plan:
+Each plan has different behaviors. Not all deployment technologies are available for each hosting plan and operating system. This chart provides information on the supported deployment technologies:
 
 | Deployment technology | Windows Consumption | Windows Premium | Windows Dedicated  | Linux Consumption | Linux Premium | Linux Dedicated |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
@@ -60,23 +61,23 @@ When you change any of your triggers, the Functions infrastructure must be aware
 
 + Restart your function app in the Azure portal.
 + Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook-trigger.md#authorization-keys).
-+ Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app.
++ Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header). 
 
-When you deploy using an external package URL and the contents of the package change but the URL itself doesn't change, you need to manually restart your function app to fully sync your updates.
+When you deploy using an external package URL, you need to manually restart your function app to fully sync your updates when the package changes without changing the URL.
 
 ### Remote build
 
 Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. 
 
-# [Windows](#tab/windows)
+#### [Windows](#tab/windows)
 
 All function apps running on Windows have a small management app, the SCM site provided by [Kudu](https://github.com/projectkudu/kudu). This site handles much of the deployment and build logic for Azure Functions.
 
 When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
 
-# [Linux](#tab/linux)
+#### [Linux](#tab/linux)
 
-To enable remote build on Linux, you must set the following in your application settings:
+To enable remote build on Linux, you must set these application settings:
 
 + [`ENABLE_ORYX_BUILD=true`](functions-app-settings.md#enable_oryx_build)
 + [`SCM_DO_BUILD_DURING_DEPLOYMENT=true`](functions-app-settings.md#scm_do_build_during_deployment)
@@ -96,7 +97,7 @@ The following considerations apply when using remote builds during deployment:
 
 ### App content storage
 
-Several deployment methods store the deployed or built application payload on the storage account associated with the function app. The Azure Files content share is generally used if configured, but some methods will instead store the payload in the blob store associated with the `AzureWebJobsStorage` connection. See the details in the "Where app content is stored" paragraphs of each deployment technology covered in the next section.
+Several deployment methods store the deployed or built application payload on the storage account associated with the function app. Functions tries to use the Azure Files content share when configured, but some methods instead store the payload in the blob storage instance associated with the `AzureWebJobsStorage` connection. See the details in the _Where app content is stored_ paragraphs of each deployment technology covered in the next section.
 
 [!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
 
@@ -188,9 +189,9 @@ Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions
 
 ### FTPS
 
-You can use FTPS to directly transfer files to Azure Functions, athough this deployment method isn't recommended.
+You can use FTPS to directly transfer files to Azure Functions, although this deployment method isn't recommended. Because using FTP, which is unencrypted, can expose your deployment credentials, you should only use FTPS.  
 
->__How to use it:__ Follow the instructions in [Deploy content by using FTP/s](../app-service/deploy-ftp.md?tabs=cli). Note that FTP/S deployment isn't available in the Azure portal, but you can use [Azure CLI](../app-service/deploy-ftp.md?tabs=cli) or [Azure PowerShell](../app-service/deploy-ftp.md&tabs=powershell).
+>__How to use it:__ Follow the instructions in [FTPS deployment settings](functions-how-to-use-azure-function-app-settings.md#ftps-deployment-settings) to get the URL and credentials you can use to deploy to your function app using FTPS. 
 
 >__When to use it:__ To reduce the chance of errors, you should avoid using deployment methods that require the additional step of [manually syncing triggers](#trigger-syncing). Use [zip deployment](run-functions-from-deployment-package.md) when possible.
 
@@ -228,7 +229,7 @@ The following table shows the operating systems and languages that support in-po
 
 ## Deployment behaviors
 
-When you deploy updates to your function app code, currently executing functions are terminated. After deployment completes, the new code is loaded to begin processing requests. Please review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
+When you deploy updates to your function app code, currently executing functions are terminated. After deployment completes, the new code is loaded to begin processing requests. Review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
 
 If you need more control over this transition, you should use deployment slots.
 
@@ -241,7 +242,7 @@ When you deploy your function app to Azure, you can deploy to a separate deploym
 Read these articles to learn more about deploying your function apps:
 
 + [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
-+ [Continuous delivery by using Azure DevOps](functions-how-to-azure-devops.md)
++ [Continuous delivery by using Azure Pipelines](functions-how-to-azure-devops.md)
 + [Zip deployments for Azure Functions](deployment-zip-push.md)
 + [Run your Azure Functions from a package file](run-functions-from-deployment-package.md)
 + [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md)
