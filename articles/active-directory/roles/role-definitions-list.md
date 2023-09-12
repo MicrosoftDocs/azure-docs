@@ -28,13 +28,13 @@ This article describes how to list the Azure AD built-in and custom roles along 
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
     ![list of roles in Azure portal](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
 
