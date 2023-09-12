@@ -48,11 +48,11 @@ Via Azure monitor data platform, customers can access B-series credit model spec
 ## Other sizes and information
 
 - [General purpose](sizes-general.md)
+- [Compute optimized](sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
 - [Storage optimized](sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
-- [Previous generations](sizes-previous-gen.md)
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
