@@ -155,10 +155,6 @@ Use Bicep syntax to declare [objects](./data-types.md#objects) and [arrays](./da
 
 ---
 
-## Define and use variables
-
-
-
 ## File name
 
 # [Bicep parameters file](#tab/Bicep)
