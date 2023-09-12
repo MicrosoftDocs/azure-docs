@@ -358,7 +358,7 @@ In this example, we're using a bounded state of delta source.
 </project>
 ```
 * You're required to build the jar with required libraries and dependencies.
-* Specify the ADLS Gen2location in our java class to reference the source data.
+* Specify the ADLS Gen2 location in our java class to reference the source data.
 
 :::image type="content" source="./media/use-flink-delta-connector/specify-the-adls-gen-2.png" alt-text="Screenshot showing how to specify the ADLS Gen2." lightbox="./media/use-flink-delta-connector/specify-the-adls-gen-2.png":::
    
