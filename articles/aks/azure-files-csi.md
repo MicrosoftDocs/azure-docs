@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kub
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-linux
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -508,4 +508,4 @@ The output of the commands resembles the following example:
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
 [statically-provision-a-volume]: azure-csi-files-storage-provision.md#statically-provision-a-volume
 [azure-private-endpoint-dns]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration
-[azure-netapp-files-mount-options-best-practices]: /azure-netapp-files/performance-linux-mount-options.md#rsize-and-wsize
+[azure-netapp-files-mount-options-best-practices]: ../azure-netapp-files/performance-linux-mount-options.md#rsize-and-wsize
