@@ -5,8 +5,7 @@ description: The Anomaly Detector API container runtime environment is configure
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mbullwin

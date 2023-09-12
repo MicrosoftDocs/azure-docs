@@ -5,8 +5,7 @@ description: Prepare your data and upload to Storage Account
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
 ms.date: 11/01/2022
 ms.author: mbullwin

@@ -5,8 +5,7 @@ description: Learn about best practices when detecting anomalies with the Anomal
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: best-practice
 ms.custom: cogserv-non-critical-anomaly-detector
 ms.date: 01/22/2021
