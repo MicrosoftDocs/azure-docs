@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Planview ID'
-description: Learn how to configure single sign-on between Azure Active Directory and Planview ID.
+title: 'Tutorial: Azure AD SSO integration with Planview Admin'
+description: Learn how to configure single sign-on between Azure Active Directory and Planview Admin.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure AD SSO integration with Planview ID
+# Tutorial: Azure AD SSO integration with Planview Admin
 
-In this tutorial, you'll learn how to integrate Planview ID with Azure Active Directory (Azure AD). When you integrate Planview ID with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Planview Admin with Azure Active Directory (Azure AD). When you integrate Planview Admin with Azure AD, you can:
 
-* Control in Azure AD who has access to Planview ID.
-* Enable your users to be automatically signed-in to Planview ID with their Azure AD accounts.
+* Control in Azure AD who has access to Planview Admin.
+* Enable your users to be automatically signed-in to Planview Admin with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Planview ID with Azure Active Di
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Planview ID single sign-on (SSO) enabled subscription.
+* Planview Admin single sign-on (SSO) enabled subscription.
 * Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
@@ -35,42 +35,39 @@ For more information, see [Azure built-in roles](../roles/permissions-reference.
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Planview ID supports **SP** and **IDP** initiated SSO.
+* Planview Admin supports **SP** and **IDP** initiated SSO.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+## Add Planview Admin from the gallery
 
-## Add Planview ID from the gallery
-
-To configure the integration of Planview ID into Azure AD, you need to add Planview ID from the gallery to your list of managed SaaS apps.
+To configure the integration of Planview Admin into Azure AD, you need to add Planview Admin from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Planview ID** in the search box.
-1. Select **Planview ID** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **Planview Admin** in the search box.
+1. Select **Planview Admin** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Planview ID
+## Configure and test Azure AD SSO for Planview Admin
 
-Configure and test Azure AD SSO with Planview ID using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Planview ID.
+Configure and test Azure AD SSO with Planview Admin using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Planview Admin.
 
-To configure and test Azure AD SSO with Planview ID, perform the following steps:
+To configure and test Azure AD SSO with Planview Admin, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Planview ID SSO](#configure-planview-id-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Planview ID test user](#create-planview-id-test-user)** - to have a counterpart of B.Simon in Planview ID that is linked to the Azure AD representation of user.
+1. **[Configure Planview Admin SSO](#configure-planview-id-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Planview Admin test user](#create-planview-id-test-user)** - to have a counterpart of B.Simon in Planview Admin that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Planview ID** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Planview Admin** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -84,13 +81,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<Region>.id.planview.com/api/loginsso/callback`
 
-1. Click **Set additional URLs** and perform the following step, if you wish to configure the application in **SP** initiated mode:    
+1. Perform the following step, if you wish to configure the application in **SP** initiated mode:    
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<Region>.id.planview.com`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Planview ID support team](mailto:jordan.nguyen@planview.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Planview Admin support team](mailto:jordan.nguyen@planview.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -110,23 +107,23 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Planview ID.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Planview Admin.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Planview ID**.
+1. In the applications list, select **Planview Admin**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Planview ID SSO
+## Configure Planview Admin SSO
 
-To configure single sign-on on **Planview ID** side, you need to send the **App Federation Metadata Url** to [Planview ID support team](mailto:jordan.nguyen@planview.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Planview Admin** side, you need to send the **App Federation Metadata Url** to [Planview Admin support team](mailto:jordan.nguyen@planview.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create Planview ID test user
+### Create Planview Admin test user
 
-In this section, you create a user called Britta Simon in Planview ID. Work with [Planview ID support team](mailto:jordan.nguyen@planview.com) to add the users in the Planview ID platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Planview Admin. Work with [Planview Admin support team](mailto:jordan.nguyen@planview.com) to add the users in the Planview Admin platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -134,16 +131,16 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Planview ID Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Planview Admin Sign-on URL where you can initiate the login flow.  
 
-* Go to Planview ID Sign-on URL directly and initiate the login flow from there.
+* Go to Planview Admin Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Planview ID for which you set up the SSO. 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Planview Admin for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Planview ID tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Planview ID for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Planview Admin tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Planview Admin for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Planview ID you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Planview Admin you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
