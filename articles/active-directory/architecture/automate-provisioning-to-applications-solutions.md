@@ -97,12 +97,12 @@ Many applications don't support the SCIM standard, and customers have historical
 
 |Protocol |Connector|
 |-----|-----|
-| LDAP | [LDAP](./on-premises-ldap-connector-configure.md)|
-| SQL  | [SQL](./tutorial-ecma-sql-connector.md) |
-| REST | [Web Services](./on-premises-web-services-connector.md)|
-| SOAP | [Web Services](./on-premises-web-services-connector.md)|
-| Flat-file| [PowerShell](./on-premises-powershell-connector.md) |
-| Custom | [Custom ECMA connectors](./on-premises-custom-connector.md) |
+| LDAP | [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md)|
+| SQL  | [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) |
+| REST | [Web Services](../app-provisioning/on-premises-web-services-connector.md)|
+| SOAP | [Web Services](../app-provisioning/on-premises-web-services-connector.md)|
+| Flat-file| [PowerShell](../app-provisioning/on-premises-powershell-connector.md) |
+| Custom | [Custom ECMA connectors](../app-provisioning/on-premises-custom-connector.md) |
 
 [Learn more about on-premises application provisioning](../app-provisioning/user-provisioning.md)
 
