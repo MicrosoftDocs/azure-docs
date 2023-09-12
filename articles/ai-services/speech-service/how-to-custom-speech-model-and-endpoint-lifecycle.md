@@ -5,8 +5,7 @@ description: Custom Speech provides base models for training and lets you create
 services: cognitive-services
 author: heikora
 manager: dongli
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/29/2022
 ms.author: heikora
