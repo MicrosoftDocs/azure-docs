@@ -106,6 +106,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/planview-id-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/planview-admin-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/postman-provisioning-tutorialy.md",
       "redirect_url": "/azure/active-directory/saas-apps/postman-provisioning-tutorial",
       "redirect_document_id": false
