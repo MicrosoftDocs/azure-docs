@@ -89,7 +89,7 @@ The following table highlights the key differences between managed online endpoi
 | **Cluster sizing (scaling)** | [Managed manual and autoscale](how-to-autoscale-endpoints.md), supporting additional nodes provisioning                                                             | [Manual and autoscale](how-to-kubernetes-inference-routing-azureml-fe.md#autoscaling), supporting scaling the number of replicas within fixed cluster boundaries                         |
 | **Compute type**              | Managed by the service                                                                                                            | Customer-managed Kubernetes cluster (Kubernetes)                                                                        |
 | **Managed identity**          | [Supported](how-to-access-resources-from-endpoints-managed-identities.md)                                                         | Supported                                                                                                               |
-| **Virtual Network (VNET)**    | [Supported via managed network isolation](how-to-secure-online-endpoint.md)                                                       | User responsibility                                                                                                     |
+| **Virtual Network (VNET)**    | [Supported via managed network isolation](concept-secure-online-endpoint.md)                                                       | User responsibility                                                                                                     |
 | **Out-of-box monitoring & logging** | [Azure Monitor and Log Analytics powered](how-to-monitor-online-endpoints.md) (includes key metrics and log tables for endpoints and deployments) | User responsibility                                                                        |
 | **Logging with Application Insights (legacy)** | Supported                                                                                                        | Supported                                                                                                               |
 | **View costs**                | [Detailed to endpoint / deployment level](how-to-view-online-endpoints-costs.md)                                                  | Cluster level                                                                                                           |
@@ -120,9 +120,9 @@ The following table describes the key attributes of a deployment:
 
 To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM template, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md).
 
-## Code and no-code options for model deployment
+## Deployment for coders and non-coders
 
-Azure Machine Learning supports model deployment to online endpoints for coders and noncoders alike, by providing options for _no-code deployment_, _low-code deployment_, and _Bring Your Own Container (BYOC) deployment_.
+Azure Machine Learning supports model deployment to online endpoints for coders and non-coders alike, by providing options for _no-code deployment_, _low-code deployment_, and _Bring Your Own Container (BYOC) deployment_.
 
 #### No-code model deployment
 
@@ -245,20 +245,6 @@ You can configure security for inbound scoring requests and outbound communicati
 
 For more information, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md).
 
-Inbound communication is an endpoint property. To secure the online endpoints incoming scoring requests to your virtual network, set the `public_network_access flag` for the endpoint to disabled.
-
-<!-- M.A.: replace the following table with an include -->
-The following table lists the supported configurations when configuring inbound and outbound communications for an online endpoint:
-
-| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
-| -------- | -------------------------------- | --------------------------------- | --------- |
-| secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
-| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled</br>The workspace must also allow public access as the deployment outbound is to the workspace API. | Yes |
-| public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled</br>The workspace must also allow public access as the deployment outbound is to the workspace API. | Yes |
-
-To learn more about securing an online endpoint, see [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md).
-
 ### Monitoring online endpoints and deployments
 
 
@@ -273,7 +259,7 @@ However [managed online endpoints](#why-choose-managed-online-endpoints-v2-over-
 
 - [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-online-endpoints.md)
 - [How to deploy batch endpoints with the Azure CLI and Python SDK](batch-inference/how-to-use-batch-endpoint.md)
-- [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view managed online endpoint costs](how-to-view-online-endpoints-costs.md)
