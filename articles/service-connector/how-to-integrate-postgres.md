@@ -43,12 +43,12 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 ## Default environment variable names or application properties and Sample codes
 
-Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL.
+Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for PostgreSQL. You can choose among different authentication types at the top of this page.
 
 
 ::: zone pivot="system-identity"
 
-### System-assigned Managed Identity
+### Connect with System-assigned Managed Identity
 
 #### [.NET](#tab/dotnet)
 
@@ -116,7 +116,7 @@ Reference the connection details and sample codes in following tables, according
 
 ---
 
-#### Sample codes
+### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql system mi](./includes/code-postgres-aad.md)]
@@ -126,7 +126,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 ::: zone pivot="user-identity"
 
-### User-assigned Managed Identity
+### Connect with User-assigned Managed Identity
 
 #### [.NET](#tab/dotnet)
 
@@ -202,7 +202,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 ---
 
-#### Sample codes
+### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql user mi](./includes/code-postgres-aad.md)]
@@ -212,7 +212,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 ::: zone pivot="connection-string"
 
-### Connection String
+### Connect with Connection String
 
 #### [.NET](#tab/dotnet)
 
@@ -280,7 +280,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 ---
 
-#### Sample codes
+### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql secrets](./includes/code-postgres-secret.md)]
@@ -290,7 +290,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 ::: zone pivot="service-principal"
 
-### Service Principal
+### Connect with Service Principal
 
 #### [.NET](#tab/dotnet)
 
@@ -386,7 +386,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 
 ---
 
-#### Sample codes
+### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 [!INCLUDE [code sample for postgresql service principal](./includes/code-postgres-aad.md)]
