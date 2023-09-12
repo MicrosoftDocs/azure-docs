@@ -90,7 +90,7 @@ For more information on using the administrative tools or creating and using ser
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm

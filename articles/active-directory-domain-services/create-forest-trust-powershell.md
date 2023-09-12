@@ -406,14 +406,14 @@ For more conceptual information about forest types in Azure AD DS, see [How do f
 <!-- INTERNAL LINKS -->
 [concepts-trust]: concepts-forest-trust.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
-[Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
-[Connect-AzureAD]: /powershell/module/AzureAD/Connect-AzureAD
-[New-AzResourceGroup]: /powershell/module/Az.Resources/New-AzResourceGroup
+[Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
+[Connect-AzureAD]: /powershell/module/azuread/connect-azuread
+[New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
 [network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [New-AzureADServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal
-[Get-AzureRMSubscription]: /powershell/module/AzureRM.Profile/Get-AzureRmSubscription
+[Get-AzureRMSubscription]: /powershell/module/azurerm.profile/get-azurermsubscription
 [Install-Script]: /powershell/module/powershellget/install-script
 
 <!-- EXTERNAL LINKS -->
