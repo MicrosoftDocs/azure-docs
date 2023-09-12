@@ -6,8 +6,10 @@ items:
   items:
   - name: What is HDInsight on AKS?
     href: overview.md
-  - name: Whats new on HDInsight on AKS?
-    href: whats-new.md  
+  - name: What's new?
+    href: whats-new.md 
+  - name: Preview information
+    href: preview.md
 - name: Quickstarts
   items:
   - name: Subscription prerequisites
@@ -28,6 +30,8 @@ items:
       items:
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
+  - name: Resource management
+    href: ./virtual-machine-recommendation-capacity-planning.md
   - name: Metrics and monitoring
     href: ./concept-azure-monitor-integration.md
   - name: Customize clusters

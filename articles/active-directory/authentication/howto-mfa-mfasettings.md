@@ -175,7 +175,7 @@ Default number: *+1 (855) 330-8653*
 
 The following table lists more numbers for different countries.
 
-| Country              | Number(s)       |
+| Country/Region       | Number(s)       |
 |:---------------------|:----------------|
 | Austria              | +43 6703062076  |
 | Bangladesh           | +880 9604606026 |
@@ -186,7 +186,7 @@ The following table lists more numbers for different countries.
 | Ghana                | +233 308250245  |
 | Greece               | +30 2119902739  |
 | Guatemala            | +502 23055056   |
-| Hong Kong            | +852 25716964   |
+| Hong Kong SAR        | +852 25716964   |
 | India                | +91 3371568300, +91 1205089400, +91 4471566601, +91 2271897557, +91 1203524400, +91 3335105700, +91 2235544120, +91 4435279600|
 | Jordan               | +962 797639442  |
 | Kenya                | +254 709605276  |

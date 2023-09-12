@@ -21,15 +21,15 @@ You can create and manage multiple dev boxes as a dev box user. Create a dev box
 
 To complete this quickstart, you need:
 
-- Permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#6-provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
+- Permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#5-provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
 ## Create a dev box
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-2. Select **+ Add dev box**.
+2. Select **Get started**.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal and the button for adding a dev box.":::
+   :::image type="content" source="./media/quickstart-create-dev-box/welcome-to-developer-portal.png" alt-text="Screenshot of the developer portal and the button for adding a dev box.":::
 
 3. In **Add a dev box**, enter the following values:
 
