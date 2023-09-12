@@ -107,7 +107,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
     > * In order to download jsr jar file use the following command
     >     * `wget https://repo1.maven.org/maven2/net/java/loci/jsr308-all/1.1.2/jsr308-all-1.1.2.jar`
 
--  Once the dependent jars are downloaded start the [Flink Sql client](./flink-web-ssh-on-portal-to-flink-sql.md), with these jars to be imported into the session. Complete command as follows,
+-  Once the dependent jars are downloaded start the [Flink SQL client](./flink-web-ssh-on-portal-to-flink-sql.md), with these jars to be imported into the session. Complete command as follows,
 
     ```sql
     /opt/flink-webssh/bin/sql-client.sh -j
