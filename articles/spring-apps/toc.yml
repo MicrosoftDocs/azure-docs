@@ -67,10 +67,6 @@ items:
       href: quickstart-logs-metrics-tracing.md
     - name: Integrate with Azure Database for MySQL
       href: quickstart-integrate-azure-database-mysql.md
-  - name: "Production-ready"
-    items:
-     - name: Custom DNS name
-       href: how-to-custom-domain.md
   - name: Authenticate client with Spring Cloud Gateway
     href: tutorial-authenticate-client-with-gateway.md
 - name: Concepts
