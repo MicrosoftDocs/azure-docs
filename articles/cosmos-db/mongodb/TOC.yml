@@ -44,7 +44,7 @@
           href: quickstart-go.md
     - name: Tutorials
       items:
-        - name: 1 - Create and manage data
+        - name: Create and manage data
           items:
             - name: Node.js console app
               href: nodejs-console-app.md
@@ -64,9 +64,9 @@
                   href: tutorial-develop-nodejs-part-6.md
             - name: Node.js and React app
               href: tutorial-develop-react.md
-        - name: 2 - Query data
+        - name: Query data
           href: tutorial-query.md
-        - name: 3 - Distribute data globally
+        - name: Distribute data globally
           href: tutorial-global-distribution.md
         - name: Aggregation pipeline
           href: tutorial-aggregation.md
