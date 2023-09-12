@@ -476,7 +476,7 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the `CosmosClient` class to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client class to disable TLS/SSL validation:
     >
     > ```csharp
     > CosmosClientOptions options = new ()
@@ -565,7 +565,7 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the `CosmosClient` class to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
     >
     > ```python
     > import urllib3
@@ -604,7 +604,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     import { CosmosClient } from "@azure/cosmos";
     ```
 
-1. Use <xref:&#64;azure/cosmos.CosmosClient> to create a new client instance using the emulator's credentials.
+1. Use <xref:%40azure/cosmos.CosmosClient> ([CosmosClient](/javascript/api/@azure/cosmos/cosmosclient)) to create a new client instance using the emulator's credentials.
 
     ```javascript
     const cosmosClient = new CosmosClient({
@@ -613,7 +613,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     });
     ```
 
-1. Use [Databases.createIfNotExists](xref:@azure/cosmos.Databases.createIfNotExists) and <xref:@azure/cosmos.Containers.createIfNotExists> to create a database and container.
+1. Use [Databases.createIfNotExists](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) and [Containers.createIfNotExists])/javascript/api/%40azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) to create a database and container.
 
     ```javascript
     const { database } = await cosmosClient.databases.createIfNotExists({ 
@@ -629,7 +629,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     });
     ```
 
-1. Upsert a new item using <xref:@azure/cosmos.Items.upsert>.
+1. Upsert a new item using [Items.upsert](/javascript/api/@azure/cosmos/items#@azure-cosmos-items-upsert).
 
     ```javascript
     var item = {
@@ -647,7 +647,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the `CosmosClient` class to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client class to disable TLS/SSL validation:
     >
     > ```javascript
     > process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
