@@ -87,6 +87,12 @@ Use the following steps to create the service instance:
    azd auth login
    ```
 
+   The console outputs messages similar to the following example:
+
+   ```text
+   Logged in to Azure.
+   ```
+
 1. Use the following command to provision the template's infrastructure to Azure:
 
    ```bash

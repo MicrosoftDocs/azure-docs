@@ -273,26 +273,32 @@ The output is similar to the following example:
 
 ```output
 {
-  "azureAsn": 12076,
-  "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
-  "gatewayManagerEtag": "18",
-  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
-  "ipv6PeeringConfig": null,
+  "azureASN": 12076,
+  "connections": [],
+  "etag": "W/\"abcdef12-3456-7890-abcd-ef1234567890\"",
+  "gatewayManagerEtag": "",
+  "id": "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePrivatePeering",
   "lastModifiedBy": "Customer",
-  "microsoftPeeringConfig": null,
+  "microsoftPeeringConfig": {
+    "advertisedCommunities": [],
+    "advertisedPublicPrefixes": [],
+    "advertisedPublicPrefixesState": "NotConfigured",
+    "customerASN": 0,
+    "legacyMode": 0,
+    "routingRegistryName": "NONE"
+  },
   "name": "AzurePrivatePeering",
-  "peerAsn": 7671,
+  "peerASN": 65020,
+  "peeredConnections": [],
   "peeringType": "AzurePrivatePeering",
   "primaryAzurePort": "",
-  "primaryPeerAddressPrefix": "",
+  "primaryPeerAddressPrefix": "192.168.17.16/30",
   "provisioningState": "Succeeded",
   "resourceGroup": "ExpressRouteResourceGroup",
-  "routeFilter": null,
   "secondaryAzurePort": "",
-  "secondaryPeerAddressPrefix": "",
-  "sharedKey": null,
+  "secondaryPeerAddressPrefix": "192.168.17.20/30",
   "state": "Enabled",
-  "stats": null,
+  "type": "Microsoft.Network/expressRouteCircuits/peerings",
   "vlanId": 100
 }
 ```
