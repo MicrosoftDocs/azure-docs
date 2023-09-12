@@ -38,7 +38,7 @@ Alerts consist of:
      - Secure webhooks.
      - Webhooks.
      - Event hubs.
-- **Alert conditions**: These conditions are set by the system. When an alert fires, the alert's monitor condition is set to **fired**. After the underlying condition that caused the alert to fire clears, the monitor condition is set to **resolved**.
+- **Alert conditions**: These conditions are set by the system. When an alert fires, the alert condition is set to **fired**. After the underlying condition that caused the alert to fire clears, the alert condition is set to **resolved**.
 - **User response**: The response is set by the user and doesn't change until the user changes it.
 - **Alert processing rules**: You can use alert processing rules to make modifications to triggered alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
 ## Types of alerts
@@ -62,7 +62,7 @@ Alerts can be stateful or stateless.
 Alerts are stored for 30 days and are deleted after the 30-day retention period.
 
 ### Stateless alerts
-Stateless alerts fire each time the condition is met. The monitor condition for all stateless alerts is always `fired`. 
+Stateless alerts fire each time the condition is met. The alert condition for all stateless alerts is always `fired`. 
 
 - All activity log alerts are stateless.
 - The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:
@@ -71,9 +71,9 @@ Stateless alerts fire each time the condition is met. The monitor condition for 
 
 ### Stateful alerts
 Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved. 
-The monitor condition for stateful alerts is `fired`, until it is considered resolved. When an alert is considered resolved, the alert rule sends out a resolved notification by using webhooks or email, and the monitor condition is set to `resolved`.
+The alert condition for stateful alerts is `fired`, until it is considered resolved. When an alert is considered resolved, the alert rule sends out a resolved notification by using webhooks or email, and the alert condition is set to `resolved`.
 
-For stateful alerts, while the alert itself is deleted after 30 days, the monitor condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
+For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
 This table describes when a stateful alert is considered resolved:
 
