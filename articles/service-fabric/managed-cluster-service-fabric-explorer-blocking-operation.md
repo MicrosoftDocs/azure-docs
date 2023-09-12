@@ -11,7 +11,7 @@ ms.date: 09/15/2022
 
 # Service Fabric Explorer blocking operations
 
-When you create a Service Fabric managed cluster along with applications and services through ARM, portal, or Az cmdlets, the cluster is managed by ARM. Accordingly, these resources should have all their management operations performed at ARM level. Running commands directly against the cluster bypasses ARM, whether this is through a Service Fabric Explorer command or an SF cmdlet. Bypassing ARM can cause synchronization issues, as ARM isn't alerted to any changes that result from the operations. When the cluster is out of sync with its definition in ARM, there's a risk of degraded ability to manage the cluster safely and reliably.
+When you create a Service Fabric managed cluster along with applications and services through ARM, portal, or Az cmdlets, ARM manages the the cluster. Accordingly, these resources should have all their management operations performed at ARM level. Commands run directly against the cluster bypass ARM, whether they're made through a Service Fabric Explorer command or an SF cmdlet. Bypassing ARM can cause synchronization issues, as ARM isn't alerted to any changes that result from the operations. When the cluster is out of sync with its definition in ARM, there's a risk of degraded ability to manage the cluster safely and reliably.
 
 To help prevent synchronization issues, Service Fabric Explorer now blocks the management of ARM managed resources.
 
