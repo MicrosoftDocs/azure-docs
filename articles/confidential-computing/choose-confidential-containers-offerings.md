@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 9/12/2023
-ms.author: angarg05
+ms.author: ananyagarg
 ms.custom: ignite-fall-2021
 ---
 
@@ -20,7 +20,7 @@ Confidential containers also help with code protection through encryption. You c
 
 **Confidential VM worker nodes on AKS** supporting full AKS features with node level VM based Trusted Execution Environment (TEE). Also support remote guest attestation. [Get started with CVM worker nodes with a lift and shift workload to CVM node pool.](../aks/use-cvm.md)
 
-**Unmodified containers with serverless offering** [confidential containers on Azure Container Instance (ACI)](./confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---public-preview) supporting existing Linux containers with remote guest attestation flow.
+**Unmodified containers with serverless offering** [confidential containers on Azure Container Instance (ACI)](./confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci) supporting existing Linux containers with remote guest attestation flow.
 
 **Unmodified containers with Intel SGX** support higher programming languages on Intel SGX through the Azure Partner ecosystem of OSS projects. For more information, see the [unmodified containers deployment flow and samples](./confidential-containers.md).
 
