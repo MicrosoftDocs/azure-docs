@@ -70,7 +70,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Azure portal
+          - text: Admin center
             url: cross-tenant-synchronization-configure.md
           - text: PowerShell or Microsoft Graph API
             url: cross-tenant-synchronization-configure-graph.md

@@ -117,16 +117,16 @@ conceptualContent:
     - title: Learn the basics
       links:
           - text: Authentication and authorization
-            url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/authentication-vs-authorization.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
             itemType: concept
           - text: Tokens
-            url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/security-tokens.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
             itemType: concept
           - text: Protocols
-            url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/v2-app-types.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
             itemType: concept
           - text: Authentication library
-            url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/develop/msal-overview.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json
             itemType: concept
        
 
@@ -153,7 +153,7 @@ conceptualContent:
             itemType: how-to-guide
 
           - text: Authenticate users in a Node.js web app(Quick course)
-            url: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
+            url: /training/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/
             itemType: learn
           # - text: 'Quickstart: Single-page app'
             # url: configure-authentication-sample-spa-app.md
