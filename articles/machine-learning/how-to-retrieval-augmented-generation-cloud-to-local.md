@@ -1,7 +1,7 @@
 ---
 title: Retrieval Augmented Generation (RAG) cloud to local (preview)
 titleSuffix: Azure Machine Learning
-description: Learning how to use transition your RAG created flows from cloud to local using the prompt flow VS Code extension.
+description: Learning how to transition your RAG created flows from cloud to local using the prompt flow VS Code extension.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,9 @@ ms.custom: prompt-flow
 
 ---
 
-# RAG from cloud to local - Bring Your Own Data QnA (preview)
+# RAG from cloud to local - bring your own data QnA (preview)
 
-In this article, you'll learn how to transition your RAG created flows from cloud in your Azure Machine Learning workspace to local using the Prompt flow VS Code extension or CLI.
+In this article, you'll learn how to transition your RAG created flows from cloud in your Azure Machine Learning workspace to local using the Prompt flow VS Code extension.
 
 > [!IMPORTANT]
 > Prompt flow and Retrieval Augmented Generation (RAG) is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -30,7 +30,7 @@ In this article, you'll learn how to transition your RAG created flows from clou
       pip install promptflow promptflow-tool
    ```
 
-   More detail you can refer to [prompt flow local quick start](https://github.com/Azure/promptflow/blob/main/docs/community/local/quick-start.md)
+   To learn more, see [prompt flow local quick start](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html#quick-start)
 
 2. Install promptflow-vectordb SDK:
 
@@ -38,7 +38,7 @@ In this article, you'll learn how to transition your RAG created flows from clou
       pip install promptflow-vectordb
    ```
 
-3. (Optional) Install the prompt flow extension in VS Code
+3. Install the prompt flow extension in VS Code
 
     :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/vs-code-extension.png" alt-text="Screenshot of the prompt flow VS Code extension in the marketplace." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/vs-code-extension.png":::
 
@@ -71,7 +71,6 @@ Open the "flow.dag.yaml" file, search the "connections" section, you can find th
   
 Create a local connection same as the cloud one.
 
-# [VS Code Extension](#tab/vscode)
 
 If you have the **prompt flow extension** installed in VS Code desktop, you can create the connection in the extension UI.
 
@@ -79,9 +78,9 @@ Select the prompt flow extension icon to go to the prompt flow management centra
 
 :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/vs-code-connection-create.png" alt-text="Screenshot of creating the connections in VS Code." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/vs-code-connection-create.png":::
 
-# [Azure CLI](#tab/cli)
+### Create a connection with Azure CLI
 
-Create a connection yaml file "AzureOpenAIConnection.yaml", then run the connection create CLI command in the terminal:
+If you prefer to use Azure CLI instead of the VS Code extension you can create a connection yaml file "AzureOpenAIConnection.yaml", then run the connection create CLI command in the terminal:
 
 ``` yaml
    $schema: https://azuremlschemas.azureedge.net/promptflow/latest/AzureOpenAIConnection.schema.json
@@ -97,7 +96,9 @@ Create a connection yaml file "AzureOpenAIConnection.yaml", then run the connect
    pf connection create -f AzureOpenAIConnection.yaml
 ```
 
----
+> [!NOTE]
+> The rest of this article details how to use the VS code extension to edit the files, you can follow this [quick start on how to edit your files with CLI instructions](https://microsoft.github.io/promptflow/how-to-guides/quick-start.html#quick-start).
+
 
 ## Check and modify the flow files
 
@@ -108,7 +109,7 @@ Create a connection yaml file "AzureOpenAIConnection.yaml", then run the connect
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/visual-editor.png" alt-text="Screenshot of the flow dag yaml file with the visual editor highlighted in VS Code." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/visual-editor.png":::
 
    > [!NOTE]
-   > When legacy tools switching to code first mode, "not found" error may occur, refer to [Vector DB/Faiss Index/Vector Index Lookup tool](Tool_Reminder.md) rename reminder
+   > When legacy tools switching to code first mode, "not found" error may occur, refer to [Vector DB/Faiss Index/Vector Index Lookup tool](/tools-reference/troubleshoot-guidance.md) rename reminder
 
 2. Jump to the "embed_the_question" node, make sure the connection is the local connection you have created, and double check the deployment_name, which is the model you use here for the embedding.
 
@@ -121,11 +122,11 @@ Create a connection yaml file "AzureOpenAIConnection.yaml", then run the connect
    >
    > Before run the flow, make sure you have `az login` and connect to the Azure Machine Learning workspace.
    >
-   > More detail you can refer to [Connect to Azure Machine Learning workspace](./prompt-flow/how-to-integrate-with-llm-app-devops.md#connect-to-azure-machine-learning-workspace)
+   > To learn more, see [Connect to Azure Machine Learning workspace](./prompt-flow/how-to-integrate-with-llm-app-devops.md#connect-to-azure-machine-learning-workspace)
 
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/search-blob.png" alt-text="Screenshot of search question from indexed docs node in VS Code showing the inputs." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/search-blob.png":::
 
-   Then select on the "Edit" button located within the "query" input box. This will take you to the raw flow.dag.yaml file and locate to the definition of this node.
+   Then select on the **Edit** button located within the "query" input box. This will take you to the raw flow.dag.yaml file and locate to the definition of this node.
 
    Check the "tool" section within this node. Ensure that the value of the "tool" section is set to `promptflow_vectordb.tool.vector_index_lookup.VectorIndexLookup.search`. This tool package name of the VectorIndexLookup local version.
 
@@ -139,12 +140,6 @@ Create a connection yaml file "AzureOpenAIConnection.yaml", then run the connect
 
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/answer-connection.png" alt-text="Screenshot of answer the question with context node with the connection highlighted." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/answer-connection.png":::
 
-# [Azure CLI](#tab/cli)
-
-?
-
----
-
 ## Test and run the flow
 
 # [VS Code Extension](#tab/vscode)
@@ -155,10 +150,6 @@ Scroll up to the top of the flow, fill in the "Inputs" value of this single run 
 
 For batch run and evaluation, you can refer to [Submit flow run to Azure Machine Learning workspace](./prompt-flow/how-to-integrate-with-llm-app-devops.md#submit-flow-run-to-azure-machine-learning-workspace)
 
-# [Azure CLI](#tab/cli)
-
-?
-
----
-
 ## Next steps
+
+- [Submit runs to cloud for large scale testing and ops integration](how-to-integrate-with-llm-app-devops.md#submitting-runs-to-the-cloud-from-local-repository)
