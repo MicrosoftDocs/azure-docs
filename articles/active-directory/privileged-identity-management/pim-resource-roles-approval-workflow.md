@@ -30,15 +30,7 @@ Follow the steps in this article to approve or deny requests for Azure resource 
 
 As a delegated approver, you'll receive an email notification when an Azure resource role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
- 1. Sign in to the [portal](https://portal.azure.com).
- 2. Open **Azure AD Privileged Identity Management**.
- 3. Select **Approve requests**.
- 4. In the **Requests for role activations** section, you'll see a list of requests pending your approval.
-=======
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
-=======
+
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 >>>>>>> 865d5b2aede423e6d8d579f93636742e6cf9d190
 
@@ -47,7 +39,7 @@ As a delegated approver, you'll receive an email notification when an Azure reso
     ![Approve requests - Azure resources page showing request to review](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     In the **Requests for role activations** section, you'll see a list of requests pending your approval.
->>>>>>> da6f9ca2e3918a97b48b1e39f8df1cf124461078
+
 
 ## Approve requests
 
