@@ -2,7 +2,7 @@
 title: Enable the Azure Monitor OpenTelemetry exporter for Node.js applications
 description: This article provides guidance on how to enable the Azure Monitor OpenTelemetry exporter for Node.js applications.
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 09/12/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
