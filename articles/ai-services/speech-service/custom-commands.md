@@ -5,8 +5,7 @@ description: An overview of the features, capabilities, and restrictions for Cus
 services: cognitive-services
 author: trrwilson
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 03/11/2020
 ms.author: travisw
