@@ -12,15 +12,15 @@ ms.author: danlep
 ms.custom: references_regions
 ---
 
-# Welcome to the v2 tiers of API Management (preview)
+# New Azure API Management tiers (preview)
 
-We're introducing a new set of pricing tiers (SKUs) for Azure API Management: the *v2 tiers*. The v2 tiers of Azure API Management are designed to meet the needs of customers with today's demanding API management workloads. Built on a new platform that provides enhanced performance, reliability, and scale, the v2 tiers offer a range of features and flexible options for many scenarios. 
+We're introducing a new set of pricing tiers (SKUs) for Azure API Management: the *v2 tiers*. The new tiers are built on a new, more reliable and scalable platform and are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios.
 
 Currently in preview, the following v2 tiers are available:
 
 * **Basic v2** - The Basic v2 tier is designed for development and testing scenarios, and is supported with an SLA. In the Basic v2 tier, the developer portal is an optional add-on.
 
-* **Standard v2** - Standard v2 is a production-ready tier that supports advanced API Management features previously available only in a Premium tier of API Management, including networking options.
+* **Standard v2** - Standard v2 is a production-ready tier with support planned for advanced API Management features previously available only in a Premium tier of API Management, including high availability and networking options.
 
 ## Key capabilities
 
@@ -70,7 +70,7 @@ In preview, the v2 tiers are available in the following regions:
 
 ### Feature availability
 
-Most capabilities of the existing (v1) tiers are supported in the v2 tiers. However, the following capabilities aren't supported in the v2 tiers:
+Most capabilities of the existing (v1) tiers are planned for the v2 tiers. However, the following capabilities aren't supported in the v2 tiers:
 
 * API Management service configuration using Git
 * Back up and restore of API Management instance
@@ -78,16 +78,16 @@ Most capabilities of the existing (v1) tiers are supported in the v2 tiers. Howe
 
 ### Preview limitations
 
-During preview, the following API Management capabilities are currently unavailable in the v2 tiers. Feature support may be added during the preview period.
+Currently, the following API Management capabilities are unavailable in the v2 tiers preview and are planned for later release. Where indicated, certain features are planned only for the Standard v2 tier. Features may be enabled during the preview period.
 
 
 **Infrastructure and networking**
-* Zone redundancy
-* Multi-region deployment
+* Zone redundancy (*Standard v2*)
+* Multi-region deployment (*Standard v2*)
 * Autoscaling
-* Multiple custom domain names
+* Multiple custom domain names (*Standard v2*)
 * Capacity metric
-* Deployment (injection) in a VNet in external or internal mode 
+* Deployment (injection) in a VNet (*Standard v2*) 
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from v1 tiers
 * Workspaces
@@ -99,8 +99,12 @@ During preview, the following API Management capabilities are currently unavaila
 **Gateway**
 * Management of Websocket APIs
 * Requests to the gateway over localhost
-* Self-hosted gateway
+* Self-hosted gateway (*Standard v2*)
 * Rate limit by key policy
+
+## Deployment
+
+Deploy an instance of the Basic v2 or Standard v2 tier using the Azure portal, Azure REST API, or Azure Resource Manager template.
 
 ## Frequently asked questions
 
