@@ -11,7 +11,7 @@ ms.reviewer: bwren
 
 # Deploy Azure Monitor: Alerts and automated actions
 
-This article is part of the scenario [Recommendations for configuring Azure Monitor](best-practices.md). It provides guidance on alerts in Azure Monitor. Alerts proactively notify you of important data or patterns identified in your monitoring data. You can view alerts in the Azure portal. You can create alerts that:
+This article provides guidance on alerts in Azure Monitor. Alerts proactively notify you of important data or patterns identified in your monitoring data. You can view alerts in the Azure portal. You can create alerts that:
 
 - Send a proactive notification.
 - Initiate an automated action to attempt to remediate an issue.
@@ -34,9 +34,9 @@ Alerts in Azure Monitor are created by alert rules that you must create. For gui
 
 Multiple types of alert rules are defined by the type of data they use. Each has different capabilities and a different cost. The basic strategy is to use the alert rule type with the lowest cost that provides the logic you require.
 
-- [Activity log rules](alerts/activity-log-alerts.md). Creates an alert in response to a new activity log event that matches specified conditions. There's no cost to these alerts so they should be your first choice, although the conditions they can detect are limited. See [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md) for information on creating an activity log alert.
-- [Metric alert rules](alerts/alerts-metric-overview.md). Creates an alert in response to one or more metric values exceeding a threshold. Metric alerts are stateful, which means that the alert will automatically close when the value drops below the threshold, and it will only send out notifications when the state changes. There's a cost to metric alerts, but it's often much less than log alerts. See [Create, view, and manage metric alerts by using Azure Monitor](alerts/alerts-metric.md) for information on creating a metric alert.
-- [Log alert rules](alerts/alerts-unified-log.md). Creates an alert when the results of a schedule query match specified criteria. They're the most expensive of the alert rules, but they allow the most complex criteria. See [Create, view, and manage log alerts by using Azure Monitor](alerts/alerts-log.md) for information on creating a log query alert.
+- Activity log rules. Creates an alert in response to a new activity log event that matches specified conditions. There's no cost to these alerts so they should be your first choice, although the conditions they can detect are limited. See [Create or edit an alert rule](alerts-create-new-alert-rule.md) for information on creating an activity log alert.
+- Metric alert rules. Creates an alert in response to one or more metric values exceeding a threshold. Metric alerts are stateful, which means that the alert will automatically close when the value drops below the threshold, and it will only send out notifications when the state changes. There's a cost to metric alerts, but it's often much less than log alerts. See [Create or edit an alert rule](alerts-create-new-alert-rule.md) for information on creating a metric alert.
+- Log alert rules. Creates an alert when the results of a schedule query match specified criteria. They're the most expensive of the alert rules, but they allow the most complex criteria. See [Create or edit an alert rule](alerts-create-new-alert-rule.md) for information on creating a log query alert.
 - [Application alerts](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability). Performs proactive performance and availability testing of your web application. You can perform a ping test at no cost, but there's a cost to more complex testing. See [Monitor the availability of any website](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) for a description of the different tests and information on creating them.
 
 ## Alert severity
@@ -55,7 +55,7 @@ Assess the severity of the condition each rule is identifying to assign an appro
 
 ## Action groups
 
-Automated responses to alerts in Azure Monitor are defined in [action groups](alerts/action-groups.md). An action group is a collection of one or more notifications and actions that are fired when an alert is triggered. A single action group can be used with multiple alert rules and contain one or more of the following items:
+Automated responses to alerts in Azure Monitor are defined in [action groups](action-groups.md). An action group is a collection of one or more notifications and actions that are fired when an alert is triggered. A single action group can be used with multiple alert rules and contain one or more of the following items:
 
 - **Notifications**: Messages that notify operators and administrators that an alert was created.
 - **Actions**: Automated processes that attempt to correct the detected issue.
@@ -83,7 +83,7 @@ Use the following actions to attempt automated remediation of the issue identifi
 
 ### ITSM and on-call management
 
-- **IT service management (ITSM)**: Use the [ITSM Connector]() to create work items in your ITSM tool based on alerts from Azure Monitor. You first configure the connector and then use the **ITSM** action in alert rules.
+- **IT service management (ITSM)**: Use the ITSM Connector to create work items in your ITSM tool based on alerts from Azure Monitor. You first configure the connector and then use the **ITSM** action in alert rules.
 - **Webhooks**: Send the alert to an incident management system that supports webhooks such as PagerDuty and Splunk On-Call.
 - **Secure webhook**: Integrate ITSM with Azure Active Directory Authentication.
 
@@ -101,8 +101,8 @@ You want to create alerts for any important information in your environment. But
 
 Typically, you'll want to alert on issues for all your critical Azure applications and resources. Use the following methods for creating alert rules at scale:
 
-- Azure Monitor supports monitoring multiple resources of the same type with one metric alert rule for resources that exist in the same Azure region. For a list of Azure services that are currently supported for this feature, see [Monitoring at scale using metric alerts in Azure Monitor](alerts/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
-- For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI and PowerShell with Resource Manager templates to create the same alert rule for multiple resources. For samples, see [Resource Manager template samples for metric alert rules in Azure Monitor](alerts/resource-manager-alerts-metric.md).
+- Azure Monitor supports monitoring multiple resources of the same type with one metric alert rule for resources that exist in the same Azure region. For a list of Azure services that are currently supported for this feature, see [Monitoring at scale using metric alerts in Azure Monitor](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+- For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI and PowerShell with Resource Manager templates to create the same alert rule for multiple resources. For samples, see [Resource Manager template samples for metric alert rules in Azure Monitor](resource-manager-alerts-metric.md).
 - To return data for multiple resources, write queries in log query alert rules. Use the **Split by dimensions** setting in the rule to create separate alerts for each resource.
 
 > [!NOTE]
@@ -110,4 +110,4 @@ Typically, you'll want to alert on issues for all your critical Azure applicatio
 
 ## Next steps
 
-[Optimize cost in Azure Monitor](best-practices-cost.md)
+[Optimize cost in Azure Monitor](../best-practices-cost.md).
