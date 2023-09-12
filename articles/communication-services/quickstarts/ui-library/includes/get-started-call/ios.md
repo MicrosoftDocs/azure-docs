@@ -322,17 +322,13 @@ callComposite?.events.onCallStateChanged = { callStateEvent in
 
 ### Dismiss CallComposite and subscribe to dismissed event
 
-You can implement closures to act on composite events. The following dismiss event be sent on call composite dismissed:
+To dismiss CallComposite, call `dismiss`. You can implement closures to act on composite events. The following dismiss event be sent on call composite dismissed:
 
 ```swift
 callComposite?.events.onDismissed = { dismissed in
    print("CallComposite dismissed:\(dismissed.errorCode)")
 }
-```
 
-To dismiss CallComposite, call `dismiss`.
-
-```swift
 callComposite.dismiss()
 ```
 
