@@ -44,8 +44,6 @@ A batch run allows you to run your flow with a large dataset and generate output
 
 To start a batch run with evaluation, you can select on the **"Batch run"** button on the top right corner of your flow page.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-button.png" alt-text="Screenshot of Web Classification with batch run highlighted. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-button.png":::
-
 To submit batch run, you can select a dataset to test your flow with. You can also select an evaluation method to calculate metrics for your flow output. If you don't want to use an evaluation method, you can skip this step and run the batch run without calculating any metrics. You can also start a new round of evaluation later.
 
 First, you're asked to give your batch run a descriptive and recognizable name. You can also write a description and add tags (key-value pairs) to your batch run. After you finish the configuration, select **"Next"** to continue.
@@ -63,7 +61,7 @@ You can directly select the **"Next"** button to skip this step and run the batc
 
 Otherwise, if you want to run batch run with evaluation now, you can select an evaluation method from the dropdown box based on the description provided. After you selected an evaluation method, you can select **"View detail"** button to see more information about the selected method, such as the metrics it generates and the connections and inputs it requires.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-eval-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method from drop-down box." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-eval-selection.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png" alt-text="Screenshot of evaluation settings where you can select built-in evaluation method from drop-down box." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-selection.png":::
 
 In the  **"input mapping"**  section, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column may come from a dataset. By default, evaluation will use the same dataset as the test dataset provided to the tested run. However, if the corresponding labels or target ground truth values are in a different dataset, you can easily switch to that one.  
 
@@ -72,14 +70,14 @@ Therefore, to run an evaluation, you need to indicate the sources of these requi
 - If the data source is from your run output, the source is indicated as **"${run.output.[OutputName]}"**
 - If the data source is from your test dataset, the source is indicated as **"${data.[ColumnName]}"**
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-eval-input-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-eval-input-mapping.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-eval-evaluation-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-input-mapping.png":::
 
 > [!NOTE]
 > If your evaluation doesn't require data from the dataset, you do not need to reference any dataset columns in the input mapping section, indicating the dataset selection is an optional configuration. Dataset selection won't affect evaluation result.
 
 If an evaluation method uses Large Language Models (LLMs) to measure the performance of the flow response, you're also required to set connections for the LLM nodes in the evaluation methods.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-eval-connection.png" alt-text="Screenshot of connection where you can configure the connection for evaluation method. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-eval-connection.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-connection.png" alt-text="Screenshot of connection where you can configure the connection for evaluation method. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-connection.png":::
 
 > [!NOTE]
 > Some evaluation methods require GPT-4 or GPT-3 to run. You must provide valid connections for these evaluation methods before using them.
@@ -94,17 +92,14 @@ After submission, you can find the submitted batch run in the run list tab in pr
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-list.png" alt-text="Screenshot of prompt flow run list page where you find batch runs. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-list.png":::
 
-In the run detail page, you can click **Overview** to check the details of this batch run. 
+In the run detail page, you can select **Overview** to check the details of this batch run. 
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-overview.png" alt-text="Screenshot of batch run detail page where you view detailed information. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-overview.png":::
 
 In the overview panel, you can check the metadata of this run. You can also go to the **Outputs** tab in the batch run detail page to check the outputs/responses generated by the flow with the dataset that you provided. You can also select **"Export"** to export and download the outputs in a `.csv` file.
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output.png" alt-text="Screenshot of batch run detail page on the outputs tab where you check batch run outputs. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output.png":::
 
-You can  **select an evaluation run**  from the dropdown box and you'll see appended columns at the end of the table showing the evaluation result for each row of data. In this screenshot, you can locate the result that is falsely predicted with the output column "grade".
-
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-evaluation.png" alt-text="Screenshot of batch run detail page on the outputs tab where evaluation results are appended. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-output-evaluation.png":::
+You can  **select an evaluation run**  from the dropdown box and you'll see appended columns at the end of the table showing the evaluation result for each row of data. You can locate the result that is falsely predicted with the output column "grade".
 
 To view the overall performance, you can select the **Metrics** tab, and you can see various metrics that indicate the quality of each variant.
 
@@ -122,8 +117,6 @@ If you have already completed a batch run, you can start another round of evalua
 
 You can select **New evaluation** to start another round of evaluation.
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-detail-new-evaluation.png" alt-text="Screenshot of batch run detail page on where to start a new round of evaluation. " lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-detail-new-evaluation.png":::
-
 After setting up the configuration, you can select **"Submit"** for this new round of evaluation. After submission, you'll be able to see a new record in the prompt flow run list.
 
 After the evaluation run completed, similarly, you can check the result of evaluation in the **"Overview->Output"** tab of the batch run detail page. You need select the new evaluation run to view its result.
@@ -137,8 +130,6 @@ When multiple different evaluation runs are submitted for a batch run, you can g
 In some scenarios, you'll modify your flow to improve its performance. You can submit multiple batch runs to compare the performance of your flow with different versions. You can also compare the metrics calculated by different evaluation methods to see which one is more suitable for your flow.
 
 To check the batch run history of your flow, you can select the **"View batch run"** button on the top right corner of your flow page. You'll see a list of batch runs that you have submitted for this flow.
-
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-history.png" alt-text="Screenshot of Web Classification with the view bulk runs button selected." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-history.png":::
 
 You can select on each batch run to check the detail. You can also select multiple batch runs and select on the **"Visualize outputs"** to compare the metrics and the outputs of these batch runs.
 

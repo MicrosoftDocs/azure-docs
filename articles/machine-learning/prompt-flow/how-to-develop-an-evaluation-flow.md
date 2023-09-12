@@ -89,7 +89,7 @@ Therefore, to run an evaluation, you need to indicate the sources of these requi
 - If the data source is from your test dataset, the source is indicated as "${data.[ColumnName]}"
 
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/bulk-test-eval-input-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-develop-an-evaluation-flow/bulk-test-eval-input-mapping.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/bulk-test-evaluation-input-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-develop-an-evaluation-flow/bulk-test-evaluation-input-mapping.png":::
 
 > [!NOTE]
 > If your evaluation doesn't require data from the dataset, you do not need to reference any dataset columns in the input mapping section, indicating the dataset selection is an optional configuration. Dataset selection won't affect evaluation result.
@@ -116,7 +116,7 @@ In Prompt flow, the flow processes each sample dataset one at a time and generat
 
 To record the score for each data sample, calculate the score for each output, and log the score **as a flow output** by setting it in the output section. This authoring experience is the same as defining a standard flow output.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output.png" alt-text="Screenshot of the outputs section showing a name and value. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-output.png" alt-text="Screenshot of the outputs section showing a name and value. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-output.png":::
 
 We calculate this score in `line_process` node, which you can create and edit from scratch when creating by type. You can also replace this python node with an LLM node to use LLM to calculate the score.
 
@@ -161,9 +161,9 @@ def calculate_accuracy(grades: List[str], variant_ids: List[str]):
     return aggregate_grades
 ```
 
-As you called this function in the Python node, you don't need to assign it anywhere else, and you can view the metrics later. When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Ovewview->Metrics** tab.
+As you called this function in the Python node, you don't need to assign it anywhere else, and you can view the metrics later. When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Overview->Metrics** tab.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png" alt-text="Screenshot of the metrics tab that shows the metrics logged by log metric. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-metrics-bulk.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-metrics-bulk.png" alt-text="Screenshot of the metrics tab that shows the metrics logged by log metric. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-metrics-bulk.png":::
 
 ## Next steps
 
