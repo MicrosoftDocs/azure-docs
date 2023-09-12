@@ -1,6 +1,6 @@
 ---
 title: Introduction/Overview
-titleSuffix: Azure Cosmos DB for MongoDB
+titleSuffix: Azure Cosmos DB for MongoDB RU
 description: Learn about Azure Cosmos DB for MongoDB RU, a fully managed MongoDB-compatible database with Instantaneous scalability.
 author: gahl-levy
 ms.author: gahllevy
@@ -45,11 +45,11 @@ Cosmos DB for MongoDB RU has numerous benefits compared to other MongoDB service
 
 - **Free 7 day Continuous Backups**: Azure Cosmos DB for MongoDB RU offers free seven day continuous backups for any amount of data. This retention means that you can restore your database to any point in time within the last seven days.
 
-- **Upgrades take seconds**: All API versions are contained within one codebase, making version changes as simple as [flipping a switch](upgrade-version.md), with zero downtime.
+- **Upgrades take seconds**: All API versions are contained within one codebase, making version changes as simple as [flipping a switch](../upgrade-version.md), with zero downtime.
 
 - **Role Based Access Control**: With Azure Cosmos DB for MongoDB RU, you can assign granular roles and permissions to users to control access to your data and audit user actions- all using native Azure tooling.
 
-- **In-depth monitoring capabilities**: Cosmos DB for MongoDB RU integrates natively with [Azure Monitor](../../../../azure-monitor/overview.md) to provide in-depth monitoring capabilities.
+- **In-depth monitoring capabilities**: Cosmos DB for MongoDB RU integrates natively with [Azure Monitor](../../../azure-monitor/overview.md) to provide in-depth monitoring capabilities.
 
 ## How Cosmos DB for MongoDB works
 
@@ -62,7 +62,7 @@ Cosmos DB for MongoDB RU implements the wire protocol for MongoDB. This implemen
 
 All versions run on the same codebase, making upgrades a simple task that can be completed in seconds with zero downtime. Azure Cosmos DB simply flips a few feature flags to go from one version to another.  The feature flags also enable continued support for old API versions such as 4.0 and 3.6. You can choose the server version that works best for you.
 
-Not sure if your workload is ready? Use the automatic [premigration assessment](pre-migration-steps.md) to determine if you're ready to migrate to Cosmos DB for MongoDB RU or vCore.
+Not sure if your workload is ready? Use the automatic [premigration assessment](../pre-migration-steps.md) to determine if you're ready to migrate to Cosmos DB for MongoDB RU or vCore.
 
 ## What you need to know to get started
 
@@ -80,6 +80,5 @@ Sharded cluster performance is dependent on the shard key you choose when creati
 
 ## Next steps
 
-- Follow the [Connect a MongoDB application to Azure Cosmos DB](connect-account.md) tutorial to learn how to get your account connection string information.
-- Follow the [Use Studio 3T with Azure Cosmos DB](connect-using-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in Studio 3T.
-- Follow the [Import MongoDB data into Azure Cosmos DB](../../../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) tutorial to import your data to an Azure Cosmos DB database.
+- Follow the [Use Studio 3T with Azure Cosmos DB](../connect-using-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in Studio 3T.
+- Follow the [Import MongoDB data into Azure Cosmos DB](../../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) tutorial to import your data to an Azure Cosmos DB database.

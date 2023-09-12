@@ -10,7 +10,7 @@ metadata:
   ms.date: 09/12/2023
 title: Frequently asked questions on Azure Cosmos DB for MongoDB
 summary: |
-  [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+  [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 sections:
   - name: General FAQ
