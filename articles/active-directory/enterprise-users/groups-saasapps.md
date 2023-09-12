@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -28,8 +28,8 @@ Using Azure Active Directory (Azure AD), part of Microsoft Entra, with an Azure 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. In the search box enter **Enterprise applications** and choose **Enterprise applications** from the search results.
 1. Select an application that you added from the Application Gallery to open it.
 1. Select **Users and groups**, and then select **Add user**.
 1. On **Add Assignment**, select **Users and groups** to open the **Users and groups** selection list.

@@ -192,4 +192,4 @@ After your workspace has been created, you can still turn on or turn off system-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to configure data sources](./how-to-data-source-plugins-managed-identity.md)
+> [Sync Grafana teams with Azure Active Directory groups](./how-to-sync-teams-with-aad-groups.md)
