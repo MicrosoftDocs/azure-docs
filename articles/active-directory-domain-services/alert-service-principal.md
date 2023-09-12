@@ -108,7 +108,7 @@ After you delete both applications, the Azure platform automatically recreates t
 If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: ../active-directory/fundamentals/how-to-get-support.md
 
 <!-- EXTERNAL LINKS -->
-[New-AzureAdServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal
+[New-AzureAdServicePrincipal]: /powershell/module/azuread/new-azureadserviceprincipal

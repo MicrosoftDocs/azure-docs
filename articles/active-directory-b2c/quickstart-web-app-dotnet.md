@@ -23,7 +23,7 @@ In this quickstart, you use an ASP.NET application to sign in using a social ide
 
 ## Prerequisites
 
-- [Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+- [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload.
 - A social account from Facebook, Google, or Microsoft.
 - [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web application from GitHub.
 
