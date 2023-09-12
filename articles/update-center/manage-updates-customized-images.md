@@ -15,7 +15,7 @@ ms.topic: conceptual
 This article describes customized image support, how to enable a subscription, and limitations.
 
 > [!NOTE]
-> - Currently, we support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Automatic VM guest patching for generalized custom images isn't supported.
+> - Currently, we support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Automatic virtual machine (VM) guest patching for generalized custom images isn't supported.
 > - [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and non-Azure Compute Gallery images (including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery) aren't supported yet.
 
 ## Asynchronous check to validate customized image support
@@ -55,37 +55,38 @@ To self-register your subscription for public preview in the Azure portal:
 
 Start the asynchronous support check by using either one of the following APIs:
 
-1. API Action Invocation:
-    1. [Assess patches](/rest/api/compute/virtual-machines/assess-patches?tabs=HTTP).
-    1. [Install patches](/rest/api/compute/virtual-machines/install-patches?tabs=HTTP).
+- API Action Invocation:
+  1. [Assess patches](/rest/api/compute/virtual-machines/assess-patches?tabs=HTTP).
+  1. [Install patches](/rest/api/compute/virtual-machines/install-patches?tabs=HTTP).
 
-1. Portal operations. Try the preview:
-    1. [On-demand check for updates](view-updates.md)
-    1. [One-time update](deploy-updates.md)
+- Portal operations. Try the preview:
+  1. [On-demand check for updates](view-updates.md)
+  1. [One-time update](deploy-updates.md)
 
-Validate the VM support state.
+Validate the VM support state for Azure Resource Graph:
 
-1. Azure Resource Graph:
-    1. Table:
-        - `patchassessmentresources`
-    1. Resource:
-        - `Microsoft.compute/virtualmachines/patchassessmentresults/configurationStatus.vmGuestPatchReadiness.detectedVMGuestPatchSupportState. [Possible values: Unknown, Supported, Unsupported, UnableToDetermine]`
+- Table:
+
+  `patchassessmentresources`
+- Resource:
+
+  `Microsoft.compute/virtualmachines/patchassessmentresults/configurationStatus.vmGuestPatchReadiness.detectedVMGuestPatchSupportState. [Possible values: Unknown, Supported, Unsupported, UnableToDetermine]`
         
-        :::image type="content" source="./media/manage-updates-customized-images/resource-graph-view.png" alt-text="Screenshot that shows the resource in Azure Resource Graph Explorer.":::
+  :::image type="content" source="./media/manage-updates-customized-images/resource-graph-view.png" alt-text="Screenshot that shows the resource in Azure Resource Graph Explorer.":::
 
 We recommend that you run the Assess Patches API after the VM is provisioned and the prerequisites are set for public preview. This action validates the support state of the VM. If the VM is supported, you can run the Install Patches API to begin the patching.
 
 ## Limitations
 
-1. Currently, it's only applicable to Azure Compute Gallery (SIG) images and not to non-Azure Compute Gallery custom images. The Azure Compute Gallery images are of two types: generalized and specialized. The following supported scenarios are for both types.
+Currently, it's only applicable to Azure Compute Gallery (SIG) images and not to non-Azure Compute Gallery custom images. The Azure Compute Gallery images are of two types: generalized and specialized. The following supported scenarios are for both types.
 
-    | Images | Currently supported scenarios | Unsupported scenarios |
-    |--- | --- | ---|
-    | Azure Compute Gallery: Generalized images | - On-demand assessment </br> - On-demand patching </br> - Periodic assessment </br> - Scheduled patching | Automatic VM guest patching | 
-    | Azure Compute Gallery: Specialized images | - On-demand assessment </br> - On-demand patching | - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching | 
-    | Non-Azure Compute Gallery images (non-SIG) | None | - On-demand assessment </br> - On-demand patching </br> - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching |
+| Images | Currently supported scenarios | Unsupported scenarios |
+|--- | --- | ---|
+| Azure Compute Gallery: Generalized images | - On-demand assessment </br> - On-demand patching </br> - Periodic assessment </br> - Scheduled patching | Automatic VM guest patching | 
+| Azure Compute Gallery: Specialized images | - On-demand assessment </br> - On-demand patching | - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching | 
+| Non-Azure Compute Gallery images (non-SIG) | None | - On-demand assessment </br> - On-demand patching </br> - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching |
 
-1. Automatic VM guest patching doesn't work on Azure Compute Gallery images even if Patch orchestration mode is set to `Azure orchestrated/AutomaticByPlatform`. You can use scheduled patching to patch the machines and define your own schedules.
+Automatic VM guest patching doesn't work on Azure Compute Gallery images even if Patch orchestration mode is set to `Azure orchestrated/AutomaticByPlatform`. You can use scheduled patching to patch the machines and define your own schedules.
 
 ## Next steps
 
