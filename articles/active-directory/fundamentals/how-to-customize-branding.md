@@ -9,11 +9,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ---
-
 # Configure your company branding
 
 When users authenticate into your corporate intranet or web-based applications, Azure Active Directory (Azure AD) provides the identity and access management (IAM) service. You can add company branding that applies to all these experiences to create a consistent sign-in experience for your users.
@@ -92,9 +91,9 @@ In the following example, the company branding for Woodgrove Groceries appears o
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator for the directory.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-2. Browse to **Azure Active Directory** > **Company branding** > **Customize**.
+1. Browse to **Identity** > **User experiences** > **Company branding**.
     - If you currently have a customized sign-in experience, the **Edit** button is available.
 
     ![Custom branding landing page with 'Company branding' highlighted in the side menu and 'Configure' button highlighted in the center of the page](media/how-to-customize-branding/customize-branding-getting-started.png)
@@ -187,9 +186,11 @@ Once your default sign-in experience is created, select the **Edit** button to m
 
 You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-2. Go to **Azure Active Directory** > **Company branding** > **Add browser language**.
+1. Browse to **Identity** > **User experiences** > **Company branding**.
+
+1. Select **Add browser language**.
 
 The process for customizing the experience is the same as the [default sign-in experience](#basics) process, except you must select a language from the dropdown list in the **Basics** section. We recommend adding custom text in the same areas as your default sign-in experience. 
 
