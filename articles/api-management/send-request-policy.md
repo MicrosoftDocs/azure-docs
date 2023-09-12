@@ -59,21 +59,22 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 
 ### Usage notes
 
-- If your API Management instance is deployed (injected) in a VNet in internal mode and you use this policy to send an API request to an API in the same API Management instance, set the URL of the API in the policy to the local host `https://127.0.0.1`. Additionally, add a `HOST` header to the request to specify the desired gateway host. For example:
+If your API Management instance is deployed (injected) in a VNet in internal mode and you use this policy to send an API request to an API in the same API Management instance, set the URL of the API in the policy to the local host `https://127.0.0.1`. Additionally, add a `HOST` header to the request to specify the desired gateway host. For example:
 
    
+   
 ```xml
-   <send-request>
+<send-request>
      <set-url>https://127.0.0.1/myapi/myoperation</set-url>
      <set-header name="Host">
          <value>myapim.azure-api.net</value>
      </set-header>
-  </send-request>
-   ```
-
-```dockerfile
-For more information, see this [blog post](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417).
+</send-request>
 ```
+
+
+For more information, see this [blog post](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417).
+
 ## Example
 
 This example shows one way to verify a reference token with an authorization server. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
@@ -117,4 +118,5 @@ This example shows one way to verify a reference token with an authorization ser
 * [API Management advanced policies](api-management-advanced-policies.md)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
+
 
