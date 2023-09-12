@@ -103,7 +103,7 @@ At the top of each tool node card, there's a toolbar for adjusting the tool node
 
 In the LLM tool, select Connection to select one to set the LLM key or credential.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-llm-conn.png" alt-text="Screenshot of the summarize text content node with connection highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-llm-conn.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-llm-connection.png" alt-text="Screenshot of the summarize text content node with connection highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-llm-connection.png":::
 
 ### Prompt and python code inline edit
 
