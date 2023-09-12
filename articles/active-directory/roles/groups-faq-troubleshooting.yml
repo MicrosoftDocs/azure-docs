@@ -73,18 +73,22 @@ sections:
         answer: |
           This answer is applicable only to Azure AD Premium P1 organizations.
           
-          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
-          1. Select users and open a user profile.
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
+          1. Browse to **Identity** > **Users** > **All users**.
+          1. Select a user.
           1. Select **Assigned roles**.
-          1. Select the gear icon. A pane opens that can give this information. There's a "Remove" button beside direct assignments. To remove indirect role assignment, remove the user from the group that has been assigned the role.
+          1. Select a role assignment you want to remove.
+          1. Select **Remove assignments** to remove direct role assignments.
+            
+            To remove indirect role assignments, remove the user from the group that has been assigned the role.
           
       - question: |
           How do I see all groups that are role-assignable?
         answer: |
           Follow these steps:
           
-          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
-          1. Select **Groups** > **All groups**.
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+          1. Browse to **Identity** > **Groups** > **All groups**.
           1. Select **Add filters**.
           1. Filter to **Role assignable**.
           
@@ -93,12 +97,12 @@ sections:
         answer: |
           Follow these steps:
           
-          1. Sign in to the [Azure portal](https://portal.azure.com)  and open **Azure Active Directory**.
-          1. Select users and open a user profile.
-          1. Select **Assigned roles**, and then:
-          
-              - In Azure AD Premium P1 licensed organizations: Select the gear icon. A pane opens that can give this information.
-              - In Azure AD Premium P2 licensed organizations: You'll find direct and inherited license information in the **Membership** column.
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+          1. Browse to **Identity** > **Users** > **All users**.
+          1. Select a user.
+          1. Select **Assigned roles**.
+          1. If you are have an Azure AD Premium P1 license, view the **Assignment Path** column.
+          1. If you are have an Azure AD Premium P2 license, view the **Membership** column.
           
       - question: |
           Why do we enforce creating a new group for assigning it to role?  
