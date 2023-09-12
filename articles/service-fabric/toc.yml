@@ -416,7 +416,7 @@
   - name: Managed cluster deny assignment policy
     href: managed-cluster-deny-assignment.md
   - name: Service Fabric Explorer blocking operations for managed clusters
-    href: managed-cluster-service-fabric-explorer-blocking-operations.md
+    href: managed-cluster-service-fabric-explorer-blocking-operation.md
 - name: How-to guides
   items:
   - name: Use Service Fabric managed clusters

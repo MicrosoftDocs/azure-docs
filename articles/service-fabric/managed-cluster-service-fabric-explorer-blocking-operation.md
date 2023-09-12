@@ -19,7 +19,7 @@ To help prevent synchronization issues, Service Fabric Explorer now blocks the m
 
 Applications that ARM manages are now labeled in the list, as shown in the following screen capture.
 
-   ![Screenshot of an ARM-managed application listed in Service Fabric Explorer, PNG.](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-fabric-explorer.png)
+   ![Screenshot of the new Service Fabric Explorer view, PNG.](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-fabric-explorer.png)
 
 Application type versions that ARM manages are now labeled in the list, as shown in the following screen capture.
 
@@ -31,7 +31,7 @@ Applications that ARM manages are now labeled in the list. A banner is now shown
 
 Services that ARM manages are now labeled in the list. A banner is now shown if the service is managed in ARM. The following screen capture shows an ARM-managed service in Service Fabric explorer.
 
-   ![Screenshot of an ARM-managed application listed in Service Fabric Explorer, PNG.](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-page.png)
+   ![Screenshot of an ARM-managed service listed in Service Fabric Explorer, PNG.](./media/managed-cluster-service-fabric-explorer-blocking-operations/service-page.png)
 
 ## Best practices
 
@@ -42,7 +42,7 @@ Services that ARM manages are now labeled in the list. A banner is now shown if 
 
 ### Applications
 
-* Applications must be deleted through ARM or via the command line with [az resource](/cli/azure/resource?view=azure-cli-latest#az-resource-delete).
+* Applications must be deleted through ARM or via the command line with [az resource](/cli/azure/resource#az-resource-delete).
 * Use ARM templates or the [AzSF PowerShell cmdlet](/powershell/module/az.servicefabric/new-azservicefabricmanagedclusterapplication) to create applications.
 
 ### Services
