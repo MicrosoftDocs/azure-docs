@@ -37,10 +37,10 @@ The solution that you build can include the following parts:
 
 * **App discovery** - Often, customers aren't aware of every application in use
   * Application discovery finds applications, facilitating app integrating with Azure AD
-* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure portal
+* **App migration** - Create a workflow to integrate apps with Azure AD without using the Microsoft Entra admin center
   * Integrate apps that customers use today
 * **Legacy authentication support** - Connect apps with legacy authentication methods and single sign-on (SSO)
-* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure portal
+* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Microsoft Entra admin center
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md) 
 
@@ -250,7 +250,7 @@ https://graph.microsoft.com/v1.0/applications/54c4806b-b260-4a12-873c-9671169837
 
 After the SaaS applications are registered in Azure AD, the applications need to start using Azure AD as the identity provider (IdP):
 
-- **Applications support one-click SSO** - Azure AD enables the applications. In the Azure portal, the customer performs one-click SSO with the administrative credentials for the supported SaaS applications. 
+- **Applications support one-click SSO** - Azure AD enables the applications. In the Microsoft Entra admin center, the customer performs one-click SSO with the administrative credentials for the supported SaaS applications. 
   - Learn more: [One-click app configuration of single sign-on](./one-click-sso-tutorial.md)
 - **Applications don't support one-click SSO** - The customer enables the applications to use Azure AD. 
   - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
@@ -357,7 +357,7 @@ https://graph.microsoft.com/v1.0/applications/{Application Object ID}
 
 ### Apply Conditional Access policies
 
-Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
+Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Microsoft Entra admin center. There are two options to apply Azure AD Conditional Access policies:
 
 - [Assign the application to a Conditional Access policy](#use-a-conditional-access-policy)
 - [Create a new Conditional Access policy and assign the application to it](#create-a-new-conditional-access-policy)
