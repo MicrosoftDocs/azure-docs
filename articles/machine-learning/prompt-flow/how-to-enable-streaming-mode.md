@@ -65,7 +65,7 @@ In this guide, we will use the "Chat with Wikipedia" sample flow as an example. 
 
 To learn how to create a chat flow, see  [how to develop a chat flow in prompt flow](how-to-develop-a-chat-flow.md) to create a chat flow.
 
-:::image type="content" source="./media/how-to-enable-streaming-mode/chat-wikipedia-center.png" alt-text="Screenshot of chat with Wikipedia flow." lightbox = "./media/how-to-enable-streaming-mode/chat-wikipedia-center.png":::
+:::image type="content" source="./media/how-to-enable-streaming-mode/chat-wikipedia-center.png" alt-text="Screenshot of the chat with Wikipedia flow." lightbox = "./media/how-to-enable-streaming-mode/chat-wikipedia-center.png":::
 
 ## Deploy the flow as an online endpoint
 
@@ -126,7 +126,6 @@ Accept: text/event-stream
 > [!NOTE]
 > 
 > The `Accept` header is set to `text/event-stream` to request a stream response.
-
 
 ### 1. The server sends back the response in streaming mode
 
@@ -236,7 +235,6 @@ data: {"answer": ""}
 
 The chat then continues in a similar way.
 
-
 ## Handle errors
 
 The client should check the HTTP response code first. See [HTTP status code table](../how-to-troubleshoot-online-endpoints.md#http-status-codes) for common error codes returned by online endpoints.
@@ -300,7 +298,7 @@ In the sample "Chat With Wikipedia" flow, the output is connected to the LLM nod
 
 The output of the flow will be a non-stream field as the base and a stream field as the delta. Here's an example of request and response.
 
-### 0. The client sends a message to the server.
+### Advance usage - 0. The client sends a message to the server
 
 ```JSON
 POST https://<your-endpoint>.inference.ml.azure.com/score
@@ -313,7 +311,7 @@ Accept: text/event-stream
 }
 ```
 
-### 1. The server sends back the answer in streaming mode.
+### Advance usage - 1. The server sends back the answer in streaming mode
 
 ```JSON
 HTTP/1.1 200 OK
@@ -362,7 +360,7 @@ data: {"answer": "PT"}
 data: {"answer": ""}
 ```
 
-### 2. The client sends another chat message, along with the full chat history, to the server.
+### Advance usage - 2. The client sends another chat message, along with the full chat history, to the server
 
 ```JSON
 POST https://<your-endpoint>.inference.ml.azure.com/score
@@ -388,7 +386,7 @@ Accept: text/event-stream
 }
 ```
 
-### 3. The server sends back the answer in streaming mode.
+### Advance usage - 3. The server sends back the answer in streaming mode
 
 ```JSON
 HTTP/1.1 200 OK

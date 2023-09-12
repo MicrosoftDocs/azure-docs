@@ -97,8 +97,7 @@ To use the runtime, assigning the `AzureML Data Scientist` role of workspace to 
 > [!NOTE]
 > This operation may take several minutes to take effect.
 
-
-## Using runtime in Prompt flow authoring
+## Using runtime in prompt flow authoring
 
 When you're authoring your Prompt flow, you can select and change the runtime from left top corner of the flow page.
 
@@ -108,15 +107,15 @@ When performing a bulk test, you can use the original runtime in the flow or cha
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of the bulk run and evaluate wizard on the bulk run setting page with runtime highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
 
-### Using automatic runtime in Prompt flow authoring
+### Using automatic runtime in prompt flow authoring
 
 There's `automatic` runtime, which uses serverless compute, when using automatic runtime you didn't need to manage the compute resource manually and environments.
 
-- Compute resource is warming up when you're using it, so the first run may take several minutes to prepare the compute. If you didn't specify `instance_type` when submit flow run we'll use `Standard_E4s_v3` as default instance type. You can use Flow UI and CLI / SDK to change it to the other version. Make sure you have enough quota on this instance type.
+- Compute resource is warming up when you're using it, so the first run may take several minutes to prepare the compute. If you didn't specify `instance_type` when submit flow run we'll use `Standard_E4s_v3` as default instance type. You can use flow UI and CLI / SDK to change it to the other version. Make sure you have enough quota on this instance type.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png" alt-text="Screenshot of show how to specify instance type in flow. " lightbox = "./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png":::
-    
-    
+
+
     ```yaml
     $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
     flow: <path_to_flow>
@@ -133,7 +132,7 @@ There's `automatic` runtime, which uses serverless compute, when using automatic
         connection: <connection_name>
         deployment_name: <deployment_name>
     ```
-    
+
     ```python
     instance_type = 'Standard_E4s_v3' # use this part to specify instance type for batch run
     base_run = pf.run(

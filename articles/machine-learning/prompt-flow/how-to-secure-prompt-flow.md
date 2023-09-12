@@ -55,7 +55,7 @@ Workspace managed virtual network is the recommend way to support network isolat
 
 ## Secure prompt flow use your own virtual network
 
-- To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md). 
+- To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md).
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.
 

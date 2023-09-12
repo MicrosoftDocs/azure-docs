@@ -71,7 +71,7 @@ The following points outlined explain the purpose of each folder/file in the pac
     > There are two ways to write a tool. The default and recommended way is the function implemented way. You can also use the class implementation way, referring to [my_tool_2.py](https://github.com/Azure/promptflow/blob/main/tool-package-quickstart/my_tool_package/tools/my_tool_2.py) as an example.
 
 4. **hello-world/tools/utils.py**: This file implements the tool list method, which collects all the tools defined. It's required to have this tool list method, as it allows the User Interface (UI) to retrieve your tools and display them within the UI.
-1. 
+
     > [!Note]
     > There's no need to create your own list method if you maintain the existing folder structure. You can simply use the auto-generated list method provided in the `utils.py` file.
 
@@ -122,13 +122,13 @@ The following points outlined explain the purpose of each folder/file in the pac
 
   Execute the following command in the tool package root directory to build your tool package:
 
-  ```
+  ```sh
   python setup.py sdist bdist_wheel
   ```
 
   This will generate a tool package `<your-package>-0.0.1.tar.gz` and corresponding `whl file` inside the `dist` folder.
 
-  Create an account on PyPI if you don't already have one, and install `twine` package by running `pip install twine`.
+  [Create an account on PyPI](https://pypi.org/account/register/) if you don't already have one, and install `twine` package by running `pip install twine`.
 
   Upload your package to PyPI by running `twine upload dist/*`, this will prompt you for your Pypi username and password, and then upload your package on PyPI. Once your package is uploaded to PyPI, others can install it using pip by running `pip install your-package-name`. Make sure to replace `your-package-name` with the name of your package as it appears on PyPI.
 
@@ -136,7 +136,7 @@ The following points outlined explain the purpose of each folder/file in the pac
 
 ## Prepare runtime
 
-You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtime). CI is the recommended way.
+You can create runtime with CI (Compute Instance) or MIR (Managed Inference Runtime). CI is the recommended way.
 
 ### Create customized environment
 
@@ -208,7 +208,7 @@ You can create runtime with CI(Compute Instance) or MIR(Managed Inference Runtim
 
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-ci.png" alt-text="Screenshot of add compute instance runtime in Azure Machine Learning studio."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-CI.png":::
 
-4. Create runtime with MIR using the customized environment created in step 2. To learn how to create a runtime with MIR, see  [How to create a manage runtime](how-to-create-manage-runtime.md).
+4. Create runtime with MIR using the customized environment created in step 2. To learn how to create a runtime with MIR, see [How to create a manage runtime](how-to-create-manage-runtime.md).
 
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-mir.png" alt-text="Screenshot of add managed online deployment runtime in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-mir.png":::
 
@@ -251,6 +251,7 @@ Alternatively, you can test your tool package using the following script to ensu
 
   1. Make sure to install the tool package in your conda environment before executing this script.
   2. Create a python file anywhere and copy the following content into it.
+
       ```python
       def test():
           # `collect_package_tools` gathers all tools info using the `package-tools` entry point. This ensures that your package is correctly packed and your tools are accurately collected. 
@@ -260,6 +261,7 @@ Alternatively, you can test your tool package using the following script to ensu
       if __name__ == "__main__":
           test()
       ```
+
   3. Run this script in your conda environment. This will return the metadata of all tools installed in your local environment, and you should verify that your tools are listed.
 - If you're using runtime with CI, try to restart your container with command `docker restart <container_name_or_id>` to see if the issue can be resolved.
 
@@ -269,3 +271,5 @@ Alternatively, you can test your tool package using the following script to ensu
 - If you encounter a `403 Forbidden Error`, it's likely due to a naming conflict with an existing package. You'll need to choose a different name. Package names must be unique on PyPI to avoid confusion and conflicts among users. Before creating a new package, it's recommended to search PyPI (https://pypi.org/) to verify that your chosen name isn't already taken. If the name you want is unavailable, consider selecting an alternative name or a variation that clearly differentiates your package from the existing one.
 
 ## Next steps
+
+- Learn more about [customize environment for runtime](how-to-customize-environment-runtime.md)
