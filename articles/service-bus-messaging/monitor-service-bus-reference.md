@@ -98,7 +98,9 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Virtual network and IP filtering logs
 - Runtime Audit logs
 
-Azure Service Bus now supports sending logs to any of two destination tables-Azure Diagnostic and [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) . 
+Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md).You could Use the UI toggle available on Azure Portal to choose destination tables. 
+
+:::image type="content" source="media/monitor-service-bus-reference/DestinationTableToggle.png" alt-text="Screenshot of dialog box to set destination table.":::
 
 ### Operational logs
 Operational log entries include elements listed in the following table:
@@ -116,7 +118,7 @@ Operational log entries include elements listed in the following table:
 | `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes|
 | `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes|
 |  `Type 	`| Type of logs emitted | No | Yes|
-| `Category`| Category of logs  emitted.| Yes | No|
+| `Category`| Log Category | Yes | No|
 
 Here's an example of an operational log JSON string:
 
@@ -152,7 +154,7 @@ Resource specific table entry:
   "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-00000000000000\",\"Namespace\":\"mynamespace\",\"Via\":\"https://mynamespace.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
   "Status": "Succeeded",
   "Caller": "ServiceBus Client",
-  "type": "AZMSOperationalLogs"
+  "type": "AZMSOperationalLogs",
   "Provider" : "SERVICEBUS"
 
 }
@@ -191,7 +193,7 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 | `Reason` | Provides a reason why the action was done | Yes | Yes
 | `Count` | Number of occurrences for the given action | Yes | Yes
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
-| `Category` | ServiceBusVNetConnectionEvent | Yes | No
+| `Category` |  Log Category | Yes | No
 | `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
 |  `Type`  | Type of Logs Emitted | No | Yes
 
@@ -223,7 +225,7 @@ Resource specific table entry:
     "Message": "IP is accepted by IPAddress filter.",
     "Count": 1,
     "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
-    "Provider" : "SERVICEBUS"
+    "Provider" : "SERVICEBUS",
     "Type": "AZMSVNetConnectionEvents"
 }
 ```
@@ -253,7 +255,7 @@ Name | Description | Supported in Azure Diagnostics | Supported in AZMSRuntimeAu
 `Properties` | Metadata that is specific to the data plane operation. | yes | Yes
 `Category` | Log category | Yes | No
  `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
- `Type`  | AZMSRuntimeAuditLogs| No | Yes
+ `Type`  | Type of Logs emitted | No | Yes
 
 Here's an example of a runtime audit log entry:
 
