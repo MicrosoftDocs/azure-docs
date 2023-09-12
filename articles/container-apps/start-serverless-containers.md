@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 07/28/2023
+ms.date: 09/12/2023
 ms.author: cshoe
 ---
 
@@ -33,13 +33,13 @@ Looking to dive in? Use the following table to help you get acquainted with Azur
 
 | Action | Description |
 |---|---|
-| Build an app | [Deploy your first app](quickstart-code-to-cloud.md), then [create an event driven app to process a message queue](background-processing.md). |
-| Pick a plan | Do you need [customized hardware](plans.md), or does your app work great our general purpose machines? |
-| Scale an app | Learn how Containers Apps handles [meeting variable levels of demand](scale-app.md). |
-| Enable public access | Enable [ingress](ingress-overview.md) on your container app to accept request from the public web. |
-| Observe your app | Use log streaming, your apps console, application logs, and alerts to [observe the state](observability.md) of your container app.  |
-| Configure your virtual network | Learn to set up your virtual network to secure your containers and communicate between applications.  |
-| Run a process that executes and exits | Find out how [jobs](jobs.md) can help you run tasks that have finite beginning and end.  |
+| [Pick a plan](plans.md) | Do you need customized hardware, or does your app work great our general purpose machines? |
+| [Build the app](quickstart-code-to-cloud.md) | Deploy your first app, then create an event driven app to process a message queue. |
+| [Scale the app](scale-app.md) | Learn how Containers Apps handles meeting variable levels of demand. |
+| [Enable public access](ingress-overview.md) | Enable ingress on your container app to accept request from the public web. |
+| [Observe app behavior](observability.md) | Use log streaming, your apps console, application logs, and alerts to observe the state of your container app.  |
+| [Configure the virtual network](networking.md) | Learn to set up your virtual network to secure your containers and communicate between applications.  |
+| [Run a process that executes and exits](jobs.md) | Find out how jobs can help you run tasks that have finite beginning and end.  |
 
 > [!div class="nextstepaction"]
 > [Deploy your first app](quickstart-code-to-cloud.md)
