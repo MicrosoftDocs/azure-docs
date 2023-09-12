@@ -28,7 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an AD FS application
 
-To enable sign-in for users with an AD FS account in Azure Active Directory B2C (Azure AD B2C), create an Application Group in your AD FS. For more information, see [Build a web application using OpenID Connect with AD FS 2016 and later](/windows-server/identity/ad-fs/development/enabling-openid-connect-with-ad-fs)
+To enable sign-in for users with an AD FS account in Azure Active Directory B2C (Azure AD B2C), create an Application Group in your AD FS. For more information, see [Build a web application using OpenID Connect with AD FS 2016 and later](../active-directory/develop/msal-migration.md)
 
 To create an Application Group, follow theses steps:
 
