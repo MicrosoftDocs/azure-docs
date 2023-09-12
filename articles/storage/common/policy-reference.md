@@ -6,6 +6,7 @@ ms.topic: reference
 author: akashdubey-ms
 ms.author: akashdubey
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.custom: subject-policy-reference
 ---
 

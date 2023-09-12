@@ -5,7 +5,8 @@ description: Learn how to architect highly available storage accounts using Priv
 services: storage
 author: brsteph
 
-ms.service: storage
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 05/07/2021
 ms.author: brsteph

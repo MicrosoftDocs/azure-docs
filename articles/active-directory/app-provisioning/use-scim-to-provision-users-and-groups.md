@@ -373,6 +373,8 @@ This article provides example SCIM requests emitted by the Azure Active Director
 
 ###### Response (User not found. The detail isn't required, only status.)
 
+*HTTP/1.1 404 Not Found*
+
 ```json
 {
     "schemas": [
