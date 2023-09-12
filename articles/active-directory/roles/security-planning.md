@@ -70,15 +70,13 @@ Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EM
 
 After you start using Azure AD Privileged Identity Management:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a Global Administrator of your Azure AD production organization.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-2. To select the Azure AD organization where you want to use Privileged Identity Management, select your user name in the upper right-hand corner of the Azure portal.
+1. To switch directories where you want to use Privileged Identity Management, select your user name in the upper right corner of the Microsoft Entra admin center.
 
-3. On the Azure portal menu, select **All services** and filter the list for **Azure AD Privileged Identity Management**.
+1. Browse to **Identity governance** > **Privileged Identity Management**.
 
-4. Open Privileged Identity Management from the **All services** list and pin it to your dashboard.
-
-Make sure the first person to use PIM in your organization is assigned to the **Security Administrator** and **Privileged Role Administrator** roles. Only Privileged Role Administrators can manage the Azure AD directory role assignments of users. The PIM security wizard walks you through the initial discovery and assignment experience. You can exit the wizard without making any additional changes at this time.
+Make sure the first person to use PIM in your organization is assigned to the [Security Administrator](../roles/permissions-reference.md#security-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) roles. Only Privileged Role Administrators can manage the Azure AD directory role assignments of users. The PIM security wizard walks you through the initial discovery and assignment experience. You can exit the wizard without making any additional changes at this time.
 
 #### Identify and categorize accounts that are in highly privileged roles
 
@@ -89,7 +87,7 @@ After starting to use Azure AD Privileged Identity Management, view the users wh
 * Exchange Administrator
 * SharePoint Administrator
 
-If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember). Start with the Global Administrator role because a Global Administrator has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
+If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember). Start with the Global Administrator role because a Global Administrator has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Microsoft Entra admin center, or by the Azure AD module for Microsoft PowerShell.
 
 Remove any accounts that are no longer needed in those roles. Then, categorize the remaining accounts that are assigned to administrator roles:
 
@@ -386,7 +384,7 @@ For more information, see [How to configure hybrid Azure Active Directory joined
 
 #### Review members of [built-in Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Skip this step if you're not using Microsoft 365.
-‎
+
 #### Validate incident response plan
 
 To improve upon your plan, Microsoft recommends you regularly validate that your plan operates as expected:
@@ -399,7 +397,6 @@ To improve upon your plan, Microsoft recommends you regularly validate that your
 ### Additional steps for organizations managing access to Azure 
 
 Determine if you need to [transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md).
-‎
 
 ## "Break glass": what to do in an emergency
 

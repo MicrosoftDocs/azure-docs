@@ -44,7 +44,7 @@ Every request made against the emulator must be authenticated using a key over T
 | --- | --- |
 | **Endpoint** | `localhost:8081` |
 | **Key** | `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` |
-| **Connection string** | `` |
+| **Connection string** | `AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;` |
 
 > [!TIP]
 > With the Windows (local) emulator, you can also customize the key used by the emulator. For more information, see [Windows emulator arguments](emulator-command-line-parameters.md#manage-the-emulator-with-command-line-syntax).
