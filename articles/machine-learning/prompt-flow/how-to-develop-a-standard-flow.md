@@ -109,9 +109,9 @@ In the LLM tool, select Connection to select one to set the LLM key or credentia
 
 In the LLM tool and python tool, it's available to inline edit the prompt or code. Go to the card in the flatten view, select the prompt section or code section, then you can make your change there.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.png" alt-text="Gif of inline editing the prompt in the LLM tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.png" alt-text="Animation of inline editing the prompt in the LLM tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.png":::
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit.png" alt-text="Gif of inline editing the code in the Python tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit.png" alt-text="Animation of inline editing the code in the Python tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit.png":::
 
 ### Validate and run
 
@@ -168,7 +168,7 @@ Below are common scenarios for linking nodes together.
 1. Edit the prompt box, add another input by `{{summary}}`, select **Validate and parse input**, then you'll see an input called summary is created in inputs section.
 2. In the value drop-down, select ${summarize_text_content.output}, then you'll see in the graph view that the newly created LLM node is linked to the upstream summarize_text_content node. When running the flow, the summary input of the node will be replaced by summarize_text_content node output on the fly.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png" alt-text="Gif of scenario two editing the prompt and inputs. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png" alt-text="Animation of scenario two editing the prompt and inputs. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png":::
 
 We support search and autosuggestion here in the drop-down. You can search by node name if you have many nodes in the flow.
 
@@ -176,7 +176,7 @@ We support search and autosuggestion here in the drop-down. You can search by no
 
 You can also navigate to the node you want to link with, copy the node name, navigate back to the newly created LLM node, paste in the input value field.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.png" alt-text="Gif of the LLM node showing how copying the node name works. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.png" alt-text="Animation of the LLM node showing how copying the node name works. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.png":::
 
 ### Scenario 3 - Link LLM node with multi-output upstream node
 
