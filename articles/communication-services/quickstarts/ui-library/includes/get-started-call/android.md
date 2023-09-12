@@ -503,6 +503,42 @@ CallComposite callComposite =
 ```
 
 ---
+### Subscribe to CallComposite call state changed event
+
+To receive call state changed events, call `addOnCallStateChangedEventHandler` with `CallComposite`.
+
+The following `CallCompositeCallStateCode` values be sent to the handler:
+
+- `CallCompositeCallStateCode.NONE`
+- `CallCompositeCallStateCode.EARLY_MEDIA`
+- `CallCompositeCallStateCode.CONNECTING`
+- `CallCompositeCallStateCode.RINGING`
+- `CallCompositeCallStateCode.CONNECTED`
+- `CallCompositeCallStateCode.LOCAL_HOLD`
+- `CallCompositeCallStateCode.DISCONNECTING`
+- `CallCompositeCallStateCode.DISCONNECTED`
+- `CallCompositeCallStateCode.IN_LOBBY`
+- `CallCompositeCallStateCode.REMOTE_HOLD`
+
+The following example shows an event for a call state changed.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+callComposite.addOnCallStateChangedEventHandler { callStateChangedEvent ->
+    println(callStateChangedEvent.code)
+}
+```
+
+#### [Java](#tab/java)
+
+```java
+callComposite.addOnCallStateChangedEventHandler(callStateChangedEvent -> {
+    System.out.println(callStateChangedEvent.getCode());
+});
+```
+
+---
 ### More features
 
 The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information about more features.
