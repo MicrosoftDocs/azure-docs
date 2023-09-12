@@ -26,7 +26,7 @@ You can use any of the following resources for a training compute target for mos
 |[Apache Spark pools (preview)](~/articles/machine-learning/v1/how-to-train-model.md#synapse)| Yes (SDK local mode only) | Yes | &nbsp; |
 |[Azure&nbsp;Databricks](~/articles/machine-learning/v1/how-to-train-model.md#azure-databricks)| Yes (SDK local mode only) | Yes | &nbsp; |
 |[Azure Data Lake Analytics](~/articles/machine-learning/v1/how-to-train-model.md#azure-data-lake-analytics) | &nbsp; | Yes | &nbsp; |
-|[Azure HDInsight](~/articles/machine-learning/v1/how-to-train-model.md#azure-hdinsight ) | &nbsp; | Yes | &nbsp; |
+|[Azure HDInsight](~/articles/machine-learning/v1/how-to-train-model.md#azure-hdinsight) | &nbsp; | Yes | &nbsp; |
 |[Azure Batch](~/articles/machine-learning/v1/how-to-train-model.md#azbatch) | &nbsp; | Yes | &nbsp; |
 
 > [!TIP]
