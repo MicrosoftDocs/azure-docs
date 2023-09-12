@@ -61,12 +61,6 @@ Where we used this helper function to read the value of an environment variable:
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=get_env_var)]
 
-#### [Java](#tab/java)
-
-Start by creating a [VisionServiceOptions](TBD) object using one of the constructors. For example:
-
-[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/main.java?name=vision_service_options)]
-
 #### [REST API](#tab/rest)
 
 Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `https://<endpoint>/computervision/imageanalysis:segment?api-version=2023-02-01-preview`, where `<endpoint>` is your unique Azure AI Vision endpoint URL. See [Select a mode ](./background-removal.md#select-a-mode) section for another query string you add to this URL.
@@ -106,18 +100,6 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 > [!TIP]
 > You can also analyze a local image by passing in the full-path image file name. See [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile).
 
-#### [Java](#tab/java
-
-Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](TBD).
-
-**VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
-
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/main.java?name=vision_source)]
-
-> [!TIP]
-> You can also analyze a local image by passing in the full-path image file name. See [VisionSource.FromFile](TBD).
-
-
 #### [REST API](#tab/rest)
 
 When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/ai-services/computer-vision/images/windows-kitchen.jpg"}`. The **Content-Type** should be `application/json`.
@@ -149,12 +131,6 @@ Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.
 Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and call the [SetSegmentationMode](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setsegmentationmode) method. You must call this method if you want to do segmentation. See [ImageSegmentationMode](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imagesegmentationmode) for supported values.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=segmentation_mode)]
-
-### [Java](#tab/java)
-
-Create a new [ImageAnalysisOptions](TBD) object and set the property `segmentation_mode`. This property must be set if you want to do segmentation. See `ImageSegmentationMode` for supported values.
-
-[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/main.java?name=segmentation_mode)]
 
 ### [REST](#tab/rest)
 
@@ -192,14 +168,6 @@ The following code calls the Image Analysis API and saves the resulting segmente
 The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=segment)]
-
-#### [Java](#tab/java)
-
-The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
-
-**SegmentationResult** implements **IDisposable**, therefore  create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
-
-[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/main.java?name=segment)]
 
 #### [REST](#tab/rest)
 
