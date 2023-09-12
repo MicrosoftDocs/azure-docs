@@ -16,7 +16,7 @@ In this article, you learn how to  import and export a DNS zone file in Azure DN
 
 > [!NOTE] 
 > DNS zone import and export using the Azure portal is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Introduction to DNS zone migration
 
