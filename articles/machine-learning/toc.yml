@@ -619,7 +619,7 @@
             - name: Customize environment for runtime
               href: ./prompt-flow/how-to-customize-environment-runtime.md
             - name: Migrate from managed online endpoint/deployment runtime
-              href: ./prompt-flow/migrate-mir-runtime.md
+              href: ./prompt-flow/migrate-managed-inference-runtime.md
         - name: Develop flows
           items:
             - name: Develop a standard flow
