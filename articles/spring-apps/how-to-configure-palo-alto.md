@@ -53,7 +53,7 @@ The rest of this article assumes you have the following two pre-configured netwo
 
 Next, create three CSV files.
 
-Name the first file *AzureSpringAppsServices.csv*. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Apps network requirements](./vnet-customer-responsibilities.md#azure-spring-apps-network-requirements) section of [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
+Name the first file *AzureSpringAppsServices.csv*. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Global required network rules](./vnet-customer-responsibilities.md#azure-global-required-network-rules) section of [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 ```CSV
 name,protocol,port,tag
@@ -64,7 +64,7 @@ ASC_445,tcp,445,AzureSpringApps
 ASC_123,udp,123,AzureSpringApps
 ```
 
-Name the second file *AzureSpringAppsUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Apps. The values in the following example are for demonstration purposes only. For up-to-date values, see [Azure Spring Apps FQDN requirements/application rules](./vnet-customer-responsibilities.md#azure-spring-apps-fqdn-requirementsapplication-rules).
+Name the second file *AzureSpringAppsUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Apps. The values in the following example are for demonstration purposes only. For up-to-date values, see the [Azure Global required FQDN / application rules](./vnet-customer-responsibilities.md#azure-global-required-fqdn--application-rules) section of [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 ```CSV
 name,description
