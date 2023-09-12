@@ -38,7 +38,7 @@ The `spec.auth` property isn't required if the connection string of your App Con
 |---|---|---|---|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal|false|string|
 |workloadIdentity|The settings for using workload identity|false|object|
-|managedIdentityClientId|The Client ID of user-assigned managed identity of VMSS. The absence of this property indicates that system-assigned managed identity should be attempted during authentication if another credential type doesn't take priority|false|string|
+|managedIdentityClientId|The Client ID of user-assigned managed identity of virtual machine scale set. The absence of this property indicates that system-assigned managed identity should be attempted during authentication if another credential type doesn't take priority|false|string|
 
 The `spec.auth.workloadIdentity` property has the following child property.
 
@@ -81,7 +81,7 @@ If the `spec.keyValues.keyVaults.auth` property isn't set, the system-assigned m
 |---|---|---|---|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with vaults that don't have individual authentication methods specified|false|string|
 |workloadIdentity|The settings of the workload identity used for authentication with vaults that don't have individual authentication methods specified. It has the same child properties as `spec.auth.workloadIdentity`|false|object|
-|managedIdentityClientId|The client ID of a user-assigned managed identity of VMSS used for authentication with vaults that don't have individual authentication methods specified. The absence of this property indicates that system-assigned managed identity should be attempted during authentication if another credential type doesn't take priority|false|string|
+|managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with vaults that don't have individual authentication methods specified. The absence of this property indicates that system-assigned managed identity should be attempted during authentication if another credential type doesn't take priority|false|string|
 |vaults|The authentication methods for individual vaults|false|object array|
 
 The authentication method of each *vault* can be specified with the following properties. One of `managedIdentityClientId`, `servicePrincipalReference` or `workloadIdentity` must be provided.
@@ -91,7 +91,7 @@ The authentication method of each *vault* can be specified with the following pr
 |uri|The URI of a vault|true|string|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a vault|false|string|
 |workloadIdentity|The settings of the workload identity used for authentication with a vault. It has the same child properties as `spec.auth.workloadIdentity`|false|object|
-|managedIdentityClientId|The client ID of a user-assigned managed identity of VMSS used for authentication with a vault|false|string|
+|managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with a vault|false|string|
 
 The `spec.keyValues.refresh` property has the following child properties.
 
@@ -111,13 +111,13 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
 
 ### Authentication
 
-#### Use System-Assigned Managed Identity of VMSS
+#### Use System-Assigned Managed Identity of virtual machine scale set
 
-1. [Enable the system-assigned managed identity in the virtual machine scale set (VMSS)](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) used by the Azure Kubernetes Service (AKS) cluster.
+1. [Enable the system-assigned managed identity in the virtual machine scale set](azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) used by the Azure Kubernetes Service (AKS) cluster.
 
-1. [Grant the system-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) in Azure App Configuration.
+2. [Grant the system-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) in Azure App Configuration.
 
-1. Deploy the following sample `AzureAppConfigurationProvider` resource to the AKS cluster.
+3. Deploy the following sample `AzureAppConfigurationProvider` resource to the AKS cluster.
 
     ``` yaml
     apiVersion: azconfig.io/v1beta1
@@ -130,11 +130,11 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
         configMapName: configmap-created-by-appconfig-provider
     ```
 
-#### Use User-Assigned Managed Identity of VMSS
+#### Use User-Assigned Managed Identity of virtual machine scale set
 
 1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
 
-1. [Assign the user-assigned managed identity to the virtual machine scale set (VMSS)](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) used by the Azure Kubernetes Service (AKS) cluster.
+1. [Assign the user-assigned managed identity to the virtual machine scale set](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) used by the Azure Kubernetes Service (AKS) cluster.
 
 1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) in Azure App Configuration.
 
