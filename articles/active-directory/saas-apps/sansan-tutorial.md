@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    1. In the **Reply URL** text box, type a URL using one of the following patterns:
     
-	   | Environment | URL |
+       | Environment | URL |
       |:--- |:--- |
       | PC |`https://ap.sansan.com/v/saml2/<COMPANY_NAME>/acs` |
       | Smartphone App |`https://internal.api.sansan.com/saml2/<COMPANY_NAME>/acs` |
@@ -85,8 +85,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    1. In the **Sign-on URL** text box, type the URL: 
    `https://ap.sansan.com/`
 
-	> [!NOTE]
-	> These values are not real. Check the actual Identifier and Reply URL values on the **Sansan admin settings**.
+    > [!NOTE]
+    > These values are not real. Check the actual Identifier and Reply URL values on the **Sansan admin settings**.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -128,9 +128,9 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 To perform the **Single Sign-On settings** on the **Sansan** side, please follow the below steps according to your requirement.
 
-   * [Japanese](https://jp-help.sansan.com/hc/ja/articles/900001551383 ) version.
+   * [Japanese](https://jp-help.sansan.com/hc/ja/articles/900001551383) version.
 
-   * [English](https://jp-help.sansan.com/hc/en-us/articles/900001551383 ) version.
+   * [English](https://jp-help.sansan.com/hc/en-us/articles/900001551383) version.
 
 
 ### Create Sansan test user
@@ -149,4 +149,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Sansan you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure Sansan you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
