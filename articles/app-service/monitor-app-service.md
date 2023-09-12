@@ -35,7 +35,8 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 The metrics and logs you can collect are discussed in the following sections.
 
-[!INCLUDE [audit log categories tip](/articles/azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
+[!INCLUDE [audit log categories tip](../azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
+
 
 ## Analyzing metrics
 
