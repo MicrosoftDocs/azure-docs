@@ -6,13 +6,13 @@
   href: cosmos-db-vs-mongodb-atlas.md
 - name: FAQ
   href: faq.yml
-- name: RU-based
+- name: RU
   items:
-    - name: RU-based MongoDB documentation
+    - name: MongoDB RU documentation
       href: index.yml
     - name: Overview
       items:
-        - name: What is RU-based Azure Cosmos DB for MongoDB?
+        - name: What is Azure Cosmos DB for MongoDB RU?
           href: ru/introduction.md
         - name: API versions
           items:
@@ -638,5 +638,5 @@
               href: ../use-cases.md
             - name: Social media apps
               href: ../social-media-apps.md
-- name: vCore-based
+- name: vCore
   href: vcore/toc.yml
