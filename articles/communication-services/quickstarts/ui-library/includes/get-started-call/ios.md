@@ -299,18 +299,7 @@ For more information about localization and for a list of supported languages, s
 
 ### Subscribe to CallComposite call state changed event
 
-You can implement closures to act on composite events. The following call states will be sent to the call state changed handler:
-
-- `none`
-- `earlyMedia`
-- `connecting`
-- `ringing`
-- `connected`
-- `localHold`
-- `disconnecting`
-- `disconnected`
-- `inLobby`
-- `remoteHold`
+You can implement closures to act on composite events. The call states will be sent to the call state changed handler.
 
 The following example shows an event for a call state changed.
 
@@ -322,7 +311,7 @@ callComposite?.events.onCallStateChanged = { callStateEvent in
 
 ### Dismiss CallComposite and subscribe to dismissed event
 
-To dismiss CallComposite, call `dismiss`. You can implement closures to act on composite events. The following dismiss event be sent on call composite dismissed:
+To dismiss CallComposite, call `dismiss`. The following dismiss event be sent on call composite dismissed:
 
 ```swift
 callComposite?.events.onDismissed = { dismissed in
