@@ -26,7 +26,9 @@ An alert rule combines:
  - The signal or data from the resource.
  - Conditions.
 
-An **alert** is triggered if the the conditions of the alert rule are met. The alert initiates the associated action group and updates the state of the alert. If you're monitoring more than one resource, the alert rule condition is evaluated separately for each of the resources, and alerts are fired for each resource separately. You can see all alert instances for all of your Azure resources on the [Alerts page](alerts-manage-alert-instances.md) in the Azure portal.
+An **alert** is triggered if the the conditions of the alert rule are met. The alert initiates the associated action group and updates the state of the alert. If you're monitoring more than one resource, the alert rule condition is evaluated separately for each of the resources, and alerts are fired for each resource separately. 
+
+Alerts are stored for 30 days and are deleted after the 30-day retention period. You can see all alert instances for all of your Azure resources on the [Alerts page](alerts-manage-alert-instances.md) in the Azure portal.
 
 Alerts consist of:
  - **Action groups**: These groups can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
@@ -76,7 +78,6 @@ The alert condition for stateful alerts is `fired`, until it is considered resol
 For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
 This table describes when a stateful alert is considered resolved:
-
     |Alert type |The alert is resolved when |
     |---------|---------|
     |Metric alerts|The alert condition isn't met for three consecutive checks.|
