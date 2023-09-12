@@ -34,7 +34,7 @@ To disable events from sending event messages for a single **Event Subscription*
    :::image type="content" source="media/disable-delete-workspaces/events-disable-no-subscriptions.png" alt-text="Screenshot of Events subscriptions and delete all event subscriptions to disable events." lightbox="media/disable-delete-workspaces/events-disable-no-subscriptions.png":::
 
 > [!NOTE]
-> The FHIR service will automatically go into an **Updating** status to disable the Events extension when a full delete of Event Subscriptions is executed. The FHIR service will remain online while the operation is completing.
+> The FHIR service will automatically go into an **Updating** status to disable events when a full delete of **Event Subscriptions** is executed. The FHIR service will remain online while the operation is completing.
 
 ## Delete workspaces
 
