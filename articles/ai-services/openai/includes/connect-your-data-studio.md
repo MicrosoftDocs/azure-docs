@@ -2,8 +2,7 @@
 titleSuffix: Azure OpenAI
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 author: aahill
 ms.author: aahi
