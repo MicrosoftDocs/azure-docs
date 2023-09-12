@@ -35,7 +35,7 @@ This section covers your options for managing user access to apps, enabling secu
 
 ### Make apps available to your users seamlessly
 
-Azure AD enables administrators to [add applications](../../manage-apps/add-application-portal.md) to the Azure AD application gallery in the [Azure portal](https://portal.azure.com/). Adding applications to the Enterprise applications gallery makes it easier for you to configure applications to use Azure AD as your identity provider. It also lets you manage user access to the application with Conditional Access policies and configure single sign-on (SSO) to applications so that users don't have to enter their passwords repeatedly and are automatically signed into both on-premises and cloud-based applications.
+Azure AD enables administrators to [add applications](../../manage-apps/add-application-portal.md) to the Azure AD application gallery in the [Microsoft Entra admin center](https://entra.microsoft.com) . Adding applications to the Enterprise applications gallery makes it easier for you to configure applications to use Azure AD as your identity provider. It also lets you manage user access to the application with Conditional Access policies and configure single sign-on (SSO) to applications so that users don't have to enter their passwords repeatedly and are automatically signed into both on-premises and cloud-based applications.
 
 Once applications are integrated into Azure AD gallery, users can see apps that are assigned to them and search and request other apps as needed. Azure AD provides [several methods](../../manage-apps/end-user-experiences.md) for users to access their apps:
 
