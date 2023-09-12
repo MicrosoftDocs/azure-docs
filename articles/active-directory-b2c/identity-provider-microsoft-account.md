@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Microsoft account application
 
-To enable sign-in for users with a Microsoft account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). If you don't already have a Microsoft account, you can get one at [https://www.live.com/](https://www.live.com/).
+To enable sign-in for users with a Microsoft account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). If you don't already have a Microsoft account, you can get one at [https://www.live.com/](https://login.live.com/login.srf?wa=wsignin1.0&id=292841&cobrandid=90015&rver=7.0.6737.0&aadredir=1&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fRpsCsrfState%3dac781969-8832-8249-a1b8-f9fa63c10701&ct=1694485680&rpsnv=16&CBCXT=out&wp=MBI_SSL&fl=dob%2cflname%2cwld&lw=1).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -86,7 +86,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Configuring optional claims
 
-If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
+If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/optional-claims.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
 1. From the **Manage** section, select **App registrations**.
