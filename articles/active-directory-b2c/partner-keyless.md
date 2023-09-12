@@ -31,7 +31,7 @@ To get started, you'll need:
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A Keyless cloud tenant
-  * Go to keyless.io to [Request a demo](https://keyless.io/go)
+  * Go to keyless.io to [Request a demo](https://keyless.io/demo-request)
 * The Keyless Authenticator app installed on a user device
 
 ## Scenario description
