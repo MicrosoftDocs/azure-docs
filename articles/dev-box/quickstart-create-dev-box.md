@@ -39,19 +39,24 @@ To complete this quickstart, you need:
    |**Project**|Select a project from the dropdown list. |
    |**Dev box pool**|Select a pool from the dropdown list, which includes all the dev box pools for that project. |
 
-   :::image type="content" source="./media/quickstart-create-dev-box/add-dev-box.png" alt-text="Screenshot of the dialog for adding a dev box.":::
+   :::image type="content" source="./media/quickstart-create-dev-box/create-dev-box.png" alt-text="Screenshot of the dialog for adding a dev box.":::
 
-4. Select **Add** to begin creating your dev box.
+   You may see the following information:
+   - How many dev boxes you can create in the project that you selected, if the project has limits configured.
+   - Whether hibernation is supported or not.
+   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule. 
 
-5. Use the home page of the developer portal to track the progress of creation.
+4. Select **Create** to begin creating your dev box.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating.":::
+5. Use the dev box tile in the developer portal to track the progress of creation.
+
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating.":::
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 
 ## Connect to a dev box
 
-After you provision a dev box, one way to access it quickly is through a browser:
+After you create a dev box, one way to access it quickly is through a browser:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
@@ -77,4 +82,6 @@ When you no longer need your dev box, you can delete it:
 
 ## Next steps
 
-In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. To learn how to connect to a dev box by using a Remote Desktop app, see [Tutorial: Use a Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
+In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. 
+
+To learn how to connect to a dev box by using a Remote Desktop app, see [Tutorial: Use a Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).

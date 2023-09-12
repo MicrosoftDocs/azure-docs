@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/08/2023
+ms.date: 09/12/2023
 
 ms.author: mimart
 author: msmimart
@@ -384,6 +384,9 @@ Although these alternatives provide protection, certain scenarios can only be co
 ### Option 3: Enable tenant restrictions on Windows managed devices (preview)
 
 After you create a tenant restrictions v2 policy, you can enforce the policy on each Windows 10, Windows 11, and Windows Server 2022 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions v2; domain-joined devices that are managed with Group Policy are also supported.
+
+> [!NOTE]
+> Tenant restrictions V2 on Windows is a partial solution that protects the authentication and data planes for some scenarios. It works on managed Windows devices and does not protect .NET stack, Chrome, or Firefox. The Windows solution provides a temporary solution until general availability of Universal tenant restrictions in Global Secure Access (preview).
 
 #### Administrative Templates (.admx) for Windows 10 November 2021 Update (21H2) and Group policy settings
 
