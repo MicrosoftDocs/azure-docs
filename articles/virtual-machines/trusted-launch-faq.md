@@ -20,6 +20,7 @@ Frequently asked questions about trusted launch.
 ### Why should I use trusted launch? What does trusted launch guard against?
 
 Trusted launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
+
 - Firmware rootkits: these kits overwrite the firmware of the virtual machine's BIOS, so the rootkit can start before the OS.
 - Boot kits: these kits replace the OS's bootloader so that the virtual machine loads the boot kit before the OS.
 - Kernel rootkits: these kits replace a portion of the OS kernel so the rootkit can start automatically when the OS loads.
@@ -97,6 +98,191 @@ AcceleratedNetworkingEnabled                 True
 RdmaEnabled                                  False
 MaxNetworkInterfaces                         8
 ```
+
+---
+
+### How can I validate if OS image supports Trusted Launch?
+
+See the list of [OS versions supported with Trusted Launch](trusted-launch.md#operating-systems-supported),
+
+#### Marketplace OS Image
+
+The following commands can be used to check if a Marketplace OS image supports Trusted Launch.
+
+##### [CLI](#tab/cli)
+
+```azurecli
+az vm image show --urn "MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest"
+```
+
+The response is similar to the following form. **hyperVGeneration** `v2` and **SecurityType** contains `TrustedLaunch` in the output indicates that the Generation 2 OS Image supports Trusted Launch.
+
+```json
+{
+  "architecture": "x64",
+  "automaticOsUpgradeProperties": {
+    "automaticOsUpgradeSupported": false
+  },
+  "dataDiskImages": [],
+  "disallowed": {
+    "vmDiskType": "Unmanaged"
+  },
+  "extendedLocation": null,
+  "features": [
+    {
+      "name": "SecurityType",
+      "value": "TrustedLaunchAndConfidentialVmSupported"
+    },
+    {
+      "name": "IsAcceleratedNetworkSupported",
+      "value": "True"
+    },
+    {
+      "name": "DiskControllerTypes",
+      "value": "SCSI, NVMe"
+    },
+    {
+      "name": "IsHibernateSupported",
+      "value": "True"
+    }
+  ],
+  "hyperVGeneration": "V2",
+  "id": "/Subscriptions/00000000-0000-0000-0000-00000000000/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2022-datacenter-azure-edition/Versions/20348.1906.230803",
+  "imageDeprecationStatus": {
+    "alternativeOption": null,
+    "imageState": "Active",
+    "scheduledDeprecationTime": null
+  },
+  "location": "westus",
+  "name": "20348.1906.230803",
+  "osDiskImage": {
+    "operatingSystem": "Windows",
+    "sizeInGb": 127
+  },
+  "plan": null,
+  "tags": null
+}
+```
+
+---
+
+#### Azure Compute Gallery OS Image
+
+The following commands can be used to check if a [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images) OS image supports Trusted Launch.
+
+##### [CLI](#tab/cli)
+
+```azurecli
+az sig image-definition show `
+    --gallery-image-definition myImageDefinition `
+    --gallery-name myImageGallery `
+    --resource-group myImageGalleryRg
+```
+
+The response is similar to the following form. **hyperVGeneration** `v2` and **SecurityType** contains `TrustedLaunch` in the output indicates that the Generation 2 OS Image supports Trusted Launch.
+
+```json
+{
+  "architecture": "x64",
+  "features": [
+    {
+      "name": "SecurityType",
+      "value": "TrustedLaunchSupported"
+    }
+  ],
+  "hyperVGeneration": "V2",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myImageGalleryRg/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition",
+  "identifier": {
+    "offer": "myImageDefinition",
+    "publisher": "myImageDefinition",
+    "sku": "myImageDefinition"
+  },
+  "location": "westus3",
+  "name": "myImageDefinition",
+  "osState": "Generalized",
+  "osType": "Windows",
+  "provisioningState": "Succeeded",
+  "recommended": {
+    "memory": {
+      "max": 32,
+      "min": 1
+    },
+    "vCPUs": {
+      "max": 16,
+      "min": 1
+    }
+  },
+  "resourceGroup": "myImageGalleryRg",
+  "tags": {},
+  "type": "Microsoft.Compute/galleries/images"
+}
+```
+
+##### [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Get-AzGalleryImageDefinition -ResourceGroupName myImageGalleryRg `
+    -GalleryName myImageGallery -GalleryImageDefinitionName myImageDefinition
+```
+
+The response is similar to the following form. **hyperVGeneration** `v2` and **SecurityType** contains `TrustedLaunch` in the output indicates that the Generation 2 OS Image supports Trusted Launch.
+
+```
+ResourceGroupName : myImageGalleryRg
+OsType            : Windows
+OsState           : Generalized
+HyperVGeneration  : V2
+Identifier        :
+  Publisher       : myImageDefinition
+  Offer           : myImageDefinition
+  Sku             : myImageDefinition
+Recommended       :
+  VCPUs           :
+    Min           : 1
+    Max           : 16
+  Memory          :
+    Min           : 1
+    Max           : 32
+ProvisioningState : Succeeded
+Id                : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myImageGalleryRg/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition
+Name              : myImageDefinition
+Type              : Microsoft.Compute/galleries/images
+Location          : westus3
+Tags              : {}
+Features[0]       :
+  Name            : SecurityType
+  Value           : TrustedLaunchSupported
+Architecture      : x64
+```
+
+---
+
+### How can I disable Trusted Launch for new VM deployment using PowerShell or CLI?
+
+Trusted Launch VMs provide you with foundational compute security and our recommendation is not to disable same for new VM/VMSS deployments except if your deployments have dependency on:
+
+- [VM Size families currently not supported with Trusted Launch](trusted-launch.md#virtual-machines-sizes)
+- [Feature currently not supported with Trusted Launch](trusted-launch.md#unsupported-features)
+- [OS version not supported with Trusted Launch](trusted-launch.md#operating-systems-supported)
+
+You can use parameter **securityType** with value `Standard` to disable Trusted Launch in new VM/VMSS deployments using Azure PowerShell (v10.3.0+) and CLI (v2.53.0+)
+
+#### [CLI](#tab/cli)
+
+```azurecli
+az vm create -n MyVm -g MyResourceGroup --image Ubuntu2204 `
+    --security-type 'Standard'
+```
+
+#### [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+$adminUsername = <USER NAME>
+$adminPassword = <PASSWORD> | ConvertTo-SecureString -AsPlainText -Force
+$vmCred = New-Object System.Management.Automation.PSCredential($adminUsername, $adminPassword)
+New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
+```
+
 ---
 
 ## Feature Support
