@@ -463,16 +463,10 @@ Follow the health signals below for monitoring before upgrading your next set of
 - Ensure that [replication](../site-recovery/azure-to-azure-quickstart.md) is enabled on your VMs
 
 
-### Availability zone redeployment and migration
+### Migrate to availability zone support
 
-For migrating existing virtual machine resources to a zone redundant configuration, refer to the below resources:
+To learn how to migrate a VM to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
 
-- Move a VM to another subscription or resource group
-    - [CLI](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli)
-    - [PowerShell](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-powershell)
-- [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
-- [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
-- [Move region maintenance configuration resources](../virtual-machines/move-region-maintenance-configuration-resources.md)
 
 ## Disaster recovery: cross-region failover
 

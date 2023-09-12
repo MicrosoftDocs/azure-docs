@@ -424,7 +424,7 @@ With best-effort zone balance, the scale set attempts to scale in and out while 
 To use best-effort zone balance, set `zoneBalance` to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set `zoneBalance` to *true*.
 
 
-### Availability zone redeployment and migration
+### Migrate to availability zone support
 
 To learn how to redeploy a regional scale set to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
 
