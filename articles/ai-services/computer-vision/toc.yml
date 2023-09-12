@@ -108,8 +108,6 @@ items:
       href: sdk/overview-sdk.md
     - name: Install the SDK
       href: sdk/install-sdk.md
-    - name: Release notes
-      href: sdk/release-notes-sdk.md
   - name: Quickstarts
     items:
     - name: Version 4.0 quickstart (preview)
