@@ -13,9 +13,15 @@ ms.date: 09/04/2023
 
 The new Log Analytics features a simplified user interface and two modes for exploring and working with log data: simple and advanced. 
 
-Use simple mode to get started quickly - navigate, explore, and drill down to the data you need - without writing KQL. For more complex analysis, switch to advanced mode and take advantage Azure Monitor's full data analysis capabilities.
+Simple mode provides a spreadsheet-like experience to get you started quickly. Similar to working in Excel, you can navigate your data and apply a set of operators without writing any KQL. For more complex analysis, switch to advanced mode and take advantage Azure Monitor's full data analysis capabilities.
 
-This article explains the Log Analytics interface and how to use simple and advanced modes to explore and analyze data in Azure Monitor Logs.     
+This article explains the new Log Analytics interface and how to use simple and advanced modes to explore and analyze data in Azure Monitor Logs.     
+
+## Try the new Log Analytics
+
+The new Log Analytics is currently in preview and available to a subset of customers. To try it, select **Try the new Log Analytics** in the top right corner of the Log Analytics query editor.
+
+:::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.gif" alt-text="A GIF showing the Try new Log Analytics button.":::
 
 ## Switch modes
 
