@@ -32,20 +32,20 @@ Your privacy and technical information is located in the **Properties** area.
 
 1. Browse to **Identity** > **Properties**.
 
-        :::image type="content" source="media/properties-area/properties-area.png" alt-text="Screenshot showing the properties area highlighting the privacy info area.":::
+   :::image type="content" source="media/properties-area/properties-area.png" alt-text="Screenshot showing the properties area highlighting the privacy info area.":::
  
 1. Add your privacy info for your users:
 
-    - **Technical contact.** Type the email address for the person to contact for technical support within your organization.
+   - **Technical contact.** Type the email address for the person to contact for technical support within your organization.
     
-    - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach related to Azure Active Directory services. If there's no person listed here, Microsoft contacts your Global Administrators. For Microsoft 365 related privacy incident notifications, see [Microsoft 365 Message center FAQs](/microsoft-365/admin/manage/message-center?preserve-view=true&view=o365-worldwide#frequently-asked-questions)
+   - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach related to Azure Active Directory services. If there's no person listed here, Microsoft contacts your Global Administrators. For Microsoft 365 related privacy incident notifications, see [Microsoft 365 Message center FAQs](/microsoft-365/admin/manage/message-center?preserve-view=true&view=o365-worldwide#frequently-asked-questions)
 
-    - **Privacy statement URL.** Type the link to your organization's document that describes how your organization handles both internal and external guest's data privacy.
+   - **Privacy statement URL.** Type the link to your organization's document that describes how your organization handles both internal and external guest's data privacy.
 
-        >[!Important]
-        >If you don't include either your own privacy statement or your privacy contact, your external guests will see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user will see this message when they receive an invitation to access an organization through B2B collaboration.
+      > [!IMPORTANT]
+      > If you don't include either your own privacy statement or your privacy contact, your external guests will see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user will see this message when they receive an invitation to access an organization through B2B collaboration.
 
-        :::image type="content" source="media/properties-area/no-privacy-statement-or-contact.png" alt-text="Screenshot showing the B2B Collaboration Review Permissions box with message.":::
+      :::image type="content" source="media/properties-area/no-privacy-statement-or-contact.png" alt-text="Screenshot showing the B2B Collaboration Review Permissions box with message.":::
 
 1. Select **Save**.
 
