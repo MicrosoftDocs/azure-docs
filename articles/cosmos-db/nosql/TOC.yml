@@ -406,6 +406,8 @@
           href: ../notebooks-overview.md
         - name: FAQ
           href: ../notebooks-faq.yml
+    - name: Emulator
+      href: ../emulator.md
 - name: How to
   items:
     - name: Access preview features
@@ -656,7 +658,11 @@
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2
-              href: performance-tips-java.md
+              href: performance-tips-java.md        
+        - name: JavaScript
+          items:
+            - name: Best practices for JavaScript SDK
+              href: best-practices-javascript.md
         - name: Configure the integrated cache
           href: ../how-to-configure-integrated-cache.md
         - name: Benchmarking framework
@@ -1007,6 +1013,12 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ../policy-reference.md
+    - name: Emulator
+      items:
+        - name: Release notes
+          href: ../emulator-release-notes.md
+        - name: Windows command-line arguments
+          href: ../emulator-windows-arguments.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training

@@ -21,7 +21,7 @@ In this tutorial, you'll learn to implement secure hybrid access (SHA) with sing
 * Improved [Zero Trust](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) governance through Azure AD pre-authentication, and use of the Conditional Access security policy enforcement solution. 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
 * Full SSO between Azure AD and BIG-IP published services
-* Identity management and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
+* Identity management and access from a single control plane, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 To learn more about benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-integration.md).
 
@@ -65,17 +65,17 @@ The following image illustrates the SAML SP-initiated flow for this scenario, bu
 
 Prior BIG-IP experience isn't necessary. You need:
 
-* An [Azure free account](https://azure.microsoft.com/free/active-directory/), or a higher-tier subscription
-* A BIG-IP, or [deploy BIG-IP Virtual Edition in Azure](../manage-apps/f5-bigip-deployment-guide.md)
+* An [Azure free account](https://azure.microsoft.com/free/active-directory/), or a higher-tier subscription.
+* A BIG-IP, or [deploy BIG-IP Virtual Edition in Azure](../manage-apps/f5-bigip-deployment-guide.md).
 * Any of the following F5 BIG-IP licenses:
   * F5 BIG-IP Best bundle
   * F5 BIG-IP APM standalone license
   * F5 BIG-IP APM add-on license on a BIG-IP Local Traffic Manager (LTM)
   * 90-day BIG-IP [Free Trial](https://www.f5.com/trial/big-ip-trial.php) license
-* User identities [synchronized](../hybrid/connect/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
-* An account with Azure AD Application Administrator [permissions](../roles/permissions-reference.md)
-* A web server [certificate](../manage-apps/f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use default BIG-IP certificates while testing
-* A Kerberos application, or go to active-directory-wp.com to learn to configure [SSO with IIS on Windows](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html)
+* User identities [synchronized](../hybrid/connect/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory.
+* One of the following roles in Azure AD tenant: Global Administrator, Cloud Application Administrator, or Application Administrator.
+* A web server [certificate](../manage-apps/f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use default BIG-IP certificates while testing.
+* A Kerberos application, or go to active-directory-wp.com to learn to configure [SSO with IIS on Windows](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html).
 
 ## BIG-IP configuration methods
 
@@ -90,14 +90,12 @@ This article covers the advanced configuration, a flexible SHA implementing that
 
 Before BIG-IP can hand off pre-authentication to Azure AD, register it in your tenant. This process initiates SSO between both entities. The app you create from the F5 BIG-IP gallery template is the relying party that represents the SAML SP for the BIG-IP published application.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrator permissions.
-2. From the left pane, select the **Azure Active Directory** service.
-3. On the left menu, select **Enterprise applications**. The **All applications** pane appears with a list of the applications in your Azure AD tenant.
-4. On the **Enterprise applications** pane, select **New application**.
-5. The **Browse Azure AD Gallery** pane appears with tiles for cloud platforms, on-premises applications, and featured applications. Applications in the **Featured applications** section have icons that indicate whether they support federated SSO and provisioning. 
-6. In the Azure gallery, search for **F5**, and select **F5 BIG-IP APM Azure AD integration**.
-7. Enter a name for the new application to recognize the application instance. 
-8. Select **Add/Create** to add it to your tenant.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**, then select **New application**.
+3. The **Browse Azure AD Gallery** pane appears with tiles for cloud platforms, on-premises applications, and featured applications. Applications in the **Featured applications** section have icons that indicate whether they support federated SSO and provisioning. 
+4. In the Azure gallery, search for **F5**, and select **F5 BIG-IP APM Azure AD integration**.
+5. Enter a name for the new application to recognize the application instance. 
+6. Select **Add/Create** to add it to your tenant.
 
 ## Enable SSO to F5 BIG-IP
 

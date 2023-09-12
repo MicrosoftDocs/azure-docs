@@ -80,7 +80,7 @@ You can [extend the Azure AD schema](../app-provisioning/user-provisioning-sync-
 
 ### Create catalogs for delegation
 
-If the ongoing maintenance of roles is delegated, then you can delegate the administration of access packages by [creating a catalog](entitlement-management-catalog-create.md ) for each part of the organization you'll be delegating to.
+If the ongoing maintenance of roles is delegated, then you can delegate the administration of access packages by [creating a catalog](entitlement-management-catalog-create.md) for each part of the organization you'll be delegating to.
 
 If you have multiple catalogs to create, you can use a PowerShell script to [create each catalog](entitlement-management-catalog-create.md#create-a-catalog-with-powershell).
 
