@@ -88,7 +88,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 This first step creates a tenant app registration to authorize the **Easy Button** access to Graph. With these permissions, the BIG-IP can push the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
-2. Browse to **Identity** > **Applications** > **App registrations > New registration**.
+2. Browse to **Identity** > **Applications** > **App registrations** > **New registration**.
 3. Enter a display name for your application. For example, F5 BIG-IP Easy Button.
 4. Specify who can use the application > **Accounts in this organizational directory only**.
 5. Select **Register**.
