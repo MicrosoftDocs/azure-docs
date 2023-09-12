@@ -55,8 +55,7 @@ Azure Data Manager for Energy uses Azure Storage, Azure Cosmos DB and Elasticsea
 
 > [!IMPORTANT]
 > In the following regions, disaster recovery is not available. For more information please contact your Microsoft sales or customer representative.
-> | Geography        |
-> | Brazil South     |
+> 1. Brazil South
 
 #### Set up disaster recovery and outage detection
 
