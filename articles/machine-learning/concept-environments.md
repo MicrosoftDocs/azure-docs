@@ -112,6 +112,8 @@ Actual cached images in your workspace ACR will have names like `azureml/azureml
 
 Microsoft is responsible for patching the base images for known security vulnerabilities. Updates for supported images are released every two weeks, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image. Patched images are released with a new immutable tag and the `:latest` tag is updated to the latest version of the patched image. 
 
+You'll need to update associated Azure Machine Learning assets to use the newly patched image. For example, when working with a managed online endpoint, you'll need to redeploy your endpoint to use the patched image.
+
 If you provide your own images, you are responsible for updating them.
 
 Please note that you may need to update associated Azure Machine Learning assets to use the newly patched image. For example, when working with an managed online endpoint, you will need to redeploy your endpoint to use the patched image. 
