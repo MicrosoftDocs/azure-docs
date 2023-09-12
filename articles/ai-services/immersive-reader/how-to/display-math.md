@@ -5,8 +5,7 @@ description: This article will show you how to display math in the Immersive Rea
 author: rwallerms
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: rwaller

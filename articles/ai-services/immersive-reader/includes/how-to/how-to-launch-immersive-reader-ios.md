@@ -1,8 +1,7 @@
 ---
 author: rwallerms
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: include
 ms.date: 03/04/2021
 ms.author: rwaller
