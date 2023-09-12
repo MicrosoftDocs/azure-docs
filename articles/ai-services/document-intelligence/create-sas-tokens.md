@@ -4,8 +4,7 @@ description: How to create Shared Access Signature tokens (SAS) for containers a
 ms.topic: how-to
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.date: 07/18/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'

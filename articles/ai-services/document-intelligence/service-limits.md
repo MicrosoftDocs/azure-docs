@@ -5,8 +5,7 @@ description: Quick reference, detailed description, and best practices for worki
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Choose the best Document Intelligence model to meet your needs.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: lajanuar

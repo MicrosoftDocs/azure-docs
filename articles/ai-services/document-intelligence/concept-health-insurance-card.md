@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Data extraction and analysis extraction using the health insurance card model
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

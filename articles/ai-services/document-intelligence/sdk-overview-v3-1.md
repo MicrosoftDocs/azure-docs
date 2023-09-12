@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: The Document Intelligence v3.1 software development kits (SDKs) expose Document Intelligence models, features and capabilities that are in active development for C#, Java, JavaScript, or Python programming language.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 09/05/2023
