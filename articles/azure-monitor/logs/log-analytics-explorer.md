@@ -21,7 +21,7 @@ This article explains the new Log Analytics interface and how to use simple and 
 
 The new Log Analytics is currently in preview and available to a subset of customers. To try it, select **Try the new Log Analytics** in the top right corner of the Log Analytics query editor.
 
-:::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.gif" alt-text="A GIF showing the Try new Log Analytics button.":::
+:::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
 
 ## Switch modes
 
