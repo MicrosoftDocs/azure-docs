@@ -5,8 +5,7 @@ description: Learn how to use Content Safety to track, flag, assess, and filter 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.topic: overview
 ms.date: 07/18/2023
 ms.author: pafarley

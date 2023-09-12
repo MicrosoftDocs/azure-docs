@@ -5,8 +5,7 @@ description: Learn about the different content moderation flags and severity lev
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 04/06/2023
