@@ -32,7 +32,7 @@ New-AzRoleAssignment -PrincipalId "<SFMC SPID>" -RoleDefinitionName "Reader" -Sc
 
 ## Use the ARM template
 
-When you create a new node type, you will need to modify your ARM template with the new property: VmImageResourceId: <Image name>.  The following is an example:
+When you create a new node type, you'll need to modify your ARM template with the new property: VmImageResourceId: <Image name>.  The following is an example:
 
  ```JSON 
  {
@@ -53,7 +53,7 @@ The vmImageResourceId will be passed along to the virtual machine scale set as a
 - Shared Gallery Image (Microsoft.Compute/galleries/images)
 - Shared Gallery Image Version (Microsoft.Compute/galleries/images/versions)
 
-Service Fabric managed clusters also support marketplaces images that can be used on your virtual machine. Customers who would like to use a specific image from the Azure marketplace can use the below configuration.
+Service Fabric managed clusters also support marketplaces images that can be used on your virtual machine. Customers who would like to use a specific image from the marketplace can use the below configuration.
 
  ```JSON 
  { 
