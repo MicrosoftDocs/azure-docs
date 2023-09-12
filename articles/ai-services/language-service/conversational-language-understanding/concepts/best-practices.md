@@ -26,11 +26,11 @@ Schema is the definition of your intents and entities. There are different appro
 
 You can typically think of actions and queries as _intents_, while the information required to fulfill those queries as _entities_. 
 
-For example, assume you want your customers to cancel subscriptions for various products that you offer through your chatbot. You can create a _Cancel_ intent with various examples like _"Cancel the Contoso service"_, or _"stop charging me for the Fabrikam subscription"_. The user's intent here is to _cancel_, the _Contoso service_ or _Fabrikam subscription_ are the subscriptions they would like to cancel. Therefore, you can create an entity for _subscriptions_. You can then model your entire project to capture actions as intents and use entities to fill in those actions. This allows you to cancel anything you define as an entity, such as other products. You can then have intents for signing up, renewing, upgrading, etc. that all make use of the _subscriptions_ and other entities. 
+For example, assume you want your customers to cancel subscriptions for various products that you offer through your chatbot. You can create a _Cancel_ intent with various examples like _"Cancel the Contoso service,"_ or _"stop charging me for the Fabrikam subscription."_ The user's intent here is to _cancel,_ the _Contoso service_ or _Fabrikam subscription_ are the subscriptions they would like to cancel. Therefore, you can create an entity for _subscriptions_. You can then model your entire project to capture actions as intents and use entities to fill in those actions. This allows you to cancel anything you define as an entity, such as other products. You can then have intents for signing up, renewing, upgrading, etc. that all make use of the _subscriptions_ and other entities. 
 
 The above schema design makes it easy for you to extend existing capabilities (canceling, upgrading, signing up) to new targets by creating a new entity. 
 
-Another approach is to model the _information_ as intents and _actions_ as entities. Let's take the same example, allowing your customers to cancel subscriptions through your chatbot. You can create an intent for each subscription available, such as _Contoso_ with utterances like _"cancel Contoso"_, _"stop charging me for contoso services"_, _"Cancel the Contoso subscription"_. You would then create an entity to capture the action, _cancel_. You can define different entities for each action or consolidate actions as one entity with a list component to differentiate between actions with different keys.
+Another approach is to model the _information_ as intents and _actions_ as entities. Let's take the same example, allowing your customers to cancel subscriptions through your chatbot. You can create an intent for each subscription available, such as _Contoso_ with utterances like _"cancel Contoso,"_ _"stop charging me for contoso services,"_ _"Cancel the Contoso subscription."_ You would then create an entity to capture the action, _cancel._ You can define different entities for each action or consolidate actions as one entity with a list component to differentiate between actions with different keys.
 
 This schema design makes it easy for you to extend new actions to existing targets by adding new action entities or entity components.
 
@@ -56,16 +56,16 @@ See [Component types](./entity-components.md#component-types).
 
 ## Using the "none" score Threshold
 
-If you see too many false positives, such as out-of-context utterances being marked as a valid intents, See [confidence threshold](./none-intent.md) for information on how it affects inference.
+If you see too many false positives, such as out-of-context utterances being marked as valid intents, See [confidence threshold](./none-intent.md) for information on how it affects inference.
 
-1.	Non machine-learned entity components like lists and regex are by definition not contextual. If you see list or regex entities in unintended places, try labeling the list synonyms as the machine-learned component.
+* Non machine-learned entity components like lists and regex are by definition not contextual. If you see list or regex entities in unintended places, try labeling the list synonyms as the machine-learned component.
 
-2.	For entities, you can use learned component as the ‘Required’ component, to restrict when a composed entity should fire.
+* For entities, you can use learned component as the ‘Required’ component, to restrict when a composed entity should fire.
 
-For example, suppose you have an entity called "*ticket quantity*" that attempts to extract the number of tickets you want to reserve for booking flights, for utterances such as "*Book two tickets tomorrow to Cairo*".
+For example, suppose you have an entity called "*ticket quantity*" that attempts to extract the number of tickets you want to reserve for booking flights, for utterances such as "*Book two tickets tomorrow to Cairo.*"
 
 
-Typically, you would add a prebuilt component for `Quantity.Number` that already extracts all numbers in utterances. However if your entity was only defined with the prebuilt component, it would also extract other numbers as part of the *ticket quantity* entity, such as "*Book two tickets tomorrow to Cairo at 3 PM*".
+Typically, you would add a prebuilt component for `Quantity.Number` that already extracts all numbers in utterances. However if your entity was only defined with the prebuilt component, it would also extract other numbers as part of the *ticket quantity* entity, such as "*Book two tickets tomorrow to Cairo at 3 PM.*"
 
 To resolve this, you would label a learned component in your training data for all the numbers that are meant to be a *ticket quantity*. The entity now has two components:
 * The prebuilt component that can interpret all numbers, and 
@@ -132,10 +132,10 @@ To better understand how individual components are performing, you can disable t
 
 Data in a conversational language understanding project can have two data sets. A "testing" set, and a "training" set. If you want to use multiple test sets to evaluate your model, you can:
 
-1. Give your test sets different names (for example, "test1" and "test2").
-1. Export your project to get a JSON file with its parameters and configuration.
-1. Use the JSON to import a new project, and rename your second desired test set to "test".
-1. Train the model to run the evaluation using your second test set.  
+* Give your test sets different names (for example, "test1" and "test2").
+* Export your project to get a JSON file with its parameters and configuration.
+* Use the JSON to import a new project, and rename your second desired test set to "test".
+* Train the model to run the evaluation using your second test set.  
 
 ## Custom parameters for target apps and child apps
 
