@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI Service
 description: Learn about the changes you need to make to your code to swap back and forth between OpenAI and Azure OpenAI endpoints.
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 07/20/2023

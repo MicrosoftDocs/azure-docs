@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI Service
 description: To successfully make a call against Azure OpenAI, you need an endpoint and a key.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/28/2023
 ---

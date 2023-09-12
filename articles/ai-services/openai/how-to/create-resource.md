@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to get started with Azure OpenAI Service and create your first resource and deploy your first model in the Azure CLI or the Azure portal.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: devx-track-azurecli, build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 08/25/2023

@@ -4,8 +4,7 @@ description: Learn how Azure OpenAI encrypts your data when it's persisted to th
 titleSuffix: Azure AI services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 11/14/2022
 ms.author: mbullwin
