@@ -39,6 +39,8 @@
         href: quickstart-containerized-network-function-operator.md
       - name: Create a site
         href: quickstart-containerized-network-function-create-site.md
+      - name: Create a Site Network Service
+        href: quickstart-containerized-network-function-create-site-network-service.md
   - name: Virtualized Network Function (VNF)
     expanded: false
     items:
@@ -52,6 +54,9 @@
         href: quickstart-virtualized-network-function-operator.md
       - name: Create a site
         href: quickstart-virtualized-network-function-create-site.md
+      - name: Create a Site Network Service
+        href: quickstart-virtualized-network-function-create-site-network-service.md
+
 - name: How-to guides
   expanded: false
   items:
