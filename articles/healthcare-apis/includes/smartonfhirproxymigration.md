@@ -25,15 +25,16 @@ The following table lists the difference between SMART on FHIR proxy and SMART o
 |Microsoft Support|Supported for FHIR service.Open-source sample support needs to be reported and monitored via [GitHub](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/issues)|Supported for FHIR service|
 
 ### Migration Steps from SMART on FHIR Proxy to SMART on FHIR(Enhanced)
-### Step 1: Set up FHIR SMART user role 
+* Step 1: Set up FHIR SMART user role 
 Follow the steps listed under section [Manage Users: Assign Users to Role](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to this role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
-### Step 2: Deploy SMART on FHIR sample under [Azure Health Data and AI OSS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)
-### Step 3: Update endpoint of the FHIR service url to <baseurl from APIM>/smart
-### Step 4: Uncheck the SMART on FHIR proxy setting
+* Step 2: Deploy SMART on FHIR sample under [Azure Health Data and AI OSS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)
+* Step 3: Update endpoint of the FHIR service url to <baseurl from APIM>/smart
+* Step 4: Uncheck the SMART on FHIR proxy setting
 Uncheck the SMART on FHIR proxy setting under Authentication blade in Azure Portal for FHIR service. 
 
-Validate the migration steps are working by conducting below steps
-### Step 1: You are able to query FHIR service capability statement against the APIM endpoint
-### Step 2: Postman Query ?
+### Validate the migration to SMART on FHIR(Enhanced)
+Below steps provide guidance to validate migration from SMART on FHIR proxy to SMART on FHIR(Enhanced)
+* Step 1: You are able to query FHIR service capability statement against the APIM endpoint
+* Step 2: Postman Query ?
 
 If you have questions, you can get answers from community experts in [Microsoft Q&A[(https://aka.ms/SMARTonFHIRproxydeprecation). For technical support you can also create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).  
