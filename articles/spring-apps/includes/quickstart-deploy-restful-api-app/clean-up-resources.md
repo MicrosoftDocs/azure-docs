@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 05/24/2022
+ms.date: 09/15/2023
 ---
 
 <!-- 
@@ -15,27 +15,29 @@ For clarity of structure, a separate markdown file is used to describe how to cl
 
 ## 6. Clean up resources
 
-You can delete the Azure resource group, which includes all the resources in the resource group. To delete the entire resource group, including the newly created service:
+You can delete the Azure resource group, which includes all the resources in the resource group. Use the following steps to delete the entire resource group, including the newly created service:
 
 ### [Azure portal](#tab/Azure-portal)
 
-1. Locate your resource group in the portal. On the menu on the left, select **Resource groups**. Then select the name of your resource group, such as the example, **myresourcegroup**.
+1. Locate your resource group in the Azure portal. 
 
-1. On your resource group page, select **Delete**. Enter the name of your resource group, such as the example, **myresourcegroup**, in the text box to confirm deletion. Select Delete.
+1. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example,**myresourcegroup**.
+
+1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion - for example, **myresourcegroup**. Then, select **Delete**.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Run the following command to delete all the Azure resources used in this sample application.
+1. Use the following command to delete all the Azure resources used in this sample application:
 
    ```bash
    azd down
    ```
 
-   Command interaction description:
+The following list describes the command interactions:
 
-    - **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Enter `y`.
+- **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Enter `y`.
 
-   The console outputs messages similar to the one below:
+The console outputs messages similar to the following example:
 
    ```text
    SUCCESS: Your application was removed from Azure in xx minutes xx seconds.
