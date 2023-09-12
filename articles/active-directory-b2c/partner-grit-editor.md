@@ -89,7 +89,7 @@ After the IEF is modified, download, and upload the files to Azure AD B2C to see
 
 For additional information, review the following articles:
 
-- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows?pivots=b2c-custom-policy.md?tabs=applications)
+- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
 
 - [IEF Editor](https://app.archbee.com/doc/uwPRnuvZNjyEaJ8odNOEC/WmcXf6fTZjAHpx7-rAlac) documentation
 
