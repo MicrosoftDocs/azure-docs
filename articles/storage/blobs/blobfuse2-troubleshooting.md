@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues in BlobFuse2.
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ---
