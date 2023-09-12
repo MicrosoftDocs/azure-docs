@@ -9,11 +9,9 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 09/12/2023
 ms.author: barclayn
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
-ms.collection: M365-identity-device-management
 ---
 
 # Assign or remove licenses in the Azure portal
@@ -42,9 +40,9 @@ You can view your available service plans, including the individual licenses, ch
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Directory Reader](../roles/permissions-reference.md#directory-readers).
 
-1. Select **Azure Active Directory**, and then select **Licenses**.
+1. Browse to **Identity** > **Billing** > **Licenses**.
 
 1. Select **All products** to view the All Products page and to see the **Total**, **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
 
@@ -65,7 +63,11 @@ Anyone who has a business need to use a licensed Azure AD service must have the 
 
 ### To assign a license to a user
 
-1. On the **Products** page, select the name of the license plan you want to assign to the user.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [License Administrator](../roles/permissions-reference.md#license-administrator).
+
+1. Browse to **Identity** > **Billing** > **Licenses**.
+
+1. Select the name of the license plan you want to assign to the user.
 
 1. After you select the license plan, select **Assign**.
 
@@ -92,11 +94,15 @@ Anyone who has a business need to use a licensed Azure AD service must have the 
 
 ### To assign a license to a group
 
-1. On the **Products** page, select the name of the license plan you want to assign to the user.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [License Administrator](../roles/permissions-reference.md#license-administrator).
+
+1. Browse to **Identity** > **Billing** > **Licenses**.
+
+1. Select the name of the license plan you want to assign to the group.
 
     ![Products blade, with highlighted product license plan](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-1. On the **Azure Active Directory Premium Plan 2** page, select **Assign**.
+1. On the **Product** page, select **Assign**.
 
     ![Products page, with highlighted Assign option](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
