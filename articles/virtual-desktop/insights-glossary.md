@@ -1,12 +1,9 @@
 ---
 title: Azure Virtual Desktop Insights glossary - Azure
 description: A glossary of terms and concepts related to Azure Virtual Desktop Insights.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 09/12/2023
 ms.author: helohr
 manager: femila
 ---
@@ -214,11 +211,7 @@ core. Knowing how many users are active will help you efficiently resource and s
 
 ## Windows Event Logs
 
-> [!IMPORTANT]
-> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Windows Event Logs are data sources collected by either the Log Analytics agents or the Azure Monitor Agent (preview) on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by either the Azure Monitor Agent or the Log Analytics agent on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 The following table lists the required Windows Event Logs for Azure Virtual Desktop Insights:
 
