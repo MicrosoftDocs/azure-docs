@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Shopify Plus to support provisioning with Azure AD
 
-1. Login to [Shopify Plus organization admin](https://shopify.plus ). Navigate to **Users > Security**.
+1. Login to [Shopify Plus organization admin](https://shopify.plus). Navigate to **Users > Security**.
 
 2. Navigate to the **SCIM Integration** section, click **Generate API token**.
 
