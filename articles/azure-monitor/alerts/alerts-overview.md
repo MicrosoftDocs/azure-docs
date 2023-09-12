@@ -79,10 +79,10 @@ For stateful alerts, while the alert itself is deleted after 30 days, the alert 
 
 This table describes when a stateful alert is considered resolved:
 
-    |Alert type |The alert is resolved when |
-    |---------|---------|
-    |Metric alerts|The alert condition isn't met for three consecutive checks.|
-    |Log alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
+|Alert type |The alert is resolved when |
+|---------|---------|
+|Metric alerts|The alert condition isn't met for three consecutive checks.|
+|Log alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 ## Recommended alert rules
 
