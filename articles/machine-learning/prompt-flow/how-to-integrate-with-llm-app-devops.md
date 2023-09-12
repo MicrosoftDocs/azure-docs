@@ -338,7 +338,7 @@ To use the extension:
 
 If you prefer to use Jupyter, PyCharm, Visual Studio, or other IDEs, you can directly modify the YAML definition in the ```flow.dag.yaml``` file.
 
-:::image type="content" source="./media/how-to-integrate-with-llm-app-devops/flow-directory-and-dag-yaml.png" alt-text="Screenshot of a yaml file in VS Code highlighting the default input and flow directory. " lightbox = "./media/how-to-integrate-with-llm-app-devops/flow-directory-and-dag-yaml.png":::
+:::image type="content" source="./media/how-to-integrate-with-llm-app-devops/flow-directory-and-yaml.png" alt-text="Screenshot of a yaml file in VS Code highlighting the default input and flow directory. " lightbox = "./media/how-to-integrate-with-llm-app-devops/flow-directory-and-yaml.png":::
 
 You can then trigger a flow single run for testing using either the Prompt Flow CLI or SDK.
 

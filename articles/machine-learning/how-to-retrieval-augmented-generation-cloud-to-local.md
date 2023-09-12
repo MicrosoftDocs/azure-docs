@@ -48,7 +48,7 @@ For example, there's already a flow "Bring Your Own Data QnA" in the workspace, 
 
 The index docs are stored in the workspace binding storage blog.
 
-:::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/my-qa-flow.png" alt-text="Screenshot of bring your own data QnA in the Azure Machine Learning studio." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/my-qa-flow.png":::
+:::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/my-flow.png" alt-text="Screenshot of bring your own data QnA in the Azure Machine Learning studio." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/my-flow.png":::
 
 Go to the flow authoring, select the **Download** icon in the file explorer. It downloads the flow zip package to local, such as "Bring Your Own Data Qna.zip" file, which contains the flow files.
 
@@ -138,8 +138,6 @@ If you prefer to use Azure CLI instead of the VS Code extension you can create a
    :::image type="content" source="./media/how-to-retrieval-augmented-generation-cloud-to-local/answer-connection.png" alt-text="Screenshot of answer the question with context node with the connection highlighted." lightbox = "./media/how-to-retrieval-augmented-generation-cloud-to-local/answer-connection.png":::
 
 ## Test and run the flow
-
-# [VS Code Extension](#tab/vscode)
 
 Scroll up to the top of the flow, fill in the "Inputs" value of this single run for testing, for example "How to use SDK V2?", then run the flows. Then select the **Run** button in the top right corner. This will trigger a single run of the flow.
 

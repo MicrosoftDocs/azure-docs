@@ -57,7 +57,7 @@ Before you can set up a Prompt flow project with Azure Machine Learning, you nee
 
 1. If prompted, choose **Bash** as the environment used in the Cloud Shell. You can also change environments in the drop-down on the top navigation bar
 
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/ps-cli-1.png" alt-text="Screenshot of the Cloud Shell with bash selected showing connections to the PowerShell terminal. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/ps-cli-1.png":::
+    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/cli-1.png" alt-text="Screenshot of the Cloud Shell with bash selected showing connections to the PowerShell terminal. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/cli-1.png":::
 
 1. Copy the following bash commands to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for your project. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for GitHub Actions to properly use resources in that subscription.
 

@@ -60,22 +60,22 @@ The command will generate the tool project as follows with one tool `hello_world
 
 :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/tool-folder-structure.png" alt-text="Screenshot of folder and file structure in VS Code."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/tool-folder-structure.png":::
 
-The following points outlined explain the purpose of each folder/file in the package. If your aim is to develop multiple tools within your package, make sure to closely examine point 2 and 5:
+The following points outlined explain the purpose of each folder/file in the package. If your aim is to develop multiple tools within your package, make sure to closely examine bullet hello-world/tools and hello_world/yamls/hello_world_tool.yaml:
 
-1. **hello-world-proj**: This is the source directory. All of your project's source code should be placed in this directory.
+- **hello-world-proj**: This is the source directory. All of your project's source code should be placed in this directory.
 
-2. **hello-world/tools**: This directory contains the individual tools for your project. Your tool package can contain either one tool or many tools. When adding a new tool, you should create another *_tool.py under the `tools` folder.
+- **hello-world/tools**: This directory contains the individual tools for your project. Your tool package can contain either one tool or many tools. When adding a new tool, you should create another *_tool.py under the `tools` folder.
 
-3. **hello-world/tools/hello_world_tool.py**: Develop your tool within the def function. Use the `@tool` decorator to identify the function as a tool.
+- **hello-world/tools/hello_world_tool.py**: Develop your tool within the def function. Use the `@tool` decorator to identify the function as a tool.
     > [!Note]
     > There are two ways to write a tool. The default and recommended way is the function implemented way. You can also use the class implementation way, referring to [my_tool_2.py](https://github.com/Azure/promptflow/blob/main/tool-package-quickstart/my_tool_package/tools/my_tool_2.py) as an example.
 
-4. **hello-world/tools/utils.py**: This file implements the tool list method, which collects all the tools defined. It's required to have this tool list method, as it allows the User Interface (UI) to retrieve your tools and display them within the UI.
+- **hello-world/tools/utils.py**: This file implements the tool list method, which collects all the tools defined. It's required to have this tool list method, as it allows the User Interface (UI) to retrieve your tools and display them within the UI.
 
     > [!Note]
     > There's no need to create your own list method if you maintain the existing folder structure. You can simply use the auto-generated list method provided in the `utils.py` file.
 
-5. **hello_world/yamls/hello_world_tool.yaml**: Tool YAMLs defines the metadata of the tool. The tool list method, as outlined in the `utils.py`, fetches these tool YAMLs.
+- **hello_world/yamls/hello_world_tool.yaml**: Tool YAMLs defines the metadata of the tool. The tool list method, as outlined in the `utils.py`, fetches these tool YAMLs.
 
     You may want to update `name` and `description` to a better one in `your_tool.yaml`, so that tool can have a great name and description hint in prompt flow UI.
 
@@ -94,18 +94,18 @@ The following points outlined explain the purpose of each folder/file in the pac
 
     To populate your tool module, adhere to the pattern `\<package_name\>.tools.\<tool_name\>`, which represents the folder path to your tool within the package.
 
-6. **tests**: This directory contains all your tests, though they aren't required for creating your custom tool package. When adding a new tool, you can also create corresponding tests and place them in this directory. Run the following command under your tool project:
+- **tests**: This directory contains all your tests, though they aren't required for creating your custom tool package. When adding a new tool, you can also create corresponding tests and place them in this directory. Run the following command under your tool project:
 
     ```sh
     pytest tests
     ```
 
-7. **MANIFEST.in**: This file is used to determine which files to include in the distribution of the project. Tool YAML files should be included in MANIFEST.in so that your tool YAMLs would be packaged and your tools can show in the UI.
+- **MANIFEST.in**: This file is used to determine which files to include in the distribution of the project. Tool YAML files should be included in MANIFEST.in so that your tool YAMLs would be packaged and your tools can show in the UI.
 
     > [!Note]
     > There's no need to update this file if you maintain the existing folder structure.
 
-8. **setup.py**: This file contains metadata about your project like the name, version, author, and more. Additionally, the entry point is automatically configured for you in the `generate_tool_package_template.py` script. In Python, configuring the entry point in `setup.py` helps establish the primary execution point for a package, streamlining its integration with other software.
+- **setup.py**: This file contains metadata about your project like the name, version, author, and more. Additionally, the entry point is automatically configured for you in the `generate_tool_package_template.py` script. In Python, configuring the entry point in `setup.py` helps establish the primary execution point for a package, streamlining its integration with other software.
 
     The `package_tools` entry point together with the tool list method are used to retrieve all the tools and display them in the UI.
 
@@ -146,7 +146,7 @@ You can create runtime with CI (Compute Instance) or MIR (Managed Inference Runt
 
        Currently we support creating environment with "Create a new docker context" environment source. "Use existing docker image with optional conda file" has known [limitation](../how-to-manage-environments-v2.md#create-an-environment-from-a-conda-specification) and isn't supported now.
 
-        :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png" alt-text="Screenshot of create environment in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-1.png":::
+        :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-1.png" alt-text="Screenshot of create environment in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-1.png":::
 
    1. Under **Customize**, replace the text in the Dockerfile:
 
@@ -155,7 +155,7 @@ You can create runtime with CI (Compute Instance) or MIR (Managed Inference Runt
        RUN pip install -i https://test.pypi.org/simple/ my-tools-package==0.0.1
        ```
 
-         :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-2.png" alt-text="Screenshot of create environment in Azure Machine Learning studio on the customize step."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-customized-env-step-2.png":::
+         :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-2.png" alt-text="Screenshot of create environment in Azure Machine Learning studio on the customize step."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-customized-environment-step-2.png":::
     
        It will take several minutes to create the environment. After it succeeded, you can copy the Azure Container Registry (ACR) from environment detail page for the next step.
 
@@ -206,11 +206,11 @@ You can create runtime with CI (Compute Instance) or MIR (Managed Inference Runt
     1. Create a new compute instance. Existing compute instance created long time ago may hit unexpected issue.
     1. Create runtime on CI with customized environment.
 
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-ci.png" alt-text="Screenshot of add compute instance runtime in Azure Machine Learning studio."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-CI.png":::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-compute-instance.png" alt-text="Screenshot of add compute instance runtime in Azure Machine Learning studio."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-compute-instance.png":::
 
 4. Create runtime with MIR using the customized environment created in step 2. To learn how to create a runtime with MIR, see [How to create a manage runtime](how-to-create-manage-runtime.md).
 
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-mir.png" alt-text="Screenshot of add managed online deployment runtime in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-mir.png":::
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-managed-inference-runtime.png" alt-text="Screenshot of add managed online deployment runtime in Azure Machine Learning studio."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/create-runtime-on-managed-inference-runtime.png":::
 
 ## Test from Prompt Flow UI
 

@@ -51,9 +51,7 @@ If you aren't already connected to AzureOpenAI, select the **Create** button the
 
 :::image type="content" source="./media/get-started-prompt-flow/connection-creation-entry-point.png" alt-text="Screenshot of the connections tab with create highlighted." lightbox = "./media/get-started-prompt-flow/connection-creation-entry-point.png":::
 
-Then a right-hand panel will appear. Here, you'll need to select the subscription and resource name, provide the connection name, API key, API base, API type, and API version before selecting the **Save** button.
-
-:::image type="content" source="./media/get-started-prompt-flow/aoai_connection.png" alt-text="Screenshot of the add Azure OpenAI connections." lightbox = "./media/get-started-prompt-flow/aoai_connection.png":::
+Then a right-hand panel will appear. Here, you'll need to provide the connection name, API key, API base, API type, and API version before selecting the **Save** button.
 
 To obtain the API key, base, type, and version, you can navigate to the [chat playground](https://oai.azure.com/portal/chat) in the Azure OpenAI portal and select the **View code** button. From here, you can copy the necessary information and paste it into the connection creation panel.
 
