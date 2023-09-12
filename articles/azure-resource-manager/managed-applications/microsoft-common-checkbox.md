@@ -11,7 +11,7 @@ The CheckBox control lets users check or uncheck an option. The control returns 
 
 ## UI sample
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-checkbox.png" alt-text="Microsoft.Common.CheckBox":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-checkbox.png" alt-text="Screenshot of Microsoft.Common.CheckBox UI element with an unchecked state.":::
 
 ## Schema
 

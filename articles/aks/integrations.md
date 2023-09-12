@@ -89,7 +89,7 @@ There are many open-source and third-party integrations you can install on your 
 [helm-qs]: quickstart-helm.md
 [prometheus]: https://prometheus.io/
 [prometheus-helm-chart]: https://github.com/prometheus-community/helm-charts#usage
-[prometheus-az-monitor]: monitor-aks.md#container-insights
+[prometheus-az-monitor]: monitor-aks.md#integrations
 [istio]: https://istio.io/
 [istio-install]: https://istio.io/latest/docs/setup/install/
 [linkerd]: https://linkerd.io/
@@ -99,7 +99,7 @@ There are many open-source and third-party integrations you can install on your 
 [grafana]: https://grafana.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/kubernetes/
 [couchdb]: https://www.couchbase.com/
-[couchdb-install]: https://docs.couchbase.com/operator/current/tutorial-aks.html
+[couchdb-install]: https://docs.couchbase.com/operator/2.4/tutorial-aks.html
 [open-faas]: https://www.openfaas.com/
 [open-faas-aks]: openfaas.md
 [apache-spark]: https://spark.apache.org/

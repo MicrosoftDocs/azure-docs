@@ -2,7 +2,7 @@
 title: Deploy Application Insights Agent
 description: Learn how to use Application Insights Agent to monitor website performance. It works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 08/11/2023
 ms.reviewer: abinetabate
 ---
 
@@ -112,9 +112,9 @@ This tab describes how to onboard to the PowerShell Gallery and download the App
 Included are the most common parameters that you'll need to get started.
 We've also provided manual download instructions in case you don't have internet access.
 
-### Get an instrumentation key
+### Get a connection string
 
-To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
+To get started, you need an connection string. For more information, see [Connection strings](sdk-connection-string.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -333,7 +333,7 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
 
 > [!NOTE]
-> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
+> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-workspace-resource.md).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]

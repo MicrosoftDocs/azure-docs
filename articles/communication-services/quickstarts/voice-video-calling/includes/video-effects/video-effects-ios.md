@@ -5,6 +5,9 @@ You can use the Video Effects feature to add effects to your video in video call
 
 ## Using video effects
 
+> [!Note]
+> Video effects support on iOS is limited to the **two** most recent major versions of iOS. For example, when a new, major version of iOS is released, the iOS requirement is the new version and the most recent versions that preceded it.
+
 Currently there's one available Video Effect: Background Blur.
 
 The `LocalVideoEffectsFeature` object has the following API structure:

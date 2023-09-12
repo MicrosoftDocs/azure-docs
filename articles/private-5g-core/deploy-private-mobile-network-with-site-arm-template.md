@@ -2,10 +2,11 @@
 title: Deploy a private mobile network and site - ARM template
 titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using an Azure Resource Manager template (ARM template).
-services: azure-resource-manager 
-author: djrmetaswitch
-ms.author: drichards
-ms.service: azure-resource-manager
+services: azure-resource-manager
+author: robswain
+ms.author: robswain
+ms.service: private-5g-core
+tags: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-arm-template
 ms.date: 03/23/2022
@@ -62,7 +63,7 @@ The following Azure resources are defined in the template.
 
 1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
-    
+
     |Field  |Value  |
     |---------|---------|
     |**Subscription**     | Select the Azure subscription you want to use to create your private mobile network.        |
@@ -85,11 +86,11 @@ The following Azure resources are defined in the template.
     |**User Plane Data Interface Name**  | Enter the virtual network name on port 6 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
-    |**Data Network Name**  | Enter the name of the data network. |    
+    |**Data Network Name**  | Enter the name of the data network. |
     |**Core Network Technology**  | Enter *5GC* for 5G, or *EPC* for 4G. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
-    |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
+    |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|
 
 2. Select **Review + create**.
 3. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
@@ -113,9 +114,9 @@ The following Azure resources are defined in the template.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
     - An **Attached Data Network** resource representing the site's view of the data network.
-    - A **Service** resource representing the default service. 
+    - A **Service** resource representing the default service.
     - A **SIM Policy** resource representing the allow-all SIM policy.
-    - A **SIM Group** resource (if you provisioned any SIMs). 
+    - A **SIM Group** resource (if you provisioned any SIMs).
 
     :::image type="content" source="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing the resources for a full Azure Private 5G Core deployment." lightbox="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png":::
 

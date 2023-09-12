@@ -51,5 +51,5 @@ The following example converts the ticks to a date and time value.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`TicksToDateTime`](tickstodatetime.md)

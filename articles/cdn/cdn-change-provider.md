@@ -21,7 +21,7 @@ The purpose of this article is to share best practices when migrating from one C
 
 **Azure Front Door:** release two new tiers (Standard and Premium) on March 29, 2022, which is the next generation Front Door service. It combines the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall. With features such as private link integration, enhancements to rules engine, diagnostics, and a one-stop secure application acceleration for Azure customers. For more information about Azure Front Door, see [Front Door overview](../frontdoor/front-door-overview.md).
 
-**Azure CDN Standard/Premium from Verizon:** is an alternative to Azure Front Door for your general CDN and media solutions. Azure CDN from Verizon is optimized for large media streaming workloads. It has unique CDN features such as cache warmup, log delivery services, and reporting features.  
+**Azure CDN Standard/Premium from Edgio:** is an alternative to Azure Front Door for your general CDN and media solutions. Azure CDN from Edgio is optimized for large media streaming workloads. It has unique CDN features such as cache warmup, log delivery services, and reporting features.  
 
 **Azure CDN Standard from Akamai (Retiring October 31, 2023)**: In May of 2016, Azure partnered with Akamai Technologies Inc to offer Azure CDN Standard from Akamai. Recently, Azure and Akamai Technologies Inc have decided not to renew this partnership. As a result, starting October 31, 2023, Azure CDN Standard from Akamai will no longer be supported.
 
@@ -55,7 +55,7 @@ Create a small-scale proof of concept testing environment with your potential re
 * Define success criteria:
     * Cost - does the new CDN profile meet your cost requirements?
     * Performance - does the new CDN profile meet the performance requirements of your workload?
-* Create a new profile - for example, Azure CDN with Verizon.
+* Create a new profile - for example, Azure CDN with Edgio.
 * Configure your new profile with similar configuration settings as your existing profile.
 * Fine tune caching and compression configuration settings to meet your requirements.
 
@@ -92,4 +92,4 @@ For more information, see [Failover CDN endpoints with Traffic Manager](cdn-traf
 ## Next Steps
 
 * Create an [Azure Front Door](../frontdoor/create-front-door-portal.md) profile.
-* Create an [Azure CDN from Verizon](cdn-create-endpoint-how-to.md) profile.
+* Create an [Azure CDN from Edgio](cdn-create-endpoint-how-to.md) profile.

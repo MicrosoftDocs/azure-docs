@@ -501,9 +501,9 @@ created_monitor = poller.result()
 
 ---
 
-## Set up model monitoring for models deployed outside of Azure Machine Learning
+## Set up model monitoring by bringing your own production data to Azure Machine Learning
 
-You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. To monitor these models, you must meet the following requirements:
+You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. If you have production data but no deployment, you can use the data to perform continuous model monitoring. To monitor these models, you must meet the following requirements:
 
 * You have a way to collect production inference data from models deployed in production.
 * You can register the collected production inference data as an Azure Machine Learning data asset, and ensure continuous updates of the data.
@@ -515,7 +515,6 @@ You can also set up model monitoring for models deployed to Azure Machine Learni
   | input | data_window_end | literal, string | data window end-time in ISO8601 format. | 2023-05-01T04:31:57.012Z |
   | input | input_data | uri_folder | The collected production inference data, which is registered as Azure Machine Learning data asset. | azureml:myproduction_inference_data:1 |
   | output | preprocessed_data | mltable | A tabular dataset, which matches a subset of baseline data schema. | |
-
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -769,8 +768,100 @@ created_monitor = poller.result()
 The studio currently doesn't support monitoring for models that are deployed outside of Azure Machine Learning. See the Azure CLI or Python tabs instead.
 
 ---
+
+## Set up model monitoring with custom signals and metrics
+
+With Azure Machine Learning model monitoring, you have the option to define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it will compute the metric(s) you have defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, data quality, & feature attribution drift). To get started with defining your own custom signal, you must meet the following requirement:
+
+* You must define your custom signal and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
+
+### Component input signature
+
+The component input DataFrame should contain a `mltable` with the processed data from the preprocessing component and any number of literals, each representing an implemented metric as part of the custom signal component. For example, if you have implemented one metric, `std_deviation`, then you will need an input for `std_deviation_threshold`. Generally, there should be one input per metric with the name {metric_name}_threshold.
+
+  | signature name | type | description | example value |
+  |---|---|---|---|
+  | production_data | mltable | A tabular dataset, which matches a subset of baseline data schema. | |
+  | std_deviation_threshold | literal, string | Respective threshold for the implemented metric. | 2 |
+
+### Component output signature
+
+The component output DataFrame should contain four columns: `group`, `metric_name`, `metric_value`, and `threshold_value`:
+
+  | signature name | type | description | example value |
+  |---|---|---|---|
+  | group | literal, string | Top level logical grouping to be applied to this custom metric. | TRANSACTIONAMOUNT |
+  | metric_name | literal, string | The name of the custom metric. | std_deviation |
+  | metric_value | mltable | The value of the custom metric. | 44,896.082 |
+  | threshold_value | | The threshold for the custom metric. | 2 |
+
+Here is an example output from a custom signal component computing the metric, `std_deviation`:
+
+  | group | metric_value | metric_name | threshold_value |
+  |---|---|---|---|
+  | TRANSACTIONAMOUNT | 44,896.082 | std_deviation | 2 |
+  | LOCALHOUR | 3.983 | std_deviation | 2 |
+  | TRANSACTIONAMOUNTUSD | 54,004.902 | std_deviation | 2 |
+  | DIGITALITEMCOUNT | 7.238 | std_deviation | 2 |
+  | PHYSICALITEMCOUNT | 5.509 | std_deviation | 2 |
+
+An example custom signal component definition and metric computation code can be found in our GitHub repo at [https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal).
+
+# [Azure CLI](#tab/azure-cli)
+
+Once you've satisfied the previous requirements, you can set up model monitoring with the following CLI command and YAML definition:
+
+```azurecli
+az ml schedule create -f ./custom-monitoring.yaml
+```
+
+The following YAML contains the definition for model monitoring with a custom signal. It is assumed that you have already created and registered your component with the custom signal definition to Azure Machine Learning. In this example, the `component_id` of the registered custom signal component is `azureml:my_custom_signal:1.0.0`:
+
+```yaml
+# custom-monitoring.yaml
+$schema:  http://azureml/sdk-2-0/Schedule.json
+name: my-custom-signal
+trigger:
+  type: recurrence
+  frequency: day # can be minute, hour, day, week, month
+  interval: 7 # #every day
+create_monitor:
+  compute:
+    instance_type: "standard_e8s_v3"
+    runtime_version: "3.2"
+  monitoring_signals:
+    customSignal:
+      type: custom
+      data_window_size: 360
+      component_id: azureml:my_custom_signal:1.0.0
+      input_datasets:
+        production_data:
+          input_dataset:
+            type: uri_folder
+            path: azureml:custom_without_drift:1
+          dataset_context: test
+          pre_processing_component: azureml:custom_preprocessor:1.0.0
+      metric_thresholds:
+        - metric_name: std_dev
+          threshold: 2
+  alert_notification:
+    emails:
+      - abc@example.com
+```
+
+# [Python](#tab/python)
+
+The Python SDK currently doesn't support monitoring for custom signals. See the Azure CLI tab instead.
+
+# [Studio](#tab/azure-studio)
+
+The studio currently doesn't support monitoring for custom signals. See the Azure CLI tab instead.
+
+---
+
 ## Next steps
 
 - [Data collection from models in production (preview)](concept-data-collection.md)
 - [Collect production data from models deployed for real-time inferencing](how-to-collect-production-data.md)
 - [CLI (v2) schedule YAML schema for model monitoring (preview)](reference-yaml-monitor.md)
+- [Model monitoring for generative AI applications](./prompt-flow/how-to-monitor-generative-ai-applications.md)

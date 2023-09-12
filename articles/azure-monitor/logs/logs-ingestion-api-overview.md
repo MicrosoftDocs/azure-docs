@@ -44,7 +44,7 @@ The following tables can receive data from the ingestion API.
 | Azure tables | The Logs Ingestion API can send data to the following Azure tables. Other tables may be added to this list as support for them is implemented.<br><br>- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)<br>- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)<br>- [Syslog](/azure/azure-monitor/reference/tables/syslog)<br>- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
 > [!NOTE]
-> Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
+> Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. Custom columns you add to an Azure table must have the suffix `_CF`.
 
 ## Authentication
 
@@ -57,7 +57,7 @@ When developing a custom client to obtain an access token from Azure AD for the 
 | Azure cloud version | Token audience value |
 | --- | --- |
 | Azure public cloud | `https://monitor.azure.com` |
-| Azure China cloud | `https://monitor.azure.cn` |
+| Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
 | Azure US Government cloud | `https://monitor.azure.us` |
 
 ## Source data
@@ -107,6 +107,6 @@ For limits related to the Logs Ingestion API, see [Azure Monitor service limits]
 
 ## Next steps
 
-- [Walk through a tutorial configuring the i using the Azure portal](tutorial-logs-ingestion-portal.md)
+- [Walk through a tutorial sending data to Azure Monitor Logs with Logs ingestion API on the Azure portal](tutorial-logs-ingestion-portal.md)
 - [Walk through a tutorial sending custom logs using Resource Manager templates and REST API](tutorial-logs-ingestion-api.md)
 - Get guidance on using the client libraries for the Logs ingestion API for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme).

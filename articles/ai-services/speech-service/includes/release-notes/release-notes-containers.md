@@ -6,14 +6,34 @@ ms.date: 03/16/2023
 ms.author: eur
 ---
 
+### 2023-September release
+Add support for the latest model versions:
+- Speech language identification 1.12.0
+
+### 2023-July release
+
+Add support for the latest model versions:
+- Custom speech to text 4.1.0
+- Speech to text 4.1.0
+- Neural text to speech 2.15.0
+
+Fix the issue of running speech to text container via `docker` mount options with local custom model files.
+
+Fix the issue that in some cases the `RECOGNIZING` event does not show up in response through the Speech SDK.
+
+Fix vulnerability issues.
+
 ### 2023-June release
+
 Add support for the latest model versions:
 - Custom speech to text 4.0.0
 - Speech to text 4.0.0
 - Neural text to speech 2.14.0
 
 On-premises speech to text images are upgraded to .NET 6.0
+
 Upgrade display models for locales including `en-us`, `ar-eg`, `ar-bh`, `ja-jp`, `ko-kr`, and more.
+
 Upgrade the speech to text container component to address vulnerability issues.
 
 Add support for locale voices `de-DE-AmalaNeural`,`de-AT-IngridNeural`,`de-AT-JonasNeural`, and `en-US-JennyMultilingualNeural`

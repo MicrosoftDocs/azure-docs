@@ -55,5 +55,5 @@ The following example rounds positive and negative numbers to the nearest intege
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`POWER`](power.md)

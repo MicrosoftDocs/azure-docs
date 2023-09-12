@@ -1,7 +1,7 @@
 ---
 title: How to manage assignments with PowerShell
 description: Learn how to manage blueprint assignments with the official Azure Blueprints PowerShell module, Az.Blueprint.
-ms.date: 08/17/2021
+ms.date: 09/07/2023
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---

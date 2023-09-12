@@ -61,6 +61,7 @@ Perf
 ```
 
 ### Container memory
+This query uses `memoryRssBytes` which is only available for Linux nodes.
 
 ```kusto
 Perf
@@ -620,47 +621,9 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 | project ClusterName, NodeName, LastReceivedDateTime, Status, ContainerCount, UpTimeMs = UpTimeMs_long, Aggregation = Aggregation_real, LimitValue = LimitValue_real, list_TrendPoint, Labels, ClusterId 
 ```
 
-## Resource logs
-
-Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](../../aks/monitor-aks-reference.md). The following examples require a diagnostic extension to send resource logs for an AKS cluster to a Log Analytics workspace. For more information, see [Configure monitoring](../../aks/monitor-aks.md#configure-monitoring).
-
-### API server logs
-
-```kusto
-AzureDiagnostics 
-| where Category == "kube-apiserver"
-```
-
-### Count logs for each category
-
-```kusto
-AzureDiagnostics
-| where ResourceType == "MANAGEDCLUSTERS"
-| summarize count() by Category
-```
-
 ## Prometheus metrics
 
-The following example is a Prometheus metrics query showing disk reads per second per disk per node.
-
-```
-InsightsMetrics
-| where Namespace == 'container.azm.ms/diskio'
-| where TimeGenerated > ago(1h)
-| where Name == 'reads'
-| extend Tags = todynamic(Tags)
-| extend HostName = tostring(Tags.hostName), Device = Tags.name
-| extend NodeDisk = strcat(Device, "/", HostName)
-| order by NodeDisk asc, TimeGenerated asc
-| serialize
-| extend PrevVal = iif(prev(NodeDisk) != NodeDisk, 0.0, prev(Val)), PrevTimeGenerated = iif(prev(NodeDisk) != NodeDisk, datetime(null), prev(TimeGenerated))
-| where isnotnull(PrevTimeGenerated) and PrevTimeGenerated != TimeGenerated
-| extend Rate = iif(PrevVal > Val, Val / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1), iif(PrevVal == Val, 0.0, (Val - PrevVal) / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1)))
-| where isnotnull(Rate)
-| project TimeGenerated, NodeDisk, Rate
-| render timechart
-
-```
+The following examples requires the configuration described in [Send Prometheus metrics to Log Analytics workspace with Container insights](container-insights-prometheus-logs.md).
 
 To view Prometheus metrics scraped by Azure Monitor and filtered by namespace, specify *"prometheus"*. Here's a sample query to view Prometheus metrics from the `default` Kubernetes namespace.
 
@@ -692,7 +655,7 @@ InsightsMetrics
 
 The output will show results similar to the following example.
 
-![Screenshot that shows the log query results of data ingestion volume.](./media/container-insights-prometheus/log-query-example-usage-03.png)
+![Screenshot that shows the log query results of data ingestion volume.](media/container-insights-log-query/log-query-example-usage-03.png)
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
@@ -707,7 +670,8 @@ InsightsMetrics
 
 The output will show results similar to the following example.
 
-![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-prometheus/log-query-example-usage-02.png)
+![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-log-query/log-query-example-usage-02.png)
+
 
 
 ## Configuration or scraping errors
@@ -725,3 +689,4 @@ The output shows results similar to the following example:
 ## Next steps
 
 Container insights doesn't include a predefined set of alerts. To learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures, see [Create performance alerts with Container insights](./container-insights-log-alerts.md).
+

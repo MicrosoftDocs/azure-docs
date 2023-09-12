@@ -6,7 +6,8 @@ author: mumian
 ms.author: jgao
 ms.date: 10/11/2022
 ms.topic: quickstart
-ms.service: azure-resource-manager
+ms.service: container-registry
+tags: azure-resource-manager, bicep
 ms.custom: mode-api, devx-track-bicep
 ---
 
@@ -22,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the Bicep file
 
-Use Visual studio code or your favorite editor to create a file with the following content and name it **main.bicep**:
+Use Visual Studio Code or your favorite editor to create a file with the following content and name it **main.bicep**:
 
 ```bicep
 @minLength(5)

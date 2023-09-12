@@ -361,7 +361,7 @@ For more information about My Apps, see [Sign in and start apps from the My Apps
 
 ## Next steps
 
-After you configure AWS you can enforce session control, which protects the exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+After you configure AWS you can enforce session control, which protects the exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 

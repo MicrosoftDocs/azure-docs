@@ -21,9 +21,11 @@
       href: create-different-vnet-template.md
     - name: Host and management port with IP addresses in different VNets
       href: create-different-ip-addresses.md
-  - name: 2. Access the payShield manager for your payment HSM
+  - name: 2. View your payment HSMs
+    href: view-payment-hsms.md
+  - name: 3. Access the payShield manager for your payment HSM
     href: access-payshield-manager.md
-  - name: 3. Delete a commissioned payment HSM
+  - name: 4. Delete a commissioned payment HSM
     href: remove-payment-hsm.md
 
 - name: Quickstarts
@@ -40,7 +42,7 @@
   - name: Getting started with Azure Payment HSM
     href: getting-started.md
 
-- name: Concepts
+- name: Compliance
   items:
   - name: Certification and compliance
     href: certification-compliance.md

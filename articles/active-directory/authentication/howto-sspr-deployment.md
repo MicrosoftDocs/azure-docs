@@ -107,7 +107,7 @@ To reset the password, users go to the [password reset portal](https://aka.ms/ss
 
 * For hybrid users, SSPR writes back the password to the on-prem Active Directory via the Azure AD Connect service. 
 
-Note: For users who have [Password hash synchronization (PHS)](../hybrid/whatis-phs.md) disabled, SSPR stores the passwords in the on-prem Active Directory only.
+Note: For users who have [Password hash synchronization (PHS)](../hybrid/connect/whatis-phs.md) disabled, SSPR stores the passwords in the on-prem Active Directory only.
 
 ### Best practices
 
@@ -131,7 +131,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 #### Required administrator roles
 
@@ -144,9 +144,9 @@ When technology projects fail, they typically do so due to mismatched expectatio
 
 ### Plan a pilot
 
-We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../fundamentals/deployment-plans.md).
+We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../architecture/deployment-plans.md).
 
-To create a group, see how to [create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md). 
+To create a group, see how to [create a group and add members in Azure Active Directory](../fundamentals/how-to-manage-groups.md). 
 
 ## Plan configuration
 
@@ -239,7 +239,7 @@ At each stage of your deployment from initial pilot groups through organization-
 
 ### Plan testing
 
-To ensure that your deployment works as expected, plan a set of test cases to validate the implementation. To assess the test cases, you need a non-administrator test user with a password. If you need to create a user, see [Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+To ensure that your deployment works as expected, plan a set of test cases to validate the implementation. To assess the test cases, you need a non-administrator test user with a password. If you need to create a user, see [Add new users to Azure Active Directory](../fundamentals/add-users.md).
 
 The following table includes useful test scenarios you can use to document your organizations expected results based on your policies.
 <br>

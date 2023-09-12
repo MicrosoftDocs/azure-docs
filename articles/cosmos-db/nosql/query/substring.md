@@ -52,5 +52,5 @@ The following example returns substrings with various lengths and starting posit
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`StringEquals`](stringequals.md)

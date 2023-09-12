@@ -105,6 +105,14 @@ sections:
 
 
       - question: |
+          I successfully onboarded a connector, where can I find my DevOps recommendations?
+        answer: |
+          We recommend navigating to the DevOps Security page to see an overview of your DevOps recommendations and posture. You can sort and filter by the repos you care about to dive into the recommendation details.
+          
+          You can also view your DevOps recommendations on the Recommendations page.  Navigate to Recommendations, select the "All recommendations" tab, and filter the `environment` by the relevant DevOps sources (e.g., AzureDevOps and/or GitHub).  
+          
+
+      - question: |
           What information does Defender for DevOps store about me and my enterprise, and where is the data stored and processed?
         answer: |
           Defender for DevOps connects to your source code management system, for example, Azure DevOps, GitHub, to provide a central console for your DevOps resources and security posture. Defender for DevOps processes and stores the following information:

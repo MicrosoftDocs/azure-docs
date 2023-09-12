@@ -93,9 +93,9 @@ As mentioned previously, Azure classifies services into three categories: founda
 > |------------------------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
-> | Azure Applied AI Services                            |
+> | Azure AI services                            |
 > | Azure Automation                                     |
-> | Azure Cognitive Services                             |
+> | Azure AI services                             |
 > | Azure Data Share                                     |
 > | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |
@@ -151,4 +151,3 @@ To learn more about preview services that aren't yet in general availability and
 ## Next steps
 
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)
-

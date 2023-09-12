@@ -21,7 +21,7 @@ To find the offer in the Azure Marketplace, use the following steps:
 1. Search for _Apache Kafka on Confluent Cloud_.
 1. Select the application tile.
 
-If the offer isn't displayed, contact [Confluent support](https://support.confluent.io). Your Azure Active Directory tenant ID must be on the list of allowed tenants. To learn how to find your tenant ID, see [How to find your Azure Active Directory tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+If the offer isn't displayed, contact [Confluent support](https://support.confluent.io). Your Azure Active Directory tenant ID must be on the list of allowed tenants. To learn how to find your tenant ID, see [How to find your Azure Active Directory tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 ## Purchase errors
 

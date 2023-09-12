@@ -1,5 +1,5 @@
 ---
-title: Receipt data extraction - Document Intelligence
+title: Receipt data extraction - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use machine learning powered receipt data extraction model to digitize receipts.
 author: laujan
@@ -9,15 +9,15 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence receipt model
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -28,9 +28,9 @@ The Document Intelligence receipt model combines powerful Optical Character Reco
 
 ## Receipt data extraction
 
-Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Document Intelligence OCR-powered receipt data extraction helps to automate the conversion and save time and effort.
+Receipt digitization encompasses the transformation of various types of receipts, including scanned, photographed, and printed copies, into a digital format for streamlined downstream processing. Examples include expense management, consumer behavior analysis, tax automation, etc. Using Document Intelligence with OCR (Optical Character Recognition) technology can extract and interpret data from these diverse receipt formats. Document Intelligence processing simplifies the conversion process but also significantly reduces the time and effort required, thereby facilitating efficient data management and retrieval.
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ***Sample receipt processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
@@ -48,12 +48,13 @@ Receipt digitization is the process of converting scanned receipts into digital 
 
 ## Development options
 
-::: moniker range="doc-intel-3.0.0"
-Document Intelligence v3.0 Supports the following tools:
+::: moniker range=">=doc-intel-3.0.0"
+
+Document Intelligence v3.0 and later versions support the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Receipt model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-receipt**|
+|**Receipt model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li></ul>|**prebuilt-receipt**|
 
 ::: moniker-end
 
@@ -63,13 +64,13 @@ Document Intelligence v2.1 supports the following tools:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Receipt model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=doc-intel-2.1.0#analyze-receipts)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Receipt model**| <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=windows&view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
 ::: moniker-end
 
 ## Input requirements
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
@@ -83,30 +84,28 @@ Document Intelligence v2.1 supports the following tools:
 
 ::: moniker-end
 
-### Try receipt data extraction
+### Receipt model data extraction
 
 See how Document Intelligence extracts data, including time and date of transactions, merchant information, and amount totals from receipts. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-::: moniker range="doc-intel-3.0.0"
-
-#### Document Intelligence Studio
+::: moniker range=">=doc-intel-3.0.0"
 
 > [!NOTE]
-> Document Intelligence Studio is available with the v3.0 API.
+> Document Intelligence Studio is available with v3.1 and v3.0 APIs and later versions.
 
 1. On the Document Intelligence Studio home page, select **Receipts**
 
-1. You can analyze the sample receipt or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample receipt or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/receipt-analyze.png" alt-text="Screenshot: analyze receipt menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
@@ -153,74 +152,76 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ## Supported languages and locales
 
 >[!NOTE]
 > Document Intelligence auto-detects language and locale data.
 
-### [2023-02-28-preview](#tab/2023-02-28-preview)
+### Supported languages
 
 #### Thermal receipts (retail, meal, parking, etc.)
 
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`), Australia (`en-AU`), Canada (`en-CA`), United Kingdom (`en-GB`), India (`en-IN`), United Arab Emirates (`en-AE`)|
-|Croatian|Croatia (`hr-HR`)|
-|Czech|Czechia (`cs-CZ`)|
-|Danish|Denmark (`da-DK`)|
-|Dutch|Netherlands (`nl-NL`)|
-|Finnish|Finland (`fi-FI`)|
-|French|Canada (`fr-CA`), France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Hungarian|Hungary (`hu-HU`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Latvian|Latvia (`lv-LV`)|
-|Lithuanian|Lithuania (`lt-LT`)|
-|Norwegian|Norway (`no-NO`)|
-|Portuguese|Brazil (`pt-BR`), Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
-|Swedish|Sweden (`sv-SE`)|
-|Vietnamese|Vietnam (`vi-VN`)|
-
-#### Hotel receipts
-
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`)|
-|French|France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Portuguese|Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
-
-### [**2022-08-31 (GA)**](#tab/2022-08-31)
-
-#### Thermal receipts (retail, meal, parking, etc.)
-
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`), Australia (`en-AU`), Canada (`en-CA`), United Kingdom (`en-GB`), India (`en-IN`), United Arab Emirates (`en-AE`)|
-|Croatian|Croatia (`hr-HR`)|
-|Czech|Czechia (`cs-CZ`)|
-|Danish|Denmark (`da-DK`)|
-|Dutch|Netherlands (`nl-NL`)|
-|Finnish|Finland (`fi-FI`)|
-|French|Canada (`fr-CA`), France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Hungarian|Hungary (`hu-HU`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Latvian|Latvia (`lv-LV`)|
-|Lithuanian|Lithuania (`lt-LT`)|
-|Norwegian|Norway (`no-NO`)|
-|Portuguese|Brazil (`pt-BR`), Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
-|Swedish|Sweden (`sv-SE`)|
-|Vietnamese|Vietnam (`vi-VN`)|
+| Language name | Language code | Language name | Language code |
+|:--------------|:-------------:|:--------------|:-------------:|
+|English|``en``|Lithuanian|`lt`|
+|Afrikaans|``af``|Luxembourgish|`lb`|
+|Akan|``ak``|Macedonian|`mk`|
+|Albanian|``sq``|Malagasy|`mg`|
+|Arabic|``ar``|Malay|`ms`|
+|Azerbaijani|``az``|Maltese|`mt`|
+|Bamanankan|``bm``|Maori|`mi`|
+|Basque|``eu``|Marathi|`mr`|
+|Belarusian|``be``|Maya, Yucatán|`yua`|
+|Bhojpuri|``bho``|Mongolian|`mn`|
+|Bosnian|``bs``|Nepali|`ne`|
+|Bulgarian|``bg``|Norwegian|`no`|
+|Catalan|``ca``|Nyanja|`ny`|
+|Cebuano|``ceb``|Oromo|`om`|
+|Corsican|``co``|Pashto|`ps`|
+|Croatian|``hr``|Persian|`fa`|
+|Czech|``cs``|Persian (Dari)|`prs`|
+|Danish|``da``|Polish|`pl`|
+|Dutch|``nl``|Portuguese|`pt`|
+|Estonian|``et``|Punjabi|`pa`|
+|Faroese|``fo``|Quechua|`qu`|
+|Fijian|``fj``|Romanian|`ro`|
+|Filipino|``fil``|Russian|`ru`|
+|Finnish|``fi``|Samoan|`sm`|
+|French|``fr``|Sanskrit|`sa`|
+|Galician|``gl``|Scottish Gaelic|`gd`|
+|Ganda|``lg``|Serbian (Cyrillic)|`sr-cyrl`|
+|German|``de``|Serbian (Latin)|`sr-latn`|
+|Greek|``el``|Sesotho|`st`|
+|Guarani|``gn``|Sesotho sa Leboa|`nso`|
+|Haitian Creole|``ht``|Shona|`sn`|
+|Hawaiian|``haw``|Slovak|`sk`|
+|Hebrew|``he``|Slovenian|`sl`|
+|Hindi|``hi``|Somali (Latin)|`so-latn`|
+|Hmong Daw|``mww``|Spanish|`es`|
+|Hungarian|``hu``|Sundanese|`su`|
+|Icelandic|``is``|Swedish|`sv`|
+|Igbo|``ig``|Tahitian|`ty`|
+|Iloko|``ilo``|Tajik|`tg`|
+|Indonesian|``id``|Tamil|`ta`|
+|Irish|``ga``|Tatar|`tt`|
+|isiXhosa|``xh``|Tatar (Latin)|`tt-latn`|
+|isiZulu|``zu``|Thai|`th`|
+|Italian|``it``|Tongan|`to`|
+|Japanese|``ja``|Turkish|`tr`|
+|Javanese|``jv``|Turkmen|`tk`|
+|Kazakh|``kk``|Ukrainian|`uk`|
+|Kazakh (Latin)|``kk-latn``|Upper Sorbian|`hsb`|
+|Kinyarwanda|``rw``|Uyghur|`ug`|
+|Kiswahili|``sw``|Uyghur (Arabic)|`ug-arab`|
+|Korean|``ko``|Uzbek|`uz`|
+|Kurdish|``ku``|Uzbek (Latin)|`uz-latn`|
+|Kurdish (Latin)|``ku-latn``|Vietnamese|`vi`|
+|Kyrgyz|``ky``|Welsh|`cy`|
+|Latin|``la``|Western Frisian|`fy`|
+|Latvian|``lv``|Xitsonga|`ts`|
+|Lingala|``ln``|||
 
 #### Hotel receipts
 
@@ -273,13 +274,11 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ::: moniker-end
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
- Document Intelligence v3.0 introduces several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types.
+ Document Intelligence v3.0 and later versions introduce several new features and capabilities. In addition to thermal receipts, the **Receipt** model supports single-page hotel receipt processing and tax detail extraction for all receipt types.
 
-### [**2022-08-31 (GA)**](#tab/2022-08-31)
-
-#### Thermal receipts (receipt, receipt.retailMeal, receipt.creditCard, receipt.gas, receipt.parking)
+### receipt
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -304,29 +303,8 @@ See how Document Intelligence extracts data, including time and date of transact
 |`TaxDetails.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
 |`TaxDetails.*.Amount`|`currency`|The amount of the tax detail|$999.00|
 
-#### Hotel receipts (receipt.hotel)
+### receipt.retailMeal
 
-| Field | Type | Description | Example |
-|:------|:-----|:------------|:--------|
-|`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
-|`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
-|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
-|`Total`|`number`|Full transaction total of receipt|$14.34|
-|`ArrivalDate`|`date`|Date of arrival|27Mar21|
-|`DepartureDate`|`date`|Date of departure|28Mar21|
-|`Currency`|`string`|Currency unit of receipt amounts (ISO 4217), or 'MIXED' if multiple values are found|USD|
-|`MerchantAliases`|`array`|||
-|`MerchantAliases.*`|`string`|Alternative name of merchant|Contoso (R)|
-|`Items`|`array`|||
-|`Items.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
-|`Items.*.TotalPrice`|`number`|Total price of line item|$999.00|
-|`Items.*.Description`|`string`|Item description|Room Charge|
-|`Items.*.Date`|`date`|Item date|27Mar21|
-|`Items.*.Category`|`string`|Item category|Room|
-
-### [2023-02-28-preview](#tab/2023-02-28-preview)
-
-#### Thermal receipts (receipt, receipt.retailMeal, receipt.creditCard, receipt.gas, receipt.parking)
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
@@ -350,12 +328,87 @@ See how Document Intelligence extracts data, including time and date of transact
 |`TaxDetails.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
 |`TaxDetails.*.Amount`|`currency`|The amount of the tax detail|$999.00|
 
-#### Hotel receipts (receipt.hotel)
+### receipt.creditCard
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
 |`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
+|`Total`|`number`|Full transaction total of receipt|$14.34|
+|`TransactionDate`|`date`|Date the receipt was issued|June 06, 2019|
+|`TransactionTime`|`time`|Time the receipt was issued|4:49 PM|
+|`Subtotal`|`number`|Subtotal of receipt, often before taxes are applied|$12.34|
+|`TotalTax`|`number`|Tax on receipt, often sales tax or equivalent|$2.00|
+|`Tip`|`number`|Tip included by buyer|$1.00|
+|`Items`|`array`|||
+|`Items.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`Items.*.TotalPrice`|`number`|Total price of line item|$999.00|
+|`Items.*.Description`|`string`|Item description|Surface Pro 6|
+|`Items.*.Quantity`|`number`|Quantity of each item|1|
+|`Items.*.Price`|`number`|Individual price of each item unit|$999.00|
+|`Items.*.ProductCode`|`string`|Product code, product number, or SKU associated with the specific line item|A123|
+|`Items.*.QuantityUnit`|`string`|Quantity unit of each item||
+|`TaxDetails`|`array`|||
+|`TaxDetails.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`TaxDetails.*.Amount`|`currency`|The amount of the tax detail|$999.00|
+
+### receipt.gas
+
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
+|`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
+|`Total`|`number`|Full transaction total of receipt|$14.34|
+|`TransactionDate`|`date`|Date the receipt was issued|June 06, 2019|
+|`TransactionTime`|`time`|Time the receipt was issued|4:49 PM|
+|`Subtotal`|`number`|Subtotal of receipt, often before taxes are applied|$12.34|
+|`TotalTax`|`number`|Tax on receipt, often sales tax or equivalent|$2.00|
+|`Tip`|`number`|Tip included by buyer|$1.00|
+|`Items`|`array`|||
+|`Items.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`Items.*.TotalPrice`|`number`|Total price of line item|$999.00|
+|`Items.*.Description`|`string`|Item description|Surface Pro 6|
+|`Items.*.Quantity`|`number`|Quantity of each item|1|
+|`Items.*.Price`|`number`|Individual price of each item unit|$999.00|
+|`Items.*.ProductCode`|`string`|Product code, product number, or SKU associated with the specific line item|A123|
+|`Items.*.QuantityUnit`|`string`|Quantity unit of each item||
+|`TaxDetails`|`array`|||
+|`TaxDetails.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`TaxDetails.*.Amount`|`currency`|The amount of the tax detail|$999.00|
+
+### receipt.parking
+
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
+|`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-3210|
+|`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
+|`Total`|`number`|Full transaction total of receipt|$14.34|
+|`TransactionDate`|`date`|Date the receipt was issued|June 06, 2019|
+|`TransactionTime`|`time`|Time the receipt was issued|4:49 PM|
+|`Subtotal`|`number`|Subtotal of receipt, often before taxes are applied|$12.34|
+|`TotalTax`|`number`|Tax on receipt, often sales tax or equivalent|$2.00|
+|`Tip`|`number`|Tip included by buyer|$1.00|
+|`Items`|`array`|||
+|`Items.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`Items.*.TotalPrice`|`number`|Total price of line item|$999.00|
+|`Items.*.Description`|`string`|Item description|Surface Pro 6|
+|`Items.*.Quantity`|`number`|Quantity of each item|1|
+|`Items.*.Price`|`number`|Individual price of each item unit|$999.00|
+|`Items.*.ProductCode`|`string`|Product code, product number, or SKU associated with the specific line item|A123|
+|`Items.*.QuantityUnit`|`string`|Quantity unit of each item||
+|`TaxDetails`|`array`|||
+|`TaxDetails.*`|`object`|Extracted line item|1<br>Surface Pro 6<br>$999.00<br>$999.00|
+|`TaxDetails.*.Amount`|`currency`|The amount of the tax detail|$999.00|
+
+### receipt.hotel
+
+| Field | Type | Description | Example |
+|:------|:-----|:------------|:--------|
+|`MerchantName`|`string`|Name of the merchant issuing the receipt|Contoso|
+|`MerchantPhoneNumber`|`phoneNumber`|Listed phone number of merchant|987-654-310|
 |`MerchantAddress`|`address`|Listed address of merchant|123 Main St. Redmond WA 98052|
 |`Total`|`number`|Full transaction total of receipt|$14.34|
 |`ArrivalDate`|`date`|Date of arrival|27Mar21|
@@ -372,24 +425,23 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ---
 
-
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-### Migration guide and REST API v3.0
+### Migration guide and REST API v3.1
 
-* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.1 migration guide**](v3-1-migration-guide.md) to learn how to use the v3.1 version in your applications and workflows.
 
 ::: moniker-end
 
 ## Next steps
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 * Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 

@@ -1,6 +1,6 @@
 ---
 title: " Build a single-page Web app - Bing Visual Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to integrate the Bing Visual Search API into a single-page Web application.
 services: cognitive-services
 author: aahill

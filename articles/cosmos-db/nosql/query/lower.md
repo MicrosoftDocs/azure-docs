@@ -52,5 +52,5 @@ The following example shows how to use the function to modify various strings.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`UPPER`](upper.md)

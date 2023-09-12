@@ -29,7 +29,7 @@ Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps sec
 | Aspect | Details |
 |--|--|
 | Release state: | Preview<br>The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-| Clouds | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 | Regions: | Australia East, Central US, West Europe |
 | Source Code Management Systems | [Azure DevOps](https://portal.azure.com/#home) <br>[GitHub](https://github.com/) supported versions: GitHub Free, Pro, Team, and GitHub Enterprise Cloud | 
 | Required permissions: | <br> **Azure account** - with permissions to sign into Azure portal. <br> **Contributor** - on the relevant Azure subscription. <br> **Organization Administrator** - in GitHub. <br> **Security Admin role** - in Defender for Cloud. |

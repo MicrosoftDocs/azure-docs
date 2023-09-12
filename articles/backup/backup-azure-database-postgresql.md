@@ -2,7 +2,7 @@
 title: Back up Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 08/02/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -184,4 +184,5 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
 ## Next steps
 
-[Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md)
+- [Azure Backup pricing information for PostgreSQ](https://azure.microsoft.com/pricing/details/backup/)
+- [Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md)

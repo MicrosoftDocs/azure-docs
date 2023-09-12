@@ -53,5 +53,5 @@ The following example shows how to return the area of a polygon.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ST_WITHIN`](st-within.md)

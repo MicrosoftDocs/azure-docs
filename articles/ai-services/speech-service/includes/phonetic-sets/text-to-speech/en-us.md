@@ -84,7 +84,7 @@ ms.author: eur
 | dh     | `ð`   | 17       | **th**en    | mo**th**er       | smoo**th** |
 | s      | `s`   | 15       | **s**it     | ri**s**k         | fact**s**  |
 | z      | `z`   | 15       | **z**ap     | bu**s**y         | kid**s**   |
-| sh     | `ʃ`   | 16       | **sh** e    | abbrevia**ti**on | ru**sh**   |
+| sh     | `ʃ`   | 16       | **sh**e    | abbrevia**ti**on | ru**sh**   |
 | zh     | `ʒ`   | 16       | **J**acques | plea**s**ure     | gara**g**e |
 | h      | `h`   | 12       | **h**elp    | en**h**ance      | a-**h**a!  |
 

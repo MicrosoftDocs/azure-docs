@@ -3,7 +3,7 @@ title: Configure your private link
 description: This article shows the steps to configure a private link.
 ms.reviewer: mahesh.sundaram
 ms.topic: conceptual
-ms.date: 1/5/2022
+ms.date: 07/25/2023
 ---
 
 # Configure your private link

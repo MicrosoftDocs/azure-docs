@@ -16,8 +16,7 @@ The Avro files produced by Event Hubs Capture have the following Avro schema:
 ## Azure Storage Explorer
 You can verify that captured files were created in the Azure Storage account using tools such as [Azure Storage Explorer][Azure Storage Explorer]. You can download files locally to work on them. 
 
-An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] for a lightweight SQL-driven experience or [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
-
+An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
 
 ## Use Apache Spark
 [Apache Spark][Apache Spark] is a "unified analytics engine for large-scale data processing." It supports different languages, including SQL, and can easily access Azure Blob storage. There are a few options to run Apache Spark in Azure, and each provides easy access to Azure Blob storage:
@@ -68,7 +67,6 @@ Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data L
 
 
 [Apache Avro]: https://avro.apache.org/
-[Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
@@ -78,5 +76,4 @@ Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data L
 [Event Hubs overview]: ./event-hubs-about.md
 [HDInsight: Address files in Azure storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
-[Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
 [Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
