@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure AI services.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: quickstart
 ms.date: 11/07/2022
 ms.author: mbullwin

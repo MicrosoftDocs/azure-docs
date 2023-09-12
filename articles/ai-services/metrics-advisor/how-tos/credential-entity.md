@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to create a credential entity to manage your credential in secure.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 06/22/2021
 ms.author: mbullwin

@@ -3,8 +3,7 @@ title: Write a query for Metrics Advisor data ingestion
 description: Learn how to onboard your data to Metrics Advisor.
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: tutorial
 ms.date: 05/20/2021	
 ---

@@ -3,8 +3,7 @@ title: Metrics Advisor C# quickstart
 titleSuffix: Azure AI services
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: include
 ms.date: 11/04/2022
 ms.author: mbullwin
