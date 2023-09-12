@@ -1,5 +1,5 @@
 ---
-title: Understanding telephony fraud risk for for Azure AD Multi-Factor Authentication (MFA) | Azure Active Directory
+title: Understanding telephony fraud risk for Azure AD Multi-Factor Authentication (MFA) | Azure Active Directory
 description: Understanding International Revenue Share Fraud (IRSF) is crucial for implementing preventive measures for Azure AD Multi-Factor Authentication (MFA) telephony verification.
 
 services: active-directory
@@ -29,7 +29,7 @@ To protect our customers and vigilantly defend against bad actors who attempt fr
 
 ## How you can help fight telephony fraud  
 
-To help fight telephony fraud, B2C customers can take steps to improve security of authentication actvities such as sign-in, MFA, password reset, and forgot username: 
+To help fight telephony fraud, B2C customers can take steps to improve security of authentication activities such as sign-in, MFA, password reset, and forgot username: 
 
 - Use the recommended versions of user flows
 - Remove region codes that aren't relevant to your organization
