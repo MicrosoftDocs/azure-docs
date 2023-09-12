@@ -25,11 +25,13 @@ Microsoft Authenticator Lite is another surface for Azure Active Directory (Azur
 Users receive a notification in Outlook mobile to approve or deny sign-in, or they can copy a TOTP to use during sign-in. 
 
 >[!NOTE]
->This is an important security enhancement for users authenticating via telecom transports. On June 26, the Microsoft managed value of this feature changed from ‘disabled’ to ‘enabled’. If you no longer wish for this feature to be enabled, move the state from 'default' to‘disabled’ or set users to include and exclude groups. 
+>These are important security enhancements for users authenticating via telecom transports:
+>- On June 26, the Microsoft managed value of this feature changed from ‘disabled’ to ‘enabled’ in the Authentication methods policy. If you no longer wish for this feature to be enabled, move the state from 'default' to ‘disabled’ or scope it to only a group of users.
+>- Starting September 18, Authenticator Lite will be enabled as part of the *Notification through mobile app* verification option in the per-user MFA policy. If you don't want this feature enabled, you can disable it in the Authentication methods policy following the steps below.
 
 ## Prerequisites
 
-- Your organization needs to enable Microsoft Authenticator (second factor) push notifications for some users or groups by using the modern Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API. Organizations with an active MFA server or that have not started migration from per-user MFA are not eligible for this feature.
+- Your organization needs to enable Microsoft Authenticator (second factor) push notifications for all users or select groups. We recommend enabling Microsoft Authenticator by using the modern [Authentication methods policy](concept-authentication-methods-manage.md#authentication-methods-policy). You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API. Organizations with an active MFA server are not eligible for this feature.
 
   >[!TIP]
   >We recommend that you also enable [system-preferred multifactor authentication (MFA)](concept-system-preferred-multifactor-authentication.md) when you enable Authenticator Lite. With system-preferred MFA enabled, users try to sign-in with Authenticator Lite before they try less secure telephony methods like SMS or voice call. 
@@ -45,7 +47,7 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 
 ## Enable Authenticator Lite
 
-By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings). On June 26, the Microsoft managed value of this feature changed from ‘disabled’ to ‘enabled’
+By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) in the Authentication methods policy. On June 26, the Microsoft managed value of this feature changed from ‘disabled’ to ‘enabled’. Authenticator Lite is also included as part of the *Notification through mobile app* verification option in the per-user MFA policy.
 
 ### Disabling Authenticator Lite in Azure portal UX
 
@@ -54,9 +56,9 @@ To disable Authenticator Lite in the Azure portal, complete the following steps:
   1. In the Azure portal, click Azure Active Directory > Security > Authentication methods > Microsoft Authenticator.
      In the Entra admin center, on the sidebar select Azure Active Directory > Protect & Secure > Authentication methods > Microsoft Authenticator.
 
-  2. On the Enable and Target tab, click Yes and All users to enable the Authenticator policy for everyone or add selected users and groups. Set the Authentication mode for these users/groups to Any or Push.
+  2. On the Enable and Target tab, click Enable and All users to enable the Authenticator policy for everyone or add select groups. Set the Authentication mode for these users/groups to Any or Push.
 
-  Only users who are enabled for Microsoft Authenticator here can be enabled to use Authenticator Lite for sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see the feature. Users who have Microsoft Authenticator downloaded on the same device Outlook is downloaded on will not be prompted to register for Authenticator Lite in Outlook. Android users utilizing a personal and work profile on their device may be prompted to register if Authenticator is present on a different profile from the Outlook application.
+Users who aren't enabled for Microsoft Authenticator can't see the feature. Users who have Microsoft Authenticator downloaded on the same device Outlook is downloaded on will not be prompted to register for Authenticator Lite in Outlook. Android users utilizing a personal and work profile on their device may be prompted to register if Authenticator is present on a different profile from the Outlook application.
 
 <img width="1112" alt="Microsoft Entra admin center Authenticator settings" src="https://user-images.githubusercontent.com/108090297/228603771-52c5933c-f95e-4f19-82db-eda2ba640b94.png">
 
@@ -64,6 +66,9 @@ To disable Authenticator Lite in the Azure portal, complete the following steps:
   3. On the Configure tab, for **Microsoft Authenticator on companion applications**, change Status to Disabled, and click Save.
 
 <img width="664" alt="Authenticator Lite configuration settings" src="https://user-images.githubusercontent.com/108090297/228603364-53f2581f-a4e0-42ee-8016-79b23e5eff6c.png">
+
+>[!NOTE]
+> If your organization still manages authentication methods in the per-user MFA policy, you'll need to disable *Notification through mobile app* as a verification option there in addition to the steps above. We recommend doing this only after you've enabled Microsoft Authenticator in the Authentication methods policy. You can contine to manage the remainder of your authentication methods in the per-user MFA policy while Microsoft Authenticator is managed in the modern Authentication methods policy. However, we recommend [migrating](how-to-authentication-methods-manage.md) management of all authentication methods to the modern Authentication methods policy. The ability to manage authentication methods in the per-user MFA policy will be retired September 30, 2024.
 
 ### Enable Authenticator Lite via Graph APIs
 

@@ -13,8 +13,8 @@ metadata:
   ms.collection: collection
   author: gahl-levy
   ms.author: gahllevy
-  ms.reviewer: nayakshweta
-  ms.date: 03/07/2023
+  ms.reviewer: sidandrews
+  ms.date: 08/28/2023
 landingContent:  
   - title: Get started with Azure Cosmos DB for MongoDB vCore
     linkLists:
@@ -40,6 +40,10 @@ landingContent:
             url: how-to-scale-cluster.md
           - text: Restore cluster
             url: how-to-restore-cluster.md
+          - text: Create transactions
+            url: how-to-transactions.md
+          - text: Create text search index
+            url: how-to-create-text-index.md
       - linkListType: concept
         links:
           - text: MongoDB feature support
@@ -48,3 +52,21 @@ landingContent:
             url: high-availability.md
           - text: Migration options
             url: migration-options.md
+  - title: Migrate to MongoDB vCore
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migration options
+            url: migration-options.md
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate using native tools
+            url: how-to-migrate-native-tools.md
+  - title: Integrate with AI
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Vector search
+            url: vector-search.md
+          - text: Build AI apps with vector search
+            url: vector-search-ai.md

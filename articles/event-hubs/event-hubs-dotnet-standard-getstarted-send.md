@@ -118,6 +118,7 @@ This section shows you how to create a .NET Core console application to send eve
         // Use the producer client to send the batch of events to the event hub
         await producerClient.SendAsync(eventBatch);
         Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+        Console.ReadLine();
     }
     finally
     {
@@ -161,6 +162,7 @@ This section shows you how to create a .NET Core console application to send eve
         {
             // if it is too large for the batch
             throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
+            Console.ReadLine();
         }
     }
     
@@ -169,6 +171,7 @@ This section shows you how to create a .NET Core console application to send eve
         // Use the producer client to send the batch of events to the event hub
         await producerClient.SendAsync(eventBatch);
         Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+        Console.ReadLine();
     }
     finally
     {
@@ -302,6 +305,7 @@ Replace the contents of **Program.cs** with the following code:
     {
         // Write the body of the event to the console window
         Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     
@@ -310,6 +314,7 @@ Replace the contents of **Program.cs** with the following code:
         // Write details about the error to the console window
         Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
         Console.WriteLine(eventArgs.Exception.Message);
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     ```
@@ -361,6 +366,7 @@ Replace the contents of **Program.cs** with the following code:
     {
         // Write the body of the event to the console window
         Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     
@@ -369,6 +375,7 @@ Replace the contents of **Program.cs** with the following code:
         // Write details about the error to the console window
         Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
         Console.WriteLine(eventArgs.Exception.Message);
+        Console.ReadLine();
         return Task.CompletedTask;
     }
     ```

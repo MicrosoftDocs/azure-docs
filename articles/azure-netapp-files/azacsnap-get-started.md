@@ -109,21 +109,23 @@ For more information about using GPG, see [The GNU Privacy Handbook](https://www
 
 ## Supported scenarios
 
-The snapshot tools can be used in the following [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md) and 
-[SAP HANA with Azure NetApp Files](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md).
+The snapshot tools can be used in the following [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md) and [SAP HANA with Azure NetApp Files](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md).
 
 ## Snapshot Support Matrix from SAP
 
-The following matrix is provided as a guideline on which versions of SAP HANA
-are supported by SAP for Storage Snapshot Backups.
+The following matrix is provided as a guideline on which versions of SAP HANA are supported by SAP for Storage Snapshot Backups.
 
+ 
  
 |  Database type            | Minimum database versions | Notes                                                                                   |
 |---------------------------|---------------------------|-----------------------------------------------------------------------------------------|
 | Single Container Database | 1.0 SPS 12, 2.0 SPS 00    |                                                                                         |
-| MDC Single Tenant	        | 2.0 SPS 01                | or later versions where MDC Single Tenant supported by SAP for storage/data snapshots.* |
-| MDC Multiple Tenants      | 2.0 SPS 04                | or later where MDC Multiple Tenants supported by SAP for data snapshots.                |
-> \* SAP changed terminology from Storage Snapshots to Data Snapshots from 2.0 SPS 02
+| MDC Single Tenant	        | [2.0 SPS 01](https://help.sap.com/docs/SAP_HANA_PLATFORM/42668af650f84f9384a3337bcd373692/2194a981ea9e48f4ba0ad838abd2fb1c.html?version=2.0.01&locale=en-US)                | or later versions where MDC Single Tenant supported by SAP for storage/data snapshots.* | 
+| MDC Multiple Tenants      | [2.0 SPS 04](https://help.sap.com/docs/SAP_HANA_PLATFORM/42668af650f84f9384a3337bcd373692/7910eb4a498246b1b0435a4e9bf938d1.html?version=2.0.04&locale=en-US)                | or later where MDC Multiple Tenants supported by SAP for data snapshots.                |
+> \* [SAP changed terminology from Storage Snapshots to Data Snapshots from 2.0 SPS 02](https://help.sap.com/docs/SAP_HANA_PLATFORM/42668af650f84f9384a3337bcd373692/7f203cf75ae4445d96ad0012c67c0480.html?version=2.0.02&locale=en-US)
+
+
+
 
 
 ## Important things to remember
@@ -164,7 +166,7 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 
 - [What are the prerequisites for the storage snapshot](azacsnap-installation.md#prerequisites-for-installation)
   - [Enable communication with storage](azacsnap-installation.md#enable-communication-with-storage)
-  - [Enable communication with database](azacsnap-installation.md#enable-communication-with-database)
+  - [Enable communication with database](azacsnap-installation.md#enable-communication-with-the-database)
 - [How to take snapshots manually](azacsnap-tips.md#take-snapshots-manually)
 - [How to set up automatic snapshot backup](azacsnap-tips.md#setup-automatic-snapshot-backup)
 - [How to monitor the snapshots](azacsnap-tips.md#monitor-the-snapshots)
@@ -185,3 +187,4 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 ## Next steps
 
 - [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md)
+

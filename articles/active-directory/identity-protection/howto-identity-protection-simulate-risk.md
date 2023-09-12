@@ -84,14 +84,12 @@ The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 
 ## Leaked Credentials for Workload Identities
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 This risk detection indicates that the application's valid credentials have been leaked. This leak can occur when someone checks in the credentials in a public code artifact on GitHub. Therefore, to simulate this detection, you need a GitHub account and can [sign up a GitHub account](https://docs.github.com/get-started/signing-up-for-github) if you don't have one already.
 
 ### Simulate Leaked Credentials in GitHub for Workload Identities
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
-1. Browse to **Azure Active Directory** > **App registrations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration** to register a new application or reuse an existing stale application.
 1. Select **Certificates & Secrets** > **New client Secret** , add a description of your client secret and set an expiration for the secret or specify a custom lifetime and select **Add**. Record the secret's value for later use for your GitHub Commit.
 
@@ -99,7 +97,7 @@ This risk detection indicates that the application's valid credentials have been
    > **You can not retrieve the secret again after you leave this page**.
    
 1. Get the TenantID and Application(Client)ID in the **Overview** page.
-1. Ensure you disable the application via **Azure Active Directory** > **Enterprise Application** > **Properties** > Set **Enabled for users to sign-in** to **No**.
+1. Ensure you disable the application via **Identity** > **Applications** > **Enterprise Application** > **Properties** > Set **Enabled for users to sign-in** to **No**.
 1. Create a **public** GitHub Repository, add the following config and commit the change as a file with the .txt extension.
    ```GitHub file
      "AadClientId": "XXXX-2dd4-4645-98c2-960cf76a4357",
@@ -117,17 +115,7 @@ This section provides you with steps for testing the user and the sign-in risk p
 
 To test a user risk security policy, perform the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
-1. Select **Configure user risk policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
-      1. **Conditions** - **User risk** Microsoft's recommendation is to set this option to **High**.
-   1. Under **Controls**
-      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require password change**.
-   1. **Enforce Policy** - **Off**
-   1. **Save** - This action will return you to the **Overview** page.
+1. Configure a [user risk policy](howto-identity-protection-configure-risk-policies.md#user-risk-policy-in-conditional-access) targeting the users you plan to test with.
 1. Elevate the user risk of a test account by, for example, simulating one of the risk detections a few times.
 1. Wait a few minutes, and then verify that risk has elevated for your user. If not, simulate more risk detections for the user.
 1. Return to your risk policy and set **Enforce Policy** to **On** and **Save** your policy change.
@@ -137,17 +125,7 @@ To test a user risk security policy, perform the following steps:
 
 To test a sign-in risk policy, perform the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
-1. Select **Configure sign-in risk policy**.
-   1. Under **Assignments**
-      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
-         1. Optionally you can choose to exclude users from the policy.
-      1. **Conditions** - **Sign-in risk** Microsoft's recommendation is to set this option to **Medium and above**.
-   1. Under **Controls**
-      1. **Access** - Microsoft's recommendation is to **Allow access** and **Require multifactor authentication**.
-   1. **Enforce Policy** - **On**
-   1. **Save** - This action will return you to the **Overview** page.
+1. Configure a [sign-in risk policy](howto-identity-protection-configure-risk-policies.md#sign-in-risk-policy-in-conditional-access) targeting the users you plan to test with.
 1. You can now test Sign-in Risk-based Conditional Access by signing in using a risky session (for example, by using the Tor browser). 
 
 ## Next steps

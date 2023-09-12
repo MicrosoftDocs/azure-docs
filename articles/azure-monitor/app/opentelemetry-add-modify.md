@@ -18,7 +18,7 @@ To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](ope
 
 ## Automatic data collection
 
-The distros automatically collect data by bundling OpenTelemetry "instrumentation libraries".
+The distros automatically collect data by bundling OpenTelemetry instrumentation libraries.
 
 ### Included instrumentation libraries
 
@@ -33,9 +33,9 @@ Dependencies
 - [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup>
 
 Logging
-- ILogger
+- `ILogger`
  
-For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/extensions/logging) and [code examples](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
+For more information about `ILogger`, see [Logging in C# and .NET](/dotnet/core/extensions/logging) and [code examples](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
 
 #### [.NET](#tab/net)
 
@@ -139,7 +139,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 #### [Node.js](#tab/nodejs)
 
-The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations) for more details.
+The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [OpenTelemetry officially supported instrumentations](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations).
 
 Requests
 - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
@@ -168,8 +168,8 @@ Requests
 Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2)
 - [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [Urllib](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [Urllib3](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [`Urllib`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [`Urllib3`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
 
 Logs
 - [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[4](#FOOTNOTEFOUR)</sup>
@@ -196,11 +196,7 @@ Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/
 
 You can collect more data automatically when you include instrumentation libraries from the OpenTelemetry community.
 
-> [!NOTE] 
->  We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
-
-> [!CAUTION]
-> Some instrumentation libraries are based on experimental OpenTelemetry semantic specifications. Adding them may leave you vulnerable to future breaking changes.
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-community-library-warning.md)]
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
@@ -292,12 +288,12 @@ The following table represents the currently supported custom telemetry types:
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **ASP.NET Core**                          |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;ILogger API             |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;`ILogger` API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
 | **Java**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;Logback, Log4j, JUL     |               |                |              | Yes        |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Logback, `Log4j`, JUL   |               |                |              | Yes        |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;Micrometer Metrics      |               | Yes            |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |  Yes          | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
@@ -739,7 +735,7 @@ to draw attention in relevant experiences including the failures section and end
       }
   }
   ```
-- To log an Exception using ILogger:
+- To log an Exception using `ILogger`:
   ```csharp
   var logger = loggerFactory.CreateLogger(logCategoryName);
 
@@ -775,7 +771,7 @@ to draw attention in relevant experiences including the failures section and end
       }
   }
   ```
-- To log an Exception using ILogger:
+- To log an Exception using `ILogger`:
   ```csharp
   var logger = loggerFactory.CreateLogger("ExceptionExample");
 
@@ -908,7 +904,7 @@ app.MapGet("/", () =>
 app.Run();
 ```
 
-When calling `StartActivity`, it defaults to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
+`StartActivity` defaults to `ActivityKind.Internal`, but you can provide any other `ActivityKind`.
 `ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal` are mapped to Application Insights `dependencies`.
 `ActivityKind.Server` and `ActivityKind.Consumer` are mapped to Application Insights `requests`.
 
@@ -931,7 +927,7 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
 }
 ```
 
-When calling `StartActivity`, it defaults to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
+`StartActivity` defaults to `ActivityKind.Internal`, but you can provide any other `ActivityKind`.
 `ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal` are mapped to Application Insights `dependencies`.
 `ActivityKind.Server` and `ActivityKind.Consumer` are mapped to Application Insights `requests`.
 
@@ -1550,25 +1546,25 @@ span._attributes["enduser.id"] = "<User ID>"
   
 #### [ASP.NET Core](#tab/aspnetcore)
 
-OpenTelemetry uses .NET's ILogger.
+OpenTelemetry uses .NET's `ILogger`.
 Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 #### [.NET](#tab/net)
 
-OpenTelemetry uses .NET's ILogger.
+OpenTelemetry uses .NET's `ILogger`.
 Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 #### [Java](#tab/java)
 
 Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
 
-* [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
-* [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
+* [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
+* [Log4j 2.0 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
 #### [Node.js](#tab/nodejs)
   
-Attributes could be added only when calling manual track APIs only. Log attributes for console, bunyan and winston are currently not supported.
+Attributes could be added only when calling manual track APIs only. Log attributes for console, bunyan and Winston are currently not supported.
 
 ```javascript
 const config = new ApplicationInsightsConfig();
@@ -1875,6 +1871,8 @@ Get the request trace ID and the span ID in your code:
 
 ---
 
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
+
 ## Next steps
 
 ### [ASP.NET Core](#tab/aspnetcore)
@@ -1906,7 +1904,7 @@ Get the request trace ID and the span ID in your code:
 ### [Node.js](#tab/nodejs)
 
 - To review the source code, see the [Application Insights Beta GitHub repository](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta).
-- To install the npm package and check for updates see the [applicationinsights npm Package](https://www.npmjs.com/package/applicationinsights/v/beta) page.
+- To install the npm package and check for updates, see the [`applicationinsights` npm Package](https://www.npmjs.com/package/applicationinsights/v/beta) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry JavaScript GitHub repository](https://github.com/open-telemetry/opentelemetry-js).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).

@@ -13,11 +13,6 @@ ms.date: 08/11/2023
 recommendations: false
 ---
 
-## Add your data using Azure OpenAI Studio
-
-[!INCLUDE [Connect your data to OpenAI](./connect-your-data-studio.md)]
-
-
 ## Chat playground
 
 Start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. 

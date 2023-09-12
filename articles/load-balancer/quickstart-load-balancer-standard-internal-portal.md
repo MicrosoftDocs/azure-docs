@@ -123,8 +123,6 @@ In this section, you create a virtual network, subnet, and Azure Bastion host.
     > [!IMPORTANT]
     > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
-    >
-
 1. Select the **Review + create** tab or select the **Review + create** button.
 
 1. Select **Create**.

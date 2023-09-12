@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/22/2023
+ms.date: 08/31/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -52,12 +52,9 @@ The classic sign-in logs only include interactive user sign-ins.
 
 ### Interactive user sign-ins
 
-Interactive user sign-ins provide an authentication factor to Azure AD. That authentication factor could also interact with a helper app, such as the Microsoft Authenticator app. Users can provide passwords, responses to MFA challenges, biometric factors, or QR codes to Azure AD or to a helper app. This log also includes federated sign-ins from identity providers that are federated to Azure AD.  
+Interactive sign-ins are performed *by* a user. They provide an authentication factor to Azure AD. That authentication factor could also interact with a helper app, such as the Microsoft Authenticator app. Users can provide passwords, responses to MFA challenges, biometric factors, or QR codes to Azure AD or to a helper app. This log also includes federated sign-ins from identity providers that are federated to Azure AD.  
 
 :::image type="content" source="media/concept-sign-ins/sign-in-logs-user-interactive.png" alt-text="Screenshot of the interactive user sign-ins log." lightbox="media/concept-sign-ins/sign-in-logs-user-interactive-expanded.png":::
-
-> [!NOTE] 
-> The interactive user sign-in log previously contained some non-interactive sign-ins from Microsoft Exchange clients. Although those sign-ins were non-interactive, they were included in the interactive user sign-in log for additional visibility. Once the non-interactive user sign-in log entered public preview in November 2020, those non-interactive sign-in logs were moved to the non-interactive user sign-in log for increased accuracy. 
 
 **Report size:** small </br>
 **Examples:**
@@ -72,9 +69,21 @@ In addition to the default fields, the interactive sign-in log also shows:
 - The sign-in location
 - Whether Conditional Access has been applied
 
+#### Known limitations
+
+**Non-interactive sign-ins on the interactive sign-in logs**
+
+Previously, some non-interactive sign-ins from Microsoft Exchange clients were included in the interactive user sign-in log for better visibility. This increased visibility was necessary before the non-interactive user sign-in logs were introduced in November 2020. However, it's important to note that some non-interactive sign-ins, such as those using FIDO2 keys, may still be marked as interactive due to the way the system was set up before the separate non-interactive logs were introduced. These sign-ins may display interactive details like client credential type and browser information, even though they are technically non-interactive sign-ins.
+
+**Passthrough sign-ins**
+
+Azure Active Directory issues tokens for authentication and authorization. In some situations, a user who is signed in to the Contoso tenant may try to access resources in the Fabrikam tenant, where they don't have access. A no-authorization token, called a passthrough token, is issued to the Fabrikam tenant. The passthrough token doesn't allow the user to access any resources.
+
+When reviewing the logs for this situation, the sign-in logs for the home tenant (in this scenario, Contoso) don't show a sign-in attempt because the token wasn't evaluated against the home tenant's policies. The sign-in token was only used to display the appropriate failure message. You won't see a sign-in attempt in the logs for the home tenant.
+
 ### Non-interactive user sign-ins
 
-Like interactive user sign-ins, non-interactive sign-ins are done on behalf of a user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user perceives these sign-ins as happening in the background.
+Non-interactive sign-ins are done *on behalf of a* user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, Azure AD recognizes when the user's token needs to be refreshed and does so behind the scenes, without interrupting the user's session. In general, the user perceives these sign-ins as happening in the background.
 
 ![Screenshot of the non-interactive user sign-ins log.](media/concept-sign-ins/sign-in-logs-user-noninteractive.png)
 
