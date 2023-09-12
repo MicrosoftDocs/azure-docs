@@ -118,18 +118,18 @@ Under **properties**, you also have to specify an image under **storageProfile**
         "sku": "2019-datacenter-gensecond",
         "version": "latest"
       },
-        "18_04-lts-gen2": {
-        "offer": "UbuntuServer",
-        "publisher": "Canonical",
-        "sku": "18_04-lts-gen2",
-        "version": "latest"
-      },
       "20_04-lts-gen2": {
         "offer": "UbuntuServer",
         "publisher": "Canonical",
         "sku": "20_04-lts-gen2",
         "version": "latest"
       }
+      "22_04-lts-gen2": {
+        "offer": "UbuntuServer",
+        "publisher": "Canonical",
+        "sku": "22_04-lts-gen2",
+        "version": "latest"
+      },
 ```
 
 ## Next step
