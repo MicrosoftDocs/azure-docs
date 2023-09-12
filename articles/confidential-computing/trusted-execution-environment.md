@@ -14,7 +14,7 @@ ms.custom: template-concept
 
 A Trusted Execution Environment (TEE) is a segregated area of memory and CPU that is protected from the rest of the CPU using encryption, any data in the TEE can't be read or tampered with by any code outside that environment. Data can be manipulated inside the TEE by suitable authorized code.
 
-Code executing inside the TEE is processed in the clear but is only visible in encrpyted form when anything outside tries to access it, either in-memory or by reading CPU registers. this is enforced by the platform security processor embedded inside the CPU die.
+Code executing inside the TEE is processed in the clear but is only visible in encrypted form when anything outside tries to access it. This protection is managed by the platform security processor embedded inside the CPU die.
 
 :::image type="content" source="./media/trusted-compute-base/app-enclave-vs-virtual-machine.jpg " alt-text="Image showing the Trusted Compute Base (TCB) concept mapped to Intel SGX and AMD SEV-SNP Trusted Execution Environments":::
 
@@ -26,7 +26,7 @@ The lift and shift offering uses [AMD SEV-SNP (GA)](virtual-machine-solutions-am
 
 Many of these underlying technologies are used to deliver [confidential IaaS and PaaS services](overview-azure-products.md) in the Azure platform making it simple for customers to adopt confidential computing in their solutions.
 
-New GPU designs also support a TEE capability and can be securely combined with CPU TEE solutions such as confidential virtual machines, such as the [NVIDIA offering currently in private preview](https://azure.microsoft.com/blog/azure-confidential-computing-with-nvidia-gpus-for-trustworthy-ai/) to deliver trustworthy AI.
+New GPU designs also support a TEE capability and can be securely combined with CPU TEE solutions such as confidential virtual machines, such as the [NVIDIA offering currently in preview](https://azure.microsoft.com/blog/azure-confidential-computing-with-nvidia-gpus-for-trustworthy-ai/) to deliver trustworthy AI.
 
 Technical details on how the TEE is implemented across different Azure hardware is available as follows:
 
