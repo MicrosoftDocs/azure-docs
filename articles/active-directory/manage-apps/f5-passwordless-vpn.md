@@ -24,7 +24,7 @@ Enabling a BIG-IP SSL-VPN for Azure AD single sign-on (SSO) provides many benefi
 - Improved Zero trust governance through Azure AD pre-authentication and Conditional Access.
   - [What is Conditional Access?](../conditional-access/overview.md)
 - [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless) to the VPN service
-- Manage identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
+- Manage identities and access from a single control plane, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 To learn about more benefits, see 
 
@@ -58,9 +58,7 @@ Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need
 - The BIG-IP provisioned with the needed SSL certificates for publishing services over HTTPS
 
 To improve the tutorial experience, you can learn industry-standard terminology on the F5 BIG-IP [Glossary](https://www.f5.com/services/resources/glossary).
-
->[!NOTE]
->Some instructions might vary slightly from the Azure portal. 
+ 
 
 ## Add F5 BIG-IP from the Azure AD gallery
 
@@ -73,7 +71,7 @@ Set up a SAML federation trust between the BIG-IP to allow the Azure AD BIG-IP t
 3. In the gallery, search for F5 and select **F5 BIG-IP APM Azure AD integration**.
 4. Enter a name for the application.
 5. Select **Add** then **Create**. 
-6. The name, as an icon, appears in the Azure portal and Office 365 portal. 
+6. The name, as an icon, appears in the Microsoft Entra admin center and Office 365 portal. 
 
 ## Configure Azure AD SSO
 
