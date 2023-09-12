@@ -44,7 +44,7 @@ To complete the steps in this article, you need:
 
 * An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
 * An Azure AD tenant linked to the Azure subscription.
-* An account with Azure AD Application Administrator permissions. For more information, see [Azure AD built-in roles](../roles/permissions-reference.md).
+* A [Global Administrator](../roles/permissions-reference.md#global-administrator) role.
 * Docker and Docker Compose, to run DAP. For more information, see [Get Docker](https://docs.docker.com/get-docker/) and [Docker Compose Overview](https://docs.docker.com/compose/install/).
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory. For more information, see [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md).
 * An Oracle EBS environment.
@@ -147,18 +147,12 @@ Configuration on the management console is complete. You're prompted to deploy D
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To provide more security for sign-ins, you can enable Multi-Factor Authentication in the Azure portal:
+To provide more security for sign-ins, you can enable Multi-Factor Authentication in the Microsoft Entra admin center:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-2. Select **Azure Active Directory** > **Manage** > **Properties**.
-3. Under **Properties**, select **Manage security defaults**.
-
-   [![Screenshot of selections for managing security defaults.](./media/datawiza-sso-mfa-oracle-ebs/manage-security-defaults.png)](./media/datawiza-sso-mfa-oracle-ebs/manage-security-defaults.png#lightbox)
-
-4. Under **Enable security defaults**, select **Yes**.
-
-   [![Screenshot of selections for enabling security defaults.](./media/datawiza-sso-mfa-oracle-ebs/enable-security-defaults.png)](./media/datawiza-sso-mfa-oracle-ebs/enable-security-defaults.png#lightbox)
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+2. Browse to **Identity** > **Overview** > **Properties** tab.
+3. Under **Security defaults**, select **Manage security defaults**.
+4. On the **Security defaults** pane, toggle the dropdown menu to select **Enabled**.
 5. Select **Save**.
 
 ## Next steps
