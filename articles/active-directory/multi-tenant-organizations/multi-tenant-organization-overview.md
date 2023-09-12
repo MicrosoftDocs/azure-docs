@@ -169,8 +169,8 @@ Your multi-tenant organization is formed.
 Depending on your use case, you may want to synchronize users using one of the following methods:
 
 - [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs)
-- [Configure cross-tenant synchronization using the Azure portal](cross-tenant-synchronization-configure.md)
-- [Configure cross-tenant synchronization using Microsoft Graph API](cross-tenant-synchronization-configure-graph.md)
+- [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md)
+- [Configure cross-tenant synchronization using PowerShell or Microsoft Graph API](cross-tenant-synchronization-configure-graph.md)
 - Your alternative bulk provisioning engine
 
 ## Limits

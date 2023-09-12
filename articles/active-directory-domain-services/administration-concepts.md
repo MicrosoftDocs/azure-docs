@@ -103,10 +103,10 @@ To get started, [create an Azure AD DS managed domain][create-instance].
 [password-policy]: password-policy.md
 [hybrid-phs]: tutorial-configure-password-hash-sync.md#enable-synchronization-of-password-hashes
 [secure-domain]: secure-your-domain.md
-[azure-ad-password-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[azure-ad-password-sync]: ../active-directory/hybrid/connect/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [create-instance]: tutorial-create-instance.md
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
-[concepts-forest]: concepts-resource-forest.md
+[concepts-forest]: ./concepts-forest-trust.md
 [concepts-trust]: concepts-forest-trust.md
 
 <!-- EXTERNAL LINKS -->
