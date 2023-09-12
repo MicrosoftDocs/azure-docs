@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to generate or manipulate text, including code by using a completion endpoint in Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 08/15/2023
 author: ChrisHMSFT
