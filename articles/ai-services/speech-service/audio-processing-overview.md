@@ -5,8 +5,7 @@ description: An overview of audio processing and capabilities of the Microsoft A
 services: cognitive-services
 author: hasyashah
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/07/2022
 ms.author: hasshah
