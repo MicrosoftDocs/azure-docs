@@ -137,7 +137,7 @@ Azure Communication Services stores chat messages indefinitely till they are del
 Beginning in CY24 Q1, customers must choose between indefinite message retention or automatic deletion after 90 days. Existing messages remain unaffected, but customers can opt for a 90-day retention period if desired.
 
 > [!NOTE] 
-> Once chat messages are deleted by you, we cannot recover them.
+> Accidentally deleted messages are not recoverable by the system.
 
 ## Voice and video calling
 
