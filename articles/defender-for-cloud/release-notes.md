@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 09/07/2023
+ms.date: 09/12/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date |Update  |
 |----------|----------|
-| September 15 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations)|
+| September 12 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations)|
 | September 6 | [Preview release: Containers vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports scan on pull](#preview-release-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-scan-on-pull)|
 | September 6 | [Updated naming format of Center for Internet Security (CIS) standards in regulatory compliance](#updated-naming-format-of-center-for-internet-security-cis-standards-in-regulatory-compliance) |
 | September 5 | [Sensitive data discovery for PaaS databases (Preview)](#sensitive-data-discovery-for-paas-databases-preview) |
@@ -32,7 +32,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ### Recommendations released for preview: Nine new Azure security recommendations
 
-September 15, 2023
+September 12, 2023
 
 We have added nine new Azure security recommendations aligned with the Microsoft Cloud Security Benchmark. These new recommendations are currently in public preview.
 

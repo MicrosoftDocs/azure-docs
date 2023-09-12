@@ -2,7 +2,7 @@
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/24/2023
+ms.date: 09/12/2023
 ms.author: dacurwin
 ms.custom: generated
 ---
