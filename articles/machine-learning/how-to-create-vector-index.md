@@ -85,6 +85,10 @@ After you create a vector index, you can add it to a prompt flow from the prompt
    
    An example of a plain string you can input in this case would be: `How to use SDK V2?'. Here is an example of an embedding as an input: `${embed_the_question.output}`. Passing a plain string will only work when the Vector Index is getting used on the workspace which created it.
 
+## Supported File Types
+
+Supported file types for creating a vector index: .md, .txt, .html, .py, .doc, .ppt, .pdf, .xls. Any other file types will be ignored during creation.
+
 ## Next steps
 
 [Get started with RAG by using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
