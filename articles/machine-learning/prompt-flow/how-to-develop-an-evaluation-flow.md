@@ -116,7 +116,7 @@ In Prompt flow, the flow processes each sample dataset one at a time and generat
 
 To record the score for each data sample, calculate the score for each output, and log the score **as a flow output** by setting it in the output section. This authoring experience is the same as defining a standard flow output.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-output.png" alt-text="Screenshot of the outputs section showing a name and value. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-output.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output.png" alt-text="Screenshot of the outputs section showing a name and value. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output.png":::
 
 We calculate this score in `line_process` node, which you can create and edit from scratch when creating by type. You can also replace this python node with an LLM node to use LLM to calculate the score.
 
@@ -124,7 +124,7 @@ We calculate this score in `line_process` node, which you can create and edit fr
 
 When this evaluation method is used in a batch run, the instance-level score can be viewed in the **Overview ->Output** tab.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png" alt-text="Screenshot of the output tab with evaluation result appended and highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-output-bulk.png" alt-text="Screenshot of the output tab with evaluation result appended and highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-output-bulk.png":::
 
 #### Metrics logging and aggregation node
 

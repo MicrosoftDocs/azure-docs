@@ -70,7 +70,7 @@ Therefore, to run an evaluation, you need to indicate the sources of these requi
 - If the data source is from your run output, the source is indicated as **"${run.output.[OutputName]}"**
 - If the data source is from your test dataset, the source is indicated as **"${data.[ColumnName]}"**
 
-:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-eval-evaluation-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-input-mapping.png":::
+:::image type="content" source="./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-bulk-test-evaluate-flow/batch-run-evaluation-input-mapping.png":::
 
 > [!NOTE]
 > If your evaluation doesn't require data from the dataset, you do not need to reference any dataset columns in the input mapping section, indicating the dataset selection is an optional configuration. Dataset selection won't affect evaluation result.
