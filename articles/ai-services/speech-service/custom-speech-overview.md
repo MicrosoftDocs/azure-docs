@@ -5,8 +5,7 @@ description: Custom Speech is a set of online tools that allows you to evaluate 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 05/08/2022
 ms.author: eur

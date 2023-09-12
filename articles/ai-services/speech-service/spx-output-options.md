@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to configure output options with the Speech CLI.
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
 ms.date: 09/16/2022
 ms.author: eur

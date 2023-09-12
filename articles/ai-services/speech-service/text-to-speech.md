@@ -5,8 +5,7 @@ description: Get an overview of the benefits and capabilities of the text to spe
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/25/2022
 ms.author: eur

@@ -5,8 +5,7 @@ description: Use this guide to set up your platform for C++ on Windows desktop o
 services: cognitive-services
 author: markamos
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 06/11/2022
 ms.author: eur

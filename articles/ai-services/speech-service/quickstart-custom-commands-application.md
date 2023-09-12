@@ -5,8 +5,7 @@ description: In this quickstart, you create and test a basic Custom Commands app
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 02/19/2022
 ms.author: eur

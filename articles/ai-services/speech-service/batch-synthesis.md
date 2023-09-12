@@ -5,8 +5,7 @@ description: Learn how to use the batch synthesis API for asynchronous synthesis
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/16/2022
 ms.author: eur

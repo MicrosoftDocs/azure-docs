@@ -5,8 +5,7 @@ description: In this article we describe a tool released on GitHub that enables 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: eur

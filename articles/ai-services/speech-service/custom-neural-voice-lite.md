@@ -5,8 +5,7 @@ description: Use Custom Neural Voice Lite to demo and evaluate Custom Neural Voi
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: eur

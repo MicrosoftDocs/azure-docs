@@ -5,8 +5,7 @@ description: The Speech software development kit (SDK) exposes many of the Speec
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/16/2022
 ms.author: eur

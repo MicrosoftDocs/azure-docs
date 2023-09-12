@@ -5,8 +5,7 @@ description: Using Kubernetes and Helm to define the speech to text and text to 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 07/22/2021
 ms.author: eur

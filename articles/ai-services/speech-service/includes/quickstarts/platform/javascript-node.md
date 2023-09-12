@@ -5,8 +5,7 @@ description: Use this guide to set up your platform for using JavaScript (NodeJS
 services: cognitive-services
 author: markamos
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: eur

@@ -5,8 +5,7 @@ description: Learn how to train a custom neural voice through the Speech Studio 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 08/25/2023
 ms.author: eur

@@ -5,8 +5,7 @@ description: Use this guide to set up your platform for using Java (Windows, Lin
 services: cognitive-services
 author: markamos
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 06/12/2022
 ms.custom: devx-track-java
