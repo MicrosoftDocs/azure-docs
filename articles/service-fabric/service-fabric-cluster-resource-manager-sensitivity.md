@@ -1,6 +1,6 @@
 ---
 title: Service sensitivity
-description: An introduction to service sensitivity and how to set/get service sensitivity description
+description: An introduction to service sensitivity and how to set service sensitivity description and maximum load for max sensitivity replica
 author: tracygooo
 
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 09/07/2023
 ms.author: jinghuafeng
 ---
 
-# 1. Introduction to service sensitivity
+# 1. Service sensitivity
 Service Fabric Cluster Resource Manager provides the interface of move cost to allow the adjustment of the service failover priority when movements has to be conducted for balancing, defragmentation, and other requirements. However, move cost has a few limitations to satisfy the customers' needs. For instance, Move cost cannot explicitly optimize an individual move as Cluster Resource Manager (CRM) relies on the total score for all movements made in a single algorithm run. Moreover, move cost does not function when CRM conducts swaps as all replicas share the same swap cost, which results in the failure of limiting the swap failover for sensitive replicas. Another limitation is the move cost only provides four possible values  (Zero, Low, Medium, High) and one special value (Very High) to adjust the priority of a replica. This does not provide enough flexibility for differentiation of replica sensitivity to failover. In addition, very high move cost (VHMC) does not provide enough protection on a high-priority replica, i.e., the replica with VHMC is allowed to be moved in quite a few cases.
 
 CRM sensitivity feature offers an option for service fabric customers to finely tune the importance of a stateful service replica and thus to set levels of SLOs to the interruptions to the service. The service sensitivity is defined as a non-negative integer with default value of 0. Larger value implies the lower probability of victimizing (failovering) the corresponding replica. Sensitivity description class contains three different non-negative integers to represent the sensitivities of primary, secondary, and auxiliary replicas respectively. In addition, a separate boolean value IsMaximumSensitivity denotes if a replica is the most sensitive replica. 
@@ -19,6 +19,7 @@ A Max Sensitivity Replica (MSR) can only be moved or swapped in the following ca
 * Node capacity violation with only MSR(s) on the node (i.e., if any other non-MSR is present on the node, the MSR should not be movable.)
 
 The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Sensitivity feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is below or equal to the node capacity of that metric.
+
 ## 1.1. Enable/Disable service sensitivity
 
 Sensitivity feature is turned on/off by setting config `EnableServiceSensitivity` in `PlacementAndLoadBalancing` section of cluster manifest either using XML or JSON:
@@ -54,12 +55,12 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ```xml
 <ServiceTypes>
   <StatefulServiceType ServiceTypeName="ServiceType">
-    <Sensitivity>
+    <ServiceSensitivityDescription>
       <PrimaryDefaultSensitivity>10</PrimaryDefaultSensitivity>
       <SecondaryDefaultSensitivity>10</SecondaryDefaultSensitivity>
       <AuxiliaryDefaultSensitivity>10</AuxiliaryDefaultSensitivity>
       <IsMaximumSensitivity>false</IsMaximumSensitivity>
-    </Sensitivity>
+    </ServiceSensitivityDescription>
   </StatefulServiceType>
 </ServiceTypes>
 ```
@@ -177,5 +178,5 @@ updateDescription.Metrics["CPU"] = cpuMetric;
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/ServiceName"), updateDescription);
 ```
 
-# 2. Next steps
+## 1.4. Next steps
 Learn more about [Service movement cost](service-fabric-cluster-resource-manager-movement-cost.md).
