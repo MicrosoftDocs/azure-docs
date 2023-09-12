@@ -80,6 +80,7 @@ The following table compares the features in each version.
 |  |Tenant restrictions v1  |Tenant restrictions v2  |
 |----------------------|---------|---------|
 |**Policy enforcement**    | The corporate proxy enforces the tenant restriction policy in the Azure AD control plane.         |     Options: <br></br>- Universal tenant restrictions in Global Secure Access (preview), which uses policy signaling to tag all traffic, providing both authentication and data plane support on all platforms. <br></br>- Authentication plane-only protection, where the corporate proxy sets tenant restrictions v2 signals on all traffic. <br></br>- Windows device management, where devices are configured to point Microsoft traffic to the tenant restriction policy, and the policy is enforced in the cloud.     |
+|**Policy enforcement limitation**    | Manage corporate proxies by adding tenants to the Azure AD traffic allowlist. The character limit of the header value in Restrict-Access-To-Tenants: <allowed-tenant-list> limits the number of tenants that can be added. |     Managed by a cloud policy in the cross-tenant access policy. A partner policy is created for each external tenant. Currently, the configuration for all external tenants is contained in one policy with a 25KB size limit.  |
 |**Malicious tenant requests** | Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.         |    Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.     |
 |**Granularity**           | Limited.        |   Tenant, user, group, and application granularity. (User-level granularity isn't supported with Microsoft Accounts.)      |
 |**Anonymous access**      | Anonymous access to Teams meetings and file sharing is allowed.         |   Anonymous access to Teams meetings is blocked. Access to anonymously shared resources (“Anyone with the link”) is blocked.      |
@@ -89,10 +90,11 @@ The following table compares the features in each version.
 |**Portal support**        |No user interface in the Azure portal for configuring the policy.         |   User interface available in the Azure portal for setting up the cloud policy.      |
 |**Unsupported apps**      |     N/A    |   Block unsupported app use with Microsoft endpoints by using Windows Defender Application Control (WDAC) or Windows Firewall  (for example, for Chrome, Firefox, and so on). See [Block Chrome, Firefox and .NET applications like PowerShell](#block-chrome-firefox-and-net-applications-like-powershell).      |
 
-### Migrate tenant restrictions v1 policies to v2
 
-When using tenant restrictions v2 to manage access for your Windows device users, we recommend also configuring your corporate proxy to enforce tenant restrictions v2 to manage other devices and apps in your corporate network. Although configuring tenant restrictions on your corporate proxy doesn't provide data plane protection, it provides authentication plane protection. For details, see [Set up tenant restrictions v2 on your corporate proxy](#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy).
 
+<!-->
+When using tenant restrictions v2 to manage access for your Windows device users, we recommend also configuring your corporate proxy to enforce tenant restrictions v2 to manage other devices and apps in your corporate network.
+-->
 ### Tenant restrictions vs. inbound and outbound settings
 
 Although tenant restrictions are configured along with your cross-tenant access settings, they operate separately from inbound and outbound access settings. Cross-tenant access settings give you control when users sign in with an account from your organization. By contrast, tenant restrictions give you control when users are using an external account. Your inbound and outbound settings for B2B collaboration and B2B direct connect don't affect (and are unaffected by) your tenant restrictions settings.
@@ -345,7 +347,7 @@ Universal tenant restrictions v2 as part of [Microsoft Entra Global Secure Acces
 
 ### Option 2: Set up tenant restrictions v2 on your corporate proxy
 
-Tenant restrictions v2 policies can't be directly enforced on non-Windows 10, Windows 11, or Windows Server 2022 devices, such as Mac computers, mobile devices, unsupported Windows applications, and Chrome browsers. To ensure sign-ins are restricted on all devices and apps in your corporate network, configure your corporate proxy to enforce tenant restrictions v2. Although configuring tenant restrictions on your corporate proxy don't provide data plane protection, it does provide authentication plane protection.
+Tenant restrictions v2 policies can't be directly enforced on non-Windows 10, Windows 11, or Windows Server 2022 devices, such as Mac computers, mobile devices, unsupported Windows applications, and Chrome browsers. To ensure sign-ins are restricted on all devices and apps in your corporate network, configure your corporate proxy to enforce tenant restrictions v2. Although configuring tenant restrictions on your corporate proxy doesn't provide data plane protection, it does provide authentication plane protection.
 
 > [!IMPORTANT]
 > If you've previously set up tenant restrictions, you'll need to stop sending `restrict-msa` to login.live.com. Otherwise, the new settings will conflict with your existing instructions to the MSA login service.
@@ -367,6 +369,38 @@ Tenant restrictions v2 policies can't be directly enforced on non-Windows 10, Wi
    - login.windows.net
 
    This header enforces your tenant restrictions v2 policy on all sign-ins on your network. This header doesn't block anonymous access to Teams meetings, SharePoint files, or other resources that don't require authentication.
+
+### Migrating tenant restrictions v1 to v2
+
+On your corporate proxy, you can move from tenant restrictions V1 to tenant restrictions V2 by changing the tenant restrictions v1 header `Restrict-Access-To-Tenants: <allowed-tenant-list>` to the tenant restrictions V2 header `sec-Restrict-Tenant-Access-Policy: <DirectoryID>:<policyGUID>`, where `<DirectoryID>` is your Azure AD tenant ID and `<policyGUID>` is the object ID for your cross-tenant access policy.
+
+Example:
+Restrict-Access-To-Tenants: contoso.com, fabrikam.com, dogfood.com
+sec-Restrict-Tenant-Access-Policy: restrict-msa
+
+#### Tenant restrictions V2 settings on the corporate proxy
+
+You can configure client-side tenant restrictions V2 header tagging by either configuiring the corporate proxy or using Windows Group Policy to enable client-side tagging of the tenant restrictions V2 header.
+
+- Proxy settings: sec-Restrict-Tenant-Access-Policy: <DirectoryID>:<policyGUID>
+where DirectoryID is your Azure AD tenant ID and policyGUID is the object ID for your cross-tenant access policy. For details, see [Set up tenant restrictions v2 on your corporate proxy](#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy)
+
+- Windows Group Policy: This option is supported only on Windows devices and Microsoft Edge. Enable tenant restrictions V2 tagging by referring to the steps and information in [Step 3: Enable tenant restrictions on Windows managed devices](#step-3-enable-tenant-restrictions-on-windows-managed-devices).
+
+You can configure server-side cloud tenant restrictions V2 policy by following the steps at [Step 2: Configure tenant restrictions V2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners).
+
+- Leave as-is the tenant restrictions V2 default policy that blocks all external tenant access using foreign identities (user@externaltenant.com).
+
+- Create a partner tenant policy for each tenant in the allow list from tenant restrictions V1 by following the steps at [Step 2: Configure tenant restrictions V2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners).
+
+- Allow only specific users to access specific applications. This will increase your security posture by limiting access to necessary users only.
+
+- MSA: Tenant restrictions V2 treats MSA as a partner tenant.
+Create a partner tenant configuration for MSA by following the steps in [Step 2: Configure tenant restrictions V2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners). MSA does not have user granularity and applies to all users. Use application granularity to allow only specific applications that are needed to be accessed by MSA or Consumer accounts. Users will be allowed to access only applications in Application Granularity using MSA/Consumer accounts. 
+> [!NOTE]
+>Blocking the MSA tenant will not block user-less traffic for devices, including:
+>- Traffic for Autopilot, Windows Update, and organizational telemetry
+>- B2B authentication of consumer accounts, or "passthrough" authentication, where Azure apps and Office.com apps use Azure AD to sign in consumer users in a consumer context.
 
 #### Tenant restrictions v2 with no support for break and inspect
 
