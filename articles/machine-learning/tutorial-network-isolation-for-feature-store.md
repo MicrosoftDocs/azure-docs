@@ -44,7 +44,7 @@ Part 1 of this tutorial series showed how to create a feature set specification 
      managed_network:
      isolation_mode: allow_internet_outbound
      ```
-  2. Execute these commands to update the workspace and provision the managed virtual network for serverless Spark jobs:
+  1. Execute these commands to update the workspace and provision the managed virtual network for serverless Spark jobs:
 
      ```cli
      az ml workspace update --file network.yml --resource-group my_resource_group --name
@@ -74,35 +74,35 @@ To prepare the notebook environment for development:
 
    You can also download a zip file from the [azureml-examples](https://github.com/azure/azureml-examples) repository. At this page, first select the `code` dropdown, and then select `Download ZIP`. Then, unzip the contents into a folder on your local device.
 
-2. Upload the feature store samples directory to the project workspace
+1. Upload the feature store samples directory to the project workspace
 
    1. In the Azure Machine Learning workspace, open the Azure Machine Learning studio UI.
-   2. Select **Notebooks** in left navigation panel.
-   3. Select your user name in the directory listing.
-   4. Select ellipses (**...**) and then select **Upload folder**.
-   5. Select the feature store samples folder from the cloned directory path: `azureml-examples/sdk/python/featurestore-sample`.
+   1. Select **Notebooks** in left navigation panel.
+   1. Select your user name in the directory listing.
+   1. Select ellipses (**...**) and then select **Upload folder**.
+   1. Select the feature store samples folder from the cloned directory path: `azureml-examples/sdk/python/featurestore-sample`.
 
-3. Run the tutorial
+1. Run the tutorial
 
    * Option 1: Create a new notebook, and execute the instructions in this document, step by step.
    * Option 2: Open existing notebook `featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb`. You may keep this document open and refer to it for more explanation and documentation links.
 
        1. Select **Serverless Spark Compute** in the top navigation **Compute** dropdown. This operation might take one to two minutes. Wait for a status bar in the top to display **Configure session**.
-       2. Select **Configure session** in the top status bar.
-       3. Select **Python packages**.
-       4. Select **Upload conda file**.
-       5. Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` located on your local device.
-       6. (Optional) Increase the session time-out (idle time in minutes) to reduce the serverless spark cluster startup time.
+       1. Select **Configure session** in the top status bar.
+       1. Select **Python packages**.
+       1. Select **Upload conda file**.
+       1. Select file `azureml-examples/sdk/python/featurestore-sample/project/env/conda.yml` located on your local device.
+       1. (Optional) Increase the session time-out (idle time in minutes) to reduce the serverless spark cluster startup time.
 
-4. This code cell starts the Spark session. It needs about 10 minutes to install all dependencies and start the Spark session.
+1. This code cell starts the Spark session. It needs about 10 minutes to install all dependencies and start the Spark session.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=start-spark-session)]
 
-5. Set up the root directory for the samples
+1. Set up the root directory for the samples
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=root-dir)]
 
-6. Set up the Azure Machine Learning CLI:
+1. Set up the Azure Machine Learning CLI:
 
    * Install the Azure Machine Learning CLI extension
 
@@ -151,7 +151,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-obs-cli)]
 
-2. Copy the sample data required for this tutorial series into the newly created storage containers.
+1. Copy the sample data required for this tutorial series into the newly created storage containers.
 
    1. To write data to the storage containers, ensure that **Contributor** and **Storage Blob Data Contributor** roles are assigned to the user identity on the created ADLS Gen2 storage account in the Azure portal [following these steps](../role-based-access-control/role-assignments-portal.md).
 
@@ -162,15 +162,15 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=copy-transact-data)]
 
-   2. Copy sample source data for account feature set used in this tutorial from a public storage account to the newly created storage account.
+   1. Copy sample source data for account feature set used in this tutorial from a public storage account to the newly created storage account.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=copy-account-data)]
 
-   3. Copy sample observation data used for training from a public storage account to the newly created storage account.
+   1. Copy sample observation data used for training from a public storage account to the newly created storage account.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=copy-obs-train-data)]
 
-   4. Copy sample observation data used for batch inference from a public storage account to the newly created storage account.
+   1. Copy sample observation data used for batch inference from a public storage account to the newly created storage account.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=copy-obs-batch-data)]
 
@@ -180,7 +180,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=disable-pna-gen2-cli)]
 
-   2. Set ARM IDs for the offline store, source data, and observation data containers.
+   1. Set ARM IDs for the offline store, source data, and observation data containers.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=set-container-arm-ids)]
 
@@ -192,11 +192,11 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=define-uai-name)]
 
-   2. This code cell creates the UAI.
+   1. This code cell creates the UAI.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=create-uai-cli)]
 
-   3. This code cell retrieves the principal ID, client ID, and ARM ID property values for the created UAI.
+   1. This code cell retrieves the principal ID, client ID, and ARM ID property values for the created UAI.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb?name=retrieve-uai-props)]
 
@@ -328,7 +328,7 @@ For this tutorial, we'll create three separate storage containers in the same AD
 
    You can also verify the outbound rules from the Azure portal by navigating to **Networking** from left navigation panel for the project workspace and then opening **Workspace managed outbound access** tab.
 
-   :::image type="content" source="./media/tutorial-network-isolation-for-feature-store/project-workspace-outbound-rules.png" lightbox="./media/tutorial-network-isolation-for-feature-store/project-workspace-outbound-rules.png" alt-text="Expandable diagram that shows outbound rules for a project workspace in Azure portal.":::
+   :::image type="content" source="./media/tutorial-network-isolation-for-feature-store/project-workspace-outbound-rules.png" lightbox="./media/tutorial-network-isolation-for-feature-store/project-workspace-outbound-rules.png" alt-text="This screenshot shows outbound rules for a project workspace in Azure portal.":::
 
 ## Prototype and develop a transaction rolling aggregation feature set
 
