@@ -103,11 +103,11 @@ This tutorial uses Azure Cache for Redis as the online materialization store. Yo
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=redis-settings)]
 
-1. You can create a new Redis instance. You would select the Redis cache tier (basic, standard, premium, or enterprise). Choose an SKU family available for the cache tier you select. For more information about tiers and cache performance, see [this resource](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-best-practices-performance). For more information about SKU tiers and Azure cache families, see [this resource](https://azure.microsoft.com/en-us/pricing/details/cache/).
+1. You can create a new Redis instance. You would select the Redis cache tier (basic, standard, premium, or enterprise). Choose an SKU family available for the cache tier you select. For more information about tiers and cache performance, see [this resource](../azure-cache-for-redis/azure-cache-for-redis/cache-best-practices-performance.md). For more information about SKU tiers and Azure cache families, see [this resource](https://azure.microsoft.com/pricing/details/cache/).
 
 Execute this code cell to create an Azure Cache for Redis with premium tier, SKU family `P`, and cache capacity 2. It may take from five to 10 minutes to prepare the Redis instance.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=provision-redis)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=provision-redis)]
 
 1. Additionally, this code cell reuses an existing Redis instance with the previously defined name.
 
@@ -197,7 +197,7 @@ This step involves these actions:
 
 ### Create Azure Machine Learning managed online endpoint
 
-Visit [this resource](https://learn.microsoft.com/azure/machine-learning/how-to-deploy-online-endpoints?view=azureml-api-2&tabs=azure-cli) to learn more about managed online endpoints. With the managed feature store API, you can also look up online features from other inference platforms.
+Visit [this resource](./how-to-deploy-online-endpoints.md?tabs=azure-cli) to learn more about managed online endpoints. With the managed feature store API, you can also look up online features from other inference platforms.
 
 This code cell defines the `fraud-model` managed online endpoint.
 
