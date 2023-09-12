@@ -3,8 +3,7 @@ services: cognitive-services
 manager: nitinme
 author: travisw
 ms.author: travisw
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/29/2023
 ---
