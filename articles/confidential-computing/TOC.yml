@@ -40,9 +40,10 @@
 - name: Why might I need it? # WHY?
   expanded: true
   items:
-#-------- "lost" block
-  - name: Threat Scenarios and protection goals # make all the sub-headings point to a header in the threat-scenarios.md page
-    href: threat-scenarios.md
+#-----temp removed for 1st drop
+#  - name: Threat Scenarios and protection goals # make all the sub-headings point to a header in the threat-scenarios.md page
+#    href: threat-scenarios.md
+#-----temp removed for 1st drop
   - name: Multi-party and cleanroom collaboration
     href: multi-party-data.md #multi-party-collaboration # new #p1
   - name: It's the future #maybe change link to a page that references the below, and explains why it's the future
@@ -54,7 +55,6 @@
 - name: How do I get it? # HOW?
   expanded: true
   items:
-#relocated---------
   - name: Confidential virtual machines
     items:
     - name: About confidential VMs
@@ -161,8 +161,10 @@
     href: ../confidential-ledger/overview.md
 #  - name: Confidential Consortium Framework (CCF) #done < seems to be missing from livesite now?
 #    href: ../confidential-consortium-framework/overview.md
-  - name: Confidential AI #done was# href: https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-data #broken link
-    href: https://github.com/microsoft/confidential-ai
+# temp removed from bugbash feedback - need to find alternative link, original is broken
+#  - name: Confidential AI #done was# href: https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-data #broken link
+#    href: https://github.com/microsoft/confidential-ai
+# temp removed 
   - name: Secure Key Release (SKR) with Azure Key Vault
     items:
     - name: SKR with Azure Confidential Computing Concept
