@@ -38,7 +38,7 @@ There's an automatic conversion of Streaming Units which occurs from REST API la
 | ...  | ...  | ... |
 
 
-## Understanding consumption and memory utilization
+## Understand consumption and memory utilization
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory.  When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there's enough resource allocated to keep the jobs running 24/7.
 
 The SU % utilization metric, which ranges from 0% to 100%, describes the memory consumption of your workload. For a streaming job with minimal footprint, this metric is usually between 10% to 20%. If SU% utilization is high (above 80%), or if input events get backlogged (even with a low SU% utilization since it doesn't show CPU usage), your workload likely requires more compute resources, which requires you to increase the number of streaming units. It's best to keep the SU metric below 80% to account for occasional spikes. To react to increased workloads and increase streaming units, consider setting an alert of 80% on the SU Utilization metric. Also, you can use watermark delay and backlogged events metrics to see if there's an impact.

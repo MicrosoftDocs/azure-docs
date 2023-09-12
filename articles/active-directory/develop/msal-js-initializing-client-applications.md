@@ -116,9 +116,9 @@ Three outcomes are possible from the promise:
 
 ## Initialize MSAL.js 1.x apps
 
-Initialize the MSAL 1.x authentication context by instantiating a [UserAgentApplication][msal-js-useragentapplication] with a configuration object. The minimum required configuration property is the `clientID` of your application, shown as **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
+Initialize the MSAL 1.x authentication context by instantiating a UserAgentApplication with a configuration object. The minimum required configuration property is the `clientID` of your application, shown as **Application (client) ID** on the **Overview** page of the app registration in the Azure portal.
 
-For authentication methods with redirect flows ([loginRedirect][msal-js-loginredirect] and [acquireTokenRedirect][msal-js-acquiretokenredirect]) in MSAL.js 1.2.x or earlier, you must explicitly register a callback for success or error through the `handleRedirectCallback()` method. Explicitly registering the callback is required in MSAL.js 1.2.x and earlier because redirect flows don't return promises like the methods with a pop-up experience do. Registering the callback is _optional_ in MSAL.js version 1.3.x and later.
+For authentication methods with redirect flows (loginRedirect and acquireTokenRedirect) in MSAL.js 1.2.x or earlier, you must explicitly register a callback for success or error through the `handleRedirectCallback()` method. Explicitly registering the callback is required in MSAL.js 1.2.x and earlier because redirect flows don't return promises like the methods with a pop-up experience do. Registering the callback is _optional_ in MSAL.js version 1.3.x and later.
 
 ```javascript
 // Configuration object constructed
@@ -157,9 +157,6 @@ The MSAL.js 2.x code sample on GitHub demonstrates instantiation of a [PublicCli
 
 [msal-browser]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/
 [msal-core]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/
-[msal-js-acquiretokenredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html#acquiretokenredirect
-[msal-js-configuration]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal.html#configuration
-[msal-js-handleredirectpromise]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html#handleredirectpromise
-[msal-js-loginredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html#loginredirect
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html
-[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html
+[msal-js-configuration]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.PublicClientApplication.html#constructor
+[msal-js-handleredirectpromise]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.PublicClientApplication.html#handleredirectpromise 
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_node.PublicClientApplication.html

@@ -31,8 +31,8 @@ For downlevel devices, see the article [Troubleshooting hybrid Azure Active Dire
 
 ## Using the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
-1. Browse to **Azure Active Directory** > **Devices** > **All devices**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com)ntra.microsoft.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
+1. Browse to **Identity** > **Devices** > **All devices**.
 1. If the **Registered** column says **Pending**, then hybrid Azure AD join hasn't completed. In federated environments, this state happens only if it failed to register and Azure AD Connect is configured to sync the devices. Wait for Azure AD Connect to complete a sync cycle.
 1. If the **Registered** column contains a **date/time**, then hybrid Azure AD join has completed.
 

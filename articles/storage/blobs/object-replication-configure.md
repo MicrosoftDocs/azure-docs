@@ -5,7 +5,7 @@ description: Learn how to configure object replication to asynchronously copy bl
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/05/2022
 ms.author: normesta

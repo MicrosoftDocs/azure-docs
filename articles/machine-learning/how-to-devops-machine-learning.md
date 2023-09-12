@@ -79,7 +79,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 1. Choose **+ New service connection** and select **Generic**.
 
-1. Use **https://management.azure.com** and provide a service connection name. Don't provide any authentication related information.
+1. Use ```https://management.azure.com``` and provide a service connection name. Don't provide any authentication related information.
 
 1. Create your service connection.
 

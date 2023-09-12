@@ -64,7 +64,7 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, ASK backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, AKS backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
   >[!Note]
   >Only Managed System Identity based AKS clusters are supported by AKS backup. The support for User Identity based AKS clusters is currently not available. 

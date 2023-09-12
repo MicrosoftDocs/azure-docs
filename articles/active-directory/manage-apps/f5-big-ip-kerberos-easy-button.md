@@ -23,7 +23,7 @@ Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefi
 * Improved governance: See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and learn more about Azure AD pre-authentication. 
 * Enforce organizational policies. See [What is Conditional Access?](../conditional-access/overview.md).
 * Full SSO between Azure AD and BIG-IP published services
-* Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com)
+* Manage identities and access from a single control plane, the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 To learn more about benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-integration.md).
 
@@ -71,7 +71,7 @@ Prior BIG-IP experience isn't necessary, but you need:
     * F5 BIG-IP APM add-on license on a BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
     * 90-day BIG-IP [Free Trial](https://www.f5.com/trial/big-ip-trial.php) license
 * User identities [synchronized](../hybrid/connect/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
-* An account with Azure AD Application Admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 * An [SSL Web certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use the default BIG-IP certificates while testing
 * A Kerberos application, or go to active-directory-wp.com to learn to configure [SSO with IIS on Windows](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html).
 
@@ -88,13 +88,12 @@ This tutorial covers the latest Guided Configuration 16.1 with an Easy Button te
 
 Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md). This action creates a tenant app registration to authorize Easy Button access to Graph. Through these permissions, the BIG-IP pushes the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with Application Admin permissions.
-2. From the left navigation pane, select the **Azure Active Directory** service.
-3. Under Manage, select **App registrations > New registration**.
-4. Enter a display name for your application. For example, F5 BIG-IP Easy Button.
-5. Specify who can use the application > **Accounts in this organizational directory only**.
-6. Select **Register**.
-7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations > New registration**.
+3. Enter a display name for your application. For example, F5 BIG-IP Easy Button.
+4. Specify who can use the application > **Accounts in this organizational directory only**.
+5. Select **Register**.
+6. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
 
    * Application.Read.All
    * Application.ReadWrite.All

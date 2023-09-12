@@ -30,8 +30,8 @@ Find these options in the **Azure portal** > **Azure Active Directory**, **Diagn
 
 ## Use the audit log
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Audit logs**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**.
 1. Select the **Date** range you want to query.
 1. From the **Service** filter, select **Conditional Access** and select the **Apply** button.
 

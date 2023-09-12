@@ -355,7 +355,7 @@ While Azure Synapse Analytics supports a variety of linked service connections (
  - Azure Cosmos DB
  - Azure Data Explorer
  - Azure Database for MySQL
- - Azure Database for Postgre SQL
+ - Azure Database for PostgreSQL
  - Azure Data Lake Store (Gen1)
  - Azure Key Vault
  - Azure Machine Learning

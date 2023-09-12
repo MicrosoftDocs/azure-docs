@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management
-description: Frequently asked questions (FAQs) about Microsoft Permissions Management.
+description: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -139,7 +139,7 @@ Customers can also remove, export or modify specific data if a Global Administra
 
 If you're an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
 
-If you're a self-service customer (you set up a trial or paid license in the Microsoft 365 admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Access Request.
+If you're a self-service customer (you set up a trial or paid license in the Microsoft 365 admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Request.
 
 Learn more about [Azure Data Subject Requests](https://go.microsoft.com/fwlink/?linkid=2245178).
 
@@ -153,11 +153,11 @@ Permissions Management is $125 per resources/year ($10.40 per resource/month). P
 
 ## Do I need to pay for all resources?
 
-Although Permissions Management supports all resources, Microsoft only requires licenses for certain resources per cloud. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
+Although Permissions Management supports all resources, Microsoft only requires licenses for billable resources per cloud environment. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
 
-## How do I figure out how many resources I have? 
+## How do I calculate the number of billable resources I have? 
 
-To find out how many resources you have across your multicloud infrastructure, select Settings (gear icon) and view the Billable Resources tab in Permissions Management. 
+To calculate the billable resources you have across your multicloud infrastructure, you must first activate a [45-day free trial](https://aka.ms/TryPermissionsManagement) of Permissions Management or [purchase a paid license](https://aka.ms/BuyPermissionsManagement). In Permissions Management, select **Settings** (gear icon), then click the **Billable Resources** tab. View the amount of billable resources in the **Total Number of Licenses** column.
 
 ## What do I do if I’m using the legacy version of the CloudKnox service?  
 
