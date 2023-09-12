@@ -6,7 +6,7 @@ ms.service: azure-functions
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 03/04/2022
+ms.date: 09/04/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -63,7 +63,7 @@ namespace WarmupSample
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that runs on each new instance when it's added to your app. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="9-18":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -254,6 +254,7 @@ The following considerations apply to using a warmup function in C#:
 
 - Your function must be named `warmup` (case-insensitive) using the `Function` attribute.
 - A return value attribute isn't required.
+- Use the `Microsoft.Azure.Functions.Worker.Extensions.Warmup` package
 - You can pass an object instance to the function.
 
 # [C# script](#tab/csharp-script)

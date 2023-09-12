@@ -99,7 +99,7 @@ There are many open-source and third-party integrations you can install on your 
 [grafana]: https://grafana.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/kubernetes/
 [couchdb]: https://www.couchbase.com/
-[couchdb-install]: https://docs.couchbase.com/operator/current/tutorial-aks.html
+[couchdb-install]: https://docs.couchbase.com/operator/2.4/tutorial-aks.html
 [open-faas]: https://www.openfaas.com/
 [open-faas-aks]: openfaas.md
 [apache-spark]: https://spark.apache.org/
