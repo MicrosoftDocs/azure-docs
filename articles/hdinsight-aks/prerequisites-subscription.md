@@ -28,7 +28,7 @@ At the next command prompt, enter each of the following commands:
     Register-AzProviderFeature -FeatureName AKS-AzureKeyVaultSecretsProvider -ProviderNamespace Microsoft.ContainerService
     ```
 
-    **Output:** All requests for this feature should be automatically approved. The state in the response should show as "Registered". 
+    **Output:** All requests for this feature should be automatically approved. The state in the response should show as **Registered**. 
                 <br>If you receive a response that the registration is still on-going (state in the response shows as "Registering"), wait for a few minutes. <br>Run the command again in few minutes and the state changes to "Registered" once feature registration is completed.
 
 1. **Register your subscription for 'EnablePodIdentityPreview' feature.** 
@@ -56,7 +56,7 @@ At the next command prompt, enter each of the following commands:
     **Output:** The response indicates the registration is in progress (state in the response shows as "Registering"). It might take a few minutes to register the feature.
       <br>Run the command again in few minutes and the state changes to "Registered" once feature registration is completed.
 
-1. **Register with 'Microsoft.ContainerService' provider to propogate the features.**  
+1. **Register with 'Microsoft.ContainerService' provider to propagate the features registered in the previous steps.**  
    
    ```azurecli
    az provider register -n Microsoft.ContainerService --subscription <Your Subscription>
