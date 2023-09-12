@@ -187,9 +187,9 @@ Use cloud sync to sync your content from Dropbox and OneDrive to Azure Functions
 
 >__Where app content is stored:__ The app content is in the cloud store, but a local copy is stored on the app file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
-### FTPS
+### FTP/S
 
-You can use FTPS to directly transfer files to Azure Functions, although this deployment method isn't recommended. Because using FTP, which is unencrypted, can expose your deployment credentials, you should only use FTPS.  
+You can use FTP/S to directly transfer files to Azure Functions, although this deployment method isn't recommended. When you're not planning on using FTP, you should disable it. If you do choose to use FTP, you should enforce FTPS. To learn how in the Azure portal, see [Enforce FTPS](../app-service/deploy-ftp.md#enforce-ftps). 
 
 >__How to use it:__ Follow the instructions in [FTPS deployment settings](functions-how-to-use-azure-function-app-settings.md#ftps-deployment-settings) to get the URL and credentials you can use to deploy to your function app using FTPS. 
 
