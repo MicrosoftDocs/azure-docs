@@ -87,6 +87,28 @@ Because subnet size can't be changed after assignment, use a subnet that's large
 >
 > Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
 
+Based on the specified requirements, the required subnet size can be calculated as follows:
+
+$5 + 2x(1 + y) = z$
+
+where $x$ is the number of App Service plan instances, $y$ is the number of Windows container apps running on that App Service plan, and $z$ is the required subnet size.
+
+>[!NOTE]
+>
+> Sample calculation:
+>
+> 10 App Service plan instances, 4 Windows Container apps ($x = 10$, $y = 4$):
+>
+> $5 + 2 * 10 * (1 + 4) = y$
+>
+> $5 + 2 * 10 * 5 = y$
+>
+> $5 + 100 = y$
+>
+> $y = 105$
+>
+> A subnet size of at least 105 IP addresses is required.
+
 When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing virtual network integration.
 
 ## Permissions
