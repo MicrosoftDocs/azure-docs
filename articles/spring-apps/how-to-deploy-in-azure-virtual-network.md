@@ -181,6 +181,8 @@ az role assignment create \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 
+The `--assignee` argument represents the service principal Azure Spring Apps uses to interact with the customer's virtual network.
+
 ---
 
 ## Deploy an Azure Spring Apps instance

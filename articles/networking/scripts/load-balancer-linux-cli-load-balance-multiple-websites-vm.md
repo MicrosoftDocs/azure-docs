@@ -26,7 +26,7 @@ This script sample creates a virtual network with two virtual machines (VM) that
 ## Sample script
 
 
-[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Load balance multiple web sites")]
+[!code-azurecli-interactive [main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh "Load balance multiple web sites")]
 
 ## Clean up deployment 
 
