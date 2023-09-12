@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 09/04/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn how to use the Microsoft Graph to manage operations in my Azure AD customer tenant.
@@ -28,17 +28,11 @@ During registration, you'll specify a **Redirect URI** which redirects the user 
 
 The following steps show you how to register your app in the Microsoft Entra admin center:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
 
-1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your customer tenant. 
 
-    1. Select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the portal toolbar. 
-
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**.
-
-1. On the sidebar menu, select **Azure Active Directory**.
-
-1. Select **Applications**, then select **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **+ New registration**.
 
@@ -111,6 +105,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 - [Create a user flow](/graph/api/identitycontainer-post-authenticationeventsflows)
 - [Get a user flow](/graph/api/authenticationeventsflow-get)
 - [Delete a user flow](/graph/api/authenticationeventsflow-delete)
+- [Update a user flow](/graph/api/authenticationeventsflow-update)
 
 ## Identity providers (Preview)
 

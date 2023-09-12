@@ -13,7 +13,7 @@ ms.topic: troubleshooting
 ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
-ms.custom: contperf-fy21q3-portal
+ms.custom: contperf-fy21q3-portal, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---

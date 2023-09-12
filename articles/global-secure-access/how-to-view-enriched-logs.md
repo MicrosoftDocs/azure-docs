@@ -12,7 +12,7 @@ ms.custom:
 
 # How to use the Global Secure Access (preview) enriched Microsoft 365 logs
 
-With your Microsoft 365 traffic flowing through the Microsoft Entra Private Access service, you want to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. The enriched Microsoft 365 logs provide you with the information you need to gain these insights. You can integrate the logs with a third-party security information and event management (SIEM) tool for further analysis.
+With your Microsoft 365 traffic flowing through the Microsoft Entra Private Internet service, you want to gain insights into the performance, experience, and availability of the Microsoft 365 apps your organization uses. The enriched Microsoft 365 logs provide you with the information you need to gain these insights. You can integrate the logs with a third-party security information and event management (SIEM) tool for further analysis.
 
 This article describes the information in the logs and how to export them.
 
@@ -31,11 +31,11 @@ You must configure the endpoint for where you want to route the logs prior to co
 The enriched Microsoft 365 logs provide information about Microsoft 365 workloads, so you can review network diagnostic data, performance data, and security events relevant to Microsoft 365 apps. For example, if access to Microsoft 365 is blocked for a user in your organization, you need visibility into how the user's device is connecting to your network.
 
 These logs provide:
-- Improved latency and predictability
+- Improved latency
 - Additional information added to original logs
 - Accurate IP address
 
-These logs are a subset of the logs available in the [Microsoft 365 audit logs](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=0365-worldwide&preserve-view=true). The logs are enriched with additional information, such as the user's IP address, device name, and device type. The enriched logs also contain information about the Microsoft 365 app, such as the app name, app ID, and app version.
+These logs are a subset of the logs available in the [Microsoft 365 audit logs](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=0365-worldwide&preserve-view=true). The logs are enriched with additional information, including the device ID, operating system, and original IP address. Enriched SharePoint logs provide information on files that were downloaded, uploaded, deleted, modified, or recycled. Deleted or recycled list items are also included in the enriched logs.
 
 ## How to view the logs
 
@@ -43,12 +43,13 @@ Viewing the enriched Microsoft 365 logs is a two-step process. First, you need t
 
 > [!NOTE]
 > At this time, only SharePoint Online logs are available for log enrichment. 
+
 ### Enable the log enrichment
 
 To enable the Enriched Microsoft 365 logs:
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Administrator.
-1. Go to **Global Secure Access** > **Global settings** > **Logging**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator)..
+1. Browse to **Global Secure Access (preview)** > **Global settings** > **Logging**.
 1. Select the type of Microsoft 365 logs you want to enable.
 1. Select **Save**.
 
@@ -72,8 +73,8 @@ To view the enriched Microsoft 365 logs, you must export or stream the logs to a
 
 With your endpoint created, you can configure Diagnostic settings.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Administrator or Security Administrator.
-1. Go to **Microsoft Entra ID** > **Monitoring and health** > **Diagnostic settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator).
+1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 1. Select **Add Diagnostic setting**.
 1. Give your diagnostic setting a name.
 1. Select `EnrichedOffice365AuditLogs`.

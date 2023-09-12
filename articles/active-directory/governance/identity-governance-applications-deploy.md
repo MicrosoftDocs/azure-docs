@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 
 In previous sections, you [defined your governance policies for an application](identity-governance-applications-define.md) and [integrated that application with Azure AD](identity-governance-applications-integrate.md).  In this section, you configure the Azure AD Conditional Access and entitlement management features to control ongoing access to your applications.  You establish
-* Conditional access policies, for how a user authenticates to Azure AD for an application integrated with Azure AD for single sign-on
+* Conditional Access policies, for how a user authenticates to Azure AD for an application integrated with Azure AD for single sign-on
 * Entitlement management policies, for how a user obtains and keeps assignments to application roles and membership in groups
 * Access review policies, for how often group memberships are reviewed
 
@@ -31,7 +31,7 @@ Once these policies are deployed, you can then monitor the ongoing behavior of A
 
 In this section, you establish the Conditional Access policies that are in scope for determining whether an authorized user is able to sign into the app, based on factors like the user's authentication strength or device status.
 
-Conditional access is only possible for applications that rely upon Azure AD for single sign-on (SSO).  If the application isn't able to be integrated for SSO, then continue in the next section.
+Conditional Access is only possible for applications that rely upon Azure AD for single sign-on (SSO).  If the application isn't able to be integrated for SSO, then continue in the next section.
 
 1. **Upload the terms of use (TOU) document, if needed.** If you require users to accept a term of use (TOU) prior to accessing the application, then create and [upload the TOU document](../conditional-access/terms-of-use.md) so that it can be included in a Conditional Access policy.
 1. **Verify users are ready for Azure Active Directory Multi-Factor Authentication.** We recommend requiring Azure AD Multi-Factor Authentication for business critical applications integrated via federation. For these applications, there should be a policy that requires the user to have met a multi-factor authentication requirement prior to Azure AD permitting them to sign into the application.  Some organizations may also block access by locations, or [require the user to access from a registered device](../conditional-access/howto-conditional-access-policy-compliant-device.md).  If there's no suitable policy already that includes the necessary conditions for authentication, location, device and TOU, then [add a policy to your Conditional Access deployment](../conditional-access/plan-conditional-access.md).

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 08/01/2023
 ms.author: justinha
 ms.reviewer: xyuan
 
@@ -149,7 +149,7 @@ If needed, you can [create the required network security group and rules using A
 
 ### Outbound connectivity
 
-For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict Outbound traffic by using ServiceTags listed in the following table. The ServiceTag for AzureUpdateDelivery must be added via [PowerShell](powershell-create-instance.md).
+For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict Outbound traffic by using ServiceTags listed in the following table. The ServiceTag for AzureUpdateDelivery must be added via [PowerShell](powershell-create-instance.md). Make sure no other NSG with higher priority denies the Outbound connectivity. If Outbound connectivity is denied, replication won't work between replica sets. 
 
 
 | Outbound port number | Protocol | Source | Destination   | Action | Required | Purpose |

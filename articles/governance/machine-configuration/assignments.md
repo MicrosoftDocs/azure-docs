@@ -1,7 +1,7 @@
 ---
 title: Understand machine configuration assignment resources
 description: Machine configuration creates extension resources named machine configuration assignments that map configurations to machines.
-ms.date: 04/18/2023
+ms.date: 08/10/2023
 ms.topic: conceptual
 ---
 # Understand machine configuration assignment resources
@@ -41,9 +41,9 @@ more information, see [getting compliance data][02].
 When an Azure Policy assignment is deleted, if the policy created a machine configuration
 assignment, the machine configuration assignment is also deleted.
 
-When an Azure Policy assignment is deleted, you need to manually delete any machine configuration
-assignments the policy created. You can do so by navigating to the guest assignments page on Azure
-portal and deleting the assignment there.
+When an Azure Policy assignment is deleted from an initiative, you need to manually delete any
+machine configuration assignments the policy created. You can do so by navigating to the guest
+assignments page on Azure portal and deleting the assignment there.
 
 ## Manually creating machine configuration assignments
 

@@ -134,7 +134,7 @@ Tests that fail are displayed in **red** and prefaced with `[-]`.
 
 Tests with a warning are displayed in **yellow** and prefaced with `[?]`.
 
-:::image type="content" source="./media/template-test-toolkit/view-results.png" alt-text="view test results.":::
+:::image type="content" source="./media/template-test-toolkit/view-results.png" alt-text="Screenshot of test results in different colors for pass, fail, and warning.":::
 
 The text results are:
 

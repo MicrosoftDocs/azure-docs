@@ -45,7 +45,7 @@ The scenario solution has the following components:
 * **Datawiza Cloud Management Console (DCMC)** - administrators manage DAP with UI and RESTful APIs to configure DAP and access control policies
 * **Oracle PeopleSoft application** - legacy application to be protected by Azure AD and DAP
 
-Learn more: [Datawiza and Azure AD authentication architecture](./datawiza-with-azure-ad.md#datawiza-with-azure-ad-authentication-architecture)
+Learn more: [Datawiza and Azure AD authentication architecture](./datawiza-configure-sha.md#datawiza-with-azure-ad-authentication-architecture)
 
 ## Prerequisites
 
@@ -54,11 +54,11 @@ Ensure the following prerequisites are met.
 * An Azure subscription
   * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free)
 * An Azure AD tenant linked to the Azure subscription
-  * See, [Quickstart: Create a new tenant in Azure Active Directory](../fundamentals/active-directory-access-create-new-tenant.md)
+  * See, [Quickstart: Create a new tenant in Azure Active Directory](../fundamentals/create-new-tenant.md)
 * Docker and Docker Compose
   * Go to docs.docker.com to [Get Docker](https://docs.docker.com/get-docker) and [Install Docker Compose](https://docs.docker.com/compose/install)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to an on-premises directory
-  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 * An account with Azure AD and the Application Administrator role
   * See, [Azure AD built-in roles, all roles](../roles/permissions-reference.md#all-roles)
 * An Oracle PeopleSoft environment
@@ -152,10 +152,10 @@ To provide more security for sign-ins, you can enforce Azure AD Multi-Factor Aut
 
 Learn more: [Tutorial: Secure user sign-in events with Azure AD MFA](../authentication/tutorial-enable-azure-mfa.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-2. Select **Azure Active Directory** > **Manage** > **Properties**.
-3. Under **Properties**, select **Manage security defaults**.
-4. Under **Enable Security defaults**, select **Yes**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+2. Browse to **Identity** > **Overview** > **Properties** tab.
+3. Under **Security defaults**, select **Manage security defaults**.
+4. On the **Security defaults** pane, toggle the dropdown menu to select **Enabled**.
 5. Select **Save**.
 
 ## Enable SSO in the Oracle PeopleSoft console
@@ -213,6 +213,6 @@ To confirm Oracle PeopleSoft application access occurs correctly, a prompt appea
 ## Next steps
 
 - Video: [Enable SSO and MFA for Oracle JD Edwards with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
-- [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-configure-sha.md)
 - [Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
 - Go to docs.datawiza.com for Datawiza [User Guides](https://docs.datawiza.com/)

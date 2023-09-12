@@ -472,7 +472,12 @@
       },
       {
         "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
-        "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
+        "redirect_url": "/azure/healthcare-apis/dicom/dicom-services-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-overview.md",
+        "redirect_url": "/azure/healthcare-apis/dicom/dicom-services-overview",
         "redirect_document_id": false
       },
       {
@@ -494,6 +499,11 @@
           "source_path_from_root": "/articles/healthcare-apis/fhir/bulk-importing-fhir-data.md",
           "redirect_url": "/azure/healthcare-apis/fhir/configure-import-data",
           "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/device-data-through-iot-hub.md",
+        "redirect_url": "/azure/healthcare-apis/iot/overview",
+        "redirect_document_id": false
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-azure-resource-manager-template-quickstart.md",

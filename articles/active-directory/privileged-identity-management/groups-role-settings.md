@@ -29,13 +29,11 @@ Role settings are defined per role per group. All assignments for the same role 
 
 ## Update role settings
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 To open the settings for a group role:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure AD Privileged Identity Management** > **Groups**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Groups**.
 
 1. Select the group for which you want to configure role settings.
 
@@ -101,7 +99,7 @@ For example, users might use an Intune-compliant device to activate group member
 
 To prevent this situation, you can scope Conditional Access policies to enforce certain requirements for eligible users directly. For example, you can require users who are eligible for certain group membership/ownership to always use Intune-compliant devices.
 
-To learn more about Conditional Access authentication context, see [Conditional access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
+To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 
 ### Require justification on activation
 

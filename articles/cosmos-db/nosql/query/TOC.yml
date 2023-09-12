@@ -415,6 +415,6 @@
 - name: Pagination
   displayName: continuation tokens, paging, pagination
   href: pagination.md
-- name: LINQ to SQL
+- name: LINQ to NoSQL
   displayName: linq, .NET
   href: linq-to-sql.md

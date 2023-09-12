@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 05/11/2023
 ---
 
-# What is reliability in Azure Communications Gateway?
+# Reliability in Azure Communications Gateway
 
 Azure Communications Gateway ensures your service is reliable by using Azure redundancy mechanisms and SIP-specific retry behavior. Your network must  meet specific requirements to ensure service availability.
 
@@ -128,5 +128,6 @@ The reliability design described in this document is implemented by Microsoft an
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Prepare to deploy an Azure Communications Gateway resource](prepare-to-deploy.md)
+- Learn about [how Azure Communications Gateway keeps your network and data secure](security.md)
+- Learn more about [planning an Azure Communications Gateway deployment](get-started.md)
+

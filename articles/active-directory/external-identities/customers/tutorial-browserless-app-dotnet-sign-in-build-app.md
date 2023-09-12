@@ -8,10 +8,10 @@ manager: mwongerapk
 ms.author: shermanouko
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
-
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my .NET browserless app with Azure Active Directory (Azure AD) for customers tenant
 ---
 

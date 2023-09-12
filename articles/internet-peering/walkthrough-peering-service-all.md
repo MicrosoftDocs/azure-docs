@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 07/23/2023
+ms.date: 08/09/2023
 ---
 
 # Internet peering for Azure Peering Service partner walkthrough
@@ -26,8 +26,7 @@ To establish direct interconnect for Peering Service, follow these requirements:
 
 -	The Peer MUST provide its own Autonomous System Number (ASN), which MUST be public.
 -	The Peer MUST have redundant Interconnect (PNI) at each interconnect location to ensure local redundancy.
--	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's endpoints. 
--	The Peer MUST supply detail of what class of traffic and endpoints are housed in each advertised subnet.
+-	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's endpoints.
 -	The Peer MUST NOT terminate the peering on a device running a stateful firewall.
 -	The Peer CANNOT have two local connections configured on the same router, as diversity is required.
 -   The Peer CANNOT apply rate limiting to their connection.
@@ -38,6 +37,8 @@ To establish direct interconnect for Peering Service, follow these requirements:
 -	Microsoft configures all the interconnect links as LAG (link bundles) by default, so, peer MUST support LACP (Link Aggregation Control Protocol) on the interconnect links.
 
 ## Establish Direct Interconnect for Peering Service
+
+Ensure that you sign a Microsoft Azure Peering Service agreement before proceeding. For more information, see [Azure Peering Service partner overview requirements](./peering-service-partner-overview.md#peering-service-partner-requirements).
 
 To establish a Peering Service interconnect with Microsoft, follow the following steps:
 
@@ -97,11 +98,9 @@ For optimized routing for infrastructure prefixes, you must register them.
 
 Ensure that the registered prefixes are announced over the direct interconnects established with your peering. If the same prefix is announced in multiple peering locations, you do NOT have to register the prefix in every single location. A prefix can only be registered with a single peering. When you receive the unique prefix key after validation, this key will be used for the prefix even in locations other than the location of the peering it was registered under.
 
-1. To begin registration, go to your peering in the Azure portal and select **Registered prefixes**.
+1. To begin registration, go to your peering in the Azure portal and select **Registered prefixes** under **Settings**.
 
-    :::image type="content" source="./media/walkthrough-peering-service-all/registered-asn.png" alt-text="Screenshot shows how to go to Registered ASNs from the Peering Overview page in the Azure portal.":::
-
-1. Select **Add registered prefix**.
+1. In **Registered prefixes**, select **+ Add registered prefix**.
 
     :::image type="content" source="./media/walkthrough-peering-service-all/add-registered-prefix.png" alt-text="Screenshot of Registered prefix page in the Azure portal.":::
 

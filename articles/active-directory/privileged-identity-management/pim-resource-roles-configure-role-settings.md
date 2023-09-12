@@ -1,6 +1,6 @@
 ---
 title: Configure Azure resource role settings in PIM
-description: Learn how to configure Azure resource role settings in Azure AD Privileged Identity Management (PIM).
+description: Learn how to configure Azure resource role settings in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -26,13 +26,11 @@ PIM role settings are also known as PIM policies.
 
 ## Open role settings
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 To open the settings for an Azure resource role:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure AD Privileged Identity Management** > **Azure Resources**. This page shows a list of Azure resources discovered in Privileged Identity Management. Use the **Resource type** filter to select all required resource types.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Approve Resources**. This page shows a list of Azure resources discovered in Privileged Identity Management. Use the **Resource type** filter to select all required resource types.
 
      :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-list.png" alt-text="Screenshot that shows the list of Azure resources discovered in Privileged Identity Management." lightbox="media/pim-resource-roles-configure-role-settings/resources-list.png":::
 
@@ -95,7 +93,7 @@ For example, users might use an Intune-compliant device to activate the role. Th
 
 To prevent this situation, you can scope Conditional Access policies to enforce certain requirements for eligible users directly. For example, you can require users who are eligible for certain roles to always use Intune-compliant devices.
 
-To learn more about Conditional Access authentication context, see [Conditional access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
+To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 
 ### Require justification on activation
 
@@ -109,7 +107,7 @@ You can require users to enter a support ticket number when they activate the el
 
 You can require approval for activation of an eligible assignment. The approver doesn't have to have any roles. When you use this option, you must select at least one approver. We recommend that you select at least two approvers. There are no default approvers.
 
-To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md).
+To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md).
 
 ### Assignment duration
 

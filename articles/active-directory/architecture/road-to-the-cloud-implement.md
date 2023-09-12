@@ -32,19 +32,19 @@ You can enrich user attributes in Azure AD to make more user attributes availabl
 
 These two links provide guidance on making schema changes:
 
-* [Understand the Azure AD schema and custom expressions](../cloud-sync/concept-attributes.md)
+* [Understand the Azure AD schema and custom expressions](../hybrid/cloud-sync/concept-attributes.md)
 
-* [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md)
+* [Attributes synchronized by Azure AD Connect](../hybrid/connect/reference-connect-sync-attributes-synchronized.md)
 
 These links provide more information on this topic but aren't specific to changing the schema:
 
-* [Use Azure AD schema extension attributes in claims - Microsoft identity platform](../develop/active-directory-schema-extensions.md)
+* [Use Azure AD schema extension attributes in claims - Microsoft identity platform](../develop/schema-extensions.md)
 
 * [What are custom security attributes in Azure AD (preview)?](../fundamentals/custom-security-attributes-overview.md)
 
 * [Customize Azure Active Directory attribute mappings in application provisioning](../app-provisioning/customize-application-attributes.md)
 
-* [Provide optional claims to Azure AD apps - Microsoft identity platform](../develop/active-directory-optional-claims.md)
+* [Provide optional claims to Azure AD apps - Microsoft identity platform](../develop/optional-claims.md)
 
 These links provide more information about groups:
 
@@ -64,7 +64,7 @@ You and your team might feel compelled to change your current employee provision
 
 Client workstations are traditionally joined to Active Directory and managed via Group Policy objects (GPOs) or device management solutions such as Microsoft Configuration Manager. Your teams will establish a new policy and process to prevent newly deployed workstations from being domain joined. Key points include:
 
-* Mandate [Azure AD join](../devices/concept-azure-ad-join.md) for new Windows client workstations to achieve "no more domain join."
+* Mandate [Azure AD join](../devices/concept-directory-join.md) for new Windows client workstations to achieve "no more domain join."
 
 * Manage workstations from the cloud by using unified endpoint management (UEM) solutions such as [Intune](/mem/intune/fundamentals/what-is-intune).
 

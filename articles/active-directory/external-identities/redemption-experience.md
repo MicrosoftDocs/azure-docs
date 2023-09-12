@@ -66,7 +66,7 @@ Sometimes the invited external guest user's email may conflict with an existing 
 
 However, the following scenarios should continue to work:
 -	Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](./direct-federation.md), [Email One-Time Passcode](./one-time-passcode.md), and [Google Federation](./google-federation.md) accounts.
--	Signing back into an application after redemption process using [SAML/WS-Fed IdP](./direct-federation.md) and [Google Federation](./google-federation.md) accounts.
+-	Signing back into an application after redemption process using [SAML/WS-Fed IdP](./direct-federation.md), [Email One-Time Passcode](./one-time-passcode.md), and [Google Federation](./google-federation.md) accounts.
 
 To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact), follow these steps:
 1. Delete the conflicting Contact object.
@@ -82,7 +82,7 @@ When a user selects the **Accept invitation** link in an [invitation email](invi
 
 :::image type="content" source="media/redemption-experience/invitation-redemption.png" alt-text="Screenshot showing the redemption flow diagram.":::
 
-1. Azure AD performs user-based discovery to determine if the user already exists in a managed Azure AD tenant. (Unmanaged Azure AD accounts can no longer be used for the redemption flow.) If the user’s User Principal Name ([UPN](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname)) matches both an existing Azure AD account and a personal MSA, the user is prompted to choose which account they want to redeem with.
+1. Azure AD performs user-based discovery to determine if the user already exists in a managed Azure AD tenant. (Unmanaged Azure AD accounts can no longer be used for the redemption flow.) If the user’s User Principal Name ([UPN](../hybrid/connect/plan-connect-userprincipalname.md#what-is-userprincipalname)) matches both an existing Azure AD account and a personal MSA, the user is prompted to choose which account they want to redeem with.
 
 2. If an admin has enabled [SAML/WS-Fed IdP federation](direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
 
@@ -107,7 +107,7 @@ When a guest signs in to a resource in a partner organization for the first time
    :::image type="content" source="media/redemption-experience/new-review-permissions.png" alt-text="Screenshot showing the Review permissions page.":::
 
    > [!NOTE]
-   > For information about how you as a tenant administrator can link to your organization's privacy statement, see [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/active-directory-properties-area.md).
+   > For information about how you as a tenant administrator can link to your organization's privacy statement, see [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/properties-area.md).
 
 2. If terms of use are configured, the guest opens and reviews the terms of use, and then selects **Accept**. 
 

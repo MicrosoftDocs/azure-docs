@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Organizations with existing Active Directory implementations can benefit from some of the functionality provided by Azure Active Directory (Azure AD) by implementing hybrid Azure AD joined devices. These devices are joined to your on-premises Active Directory and registered with Azure Active Directory.
 
-Hybrid Azure AD joined devices require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. If this requirement is a concern, consider [Azure AD joining](concept-azure-ad-join.md) your devices.
+Hybrid Azure AD joined devices require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. If this requirement is a concern, consider [Azure AD joining](concept-directory-join.md) your devices.
 
 | Hybrid Azure AD Join | Description |
 | --- | --- |
@@ -35,7 +35,7 @@ Hybrid Azure AD joined devices require network line of sight to your on-premises
 |   | Windows 8.1, Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2 - Require MSI |
 | **Device sign in options** | Organizational accounts using: |
 |   | Password |
-|   | Windows Hello for Business for Windows 10 or newer |
+|   | [Passwordless](/azure/active-directory/authentication/concept-authentication-passwordless) options like [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-planning-guide) and FIDO2.0 security keys. |
 | **Device management** | [Group Policy](/mem/configmgr/comanage/faq#my-environment-has-too-many-group-policy-objects-and-legacy-authenticated-apps--do-i-have-to-use-hybrid-azure-ad-) |
 |   | [Configuration Manager standalone or co-management with Microsoft Intune](/mem/configmgr/comanage/overview) |
 | **Key capabilities** | SSO to both cloud and on-premises resources |
@@ -54,7 +54,7 @@ Use Azure AD hybrid joined devices if:
 
 ## Next steps
 
-- [Plan your hybrid Azure AD join implementation](hybrid-azuread-join-plan.md)
+- [Plan your hybrid Azure AD join implementation](hybrid-join-plan.md)
 - [Co-management using Configuration Manager and Microsoft Intune](/mem/configmgr/comanage/overview)
-- [Manage device identities using the Azure portal](device-management-azure-portal.md)
+- [Manage device identities using the Azure portal](manage-device-identities.md)
 - [Manage stale devices in Azure AD](manage-stale-devices.md)

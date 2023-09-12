@@ -2,11 +2,13 @@
 title: Cloud feature availability for commercial and US Government customers
 description: This article describes security feature availability in Azure and Azure Government clouds
 author: TerryLanfear
+manager: rkarlin
 ms.author: terrylan
 ms.service: security
+ms.subservice: security-fundamentals
 ms.custom: ignite-2022
-ms.topic: reference
-ms.date: 01/13/2023
+ms.topic: feature-availability
+ms.date: 08/31/2023
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -154,7 +156,7 @@ The following table displays the current Defender for Cloud feature availability
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
 | <li> [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             |
 | <li> [Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  |
-| <li> [Microsoft Defender for DNS](../../defender-for-cloud/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             |
+| <li> [Microsoft Defender for DNS](../../defender-for-cloud/defender-for-dns-introduction.md)                                                                                            | Not available for new subscriptions | Not available for new subscriptions |
 | <li> [Microsoft Defender for Containers](../../defender-for-cloud/defender-for-containers-introduction.md) <sup>[9](#footnote4)</sup>                                                  | GA                                   | GA                             |
 | <li> [Microsoft Defender for container registries](../../defender-for-cloud/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup> (deprecated)                              | GA             | GA  <sup>[2](#footnote2)</sup> |
 | <li> [Microsoft Defender for container registries scanning of images in CI/CD workflows](../../defender-for-cloud/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  |

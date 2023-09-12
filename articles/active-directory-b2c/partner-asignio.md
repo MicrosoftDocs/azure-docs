@@ -17,7 +17,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Asignio with Azure Active Directory B2C for multifactor authentication
 
-Learn to integrate Azure Active Directory (Azure AD B2C) authentication with [Asignio](https://www.asignio.com/). With this integration, provide passwordless, soft biometric, and multifactor authentication experience to customers. Asignio uses patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature helps to reduce passwords, fraud, phishing, and credential reuse through omni-channel authentication.
+Learn to integrate Azure Active Directory (Azure AD B2C) authentication with [Asignio](https://www.web.asignio.com/). With this integration, provide passwordless, soft biometric, and multifactor authentication experience to customers. Asignio uses patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature helps to reduce passwords, fraud, phishing, and credential reuse through omni-channel authentication.
 
 ## Before you begin
 

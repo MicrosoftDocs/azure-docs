@@ -7,12 +7,14 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 08/14/2023
 ---
 
 # Reservation recommendations
 
 Azure reserved instance (RI) purchase recommendations are provided through Azure Consumption [Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the reservation purchase experience in the Azure portal.
+
+The savings that are presented as part of reservation recommendations are the savings that are calculated in addition to your negotiated, or discounted (if applicable) prices.
 
 The following steps define how recommendations are calculated:
 

@@ -2,7 +2,7 @@
 title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 08/11/2023
 ms.reviewer: saars
 ---
 
@@ -83,7 +83,7 @@ Download [public cloud IP addresses](https://www.microsoft.com/download/details.
 
 Download [US Government cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57063).
 
-#### Azure China cloud
+#### Microsoft Azure operated by 21Vianet cloud
 
 Download [China cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
 

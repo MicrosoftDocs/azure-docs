@@ -8,6 +8,7 @@ manager: amycolannino
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 05/18/2023
 ms.subservice: hybrid
@@ -35,7 +36,7 @@ The password hash synchronization feature automatically retries failed synchroni
 The synchronization of a password has no impact on the user  who is currently signed in.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs, while you are signed in, to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
-A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. This pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign-in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by configuring [Azure AD join](../../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../../devices/concept-hybrid-join.md), which automatically signs users in when they are on their corporate devices connected to your corporate network.
+A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. This pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign-in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by configuring [Azure AD join](../../devices/concept-directory-join.md) or [Hybrid Azure AD join](../../devices/concept-hybrid-join.md), which automatically signs users in when they are on their corporate devices connected to your corporate network.
 
 ### Additional advantages
 
@@ -152,6 +153,8 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 > If the user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in.
 >
 > A new user created in Active Directory with "User must change password at next logon" flag will always be provisioned in Azure AD with a password policy to "Force change password on next sign-in", irrespective of the *ForcePasswordChangeOnLogOn* feature being true or false. This is an Azure AD internal logic since the new user is provisioned without a password, whereas *ForcePasswordChangeOnLogOn* feature only affects admin password reset scenarios.
+>
+> If a user was created in Active Directory with "User must change password at next logon" before the feature was enabled, the user will receive an error while signing in. To remediate this issue, un-check and re-check the field "User must change password at next logon" in Active Directory Users and Computers. After synchronizing the user object changes, the user will receive the expected prompt in Azure AD to update their password. 
 
 > [!CAUTION]
 > You should only use this feature when SSPR and Password Writeback are enabled on the tenant.  This is so that if a user changes their password via SSPR, it will be synchronized to Active Directory.

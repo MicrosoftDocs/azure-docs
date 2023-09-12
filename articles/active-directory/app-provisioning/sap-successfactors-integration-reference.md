@@ -15,7 +15,7 @@ ms.reviewer: chmutali
 
 # How Azure Active Directory provisioning integrates with SAP SuccessFactors 
 
-[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
+[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.sap.com/products/hcm/employee-central-payroll.html) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
 
 * [SuccessFactors to on-premises Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [SuccessFactors to Azure Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
@@ -414,7 +414,7 @@ If you want to exclude processing of prehires in the Onboarding module, update y
 1. Save the mapping and validate that the scoping filter works using provisioning on demand. 
 
 ### Enabling OData API Audit logs in SuccessFactors
-The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve changes and provision users. If you observe issues with the provisioning service and want to confirm what data was retrieved from SuccessFactors, you can enable OData API Audit logs in SuccessFactors. To enable audit logs, follow the steps documented in [SAP support note 2680837](https://userapps.support.sap.com/sap/support/knowledge/en/2680837). Retrieve the request payload sent by Azure AD from the audit logs. To troubleshoot, you can copy this request payload in a tool like [Postman](https://www.postman.com/downloads/), set it up to use the same API user that is used by the connector and see if it returns the desired changes from SuccessFactors. 
+The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve changes and provision users. If you observe issues with the provisioning service and want to confirm what data was retrieved from SuccessFactors, you can enable OData API Audit logs in SuccessFactors. Retrieve the request payload sent by Azure AD from the audit logs. To troubleshoot, you can copy this request payload in a tool like [Postman](https://www.postman.com/downloads/), set it up to use the same API user that is used by the connector and see if it returns the desired changes from SuccessFactors. 
 
 ## Writeback scenarios
 This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is set up in SuccessFactors.

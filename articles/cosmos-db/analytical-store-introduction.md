@@ -310,21 +310,21 @@ Unlike the well-defined schema representation, the full fidelity method allows v
 
 ##### Datatypes map for full fidelity schema
 
-Here's a map of all the property data types and their representations in the analytical store in full fidelity schema representation:
+Here's a map of MongoDB data types and their representations in the analytical store in full fidelity schema representation. The map below isn't valid for NoSQL API accounts.
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
 | Double |    ".float64" |    24.99|
 | Array    | ".array" |    ["a", "b"]|
-|Binary    | ".binary"    |0|
-|Boolean    | ".bool"    |True|
-|Int32    | ".int32"    |123|
-|Int64    | ".int64"    |255486129307|
-|NULL    | ".NULL"    | NULL|
-|String|     ".string" |    "ABC"|
-|Timestamp |    ".timestamp" |    Timestamp(0, 0)|
-|ObjectId    |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
-|Document    |".object" |    {"a": "a"}|
+| Binary    | ".binary"    |0|
+| Boolean    | ".bool"    |True|
+| Int32    | ".int32"    |123|
+| Int64    | ".int64"    |255486129307|
+| NULL    | ".NULL"    | NULL|
+| String|     ".string" |    "ABC"|
+| Timestamp |    ".timestamp" |    Timestamp(0, 0)|
+| ObjectId    |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
+| Document    |".object" |    {"a": "a"}|
 
 * Expect different behavior in regard to explicit `NULL` values:
   * Spark pools in Azure Synapse will read these values as `0` (zero).
@@ -333,6 +333,13 @@ Here's a map of all the property data types and their representations in the ana
 * Expect different behavior in regard to missing columns:
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
+
+* Expect different behavior in regard to `timestamp` values:
+  * Spark pools in Azure Synapse will read these values as `TimestampType`, `DateType`, or `Float`. It depends on the range and how the timestamp was generated.
+  * SQL Serverless pools in Azure Synapse will read these values as `DATETIME2`, ranging from `0001-01-01` through `9999-12-31`. Values beyond this range are not supported and will cause an execution failure for your queries. If this is your case, you can:
+    *  Remove the column from the query. To keep the representation, you can create a new property mirroring that column but within the supported range. And use it in your queries.
+    *  Use [Change Data Capture from analytical store](analytical-store-change-data-capture.md), at no RUs cost, to transform and load the data into a new format, within one of the supported sinks. 
+   
 
 ##### Using full fidelity schema with Spark
 
@@ -479,9 +486,10 @@ FROM OPENROWSET('CosmosDB',
 
 It's possible to use full fidelity Schema for API for NoSQL accounts, instead of the default option, by setting the schema type when enabling Synapse Link on an Azure Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
-* Currently, if you enable Synapse Link in your NoSQL API account using the Azure Portal, it will be enabled as well-defined schema.
+* Currently, if you enable Synapse Link in your NoSQL API account using the Azure portal, it will be enabled as well-defined schema.
 * Currently, if you want to use full fidelity schema with NoSQL or Gremlin API accounts, you have to set it at account level in the same CLI or PowerShell command that will enable Synapse Link at account level.
 * Currently Azure Cosmos DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts have full fidelity schema representation type.
+* Full Fidelity schema data types map mentioned above isn't valid for NoSQL API accounts, that use JSON datatypes. As an example, `float` and `integer` values are represented as `num` in analytical store.
 * It's not possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
 * Currently, containers schemas in analytical store are defined when the container is created, even if Synapse Link has not been enabled in the database account.
   * Containers or graphs created before Synapse Link was enabled with full fidelity schema at account level will have well-defined schema.
@@ -572,7 +580,7 @@ Synapse Link, and analytical store by consequence, has different compatibility l
 
 ### Backup policies
 
-There are two possible backup polices and to understand how to use them, the following details about Azure Cosmos DB backups are very important:
+There are two possible backup policies and to understand how to use them, the following details about Azure Cosmos DB backups are very important:
 
  * The original container is restored without analytical store in both backup modes.
  * Azure Cosmos DB doesn't support containers overwrite from a restore.

@@ -113,4 +113,4 @@ For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-senso
 > [« Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
 
 > [!div class="step-by-step"]
-> [Activate and set up your OT network sensor »](activate-deploy-sensor.md)
+> [Configure and activate your sensor »](activate-deploy-sensor.md)

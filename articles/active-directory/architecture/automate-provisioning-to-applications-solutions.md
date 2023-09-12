@@ -61,15 +61,15 @@ As customers transition identity management to the cloud, more users and groups 
 
 3. When an external user from a partner organization is created in Azure AD using B2B, MIM can automatically provision them [into AD DS](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) and give those guests access to [on-premises Windows-Integrated Authentication or Kerberos-based applications](../external-identities/hybrid-cloud-to-on-premises.md). Alternatively, customers can user [PowerShell scripts](https://github.com/Azure-Samples/B2B-to-AD-Sync) to automate the creation of guest accounts on-premises. 
 
-1. When a group is created in Azure AD, it can be automatically synchronized to AD DS using [Azure AD Connect sync](../hybrid/how-to-connect-group-writeback-v2.md).
+1. When a group is created in Azure AD, it can be automatically synchronized to AD DS using [Azure AD Connect sync](../hybrid/connect/how-to-connect-group-writeback-v2.md).
 
 1. When users need access to cloud apps that still rely on legacy access protocols (for example, LDAP and Kerberos/NTLM), [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) synchronizes identities between Azure AD and a managed AD domain.
 
 |No.| What | From | To | Technology |
 | - | - | - | - | - |
-| 1 |Users, groups| AD DS| Azure AD| [Azure AD Connect Cloud Sync](../cloud-sync/what-is-cloud-sync.md) |
-| 2 |Users, groups, devices| AD DS| Azure AD| [Azure AD Connect Sync](../hybrid/whatis-azure-ad-connect.md) |
-| 3 |Groups| Azure AD| AD DS| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
+| 1 |Users, groups| AD DS| Azure AD| [Azure AD Connect Cloud Sync](../hybrid/cloud-sync/what-is-cloud-sync.md) |
+| 2 |Users, groups, devices| AD DS| Azure AD| [Azure AD Connect Sync](../hybrid/connect/whatis-azure-ad-connect.md) |
+| 3 |Groups| Azure AD| AD DS| [Azure AD Connect Sync](../hybrid/connect/how-to-connect-group-writeback-v2.md) |
 | 4 |Guest accounts| Azure AD| AD DS| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario), [PowerShell](https://github.com/Azure-Samples/B2B-to-AD-Sync)|
 | 5 |Users, groups| Azure AD| Managed AD| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
 
@@ -91,15 +91,24 @@ In addition to the pre-integrated gallery applications, Azure AD supports provis
 
 [Learn more about provisioning to SCIM enabled applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-### Automate provisioning to SQL and LDAP based applications
+### Automate provisioning to on-premises applications
 
- Many applications don't support the SCIM standard, and customers have historically used connectors developed for MIM to connect to them. The Azure AD provisioning service supports reusing connectors developed for MIM and provisioning users into applications that rely on an LDAP user store or a SQL database.
+Many applications don't support the SCIM standard, and customers have historically used connectors developed for MIM to connect to them. The Azure AD provisioning service supports reusing connectors built for MIM, without needing a MIM sync deployment. This opens up connectivity to a wide range of on-premises and SaaS applications.
+
+|Protocol |Connector|
+|-----|-----|
+| LDAP | [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md)|
+| SQL  | [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) |
+| REST | [Web Services](../app-provisioning/on-premises-web-services-connector.md)|
+| SOAP | [Web Services](../app-provisioning/on-premises-web-services-connector.md)|
+| Flat-file| [PowerShell](../app-provisioning/on-premises-powershell-connector.md) |
+| Custom | [Custom ECMA connectors](../app-provisioning/on-premises-custom-connector.md) |
 
 [Learn more about on-premises application provisioning](../app-provisioning/user-provisioning.md)
 
 ### Use integrations developed by partners
 
-Many applications may not yet support SCIM or rely on SQL / LDAP databases. Microsoft partners have developed SCIM gateways that allow you to synchronize users between Azure AD and various systems such as mainframes, HR systems, and legacy databases. In the image below, the SCIM Gateways are built and managed by partners.
+Microsoft partners have developed SCIM gateways that allow you to synchronize users between Azure AD and various systems such as mainframes, HR systems, and legacy databases. In the image below, the SCIM Gateways are built and managed by partners.
 
 ![Agent with SCIM gateway](media/automate-user-provisioning-to-applications-solutions/provisioning-agent-with-scim-gateway.png)
 
@@ -139,5 +148,5 @@ Organizations often need a complete audit trail of what users have access to app
 ### Next steps
 
 1. Automate provisioning with any of your applications that are in the [Azure AD app gallery](../saas-apps/tutorial-list.md), support [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md), [SQL](../app-provisioning/on-premises-sql-connector-configure.md), or [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md).
-2. Evaluate [Azure AD Cloud Sync](../cloud-sync/what-is-cloud-sync.md) for synchronization between AD DS and Azure AD
+2. Evaluate [Azure AD Cloud Sync](../hybrid/cloud-sync/what-is-cloud-sync.md) for synchronization between AD DS and Azure AD
 3. Use the [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for complex provisioning scenarios

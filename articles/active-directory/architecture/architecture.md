@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # What is the Azure Active Directory architecture?
 
-Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](../fundamentals/whatis.md)
 
-With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](../fundamentals/active-directory-whatis.md).
+With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](../fundamentals/whatis.md).
 
 ## Azure AD architecture
 
