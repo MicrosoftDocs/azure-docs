@@ -219,7 +219,7 @@ Follow [this document to add custom application](../how-to-create-compute-instan
 ## Create managed online deployment that can be used as Prompt flow runtime (deprecated)
 
 > [!IMPORTANT]
-> Managed online endpoint/deployment as runtime is **deprecated**. Please use [Migrate guide for managed online endpoint/deployment runtime](./migrate-mir-runtime.md).
+> Managed online endpoint/deployment as runtime is **deprecated**. Please use [Migrate guide for managed online endpoint/deployment runtime](./migrate-managed-inference-runtime.md).
 
 ### Create managed online deployment that can be used as Prompt flow runtime via CLI v2
 
