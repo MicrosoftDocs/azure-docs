@@ -34,7 +34,7 @@ A [namespace qualifier](bicep-functions.md#namespaces-for-functions) (`az`) can 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId | Yes | string | The id of the subscription that has the key vault resource. |
-| resourceGroupName | Yes | string | The name of the resource group that has the KeyVault resource. |
+| resourceGroupName | Yes | string | The name of the resource group that has the key vault resource. |
 | keyVaultName | Yes | string | The name of the key vault. |
 | secretName | Yes | string | The name of the secret stored in the key vault. |
 | secretVersion | No | string | The version of the secret stored in the key vault. |
