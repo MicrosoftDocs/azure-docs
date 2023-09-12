@@ -638,7 +638,6 @@
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
         - name: Deploy flows for real-time inference
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
-<<<<<<< HEAD
         - name: Go to production
           items:
             - name: Community Ecosystem
@@ -655,10 +654,8 @@
               href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
             - name: Network isolation in prompt flow
               href: ./prompt-flow/how-to-secure-prompt-flow.md
-=======
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
->>>>>>> e6d6380195deb887c9da1407e7aacd87fb58ed59
         - name: Tools Reference
           items:
             - name: LLM tool
