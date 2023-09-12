@@ -1,4 +1,3 @@
-
 ---
 title: In-place upgrade to Ubuntu Pro Linux images on Azure
 description: Learn how to do an in-place upgrade from Ubuntu Server to Ubuntu Pro
