@@ -13,7 +13,7 @@ ms.date: 09/07/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-Azure Cosmos DB for PostgreSQL is a managed service that allows you to run horizontally scalable PostgreSQL databases in the cloud. In this article, you'll learn using Bicep to provision and manage an Azure Cosmos DB for PostgreSQL cluster.
+Azure Cosmos DB for PostgreSQL is a managed service that allows you to run horizontally scalable PostgreSQL databases in the cloud. In this article you learn, using Bicep to provision and manage an Azure Cosmos DB for PostgreSQL cluster.
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -23,7 +23,7 @@ Azure Cosmos DB for PostgreSQL is a managed service that allows you to run horiz
 
 ## Review the Bicep file
 
-Provision an Azure Cosmos DB for PostgreSQL cluster which provides the ability to distribute data into shards, alongside HA node for high availability.
+Provision an Azure Cosmos DB for PostgreSQL cluster that provides the ability to distribute data into shards, alongside HA node for high availability.
 
 Create a provision .bicep file and copy the following into it.
 
@@ -88,16 +88,15 @@ az deployment group create --resource-group exampleRG --template-file provision.
 New-AzResourceGroup -Name "exampleRG" -Location "eastus"
 New-AzResourceGroupDeployment -ResourceGroupName exampleRG  -TemplateFile "./provision.bicep"
 ```
-
 ---
 
-You'll be prompted to enter these values:
+You are prompted to enter these values:
 
-- **clusterName**: Enter a unique name that identifies your Azure Cosmos DB for PostgreSQL cluster. For example, mydemocitus-pg. The [domain name](../concepts-node-domain-name.md) postgres.cosmos.azure.com is appended to the cluster name you provide. The Cluster name must only contain lowercase letters, numbers and hyphens. The cluster name must not start or end in a hyphen.
-- **location**: Azure [region](../resources-regions.md) where the cluster and nodes associated with it will be created.
-- **nodeCount**: Number of worker nodes in your cluster. Setting it to `0` will provision a single node cluster while value of greater than equal to two (`>= 2`) provisions a multi-node cluster.
+- **clusterName**: Enter a unique name that identifies your Azure Cosmos DB for PostgreSQL cluster. For example, mydemocitus-pg. The [domain name](/azure-docs-pr/articles/cosmos-db/postgresql/concepts-node-domain-name.md) postgres.cosmos.azure.com is appended to the cluster name you provide. The Cluster name must only contain lowercase letters, numbers and hyphens. The cluster name must not start or end in a hyphen.
+- **location**: Azure [region](/azure-docs-pr/articles/cosmos-db/postgresql/resources-regions.md) where the cluster and associated nodes are created.
+- **nodeCount**: Number of worker nodes in your cluster. Setting it to `0` provisions a single node cluster while value of greater than equal to two (`>= 2`) provisions a multi-node cluster.
 - **enableHA**: With this option selected if a node goes down, the failed node's standby automatically becomes the new node. Database applications continue to access the cluster with the same connection string.
-- **administratorLoginPassword**: enter a new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
+- **administratorLoginPassword**: Enter a new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
 
 ## Review deployed resources
 
