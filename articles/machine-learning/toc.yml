@@ -608,6 +608,8 @@
               href: ./prompt-flow/concept-tools.md
             - name: Variants
               href: ./prompt-flow/concept-variants.md
+            - name: Evaluation monitoring metrics
+              href: ./prompt-flow/concept-model-monitoring-generative-ai-evaluation-metrics.md
         - name: Get started in Prompt flow
           href: ./prompt-flow/get-started-prompt-flow.md
         - name: Set up infrastructure
@@ -636,6 +638,7 @@
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
         - name: Deploy flows for real-time inference
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
+<<<<<<< HEAD
         - name: Go to production
           items:
             - name: Community Ecosystem
@@ -652,6 +655,10 @@
               href: ./prompt-flow/how-to-end-to-end-llmops-with-prompt-flow.md
             - name: Network isolation in prompt flow
               href: ./prompt-flow/how-to-secure-prompt-flow.md
+=======
+        - name: Monitor generative AI applications in production
+          href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
+>>>>>>> e6d6380195deb887c9da1407e7aacd87fb58ed59
         - name: Tools Reference
           items:
             - name: LLM tool
@@ -674,6 +681,8 @@
               href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
             - name: SERP API tool
               href: ./prompt-flow/tools-reference/serp-api-tool.md
+            - name: Troubleshoot Guidance
+              href: ./prompt-flow/tools-reference/troubleshoot-guidance.md
     - name: Retrieval Augmented Generation (RAG)
       items:
         - name: What is RAG
@@ -1060,11 +1069,11 @@
   items:
     - name: Model data collection
       href: concept-data-collection.md
-    - name: Model monitoring
-      href: concept-model-monitoring.md
     - name: Collect inferencing data from production
       displayName: model data collection, data drift, data quality, model quality
       href: how-to-collect-production-data.md
+    - name: Model monitoring
+      href: concept-model-monitoring.md
     - name: Perform continuous monitoring
       displayName: model monitoring, data drift, data quality, model quality
       href: how-to-monitor-model-performance.md

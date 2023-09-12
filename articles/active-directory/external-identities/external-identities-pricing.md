@@ -43,13 +43,11 @@ The pricing tier that applies to your guest users is based on the highest pricin
 
 An Azure AD tenant must be linked to a resource group within an Azure subscription for proper billing and access to features.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the Contributor role within the subscription or a resource group within the subscription.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with an account that's been assigned at least the Contributor role within the subscription or a resource group within the subscription.
 
-2. Select the directory you want to link: In the Azure portal toolbar, select the **Directories + subscriptions** icon in the portal toolbar. Then on the **Portal settings | Directories + subscriptions** page, find your directory in the **Directory name** list, and then select **Switch**.
+2. Select the directory you want to link: In the Microsoft Entra admin center toolbar, select the **Directories + subscriptions** icon in the portal toolbar. Then on the **Portal settings | Directories + subscriptions** page, find your directory in the **Directory name** list, and then select **Switch**.
 
-3. Under **Azure Services**, select **Azure Active Directory**.
-
-4. In the left menu, select **External Identities**.
+3. Browse to **Identity** > **External identities** > **Overview**.
 
 5. Under **Subscriptions**, select **Linked subscriptions**.
 
