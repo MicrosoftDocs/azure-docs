@@ -33,7 +33,7 @@ When you select **Default** as your IPsec/IKE policy when configuring remote net
 | Properties | Combination 1 | Combination 2 | Combination 3 |
 | --- | --- | --- | --- |
 | IPSec encryption | GCMAES256 | GCMAES192 | GCMAES128 |
-| IPSec integrity | GCMAES192 | GCMAES192 | GCMAES128 |
+| IPSec integrity | GCMAES256 | GCMAES192 | GCMAES128 |
 | PFS Group | None | None | None |
 
 ## Custom IPSec/IKE combinations
