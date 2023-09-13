@@ -47,7 +47,7 @@ Call the Azure Function in the React client with the following code.
 
 ## Client: Facets from the catalog
 
-This React component includes the search textbox and the [**facets**](search-faceted-navigation) associated with the search results. Facets need to be thought out and designed as part of the search schema when the search data is loaded. Then the facets are used in the search query, along with the search text, to provide the faceted navigation experience. 
+This React component includes the search textbox and the [**facets**](search-faceted-navigation.md) associated with the search results. Facets need to be thought out and designed as part of the search schema when the search data is loaded. Then the facets are used in the search query, along with the search text, to provide the faceted navigation experience. 
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/components/Facets/Facets.js" highlight="49-76" :::
 
