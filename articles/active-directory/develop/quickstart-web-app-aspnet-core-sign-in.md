@@ -27,7 +27,7 @@ In this article you register a web application in the Microsoft Entra admin cent
 
 ## Prerequisites
 
-* An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core SDK 6.0+](https://dotnet.microsoft.com/download)
 * [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -36,18 +36,18 @@ In this article you register a web application in the Microsoft Entra admin cent
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **App registrations**.
 1. On the page that appears, select **+ New registration**.
-1. For **Name**, enter a name for the application. For example, enter *identity-client-app*. App users can see this name, and it can be changed later in **Manage** > **Branding & properties**.
+1. When the **Register an application** page appears, enter a name for your application, such as *identity-client-app*.
 1. Under **Supported account types**, select *Accounts in this organizational directory only*.
-1. Select **Register**. A new page appears, listing the app's details. Copy the **Application (client) ID** and **Directory (tenant) ID** values, as they're needed to configure the app in a later step.
+1. Select **Register**.
+1. The application's **Overview** pane displays upon successful registration. Record the **Application (client) ID** and **Directory (tenant) ID** to be used in your application source code.
 
-## Define the platform and URLs
+## Add a redirect URI
 
 1. Under **Manage**, select **Authentication**.
-1. Under **Platform configurations**, select **Add a platform**.
-1. A **Configure platforms** pane appears. Under **Web applications**, select **Web**.
+1. Under **Platform configurations**, select **Add a platform**. In the pane that opens, select **Web**.
 1. For **Redirect URIs**, enter `https://localhost:5001/signin-oidc`.
 1. Under **Front-channel logout URL**, enter `https://localhost:5001/signout-oidc`.
-1. Select **Configure**.
+1. Select **Configure** to apply the changes.
 
 ## Clone or download the sample application
 
@@ -93,7 +93,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
     dotnet run
     ```
 
-1. Copy the https URL that appears in the terminal, for example, `https://localhost:5001`, and paste it into a browser. We recommend using a private or incognito browser session.
+1. Copy the `https` URL that appears in the terminal, for example, `https://localhost:5001`, and paste it into a browser. We recommend using a private or incognito browser session.
 1. Follow the steps and enter the necessary details to sign in with your Microsoft account. You'll be requested an email address so a one time passcode can be sent to you. Enter the code when prompted.
 1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
 1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
