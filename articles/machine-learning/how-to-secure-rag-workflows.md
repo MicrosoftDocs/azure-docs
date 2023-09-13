@@ -71,7 +71,7 @@ If you're using an **Allow only approved outbound** Managed Vnet workspace and a
 - You might see an error message related to `< Resource > is not registered with Microsoft.Network resource provider.` In which case, you should **ensure the subscription which your AOAI/ACS resource is registered with a Microsoft Network resource provider**. To do so, navigate to **Subscription**, then **Resource Providers** for the same tenant as your Managed Vnet Workspace.
 
 > [!NOTE]
-> it's expected for a first-time serverless job in the workspace to be Queued an additional 10-15 mins while Managed Network is provisioning Private Endpoints for the first time. With Compute Instance and Compute Cluster, this process happens during the compute creation.
+> It's expected for a first-time serverless job in the workspace to be Queued an additional 10-15 minutes while Managed Network is provisioning Private Endpoints for the first time. With Compute Instance and Compute Cluster, this process happens during the compute creation.
 
 ## Next Steps
 
