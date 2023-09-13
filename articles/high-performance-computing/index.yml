@@ -63,57 +63,57 @@ productDirectory:
               itemType: overview
               text: HPC Deployments
     # Card
-    - title: HPC Compute
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-      links:
-        - url: ../virtual-machines/sizes-hpc.md
-          text: High Performance VMs 
-        - url: ../virtual-machines/sizes-gpu.md
-          text: GPU Accelarated VMs
-        - url: ../virtual-machines/hx-series.md
-          text: Memory Optimized VMs
+          - title: HPC Compute
+          #imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
+          links:
+            - url: ../virtual-machines/sizes-hpc.md
+              text: High Performance VMs 
+            - url: ../virtual-machines/sizes-gpu.md
+              text: GPU Accelarated VMs
+            - url: ../virtual-machines/hx-series.md
+              text: Memory Optimized VMs
     # Card
-    - title: HPC Storage
-      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-      links:
-        - url: ../azure-netapp-files/azure-netapp-files-introduction.md
-          text: Azure NetApp Files
-        - url: /azure/azure-managed-lustre/amlfs-overview
-          text: Azure Managed Lustre
-        - url: /azure/azure-managed-lustre/blob-integration
-          text: Use Azure Blob storage with an Azure Managed Lustre file system          
+        - title: HPC Storage
+          #imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
+          links:
+            - url: ../azure-netapp-files/azure-netapp-files-introduction.md
+              text: Azure NetApp Files
+            - url: /azure/azure-managed-lustre/amlfs-overview
+              text: Azure Managed Lustre
+            - url: /azure/azure-managed-lustre/blob-integration
+              text: Use Azure Blob storage with an Azure Managed Lustre file system          
     # Card
-    - title: HPC Workload Orchestration
-      imageSrc: ../high-performance-computing/media/azure-batch.svg
-      links:
-        - url: ../batch/batch-technical-overview.md
-          text: Azure Batch
-        - url: /azure/cyclecloud/overview
-          text: Azure CycleCloud
-        - url: /azure/logic-apps/overview
-          text: Azure Logic Apps          
+          - title: HPC Workload Orchestration
+            #imageSrc: ../high-performance-computing/media/azure-batch.svg
+            links:
+              - url: ../batch/batch-technical-overview.md
+                text: Azure Batch
+              - url: /azure/cyclecloud/overview
+                text: Azure CycleCloud
+              - url: /azure/logic-apps/overview
+                text: Azure Logic Apps          
     # Card
-    - title: HPC Optimization
-      imageSrc: ../high-performance-computing/media/azure-batch.svg
-      links:
-        - url: ../hpc-cache/hpc-cache-overview.md
-          text: Azure HPC Cache
-        - url: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
-          text: Autoscaling
-        - url: /azure/virtual-machines/spot-vms
-          text: Spot VMs 
+          - title: HPC Optimization
+            #imageSrc: ../high-performance-computing/media/azure-batch.svg
+            links:
+              - url: ../hpc-cache/hpc-cache-overview.md
+                text: Azure HPC Cache
+              - url: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+                text: Autoscaling
+              - url: /azure/virtual-machines/spot-vms
+                text: Spot VMs 
     # Card
-    - title: Manage, Monitor and Control
-      imageSrc: ../high-performance-computing/media/azure-batch.svg
-      links:
-        - url: /azure/azure-monitor/
-          text: Azure Monitor
-        - url: /azure/databox/data-box-overview
-          text: Azure Databox
-        - url: /azure/confidential-ledger/
-          text: Azure Confidential Ledger 
-        - url: /azure/open-datasets/
-          text: Azure Open Datasets
+          - title: Manage, Monitor and Control
+            #imageSrc: ../high-performance-computing/media/azure-batch.svg
+            links:
+              - url: /azure/azure-monitor/
+                text: Azure Monitor
+              - url: /azure/databox/data-box-overview
+                text: Azure Databox
+              - url: /azure/confidential-ledger/
+                text: Azure Confidential Ledger 
+              - url: /azure/open-datasets/
+                text: Azure Open Datasets
 
 # Azure Services
 conceptualContent:
