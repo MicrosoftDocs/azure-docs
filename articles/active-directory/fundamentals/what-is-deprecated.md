@@ -10,8 +10,7 @@ ms.topic: conceptual
 ms.date: 01/27/2023
 ms.author: jricketts
 ms.reviewer: merill
-ms.custom: it-pro
-
+ms.custom: it-pro, has-azure-ad-ps-ref
 ---
 
 # What's deprecated in Azure Active Directory?

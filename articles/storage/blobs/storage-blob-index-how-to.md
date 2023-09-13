@@ -298,5 +298,5 @@ N/A
 
 ## Next steps
 
-- Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md )
+- Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

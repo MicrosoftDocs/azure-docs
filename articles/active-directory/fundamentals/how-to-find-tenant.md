@@ -9,16 +9,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 09/12/2023
 ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
-
 # How to find your Azure Active Directory tenant ID
 
 Azure subscriptions have a trust relationship with Azure Active Directory (Azure AD). Azure AD is trusted to authenticate the subscription's users, services, and devices. Each subscription has a tenant ID associated with it, and there are a few ways you can find the tenant ID for your subscription.
+
+## Find tenant ID through the Microsoft Entra admin center
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+ 
+1. Browse to **Identity** > **Overview** > **Properties**.
+
+1. Scroll down to the **Tenant ID** section and you can find your tenant ID in the box.
 
 ## Find tenant ID through the Azure portal
 
@@ -26,13 +32,11 @@ Azure subscriptions have a trust relationship with Azure Active Directory (Azure
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
-1. Select **Azure Active Directory**.
-
-1. Select **Properties**.
+1. Browse to **Azure Active Directory** > **Properties**.
 
 1. Scroll down to the **Tenant ID** section and you can find your tenant ID in the box.
 
-:::image type="content" source="media/active-directory-how-to-find-tenant/portal-tenant-id.png" alt-text="Azure Active Directory - Properties - Tenant ID - Tenant ID field":::
+:::image type="content" source="media/how-to-find-tenant/portal-tenant-id.png" alt-text="Azure Active Directory - Properties - Tenant ID - Tenant ID field":::
 
 ## Find tenant ID with PowerShell
 
@@ -72,8 +76,8 @@ For more information, see the Microsoft 365 [tenant ID get](https://pnp.github.i
 
 ## Next steps
 
-- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
+- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](./create-new-tenant.md).
 
-- To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](active-directory-how-subscriptions-associated-directory.md).
+- To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](./how-subscriptions-associated-directory.md).
 
 - To learn how to find the object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

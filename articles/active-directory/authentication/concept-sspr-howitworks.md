@@ -189,8 +189,8 @@ If you have a hybrid environment, you can configure Azure AD Connect to write pa
 Azure AD checks your current hybrid connectivity and provides one of the following messages in the Azure portal:
 
 * Your on-premises writeback client is up and running.
-* Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
-* Unfortunately, we can't check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to be able to check your connection status.
+* Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](../hybrid/connect/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
+* Unfortunately, we can't check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](../hybrid/connect/how-to-upgrade-previous-version.md) to be able to check your connection status.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
 * Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](./tutorial-enable-sspr-writeback.md) to restore the connection.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](./troubleshoot-sspr-writeback.md) to restore the connection.

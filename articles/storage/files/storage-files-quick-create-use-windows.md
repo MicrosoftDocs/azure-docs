@@ -4,7 +4,7 @@ description: This tutorial covers how to create an SMB Azure file share using th
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: tutorial
-ms.date: 10/24/2022
+ms.date: 07/28/2022
 ms.author: kendownie
 ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file shares so I can determine whether I want to subscribe to the service.
@@ -72,7 +72,8 @@ So far, you've created an Azure storage account and a file share with one file i
    ![Screenshot of Basic tab, basic VM information filled out.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. Under **Instance details**, name the VM *qsVM*.
-1. For **Image** select **Windows Server 2019 Datacenter - Gen2**.
+1. For **Security type**, select **Standard**.
+1. For **Image**, select **Windows Server 2019 Datacenter - x64 Gen2**.
 1. Leave the default settings for **Region**, **Availability options**, and **Size**.
 1. Under **Administrator account**, add a **Username** and enter a **Password** for the VM.
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
@@ -100,7 +101,8 @@ Now that you've created the VM, connect to it so you can mount your file share.
 ### Map the Azure file share to a Windows drive
 
 1. In the Azure portal, navigate to the *qsfileshare* fileshare and select **Connect**.
-1. Select a drive letter then copy the contents of the second box and paste it in **Notepad**.
+1. Select a drive letter and then **Show script**.
+1. Copy the script and paste it in **Notepad**.
 
    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot that shows the contents of the box that you should copy and paste in Notepad." lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::
 
@@ -110,7 +112,7 @@ Now that you've created the VM, connect to it so you can mount your file share.
 
 Now that you've mapped the drive, create a snapshot.
 
-1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot**.
+1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot** and then **OK**.
 
    ![Screenshot of storage account snapshots tab.](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
@@ -132,7 +134,7 @@ Now that you've mapped the drive, create a snapshot.
 
     :::image type="content" source="media/storage-files-quick-create-use-windows/restore-share-snapshot.png" alt-text="Screenshot of the snapshot tab, qstestfile is selected, restore is highlighted.":::
 
-1. Select **Overwrite original file**.
+1. Select **Overwrite original file** and then **OK**.
 
    ![Screenshot of restore pop up, overwrite original file is selected.](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
 
@@ -140,6 +142,7 @@ Now that you've mapped the drive, create a snapshot.
 
 ## Delete a share snapshot
 
+1. Before you can delete a share snapshot, you'll need to remove any locks on the storage account. Navigate to the storage account you created for this tutorial and select **Settings** > **Locks**. If any locks are listed, delete them.
 1. On your file share, select **Snapshots**.
 1. On the **Snapshots** tab, select the last snapshot in the list and select **Delete**.
 

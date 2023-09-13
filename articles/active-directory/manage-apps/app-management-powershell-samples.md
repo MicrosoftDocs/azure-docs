@@ -11,7 +11,7 @@ ms.topic: sample
 ms.date: 07/12/2023
 ms.author: jomondi
 ms.reviewer: sureshja
-ms.custom: enterprise-apps
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 ---
 
 # Azure Active Directory PowerShell examples for Application Management

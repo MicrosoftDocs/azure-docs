@@ -235,7 +235,13 @@ items:
             - name: High availability
               href: managed-instance-high-availability.md
             - name: Disaster recovery
-              href: managed-instance-disaster-recovery.md
+              items:
+                - name: Overview
+                  href: managed-instance-disaster-recovery.md
+                - name: Configure failover group - portal
+                  href: managed-instance-disaster-recovery-portal.md
+                - name: Configure failover group - CLI
+                  href: managed-instance-disaster-recovery-cli.md
             - name: Reprovision replica
               href: reprovision-replica.md
         - name: Troubleshoot

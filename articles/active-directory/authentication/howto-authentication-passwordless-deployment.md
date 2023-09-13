@@ -95,11 +95,11 @@ The wizard will use your inputs to craft a step-by-step plan for you to follow.
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
-When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../fundamentals/deployment-plans.md).
+When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../architecture/deployment-plans.md).
 
 ### Plan communications
 
@@ -384,4 +384,4 @@ Select the user row, and then select the **Authentication Details** tab to view 
 
 * [Learn how passwordless authentication works](concept-authentication-passwordless.md)
 
-* [Deploy other identity features](../fundamentals/deployment-plans.md)
+* [Deploy other identity features](../architecture/deployment-plans.md)

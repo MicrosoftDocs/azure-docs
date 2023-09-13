@@ -1,5 +1,5 @@
 ---
-title: Add, test, or remove protected actions in Azure AD (preview)
+title: Add, test, or remove protected actions in Azure AD
 description: Learn how to add, test, or remove protected actions in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -12,11 +12,7 @@ ms.topic: how-to
 ms.date: 04/21/2023
 ---
 
-# Add, test, or remove protected actions in Azure AD (preview)
-
-> [!IMPORTANT]
-> Protected actions are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Add, test, or remove protected actions in Azure AD
 
 [Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, test, or remove protected actions.
 
@@ -36,7 +32,7 @@ Protected actions use a Conditional Access authentication context, so you must c
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Protect & secure** > **Conditional Access** > **Authentication context** > **Authentication context**.
+1. Select **Protection** > **Conditional Access** > **Authentication context** > **Authentication context**.
 
 1. Select **New authentication context** to open the **Add authentication context** pane.
 
@@ -56,11 +52,11 @@ Protected actions use a Conditional Access authentication context, so you must c
 
 To add protection actions, assign a Conditional Access policy to one or more permissions using a Conditional Access authentication context.
 
-1. Select **Azure Active Directory** > **Protect & secure** > **Conditional Access** > **Policies**.
+1. Select **Protection** > **Conditional Access** > **Policies**.
 
 1. Make sure the state of the Conditional Access policy that you plan to use with your protected action is set to **On** and not **Off** or **Report-only**.
 
-1. Select **Azure Active Directory** > **Roles & admins** > **Protected actions (Preview)**.
+1. Select **Identity** > **Roles & admins** > **Protected actions**.
 
     :::image type="content" source="media/protected-actions-add/protected-actions-start.png" alt-text="Screenshot of Add protected actions page in Roles and administrators." lightbox="media/protected-actions-add/protected-actions-start.png":::
 
@@ -86,7 +82,7 @@ When a user performs a protected action, they'll need to satisfy Conditional Acc
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a user that must satisfy the policy.
 
-1. Select **Azure Active Directory** > **Protect & secure** > **Conditional Access**.
+1. Select **Protection** > **Conditional Access**.
 
 1. Select a Conditional Access policy to view it.
 
@@ -112,7 +108,7 @@ When a user performs a protected action, they'll need to satisfy Conditional Acc
 
 To remove protection actions, unassign Conditional Access policy requirements from a permission.
 
-1. Select **Azure Active Directory** > **Roles & admins** > **Protected actions (Preview)**.
+1. Select **Identity** > **Roles & admins** > **Protected actions**.
 
 1. Find and select the permission Conditional Access policy to unassign.
 
@@ -178,7 +174,7 @@ The user has previously satisfied policy. For example, the completed multifactor
 
 **Solution 2**
 
-Check the [Azure AD sign-in events](../conditional-access/troubleshoot-conditional-access.md) to troubleshoot. The sign-in events will include details about the session, including if the user has already completed multifactor authentication. When troubleshooting with the sign-in logs, it's also helpful to check the policy details page, to confirm an authentication context was requested.  
+Check the [Azure AD sign-in events](../conditional-access/troubleshoot-conditional-access.md) to troubleshoot. The sign-in events include details about the session, including if the user has already completed multifactor authentication. When troubleshooting with the sign-in logs, it's also helpful to check the policy details page, to confirm an authentication context was requested.  
 
 ### Symptom - Policy is never satisfied
 
@@ -214,7 +210,7 @@ When using PowerShell to perform a protected action, an error is returned and th
 
 **Cause**
 
-Microsoft Graph PowerShell supports step-up authentication, which is required to allow policy prompts. Azure and Azure AD Graph PowerShell isn't supported for step-up authentication.
+Microsoft Graph PowerShell supports step-up authentication, which is required to allow policy prompts. Azure and Azure AD Graph PowerShell aren't supported for step-up authentication.
 
 **Solution**
 

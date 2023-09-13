@@ -139,7 +139,7 @@ sections:
       - question: |
           How do I calculate the throughput I require?
         answer: |
-          You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner). In general, you can show your entity as JSON and provide the numbers for your operations.
+          You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://cosmos.azure.com/capacitycalculator/). In general, you can show your entity as JSON and provide the numbers for your operations.
 
       - question: |
           Can I use the API for Table SDK locally with the emulator?

@@ -10,7 +10,7 @@ ms.date: 06/20/2022 #Required; mm/dd/yyyy format. Date the article was created o
 
 ---
 
-# Bsv2-series (Public Preview)
+# Bsv2-series
 
 Bsv2-series virtual machines run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processor in a [hyper threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration, providing low cost CPU burstable general purpose virtual machines. Bsv2-series virtual machines utilize a CPU credit model to track how much CPU is consumed - the virtual machine accumulates CPU credits when a workload is operating below the base CPU performance threshold and, uses credits when running above the base CPU performance threshold until all of its credits are consumed. Upon consuming all the CPU credits, a Bsv2-series virtual machine is throttled back to its base CPU performance until it accumulates the credits to CPU burst again.
 
@@ -27,11 +27,11 @@ Bsv2-series virtual machines offer a balance of compute, memory, and network res
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br> 
 
-| Size              | vCPU | RAM | Base CPU Performance of VM (%) | Initial Credits (#) | Credits banked/hour | Max Banked Credits (#) | Max uncached disk throughput: IOPS/M8ps | Max burst uncached disk throughput: IOPS/MBps | Max Data Disks | Max Network Bandwidth (Gbps) | Max NICs |
+| Size              | vCPU | RAM | Base CPU Performance of VM (%) | Initial Credits (#) | Credits banked/hour | Max Banked Credits (#) | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max Data Disks | Max Network Bandwidth (Gbps) | Max NICs |
 |-------------------|------|-----|--------------------------------|---------------------|---------------------|------------------------|-----------------------------------------|-----------------------------------------------|----------------|------------------------------|----------|
 | Standard_B2ts_v2  | 2    | 1   | 20%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.250                        | 2        |
 | Standard_B2ls_v2  | 2    | 4   | 30%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.50                         | 2        |
-| Standard_B2s_v2   | 2    | 8   | 40%                            | 600                 | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.50                         | 2        |
+| Standard_B2s_v2   | 2    | 8   | 40%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.50                         | 2        |
 | Standard_B4ls_v2  | 4    | 8   | 30%                            | 120                 | 48                  | 1152                   | 6,400/145                               | 20,000/960                                    | 8              | 6.250                        | 2        |
 | Standard_B4s_v2   | 4    | 16  | 40%                            | 120                 | 48                  | 1150                   | 6,400/145                               | 20,000/960                                    | 8              | 6.250                        | 2        |
 | Standard_B8ls_v2  | 8    | 16  | 30%                            | 240                 | 96                  | 2304                   | 12,800/290                              | 20,000/960                                    | 16             | 3.250                        | 2        |

@@ -1,10 +1,10 @@
 ---
 title: Link a partner ID to your account that’s used to manage customers
 description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
-author: dhirajgandhi
-ms.reviewer: dhgandhi
+author: bandersmsft
+ms.reviewer: presharm
 ms.author: banders
-ms.date: 07/06/2023
+ms.date: 07/27/2023
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
@@ -129,7 +129,7 @@ Various partner programs have differing rules for the RBAC roles. Contact your P
 For more information, see: 
 
 - [Azure Partner Admin Link](https://www.microsoftpartnercommunity.com/atvwr79957/attachments/atvwr79957/Webinars/53/1/Azure%20Partner%20Admin%20Link%20FAQ.pdf)
-- [Get recognized with Partner Admin Link](https://www.microsoftpartnercommunity.com/t5/Microsoft-Partner-Network/Get-recognized-with-Partner-Admin-Link/td-p/8389/page/2)
+- [Get recognized with Partner Admin Link](https://techcommunity.microsoft.com/t5/microsoft-partner-community/ct-p/PartnerCommunity)
 
 **Who can link the partner ID?**
 

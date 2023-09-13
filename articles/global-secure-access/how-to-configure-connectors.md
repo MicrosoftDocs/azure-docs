@@ -5,14 +5,14 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 08/09/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
 ---
 # How to configure App Proxy connectors for Microsoft Entra Private Access
 
-Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Global Secure Access service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md).
+Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Global Secure Access service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](/azure/active-directory/app-proxy/application-proxy-connectors).
 
 ## Prerequisites
 
@@ -27,14 +27,17 @@ User identities must be synchronized from an on-premises directory or created di
 
 To use Application Proxy, you need a Windows server running Windows Server 2012 R2 or later. You'll install the Application Proxy connector on the server. This connector server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you plan to publish.
 
-For high availability in your environment, we recommend having more than one Windows server. 
+- For high availability in your environment, we recommend having more than one Windows server. 
+- The minimum .NET version required for the connector is v4.7.1+.
+- For more information, see [App Proxy connectors](/azure/active-directory/app-proxy/application-proxy-connectors#requirements-and-deployment).
+- For more information, see [Determine which .NET framework versions are installed](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 
 ### Prepare your on-premises environment
 
 Start by enabling communication to Azure data centers to prepare your environment for Azure AD Application Proxy. If there's a firewall in the path, make sure it's open. An open firewall allows the connector to make HTTPS (TCP) requests to the Application Proxy.
 
 > [!IMPORTANT]
-> If you are installing the connector for Azure Government cloud follow the [prerequisites](../active-directory/hybrid/connect/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../active-directory/hybrid/connect/reference-connect-government-cloud.md). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
+> If you are installing the connector for Azure Government cloud follow the [prerequisites](/azure/active-directory/hybrid/connect/reference-connect-government-cloud#allow-access-to-urls) and [installation steps](/azure/active-directory/hybrid/connect/reference-connect-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
 
 #### Open ports
 
@@ -71,13 +74,15 @@ To use Private Access, install a connector on each Windows server you're using f
 > Setting up App Proxy connectors and connector groups require planning and testing to ensure you have the right configuration for your organization. If you don't already have connector groups set up, pause this process and return when you have a connector group ready.
 >
 >The minimum version of connector required for Private Access is **1.5.3417.0**.
+>Starting from the version 1.5.3437.0, having the .NET version 4.7.1 or greater is required for successful installation (upgrade). 
+
 
 **To install the connector**:
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Administrator of the directory that uses Application Proxy.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator of the directory that uses Application Proxy.
     -  For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
-1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**.
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Connectors**.
 1. Select **Download connector service**.
 
     ![Screenshot of the Download connector service button in the App proxy page.](media/how-to-configure-connectors/app-proxy-download-connector-service.png)
@@ -88,11 +93,11 @@ To use Private Access, install a connector on each Windows server you're using f
 
 ## Things to know
 
-If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders. To see information about previously released versions and what changes they include, see [Application Proxy: Version Release History](../active-directory/app-proxy/application-proxy-release-version-history.md).
+If you've previously installed a connector, reinstall it to get the latest version. When upgrading, uninstall the existing connector and delete any related folders. To see information about previously released versions and what changes they include, see [Application Proxy: Version Release History](/azure/active-directory/app-proxy/application-proxy-release-version-history).
 
-If you choose to have more than one Windows server for your on-premises applications, you need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md).
+If you choose to have more than one Windows server for your on-premises applications, you need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](/azure/active-directory/app-proxy/application-proxy-connector-groups).
 
-If you have installed connectors in different regions, you can optimize traffic by selecting the closest Application Proxy cloud service region to use with each connector group, see [Optimize traffic flow with Azure Active Directory Application Proxy](../active-directory/app-proxy/application-proxy-network-topology.md).
+If you have installed connectors in different regions, you can optimize traffic by selecting the closest Application Proxy cloud service region to use with each connector group, see [Optimize traffic flow with Azure Active Directory Application Proxy](/azure/active-directory/app-proxy/application-proxy-network-topology).
 
 ## Verify the installation and registration
 
@@ -102,8 +107,8 @@ You can use the Global Secure Access portal or your Windows server to confirm th
 
 To confirm the connector installed and registered correctly:
 
-1. Sign in to your tenant directory in the Microsoft Entra admin center.
-1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator of the directory that uses Application Proxy.
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Connectors**
     - All of your connectors and connector groups appear on this page.
 1. View a connector to verify its details. 
     - Expand the connector to view the details if it's not already expanded.
@@ -111,7 +116,7 @@ To confirm the connector installed and registered correctly:
 
     ![Screenshot of the connector groups and connector group details.](media/how-to-configure-connectors/app-proxy-connectors-status.png)
 
-For more help with installing a connector, see [Problem installing the Application Proxy Connector](../active-directory/app-proxy/application-proxy-connector-installation-problem.md).
+For more help with installing a connector, see [Problem installing the Application Proxy Connector](/azure/active-directory/app-proxy/application-proxy-connector-installation-problem).
 
 ### Verify the installation through your Windows server
 
@@ -130,12 +135,12 @@ To confirm the connector installed and registered correctly:
 
 To create as many connector groups as you want:
 
-1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**.
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Connectors**.
 1. Select **New connector group**. 
 1. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
 1. Select **Save**.
 
-To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](../active-directory/app-proxy/application-proxy-connector-groups.md).
+To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](/azure/active-directory/app-proxy/application-proxy-connector-groups).
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

@@ -38,9 +38,9 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 
 ### How to create an emergency access account
 
-1. Sign in to the [Azure portal](https://portal.azure.com)  as an existing Global Administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity** > **Users** > **All users**.
 
 1. Select **New user**.
 
@@ -69,7 +69,7 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 When configuring these accounts, the following requirements must be met:
 
 - The emergency access accounts should not be associated with any individual user in the organization. Make sure that your accounts are not connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD.
-- Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts. For example, if your normal administrator account uses the Microsoft Authenticator app for strong authentication, use a FIDO2 security key for your emergency accounts. Consider the [dependencies of various authentication methods](../fundamentals/resilience-in-credentials.md), to avoid adding external requirements into the authentication process.
+- Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts. For example, if your normal administrator account uses the Microsoft Authenticator app for strong authentication, use a FIDO2 security key for your emergency accounts. Consider the [dependencies of various authentication methods](../architecture/resilience-in-credentials.md), to avoid adding external requirements into the authentication process.
 - The device or credential must not expire or be in scope of automated cleanup due to lack of use.  
 - In Azure AD Privileged Identity Management, you should make the Global Administrator role assignment permanent rather than eligible for your emergency access accounts. 
 
@@ -103,19 +103,26 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 
 ### Obtain Object IDs of the break glass accounts
 
-1. Sign in to the [Azure portal](https://portal.azure.com)  with an account assigned to the User Administrator role.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity** > **Users** > **All users**.
+
 1. Search for the break-glass account and select the user’s name.
+
 1. Copy and save the Object ID attribute so that you can use it later.
+
 1. Repeat previous steps for second break-glass account.
 
 ### Create an alert rule
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account assigned to the Monitoring Contributor role in Azure Monitor.
-1. Select **All services**", enter "log analytics" in Search and then select **Log Analytics workspaces**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
+
+1. Browse to **Monitor** > **Log Analytics workspaces**.
+
 1. Select a workspace.
+
 1. In your workspace, select **Alerts** > **New alert rule**.
+
     1. Under **Resource**, verify that the subscription is the one with which you want to associate the alert rule.
     1. Under **Condition**, select **Add**.
     1. Select **Custom log search** under **Signal name**.
@@ -158,12 +165,19 @@ Organizations should monitor sign-in and audit log activity from the emergency a
         ![alert logic](./media/security-emergency-access/alert-image2.png)
 
     1. Select **Done**. You may now view the estimated monthly cost of this alert.
+
 1. Select an action group of users to be notified by the alert. If you want to create one, see [Create an action group](#create-an-action-group).
+
 1. To customize the email notification sent to the members of the action group, select actions under **Customize Actions**.
+
 1. Under **Alert Details**, specify the alert rule name and add an optional description.
+
 1. Set the **Severity level** of the event. We recommend that you set it to **Critical(Sev 0)**.
+
 1. Under **Enable rule upon creation**, leave it set as **yes**.
+
 1. To turn off alerts for a while, select the **Suppress Alerts** check box and enter the wait duration before alerting again, and then select **Save**.
+
 1. Click **Create alert rule**.
 
 ### Create an action group
@@ -173,12 +187,19 @@ Organizations should monitor sign-in and audit log activity from the emergency a
     ![create an action group for notification actions](./media/security-emergency-access/action-group-image3.png)
 
 1. Enter the action group name and a short name.
+
 1. Verify the subscription and resource group.
+
 1. Under action type, select **Email/SMS/Push/Voice**.
+
 1. Enter an action name such as **Notify Global Administrator**.
+
 1. Select the **Action Type** as **Email/SMS/Push/Voice**.
+
 1. Select **Edit details** to select the notification methods you want to configure and enter the required contact information, and then select **Ok** to save the details.
+
 1. Add any additional actions you want to trigger.
+
 1. Select **OK**.
 
 ## Validate accounts regularly
@@ -201,8 +222,8 @@ These steps should be performed at regular intervals and for key changes:
 ## Next steps
 
 - [Securing privileged access for hybrid and cloud deployments in Azure AD](security-planning.md)
-- [Add users using Azure AD](../fundamentals/add-users-azure-active-directory.md) and [assign the new user to the Global Administrator role](../fundamentals/active-directory-users-assign-role-azure-portal.md)
-- [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), if you haven’t signed up already
+- [Add users using Azure AD](../fundamentals/add-users.md) and [assign the new user to the Global Administrator role](../fundamentals/how-subscriptions-associated-directory.md)
+- [Sign up for Azure AD Premium](../fundamentals/get-started-premium.md), if you haven’t signed up already
 - [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md)
 - [Configure additional protections for Global Administrators in Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), if you are using Microsoft 365
-- [Start an access review of Global Administrators](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) and [transition existing Global Administrators to more specific administrator roles](permissions-reference.md)
+- [Start an access review of Global Administrators](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md) and [transition existing Global Administrators to more specific administrator roles](permissions-reference.md)

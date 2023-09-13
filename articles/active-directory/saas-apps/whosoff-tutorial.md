@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 07/31/2023
 ms.author: jeedes
 
 ---
@@ -57,7 +57,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the user doesn't have to perform any step as the app is already preintegrated with Azure.
 
 1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
 
@@ -65,7 +65,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	`https://app.whosoff.com/int/<Integration_ID>/sso/azure/`
 
 	> [!NOTE]
-    > This value is not real. Update this value with the actual Sign on URL. Contact [WhosOff support team](mailto:support@whosoff.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > This value is not real. Update this value with the actual Sign on URL. You can collect `Integration_ID` from your WhosOff account when activating Azure SSO which is explained later in this tutorial. For any queriers, please contact [WhosOff support team](mailto:support@whosoff.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -77,7 +77,21 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure WhosOff SSO
 
-To configure single sign-on on **WhosOff** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [WhosOff support team](mailto:support@whosoff.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to your WhosOff company site as an administrator.
+
+1. Go to **ADMINISTRATION** on the left hand menu and click **COMPANY SETTINGS** > **Single Sign On**.
+
+1. In the **Setup Single Sign On** section, perform the following steps:
+	
+	![Screenshot shows settings of metadata and configuration.](./media/whosoff-tutorial/metadata.png "Account")
+
+	1. Select **Azure** SSO provider from the drop-down and click **Active SSO**.
+
+	1. Once activated, copy the **Integration GUID** and save it on your computer.
+
+	1. Upload **Federation Metadata XML** file by clicking on the **Choose File** option, which you have downloaded from the Azure portal.
+
+	1. Click **Save changes**.
 
 ### Create WhosOff test user
 

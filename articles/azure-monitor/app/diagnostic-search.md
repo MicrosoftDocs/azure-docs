@@ -2,7 +2,7 @@
 title: Use Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/12/2023
 ms.reviewer: saars
 
 ---
@@ -142,6 +142,10 @@ See the [Limits summary](../service-limits.md#application-insights).
 ### How can I see POST data in my server requests?
 
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](./asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
+
+### Why does my Azure Function search return no results?
+
+The URL query strings are not logged by Azure Functions.
 
 ## <a name="add"></a>Next steps
 
