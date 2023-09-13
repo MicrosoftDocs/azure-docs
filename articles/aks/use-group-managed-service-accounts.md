@@ -191,7 +191,8 @@ You can either [grant access to your key vault for the identity after cluster cr
         Sid: $GMSA_SID
     ```
 
-   NOTE: AKS has upgraded the `apiVersion` of `GMSACredentialSpec` from `windows.k8s.io/v1alpha1` to `windows.k8s.io/v1` in release v20230903.
+> [!NOTE]
+> AKS has upgraded the `apiVersion` of `GMSACredentialSpec` from `windows.k8s.io/v1alpha1` to `windows.k8s.io/v1` in release v20230903.
 
 3. Create a new YAML named *gmsa-role.yaml* and paste in the following YAML.
 
