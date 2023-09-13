@@ -672,7 +672,7 @@ HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the c
 
 #### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
 
-Starting from March 01, 2022, HDInsight will only support manual scaling for HBase, with no impact on running clusters. New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](./hdinsight-scaling-best-practices.md)
+Starting from March 01, 2022, HDInsight will only support manual scale for HBase, there's no impact on running clusters. New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](./hdinsight-scaling-best-practices.md)
 
 
 ## Release date: 12/27/2021
@@ -1212,7 +1212,7 @@ A minimum 4-core VM is required for Head Node to ensure the high availability an
 #### Cluster worker node provisioning change
 When 80% of the worker nodes are ready, the cluster enters **operational** stage. At this stage, customers can do all the data plane operations like running scripts and jobs. But customers can't do any control plane operation like scaling up/down. Only deletion is supported.
  
-After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minute, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes aren't available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
+After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minutes, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes aren't available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
  
 #### Create new service principal through HDInsight
 Previously, with cluster creation, customers can create a new service principal to access the connected ADLS Gen 1 account in Azure portal. Starting June 15 2020, customers can't create new service principal in HDInsight creation workflow, only existing service principal is supported. See [Create Service Principal and Certificates using Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
@@ -1829,7 +1829,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): CompactorMR should call jobclient.close() to trigger cleanup.
 
--   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException when query a partitioned view in ColumnPruner.
+-   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException when querying a partitioned view in ColumnPruner.
 
 -   [*HIVE-18429*](https://issues.apache.org/jira/browse/HIVE-18429): Compaction should handle a case when it produces no output.
 
@@ -1947,7 +1947,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18384*](https://issues.apache.org/jira/browse/HIVE-18384): ConcurrentModificationException in `log4j2.x` library.
 
--   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException when query a partitioned view in ColumnPruner.
+-   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException when querying a partitioned view in ColumnPruner.
 
 -   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: Provide a way for JDBC users to pass cookie info via connection string.
 
@@ -2067,7 +2067,7 @@ This release provides Oozie 4.2.0 with the following Apache patches.
 
 -   [OOZIE-2787](https://issues.apache.org/jira/browse/OOZIE-2787): Oozie distributes application jar twice making the spark job fail.
 
--   [OOZIE-2792](https://issues.apache.org/jira/browse/OOZIE-2792): Hive2 action isn't parsing Spark application ID from log file properly when Hive is on Spark.
+-   [OOZIE-2792](https://issues.apache.org/jira/browse/OOZIE-2792): `Hive2` action isn't parsing Spark application ID from log file properly when Hive is on Spark.
 
 -   [OOZIE-2799](https://issues.apache.org/jira/browse/OOZIE-2799): Setting log location for spark sql on hive.
 
@@ -2329,7 +2329,7 @@ This release provides ZooKeeper 3.4.6 and the following Apache patches:
 
 -   [ZOOKEEPER-2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693): DOS attack on wchp/wchc four letter words (4lw).
 
--   [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): Patch for introduces potential race condition.
+-   [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): Patch introduces a potential race condition.
 
 ### Fixed Common Vulnerabilities and Exposures
 
@@ -2372,7 +2372,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 #### **​CVE-2016-4970**
 
-| **Summary:** handler/ssl/OpenSslEngine.java in Netty 4.0.x before 4.0.37.Final and 4.1.x before 4.1.1.Final allows remote attackers to cause a denial of service (infinite loop) |
+| **Summary:** handler/ssl/OpenSslEngine.java in Netty 4.0.x before 4.0.37. Final and 4.1.x before 4.1.1. Final allows remote attackers to cause a denial of service (infinite loop) |
 |--------------------------------------------------------------------------------------------------|
 | **Severity:** Moderate  |
 | **Vendor:** Hortonworks  |
@@ -2733,7 +2733,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-93933              | [ATLAS-2286](https://issues.apache.org/jira/browse/ATLAS-2286)                                                                                                                                                                                                                 | Pre-built type 'kafka\_topic' should not declare 'topic' attribute as unique                                                                                 |
 | BUG-93938              | [ATLAS-2283](https://issues.apache.org/jira/browse/ATLAS-2283), [ATLAS-2295](https://issues.apache.org/jira/browse/ATLAS-2295)                                                                                                                                                 | UI updates for classifications                                                                                                                               |
 | BUG-93941              | [ATLAS-2296](https://issues.apache.org/jira/browse/ATLAS-2296), [ATLAS-2307](https://issues.apache.org/jira/browse/ATLAS-2307)                                                                                                                                                 | Basic search enhancement to optionally exclude subtype entities and sub-classification-types                                                                |
-| BUG-93944              | [ATLAS-2318](https://issues.apache.org/jira/browse/ATLAS-2318)                                                                                                                                                                                                                 | UI: Clicking on child tag twice, parent tag is selected                                                                                                    |
+| BUG-93944              | [ATLAS-2318](https://issues.apache.org/jira/browse/ATLAS-2318)                                                                                                                                                                                                                 | UI: When clicking on child tag twice, parent tag is selected                                                                                                    |
 | BUG-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                                                                                                                                                                 | UI: Deleting a tag, which at 25+ position in the tag list in both Flat and Tree structure needs a refresh to remove the tag from the list.                   |
 | BUG-93977              | [HIVE-16232](https://issues.apache.org/jira/browse/HIVE-16232)                                                                                                                                                                                                                 | Support stats computation for column in QuotedIdentifier                                                                                                     |
 | BUG-94030              | [ATLAS-2332](https://issues.apache.org/jira/browse/ATLAS-2332)                                                                                                                                                                                                                 | Creation of type with attributes having nested collection datatype fails                                                                                     |
@@ -2939,7 +2939,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
           After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
 
 **HDInsight Integration with ADLS Gen 2: User directories and permissions issue with ESP clusters**
-    1.	Home directories for users aren't getting created on Head Node 1. Workaround is to create these manually and change ownership  to the respective user’s UPN.
+    1.	Home directories for users aren't getting created on Head Node 1. Workaround is to create these manually and changes ownership  to the respective user’s UPN.
     2.	Permissions on /hdp are currently not set to 751. This needs to be set to 
     a.	chmod 751 /hdp 
     b.	chmod –R 755 /hdp/apps
