@@ -47,7 +47,7 @@ Learn how to work with custom attributes for applications in Azure AD.
 
 Undertake the following steps to assign custom security attributes through the Microsoft Entra admin center.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**. 
 
 1. Find and select the application you want to add a custom security attribute to.
@@ -72,7 +72,7 @@ Undertake the following steps to assign custom security attributes through the M
 
 ### Update custom security attribute assignment values for an application
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. Find and select the application that has a custom security attribute assignment value you want to update.
@@ -91,7 +91,7 @@ Undertake the following steps to assign custom security attributes through the M
 
 You can filter the list of custom security attributes assigned to applications on the **All applications** page.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader). 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. Select **Add filters** to open the Pick a field pane.

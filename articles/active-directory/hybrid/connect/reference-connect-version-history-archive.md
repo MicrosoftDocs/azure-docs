@@ -1213,8 +1213,8 @@ Released: February 2016
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) feature for Express settings customers.
 * Support for the Hybrid Identity Administrator by using Azure AD Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
-  * You need to allow your proxy to also allow traffic to `https://secure.aadcdn.microsoftonline-p.com` if you use Multi-Factor Authentication.
-  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
+  * You need to allow your proxy to also allow traffic to ```https://secure.aadcdn.microsoftonline-p.com``` if you use Multi-Factor Authentication.
+  * You need to add ```https://secure.aadcdn.microsoftonline-p.com``` to your trusted sites list for Multi-Factor Authentication to properly work.
 * Allow changing the user's sign-in method after initial installation.
 * Allow [Domain and OU filtering](how-to-connect-install-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 * [Scheduler](how-to-connect-sync-feature-scheduler.md) is built in to the sync engine.
