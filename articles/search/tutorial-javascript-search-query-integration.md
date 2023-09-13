@@ -43,7 +43,7 @@ The Azure Function pulls in the search configuration information, and fulfills t
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="41-52" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Search.js" highlight="80-101" :::
 
 ## Azure Function: Suggestions from the catalog
 
@@ -57,7 +57,7 @@ The search suggester, `sg`, is defined in the [schema file](https://github.com/A
 
 The Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/components/SearchBar.js" highlight="52-60" :::
 
 ## Azure Function: Get specific document 
 
@@ -69,7 +69,7 @@ The [Lookup API](https://github.com/Azure-Samples/azure-search-javascript-sample
 
 This function API is called in the React app at `\src\pages\Details\Detail.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Details/Details.js" highlight="20-30" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Details.js" highlight="20-30" :::
 
 ## Next steps
 
