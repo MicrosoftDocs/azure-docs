@@ -17,15 +17,15 @@ Azure Cosmos DB for PostgreSQL is a managed service that allows you to run horiz
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
-## Pre-requisites
+## Prerequisites
 
-[!INCLUDE [create-db](includes/create-db.md)]
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Review the Bicep file
+## Create the Bicep file
 
-Provision an Azure Cosmos DB for PostgreSQL cluster that provides the ability to distribute data into shards, alongside HA node for high availability.
+Provision an Azure Cosmos DB for PostgreSQL cluster that permits distributing data into shards, alongside HA node for high availability.
 
-Create a provision .bicep file and copy the following into it.
+Create a .bicep file and copy the following into it.
 
 ```Bicep
 @secure()
@@ -82,7 +82,7 @@ az group create --name exampleRG --location eastus
 az deployment group create --resource-group exampleRG --template-file provision.bicep
 ```
 
-# [Powershell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 New-AzResourceGroup -Name "exampleRG" -Location "eastus"
@@ -90,13 +90,13 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG  -TemplateFile "./pro
 ```
 ---
 
-You are prompted to enter these values:
+You're prompted to enter these values:
 
-- **clusterName**: Enter a unique name that identifies your Azure Cosmos DB for PostgreSQL cluster. For example, mydemocitus-pg. The [domain name](/azure-docs-pr/articles/cosmos-db/postgresql/concepts-node-domain-name.md) postgres.cosmos.azure.com is appended to the cluster name you provide. The Cluster name must only contain lowercase letters, numbers and hyphens. The cluster name must not start or end in a hyphen.
-- **location**: Azure [region](/azure-docs-pr/articles/cosmos-db/postgresql/resources-regions.md) where the cluster and associated nodes are created.
+- **clusterName**: The cluster name determines the DNS name your applications use to connect, in the form `<node-qualifier>-<clustername>.<uniqueID>.postgres.cosmos.azure.com`. For example, The [domain name](./concepts-node-domain-name.md) postgres.cosmos.azure.com is appended to the cluster name you provide. The Cluster name must only contain lowercase letters, numbers and hyphens. The cluster name must not start or end in a hyphen.
+- **location**: Azure [region](./resources-regions.md) where the cluster and associated nodes are created.
 - **nodeCount**: Number of worker nodes in your cluster. Setting it to `0` provisions a single node cluster while value of greater than equal to two (`>= 2`) provisions a multi-node cluster.
 - **enableHA**: With this option selected if a node goes down, the failed node's standby automatically becomes the new node. Database applications continue to access the cluster with the same connection string.
-- **administratorLoginPassword**: Enter a new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
+- **administratorLoginPassword**: Enter a new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and nonalphanumeric characters (!, $, #, %, etc.).
 
 ## Review deployed resources
 
@@ -108,7 +108,7 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to validate the deployment 
 az resource list --resource-group exampleRG
 ```
 
-# [Powershell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 Get-AzResource -ResourceGroupName exampleRG
