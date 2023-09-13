@@ -33,7 +33,7 @@ Here are a few key factors to help you decide which is the right option for you.
 ### Choose vCore-based if
 
 - You're migrating (lift & shift) an existing MongoDB workload or building a new MongoDB application.
-- Your workload has more point reads (fetching a single item by its ID and shard key value) and few long-running queries and complex aggregation pipeline operations.
+- Your workload has more long-running queries, complex aggregation pipelines, distributed transactions, joins, etc.
 - You prefer high-capacity vertical and horizontal scaling with familiar vCore-based cluster tiers such as M30, M40, M50 and more.
 - You're running applications requiring 99.995% availability.
 
