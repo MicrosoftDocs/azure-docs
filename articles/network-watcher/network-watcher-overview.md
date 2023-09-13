@@ -69,7 +69,7 @@ Network Watcher offers seven network diagnostics tools that help troubleshoot an
 
 ### Connection troubleshoot
 
-**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](network-watcher-connectivity-overview.md) and [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md). 
+**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](connection-troubleshoot-overview.md) and [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md). 
 
 ### Packet capture
 

@@ -19,6 +19,11 @@
             "source_path_from_root": "/articles/network-watcher/network-watcher-monitoring-overview.md",
             "redirect_url": "/azure/network-watcher/network-watcher-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-connectivity-overview.md",
+            "redirect_url": "/azure/network-watcher/connection-troubleshoot-overview",
+            "redirect_document_id": true
         }
     ]
 }
