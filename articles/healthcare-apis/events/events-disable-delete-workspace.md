@@ -1,6 +1,6 @@
 ---
-title: How to disable events and delete Azure Health Data Services workspaces - Azure Health Data Services
-description: Learn how to disable events and delete Azure Health Data Services workspaces.
+title: How to disable events and delete events enabled workspaces - Azure Health Data Services
+description: Learn how to disable events and delete events enabled workspaces.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,18 +10,18 @@ ms.date: 09/13/2023
 ms.author: jasteppe
 ---
 
-# How to disable events and delete Azure Health Data Services workspaces
+# How to disable events and delete event enabled workspaces
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, learn how to disable events and delete Azure Health Data Services workspaces.
+In this article, learn how to disable events and delete events enabled workspaces.
 
 ## Disable events
 
-To disable events from sending event messages for a single Event Subscription, the Event Subscription must be deleted.
+To disable events from sending event messages for a single **Event Subscription**, the **Event Subscription** must be deleted.
 
-1. Select the Event Subscription to be deleted. In this example, we're selecting an Event Subscription named **fhir-events**.
+1. Select the **Event Subscription** to be deleted. In this example, we're selecting an Event Subscription named **fhir-events**.
 
    :::image type="content" source="media/disable-delete-workspaces/select-event-subscription.png" alt-text="Screenshot of Events Subscriptions and select event subscription to be deleted." lightbox="media/disable-delete-workspaces/select-event-subscription.png":::
 
@@ -40,13 +40,13 @@ To disable events from sending event messages for a single Event Subscription, t
 
 To avoid errors and successfully delete events enabled workspaces, follow these steps and in this specific order:
 
-1. Delete all workspace associated child resources - for example: DICOM services, FHIR services, and MedTech services.
+1. Delete all workspace associated child resources (for example: DICOM services, FHIR services, and MedTech services).
 2. Delete all workspace associated **Event Subscriptions**.
 3. Delete workspace.
 
 ## Events enabled workspaces with errors post deletion
 
-If you didn't follow the [Delete events enabled workspaces](#delete-events-enabled-workspaces) procedure step-by-step, you may receive an error and have an events enabled workspace that you're unable to delete. You can follow these steps to place your workspace back into a status, which allows for deletion to complete without errors.
+If you didn't follow the [Delete events enabled workspaces](#delete-events-enabled-workspaces) procedure step-by-step, you may receive an error and have an events enabled workspace that you're unable to delete. You can follow these steps to place your workspace back into a status that allows for deletion to complete without errors.
 
 1. Recreate the **Event Subscription** again using the exact same name you used to create the original **Event Subscription**.
 2. Delete the **Event Subscription**.
