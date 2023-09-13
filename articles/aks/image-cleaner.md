@@ -97,7 +97,8 @@ Image Cleaner generates an `ImageList` containing nonrunning and vulnerable imag
       name: imagelist
     spec:
       images:
-        - docker.io/library/alpine:3.7.3   # You can also use "*" to specify all non-running images
+        - docker.io/library/alpine:3.7.3
+    // You can also use "*" to specify all non-running images
     ```
 
 2. Apply the `ImageList` to your cluster using the `kubectl apply` command.
