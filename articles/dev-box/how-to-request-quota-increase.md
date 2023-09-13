@@ -63,11 +63,11 @@ Follow these steps to request a limit increase:
 
 1. On the Azure portal home page, select Support & troubleshooting, and then select  **Help + support**
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page, highlighting the Request core limit increase button.":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page, highlighting the Request core limit increase button." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
 
 1. On the **Help + support** page, select **Create a support request**.
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Help + support page, highlighting Create a support request.":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Help + support page, highlighting Create a support request." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
 
 1. On the **New support request** page, enter the following information, and then select **Next**.
 
@@ -79,7 +79,7 @@ Follow these steps to request a limit increase:
 
 1. On the **Additional details** tab, in the **Problem details** section, select **Enter details**.
  
-    :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page, highlighting Enter details."::: 
+    :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page, highlighting Enter details." lightbox="media/how-to-request-capacity-increase/enter-details.png"::: 
 
 1. In **Quota details**, enter the following information, and then select **Next**.
  
@@ -91,7 +91,7 @@ Follow these steps to request a limit increase:
     | **Is it a limit decrease?** | Select **Yes** or **No**. |
     | **Additional information** | Enter any extra information about your request. |
 
-    :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot of the Quota details pane.":::
+    :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot of the Quota details pane." lightbox="media/how-to-request-capacity-increase/quota-details.png":::
 
 1. Select **Save and continue**.
 ## Complete the support request
