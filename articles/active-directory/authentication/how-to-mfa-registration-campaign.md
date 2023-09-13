@@ -62,7 +62,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
       ![Confirmation of approval](./media/how-to-nudge-authenticator-app/approved.png)
 
-   1. Authenticator app is now successfully set up as the user’s default sign-in method.
+   1. Authenticator app is now successfully set up as the user's default sign-in method.
 
       ![Installation complete](./media/how-to-nudge-authenticator-app/finish.png)
 
@@ -88,7 +88,7 @@ In addition to using the Azure portal, you can also enable the registration camp
 
 To configure the policy using Graph Explorer:
 
-1. Sign in to Graph Explorer and ensure you’ve consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions.
+1. Sign in to Graph Explorer and ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions.
 
    To open the Permissions panel:
 
