@@ -95,7 +95,7 @@ Portal editing is only supported for [Python version 1](functions-reference-pyth
 
 ## Deployment
 
-When you publish your code project to Azure, you're essentially deploying your project to an existing function app resource. A function app provides an execution context in Azure in which your functions run. As such, it's the unit of deployment and management for your functions. From an Azure Resource perspective, a function app is equivalent to a site resource (`Microsoft.Web/sites`) in Azure App Service, such as a web app. 
+When you publish your code project to Azure, you're essentially deploying your project to an existing function app resource. A function app provides an execution context in Azure in which your functions run. As such, it's the unit of deployment and management for your functions. From an Azure Resource perspective, a function app is equivalent to a site resource (`Microsoft.Web/sites`) in Azure App Service, which is equivalent to a web app. 
 
 A function app is composed of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same [pricing plan](functions-scale.md), [deployment method](functions-deployment-technologies.md), and [runtime version](functions-versions.md). For more information, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
 
@@ -148,7 +148,7 @@ When you create a client SDK instance in your functions, you should get the conn
 
 ## Connections
 
-As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed in your apps as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key. 
+As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed at runtime by your app as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key. 
 
 For example, consider a trigger definition that has a `connection` property. Instead of the connection string, you set `connection` to the name of an environment variable that contains the connection string. Using this secrets access strategy both makes your apps more secure and makes it easier for you to change connections across environments. For even more security, you can use identity-based connections.
 
@@ -367,6 +367,5 @@ The code for Azure Functions is open source, and you can find key components in 
 For more information, see the following resources:
 
 + [Azure Functions scenarios](functions-scenarios.md)
-+ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 + [Code and test Azure Functions locally](./functions-develop-local.md)
 + [Best Practices for Azure Functions](functions-best-practices.md)
