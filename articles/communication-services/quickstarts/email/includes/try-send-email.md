@@ -54,7 +54,7 @@ To send a message to a recipient, and to specify the message subject and body,
    - Click Insert my Connection
    - Click Copy
 
-     :::image type="content" source="../media/try-email-code-snippet-connection-string.png" alt-text="Screenshot that shows code snippet to send email." lightbox="../media/try-email-codesnippet-connection-string.png":::
+     :::image type="content" source="../media/try-email-code-snippet-connection-string.png" alt-text="Screenshot that shows code snippet to send email." lightbox="../media/try-email-code-snippet-connection-string.png":::
         
 7. Email Code Snippet is now ready to use in your notification project. 
    
