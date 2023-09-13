@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
-ms.date: 09/01/2023
+ms.date: 09/14/2023
 ms.author: rolyon
 ms.custom: it-pro
 ---
@@ -19,7 +19,7 @@ ms.custom: it-pro
 > Privileged roles and permissions are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Active Directory (Azure AD) has roles and permissions that are identified as privileged. These roles and permissions can be used to delegate management of directory resources to other users or make either network or data security configuration changes. Privileged role assignments can lead to elevation of privilege if not used in a secure and intended manner. Privileged roles and permissions can pose a security threat so they should be used with caution. This article describes privileged roles and permissions and best practices for how to use.
+Azure Active Directory (Azure AD) has roles and permissions that are identified as privileged. These roles and permissions can be used to delegate management of directory resources to other users, modify credentials, authentication or authorization policies, or access restricted data. Privileged role assignments can lead to elevation of privilege if not used in a secure and intended manner. This article describes privileged roles and permissions and best practices for how to use.
 
 ## Which roles and permissions are privileged?
 
@@ -419,7 +419,7 @@ To understand privileged roles and permissions in Azure AD, it helps to know som
 | --- | --- |
 | action | An activity a security principal can perform on an object type. Sometimes referred to as an operation. |
 | permission | A definition that specifies the activity a security principal can perform on an object type. A permission includes one or more actions. |
-| privileged permission | In Azure AD, permissions that can be used to delegate management of directory resources to other users or make either network or data security configuration changes. Privileged permissions can lead to elevation of privilege if not used in a secure and intended manner. |
+| privileged permission | In Azure AD, permissions that can be used to delegate management of directory resources to other users, modify credentials, authentication or authorization policies, or access restricted data. |
 | privileged role | A built-in or custom role that has one or more privileged permissions. |
 | privileged role assignment | A role assignment that uses a privileged role. |
 | elevation of privilege | When a security principal obtains more permissions than their assigned role initially provided by impersonating another role. |
