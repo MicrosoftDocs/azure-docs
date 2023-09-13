@@ -427,7 +427,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## Performance records
-Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records are collected at a sampling frequency of 60 second intervals and have the properties in the following table:
+Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records are collected at a 60 second intervals and have the properties in the following table:
 
 
 | Property | Description |
