@@ -44,7 +44,7 @@ The Azure Machine Learning workspace creates a private endpoint in the related r
 
 4. Navigate to the settings of the storage account associated with your workspace. Select **Access Control (IAM)** in the left-hand menu. Select **Add Role Assignment**. Add **Storage Table Data Contributor** and **Storage Blob Data Contributor** access to Workspace Managed Identity. This can be done typing **Storage Table Data Contributor** and **Storage Blob Data Contributor** into the search bar. You'll need to complete this step and the next step twice. Once for Blob Contributor and the second time for Table Contributor. 
 
-    (a.) Ensure the **Managed Identity** option is selected. Then select **Select Members**. Select **Azure Machine Learning Workspace** under the drop-down for **Managed Identity**. Then select your managed identity of the workspace. 
+    * Ensure the **Managed Identity** option is selected. Then select **Select Members**. Select **Azure Machine Learning Workspace** under the drop-down for **Managed Identity**. Then select your managed identity of the workspace. 
 
    ![Screenshot of adding Workspace Managed Identity to Blob/Table access in Storage Account](./media/how-to-secure-rag-workflows/storage-add-blob-table-managed-identity.png)
 
