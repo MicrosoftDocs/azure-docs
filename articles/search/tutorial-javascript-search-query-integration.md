@@ -43,7 +43,21 @@ The Azure Function pulls in the search configuration information, and fulfills t
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Search.js" highlight="80-101" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Search.js" highlight="88-100" :::
+
+## Client: Facets from the catalog
+
+This React component includes the search textbox and the [**facets**](search-faceted-navigation) associated with the search results. Facets need to be thought out and designed as part of the search schema when the search data is loaded. Then the facets are used in the search query, along with the search text, to provide the faceted navigation experience. 
+
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/components/Facets/Facets.js" highlight="49-76" :::
+
+## Client: Pagination from the catalog
+
+When the search results expand beyond a trivial few (8), the `@mui/material/TablePagination` component provides **pagination** across the results.
+
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/components/Pager.js" highlight="27" :::
+
+When the user changes the page, that value is sent to the parent `Search.js` page from the `handleChangePage` function. In the parent page, a change to the current page is detected which requires a new request is sent to the search API for the same query text and the new page. The API response results change the facets, results, and pager components. 
 
 ## Azure Function: Suggestions from the catalog
 
@@ -57,7 +71,13 @@ The search suggester, `sg`, is defined in the [schema file](https://github.com/A
 
 The Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/components/SearchBar.js" highlight="52-60" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/components/SearchBar.js" highlight="40-55, 75-117" :::
+
+This React component uses the `@mui/material/Autocomplete` component to provide a search textbox, which also supports displaying suggestions (using the `renderInput` function) as the user types in characters. When each character is entered, the search is sent to API. The API results are displayed as a short list of suggestions. 
+
+This autosuggest functionality is a common feature but this specific implementation has an additional use case. The customer can enter text and select from the suggestions _or_ submit their entered text. The input from the suggestion list as well as the input from the textbox must be tracked for changes, which impact how the form is rendered and what is sent to the **search** API when the form is submitted.
+
+If your use case for search allows your user to select only from the suggestions, that will reduce the scope of complexity of the control but limit the user experience. 
 
 ## Azure Function: Get specific document 
 
@@ -69,7 +89,9 @@ The [Lookup API](https://github.com/Azure-Samples/azure-search-javascript-sample
 
 This function API is called in the React app at `\src\pages\Details\Detail.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Details.js" highlight="20-30" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/client/src/pages/Details.js" highlight="17-21,28" :::
+
+If your client app can use pregenerated content, this page is a good candidate for autogeneration because the content is static, pulled directly from the search index.
 
 ## Next steps
 
