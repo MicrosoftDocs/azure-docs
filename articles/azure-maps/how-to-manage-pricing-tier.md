@@ -35,7 +35,7 @@ To change your pricing tier from Gen1 to Gen2 in the Azure Portal, navigate to t
 
 :::image type="content" source="./media/how-to-manage-pricing-tier/change-pricing-tier.png" border="true" alt-text="Change a pricing tier":::
 
-### ARM Template
+### ARM template
 
 To change your pricing tier from Gen1 to Gen2 in the ARM template, update `pricingTier` to **G2** and `kind` to **Gen2**. For more info on using ARM templates, see [Create account with ARM template].
 
