@@ -634,7 +634,7 @@
               href: ./prompt-flow/how-to-tune-prompts-using-variants.md
         - name: Evaluate flows
           items:
-            - name: Bulk test and evaluate a flow
+            - name: Submit batch run and evaluate a flow 
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
             - name: Develop a customized evaluation flow
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
