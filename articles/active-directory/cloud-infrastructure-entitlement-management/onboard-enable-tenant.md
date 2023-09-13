@@ -40,7 +40,7 @@ To enable Permissions Management in your organization:
 There are two ways to activate a trial or a full product license. 
 - The first way is to go to the [Microsoft 365 admin center](https://admin.microsoft.com).
     - Sign in as a *Global Administrator* for your tenant.
-    - Go to Setup and sign up for an Microsoft Entra Permissions Management trial. 
+    - Go to Setup and sign up for a Microsoft Entra Permissions Management trial. 
     - For self-service, Go to the [Microsoft 365 portal](https://aka.ms/TryPermissionsManagement) to sign up for a 45-day free trial or to purchase licenses. 
 - The second way is through Volume Licensing or Enterprise agreements. 
     - If your organization falls under a volume license or enterprise agreement scenario, contact your Microsoft representative.
