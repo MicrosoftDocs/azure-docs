@@ -1,13 +1,13 @@
 ---
-title: Scale cluster - Azure Cosmos DB for PostgreSQL
-description: Adjust cluster memory, disk, and CPU resources to deal with increased load.
+title: Configure cluster - Azure Cosmos DB for PostgreSQL
+description: Adjust cluster CPU/memory and disk resources to deal with increased load or enable HA for improved availability.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 06/05/2023
 ---
 
 # Scale a cluster in Azure Cosmos DB for PostgreSQL
@@ -47,7 +47,7 @@ queries.
 You can increase the capabilities of existing nodes. Adjusting compute capacity up and down can be useful for performance
 experiments, and short- or long-term changes to traffic demands.
 
-To change the vCores for all worker nodes, on the **Scale** screen, select a new value under **Compute per node**. To adjust the coordinator node's vCores, expand **Coordinator** and select a new value under **Coordinator compute**.
+To change the vCores for all worker nodes, on the **Scale** screen, select a new value under **Compute per node**. To adjust the coordinator's vCores, expand **Coordinator** and select a new value under **Coordinator compute**.
 
 > [!NOTE]
 > You can scale compute on [cluster read replicas](concepts-read-replicas.md) independent of their primary cluster's compute.
@@ -68,6 +68,12 @@ To change the storage amount for all worker nodes, on the **Scale** screen, sele
 
 > [!NOTE]
 > Once you increase storage and save, you can't decrease the amount of storage.
+
+## Choose preferred availability zone
+
+You can choose preferred [availability zone](./concepts-cluster.md#node-availability-zone) for nodes if your cluster is in an Azure region that supports availability zones. If you select preferred availability zone during cluster provisioning, Azure Cosmos DB for PostgreSQL provisions all cluster nodes into selected availability zone. If you select or change preferred availability zone after provisioning, all cluster nodes are moved to the new preferred availability zone during next [scheduled maintenance](./concepts-maintenance.md). 
+
+To select preferred availability zone for all cluster nodes, on the **Scale** screen, specify a zone in **Preferred availability zone** list. To let Azure Cosmos DB for PostgreSQL service select an availability zone for cluster, choose 'No preference'.
 
 ## Next steps
 

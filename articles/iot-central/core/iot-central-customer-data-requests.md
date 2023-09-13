@@ -3,11 +3,10 @@ title: Customer data request features​ in Azure IoT Central
 description: This article describes identifying, deleting, and exporting customer data in Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/03/2022
+ms.date: 06/12/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
 ---
 
 # Azure IoT Central customer data request features​

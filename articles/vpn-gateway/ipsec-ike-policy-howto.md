@@ -55,7 +55,7 @@ This section walks you through the steps to create a Site-to-Site VPN connection
 
 :::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Site-to-Site policy" border="false" lightbox="./media/ipsec-ike-policy-howto/site-to-site-diagram.png":::
 
-### Step 1 - Create the virtual network, VPN gateway, and local network gateway for TestVNet1
+### Step 1: Create the virtual network, VPN gateway, and local network gateway for TestVNet1
 
 Create the following resources.For steps, see [Create a Site-to-Site VPN connection](./tutorial-site-to-site-portal.md).
 
@@ -86,7 +86,7 @@ Create the following resources.For steps, see [Create a Site-to-Site VPN connect
    * **Enable active-active mode:** Disabled
    * **Configure BGP:** Disabled
 
-### Step 2 - Configure the local network gateway and connection resources
+### Step 2: Configure the local network gateway and connection resources
 
 1. Create the local network gateway resource **Site6** using the following values.
 
@@ -104,7 +104,7 @@ Create the following resources.For steps, see [Create a Site-to-Site VPN connect
    * **Shared key:** abc123  (example value - must match the on-premises device key used)
    * **IKE protocol:** IKEv2
 
-### Step 3 - Configure a custom IPsec/IKE policy on the S2S VPN connection
+### Step 3: Configure a custom IPsec/IKE policy on the S2S VPN connection
 
 Configure a custom IPsec/IKE policy with the following algorithms and parameters:
 
@@ -139,7 +139,7 @@ The steps to create a VNet-to-VNet connection with an IPsec/IKE policy are simil
 
 :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Screenshot shows VNet-to-VNet policy diagram." border="false" lightbox="./media/ipsec-ike-policy-howto/vnet-policy.png":::
 
-### Step 1 - Create the virtual network, VPN gateway, and local network gateway for TestVNet2
+### Step 1: Create the virtual network, VPN gateway, and local network gateway for TestVNet2
 
 Use the steps in the [Create a VNet-to-VNet connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to create TestVNet2 and create a VNet-to-VNet connection to TestVNet1.
 
@@ -172,7 +172,7 @@ Example values:
 * **Enable active-active mode:** Disabled
 * **Configure BGP:** Disabled
 
-### Step 2 - Configure the VNet-to-VNet connection
+### Step 2: Configure the VNet-to-VNet connection
 
 1. From the VNet1GW gateway, add a VNet-to-VNet connection to VNet2GW, **VNet1toVNet2**.
 
@@ -182,7 +182,7 @@ Example values:
 
    :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-connections.png" alt-text="Screenshot shows VNet-to-VNet connections." border="false" lightbox="./media/ipsec-ike-policy-howto/vnet-connections.png":::
 
-### Step 3 - Configure a custom IPsec/IKE policy on VNet1toVNet2
+### Step 3: Configure a custom IPsec/IKE policy on VNet1toVNet2
 
 1. From the **VNet1toVNet2** connection resource, go to the **Configuration** page.
 
@@ -198,7 +198,7 @@ Example values:
 
 1. Select **Save** at the top of the page to apply the policy changes on the connection resource.
 
-### Step 4 - Configure a custom IPsec/IKE policy on VNet2toVNet1
+### Step 4: Configure a custom IPsec/IKE policy on VNet2toVNet1
 
 1. Apply the same policy to the VNet2toVNet1 connection, VNet2toVNet1. If you don't, the IPsec/IKE VPN tunnel won't connect due to policy mismatch.
 

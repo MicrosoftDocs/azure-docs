@@ -6,7 +6,7 @@ ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 12/01/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Monitor apps using Application Live View with the Azure Spring Apps Enterprise plan

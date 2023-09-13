@@ -4,12 +4,11 @@ description: Obtain an overview of your containers, blobs, snapshots, and blob v
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.date: 02/24/2023
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
-ms.subservice: blobs
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---

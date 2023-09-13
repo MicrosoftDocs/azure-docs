@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
-Azure Communication Services Number Lookup is part of the Phone Numbers SDK. It can be used for your applications to add additional checks before sending and SMS or placing a call.
+Azure Communication Services Number Lookup is part of the Phone Numbers SDK. It can be used for your applications to add additional checks before sending an SMS or placing a call.
 
 ## Number Lookup SDK capabilities
 

@@ -7,7 +7,7 @@ ms.author: alexwolf
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 09/01/2022
-ms.custom: vscode-azure-extension-update-completed
+ms.custom: vscode-azure-extension-update-completed, devx-track-dotnet, devx-track-linux
 ---
 
 # Quickstart: Deploy to Azure Container Apps using Visual Studio Code
@@ -62,7 +62,9 @@ Container images are stored inside container registries. You can create a contai
 
     This action opens the command palette and prompts you to define a container tag.
 
-1. Enter a tag for the container. Accept the default, which is the project name with the *latest* suffix.
+1. Enter a tag for the container. Accept the default, which is the project name with a run ID suffix.
+
+1. Select the Azure subscription that you want to use.
 
 1. Select **+ Create new registry**, or if you already have a registry you'd like to use, select that item and skip to creating and deploying to the container app.  
 
@@ -79,6 +81,8 @@ Container images are stored inside container registries. You can create a contai
 1. Select the location that is nearest to you. Select **Enter** to finalize the workflow, and Azure begins creating the container registry and building the image.
 
     This process may take a few moments to complete.
+
+1. Select **Linux** as the image base operating system (OS).
 
 Once the registry is created and the image is built successfully, you're ready to create the container app to host the published image.
 

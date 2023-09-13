@@ -6,7 +6,7 @@ ms.assetid:
 ms.topic: reference
 ms.date: 11/15/2021
 ms.author: cachai
-ms.custom:
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

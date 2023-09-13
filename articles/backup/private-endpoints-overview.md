@@ -2,11 +2,11 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 05/24/2023
-ms.custom: devx-track-azurepowershell
+ms.date: 08/14/2023
+ms.custom:
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview and concepts of private endpoints (v1 experience) for Azure Backup
@@ -20,7 +20,7 @@ This article will help you understand how private endpoints for Azure Backup wor
 
 ## Before you start
 
-- Private endpoints can be created for new Recovery Services vaults only (that doesn't have any items registered to the vault). So private endpoints must be created before you attempt to protect any items to the vault.
+- Private endpoints can be created for new Recovery Services vaults only (that doesn't have any items registered to the vault). So private endpoints must be created before you attempt to protect any items to the vault. However, private endpoints are currently not supported for Backup vaults.
 - One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints for it in multiple virtual networks. However, the maximum number of private endpoints that can be created for a vault is 12.
 - If the public network access for the vault is set to **Allow from all networks**, the vault allows backups and restores from any machine registered to the vault. If the public network access for the vault is set to **Deny**, the vault only allows backups and restores from the machines registered to the vault that are requesting backups/restores via private IPs allocated for the vault.
 - A private endpoint connection for Backup uses a total of 11 private IPs in your subnet, including those used by Azure Backup for storage. This number may be higher for certain Azure regions. So we suggest that you have enough private IPs (/26) available when you attempt to create private endpoints for Backup.

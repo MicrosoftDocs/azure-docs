@@ -1,9 +1,9 @@
 ---
 title: Deploy a web app with Azure App Spaces
 description: Learn how to deploy a web app with Azure App Spaces in the Azure portal.
-ms.author: chcomley
-author: chcomley
-ms.service: app-service
+ms.author: msangapu
+author: msangapu-msft
+ms.service: app-spaces
 ms.topic: quickstart
 ms.date: 05/22/2023
 ---
@@ -24,7 +24,7 @@ To deploy your repository to App Spaces, you must have the following items:
 
 Do the following steps to deploy an existing repository from GitHub. 
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/#home).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter `App Spaces` in the search box, and then select **App Spaces**.
 3. Choose **Start deploying**.
    

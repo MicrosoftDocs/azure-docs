@@ -150,6 +150,8 @@
       href: durable-functions-webjobs-sdk.md
     - name: Durable entities in .NET
       href: durable-functions-dotnet-entities.md
+    - name: Guide to the standalone DF PowerShell SDK
+      href: durable-functions-powershell-v2-sdk-migration-guide.md
     - name: Upgrade to Node.js model v4
       href: durable-functions-node-model-upgrade.md
   - name: Deploy

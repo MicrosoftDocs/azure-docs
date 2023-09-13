@@ -2,6 +2,7 @@
 title: Monitor applications on AKS with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor integrates seamlessly with your application running on Azure Kubernetes Service and allows you to spot the problems with your apps quickly.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java
 ms.date: 11/15/2022
 ms.reviewer: abinetabate
 ---
@@ -15,7 +16,7 @@ ms.reviewer: abinetabate
 ## Application monitoring without instrumenting the code
 Currently, only Java lets you enable application monitoring without instrumenting the code. To monitor applications in other languages, use the SDKs.
 
-For a list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 ## Java
 After the Java agent is enabled, it automatically collects a multitude of requests, dependencies, logs, and metrics from the most widely used libraries and frameworks.

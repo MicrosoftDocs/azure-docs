@@ -1,10 +1,10 @@
 ---
 title: About Azure App Spaces
 description: Learn how Azure App Spaces helps you develop and manage web applications with less complexity.
-ms.service: app-service
+ms.service: app-spaces
 ms.topic: overview
-author: chcomley
-ms.author: chcomley
+author: msangapu-msft
+ms.author: msangapu
 ms.date: 05/22/2023
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Create IBM Db2 provider for Azure Monitor for SAP solutions 
-description: This article provides details to configure an IBM DB2 provider for Azure Monitor for SAP solutions.
+description: This article provides details to configure an IBM Db2 provider for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
@@ -10,18 +10,18 @@ ms.author: sujaj
 #Customer intent: As a developer, I want to create an IBM Db2 provider so that I can monitor the resource through Azure Monitor for SAP solutions.
 ---
 
-# Create IBM Db2 provider for Azure Monitor for SAP solutions 
+# Create IBM Db2 provider for Azure Monitor for SAP solutions
 
-In this how-to guide, you'll learn how to create an IBM Db2 provider for Azure Monitor for SAP solutions through the Azure portal. 
+In this how-to guide, you learn how to create an IBM Db2 provider for Azure Monitor for SAP solutions through the Azure portal.
+
 ## Prerequisites
 
-- An Azure subscription. 
+- An Azure subscription.
 - An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](quickstart-portal.md) or the [quickstart for PowerShell](quickstart-powershell.md).
 
-## Create user for DB2 Server
+## Create a user for the Db2 server
 
-First, create a new user for your Db2 server, for use by Azure Monitor for SAP solutions. Then, run the following script to provide the new Db2 user with appropriate permissions.
-Make sure to replace `<username>` with the Db2 username.
+First, create a new user for your Db2 server for use by Azure Monitor for SAP solutions. Then run the following script to provide the new Db2 user with appropriate permissions. Make sure to replace `<username>` with the Db2 username.
 
 ```sql
 GRANT SECADM ON DATABASE TO USER <username>;
@@ -98,27 +98,28 @@ GRANT EXECUTE ON SPECIFIC PROCEDURE SYSPROC.WLM_COLLECT_STATS_WAIT TO ROLE SAPMO
 GRANT EXECUTE ON SPECIFIC PROCEDURE SYSPROC.WLM_SET_CONN_ENV TO ROLE SAPMON;
 
 ```
+
 ## Prerequisites to enable secure communication
 
-To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps [mentioned here](https://assets.cdn.sap.com/sapcom/docs/2018/12/d2922a3b-307d-0010-87a3-c30de2ffd8ff.pdf).
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps in [this document](https://assets.cdn.sap.com/sapcom/docs/2018/12/d2922a3b-307d-0010-87a3-c30de2ffd8ff.pdf).
 
-## Create IBM Db2 provider
+## Create an IBM Db2 provider
 
 To create the IBM Db2 provider for Azure Monitor for SAP solutions:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to the Azure Monitor for SAP solutions service. 
+1. Go to the Azure Monitor for SAP solutions service.
 1. Open the Azure Monitor for SAP solutions resource you want to modify.
 1. On the resource's menu, under **Settings**, select **Providers**.
 1. Select **Add** to add a new provider.
     1. For **Type**, select **IBM Db2**.
-    1. *Optional* Select **Enable secure communication** and choose a certificate type from the dropdown list.
+    1. (Optional) Select **Enable secure communication** and choose a certificate type from the dropdown list.
     1. Enter the IP address for the hostname.
     1. Enter the database name.
     1. Enter the database port.
     1. Save your changes.
 1. Configure more providers for each instance of the database.
-    
+
 ## Next steps
 
 > [!div class="nextstepaction"]

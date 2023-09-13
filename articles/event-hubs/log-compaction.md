@@ -45,6 +45,12 @@ Log compaction feature of Event Hubs provides the following guarantee:
 ## Log compaction use cases
 Log compaction can be useful in scenarios where you stream the same set of updatable events. As compacted event hubs only keep the latest events, users don't need to worry about the growth of the event storage. Therefore log compaction is commonly used in scenarios such as Change Data Capture(CDC), maintaining event in tables for stream processing applications and event caching. 
 
+## Quotas and limits
+| Limit | Basic | Standard | Premium |  Dedicated |
+| ----- | ----- | -------- | -------- | --------- | 
+| Size of compacted event hub  | N/A | 1 GB per partition | 250 GB per partition | 250 GB per partition |
+
+For other quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md).
 
 ## Next steps
 For instructions on how to use log compaction in Event Hubs, see [Use log compaction](./use-log-compaction.md)

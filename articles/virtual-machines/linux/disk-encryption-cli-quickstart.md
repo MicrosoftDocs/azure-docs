@@ -8,7 +8,7 @@ ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
 ms.date: 03/29/2023
-ms.custom: devx-track-azurecli, mode-api
+ms.custom: devx-track-azurecli, mode-api, devx-track-linux
 ---
 
 # Quickstart: Create and encrypt a Linux VM with the Azure CLI

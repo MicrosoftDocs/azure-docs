@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 06/05/2023
 ---
 
 # High availability in Azure Cosmos DB for PostgreSQL
@@ -21,10 +21,10 @@ happens within a few minutes, and promoted nodes always have fresh data through
 PostgreSQL synchronous streaming replication.
 
 All primary nodes in a cluster are provisioned into one availability zone
-for better latency between the nodes. The standby nodes are provisioned into
-another zone. The Azure portal
+for better latency between the nodes. The preferred availability zone allows you to put all cluster nodes in the same availability zone where the application is deployed. This proximity could improve performance further by decreasing app-database latency. The standby nodes are provisioned into
+another availability zone. The Azure portal
 [displays](concepts-cluster.md#node-availability-zone) the availability
-zone of each node in a cluster.
+zone of each primary node in a cluster.
 
 Even without HA enabled, each node has its own locally
 redundant storage (LRS) with three synchronous replicas maintained by Azure
@@ -41,7 +41,7 @@ on primary nodes, and fails over to standby nodes with zero data loss.
 
 To take advantage of HA on the coordinator node, database applications need to
 detect and retry dropped connections and failed transactions. The newly
-promoted coordinator will be accessible with the same connection string.
+promoted coordinator is accessible with the same connection string.
 
 ## High availability states
 
@@ -57,19 +57,18 @@ for clusters in the Azure portal.
 
 * **Healthy**: HA is enabled and the node is fully replicated to its standby.
 * **Failover in progress**: A failure was detected on the primary node and
-  a failover to standby was initiated. This state will transition into
+  a failover to standby was initiated. This state transitions into
   **Creating standby** once failover to the standby node is completed, and the
   standby becomes the new primary.
 * **Creating standby**: The previous standby was promoted to primary, and a
   new standby is being created for it. When the new secondary is ready, this
-  state will transition into **Replication in progress**.
+  state transitions into **Replication in progress**.
 * **Replication in progress**: The new standby node is provisioned and data
   synchronization is in progress. Once all data is replicated to the new
-  standby, synchronous replication will be enabled between the primary and
-  standby nodes, and the nodes' state will transition back to **Healthy**.
+  standby, synchronous replication is enabled between the primary and
+  standby nodes, and the nodes' state transitions back to **Healthy**.
 * **No**: HA isn't enabled on this node.
 
 ## Next steps
 
-- Learn how to [enable high
-  availability](howto-high-availability.md) in a cluster
+- Learn how to [enable high availability](howto-high-availability.md) in a cluster

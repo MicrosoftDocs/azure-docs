@@ -1,7 +1,7 @@
 ---
 title: How to pre-certify network functions on Azure Operator Nexus 
 description: Overview of the pre-certification process for network function workloads on Operator Nexus 
-author: vatsal-parikh 
+author: parikh-vatsal 
 ms.author: vatsalparikh
 ms.date: 01/30/2023
 ms.topic: how-to
@@ -10,46 +10,46 @@ ms.service: azure-operator-nexus
 
 # How to pre-certify network functions on Azure Operator Nexus
 
-The pre-certification of network functions accelerates deployment of network services.
-The pre-certified network functions can be managed like any other Azure resource.
-The lifecycle of these pre-certified network functions is managed by Azure Network Function Manager (ANFM) or an NFM of your choice.
+The precertification of network functions accelerates deployment of network services.
+The precertified network functions can be managed like any other Azure resource.
+The lifecycle of these precertified network functions is managed by Azure Network Function Manager (ANFM) or an NFM of your choice.
 
-In this section, we'll describe the process and the steps for network function pre-certification
+In this section, we'll describe the process and the steps for network function precertification
 
 ## Pre-certification of network function for operators
 
 The goal is make available a catalog of network functions that
 conform to the Operator Nexus specifications. NF
-partners onboarding to pre-certification program and ANFM service won't be
+partners onboarding to precertification program and ANFM service won't be
 required to change the commercial licensing arrangement with the operators.
 
 ## Pre-certification process
 
-This section outlines the pre-certification process for Network Function deployment.
+This section outlines the precertification process for Network Function deployment.
 Microsoft uses this process with Network Equipment Providers (NEP) that
 provide network function(s). This process guides the partner through
 onboarding the network function onto Operator Nexus and
 certifies the network function deployment methods using Azure deployment
 services. The goal of this program is to ensure that the partner's network function
 deployment process is predictable and repeatable on the Operator Nexus platform.
-Microsoft provides a pre-certification environment for the partners to validate
+Microsoft provides a precertification environment for the partners to validate
 the deployment of their network function. As a result, the partners'
 network functions will be published in the Microsoft catalog of
 network functions. This catalog will be available to operators using the Operator Nexus platform.
 
 If the NF partner is interested in listing their offer in the Azure Marketplace,
-Microsoft will work with the partner to enable this offering in the marketplace.
+Microsoft works with the partner to enable this offering in the marketplace.
 
 ### Azure Network Function Manager
 
 The Azure [Network Function Manager (ANFM)](../network-function-manager/overview.md)
 provides a cloud native orchestration and managed experience for
-pre-certified network functions (from the Azure Marketplace). The ANFM
+precertified network functions (from the Azure Marketplace). The ANFM
 provides consistent Azure managed applications experience for network functions.
 
 ### Pre-certification steps
 
-Here are the steps of the NF Deployment pre-certification
+Here are the steps of the NF Deployment precertification
 
 <!--- IMG ![Pre-Certification Process](Docs/media/network-function-manager-precert-process.png) IMG --->
 :::image type="content" source="media/network-function-manager-precert-process.png" alt-text="Screenshot of Pre-Certification Process.":::
@@ -58,7 +58,7 @@ Figure: Pre-Certification (precert) Process
 
 ## Prerequisites and process for partner on-boarding to the pre-cert lab
 
-To ensure an efficient and effective onboarding process for the partner there are perquisites to pre-certification lab entry.
+To ensure an efficient and effective onboarding process for the partner there are perquisites to precertification lab entry.
 
 1. The partners start the Azure Marketplace agreement and [create a partner
    center account](/azure/marketplace/create-account).
@@ -66,7 +66,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
    offers in the marketplace. The marketplace agreement doesn't have to be
    completed prior to precert lab entry. However, it's an important step before the
    helm charts and images on-boarded to Azure Network Function Manager (ANFM)
-   service are added to the pre-certified catalog.
+   service are added to the precertified catalog.
 
 2. Microsoft will conduct several sessions on key topics with the partner:
 
@@ -80,15 +80,15 @@ To ensure an efficient and effective onboarding process for the partner there ar
      - SR-IOV
      - DPDK
    - Review `cloudinit` support for VM based network functions
-   - Microsoft AKS-Hybrid support for tenant workloads, CNI versions for Calico and Cultus
+   - Tenant Kubernetes cluster support for tenant workloads, CNI versions for Calico and Cultus
 
-   b. The Operator Nexus platform includes a managed fabric automation service. With an agreement from the partner regarding the network function requirements, Microsoft will engage with the partner and review:
+   b. The Operator Nexus platform includes a managed fabric automation service. With an agreement from the partner regarding the network function requirements, Microsoft engages with the partner and review:
 
    - the network fabric architecture
    - and fabric automation APIs for the creation of L2/L3 isolation-domains
    - L3 route policies that will extend the network connectivity from the node to the TOR/CE router.
 
-   The fabric deep dive sessions will identify the peering requirements, route policies, and filters that need to be configured in the fabric for testing the network function.
+   The fabric deep dive sessions identify the peering requirements, route policies, and filters that need to be configured in the fabric for testing the network function.
 
    c. Microsoft will work with the NEPs to onboard the helm charts and container images (CNFs) or VM images (VNFs) to the Azure Network Function Manager service (ANFM). Microsoft will consult with the partner to validate the supported versions of the helm charts for deployment using the ANFM service.
 
@@ -97,7 +97,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
 3. On reviewing the requirements (2a – 2d) and prior to smoke testing, Microsoft will work with the partners to define Azure Resource Manager (ARM) templates:
 
    - for network fabric automation components – L2/L3 isolation-domains, L3 route policies if any for the end-to-end test set-up
-   - for AKS-Hybrid (CNF), VM instance (VNF), workload networks and management networks that describe subcluster networking
+   - for Kubernetes cluster (CNF), VM instance (VNF), workload networks and management networks that describe subcluster networking
    - onboard the helm charts and images to ANFM service and create a vendor image version for deployment into precert lab
    - for deployment of NFs using ANFM with the user data container pods/ VMs configuration properties
    - for deployment of NEP specific config management application
@@ -107,7 +107,7 @@ To ensure an efficient and effective onboarding process for the partner there ar
 
 As a part of technical engagement, the documents that Microsoft will provide to the partner are:
 
-- Operator Nexus runtime specification document and the Azure Resource Manager (ARM) API specification document for creating AKS-Hybrid clusters (CNFs) and VM instances (VNFs) on an Operator Nexus cluster
+- Operator Nexus runtime specification document and the Azure Resource Manager (ARM) API specification document for creating Kubernetes clusters (CNFs) and VM instances (VNFs) on an Operator Nexus cluster
 - Azure Resource Manager API specification document for creating fabric automation components that are required for tenant networking.
 - ARM API specification document for onboarding to ANFM service. The specification will also define the customer facing APIs for deployment of network functions using the ANFM service.
 
@@ -137,7 +137,7 @@ performed by the partners and results reviewed by Microsoft:
 1. Verify that the resources in the ARM template, corresponding to the tenant
    cluster definition, include:
 
-    - AKS-Hybrid cluster/ VM instance
+    - Kubernetes cluster/ VM instance
     - managed fabric resources for isolation-domain and L3 route policies
     - workload networks and management network resources for Kubernetes networks/ VM networks
 
@@ -158,10 +158,10 @@ To test the routing across the CE, based on the  application characteristics,
 8. Azure PaaS integration (optional): Microsoft precert environment will be
    connected to an Azure region using ExpressRoute. The NEP partner can also integrate
    Azure PaaS services with their application. They can verify that the PaaS functionality is working as designed.
-1. After testing is complete, delete NF resources
+9. After testing is complete, delete NF resources
    in the ANFM service and verify that the container pods are removed from the
    subcluster.
-1. Verify all the tenant cluster and fabric components are deleted. Validate that deleting the network fabric
+10. Verify all the tenant cluster and fabric components are deleted. Validate that deleting the network fabric
     resources removes the corresponding configuration on the Network
     devices.
 

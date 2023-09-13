@@ -16,7 +16,7 @@ Before you begin, it's a good idea to read the overview page for [machine config
 > `Deploy prerequisites to enable guest configuration policies on virtual machines`
 >
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
-> extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
+> extension version 1.26.24 or later, or Arc agent 1.10.0 or later, is required.
 >
 > Custom machine configuration policy definitions using `AuditIfNotExists` as well as
 > `DeployIfNotExists` are in Generally Available (GA) support status.

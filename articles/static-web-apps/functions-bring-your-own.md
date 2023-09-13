@@ -66,9 +66,10 @@ Before you associate an existing Functions app, you first need to adjust the con
 
     | Setting | Value |
     |--|--|
-    | Backed resource type | Select **Function App**. |
+    | Backend resource type | Select **Function App**. |
     | Subscription | Select your Azure subscription name. |
     | Resource name | Select the Azure Functions app name. |
+    | Backend slot | Select the slot name for the Azure Function. |
 
 1. Select **Link**.
 

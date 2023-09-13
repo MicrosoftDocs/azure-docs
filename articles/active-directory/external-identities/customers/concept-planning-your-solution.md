@@ -14,9 +14,11 @@ ms.custom: it-pro
 
 ---
 
-# Planning for customer identity and access management
+# Planning for customer identity and access management (preview)
 
-Azure Active Directory (Azure AD) for customers is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because it's built on the Azure AD platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
+Microsoft Entra External ID for customers, also known as Azure Active Directory (Azure AD) for customers, is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because it's built on the Azure AD platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
+
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 This article provides a general framework for integrating your app and configuring Azure AD for customers. It describes the capabilities available in a customer tenant and outlines the important planning considerations for each step in your integration.
 
@@ -61,6 +63,8 @@ Customer accounts have a [default set of permissions](reference-user-permissions
 :::image type="content" source="media/concept-planning-your-solution/overview-setup-step-2.png" alt-text="Diagram showing step 2 in the setup flow." border="false":::
 
 Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Azure AD performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
+
+Then, to complete the trust relationship between Azure AD and your app, you update your application source code with the values assigned during app registration, such as the application (client) ID, directory (tenant) subdomain, and client secret.
 
 We provide code sample guides and in-depth integration guides for several app types and languages. Depending on the type of app you want to register, you can find guidance on our [Samples by app type and language page](samples-ciam-all.md).
 

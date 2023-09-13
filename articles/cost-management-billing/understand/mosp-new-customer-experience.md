@@ -161,7 +161,7 @@ For example, if your billing period was November 24 to December 23 for your old 
 
 #### Budgets
 
-You can now create budgets for the billing account, allowing you to track costs across subscriptions. You can also stay on top of your purchase charges using budgets. For more information about budgets, see [Create and manage Azure budgets](../costs/tutorial-acm-create-budgets.md).
+You can now create budgets for the billing account, allowing you to track costs across subscriptions. You can also stay on top of your purchase charges using budgets. For more information about budgets, see [Create and manage budgets](../costs/tutorial-acm-create-budgets.md).
 
 #### Exports
 

@@ -2,7 +2,7 @@
 title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.topic: quickstart
-ms.date: 01/06/2023
+ms.date: 06/01/2023
 author: flang-msft
 ms.author: franlanglois
 ms.custom: references_regions, mode-other
@@ -10,7 +10,7 @@ ms.custom: references_regions, mode-other
 
 # QuickStart: Link to existing Datadog organization
 
-In this quickstart, you'll link to an existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
+In this quickstart, you link to an existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Provide the following values.
 |:-----------|:-------- |
 | Subscription | Select the Azure subscription you want to use for creating the Datadog resource. You must have owner access. |
 | Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
-| Resource name | Specify a name for the Datadog resource. This name will be the name of the new Datadog organization, when creating a new Datadog organization. |
+| Resource name | Specify a name for the Datadog resource. This name is the name of the new Datadog organization, when creating a new Datadog organization. |
 | Location | Select West US 2. Currently, West US 2 is the only supported region. |
 
 Select **Link to Datadog organization**. The link opens a Datadog authentication window. Sign in to Datadog.
@@ -62,6 +62,10 @@ By default, Azure links your current Datadog organization to your Datadog resour
 :::image type="content" source="media/link-to-existing-organization/select-datadog-organization.png" alt-text="Select appropriate Datadog organization to link" border="true":::
 
 Select **Next: Metrics and logs** to configure metrics and logs.
+
+If the subscription is already linked to an organization through a Datadog resource, an attempt to link the subscription to the same organization through a different Datadog resource would be blocked. It's blocked to avoid scenarios where duplicate logs and metrics get shipped to the same organization for the same subscription.
+
+:::image type="content" source="media/manage/datadog-subscription-blocked.png" alt-text="Screenshot stating that a subscription is already linked to the selected organization through a different Datadog resource.":::
 
 ## Configure metrics and logs
 
@@ -87,17 +91,18 @@ For example, the screenshot shows a tag rule where only those **Virtual Machines
 
 There are two types of logs that can be emitted from Azure to Datadog.
 
-* **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
+- **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
-* **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+- **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
 To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
 
 To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).  To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
 
-The logs sent to Datadog will be charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+The logs sent to Datadog are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
 Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
+
 
 ## Configure single sign-on
 
@@ -130,4 +135,10 @@ When the process completes, select **Go to Resource** to see the Datadog resourc
 ## Next steps
 
 - [Manage the Datadog resource](manage.md)
+- Get started with Datadog – An Azure Native ISV Service on
 
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)

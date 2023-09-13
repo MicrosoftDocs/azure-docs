@@ -4,8 +4,8 @@ description: This article gives you an understanding about Azure Kubernetes Serv
 ms.topic: conceptual
 ms.service: backup
 ms.date: 04/05/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About Azure Kubernetes Service backup using Azure Backup (preview)

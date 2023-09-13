@@ -1,6 +1,6 @@
 ---
 
-title: Add B2B collaboration users in the Azure portal
+title: Add B2B collaboration users in the Microsoft Entra admin center
 description: Shows how an admin can add guest users to their directory from a partner organization using Azure Active Directory (Azure AD) B2B collaboration.
 
 services: active-directory
@@ -15,18 +15,18 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Add Azure Active Directory B2B collaboration users in the Azure portal
+# Add Azure Active Directory B2B collaboration users in the Microsoft Entra admin center
 
-As a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources. An invitation of a user doesn't expire.
+As a user who is assigned any of the limited administrator directory roles, you can use the Microsoft Entra admin center to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources. An invitation of a user doesn't expire.
 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can select the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 > [!IMPORTANT]
-> You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/active-directory-properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
+> You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
-The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
 ## Before you begin
 
@@ -34,13 +34,15 @@ Make sure your organization's external collaboration settings are configured suc
 
 ## Add guest users to the directory
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To add B2B collaboration users to the directory, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
 
-1. Navigate to **Azure Active Directory** > **Users**.
+1. Browse to **Identity** > **Users** > **All users**.
 
-1. Select **Invite external user** from the menu. 
+1. Select **New user** > **Invite external user** from the menu. 
 
     ![Screenshot of the invite external user menu option.](media/add-users-administrator/invite-external-user-menu.png)
 
@@ -96,7 +98,7 @@ You can assign external users to a group, or Azure AD role when the account is c
 
 The final tab captures several key details from the user creation process. Review the details and select the **Invite** button if everything looks good. An email invitation is automatically sent to the user. After you send the invitation, the user account is automatically added to the directory as a guest.
 
- ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator//guest-user-type.png)
+ ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator/guest-user-type.png)
 
 ### External user invitations
 <a name="resend-invitations-to-guest-users"></a>
@@ -119,9 +121,8 @@ The user is added to your directory with a user principal name (UPN) in the form
 
 If you need to manually add B2B collaboration users to a group after the user was invited, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Search for and select **Azure Active Directory** from any page.
-3. Under **Manage**, select **Groups**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator). 
+1. Browse to **Identity** > **Groups** > **All groups**.
 4. Select a group (or select **New group** to create a new one). It's a good idea to include in the group description that the group contains B2B guest users.
 5. Under **Manage**, select **Members**.
 6. Select **Add members**.
@@ -147,9 +148,8 @@ You can also use dynamic groups with Azure AD B2B collaboration. For more inform
 
 To add B2B collaboration users to an application, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Search for and select **Azure Active Directory** from any page.
-3. Under **Manage**, select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 4. On the **All applications** page, select the application to which you want to add guest users.
 5. Under **Manage**, select **Users and groups**.
 6. Select **Add user/group**.

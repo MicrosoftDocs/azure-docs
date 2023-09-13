@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-dotnet
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -314,7 +314,6 @@ In the next part of the tutorial, learn how to [Deploy a container application w
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md
-[link-azure-portal]: https://portal.azure.com
 [link-sf-clustertemplate]: https://aka.ms/securepreviewonelineclustertemplate
 [link-azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [link-azure-subscription]: https://azure.microsoft.com/free/

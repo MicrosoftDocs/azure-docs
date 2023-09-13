@@ -1,25 +1,24 @@
 ---
-title: Build a custom event management platform with Microsoft Teams, Graph and Azure Communication Services
+title: Build a custom event management platform with Microsoft Teams, Microsoft Graph and Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to use Microsoft Teams, Graph and Azure Communication Services to build a custom event management platform.
-author: ddematheu2
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: chpalm
 ms.date: 03/31/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
-# Build a custom event management platform with Microsoft Teams, Graph and Azure Communication Services
+# Build a custom event management platform with Microsoft Teams, Microsoft Graph and Azure Communication Services
 
-The goal of this document is to reduce the time it takes for Event Management Platforms to apply the power of Microsoft Teams Webinars through integration with Graph APIs and ACS UI Library. The target audience is developers and decision makers. To achieve the goal, this document provides the following two functions: 1) an aid to help event management platforms quickly decide what level of integration would be right for them, and 2) a step-by-step end-to-end QuickStart to speed up implementation. 
+The goal of this document is to reduce the time it takes for Event Management Platforms to apply the power of Microsoft Teams Webinars through integration with Microsoft Graph APIs and Azure Communication Services UI Library. The target audience is developers and decision makers. To achieve the goal, this document provides the following two functions: 1) an aid to help event management platforms quickly decide what level of integration would be right for them, and 2) a step-by-step end-to-end QuickStart to speed up implementation. 
 
 ## What are virtual events and event management platforms?
 
-Microsoft empowers event platforms to integrate event capabilities using [Microsoft Teams](/microsoftteams/quick-start-meetings-live-events), [Graph](/graph/api/application-post-onlinemeetings?tabs=http&view=graph-rest-beta&preserve-view=true) and [Azure Communication Services](../overview.md). Virtual Events are a communication modality where event organizers schedule and configure a virtual environment for event presenters and participants to engage with content through voice, video, and chat. Event management platforms enable users to configure events and for attendees to participate in those events, within their platform, applying in-platform capabilities and gamification. Learn more about [Teams Meetings, Webinars and Live Events](/microsoftteams/quick-start-meetings-live-events) that are used throughout this article to enable virtual event scenarios. 
+Microsoft empowers event platforms to integrate event capabilities using [Microsoft Teams](/microsoftteams/quick-start-meetings-live-events), [Microsoft Graph](/graph/api/application-post-onlinemeetings?tabs=http&view=graph-rest-beta&preserve-view=true) and [Azure Communication Services](../overview.md). Virtual Events are a communication modality where event organizers schedule and configure a virtual environment for event presenters and participants to engage with content through voice, video, and chat. Event management platforms enable users to configure events and for attendees to participate in those events, within their platform, applying in-platform capabilities and gamification. Learn more about [Teams Meetings, Webinars and Live Events](/microsoftteams/quick-start-meetings-live-events) that are used throughout this article to enable virtual event scenarios. 
 
 ## What are the building blocks of an event management platform?
 
@@ -58,17 +57,17 @@ Throughout the rest of this tutorial, we will focus on how using Azure Communica
 Microsoft Graph enables event management platforms to empower organizers to schedule and manage their events directly through the event management platform. For attendees, event management platforms can build custom registration flows right on their platform that registers the attendee for the event and generates unique credentials for them to join the Teams hosted event.
 
 >[!NOTE]
->For each required Graph API has different required scopes, ensure that your application has the correct scopes to access the data.
+>For each required Microsoft Graph API has different required scopes, ensure that your application has the correct scopes to access the data.
 
 ### Scheduling registration-enabled events with Microsoft Graph
 
-1.	Authorize application to use Graph APIs on behalf of service account. This authorization is required in order to have the application use credentials to interact with your tenant to schedule events and register attendees. 
+1.	Authorize application to use Microsoft Graph APIs on behalf of service account. This authorization is required in order to have the application use credentials to interact with your tenant to schedule events and register attendees. 
 
     1. Create an account that will own the meetings and is branded appropriately. This is the account that will create the events and which will receive notifications for it. We recommend to not user a personal production account given the overhead it might incur in the form of reminders.
 
     2. As part of the application setup, the service account is used to login into the solution once. With this permission the application can retrieve and store an access token on behalf of the service account that will own the meetings. Your application will need to store the tokens generated from the login and place them in a secure location such as a key vault. The application will need to store both the access token and the refresh token. Learn more about [auth tokens](../../active-directory/develop/access-tokens.md). and [refresh tokens](../../active-directory/develop/refresh-tokens.md).
 
-    3. The application will require "on behalf of" permissions with the [offline scope](../../active-directory/develop/v2-permissions-and-consent.md#offline_access) to act on behalf of the service account for the purpose of creating meetings. Individual Graph APIs require different scopes, learn more in the links detailed below as we introduce the required APIs.
+    3. The application will require "on behalf of" permissions with the [offline scope](../../active-directory/develop/v2-permissions-and-consent.md#offline_access) to act on behalf of the service account for the purpose of creating meetings. Individual Microsoft Graph APIs require different scopes, learn more in the links detailed below as we introduce the required APIs.
 
     4. Refresh tokens can be revoked in the event of a breach or account termination
 

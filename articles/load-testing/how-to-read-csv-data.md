@@ -77,7 +77,7 @@ To add a CSV file to your load test by using the Azure portal:
 
   1. On the **Edit test** page, select the **Test plan** tab. 
 
-  1. Select the CSV file from your computer, and then select **Upload** to upload the file to Azure.
+  1. Select the CSV file from your computer, and then select **Upload** to upload the file to Azure. If the size of the CSV file is greater than 50 MB, zip the file. The size of the zip file should be below 50 MB. Azure Load Testing automatically unzips the file during the test run. Only five zip artifacts are allowed with a maximum of 1000 files in each zip and an uncompressed total size of 1 GB.
   
       :::image type="content" source="media/how-to-read-csv-data/edit-test-upload-csv.png" alt-text="Screenshot of the Test plan tab on the Edit test pane.":::
   
@@ -90,7 +90,7 @@ If you run a load test within your CI/CD workflow, you can add a CSV file to the
 
 To add a CSV file to your load test:
 
-  1. Commit the CSV file to the source control repository that contains the JMX file and YAML test configuration file.
+  1. Commit the CSV file to the source control repository that contains the JMX file and YAML test configuration file. If the size of the CSV file is greater than 50 MB, zip the file. The size of the zip file should be below 50 MB. Azure Load Testing automatically unzips the file during the test run. Only five zip artifacts are allowed with a maximum of 1000 files in each zip and an uncompressed total size of 1 GB.
 
   1. Open your YAML test configuration file in Visual Studio Code or your editor of choice.
 

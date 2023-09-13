@@ -7,7 +7,7 @@ author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
 ms.date: 04/24/2023
-ms.custom: devdivchpfy22, devx-track-arm-template
+ms.custom: devdivchpfy22, devx-track-arm-template, devx-track-dotnet
 ---
 
 # Enable Snapshot Debugger for .NET apps in Azure App Service
@@ -54,7 +54,7 @@ If you're running a different type of Azure service, here are instructions for e
   
 ## Enable Snapshot Debugger for other clouds
 
-Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide) through the Application Insights Connection String.
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide) through the Application Insights Connection String.
 
 |Connection String Property    | US Government Cloud | China Cloud |  
 |---------------|---------------------|-------------|

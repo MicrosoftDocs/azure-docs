@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 # Common error codes for Azure Key Vault
 
-The error codes listed in the following table may be returned by an operation on Azure key vault
+The error codes listed in the following table may be returned by an operation on Azure Key Vault.
 
 | Error code | User message |
 |--|--|

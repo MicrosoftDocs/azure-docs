@@ -269,7 +269,9 @@
         - name: Overview
           href: ../notebooks-overview.md
         - name: FAQ
-          href: ../notebooks-faq.yml
+          href: ../notebooks-faq.yml    
+    - name: Emulator
+      href: ../emulator.md
 - name: How to
   items:
     - name: Develop applications
@@ -420,6 +422,8 @@
               href: ../monitor-logs-basic-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Add a transformation for workspace data
+              href: ../tutorial-log-transformation.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
@@ -446,6 +450,12 @@
       href: /rest/api/storageservices/table-service-rest-api
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-cosmos-db
+    - name: Emulator
+      items:
+        - name: Release notes
+          href: ../emulator-release-notes.md
+        - name: Windows command-line arguments
+          href: ../emulator-windows-arguments.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training

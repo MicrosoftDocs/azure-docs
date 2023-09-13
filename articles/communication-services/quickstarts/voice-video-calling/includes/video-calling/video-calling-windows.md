@@ -1,7 +1,7 @@
 
 In this quickstart, you learn how to start a 1:1 video call using the Azure Communication Services Calling SDK for Windows.
 
-## [UWP](#tab/uwp)
+## UWP sample code
 
 ### Prerequisites
 
@@ -28,31 +28,30 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.0.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0) or superior. Make sure Include Preleased is checked.
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.2.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.2.0-beta.1) or superior version. Make sure Include Preleased is checked.
 
 #### Request access
 
-
 Go to `Package.appxmanifest` and click `Capabilities`.
-Check `Internet (Client)` and `Internet (Client & Server)` to gain inbound and outbound access to the Internet. 
+Check `Internet (Client & Server)` to gain inbound and outbound access to the Internet. 
 Check `Microphone` to access the audio feed of the microphone. 
 Check `WebCam` to access the camera of the device. 
 
 Add the following code to your `Package.appxmanifest` by right-clicking and choosing View Code. 
 ```xml
-  <Extensions>
-    <Extension Category="windows.activatableClass.inProcessServer">
-      <InProcessServer>
-        <Path>RtmMvrUap.dll</Path>
-        <ActivatableClass ActivatableClassId="VideoN.VideoSchemeHandler" ThreadingModel="both" />
-      </InProcessServer>
-    </Extension>
-  </Extensions>
+<Extensions>
+<Extension Category="windows.activatableClass.inProcessServer">
+<InProcessServer>
+<Path>RtmMvrUap.dll</Path>
+<ActivatableClass ActivatableClassId="VideoN.VideoSchemeHandler" ThreadingModel="both" />
+</InProcessServer>
+</Extension>
+</Extensions>
 ```
 
 #### Set up the app framework
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start/Join Call` button and a `Hang up` button.
+We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button.
 We also need to preview the local video and render the remote video of the other participant. So we need two elements to display the video streams.
 
 Open the `MainPage.xaml` of your project and replace the content with following implementation.
@@ -66,25 +65,26 @@ Open the `MainPage.xaml` of your project and replace the content with following 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="800" Height="600">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid x:Name="MainGrid" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="16*"/>
-            <RowDefinition Height="30*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="200*"/>
             <RowDefinition Height="60*"/>
-            <RowDefinition Height="16*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="1" x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Margin="10,10,10,10" />
 
-        <Grid x:Name="AppTitleBar" Background="LightSeaGreen">
+        <Grid Grid.Row="0" x:Name="AppTitleBar" Background="LightSeaGreen">
             <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
             <!-- Using padding columns instead of Margin ensures that the background paints the area under the caption control buttons (for transparent buttons). -->
-            <TextBlock x:Name="QuickstartTitle" Text="Calling Quickstart sample title bar" Style="{StaticResource CaptionTextBlockStyle}" Padding="7,7,0,0"/>
+            <TextBlock x:Name="QuickstartTitle" Text="Calling Quickstart sample title bar" Style="{StaticResource CaptionTextBlockStyle}" Padding="4,4,0,0"/>
         </Grid>
 
-        <Grid Grid.Row="2">
+        <TextBox Grid.Row="1" x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" TextWrapping="Wrap" VerticalAlignment="Center" />
+
+        <Grid Grid.Row="2" Background="LightGray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -96,15 +96,25 @@ Open the `MainPage.xaml` of your project and replace the content with following 
             <MediaPlayerElement x:Name="RemoteVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="1" VerticalAlignment="Center" AutoPlay="True" />
         </Grid>
         <StackPanel Grid.Row="3" Orientation="Vertical" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock VerticalAlignment="Center">Cameras:</TextBlock>
+                <ComboBox x:Name="CameraList" HorizontalAlignment="Left" Grid.Column="0" DisplayMemberPath="Name" SelectionChanged="CameraList_SelectionChanged" Margin="10"/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="CallButton" Content="Start/Join call" Click="CallButton_Click" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="123"/>
                 <Button x:Name="HangupButton" Content="Hang up" Click="HangupButton_Click" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="123"/>
+                <CheckBox x:Name="MuteLocal" Content="Mute" Margin="10,0,0,0" Click="MuteLocal_Click" Width="74"/>
+                <CheckBox x:Name="BackgroundBlur" Content="Background blur" Width="142" Margin="10,0,0,0" Click="BackgroundBlur_Click"/>
             </StackPanel>
         </StackPanel>
-        <TextBox Grid.Row="5" x:Name="Stats" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Margin="0,2,0,0" BorderThickness="2" IsReadOnly="True" Foreground="LightSlateGray" />
+        <TextBox Grid.Row="4" x:Name="Stats" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Margin="0,2,0,0" BorderThickness="2" IsReadOnly="True" Foreground="LightSlateGray" />
     </Grid>
 </Page>
+```
 
+Open to `App.xaml.cs` (right click and choose View Code) and add this line to the top:
+```C#
+using CallingQuickstart;
 ```
 
 Open the `MainPage.xaml.cs` (right click and choose View Code) and replace the content with following implementation: 
@@ -112,7 +122,6 @@ Open the `MainPage.xaml.cs` (right click and choose View Code) and replace the c
 using Azure.Communication.Calling.WindowsClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
@@ -130,66 +139,101 @@ namespace CallingQuickstart
 {
     public sealed partial class MainPage : Page
     {
-        private const string authToken = "<AUTHENTICATION_TOKEN>";
-
+        private const string authToken = "<ACS auth token>";
+    
         private CallClient callClient;
-        private CallTokenRefreshOptions callTokenRefreshOptions = new CallTokenRefreshOptions(false);
+        private CallTokenRefreshOptions callTokenRefreshOptions;
         private CallAgent callAgent;
-        private CommunicationCall call;
+        private CommunicationCall call = null;
 
+        private LocalOutgoingAudioStream micStream;
         private LocalOutgoingVideoStream cameraStream;
 
         #region Page initialization
         public MainPage()
         {
             this.InitializeComponent();
-            // Additional UI customization code goes here
+            
+            // Hide default title bar.
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            QuickstartTitle.Text = $"{Package.Current.DisplayName} - Ready";
+            Window.Current.SetTitleBar(AppTitleBar);
+
+            CallButton.IsEnabled = true;
+            HangupButton.IsEnabled = !CallButton.IsEnabled;
+            MuteLocal.IsChecked = MuteLocal.IsEnabled = !CallButton.IsEnabled;
+
+            ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(800, 600);
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            await InitCallAgentAndDeviceManagerAsync();
+
             base.OnNavigatedTo(e);
         }
-        #endregion
+#endregion
 
-        #region UI event handlers
+        private async Task InitCallAgentAndDeviceManagerAsync()
+        {
+            // Initialize call agent and Device Manager
+        }
+
+        private async void Agent_OnIncomingCallAsync(object sender, IncomingCall incomingCall)
+        {
+            // Accept an incoming call
+        }
+
         private async void CallButton_Click(object sender, RoutedEventArgs e)
         {
-            // Start a call
+            // Start a call with video
         }
 
         private async void HangupButton_Click(object sender, RoutedEventArgs e)
         {
-            // Hang up a call
-        }
-        #endregion
-
-        #region API event handlers
-        private async void OnIncomingCallAsync(object sender, IncomingCallReceivedEventArgs args)
-        {
-            // Handle incoming call event
+            // End the current call
         }
 
-        private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
+        private async void Call_OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
         {
-            // Handle connected and disconnected state change of a call
-        }
+            var call = sender as CommunicationCall;
 
-        private async void OnRemoteParticipantsUpdatedAsync(object sender, ParticipantsUpdatedEventArgs args)
-        {
-            // Handle remote participant arrival or departure events and subscribe to individual participant's VideoStreamStateChanged event
-        }
+            if (call != null)
+            {
+                var state = call.State;
 
-        private void OnVideoStreamStateChanged(object sender, VideoStreamStateChangedEventArgs e)
-        {
-            // Handle incoming or outgoing video stream change events
-        }
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    QuickstartTitle.Text = $"{Package.Current.DisplayName} - {state.ToString()}";
+                    Window.Current.SetTitleBar(AppTitleBar);
 
-        private async void OnIncomingVideoStreamStateChangedAsync(IncomingVideoStream incomingVideoStream)
-        {
-            // Handle incoming IncomingVideoStreamStateChanged event and process individual VideoStreamState
+                    HangupButton.IsEnabled = state == CallState.Connected || state == CallState.Ringing;
+                    CallButton.IsEnabled = !HangupButton.IsEnabled;
+                    MuteLocal.IsEnabled = !CallButton.IsEnabled;
+                });
+
+                switch (state)
+                {
+                    case CallState.Connected:
+                        {
+                            break;
+                        }
+                    case CallState.Disconnected:
+                        {
+                            break;
+                        }
+                    default: break;
+                }
+            }
         }
-        #endregion
+        
+        private async void CameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Handle camera selection
+        }
     }
 }
 ```
@@ -200,11 +244,11 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
-| `CallAgent` | The `CallAgent` is used to start and manage calls. |
-| `CommunicationCall` | The `CommunicationCall` is used to manage an ongoing call. |
+| `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
+| `CallAgent` | The `CallAgent` is used to start and join calls. |
+| `CommunicationCall` | The `CommunicationCall` is used to manage placed or joined calls. |
 | `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-|` CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
+| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
 ### Authenticate the client
 
@@ -214,207 +258,350 @@ For the quickstart, replace `<AUTHENTICATION_TOKEN>` with a user access token ge
 
 Once you have a token, initialize a `CallAgent` instance with it, which enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
 
-Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. This helper can be customized to meet the requirements of your application.
-
+Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
 ```C#
-        private async Task InitCallAgentAndDeviceManagerAsync()
-        {
-            this.callClient = new CallClient(new CallClientOptions() {
-                Diagnostics = new CallDiagnosticsOptions() { 
-                    AppName = "CallingQuickstart",
-                    AppVersion="1.0",
-                    Tags = new[] { "Calling", "ACS", "Windows" }
-                    }
-                });
-
-            // Set up local video stream using the first camera enumerated
-            var deviceManager = await this.callClient.GetDeviceManagerAsync();
-            var camera = deviceManager?.Cameras?.FirstOrDefault();
-
-            var tokenCredential = new CallTokenCredential(authToken, callTokenRefreshOptions);
-
-            var callAgentOptions = new CallAgentOptions()
-            {
-                DisplayName = $"{Environment.MachineName}/{Environment.UserName}",
-            };
-
-            this.callAgent = await this.callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
-            this.callAgent.CallsUpdated += OnCallsUpdatedAsync;
-            this.callAgent.IncomingCallReceived += OnIncomingCallAsync;
-
-            // Bind the local video stream to `MediaPlayerElement`
-            var localUri = await cameraStream.StartPreviewAsync();
-            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
-            {
-                LocalVideo.Source = MediaSource.CreateFromUri(localUri);
-            });
+this.callClient = new CallClient(new CallClientOptions() {
+    Diagnostics = new CallDiagnosticsOptions() { 
+        AppName = "CallingQuickstart",
+        AppVersion="1.0",
+        Tags = new[] { "Calling", "ACS", "Windows" }
         }
+    });
+
+// Set up local video stream using the first camera enumerated
+var deviceManager = await this.callClient.GetDeviceManagerAsync();
+var camera = deviceManager?.Cameras?.FirstOrDefault();
+var mic = deviceManager?.Microphones?.FirstOrDefault();
+micStream = new LocalOutgoingAudioStream();
+
+CameraList.ItemsSource = deviceManager.Cameras.ToList();
+
+if (camera != null)
+{
+    CameraList.SelectedIndex = 0;
+}
+
+callTokenRefreshOptions = new CallTokenRefreshOptions(false);
+callTokenRefreshOptions.TokenRefreshRequested += OnTokenRefreshRequestedAsync;
+
+var tokenCredential = new CallTokenCredential(authToken, callTokenRefreshOptions);
+
+var callAgentOptions = new CallAgentOptions()
+{
+    DisplayName = "Contoso",
+    //https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
+    EmergencyCallOptions = new EmergencyCallOptions() { CountryCode = "840" }
+};
+
+
+try
+{
+    this.callAgent = await this.callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
+    //await this.callAgent.RegisterForPushNotificationAsync(await this.RegisterWNS());
+    this.callAgent.CallsUpdated += OnCallsUpdatedAsync;
+    this.callAgent.IncomingCallReceived += OnIncomingCallAsync;
+
+}
+catch(Exception ex)
+{
+    if (ex.HResult == -2147024809)
+    {
+        // E_INVALIDARG
+        // Handle possible invalid token
+    }
+}
 ```
 
 ### Start a call with video
 
-Add the implementation to the `CallButton_Click` to start a ACS call with video. We need to set the `OutgoingVideoOptions` to configure outgoing video. `OutgoingVideoOptions` accepts an array of outgoing video streams. The `cameraStream` associated with local camera device is used in this sample code. It is all set at this point to start a video call by calling `StartCallAsync` on `CallAgent` and passing in the configured `StartCallOption` object along with the callee identifier.
+Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalOutgoingVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalOutgoingVideoStream` to a `MediaElement`, we can see the preview of the local video.
 
 ```C#
-        var startCallOptions = new StartCallOptions();
-        startCallOptions = new StartCallOptions() {
-            OutgoingVideoOptions = new OutgoingVideoOptions() { Streams = new OutgoingVideoStream[] { cameraStream } }
-        };
+var callString = CalleeTextBox.Text.Trim();
 
-        var callees = new ICommunicationIdentifier[1] { new CommunicationUserIdentifier(CalleeTextBox.Text.Trim()) };
+if (!string.IsNullOrEmpty(callString))
+{
+    if (callString.StartsWith("8:")) // 1:1 ACS call
+    {
+        call = await StartAcsCallAsync(callString);
+    }
+    else if (callString.StartsWith("+")) // 1:1 phone call
+    {
+        call = await StartPhoneCallAsync(callString, "+12133947338");
+    }
+    else if (Guid.TryParse(callString, out Guid groupId))// Join group call by group guid
+    {
+        call = await JoinGroupCallByIdAsync(groupId);
+    }
+    else if (Uri.TryCreate(callString, UriKind.Absolute, out Uri teamsMeetinglink)) //Teams meeting link
+    {
+        call = await JoinTeamsMeetingByLinkAsync(teamsMeetinglink);
+    }
+}
 
-        this.call = await this.callAgent.StartCallAsync(callees, startCallOptions);
-        // Set up handler for remote participant updated events, such as VideoStreamStateChanged event
-        this.call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
-        // Set up handler for call StateChanged event
-        this.call.StateChanged += OnStateChangedAsync;
-```
-### Handle remote participant and remote incoming video
-
-Incoming video is associated with specific remote participants, therefore RemoteParticipantsUpdated is the key event to stay notified and obtain references to the changing participants.
-
-```C#
-        private async void OnRemoteParticipantsUpdatedAsync(object sender, ParticipantsUpdatedEventArgs args)
-        {
-            foreach (var participant in args.RemovedParticipants)
-            {
-                foreach(var incomingVideoStream in participant.IncomingVideoStreams)
-                {
-                    var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
-                    if (remoteVideoStream != null)
-                    {
-                        await remoteVideoStream.StopPreviewAsync();
-                    }
-                }
-                // Tear down the event handler on the departing participant
-                participant.VideoStreamStateChanged -= OnVideoStreamStateChanged;
-            }
-
-            foreach (var participant in args.AddedParticipants)
-            {
-                // Set up handler for VideoStreamStateChanged of the participant who just joined the call
-                participant.VideoStreamStateChanged += OnVideoStreamStateChanged;
-            }
-        }
+if (call != null)
+{
+    call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
+    call.StateChanged += OnStateChangedAsync;
+}
 ```
 
-All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
+Add the methods to start or join the different types of Call (1:1 ACS call, 1:1 phone call, ACS Group call, Teams meeting join, etc.).
 
 ```C#
-        private void OnVideoStreamStateChanged(object sender, VideoStreamStateChangedEventArgs e)
-        {
-            CallVideoStream callVideoStream = e.Stream;
+private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
+{
+    var options = await GetStartCallOptionsAsynnc();
+    var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
+    return call;
+}
 
-            switch (callVideoStream.Direction)
-            {
-                case StreamDirection.Outgoing:
-                    //OnOutgoingVideoStreamStateChanged(callVideoStream as OutgoingVideoStream);
-                    break;
-                case StreamDirection.Incoming:
-                    OnIncomingVideoStreamStateChangedAsync(callVideoStream as IncomingVideoStream);
-                    break;
-            }
-        }
+private async Task<CommunicationCall> StartPhoneCallAsync(string acsCallee, string alternateCallerId)
+{
+    var options = await GetStartCallOptionsAsynnc();
+    options.AlternateCallerId = new PhoneNumberCallIdentifier(alternateCallerId);
+
+    var call = await this.callAgent.StartCallAsync( new [] { new PhoneNumberCallIdentifier(acsCallee) }, options);
+    return call;
+}
+
+private async Task<CommunicationCall> JoinGroupCallByIdAsync(Guid groupId)
+{
+    var joinCallOptions = await GetJoinCallOptionsAsync();
+
+    var groupCallLocator = new GroupCallLocator(groupId);
+    var call = await this.callAgent.JoinAsync(groupCallLocator, joinCallOptions);
+    return call;
+}
+
+private async Task<CommunicationCall> JoinTeamsMeetingByLinkAsync(Uri teamsCallLink)
+{
+    var joinCallOptions = await GetJoinCallOptionsAsync();
+
+    var teamsMeetingLinkLocator = new TeamsMeetingLinkLocator(teamsCallLink.AbsoluteUri);
+    var call = await callAgent.JoinAsync(teamsMeetingLinkLocator, joinCallOptions);
+    return call;
+}
+
+private async Task<StartCallOptions> GetStartCallOptionsAsynnc()
+{
+    return new StartCallOptions() {
+        OutgoingAudioOptions = new OutgoingAudioOptions() { IsOutgoingAudioMuted = true, OutgoingAudioStream = micStream  },
+        OutgoingVideoOptions = new OutgoingVideoOptions() { OutgoingVideoStreams = new OutgoingVideoStream[] { cameraStream } }
+    };
+}
+
+private async Task<JoinCallOptions> GetJoinCallOptionsAsync()
+{
+    return new JoinCallOptions() {
+        OutgoingAudioOptions = new OutgoingAudioOptions() { IsOutgoingAudioMuted = true },
+        OutgoingVideoOptions = new OutgoingVideoOptions() { OutgoingVideoStreams = new OutgoingVideoStream[] { cameraStream } }
+    };
+}
 ```
 
-A video stream will transit through a sequence of internal states. `VideoStreamState.Available` is the preferred state to bind the video stream to UI element for rendering the video stream, such as `MediaPlayerElement`, and `VideoStreamState.Stopped` is typically where the cleanup tasks such as stopping video preview should be done.
+Add the code to create the LocalVideoStream depending on the selected camera on the `CameraList_SelectionChanged` method.
 
 ```C#
-        private async void OnIncomingVideoStreamStateChangedAsync(IncomingVideoStream incomingVideoStream)
-        {
-            switch (incomingVideoStream.State)
-            {
-                case VideoStreamState.Available:
-                    switch (incomingVideoStream.Kind)
-                    {
-                        case VideoStreamKind.RemoteIncoming:
-                            var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
-                            var uri = await remoteVideoStream.StartPreviewAsync();
+var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
+cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
 
-                            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                            {
-                                RemoteVideo.Source = MediaSource.CreateFromUri(uri);
-                            });
-                            break;
+ var localUri = await cameraStream.StartPreviewAsync();
+await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+{
+    LocalVideo.Source = MediaSource.CreateFromUri(localUri);
+});
 
-                        case VideoStreamKind.RawIncoming:
-                            break;
-                    }
-                    break;
-
-                case VideoStreamState.Started:
-                    break;
-
-                case VideoStreamState.Stopping:
-                case VideoStreamState.Stopped:
-                    if (incomingVideoStream.Kind == VideoStreamKind.RemoteIncoming)
-                    {
-                        var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
-                        await remoteVideoStream.StopPreviewAsync();
-                    }
-                    break;
-
-                case VideoStreamState.NotAvailable:
-                    break;
-            }
-        }
-
+if (call != null)
+{
+    await call?.StartVideoAsync(cameraStream);
+}
 ```
 
 ### Accept an incoming call
 
-Add the implementation to the `OnIncomingCallAsync` to answer an incoming call with video, pass the `IncomingVideoOptions` instance to `acceptCallOptions`, where `IncomingVideoOptions.StreamKind` can be set to `VideoStreamKind.RemoteIncoming` to enable acceptance of remote video.
+Add the implementation to the `OnIncomingCallAsync` to answer an incoming call with video, pass the `LocalVideoStream` to `acceptCallOptions`. 
 
 ```C#
-            var incomingCall = args.IncomingCall;
+var incomingCall = args.IncomingCall;
 
-            var acceptCallOptions = new AcceptCallOptions() { 
-                IncomingVideoOptions = new IncomingVideoOptions()
-                {
-                    StreamKind = VideoStreamKind.RemoteIncoming
-                } 
-            };
+var acceptCallOptions = new AcceptCallOptions() { 
+    IncomingVideoOptions = new IncomingVideoOptions()
+    {
+        IncomingVideoStreamKind = VideoStreamKind.RemoteIncoming
+    } 
+};
 
-            call = await incomingCall.AcceptAsync(acceptCallOptions);
-            // Set up handler for remote participant updated events, such as VideoStreamStateChanged event
-            call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
-            // Set up handler for incoming call StateChanged event
-            call.StateChanged += OnStateChangedAsync;
+_ = await incomingCall.AcceptAsync(acceptCallOptions);
 ```
 
+### Remote participant and remote video streams
+
+All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
+
+```C#
+
+private async void Call_OnVideoStreamsUpdatedAsync(object sender, RemoteVideoStreamsEventArgs args)
+{
+    foreach (var remoteVideoStream in args.AddedRemoteVideoStreams)
+    {
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+        {
+            RemoteVideo.Source = await remoteVideoStream.Start();
+        });
+    }
+
+    foreach (var remoteVideoStream in args.RemovedRemoteVideoStreams)
+    {
+        remoteVideoStream.Stop();
+    }
+}
+
+private async void Agent_OnCallsUpdatedAsync(object sender, CallsUpdatedEventArgs args)
+{
+    var removedParticipants = new List<RemoteParticipant>();
+    var addedParticipants = new List<RemoteParticipant>();
+
+    foreach(var call in args.RemovedCalls)
+    {
+        removedParticipants.AddRange(call.RemoteParticipants.ToList<RemoteParticipant>());
+    }
+
+    foreach (var call in args.AddedCalls)
+    {
+        addedParticipants.AddRange(call.RemoteParticipants.ToList<RemoteParticipant>());
+    }
+
+    await OnParticipantChangedAsync(removedParticipants, addedParticipants);
+}
+
+private async Task OnParticipantChangedAsync(IEnumerable<RemoteParticipant> removedParticipants, IEnumerable<RemoteParticipant> addedParticipants)
+{
+    foreach (var participant in removedParticipants)
+    {
+        foreach(var incomingVideoStream in  participant.IncomingVideoStreams)
+        {
+            var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
+            if (remoteVideoStream != null)
+            {
+                await remoteVideoStream.StopPreviewAsync();
+            }
+        }
+        participant.VideoStreamStateChanged -= OnVideoStreamStateChanged;
+    }
+
+    foreach (var participant in addedParticipants)
+    {
+        participant.VideoStreamStateChanged += OnVideoStreamStateChanged;
+    }
+}
+
+private void OnVideoStreamStateChanged(object sender, VideoStreamStateChangedEventArgs e)
+{
+    CallVideoStream callVideoStream = e.CallVideoStream;
+
+    switch (callVideoStream.StreamDirection)
+    {
+        case StreamDirection.Outgoing:
+            OnOutgoingVideoStreamStateChanged(callVideoStream as OutgoingVideoStream);
+            break;
+        case StreamDirection.Incoming:
+            OnIncomingVideoStreamStateChanged(callVideoStream as IncomingVideoStream);
+            break;
+    }
+}
+
+private async void OnIncomingVideoStreamStateChanged(IncomingVideoStream incomingVideoStream)
+{
+    switch (incomingVideoStream.State)
+    {
+        case VideoStreamState.Available:
+        {
+            switch (incomingVideoStream.Kind)
+            {
+                case VideoStreamKind.RemoteIncoming:
+                    var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
+                    var uri = await remoteVideoStream.StartPreviewAsync();
+
+                    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                    {
+                        RemoteVideo.Source = MediaSource.CreateFromUri(uri);
+                    });
+                    break;
+
+                case VideoStreamKind.RawIncoming:
+                    break;
+            }
+            break;
+        }
+        case VideoStreamState.Started:
+            break;
+        case VideoStreamState.Stopping:
+            break;
+        case VideoStreamState.Stopped:
+            if (incomingVideoStream.Kind == VideoStreamKind.RemoteIncoming)
+            {
+                var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
+                await remoteVideoStream.StopPreviewAsync();
+            }
+            break;
+        case VideoStreamState.NotAvailable:
+            break;
+    }
+
+}
+```
+
+#### Render remote videos
+
+For each remote video stream, attach it to the `MediaElement`. 
+
+```C#
+private async Task AddVideoStreamsAsync(IReadOnlyList<RemoteVideoStream> remoteVideoStreams)
+{
+    foreach (var remoteVideoStream in remoteVideoStreams)
+    {
+        var remoteUri = await remoteVideoStream.Start();
+
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        {
+            RemoteVideo.Source = remoteUri;
+            RemoteVideo.Play();
+        });
+    }
+}
+```
 
 ### Call state update
 We need to clean the video renderers once the call is disconnected and handle the case when the remote participants initially join the call.
 
 ```C#
-        private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
-        {
-            var call = sender as CommunicationCall;
-
-            if (call != null)
+private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs args)
+{
+    switch (((Call)sender).State)
+    {
+        case CallState.Disconnected:
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                var state = call.State;
+                LocalVideo.Source = null;
+                RemoteVideo.Source = null;
+            });
+            break;
 
-                switch (state)
-                {
-                    case CallState.Connected:
-                        {
-                            break;
-                        }
-                    case CallState.Disconnected:
-                        {
-                            call.RemoteParticipantsUpdated -= OnRemoteParticipantsUpdatedAsync;
-                            call.StateChanged -= OnStateChangedAsync;
-
-                            call.Dispose();
-
-                            break;
-                        }
-                    default: break;
-                }
+        case CallState.Connected:
+            foreach (var remoteParticipant in call.RemoteParticipants)
+            {
+                String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+                remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
+                await AddVideoStreams(remoteParticipant.VideoStreams);
+                remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdated;
             }
-        }
+            break;
 
+        default:
+            break;
+    }
+}
 ```
 
 ### End a call
@@ -445,14 +632,14 @@ Note: Calling `8:echo123` stops the video stream because echo bot doesn't suppor
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
 
-## [WinUI 3](#tab/WinUI3)
+## WinUI 3 sample code
 
 ### Prerequisites
 
 To complete this tutorial, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) and [Windows App SDK version 1.3](/windows/apps/windows-app-sdk/stable-channel#version-13).
+- Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) and [Windows App SDK version 1.2 preview 2](/windows/apps/windows-app-sdk/preview-channel#version-12-preview-2-120-preview2). 
 - Basic understanding of how to create a WinUI 3 app. [Create your first WinUI 3 (Windows App SDK) project](/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) is a good resource to start with.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
@@ -463,12 +650,35 @@ To complete this tutorial, you need the following prerequisites:
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
+### Setting up
+
+#### Creating the project
+
+In Visual Studio, create a new project with the **Blank App, Packaged (WinUI 3 in Desktop)** template to set up a single-page WinUI 3 app.
+
+:::image type="content" source="../../media/windows/create-a-new-winui-project.png" alt-text="Screenshot showing the New WinUI Project window within Visual Studio.":::
+
+#### Install the package
+
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.0.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0) or superior version. Make sure Include Preleased is checked.
+
+#### Request access
+
+:::image type="content" source="../../media/windows/request-access.png" alt-text="Screenshot showing requesting access to Internet and Microphone in Visual Studio.":::
+
+Add the following code to your `app.manifest`:
+```xml
+<file name="RtmMvrMf.dll">
+    <activatableClass name="VideoN.VideoSchemeHandler" threadingModel="both" xmlns="urn:schemas-microsoft-com:winrt.v1" />
+</file>
+```
+
 #### Set up the app framework
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start/Join Call` button and a `Hang up` button.
+We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button. 
 We also need to preview the local video and render the remote video of the other participant. So we need two elements to display the video streams.
 
-Open the `MainPage.xaml` of your project and replace the content with following implementation.
+Open the `MainWindow.xaml` of your project and replace the content with following implementation. 
 
 ```C#
 <Page
@@ -479,17 +689,25 @@ Open the `MainPage.xaml` of your project and replace the content with following 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Grid>
+
+    <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="16*"/>
-            <RowDefinition Height="30*"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="200*"/>
             <RowDefinition Height="60*"/>
-            <RowDefinition Height="16*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="1" x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Margin="10,10,10,10" />
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="0" x:Name="AppTitleBar" Background="LightSeaGreen">
+            <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
+            <!-- Using padding columns instead of Margin ensures that the background paints the area under the caption control buttons (for transparent buttons). -->
+            <TextBlock x:Name="QuickstartTitle" Text="Calling Quickstart sample title bar" Style="{StaticResource CaptionTextBlockStyle}" Padding="4,4,0,0"/>
+        </Grid>
+
+        <TextBox Grid.Row="1" x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" TextWrapping="Wrap" VerticalAlignment="Center" />
+
+        <Grid Grid.Row="2" Background="LightGray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -501,99 +719,83 @@ Open the `MainPage.xaml` of your project and replace the content with following 
             <MediaPlayerElement x:Name="RemoteVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="1" VerticalAlignment="Center" AutoPlay="True" />
         </Grid>
         <StackPanel Grid.Row="3" Orientation="Vertical" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock VerticalAlignment="Center">Cameras:</TextBlock>
+                <ComboBox x:Name="CameraList" HorizontalAlignment="Left" Grid.Column="0" DisplayMemberPath="Name" SelectionChanged="CameraList_SelectionChanged" Margin="10"/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="CallButton" Content="Start/Join call" Click="CallButton_Click" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="123"/>
                 <Button x:Name="HangupButton" Content="Hang up" Click="HangupButton_Click" VerticalAlignment="Center" Margin="10,0,0,0" Height="40" Width="123"/>
+                <CheckBox x:Name="MuteLocal" Content="Mute" Margin="10,0,0,0" Click="MuteLocal_Click" Width="74"/>
+                <CheckBox x:Name="BackgroundBlur" Content="Background blur" Width="142" Margin="10,0,0,0" Click="BackgroundBlur_Click"/>
             </StackPanel>
         </StackPanel>
-        <TextBox Grid.Row="5" x:Name="Stats" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Margin="0,2,0,0" BorderThickness="2" IsReadOnly="True" Foreground="LightSlateGray" />
-    </Grid>
+        <TextBox Grid.Row="4" x:Name="Stats" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="30" Margin="0,2,0,0" BorderThickness="2" IsReadOnly="True" Foreground="LightSlateGray" />
+    </Grid>    
 </Page>
-
 ```
 
-Open the `MainPage.xaml.cs` (right click and choose View Code) and replace the content with following implementation: 
+Open to `App.xaml.cs` (right click and choose View Code) and add this line to the top:
+```C#
+using CallingQuickstart;
+```
+
+Open the `MainWindow.xaml.cs` (right click and choose View Code) and replace the content with following implementation: 
 ```C#
 using Azure.Communication.Calling.WindowsClient;
-using Microsoft.UI;
-using Microsoft.UI.Windowing;
+using Azure.WinRT.Communication;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.ApplicationModel;
 using Windows.Media.Core;
-using WinRT.Interop;
 
 namespace CallingQuickstart
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainWindow : Window
     {
-        private const string authToken = "<AUTHENTICATION_TOKEN>";
+        CallAgent callAgent;
+        Call call;
+        DeviceManager deviceManager;
+        Dictionary<string, RemoteParticipant> remoteParticipantDictionary = new Dictionary<string, RemoteParticipant>();
 
-        private CallClient callClient;
-        private CallTokenRefreshOptions callTokenRefreshOptions = new CallTokenRefreshOptions(false);
-        private CallAgent callAgent;
-        private CommunicationCall call;
-
-        private LocalOutgoingVideoStream cameraStream;
-
-        #region Page initialization
-        public MainPage()
+        public MainWindow()
         {
             this.InitializeComponent();
-            // Additional UI customization code goes here
+            Task.Run(() => this.InitCallAgentAndDeviceManagerAsync()).Wait();
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        private async Task InitCallAgentAndDeviceManagerAsync()
         {
-            base.OnNavigatedTo(e);
+            // Initialize call agent and Device Manager
         }
-        #endregion
 
-        #region UI event handlers
+        private async void Agent_OnIncomingCallAsync(object sender, IncomingCall incomingCall)
+        {
+            // Accept an incoming call
+        }
+
         private async void CallButton_Click(object sender, RoutedEventArgs e)
         {
-            // Start a call
+            // Start a call with video
         }
 
         private async void HangupButton_Click(object sender, RoutedEventArgs e)
         {
-            // Hang up a call
-        }
-        #endregion
-
-        #region API event handlers
-        private async void OnIncomingCallAsync(object sender, IncomingCallReceivedEventArgs args)
-        {
-            // Handle incoming call event
+            // End the current call
         }
 
-        private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
+        private async void Call_OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
         {
-            // Handle connected and disconnected state change of a call
+            var state = (sender as Call)?.State;
+            this.DispatcherQueue.TryEnqueue(() => {
+                State.Text = state.ToString();
+            });
         }
-
-        private async void OnRemoteParticipantsUpdatedAsync(object sender, ParticipantsUpdatedEventArgs args)
-        {
-            // Handle remote participant arrival or departure events and subscribe to individual participant's VideoStreamStateChanged event
-        }
-
-        private void OnVideoStreamStateChanged(object sender, VideoStreamStateChangedEventArgs e)
-        {
-            // Handle incoming or outgoing video stream change events
-        }
-
-        private async void OnIncomingVideoStreamStateChangedAsync(IncomingVideoStream incomingVideoStream)
-        {
-            // Handle incoming IncomingVideoStreamStateChanged event and process individual VideoStreamState
-        }
-        #endregion
     }
 }
+
 ```
 
 ### Object model
@@ -602,11 +804,11 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
-| `CallAgent` | The `CallAgent` is used to start and manage calls. |
-| `CommunicationCall` | The `CommunicationCall` is used to manage an ongoing call. |
+| `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
+| `CallAgent` | The `CallAgent` is used to start and join calls. |
+| `CommunicationCall` | The `CommunicationCall` is used to manage placed or joined calls. |
 | `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-|` CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
+| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
 ### Authenticate the client
 
@@ -614,209 +816,188 @@ To initialize a `CallAgent`, you need a User Access Token. Generally this token 
 
 For the quickstart, replace `<AUTHENTICATION_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
-Once you have a token, initialize a `CallAgent` instance with it, which enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
+Once you have a token initialize a `CallAgent` instance with it, which enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
 
-Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. This helper can be customized to meet the requirements of your application.
-
+Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
 ```C#
-        private async Task InitCallAgentAndDeviceManagerAsync()
-        {
-            this.callClient = new CallClient(new CallClientOptions() {
-                Diagnostics = new CallDiagnosticsOptions() { 
-                    AppName = "CallingQuickstart",
-                    AppVersion="1.0",
-                    Tags = new[] { "Calling", "ACS", "Windows" }
-                    }
-                });
+var callClient = new CallClient();
+this.deviceManager = await callClient.GetDeviceManagerAsync();
 
-            // Set up local video stream using the first camera enumerated
-            var deviceManager = await this.callClient.GetDeviceManagerAsync();
-            var camera = deviceManager?.Cameras?.FirstOrDefault();
+var tokenCredential = new CallTokenCredential("<AUTHENTICATION_TOKEN>");
+var callAgentOptions = new CallAgentOptions()
+{
+    DisplayName = "<DISPLAY_NAME>"
+};
 
-            var tokenCredential = new CallTokenCredential(authToken, callTokenRefreshOptions);
-
-            var callAgentOptions = new CallAgentOptions()
-            {
-                DisplayName = $"{Environment.MachineName}/{Environment.UserName}",
-            };
-
-            this.callAgent = await this.callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
-            this.callAgent.CallsUpdated += OnCallsUpdatedAsync;
-            this.callAgent.IncomingCallReceived += OnIncomingCallAsync;
-
-            // Bind the local video stream to `MediaPlayerElement`
-            var localUri = await cameraStream.StartPreviewAsync();
-            this.DispatcherQueue.TryEnqueue(async () =>
-            {
-                LocalVideo.Source = MediaSource.CreateFromUri(localUri);
-            });
-        }
+this.callAgent = await callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
+this.callAgent.OnCallsUpdated += Agent_OnCallsUpdatedAsync;
+this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 ```
 
 ### Start a call with video
 
-Add the implementation to the `CallButton_Click` to start a ACS call with video. We need to set the `OutgoingVideoOptions` to configure outgoing video. `OutgoingVideoOptions` accepts an array of outgoing video streams. The `cameraStream` associated with local camera device is used in this sample code. It is all set at this point to start a video call by calling `StartCallAsync` on `CallAgent` and passing in the configured `StartCallOption` object along with the callee identifier.
-
+Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaPlayerElement`, we can see the preview of the local video. 
 ```C#
-        var startCallOptions = new StartCallOptions();
-        startCallOptions = new StartCallOptions() {
-            OutgoingVideoOptions = new OutgoingVideoOptions() { Streams = new OutgoingVideoStream[] { cameraStream } }
-        };
+var startCallOptions = new StartCallOptions();
 
-        var callees = new ICommunicationIdentifier[1] { new CommunicationUserIdentifier(CalleeTextBox.Text.Trim()) };
+if (this.deviceManager.Cameras?.Count > 0)
+{
+    var videoDeviceInfo = this.deviceManager.Cameras?.FirstOrDefault();
+    if (videoDeviceInfo != null)
+    {
+        var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
+        cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
 
-        this.call = await this.callAgent.StartCallAsync(callees, startCallOptions);
-        // Set up handler for remote participant updated events, such as VideoStreamStateChanged event
-        this.call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
-        // Set up handler for call StateChanged event
-        this.call.StateChanged += OnStateChangedAsync;
-```
-### Handle remote participant and remote incoming video
-
-Incoming video is associated with specific remote participants, therefore RemoteParticipantsUpdated is the key event to stay notified and obtain references to the changing participants.
-
-```C#
-        private async void OnRemoteParticipantsUpdatedAsync(object sender, ParticipantsUpdatedEventArgs args)
+        var localUri = await cameraStream.StartPreviewAsync();
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
-            foreach (var participant in args.RemovedParticipants)
-            {
-                foreach(var incomingVideoStream in participant.IncomingVideoStreams)
-                {
-                    var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
-                    if (remoteVideoStream != null)
-                    {
-                        await remoteVideoStream.StopPreviewAsync();
-                    }
-                }
-                // Tear down the event handler on the departing participant
-                participant.VideoStreamStateChanged -= OnVideoStreamStateChanged;
-            }
+            LocalVideo.Source = MediaSource.CreateFromUri(localUri);
+        });
 
-            foreach (var participant in args.AddedParticipants)
-            {
-                // Set up handler for VideoStreamStateChanged of the participant who just joined the call
-                participant.VideoStreamStateChanged += OnVideoStreamStateChanged;
-            }
-        }
-```
+        startCallOptions.VideoOptions = new OutgoingVideoOptions(new[] { cameraStream });
+    }
+}
 
-All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
+var callees = new ICommunicationIdentifier[1]
+{
+    new CommunicationUserIdentifier(CalleeTextBox.Text.Trim())
+};
 
-```C#
-        private void OnVideoStreamStateChanged(object sender, VideoStreamStateChangedEventArgs e)
-        {
-            CallVideoStream callVideoStream = e.Stream;
-
-            switch (callVideoStream.Direction)
-            {
-                case StreamDirection.Outgoing:
-                    //OnOutgoingVideoStreamStateChanged(callVideoStream as OutgoingVideoStream);
-                    break;
-                case StreamDirection.Incoming:
-                    OnIncomingVideoStreamStateChangedAsync(callVideoStream as IncomingVideoStream);
-                    break;
-            }
-        }
-```
-
-A video stream will transit through a sequence of internal states. `VideoStreamState.Available` is the preferred state to bind the video stream to UI element for rendering the video stream, such as `MediaPlayerElement`, and `VideoStreamState.Stopped` is typically where the cleanup tasks such as stopping video preview should be done.
-
-```C#
-        private async void OnIncomingVideoStreamStateChangedAsync(IncomingVideoStream incomingVideoStream)
-        {
-            switch (incomingVideoStream.State)
-            {
-                case VideoStreamState.Available:
-                    switch (incomingVideoStream.Kind)
-                    {
-                        case VideoStreamKind.RemoteIncoming:
-                            var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
-                            var uri = await remoteVideoStream.StartPreviewAsync();
-
-                            this.DispatcherQueue.TryEnqueue(async () =>
-                            {
-                                RemoteVideo.Source = MediaSource.CreateFromUri(uri);
-                            });
-                            break;
-
-                        case VideoStreamKind.RawIncoming:
-                            break;
-                    }
-                    break;
-
-                case VideoStreamState.Started:
-                    break;
-
-                case VideoStreamState.Stopping:
-                case VideoStreamState.Stopped:
-                    if (incomingVideoStream.Kind == VideoStreamKind.RemoteIncoming)
-                    {
-                        var remoteVideoStream = incomingVideoStream as RemoteIncomingVideoStream;
-                        await remoteVideoStream.StopPreviewAsync();
-                    }
-                    break;
-
-                case VideoStreamState.NotAvailable:
-                    break;
-            }
-        }
-
+this.call = await this.callAgent.StartCallAsync(callees, startCallOptions);
+this.call.OnRemoteParticipantsUpdated += Call_OnRemoteParticipantsUpdatedAsync;
+this.call.OnStateChanged += Call_OnStateChangedAsync;
 ```
 
 ### Accept an incoming call
 
-Add the implementation to the `OnIncomingCallAsync` to answer an incoming call with video, pass the `IncomingVideoOptions` instance to `acceptCallOptions`, where `IncomingVideoOptions.StreamKind` can be set to `VideoStreamKind.RemoteIncoming` to enable acceptance of remote video.
+Add the implementation to the `Agent_OnIncomingCallAsync` to answer an incoming call with video, pass the `LocalVideoStream` to `acceptCallOptions`. 
 
 ```C#
-            var incomingCall = args.IncomingCall;
+var acceptCallOptions = new AcceptCallOptions();
 
-            var acceptCallOptions = new AcceptCallOptions() { 
-                IncomingVideoOptions = new IncomingVideoOptions()
-                {
-                    StreamKind = VideoStreamKind.RemoteIncoming
-                } 
-            };
+if (this.deviceManager.Cameras?.Count > 0)
+{
+    var videoDeviceInfo = this.deviceManager.Cameras?.FirstOrDefault();
+    if (videoDeviceInfo != null)
+    {
+        var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
+        cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
 
-            call = await incomingCall.AcceptAsync(acceptCallOptions);
-            // Set up handler for remote participant updated events, such as VideoStreamStateChanged event
-            call.RemoteParticipantsUpdated += OnRemoteParticipantsUpdatedAsync;
-            // Set up handler for incoming call StateChanged event
-            call.StateChanged += OnStateChangedAsync;
+        var localUri = await cameraStream.StartPreviewAsync();
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        {
+            LocalVideo.Source = MediaSource.CreateFromUri(localUri);
+        });
+
+        acceptCallOptions.VideoOptions = new OutgoingVideoOptions(new[] { localVideoStream });
+    }
+}
+
+call = await incomingCall.AcceptAsync(acceptCallOptions);
 ```
 
+### Remote participant and remote video streams
+
+All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
+
+```C#
+private async void Call_OnVideoStreamsUpdatedAsync(object sender, RemoteVideoStreamsEventArgs args)
+{
+    foreach (var remoteVideoStream in args.AddedRemoteVideoStreams)
+    {
+        this.DispatcherQueue.TryEnqueue(async () => {
+            RemoteVideo.Source = MediaSource.CreateFromUri(await remoteVideoStream.Start());
+            RemoteVideo.MediaPlayer.Play();
+        });
+    }
+
+    foreach (var remoteVideoStream in args.RemovedRemoteVideoStreams)
+    {
+        remoteVideoStream.Stop();
+    }
+}
+
+private async void Agent_OnCallsUpdatedAsync(object sender, CallsUpdatedEventArgs args)
+{
+    foreach (var call in args.AddedCalls)
+    {
+        foreach (var remoteParticipant in call.RemoteParticipants)
+        {
+            var remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+            this.remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
+            await AddVideoStreamsAsync(remoteParticipant.VideoStreams);
+            remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdatedAsync;
+        }
+    }
+}
+
+private async void Call_OnRemoteParticipantsUpdatedAsync(object sender, ParticipantsUpdatedEventArgs args)
+{
+    foreach (var remoteParticipant in args.AddedParticipants)
+    {
+        String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+        this.remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
+        await AddVideoStreamsAsync(remoteParticipant.VideoStreams);
+        remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdatedAsync;
+    }
+
+    foreach (var remoteParticipant in args.RemovedParticipants)
+    {
+        String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+        this.remoteParticipantDictionary.Remove(remoteParticipantMRI);
+    }
+}
+```
+
+#### Render remote videos
+
+For each remote video stream, attach it to the `MediaPlayerElement`. 
+
+```C#
+private async Task AddVideoStreamsAsync(IReadOnlyList<RemoteVideoStream> remoteVideoStreams)
+{
+    foreach (var remoteVideoStream in remoteVideoStreams)
+    {
+        var remoteUri = await remoteVideoStream.Start();
+
+        this.DispatcherQueue.TryEnqueue(() => {
+            RemoteVideo.Source = MediaSource.CreateFromUri(remoteUri);
+            RemoteVideo.MediaPlayer.Play();
+        });
+    }
+}
+```
 
 ### Call state update
 We need to clean the video renderers once the call is disconnected and handle the case when the remote participants initially join the call.
 
 ```C#
-        private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
-        {
-            var call = sender as CommunicationCall;
-
-            if (call != null)
+private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs args)
+{
+    switch (((Call)sender).State)
+    {
+        case CallState.Disconnected:
+            this.DispatcherQueue.TryEnqueue(() => { =>
             {
-                var state = call.State;
+                LocalVideo.Source = null;
+                RemoteVideo.Source = null;
+            });
+            break;
 
-                switch (state)
-                {
-                    case CallState.Connected:
-                        {
-                            break;
-                        }
-                    case CallState.Disconnected:
-                        {
-                            call.RemoteParticipantsUpdated -= OnRemoteParticipantsUpdatedAsync;
-                            call.StateChanged -= OnStateChangedAsync;
-
-                            call.Dispose();
-
-                            break;
-                        }
-                    default: break;
-                }
+        case CallState.Connected:
+            foreach (var remoteParticipant in call.RemoteParticipants)
+            {
+                String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+                remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
+                await AddVideoStreams(remoteParticipant.VideoStreams);
+                remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdated;
             }
-        }
+            break;
 
+        default:
+            break;
+    }
+}
 ```
 
 ### End a call

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create pipeline component deployment for Batch Endpoints
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 author: santiagxf
 ms.author: fasantia
 reviewer: msakande
@@ -16,7 +16,7 @@ ms.custom: how-to, devplatv2
 
 # Deploy existing pipeline jobs to batch endpoints (preview)
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 Batch endpoints allow you to deploy pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. Batch endpoints accept pipeline components for deployment. However, if you already have a pipeline job that runs successfully, Azure Machine Learning can accept that job as input to your batch endpoint and create the pipeline component automatically for you. In this article, you'll learn how to use your existing pipeline job as input for batch deployment.
 
@@ -27,13 +27,13 @@ You'll learn to:
 > * Create a batch deployment from the existing job
 > * Test the deployment
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## About this example
 
 In this example, we're going to deploy a pipeline consisting of a simple command job that prints "hello world!". Instead of registering the pipeline component before deployment, we indicate an existing pipeline job to use for deployment. Azure Machine Learning will then create the pipeline component automatically and deploy it as a batch endpoint pipeline component deployment.
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -43,7 +43,7 @@ cd endpoints/batch/deploy-pipelines/hello-batch
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ## Run the pipeline job you want to deploy
 
@@ -55,7 +55,7 @@ The following `pipeline-job.yml` file contains the configuration for the pipelin
 
 __pipeline-job.yml__
 
-:::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/pipeline-job.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/pipeline-job.yml" :::
 
 # [Python](#tab/python)
 
@@ -79,7 +79,7 @@ Create the pipeline job:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="run_pipeline_job_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="run_pipeline_job_deployment" :::
 
 # [Python](#tab/python)
 
@@ -100,7 +100,7 @@ Before we deploy the pipeline job, we need to deploy a batch endpoint to host th
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="name_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="name_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -116,7 +116,7 @@ Before we deploy the pipeline job, we need to deploy a batch endpoint to host th
 
     __endpoint.yml__
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/endpoint.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/endpoint.yml" :::
 
     # [Python](#tab/python)
 
@@ -131,7 +131,7 @@ Before we deploy the pipeline job, we need to deploy a batch endpoint to host th
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -143,7 +143,7 @@ Before we deploy the pipeline job, we need to deploy a batch endpoint to host th
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="query_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="query_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -178,20 +178,20 @@ To deploy the pipeline component, we have to create a batch deployment from the 
 
     __deployment-from-job.yml__
 
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deployment-from-job.yml" :::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deployment-from-job.yml" :::
     
     # [Python](#tab/python)
 
     Notice now how we use the property `job_definition` instead of `component`:
     
     ```python
-    deployment = BatchPipelineComponentDeployment(
+    deployment = PipelineComponentBatchDeployment(
         name="hello-batch-from-job",
         description="A hello world deployment with a single step. This deployment is created from a pipeline job.",
         endpoint_name=endpoint.name,
         job_definition=pipeline_job_run,
         settings={
-            "default_comput": "batch-cluster",
+            "default_compute": "batch-cluster",
             "continue_on_step_failure": False
         }
     )
@@ -208,7 +208,7 @@ To deploy the pipeline component, we have to create a batch deployment from the 
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_deployment_from_job" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_deployment_from_job" :::
     
     > [!TIP]
     > Notice the use of `--set job_definition=azureml:$JOB_NAME`. Since job names are unique, the command `--set` is used here to change the name of the job when you run it in your workspace.
@@ -237,7 +237,7 @@ Once the deployment is created, it's ready to receive jobs. You can invoke the d
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="invoke_deployment_inline" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="invoke_deployment_inline" :::
 
 # [Python](#tab/python)
 
@@ -253,7 +253,7 @@ You can monitor the progress of the show and stream the logs using:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="stream_job_logs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="stream_job_logs" :::
 
 # [Python](#tab/python)
 
@@ -276,7 +276,7 @@ Once you're done, delete the associated resources from the workspace:
 
 Run the following code to delete the batch endpoint and its underlying deployment. `--yes` is used to confirm the deletion.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 

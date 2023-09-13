@@ -5,7 +5,7 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/26/2023
+ms.date: 06/02/2023
 ms.author: halkazwini
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
@@ -17,7 +17,9 @@ Azure Network Watcher is a regional service that enables you to monitor and diag
 Network Watcher is enabled in an Azure region through the creation of a Network Watcher instance in that region. This instance allows you to utilize Network Watcher capabilities in that particular region.
 
 > [!NOTE]
-> By default, Network Watcher is automatically enabled. When you create or update a virtual network in your subscription, Network Watcher will be automatically enabled in your Virtual Network's region. Automatically enabling Network Watcher doesn't affect your resources or associated charge.
+> - By default, Network Watcher is automatically enabled. When you create or update a virtual network in your subscription, Network Watcher will be automatically enabled in your Virtual Network's region.
+> - Automatically enabling Network Watcher doesn't affect your resources or associated charge.
+> - Network Watcher can be enabled for these [Azure regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=network-watcher&regions=all).
 
 ## Prerequisites
 

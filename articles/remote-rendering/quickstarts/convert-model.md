@@ -5,7 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, mode-other
+ms.custom: mode-other
 ---
 
 # Quickstart: Convert a model for rendering
@@ -44,9 +44,9 @@ You need:
 
 ## Azure setup
 
-If you don't have an account yet, go to [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), select the free account option, and follow the instructions.
+If you don't have an account yet, go to [Get started with Azure](https://azure.microsoft.com/get-started/), select the free account option, and follow the instructions.
 
-Once you have an Azure account, go to [https://portal.azure.com/#home](https://portal.azure.com/#home).
+Once you have an Azure account, sign in to the [Azure portal](https://portal.azure.com).
 
 ### Storage account creation
 
@@ -203,7 +203,7 @@ The conversion script generates a *Shared Access Signature (SAS)* URI for the co
 
 The SAS URI created by the conversion script expires after 24 hours. However, after it expired you don't need to convert your model again. Instead, you can create a new SAS in the portal as described in the next steps:
 
-1. Go to the [Azure portal](https://www.portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select your **Storage account** resource:
 
 ![Screenshot that highlights the selected Storage account resource.](./media/portal-storage-accounts.png)

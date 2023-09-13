@@ -1,29 +1,28 @@
 ---
-title: Azure Front Door Rules actions
-description: This article provides a list of various actions you can do with Azure Front Door Rules set/Rules engine.
+title: Rule set actions
+titleSuffix: Azure Front Door
+description: This article provides a list of various actions you can do with Azure Front Door rule sets.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/22/2022
+ms.date: 06/01/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
-# Azure Front Door Rules actions
+# Rule set actions
 
 ::: zone pivot="front-door-standard-premium"
 
-An Azure Front Door [Rule set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of actions you can use in an Azure Front Door Rule set. An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door Rule set, a rule can contain up to five actions.
+An Azure Front Door [rule set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of actions you can use in a rule set. An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In a rule set, a rule can have up to five actions. Front Door also supports [server variable](rule-set-server-variables.md) in a rule set action.
 
-Azure Front Door supports [server variable](rule-set-server-variables.md) in a Rule set action.
-
-The following actions are available to use in an Azure Front Door rule set: 
+The following actions are available for use in a rule set: 
 
 ## <a name="RouteConfigurationOverride"></a> Route configuration override
 
-Use the **route configuration override** action to override the origin group or the caching configuration to use for the request. You can choose to override or honor the origin group configurations specified in the route. However, whenever you override the route configuration, you must configure caching. Otherwise, caching will be disabled for the request.
+The **route configuration override** action is used to override the origin group or the caching configuration for the request. You can choose to override or honor the origin group configurations specified in the route. However, when you override the route configuration, you must configure caching. Otherwise, caching gets disabled for the request.
 
 You can also override how files get cached for specific requests, including:
 
@@ -42,8 +41,8 @@ When **Override origin group** is set to **Yes**, set the following properties:
 
 | Property | Supported values |
 |----------|------------------|
-| Origin group | The origin group that the request should be routed to. This overrides the configuration specified in the Front Door endpoint route. |
-| Forwarding protocol | The protocol for Front Door to use when forwarding the request to the origin. Supported values are HTTP only, HTTPS only, Match incoming request. This overrides the configuration specified in the Front Door endpoint route. |
+| Origin group | The origin group that the request should be routed to. This setting overrides the configuration specified in the Front Door endpoint route. |
+| Forwarding protocol | The protocol for Front Door to use when forwarding the request to the origin. Supported values are HTTP only, HTTPS only, Match incoming request. This setting overrides the configuration specified in the Front Door endpoint route. |
 
 When **Caching** is set to **Enabled**, set the following properties:
 
@@ -51,8 +50,8 @@ When **Caching** is set to **Enabled**, set the following properties:
 |-------|------------------|
 | Query string caching behavior | <ul><li>**Ignore Query String:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreQueryString`.</li><li>**Use query string:** Each unique URL has its own cache key. In ARM templates, use the `queryStringCachingBehavior` of `UseQueryString`.</li><li>**Ignore specified query string:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreSpecifiedQueryStrings`.</li><li>**Include specified query string:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IncludeSpecifiedQueryStrings`.</li></ul> |
 | Query parameters | The list of query string parameter names, separated by commas. This property is only set when *Query string caching behavior* is set to *Ignore Specified Query Strings* or *Include Specified Query Strings*. |
-| Compression | <ul><li>**Enabled:** Front Door dynamically compresses content at the edge, resulting in a smaller and faster response. For more information, see [File compression](front-door-caching.md#file-compression). In ARM templates, set the `isCompressionEnabled` property to `Enabled`.</li><li>**Disabled.** Front Door does not perform compression. In ARM templates, set the `isCompressionEnabled` property to `Disabled`.</li></ul> |
-| Cache behavior | <ul><li>**Honor origin:** Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `HonorOrigin`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideAlways`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideIfOriginMissing`.</li></ul> |
+| Compression | <ul><li>**Enabled:** Front Door dynamically compresses content at the edge, resulting in a smaller and faster response. For more information, see [File compression](front-door-caching.md#file-compression). In ARM templates, set the `isCompressionEnabled` property to `Enabled`.</li><li>**Disabled.** Front Door doesn't perform compression. In ARM templates, set the `isCompressionEnabled` property to `Disabled`.</li></ul> |
+| Cache behavior | <ul><li>**Honor origin:** Front Door always honors origin response header directive. If the origin directive is missing, Front Door caches contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `HonorOrigin`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior only gets applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideAlways`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior only gets applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideIfOriginMissing`.</li></ul> |
 | Cache duration | When _Cache behavior_ is set to `Override always` or `Override if origin missing`, these fields must specify the cache duration to use. The maximum duration is 366 days. For a value of 0 seconds, the CDN caches the content, but must revalidate each request with the origin server. This property is only set when *Cache behavior* is set to *Override always* or *Override if origin missing*.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: use the `cacheDuration` to specify the duration in the format `d.hh:mm:ss`. |
 
 ### Examples
@@ -191,7 +190,7 @@ In this example, we override the cache expiration to 6 hours for matched request
 
 ## <a name="ModifyRequestHeader"></a> Modify request header
 
-Use the **modify request header** action to modify the headers in the request when it is sent to your origin.
+Use the **modify request header** action to modify the headers in the request when it's sent to your origin.
 
 ### Properties
 
@@ -241,7 +240,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 ## <a name="ModifyResponseHeader"></a> Modify response header
 
-Use the **modify response header** action to modify headers that are present in responses before they are returned to your clients.
+Use the **modify response header** action to modify headers that are present in responses before they're returned to your clients.
 
 ### Properties
 
@@ -253,7 +252,7 @@ Use the **modify response header** action to modify headers that are present in 
 
 ### Example
 
-In this example, we delete the header with the name `X-Powered-By` from the responses before they are returned to the client.
+In this example, we delete the header with the name `X-Powered-By` from the responses before they're returned to the client.
 
 # [Portal](#tab/portal)
 
@@ -440,10 +439,10 @@ Use these actions to redirect clients to a new URL.
 | ----- | ----------- |
 | Redirect type | Redirect is a way to send users/clients from one URL to another. A redirect type sets the status code used by clients to understand the purpose of the redirect. <br><br/>You can select the following redirect status codes: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308). |
 | Redirect protocol | Retain the protocol as per the incoming request, or define a new protocol for the redirection. For example, select 'HTTPS' for HTTP to HTTPS redirection. |
-| Destination host | Set this to change the hostname in the URL for the redirection or otherwise retain the hostname from the incoming request. |
+| Destination host | Set this value to change the hostname in the URL for the redirection or otherwise retain the hostname from the incoming request. |
 | Destination path | Either retain the path as per the incoming request, or update the path in the URL for the redirection. |  
-| Query string | Set this to replace any existing query string from the incoming request URL or otherwise retain the original set of query strings. |
-| Destination fragment | The destination fragment is the portion of URL after '#', normally used by browsers to land on a specific section on a page. Set this to add a fragment to the redirect URL. |
+| Query string | Set this value to replace any existing query string from the incoming request URL or otherwise retain the original set of query strings. |
+| Destination fragment | The destination fragment is the portion of URL after '#', normally used by browsers to land on a specific section on a page. Set this value to add a fragment to the redirect URL. |
 
 ### Route Type: Forward
 
@@ -451,10 +450,10 @@ Use these actions to forward clients to a new URL. These actions also contain su
 
 | Field | Description |
 | ----- | ----------- |
-| Backend pool | Select the backend pool to override and serve the requests, this will also show all your pre-configured backend pools currently in your Front Door profile. |
+| Backend pool | Select the backend pool to override and serve the requests, you see all your preconfigured backend pools currently in your Front Door profile. |
 | Forwarding protocol | Protocol to use for forwarding request to backend or match the protocol from incoming request. |
 | URL rewrite | Path to use when constructing the request for URL rewrite to forward to the backend. |
-| Caching | Enable caching for this routing rule. When enabled, Azure Front Door will cache your static content. |
+| Caching | Enable caching for this routing rule. When enabled, Azure Front Door caches your static content. |
 
 #### URL rewrite
 
@@ -462,11 +461,11 @@ Use this setting to configure an optional **Custom Forwarding Path** to use when
 
 | Field | Description |
 | ----- | ----------- |
-| Custom forwarding path | Define a path for which requests will be forwarded to. |
+| Custom forwarding path | Define a path for which requests get forwarded to. |
 
 #### Caching
 
-Use these settings to control how files get cached for requests that contain query strings. Whether to cache your content based on all parameters or on selected parameters. You can use additional settings to overwrite the time to live (TTL) value to control how long contents stay in cache. To force caching as an action, set the caching field to "Enabled." When you force caching, the following options appear: 
+Use these settings to control how files get cached for requests that contain query strings. Whether to cache your content based on all parameters or on selected parameters. You can use these settings to overwrite the time to live (TTL) value to control how long contents stay in cache. To force caching as an action, set the caching field to "Enabled." When you force caching, the following options appear: 
 
 | Cache behavior |  Description |
 | -------------- | ------------ |
@@ -475,16 +474,16 @@ Use these settings to control how files get cached for requests that contain que
 | Ignore Specified Query Strings | Request URL query strings listed in "Query parameters" setting are ignored for caching. |
 | Include Specified Query Strings | Request URL query strings listed in "Query parameters" setting are used for caching. |
 
-| Additional fields |  Description 
+| Other fields |  Description 
 ------------------|---------------
 | Dynamic compression | Front Door can dynamically compress content on the edge, resulting in a smaller and faster response. |
 | Query parameters | A comma-separated list of allowed or disallowed parameters to use as a basis for caching.
-| Use default cache duration | Set to use Azure Front Door default caching duration or define a caching duration which ignores the origin response directive. | 
+| Use default cache duration | Set to use Azure Front Door default caching duration or define a caching duration that ignores the origin response directive. | 
 
 ::: zone-end
 
 ## Next steps
 
-- Learn how to configure your first [Rules Engine](front-door-tutorial-rules-engine.md). 
-- Learn more about [Rules Engine match conditions](front-door-rules-engine-match-conditions.md)
-- Learn more about [Azure Front Door Rules Engine](front-door-rules-engine.md)
+- Learn how to configure your first [Rule set](front-door-tutorial-rules-engine.md). 
+- Learn more about [Rule set match conditions](front-door-rules-engine-match-conditions.md).
+- Learn more about [Azure Front Door Rule sets](front-door-rules-engine.md).

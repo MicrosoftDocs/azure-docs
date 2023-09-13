@@ -1,11 +1,9 @@
 ---
 title: Child resources in Bicep
 description: Describes how to set the name and type for child resources in Bicep.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/13/2021
+ms.date: 06/23/2023
 ---
 
 # Set name and type for child resources in Bicep
@@ -84,7 +82,7 @@ output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
 
 ## Outside parent resource
 
-The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [a loop](loops.md) to create more than one child resource. Specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
+The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if you want to use [a loop](loops.md) to create more than one child resource. Specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
 
 ```bicep
 resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {

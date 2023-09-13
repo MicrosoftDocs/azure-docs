@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
-ms.date: 05/01/2023
+ms.date: 06/18/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -14,7 +14,7 @@ Security DevOps uses the following Open Source tools:
 
 | Name | Language | License |
 |--|--|--|
-| [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Windows Defender, that scans source code and breaks the run if malware has been found | Not Open Source |
+| [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Microsoft Defender for Endpoint, that scans for malware and breaks the build if malware has been found. This tool scans by default on windows-latest agent. | Not Open Source |
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
@@ -31,6 +31,8 @@ Security DevOps uses the following Open Source tools:
 - Follow the guidance to set up [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 
 - Open the [Microsoft Security DevOps GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
+
+- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository.
 
 ## Configure the Microsoft Security DevOps GitHub action
 
@@ -54,52 +56,54 @@ Security DevOps uses the following Open Source tools:
 
     :::image type="content" source="media/msdo-github-action/devops.png" alt-text="Screenshot that shows you where to enter a name for your new workflow.":::
 
-1. Copy and paste the following [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow-windows-latest.yml) into the Edit new file tab.
+1. Copy and paste the following [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow.yml) into the Edit new file tab.
 
     ```yml
     name: MSDO windows-latest
     on:
-          push:
-            branches: [ main ]
-          pull_request:
-            branches: [ main ]
-          workflow_dispatch:
-    
-        jobs:
-          sample:
-    
-            # MSDO runs on windows-latest and ubuntu-latest.
-            # macos-latest supporting coming soon
-            runs-on: windows-latest
-    
-            steps:
-            - uses: actions/checkout@v3
-    
-            - uses: actions/setup-dotnet@v3
-              with:
-                dotnet-version: |
-                  5.0.x
-                  6.0.x
-    
-            # Run analyzers
-            - name: Run Microsoft Security DevOps Analysis
-              uses: microsoft/security-devops-action@preview
-              id: msdo
-    
-            # Upload alerts to the Security tab
-            - name: Upload alerts to Security tab
-              uses: github/codeql-action/upload-sarif@v2
-              with:
-                sarif_file: ${{ steps.msdo.outputs.sarifFile }}
-    ```
- 
-    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)                
+      push:
+        branches:
+          - main
 
-1.  Select **Start commit**
+    jobs:
+      sample:
+        name: Microsoft Security DevOps Analysis
+
+        # MSDO runs on windows-latest.
+        # ubuntu-latest and macos-latest supporting coming soon
+        runs-on: windows-latest
+
+        steps:
+
+          # Checkout your code repository to scan
+        - uses: actions/checkout@v3
+
+          # Run analyzers
+        - name: Run Microsoft Security DevOps Analysis
+          uses: microsoft/security-devops-action@preview
+          id: msdo
+
+          # Upload alerts to the Security tab
+        - name: Upload alerts to Security tab
+          uses: github/codeql-action/upload-sarif@v2
+          with:
+            sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+
+          # Upload alerts file as a workflow artifact
+        - name: Upload alerts file as a workflow artifact
+          uses: actions/upload-artifact@v3
+          with:  
+            name: alerts
+            path: ${{ steps.msdo.outputs.sarifFile }}
+    ```
+
+    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)
+
+1. Select **Start commit**
 
     :::image type="content" source="media/msdo-github-action/start-commit.png" alt-text="Screenshot showing you where to select start commit.":::
 
-1.  Select **Commit new file**.
+1. Select **Commit new file**.
 
     :::image type="content" source="media/msdo-github-action/commit-new.png" alt-text="Screenshot showing you how to commit a new file.":::
 
@@ -115,7 +119,7 @@ Security DevOps uses the following Open Source tools:
 
 1. Sign in to [GitHub](https://www.github.com).
 
-1. Navigate to **Security** > **Code scanning alerts** > **Tool**. 
+1. Navigate to **Security** > **Code scanning alerts** > **Tool**.
 
 1. From the dropdown menu, select **Filter by tool**.
 
@@ -128,6 +132,7 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 - Learn how to [deploy apps from GitHub to Azure](/azure/developer/github/deploy-to-azure).
 
 ## Next steps
+
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [connect your GitHub](quickstart-onboard-github.md) to Defender for Cloud.

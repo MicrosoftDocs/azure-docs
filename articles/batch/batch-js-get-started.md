@@ -4,6 +4,7 @@ description: Learn the basic concepts of Azure Batch and build a simple solution
 ms.topic: how-to
 ms.date: 05/16/2023
 ms.devlang: javascript
+ms.custom: devx-track-js, devx-track-linux
 ---
 
 # Get started with Batch SDK for JavaScript

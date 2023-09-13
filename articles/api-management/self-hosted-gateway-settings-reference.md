@@ -33,6 +33,7 @@ Here is an overview of all configuration options:
 | config.service.auth.azureAd.clientSecret | Secret of the Azure AD app to authenticate with. | Yes, when using Azure AD authentication (unless certificate is specified) | N/A | v2.3+ |
 | config.service.auth.azureAd.certificatePath | Path to certificate to authenticate with for the Azure AD app. | Yes, when using Azure AD authentication (unless secret is specified) | N/A | v2.3+ |
 | config.service.auth.azureAd.authority | Authority URL of Azure AD. | No | `https://login.microsoftonline.com` | v2.3+ |
+| config.service.endpoint.disableCertificateValidation | Defines if the self-hosted gateway should validate the server-side certificate of the Configuration API. It is recommended to use certificate validation, only disable for testing purposes and with caution as it can introduce security risk. | No | `false` |  v2.0+ |
 
 The self-hosted gateway provides support for a few authentication options to integrate with the Configuration API which can be defined by using `config.service.auth`.
 
@@ -60,6 +61,7 @@ This guidance helps you provide the required information to define how to authen
 | telemetry.metrics.cloud | Indication whether or not to [enable emitting metrics to Azure Monitor](how-to-configure-cloud-metrics-logs.md). | No |    `true` | v2.0+ |
 | observability.opentelemetry.enabled | Indication whether or not to enable [emitting metrics to an OpenTelemetry collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) on Kubernetes. | No | `false` | v2.0+ |
 | observability.opentelemetry.collector.uri | URI of the OpenTelemetry collector to send metrics to. | Yes, if `observability.opentelemetry.enabled` is set to `true`; otherwise no. | N/A | v2.0+ |
+| observability.opentelemetry.system-metrics.enabled | Enable sending system metrics to the OpenTelemetry collector such as CPU, memory, garbage collection, etc. | No | `false` | v2.3+ |
 | observability.opentelemetry.histogram.buckets | Histogram buckets in which OpenTelemetry metrics should be reported. Format: "*x,y,z*,...". | No | "5,10,25,50,100,250,500,1000,2500,5000,10000" | v2.0+ |
 
 ## Logs
@@ -127,3 +129,4 @@ helm install azure-api-management-gateway \
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
 -   [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
 - [Enable Dapr support on self-hosted gateway](self-hosted-gateway-enable-dapr.md)
+- Learn more about configuration options for [Azure Arc extension](self-hosted-gateway-arc-reference.md)

@@ -7,6 +7,7 @@ ms.service: app-service
 ms.workload: identity
 ms.author: cephalin
 ms.devlang: csharp
+ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ms.topic: tutorial
 ms.date: 04/21/2023
 ---

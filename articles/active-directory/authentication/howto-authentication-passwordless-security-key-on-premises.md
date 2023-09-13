@@ -249,6 +249,8 @@ If you encounter issues or want to share feedback about this passwordless securi
 
 ## Passwordless security key sign-in FAQ
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Here are some answers to commonly asked questions about passwordless sign-in:
 
 ### Does passwordless security key sign-in work in my on-premises environment?
@@ -269,7 +271,7 @@ For information about compliant security keys, see [FIDO2 security keys](concept
 
 ### What can I do if I lose my security key?
 
-To delete an enrolled security key, sign in to the Azure portal, and then go to the **Security info** page.
+To delete an enrolled security key, sign in to the [Azure portal](https://portal.azure.com), and then go to the **Security info** page.
 
 ### What can I do if I'm unable to use the FIDO security key immediately after I create a hybrid Azure AD-joined machine?
 

@@ -1,5 +1,5 @@
 ---
-title: Grant and request tenant-wide permissions in Microsoft Defender for Cloud
+title: Grant and request tenant-wide permissions
 description: Learn how to manage tenant-wide permissions in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.date: 01/08/2023

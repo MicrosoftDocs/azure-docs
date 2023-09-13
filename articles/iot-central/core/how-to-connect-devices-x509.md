@@ -7,21 +7,10 @@ ms.date: 12/14/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: device-developer
+ms.custom: device-developer, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
 
 # - id: programming-languages-set-ten
-# # Owner: aahill
-# title: Programming languages
-#   prompt: Choose a programming language
-#   pivots:
-#   - id: programming-language-csharp
-#     title: C#
-#   - id: programming-language-java
-#     title: Java
-#   - id: programming-language-javascript
-#     title: JavaScript
-#   - id: programming-language-python
 #     title: Python
 ---
 

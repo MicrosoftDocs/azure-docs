@@ -79,8 +79,8 @@ ms.collection:
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
 |**10.7.2** *Additional requirement for service providers only*: Failures of critical security control systems are detected, alerted, and addressed promptly, including but not limited to failure of the following critical security control systems: </br> Network security controls </br> IDS/IPS </br> File integrity monitoring (FIM) </br> Anti-malware solutions </br> Physical access controls </br> Logical access controls </br> Audit logging mechanism </br> Segmentation controls (if used)|Azure AD relies on time synchronization mechanisms in Azure. </br> Azure supports real-time event analysis in its operational environment. Internal Azure infrastructure systems generate near real-time event alerts about potential compromise.|
-|**10.7.2** Failures of critical security control systems are detected, alerted, and addressed promptly, including but not limited to failure of the following critical security control systems: </br> Network security controls </br> IDS/IP </br> Change-detection mechanisms </br> Anti-malware solutions </br> Physical access controls </br> Logical access controls </br> Audit logging mechanisms </br> Segmentation controls (if used) </br> Audit log review mechanisms </br> Automated security testing tools (if used)|See, [Azure AD security operations guide](../fundamentals/security-operations-introduction.md) |
-|**10.7.3**  Failures of any critical security controls systems are responded to promptly, including but not limited to: </br> Restoring security functions. </br> Identifying and documenting the duration (date and time from start to end) of the security failure. </br> Identifying and documenting the cause(s) of failure and documenting required remediation. </br> Identifying and addressing any security issues that arose during the failure. </br> Determining whether further actions are required as a result of the security failure. </br> Implementing controls to prevent the cause of failure from reoccurring. </br> Resuming monitoring of security controls.|See, [Azure AD security operations guide](../fundamentals/security-operations-introduction.md)|
+|**10.7.2** Failures of critical security control systems are detected, alerted, and addressed promptly, including but not limited to failure of the following critical security control systems: </br> Network security controls </br> IDS/IP </br> Change-detection mechanisms </br> Anti-malware solutions </br> Physical access controls </br> Logical access controls </br> Audit logging mechanisms </br> Segmentation controls (if used) </br> Audit log review mechanisms </br> Automated security testing tools (if used)|See, [Azure AD security operations guide](../architecture/security-operations-introduction.md) |
+|**10.7.3**  Failures of any critical security controls systems are responded to promptly, including but not limited to: </br> Restoring security functions. </br> Identifying and documenting the duration (date and time from start to end) of the security failure. </br> Identifying and documenting the cause(s) of failure and documenting required remediation. </br> Identifying and addressing any security issues that arose during the failure. </br> Determining whether further actions are required as a result of the security failure. </br> Implementing controls to prevent the cause of failure from reoccurring. </br> Resuming monitoring of security controls.|See, [Azure AD security operations guide](../architecture/security-operations-introduction.md)|
 
 ## Next steps
 
@@ -88,7 +88,7 @@ PCI-DSS requirements **3**, **4**, **9**, and **12** aren't applicable to Azure 
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
-* [Azure AD PCI-DSS guidance](azure-ad-pci-dss-guidance.md) 
+* [Azure AD PCI-DSS guidance](pci-dss-guidance.md) 
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) 
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md) 
@@ -97,4 +97,4 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 8: Identify Users and Authenticate Access to System Components](pci-requirement-8.md) 
 * [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md) (You're here)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
-* [Azure AD PCI-DSS Multi-Factor Authentication guidance](azure-ad-pci-dss-mfa.md)
+* [Azure AD PCI-DSS Multi-Factor Authentication guidance](pci-dss-mfa.md)

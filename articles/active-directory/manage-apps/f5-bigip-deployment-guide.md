@@ -41,7 +41,7 @@ Deploying a BIG-IP in Azure for SHA requires:
   - Go to letsencrypt.org to see offers. Select [Get Started](https://letsencrypt.org/).
 - An SSL certificate to secure the BIG-IP management interface. You can use a certificate to publish web apps, if its subject corresponds to the BIG-IP fully qualified domain name (FQDN). For example, you can use a wildcard certificate with a subject `*.contoso.com` for `https://big-ip-vm.contoso.com:8443`.
 
-VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md).
+VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Azure Active Directory](f5-integration.md).
 
 ### Testing scenarios
 
@@ -55,15 +55,17 @@ When you test the scenarios, this tutorial assumes:
 If you don't have the previous items for testing, you can deploy an AD domain environment into Azure, using a script on [Cloud Identity Lab](https://github.com/Rainier-MSFT/Cloud_Identity_Lab). You can programmatically deploy sample test applications to an IIS web host using a scripted automation on [Demo Suite](https://github.com/jeevanbisht/DemoSuite).
 
 >[!NOTE]
->Some steps in this tutorial might differ from the layout in the Azure portal.
+>Some steps in this tutorial might differ from the layout in the Microsoft Entra admin center.
 
 ## Azure deployment
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can deploy a BIG-IP in different topologies. This guide focuses on a network interface card (NIC) deployment. However, if your BIG-IP deployment requires multiple network interfaces for high availability, network segregation, or more than 1-GB throughput, consider using F5 pre-compiled [Azure Resource Manager (ARM) templates](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_multiNIC.html).
 
 To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-1. Log into the [Azure portal](https://portal.azure.com/#home) using an account with permissions to create VMs. For example, Contributor.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with an account with permissions to create VMs, such as a Global Administrator.
 2. In the top ribbon search box, type **marketplace**
 3. Select **Enter**.
 4. Type **F5** into the Marketplace filter.
@@ -111,7 +113,7 @@ To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.micros
 19. Select **Next: Management** and complete the settings:
 
 * **Detailed monitoring**: Off
-* **Boot diagnostics** Enable with custom storage account. This feature allows connection to the BIG-IP secure shell (SSH) interface via the Serial Console option in the Azure portal. Select an available Azure storage account.
+* **Boot diagnostics** Enable with custom storage account. This feature allows connection to the BIG-IP secure shell (SSH) interface via the Serial Console option in the Microsoft Entra admin center. Select an available Azure storage account.
  
 20. For **Identity**:
  
@@ -123,7 +125,7 @@ To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.micros
 23. Select **Next: Tags**.
 24. To review your BIG-IP-VM configuration, select **Next: Review + create**.
 25. Select **Create**. Time to deploy a BIG-IP VM typically is 5 minutes.
-26. When complete, expand the Azure portal left-hand menu.
+26. When complete, expand the Microsoft Entra admin center left-hand menu.
 27. Select **Resource groups** and navigate to the BIG-IP-VM. 
 
 > [!NOTE]
@@ -366,13 +368,13 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 
     ![Screenshot of certificate, key, and chain selections.](./media/f5ve-deployment-plan/contoso-wildcard.png)
 
-13.	Repeat steps to create an **SSL server certificate profile**. 
-14.	From the top ribbon, select **SSL** > **Server** > **Create**.
-15.	In the **New Server SSL Profile** page, enter a unique, friendly **Name**.
-16.	Ensure the Parent profile is set to **serverssl**.
-17.	Select the far-right check box for the **Certificate** and **Key** rows
-18.	From the **Certificate** and **Key** drop-down lists, select your imported certificate.
-19.	Select **Finished**.
+13. Repeat steps to create an **SSL server certificate profile**. 
+14. From the top ribbon, select **SSL** > **Server** > **Create**.
+15. In the **New Server SSL Profile** page, enter a unique, friendly **Name**.
+16. Ensure the Parent profile is set to **serverssl**.
+17. Select the far-right check box for the **Certificate** and **Key** rows
+18. From the **Certificate** and **Key** drop-down lists, select your imported certificate.
+19. Select **Finished**.
 
     ![Screenshot of general properties and configuration selections.](./media/f5ve-deployment-plan/server-ssl-profile.png)
 
@@ -399,7 +401,7 @@ See the following list for update-related guidance. Update instructions follow.
 * Run v15.x and above. See, [F5 download](https://downloads.f5.com/esd/productlines.jsp). Sign-in required.
 * To update the main TMOS, see the F5 article, [K34745165: Managing software images on the BIG-IP system](https://support.f5.com/csp/article/K34745165)  
   * If you can't update the main TMOS, you can upgrade the Guided Configuration. Use the following steps.
-* See also, [scenario-based guidance](f5-aad-integration.md)
+* See also, [scenario-based guidance](f5-integration.md)
 
 1. In the BIG-IP web config, on the main tab, go to **Access** > **Guided Configuration**.
 2. On the **Guided Configuration** page, select **Upgrade Guided Configuration**.
@@ -487,4 +489,4 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## Next steps
 
-Select a [deployment scenario](f5-aad-integration.md) and start your implementation.
+Select a [deployment scenario](f5-integration.md) and start your implementation.

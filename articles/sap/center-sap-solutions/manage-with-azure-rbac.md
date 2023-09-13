@@ -12,8 +12,6 @@ ms.custom: template-concept
 
 # Management of Azure Center for SAP solutions resources with Azure RBAC 
 
-
-
 [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) enables granular access management for Azure. You can use Azure RBAC to manage Virtual Instance for SAP solutions resources within Azure Center for SAP solutions. For example, you can separate duties within your team and grant only the amount of access that users need to perform their jobs.
 
 *Users* or *user-assigned managed identities* require minimum roles or permissions to use the different capabilities in Azure Center for SAP solutions.
@@ -229,7 +227,6 @@ To view VIS resources, a *user* or *user-assigned managed identity* requires the
 | Built-in roles for *users* | 
 | ------------------------- |
 | **Azure Center for SAP solutions reader** |
-| **Reader** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
@@ -245,6 +242,8 @@ To view VIS resources, a *user* or *user-assigned managed identity* requires the
 | `Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getAvailabilityZoneDetails/action` |
 | `Microsoft.Insights/Metrics/Read` |
 | `Microsoft.ResourceHealth/AvailabilityStatuses/read` |
+| `Microsoft.Advisor/configurations/read` |
+| `Microsoft.Advisor/recommendations/read` |
 
 | Built-in roles for *user-assigned managed identities* |
 | ---------------------------------------------------- |
@@ -463,7 +462,7 @@ To view Quality Insights, a *user* requires the following role or permissions.
 
 | Built-in roles for *users* | 
 | ------------------------- |
-| **Reader** |
+| **Azure Center for SAP solutions reader** |
 
  Minimum permissions for *users* |
 | ------------------------------- |

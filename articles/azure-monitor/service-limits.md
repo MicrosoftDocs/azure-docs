@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
-ms.date: 04/05/2022
+ms.date: 05/31/2023
 ---
 
 # Azure Monitor service limits

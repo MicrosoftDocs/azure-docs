@@ -6,7 +6,7 @@ ms.author: moghosal
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: tutorial
 ms.date: 11/22/2022
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-python, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a virtual machine in Azure public MEC using the Python SDK

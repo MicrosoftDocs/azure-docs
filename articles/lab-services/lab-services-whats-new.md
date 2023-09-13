@@ -1,8 +1,8 @@
 ---
-title: What's New in Azure Lab Services | Microsoft Docs
+title: What's New in Azure Lab Services
 description: Learn what's new in the Azure Lab Services August 2022 Updates. 
 ms.topic: overview
-ms.date: 07/04/2022
+ms.date: 08/28/2023
 ms.custom: devdivchpfy22
 ---
 
@@ -30,7 +30,7 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Updates to lab owner experience](how-to-manage-labs.md)**. Choose to skip the template creation process when creating a new lab if you already have an image ready to use. We've also added the ability to add a non-admin user to lab VMs.
 
-**[Updates to student experience](how-to-manage-vm-pool.md#redeploy-vms)**. Students can now redeploy their VM without losing data. We also updated the registration experience for some scenarios.  A lab VM is assigned to students *automatically* if the lab is set up to use Azure AD group sync, Teams, or Canvas.
+**[Updates to student experience](how-to-manage-vm-pool.md#redeploy-lab-vms)**. Students can now redeploy their VM without losing data. We also updated the registration experience for some scenarios.  A lab VM is assigned to students *automatically* if the lab is set up to use Azure AD group sync, Teams, or Canvas.
 
 **SDKs**. The Azure Lab Services PowerShell is now integrated with the [Az PowerShell module](/powershell/azure/release-notes-azureps). Also, check out the C# SDK.
 
@@ -56,7 +56,7 @@ Lab accounts and labs have a parental relationship.  Moving to a sibling relatio
 |-|-|-|
 |Resource Management|Lab account was the only resource tracked in the Azure portal. All other resources were child resources of the lab account and tracked in Lab Services directly.|Lab plans and labs are now sibling resources in Azure. Administrators can use existing tools in the Azure portal to manage labs. Virtual machines will continue to be a child resource of labs.|
 |Cost tracking|In Azure Cost Management, admins could only track and analyze cost at the service level and at the lab account level.| Cost entries in Azure Cost Management are now for lab virtual machines. Automatic tags on each entry specify the lab plan ID and the lab name. You can analyze cost by lab plan, lab, or virtual machine from within the Azure portal. Custom tags on the lab will also show in the cost data.|  
-|Selecting regions|By default, labs were created in the same geography as the lab account.  A geography typically aligns with a country and contains one or more Azure regions. Lab owners weren't able to manage exactly which Azure region the labs resided in.|In the lab plan, administrators now can manage the exact Azure regions allowed for lab creation. By default, labs will be created in the same Azure region as the lab plan. </br> Note, when a lab plan has advanced networking enabled, labs are created in the same Azure region as virtual network.|
+|Selecting regions|By default, labs were created in the same geography as the lab account.  A geography typically aligns with a country/region and contains one or more Azure regions. Lab owners weren't able to manage exactly which Azure region the labs resided in.|In the lab plan, administrators now can manage the exact Azure regions allowed for lab creation. By default, labs will be created in the same Azure region as the lab plan. </br> Note, when a lab plan has advanced networking enabled, labs are created in the same Azure region as virtual network.|
 |Deletion experience|When a lab account is deleted, all labs within it are also deleted.|When deleting a lab plan, labs *aren't* deleted. After a lab plan is deleted, labs will keep references to their virtual network even if advanced networking is enabled. However, if a lab plan was connected to an Azure Compute Gallery, the labs can no longer export an image to that Azure Compute Gallery.|
 |Connecting to a virtual network|The lab account provided an option to peer to a virtual network. If you already had labs in the lab account before you peered to a virtual network, the virtual network connection didn't apply to existing labs. Admins couldn't tell which labs in the lab account were peered to the virtual network.|In a lab plan, admins set up the advanced networking only at the time of lab plan creation. Once a lab plan is created, you'll see a read-only connection to the virtual network. If you need to use another virtual network, create a new lab plan configured with the new virtual network.|
 |Labs portal experience|Labs are listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com). If there are multiple lab plans in the same resource group, educators can choose which lab plan to use when creating the lab.|
@@ -102,10 +102,10 @@ With all the new enhancements, it's a good time to revisit your overall lab stru
 
 Let's cover each step to get started with the August 2022 Update in more detail.
 
-1.    **Configure shared resources**. Optionally, [configure licensing servers](how-to-create-a-lab-with-shared-resource.md). For VMs that require access to a licensing server, create a lab using a lab plan with [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation). You can reuse the same Azure Compute Gallery and the licensing servers that you use with your lab accounts.
+1.    **Configure shared resources**. Optionally, [configure licensing servers](how-to-create-a-lab-with-shared-resource.md). For VMs that require access to a licensing server, create a lab using a lab plan with [advanced networking](how-to-connect-vnet-injection.md). You can reuse the same Azure Compute Gallery and the licensing servers that you use with your lab accounts.
 1. **Create Lab plans.**  
 
-    1. [Create](quick-create-resources.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plans.
+    1. [Create](quick-create-resources.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md) when creating your lab plans.
     1. [Assign permissions](quick-create-resources.md#add-a-user-to-the-lab-creator-role) to educators that will create labs. 
     1. Enable [Azure Marketplace images](specify-marketplace-images.md).
     1. Optionally, [attach an Azure Compute Gallery](how-to-attach-detach-shared-image-gallery.md).

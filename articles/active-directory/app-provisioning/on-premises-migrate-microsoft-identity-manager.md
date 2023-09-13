@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 09/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -18,8 +18,6 @@ ms.collection: M365-identity-device-management
 
 You can import into the Azure Active Directory (Azure AD) ECMA Connector Host a configuration for a specific connector from a Forefront Identity Manager Synchronization Service or Microsoft Identity Manager Synchronization Service (MIM Sync) installation. The MIM Sync installation is only used for configuration, not for the ongoing synchronization from Azure AD.
 
->[!IMPORTANT]
->Currently, only the generic SQL and LDAP connectors are supported for use with the Azure AD ECMA Connector Host.
 
 ## Create a connector configuration in MIM Sync
 This section is included for illustrative purposes, if you wish to set up MIM Sync with a connector. If you already have MIM Sync with your ECMA connector configured, skip to the next section.
@@ -43,7 +41,7 @@ At this point, the MIM Sync server is no longer needed.
 
 ## Import a connector configuration
 
- 1. Install the ECMA Connector host and provisioning agent on a Windows Server, using the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#3-install-and-configure-the-azure-ad-connect-provisioning-agent) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#download-install-and-configure-the-azure-ad-connect-provisioning-agent-package) articles.
+ 1. Install the ECMA Connector host and provisioning agent on a Windows Server, using the [provisioning users into SQL based applications](on-premises-sql-connector-configure.md#3-install-and-configure-the-azure-ad-connect-provisioning-agent) or [provisioning users into LDAP directories](on-premises-ldap-connector-configure.md#install-and-configure-the-azure-ad-connect-provisioning-agent) articles.
  1. Sign in to the Windows server as the account that the Azure AD ECMA Connector Host runs as.
  1. Change to the directory C:\Program Files\Microsoft ECMA2host\Service\ECMA. Ensure there are one or more DLLs already present in that directory. Those DLLs correspond to Microsoft-delivered connectors.
  1. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.

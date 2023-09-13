@@ -4,6 +4,7 @@ ms.contributor: jahelmic
 ms.date: 11/14/2022
 ms.topic: article
 tags: azure-resource-manager
+ms.custom: devx-track-linux
 title: Acquiring a user token in Azure Cloud Shell
 ---
 # Acquire a token in Azure Cloud Shell

@@ -76,13 +76,13 @@ You can also deploy workbooks directly in an individual managed tenant for scena
 
 ## Run Log Analytics and hunting queries across Microsoft Sentinel workspaces
 
-Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). These queries can be run across all of your customers' Microsoft Sentinel workspaces by using the Union operator and the [workspace() expression](../../azure-monitor/logs/workspace-expression.md).
+Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#hunt-across-multiple-workspaces). These queries can be run across all of your customers' Microsoft Sentinel workspaces by using the Union operator and the [workspace() expression](../../azure-monitor/logs/workspace-expression.md).
 
-For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces).
 
 ## Use automation for cross-workspace management
 
-You can use automation to manage multiple Microsoft Sentinel workspaces and configure [hunting queries](../../sentinel/hunting.md), playbooks, and workbooks. For more information, see [Cross-workspace management using automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
+You can use automation to manage multiple Microsoft Sentinel workspaces and configure [hunting queries](../../sentinel/hunting.md), playbooks, and workbooks. For more information, see [Cross-workspace management using automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#manage-multiple-workspaces-using-automation).
 
 ## Monitor security of Office 365 environments
 

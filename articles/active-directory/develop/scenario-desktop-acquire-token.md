@@ -10,8 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/27/2023
 ms.author: owenrichards
-ms.custom: aaddev, devx-track-python, has-adal-ref, engagement-fy23
-
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 

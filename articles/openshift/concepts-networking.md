@@ -5,18 +5,21 @@ author: johnmarco
 ms.author: johnmarc
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
-ms.date: 11/28/2022
+ms.date: 05/25/2023
 keywords: aro cluster, aro, networking, azure, openshift, red hat, architecture, diagram
 #Customer intent: As a cluster administrator, I want to understand networking in a Azure Red Hat OpenShift cluster.
 ---
 
 # Network concepts for Azure Red Hat OpenShift
 
-This guide covers an overview of Azure Red Hat OpenShift networking on OpenShift 4 clusters, along with a diagram and a list of important endpoints. For more information on core OpenShift networking concepts, see the [Azure Red Hat OpenShift 4 networking documentation](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html).
+This guide covers an overview of Azure Red Hat OpenShift networking on OpenShift 4 clusters, along with a diagram and a list of important endpoints. For more information on core OpenShift networking concepts, see the [Azure Red Hat OpenShift 4 networking documentation](https://docs.openshift.com/container-platform/4.11/networking/understanding-networking.html).
 
-[![Diagram of Azure Red Hat OpenShift 4 networking.](./media/concepts-networking/aro4-networking-diagram.png)](./media/concepts-networking/aro4-networking-diagram.png#lightbox)
+[![Diagram of Azure Red Hat OpenShift networking.](./media/concepts-networking/aro-networking-diagram.png)](./media/concepts-networking/aro-networking-diagram.png#lightbox)
 
 When you deploy Azure Red Hat OpenShift on OpenShift 4, your entire cluster is contained within a virtual network. Within this virtual network, your control plane nodes and worker nodes each live in their own subnet. Each subnet uses an internal load balancer and a public load balancer.
+
+> [!NOTE]
+> For information on the latest changes introduced to ARO, check out [What's new with Azure Red Hat OpenShift](azure-redhat-openshift-release-notes.md). 
 
 ## Networking components
 
@@ -25,33 +28,21 @@ The following list covers important networking components in an Azure Red Hat Op
 * **aro-pls**
     * This Azure Private Link endpoint is used by Microsoft and Red Hat site reliability engineers to manage the cluster.
 
-* **aro-internal-lb**
-    * This endpoint balances traffic to the API server. For this load balancer, the control plane nodes are in the backend pool.
-
-* **aro-public-lb**
-    * If the API is public, this endpoint routes and balances traffic to the API server. This endpoint assigns a public outgoing IP so control planes can access Azure Resource Manager and report back on cluster health.
-
 * **aro-internal**
-    * This endpoint balances internal service traffic. For this load balancer, the worker nodes are in the backend pool.
+    * This endpoint balances traffic to the API server and internal service traffic. Control plane nodes and worker nodes are in the backend pool.
     * This load balancer isn't created by default. It's created once you create a service of type LoadBalancer with the correct annotations. For example: service.beta.kubernetes.io/azure-load-balancer-internal: "true".
 
 * **aro**
     * This endpoint is used for any public traffic. When you create an application and a route, this endpoint is the path for ingress traffic.
+    * This endpoint also routes and balances traffic to the API server (if the API is public). This endpoint assigns a public outgoing IP so control planes can access Azure Resource Manager and report back on cluster health.
     * This load balancer also covers egress Internet connectivity from any pod running in the worker nodes through Azure Load Balancer outbound rules.
         * Currently outbound rules aren't configurable. They allocate 1,024 TCP ports to each node.
         * DisableOutboundSnat isn't configured in the LB rules, so pods could get as egress IP any public IP configured in this ALB.
         * As a consequence of the two previous points, the only way of adding ephemeral SNAT ports is by adding public LoadBalancer-type services to ARO.
 
-* **aro-outbound-pip**
-    * This endpoint serves as a public IP (PIP) for the worker nodes.
-    * This endpoint enables services to add a specific IP coming from an Azure Red Hat OpenShift cluster to an allowlist.
-
 * **aro-nsg**
-    * When you expose a service, the API creates a rule in this network security group so traffic flows through and reaches the control plane and nodes.
+    * When you expose a service, the API creates a rule in this network security group so traffic flows through and reaches the control plane and nodes through port 6443.
     * By default this network security group allows all outbound traffic. Currently, outbound traffic can only be restricted to the Azure Red Hat OpenShift control plane.
-
-* **aro-controlplane-nsg**
-  * This endpoint only allows traffic to enter through port 6443 for the control plane nodes.
 
 * **Azure Container Registry**
     * This container registry is provided and used by Microsoft internally. It's read-only and not intended for use by Azure Red Hat OpenShift users.
@@ -107,20 +98,6 @@ With a publicly visible API server, you can't create network security groups and
 ## Domain forwarding
 
 Azure Red Hat OpenShift uses CoreDNS. Domain forwarding can be configured. You can’t bring your own DNS to your virtual networks. For more information, see the documentation on [using DNS forwarding](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html#nw-dns-forward_dns-operator).
-
-## What's new starting with OpenShift 4.5
-
-With the support of OpenShift 4.5, Azure Red Hat OpenShift introduced a few significant architectural changes. These changes only apply to newly created clusters running OpenShift 4.5 and later. Existing clusters that have been upgraded to OpenShift 4.5 or later won't have their networking architecture changed by the upgrade process. Users will need to re-create their clusters to use this new architecture.
-
-[![Diagram of Azure Red Hat OpenShift 4.5 networking.](./media/concepts-networking/aro-4-5-networking-diagram.png)](./media/concepts-networking/aro-4-5-networking-diagram.png#lightbox)
-
-As included in the diagram above, you'll notice a few changes:
-
-* Previously, Azure Red Hat OpenShift used two public LoadBalancers: one for the API server and one for the worker node pool. With this architecture update, the two public LoadBalancers have been consolidated under a single LoadBalancer. 
-* To reduce complexity, the dedicated outbound IP address resources have been removed.
-* The ARO control plane now shares the same network security group as the ARO worker nodes.
-
-For more information on OpenShift 4.5 and later, check out the [OpenShift 4.5 release notes](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).
 
 ## Next steps
 For more information on outbound traffic and what Azure Red Hat OpenShift supports for egress, see the [support policies](support-policies-v4.md) documentation.

@@ -328,7 +328,7 @@ errors:
 
 #### Cause
 
-This error occurs when _add-pod-identity_ is installed on the cluster and the _kube-system_ pods
+This error occurs when _aad-pod-identity_ is installed on the cluster and the _kube-system_ pods
 aren't excluded in _aad-pod-identity_.
 
 The _aad-pod-identity_ component Node Managed Identity (NMI) pods modify the nodes' iptables to

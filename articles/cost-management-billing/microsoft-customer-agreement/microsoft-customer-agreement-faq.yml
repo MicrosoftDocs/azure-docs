@@ -7,7 +7,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: microsoft-customer-agreement
   ms.topic: faq
-  ms.date: 05/11/2023
+  ms.date: 06/12/2023
   ms.author: banders
 title: Microsoft Customer Agreement FAQ - Azure
 summary: |
@@ -17,33 +17,46 @@ sections:
       - question: Can I sign the Microsoft Customer Agreement today?
         answer: |
           - **If you work through a Microsoft seller**, the Microsoft Customer Agreement is currently available in Argentina, Australia, Austria, Canada, Chile, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Luxembourg, Netherlands, Norway, Portugal, Puerto Rico, South Africa, Spain, Sweden, Switzerland, United Kingdom, United States, and Uruguay.
-          - **If you're a new customer purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries below all of which are transacted in US dollars (USD). In 2021, we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
+          - **If you're a new customer purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries/regions below all of which are transacted in US dollars (USD). In 2021, we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
           - The Microsoft Customer Agreement is also available through Cloud Solution Providers (CSP) around the world. You can find a partner in the CSP program at [Microsoft Solution Providers](https://www.microsoft.com/solution-providers/home).
 
              | Countries/regions       | Countries/regions   | Countries/regions      | Countries/regions                    |
              |-------------------------|---------------------|------------------------|--------------------------------------|
-             | Afghanistan             | Côte d'Ivoire       | Moldova                | Sri Lanka                            |
-             | Albania                 | Curaçao             | Mongolia               | Tajikistan                           |
-             | Algeria                 | Dominican Republic  | Montenegro             | Tanzania                             |
-             | Angola                  | Egypt               | Morocco                | Thailand                             |
-             | Armenia                 | Ethiopia            | Namibia                | Trinidad and Tobago                  |
-             | Azerbaijan              | Georgia             | Nepal                  | Tunisia                              |
-             | Bahrain                 | Ghana               | Nicaragua              | Turkmenistan                         |
-             | Bangladesh              | Guatemala           | Nigeria                | Virgin Islands of the United States  |
-             | Barbados                | Honduras            | Oman                   | Uganda                               |
-             | Belarus                 | Iraq                | Pakistan               | Ukraine                              |
-             | Belize                  | Israel              | Palestinian Authority  | United Arab Emirates                 |
-             | Bermuda                 | Jamaica             | Panama                 | United States                        |
-             | Bolivia                 | Jordan              | Paraguay               | Uruguay                              |
-             | Bosnia and Herzegovina  | Kazakhstan          | Peru                   | Uzbekistan                           |
-             | Botswana                | Kenya               | Philippines            | Venezuela                            |
-             | Brunei Darussalam       | Kuwait              | Puerto Rico            | Vietnam                              |
-             | Cameroon                | Kyrgyzstan          | Qatar                  | Yemen                                |
-             | Cabo Verde              | Lebanon             | Rwanda                 | Zambia                               |
-             | Cayman Islands          | Libya               | Saint Kitts and Nevis  | Zimbabwe                             |
-             | Chile                   | Macao               | Senegal                | Ecuador                              |
-             | Colombia                | Macedonia (FYRO)    | Serbia                 | El Salvador                          |
-             | Costa Rica              | Mauritius           | Singapore              |                                      |
+             | Afghanistan | Albania | Algeria | Angola |
+             | Argentina | Armenia | Australia | Austria |
+             | Azerbaijan | Bahamas | Bahrain | Bangladesh |
+             | Barbados | Belarus | Belgium | Belize |
+             | Bermuda | Bolivia | Bosnia and Herzegovina | Botswana |
+             | Brazil | Brunei | Bulgaria | Cabo Verde |
+             | Cameroon | Canada | Cayman Islands | Chile |
+             | Colombia | Costa Rica | Côte d'Ivoire | Croatia |
+             | Curaçao | Cyprus | Czechia | Darussalam |
+             | Denmark | Dominican Republic | Ecuador | Egypt |
+             | El Salvador | Estonia | Ethiopia | Faroe Islands |
+             | Fiji | Finland | France | Georgia |
+             | Germany | Ghana | Greece | Guatemala |
+             | Honduras | Hong Kong Special Administrative Region| Hungary | Iceland |
+             | Indonesia | Iraq | Ireland | Israel |
+             | Italy | Jamaica | Japan | Jordan |
+             | Kazakhstan | Kenya | Korea | Kuwait |
+             | Kyrgyzstan | Lebanon | Libya | Lithuania |
+             | Macao Special Administrative Region| Malaysia | Malta | Mauritius |
+             | Mexico | Moldova | Monaco | Mongolia |
+             | Montenegro | Morocco | Namibia | Nepal |
+             | Netherlands | New Zealand | Nicaragua | Nigeria |
+             | Norway | North Macedonia | Oman | Pakistan |
+             | Palestinian Authority | Panama | Paraguay | Peru |
+             | Philippines | Poland | Portugal | Puerto Rico |
+             | Qatar | Romania | Russia | Rwanda |
+             | Saint Kitts and Nevis | Saudi Arabia | Senegal | Serbia |
+             | Singapore | Slovakia | Slovenia | South Africa |
+             | Spain | Sri Lanka | Sweden | Switzerland |
+             | Taiwan | Tajikistan | Tanzania | Thailand |
+             | Trinidad and Tobago | Tunisia | Türkiye | Turkmenistan |
+             | Uganda | UK | Ukraine | United Arab Emirates |
+             | United States | Uruguay | Uzbekistan | Venezuela |
+             | Vietnam | Virgin Islands of the United States | Yemen | Zambia |
+             | Zimbabwe | | | |
       - question: What if I'm an existing customer purchasing Azure directly from Azure.com?
         answer: |
           Microsoft shares a notice directly with you at least 30 days before the transition to the Microsoft Customer Agreement.
@@ -150,7 +163,7 @@ sections:
           | Greece                              | Euro (€)                |
           | Guatemala                           | US Dollar (\$)          |
           | Honduras                            | US Dollar (\$)          |
-          | Hong Kong                           | US Dollar (\$)          |
+          | Hong Kong SAR                       | US Dollar (\$)          |
           | Hungary                             | Euro (€)                |
           | Iceland                             | Euro (€)                |
           | India                               | Indian Rupee (₹)        |
@@ -173,8 +186,7 @@ sections:
           | Liechtenstein                       | Swiss Franc. (chf)      |
           | Lithuania                           | Euro (€)                |
           | Luxembourg                          | Euro (€)                |
-          | Macao                               | US Dollar (\$)          |
-          | Macedonia (FYRO)                    | US Dollar (\$)          |
+          | Macao SAR                              | US Dollar (\$)          |
           | Malaysia                            | US Dollar (\$)          |
           | Malta                               | Euro (€)                |
           | Mauritius                           | US Dollar (\$)          |
@@ -190,6 +202,7 @@ sections:
           | New Zealand                         | New Zealand Dollar (\$) |
           | Nicaragua                           | US Dollar (\$)          |
           | Nigeria                             | US Dollar (\$)          |
+          | North Macedonia                     | US Dollar (\$)          |
           | Norway                              | Norwegian Krone (kr)    |
           | Oman                                | US Dollar (\$)          |
           | Pakistan                            | US Dollar (\$)          |

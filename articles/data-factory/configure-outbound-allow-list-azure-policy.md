@@ -15,7 +15,7 @@ Outbound white listing of Fully Qualified Domain Names (FQDN) is a network secur
 
 ## Overview
 
-Outbound rules in Azure Data Factory are an effective way for users to limit outgoing traffic by specifying allowed Fully Qualified Domain Names (FQDN) or network endpoints. This critical feature offers network security administrators greater control, improving governance and preventing data exfiltration. Azure Policy is used to enforce these rules [TBD Policy link].  
+Outbound rules in Azure Data Factory are an effective way for users to limit outgoing traffic by specifying allowed Fully Qualified Domain Names (FQDN) or network endpoints. This critical feature offers network security administrators greater control, improving governance and preventing data exfiltration. [Azure Policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3d02a511-74e5-4dab-a5fd-878704d4a61a) is used to enforce these rules .  
 
 These outbound rules apply to various pipeline activities. This includes Copy, Dataflows, Web, Webhook, and Azure Function activities, as well as authoring scenarios like data preview and test connection. In addition to Managed VNet, these outbound rules help you build a secure and exfiltration-proof data integration solution.
 
@@ -49,7 +49,7 @@ To apply policies to an Azure Data Factory instance, complete the following step
 
 1. Review and create the policy.
 
-1. Navigate to the [Azure Data Factory Studio](https://ms-adf.azure.com) and enable outbound rules functionality by selecting the **Manage** tab on the left, and then **Outbound rules**.
+1. Navigate to the [Azure Data Factory Studio](https://adf.azure.com) and enable outbound rules functionality by selecting the **Manage** tab on the left, and then **Outbound rules**.
 
    :::image type="content" source="media/configure-outbound-allow-list-azure-policy/outbound-rules.png" lightbox="media/configure-outbound-allow-list-azure-policy/outbound-rules.png" alt-text="Screenshot showing the outbound rules configuration in Azure Data Factory Studio.":::
 

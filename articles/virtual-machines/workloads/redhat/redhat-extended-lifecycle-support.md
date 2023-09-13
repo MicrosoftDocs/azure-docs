@@ -4,11 +4,11 @@ description: Learn about adding Red Hat Enterprise Extended Lifecycle support ad
 author: mathapli
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
-
 ---
 
 # Red Hat Enterprise Linux (RHEL) Extended Lifecycle Support

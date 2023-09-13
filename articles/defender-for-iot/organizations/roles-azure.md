@@ -5,7 +5,7 @@ ms.date: 09/19/2022
 ms.topic: concept-article
 ms.custom: enterprise-iot
 ms.collection:
-  -       zerotrust-services
+  -       zerotrust-extra
 ---
 
 # Azure user roles and permissions for Defender for IoT
@@ -29,7 +29,7 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 | **[Download sensor endpoint details](how-to-manage-sensors-on-the-cloud.md#endpoint)** <br>Apply per subscription only |  ✔    |  ✔       |   ✔      | ✔ |
 |  **[Download sensor activation files](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor)** <br>Apply per subscription only|   -     |   ✔      | ✔ | ✔ |
 |  **[View values on the Plans and pricing page](how-to-manage-subscriptions.md)** [*](#enterprise-iot-security) <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |
-|  **[Modify values on the Plans and pricing page](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks)** [*](#enterprise-iot-security) <br>Apply per subscription only| -       |   ✔     | ✔ | ✔ |
+|  **[Modify values on the Plans and pricing page](how-to-manage-subscriptions.md)** [*](#enterprise-iot-security) <br>Apply per subscription only| -       |   ✔     | ✔ | ✔ |
 |  **[View values on the Sites and sensors page](how-to-manage-sensors-on-the-cloud.md)** [*](#enterprise-iot-security)<br>Apply per subscription only  |   ✔   |   ✔    | ✔ | ✔|
 |  **[Modify values on the Sites and sensors page](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)** [*](#enterprise-iot-security), including remote OT sensor updates<br>Apply per subscription only  |   -    |   ✔    | ✔ | ✔|
 |  **[Recover on-premises management console passwords](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)** <br>Apply per subscription only  | -      |   ✔     | ✔ | ✔ |
@@ -66,3 +66,4 @@ For more information, see:
 - [On-premises user roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
 - [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
+- 

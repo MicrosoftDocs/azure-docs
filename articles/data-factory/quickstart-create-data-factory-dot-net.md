@@ -6,9 +6,9 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.author: jianleishen
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-dotnet
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 
@@ -103,7 +103,7 @@ Next, create a C# .NET console application in Visual Studio:
    ```
 > [!NOTE]
 > For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
->  For example, in US Azure Gov you would use authority of https://login.microsoftonline.us instead of https://login.microsoftonline.com, and use https://management.usgovcloudapi.net instead of https://management.azure.com/, and then create the data factory management client. 
+>  For example, in US Azure Gov you would use authority of ```https://login.microsoftonline.us``` instead of `https://login.microsoftonline.com`, and use ```https://management.usgovcloudapi.net``` instead of ```https://management.azure.com/```, and then create the data factory management client. 
 >  You can use PowerShell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.
 
 3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create a data factory, a linked service, datasets, and a pipeline. You also use this object to monitor the pipeline run details.

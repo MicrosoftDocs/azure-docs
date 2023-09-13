@@ -43,7 +43,8 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * To deploy container groups to a subnet, the subnet and the container group must be on the same Azure subscription.
 * You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deployments to a virtual network are typically slower than deploying a standard container instance.
-* Outbound connection to port 25 is not supported at this time.
+* Outbound connections to port 25 and 19390 are not supported at this time. Port 19390 needs to be opened in your Firewall for connecting to ACI from Azure portal when container groups are deployed in virtual networks.
+* For inbound connections, the firewall should also allow all ip addresses within the virtual network.
 * If you are connecting your container group to an Azure Storage Account, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to that resource.
 * [IPv6 addresses](../virtual-network/ip-services/ipv6-overview.md) are not supported at this time.
 * Depending on your subscription type, [certain ports may be blocked](../virtual-network/network-security-groups-overview.md#azure-platform-considerations).
@@ -77,8 +78,7 @@ In the following diagram, several container groups have been deployed to a subne
 ## Next steps
 
 * For deployment examples with the Azure CLI, see [Deploy container instances into an Azure virtual network](container-instances-vnet.md).
-* To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
-).
+* To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet).
 * When using the [Azure portal](container-instances-quickstart-portal.md) to create a container instance, you can also provide settings for a new or exsting virtual network on the **Networking** tab.
 
 

@@ -1,0 +1,93 @@
+### YamlMime:FAQ
+metadata:
+  title: Common questions -  Defender for Storage classic
+  description: Get answers to frequently asked questions about Microsoft Defender for Storage classic.
+  ms.topic: faq
+  ms.service: defender-for-cloud
+  author: dcurwin
+  ms.author: dacurwin
+  ms.date: 06/20/2023
+title: Common questions about Defender for Storage classic
+summary: Get answers to common questions about Microsoft Defender for Storage classic.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          Are there differences in features between the new Defender for Storage plan and the legacy Defender for Storage Classic plan?
+        answer: |
+          Yes. The new Defender for Storage plan offers additional security capabilities, such as near real-time malware scanning and sensitive data threat detection. This plan also provides a more predictable pricing structure for better control over coverage and costs. Learn more about the [benefits of migrating to the new plan](defender-for-storage-classic-migrate.md).
+
+
+      - question: |
+          How do I estimate charges at the account level? 
+        answer: |
+          To get an estimate of Defender for Storage classic costs, use the [Price Estimation Workbook](https://portal.azure.com/#blade/AppInsightsExtension/UsageNotebookBlade/ComponentId/Azure%20Security%20Center/ConfigurationId/community-Workbooks%2FAzure%20Security%20Center%2FPrice%20Estimation/Type/workbook/WorkbookTemplateName/Price%20Estimation) in the Azure portal. 
+
+
+      - question: |
+          Can I exclude a specific Azure Storage account from a protected subscription? 
+        answer: |
+          Yes, you can [exclude specific storage accounts](defender-for-storage-classic-enable.md#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan) from protected subscriptions in Defender for Storage (classic).
+
+
+      - question: |
+          Can I switch from the per-transaction pricing in Defender for Storage (classic) to the new Defender for Storage plan?
+        answer: |
+          Yes, you can move to the new Defender for Storage plan with per-storage account pricing through the Azure portal or other supported methods. This change isn't automatic, you'll need to actively make the switch. Learn about how to [migrate to the new Defender for Storage](defender-for-storage-classic-migrate.md).
+
+
+      - question: |
+          Can I exclude specific storage accounts from protection in the new Defender for Storage plan?
+        answer: |
+          Yes, the new Defender for Storage plan with per-storage account pricing allows you to exclude and configure specific storage accounts within protected subscriptions. However, you'll need to set up the exclusion again after you migrate to the new plan. Learn about how to [migrate to the new Defender for Storage](defender-for-storage-classic-migrate.md).
+
+
+      - question: |
+          Can I switch from an existing per-transaction pricing under the Defender for Storage (classic) plan to the new per-storage account pricing under the new Defender for Storage plan?
+        answer: |
+          Yes, you can migrate to the per-storage account pricing under the new Defender for Storage plan in the Azure portal or using any of the supported enablement methods.
+
+
+      - question: |
+          Can I return to per-transaction pricing in the Defender for Storage (classic) plan after switching to per-storage account pricing?
+        answer: |
+          Yes, you can [enable per-transaction pricing](defender-for-storage-classic-enable.md) under the Defender for Storage (classic) plan to migrate back from per-storage account pricing using all enablement methods except for the Azure portal.
+
+
+      - question: |
+          Will you continue supporting per-transaction pricing in the Defender for Storage (classic) plan?
+        answer: |
+          Yes, you can [enable per-transaction pricing](defender-for-storage-classic-enable.md) under the Defender for Storage (classic) plan from all the supported enablement methods, except for the Azure portal.
+
+
+      - question: |
+          Under the Defender for Storage (classic) per-storage account pricing, can I exclude specific storage accounts from protections?
+        answer: |
+          No, you can only enable per-storage account pricing under the Defender for Storage (classic) plan at the subscription level. All storage accounts in the subscriptions are protected.
+
+
+      - question: |
+          How long does it take for per-storage account pricing to be enabled in the Defender for Storage (classic) plan?
+        answer: |
+          When you enable Microsoft Defender for Storage at the subscription level for per-storage account or per-transaction pricing under the Defender for Storage (classic) plan, it takes up to 24 hours for the plan to be enabled.
+
+
+      - question: |
+          Is there any difference in the feature set of per-storage account pricing compared to the legacy per-transaction pricing in the Defender for Storage (classic) plan?
+        answer: |
+          No. Both per-storage account and per-transaction pricing under the Defender for Storage (classic) plan include the same features. The only difference is the pricing structure.
+
+
+      - question: |
+          How can I estimate the cost for each pricing under the Defender for Storage (classic) plan?
+        answer: |
+          To estimate the cost according to each pricing for your environment under the Defender for Storage (classic) plan, we created a [pricing estimation workbook](https://aka.ms/dfstoragecosttool) and a PowerShell script that you can run in your environment.
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn more about Defender for Storage classic](./defender-for-storage-classic.md)

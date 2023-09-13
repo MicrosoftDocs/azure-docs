@@ -6,52 +6,20 @@ author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 05/30/2023
+ms.date: 06/16/2023
 ---
 
 # pg_azure_storage extension
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-The pg_azure_storage extension allows you to load data in multiple file formats directly from Azure blob storage to your Azure Cosmos DB for PostgreSQL cluster. Containers with access level “Private” or “Blob” requires adding private access key.
+The pg_azure_storage extension allows you to load data in multiple file formats directly from Azure blob storage to your Azure Cosmos DB for PostgreSQL cluster. Enabling the extension also unlocks new capabilities of the [COPY](reference-copy-command.md) command. Containers with access level “Private” or “Blob” requires adding private access key.
 
-You can create the extension from psql by running:
+You can create the extension by running:
+
 ```postgresql
 SELECT create_extension('azure_storage');
 ```
-
-## COPY FROM
-
-`COPY FROM` copies data from a file, hosted on a file system or within `Azure blob storage`, to an SQL table (appending the data to whatever is in the table already). The command is helpful in dealing with large datasets, significantly reducing the time and resources required for data transfer.
-
-```postgresql
-COPY table_name [ ( column_name [, ...] ) ]
-FROM { 'filename' | PROGRAM 'command' | STDIN | Azure_blob_url}
-    [ [ WITH ] ( option [, ...] ) ]
-    [ WHERE condition ]
-```
-> [!NOTE]
-> Syntax and options supported remains likewise to Postgres Native [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command, with following exceptions:
->
-> - `FREEZE [ boolean ]`
-> - `HEADER MATCH`
->
-> `COPY TO` syntax is yet not supported.
-
-### Arguments
-#### Azure_blob_url
-Allows unstructured data to be stored and accessed at a massive scale in block blobs. Objects in blob storage can be accessed from anywhere in the world via HTTPS. The storage client libraries are available for multiple languages, including .NET, Java, Node.js, Python, PHP, and Ruby.
-
-### Option
-#### format
-Specifies the format of destination file. Currently the extension supports following formats
-
-| **Format** | **Description**                                          |
-|------------|----------------------------------------------------------|
-| csv        | Comma-separated values format used by PostgreSQL COPY    |
-| tsv        | Tab-separated values, the default PostgreSQL COPY format |
-| binary     | Binary PostgreSQL COPY format                            |
-| text       | A file containing a single text value (for example, large JSON or XML)                            |
 
 ## azure_storage.account_add
 Function allows adding access to a storage account.
@@ -133,7 +101,7 @@ Azure blob storage (ABS) account contains all of your ABS objects: blobs, files,
 #### allowed_users
 Lists the users having access to the Azure blob storage.
 
-### Return Type
+### Return type
 TABLE
 
 ## azure_storage.blob_list
@@ -187,7 +155,7 @@ Azure Storage allows you to define Content-Encoding property on a blob. For comp
 #### content_hash
 This hash is used to verify the integrity of the blob during transport. When this header is specified, the storage service checks the hash that has arrived with the one that was sent. If the two hashes don't match, the operation fails with error code 400 (Bad Request).
 
-### Return Type
+### Return type
 SETOF record
 
 > [!NOTE]
@@ -208,7 +176,9 @@ azure_storage.blob_get
         )
 RETURNS SETOF record;
 ```
+
 There's an overloaded version of function, containing rec parameter that allows you to conveniently define the output format record.
+
 ```postgresql
 azure_storage.blob_get
         (account_name text
@@ -248,8 +218,8 @@ Defines the compression format. Available options are `auto`, `gzip` & `none`. T
 #### options
 For handling custom headers, custom separators, escape characters etc., `options` works in similar fashion to `COPY` command in PostgreSQL, parameter utilizes to blob_get function.
 
-### Return Type
-SETOF Record
+### Return type
+SETOF Record / anyelement
 
 > [!Note]
 > There are four utility functions, called as a parameter within blob_get that help building values for it. Each utility function is designated for the decoder matching its name.
@@ -296,7 +266,7 @@ Match the specified columns' values against the null string, even if it has been
 #### content_encoding
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
-### Return Type
+### Return type
 jsonb
 
 ## azure_storage.options_copy
@@ -345,7 +315,7 @@ Match the specified columns' values against the null string, even if it has been
 #### content_encoding
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
-### Return Type
+### Return type
 jsonb
 
 ## azure_storage.options_tsv
@@ -370,7 +340,7 @@ Specifies the string that represents a null value. The default is \N (backslash-
 #### content_encoding
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
-### Return Type
+### Return type
 jsonb
 
 ## azure_storage.options_binary
@@ -429,20 +399,40 @@ The example illustrates removing the access key for a storage account. This acti
 SELECT azure_storage.account_remove('pgquickstart');
 ```
 
-### List the objects within a `public` container on Azure storage account
-The following example illustrates accessing the available files within the public container.
+### Adding access for a role to Azure Blob storage
+
+```sql
+SELECT * FROM azure_storage.account_user_add('pgquickstart', 'support');
+```
+
+### List all the roles with access on Azure Blob storage
+
+```sql
+SELECT * FROM azure_storage.account_list();
+```
+
+### Removing the roles with access on Azure Blob storage
+
+```sql
+SELECT * FROM azure_storage.account_user_remove('pgquickstart', 'support');
+```
+
+### List the objects within a `public` container
+
 ```sql
 SELECT * FROM azure_storage.blob_list('pgquickstart','publiccontainer');
 ```
 
-### List the objects within a `private` container on Azure storage account (adding access key is mandatory)
-The following example illustrates accessing the available files within the private container.
+### List the objects within a `private` container
+
 ```sql
 SELECT * FROM azure_storage.blob_list('pgquickstart','privatecontainer');
 ```
 
+> [!Note]
+> Adding access key is mandatory.
+
 ### List the objects with specific string initials within public container
-The following example illustrates listing all the available files starting with a string initial.
 
 ```sql
 SELECT * FROM azure_storage.blob_list('pgquickstart','publiccontainer','e');
@@ -470,10 +460,10 @@ Alternatively, we can explicitly define the columns in the `FROM` clause.
 ```sql
 SELECT * FROM azure_storage.blob_get('pgquickstart','publiccontainer','events.csv')
 AS res (
-         event_id TEXT
-        ,event_type DATE
-        ,event_public INTEGER
-        ,repo_id INTEGER
+         event_id BIGINT
+        ,event_type TEXT
+        ,event_public BOOLEAN
+        ,repo_id BIGINT
         ,payload JSONB
         ,repo JSONB
         ,user_id BIGINT
@@ -523,7 +513,8 @@ LIMIT 5;
 ```
 
 ### Query content from file with headers, custom separators, escape characters
-The example illustrates the use of `options` argument for processing files with headers, custom separators, escape characters, etc., you can either use the COPY command or pass COPY options to the blob_get function using the `azure_storage.options_copy` function.
+You can use custom separators and escape characters by passing the result of `azure_storage.options_copy` to the `options` argument.
+
 ```sql
 SELECT * FROM azure_storage.blob_get
         ('pgquickstart'
@@ -535,7 +526,8 @@ SELECT * FROM azure_storage.blob_get
 ```
 
 ### Aggregation query on content of an object in the container
-The example illustrates the ability to directly perform analysis on the data without importing the set into the database.
+This way you can query data without importing it.
+
 ```sql
 SELECT event_type,COUNT(1) FROM azure_storage.blob_get
         ('pgquickstart'
@@ -547,9 +539,10 @@ ORDER BY 2 DESC
 LIMIT 5;
 ```
 
-## Next Steps
+## Next steps
 
-Learn more about analyzing the dataset, along with alternative options.
+> [!div class="nextstepaction"]
+> [How to use Azure Blob Storage with the COPY command](reference-copy-command.md)
 
 > [!div class="nextstepaction"]
 > [How to ingest data using pg_azure_storage](howto-ingest-azure-blob-storage.md)

@@ -55,7 +55,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |vary-by-header|Add one or more of these elements to start caching responses per value of specified header, such as `Accept`, `Accept-Charset`, `Accept-Encoding`, `Accept-Language`, `Authorization`, `Expect`, `From`, `Host`, `If-Match`.|No|
-|vary-by-query-parameter|Add one or more of these elements to start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. If none are specified, all query parameters are used.|No|
+|vary-by-query-parameter|Add one or more of these elements to start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. |No|
 
 ## Usage
 
@@ -66,6 +66,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 
 ### Usage notes
 
+- API Management only performs cache lookup for HTTP GET requests.
 * When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
 - This policy can only be used once in a policy section.
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 07/07/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -75,7 +75,7 @@ The information used to calculate the device platform comes from unverified sour
 
 #### Locations
 
-Location data is provided by IP geolocation data. Administrators can choose to define locations and choose to mark some as trusted like those for their organization's network locations.
+Locations connect IP addresses, geographies, and [Global Secure Access' compliant network](../../global-secure-access/how-to-compliant-network.md) to Conditional Access policy decisions. Administrators can choose to define locations and  mark some as trusted like those for their organization's primary network locations.
 
 #### Client apps
 
@@ -152,9 +152,9 @@ The article [Common Conditional Access policies](concept-conditional-access-poli
 
 ## Next steps
 
-[Create a Conditional Access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json#create-a-conditional-access-policy)
+[Create a Conditional Access policy](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json#create-a-conditional-access-policy)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Use report-only mode for Conditional Access to determine the results of new policy decisions.](concept-conditional-access-report-only.md)
 
 [Planning a cloud-based Azure AD Multifactor Authentication deployment](../authentication/howto-mfa-getstarted.md)
 

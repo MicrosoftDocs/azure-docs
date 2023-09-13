@@ -47,6 +47,7 @@ Deploying services within a virtual network provides the following capabilities:
 | Hosted | [Azure Dedicated HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Yes <br/> Yes <br/>
 | Azure Spring Apps | [Deploy in Azure virtual network (VNet injection)](../spring-apps/how-to-deploy-in-azure-virtual-network.md)<br/>| Yes <br/>
 | Virtual desktop infrastructure| [Azure Lab Services](../lab-services/how-to-connect-vnet-injection.md)<br/>| Yes <br/>
+| DevOps | [Azure Load Testing](/azure/load-testing/concept-azure-load-testing-vnet-injection)<br/>| Yes <br/>
 
 <sup>1</sup> 'Dedicated' implies that only service specific resources can be deployed in this subnet and can't be combined with customer VM/VMSSs <br/> 
 <sup>2</sup> It's recommended as a best practice to have these services in a dedicated subnet, but not a mandatory requirement imposed by the service.

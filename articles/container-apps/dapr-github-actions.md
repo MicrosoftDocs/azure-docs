@@ -1,29 +1,31 @@
 ---
 title: Tutorial - Deploy a Dapr application with GitHub Actions for Azure Container Apps
 description: Learn about multiple revision management by deploying a Dapr application with GitHub Actions and Azure Container Apps. 
-author: lanceleonard
-ms.author: v-laleonard
+author: hhunter-ms
+ms.author: hannahhunter
 ms.reviewer: keroden
 ms.service: container-apps
 ms.topic: tutorial 
-ms.date: 09/02/2022
-ms.custom: template-tutorial
+ms.date: 07/10/2023
+ms.custom: template-tutorial, engagement, devx-track-linux
 ---
 
 # Tutorial: Deploy a Dapr application with GitHub Actions for Azure Container Apps
 
 [GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you'll see how revision-scope changes to a Container App using [Dapr](https://docs.dapr.io) can be deployed using a GitHub Actions workflow. 
 
-Dapr is an open source project that helps developers with the inherent challenges presented by distributed applications, such as state management and service invocation. Azure Container Apps provides a managed experience of the core Dapr APIs.
+Dapr is an open source project that helps developers with the inherent challenges presented by distributed applications, such as state management and service invocation. [Azure Container Apps provides a managed experience of the core Dapr APIs.](./dapr-overview.md)
 
-In this tutorial, you'll:
+In this tutorial, you:
 
 > [!div class="checklist"]
-> - Configure a GitHub Actions workflow for deploying the end-to-end solution to Azure Container Apps.
+> - Configure a GitHub Actions workflow for deploying the end-to-end Dapr solution to Azure Container Apps.
 > - Modify the source code with a [revision-scope change](revisions.md#revision-scope-changes) to trigger the Build and Deploy GitHub workflow.
 > - Learn how revisions are created for container apps in multi-revision mode.
 
-The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-microservice) consists of three Dapr-enabled microservices and uses Dapr APIs for service-to-service communication and state management. 
+The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-microservice):
+- Consists of three Dapr-enabled microservices
+- Uses Dapr APIs for service-to-service communication and state management 
 
 :::image type="content" source="media/dapr-github-actions/arch.png" alt-text="Diagram demonstrating microservices app.":::
 
@@ -32,11 +34,9 @@ The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
-  - [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [An Azure account with an active subscription.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Contributor or Owner permissions on the Azure subscription.
-- A GitHub account. 
-  - If you don't have one, sign up for [free](https://github.com/join).
+- [A GitHub account](https://github.com/join).
 - Install [Git](https://github.com/git-guides/install-git).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -271,7 +271,7 @@ After the workflow successfully completes, verify the application is running in 
 
 ## Modify the source code to trigger a new revision
 
-Container Apps run in single-revision mode by default. In the Container Apps bicep module, we explicitly set the revision mode to multiple. This means that once the source code is changed and committed, the GitHub build/deploy workflow builds and pushes a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in a new container app revision. 
+Container Apps run in single-revision mode by default. In the Container Apps bicep module, the revision mode is explicitly set to "multiple". Multiple revision mode means that once the source code is changed and committed, the GitHub build/deploy workflow builds and pushes a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in a new container app revision. 
 
 > [!NOTE]
 > [Application-scope](revisions.md#application-scope-changes) changes do not create a new revision.

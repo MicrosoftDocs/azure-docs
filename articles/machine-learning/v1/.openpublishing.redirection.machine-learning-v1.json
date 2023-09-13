@@ -1,0 +1,169 @@
+{
+    "redirections": [
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-automated-ml-v1.md",
+        "redirect_url": "/azure/machine-learning/concept-automated-ml",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-automated-ml.md",
+        "redirect_url": "/azure/machine-learning/concept-automated-ml",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-mlflow-v1.md",
+        "redirect_url": "/azure/machine-learning/concept-mlflow",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-mlflow.md",
+        "redirect_url": "/azure/machine-learning/concept-mlflow",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-train-machine-learning-model-v1.md",
+        "redirect_url": "/azure/machine-learning/concept-train-machine-learning-model",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/concept-train-machine-learning-model.md",
+        "redirect_url": "/azure/machine-learning/concept-train-machine-learning-model",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-auto-train-forecast-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-forecast",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-auto-train-forecast.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-forecast",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-auto-train-image-models-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-image-models",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-auto-train-image-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-image-models",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-auto-train-nlp-models-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-nlp-models",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-auto-train-nlp-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-nlp-models",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-auto-train-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-auto-train",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-auto-train.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-auto-train",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-environment-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-environment",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-environment.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-environment",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-inference-onnx-automl-image-models-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-inference-onnx-automl-image-models",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-inference-onnx-automl-image-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-inference-onnx-automl-image-models",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-prepare-datasets-for-automl-images-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-prepare-datasets-for-automl-images",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-prepare-datasets-for-automl-images.md",
+        "redirect_url": "/azure/machine-learning/how-to-prepare-datasets-for-automl-images",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-tune-hyperparameters-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-tune-hyperparameters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-tune-hyperparameters.md",
+        "redirect_url": "/azure/machine-learning/how-to-tune-hyperparameters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-automl-small-object-detect-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-automl-small-object-detect",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-use-automl-small-object-detect.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-automl-small-object-detect",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/reference-automl-images-hyperparameters-v1.md",
+        "redirect_url": "/azure/machine-learning/reference-automl-images-hyperparameters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/reference-automl-images-hyperparameters.md",
+        "redirect_url": "/azure/machine-learning/reference-automl-images-hyperparameters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/reference-automl-images-schema-v1.md",
+        "redirect_url": "/azure/machine-learning/reference-automl-images-schema",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/reference-automl-images-schema.md",
+        "redirect_url": "/azure/machine-learning/reference-automl-images-schema",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/samples-notebooks-v1.md",
+        "redirect_url": "/azure/machine-learning/samples-notebooks",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/samples-notebooks.md",
+        "redirect_url": "/azure/machine-learning/samples-notebooks",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-auto-train-image-models-v1.md",
+        "redirect_url": "/azure/machine-learning/tutorial-auto-train-image-models",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-auto-train-image-models.md",
+        "redirect_url": "/azure/machine-learning/tutorial-auto-train-image-models",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/v-fake/how-to-auto-train-models-v1.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-models-v1",
+        "redirect_document_id": true
+    }
+    ]
+}

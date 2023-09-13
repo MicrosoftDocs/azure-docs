@@ -26,7 +26,7 @@ While you cannot install Azure Arc-enabled servers on an Azure VM for production
 
 To start managing your Azure VM as an Azure Arc-enabled server, you need to make the following changes to the Azure VM before you can install and configure Azure Arc-enabled servers.
 
-1. Remove any VM extensions deployed to the Azure VM, such as the Log Analytics agent. While Azure Arc-enabled servers support many of the same extensions as Azure VMs, the Azure Arc-enabled servers agent can't manage VM extensions already deployed to the VM.
+1. Remove any VM extensions deployed to the Azure VM, such as the Log Analytics agent. While Azure Arc-enabled servers support many of the same extensions as Azure VMs, the Azure Connected Machine agent can't manage VM extensions already deployed to the VM.
 
 2. Disable the Azure Windows or Linux Guest Agent. The Azure VM guest agent serves a similar purpose to the Azure Connected Machine agent. To avoid conflicts between the two, the Azure VM Agent needs to be disabled. Once it is disabled, you cannot use VM extensions or some Azure services.
 
@@ -98,9 +98,9 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    > The iptables configuration needs to be set after every reboot unless a persistent iptables solution is used.
 
 
-4. Install and configure the Azure Arc-enabled servers agent.
+4. Install and configure the Azure Connected Machine agent.
 
-   The VM is now ready for you to begin evaluating Azure Arc-enabled servers. To install and configure the Azure Arc-enabled servers agent, see [Connect hybrid machines using the Azure portal](onboard-portal.md) and follow the steps to generate an installation script and install using the scripted method.
+   The VM is now ready for you to begin evaluating Azure Arc-enabled servers. To install and configure the Azure Connected Machine agent, see [Connect hybrid machines using the Azure portal](onboard-portal.md) and follow the steps to generate an installation script and install using the scripted method.
 
    > [!NOTE]
    > If outbound connectivity to the internet is restricted from your Azure VM, you'll need to download the agent package manually. Copy the agent package to the Azure VM, and modify the Azure Arc-enabled servers installation script to reference the source folder.
@@ -119,4 +119,4 @@ After you install and configure the agent to register with Azure Arc-enabled ser
 
 * Learn about our [supported Azure VM extensions](manage-vm-extensions.md) available to simplify deployment with other Azure services like Automation, KeyVault, and others for your Windows or Linux machine.
 
-* When you have finished testing, [uninstall the Azure Arc-enabled servers agent](manage-agent.md#uninstall-the-agent).
+* When you have finished testing, [uninstall the Azure Connected Machine agent](manage-agent.md#uninstall-the-agent).

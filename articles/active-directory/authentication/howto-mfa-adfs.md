@@ -97,6 +97,8 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 
 ### Configure Azure AD Multi-Factor Authentication Trusted IPs with Federated Users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Now that the claims are in place, we can configure trusted IPs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

@@ -8,6 +8,7 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
@@ -348,7 +349,7 @@ $t.Update()
 ### Configure the lifetime of the security token
 
 By default, Azure AD creates a SAML token that is valid for 1 hour.  
-This lifetime cannot be customized in the Azure portal, or using a conditional access policy, but it can be done by creating a [custom token lifetime policy](../develop/configurable-token-lifetimes.md) and apply it to the enterprise application created for SharePoint.  
+This lifetime cannot be customized in the Azure portal, or using a Conditional Access policy, but it can be done by creating a [custom token lifetime policy](../develop/configurable-token-lifetimes.md) and apply it to the enterprise application created for SharePoint.  
 To do this, complete the steps below using Windows PowerShell (at the time of this writing, AzureADPreview v2.0.2.149 does not work with PowerShell Core):
 
 1. Install the module [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview/):

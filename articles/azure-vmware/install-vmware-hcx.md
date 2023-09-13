@@ -4,14 +4,14 @@ description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy23
-ms.date: 2/14/2023
+ms.date: 7/13/2023
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
 
 [VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) is an application mobility platform designed for simplifying application migration, rebalancing workloads, and optimizing disaster recovery across data centers and clouds. 
 
-VMware HCX has two component services: **HCX Cloud Manager** and **HCX Connector**. These components work together for HCX operations.  
+VMware HCX has two component services: **HCX Cloud Manager** and **HCX Connector**. These components work together for VMware HCX operations.  
 
 This article shows you how to install and activate the VMware HCX Cloud Manager and VMware HCX Connector components. 
 
@@ -35,7 +35,7 @@ After HCX is deployed, follow the recommended [Next steps](#next-steps).
 
 1. Select **Get started** for **HCX Workload Mobility**.
 
-     :::image type="content" source="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png" alt-text="Screenshot showing the Get started button for HCX Workload Mobility." lightbox="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png":::
+     :::image type="content" source="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png" alt-text="Screenshot showing the Get started button for VMware HCX Workload Mobility." lightbox="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png":::
 
 1. Select the **I agree with terms and conditions** checkbox and then select **Install**.
 
@@ -44,9 +44,9 @@ After HCX is deployed, follow the recommended [Next steps](#next-steps).
     > [!IMPORTANT]
     > If you don't see the HCX key after installing, click the **ADD** button to generate the key which you can then use for site pairing.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/configure-hcx-appliance-for-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity." lightbox="media/tutorial-vmware-hcx/configure-hcx-appliance-for-migration-using-hcx-tab.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/configure-hcx-appliance-for-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using VMware HCX tab under Connectivity." lightbox="media/tutorial-vmware-hcx/configure-hcx-appliance-for-migration-using-hcx-tab.png":::
 
-## HCX license edition 
+## VMware HCX license edition 
 
 HCX offers various [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html#GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED) based on the type of license installed with the system. Advanced delivers basic connectivity and mobility services to enable hybrid interconnect and migration services. HCX Enterprise offers more services than what standard licenses provide. Some of those services include; Mobility Groups, Replication assisted vMotion (RAV), Mobility Optimized Networking, Network Extension High availability, OS assisted Migration, and others. 
 
@@ -59,21 +59,20 @@ HCX offers various [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user
     1. Under **Manage** in the left navigation, select **Add-ons**, then the **Migration using HCX** tab. 
     2. Select the **Upgrade to HCX Enterprise** button to enable HCX Enterprise edition.
 
-       :::image type="content" source="media/tutorial-vmware-hcx/upgrade-to-hcx-enterprise-on-migration-using-hcx-tab.png" alt-text="Screenshot showing upgrade to HCX Enterprise using HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/upgrade-to-hcx-enterprise-on-migration-using-hcx-tab.png":::
+       :::image type="content" source="media/tutorial-vmware-hcx/upgrade-to-hcx-enterprise-on-migration-using-hcx-tab.png" alt-text="Screenshot showing upgrade to VMware HCX Enterprise using VMware HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/upgrade-to-hcx-enterprise-on-migration-using-hcx-tab.png":::
 
     3. Confirm the update to HCX Enterprise edition by selecting **Yes**.
 
-       :::image type="content" source="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png" alt-text="Screenshot showing confirmation to update to HCX Enterprise using HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png":::
+       :::image type="content" source="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png" alt-text="Screenshot showing confirmation to update to VMware HCX Enterprise using VMware HCX tab under Add-ons." lightbox="media/tutorial-vmware-hcx/update-to-hcx-enterprise-edition-on-migration-using-hcx-tab.png":::
 
         >[!IMPORTANT]
-        > If you upgraded HCX from advanced to Enterprise, enable the new features in the compute profile and perform resync in service mesh to select a new feature like, Replication Assisted vMotion (RAV).
+        > If you upgraded VMware HCX from advanced to Enterprise, enable the new features in the compute profile and perform resync in service mesh to select a new feature like, Replication Assisted vMotion (RAV).
 
     4. Change Compute profile after HCX upgrade to HCX Enterprise.
 
         1. On HCX UI, select **Infrastructure** > **Interconnect**, then select **Edit**.
-        2. Select services you want activated like, Replication Assisted vMotion (RAV) and OS assisted Migration, which is available with HCX Enterprise only.
-
-        3. Select **Continue**, review the settings, then select **Finish** to create the Compute Profile.
+        1. Select services you want activated like, Replication Assisted vMotion (RAV) and OS assisted Migration, which is available with VMware HCX Enterprise only.
+        1. Select **Continue**, review the settings, then select **Finish** to create the Compute Profile.
 
     5. If compute profile is being used in service mesh(es), resync service mesh.
 
@@ -85,7 +84,7 @@ HCX offers various [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user
     1. Verify that you've reverted to an HCX Advanced configuration state and you aren't using the Enterprise features. 
     1. If you plan to downgrade, verify that no scheduled migrations, [Enterprise services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html#GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED) like RAV and HCX MON, etc. are in use. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
 
-## Download and deploy the VMware HCX Connector in on-premises 
+## Download and deploy the VMware HCX Connector on-premises 
 
 Use the following steps to download the VMware HCX Connector OVA file, and then deploy the VMware HCX Connector to your on-premises vCenter Server. 
 
@@ -143,7 +142,7 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
 
 After the services restart, you'll see vCenter Server displayed as green on the screen that appears. Both vCenter Server and SSO must have the appropriate configuration parameters, which should be the same as the previous screen. 
 
-:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter status." lightbox="media/tutorial-vmware-hcx/activation-done.png"::: 
+:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter Server status." lightbox="media/tutorial-vmware-hcx/activation-done.png"::: 
 
 ## Next steps 
 Continue to the next tutorial to configure the VMware HCX Connector.  After you've configured the VMware HCX Connector, you'll have a production-ready environment for creating virtual machines (VMs) and migration.  

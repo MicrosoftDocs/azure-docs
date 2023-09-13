@@ -8,20 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: adelle.dimitui
-ms.custom: "it-pro, seodec18"
-ms.collection: M365-identity-device-management
 ---
+# How to create, invite, and delete users
 
-# How to create, invite, and delete users (preview)
+This article explains how to create a new user, invite an external guest, and delete a user in your tenant. 
 
-This article explains how to create a new user, invite an external guest, and delete a user in your Azure Active Directory (Azure AD) tenant. 
-
-The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Instructions for the legacy create user process can be found in the [Add or delete users](add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](./add-users.md) article.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -52,11 +47,12 @@ The required role of least privilege varies based on the type of user you're add
 
 ## Create a new user
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Navigate to **Azure Active Directory** > **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 
-1. Select **Create new user** from the menu.
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select  **New user** > **Create new user**.
 
     ![Screenshot of the create new user menu.](media/how-to-create-delete-users/create-new-user-menu.png)
 
@@ -65,13 +61,9 @@ The required role of least privilege varies based on the type of user you're add
 The **Basics** tab contains the core fields required to create a new user. 
 
 - **User principal name**: Enter a unique username and select a domain from the menu after the @ symbol. Select **Domain not listed** if you need to create a new domain. For more information, see [Add your custom domain name](add-custom-domain.md)
-
 - **Mail nickname**: If you need to enter an email nickname that is different from the user principal name you entered, uncheck the **Derive from user principal name** option, then enter the mail nickname.
-
 - **Display name**: Enter the user's name, such as Chris Green or Chris A. Green
-
 - **Password**: Provide a password for the user to use during their initial sign-in. Uncheck the **Auto-generate password** option to enter a different password.
-
 - **Account enabled**: This option is checked by default. Uncheck to prevent the new user from being able to sign-in. You can change this setting after the user is created. This setting was called **Block sign in** in the legacy create user process.
 
 Either select the **Review + create** button to create the new user or **Next: Properties** to complete the next section.
@@ -82,16 +74,12 @@ Either select the **Review + create** button to create the new user or **Next: P
 
 ### Properties
 
-There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Azure AD** > **Users** and select a user to update.
+There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Identity** > **Users** > **All users** and select a user to update.
 
 - **Identity:** Enter the user's first and last name. Set the User type as either Member or Guest. 
-
 - **Job information:** Add any job-related information, such as the user's job title, department, or manager.
-
 - **Contact information:** Add any relevant contact information for the user.
-
 - **Parental controls:** For organizations like K-12 school districts, the user's age group may need to be provided. *Minors* are 12 and under, *Not adult* are 13-18 years old, and *Adults* are 18 and over. The combination of age group and consent provided by parent options determine the Legal age group classification. The Legal age group classification may limit the user's access and authority.
-
 - **Settings:** Specify the user's global location.
 
 Either select the **Review + create** button to create the new user or **Next: Assignments** to complete the next section.
@@ -128,11 +116,9 @@ The final tab captures several key details from the user creation process. Revie
 
 The overall process for inviting an external guest user is similar, except for a few details on the **Basics** tab and the email invitation process. You can't assign external users to administrative units. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
-
-1. Navigate to **Azure Active Directory** > **Users**.
-
-1. Select **Invite external user** from the menu. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select  **New user** > **Invite external user**.
 
     ![Screenshot of the invite external user menu option.](media/how-to-create-delete-users/invite-external-user-menu.png)
 
@@ -141,9 +127,7 @@ The overall process for inviting an external guest user is similar, except for a
 In this section, you're inviting the guest to your tenant using *their email address*. If you need to create a guest user with a domain account, use the [create new user process](#create-a-new-user) but change the **User type** to **Guest**. 
 
 - **Email**: Enter the email address for the guest user you're inviting.
-
 - **Display name**: Provide the display name.
-
 -  **Invitation message**: Select the **Send invite message** checkbox to customize a brief message to the guest. Provide a Cc recipient, if necessary.
 
 ![Screenshot of the invite external user Basics tab.](media/how-to-create-delete-users/invite-external-user-basics-tab.png)
@@ -152,7 +136,8 @@ In this section, you're inviting the guest to your tenant using *their email add
 
 When you invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details.
 
-1. Go to **Azure AD** > **Users** and select the invited guest user.
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select the invited guest user.
 1. In the **My Feed** section, locate the **B2B collaboration** tile. 
     - If the invitation state is **PendingAcceptance**, select the **Resend invitation** link to send another email.
     - You can also select the **Properties** for the user and view the **Invitation state**.
@@ -176,22 +161,20 @@ You can delete an existing user using Azure portal.
 
 To delete a user, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using one of the appropriate roles.
-
-1. Go to **Azure Active Directory** > **Users**.
-
-1. Search for and select the user you want to delete from your Azure AD tenant.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for and select the user you want to delete.
 1. Select **Delete user**.
 
     ![Screenshot of the All users page with a user selected and the Delete button highlighted.](media/how-to-create-delete-users/delete-existing-user.png)
 
-The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](active-directory-users-restore.md).
+The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](./users-restore.md).
 
 When a user is deleted, any licenses consumed by the user are made available for other users.
 
->[!Note]
->To update the identity, contact information, or job information for users whose source of authority is Windows Server Active Directory, you must use Windows Server Active Directory. After you complete the update, you must wait for the next synchronization cycle to complete before you'll see the changes.
+> [!NOTE]
+> To update the identity, contact information, or job information for users whose source of authority is Windows Server Active Directory, you must use Windows Server Active Directory. After you complete the update, you must wait for the next synchronization cycle to complete before you'll see the changes.
+
 ## Next steps
 
 * [Learn about B2B collaboration users](../external-identities/add-users-administrator.md)

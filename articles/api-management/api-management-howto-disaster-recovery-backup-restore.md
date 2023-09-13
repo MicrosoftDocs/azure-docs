@@ -222,7 +222,7 @@ $blobName="ContosoBackup.apimbackup;
 ```powershell
 $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageResourceGroup -StorageAccountName $storageAccountName)[0].Value
 
-$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey$st
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey
 
 Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
     -StorageContext $storageContext -SourceContainerName $containerName -SourceBlobName $blobName

@@ -5,12 +5,11 @@ description: Supported actions and attributes for Azure role assignment conditio
 services: storage
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-queue-storage
 ms.topic: conceptual
 ms.date: 05/09/2023
 ms.author: jammart
 ms.reviewer: nachakra
-ms.subservice: queues
 ---
 
 # Actions and attributes for Azure role assignment conditions for Azure Queue Storage

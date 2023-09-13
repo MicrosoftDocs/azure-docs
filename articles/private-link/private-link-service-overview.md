@@ -136,7 +136,7 @@ The following are the known limitations when using the Private Link service:
 
 - Supported only on Standard Load Balancer. Not supported on Basic Load Balancer.  
 
-- Supported only on Standard Load Balancer where backend pool is configured by NIC when using VM/VMSS.
+- Supported only on Standard Load Balancer where backend pool is configured by NIC. Not supported on Standard Load Balancer where backend pool is configured by IP address.
 
 - Supports IPv4 traffic only
 

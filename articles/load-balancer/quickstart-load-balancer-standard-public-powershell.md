@@ -13,7 +13,9 @@ ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell
 
-Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines.
+Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
 
 ## Prerequisites
 
@@ -160,6 +162,9 @@ Use a NAT gateway to provide outbound internet access to resources in the backen
 * Create the NAT gateway resource with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)
 
 * Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
+
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 ```azurepowershell-interactive
 ## Create public IP address for NAT gateway ##

@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Dev Box?
-description: Learn how Microsoft Dev Box Preview gives self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
+description: Learn how Microsoft Dev Box gives self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
 services: dev-box
 ms.service: dev-box
 ms.topic: overview
@@ -10,28 +10,28 @@ ms.date: 04/25/2023
 adobe-target: true
 ---
 
-# What is Microsoft Dev Box Preview?
+# What is Microsoft Dev Box?
 
-Microsoft Dev Box Preview gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with tools, source code, and prebuilt binaries that are specific to a project, so developers can immediately start work. If you're a developer, you can use dev boxes in your day-to-day workflows.
+Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with tools, source code, and prebuilt binaries that are specific to a project, so developers can immediately start work. If you're a developer, you can use dev boxes in your day-to-day workflows.
 
-The Dev Box service was designed with three organizational roles in mind: dev infrastructure (infra) admins, developer team leads, and developers.
+The Dev Box service was designed with three organizational roles in mind: platform engineers, developer team leads, and developers.
 
 :::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" alt-text="Diagram that shows roles and responsibilities for dev boxes." border="false":::
 
-Dev infra admins and IT admins work together to provide developer infrastructure and tools to the developer teams. Dev infra admins set and manage security settings, network configurations, and organizational policies to ensure that dev boxes can access resources securely.
+Platform engineers and IT admins work together to provide developer infrastructure and tools to the developer teams. Platform engineers set and manage security settings, network configurations, and organizational policies to ensure that dev boxes can access resources securely.
 
 Developer team leads are experienced developers who have in-depth knowledge of their projects. They can be assigned the DevCenter Project Admin role and assist with creating and managing the developer experience. Project admins create and manage pools of dev boxes.
 
-Members of a development team are assigned the DevCenter Dev Box User role. They can then self-serve one or more dev boxes on demand from the dev box pools that have been enabled for a project. Dev box users can work on multiple projects or tasks by creating multiple dev boxes.  
+Members of a development team are assigned the DevCenter Dev Box User role. They can then self-serve one or more dev boxes on demand from the dev box pools that have been enabled for a project. Dev box users can work on multiple projects or tasks by creating multiple dev boxes. 
 
 Microsoft Dev Box bridges the gap between development teams and IT, by bringing control of project resources closer to the development team.
 
 ## Scenarios for Microsoft Dev Box
 
-Organizations can use Microsoft Dev Box Preview in a range of scenarios.
-### Dev infra scenarios
+Organizations can use Microsoft Dev Box in a range of scenarios.
+### Platform engineering scenarios
 
-Dev Box helps dev infra teams provide the appropriate dev boxes for each user's workload. Dev infra admins can:
+Dev Box helps platform engineering teams provide the appropriate dev boxes for each user's workload. Platform engineers can:
 
 - Create dev box pools, add appropriate dev box definitions, and assign access for only dev box users who are working on those specific projects.
 - Control costs by using auto-stop schedules.
@@ -69,7 +69,7 @@ Organizations can even define dev boxes for various roles on a team. You might c
 
 ## How does Dev Box work?
 
-This diagram shows the components of the Dev Box Preview service and the relationships between them.
+This diagram shows the components of the Dev Box service and the relationships between them.
 
 :::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-architecture.png" alt-text="Diagram that shows the Dev Box architecture.":::
 
@@ -89,7 +89,7 @@ When the configuration of the service is complete, developers can create and man
 
 ## Next steps
 
-Start using Microsoft Dev Box Preview:
+Start using Microsoft Dev Box :
 
-- [Quickstart: Configure Microsoft Dev Box Preview](./quickstart-configure-dev-box-service.md)
+- [Quickstart: Configure Microsoft Dev Box ](./quickstart-configure-dev-box-service.md)
 - [Quickstart: Create a dev box](./quickstart-create-dev-box.md)

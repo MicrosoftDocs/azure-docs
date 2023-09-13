@@ -3,7 +3,7 @@ title: Stream data from Microsoft Purview Information Protection to Microsoft Se
 description: Stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection) to Microsoft Sentinel so you can analyze and report on data from the Microsoft Purview labeling clients and scanners.
 author: limwainstein
 ms.topic: how-to
-ms.date: 01/02/2023
+ms.date: 05/31/2023
 ms.author: lwainstein
 #Customer intent: As a security operator, I want to get specific labeling data from Microsoft Purview, so I can track, analyze, report on the data and use it for compliance purposes.
 ---
@@ -52,7 +52,7 @@ Before you begin, verify that you have:
 
 - The Microsoft Sentinel solution enabled. 
 - A defined Microsoft Sentinel workspace.
-- A valid license to [Microsoft Purview Information Protection](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
+- A valid license to M365 E3, M365 A3, Microsoft Business Basic or any other Audit eligible license. Read more about [auditing solutions in Microsoft Purview](/microsoft-365/compliance/audit-solutions-overview).
 - [Enabled Sensitivity labels for Office](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide#use-the-microsoft-purview-compliance-portal-to-enable-support-for-sensitivity-labels&preserve-view=true) and [enabled auditing](/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#use-the-compliance-center-to-turn-on-auditing&preserve-view=true).
 - The Global Administrator or Security Administrator role on the workspace.
 

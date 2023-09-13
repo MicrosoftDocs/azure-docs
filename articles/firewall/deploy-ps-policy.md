@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.custom: devx-track-azurepowershell
-ms.date: 11/03/2022
+ms.date: 06/08/2023
 ms.author: victorh
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -26,7 +26,12 @@ For this article, you create a simplified single VNet with three subnets for eas
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
-* **AzureBastionSubnet** - the subnet used for Azure Bastion, which is used to connect to the workload server. For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
+* **AzureBastionSubnet** - the subnet used for Azure Bastion, which is used to connect to the workload server. 
+
+For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
+
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 ![Tutorial network infrastructure](media/deploy-ps/tutorial-network.png)
 

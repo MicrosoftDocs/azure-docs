@@ -11,12 +11,15 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/06/2023
+ms.date: 06/07/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
 # Azure classic subscription administrators
+
+> [!IMPORTANT]
+> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -49,14 +52,13 @@ This article describes how to add or change the Co-Administrator and Service Adm
 
 ## Add a guest user as a Co-Administrator
 
-> [!NOTE]
-> Removing a guest user from your Azure Active Directory does not remove the guest user's classic Co-Administrator access to a subscription. You must follow the steps in the [Remove a Co-Administrator](#remove-a-co-administrator) section to remove the guest user's classic Co-Administrator access to a subscription.
-
 To add a guest user as a Co-Administrator, follow the same steps as in the previous [Add a Co-Administrator](#add-a-co-administrator) section. The guest user must meet the following criteria:
 
 - The guest user must have a presence in your directory. This means that the user was invited to your directory and accepted the invite.
 
 For more information, about how to add a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+
+Before you remove a guest user from your directory, you should first remove any role assignments for that guest user. For more information, see [Remove a guest user from your directory](./role-assignments-external-users.md#remove-a-guest-user-from-your-directory).
 
 ### Differences for guest users
 

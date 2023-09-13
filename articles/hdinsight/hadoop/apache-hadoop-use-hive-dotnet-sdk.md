@@ -3,7 +3,7 @@ title: Run Apache Hive queries using HDInsight .NET SDK - Azure
 description: Learn how to submit Apache Hadoop jobs to Azure HDInsight Apache Hadoop using HDInsight .NET SDK.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: "hdinsightactive, devx-track-csharp"
+ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
 ms.date: 04/24/2023
 ---
 

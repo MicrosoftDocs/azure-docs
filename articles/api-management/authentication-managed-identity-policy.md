@@ -56,6 +56,9 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 <authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
+<authentication-managed-identity resource="https://eventhubs.azure.net/"/> <!--Azure Event Hub-->
+```
+```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
 ```
 ```xml  

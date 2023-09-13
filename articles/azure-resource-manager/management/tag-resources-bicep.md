@@ -2,6 +2,7 @@
 title: Tag resources, resource groups, and subscriptions with Bicep
 description: Shows how to use Bicep to apply tags to Azure resources.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 04/19/2023
 ---
 

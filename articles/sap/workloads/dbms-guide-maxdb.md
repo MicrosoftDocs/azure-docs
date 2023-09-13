@@ -64,7 +64,6 @@ ms.custom: H1Hack27Feb2017
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:/cli/azure/install-cli-version-1.0
-[azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
@@ -462,5 +461,5 @@ If you configure the SAP Content Server to store files in the file system, one o
 #### Other
 Other SAP Content Server-specific settings are transparent to Azure VMs and are described in various documents and SAP Notes:
 
-* [SAP NetWeaver](https://service.sap.com/contentserver)
+* [SAP NetWeaver](https://www.sap.com/products/technology-platform/netweaver.html)
 * SAP Note [1619726]

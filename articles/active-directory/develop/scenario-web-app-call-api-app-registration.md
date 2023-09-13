@@ -22,7 +22,7 @@ A web app that calls web APIs has the same registration as a web app that signs 
 
 However, because the web app now also calls web APIs, it becomes a confidential client application. That's why some extra registration is required. The app must share client credentials, or *secrets*, with the Microsoft identity platform.
 
-[!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Registration of client secrets](./includes/scenarios/scenarios-registration-client-secrets.md)]
 
 ## API permissions
 

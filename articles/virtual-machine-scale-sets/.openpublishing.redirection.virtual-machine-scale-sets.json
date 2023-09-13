@@ -189,17 +189,17 @@
             "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-specialized-image-version-cli.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/instance-specialized-image-version",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-specialized-image-version-powershell.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/instance-specialized-image-version",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/instance-generalized-image-version-powershell.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/instance-generalized-image-version",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-cli.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli",
@@ -299,17 +299,16 @@
             "source_path_from_root": "/articles/virtual-machine-scale-sets/scripts/cli-sample-enable-autoscale.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/overview",
             "redirect_document_id": false
-          },	  
+          },
           {
             "source_path_from_root": "/articles/virtual-machine-scale-sets/tutorial-autoscale-template.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/overview",
             "redirect_document_id": false
-          },	
+          },
         {
             "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets",
             "redirect_document_id": false
-        }                                                                                                                                                             
+        }
     ]
 }
-

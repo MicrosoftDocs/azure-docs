@@ -7,6 +7,7 @@ ms.author: yuchungchen
 ms.date: 01/15/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.custom: devx-track-python
 services: azure-maps
 ---
 
@@ -353,7 +354,7 @@ The [Azure Maps Search package client library] in the *Azure SDK for Python Prev
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Authentication with Azure Maps]: azure-maps-authentication.md
 
-[Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview
+[Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview&preserve-view=true
 [latest release]: https://www.python.org/downloads/
 
 <!--  Python SDK Developers Guide  --->

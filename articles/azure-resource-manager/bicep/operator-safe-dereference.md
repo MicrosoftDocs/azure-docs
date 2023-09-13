@@ -2,6 +2,7 @@
 title: Bicep safe-dereference operator
 description: Describes Bicep safe-dereference operator.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 05/09/2023
 ---
 

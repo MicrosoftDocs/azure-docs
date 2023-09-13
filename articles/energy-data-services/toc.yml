@@ -1,8 +1,8 @@
-- name: Microsoft Azure Data Manager for Energy Preview Documentation
+- name: Microsoft Azure Data Manager for Energy Documentation
   href: index.yml
 - name: Overview
   items:
-    - name: About Microsoft Azure Data Manager for Energy Preview
+    - name: About Microsoft Azure Data Manager for Energy
       displayName: Overview
       href: overview-microsoft-energy-data-services.md
     - name: About Domain Data Management Services (DDMS)
@@ -15,7 +15,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create a Microsoft Azure Data Manager for Energy Preview instance
+    - name: Create a Microsoft Azure Data Manager for Energy instance
       href: quickstart-create-microsoft-energy-data-services-instance.md
 - name: Tutorials
   items:
@@ -48,8 +48,10 @@
     - name: Reliability
       items:
         - name: Reliability overview 
-          href: ../reliability/reliability-energy-data-services.md?toc=/azure/energy-data-services/toc.yml
+          href: reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
           displayName: availability zones, high-availability, zone redundancy
+    - name: Tier details
+      href: concepts-tier-details.md
 - name: How-to guides
   items:
     - name: Administration
@@ -90,6 +92,8 @@
       href: how-to-convert-segy-to-ovds.md
     - name: Generate a refresh token
       href: how-to-generate-refresh-token.md
+    - name: Upload large files using file service
+      href: how-to-upload-large-files-using-file-service.md
 - name: References
   items:
   - name: REST API
