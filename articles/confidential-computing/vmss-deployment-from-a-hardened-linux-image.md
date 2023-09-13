@@ -48,7 +48,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
     If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run az--version to find the version. If you need to install or upgrade, see Install Azure CLI.
     
-5.  Create a resource group.
+4.  Create a resource group.
 
     Create a resource group with the [az group create](https://learn.microsoft.com/en-us/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named myResourceGroup in the eastus location:
     
@@ -60,7 +60,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 > [!NOTE]
 > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
-4. Create a Virtual Machine Scale Set.
+5. Create a Virtual Machine Scale Set.
 
     Now create a Virtual Machine Scale Set with az vmss create. The following example creates a scale set called myScaleSet with an instance count of 2
 
@@ -93,7 +93,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 > Using a [load balancer](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer) is optional but is encouraged for these reasons.
 
-5. Access the virtual machine scale set from the portal.
+6. Access the virtual machine scale set from the portal.
 
     You can access you cvm scale set and use the admin username and password set previosuly to login. Please note that if you choose to update the amind credentilas, do so directly in the scale set model using the cli.
 
