@@ -233,7 +233,7 @@ With the Prompt flow model registered in the Azure Machine Learning workspace, y
 
 ## Deploy prompt flow in Azure Machine Learning with GitHub Actions
 
-This scenario includes prebuilt workflows for two approaches to deploying a trained model, batch scoring or a deploying a model to an endpoint for real-time scoring. You may run either or both of these workflows to test the performance of the model in your Azure Machine Learning workspace.
+This scenario includes prebuilt workflows for deploying a model to an endpoint for real-time scoring. You may run the workflow to test the performance of the model in your Azure Machine Learning workspace.
 
 ### Online endpoint  
 
