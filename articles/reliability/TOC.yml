@@ -164,10 +164,10 @@
     href: business-continuity-management-program.md
   - name: Cross-region replication
     href: cross-region-replication-azure.md
-  - name: Disaster recovery guidance by service
-    items:
-      - name: Overview
-        href: reliability-guidance-overview.md
+  - name: Disaster recovery by service
+    href: disaster-recovery-guidance-overview.md
+  - name: Disaster recovery by service
+    items: 
       - name: Azure API Management
         href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Active Directory Domain Services
@@ -280,7 +280,6 @@
         href: ../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Web Application Firewall
         href: ../application-gateway/application-gateway-faq#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-
 - name: Reliability Guidance
   items:
     - name: Overview
@@ -389,7 +388,6 @@
         href: reliability-image-builder.md
       - name: Azure Virtual Machine Scale Sets
         href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-
       - name: Azure Virtual Network
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
