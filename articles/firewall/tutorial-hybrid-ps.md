@@ -1,6 +1,6 @@
 ---
-title: Deploy & configure Azure Firewall in hybrid network using PowerShell
-description: In this article, you learn how to deploy and configure Azure Firewall using Azure PowerShell. 
+title: Deploy and configure Azure Firewall in a hybrid network by using PowerShell
+description: In this article, you learn how to deploy and configure Azure Firewall by using Azure PowerShell. 
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -10,34 +10,22 @@ ms.author: victorh
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
-# Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
+
+# Deploy and configure Azure Firewall in a hybrid network by using Azure PowerShell
 
 When you connect your on-premises network to an Azure virtual network to create a hybrid network, the ability to control access to your Azure network resources is an important part of an overall security plan.
 
-You can use Azure Firewall to control network access in a hybrid network using rules that define allowed and denied network traffic.
+You can use Azure Firewall to control network access in a hybrid network by using rules that define allowed and denied network traffic.
 
 For this article, you create three virtual networks:
 
-- **VNet-Hub** - the firewall is in this virtual network.
-- **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
-- **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
+- **VNet-Hub**: The firewall is in this virtual network.
+- **VNet-Spoke**: The spoke virtual network represents the workload located on Azure.
+- **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a VPN connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
 
-![Firewall in a hybrid network](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
+![Diagram that shows a firewall in a hybrid network.](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-In this article, you learn how to:
-
-* Declare the variables
-* Create the firewall hub virtual network
-* Create the spoke virtual network
-* Create the on-premises virtual network
-* Configure and deploy the firewall
-* Create and connect the VPN gateways
-* Peer the hub and spoke virtual networks
-* Create the routes
-* Create the virtual machines
-* Test the firewall
-
-If you want to use Azure portal instead to complete this tutorial, see [Tutorial: Deploy and configure Azure Firewall in a hybrid network using the Azure portal](tutorial-hybrid-portal.md).
+If you want to use Azure portal instead to complete the procedures in this article, see [Deploy and configure Azure Firewall in a hybrid network by using the Azure portal](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,11 +35,11 @@ This article requires that you run PowerShell locally. You must have the Azure P
 
 There are three key requirements for this scenario to work correctly:
 
-- A User Defined Route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. Virtual network gateway route propagation must be **Disabled** on this route table.
+- A user-defined route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. Virtual network gateway route propagation must be **Disabled** on this route table.
 - A UDR on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
 
-   No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
-- Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
+  No UDR is required on the Azure Firewall subnet, because it learns routes from BGP.
+- Make sure to set **AllowGatewayTransit** when peering **VNet-Hub** to **VNet-Spoke** and **UseRemoteGateways** when peering **VNet-Spoke** to **VNet-Hub**.
 
 See the [Create Routes](#create-the-routes) section in this article to see how these routes are created.
 
@@ -60,8 +48,7 @@ See the [Create Routes](#create-the-routes) section in this article to see how t
 >
 >For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
->[!NOTE]
->Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
+Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
 
 To review the related Azure PowerShell reference documentation, see [Azure PowerShell Reference](/powershell/module/az.network/new-azfirewall).
 
@@ -77,13 +64,13 @@ $Location1 = "East US"
 
 # Variables for the firewall hub VNet
 
-$VNetnameHub = "VNet-hub"
+$VNetnameHub = "VNet-Hub"
 $SNnameHub = "AzureFirewallSubnet"
 $VNetHubPrefix = "10.5.0.0/16"
 $SNHubPrefix = "10.5.0.0/24"
 $SNGWHubPrefix = "10.5.1.0/24"
 $GWHubName = "GW-hub"
-$GWHubpipName = "VNet-hub-GW-pip"
+$GWHubpipName = "VNet-Hub-GW-pip"
 $GWIPconfNameHub = "GW-ipconf-hub"
 $ConnectionNameHub = "hub-to-Onprem"
 
@@ -110,7 +97,6 @@ $GWOnprempipName = "VNet-Onprem-GW-pip"
 $SNnameGW = "GatewaySubnet"
 ```
 
-
 ## Create the firewall hub virtual network
 
 First, create the resource group to contain the resources for this article:
@@ -135,9 +121,9 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 
 Request a public IP address to be allocated to the VPN gateway you'll create for your virtual network. Notice that the *AllocationMethod* is **Dynamic**. You can't specify the IP address that you want to use. It's dynamically allocated to your VPN gateway.
 
-  ```azurepowershell
-  $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
+```azurepowershell
+$gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
+-Location $Location1 -AllocationMethod Dynamic
 ```
 
 ## Create the spoke virtual network
@@ -174,9 +160,9 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 
 Request a public IP address to be allocated to the gateway you'll create for the virtual network. Notice that the *AllocationMethod* is **Dynamic**. You can't specify the IP address that you want to use. It's dynamically allocated to your gateway.
 
-  ```azurepowershell
-  $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
+```azurepowershell
+$gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+-Location $Location1 -AllocationMethod Dynamic
 ```
 
 ## Configure and deploy the firewall
@@ -199,15 +185,15 @@ $AzfwPrivateIP
 
 ### Configure network rules
 
-<!--- $Rule3 = New-AzFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
-
 ```azurepowershell
 $Rule1 = New-AzFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
 
 $Rule2 = New-AzFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
+
+$Rule3 = New-AzFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort
 
 $NetRuleCollection = New-AzFirewallNetworkRuleCollection -Name RCNet01 -Priority 100 `
    -Rule $Rule1,$Rule2 -ActionType "Allow"
@@ -223,12 +209,12 @@ The hub and on-premises virtual networks are connected via VPN gateways.
 
 Create the VPN gateway configuration. The VPN gateway configuration defines the subnet and the public IP address to use.
 
-  ```azurepowershell
-  $vnet1 = Get-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1
-  $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-  $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfNameHub `
-  -Subnet $subnet1 -PublicIpAddress $gwpip1
-  ```
+```azurepowershell
+$vnet1 = Get-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1
+$subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+$gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfNameHub `
+-Subnet $subnet1 -PublicIpAddress $gwpip1
+```
 
 Now create the VPN gateway for the hub virtual network. Network-to-network configurations require a RouteBased VpnType. Creating a VPN gateway can often take 45 minutes or more, depending on the selected VPN gateway SKU.
 
@@ -242,12 +228,12 @@ New-AzVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
 
 Create the VPN gateway configuration. The VPN gateway configuration defines the subnet and the public IP address to use.
 
-  ```azurepowershell
+```azurepowershell
 $vnet2 = Get-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 $subnet2 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
 $gwipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem `
-  -Subnet $subnet2 -PublicIpAddress $gwOnprempip
-  ```
+-Subnet $subnet2 -PublicIpAddress $gwOnprempip
+```
 
 Now create the VPN gateway for the on-premises virtual network. Network-to-network configurations require a RouteBased VpnType. Creating a VPN gateway can often take 45 minutes or more, depending on the selected VPN gateway SKU.
 
@@ -277,17 +263,19 @@ New-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupNam
 -VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 ```
-Create the on-premises to hub virtual network connection. This step is similar to the previous one, except you create the connection from VNet-Onprem to VNet-hub. Make sure the shared keys match. The connection will be established after a few minutes.
 
-  ```azurepowershell
-  New-AzVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
-  -VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
-  -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
-  ```
+Create the on-premises to hub virtual network connection. This step is similar to the previous one, except you create the connection from **VNet-Onprem** to **VNet-Hub**. Make sure the shared keys match. The connection will be established after a few minutes.
+
+```azurepowershell
+New-AzVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
+-VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
+-ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+```
 
 #### Verify the connection
 
-You can verify a successful connection by using the *Get-AzVirtualNetworkGatewayConnection* cmdlet, with or without *-Debug*. 
+You can verify a successful connection by using the *Get-AzVirtualNetworkGatewayConnection* cmdlet, with or without *-Debug*.
+
 Use the following cmdlet example, configuring the values to match your own. If prompted, select **A** to run **All**. In the example, *-Name* refers to the name of the connection that you want to test.
 
 ```azurepowershell
@@ -296,7 +284,7 @@ Get-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupNam
 
 After the cmdlet finishes, view the values. In the following example, the connection status shows as *Connected* and you can see ingress and egress bytes.
 
-```
+```output
 "connectionStatus": "Connected",
 "ingressBytesTransferred": 33509044,
 "egressBytesTransferred": 4142431
@@ -316,7 +304,7 @@ Add-AzVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteV
 
 ## Create the routes
 
-Next, create a couple routes:
+Use the following commands to create these routes:
 
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
@@ -419,9 +407,8 @@ Set-AzVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
-```
 
-<!---#Create a host firewall rule to allow ping in
+#Create a host firewall rule to allow ping in
 Set-AzVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -430,7 +417,8 @@ Set-AzVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4"}' `
-    -Location $Location1--->
+    -Location $Location1
+```
 
 ### Create the on-premises virtual machine
 
@@ -458,9 +446,9 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 From the Azure portal, connect to the **VM-Onprem** virtual machine.
-<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   You should get a reply.--->
+Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**. You should get a reply.
+
 Open a web browser on **VM-Onprem**, and browse to http://\<VM-spoke-01 private IP\>.
 
 You should see the Internet Information Services default page.
@@ -471,7 +459,7 @@ Your connection should succeed, and you should be able to sign in using your cho
 
 So now you've verified that the firewall rules are working:
 
-<!---- You can ping the server on the spoke VNet.--->
+- You can ping the server on the spoke virtual network.
 - You can browse web server on the spoke virtual network.
 - You can connect to the server on the spoke virtual network using RDP.
 
@@ -488,10 +476,8 @@ Now run the tests again. They should all fail this time. Close any existing remo
 
 ## Clean up resources
 
-You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **FW-Hybrid-Test** resource group to delete all firewall-related resources.
+You can keep your firewall resources for the next tutorial.If no longer need them, delete the **FW-Hybrid-Test** resource group to delete all firewall-related resources.
 
 ## Next steps
-
-Next, you can monitor the Azure Firewall logs.
 
 [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
