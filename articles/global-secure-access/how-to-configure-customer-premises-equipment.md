@@ -50,13 +50,11 @@ Follow these instructions to download the connectivity information for your remo
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
-1. Run the following query to use get the connectivity information:
+1. Run the following query to use get the connectivity information, replacing `{GUID}` with the ID of the remote network you want to configure:
 
     ```http
-    https://graph.microsoft.com/beta/deviceManagement/managedDevices/{managedDeviceId}/getRemoteNetworkConfiguration
+    https://graph.microsoft.com/beta/networkaccess/branches/{GUID}/downloadConnectivity
     ```
-
-    Replace `{managedDeviceId}` with the ID of the remote network you want to configure.
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
