@@ -217,8 +217,7 @@ To edit an existing alert rule:
         |---------|---------|
         |Number of violations|The number of violations that trigger the alert.|
         |Evaluation period|The time period within which the number of violations occur. |
-        |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data.<br> If the query requires more data than the alert evaluation you can change the time range manually.
-If the query contains **ago** command in the query, it will be cahnged automatically to 2 days (48 hours).|
+        |Override query time range| If you want the alert evaluation period to be different than the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to two days of data. If the query requires more data than the alert evaluation you can change the time range manually. If the query contains **ago** command, it will be changed automatically to 2 days (48 hours).|<br> 
 
         > [!NOTE]
         > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage**. If you don't, the rule creation will fail because it won't meet the policy requirements.
