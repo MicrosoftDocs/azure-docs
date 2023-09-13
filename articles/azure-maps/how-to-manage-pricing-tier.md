@@ -24,12 +24,6 @@ You can manage the pricing tier of your Azure Maps account through the [Azure po
 >
 > For more information on Gen2 pricing tier, see [Azure Maps pricing].
 
-## View your pricing tier
-
-To view your chosen pricing tier, navigate to the **Pricing Tier** option in the settings menu.
-
-:::image type="content" source="./media/how-to-manage-pricing-tier/view-pricing-tier.png" border="true" alt-text="View chosen pricing tier":::
-
 ## Change a pricing tier
 
 ### Azure portal
