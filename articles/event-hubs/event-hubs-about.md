@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 03/07/2023
 ---
 
-# Azure Event Hubs—A big data streaming platform and event ingestion service
+# What is Azure Event Hubs> — A big data streaming platform and event ingestion service
 Event Hubs is a modern big data streaming platform and event ingestion service that can seamlessly integrate with other Azure and Microsoft services, such as Stream Analytics, Power BI, and Event Grid, along with outside services like Apache Spark. The service can process millions of events per second with low latency. The data sent to an event hub (Event Hubs instance) can be transformed and stored by using any real-time analytics providers or batching or storage adapters. 
 
 ## Why use Event Hubs?
@@ -19,18 +19,18 @@ The following sections describe key features of the Azure Event Hubs service:
 Event Hubs is a fully managed Platform-as-a-Service (PaaS) with little configuration or management overhead, so you focus on your business solutions. [Event Hubs for Apache Kafka ecosystems](azure-event-hubs-kafka-overview.md) gives you the PaaS Kafka experience without having to manage, configure, or run your clusters.
 
 ## Event Hubs for Apache Kafka
-[Event Hubs for Apache Kafka ecosystems](azure-event-hubs-kafka-overview.md) furthermore enables [Apache Kafka (1.0 and later)](https://kafka.apache.org/) clients and applications to talk to Event Hubs. You don't need to set up, configure, and manage your own Kafka and Zookeeper clusters or use some Kafka-as-a-Service offering not native to Azure.
+Event Hubs for Apache Kafka ecosystems enables [Apache Kafka (1.0 and later)](https://kafka.apache.org/) clients and applications to talk to Event Hubs. You don't need to set up, configure, and manage your own Kafka and Zookeeper clusters or use some Kafka-as-a-Service offering not native to Azure. For more information, see [Event Hubs for Apache Kafka ecosystems](azure-event-hubs-kafka-overview.md). 
 
 ## Schema Registry in Azure Event Hubs
-[Azure Schema Registry](schema-registry-overview.md) in Event Hubs provides a centralized repository for managing schemas of events streaming applications. Azure Schema Registry comes free with every Event Hubs namespace, and it integrates seamlessly with you Kafka applications or Event Hubs SDK based applications.
+Schema Registry in Event Hubs provides a centralized repository for managing schemas of events streaming applications. Azure Schema Registry comes free with every Event Hubs namespace, and it integrates seamlessly with you Kafka applications or Event Hubs SDK based applications. 
 
-It ensures data compatibility and consistency across event producers and consumers, enabling seamless schema evolution, validation, and governance, and promoting efficient data exchange and interoperability.
+It ensures data compatibility and consistency across event producers and consumers, enabling seamless schema evolution, validation, and governance, and promoting efficient data exchange and interoperability. For more information, see [Schema Registry in Azure Event Hubs](schema-registry-overview.md). 
 
 ## Support for real-time and batch processing
 Ingest, buffer, store, and process your stream in real time to get actionable insights. Event Hubs uses a [partitioned consumer model](event-hubs-scalability.md#partitions), enabling multiple applications to process the stream concurrently and letting you control the speed of processing. Azure Event Hubs also integrates with [Azure Functions](../azure-functions/index.yml) for a serverless architecture.
 
 ## Capture event data
-[Capture](event-hubs-capture-overview.md) your data in near-real time in an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) for long-term retention or micro-batch processing. You can achieve this behavior on the same stream you use for deriving real-time analytics. Setting up capture of event data is fast. There are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units). Event Hubs enables you to focus on data processing rather than on data capture.
+Capture your data in near-real time in an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) for long-term retention or micro-batch processing. You can achieve this behavior on the same stream you use for deriving real-time analytics. Setting up capture of event data is fast. There are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units). Event Hubs enables you to focus on data processing rather than on data capture. For more information, see [Event Hubs Capture]([event-hubs-capture-overview.md).
 
 ## Scalable
 With Event Hubs, you can start with data streams in megabytes, and grow to gigabytes or terabytes. The [Auto-inflate](event-hubs-auto-inflate.md) feature is one of the many options available to scale the number of throughput units or processing units to meet your usage needs.
@@ -69,7 +69,6 @@ The following figure shows the Event Hubs stream processing architecture:
 
 > [!NOTE]
 > For more information, see [Event Hubs features or components](event-hubs-features.md).
-
 
 ## Next steps
 
