@@ -323,7 +323,7 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 }
 ```
 
-Download message shown in an error bar on top of the Chat Composite.
+Download error message shown in an error bar on top of the Chat Composite.
 
 ![File Download Error](./media/download-error.png "Screenshot that shows the File Download Error.")
 
