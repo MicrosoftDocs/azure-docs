@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/31/2023
+ms.date: 09/13/2023
 ---
 
 # Tutorial: Use REST and AI to generate searchable content from Azure blobs
