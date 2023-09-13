@@ -154,9 +154,11 @@ To view deprecation/expiration dates for all available models in a given region 
 
 There are three distinct model deployment upgrade options which are configurable via REST API:
 
-- `OnceNewDefaultVersionAvailable`
-- `OnceCurrentVersionExpired`
-- `NoAutoUpgrade`
+| Name | Description |
+|------|--------|
+| `OnceNewDefaultVersionAvailable` | Once a new default version is released the model deployment will auto-upgrade to the default version within two weeks of the release. |
+`OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment will auto-upgrade to the current default version. |
+`NoAutoUpgrade` | The model deployment will never auto-upgrade. Once the retirement date is reached the model deployment will stop working. You will need to manually update your code referencing that deployment to point to a non-expired model deployment. |
 
 To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0)  
 
