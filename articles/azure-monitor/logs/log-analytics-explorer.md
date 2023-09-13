@@ -23,13 +23,6 @@ The new Log Analytics is currently in preview and available to a limited number 
 
 :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
 
-## Switch modes
-
-To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
-
-When you begin to query logs in simple mode and then switch to advanced mode, the query editor is pre-populated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
-
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 ## New Log Analytics interface
 
 The new Log Analytics interface image shows the Log Analytics simple mode components.
@@ -59,35 +52,13 @@ The sidebar on the left lists tables in the workspace, sample queries, and filte
 | Queries | List of example queries that you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click a query to add it to the query window or hover over it for other options. |
 | Filter | Creates filter options based on the results of a query. After you run a query, columns appear with different values from the results. Select one or more values, and then select **Apply & Run** to add a **where** command to the query and run it again. |
 
-### Query window
+## Switch modes
 
-The query window is where you edit your query. IntelliSense is used for KQL commands and color coding enhances readability. Select **+** at the top of the window to open another tab.
+To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
 
-A single window can include multiple queries. A query can't include any blank lines, so you can separate multiple queries in a window with one or more blank lines. The current query is the one with the cursor positioned anywhere in it.
+When you begin to query logs in simple mode and then switch to advanced mode, the query editor is pre-populated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
 
-To run the current query, select the **Run** button or select **Shift+Enter**.
-
-### Results window
-
-The results of a query appear in the results window. By default, the results are displayed as a table. To display the results as a chart, select **Chart** in the results window. You can also add a **render** command to your query.
-
-#### Results view
-
-The results view displays query results in a table organized by columns and rows. Click to the left of a row to expand its values. Select the **Columns** dropdown to change the list of columns. Sort the results by selecting a column name. Filter the results by selecting the funnel next to a column name. Clear the filters and reset the sorting by running the query again.
-
-Select **Group columns** to display the grouping bar above the query results. Group the results by any column by dragging it to the bar. Create nested groups in the results by adding more columns.
-
-#### Chart view
-
-The chart view displays the results as one of multiple available chart types. You can specify the chart type in a **render** command in your query. You can also select it from the **Visualization Type** dropdown.
-
-| Option | Description |
-|:---|:---|
-| Visualization type | Type of chart to display. |
-| X-axis | Column in the results to use for the x-axis.
-| Y-axis | Column in the results to use for the y-axis. Typically, this is a numeric column. |
-| Split by | Column in the results that defines the series in the chart. A series is created for each value in the column. |
-| Aggregation | Type of aggregation to perform on the numeric values in the y-axis. |
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 
 
 ## Query in simple mode 
@@ -137,6 +108,36 @@ The chart view displays the results as one of multiple available chart types. Yo
 1. Select a column to sort by.
 1. Select **Ascending** or **Descending**, then select **Apply**.  
 1. Select **Sort** again to sort by another column.
+
+### Query window
+
+The query window is where you edit your query. IntelliSense is used for KQL commands and color coding enhances readability. Select **+** at the top of the window to open another tab.
+
+A single window can include multiple queries. A query can't include any blank lines, so you can separate multiple queries in a window with one or more blank lines. The current query is the one with the cursor positioned anywhere in it.
+
+To run the current query, select the **Run** button or select **Shift+Enter**.
+
+### Results window
+
+The results of a query appear in the results window. By default, the results are displayed as a table. To display the results as a chart, select **Chart** in the results window. You can also add a **render** command to your query.
+
+#### Results view
+
+The results view displays query results in a table organized by columns and rows. Click to the left of a row to expand its values. Select the **Columns** dropdown to change the list of columns. Sort the results by selecting a column name. Filter the results by selecting the funnel next to a column name. Clear the filters and reset the sorting by running the query again.
+
+Select **Group columns** to display the grouping bar above the query results. Group the results by any column by dragging it to the bar. Create nested groups in the results by adding more columns.
+
+#### Chart view
+
+The chart view displays the results as one of multiple available chart types. You can specify the chart type in a **render** command in your query. You can also select it from the **Visualization Type** dropdown.
+
+| Option | Description |
+|:---|:---|
+| Visualization type | Type of chart to display. |
+| X-axis | Column in the results to use for the x-axis.
+| Y-axis | Column in the results to use for the y-axis. Typically, this is a numeric column. |
+| Split by | Column in the results that defines the series in the chart. A series is created for each value in the column. |
+| Aggregation | Type of aggregation to perform on the numeric values in the y-axis. |
 
  
 ## Next steps
