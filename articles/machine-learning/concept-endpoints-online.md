@@ -233,12 +233,15 @@ For more information, see [Network isolation with managed online endpoints](conc
 
 ### Monitoring online endpoints and deployments
 
+Monitoring for Azure Machine Learning endpoints is possible via integration with [Azure Monitor](monitor-azure-machine-learning.md#what-is-azure-monitor). This integration allows you to view metrics in charts, configure alerts, query from log tables, use Application Insights to analyze events from user containers, and so on.
 
-#### Application Insights integration
+* **Metrics**: Use Azure Monitor to track various endpoint metrics, such as request latency, and drill down to deployment or status level. You can also track deployment-level metrics, such as CPU/GPU utilization and drill down to instance level. Azure Monitor allows you to track these metrics in charts and set up dashboards and alerts for further analysis.
 
-All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues.
+* **Logs**: Send metrics to the Log Analytics Workspace where you can query logs using the Kusto query syntax. You can also send metrics to Storage Account and/or Event Hubs for further processing. In addition, you can use dedicated Log tables for online endpoint related events, traffic, and container logs. Kusto query allows complex analysis joining multiple tables.
 
-However [managed online endpoints](#why-choose-managed-online-endpoints-v2-over-aciaks-v1) also include out-of-box integration with Azure Logs and Azure Metrics.
+* **Application insights**: Curated environments include the integration with Application Insights, and you can enable/disable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures, and Performance for further analysis.
+
+For more information on monitoring, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
 
 ## Next steps
