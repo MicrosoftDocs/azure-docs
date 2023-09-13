@@ -35,8 +35,7 @@ Where we used this helper function to read the value of an environment variable:
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible URL, a local image file name, or by copying the image into an input buffer. See [Image requirements](../../overview-image-analysis?tabs=4-0#image-requirements) for supported image formats.
-
+You can select an image by providing a publicly accessible image URL, a local image file name, or by copying the image into the SDK's input buffer. See [Image requirements](../../overview-image-analysis?tabs=4-0#image-requirements) for supported image formats.
 
 ### Image URL
 
@@ -56,10 +55,13 @@ Create a new **VisionSource** object from the local image file you want to analy
 
 Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer).
 
-This is done by first creating a new [ImageSourceBuffer](/cpp/cognitive-services/vision/input-imagesourcebuffer), getting access to its [ImageWriter](/cpp/cognitive-services/input-imagewriter) object and writing the image data into it.
+This is done by first creating a new [ImageSourceBuffer](/cpp/cognitive-services/vision/input-imagesourcebuffer), getting access to its [ImageWriter](/cpp/cognitive-services/input-imagewriter) object and writing the image data into it. In the following code example, `imageBuffer` is a variable of type `std::vector<uint8_t>` containing the image data.
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
-
+```cpp
+  auto imageSourceBuffer = std::make_shared<ImageSourceBuffer>();
+  imageSourceBuffer->GetWriter()->Write(imageBuffer.data(), imageBuffer.size());
+  auto visionSource = VisionSource::FromImageSourceBuffer(imageSourceBuffer);
+```
 
 ## Select analysis options
 

@@ -32,7 +32,7 @@ Start by creating a [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible URL, a local image file name, or by copying the image into an input buffer. See [Image requirements](../../overview-image-analysis?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, a local image file name, or by copying the image into the SDK's input buffer. See [Image requirements](../../overview-image-analysis?tabs=4-0#image-requirements) for supported image formats.
 
 ## Image URL
 
@@ -50,10 +50,15 @@ In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai
 
 ### Image buffer
 
-In your script, first create an [image_source_buffer](/python/api/azure-ai-vision/azure.ai.vision.imagesourcebuffer). Get its [image_writer](/python/api/azure-ai-vision/azure.ai.vision.imagewriter) and call the **write** method to copy the image data into the writer. Then create a new [vision_source](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from your **image_source_buffer**.
+In your script, first create an [image_source_buffer](/python/api/azure-ai-vision/azure.ai.vision.imagesourcebuffer). Get its [image_writer](/python/api/azure-ai-vision/azure.ai.vision.imagewriter) and call the **write** method to copy the image data into the writer. Then create a new [vision_source](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from your **image_source_buffer**. In the following code example, `image_buffer` is a variable of type `bytes` containing the image data.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=vision_source)]
+```java
+import azure.ai.vision as visionsdk
 
+image_source_buffer = visionsdk.ImageSourceBuffer()
+image_source_buffer.image_writer.write(image_buffer)
+vision_source = visionsdk.VisionSource(image_source_buffer=image_source_buffer)
+```
 
 ## Select analysis options
 
