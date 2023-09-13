@@ -47,6 +47,9 @@ Before you create a new issue:
 
 ## Release notes
 
+* **Vision SDK 0.15.1-beta.1** released September 2023.
+  * Image Analysis Java JRE APIs for Windows x64 and Linux x64 were added.
+  * Image Analysis can now be done from a memory buffer (C#, C++, Python, Java).
 * **Vision SDK 0.13.0-beta.1** released July 2023. Image Analysis support was added for Universal Windows Platform (UWP) applications (C++, C#). Run-time package size reduction: Only the two native binaries
 `Azure-AI-Vision-Native.dll` and `Azure-AI-Vision-Extension-Image.dll` are now needed.
 * **Vision SDK 0.11.1-beta.1** released May 2023. Image Analysis APIs were updated to support [Background Removal](../how-to/background-removal.md).
