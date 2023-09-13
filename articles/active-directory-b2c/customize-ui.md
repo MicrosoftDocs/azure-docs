@@ -56,7 +56,7 @@ Example of the Classic template rendered on sign up sign in page:
 
 ### Company branding
 
-You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Azure Active Directory [Company branding](../active-directory/fundamentals/customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
+You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Azure Active Directory [Company branding](../active-directory/fundamentals/how-to-customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
 
 The following example shows a *Sign up and sign in* page with a custom logo, background image, using Ocean Blue template:
 
@@ -199,7 +199,7 @@ Start by setting the banner logo, background image, and background color within 
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Company branding**.
-1. Follow the steps in [Add branding to your organization's Azure Active Directory sign-in page](../active-directory/fundamentals/customize-branding.md).
+1. Follow the steps in [Add branding to your organization's Azure Active Directory sign-in page](../active-directory/fundamentals/how-to-customize-branding.md).
 
 Keep these things in mind when you configure company branding in Azure AD B2C:
 

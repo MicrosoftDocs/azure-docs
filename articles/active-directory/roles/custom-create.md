@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how to create new custom roles in Azure Active Directory (Azure AD). For the basics of custom roles, see the [custom roles overview](custom-overview.md). The role can be assigned either at the directory-level scope or an app registration resource scope only.
 
-Custom roles can be created in the [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) tab on the Azure AD overview page.
+Custom roles can be created in the **Roles and administrators** page of the Microsoft Entra admin center.
 
 ## Prerequisites
 
@@ -29,15 +29,17 @@ Custom roles can be created in the [Roles and administrators](https://portal.azu
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Create a role in the Azure portal
+## Create a role in the Microsoft Entra admin center
 
 ### Create a new custom role to grant access to manage app registrations
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators** > **New custom role**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
+
+1. Select **New custom role**.
 
    ![Create or edit roles from the Roles and administrators page](./media/custom-create/new-custom-role.png)
 
@@ -154,9 +156,9 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId 
 
 Like built-in roles, custom roles are assigned by default at the default organization-wide scope to grant access permissions over all app registrations in your organization. Additionally, custom roles and some relevant built-in roles (depending on the type of Azure AD resource) can also be assigned at the scope of a single Azure AD resource. This allows you to give the user the permission to update credentials and basic properties of a single app without having to create a second custom role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)  with Application Developer permissions.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Developer](../roles/permissions-reference.md#application-developer).
 
-1. Select **Azure Active Directory** > **App registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select the app registration to which you are granting access to manage. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
