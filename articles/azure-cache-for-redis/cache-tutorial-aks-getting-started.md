@@ -81,7 +81,7 @@ Use the [.yml file](https://github.com/Azure-Samples/azure-voting-app-redis/blob
 
 Make the following changes to the deployment file before you save the file as _azure-vote-sample.yaml_.
 
-1. Remove the deployment and service named `azure-vote-back``. This deployment is used to deploy a Redis container to your cluster that isn't required when using Azure Cache for Redis.
+1. Remove the deployment and service named `azure-vote-back`. This deployment is used to deploy a Redis container to your cluster that is not required when using Azure Cache for Redis.
 
 2. Replace the value `REDIS` variable from "azure-vote-back" to the _hostname_ of the Azure Cache for Redis instance that you created earlier. This change indicates that your application should use Azure Cache for Redis instead of a Redis container.
 
