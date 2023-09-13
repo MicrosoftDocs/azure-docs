@@ -23,7 +23,7 @@ To run a cross-service query, you need:
 
 ## Function supportability
 
-Azure Monitor cross-service queries support functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
+Azure Monitor cross-service queries support **only ".show"** functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
 This capability enables cross-cluster queries to reference an Azure Monitor, Azure Data Explorer, or Azure Resource Graph tabular function directly.
 The following commands are supported with the cross-service query:
 
