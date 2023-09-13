@@ -35,7 +35,7 @@ To create a dynamic scope, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update Manager (preview).
 1. Select **Overview** > **Schedule updates** > **Create a maintenance configuration**.
 1. In the **Create a maintenance configuration** page, enter the details in the **Basics** tab and select **Maintenance scope** as *Guest* (Azure VM, Arc-enabled VMs/servers).
-1. Select **Dynamic Scopes** and follow the steps to [Add Dynamic scope](manage-dynamic-scoping.md#add-a-dynamic-scope-preview). 
+1. Select **Dynamic Scopes** and follow the steps to [Add Dynamic scope](manage-dynamic-scoping.md#add-a-dynamic-scope). 
 1. In **Machines** tab, select **Add machines** to add any individual machines to the maintenance configuration and select **Updates**.
 1. In the **Updates** tab, select the patch classification that you want to include/exclude and select **Tags**.
 1. Provide the tags in **Tags** tab.
