@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Britive SSO
 
-1. Login to the Britive application with administrator privileges in a different web browser window.
+1. Log in to the Britive application with administrator privileges in a different web browser window.
 
 2. Select **Admin->Identity Management->Identity Providers** from the navigation menu.
 
@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Britive test user
 
-1. Login to the Britive with administrator privileges in a different web browser window.
+1. Log in to the Britive with administrator privileges in a different web browser window.
 
 2. Select **Admin** Settings Icon and select **Identity Management**.
 
