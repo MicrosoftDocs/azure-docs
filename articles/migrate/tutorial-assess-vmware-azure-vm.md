@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/13/2023
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy23
+ms.custom: MVC, engagement-fy24
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 

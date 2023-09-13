@@ -34,6 +34,8 @@ items:
       href: howto-customize-filter-logs.md
     - name: Analyze sign-ins
       href: quickstart-analyze-sign-in.md
+    - name: Analyze provisioning logs
+      href: howto-analyze-provisioning-logs.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
     - name: Access logs with Microsoft Graph  

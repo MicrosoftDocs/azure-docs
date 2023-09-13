@@ -350,6 +350,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 ### Known limitations
 
 - **Actor reminders**: Require a minReplicas of 1+ to ensure reminders is always active and fires correctly.
+- **Jobs**: Dapr isn't supported for jobs.
 
 ## Next Steps
 

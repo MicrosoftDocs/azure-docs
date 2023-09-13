@@ -26,7 +26,7 @@ To use the Authenticator app at a sign-in prompt rather than a username and pass
 
 > [!NOTE]
 > - Users don't have the option to register their mobile app when they enable SSPR. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
-> - The Authenticator app may not be supported on beta versions of iOS and Android.
+> - The Authenticator app may not be supported on beta versions of iOS and Android. In addition, starting October 20th, 2023 the authenticator app on Android will no longer support older verisons of the Android Company Portal. Android users with Company Portal versions below 2111 (5.0.5333.0) will not be able to re-register or register new instances of the authenticator app until they update their Company Portal application to a newer version.
 
 ## Passwordless sign-in
 

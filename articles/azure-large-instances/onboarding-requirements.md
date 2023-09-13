@@ -97,10 +97,10 @@ For more information, see these resources:
 
 * [Azure ExpressRoute overview](https://azure.microsoft.com/products/expressroute/)
 
-* [How to create a connection between your VPN Gateway and ExpressRoute circuit](https://learn.microsoft.com/shows/azure/expressroute-how-to-create-connection-between-your-vpn-gateway-expressroute-circuit) 
+* [How to create a connection between your VPN Gateway and ExpressRoute circuit](/shows/azure/expressroute-how-to-create-connection-between-your-vpn-gateway-expressroute-circuit) 
 
 
-* [How to set up Microsoft peering for your ExpressRoute circuit](https://learn.microsoft.com/shows/azure/expressroute-how-to-set-up-microsoft-peering-your-expressroute-circuit)
+* [How to set up Microsoft peering for your ExpressRoute circuit](/shows/azure/expressroute-how-to-set-up-microsoft-peering-your-expressroute-circuit)
 
 ### Authorizing  
 
