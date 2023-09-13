@@ -41,7 +41,7 @@ This document covers commonly encountered errors and issues with inbound provisi
 **Probable causes**
 1. Your API-driven provisioning app is paused. 
 1. The provisioning service is yet to update the provisioning logs with the bulk request processing details.
-2. Your On-premises provisioning agent status is inactive (If you are running the [/API-driven inbound user provisioning to on-premises AD](https://go.microsoft.com/fwlink/?linkid=2245182)).
+2. Your On-premises provisioning agent status is inactive (If you are running the [/API-driven inbound user provisioning to on-premises Active Directory](https://go.microsoft.com/fwlink/?linkid=2245182)).
 
 
 **Resolution:**
