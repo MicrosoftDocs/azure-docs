@@ -349,7 +349,7 @@ spec:
       key: appSettings.json
 ```
 
-the generated ConfigMap is populated with the following data:
+the generated ConfigMap will be populated with the following data:
 
 ``` yaml
 data:
@@ -375,7 +375,7 @@ spec:
       key: appSettings.yaml
 ```
 
-the generated ConfigMap is populated with the following data:
+the generated ConfigMap will be populated with the following data:
 
 ``` yaml
 data:
@@ -403,7 +403,7 @@ spec:
       key: app.properties
 ```
 
-the generated ConfigMap is populated with the following data:
+the generated ConfigMap will be populated with the following data:
 
 ``` yaml
 data:
