@@ -32,13 +32,13 @@ The `spec.target` property has the following child property.
 |---|---|---|---|
 |configMapName|The name of the ConfigMap to be created|true|string|
 
-The `spec.auth` property isn't required if the connection string of your App Configuration store is provided by setting the `spec.connectionStringReference` property. Otherwise, the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) is used for authentication and it will try an ordered list of credential types.
+The `spec.auth` property isn't required if the connection string of your App Configuration store is provided by setting the `spec.connectionStringReference` property. Otherwise, one of the identities, service principal, workload identity, or managed identity, will be used for authentication. The `spec.auth` has the following child properties. Only one of them should be specified. If none of them are set, the system-assigned managed identity of the virtual machine scale set will be used.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal|false|string|
 |workloadIdentity|The settings for using workload identity|false|object|
-|managedIdentityClientId|The Client ID of user-assigned managed identity of virtual machine scale set. The absence of this property indicates that system-assigned managed identity should be attempted during authentication if another credential type doesn't take priority|false|string|
+|managedIdentityClientId|The Client ID of user-assigned managed identity of virtual machine scale set|false|string|
 
 The `spec.auth.workloadIdentity` property has the following child property.
 
@@ -81,7 +81,7 @@ If the `spec.keyValues.keyVaults.auth` property isn't set, the system-assigned m
 |---|---|---|---|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with vaults that don't have individual authentication methods specified|false|string|
 |workloadIdentity|The settings of the workload identity used for authentication with vaults that don't have individual authentication methods specified. It has the same child properties as `spec.auth.workloadIdentity`|false|object|
-|managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with vaults that don't have individual authentication methods specified. The absence of this property indicates that system-assigned managed identity should be attempted during authentication if another credential type doesn't take priority|false|string|
+|managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with vaults that don't have individual authentication methods specified|false|string|
 |vaults|The authentication methods for individual vaults|false|object array|
 
 The authentication method of each *vault* can be specified with the following properties. One of `managedIdentityClientId`, `servicePrincipalReference` or `workloadIdentity` must be provided.
@@ -111,13 +111,13 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
 
 ### Authentication
 
-#### Use System-Assigned Managed Identity of virtual machine scale set
+#### Use system-assigned managed identity of virtual machine scale set
 
-1. [Enable the system-assigned managed identity in the virtual machine scale set](azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) used by the Azure Kubernetes Service (AKS) cluster.
+1. [Enable the system-assigned managed identity in the virtual machine scale set](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) used by the Azure Kubernetes Service (AKS) cluster.
 
-2. [Grant the system-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) in Azure App Configuration.
+1. [Grant the system-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) in Azure App Configuration.
 
-3. Deploy the following sample `AzureAppConfigurationProvider` resource to the AKS cluster.
+1. Deploy the following sample `AzureAppConfigurationProvider` resource to the AKS cluster.
 
     ``` yaml
     apiVersion: azconfig.io/v1beta1
@@ -130,7 +130,7 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
         configMapName: configmap-created-by-appconfig-provider
     ```
 
-#### Use User-Assigned Managed Identity of virtual machine scale set
+#### Use user-assigned managed identity of virtual machine scale set
 
 1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
 
@@ -153,7 +153,7 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
         managedIdentityClientId: <your-managed-identity-client-id>
     ```
 
-#### Use Service Principal
+#### Use service principal
 
 1. [Create a Service Principal](/azure/active-directory/develop/howto-create-service-principal-portal)
 
@@ -208,7 +208,7 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
           managedIdentityClientId: <your-managed-identity-client-id>
     ```
 
-#### Use Connection String
+#### Use connection string
 
 1. Create a Kubernetes Secret in the same namespace as the `AzureAppConfigurationProvider` resource and add Azure App Configuration connection string with key *azure_app_configuration_connection_string* in the Secret.
 
