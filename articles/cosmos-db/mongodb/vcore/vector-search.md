@@ -50,7 +50,7 @@ To create a vector index, use the following `createIndexes` template:
 | Field | Type | Description |
 | --- | --- | --- |
 | `index_name` | string | Unique name of the index. |
-| `path_to_property` | string | Path to the property that contains the vector. This path can be a top-level property or a dot notation path to the property. If a dot notation path is used, then all the nonleaf elements can't be arrays. Vectors must be a `number[]` to be indexed.|
+| `path_to_property` | string | Path to the property that contains the vector. This path can be a top-level property or a dot notation path to the property. If a dot notation path is used, then all the nonleaf elements can't be arrays. Vectors must be a `number[]` to be indexed and return in vector search results.|
 | `kind` | string | Type of vector index to create. Currently, `vector-ivf` is the only supported index option. |
 | `numLists` | integer | This integer is the number of clusters that the inverted file (IVF) index uses to group the vector data. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents. Using a `numLists` value of `1` is akin to performing brute-force search, which will have limited performance. |
 | `similarity` | string | Similarity metric to use with the IVF index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance), and `IP` (inner product). |
