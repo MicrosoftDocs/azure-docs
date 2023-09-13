@@ -56,7 +56,7 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
 1. In the upper-left corner, select **Browse**.
 
-1. In the search box, type *Microsoft.CognitiveServices.Speech* and select **Enter**.
+1. In the search box, enter *Microsoft.CognitiveServices.Speech* and select **Enter**.
 
 1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
 

@@ -12,26 +12,26 @@ Use the following procedure to download and install the SDK. The steps include [
 
    If you want to use the directory *speechsdk* in your home directory, use a command like the following example:
 
-   ```sh
+   ```console
    export SPEECHSDK_ROOT="$HOME/speechsdk"
    ```
 
 1. Create the directory if it doesn't exist yet:
 
-   ```sh
+   ```console
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
 1. Download and extract the *.tar.gz* archive that contains the Speech SDK binaries:
 
-   ```sh
+   ```console
    wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
    tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
    ```
 
 1. Validate the contents of the top-level directory of the extracted package:
 
-   ```sh
+   ```console
    ls -l "$SPEECHSDK_ROOT"
    ```
 

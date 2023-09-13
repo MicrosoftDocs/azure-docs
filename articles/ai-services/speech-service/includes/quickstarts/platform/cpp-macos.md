@@ -18,26 +18,26 @@ This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-s
 
    For example, if you want to use the directory *speechsdk* in your home directory, use a command like the following example:
 
-   ```sh
+   ```console
    export SPEECHSDK_ROOT="$HOME/speechsdk"
    ```
 
 1. Create the directory if it doesn't exist:
 
-   ```sh
+   ```console
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
 1. Download and extract the *.zip* archive that contains the Speech SDK XCFramework:
 
-   ```sh
+   ```console
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
    unzip SpeechSDK-macOS.zip -d "$SPEECHSDK_ROOT"
    ```
 
 1. Validate the contents of the top-level directory of the extracted package:
 
-   ```sh
+   ```console
    ls -l "$SPEECHSDK_ROOT"
    ```
 

@@ -75,7 +75,7 @@ Next, create your project and select the target architecture:
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-configure-your-new-project.png" alt-text="Screenshot that shows how to configure your new project in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/vs-enable-xamarin-configure-your-new-project.png":::
 
-1. In the **New Cross Platform App** window, select the **Blank** template, and then select **OK**.
+1. In the **New Cross Platform App** window, select the **Blank** template, and then select **Create**.
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png" alt-text="Screenshot that shows the New Mobile App Xamarin Forms Project dialog box in Visual Studio." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png":::
 

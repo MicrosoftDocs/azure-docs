@@ -104,15 +104,15 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
 
    1. Add a `dependencies` element at the end of the file, before the closing tag `</project>`, with the Speech SDK as a dependency:
 
-    ```xml
-    <dependencies>
-      <dependency>
-        <groupId>com.microsoft.cognitiveservices.speech</groupId>
-        <artifactId>client-sdk</artifactId>
-        <version>1.32.1</version>
-      </dependency>
-    </dependencies>
-    ```
+   ```xml
+   <dependencies>
+     <dependency>
+       <groupId>com.microsoft.cognitiveservices.speech</groupId>
+       <artifactId>client-sdk</artifactId>
+       <version>1.32.1</version>
+     </dependency>
+   </dependencies>
+   ```
 
    1. Save the changes.
 

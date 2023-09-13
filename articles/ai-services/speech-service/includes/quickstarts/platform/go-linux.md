@@ -29,7 +29,7 @@ The following steps enable your Go environment to find the Speech SDK.
 
 1. Because the bindings rely on `cgo`, you need to set the environment variables so Go can find the SDK.
 
-   ```sh
+   ```console
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
    export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
@@ -39,7 +39,7 @@ The following steps enable your Go environment to find the Speech SDK.
 
 1. To run applications and the SDK, you need to tell the operating system where to find the libraries.
 
-   ```sh
+   ```console
    export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
 

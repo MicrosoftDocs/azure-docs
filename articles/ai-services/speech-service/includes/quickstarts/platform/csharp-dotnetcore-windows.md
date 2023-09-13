@@ -33,7 +33,7 @@ This guide requires:
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/vs-enable-net-core-workload.png" alt-text="Screenshot of the Visual Studio installer, with the Workloads tab highlighted.":::
 
-1. Create a new Visual C# .NET Core console app. In the **New Project** dialog box, from the left pane, expand **Installed** > **Visual C#** > **.NET Core**. Then select **Console App (.NET Core)**. For the project name, enter *helloworld*.
+1. Create a new Visual C# .NET Core console app in the **New Project** dialog box. From the left pane, expand **Installed** > **Visual C#** > **.NET Core**. Then select **Console App (.NET Core)**. For the project name, enter *helloworld*.
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png" alt-text="Screenshot of the New Project dialog box." lightbox="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png":::
 
@@ -49,4 +49,4 @@ This guide requires:
 
    :::image type="content" source="~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png" alt-text="Screenshot of License Acceptance dialog box.":::
 
-After the package is installed, a confirmation appears in the Package Manager console.
+After the package is installed, a confirmation appears in the **Package Manager** console.
