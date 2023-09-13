@@ -82,13 +82,13 @@ ms.author: lajanuar
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
-| Konkani|`gom`|✔|✔||||
 | Kannada  | `kn` |✔|✔|✔|||
 | Kazakh | `kk` |✔|✔||||
 | Khmer  | `km` |✔|✔||✔||
 | Kinyarwanda|`rw`|✔|✔||||
 | Klingon | `tlh-Latn` |✔| ||✔|✔|
 | Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
+| Konkani|`gom`|✔|✔||||
 | Korean | `ko` |✔|✔|✔|✔|✔|
 | Kurdish (Central)  | `ku` |✔|✔||✔||
 | Kurdish (Northern)  | `kmr` |✔|✔||||
