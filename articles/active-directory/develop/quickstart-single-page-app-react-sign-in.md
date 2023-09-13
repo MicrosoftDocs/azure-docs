@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/05/2023
+ms.date: 09/13/2023
 ms.author: henrymbugua
 ms.reviewer: j-mantu
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js
