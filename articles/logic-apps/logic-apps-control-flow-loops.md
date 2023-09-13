@@ -32,9 +32,7 @@ Azure Logic Apps includes the following loop actions that you can use in your wo
 
 ## For each
 
-The **For each** action repeats one or more actions on each array item and works only on arrays.
-
-Here are some considerations to remember when you use a **For each** action:
+The **For each** action repeats one or more actions on each array item and works only on arrays. The following list contains some considerations for when you want to use a **For each** action:
 
 * The **For each** action can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
@@ -144,7 +142,7 @@ Follow the steps based on whether you create a Consumption or Standard logic app
 
 ## For each action definition (JSON)
 
-If you're working in your workflow's code view, you can define the `Foreach` loop in your workflow's JSON definition instead, for example:
+If you're working in code view, you can define the `For_each` action in your workflow's JSON definition, for example:
 
 ``` json
 "actions": {
@@ -204,10 +202,9 @@ By default, the iterations in a **For each** loop run at the same time in parall
 
 ---
 
-### For each action definition (JSON): Run sequentially
+## For each action definition (JSON): Run sequentially
 
-If you're working with your workflow's JSON definition, you can use the `Sequential` option by adding the 
-`operationOptions` parameter, for example:
+If you're working in code view with the `For_each` action in your workflow's JSON definition, you can use the `Sequential` option by adding the `operationOptions` parameter, for example:
 
 ``` json
 "actions": {
@@ -227,113 +224,112 @@ If you're working with your workflow's JSON definition, you can use the `Sequent
 
 ## Until
 
-To run and repeat actions until a condition gets met or a state changes, put those actions in an "Until" loop. Your logic app first runs any and all actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+The **Until** action runs and repeats one or more actions until the required specified condition is met. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of **Until** actions or iterations that a workflow can have, see [Concurrency, looping, and debatching limits](logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Here are some common scenarios where you can use an "Until" loop:
+The following list contains some common scenarios where you can use an **Until** action:
 
 * Call an endpoint until you get the response you want.
 
-* Create a record in a database. Wait until a specific field in that record gets approved. Continue processing. 
+* Create a record in a database. Wait until a specific field in that record gets approved. Continue processing.
 
-Starting at 8:00 AM each day, this example logic app increments a variable until the variable's value equals 10. The logic app then sends an email that confirms the current value. 
+In the following example workflow, starting at 8:00 AM each day, the **Until** action increments a variable until the variable's value equals 10. The workflow then sends an email that confirms the current value.
 
 > [!NOTE]
-> These steps use Office 365 Outlook, but you can 
-> use any email provider that Logic Apps supports. 
-> [Check the connectors list here](/connectors/). 
-> If you use another email account, the general steps stay the same, 
-> but your UI might look slightly different. 
+>
+> This example uses Office 365 Outlook, but you can use [any email provider that Azure Logic Apps supports](/connectors/). 
+> If you use another email account, the general steps stay the same, but your UI might look slightly different.
 
-1. Create a blank logic app. In Logic App Designer, 
-   under the search box, choose **All**. Search for "recurrence". 
-   From the triggers list, select this trigger: **Recurrence - Schedule**
+### [Consumption](#tab/standard)
 
-   ![Add "Recurrence - Schedule" trigger](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource with a blank workflow.
 
-1. Specify when the trigger fires by setting the interval, frequency, 
-   and hour of the day. To set the hour, choose **Show advanced options**.
+1. In the designer, [follow these general steps to add the **Recurrence** built-in trigger named **Schedule** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-   ![Set up recurrence schedule](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
+1. In the **Recurrence** trigger, specify the interval, frequency, and hour of the day for the trigger to fire.
 
    | Property | Value |
-   | -------- | ----- |
-   | **Interval** | 1 | 
+   |----------|-------|
+   | **Interval** | 1 |
    | **Frequency** | Day |
    | **At these hours** | 8 |
-   ||| 
 
-1. Under the trigger, choose **New step**. 
-   Search for "variables", and select this action: 
-   **Initialize variable - Variables**
+   To add the **At these hours** parameter, open the **Add new parameter** list, and select **At these hours**, which is available only after you set **Frequency** to **Day**.
 
-   ![Add "Initialize variable - Variables" action](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![Screenshot shows Azure portal, Consumption workflow designer, and Recurrence trigger parameters with selected option for At these hours.](./media/logic-apps-control-flow-loops/do-until-trigger-consumption.png)
 
-1. Set up your variable with these values:
+   When you're done, the trigger information box looks like the following example:
 
-   ![Set variable properties](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
+   ![Screenshot shows Azure portal, Consumption workflow, and Recurrence trigger parameters set up.](./media/logic-apps-control-flow-loops/do-until-trigger-complete-consumption.png)
+
+1. Under the trigger, [follow these general steps to add the **Variables** built-in action named **Initialize variable** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+1. In the **Initialize variable** action, provide the following values:
 
    | Property | Value | Description |
-   | -------- | ----- | ----------- |
-   | **Name** | Limit | Your variable's name | 
-   | **Type** | Integer | Your variable's data type | 
-   | **Value** | 0 | Your variable's starting value | 
-   |||| 
+   |----------|-------|-------------|
+   | **Name** | Limit | Your variable's name |
+   | **Type** | Integer | Your variable's data type |
+   | **Value** | 0 | Your variable's starting value |
 
-1. Under the **Initialize variable** action, choose **New step**. 
+   ![Screenshot shows Azure portal, Consumption workflow, and parameters for built-in action named Initialize variable.](./media/logic-apps-control-flow-loops/do-until-loop-variable-properties-consumption.png)
 
-1. Under the search box, choose **All**. Search for "until", 
-   and select this action: **Until - Control**
+1. Under the **Initialize variable** action, [follow these general steps to add the **Control** built-in action named **Until** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   ![Add "Until" loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+1. In the **Until** action, provide the following values to set up the stop condition for the loop.
 
-1. Build the loop's exit condition by selecting 
-   the **Limit** variable and the **is equal** operator. 
-   Enter **10** as the comparison value.
+   1. Select inside the leftmost box named **Choose a value**, which automatically opens the dynamic content list.
 
-   ![Build exit condition for stopping loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
+   1. From the list, under **Variables**, select the variable named **Limit**.
 
-1. Inside the loop, choose **Add an action**. 
+   1. From the middle operator list, select the **is equal** operator.
 
-1. Under the search box, choose **All**. Search for "variables", 
-   and select this action: **Increment variable - Variables**
+   1. In the rightmost box named **Choose a value**, enter **10** as the comparison value.
 
-   ![Add action for incrementing variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
+   ![Screenshot shows Consumption workflow and built-in action named Until with finished stop condition.](./media/logic-apps-control-flow-loops/do-until-loop-settings-consumption.png)
 
-1. For **Name**, select the **Limit** variable. For **Value**, 
-     enter "1". 
+1. Inside the **Until** action, select **Add an action**.
 
-     ![Increment "Limit" by 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+1. In the **Choose an operation** search box, [follow these general steps to add the **Variables** built-in action named **Increment variable** to the **Until** action](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Outside and under the loop, choose **New step**. 
+1. In the **Increment variable** action, provide the following values to increment the **Limit** variable's value by 1:
 
-1. Under the search box, choose **All**. 
-     Find and add an action that sends email, 
-     for example: 
+   | Property | Value |
+   |----------|-------|
+   | **Name** | Select the **Limit** variable. |
+   | **Value** | **1** |
 
-     ![Add action that sends email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+   ![Screenshot shows Consumption workflow and built-in action named Until with Name set to the Limit variable and Value set to 1.](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-consumption.png)
 
-1. If prompted, sign in to your email account.
+1. Outside and under the loop, [follow these general steps to add an action that sends email](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Set the email action's properties. Add the **Limit** 
-     variable to the subject. That way, you can confirm the 
-     variable's current value meets your specified condition, 
-     for example:
+   This example continues with the **Office 365 Outlook** action named **Send an email**.
 
-      ![Set up email properties](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+1. In the email action, provide the following values:
 
-      | Property | Value | Description |
-      | -------- | ----- | ----------- | 
-      | **To** | *\<email-address\@domain>* | The recipient's email address. For testing, use your own email address. | 
-      | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
-      | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
-      |||| 
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **To** | <*email-address\@domain*> | The recipient's email address. For testing, use your own email address. | 
+   | **Subject** | **Current value for "Limit" variable is:** **Limit** | The email subject. For this example, make sure that you include the **Limit** variable to confirm that the current value meets your specified condition: <br><br>1. Select inside the **Subject** box so that the dynamic content list appears. <br><br>2. In the dynamic content list, next to the **Variables** section header, select **See more**. <br><br>3. Select **Lmiit**. |
+   | **Body** | <*email-content*> | The email message content that you want to send. For this example, enter whatever text you want. |
 
-1. Save your logic app. To manually test your logic app, 
-     on the designer toolbar, choose **Run**.
+   When you're done, your email action looks similar to the following example:
 
-      After your logic starts running, you get an email with the content that you specified:
+   ![Screenshot shows Consumption workflow and action named Send an email with property values.](./media/logic-apps-control-flow-loops/do-until-loop-send-email-consumption.png)
 
-      ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+1. Save your workflow.
+
+### [Standard](#tab/standard)
+
+---
+
+### Test your workflow
+
+1. To manually test your logic app, on the designer toolbar, select **Run Trigger** > **Run**.
+
+
+After your workflow starts running, you get an email with the content that you specified:
+
+![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 <a name="prevent-endless-loops"></a>
 
