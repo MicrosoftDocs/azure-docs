@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 09/12/2023
 
 ms.author: justinha
 author: justinha
@@ -21,14 +21,14 @@ ms.collection: M365-identity-device-management
 
 Microsoft recommends users move away from using text message or voice calls for multifactor authentication (MFA). Modern authentication methods like [Microsoft Authenticator](concept-authentication-authenticator-app.md) are a recommended alternative. For more information, see [It's Time to Hang Up on Phone Transports for Authentication](https://aka.ms/hangup). Users can still verify themselves using a mobile phone or office phone as secondary form of authentication used for multifactor authentication (MFA) or self-service password reset (SSPR).
 
-You can [configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md) for direct authentication using text message. text message-based sign-in is convenient for Frontline workers. With text message-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
+You can [configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md) for direct authentication using SMS. SMS sign-in is convenient for Frontline workers. With SMS sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
 
 >[!NOTE]
 >Phone call verification isn't available for Azure AD tenants with trial subscriptions. For example, if you sign up for a trial license Microsoft Enterprise Mobility and Security (EMS), phone call verification isn't available. Phone numbers must be provided in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*. There must be a space between the country/region code and the phone number.
 
 ## Mobile phone verification
 
-For Azure AD Multi-Factor Authentication or SSPR, users can choose to receive a text message message with a verification code to enter in the sign-in interface, or receive a phone call.
+For Azure AD Multi-Factor Authentication or SSPR, users can choose to receive a text message with a verification code to enter in the sign-in interface, or receive a phone call.
 
 If users don't want their mobile phone number to be visible in the directory but want to use it for password reset, administrators shouldn't populate the phone number in the directory. Instead, users should populate their **Authentication Phone** at [My Sign-Ins](https://aka.ms/setupsecurityinfo). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
@@ -40,11 +40,11 @@ If users don't want their mobile phone number to be visible in the directory but
 Microsoft doesn't guarantee consistent text message or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve text message deliverability. Microsoft doesn't support short codes for countries/regions besides the United States and Canada.
 
 > [!NOTE]
-> Starting July 2023, we will apply delivery method optimizations such that tenants with a free or trial subscription may receive a text message message or voice call.
+> Starting July 2023, we will apply delivery method optimizations such that tenants with a free or trial subscription may receive a text message or voice call.
 
 ### Text message verification
 
-With text message message verification during SSPR or Azure AD Multi-Factor Authentication, a text message text is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface. 
+With text message verification during SSPR or Azure AD Multi-Factor Authentication, a text message text is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface. 
 
 Android users can enable Rich Communication Services (RCS) on their devices. RCS offers encryption and other improvements over Simple Message Service (SMS). For Android, MFA text messages may be sent over RCS rather than SMS. The experience is similar to text message, but RCS messages have more Microsoft branding and a verified checkmark so users know they can trust the message.
 
