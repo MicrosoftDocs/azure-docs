@@ -32,34 +32,32 @@ You'll also need the [Contributor](../../role-based-access-control/built-in-role
 
 The first step is to provision Windows Server 2012 and 2012 R2 Extended Security Update licenses from Azure Arc. You link these licenses to one or more Arc-enabled servers that you select in the next section.
 
-To provision an ESU license, you need to specify the SKU (Standard or Datacenter), type of cores (Physical or vCore), and number of 16-core and 2-core packs to provision an ESU license. You can also provision a deactivated license that won't be billed or functional until billing for extra control. Moreover, the cores associated with the license can be modified after provisioning.
+After you provision an ESU license, you need to specify the SKU (Standard or Datacenter), type of cores (Physical or vCore), and number of 16-core and 2-core packs to provision an ESU license. You can also provision a deactivated license that won't be billed or functional until billing for extra control. Moreover, the cores associated with the license can be modified after provisioning.
 
 > [!NOTE]
 > The provisioning of ESU licenses requires you to attest to their SA or SPLA coverage.
 > 
 
-1. Select the **Licenses** tab.
+The **Licenses** tab displays Azure Arc WS2012 licenses that are available. From here you can select an existing license to apply or create a new license.
 
-    The **Licenses** tab displays any currently existing Azure Arc WS2012 licenses. From here you can select an existing license to apply to WS2012 servers or create a new license.
+:::image type="content" source="media/deliver-extended-security-updates/esu-licenses.png" alt-text="Screenshot showing existing licenses.":::
 
-    :::image type="content" source="media/deliver-extended-security-updates/esu-licenses.png" alt-text="Screenshot showing existing licenses.":::
+1. To create a new WS2012 license, select **Create ESUs license**, and then provide the information required to configure the license on the page.
 
-1. To create a new WS2012 license, select **Create ESUs license**, then complete the fields in the window that appears.
+    For details on how to complete this step, see [License provisioning guidelines for Extended Security Updates for Windows Server 2012](license-extended-security-updates.md).
 
-    For guidance in completing this window, see [License provisioning guidelines for Extended Security Updates for Windows Server 2012](license-extended-security-updates.md).
+1. Review the information provided, and then select **Create**.
 
-1. Review the information entered in the window, then select **Create**.
-
-    The license you created appears in the list and can now be [linked to an Arc-enabled server](#link-esu-licenses-to-arc-enabled-servers):
+    The license you created appears in the list and you can link it to one or more Arc-enabled servers by following the steps in the next section.
 
     :::image type="content" source="media/deliver-extended-security-updates/esu-new-license.png" alt-text="Screenshot of licenses tab showing the newly created license in the list.":::
 
 ## Link ESU licenses to Arc-enabled servers
 
-You can select one or more Arc-enabled servers to link to an Extended Security Update license. Once you've linked a server to an activated ESU license, the server is eligible to receive Windows Server 2012 / R2 ESUs. 
+You can select one or more Arc-enabled servers to link to an Extended Security Update license. Once you've linked a server to an activated ESU license, the server is eligible to receive Windows Server 2012 and 2012 R2 ESUs. 
 
 > [!NOTE]
-> Customers have the flexibility to configure their patching solution of choice to receive these updates – whether that’s Update Management Center, WSUS, Microsoft Updates, SCCM, or a 3P patching solution. 
+> You have the flexibility to configure your patching solution of choice to receive these updates – whether that’s Update Manager, Windows Server Update Services, Microsoft Updates, Microsoft Endpoint Configuration Manager, or a third-party patch management solution. 
 > 
 1. Select the **Eligible Resources** tab to view a list of all your Arc-enabled servers running Windows Server 2012 and 2012 R2.
 
