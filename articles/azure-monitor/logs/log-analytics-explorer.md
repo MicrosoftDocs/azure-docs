@@ -1,5 +1,5 @@
 ---
-title: Explore and analyze log data in Azure Monitor using the new Log Analytics 
+title: Analyze log data in Azure Monitor using the new Log Analytics 
 description: This article explains the new Log Analytics interface and how to use simple and advanced modes to explore and analyze data in Azure Monitor Logs.
 ms.topic: conceptual
 author: guywild
@@ -9,7 +9,7 @@ ms.date: 09/04/2023
 
 ---
 
-# Explore and analyze log data in Azure Monitor using the new Log Analytics 
+# Analyze log data in Azure Monitor using the new Log Analytics 
 
 The new Log Analytics features a simplified user interface and two modes for exploring and working with log data: simple and advanced. 
 
@@ -32,16 +32,37 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 
-## Simple mode
+## Query in simple mode 
+
+Select a table
 
 Simple mode provides an easy, spreadsheet-like experience for navigating your logs and arriving at insights in Log Analytics, without writing queries. Similar to working with data in Excel, you can scroll through entries, search for specific values, filter and sort, hide columns you don't need, and aggregate data, all without any query language expertise.
 
 Advanced mode provides a full-featured query editor for writing and running queries. You can use the query editor to write queries in Kusto Query Language (KQL) to analyze your log data. You can also use the query editor to write queries in Power Query Formula Language (PQFL) to transform your log data.
 
 
-## Select a table to view logs
+**Select a table to view log data**
 
-Select a table.
+1. Click **Select a table** and select a table from the **Tables** tab.
+
+    By default, simple mode lists the last 1000 entries in the table from the last 24 hours. 
+
+1. To change the time range and number of records displayed, use the **Time range** and **Limit** cards.
+
+**Filter by column**
+
+1. Select **Filter** and choose a column.
+1. Select an operator and enter a value for the filter, or enter text or numbers in the **Search** box.
+    
+**Search for entries that have a specific value in the table**
+
+
+
+**Aggregate**
+
+**Show columns**
+
+**Sort**
 
 Log Analytics presents up to 1000 entries in the table from the last 24 hours. You can change the time range and the number of records displayed using the **Time range** and **Limit** cards.
 
