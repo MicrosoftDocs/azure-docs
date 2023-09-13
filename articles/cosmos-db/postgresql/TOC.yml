@@ -7,7 +7,11 @@
 - name: Quickstart
   items:
     - name: Create cluster
-      href: quickstart-create-portal.md
+      items:
+        - name: Azure Portal
+          href: quickstart-create-portal.md
+        - name: Bicep
+          href: quickstart-create-bicep.md
     - name: Connect
       href: quickstart-connect-psql.md
     - name: Distribute tables

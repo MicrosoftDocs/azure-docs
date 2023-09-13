@@ -78,6 +78,9 @@ If you already created a namespace and want to increase or decrease TUs, follow 
 
     :::image type="content" source="media/create-view-manage-namespaces/namespace-scale.png" alt-text="Screenshot showing Event Grid scale page.":::
 
+    > [!NOTE]
+    > For quotas and limits for resources in a namespace including maximum TUs in a namespace, See [Azure Event Grid quotas and limits](quotas-limits.md).
+
 ## Delete a namespace
 
 1. Follow instructions from the [View a namespace](#view-a-namespace) section to view all the namespaces, and select the namespace that you want to delete from the list.

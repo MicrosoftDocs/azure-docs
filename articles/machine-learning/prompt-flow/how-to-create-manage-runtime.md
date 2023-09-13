@@ -9,7 +9,7 @@ ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar
-ms.date: 07/14/2023
+ms.date: 09/13/2023
 ---
 
 # Create and manage runtimes (preview)
@@ -19,22 +19,6 @@ Prompt flow's runtime provides the computing resources required for the applicat
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Runtime type
-
-You can choose between two types of runtimes for Prompt flow: [compute instance (CI)](../concept-compute-instance.md), [automatic](../how-to-use-serverless-compute.md) and [managed online endpoint/deployment](../concept-endpoints-online.md). Here are some differences between them to help you decide which one suits your needs.
-
-| Runtime type                                 |Compute instance runtime| Automatic runtime |Managed online deployment runtime (deprecated)|
-|----------------------------------------------|------------------------|--------------------|----------------------------------------------|
-| Team shared                                  | N                                 |Y                         |Y|
-| User isolation                               | Y                                 |Y                         |N|
-| OBO/identity support                         | Y                                 |N                         |N|
-| Easily manually customization of environment | Y                                 |N                         |N|
-| Multiple runtimes on single resource         | Y                                 |Y                         |N|
-| Custom virtual network support                          | Y                                  |N                         |N|
-| Managed virtual network support                         | Y                                  |N                         |N|
-
-If you're new to Prompt flow, we recommend you to start with compute instance runtime first.
 
 ## Permissions/roles need to use runtime
 
@@ -106,53 +90,6 @@ When you're authoring your Prompt flow, you can select and change the runtime fr
 When performing a bulk test, you can use the original runtime in the flow or change to a more powerful runtime.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of the bulk run and evaluate wizard on the bulk run setting page with runtime highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
-
-### Using automatic runtime in prompt flow authoring
-
-There's `automatic` runtime, which uses serverless compute, when using automatic runtime you didn't need to manage the compute resource manually and environments.
-
-- Compute resource is warming up when you're using it, so the first run may take several minutes to prepare the compute. If you didn't specify `instance_type` when submit flow run we'll use `Standard_E4s_v3` as default instance type. You can use flow UI and CLI / SDK to change it to the other version. Make sure you have enough quota on this instance type.
-
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png" alt-text="Screenshot of show how to specify instance type in flow. " lightbox = "./media/how-to-create-manage-runtime/runtime-config-automatic-instance-type.png":::
-
-
-    ```yaml
-    $schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
-    flow: <path_to_flow>
-    data: <path_to_flow_data>
-    
-    # define cloud resource
-    resources:
-        instance_type: Standard_E4s_v3 # use this part to specify instance type for batch run
-    connections:
-      note_name1:
-        connection: <connection_name>
-        deployment_name: <deployment_name>
-      note_name2:
-        connection: <connection_name>
-        deployment_name: <deployment_name>
-    ```
-
-    ```python
-    instance_type = 'Standard_E4s_v3' # use this part to specify instance type for batch run
-    base_run = pf.run(
-        flow=flow,
-        data=data,
-        runtime=runtime,  
-        connections=connections,  
-        resources={'instance_type': instance_type},
-    )
-    ```
-
-- In the environment of the runtime support dynamic package installation, you can specify the packages you want in `requirements.txt` in your prompt flow folder. Every time you use the `automatic` runtime, we'll install the packages you defined in `requirements.txt`. You need to ensure in `flow.dag.yaml` you have defined the `python_requirements_txt` in `environment` section.
-
-    ```yaml
-    ...
-    environment:
-        python_requirements_txt: requirements.txt
-    ```
-
-- `automatic` runtime tries its best to reuse the same compute session to provide better performance, if there's no activity in the compute session for 30 minutes, the compute resource will be released.
 
 ## Update runtime from UI
 
