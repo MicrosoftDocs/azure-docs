@@ -84,7 +84,7 @@ To configure this setting using Microsoft Graph, see the [Update crossTenantAcce
 
 #### How do users know what tenants they belong to?
 
-For cross-tenant synchronization, users don't receive an email or have to accept a consent prompt. If users want to see what tenants they belong to, they can open their [My Account](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd) page and select **Organizations**. In the Azure portal, users can open their [Azure portal settings](../../azure-portal/set-preferences.md), view their **Directories + subscriptions**, and switch directories.
+For cross-tenant synchronization, users don't receive an email or have to accept a consent prompt. If users want to see what tenants they belong to, they can open their [My Account](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd) page and select **Organizations**. In the Microsoft Entra admin center, users can open their [Portal settings](../../azure-portal/set-preferences.md), view their **Directories + subscriptions**, and switch directories.
 
 For more information, including privacy information, see [Leave an organization as an external user](../external-identities/leave-the-organization.md).
 

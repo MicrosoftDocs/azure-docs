@@ -3,7 +3,7 @@ title: Estimate Azure Virtual Desktop Insights monitoring costs - Azure
 description: How to estimate costs and pricing for using Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 09/12/2023
 ms.author: helohr
 manager: femila
 ---
@@ -113,11 +113,7 @@ To learn more about input delay performance counters, see [User Input Delay perf
 
 ## Estimating Windows Event Log ingestion
 
-> [!IMPORTANT]
-> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Windows Event Logs are data sources collected by either the Log Analytics Agent or the Azure Monitor Agent (preview) on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by either the Azure Monitor Agent or the Log Analytics agent on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 These are the default Windows Events for Azure Virtual Desktop Insights:
 

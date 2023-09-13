@@ -25,7 +25,7 @@ The Vision SDK for C# only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/
 
 ---
 
-Install a version of [Python from 3.7 or later](https://wiki.python.org/moin/BeginnersGuide/Download).
+Install a version of [Python from 3.8 or later](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 To check your installation, open a terminal and run the command `python --version`. If it's installed properly, you'll get a response like "Python 3.8.10". If you're using Linux, you might need to run the command `python3 --version` instead. To enable use of `python` instead of `python3`, run `alias python='python3'` to set up an alias. The Vision SDK quickstart samples specify `python` usage. 
 

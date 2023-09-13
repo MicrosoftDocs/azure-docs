@@ -67,10 +67,6 @@ items:
       href: quickstart-logs-metrics-tracing.md
     - name: Integrate with Azure Database for MySQL
       href: quickstart-integrate-azure-database-mysql.md
-  - name: "Production-ready"
-    items:
-     - name: Custom DNS name
-       href: how-to-custom-domain.md
   - name: Authenticate client with Spring Cloud Gateway
     href: tutorial-authenticate-client-with-gateway.md
 - name: Concepts
@@ -159,10 +155,10 @@ items:
           href: how-to-configure-enterprise-spring-cloud-gateway-filters.md
         - name: Troubleshoot
           href: how-to-troubleshoot-enterprise-spring-cloud-gateway.md
-      - name: Use VMware Tanzu Application Accelerator
-        href: how-to-use-accelerator.md
       - name: Configure Tanzu Dev Tools
         href: how-to-use-dev-tool-portal.md
+      - name: Use VMware Tanzu Application Accelerator
+        href: how-to-use-accelerator.md
       - name: Use Application Live View
         href: how-to-use-application-live-view.md
       - name: Monitor apps using Application Live View

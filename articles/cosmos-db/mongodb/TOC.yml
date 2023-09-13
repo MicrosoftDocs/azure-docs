@@ -1,15 +1,19 @@
+- name: What is Azure Cosmos DB for MongoDB?
+  href: introduction.md
 - name: Choose your model
   href: choose-model.md
 - name: Comparing MongoDB Atlas
   href: cosmos-db-vs-mongodb-atlas.md
-- name: RU-based
+- name: FAQ
+  href: faq.yml
+- name: RU
   items:
-    - name: RU-based MongoDB documentation
+    - name: MongoDB RU documentation
       href: index.yml
     - name: Overview
       items:
-        - name: What is Azure Cosmos DB for MongoDB?
-          href: introduction.md
+        - name: What is Azure Cosmos DB for MongoDB RU?
+          href: ru/introduction.md
         - name: API versions
           items:
             - name: API version 4.2
@@ -40,7 +44,7 @@
           href: quickstart-go.md
     - name: Tutorials
       items:
-        - name: 1 - Create and manage data
+        - name: Create and manage data
           items:
             - name: Node.js console app
               href: nodejs-console-app.md
@@ -60,9 +64,9 @@
                   href: tutorial-develop-nodejs-part-6.md
             - name: Node.js and React app
               href: tutorial-develop-react.md
-        - name: 2 - Query data
+        - name: Query data
           href: tutorial-query.md
-        - name: 3 - Distribute data globally
+        - name: Distribute data globally
           href: tutorial-global-distribution.md
         - name: Aggregation pipeline
           href: tutorial-aggregation.md
@@ -634,5 +638,5 @@
               href: ../use-cases.md
             - name: Social media apps
               href: ../social-media-apps.md
-- name: vCore-based
+- name: vCore
   href: vcore/toc.yml
