@@ -604,7 +604,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     import { CosmosClient } from "@azure/cosmos";
     ```
 
-1. Use ([`CosmosClient`](/javascript/api/@azure/cosmos/cosmosclient)) to create a new client instance using the emulator's credentials.
+1. Use [`CosmosClient`](/javascript/api/@azure/cosmos/cosmosclient) to create a new client instance using the emulator's credentials.
 
     ```javascript
     const cosmosClient = new CosmosClient({
@@ -613,7 +613,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     });
     ```
 
-1. Use [`Databases.createIfNotExists`](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) and [`Containers.createIfNotExists`])/javascript/api/%40azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) to create a database and container.
+1. Use [`Databases.createIfNotExists`](/javascript/api/@azure/cosmos/databases#@azure-cosmos-databases-createifnotexists) and [`Containers.createIfNotExists`](/javascript/api/%40azure/cosmos/containers#@azure-cosmos-containers-createifnotexists) to create a database and container.
 
     ```javascript
     const { database } = await cosmosClient.databases.createIfNotExists({ 
