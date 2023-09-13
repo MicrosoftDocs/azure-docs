@@ -156,8 +156,6 @@ db, _ := sql.Open("mysql", connectionString)
 ```java
 # generate truststore and keystore in code
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
-
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -172,8 +170,6 @@ sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore 
-
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
 
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");
@@ -191,8 +187,6 @@ conn = DriverManager.getConnection(url, properties);
 ```java
 # generate truststore and keystore in code
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
-
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
     " -file " + ssl_ca +
@@ -207,8 +201,6 @@ sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
 sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
 
 # use the generated keystore and truststore 
-
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
 
 System.setProperty("javax.net.ssl.keyStore","path_to_keystore_file");
 System.setProperty("javax.net.ssl.keyStorePassword","password");

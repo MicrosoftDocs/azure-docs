@@ -76,8 +76,6 @@ Create a Azure Database for MariaDB with the az mariadb server create comman
 ```azurecli-interactive
 # Create a server in the resource group 
 
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
-
 az mariadb server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -125,8 +123,6 @@ networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint -
 
 az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
 # Copy the content for privateIPAddress and FQDN matching the Azure database for MariaDB name
-
-[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
 
 #Create DNS records 
 
