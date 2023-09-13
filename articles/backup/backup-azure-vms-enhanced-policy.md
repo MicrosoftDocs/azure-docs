@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 09/14/2023
 ms.reviewer: sharrai
 ms.service: backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -262,7 +262,7 @@ Trusted Launch VMs can only be backed up using Enhanced policies.
 >- Enhanced policy is only available to unprotected VMs that are new to Azure Backup. Note that Azure VMs that are protected with existing policy can't be moved to Enhanced policy.
 >- Back up an Azure VM with disks that has public network access disabled is not supported.
 
-## Enable selective disk backup and restore (preview)
+## Enable selective disk backup and restore
 
 You can exclude non-critical disks from backup by using selective disk backup to save costs. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier. [Learn more](selective-disk-backup-restore.md).
 
