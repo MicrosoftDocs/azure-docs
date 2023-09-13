@@ -132,3 +132,4 @@ Selecting the pushpin icon in the upper-right corner of a chart pins it to the l
 - Learn how to use [workbooks](vminsights-workbooks.md) that are included with VM insights to further analyze performance and network metrics.
 - To learn about discovered application dependencies, see [View VM insights Map](vminsights-maps.md).
 
+
