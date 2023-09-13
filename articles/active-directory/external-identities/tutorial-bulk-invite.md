@@ -21,7 +21,7 @@ ms.custom: engagement-fy23
 
 # Tutorial: Bulk invite Azure AD B2B collaboration users
 
-If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you'll follow these steps:
+If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Microsoft Entra admin center to send bulk invitations to external users. Specifically, you'll follow these steps:
 
 > [!div class="checklist"]
 >
@@ -37,9 +37,8 @@ If you use Azure Active Directory (Azure AD) B2B collaboration to work with exte
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a global administrator in the organization.
-2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **All Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All Users**.
 4. Select **Bulk operations** > **Bulk invite**.
 
     :::image type="content" source="media/tutorial-bulk-invite/bulk-invite-button.png" alt-text="Screenshot of the bulk invite button.":::
@@ -96,13 +95,12 @@ The rows in a downloaded CSV template are as follows:
 
 ## Verify guest users in the directory
 
-Check to see that the guest users you added exist in the directory either in the Azure portal or by using PowerShell.
+Check to see that the guest users you added exist in the directory either in the Microsoft Entra admin center or by using PowerShell.
 
-### View guest users in the Azure portal
+### View guest users in the Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User administrator in the organization.
-2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 4. Under **Show**, select **Guest users only** and verify the users you added are listed.
 
 ### View guest users with PowerShell

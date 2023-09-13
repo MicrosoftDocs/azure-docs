@@ -34,7 +34,7 @@ For example, let's say a user in your organization has created a separate accoun
 |**4**     | *Data plane protection:* The user tries to access the external application by copying  an authentication response token they obtained outside of Contoso's network and pasting it into the Windows device. However, Azure AD compares the claim in the token to the HTTP header added by the Windows device. Because they don't match, Azure AD blocks the session so the user can't access the application.        |
 
 
-This article describes how to configure tenant restrictions V2 using the Azure portal. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
+This article describes how to configure tenant restrictions V2 using the Microsoft Entra admin center. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
 
 ## Tenant restrictions V2 overview
 
@@ -75,7 +75,7 @@ The following table compares the features in each version.
 |**Microsoft accounts (MSA)**          |Uses a Restrict-MSA header to block access to consumer accounts.         |  Allows control of Microsoft account (MSA and Live ID) authentication on both the identity and data planes. For example, if you enforce tenant restrictions by default, you can create a Microsoft accounts-specific policy that allows users to access specific apps with their Microsoft accounts, for example: <br> Microsoft Learn (app ID `18fbca16-2224-45f6-85b0-f7bf2b39b3f3`), or <br> Microsoft Enterprise Skills Initiative (app ID `195e7f27-02f9-4045-9a91-cd2fa1c2af2f`).       |
 |**Proxy management**      | Manage corporate proxies by adding tenants to the Azure AD traffic allowlist.         |   N/A      |
 |**Platform support**      |Supported on all platforms. Provides only authentication plane protection.        |     Supported on Windows operating systems and Microsoft Edge by adding the tenant restrictions V2 header using Windows Group Policy. This configuration provides both authentication plane and data plane protection.<br></br>On other platforms, like macOS, Chrome browser, and .NET applications, tenant restrictions V2 are supported when the tenant restrictions V2 header is added by the corporate proxy. This configuration provides only authentication plane protection.     |
-|**Portal support**        |No user interface in the Azure portal for configuring the policy.         |   User interface available in the Azure portal for setting up the cloud policy.      |
+|**Portal support**        |No user interface in the Microsoft Entra admin center for configuring the policy.         |   User interface available in the Microsoft Entra admin center for setting up the cloud policy.      |
 |**Unsupported apps**      |     N/A    |   Block unsupported app use with Microsoft endpoints by using Windows Defender Application Control (WDAC) or Windows Firewall  (for example, for Chrome, Firefox, and so on). See [Block Chrome, Firefox and .NET applications like PowerShell](#block-chrome-firefox-and-net-applications-like-powershell).      |
 
 ### Migrate tenant restrictions V1 policies to V2
@@ -167,17 +167,14 @@ To configure tenant restrictions, you'll need the following:
 
 ## Step 1: Configure default tenant restrictions V2
 
-Settings for tenant restrictions V2 are located in the Azure portal under **Cross-tenant access settings**. First, configure the default tenant restrictions you want to apply to all users, groups, apps, and organizations. Then, if you need partner-specific configurations, you can add a partner's organization and customize any settings that differ from your defaults.
+Settings for tenant restrictions V2 are located in the Microsoft Entra admin center under **Cross-tenant access settings**. First, configure the default tenant restrictions you want to apply to all users, groups, apps, and organizations. Then, if you need partner-specific configurations, you can add a partner's organization and customize any settings that differ from your defaults.
 
 ### To configure default tenant restrictions
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or Conditional Access administrator account. Then open the **Azure Active Directory** service.
-
-1. Select **External Identities**
-
-1. Select **Cross-tenant access settings**, and then select the **Default settings** tab.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity**  **External Identities** > **Cross-tenant access settings**, and then select the **Default settings** tab.
 
    :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-default-section.png" alt-text="Screenshot showing the tenant restrictions section on the default settings tab.":::
 
@@ -227,8 +224,8 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 
 ### Example: Configure tenant restrictions V2 to allow Microsoft Accounts
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or Conditional Access administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities**, and then select **Cross-tenant access settings**.
 1. Select **Organizational settings**. (If the organization you want to add has already been added to the list, you can skip adding it and go directly to modifying the settings.)
 1. Select **Add organization**.
 1. On the **Add organization** pane, type the full domain name (or tenant ID) for the organization.
@@ -343,7 +340,7 @@ To test the tenant restrictions V2 policy on a device, follow these steps.
 
 1. Retrieve the **Tenant ID** and **Policy ID** you recorded earlier (in step 7 under [To configure default tenant restrictions](#to-configure-default-tenant-restrictions)) and enter them in the following fields (leave all other fields blank):
 
-   - **Azure AD Directory ID**: Enter the **Tenant ID** you recorded earlier. You can also find your tenant ID in the [Azure portal](https://portal.azure.com) by navigating to **Azure Active Directory** > **Properties** and copying the **Tenant ID**.
+   - **Azure AD Directory ID**: Enter the **Tenant ID** you recorded earlier. You can also find your tenant ID in the [Microsoft Entra admin center](https://entra.microsoft.com) by navigating to **Identity** > **Overview** and copying the **Tenant ID**.
    - **Policy GUID**: The ID for your cross-tenant access policy. It's the **Policy ID** you recorded earlier. You can also find this ID by using the Graph Explorer command [https://graph.microsoft.com/v1.0/policies/crossTenantAccessPolicy/default](https://graph.microsoft.com/v1.0/policies/crossTenantAccessPolicy/default).
 
    :::image type="content" source="media/tenant-restrictions-v2/windows-cloud-policy-details.png" alt-text="Screenshot of Windows Cloud Policy Details.":::
@@ -363,7 +360,7 @@ Tenant restrictions V2 policies can't be directly enforced on non-Windows 10 or 
    |---------|---------|
    |`sec-Restrict-Tenant-Access-Policy`     |  `<DirectoryId>:<policyGuid>`       |
 
-   - `DirectoryID` is your Azure AD tenant ID. Find this value by signing in to the Azure portal as an administrator, select **Azure Active Directory**, then select **Properties**.
+   - `DirectoryID` is your Azure AD tenant ID. Find this value by signing in to the Microsoft Entra admin center as an administrator, browse to **Identity** > **Properties**.
    - `policyGUID` is the object ID for your cross-tenant access policy. Find this value by calling `/crosstenantaccesspolicy/default` and using the “id” field returned.
 
 1. On your corporate proxy, send the tenant restrictions V2 header to the following Microsoft login domains:
