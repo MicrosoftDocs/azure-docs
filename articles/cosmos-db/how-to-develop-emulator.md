@@ -513,50 +513,21 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
 
 1. Create the **app.py** file.
 
-1. Import the `os` and `json` modules. Then, import `CosmosClient` and `PartitionKey` from the `azure.cosmos` module.
+1. Import `CosmosClient` and `PartitionKey` from the `azure.cosmos` module.
 
-    ```python
-    import os
-    import json
-    
-    from azure.cosmos import CosmosClient, PartitionKey
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" id="imports":::
 
 1. Create a new <xref:azure.cosmos.CosmosClient> using the emulator's credentials.
 
-    ```python
-    client = CosmosClient(
-        url="<https://localhost:8081>",
-        credential="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" id="client":::
 
 1. Create a new database and container using <xref:azure.cosmos.CosmosClient.create_database_if_not_exists> and <xref:azure.cosmos.DatabaseProxy.create_container_if_not_exists>.
 
-    ```python
-    database = client.create_database_if_not_exists(
-        id="cosmicworks",
-        offer_throughput=400,
-    )
-
-    container = database.create_container_if_not_exists(
-        id="products",
-        partition_key=PartitionKey(
-            path="/id",
-        ),
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" id="resources":::
 
 1. Use <xref:azure.cosmos.ContainerProxy.upsert_item> to create a new item in the container.
 
-    ```python
-    item = {
-        "id": "68719518371",
-        "name": "Kiama classic surfboard"
-    }
-
-    container.upsert_item(item)
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" id="upsert":::
 
 1. Run the Python application.
 
