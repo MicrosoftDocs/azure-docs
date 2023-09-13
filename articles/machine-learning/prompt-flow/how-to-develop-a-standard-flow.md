@@ -168,11 +168,9 @@ Below are common scenarios for linking nodes together.
 1. Edit the prompt box, add another input by `{{summary}}`, select **Validate and parse input**, then you'll see an input called summary is created in inputs section.
 2. In the value drop-down, select ${summarize_text_content.output}, then you'll see in the graph view that the newly created LLM node is linked to the upstream summarize_text_content node. When running the flow, the summary input of the node will be replaced by summarize_text_content node output on the fly.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png" alt-text="Animation of scenario two editing the prompt and inputs. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png":::
-
 We support search and autosuggestion here in the drop-down. You can search by node name if you have many nodes in the flow.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png" alt-text="Screenshot of showing the value drop-down menu. " lightbox = "./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png" alt-text="Animation of scenario two editing the prompt and inputs. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.png":::
 
 You can also navigate to the node you want to link with, copy the node name, navigate back to the newly created LLM node, paste in the input value field.
 
