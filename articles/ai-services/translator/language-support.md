@@ -47,7 +47,7 @@ ms.author: lajanuar
 | Chinese (Literary) | `lzh` |✔|✔||||
 | Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
 | Chinese Traditional | `zh-Hant` |✔|✔|✔|✔||
-| chiShona|SN|✔|✔||||
+| chiShona|`sn`|✔|✔||||
 | Croatian | `hr` |✔|✔|✔|✔|✔|
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
@@ -68,13 +68,13 @@ ms.author: lajanuar
 | Greek  | `el` |✔|✔|✔|✔|✔|
 | Gujarati  | `gu` |✔|✔|✔|✔||
 | Haitian Creole | `ht` |✔|✔||✔|✔|
-| Hausa|HA|✔|✔||||
+| Hausa|`ha`|✔|✔||||
 | Hebrew  | `he` |✔|✔|✔|✔|✔|
 | Hindi | `hi` |✔|✔|✔|✔|✔|
 | Hmong Daw (Latin) | `mww` |✔|✔|||✔|
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
-| Igbo|IG|✔|✔||||
+| Igbo|`ig`|✔|✔||||
 | Indonesian | `id` |✔|✔|✔|✔|✔|
 | Inuinnaqtun  | `ikt` |✔|✔||||
 | Inuktitut  | `iu` |✔|✔|✔|✔||
@@ -82,11 +82,11 @@ ms.author: lajanuar
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
-| Konkani|GOM|✔|✔||||
+| Konkani|`gom`|✔|✔||||
 | Kannada  | `kn` |✔|✔|✔|||
 | Kazakh | `kk` |✔|✔||||
 | Khmer  | `km` |✔|✔||✔||
-| Kinyarwanda|RW|✔|✔||||
+| Kinyarwanda|`rw`|✔|✔||||
 | Klingon | `tlh-Latn` |✔| ||✔|✔|
 | Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
 | Korean | `ko` |✔|✔|✔|✔|✔|
@@ -96,11 +96,11 @@ ms.author: lajanuar
 | Lao  | `lo` |✔|✔||✔||
 | Latvian | `lv` |✔|✔|✔|✔|✔|
 | Lithuanian | `lt` |✔|✔|✔|✔|✔|
-| Lingala|LN|✔|✔||||
-| Lower Sorbian|DSB|✔| ||||
-| Luganda|LUG|✔|✔||||
+| Lingala|`ln`|✔|✔||||
+| Lower Sorbian|`dsb`|✔| ||||
+| Luganda|`lug`|✔|✔||||
 | Macedonian  | `mk` |✔|✔||✔||
-| Maithili|MAI|✔|✔||||
+| Maithili|`mai`|✔|✔||||
 | Malagasy  | `mg` |✔|✔|✔|||
 | Malay (Latin) | `ms` |✔|✔|✔|✔|✔|
 | Malayalam  | `ml` |✔|✔|✔|||
@@ -112,7 +112,7 @@ ms.author: lajanuar
 | Myanmar  | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
-| Nyanja|NYA|✔|✔||||
+| Nyanja|`nya`|✔|✔||||
 | Odia  | `or` |✔|✔|✔|||
 | Pashto | `ps` |✔|✔||✔||
 | Persian | `fa` |✔|✔|✔|✔|✔|
@@ -122,16 +122,16 @@ ms.author: lajanuar
 | Punjabi | `pa` |✔|✔|✔|||
 | Queretaro Otomi  | `otq` |✔|✔||||
 | Romanian | `ro` |✔|✔|✔|✔|✔|
-| Rundi|RUN|✔|✔||||
+| Rundi|`run`|✔|✔||||
 | Russian | `ru` |✔|✔|✔|✔|✔|
 | Samoan (Latin) | `sm` |✔|✔ |✔|||
 | Serbian (Cyrillic) | `sr-Cyrl` |✔|✔||✔||
 | Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
-| Sesotho|ST|✔|✔||||
-| Sesotho sa Leboa|NSO|✔|✔||||
-| Setswana|TN|✔|✔||||
-| Sindhi|SD|✔|✔||||
-| Sinhala|Si|✔|✔||||
+| Sesotho|`st`|✔|✔||||
+| Sesotho sa Leboa|`nso`|✔|✔||||
+| Setswana|`tn`|✔|✔||||
+| Sindhi|`sd`|✔|✔||||
+| Sinhala|`si`|✔|✔||||
 | Slovak | `sk` |✔|✔|✔|✔|✔|
 | Slovenian | `sl` |✔|✔|✔|✔|✔|
 | Somali (Arabic) | `so` |✔|✔||✔||
@@ -155,8 +155,8 @@ ms.author: lajanuar
 | Uzbek (Latin) | `uz` |✔|✔||✔||
 | Vietnamese  | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
-| Xhosa|XH|✔|✔||||
-| Yoruba|YO|✔|✔||||
+| Xhosa|`xh`|✔|✔||||
+| Yoruba|`yo`|✔|✔||||
 | Yucatec Maya | `yua` |✔|✔||✔||
 | Zulu | `zu` |✔|✔||||
 
