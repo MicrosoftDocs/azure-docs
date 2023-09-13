@@ -40,7 +40,7 @@ The **For each** action repeats one or more actions on each array item and works
 
   This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential **For each** iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a **For each** action by using the [Delay action](../connectors/connectors-native-delay.md), you need to set up each iteration to run sequentially.
 
-  The exception to the default behavior are nested **For each** actions where iterations always run sequentially, not in parallel. To run operations in parallel for items in a nested loop, create and [call a child logic app workflow](../logic-apps/logic-apps-http-endpoint.md).
+  As an exception to the default behavior, a nested **For each** action's iterations always run sequentially, not in parallel. To run operations in parallel for items in a nested loop, create and [call a child logic app workflow](../logic-apps/logic-apps-http-endpoint.md).
 
 * To get predictable results from operations on variables during each iteration, run the iterations sequentially. For example, when a concurrently running iteration ends, the **Increment variable**, **Decrement variable**, and **Append to variable** operations return predictable results. However, during each iteration in the concurrently running loop, these operations might return unpredictable results.
 
@@ -52,7 +52,7 @@ Follow the steps based on whether you create a Consumption or Standard logic app
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), create an example Consumption logic app workflow with the following steps in the specfied order:
+1. In the [Azure portal](https://portal.azure.com), create an example Consumption logic app workflow with the following steps in the specified order:
 
 * The **RSS** trigger named **When a feed item is published** 
 
@@ -93,7 +93,7 @@ Follow the steps based on whether you create a Consumption or Standard logic app
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), create an example Standard logic app workflow with the following steps in the specfied order:
+1. In the [Azure portal](https://portal.azure.com), create an example Standard logic app workflow with the following steps in the specified order:
 
 * The **RSS** trigger named **When a feed item is published** 
 
@@ -178,7 +178,7 @@ If you're working in code view, you can define the `For_each` action in your wor
 
 ## For each: Run sequentially
 
-By default, the iterations in a **For each** loop run at the same time in parallel. However, when you have nested loops or variables inside the loops where you expect predictable results, you must run the those loops one at a time or sequentially.
+By default, the iterations in a **For each** loop run at the same time in parallel. However, when you have nested loops or variables inside the loops where you expect predictable results, you must run those loops one at a time or sequentially.
 
 ### [Consumption](#tab/consumption)
 
