@@ -54,6 +54,8 @@ You'll find submitting a support request for additional quota is quicker if you 
    - Network connections
    - Dev Box general cores
    - Other
+ 
+   When you want to increase the number of dev boxes available to your developers, you should request an increase in the number of Dev Box general cores. 
 
 ## Submit a new support request
 
