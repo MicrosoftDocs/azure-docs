@@ -214,13 +214,11 @@ Currently, Python 3.10 (preview) runtime version is supported for both Cloud and
 - For Python 3.8 Hybrid jobs on Linux machines, we depend on the Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. Different versions should work if there are no breaking changes in method signatures or contracts between versions of Python 3.
 
 
-### Limitations and Known issues
+### Limitations
 
-Following are the limitations and known issues of Python runbooks
+Following are the limitations of Python runbooks
 
 # [Python 2.7](#tab/py27)
-
-**Limitations**
 
 - You must be familiar with Python scripting.
 - For Python 2.7.12 modules, use wheel files cp27-amd6.
@@ -228,15 +226,8 @@ Following are the limitations and known issues of Python runbooks
 - Azure Automation doesn't support **sys.stderr**.
 - The Python **automationassets** package isn't available on pypi.org, so it's not available for import onto a Windows machine.
 
-**Known issues**
-
-- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
-- Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
-- `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 
 # [Python 3.8 (GA)](#tab/py38)
-
-**Limitations**
 
 - You must be familiar with Python scripting.
 - For Python 3.8 modules, use wheel files targeting cp38-amd64.
@@ -245,25 +236,12 @@ Following are the limitations and known issues of Python runbooks
 - Azure Automation doesn't support **sys.stderr**.
 - The Python **automationassets** package isn't available on pypi.org, so it's not available for import onto a Windows machine.
 
-**Known issues**
-
-- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
-- Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
-- `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 
 # [Python 3.10 (preview)](#tab/py10)
-
-**Limitations**
 
 - For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
 - Custom packages for Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages aren't imported into automation account.
 - Currently, Python 3.10 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell aren't supported.
-
-**Known issues**
-
-- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3) to get the required directory.
-- Modules imported through an ARM template might not load with `Import-module`. As a workaround, create a .zip file (with name as module name) and add the module files directly to the .zip file instead of zipping the named folder (for example - *ModuleNamedZipFile.zip\ModuleFiles*). You can then delete or again add the modules to the new .zip file. 
-- `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
 
 ---
 
