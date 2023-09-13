@@ -89,12 +89,6 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 1. Select a column to aggregate by.
 1. Select an operator to aggregate by, as described in the table below.
 
-| Operator | Description |
-|:---|:---|
-|`count`|Counts the number of times each distinct value exists in the column.|
-|`dcount`|For the `dcount` operator, you select two columns. The operator counts the total number of distinct values in the second column correlated to each value in the first column. For example, this shows the distinct number of result codes for successful and failed operations:<br/> :::image type="content" source="media/log-analytics-explorer/log-analytics-dcount.png" alt-text="Screenshot that shows the result of an aggregation using the dcount operator in Azure Monitor Log Analytics.":::  |
-|`sum`<br/>`avg`<br/>`max`<br/>`min`|For these operators, you select two columns. The operators calculate the sum, average, maximum, or minimum of all values in the second column for each value in the first column. For example, this shows the total duration of each operation in milliseconds for the past 24 hours:<br/>:::image type="content" source="media/log-analytics-explorer/log-analytics-sum.png" alt-text="Screenshot that shows the results of an aggregation using the sum operator in Azure Monitor Log Analytics.":::  |
-
 **Show or hide columns**
 
 1. Select **Show columns**.
@@ -109,7 +103,15 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 1. Select **Ascending** or **Descending**, then select **Apply**.  
 1. Select **Sort** again to sort by another column.
 
-### Query window
+### Use aggregation operators
+
+| Operator | Description |
+|:---|:---|
+|`count`|Counts the number of times each distinct value exists in the column.|
+|`dcount`|For the `dcount` operator, you select two columns. The operator counts the total number of distinct values in the second column correlated to each value in the first column. For example, this shows the distinct number of result codes for successful and failed operations:<br/> :::image type="content" source="media/log-analytics-explorer/log-analytics-dcount.png" alt-text="Screenshot that shows the result of an aggregation using the dcount operator in Azure Monitor Log Analytics.":::  |
+|`sum`<br/>`avg`<br/>`max`<br/>`min`|For these operators, you select two columns. The operators calculate the sum, average, maximum, or minimum of all values in the second column for each value in the first column. For example, this shows the total duration of each operation in milliseconds for the past 24 hours:<br/>:::image type="content" source="media/log-analytics-explorer/log-analytics-sum.png" alt-text="Screenshot that shows the results of an aggregation using the sum operator in Azure Monitor Log Analytics.":::  |
+
+## Advanced mode
 
 The query window is where you edit your query. IntelliSense is used for KQL commands and color coding enhances readability. Select **+** at the top of the window to open another tab.
 
@@ -117,17 +119,17 @@ A single window can include multiple queries. A query can't include any blank li
 
 To run the current query, select the **Run** button or select **Shift+Enter**.
 
-### Results window
+## Results window
 
 The results of a query appear in the results window. By default, the results are displayed as a table. To display the results as a chart, select **Chart** in the results window. You can also add a **render** command to your query.
 
-#### Results view
+### Results view
 
 The results view displays query results in a table organized by columns and rows. Click to the left of a row to expand its values. Select the **Columns** dropdown to change the list of columns. Sort the results by selecting a column name. Filter the results by selecting the funnel next to a column name. Clear the filters and reset the sorting by running the query again.
 
 Select **Group columns** to display the grouping bar above the query results. Group the results by any column by dragging it to the bar. Create nested groups in the results by adding more columns.
 
-#### Chart view
+### Chart view
 
 The chart view displays the results as one of multiple available chart types. You can specify the chart type in a **render** command in your query. You can also select it from the **Visualization Type** dropdown.
 
