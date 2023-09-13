@@ -12,18 +12,19 @@ ms.devlang: csharp, golang, java, javascript, php, python
 
 # Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 
-There's an industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later. TLS versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. They also don't support the modern encryption methods and cipher suites recommended by Payment Card Industry (PCI) compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more detail.
+To meet the industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later, Azure Cache for Redis is moving toward requiring the use of the TLS 1.2 in October, 2024. TLS versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses.
+
+TLS versions 1.0 and 1.1 also don't support the modern encryption methods and cipher suites recommended by Payment Card Industry (PCI) compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more detail.
 
 > [!IMPORTANT]
 > On October 1, 2024, the TLS 1.2 requirement will be enforced.
 >
 >
 
+As a part of this effort, you can expect the following changes to Azure Cache for Redis:
 
-As a part of this effort, we're making the following changes to Azure Cache for Redis:
-
-- _Phase 1_: We configure the default minimum TLS version to be 1.2 for newly created cache instances. Previously, it was TLS 1.0. Existing cache instances won't be updated at this point. You can still use the Azure portal or other management APIs to [change the minimum TLS version](cache-configure.md#access-ports) to 1.0 or 1.1 for backward compatibility.
-- _Phase 2_: We stop supporting TLS 1.1 and TLS 1.0 starting August 1,2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service is expected to be available while we migrate it to support only TLS 1.2 or later. Read further sections to know how to determine if your applications are affected.
+- _Phase 1_: Azure Cache for Redis changes the default minimum TLS version to TLS 1.2 for newly created cache instances. Previously, it was TLS 1.0. Existing cache instances won't be updated at this point. You can still use the Azure portal or other management APIs to [change the minimum TLS version](cache-configure.md#access-ports) to 1.0 or 1.1 for backward compatibility.
+- _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting August 1,2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service is expected to be available while it is migrated to support only TLS 1.2 or later. Read further sections to know how to determine if your applications are affected.
 
 | Date    | Description |
 |-------- |-------------|
@@ -33,10 +34,10 @@ As a part of this effort, we're making the following changes to Azure Cache for 
 | October 1, 2024 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances will reject connections using TLS 1.0 or 1.1.
   
   > [!IMPORTANT]
-  > The content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash as the Enterprise tiers support TLS 1.2 only.
+  > The content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash because the Enterprise tiers only support TLS 1.2.
   >
 
-As part of this change, we remove support for older cipher suites that aren't secure. Our supported cipher suites are restricted to the following suites when the cache is configured with a minimum of TLS 1.2:
+As part of this change, Azure Cache for Redis removes support for older cipher suites that aren't secure. Supported cipher suites are restricted to the following suites when the cache is configured with a minimum of TLS 1.2:
 
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
