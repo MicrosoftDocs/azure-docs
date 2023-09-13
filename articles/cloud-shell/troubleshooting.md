@@ -234,7 +234,7 @@ TODO:
        Uri = "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/"
        Headers = @{Metadata='true'}
    }
-   $token= ((Invoke-WebRequest @parameters ).content |  ConvertFrom-Json).accessToken
+   $token= ((Invoke-WebRequest @parameters ).content |  ConvertFrom-Json).access_token
    $parameters = @{
        Uri = 'https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview'
        Headers = @{Authorization = "Bearer $token"}
