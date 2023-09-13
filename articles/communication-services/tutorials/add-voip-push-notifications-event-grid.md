@@ -40,7 +40,7 @@ Let's consider a scenario where you want to notify users on their mobile devices
 
 ## Implementation Steps
 
-### Setup for listening the events from Event Grid Notification
+### Setup for register events into Event Grid
 
 #### Azure functions to handle device information
 
