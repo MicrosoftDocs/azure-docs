@@ -54,13 +54,13 @@ Follow the steps based on whether you create a Consumption or Standard logic app
 
 1. In the [Azure portal](https://portal.azure.com), create an example Consumption logic app workflow with the following steps in the specified order:
 
-* The **RSS** trigger named **When a feed item is published** 
+   * The **RSS** trigger named **When a feed item is published** 
 
-  For more information, [follow these general steps to add a trigger](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
+     For more information, [follow these general steps to add a trigger](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-* The **Outlook.com** or **Office 365 Outlook** action named **Send an email**
+   * The **Outlook.com** or **Office 365 Outlook** action named **Send an email**
 
-  For more information, [follow these general steps to add an action](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+     For more information, [follow these general steps to add an action](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. [Follow the same general steps](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to add the **For each** action between the RSS trigger and **Send an email** action in your workflow.
 
@@ -95,13 +95,13 @@ Follow the steps based on whether you create a Consumption or Standard logic app
 
 1. In the [Azure portal](https://portal.azure.com), create an example Standard logic app workflow with the following steps in the specified order:
 
-* The **RSS** trigger named **When a feed item is published** 
+   * The **RSS** trigger named **When a feed item is published** 
 
-  For more information, [follow these general steps to add a trigger](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+     For more information, [follow these general steps to add a trigger](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-* The **Outlook.com** or **Office 365 Outlook** action named **Send an email**
+   * The **Outlook.com** or **Office 365 Outlook** action named **Send an email**
 
-  For more information, [follow these general steps to add an action](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+     For more information, [follow these general steps to add an action](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. [Follow the same general steps](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **For each** action between the RSS trigger and **Send an email** action in your workflow.
 
