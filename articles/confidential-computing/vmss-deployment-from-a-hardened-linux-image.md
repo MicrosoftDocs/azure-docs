@@ -13,13 +13,13 @@ ms.custom: devx-track-azurecli
 
 # VMSS confidential VM deployment from a hardened Linux image
 
-**Applies to:** :heavy_check_mark: Linux Images
+**Applies to:** :heavy_check_mark: Hardened Linux Images
 
-Azure supports two provisioning agents [cloud-init](https://github.com/canonical/cloud-init), and the [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) (WALA), which forms the prerequisites for creating the [generalized images](/azure/virtual-machines/generalize#linux) (Azure Compute Gallery or Managed Image). The Azure Linux Agent contains Provisioning Agent code and Extension Handling code in one package.
+Virtual machine scale set deployments using images from Azure marketplace can be done follwoing the steps described for standard [VMSS deployments](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli). 
 
-It's crucial to comprehend what functionalities the VM loses before deciding to remove the Azure Linux Agent. Removal of the guest agent removes the functionality enumerated at [Azure Linux Agent](/azure/virtual-machines/extensions/agent-linux?branch=pr-en-us-247336).
+However, if you have chosen to create a hardened linux image by removing the Azure guest agents, it's crucial to comprehend what functionalities the VM loses before deciding to remove the Azure Linux Agent.
 
-This "how to" shows you steps to remove guest agent from the Linux image.
+This "how to" document describes the steps to deploy a virtual machine scale set instance while comprehending the functional limitations of the hardened image on deploying the vmss instance.
 ## Prerequisites
 
 - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -35,34 +35,49 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
    
     [Harden a Linux image to remove sudo users](/articles/confidential-computing/harden-the-linux-image-to-remove-sudo-users.md).
 
-3. Mount the image.
+2. Log into the Azure CLI.
 
-    Follow the instructions in step 2 of [remove sudo users from the Linux Image](/azure/confidential-computing/harden-the-linux-image-to-remove-sudo-users) to mount the image.
+    Make sure that you've installed the latest [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](https://learn.microsoft.com/en-us/cli/azure/reference-index).
 
-4.  Remove the Azure Linux agent
+3. Launch Azure Cloud Shell.
 
-    Run as root to [remove the Azure Linux Agent](/azure/virtual-machines/linux/disable-provisioning)
+    The [Azure Cloud Shell](https://shell.azure.com/cli) is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+    
+4.  Create a resource group.
 
-    For Ubuntu 18.04+
-     ```
-    sudo chroot /mnt/dev/$imagedevice/ apt -y remove walinuxagent
+    Create a resource group with az group create as follows:
+    
+   
+    ```Azure CLI
+    az group create --name myResourceGroup --location eastus
     ```
 
+4. Create a Virtual Machine Scale Set.
+
+    Now create a Virtual Machine Scale Set with az vmss create. The following example creates a scale set with an instance count of 2
+
+    ```
+    az vmss create \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --security-type ConfidentialVM \
+    --os-disk-security-encryption-type DiskwithVMGuestState \
+    --os-disk-secure-vm-disk-encryption-set "/subscriptions/.../diskEncryptionSets/<desName>" \
+    --image "/subscriptions/.../images/<imageName>/versions/<version>" \
+    --enable-vtpm true \
+    --enable-secure-boot true \
+    --load-balancer "/subscriptions/.../loadBalancers/<lbName>" \
+    --specialized true \
+    --instance-count 2 \
+    --admin-username "azureuser" \
+    --admin-password ""
+    ```
 
 > [!NOTE]
-> If you know you will not reinstall the Linux Agent again [remove the Azure Linux Agent artifacts](/azure/virtual-machines/linux/disable-provisioning#:~:text=Step%202%3A%20(Optional)%20Remove%20the%20Azure%20Linux%20Agent%20artifacts), you can run the following steps.
+> If you are looking to set an admin username, ensure that it isn't part of the [reserved words](https://learn.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss. In this case, the username is auto set to azureuser.
+> For the admin credentials, you will be able to use the credentials that you set fromt he hardened image while you create the vm.
+> For specalized images, [osprofile properties](https://learn.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images) are handled differently than generalized images.
 
-
-4. (Optional) Remove the Azure Linux Agent artifacts.
-
-    If you know you will not reinstall the Linux Agent again, then you can run the following else skip this step:
-
-    For Ubuntu 18.04+
-    ```
-    sudo chroot /mnt/dev/$imagedevice/ rm -rf /var/lib/walinuxagent
-    sudo chroot /mnt/dev/$imagedevice/ rm -rf /etc/ walinuxagent.conf
-    sudo chroot /mnt/dev/$imagedevice/ rm -rf /var/log/ walinuxagent.log
-    ```
 
 5. Create a systemd service to provision the VM.
 
