@@ -67,9 +67,9 @@ For more information, see the [Geolocation service] documentation.
 >
 > **Azure Maps Render v1 service retirement**
 >
-> The Azure Maps [Render v1 service](/rest/api/maps/render-v1) is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2](/rest/api/maps/render-v2) API by 9/17/26.
+> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
 
-[Render v2 service] introduces a new version of the [Get Map Tile v2 API] that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render v2 service, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
+[Render v2] service introduces a new version of the [Get Map Tile v2 API] that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render v2 service, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render v2 service":::
 
@@ -225,7 +225,8 @@ Stay up to date on Azure Maps:
 [Geolocation service]: /rest/api/maps/geolocation
 [Get Map Tile v2 API]: /rest/api/maps/render-v2/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
-[Render v2 service]: /rest/api/maps/render-v2
+[Render v1]: /rest/api/maps/render-v1
+[Render v2]: /rest/api/maps/render-v2
 [REST APIs]: /rest/api/maps/
 [Route service]: /rest/api/maps/route
 [Search service]: /rest/api/maps/search
