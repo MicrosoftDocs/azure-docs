@@ -165,9 +165,9 @@
   - name: Cross-region replication
     href: cross-region-replication-azure.md
   - name: Disaster recovery by service
-    href: disaster-recovery-guidance-overview.md
-  - name: Disaster recovery by service
     items: 
+      - name: Overview
+        href: disaster-recovery-guidance-overview.md
       - name: Azure API Management
         href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Active Directory Domain Services
