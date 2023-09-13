@@ -21,23 +21,29 @@ Setting up dashboard permissions for individual users in Managed Grafana is a li
 
 To use Azure AD group sync, you add a new team to your Grafana workspace and link it to an existing Azure AD group through its group ID. Follow these steps to set up an Azure AD-backed Grafana team.
 
-1. In the Azure portal, open Azure Active Directory.
-1. Select **Groups** and find the Azure AD group you plan to use.
-1. Select the group name in the search result.
-1. Copy the value in the *Object ID* field. You need to provide this information later.
+1. In the Azure portal, open your Grafana instance and select **Configuration** under *Settings*.
+1. Select the **Azure AD Team Sync Settings** tab.
+1. Select **+ Create new Grafana team**.
 
-    :::image type="content" source="media/azure-ad-group-sync/find-azure-ad-group-object-id.png" alt-text="Screenshot of the Azure Active Directory. Finding Azure AD group's object ID.":::
+    :::image type="content" source="media/azure-ad-group-sync/team-sync-settings.png" alt-text="Screenshot of the Azure portal. Configuring Azure AD team sync.":::
 
-1. Open your Azure Managed Grafana workspace.
-1. Select **Administration > Teams**.
-1. Select **New Team**, enter a name for the team, and select **Create**.
+1. Enter a name for the Grafana team and select **Add**.
 
-    :::image type="content" source="media/azure-ad-group-sync/create-new-grafana-team.png" alt-text="Screenshot of the Grafana platform. Creating a new Grafana team.":::
+    :::image type="content" source="media/azure-ad-group-sync/create-new-grafana-team.png" alt-text="Screenshot of the Azure portal. Creating a new Grafana team.":::
 
-1. Select the **External group sync** tab, and **Add group**.
-1. Enter the Azure AD group object ID obtained before, and select **Add group** to link to that group.
+1. In **Assign access to**, select the newly created Grafana team.
+1. Select **+ Add an Azure AD Group**.
 
-    :::image type="content" source="media/azure-ad-group-sync/link-azure-ad-group.png" alt-text="Screenshot of the Grafana platform. Configuring Grafana team to sync with Azure AD group.":::
+    :::image type="content" source="media/azure-ad-group-sync/add-azure-ad-group.png" alt-text="Screenshot of the Azure portal. Adding an Azure AD group to Grafana team.":::
+
+1. In the **Select** search box, enter an Azure AD group name.
+1. Select the group name in the search result and **Select**.
+
+    :::image type="content" source="media/azure-ad-group-sync/select-azure-ad-group.png" alt-text="Screenshot of the Azure portal. Finding and selecting an Azure AD group.":::
+
+1. Repeat the previous three steps to add more Azure AD groups to the Grafana team as appropriate.
+
+    :::image type="content" source="media/azure-ad-group-sync/view-grafana-team.png" alt-text="Screenshot of the Azure portal. Viewing a Grafana team and Azure AD group(s) linked to it.":::
 
 ## Remove Azure AD group sync
 

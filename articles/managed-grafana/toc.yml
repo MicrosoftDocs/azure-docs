@@ -35,7 +35,7 @@ items:
     - name: Configure authentication and permissions
       href: how-to-authentication-permissions.md
     - name: Sync teams with Azure AD groups
-      href: how-to-sync-teams-with-aad-groups.md
+      href: how-to-sync-teams-with-azure-ad-groups.md
     - name: Share a workspace
       href: how-to-share-grafana-workspace.md
   - name: Data sources
