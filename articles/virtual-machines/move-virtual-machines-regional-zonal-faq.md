@@ -2,7 +2,7 @@
 title: FAQ - Move Azure single instance Virtual Machines from regional to zonal availability zones
 description: FAQs for single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
 author: ankitaduttaMSFT
-ms.service: reliability
+ms.service: virtual-machines
 ms.subservice: availability-zones
 ms.topic: article
 ms.date: 09/06/2023
@@ -124,3 +124,6 @@ Review the following scenarios where you can or can't retain Public IP addresses
 | Public IP address (Standard SKU) with Zone pined configuration attached to Load Balancer (Standard SKU)| Source Public IP address will be retained. <br><br> **Note:** The target virtual machine zone# might not be the same as the zone pinned Public IP.|
 | Public IP address (Standard SKU) with Zone redundant configuration attached to Load Balancer (Standard SKU)| Source Public IP address is retained.|
 
+## Next steps
+
+- Learn more about moving single instance [Azure VMs](../reliability/migrate-vm.md) from regional to zonal configuration.

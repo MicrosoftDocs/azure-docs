@@ -1129,13 +1129,13 @@
       items:
       - name: PowerShell
         displayName: availability and scale, availability, single instance virtual machines, autoscale, availability zones, AV zones
-        href: ./move-virtual-machines-regiona-zonal-powershell.md
+        href: ./move-virtual-machines-regional-zonal-powershell.md
       - name: Portal
         displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
-        href: ./move-virtual-machines-regiona-zonal-portal.md
+        href: ./move-virtual-machines-regional-zonal-portal.md
       - name: FAQ
         displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
-        href: ./move-virtual-machines-regiona-zonal-faq.md
+        href: ./move-virtual-machines-regional-zonal-faq.md
   - name: Virtual Machine Scale Sets
     items: 
     - name: Overview

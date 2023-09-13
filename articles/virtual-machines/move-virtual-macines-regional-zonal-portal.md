@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Move Azure Single Instance Virtual Machines from regional to zonal availability zones
+title: Tutorial - Move Azure single instance Virtual Machines from regional to zonal availability zones
 description: Learn how to move single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
 author: ankitaduttaMSFT
-ms.service: reliability
+ms.service: virtual-machines
 ms.subservice: availability-zones
 ms.topic: article
 ms.date: 08/10/2023
@@ -11,22 +11,22 @@ ms.author: ankitadutta
 
 # Move Azure single instance VMs from regional to zonal target availability zones
 
-This article provides information on how to move Azure Single Instance Virtual Machines (VMs) from a regional to a zonal configuration within the same Azure region.
+This article provides information on how to move Azure single instance Virtual Machines (VMs) from a regional to a zonal configuration within the same Azure region.
 
 ## Prerequisites
 
 Ensure the following before you begin:
 
-1.  **Availability zone regions support**: Ensure that the regions you want to move to are supported by Availability Zones. [Learn more](./availability-zones-service-support.md) about the supported regions.
+- **Availability zone regions support**: Ensure that the regions you want to move to are supported by Availability Zones. [Learn more](../reliability/availability-zones-service-support.md) about the supported regions.
 
-1. **VM SKU availability**: The availability of VM sizes, or SKUs, can differ based on the region and zone. Ensure to plan for the use of Availability Zones. [Learn more](../virtual-machines/windows/create-powershell-availability-zone.md#check-vm-sku-availability) about the available VM SKUs for each Azure region and zone. 
+- **VM SKU availability**: The availability of VM sizes, or SKUs, can differ based on the region and zone. Ensure to plan for the use of Availability Zones. [Learn more](../virtual-machines/windows/create-powershell-availability-zone.md#check-vm-sku-availability) about the available VM SKUs for each Azure region and zone. 
 
-1. **Subscription permissions**: Check that you have *Owner* access on the subscription containing the VMs that you want to move.
+- **Subscription permissions**: Check that you have *Owner* access on the subscription containing the VMs that you want to move.
    The first time you add a VM to be moved to Zonal configuration, a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly, Managed Service Identify (MSI)) that's trusted by the subscription is necessary. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs Owner permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.
 
-1.  **VM support**: Check that the VMs you want to move are supported. [Learn more](./move-vm-regional-to-zonal-overview.md). Check supported VM settings.
+- **VM support**: Check that the VMs you want to move are supported. [Learn more](../reliability/migrate-vm.md). Check supported VM settings.
       
-1. **Subscription quota**: The subscription must have enough quota to create the new VM and associated networking resources in target zonal configuration (in same region). If the subscription does not have enough quota, you will need to [request additional limits](). 
+- **Subscription quota**: The subscription must have enough quota to create the new VM and associated networking resources in target zonal configuration (in same region). If the subscription does not have enough quota, you will need to [request additional limits](). 
 
 ## Select and move VMs
 
@@ -119,4 +119,4 @@ To manually remove the move collection that was made, follow these steps:
 
 ## Next steps
 
-TBD
+- Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell](./move-virtual-macines-regional-zonal-powershell.md).
