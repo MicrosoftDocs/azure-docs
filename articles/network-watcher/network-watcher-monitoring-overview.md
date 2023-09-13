@@ -5,8 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
-ms.date: 06/30/2023
-ms.custom: template-overview, engagement-fy23
+ms.date: 09/13/2023
 # Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
@@ -89,7 +88,9 @@ Network Watcher offers two traffic tools that help you log and visualize network
 
 ### Flow logs
 
-**Flow logs** allows you to log information about IP traffic flowing through a network security group. Flow logs stores data in Azure storage. For more information, see [Flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md) and [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md).
+**Flow logs** allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network. For more information, see:
+- [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) and [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md).
+- [VNet flow logs (preview)](vnet-flow-logs-overview.md) and [Manage VNet flow logs](vnet-flow-logs-powershell.md).
 
 ### Traffic analytics
 
@@ -125,7 +126,7 @@ To get answers to most frequently asked questions about Network Watcher, see [Az
 
 To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?query=network%20watcher).
 
-## Next steps
+## Related content
 
 - To get started using Network Watcher diagnostics tools, see [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
 - [Training module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
