@@ -52,7 +52,7 @@ Android users can enable RCS on their devices. RCS offers encryption and other i
 
 :::image type="content" source="media/concept-authentication-methods/brand.png" alt-text="Screenshot of Microsoft branding in RCS messages.":::
 
-Some users with phone numbers that have country codes belonging to India, Indonesia and New Zealand may receive their verification codes via WhatsApp. Like RCS, these messages are similar to SMS, but have more Microsoft branding and a verified checkmark. Only users that have WhatsApp will receive verification codes via this channel. To determine whether a user has WhatsApp, we silently attempt delivering them a message via the app using the phone number they already registered for text message verification and see if its successfully delivered. If users don't have any internet connectivity or uninstall WhatsApp, they'll receive their verification codes via SMS. The phone number associated with Microsoft's WhatsApp Business Agent is: *+1 (217) 302 1989*.
+Some users with phone numbers that have country codes belonging to India, Indonesia and New Zealand may receive their verification codes via WhatsApp. Like RCS, these messages are similar to SMS, but have more Microsoft branding and a verified checkmark. Only users that have WhatsApp will receive verification codes via this channel. To determine whether a user has WhatsApp, we silently attempt delivering them a message via the app using the phone number they already registered for text message verification and see if it's successfully delivered. If users don't have any internet connectivity or uninstall WhatsApp, they'll receive their verification codes via SMS. The phone number associated with Microsoft's WhatsApp Business Agent is: *+1 (217) 302 1989*.
 
 ### Phone call verification
 
@@ -82,10 +82,10 @@ If you have problems with phone authentication for Azure AD, review the followin
    * Ensure that the user has their phone turned on and that service is available in their area, or use alternate method.
 * User is blocked
    * Have an Azure AD administrator unblock the user in the Azure portal.
-* Text messaging platforms like SMS, RCS or Whatsapp aren't subscribed on the device.
+* Text messaging platforms like SMS, RCS, or WhatsApp aren't subscribed on the device.
    * Have the user change methods or activate a text messaging platform on the device.
-* Faulty telecom providers such as no phone input detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked text messages across multiple devices.
-   * Microsoft uses multiple telecom providers to route phone calls and text messages for authentication. If you see any of the above issues, have a user attempt to use the method at least five times within 5 minutes and have that user's information available when contacting Microsoft support.
+* Faulty telecom providers, such as when no phone input is detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked text messages across multiple devices.
+   * Microsoft uses multiple telecom providers to route phone calls and text messages for authentication. If you see any of the these issues, have a user attempt to use the method at least five times within 5 minutes and have that user's information available when contacting Microsoft support.
 *  Poor signal quality.
    * Have the user attempt to log in using a wi-fi connection by installing the Authenticator app.
    * Or use a text message instead of phone (voice) authentication.
