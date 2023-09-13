@@ -393,13 +393,6 @@ Here are some best practices for using privileged roles.
 - Limit the number of Global Administrators to less than 5
 - Limit the number of privileged role assignments to less than 10
 
-If you have 5 or more privileged Global Administrator role assignments, a **Global Administrators** alert card is displayed on the Azure AD Overview page to help you monitor Global Administrator role assignments.
-
-:::image type="content" source="./media/privileged-roles-permissions/overview-privileged-roles-card.png" alt-text="Screenshot of the Azure AD Overview page that shows a card with the number of privileged role assignments." lightbox="./media/privileged-roles-permissions/overview-privileged-roles-card.png":::
-
-If you exceed 10 privileged role assignments, a warning is displayed on the Roles and administrators page.
-
-:::image type="content" source="./media/privileged-roles-permissions/privileged-role-assignments-warning.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the privileged role assignments warning." lightbox="./media/privileged-roles-permissions/privileged-role-assignments-warning.png":::
 For more information, see [Best practices for Azure AD roles](best-practices.md).
 
 ## Privileged permissions versus protected actions

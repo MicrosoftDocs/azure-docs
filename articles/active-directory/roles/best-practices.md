@@ -65,13 +65,21 @@ For information about access reviews for roles, see [Create an access review of 
 
 As a best practice, Microsoft recommends that you assign the Global Administrator role to **fewer than five** people in your organization. Global Administrators essentially have unrestricted access, and it is in your best interest to keep the attack surface low. As stated previously, all of these accounts should be protected with multi-factor authentication.
 
+If you have 5 or more privileged Global Administrator role assignments, a **Global Administrators** alert card is displayed on the Azure AD Overview page to help you monitor Global Administrator role assignments.
+
+:::image type="content" source="./media/best-practices/overview-privileged-roles-card.png" alt-text="Screenshot of the Azure AD Overview page that shows a card with the number of privileged role assignments." lightbox="./media/best-practices/overview-privileged-roles-card.png":::
+
 By default, when a user signs up for a Microsoft cloud service, an Azure AD tenant is created and the user is assigned the Global Administrators role. Users who are assigned the Global Administrator role can read and modify almost every administrative setting in your Azure AD organization. With a few exceptions, Global Administrators can also read and modify all configuration settings in your Microsoft 365 organization. Global Administrators also have the ability to elevate their access to read data.
 
 Microsoft recommends that you keep two break glass accounts that are permanently assigned to the Global Administrator role. Make sure that these accounts don't require the same multi-factor authentication mechanism as your normal administrative accounts to sign in, as described in [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md). 
 
 ## 6. Limit the number of privileged role assignments to less than 10
 
-Some roles include privileged permissions, such as the ability to update credentials. Since these roles can potentially lead to elevation of privilege, you should limit the use of these privileged role assignments to **fewer than 10** in your organization. You can identity roles, permissions, and role assignments that are privileged by looking for the **PRIVILEGED** label. For more information, see [Privileged roles and permissions in Azure AD](privileged-roles-permissions.md).
+Some roles include privileged permissions, such as the ability to update credentials. Since these roles can potentially lead to elevation of privilege, you should limit the use of these privileged role assignments to **fewer than 10** in your organization. If you exceed 10 privileged role assignments, a warning is displayed on the Roles and administrators page.
+
+:::image type="content" source="./media/best-practices/privileged-role-assignments-warning.png" alt-text="Screenshot of the Azure AD Roles and administrators page that shows the privileged role assignments warning." lightbox="./media/best-practices/privileged-role-assignments-warning.png":::
+
+ You can identity roles, permissions, and role assignments that are privileged by looking for the **PRIVILEGED** label. For more information, see [Privileged roles and permissions in Azure AD](privileged-roles-permissions.md).
 
 ## 7. Use groups for Azure AD role assignments and delegate the role assignment
 
