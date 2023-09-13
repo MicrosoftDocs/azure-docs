@@ -44,7 +44,7 @@ Microsoft doesn't guarantee consistent text message or voice-based Azure AD Mult
 
 ### Text message verification
 
-With text message verification during SSPR or Azure AD Multi-Factor Authentication, a text message text is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface. 
+With text message verification during SSPR or Azure AD Multi-Factor Authentication, a text message is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface. 
 
 Android users can enable Rich Communication Services (RCS) on their devices. RCS offers encryption and other improvements over Simple Message Service (SMS). For Android, MFA text messages may be sent over RCS rather than SMS. The experience is similar to text message, but RCS messages have more Microsoft branding and a verified checkmark so users know they can trust the message.
 
