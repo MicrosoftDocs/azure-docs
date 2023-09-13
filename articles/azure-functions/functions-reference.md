@@ -80,18 +80,15 @@ The following tools provide an integrated development and publishing experience 
 
 These tools integrate with [Azure Functions Core Tools](./functions-develop-local.md) so that you can run and debug on your local computer using the Functions runtime. For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 <a id="fileupdate"></a> There's also an editor in the Azure portal that lets you update your code and your *function.json* definition file directly in the portal. You should only use this editor for small changes or creating proof-of-concept functions. You should always develop your functions locally, when possible. For more information, see [Create your first function in the Azure portal](functions-create-function-app-portal.md).
-::: zone-end
-::: zone pivot="programming-language-csharp"
-Portal editing is only supported for [C# script functions](functions-reference-csharp.md), which uses the function.json file. 
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-Portal editing is only supported for [Node.js version 3](functions-reference-node.md?pivots=nodejs-model-v3), which uses the function.json file.
-::: zone-end
-::: zone pivot="programming-language-python"
-Portal editing is only supported for [Python version 1](functions-reference-python.md?pivots=python-mode-configuration), which uses the function.json file.
-::: zone-end
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+Portal editing is only supported for [Node.js version 3](functions-reference-node.md?pivots=nodejs-model-v3), which uses the function.json file.  
+::: zone-end  
+::: zone pivot="programming-language-python"  
+Portal editing is only supported for [Python version 1](functions-reference-python.md?pivots=python-mode-configuration), which uses the function.json file.  
+::: zone-end  
 
 ## Deployment
 
