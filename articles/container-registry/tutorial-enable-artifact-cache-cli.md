@@ -1,5 +1,5 @@
 ---
-title: Enable Cache for ACR (preview) - Azure CLI 
+title: Enable Artifact Cache - Azure CLI 
 description: Learn how to enable Registry Cachein your Azure Container Registry using Azure CLI.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
@@ -7,15 +7,15 @@ ms.date: 06/17/2022
 ms.author: tejaswikolli
 ---
 
-# Enable Cache for ACR (Preview) - Azure CLI
+# Enable Artifact Cache - Azure CLI
 
-This article is part three of a six-part tutorial series. [Part one](tutorial-registry-cache.md) provides an overview of Cache for ACR, its features, benefits, and preview limitations. [Part two](tutorial-enable-registry-cache.md), you learn how to enable Cache for ACR feature by using the Azure portal. This article walks you through the steps of enabling Cache for ACR by using the Azure CLI without authentication.
+This article is part three of a six-part tutorial series. [Part one](tutorial-artifact-cache.md) provides an overview of Artifact Cache, its features, benefits, and limitations. [Part two](tutorial-enable-artifact-cache.md), you learn how to enable Artifact Cache feature by using the Azure portal. This article walks you through the steps of enabling Artifact Cache by using the Azure CLI without authentication.
 
 ## Prerequisites
 
 * You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.46.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 
-## Configure Cache for ACR (preview)  - Azure CLI
+## Configure Artifact Cache - Azure CLI
 
 Follow the steps to create a Cache rule without using a Credential set.
 
@@ -67,7 +67,7 @@ Follow the steps to create a Cache rule without using a Credential set.
 
 ## Next steps
 
-* To enable Cache for ACR (preview) with authentication using the Azure CLI advance to the next article [Enable Cache for ACR - Azure CLI](tutorial-enable-registry-cache-auth-cli.md).
+* To enable Artifact Cache with authentication using the Azure CLI advance to the next article [Enable Artifact Cache - Azure CLI](tutorial-enable-artifact-cache-auth-cli.md).
 
 <!-- LINKS - External -->
 [Install Azure CLI]: /cli/azure/install-azure-cli
