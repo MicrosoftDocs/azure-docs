@@ -101,7 +101,6 @@ The following are the current limitations and known issues with PowerShell runbo
 **Limitations**
 
 - You must be familiar with PowerShell scripting.
-
 - The Azure Automation internal PowerShell cmdlets aren't supported on a Linux Hybrid Runbook Worker. You must import the `automationassets` module at the beginning of your PowerShell runbook to access the Automation account shared resources (assets) functions.
 - For the PowerShell 7 runtime version, the module activities aren't extracted for the imported modules.
 - *PSCredential* runbook parameter type isn't supported in PowerShell 7 runtime version.
