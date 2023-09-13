@@ -52,7 +52,7 @@ In this section, you test connectivity between two connected virtual machines.
     | **Connection Diagnostics** |  |
     | Diagnostics tests | Select **Select all**. |
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/test-virtual-machines-connected.png" alt-text="Screenshot of Network Watcher connection troubleshoot in Azure portal to test the connection between two connected virtual machines.":::
+    :::image type="content" source="./media/network-watcher-connectivity-portal/test-virtual-machines-connected.png" alt-text="Screenshot of Network Watcher connection troubleshoot in Azure portal to test the connection between two connected virtual machines." lightbox="./media/network-watcher-connectivity-portal/test-virtual-machines-connected.png":::
 
 1. Select **Run diagnostic tests**.
 
@@ -93,7 +93,7 @@ In this section, you test connectivity between two virtual machines that have co
     | **Connection Diagnostics** |  |
     | Diagnostics tests | Select **Select all**. |
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/test-two-virtual-machines.png" alt-text="Screenshot of Network Watcher connection troubleshoot in Azure portal to test the connection between two virtual machines.":::
+    :::image type="content" source="./media/network-watcher-connectivity-portal/test-two-virtual-machines.png" alt-text="Screenshot of Network Watcher connection troubleshoot in Azure portal to test the connection between two virtual machines." lightbox="./media/network-watcher-connectivity-portal/test-two-virtual-machines.png":::
 
 1. Select **Run diagnostic tests**.
 
@@ -133,7 +133,7 @@ In this section, you test connectivity between a virtual machines and `www.bing.
     | **Connection Diagnostics** |  |
     | Diagnostics tests | Select **Connectivity**. |
 
-    :::image type="content" source="./media/network-watcher-connectivity-portal/test-bing.png" alt-text="Screenshot of Network Watcher connection troubleshoot in Azure portal to test the connection between a virtual machines and Microsoft Bing search engine.":::
+    :::image type="content" source="./media/network-watcher-connectivity-portal/test-bing.png" alt-text="Screenshot of Network Watcher connection troubleshoot in Azure portal to test the connection between a virtual machines and Microsoft Bing search engine." lightbox="./media/network-watcher-connectivity-portal/test-bing.png":::
 
 1. Select **Run diagnostic tests**.
 
