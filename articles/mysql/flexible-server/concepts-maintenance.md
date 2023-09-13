@@ -48,28 +48,28 @@ You can define system-managed schedule or custom schedule for each flexible serv
 
 In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update will be reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it five days in advance.
 
-## Maintenance Reschedule (Public Preview)
+## Maintenance reschedule (preview)
 
 > [!IMPORTANT]
-> The maintenance reschedule feature is currently in public preview. It is subject to limitations and ongoing development. We value your feedback to help enhance this feature. Please note that this feature is not available for servers using the burstable SKU.
+> The maintenance reschedule feature is currently in preview. It is subject to limitations and ongoing development. We value your feedback to help enhance this feature. Please note that this feature is not available for servers using the burstable SKU.
 
 The **maintenance reschedule** feature grants you greater control over the timing of maintenance activities on your Azure MySQL - Flexible server. After receiving a maintenance notification, you can reschedule it to a more convenient time, irrespective of whether it was system or custom managed.
 
-### Rescheduling Parameters and Notifications
+### Reschedule parameters and notifications
 
-Rescheduling isn't confined to fixed time slots; it depends on the earliest and latest permissible times in the current maintenance cycle. Upon rescheduling, a notification will be sent out confirming the changes, following the standard notification policys.
+Rescheduling isn't confined to fixed time slots; it depends on the earliest and latest permissible times in the current maintenance cycle. Upon rescheduling, a notification will be sent out to confirm the changes, following the standard notification policies.
 
-### Considerations and Limitations
+### Considerations and limitations
 
-Please be aware of the following when using this feature:
+Be aware of the following when using this feature:
 
 - **Demand Constraints:** Your rescheduled maintenance might be canceled due to a high number of maintenance activities occurring simultaneously in the same region.
 - **Lock-in Period:** Rescheduling is unavailable 15 minutes prior to the initially scheduled maintenance time to maintain the reliability of the service.
 
 > [!NOTE]
-> We recommend monitoring notifications closely during the public preview stage to accommodate potential adjustments.
+> We recommend monitoring notifications closely during the preview stage to accommodate potential adjustments.
 
-Utilize this feature to avoid disruptions during critical database operations, and we encourage your feedback as we continue to develop this functionality.
+Use this feature to avoid disruptions during critical database operations. We encourage your feedback as we continue to develop this functionality.
 
 
 ## Next steps
