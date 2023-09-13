@@ -1928,8 +1928,8 @@ Get the request trace ID and the span ID in your code:
 
 ### [Node.js](#tab/nodejs)
 
-- To review the source code, see the [Application Insights Beta GitHub repository](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta).
-- To install the npm package and check for updates, see the [`applicationinsights` npm Package](https://www.npmjs.com/package/applicationinsights/v/beta) page.
+- To review the source code, see the [Azure Monitor OpenTelemetry GitHub repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry).
+- To install the npm package and check for updates, see the [`@azure/monitor-opentelemetry` npm Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry JavaScript GitHub repository](https://github.com/open-telemetry/opentelemetry-js).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
