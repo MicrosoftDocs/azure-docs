@@ -23,7 +23,7 @@ Learn to secure Oracle E-Business Suite (EBS) using Azure Active Directory (Azur
   * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
 * Full SSO between Azure AD and BIG-IP published services
 * Managed identities and access from one control plane
-  * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
+  * See, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 Learn more:
 
@@ -70,13 +70,13 @@ You need the following components:
 
 * An Azure subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-* For the account, have Azure AD Application Administrator permissions
+* Global Administrator, Cloud Application Administrator, or Application Administrator.
 * A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
   * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP license SKUs:
-  * F5 BIG-IP® Best bundle
-  * F5 BIG-IP Access Policy Manager™ (APM) standalone license
-  * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+  * F5 BIG-IP&reg; Best bundle
+  * F5 BIG-IP Access Policy Manager&trade; (APM) standalone license
+  * F5 BIG-IP Access Policy Manager&trade; (APM) add-on license on a BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
   * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php).
 * User identities synchronized from an on-premises directory to Azure AD
   * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
@@ -101,9 +101,8 @@ Learn more: [Quickstart: Register an application with the Microsoft identity pla
 
 Create a tenant app registration to authorize the Easy Button access to Graph. The BIG-IP pushes configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrative permissions.
-2. In the left navigation pane, select the **Azure Active Directory** service.
-3. Under **Manage**, select **App registrations > New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations** > **New registration**.
 4. Enter an application **Name**. For example, F5 BIG-IP Easy Button.
 5. Specify who can use the application > **Accounts in this organizational directory only**.
 6. Select **Register**.
@@ -167,7 +166,7 @@ Use Service Provider settings for the properties of the SAML SP instance of the 
 
    ![Screenshot for Service Provider input and options.](./media/f5-big-ip-oracle/service-provider-settings.png)
 
-3. (Optional) In **Security Settings**, select or clear the **Enable Encrypted Assertion** option. Encrypting assertions between Azure AD and the BIG-IP APM means the content tokens can’t be intercepted, nor personal or corporate data compromised.
+3. (Optional) In **Security Settings**, select or clear the **Enable Encrypted Assertion** option. Encrypting assertions between Azure AD and the BIG-IP APM means the content tokens can't be intercepted, nor personal or corporate data compromised.
 4. From the **Assertion Decryption Private Key** list, select **Create New**
 
    ![Screenshot of Create New options in the Assertion Decryption Private Key dropdown.](./media/f5-big-ip-oracle/configure-security-create-new.png)
@@ -328,7 +327,7 @@ Learn more:
 
 * [PeopleSoft SLO Logout](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout)
 * Go to support.f5.com for: 
-  * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145
+  * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
   * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056)
 
 ## Deploy
@@ -340,7 +339,7 @@ Learn more:
 
 1. From a browser, connect to the Oracle EBS application external URL, or select the application icon in the [My Apps](https://myapps.microsoft.com/). 
 2. Authenticate to Azure AD.
-3. You’re redirected to the BIG-IP virtual server for the application and signed in by SSO.
+3. You're redirected to the BIG-IP virtual server for the application and signed in by SSO.
 
 For increased security, block direct application access, thereby enforcing a path through the BIG-IP.
 
@@ -348,7 +347,7 @@ For increased security, block direct application access, thereby enforcing a pat
 
 Sometimes, the Guided Configuration templates lack flexibility for requirements. 
 
-Learn more: [Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO](./f5-big-ip-header-advanced.md). 
+Learn more: [Tutorial: Configure F5 BIG-IP's Access Policy Manager for header-based SSO](./f5-big-ip-header-advanced.md). 
 
 ### Manually change configurations
 

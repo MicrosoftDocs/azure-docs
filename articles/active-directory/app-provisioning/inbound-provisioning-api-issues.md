@@ -40,10 +40,13 @@ This document covers commonly encountered errors and issues with inbound provisi
 
 **Probable causes**
 1. Your API-driven provisioning app is paused. 
-1. The provisioning service is yet to update the provisioning logs with the bulk request processing details. 
+1. The provisioning service is yet to update the provisioning logs with the bulk request processing details.
+2. Your On-premises provisioning agent status is inactive (If you are running the [/API-driven inbound user provisioning to on-premises Active Directory](https://go.microsoft.com/fwlink/?linkid=2245182)).
+
 
 **Resolution:**
 1. Verify that your provisioning app is running. If it isn't running, select the menu option **Start provisioning** to process the data.
+2. Turn your On-premises provisioning agent status to active by restarting the On-premise agent.
 1. Expect 5 to 10-minute delay between processing the request and writing to the provisioning logs. If your API client is sending data to the provisioning /bulkUpload API endpoint, then introduce a time delay between the request invocation and provisioning logs query. 
 
 ### Forbidden 403 response code 

@@ -59,7 +59,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. After activation of your itsme partner account, you'll receive an email with a one-time link to the **client secret**.
 
-1. Follow the instructions at [itsme](https://business.itsme.be/en) to complete the configuration.
+1. Follow the instructions at [itsme](https://www.itsme-id.com/en-BE/business) to complete the configuration.
 
 ## Integrate with Azure AD B2C
 
