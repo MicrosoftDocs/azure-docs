@@ -141,7 +141,7 @@ Before you begin, you must have the following prerequisites:
     metadata:
       name: busybox-secrets-store-inline-wi
       labels:  
-      azure.workload.identity/use: "true"
+        azure.workload.identity/use: "true"
     spec:
       serviceAccountName: "workload-identity-sa"
       containers:
