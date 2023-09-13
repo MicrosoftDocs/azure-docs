@@ -75,37 +75,16 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
 > [!NOTE]
 > If you are looking to set an admin username, ensure that it isn't part of the [reserved words](https://learn.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss. In this case, the username is auto set to azureuser.
-> For the admin credentials, you will be able to use the credentials that you set fromt he hardened image while you create the vm.
+> For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
 > For specalized images, [osprofile properties](https://learn.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images) are handled differently than generalized images.
 
+5. Access the virtual machine scale set from the portal.
 
-5. Create a systemd service to provision the VM.
-
-    Since we are removing the Azure Linux Agent, we need to provide a mechanism to report ready. Copy the contents of the bash script or python script located [here](/azure/virtual-machines/linux/no-agent?branch=pr-en-us-247336#add-required-code-to-the-vm) to the mounted image and make the file executable (i.e, grant execute permission on the file - chmod).
-    ```
-    sudo chmod +x /mnt/dev/$imagedevice/usr/local/azure-provisioning.sh
-    ```
-
-    To ensure report ready mechanism, create a [systemd service unit](/azure/virtual-machines/linux/no-agent#:~:text=Automating%20running%20the%20code%20at%20first%20boot)
-    and add the following to the /etc/systemd/system (this example names the unit file azure-provisioning.service)
-    ```
-    sudo chroot /mnt/dev/$imagedevice/ systemctl enable azure-provisioning.service
-    ```
-    Now the image is generalized and can be used to create a VM.
-
-6. Unmount the image.
-    ```
-    umount /mnt/dev/$imagedevice
-    ```
-
-    The image prepared does not include Azure Linux Agent anymore.
-
-7. Use the prepared image to deploy a confidential VM.
-
-    Follow the steps starting from 4 in the [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) document to deploy the agent-less confidential VM.
+    You can access you cvm scale set and use the admin username and password set previosuly to login. Please note that if you choose to update the amind credentilas, do so directly in the scale set model using the cli.
 
 > [!NOTE]
-> If you are looking to deploy cvm scaled scale using the custom image, please note that some features related to auto scaling will be restricted. Will manual scaling rules continue to work as expected, the autoscaling ability will be limited due to the agentless custom image. More details on the restrictions can be found here for the [provisioning agent](/azure/virtual-machines/linux/disable-provisioning). Alternatively, you can navigate to the metrics tab on the azure portal and confirm the same.
+> If you are looking to deploy cvm scaled scale using the custom hardened image, please note that some features related to auto scaling will be restricted. Will manual scaling rules continue to work as expected, the autoscaling ability will be limited due to the agentless custom image. More details on the restrictions can be found here for the [provisioning agent](/azure/virtual-machines/linux/disable-provisioning). Alternatively, you can navigate to the metrics tab on the azure portal and confirm the same.
+> However, you can continue to set up custom rules based on load balancer metrics such as SYN count, SNAT connection count, etc.
 
 ## Next Steps
 
