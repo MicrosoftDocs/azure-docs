@@ -19,7 +19,7 @@ Network Watcher consists of three major sets of tools and capabilities:
 - [Network diagnostics tools](#network-diagnostics-tools)
 - [Traffic](#traffic)
 
-:::image type="content" source="./media/network-watcher-monitoring-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
+:::image type="content" source="./media/network-watcher-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
 > [!NOTE] 
 > When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
@@ -96,13 +96,13 @@ Network Watcher offers two traffic tools that help you log and visualize network
 
 **Traffic analytics** provides rich visualizations of flow logs data. For more information about traffic analytics, see [traffic analytics](traffic-analytics.md) and [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
 
-:::image type="content" source="./media/network-watcher-monitoring-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
+:::image type="content" source="./media/network-watcher-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
 
 ## Usage + quotas
 
 The **Usage + quotas** capability of Network Watcher provides a summary of how many of each network resource you've deployed in a subscription and region and what the limit is for the resource. For more information, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/network-watcher/toc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. This information is helpful when planning future resource deployments as you can't create more resources if you reach their limits within the subscription or region.
 
-:::image type="content" source="./media/network-watcher-monitoring-overview/subscription-limits.png" alt-text="Screenshot showing Networking resources usage and limits per subscription in the Azure portal.":::
+:::image type="content" source="./media/network-watcher-overview/subscription-limits.png" alt-text="Screenshot showing Networking resources usage and limits per subscription in the Azure portal.":::
 
 ## Network Watcher limits
 
