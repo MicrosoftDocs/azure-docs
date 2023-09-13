@@ -12,13 +12,13 @@ ms.date: 09/05/2023
 
 # Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra 
 
-In this article, you will learn the differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra. This article provides recommendations on how to choose between the two services, or when to host your own Apache Cassandra environment.
+In this article, you will learn the differences between [Azure Managed Instance for Apache Cassandra](../../managed-instance-apache-cassandra/index.yml) and the RU-based Azure Cosmos DB for Apache Cassandra. This article provides recommendations on how to choose between the two services, or when to host your own Apache Cassandra environment.
 
 ## Key differences
 
 Azure Managed Instance for Apache Cassandra provides automated deployment, scaling, and operations to maintain the node health for open-source Apache Cassandra instances in Azure. It also provides the capability to scale out the capacity of existing on-premises or cloud self-hosted Apache Cassandra clusters. It scales out by adding managed Cassandra datacenters to the existing cluster ring.
 
-The [Azure Cosmos DB for Apache Cassandra](introduction.md) in Azure Cosmos DB is a compatibility layer over Microsoft's globally distributed cloud-native database service [Azure Cosmos DB](../index.yml). The combination of these services in Azure provides a continuum of choices for users of Apache Cassandra in complex hybrid cloud environments.
+The RU-based [Azure Cosmos DB for Apache Cassandra](introduction.md) in Azure Cosmos DB is a compatibility layer over Microsoft's globally distributed cloud-native database service [Azure Cosmos DB](../index.yml).
 
 ## How to choose?
 
