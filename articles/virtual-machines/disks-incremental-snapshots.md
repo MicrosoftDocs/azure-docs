@@ -141,6 +141,7 @@ You can also use Azure Resource Manager templates to create an incremental snaps
   ]
 }
 ```
+---
 
 ## Check snapshot status
 
@@ -214,8 +215,6 @@ $snapshotName = "yourSnapshotName"
 $targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 $targetSnapshot.CompletionPercent
 ```
-
----
 
 ## Check sector size
 
