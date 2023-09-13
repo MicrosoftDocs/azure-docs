@@ -53,7 +53,7 @@ Create a new **VisionSource** object from the local image file you want to analy
 
 Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer).
 
-This is done by first creating a new [ImageSourceBuffer](/cpp/cognitive-services/vision/input-imagesourcebuffer), getting access to its [ImageWriter](/cpp/cognitive-services/input-imagewriter) object and writing the image data into it. In the following code example, `imageBuffer` is a variable of type `std::vector<uint8_t>` containing the image data.
+Start by creating a new [ImageSourceBuffer](/cpp/cognitive-services/vision/input-imagesourcebuffer), then get access to its [ImageWriter](/cpp/cognitive-services/input-imagewriter) object and write the image data into it. In the following code example, `imageBuffer` is a variable of type `std::vector<uint8_t>` containing the image data.
 
 ```cpp
   auto imageSourceBuffer = std::make_shared<ImageSourceBuffer>();
@@ -80,7 +80,7 @@ Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis
 
 ### Set model name when using a custom model
 
-You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
+You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You don't need to specify visual features if you use a custom model.
 
 
 To use a custom model, create the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and call the [SetModelName](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setmodelname) method.  You don't need to call any other methods on **ImageAnalysisOptions**. There's no need to call [SetFeatures](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setfeatures) as you do with standard model, since your custom model already implies the visual features the service extracts.
@@ -132,7 +132,7 @@ This section shows you how to make an analysis call to the service using the sta
 
 1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](/cpp/cognitive-services/vision/imageanalysis-imageanalyzer) object.
 
-1. Call the **Analyze** method on the **ImageAnalyzer** object, as shown here. This is a blocking (synchronous) call until the service returns the results or an error occurred. Alternatively, you can call the nonblocking **AnalyzeAsync** method.
+1. Call the **Analyze** method on the **ImageAnalyzer** object, as shown here. This call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the nonblocking **AnalyzeAsync** method.
 
 1. Call **GetReason** method on the [ImageAnalysisResult](/cpp/cognitive-services/vision/imageanalysis-imageanalysisresult) object, to determine if analysis succeeded or failed.
 
