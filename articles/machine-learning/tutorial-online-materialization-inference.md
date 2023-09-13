@@ -19,14 +19,14 @@ ms.custom: sdkv2
 
 [!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-An Azure Machine Learning managed feature store lets you discover, create, and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and use inference to look up feature data. For more information about feature stores, see [feature store concepts](./concept-what-is-managed-feature-store.md).
+An Azure Machine Learning managed feature store lets you discover, create, and operationalize features. Features serve as the connective tissue in the machine learning lifecycle, starting from the prototyping phase, where you experiment with various features. That lifecycle continues to the operationalization phase, where you deploy your models, and inference steps look up the feature data. For more information about feature stores, see [feature store concepts](./concept-what-is-managed-feature-store.md).
 
 Part 1 of this tutorial series showed how to create a feature set specification with custom transformations, and use that feature set to generate training data. Part 2 of the tutorial series showed how to enable materialization and perform a backfill. Part 3 of this tutorial series showed how to experiment with features, as a way to improve model performance. Part 3 also showed how a feature store increases agility in the experimentation and training flows. Part 4 described how to run batch inference.
 
 In this tutorial, you'll
 
 > [!div class="checklist"]
-> * Set up an Azure Cache for Redis
+> * Set up an Azure Cache for Redis.
 > * Attach a cache to a feature store as the online materialization store, and grant the necessary permissions.
 > * Materialize a feature set to the online store.
 > * Test an online deployment with mock data.
@@ -80,7 +80,7 @@ To prepare the notebook environment for development:
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=root-dir)]
 
-1. Initialize the `MLClient` for the project workspace, where this tutorial notebook runs. The `MLClient` is used for the create, read, update, and delete (CRUD) operations.
+1. Initialize the `MLClient` for the project workspace, where the tutorial notebook runs. The `MLClient` is used for the create, read, update, and delete (CRUD) operations.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=init-prj-ws-client)]
 
@@ -95,7 +95,7 @@ To prepare the notebook environment for development:
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=init-fs-core-sdk)]
 
-## Prepare Azure cache for Redis
+## Prepare Azure Cache for Redis
 
 This tutorial uses Azure Cache for Redis as the online materialization store. You can create a new Redis instance, or reuse an existing instance.
 
@@ -103,17 +103,17 @@ This tutorial uses Azure Cache for Redis as the online materialization store. Yo
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=redis-settings)]
 
-1. You can create a new Redis instance. You would select the Redis cache tier (basic, standard, premium, or enterprise). Choose an SKU family available for the cache tier you select. For more information about tiers and cache performance, see [this resource](../azure-cache-for-redis/cache-best-practices-performance.md). For more information about SKU tiers and Azure cache families, see [this resource](https://azure.microsoft.com/pricing/details/cache/).
+1. You can create a new Redis instance. You would select the Redis Cache tier (basic, standard, premium, or enterprise). Choose an SKU family available for the cache tier you select. For more information about tiers and cache performance, see [this resource](../azure-cache-for-redis/cache-best-practices-performance.md). For more information about SKU tiers and Azure cache families, see [this resource](https://azure.microsoft.com/pricing/details/cache/).
 
-Execute this code cell to create an Azure Cache for Redis with premium tier, SKU family `P`, and cache capacity 2. It may take from five to 10 minutes to prepare the Redis instance.
+   Execute this code cell to create an Azure Cache for Redis with premium tier, SKU family `P`, and cache capacity 2. It may take from five to 10 minutes to prepare the Redis instance.
 
-   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=provision-redis)]
+      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=provision-redis)]
 
-1. Additionally, this code cell reuses an existing Redis instance with the previously defined name.
+1. Optionally, this code cell reuses an existing Redis instance with the previously defined name.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=reuse-redis)]
 
-1. Retrieve the user-assigned managed identity (UAI) used that the feature store used for materialization. This code cell retrieves the principal ID, client ID, and ARM ID property values for the UAI used by the feature store for data materialization.
+1. Retrieve the user-assigned managed identity (UAI) that the feature store used for materialization. This code cell retrieves the principal ID, client ID, and ARM ID property values for the UAI used by the feature store for data materialization.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=retrieve-uai)]
 
@@ -137,7 +137,7 @@ Earlier in this tutorial series, you did **not** materialize the accounts featur
 
 ### Backfill the `account` feature set
 
-The `backfill` command backfills data to all the materialization stores enabled for this feature set. Here offline and online materialization are both enabled. In this code cell, `backfill` proceeds on both offline and online materialization stores.
+The `begin_backfill` function backfills data to all the materialization stores enabled for this feature set. Here offline and online materialization are both enabled. This code cell backfills the data to both online and offline materialization stores.
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=start-accounts-backfill)]
 
@@ -153,17 +153,17 @@ Earlier in this tutorial series, you materialized `transactions` feature set dat
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=enable-transact-material)]
 
-1. This code cell backfills the data to both the online and offline materialization store, to ensure that both cells have the latest data. The recurrent materialization job, which we set up in tutorial 2 of this series, now materializes data to both online and offline materialization stores.
+1. This code cell backfills the data to both the online and offline materialization store, to ensure that both stores have the latest data. The recurrent materialization job, which you set up in tutorial 2 of this series, now materializes data to both online and offline materialization stores.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=start-transact-material)]
 
-   This code cell tracks completion of the backfill job. Using the premium tier Azure Cache for Redis provisioned earlier, this step may take approximately 3-4 minutes to complete.
+   This code cell tracks completion of the backfill job. Using the premium tier Azure Cache for Redis provisioned earlier, this step may take approximately five minutes to complete.
 
       [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Enable online store and run online inference.ipynb?name=track-transact-material)]
 
 ## Test locally
 
-Use your development environment to look up features from the online materialization store. This notebook can serve as a valid development environment.
+Now, use your development environment to look up features from the online materialization store. The tutorial notebook attached to **Serverless Spark Compute** serves as the development environment.
 
    This code cell parses the list of features from the existing feature retrieval specification.
 
@@ -193,7 +193,7 @@ This step involves these actions:
 1. Create an Azure Machine Learning managed online endpoint.
 1. Grant required role-based access control (RBAC) permissions.
 1. Deploy the model that you trained in the tutorial 3 of this tutorial series. The scoring script used in this step has the code to look up online features.
-1. Score the model with sample data. The endpoint looked up the online features, and that the model scoring completed successfully.
+1. Score the model with sample data.
 
 ### Create Azure Machine Learning managed online endpoint
 
