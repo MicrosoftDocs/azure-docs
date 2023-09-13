@@ -59,13 +59,6 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 1. Select a column to aggregate by.
 1. 
 
-**Show or hide columns**
-
-1. Select **Show columns**.
-1. Select or clear columns to show or hide them, then select **Apply**.
-1. Select an operator to aggregate by.
-
-
 | Operator | Description |
 |:---|:---|
 |count|Counts the number of times each distinct value exists in the column.|
@@ -74,6 +67,14 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 |avg||
 |max||    
 |min||
+
+
+**Show or hide columns**
+
+1. Select **Show columns**.
+1. Select or clear columns to show or hide them, then select **Apply**.
+1. Select an operator to aggregate by.
+
 
 **Sort by column**
 
