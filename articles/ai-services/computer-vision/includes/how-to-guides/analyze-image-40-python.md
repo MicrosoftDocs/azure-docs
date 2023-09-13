@@ -48,7 +48,7 @@ In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai
 
 ### Image buffer
 
-In your script, first create an [image_source_buffer](/python/api/azure-ai-vision/azure.ai.vision.imagesourcebuffer). Get its [image_writer](/python/api/azure-ai-vision/azure.ai.vision.imagewriter) and call the **write** method to copy the image data into the writer. Then create a new [vision_source](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from your **image_source_buffer**. In the following code example, `image_buffer` is a variable of type `bytes` containing the image data.
+In your script, first create an **image_source_buffer**. Get its **image_writer** and call the **write** method to copy the image data into the writer. Then create a new [vision_source](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from your **image_source_buffer**. In the following code example, `image_buffer` is a variable of type `bytes` containing the image data.
 
 ```python
 image_source_buffer = sdk.ImageSourceBuffer()
