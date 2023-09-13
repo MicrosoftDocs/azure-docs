@@ -5,9 +5,9 @@ description: Learn how to list blobs in your storage account using the Azure Sto
 services: storage
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 08/16/2023
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -36,6 +36,10 @@ To list the blobs in a container using a hierarchical listing, call the followin
 
 - [ContainerClient.walk_blobs](/python/api/azure-storage-blob/azure.storage.blob.containerclient#azure-storage-blob-containerclient-walk-blobs) (along with the name, you can optionally include metadata, tags, and other information associated with each blob)
 
+### Filter results with a prefix
+
+To filter the list of blobs, specify a string for the `name_starts_with` keyword argument. The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
+
 ### Flat listing versus hierarchical listing
 
 Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchical paradigm (like a classic file system). However, you can organize blobs into *virtual directories* in order to mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character.
@@ -43,8 +47,6 @@ Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchi
 To organize blobs into virtual directories, use a delimiter character in the blob name. The default delimiter character is a forward slash (/), but you can specify any character as the delimiter.
 
 If you name your blobs using a delimiter, then you can choose to list blobs hierarchically. For a hierarchical listing operation, Azure Storage returns any virtual directories and blobs beneath the parent object. You can call the listing operation recursively to traverse the hierarchy, similar to how you would traverse a classic file system programmatically.
-
-If you've enabled the hierarchical namespace feature on your account, directories aren't virtual. Instead, they're concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
 
 ## Use a flat listing
 
@@ -64,7 +66,7 @@ Name: folderA/file2.txt
 Name: folderA/folderB/file3.txt
 ```
 
-You can also specify options to filter list results or show additional information. The following example lists blobs with a specified prefix, and also lists blob tags:
+You can also specify options to filter list results or show additional information. The following example lists blobs and blob tags:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_list_blobs_flat_options":::
 
@@ -77,6 +79,9 @@ Name: folderA/file1.txt, Tags: None
 Name: folderA/file2.txt, Tags: None
 Name: folderA/folderB/file3.txt, Tags: {'tag1': 'value1', 'tag2': 'value2'}
 ```
+
+> [!NOTE]
+> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage Gen2)](data-lake-storage-directory-file-acl-python.md#list-directory-contents).
 
 ## Use a hierarchical listing
 

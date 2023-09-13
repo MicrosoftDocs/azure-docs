@@ -184,8 +184,6 @@ You can see an example of the ZoneLabel layer in the [sample drawing package].
 
 The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Conversion service] to parse their content. Only the files identified by the manifest are ingested. Files that are in the zip folder, but aren't properly listed in the manifest, are ignored.
 
-The file paths in the `buildingLevels` object of the manifest file must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level is "Basement.dwg." A DWG file for level 2 is named as "level_2.dwg." Use an underscore, if your level name has a space.
-
 Although there are requirements when you use the manifest objects, not all objects are required. The following table shows the required and optional objects for version 1.1 of the [Conversion service].
 
 >[!NOTE]

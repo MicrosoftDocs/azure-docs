@@ -366,9 +366,9 @@ az spring application-accelerator customized-accelerator sync-cert \
 
 You can enable App Accelerator under an existing Azure Spring Apps Enterprise plan instance using the Azure portal or Azure CLI.
 
-If a Dev tools public endpoint has already been exposed, you can enable App Accelerator, and then use <kbd>Ctrl</kbd>+<kbd>F5</kdb> to deactivate the browser cache to view it on the Dev Tools Portal.
-
 ### [Azure portal](#tab/Portal)
+
+If a Dev tools public endpoint has already been exposed, you can enable App Accelerator, and then use <kbd>Ctrl</kbd>+<kbd>F5</kdb> to deactivate the browser cache to view it on the Dev Tools Portal.
 
 Use the following steps to enable App Accelerator under an existing Azure Spring Apps Enterprise plan instance using the Azure portal:
 

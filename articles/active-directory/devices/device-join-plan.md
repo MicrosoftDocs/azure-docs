@@ -55,7 +55,7 @@ Azure AD join works in managed and federated environments. We think most organiz
 
 ### Managed environment
 
-A managed environment can be deployed either through [Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) or [Pass Through Authentication](../hybrid/how-to-connect-pta-quick-start.md) with Seamless Single Sign On.
+A managed environment can be deployed either through [Password Hash Sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md) or [Pass Through Authentication](../hybrid/connect/how-to-connect-pta-quick-start.md) with Seamless Single Sign On.
 
 ### Federated environment
 
@@ -79,7 +79,7 @@ If your identity provider doesn't support these protocols, Azure AD join doesn't
 
 If you create users in your:
 
-- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](../hybrid/connect/how-to-connect-sync-whatis.md). 
 - **Azure AD**, no extra setup is required.
 
 On-premises user principal names (UPNs) that are different from Azure AD UPNs aren't supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
@@ -291,7 +291,7 @@ If you have an MDM provider configured for your Azure AD joined devices, the pro
 
 ![Compliant device](./media/device-join-plan/46.png)
 
-You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
+You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/concept-conditional-access-grant.md).
 
 ## Next steps
 

@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/09/2023
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: sumitp
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -27,14 +27,15 @@ Use the following information and examples to gain a more advanced understanding
 
 Some Microsoft services aren't available in all locations. For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role.
-1. Go to **Azure AD** > **Users** and select a user.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#user-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Go to **Users** > **All users** and select a user.
 1. Select **Edit properties**. 
 1. Select the **Settings** tab and enter a location for the user.
 1. Select the **Save** button.
 
 > [!NOTE]
-> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use group-based licensing with dynamic groups
 
@@ -82,22 +83,24 @@ Here's an example of what this process may look like:
 
 1. Originally, you assigned the *Microsoft 365 E5* product to several groups. One of those groups, called *Microsoft 365 E5 - Exchange only* was designed to enable only the *Exchange Online (Plan 2)* service for its members.
 
-2. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your organization, you can complete the following steps:
+1. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your organization, you can complete the following steps:
 
-3. Go to [**Azure Active Directory > Licenses > All products**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) and select *Microsoft 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
+1. 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) 
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Billing** > **Licenses** > **All products** and select *Microsoft 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
 
-4. Select the group you want to review (in this case, *Microsoft 365 E5 - Exchange only*). The **Licenses** tab opens. Select the E5 license to view all enabled services.
+1. Select the group you want to review (in this case, *Microsoft 365 E5 - Exchange only*). The **Licenses** tab opens. Select the E5 license to view all enabled services.
    > [!NOTE]
    > The *Microsoft Stream* service has been automatically added and enabled in this group, in addition to the *Exchange Online* service:
 
    ![Screenshot of new service added to a group license](./media/licensing-group-advanced/manage-new-services.png)
 
-5. If you want to disable the new service in this group, select the On/Off toggle next to the service, and select the **Save** button to confirm the change. Azure AD will now process all users in the group to apply the change; any new users added to the group won't have the *Microsoft Stream* service enabled.
+1. If you want to disable the new service in this group, select the On/Off toggle next to the service, and select the **Save** button to confirm the change. Azure AD will now process all users in the group to apply the change; any new users added to the group won't have the *Microsoft Stream* service enabled.
 
    > [!NOTE]
    > Users may still have the service enabled through some other license assignment (another group they are members of or a direct license assignment).
 
-6. If needed, perform the same steps for other groups with this product assigned.
+1. If needed, perform the same steps for other groups with this product assigned.
 
 ## Use PowerShell to see who has inherited and direct licenses
 You can use a PowerShell script to check if users have a license assigned directly or inherited from a group.
@@ -208,7 +211,7 @@ If you use group-based licensing, it's a good idea to familiarize yourself with 
 
 To learn more about other scenarios for license management through group-based licensing, see:
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)

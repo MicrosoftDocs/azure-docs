@@ -143,6 +143,10 @@ See the [Limits summary](../service-limits.md#application-insights).
 
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](./asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
 
+### Why does my Azure Function search return no results?
+
+The URL query strings are not logged by Azure Functions.
+
 ## <a name="add"></a>Next steps
 
 * [Write complex queries in Analytics](../logs/log-analytics-tutorial.md)

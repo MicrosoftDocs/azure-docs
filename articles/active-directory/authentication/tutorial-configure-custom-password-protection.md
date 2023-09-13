@@ -35,7 +35,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *global administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test a password change event using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users.md).
     * To test the password change operation using a banned password, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md).
 
 ## What are banned password lists?

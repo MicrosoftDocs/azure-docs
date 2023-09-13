@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 06/16/2023
+ms.date: 08/28/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -36,7 +36,6 @@ The following diagram shows how you can use cross-tenant synchronization to enab
 :::image type="content" source="./media/cross-tenant-synchronization-overview/cross-tenant-synchronization-diagram.png" alt-text="Diagram that shows synchronization of users for multiple tenants." lightbox="./media/cross-tenant-synchronization-overview/cross-tenant-synchronization-diagram.png":::
 
 ## Who should use?
-
 - Organizations that own multiple Azure AD tenants and want to streamline intra-organization cross-tenant application access.
 - Cross-tenant synchronization is **not** currently suitable for use across organizational boundaries.
 
@@ -85,7 +84,7 @@ To configure this setting using Microsoft Graph, see the [Update crossTenantAcce
 
 #### How do users know what tenants they belong to?
 
-For cross-tenant synchronization, users don't receive an email or have to accept a consent prompt. If users want to see what tenants they belong to, they can open their [My Account](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd) page and select **Organizations**. In the Azure portal, users can open their [Azure portal settings](../../azure-portal/set-preferences.md), view their **Directories + subscriptions**, and switch directories.
+For cross-tenant synchronization, users don't receive an email or have to accept a consent prompt. If users want to see what tenants they belong to, they can open their [My Account](https://support.microsoft.com/account-billing/my-account-portal-for-work-or-school-accounts-eab41bfe-3b9e-441e-82be-1f6e568d65fd) page and select **Organizations**. In the Microsoft Entra admin center, users can open their [Portal settings](../../azure-portal/set-preferences.md), view their **Directories + subscriptions**, and switch directories.
 
 For more information, including privacy information, see [Leave an organization as an external user](../external-identities/leave-the-organization.md).
 
@@ -258,19 +257,17 @@ What federation options are supported for users in the target tenant back to the
 
 Does cross-tenant synchronization use System for Cross-Domain Identity Management (SCIM)?
 
-- No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../fundamentals/sync-scim.md).
+- No. Currently, Azure AD supports a SCIM client, but not a SCIM server. For more information, see [SCIM synchronization with Azure Active Directory](../architecture/sync-scim.md).
 
 #### Deprovisioning
 Does cross-tenant synchronization support deprovisioning users?
 
-- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../fundamentals/recover-from-deletions.md#soft-deletions) in the target tenant. 
+- Yes, when the below actions occur in the source tenant, the user will be [soft deleted](../architecture/recover-from-deletions.md#soft-deletions) in the target tenant. 
 
   - Delete the user in the source tenant
   - Unassign the user from the cross-tenant synchronization configuration
   - Remove the user from a group that is assigned to the cross-tenant synchronization configuration
   - An attribute on the user changes such that they do not meet the scoping filter conditions defined on the cross-tenant synchronization configuration anymore 
-
-- Currently only regular users, Helpdesk Admins and User Account Admins can be deleted. Users with other Azure AD roles such as directory reader currently cannot be deleted by cross-tenant synchronization. This is subject to change in the future.
 
 - If the user is blocked from sign-in in the source tenant (accountEnabled = false) they will be blocked from sign-in in the target. This is not a deletion, but an updated to the accountEnabled property.
 

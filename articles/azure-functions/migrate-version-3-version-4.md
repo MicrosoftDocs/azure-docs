@@ -38,9 +38,9 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path with the longest support window from .NET.
+> **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
 >
-> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 6 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. The [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 6 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
 ::: zone-end
 
@@ -72,7 +72,7 @@ Upgrading instructions are language dependent. If you don't see your language, c
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
 
 > [!TIP]
-> The [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
+> If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
 ### .csproj file
 
@@ -120,6 +120,10 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
 
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
+
 ---
 
 ### Package and namespace changes
@@ -139,6 +143,10 @@ Based on the model you are migrating to, you may need to upgrade or change the p
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
 # [.NET Framework 4.8](#tab/v4)
+
+[!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -163,6 +171,10 @@ A program.cs file isn't required when running in-process.
 # [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
+
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="23-29":::
 
 ---
 
@@ -191,6 +203,13 @@ When you upgrade to version 4.x, make sure that your local.settings.json file ha
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
 
 # [.NET Framework 4.8](#tab/v4)
+
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
+
+> [!NOTE]
+> When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -243,9 +262,20 @@ Some key classes changed names between versions. These changes are a result eith
 | `IActionResult` | `HttpResponseData` | `HttpResponseData`|
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
 
+# [.NET 8 Preview (isolated)](#tab/net8)
+
+| .NET Core 3.1  | .NET 5 | .NET 7 | 
+| --- | --- | --- | 
+| `FunctionName` (attribute) | `Function` (attribute) | `Function` (attribute) | 
+| `ILogger` | `ILogger` | `ILogger`, `ILogger<T>` |
+| `HttpRequest` | `HttpRequestData` | `HttpRequestData`, `HttpRequest` (using [ASP.NET Core integration])|
+| `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
+| `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
+
+
 ---
 
-[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[ASP.NET Core integration]: ./dotnet-isolated-process-guide.md#aspnet-core-integration
 
 There might also be class name differences in bindings. For more information, see the reference articles for the specific bindings.
 
@@ -270,6 +300,10 @@ Sames as version 3.x (in-process).
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
 # [.NET Framework 4.8](#tab/v4)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
+
+# [.NET 8 Preview (isolated)](#tab/net8)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 

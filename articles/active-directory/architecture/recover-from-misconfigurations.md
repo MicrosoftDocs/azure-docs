@@ -51,7 +51,7 @@ The implementation of some tenant-wide configurations can be scoped, provided th
 
 Conditional Access policies are access control configurations that bring together signals to make decisions and enforce organizational policies.
 
-![Screenshot that shows user, location, device, application, and risk signals coming together in Conditional Access policies.](media\recoverability\miscofigurations-conditional-accss-signals.png)
+![Screenshot that shows user, location, device, application, and risk signals coming together in Conditional Access policies.](./media/recoverability/miscofigurations-conditional-accss-signals.png)
 
 To learn more about Conditional Access policies, see [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md).
 
@@ -87,7 +87,7 @@ It's critical that alterations to the intended configuration of an Azure AD tena
 
 * Documenting the change, including prior state and intended post-change state.
 * Using Privileged Identity Management (PIM) to ensure that administrators with intent to change must deliberately escalate their privileges to do so. To learn more about PIM, see [What is Privileged Identity Management?](../privileged-identity-management/pim-configure.md).
-* Using a strong approval workflow for changes, for example, requiring [approval of PIM escalation of privileges](../privileged-identity-management/azure-ad-pim-approval-workflow.md).
+* Using a strong approval workflow for changes, for example, requiring [approval of PIM escalation of privileges](../privileged-identity-management/pim-approval-workflow.md).
 
 ## Monitor for configuration changes
 

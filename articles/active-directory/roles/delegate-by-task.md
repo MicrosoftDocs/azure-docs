@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 In this article, you can find the information needed to restrict a user's administrator permissions by assigning least privileged roles in Azure Active Directory (Azure AD). You will find tasks organized by feature area and the least privileged role required to perform each task, along with additional non-Global Administrator roles that can perform the task.
 
-You can further restrict permissions by assigning roles at smaller scopes or by creating your own custom roles. For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md) or [Create and assign a custom role](custom-create.md).
+You can further restrict permissions by assigning roles at smaller scopes or by creating your own custom roles. For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md) or [Create and assign a custom role in Azure Active Directory](custom-create.md).
 
 ## Application proxy
 
@@ -98,10 +98,10 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | [Add or delete services](../hybrid/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
+> | [Add or delete services](../hybrid/connect/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
 > | Apply fixes to sync error | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 > | Configure notifications | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | [Configure settings](../hybrid/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
+> | [Configure settings](../hybrid/connect/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
 > | Configure sync notifications | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 > | Read ADFS security reports | [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner)
 > | Read all configuration | [Reader](../../role-based-access-control/built-in-roles.md#reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner) |

@@ -26,7 +26,7 @@ As shown in the diagram, your clients establish WebSocket connections with your 
 ## Getting started
 
 ### Prerequisites
-- [LTS versions of Node.js](https://nodejs.org/about/releases/)
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 - An Azure subscription
 - A Web PubSub resource
 

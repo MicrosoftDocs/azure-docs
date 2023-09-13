@@ -61,6 +61,7 @@ Perf
 ```
 
 ### Container memory
+This query uses `memoryRssBytes` which is only available for Linux nodes.
 
 ```kusto
 Perf
@@ -620,11 +621,6 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 | project ClusterName, NodeName, LastReceivedDateTime, Status, ContainerCount, UpTimeMs = UpTimeMs_long, Aggregation = Aggregation_real, LimitValue = LimitValue_real, list_TrendPoint, Labels, ClusterId 
 ```
 
-## Resource logs
-
-For details on resource logs for AKS clusters, see [Collect control plane logs](../../aks/monitor-aks.md#resource-logs).
-
-
 ## Prometheus metrics
 
 The following examples requires the configuration described in [Send Prometheus metrics to Log Analytics workspace with Container insights](container-insights-prometheus-logs.md).
@@ -677,6 +673,7 @@ The output will show results similar to the following example.
 ![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-log-query/log-query-example-usage-02.png)
 
 
+
 ## Configuration or scraping errors
 
 To investigate any configuration or scraping errors, the following example query returns informational events from the `KubeMonAgentEvents` table.
@@ -692,3 +689,4 @@ The output shows results similar to the following example:
 ## Next steps
 
 Container insights doesn't include a predefined set of alerts. To learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures, see [Create performance alerts with Container insights](./container-insights-log-alerts.md).
+

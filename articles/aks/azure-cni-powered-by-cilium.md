@@ -49,7 +49,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 * Hubble is disabled.
 
-* Not compatible with Istio or other sidecar-based service meshes ([Istio issue #27619](https://github.com/istio/istio/issues/27619)).
+* Network policies cannot use `ipBlock` to allow access to node or pod IPs ([Cilium issue #9209](https://github.com/cilium/cilium/issues/9209) and [#12277](https://github.com/cilium/cilium/issues/12277)).
 
 * Kubernetes services with `internalTrafficPolicy=Local` aren't supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
 
@@ -109,6 +109,29 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --pod-cidr 192.168.0.0/16 \
   --network-dataplane cilium
 ```
+
+## Upgrade an existing cluster to Azure CNI Powered by Cilium
+
+> [!NOTE]
+> You can update an existing cluster to Azure CNI Powered by Cilium if the cluster meets the following criteria:
+>
+> - The cluster uses either [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md). This does **not** include [Azure CNI](./configure-azure-cni.md).
+> - The cluster does not have Azure NPM or Calico enabled.
+> - The cluster does not have any Windows node pools.
+
+The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster.md) where each node in a node pool is re-imaged.
+
+Cilium will begin enforcing network policies only after all nodes have been re-imaged.
+
+To perform the upgrade, you will need Azure CLI version 2.52.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+Use the following command to upgrade an existing cluster to Azure CNI Powered by Cilium. Replace the values for `<clusterName>` and `<resourceGroupName>`:
+
+```azurecli-interactive
+az aks update -n <clusterName> -g <resourceGroupName> \
+  --network-dataplane cilium
+```
+
 
 ## Frequently asked questions
 

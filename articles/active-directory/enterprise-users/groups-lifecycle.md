@@ -11,10 +11,10 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn                   
 ms.reviewer: jodah
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -71,11 +71,9 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 ## Set group expiration
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a Global Administrator in your Azure AD organization.
-
-2. Browse to **Azure Active Directory** > **Groups**, then select **Expiration** to open the expiration settings.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Groups**, **All groups** then select **Expiration** to open the expiration settings.
   
    ![Expiration settings for groups](./media/groups-lifecycle/expiration-settings.png)
 
@@ -194,8 +192,8 @@ The following cmdlets can be used to configure the policy in more detail. For mo
 
 These articles provide additional information on Azure AD groups.
 
-- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage members of a group](../fundamentals/active-directory-groups-members-azure-portal.md)
-- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [See existing groups](../fundamentals/groups-view-azure-portal.md)
+- [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage members of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

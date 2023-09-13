@@ -7,7 +7,7 @@ ms.devlang: powershell
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, has-azure-ad-ps-ref
 ms.date: 07/17/2023
 ---
 

@@ -45,7 +45,7 @@ There are several other limitations based on the traffic forwarding profile in u
 
 The most current version of the Global Secure Access Client can be downloaded from the Microsoft Entra admin center.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
 1. Browse to **Global Secure Access (Preview)** > **Devices** > **Clients**.
 1. Select **Download**.
 

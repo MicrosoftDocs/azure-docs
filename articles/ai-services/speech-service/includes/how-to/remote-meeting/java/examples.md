@@ -16,7 +16,7 @@ This example code shows how to create meeting transcriber for asynchronous-only 
 // Create the speech config object
 // Substitute real information for "YourSubscriptionKey" and "Region"
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "Region");
-speechConfig.setProperty("MeetingTranscriptionInRoomAndOnline", "true");
+speechConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
 // Set the property for asynchronous transcription
 speechConfig.setServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 06/29/2023
+ms.date: 08/16/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -33,7 +33,7 @@ To deploy applications using GitOps with Flux v2, you need:
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running. ARM64-based clusters are supported starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023).
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. ARM64-based clusters are supported starting with [`microsoft.flux` version 1.7.0](extensions-release.md#flux-gitops).
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
@@ -45,7 +45,7 @@ To deploy applications using GitOps with Flux v2, you need:
 
   > [!IMPORTANT]
   > Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  > For new AKS clusters created with `az aks create`, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`”`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
+  > For new AKS clusters created with `az aks create`, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type. If using [AKS hybrid clusters provisioned from Azure (preview)](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview), read and write permissions on the `Microsoft.ContainerService/provisionedClusters` resource type).
 
@@ -141,7 +141,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running. ARM64-based clusters are supported starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023).
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. ARM64-based clusters are supported starting with [`microsoft.flux` version 1.7.0](extensions-release.md#flux-gitops).
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
@@ -153,7 +153,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
   > [!IMPORTANT]
   > Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  > For new AKS clusters created with `az aks create`, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`”`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
+  > For new AKS clusters created with `az aks create`, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type. If using [AKS hybrid clusters provisioned from Azure (preview)](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview), read and write permissions on the `Microsoft.ContainerService/provisionedClusters` resource type).
 
@@ -497,12 +497,13 @@ To view detailed conditions for a configuration object, select its name.
 Flux supports many parameters to enable various scenarios. For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
 
 For more information about available parameters and how to use them, see [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](conceptual-gitops-flux2.md#parameters).
+A workaround to deploy Flux resources with non-supported parameters is to define the required Flux custom resources inside your git repository. For example, [GitRepository](https://fluxcd.io/flux/components/source/gitrepositories/), [Kustomization](https://fluxcd.io/flux/components/kustomize/kustomization/), etcetera. Then deploy these resources with the `az k8s-configuration flux create` command. You will then still be able to access your Flux resources through the Azure Arc UI.
 
 ## Manage cluster configuration by using the Flux Kustomize controller
 
 The [Flux Kustomize controller](https://fluxcd.io/docs/components/kustomize/) is installed as part of the `microsoft.flux` cluster extension. It allows the declarative management of cluster configuration and application deployment by using Kubernetes manifests synced from a Git repository. These Kubernetes manifests can optionally include a *kustomize.yaml* file.
 
-For usage details, see the following resiyrces:
+For usage details, see the following resources:
 
 * [Flux Kustomize controller](https://fluxcd.io/docs/components/kustomize/)
 * [Kustomize reference documents](https://kubectl.docs.kubernetes.io/references/kustomize/)
@@ -544,6 +545,28 @@ spec:
 ```
 
 When you use this annotation, the deployed HelmRelease is patched with the reference to the configured source. Currently, only `GitRepository` source is supported.
+
+### Helm drift detection
+
+[Drift detection for Helm releases](https://fluxcd.io/flux/components/helm/helmreleases/#drift-detection) isn't enabled by default. Starting with [`microsoft.flux` v1.7.5](extensions-release.md#flux-gitops), you can enable Helm drift detection by running the following command:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --name flux --cluster-type <cluster-type> --config helm-controller.detectDrift=true 
+```
+
+### Helm OOM watch
+
+Starting with [`microsoft.flux` v1.7.5](extensions-release.md#flux-gitops), you can enable Helm OOM watch. For more information, see [Enable Helm near OOM detection](https://fluxcd.io/flux/cheatsheets/bootstrap/#enable-helm-near-oom-detection).
+
+Be sure to review potential [remediation strategies](https://fluxcd.io/flux/components/helm/helmreleases/#configuring-failure-remediation) and apply them as needed when enabling this feature.
+
+To enable OOM watch, run the following command:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --name flux --cluster-type <cluster-type> --config helm-controller.outOfMemoryWatch.enabled=true helm-controller.outOfMemoryWatch.memoryThreshold=70 helm-controller.outOfMemoryWatch.interval=700ms
+```
+
+If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the default memory threshold is set to 95%, with the interval at which to check the memory utilization set to 500 ms.
 
 ## Delete the Flux configuration and extension
 
@@ -591,6 +614,8 @@ For AKS clusters, you can't use the Azure portal to delete the extension. Instea
 ```azurecli
 az k8s-extension delete -g <resource-group> -c <cluster-name> -n flux -t managedClusters --yes
 ```
+
+---
 
 ## Next steps
 

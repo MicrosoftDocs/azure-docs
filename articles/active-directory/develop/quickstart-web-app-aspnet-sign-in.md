@@ -188,4 +188,4 @@ You can call Microsoft Graph from the controller by getting the instance of Grap
 For a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart, try out the ASP.NET tutorial.
 
 > [!div class="nextstepaction"]
-> [Add sign-in to an ASP.NET web app](tutorial-v2-asp-webapp.md)
+> [Add sign-in to an ASP.NET web app](./web-app-tutorial-01-register-application.md)

@@ -5,12 +5,12 @@ services: active-directory
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 06/29/2023
+ms.date: 09/08/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 ---
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 [Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD), part of Microsoft Entra, are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your employees or to help determine who gets access to resources. This article describes how to assign, update, list, or remove custom security attributes for Azure AD.
 
@@ -39,15 +39,15 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
 1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](../fundamentals/custom-security-attributes-add.md).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity**  > **Users** > **All users**.
 
 1. Find and select the user you want to assign custom security attributes to.
 
-1. In the Manage section, select **Custom security attributes (preview)**.
+1. In the Manage section, select **Custom security attributes**.
 
 1. Select **Add assignment**.
 
@@ -67,13 +67,13 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 ## Update custom security attribute assignment values for a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity**  > **Users** > **All users**.
 
 1. Find and select the user that has a custom security attribute assignment value you want to update.
 
-1. In the Manage section, select **Custom security attributes (preview)**.
+1. In the Manage section, select **Custom security attributes**.
   
 1. Find the custom security attribute assignment value you want to update.
 
@@ -87,9 +87,9 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 You can filter the list of custom security attributes assigned to users on the All users page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity**  > **Users** > **All users**.
 
 1. Select **Add filter** to open the Add filter pane.
 
@@ -107,13 +107,13 @@ You can filter the list of custom security attributes assigned to users on the A
 
 ## Remove custom security attribute assignments from a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity**  > **Users** > **All users**.
 
 1. Find and select the user that has the custom security attribute assignments you want to remove.
 
-1. In the Manage section, select **Custom security attributes (preview)**.
+1. In the Manage section, select **Custom security attributes**.
 
 1. Add check marks next to all the custom security attribute assignments you want to remove.
 
@@ -1073,7 +1073,7 @@ None
 
 **Where are custom security attribute assignments for users supported?**
 
-Custom security attribute assignments for users are supported in Azure portal, PowerShell, and Microsoft Graph APIs. Custom security attribute assignments are not supported in My Apps or Microsoft 365 admin center.
+Custom security attribute assignments for users are supported in Microsoft Entra admin center, PowerShell, and Microsoft Graph APIs. Custom security attribute assignments are not supported in My Apps or Microsoft 365 admin center.
 
 **Who can view the custom security attributes assigned to a user?**
 

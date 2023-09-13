@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/02/2023
+ms.date: 09/11/2023
 
 author: aloom3
 ms.author: justinha
@@ -78,7 +78,7 @@ For Voice verification, the following region codes require an opt-in.
 | 236         |  Central African Republic                      |
 | 237         |  Cameroon                                      |
 | 238         | Cabo Verde                                     |
-| 239         |  Sao Tome and Principe                         |
+| 239         |  São Tomé and Príncipe                         |
 | 240         |  Equatorial Guinea                             |
 | 241         |  Gabon                                         |
 | 242         | Congo                                          |
@@ -199,4 +199,5 @@ For Voice verification, the following region codes require an opt-in.
 
 ## Next steps
 
+* [Understanding telephony fraud](concept-mfa-telephony-fraud.md)
 * [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)

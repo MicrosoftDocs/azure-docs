@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # What is Azure Active Directory?
 
-Azure Active Directory (Azure AD) is a cloud-based identity and access management service. Azure AD enables your employees access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. Azure Active Directory also helps them access internal resources like apps on your corporate intranet, and any cloud apps developed for your own organization. To learn how to create a tenant, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
+Azure Active Directory (Azure AD) is a cloud-based identity and access management service. Azure AD enables your employees access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. Azure Active Directory also helps them access internal resources like apps on your corporate intranet, and any cloud apps developed for your own organization. To learn how to create a tenant, see [Quickstart: Create a new tenant in Azure Active Directory](./create-new-tenant.md).
 
 To learn the differences between Active Directory and Azure Active Directory, see [Compare Active Directory to Azure Active Directory](compare.md). You can also refer [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models) posters to better understand the core identity services in Azure like Azure AD and Microsoft-365.
 
@@ -51,7 +51,7 @@ To enhance your Azure AD implementation, you can also add paid features by upgra
 
 - **"Pay as you go" feature licenses.** You can also get licenses for features such as, Azure Active Directory Business-to-Customer (B2C). B2C can help you provide identity and access management solutions for your customer-facing apps. For more information, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).
 
-For more information about associating an Azure subscription to Azure AD, see [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md). For more information about assigning licenses to your users, see [How to: Assign or remove Azure Active Directory licenses](license-users-groups.md).
+For more information about associating an Azure subscription to Azure AD, see [Associate or add an Azure subscription to Azure Active Directory](./how-subscriptions-associated-directory.md). For more information about assigning licenses to your users, see [How to: Assign or remove Azure Active Directory licenses](license-users-groups.md).
 
 ## Which features work in Azure AD?
 
@@ -74,7 +74,7 @@ After you choose your Azure AD license, you'll get access to some or all of the 
 |Managed identities for Azure resources|Provide your Azure services with an automatically managed identity in Azure AD that can authenticate any Azure AD-supported authentication service, including Key Vault. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).|
 |Privileged identity management (PIM)|Manage, control, and monitor access within your organization. This feature includes access to resources in Azure AD and Azure, and other Microsoft Online Services, like Microsoft 365 or Intune. For more information, see [Azure AD Privileged Identity Management](../privileged-identity-management/index.yml).|
 |Reports and monitoring|Gain insights into the security and usage patterns in your environment. For more information, see [Azure Active Directory reports and monitoring](../reports-monitoring/index.yml).|
-| Workload identities| Give an identity to your software workload (such as an application, service, script, or container) to authenticate and access other services and resources. For more information, see [workload identities faqs](../develop/workload-identities-faqs.md).
+| Workload identities| Give an identity to your software workload (such as an application, service, script, or container) to authenticate and access other services and resources. For more information, see [workload identities faqs](../workload-identities/workload-identities-faqs.md).
 
 ## Terminology
 
@@ -88,7 +88,7 @@ To better understand Azure AD and its documentation, we recommend reviewing the 
 |Account Administrator|This classic subscription administrator role is conceptually the billing owner of a subscription. This role enables you to manage all subscriptions in an account. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Service Administrator|This classic subscription administrator role enables you to manage all Azure resources, including access. This role has the equivalent access of a user who is assigned the Owner role at the subscription scope. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Owner|This role helps you manage all Azure resources, including access. This role is built on a newer authorization system called Azure role-based access control (Azure RBAC) that provides fine-grained access management to Azure resources. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Azure AD Global administrator|This administrator role is automatically assigned to whomever created the Azure AD tenant. You can have multiple Global administrators, but only Global administrators can assign administrator roles (including assigning other Global administrators) to users. For more information about the various administrator roles, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).|
+|Azure AD Global Administrator|This administrator role is automatically assigned to whomever created the Azure AD tenant. You can have multiple Global Administrators, but only Global Administrators can assign administrator roles (including assigning other Global Administrators) to users. For more information about the various administrator roles, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).|
 |Azure subscription| Used to pay for Azure cloud services. You can have many subscriptions and they're linked to a credit card.|
 |Azure tenant| A dedicated and trusted instance of Azure AD. The tenant is automatically created when your organization signs up for a Microsoft cloud service subscription. These subscriptions include Microsoft Azure, Microsoft Intune, or Microsoft 365. An Azure tenant represents a single organization.|
 |Single tenant| Azure tenants that access other services in a dedicated environment are considered single tenant.|
@@ -99,8 +99,8 @@ To better understand Azure AD and its documentation, we recommend reviewing the 
 
 ## Next steps
 
-- [Sign up for Azure Active Directory Premium](active-directory-get-started-premium.md)
+- [Sign up for Azure Active Directory Premium](./get-started-premium.md)
 
-- [Associate an Azure subscription to your Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Associate an Azure subscription to your Azure Active Directory](./how-subscriptions-associated-directory.md)
 
-- [Azure Active Directory Premium P2 feature deployment checklist](active-directory-deployment-checklist-p2.md)
+- [Azure Active Directory Premium P2 feature deployment checklist](./concept-secure-remote-workers.md)
