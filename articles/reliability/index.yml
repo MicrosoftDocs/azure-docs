@@ -39,12 +39,6 @@ landingContent:
         links:
           - text: Migrate to availability zone support
             url: availability-zones-migration-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Move Azure Single Instance Virtual Machines from regional to zonal availability zones
-            url: move-vm-regional-to-zonal-tutorial.md
-          - text: Move Azure virtual single instance machines from regional to zonal availability zones using PowerShell
-            url: move-vm-regional-to-zonal-powershell-tutorial.md
   # Card
   - title: Disaster recovery
     linkLists:
