@@ -106,6 +106,9 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 
 Returns a secret from an Azure Key Vault. Use this function to pass a secret to a secure string parameter of a Bicep module.
 
+> [!NOTE]
+> `az.getSecret` can be used in `.bicepparam` files to retrieve key vault secrets. For more information, see [getSecret](./bicep-functions-parameters-file.md#getsecret).
+
 You can only use the `getSecret` function from within the `params` section of a module. You can only use it with a `Microsoft.KeyVault/vaults` resource.
 
 ```bicep
