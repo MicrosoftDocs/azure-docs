@@ -649,6 +649,8 @@
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
+        - name: Windows AKS partner solutions
+          href: windows-aks-partner-solutions.md
     - name: Develop and run applications
       items:
         - name: Install existing applications with Helm
