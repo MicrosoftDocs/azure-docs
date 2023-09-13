@@ -18,13 +18,13 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 
 # Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript
 
-This quickstart uses a sample JavaScript (JS) single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
+This quickstart uses a sample JavaScrip (JS) single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) with Proof Key for Code Exchange (PKCE) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
 
 In this article you'll register a SPA in the Microsoft Entra admin center, and download a sample JS SPA. Next, you'll run the sample application, sign in with your personal Microsoft account or a work or school account, and sign out.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -42,7 +42,7 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 ## Add a redirect URI
 
 1. Under **Manage**, select **Authentication**.
-1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
+1. Under **Platform configurations**, select **Add a platform**. In the pane that opens, select **Single-page application**.
 1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
 1. Select **Configure** to apply the changes.
 1. Under **Platform Configurations** expand **Single-page application**.
@@ -158,7 +158,7 @@ Run the project with a web server by using Node.js:
 
     :::image type="content" source="./media/quickstarts/js-spa/quickstart-js-spa-sign-in.png" alt-text="Screenshot of JavaScript App depicting the results of the API call.":::
 
-## Sign-out from the application
+## Sign out from the application
 
 1. Find the **Sign out** link in the top right corner of the page, and select it.
 1. You'll be prompted to pick an account to sign out from. Select the account you used to sign in.
