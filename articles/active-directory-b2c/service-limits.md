@@ -33,7 +33,7 @@ The number of users able to authenticate through an Azure AD B2C tenant is gated
 
 ## Endpoint request usage
 
-Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
+Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification/), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
 
 The frequency of requests made to Azure AD B2C endpoints determines the overall token issuance capability. Azure AD B2C exposes endpoints, which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
 
@@ -177,4 +177,4 @@ The following table lists the administrative configuration limits in the Azure A
 
 - Learn about [Microsoft Graph's throttling guidance](/graph/throttling) 
 - Learn about the [validation differences for Azure AD B2C applications](../active-directory/develop/supported-accounts-validation.md)
-- Learn about [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md)
+- Learn about [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md)

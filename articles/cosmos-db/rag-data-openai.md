@@ -127,6 +127,8 @@ You can employ RAG by utilizing native vector search within Azure Cosmos DB for 
 - [Vector search with Azure Cognitive Search](../search/vector-search-overview.md)
 - [Vector search with Azure Cosmos DB for MongoDB vCore](mongodb/vcore/vector-search.md)
 - [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
+- Learn more about [Azure OpenAI embeddings](../ai-services/openai/concepts/understand-embeddings.md)
+- Learn how to [generate embeddings using Azure OpenAI](../ai-services/openai/tutorials/embeddings.md)
 
 
 
