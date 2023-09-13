@@ -251,6 +251,9 @@ This scenario includes prebuilt workflows for deploying a model to an endpoint f
 
     :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/online-endpoint-test.png" alt-text="Screenshot of Azure Machine Learning studio on the endpoints page showing how to test the endpoint." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/online-endpoint-test.png":::
 
+> [!NOTE] 
+> Make sure you have already [granted permissions to the endpoint](https://review.learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference#grant-permissions-to-the-endpoint) before you test or consume the endpoint.
+
 ## Moving to production
 
 This example scenario can be run and deployed both for Dev and production branches and environments. When you're satisfied with the performance of the prompt evaluation pipeline, Prompt Flow model, deployment in testing, development pipelines, and models can be replicated and deployed in the production environment.
