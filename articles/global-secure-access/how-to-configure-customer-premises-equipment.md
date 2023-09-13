@@ -37,8 +37,11 @@ You can set up the CPE using the Microsoft Entra admin center or using the Micro
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a **Global Secure Access Administrator**.
 1. Browse to **Global Secure Access** > **Devices** > **Remote network**.
 1. Select **View configuration** for the remote network you need to configure.
+
+    ![Screenshot of the View configuration option in the remote networks list.](media/how-to-configure-customer-premises-equipment/remote-network-view-configuration.png)
+
 1. Locate and save Microsoft's public IP address from the panel that opens.
-1. In the preferred interface for *your CPE* and enter the IP address you saved in the previous step. This step completes the IPSec tunnel configuration.
+1. In the preferred interface for *your CPE*, enter the IP address you saved in the previous step. This step completes the IPSec tunnel configuration.
 
 > [!IMPORTANT]
 >The crypto profile you specified for the device link should match with what you specify on your CPE. If you chose the "default" IKE policy when configuring the device link, use the configurations described in the [Remote network configurations](reference-remote-network-configurations.md) article.
@@ -55,6 +58,7 @@ Follow these instructions to download the connectivity information for your remo
     ```http
     https://graph.microsoft.com/beta/networkaccess/branches/{GUID}/downloadConnectivity
     ```
+---
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
