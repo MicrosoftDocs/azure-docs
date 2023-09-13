@@ -10,13 +10,13 @@ ms.author: anaharris
 ms.custom: subject-reliability
 ---
 
-# Disaster recovery guidance overview for Microsoft Azure products and services
+# Disaster recovery guidance by service
 
 A disaster is a single, major event with a larger and longer-lasting impact than an application can mitigate through the high availability part of its design. Disaster recovery (DR) is about recovering from high-impact events, such as natural disasters or failed deployments, that result in downtime and data loss. Regardless of the cause, the best remedy for a disaster is a well-defined and tested DR plan and an application design that actively supports DR.  For more information, see [What is disaster recovery?](./disaster-recovery-overview.md).
 
 The tables below lists each product that offers disaster recovery guidance and/or information. 
 
-## Azure services migration guides
+## Azure services disaster guides guides
 
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
