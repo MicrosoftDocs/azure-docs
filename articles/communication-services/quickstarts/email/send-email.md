@@ -17,7 +17,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 
 In this quick start, you'll learn about how to send email using our Email SDKs.
 
-::: zone pivot="platform-azportal"
+::: zone pivot="platform-azp"
 [!INCLUDE [Send email using Try Email in Azure Portal ](./includes/try-send-email.md)]
 ::: zone-end
 
