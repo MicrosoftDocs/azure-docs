@@ -2,7 +2,7 @@
 title: Data Collection Basics of Azure Monitor Application Insights 
 description: This article provides an overview of how to collect telemetry to send to Azure Monitor Application Insights.
 ms.topic: conceptual
-ms.date: 07/07/2023
+ms.date: 09/12/2023
 ms.reviewer: mmcc
 ---
 
