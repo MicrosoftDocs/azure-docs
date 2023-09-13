@@ -94,5 +94,5 @@ For service migration guides to availability zone support, see [Availability zon
 - [Availability of service by category](availability-service-by-category.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
 - [What are Azure regions and availability zones?](availability-zones-overview.md)
-- [Cross-region pairs in Azure | Microsoft Learn](./cross-region-replication-azure.md)
+- [Cross-region replication in Azure | Microsoft Learn](./cross-region-replication-azure.md)
 - [Training: Describe high availability and disaster recovery strategies](https://learn.microsoft.com/training/modules/describe-high-availability-disaster-recovery-strategies/) 
