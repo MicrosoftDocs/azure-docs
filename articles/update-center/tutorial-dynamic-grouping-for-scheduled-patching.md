@@ -1,5 +1,5 @@
 ---
-title: Schedule updates on Dynamic scoping (preview).
+title: Schedule updates on Dynamic scoping.
 description: In this tutorial, you learn how to group machines, dynamically apply the updates at scale.
 ms.service: azure-update-manager
 ms.date: 07/05/2023
@@ -9,7 +9,7 @@ ms.author: sudhirsneha
 #Customer intent: As an IT admin, I want dynamically apply patches on the machines as per a schedule.
 ---
 
-# Tutorial: Schedule updates on Dynamic scopes (preview)
+# Tutorial: Schedule updates on Dynamic scopes
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
  
