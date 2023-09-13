@@ -32,7 +32,6 @@ In your local environment, create a folder contains following files, the folder 
 |--image_build
 |  |--requirements.txt
 |  |--Dockerfile
-|  |--environment-build.yaml
 |  |--environment.yaml
 ```
 
@@ -67,9 +66,9 @@ RUN pip install -r requirements.txt
 > [!NOTE]
 > This docker image should be built from prompt flow base image that is `mcr.microsoft.com/azureml/promptflow/promptflow-runtime:<newest_version>`. If possible use the [latest version of the base image](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime/tags/list). 
 
-### Step 2: Use Azure Machine Learning environment to build image
+### Step 2: Create custom Azure Machine Learning environment 
 
-#### Define your environment in `environment_build.yaml`
+#### Define your environment in `environment.yaml`
 
 In your local compute, you can use the CLI (v2) to create a customized environment based on your docker image.
 
@@ -88,11 +87,11 @@ az account set --subscription <subscription ID>
 az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
 ```
 
-Open the `environment_build.yaml` file and add the following content. Replace the <environment_name_docker_build> placeholder with your desired environment name.
+Open the `environment.yaml` file and add the following content. Replace the <environment_name> placeholder with your desired environment name.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
-name: <environment_name_docker_build>
+name: <environment_name>
 build:
   path: .
 ```
@@ -102,52 +101,11 @@ build:
 ```bash
 cd image_build
 az login(optional)
-az ml environment create -f environment_build.yaml --subscription <sub-id> -g <resource-group> -w <workspace>
+az ml environment create -f environment.yaml --subscription <sub-id> -g <resource-group> -w <workspace>
 ```
 
 > [!NOTE]
 > Building the image may take several minutes.
-
-#### Locate the image in ACR
-
-Go to the environment page to find the built image in your workspace Azure Container Registry (ACR).
-
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-list.png" alt-text="Screenshot of environments on the custom tab. " lightbox = "./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-list.png":::
-
-Find the image in ACR.
-
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-acr.png" alt-text="Screenshot of environments showing the details tab of the image. " lightbox = "./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-acr.png":::
-
-> [!IMPORTANT]
-> Make sure the `Environment image build status` is `Succeeded`  before using it in the next step.
-
-### Step 3: Create a custom Azure Machine Learning environment for runtime
-
-Open the `environment.yaml` file and add the following content. Replace the `<environment_name>` placeholder with your desired environment name and change `<image_build_in_acr>` to the ACR image found in the step 2.3.
-
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
-name: <environment_name>
-image: <image_build_in_acr>
-inference_config:
-  liveness_route:
-    port: 8080
-    path: /health
-  readiness_route:
-    port: 8080
-    path: /health
-  scoring_route:
-    port: 8080
-    path: /score
-```
-
-Using following CLI command to create the environment:
-
-```bash
-cd image_build # optional if you already in this folder
-az login(optional)
-az ml environment create -f environment.yaml --subscription <sub-id> -g <resource-group> -w <workspace>
-```
 
 Go to your workspace UI page, then go to the **environment** page, and locate the custom environment you created. You can now use it to create a runtime in your Prompt flow. To learn more, see [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui).
 
