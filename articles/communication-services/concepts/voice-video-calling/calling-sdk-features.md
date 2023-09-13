@@ -29,7 +29,7 @@ Key features of the Calling SDK:
 - **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app isn't running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call.
 - **User Facing Diagnostics (UFD)** - The Calling SDK provides [events](user-facing-diagnostics.md) that are designed to provide insights into underlying issues that could affect call quality. Developers can subscribe to triggers such as weak network signals or muted microphones, ensuring that they're always aware of any factors impacting the calls.
 - **Media Stats** - The Calling SDK provides comprehensive insights into [the metrics](media-quality-sdk.md) of your VoIP and video calls. With this information, developers have a clearer understanding of call quality and can make informed decisions to further enhance their communication experience.
-- **Video Constraints** - The Calling SDK provides APIs, that gain the ability to regulate [video quality among other parameters](../../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls by adjusting parameters such as resolution and frame rate, supporting different call situations for different levels of video quality.
+- **Video Constraints** - The Calling SDK provides APIs that gain the ability to regulate [video quality among other parameters](../../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls by adjusting parameters such as resolution and frame rate supporting different call situations for different levels of video quality
 
 ## Detailed capabilities
 
