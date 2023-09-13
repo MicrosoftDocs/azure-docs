@@ -1,6 +1,6 @@
 ---
 title: Create a role-assignable group in Azure Active Directory
-description: Learn how to a role-assignable group in Azure Active Directory using the Azure portal, PowerShell, or Microsoft Graph API.
+description: Learn how to a role-assignable group in Azure Active Directory using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 With Azure AD Premium P1 or P2, you can create [role-assignable groups](groups-concept.md) and assign Azure AD roles to these groups. You create a new role-assignable group by setting **Azure AD roles can be assigned to the group** to **Yes** or by setting the `isAssignableToRole` property set to `true`. A role-assignable group can't be of dynamic membership type and you can create a maximum of 500 groups in a single tenant.
 
-This article describes how to create a role-assignable group using the Azure portal, PowerShell, or Microsoft Graph API.
+This article describes how to create a role-assignable group using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 
 ## Prerequisites
 
@@ -32,15 +32,17 @@ This article describes how to create a role-assignable group using the Azure por
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Groups** > **All groups** > **New group**.
+1. Browse to **Identity** > **Groups** > **All groups**.
 
-1. On the **New Group** tab, provide group type, name and description.
+1. Select **New group**.
+
+1. On the **New Group** page, provide group type, name and description.
 
 1. Set **Azure AD roles can be assigned to the group** to **Yes**.
 
