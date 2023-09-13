@@ -637,6 +637,7 @@ For more information about Java, see the [Java supplemental documentation](java-
 
     ```typescript
     const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+    const { trace } = require("@opentelemetry/api");
     const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
     const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
 
