@@ -9,7 +9,7 @@ ms.date: 09/04/2023
 ### Design checklist
 
 > [!div class="checklist"]
-> - activity log alerts, service health alerts, and resource health alerts are free of charge. 
+> - Activity log alerts, service health alerts, and resource health alerts are free of charge. 
 > - When using log alerts, minimize log alert frequency.
 > - When using metric alerts, minimize the number of resources being monitored.
 
