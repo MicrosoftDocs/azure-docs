@@ -1309,7 +1309,7 @@ items:
     - name: Alert types
       href: alerts/alerts-types.md
     - name: Best practices
-      href: alerts/alerts-best-practices.md
+      href: alerts-best-practices.md
     - name: Alert rules
       items:
         - name: Create or edit an alert rule
