@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/04/2022
+ms.date: 09/13/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -153,10 +153,9 @@ To use Application Proxy, install a connector on each Windows server you're usin
 
 To install the connector:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is `contoso.com`, the admin should be `admin@contoso.com` or any other admin alias on that domain.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
-1. In left navigation panel, select **Azure Active Directory**.
-1. Under **Manage**, select **Application proxy**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Select **Download connector service**.
 
     ![Download connector service to see the Terms of Service](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
@@ -187,8 +186,9 @@ You can use the Azure portal or your Windows server to confirm that a new connec
 
 To confirm the connector installed and registered correctly:
 
-1. Sign in to your tenant directory in the [Azure portal](https://portal.azure.com).
-1. In the left navigation panel, select **Azure Active Directory**, and then select **Application Proxy** under the **Manage** section. All of your connectors and connector groups appear on this page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. View a connector to verify its details. The connectors should be expanded by default. If the connector you want to view isn't expanded, expand the connector to view the details. An active green label indicates that your connector can connect to the service. However, even though the label is green, a network issue could still block the connector from receiving messages.
 
     ![Azure AD Application Proxy Connectors](./media/application-proxy-add-on-premises-application/app-proxy-connectors.png)
@@ -211,12 +211,11 @@ To confirm the connector installed and registered correctly:
 ## Add an on-premises app to Azure AD
 
 Now that you've prepared your environment and installed a connector, you're ready to add on-premises applications to Azure AD.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. In the left navigation panel, select **Azure Active Directory**.
-3. Select **Enterprise applications**, and then select **New application**.
-4. Select **Add an on-premises application** button which appears about halfway down the page in the **On-premises applications** section. Alternatively, you can select **Create your own application** at the top of the page and then select **Configure Application Proxy for secure remote access to an on-premises application**.
-5. In the **Add your own on-premises application** section, provide the following information about your application:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select **New application**.
+1. Select **Add an on-premises application** button which appears about halfway down the page in the **On-premises applications** section. Alternatively, you can select **Create your own application** at the top of the page and then select **Configure Application Proxy for secure remote access to an on-premises application**.
+1. In the **Add your own on-premises application** section, provide the following information about your application:
 
     | Field  | Description |
     | :--------------------- | :----------------------------------------------------------- |
@@ -227,7 +226,7 @@ Now that you've prepared your environment and installed a connector, you're read
     | **Pre Authentication** | How Application Proxy verifies users before giving them access to your application.<br><br>**Azure Active Directory** - Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application. We recommend keeping this option as the default so that you can take advantage of Azure AD security features like Conditional Access and Multi-Factor Authentication. **Azure Active Directory** is required for monitoring the application with Microsoft Defender for Cloud Apps.<br><br>**Passthrough** - Users don't have to authenticate against Azure AD to access the application. You can still set up authentication requirements on the backend. |
     | **Connector Group** | Connectors process the remote access to your application, and connector groups help you organize connectors and apps by region, network, or purpose. If you don't have any connector groups created yet, your app is assigned to **Default**.<br><br>If your application uses WebSockets to connect, all connectors in the group must be version 1.5.612.0 or later. |
 
-6. If necessary, configure **Additional settings**. For most applications, you should keep these settings in their default states.
+1. If necessary, configure **Additional settings**. For most applications, you should keep these settings in their default states.
 
     | Field | Description |
     | :------------------------------ | :----------------------------------------------------------- |
@@ -238,7 +237,7 @@ Now that you've prepared your environment and installed a connector, you're read
     | **Translate URLs in Application Body** | Keep this unselected unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see [Link translation with Application Proxy](./application-proxy-configure-hard-coded-link-translation.md).<br><br>Select if you plan to monitor this application with Microsoft Defender for Cloud Apps. For more information, see [Configure real-time application access monitoring with Microsoft Defender for Cloud Apps and Azure Active Directory](./application-proxy-integrate-with-microsoft-cloud-application-security.md). |
     | **Validate Backend SSL Certificate** | Select to enable backend SSL certificate validation for the application. |
 
-7. Select **Add**.
+1. Select **Add**.
 
 ## Test the application
 
