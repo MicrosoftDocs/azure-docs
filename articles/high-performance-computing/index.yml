@@ -141,15 +141,15 @@ conceptualContent:
             text: Get expert help with Azure FastTrack
       # Card
       - title: Tutorials
-          links:
-            - url: /training/modules/intro-to-hpc/2-azure-batch
-              text: Run HPC applications on Azure
-            - url: /training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/
-              text: Run Parallel Tasks in Azure Batch
-            - url: /training/modules/azure-cyclecloud-high-performance-computing/
-              text: Create, customize and manage HPC Cluster using CycleCloud
-            - url: /azure/virtual-machines/extensions/enable-infiniband
-              text: Enable Inifiniband
+        links:
+          - url: /training/modules/intro-to-hpc/2-azure-batch
+            text: Run HPC applications on Azure
+          - url: /training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/
+            text: Run Parallel Tasks in Azure Batch
+          - url: /training/modules/azure-cyclecloud-high-performance-computing/
+            text: Create, customize and manage HPC Cluster using CycleCloud
+          - url: /azure/virtual-machines/extensions/enable-infiniband
+            text: Enable Inifiniband
 
 # HPC Resourcess
 additionalContent:
