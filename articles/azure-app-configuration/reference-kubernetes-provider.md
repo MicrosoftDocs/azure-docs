@@ -322,7 +322,7 @@ spec:
     configMapName: configmap-created-by-appconfig-provider
 ```
 
-the generated ConfigMap is populated with the following data:
+the generated ConfigMap will be populated with the following data:
 
 ``` yaml
 data:
