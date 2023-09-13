@@ -16,7 +16,7 @@ A disaster is a single, major event with a larger and longer-lasting impact than
 
 The tables below lists each product that offers disaster recovery guidance and/or information. 
 
-## Azure services disaster guides guides
+## Azure services disaster recovery  guides
 
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
