@@ -28,7 +28,7 @@ You can manage the pricing tier of your Azure Maps account through the [Azure po
 
 ### Azure portal
 
-To change your pricing tier from Gen1 to Gen2 in the Azure Portal, navigate to the Pricing tier option in the settings menu of your Azure Maps account. Select Gen2 from the Pricing tier drop down list then the Save button.
+To change your pricing tier from Gen1 to Gen2 in the Azure Portal, navigate to the Pricing tier option in the settings menu of your Azure Maps account. Select Gen2 from the Pricing tier drop-down list then the Save button.
 
 > [!NOTE]
 > You don't have to generate new subscription keys, client ID (for Azure AD authentication) or shared access signature (SAS) tokens if you change the pricing tier for your Azure Maps account.
