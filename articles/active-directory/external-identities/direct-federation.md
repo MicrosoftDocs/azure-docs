@@ -286,7 +286,7 @@ To remove a configuration for an IdP in the Microsoft Entra admin center:
 
 1. Select **OK** to confirm deletion.
 
-You can also remove federation using the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true ) resource type.
+You can also remove federation using the Microsoft Graph API [samlOrWsFedExternalDomainFederation](/graph/api/resources/samlorwsfedexternaldomainfederation?view=graph-rest-beta&preserve-view=true) resource type.
 
 ## Next steps
 

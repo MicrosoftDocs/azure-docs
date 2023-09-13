@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 08/10/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Event Grid output binding for Azure Functions
@@ -15,6 +15,9 @@ Use the Event Grid output binding to write events to a custom topic. You must ha
 
 For information on setup and configuration details, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -279,7 +282,38 @@ class EventGridEvent {
 ```
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript" 
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that outputs a single event:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridOutput1.ts" :::
+
+To output multiple events, return an array instead of a single object. For example:
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridOutput2.ts" id="displayInDocs" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end
 ::: zone pivot="programming-language-javascript" 
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that outputs a single event:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridOutput1.js" :::
+
+To output multiple events, return an array instead of a single object. For example:
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridOutput2.js" id="displayInDocs" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows the Event Grid output binding data in the *function.json* file.
 
@@ -336,6 +370,8 @@ module.exports = async function(context) {
     });
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -530,7 +566,34 @@ public class Function {
 }
 ```
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+## Configuration
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `output.eventGrid()` method.
+
+| Property | Description |
+|---------|---------|----------------------|
+|**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
+|**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|---------|----------------------|
+|**type** | Must be set to `eventGrid`. |
+|**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
+|**name** | The variable name used in function code that represents the event. |
+|**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
+|**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
@@ -607,9 +670,17 @@ Functions version 1.x doesn't support isolated worker process.
 Send individual messages by calling a method parameter such as `out EventGridOutput paramName`, and write multiple messages with `ICollector<EventGridOutput>`.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+Access the output message by returning the value directly or using `context.extraOutputs.set()`.
+
+# [Model v3](#tab/nodejs-v3)
 
 Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

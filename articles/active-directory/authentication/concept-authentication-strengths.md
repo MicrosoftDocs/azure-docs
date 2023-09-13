@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/23/2023
+ms.date: 08/28/2023
 
 ms.author: justinha
 author: justinha
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access authentication strength 
 
-Authentication strength is a Conditional Access control that allows administrators to specify which combination of authentication methods can be used to access a resource. For example, they can make only phishing-resistant authentication methods available to access a sensitive resource. But to access a nonsensitive resource, they can allow less secure multifactor authentication (MFA) combinations, such as password + SMS. 
+Authentication strength is a Conditional Access control that allows administrators to specify which combination of authentication methods can be used to access a resource. For example, they can make only phishing-resistant authentication methods available to access a sensitive resource. But to access a nonsensitive resource, they can allow less secure multifactor authentication (MFA) combinations, such as password + text message. 
 
 Authentication strength is based on the [Authentication methods policy](concept-authentication-methods.md), where administrators can scope authentication methods for specific users and groups to be used across Azure Active Directory (Azure AD) federated applications. Authentication strength allows further control over the usage of these methods based upon specific scenarios such as sensitive resource access, user risk, location, and more. 
 
@@ -80,7 +80,7 @@ The following table lists the combinations of authentication methods for each bu
 |Email One-time pass (Guest)| | | |
 -->
 
-<sup>1</sup> Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token and Hardware OATH token.
+<sup>1</sup> Something you have refers to one of the following methods: text message, voice, push notification, software OATH token and Hardware OATH token.
 
 The following API call can be used to list definitions of all the built-in authentication strengths:
 
@@ -137,7 +137,7 @@ Users may register for authentications for which they are enabled, and in other 
 
 ### How an authentication strength policy is evaluated during sign-in 
 
-The authentication strength Conditional Access policy defines which methods can be used. Azure AD checks the policy during sign-in to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or Password + SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy. To be used, a method must be allowed, registered by the user (either before or as part of the access request), and satisfy the authentication strength. 
+The authentication strength Conditional Access policy defines which methods can be used. Azure AD checks the policy during sign-in to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or Password + text message. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy. To be used, a method must be allowed, registered by the user (either before or as part of the access request), and satisfy the authentication strength. 
 
  
 ### How multiple Conditional Access authentication strength policies are evaluated 
@@ -170,7 +170,7 @@ The following factors determine if the user gains access to the resource:
 - Which methods are allowed for user sign-in in the Authentication methods policy?
 - Is the user registered for any available method?
 
-When a user accesses a resource protected by an authentication strength Conditional Access policy, Azure AD evaluates if the methods they have previously used satisfy the authentication strength. If a satisfactory method was used, Azure AD grants access to the resource. For example, let's say a user signs in with password + SMS. They access a resource protected by MFA authentication strength. In this case, the user can access the resource without another authentication prompt.
+When a user accesses a resource protected by an authentication strength Conditional Access policy, Azure AD evaluates if the methods they have previously used satisfy the authentication strength. If a satisfactory method was used, Azure AD grants access to the resource. For example, let's say a user signs in with password + text message. They access a resource protected by MFA authentication strength. In this case, the user can access the resource without another authentication prompt.
 
 Let's suppose they next access a resource protected by Phishing-resistant MFA authentication strength. At this point, they'll be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
 
@@ -205,7 +205,7 @@ In external user scenarios, the authentication methods that can satisfy authenti
 
 |Authentication method  |Home tenant  | Resource tenant  |
 |---------|---------|---------|
-|SMS as second factor                         | &#x2705;        | &#x2705; |
+|text message as second factor                         | &#x2705;        | &#x2705; |
 |Voice call                                   | &#x2705;        | &#x2705; |
 |Microsoft Authenticator push notification    | &#x2705;        | &#x2705; |
 |Microsoft Authenticator phone sign-in        | &#x2705;        |          |
