@@ -134,4 +134,4 @@ Azure Cognitive Search uses Hierarchical Navigable Small Worlds (HNSW), which is
 + [Try the quickstart](search-get-started-vector.md)
 + [Learn more about vector indexing](vector-search-how-to-create-index.md)
 + [Learn more about vector queries](vector-search-how-to-query.md)
-
++ [Azure Cognitive Search and LangChain: A Seamless Integration for Enhanced Vector Search Capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-and-langchain-a-seamless-integration-for/ba-p/3901448)
