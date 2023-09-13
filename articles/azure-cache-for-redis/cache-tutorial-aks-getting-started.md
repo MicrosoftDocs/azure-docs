@@ -27,11 +27,11 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 
 1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](quickstart-create-redis.md) to get started.
 
-    For this tutorial, use a Standard C1 cache. 
+    For this tutorial, use a Standard C1 cache.
     :::image type="content" source="media/cache-tutorial-aks-getting-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
 
 1. On the **Advanced** tab, enable **Non-TLS port**.
-    :::image type="content" source="media/cache-tutorial-aks-getting-started/cache-non-tls.png" alt-text="Screenshot of the the Advanced tab with Non-TLS enabled during cache creation.":::
+    :::image type="content" source="media/cache-tutorial-aks-getting-started/cache-non-tls.png" alt-text="Screenshot of the Advanced tab with Non-TLS enabled during cache creation.":::
 
 1. Follows the steps through to create the cache.
 
@@ -40,15 +40,16 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 
 Creating the cache can take a few minutes. You can move to the next section while the process finishes.
 
-## Connect to your AKS cluster
+## Install and connect to your AKS cluster
 
 ### Install the Kubernetes CLI
 
-Use the Kubernetes CLI, _kubectl_ , to connect to the Kubernetes cluster from your local computer. If you are running locally, then you can using the following command to install kubectl.
+Use the Kubernetes CLI, _kubectl_, to connect to the Kubernetes cluster from your local computer. If you're running locally, then you can use the following command to install _kubectl_.
 
 ```bash
 az aks install-cli
 ```
+
 If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip this step.
 
 ### Connect to your AKS cluster
@@ -59,7 +60,7 @@ Use the portal to copy the resource group and cluster name for your AKS cluster.
  az aks get-credentials --resource-group myResourceGroup --name myClusterName
  ```
 
-Verify that you are able to connect to your cluster by running the following command:
+Verify that you're able to connect to your cluster by running the following command:
 
 ```bash
 kubectl get nodes
@@ -80,7 +81,7 @@ Use the [.yml file](https://github.com/Azure-Samples/azure-voting-app-redis/blob
 
 Make the following changes to the deployment file before you save the file as _azure-vote-sample.yaml_.
 
-1. Remove the deployment and service named `azure-vote-back``. This deployment is used to deploy a Redis container to your cluster htat is not required when using Azure Cache for Redis.
+1. Remove the deployment and service named `azure-vote-back``. This deployment is used to deploy a Redis container to your cluster that isn't required when using Azure Cache for Redis.
 
 2. Replace the value `REDIS` variable from "azure-vote-back" to the _hostname_ of the Azure Cache for Redis instance that you created earlier. This change indicates that your application should use Azure Cache for Redis instead of a Redis container.
 
@@ -146,7 +147,7 @@ Run the following command to deploy this application to your AKS cluster:
 kubectl apply -f azure-vote-sample.yaml
 ```
 
-You will get a response indicating your deployment and service was created:
+You get a response indicating your deployment and service was created:
 
 ```output
 deployment.apps/azure-vote-front created
@@ -167,6 +168,7 @@ azure-vote-front-7dd44597dd-p4cnq   1/1     Running                      0      
 ```
 
 Run the following command to get the endpoint for your application:
+
 ```bash
 kubectl get service azure-vote-front
 ```
@@ -178,7 +180,7 @@ NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)    
 azure-vote-front       LoadBalancer   10.0.166.147   20.69.136.105   80:30390/TCP   90s
 ```
 
-Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running like below:
+Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running as follows:
 
 :::image type="content" source="media/cache-tutorial-aks-getting-started/cache-web-voting-app.png" alt-text="Screenshot of the voting application running in a browser with buttons for cats, dogs, and reset.":::
 
@@ -194,6 +196,6 @@ kubectl delete service azure-vote-front
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related Content
-<!-- Do we want this particular link in this section.
 
-- [Use Azure Key Vault Provider to securely store your access key](https://learn.microsoft.com/azure/aks/csi-secrets-store-driver) -->
+- [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
+- [AKS sample voting application](https://github.com/Azure-Samples/azure-voting-app-redis/tree/master)
