@@ -18,11 +18,11 @@ config.snapshotPathTemplate = '{snapshotDir}/{testFileDir}/{testFileName}-snapsh
 config.snapshotPathTemplate = '{testDir}/__screenshots__/{testFilePath}/linux/{arg}{ext}';
 ```
 
-Our recommendation is to set `ignoreSnapshots: true` in the original `playwright.config.ts` that does not use the service. If you are taking screenshots on the service, there is no need to compare them to your local setup since they will never match. Set `snapshotPathTemplate` to a separate directory and `ignoreSnapshots: false` in the service config.
+Our recommendation is to set `ignoreSnapshots: true` in the original `playwright.config.ts` that doesn't use the service. If you're taking screenshots on the service, there's no need to compare them to your local setup since they'll never match. Set `snapshotPathTemplate` to a separate directory and `ignoreSnapshots: false` in the service config.
 
 ## Example service config
 
-Below is an example service config that sets the OS to linux, then the OS variable gets referenced in the path for `snapshotPathTemplate`:
+This is an example service config that sets the OS to linux, then the OS variable gets referenced in the path for `snapshotPathTemplate`:
 
 ```ts
 import { defineConfig } from '@playwright/test';
