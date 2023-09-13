@@ -8,7 +8,7 @@ ms.date: 08/23/2023
 ms.author: sudhirsneha
 ---
 
-# Guidance on patching while migrating from Microsoft Configuration Manager to Azure
+# Guidance on migrating Azure VMs from Microsoft Configuration Manager to Azure 
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -26,16 +26,16 @@ Customers [extend and migrate an on-premises site to Azure](/mem/configmgr/core/
 
 ## Migrate to Azure Update Manager
 
-MCM offers [multiple features and capabilities](/mem/configmgr/core/plan-design/changes/features-and-capabilities) and software [update management](/mem/configmgr/sum/understand/software-updates-introduction) is one of these.By using MCM in Azure, you can continue with the existing investments in MCM and processes to maintain the patch update management cycle for Windows VMs.
+MCM offers [multiple features and capabilities](/mem/configmgr/core/plan-design/changes/features-and-capabilities) and software [update management](/mem/configmgr/sum/understand/software-updates-introduction) is one of these.By using MCM in Azure, you can continue with the existing investments in MCM and processes to manage update cycle for Windows VMs.
 
-Specifically for update management or patching as per your requirements you can also use the native [Azure Update Manager](overview.md) to manage and govern update compliance for Windows and Linux machines across your deployments in a consistent manner. Unlike MCM that needs maintaining Azure virtual machines for hosting the different Configuration Manager roles. Azure Update Manager is designed as a standalone Azure service to provide SaaS experience on Azure to manage hybrid environments. You don't need license to use Azure Update Manager.
+**Specifically for update management or patching**, as per your requirements, you can also use the native [Azure Update Manager](overview.md) to manage and govern update compliance for Windows and Linux machines across your deployments in a consistent manner. Unlike MCM that needs maintaining Azure virtual machines for hosting the different Configuration Manager roles. Azure Update Manager is designed as a standalone Azure service to provide SaaS experience on Azure to manage hybrid environments. You don't need license to use Azure Update Manager.
 
 > [!NOTE]
 > Azure Update Manager does not provide migration support for Azure VMs in MCM. For example, configurations.
 
 ## Software update management capability map
 
-The following table maps the software update management capabilities of MCM to Azure Update Manager.
+The following table maps the **software update management capabilities** of MCM to Azure Update Manager.
 
 **Capability** | **Microsoft Configuration Manager** | **Azure Update Manager** |
 --- | --- | --- |
