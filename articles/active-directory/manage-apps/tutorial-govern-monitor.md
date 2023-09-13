@@ -7,7 +7,7 @@ ms.author: jomondi
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
-ms.date: 07/19/2022
+ms.date: 09/07/2023
 ms.reviewer: saibandaru
 ms.custom: enterprise-apps
 
@@ -29,7 +29,7 @@ Using the information in this tutorial, an administrator of the application lear
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Privileged Role Administrator, Cloud Application Administrator, or Application Administrator.
+- One of the following roles: Global Administrator, Identity Governance Administrator, Privileged Role Administrator, Cloud Application Administrator, or Application Administrator.
 - An enterprise application that has been configured in your Azure AD tenant.
 
 ## Create an access review
@@ -41,9 +41,8 @@ The administrator wants to make sure that users or guests have appropriate acces
 
 To create an access review:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites.
-1. Go to **Azure Active Directory**, and then select **Identity Governance**.
-1. On the left menu, select **Access reviews**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Identity Governance** > **Access reviews**.
 1. Select **New access review** to create a new access review.
 1. In **Select what to review**, select **Applications**.
 1. Select **+ Select application(s)**, select the application, and then choose **Select**.
@@ -75,8 +74,7 @@ If you've assigned guests as reviewers and they haven't accepted their invitatio
 
 You can track the progress of access reviews as they are completed.
  
-1. Go to **Azure Active Directory**, and then select **Identity Governance**.
-1. In the left menu, select **Access reviews**.
+1. Go to **Identity** > **Identity Governance** > **Access reviews**.
 1. In the list, select the access review you created.
 1. On the **Overview** page, check the progress of the access review. 
 
@@ -86,7 +84,7 @@ The **Results** page provides information on each user under review in the insta
 
 The audit logs report combines several reports around application activities into a single view for context-based reporting. For more information, see [Audit logs in Azure Active Directory](../reports-monitoring/concept-audit-logs.md).
 
-To access the audit logs report, select **Audit logs** from the **Activity** section of the Azure Active Directory page.
+To access the audit logs report, go to **Identity** > **Monitoring & health** > **Audit logs**.
 
 The audit logs report consolidates the following reports:
 
@@ -102,7 +100,7 @@ The audit logs report consolidates the following reports:
 
 The Sign-ins view includes all user sign-ins, and the Application Usage report. You also can view application usage information in the Manage section of the Enterprise applications overview. For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md)
 
-To access the sign-in logs report, select **Sign-ins** from the **Monitoring** section of the Azure Active Directory blade.
+To access the sign-in logs report, go to **Identity** > **Monitoring & health** > **Sign-in logs**.
 
 ## Send logs to Azure Monitor
 

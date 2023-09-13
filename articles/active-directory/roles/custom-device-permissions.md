@@ -1,6 +1,6 @@
 ---
 title: Device management permissions for Azure AD custom roles
-description: Device management permissions for Azure AD custom roles in the Azure portal, PowerShell, or Microsoft Graph API.
+description: Device management permissions for Azure AD custom roles in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -25,7 +25,7 @@ Device management permissions can be used in custom role definitions in Azure Ac
 - Read device registration policies
 - Update device registration policies
 
-This article lists the permissions you can use in your custom roles for different device management scenarios. For information about how to create custom roles, see [Create and assign a custom role](custom-create.md).
+This article lists the permissions you can use in your custom roles for different device management scenarios. For information about how to create custom roles, see [Create and assign a custom role in Azure Active Directory](custom-create.md).
 
 ## Enable or disable devices
 
@@ -60,7 +60,7 @@ The following permission is available to read tenant-wide device registration se
 
 - microsoft.directory/deviceRegistrationPolicy/standard/read
 
-You can read device settings in the Azure portal.
+You can read device settings in the Microsoft Entra admin center.
 
 ![Screenshot showing Device settings page in Azure portal.](./media/custom-device-permissions/device-settings.png)
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to analyze anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/23/2023
 ms.author: akashdubey

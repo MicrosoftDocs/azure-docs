@@ -48,8 +48,7 @@ In addition to policies for users to request access, you can also have policies 
 | I want some users to request access and other users to be assigned access by an administrator | Two |
 | I want some users in my organization to receive access automatically, other users in my organization to be able to request, and other users to be assigned access by an administrator | Three |
 
-For information about the priority logic that is used when multiple policies apply, see [Multiple policies](entitlement-management-troubleshoot.md#multiple-policies
-).
+For information about the priority logic that is used when multiple policies apply, see [Multiple policies](entitlement-management-troubleshoot.md#multiple-policies).
 
 ## Open an existing access package and add a new policy with different request settings
 
@@ -57,7 +56,7 @@ For information about the priority logic that is used when multiple policies app
 
 If you have a set of users that should have different request and approval settings, you'll likely need to create a new policy. Follow these steps to start adding a new policy to an existing access package:
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -131,7 +130,7 @@ Follow these steps if you want to allow users not in your directory to request t
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All configured connected organizations** | Choose this option if all users from all your configured connected organizations can request this access package. Only users from configured connected organizations can request access packages, so if a user is not from an Azure AD tenant, domain or identity provider associated with an existing connected organization, they will not be able to request. |
-    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State property of connected organizations](entitlement-management-organization.md#state-property-of-connected-organizations). |
+    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don't belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State property of connected organizations](entitlement-management-organization.md#state-property-of-connected-organizations). |
 
 
 1. If you selected **Specific connected organizations**, click **Add directories** to select from a list of connected organizations that your administrator previously added.
@@ -171,7 +170,7 @@ Follow these steps if you want to bypass access requests and allow administrator
 
 To change the request and approval settings for an access package, you need to open the corresponding policy with those settings. Follow these steps to open and edit the request settings for an access package assignment policy:
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -234,36 +233,36 @@ Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 $apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
 
 $params = @{
-	displayName = "New Policy"
-	description = "policy for assignment"
-	allowedTargetScope = "notSpecified"
-	specificAllowedTargets = @(
-	)
-	expiration = @{
-		endDateTime = $null
-		duration = $null
-		type = "noExpiration"
-	}
-	requestorSettings = @{
-		enableTargetsToSelfAddAccess = $false
-		enableTargetsToSelfUpdateAccess = $false
-		enableTargetsToSelfRemoveAccess = $false
-		allowCustomAssignmentSchedule = $true
-		enableOnBehalfRequestorsToAddAccess = $false
-		enableOnBehalfRequestorsToUpdateAccess = $false
-		enableOnBehalfRequestorsToRemoveAccess = $false
-		onBehalfRequestors = @(
-		)
-	}
-	requestApprovalSettings = @{
-		isApprovalRequiredForAdd = $false
-		isApprovalRequiredForUpdate = $false
-		stages = @(
-		)
-	}
-	accessPackage = @{
-		id = $apid
-	}
+    displayName = "New Policy"
+    description = "policy for assignment"
+    allowedTargetScope = "notSpecified"
+    specificAllowedTargets = @(
+    )
+    expiration = @{
+        endDateTime = $null
+        duration = $null
+        type = "noExpiration"
+    }
+    requestorSettings = @{
+        enableTargetsToSelfAddAccess = $false
+        enableTargetsToSelfUpdateAccess = $false
+        enableTargetsToSelfRemoveAccess = $false
+        allowCustomAssignmentSchedule = $true
+        enableOnBehalfRequestorsToAddAccess = $false
+        enableOnBehalfRequestorsToUpdateAccess = $false
+        enableOnBehalfRequestorsToRemoveAccess = $false
+        onBehalfRequestors = @(
+        )
+    }
+    requestApprovalSettings = @{
+        isApprovalRequiredForAdd = $false
+        isApprovalRequiredForUpdate = $false
+        stages = @(
+        )
+    }
+    accessPackage = @{
+        id = $apid
+    }
 }
 
 New-MgEntitlementManagementAssignmentPolicy -BodyParameter $params

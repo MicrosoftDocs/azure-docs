@@ -40,21 +40,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | `authenticationKey` |
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | `operatorKeyCode` |
 | The type of device using this SIM. This value is an optional free-form string. You can use it as required to easily identify device types using the enterprise's private mobile network.  | `deviceType` |
-| The SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. You'll need to assign a SIM policy if you want to set static IP addresses to the SIM during provisioning. | `simPolicyId` |
-
-### Collect the required information for assigning static IP addresses
-
-You only need to complete this step if you've configured static IP address allocation for your packet core instance(s) and you want to assign static IP addresses to the SIMs during SIM provisioning.
-
-Collect the values in the following table for each SIM you want to provision. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to this SIM, collect the values for each IP address.
-
-Each IP address must come from the pool you assigned for static IP address allocation when creating the relevant data network, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools).
-
-| Value | Parameter name |
-|--|--|--|
-| The data network that the SIM will use. | `staticIpConfiguration.attachedDataNetworkId` |
-| The network slice that the SIM will use. | `staticIpConfiguration.sliceId` |
-| The static IP address to assign to the SIM.  | `staticIpConfiguration.staticIpAddress` |
+| The SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. | `simPolicyId` |
 
 ## Prepare one or more arrays for your SIMs
 
@@ -63,7 +49,7 @@ Use the information you collected in [Collect the required information for your 
 > [!IMPORTANT]
 > Bulk SIM provisioning is limited to 500 SIMs. If you want to provision more that 500 SIMs, you must create multiple SIM arrays with no more than 500 SIMs in any one array and repeat the provisioning process for each SIM array.
 
-If you don't want to configure static IP addresses for a SIM, delete the `staticIpConfiguration` parameter for that SIM. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to the same SIM, you can include additional `attachedDataNetworkId`, `sliceId` and `staticIpAddress` parameters for each IP address under `staticIpConfiguration`.
+Delete the `staticIpConfiguration` parameter for that SIM.
 
 ```json
 [
@@ -166,4 +152,4 @@ The following Azure resources are defined in the template.
 
 ## Next steps
 
-If you've configured static IP address allocation for your packet core instance(s) and you haven't already assigned static IP addresses to the SIMs you've provisioned, you can do so by following the steps in [Assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses).
+You can [Manage these SIMs](manage-existing-sims.md) using the Azure portal.
