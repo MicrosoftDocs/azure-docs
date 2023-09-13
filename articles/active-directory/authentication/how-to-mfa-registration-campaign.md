@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/08/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: mjsantani
@@ -70,9 +70,9 @@ In addition to choosing who can be nudged, you can define how many days a user c
  
    ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
 
-## Enable the registration campaign policy using the portal
+## Enable the registration campaign policy using the Microsoft Entra admin center
 
-To enable a registration campaign in the Azure portal, complete the following steps:
+To enable a registration campaign in the Microsoft Entra admin center, complete the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 1. Browse to **Protection** > **Authentication methods** > **Registration campaign**.
@@ -84,7 +84,7 @@ To enable a registration campaign in the Azure portal, complete the following st
 
 ## Enable the registration campaign policy using Graph Explorer
 
-In addition to using the Azure portal, you can also enable the registration campaign policy using Graph Explorer. To enable the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+In addition to using the Microsoft Entra admin center, you can also enable the registration campaign policy using Graph Explorer. To enable the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global Administrators** and **Authentication Method Policy Administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 

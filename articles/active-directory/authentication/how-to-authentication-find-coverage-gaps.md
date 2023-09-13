@@ -58,3 +58,7 @@ After your admins are enforced for multifactor authentication and have been usin
 - [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 
 You can read more about these authentication methods and their security considerations in [Azure AD authentication methods](concept-authentication-methods.md).
+
+## Next steps
+
+[Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)
