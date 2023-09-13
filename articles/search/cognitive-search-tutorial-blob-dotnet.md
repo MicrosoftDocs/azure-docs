@@ -514,8 +514,10 @@ private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerCli
 {
     SearchIndexerSkillset skillset = new SearchIndexerSkillset("demoskillset", skills)
     {
+        // Azure AI services was formerly known as Cognitive Services.
+        // The APIs still use the old name, so we need to create a CognitiveServicesAccountKey object.
         Description = "Demo skillset",
-        AzureAiServicesAccount = new AzureAiServicesAccountKey(azureAiServicesKey)
+        CognitiveServicesAccount = new CognitiveServicesAccountKey(azureAiServicesKey)
     };
 
     // Create the skillset in your search service.
