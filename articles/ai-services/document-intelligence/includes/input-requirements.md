@@ -12,7 +12,7 @@ ms.author: lajanuar
 
 * Supported file formats: 
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML|
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ |   |
