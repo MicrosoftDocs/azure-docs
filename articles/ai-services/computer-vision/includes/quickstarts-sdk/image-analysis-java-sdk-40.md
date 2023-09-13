@@ -24,7 +24,7 @@ Use the Image Analysis client SDK for Java to analyze an image to read text and 
 ## Prerequisites
 
 * A Windows 10 (or higher) x64, or Linux x64 machine.
-* [Java 8](https://www.java.com/download/) or newer installed. Run `java -version` from a command line to see your version and confirm a successful install. Make sure that the Java installation is native to the system architecture and not running through emulation.
+* [Java 8](https://www.java.com/download/) or newer installed. Run `java -version` from a command line to see your version and confirm a successful installation. Make sure that the Java installation is native to the system architecture and not running through emulation.
 * [Apache Maven](https://maven.apache.org/download.cgi) installed. On Linux, install from the distribution repositories if available. Run `mvn -v` to confirm successful installation.
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, select **Go to resource**.
@@ -38,13 +38,51 @@ Open a console window and create a new folder for your quickstart application.
 
 1. Open a text editor and copy the following content to a new file. Save the file as `pom.xml` in your project directory
 
-[!INCLUDE][](https://raw.githubusercontent.com/Azure-Samples/azure-ai-vision-sdk/main/docs/learn.microsoft.com/java/image-analysis/quick-start/pom.xml)]
+<!-- [!INCLUDE][](https://raw.githubusercontent.com/Azure-Samples/azure-ai-vision-sdk/main/docs/learn.microsoft.com/java/image-analysis/quick-start/pom.xml)] -->
 
+  ```xml
+  <project xmlns="http://maven.apache.org/POM/4.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>azure.ai.vision.imageanalysis.samples</groupId>
+    <artifactId>image-analysis-quickstart</artifactId>
+    <version>0.0</version>
+    <dependencies>
+      <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis -->
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-ai-vision-imageanalysis</artifactId>
+        <version>0.15.1-beta.1</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/com.azure/azure-core-http-netty -->
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-core-http-netty</artifactId>
+        <version>1.13.6</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>2.0.7</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.7</version>
+      </dependency>
+    </dependencies>
+  </project>
+  ```
 2. Install the SDK and dependencies by running the following in the project directory:
 
   ```console
   mvn clean dependency:copy-dependencies
   ```
+
+3. Once the operation succeeds, verify that the folders `target\dependency` were creating and they contain `.jar` file.
 
 For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-java).
 
@@ -57,11 +95,19 @@ Open a text editor and copy the following content to a new file. Save the file a
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/quick-start/ImageAnalysis.java?name=snippet_single)]
 
 > [!TIP]
-> You can also analyze a local image or an image from memory buffer. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/java/image-analysis/src/azure/ai/vision/imageanalysis/samples/Samples.java) repository for these and other scenarios.
+> The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
-Build and run the application by running the following in the project directory:
+To compile the Java file, run the following:
+
 ```console
 javac ImageAnalysis.java -cp ".;target\dependency\*"
+``` 
+
+You should see the file `ImageAnalysis.class` created in the current folder.
+
+To run the application:
+
+```console
 java -cp ".;target\dependency\*" ImageAnalysis
 ``` 
 
