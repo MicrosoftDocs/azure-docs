@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 08/31/2023
+ms.date: 09/13/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -22,7 +22,7 @@ The following table lists the current versions available for the public and Insi
 
 ## Updates for version 1.2.4582 (Insider)
 
-*Date published: August 29, 2023*
+*Date published: September 12, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
