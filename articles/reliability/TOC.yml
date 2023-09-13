@@ -189,7 +189,7 @@
       - name: Azure Cognitive Search
         href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Cosmos DB
-        href: ../cosmos-db/how-to-multi-master.md?tabs=api-async?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../cosmos-db/how-to-multi-master.md??toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=api-async
       - name: Azure Database for MySQL
         href: /azure/mysql/single-server/concepts-business-continuity?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#recover-from-an-azure-regional-data-center-outage
       - name: Azure Database for MySQL - Flexible Server
