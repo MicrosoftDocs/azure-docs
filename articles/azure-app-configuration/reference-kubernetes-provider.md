@@ -297,9 +297,9 @@ spec:
 
 Applications running in Kubernetes typically consume the ConfigMap either as environment variables or as configuration files. If the `configMapData.type` property is absent or is set to environment variables, the ConfigMap is populated with the itemized list of data retrieved from Azure App Configuration, which can be easily consumed as environment variables. If the `configMapData.type` property is set to json, yaml or properties, data retrieved from Azure App Configuration is grouped into one item with key name specified by the `configMapData.key` property in the generated ConfigMap, which can be consumed as a mounted file.
 
-Following examples show you how the data is populated in the generated ConfigMap with different setting of `configMapData.type` property.
+The following examples show how the data is populated in the generated ConfigMap with different settings of the `configMapData.type` property.
 
-Assume these key-values are selected from Azure App Configuration:
+Assuming an App Configuration store has these key-values:
 
 |key|value|
 |---|---|
@@ -309,7 +309,7 @@ Assume these key-values are selected from Azure App Configuration:
 
 #### [default](#tab/default)
 
-`configMapData.type` property absent or set to `default`.
+and the `configMapData.type` property is absent or set to `default`,
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -321,22 +321,8 @@ spec:
   target:
     configMapName: configmap-created-by-appconfig-provider
 ```
-or 
 
-``` yaml
-apiVersion: azconfig.io/v1beta1
-kind: AzureAppConfigurationProvider
-metadata:
-  name: appconfigurationprovider-sample
-spec:
-  endpoint: <your-app-configuration-store-endpoint>
-  target:
-    configMapName: configmap-created-by-appconfig-provider
-    configMapData:
-      type: default
-```
-
-The generated ConfigMap is populated with the following data:
+the generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -347,7 +333,7 @@ data:
 
 #### [json](#tab/json)
 
-Set `configMapData.type` property to `json`.
+and the `configMapData.type` property is set to `json`,
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -363,7 +349,7 @@ spec:
       key: appSettings.json
 ```
 
-The generated ConfigMap is populated with the following data:
+the generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -373,7 +359,7 @@ data:
 
 #### [yaml](#tab/yaml)
 
-Set `configMapData.type` property to `yaml`.
+and the `configMapData.type` property is set to `yaml`,
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -389,7 +375,7 @@ spec:
       key: appSettings.yaml
 ```
 
-The generated ConfigMap is populated with the following data:
+the generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
@@ -401,7 +387,7 @@ data:
 
 #### [properties](#tab/properties)
 
-Set `configMapData.type` property to `properties`.
+and the `configMapData.type` property is set to `properties`,
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -417,7 +403,7 @@ spec:
       key: app.properties
 ```
 
-The generated ConfigMap is populated with the following data:
+the generated ConfigMap is populated with the following data:
 
 ``` yaml
 data:
