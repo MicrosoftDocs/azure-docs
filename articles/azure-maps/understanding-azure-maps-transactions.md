@@ -16,7 +16,7 @@ When you use [Azure Maps Services], the API requests you make generate transac
 
 > [!NOTE]
 >
-> **Azure Maps Gen1 Price Tier Retirement**
+> **Azure Maps Gen1 price tier retirement**
 >
 > Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
