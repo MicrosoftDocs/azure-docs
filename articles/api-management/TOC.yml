@@ -108,7 +108,7 @@
         - name: DevOps and CI/CD
           href: devops-api-development-templates.md 
   - name: Self-host the gateway
-          items:
+    items:
           - name: Self-hosted gateway overview
             href: self-hosted-gateway-overview.md
           - name: Provision a self-hosted gateway
@@ -194,11 +194,11 @@
             href: restify-soap-api.md
           - name: Import a WebSocket API
             href: websocket-api.md
-          - name: GraphQL APIs
+          - name: GraphQL
             items:
             - name: GraphQL API options
               href: graphql-apis-overview.md
-            - name: Import a GraphQL API
+            - name: Import a passthrough GraphQL API
               href: graphql-api.md
             - name: Import and resolve GraphQL schema
               href: graphql-schema-resolve-api.md
@@ -213,10 +213,16 @@
             href: import-logic-app-as-api.md
           - name: Configure Service Fabric backend
             href: how-to-configure-service-fabric-backend.md
-          - name: Import OData API
-            href: import-api-from-odata.md
-          - name: Import SAP OData metadata
-            href: sap-api.md
+          - name: OData
+            items:
+            - name: Import OData API
+              href: import-api-from-odata.md
+            - name: Import SAP OData metadata
+              href: sap-api.md
+          - name: Azure OpenAI
+            items:
+            - name: Protect Azure OpenAI keys
+              href: /semantic-kernel/deploy/use-ai-apis-with-api-management?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
           - name: Configure API for SSE
             href: how-to-server-sent-events.md
           - name: API import restrictions
