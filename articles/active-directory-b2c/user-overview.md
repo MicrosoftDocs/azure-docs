@@ -29,14 +29,14 @@ The following types of accounts are available:
 
 ## Work account
 
-A work account is created the same way for all tenants based on Azure AD. To create a work account, you can use the information in [Quickstart: Add new users to Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). A work account is created using the **New user** choice in the Azure portal.
+A work account is created the same way for all tenants based on Azure AD. To create a work account, you can use the information in [Quickstart: Add new users to Azure Active Directory](../active-directory/fundamentals/add-users.md). A work account is created using the **New user** choice in the Azure portal.
 
 When you add a new work account, you need to consider the following configuration settings:
 
 - **Name** and **User name** - The **Name** property contains the given and surname of the user. The **User name** is the identifier that the user enters to sign in. The user name includes the full domain. The domain name portion of the user name must either be the initial default domain name *your-domain.onmicrosoft.com*, or a verified, non-federated [custom domain](../active-directory/fundamentals/add-custom-domain.md) name such as *contoso.com*. 
 - **Email** - The new user can also sign in using an email address. We do not support special characters or multibyte characters in email, for example Japanese characters.
 - **Profile** - The account is set up with a profile of user data. You have the opportunity to enter a first name, last name, job title, and department name. You can edit the profile after the account is created.
-- **Groups** - Use groups to perform management tasks such as assigning licenses or permissions to many users, or devices at once. You can put the new account into an existing [group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) in your tenant.
+- **Groups** - Use groups to perform management tasks such as assigning licenses or permissions to many users, or devices at once. You can put the new account into an existing [group](../active-directory/fundamentals/how-to-manage-groups.md) in your tenant.
 - **Directory role** - You need to specify the level of access that the user account has to resources in your tenant. The following permission levels are available:
 
     - **User** - Users can access assigned resources but cannot manage most tenant resources.
@@ -47,21 +47,21 @@ When you add a new work account, you need to consider the following configuratio
 
 You can use the following information to create a new work account:
 
-- [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure portal](../active-directory/fundamentals/add-users.md)
 - [Microsoft Graph](/graph/api/user-post-users)
 
 ### Update a user profile
 
 You can use the following information to update the profile of a user:
 
-- [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure portal](../active-directory/fundamentals/how-to-manage-user-profile-info.md)
 - [Microsoft Graph](/graph/api/user-update)
 
 ### Reset a password for a user
 
 You can use the following information to reset the password of a user:
 
-- [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure portal](../active-directory/fundamentals/users-reset-password-azure-portal.md)
 - [Microsoft Graph](/graph/api/user-update)
 
 ## Guest user

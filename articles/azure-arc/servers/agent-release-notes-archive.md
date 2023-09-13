@@ -16,6 +16,19 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Known issues
 - Bug fixes
 
+## Version 1.30 - May 2023
+
+Download for [Windows](https://download.microsoft.com/download/7/7/9/779eae73-a12b-4170-8c5e-abec71bc14cf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- Introduced a scheduled task that checks for agent updates on a daily basis. Currently, the update mechanism is inactive and no changes are made to your server even if a newer agent version is available. In the future, you'll be able to schedule updates of the Azure Connected Machine agent from Azure. For more information, see [Automatic agent upgrades](manage-agent.md#automatic-agent-upgrades).
+
+### Fixed
+
+- Resolved an issue that could cause the agent to go offline after rotating its connectivity keys.
+- `azcmagent show` no longer shows an incomplete resource ID or Azure portal page URL when the agent isn't configured.
+
 ## Version 1.29 - April 2023
 
 Download for [Windows](https://download.microsoft.com/download/2/7/0/27063536-949a-4b16-a29a-3d1dcb29cff7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
@@ -52,7 +65,7 @@ Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb
 
 ### Fixed
 
-- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Management Center
+- The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Manager
 - Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
 - Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
 - Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
@@ -95,7 +108,7 @@ Download for [Windows](https://download.microsoft.com/download/f/9/d/f9d60cc9-7c
   - Logs from extensions are now collected
 - Agent telemetry is no longer sent to `dc.services.visualstudio.com`. You may be able to remove this URL from any firewall or proxy server rules if no other applications in your environment require it.
 - Failed extension installs can now be retried without removing the old extension as long as the extension settings are different
-- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Azure Update Management Center extension on Linux to reduce downtime during update operations
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Azure Update Manager extension on Linux to reduce downtime during update operations
 
 ### Fixed
 
