@@ -315,7 +315,7 @@ When you enable backup using Azure portal, you can choose the **Backup OS Disk o
 
 ![Configure backup for the OS disk only](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
 
-## Configure Selective Disk Backup in the Azure Portal (Enhanced Policy)
+## Configure Selective Disk Backup in the Azure portal (Enhanced Policy)
 
 When you enable the backup operation using the Azure portal, you can choose the data disks that you want to include in the backup (the OS disk is always included). You can also choose to include disks that are added in the future for backup automatically by enabling the “Include future disks” option.
 
