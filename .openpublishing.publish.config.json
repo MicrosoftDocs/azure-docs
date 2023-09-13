@@ -1024,7 +1024,7 @@
 	  },
 	  {
       "path_to_root": "microsoft-graph",
-      "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
+      "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs-contrib",
       "branch": "main",
       "branch_mapping": {}
     },
