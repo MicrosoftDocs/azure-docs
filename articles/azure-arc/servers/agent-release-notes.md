@@ -18,14 +18,14 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.34 - September 2023
 
-Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/b/3/2/b3220316-13db-4f1f-babf-b1aab33b364f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
 - [Extended Security Updates for Windows Server 2012 and 2012 R2](prepare-extended-security-updates.md) can purchased and enabled through Azure Arc. If your server is already running the Azure Connected Machine agent, [upgrade to agent version 1.34](manage-agent.md#upgrade-the-agent) or later to take advantage of this new capability.
 - Additional system metadata is collected to enhance your device inventory in Azure:
   - Total physical memory
-  - Processor information
+  - Additional processor information
   - Serial number
   - SMBIOS asset tag
 - Network requests to Microsoft Entra ID (formerly Azure Active Directory) now use `login.microsoftonline.com` instead of `login.windows.net`
@@ -44,7 +44,7 @@ Agent version 1.33 contains a fix for [CVE-2023-38176](https://msrc.microsoft.co
 
 ### Known issue
 
-[azcmagent check](azcmagent-check.md) validates a new endpoint in this release: `<geography>-ats.his.arc.azure.com`. This endpoint is reserved for future use and not required for the Azure Connected Machine agent to operate successfully. However, if you are using a private endpoint, this endpoint will fail the network connectivity check. You can safely ignore this endpoint in the results and should instead confirm that all other endpoints are reachable.
+[azcmagent check](azcmagent-check.md) validates a new endpoint in this release: `<geography>-ats.his.arc.azure.com`. This endpoint is reserved for future use and not required for the Azure Connected Machine agent to operate successfully. However, if you're using a private endpoint, this endpoint will fail the network connectivity check. You can safely ignore this endpoint in the results and should instead confirm that all other endpoints are reachable.
 
 This endpoint will be removed from `azcmagent check` in a future release.
 
