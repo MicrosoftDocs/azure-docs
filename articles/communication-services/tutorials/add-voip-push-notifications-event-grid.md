@@ -17,6 +17,8 @@ With Azure Communication Services, you can receive real-time event notifications
 
 In this tutorial, we explore how to implement Azure Communication Services Calling with Azure Event Grid to receive push notifications on native platforms. Azure Event Grid is a serverless event routing service that makes it easy to build event-driven applications. This tutorial helps you set up and understand how to receive push notifications for incoming calls in ACS.
 
+You can take a look at [voice and video calling events](https://learn.microsoft.com/azure/event-grid/communication-services-voice-video-events) available using Event Grid.
+
 ## Current limitations with the Push Notification model
 
 The current limitations of using the ACS Native Calling SDK and [Push Notifications](../how-tos/calling-sdk/push-notifications) are:
@@ -29,9 +31,10 @@ The current limitations of using the ACS Native Calling SDK and [Push Notificati
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A deployed Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 * A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../quickstarts/identity/access-tokens.md)
-* [The Azure Event Grid topic](https://learn.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal): Create an Azure Event Grid topic in your Azure subscription,it's used to send events when incoming calls occur.
+* [The Azure Event Grid topic](https://learn.microsoft.com/azure/event-grid/custom-event-quickstart-portal): Create an Azure Event Grid topic in your Azure subscription, it's used to send events when incoming calls occur.
 * Optional: Complete the quickstart for [getting started with adding calling to your application](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 * Optional [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure Functions.
+* Optional, review the quickstart to learn how to [handle voice and video calling events](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/handle-calling-events).
 
 Let's consider a scenario where you want to notify users on their mobile devices (iOS and Android) when they receive an incoming call through Azure Communication Services. We use Azure Event Grid to achieve.
 
