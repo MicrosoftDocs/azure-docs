@@ -35,15 +35,15 @@ Keeping track of how your quota of VM cores is being used across your subscripti
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/example-subscription-groups.png" alt-text="Screenshot showing the Usage and quotas page, with VM size groups highlighted.":::
  
-1. To view quota and usage information for specific regions, select **Region:** and select the regions to display, and then select **Apply**. 
+1. To view quota and usage information for specific regions, select the **Region:** filter, select the regions to display, and then select **Apply**. 
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/select-regions.png" alt-text="Screenshot showing the Usage and quotas page, with Regions drop down highlighted.":::
  
-1. To view only the items that are using part of your quota, select **Usage:**, and then select **Only items with usage**. 
+1. To view only the items that are using part of your quota, select the **Usage:** filter, and then select **Only items with usage**. 
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/select-items-with-usage.png" alt-text="Screenshot showing the Usage and quotas page, with Usage drop down and Only show items with usage option highlighted.":::
  
-1. To view items that are using above a certain amount of your quota, select **Usage:**, and then select **Select custom usage**. 
+1. To view items that are using above a certain amount of your quota, select the **Usage:** filter, and then select **Select custom usage**. 
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/select-custom-usage-before.png" alt-text="Screenshot showing the Usage and quotas page, with Usage drop down and Select custom usage option highlighted.":::
  
