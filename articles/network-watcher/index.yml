@@ -66,7 +66,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Connection troubleshoot overview
-            url: network-watcher-connectivity-overview.md
+            url: connection-troubleshoot-overview.md
           - text: Connection monitor overview
             url: connection-monitor-overview.md
       - linkListType: tutorial  
