@@ -158,7 +158,7 @@ There are three distinct model deployment upgrade options which are configurable
 
 To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0)  
 
-```azurecli-interactive
+```http-interactive
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments?api-version=2023-05-01
 ```
 
@@ -218,7 +218,7 @@ You can then take the settings from this list to construct an update model REST 
 
 ### Update & deploy models via the API
 
-```azurecli-interactive
+```http-interactive
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}?api-version=2023-05-01
 ```
 
@@ -304,12 +304,6 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
   "etag": "\"{GUID}\""
 }
 ```
-
-
-
-
-
-
 
 ## Next steps
 
