@@ -57,17 +57,13 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 1. Select **Aggregate**.
 1. Select a column to aggregate by.
-1. 
+1. Select an operator to aggregate by, as described in the table below.
 
 | Operator | Description |
 |:---|:---|
-|count|Counts the number of times each distinct value exists in the column.|
-|dcount|For the `dcount` operator, you select two columns. The operator counts the total number of distinct values in the second column correlated to each value in the first column. For example, this shows the distinct number of result codes for successful and failed operations:<br/> :::image type="content" source="media/log-analytics-explorer/log-analytics-dcount.png" alt-text="Screenshot that shows the result of an aggregation using the dcount operator in Azure Monitor Log Analytics.":::  |
-|sum|For the `sum` operator, you select two columns. The second column must contain only numeric values. The operator calculates the sum of all values in the second column for each value in the first column. For example, this shows the total duration of each operation in milliseconds for the past 24 hours:<br/>:::image type="content" source="media/log-analytics-explorer/log-analytics-sum.png" alt-text="Screenshot that shows the results of an aggregation using the sum operator in Azure Monitor Log Analytics.":::  |
-|avg||
-|max||    
-|min||
-
+|`count`|Counts the number of times each distinct value exists in the column.|
+|`dcount`|For the `dcount` operator, you select two columns. The operator counts the total number of distinct values in the second column correlated to each value in the first column. For example, this shows the distinct number of result codes for successful and failed operations:<br/> :::image type="content" source="media/log-analytics-explorer/log-analytics-dcount.png" alt-text="Screenshot that shows the result of an aggregation using the dcount operator in Azure Monitor Log Analytics.":::  |
+|`sum`<br/>`avg`<br/>`max`<br/>`min`|For these operators, you select two columns. The operators calculate the sum, average, maximum, or minimum of all values in the second column for each value in the first column. For example, this shows the total duration of each operation in milliseconds for the past 24 hours:<br/>:::image type="content" source="media/log-analytics-explorer/log-analytics-sum.png" alt-text="Screenshot that shows the results of an aggregation using the sum operator in Azure Monitor Log Analytics.":::  |
 
 **Show or hide columns**
 
