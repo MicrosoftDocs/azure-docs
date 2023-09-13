@@ -88,10 +88,10 @@ For more information about using this command, see [Decompiling ARM template JSO
 The `decompile-params` command decompile a JSON parameters file to a _.bicepparam_ parameters file.
 
 ```azurecli
-az bicep decompile-params -- file azuredeploy.parameters.json --bicep-file ./dir/main.bicep
+az bicep decompile-params --file azuredeploy.parameters.json --bicep-file ./dir/main.bicep
 ```
 
-This command decompiles a _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `-bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that is referenced in the `using` declaration.
+This command decompiles a _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `--bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that is referenced in the `using` declaration.
 
 ## generate-params
 

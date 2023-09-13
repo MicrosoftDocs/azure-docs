@@ -249,6 +249,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-nodejs-v4",
+      "url": "https://github.com/Azure/azure-functions-nodejs-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-durable-js",
       "url": "https://github.com/Azure/azure-functions-durable-js",
       "branch": "v2.x",
@@ -1031,6 +1037,12 @@
     {
       "path_to_root": "azure-proactive-resiliency-library",
       "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-reference-other-repo",
+      "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
       "branch": "main",
       "branch_mapping": {}
     }
