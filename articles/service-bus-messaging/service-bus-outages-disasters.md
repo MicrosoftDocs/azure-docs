@@ -30,10 +30,7 @@ When you use availability zones, **both metadata and data (messages)** are repli
 > [!NOTE]
 > The availability zones support for the premium tier is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
 
-You can enable availability zones on new namespaces only, using the Azure portal. Service Bus doesn't support migration of existing namespaces. You can't disable zone redundancy after enabling it on your namespace.
-
-![1][]
-
+When you create a premium tier namespace, the support for availability zones (if available in the selected region) is automatically enabled for the namespace. There's no additional cost for using this feature and you can't disable or enable this feature.
 
 ## Protection against outages and disasters - standard tier
 To achieve resilience against datacenter outages when using the standard messaging pricing tier, Service Bus supports two approaches: **active** and **passive** replication. For each approach, if a given queue or topic must remain accessible in the presence of a datacenter outage, you can create it in both namespaces. Both entities can have the same name. For example, a primary queue can be reached under **contosoPrimary.servicebus.windows.net/myQueue**, while its secondary counterpart can be reached under **contosoSecondary.servicebus.windows.net/myQueue**.

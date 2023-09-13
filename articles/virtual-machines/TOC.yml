@@ -191,6 +191,8 @@
         href: av2-series.md
       - name: B-series burstable
         items:
+        - name: B-series CPU Credit Model
+          href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: B-series V1
           href: sizes-b-series-burstable.md
         - name: Bsv2-series 
