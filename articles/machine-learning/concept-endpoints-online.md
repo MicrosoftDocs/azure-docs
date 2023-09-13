@@ -11,7 +11,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2, moe-wsvnet
-ms.date: 07/12/2023
+ms.date: 09/13/2023
 
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
@@ -46,7 +46,7 @@ Use of managed online endpoints is the _recommended_ way to use online endpoints
 
 |Attributes  |Managed online endpoints (v2)  |ACI or AKS(v1)  |
 |---------|---------|---------|
-|Network security/isolation |Easy inbound/outbound control with quick toggle |VNet not supported or requires complex manual configuration |
+|Network security/isolation |Easy inbound/outbound control with quick toggle |Virtual network not supported or requires complex manual configuration |
 |Managed service |- Fully managed compute provisioning/scaling​<br> - Network configuration for data exfiltration prevention​<br> - Host OS upgrade, controlled rollout of in-place updates |- Scaling is limited in v1<br> - Network configuration or upgrade needs to be managed by user |
 |Endpoint/deployment concept |Distinction between endpoint and deployment enables complex scenarios such as safe rollout of models |No concept of endpoint |
 |Diagnostics and Monitoring |- Local endpoint debugging possible with Docker and Visual Studio Code<br>​ - Advanced metrics and logs analysis with chart/query to compare between deployments​<br> - Cost breakdown down to deployment level |No easy local debugging |
@@ -78,6 +78,8 @@ Managed online endpoints can help streamline your deployment process and provide
     > Managed online endpoints are based on Azure Machine Learning compute. When using a managed online endpoint, you pay for the compute and networking charges. There is no additional surcharge. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
     >
     > If you use an Azure Machine Learning virtual network to secure outbound traffic from the managed online endpoint, you're charged for the Azure private link and FQDN outbound rules that are used by the managed virtual network. For more information, see [Pricing for managed virtual network](how-to-managed-network.md#pricing).
+
+#### Managed online endpoints vs kubernetes online endpoints
 
 The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints.
 
@@ -114,7 +116,7 @@ The following table describes the key attributes of a deployment:
 | Model          | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.                                                                                                                                                                                                                                    |
 | Code path      | The path to the directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages.                                                                                                                                                                                                                    |
 | Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
-| Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. Note: Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your owm image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
+| Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. Note: Microsoft regularly patches the base images for known security vulnerabilities. You'll need to redeploy your endpoint to use the patched image. If you provide your own image, you're responsible for updating it. For more information, see [Image patching](concept-environments.md#image-patching).                                                                                                                                                                                                            |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
 
@@ -135,7 +137,7 @@ The following table highlights key aspects about the online deployment options:
 | **Summary** | Uses out-of-box inferencing for popular frameworks such as scikit-learn, TensorFlow, PyTorch, and ONNX, via MLflow and Triton. For more information, see [Deploy MLflow models to online endpoints](how-to-deploy-mlflow-models-online-endpoints.md). | Uses secure, publicly published [curated images](/azure/machine-learning/resource-curated-environments) for popular frameworks, with updates every two weeks to address vulnerabilities. You provide scoring script and/or Python dependencies. For more information, see [Azure Machine Learning Curated Environments](resource-curated-environments.md). | You provide your complete stack via Azure Machine Learning's support for custom images. For more information, see [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md). |
 | **Custom base image** | No, curated environment will provide this for easy deployment. | Yes and No, you can either use curated image or your customized image. | Yes, bring an accessible container image location (for example, docker.io, Azure Container Registry (ACR), or Microsoft Container Registry (MCR)) or a Dockerfile that you can build/push with ACR​ for your container. |
 | **Custom dependencies** | No, curated environment will provide this for easy deployment. | Yes, bring the Azure Machine Learning environment in which the model runs; either a Docker image with Conda dependencies, or a dockerfile​. | Yes, this will be included in the container image. |
-| **Custom code** | No, scoring script will be auto-generated for easy deployment. | Yes, bring your scoring script. | Yes, this will be included in the container image. |
+| **Custom code** | No, scoring script will be autogenerated for easy deployment. | Yes, bring your scoring script. | Yes, this will be included in the container image. |
 
 > [!NOTE]
 > AutoML runs create a scoring script and dependencies automatically for users, so you can deploy any AutoML model without authoring additional code (for no-code deployment) or you can modify auto-generated scripts to your business needs (for low-code deployment).​ To learn how to deploy with AutoML models, see [Deploy an AutoML model with an online endpoint](/azure/machine-learning/how-to-deploy-automl-endpoint).
@@ -157,6 +159,8 @@ The steps for local debugging typically include:
 To learn more about local debugging, see [Deploy and debug locally by using local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 #### Local debugging with Visual Studio Code (preview)
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 As with local debugging, you first need to have the [Docker Engine](https://docs.docker.com/engine/install/) installed and running and then deploy a model to the local Docker environment. Once you have a local deployment, Azure Machine Learning local endpoints use Docker and Visual Studio Code development containers (dev containers) to build and configure a local debugging environment. With dev containers, you can take advantage of Visual Studio Code features, such as interactive debugging, from inside a Docker container.
 
