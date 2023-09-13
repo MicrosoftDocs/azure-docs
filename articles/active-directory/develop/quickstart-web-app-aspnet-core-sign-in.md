@@ -98,7 +98,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 1. The application will request permission to maintain access to data you have given it access to, and to sign you in and read your profile. Select **Accept**.
 1. The following screenshot appears, indicating that you have signed in to the application and have accessed your profile details from the Microsoft Graph API.
 
-    ![Screenshot of the application showing the user's profile details.](media/quickstarts/quickstart-dotnet-webapp-sign-in.png)
+    ![Screenshot of the application showing the user's profile details.](media/quickstarts/aspnet-core/quickstart-dotnet-webapp-sign-in.png)
 
 ## Sign-out from the application
 
