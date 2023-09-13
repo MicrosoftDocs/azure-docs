@@ -153,7 +153,7 @@ sections:
       - question: |
           Where does query execution occur?
         answer: |
-          Queries execute over a single search index that's hosted on your search service. You can't join multiple indexes to search content in two or more indexes, but you can [query same-name indexes in multiple search services](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/multiple-search-services).
+          Queries execute over a single search index that's hosted on your search service. You can't join multiple indexes to search content in two or more indexes, but you can [query same-name indexes in multiple search services](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-search-services).
               
       - question: |
           Why are there zero matches on terms I know to be valid?

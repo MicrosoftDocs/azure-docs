@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 [Custom security attributes](custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. This article describes how to add, edit, or deactivate custom security attribute definitions.
 
@@ -40,9 +40,9 @@ To add or deactivate custom security attributes definitions, you must have:
 
 An attribute set is a collection of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. Click **Add attribute set** to add a new attribute set.
 
@@ -60,9 +60,9 @@ An attribute set is a collection of related attributes. All custom security attr
 
 ## Add a custom security attribute definition
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. On the Custom security attributes page, find an existing attribute set or click **Add attribute set** to add a new attribute set.
 
@@ -104,7 +104,6 @@ An attribute set is a collection of related attributes. All custom security attr
 
     ![Screenshot of New attribute pane with Add predefined value pane in Azure portal.](./media/custom-security-attributes-add/attribute-new-value-add.png)
 
-
 1. When finished, click **Save**.
 
     The new custom security attribute appears in the list of custom security attributes.
@@ -115,9 +114,9 @@ An attribute set is a collection of related attributes. All custom security attr
 
 Once you add a new custom security attribute definition, you can later edit some of the properties. Some properties are immutable and cannot be changed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. Click the attribute set that includes the custom security attribute you want to edit.
 
@@ -133,9 +132,9 @@ Once you add a new custom security attribute definition, you can later edit some
 
 Once you add a custom security attribute definition, you can't delete it. However, you can deactivate a custom security attribute definition.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator).
 
-1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. Click the attribute set that includes the custom security attribute you want to deactivate.
 

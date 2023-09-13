@@ -15,7 +15,7 @@ ms.reviewer: joroja
 
 ms.collection: M365-identity-device-management
 ---
-# Continuous access evaluation for workload identities (preview)
+# Continuous access evaluation for workload identities
 
 Continuous access evaluation (CAE) for [workload identities](../workload-identities/workload-identities-overview.md) provides security benefits to your organization. It enables real-time enforcement of Conditional Access location and risk policies along with instant enforcement of token revocation events for workload identities. 
 
@@ -23,9 +23,9 @@ Continuous access evaluation doesn't currently support managed identities.
 
 ## Scope of preview
 
-The continuous access evaluation for workload identities public preview scope includes support for Microsoft Graph as a resource provider.
+The continuous access evaluation for workload identities is supported only on access requests sent to Microsoft Graph as a resource provider.  More resource providers will be added over time.
 
-The preview targets service principals for line of business (LOB) applications.
+Service principals for line of business (LOB) applications are supported
 
 We support the following revocation events:
 
@@ -51,8 +51,8 @@ When a client’s access to a resource is blocked due to CAE being triggered, th
 
 The following steps detail how an admin can verify sign in activity in the sign-in logs: 
 
-1. Sign into the Azure portal as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Sign-in logs** > **Service Principal Sign-ins**. You can use filters to ease the debugging process. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs** > **Service Principal Sign-ins**. You can use filters to ease the debugging process. 
 1. Select an entry to see activity details. The **Continuous access evaluation** field indicates whether a CAE token was issued in a particular sign-in attempt. 
 
 ## Next steps

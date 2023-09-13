@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2023
+ms.date: 09/08/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -53,9 +53,9 @@ The **core** user schema only requires three attributes (all other attributes ar
 - `userName`, a unique identifier for the user (generally maps to the Azure AD user principal name)
 - `meta`, *read-only* metadata maintained by the service provider
 
-In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application’s needs. 
+In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application's needs. 
 
-For example, if your application requires both a user's email and user’s manager, use the **core** schema to collect the user’s email and the **enterprise** user schema to collect the user’s manager.
+For example, if your application requires both a user's email and user's manager, use the **core** schema to collect the user's email and the **enterprise** user schema to collect the user's manager.
 
 To design your schema, follow these steps:
 
@@ -72,7 +72,7 @@ The following table lists an example of required attributes:
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|name.familyName|surName|
-|workMail|emails[type eq “work”].value|Mail|
+|workMail|emails[type eq "work"].value|Mail|
 |manager|manager|manager|
 |tag|`urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag`|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
@@ -372,6 +372,8 @@ This article provides example SCIM requests emitted by the Azure Active Director
 *GET /Users/5171a35d82074e068ce2* 
 
 ###### Response (User not found. The detail isn't required, only status.)
+
+*HTTP/1.1 404 Not Found*
 
 ```json
 {
@@ -888,7 +890,7 @@ organization.",
 
 **TLS Protocol Versions**
 
-The only acceptable protocol versions are TLS 1.2 and TLS 1.3. No other SSL/TLS versions are permitted.
+The only acceptable protocol version is TLS 1.2. No other SSL/TLS version is permitted.
 
 - RSA keys must be at least 2,048 bits.
 - ECC keys must be at least 256 bits, generated using an approved elliptic curve
@@ -931,7 +933,7 @@ The open source .NET Core [reference code example](https://aka.ms/SCIMReferenceC
 
 The solution is composed of two projects, _Microsoft.SCIM_ and _Microsoft.SCIM.WebHostSample_.
 
-The _Microsoft.SCIM_ project is the library that defines the components of the web service that conforms to the SCIM specification. It declares the interface _Microsoft.SCIM.IProvider_, requests are translated into calls to the provider’s methods, which would be programmed to operate on an identity store.
+The _Microsoft.SCIM_ project is the library that defines the components of the web service that conforms to the SCIM specification. It declares the interface _Microsoft.SCIM.IProvider_, requests are translated into calls to the provider's methods, which would be programmed to operate on an identity store.
 
 ![Breakdown: A request translated into calls to the provider's methods](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
@@ -990,7 +992,7 @@ Requests from Azure AD Provisioning Service include an OAuth 2.0 bearer token. A
 
 
 
-In the sample code, requests are authenticated using the Microsoft.AspNetCore.Authentication.JwtBearer package. The following code enforces that requests to any of the service’s endpoints are authenticated using the bearer token issued by Azure AD for a specified tenant:
+In the sample code, requests are authenticated using the Microsoft.AspNetCore.Authentication.JwtBearer package. The following code enforces that requests to any of the service's endpoints are authenticated using the bearer token issued by Azure AD for a specified tenant:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -1029,7 +1031,7 @@ A bearer token is also required to use of the provided [Postman tests](https://g
 
 For more information on multiple environments in ASP.NET Core, see [Use multiple environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
-The following code enforces that requests to any of the service’s endpoints are authenticated using a bearer token signed with a custom key:
+The following code enforces that requests to any of the service's endpoints are authenticated using a bearer token signed with a custom key:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -1103,7 +1105,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
  Authorization: Bearer ...
 ```
 
-In the sample code, the request is translated into a call to the QueryAsync method of the service’s provider. Here's the signature of that method: 
+In the sample code, the request is translated into a call to the QueryAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1159,7 +1161,7 @@ Content-type: application/scim+json
    "manager":null}
 ```
 
-In the sample code, the request is translated into a call to the CreateAsync method of the service’s provider. Here's the signature of that method: 
+In the sample code, the request is translated into a call to the CreateAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1182,7 +1184,7 @@ GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
 Authorization: Bearer ...
 ```
 
-In the sample code, the request is translated into a call to the RetrieveAsync method of the service’s provider. Here's the signature of that method: 
+In the sample code, the request is translated into a call to the RetrieveAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1203,7 +1205,7 @@ In the example of a request, to retrieve the current state of a user, the values
 ***Example 4. Query the value of a reference attribute to be updated*** 
 
 Azure AD checks the current attribute value in the identity store before updating it. However, only the manager attribute is the checked first for users. Here's an example of a request to determine whether the manager attribute of a user object currently has a certain value: 
-In the sample code, the request is translated into a call to the QueryAsync method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+In the sample code, the request is translated into a call to the QueryAsync method of the service's provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
 * parameters.AlternateFilters.Count: 2
 * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
@@ -1241,7 +1243,7 @@ Content-type: application/scim+json
               "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
 ```
 
-In the sample code, the request is translated into a call to the UpdateAsync method of the service’s provider. Here's the signature of that method: 
+In the sample code, the request is translated into a call to the UpdateAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks and 
@@ -1276,7 +1278,7 @@ DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
 Authorization: Bearer ...
 ```
 
-In the sample code, the request is translated into a call to the DeleteAsync method of the service’s provider. Here's the signature of that method: 
+In the sample code, the request is translated into a call to the DeleteAsync method of the service's provider. Here's the signature of that method: 
 
 ```csharp
 // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -1432,8 +1434,7 @@ To help drive awareness and demand of our joint integration, we recommend you up
 > * Craft a blog post or press release that describes the joint integration, the benefits and how to get started. [Example: Imprivata and Azure AD Press Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
 > * Leverage your social media like Twitter, Facebook or LinkedIn to promote the integration to your customers. Be sure to include @AzureAD so we can retweet your post. [Example: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
 > * Create or update your marketing pages/website (e.g. integration page, partner page, pricing page, etc.) to include the availability of the joint integration. [Example: Pingboard integration Page](https://pingboard.com/org-chart-for), [Smartsheet integration page](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [Monday.com pricing page](https://monday.com/pricing/) 
-> * Create a help center article or technical documentation on how customers can get started. [Example: Envoy + Microsoft Azure AD integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
-) 
+> * Create a help center article or technical documentation on how customers can get started. [Example: Envoy + Microsoft Azure AD integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/) 
 > * Alert customers of the new integration through your customer communication (monthly newsletters, email campaigns, product release notes). 
 
 ## Next steps

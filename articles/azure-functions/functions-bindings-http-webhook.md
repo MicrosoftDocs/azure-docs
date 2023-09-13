@@ -4,7 +4,7 @@ description: Learn to use HTTP triggers and bindings in Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/04/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions HTTP triggers and bindings overview
@@ -47,7 +47,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http), version 3.x.
 
 > [!NOTE]
-> An additional extension package is needed for [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview)
+> An additional extension package is needed for [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration)
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
@@ -56,7 +56,7 @@ Functions 1.x doesn't support running in an isolated worker process.
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 

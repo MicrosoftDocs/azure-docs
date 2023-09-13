@@ -139,7 +139,7 @@ OATH TOTP hardware tokens typically come with a secret key, or seed, pre-program
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
 
-OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://aka.ms/EntraPreviewsTermsOfUse).
 
 ![Screenshot that shows the OATH tokens section.](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -175,7 +175,7 @@ Default number: *+1 (855) 330-8653*
 
 The following table lists more numbers for different countries.
 
-| Country              | Number(s)       |
+| Country/Region       | Number(s)       |
 |:---------------------|:----------------|
 | Austria              | +43 6703062076  |
 | Bangladesh           | +880 9604606026 |
@@ -186,7 +186,7 @@ The following table lists more numbers for different countries.
 | Ghana                | +233 308250245  |
 | Greece               | +30 2119902739  |
 | Guatemala            | +502 23055056   |
-| Hong Kong            | +852 25716964   |
+| Hong Kong SAR        | +852 25716964   |
 | India                | +91 3371568300, +91 1205089400, +91 4471566601, +91 2271897557, +91 1203524400, +91 3335105700, +91 2235544120, +91 4435279600|
 | Jordan               | +962 797639442  |
 | Kenya                | +254 709605276  |
@@ -200,7 +200,7 @@ The following table lists more numbers for different countries.
 | Sri Lanka            | +94 117750440   |
 | Sweden               | +46 701924176   |
 | Taiwan               | +886 277515260  |
-| Turkey               | +90 8505404893  |
+| Türkiye              | +90 8505404893  |
 | Ukraine              | +380 443332393  |
 | United Arab Emirates | +971 44015046   |
 | Vietnam              | +84 2039990161  |

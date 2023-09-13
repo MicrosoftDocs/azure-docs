@@ -175,7 +175,7 @@ Follow these tips to further optimize your data set for training.
 
 ## Upload your training data
 
-When you've put together the set of form documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+When you've put together the set of documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
 
 If you want to use manually labeled data, upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample Labeling tool](../label-tool.md) (or your own UI) to generate these files.
 

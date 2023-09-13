@@ -24,7 +24,7 @@ Follow these steps to import dashboards that let you monitor Flux extension depl
 > [!NOTE]
 > These steps describe the process for importing the dashboard to [Azure Managed Grafana](/azure/managed-grafana/overview). You can also [import this dashboard to any Grafana instance](https://grafana.com/docs/grafana/latest/dashboards/manage-dashboards/#import-a-dashboard). With this option, a service principal must be used; managed identity is not supported for data connection outside of Azure Managed Grafana.
 
-1. Create an Azure Managed Grafana instance by using the [Azure portal](/azure/managed-grafana/quickstart-managed-grafana-portal) or [Azure CLI](/azure/managed-grafana/quickstart-managed-grafana-cli). Ensure that you're able to access Grafana by selecting its endpoint on the Overview page. You need at least [Monitoring Reader](/azure/azure-monitor/roles-permissions-security) level permissions. You can check your access by going to **Access control (IAM)** on the Grafana instance.  
+1. Create an Azure Managed Grafana instance by using the [Azure portal](/azure/managed-grafana/quickstart-managed-grafana-portal) or [Azure CLI](/azure/managed-grafana/quickstart-managed-grafana-cli). Ensure that you're able to access Grafana by selecting its endpoint on the Overview page. You need at least **Grafana Editor** level permissions to view and edit dashboards. You can check your access by going to **Access control (IAM)** on the Grafana instance.  
 1. If you're using a managed identity for the Azure Managed Grafana instance, follow these steps to assign it the **Monitoring Reader** role on the subscription(s):
 
    1. In the Azure portal, navigate to the subscription that you want to add.

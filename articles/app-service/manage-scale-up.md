@@ -6,6 +6,7 @@ ms.topic: article
 ms.date: 05/08/2023
 ms.custom: seodec18
 ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Scale up an app in Azure App Service

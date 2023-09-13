@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 08/11/2022
+ms.date: 08/11/2023
 ms.custom: mode-ui, template-quickstart
 ---
 

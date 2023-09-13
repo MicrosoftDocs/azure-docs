@@ -4,9 +4,8 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 08/03/2023
+ms.date: 09/12/2023
 ms.author: kendownie
-ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
@@ -14,15 +13,9 @@ ms.custom: devx-track-azurecli
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- Sign up for the public preview by completing the [onboarding survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
-
-- This quickstart requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli).
-
-- You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't have one, see [Create an AKS cluster](install-container-storage-aks.md#create-aks-cluster).
-
-- You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
+- You'll need an AKS cluster with an appropriate [virtual machine type](install-container-storage-aks.md#vm-types). If you don't already have an AKS cluster, follow [these instructions](install-container-storage-aks.md#getting-started) to create one.
 
 ## Install Azure Container Storage
 
@@ -48,7 +41,7 @@ Follow these instructions to install Azure Container Storage on your AKS cluster
    | -g   | --resource-group | The resource group name.|
    | -c   | --cluster-name | The name of the cluster where Azure Container Storage is to be installed.|
    | -n   | --nodepool-name | The name of the nodepool. Defaults to the first nodepool in the cluster.|
-   | -r   | --release-train | The release train for the installation. Defaults to prod.|
+   | -r   | --release-train | The release train for the installation. Defaults to stable.|
    
    For example:
 
@@ -64,10 +57,12 @@ az k8s-extension list --cluster-name <cluster-name> --resource-group <resource-g
 
 Congratulations, you've successfully installed Azure Container Storage. You now have new storage classes that you can use for your Kubernetes workloads.
 
-## Next steps
+## Choose a data storage option
 
-Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Depending on the back-end storage type you want to use, follow the steps in the appropriate how-to article.
+Next you'll need to choose a back-end storage option to create your storage pool. Choose one of the following three options and follow the link to create a storage pool and persistent volume claim.
 
-- [Use Azure Container Storage Preview with Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md)
-- [Use Azure Container Storage Preview with Azure Disks](use-container-storage-with-managed-disks.md)
-- [Use Azure Container Storage with Azure Ephemeral disk (NVMe)](use-container-storage-with-local-disk.md)
+- **Azure Elastic SAN Preview**: Azure Elastic SAN preview is a good fit for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. [Create a storage pool using Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md#create-a-storage-pool).
+
+- **Azure Disks**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size. [Create a storage pool using Azure Disks](use-container-storage-with-managed-disks.md#create-a-storage-pool).
+
+- **Ephemeral Disk**: This option uses local NVMe drives on the AKS nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment. [Create a storage pool using Ephemeral Disk](use-container-storage-with-local-disk.md#create-a-storage-pool).

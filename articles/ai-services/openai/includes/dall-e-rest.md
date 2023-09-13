@@ -13,9 +13,6 @@ keywords:
 
 Use this guide to get started calling the Azure OpenAI Service image generation REST APIs by using Python.
 
-> [!NOTE]
-> The image generation API creates an image from a text prompt. It doesn't edit existing images or create variations.
-
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
@@ -76,8 +73,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
         status = response.json()['status']
     image_url = response.json()['result']['data'][0]['url']
 
-    # Display the image in the default image viewer
-    print(response.json())
+    print(image_url)
     ```
 
     > [!IMPORTANT]
