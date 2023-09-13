@@ -38,7 +38,7 @@ Translator service supports language translation for more than 100 languages. If
 |Nyanja|NYA|✔|✔| Nynaja, also known as Chewa, is spoken mainly in Malawi and has more than 2 million native speakers.|
 |Rundi|RUN|✔|✔| Rundi, also known as Kirundi, is the national language of Burundi and has more than 6 million native speakers.|
 |Sesotho|ST|✔|✔| Sesotho, also know as Sotho, is the national and official language of Lesotho, one of 12 official languages of South Africa, and one of 16 official languages of Zimbabwe. It has more than 5.6 native speakers.
-|Sesotho sa Leboa|NSO|✔|✔|Sesotho, also known as Northern Sotho, it's the native language of more than 4.6 million people in South Africa.|
+|Sesotho sa Leboa|NSO|✔|✔|Sesotho, also known as Northern Sotho, is the native language of more than 4.6 million people in South Africa.|
 |Setswana|TN|✔|✔|Setswana, also known as Tswana, is an official language of Botswana and South Africa and has more than 5 million speakers.|
 |Xhosa|XH|✔|✔|An official language of South Africa and Zimbabwe, Xhosa has more than 20 million speakers.|
 |Yoruba|YO|✔|✔|The principal native language of the Yoruba people of West Africa, it has more than 50 million speakers.|
