@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance.md",
+      "redirect_url": "/azure/cosmos-db/cassandra/choose-service",
+      "redirect_document_id": true
+    },  
+    {
       "source_path_from_root": "/articles/cosmos-db/account-databases-containers-items.md",
       "redirect_url": "/azure/cosmos-db/resource-model",
       "redirect_document_id": true

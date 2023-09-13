@@ -31,7 +31,7 @@ Before you begin, you must have the following prerequisites:
     + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 
 ::: zone pivot="nodejs-model-v3" 
-+ [Node.js](https://nodejs.org/) version 18 or 16. 
++ [Node.js](https://nodejs.org/) version 20 (preview), 18 or 16. 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
@@ -151,7 +151,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 18 --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. It's recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. It's recommended that you use the latest LTS version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -159,7 +159,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 18 -FunctionsVersion 4 -Location <REGION>
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. It's recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. It's recommended that you use the latest LTS version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
 
     ---
 

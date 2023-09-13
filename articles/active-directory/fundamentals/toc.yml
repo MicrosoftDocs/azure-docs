@@ -67,7 +67,7 @@ items:
   expanded: false
   items:
   - name: Enable MFA
-    href: concept-fundamentals-mfa-get-started.md
+    href: ../authentication/concept-mfa-licensing.md?toc=/azure/active-directory/fundamentals/toc.json
   - name: Identity secure score
     href: identity-secure-score.md
   - name: Improve your security posture
