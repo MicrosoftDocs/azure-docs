@@ -82,7 +82,7 @@ Open a console window and create a new folder for your quickstart application.
   mvn clean dependency:copy-dependencies
   ```
 
-3. Once the operation succeeds, verify that the folders `target\dependency` were creating and they contain `.jar` file.
+3. Once the operation succeeds, verify that the folders `target\dependency` were creating and they contain `.jar` files.
 
 For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-java).
 
