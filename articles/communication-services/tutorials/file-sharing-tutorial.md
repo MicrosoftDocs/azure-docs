@@ -22,7 +22,7 @@ In this tutorial, we are configuring the Azure Communication Services UI Library
 >[!IMPORTANT]
 >Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the pupose of this tutorial, we are be using Azure Blob Storage.**
 >
-> This tutorial is about file sharing between ACS users in an ACS Chat. For file sharing in a Teams interoperability chat, see the documentation in our storybook for [Adding file sharing in Teams Interop Chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example#in-teams-interop-chat).  Note that for Teams Interoperability chat, we only support ACS users to receive file attachments from Teams users at this time. See [Web UI library use cases](../concepts/ui-library/ui-library-use-cases.md) for more information.
+> This tutorial is about file sharing between Communication Service users in an Azure Communication Chat. For file sharing in a Teams interoperability chat, see the documentation in our storybook for [Adding file sharing in Teams Interop Chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example#in-teams-interop-meeting-chat-thread).  Note that for Teams Interoperability chat, we only support Communication Service users to receive file attachments from Teams users at this time. See [Web UI library use cases](../concepts/ui-library/ui-library-use-cases.md) for more information.
 
 ## Download code
 
