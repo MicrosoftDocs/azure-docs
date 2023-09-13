@@ -23,15 +23,15 @@ If you're unable to provision a Windows Server 2012 Extended Security Update lic
 
 If you're unable to successfully link your Azure Arc-enabled server to an activated Extended Security Updates license, assure the following conditions are met:
 
-**Connectivity:** Azure Arc-enabled server is **Connected**. 
+- **Connectivity:** Azure Arc-enabled server is **Connected**. 
 
-**Agent version:** Connected Machine agent is version 1.34 or higher. If the agent version is below 1.34, you must update to a higher agent version.
+- **Agent version:** Connected Machine agent is version 1.34 or higher. If the agent version is below 1.34, you must update to a higher agent version.
 
-**Operating system:** Only Azure Arc-enabled servers with an Operating System that is Windows Server 2012 / 2012 R2 are eligible for this Extended Security Update option.
+- **Operating system:** Only Azure Arc-enabled servers with an Operating System that is Windows Server 2012 / 2012 R2 are eligible for this Extended Security Update option.
 
-**Environment:** The underlying server should not be running on Azure Stack HCI, Azure VMware Solution, or as an Azure Virtual Machine. In these scenarios, WS2012 ESUs are available for free.
+- **Environment:** The underlying server should not be running on Azure Stack HCI, Azure VMware Solution, or as an Azure Virtual Machine. In these scenarios, WS2012 ESUs are available for free.
 
-**License properties:** Ensure that the license is activated and has sufficient physical or virtual cores to cover the intended scope of servers.
+- **License properties:** Ensure that the license is activated and has sufficient physical or virtual cores to cover the intended scope of servers.
 
 ## ESU patches issues
 
