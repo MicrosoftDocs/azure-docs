@@ -18,7 +18,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 
 # Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript
 
-This quickstart uses a sample JavaScrip (JS) single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) with Proof Key for Code Exchange (PKCE) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
+This quickstart uses a sample JavaScript (JS) single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) with Proof Key for Code Exchange (PKCE) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
 
 In this article you'll register a SPA in the Microsoft Entra admin center, and download a sample JS SPA. Next, you'll run the sample application, sign in with your personal Microsoft account or a work or school account, and sign out.
 
@@ -43,7 +43,7 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens, select **Single-page application**.
-1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user.
+1. Set the **Redirect URIs** value to `http://localhost:3000/`.
 1. Select **Configure** to apply the changes.
 1. Under **Platform Configurations** expand **Single-page application**.
 1. Confirm that for **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png), your **Redirect URI** is eligible for the Authorization Code Flow with PKCE.

@@ -36,7 +36,7 @@ In this article you'll register a SPA in the Microsoft Entra admin center, and d
 1. When the **Register an application** page appears, enter a name for your application, such as *identity-client-app*.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. Select **Register**.
-1. The application's Overview pane displays upon successful registration. Record the **Application (client) ID** and **Directory (tenant) ID** to be used in your application source code..
+1. The application's Overview pane displays upon successful registration. Record the **Application (client) ID** and **Directory (tenant) ID** to be used in your application source code.
 
 ## Add a redirect URI
 
