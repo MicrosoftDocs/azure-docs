@@ -30,6 +30,10 @@ zone_pivot_groups: programming-languages-vision-40-sdk
 [!INCLUDE [Python include](../includes/setup-sdk/python.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+[!INCLUDE [Python include](../includes/setup-sdk/java.md)]
+::: zone-end
+
 ## Next steps
 
 Follow the [Image Analysis quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) to get started.
