@@ -80,6 +80,10 @@ To start the configuration, sign in to your Azure account and select the subscri
    > CAK length depends on cipher suite specified:
    > * For GcmAes128 and GcmAesXpn128, the CAK must be an even-length string with 32 hexadecimal digits (0-9, A-F).
    > * For GcmAes256 and GcmAesXpn256, the CAK must be an even-length string with 64 hexadecimal digits (0-9, A-F).
+
+
+ > [!NOTE]
+   > ExpressRoute is a Trusted Service within Azure that supports Network Security policies within the Azure Key Vault. For more information refer to [Configure Azure Key Vault Firewall and Virtual Networks](../key-vault/general/network-security.md)
    >
 
 1. Assign the GET permission to the user identity.
@@ -108,6 +112,7 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
    > * GcmAes256
    > * GcmAesXpn128
    > * GcmAesXpn256
+   > * The recommendation is to configure encryption with xpn ciphers to avoid intermittent session drops observed with non-xpn ciphers on high speed links.
    >
 
 1. Set MACsec secrets and cipher and associate the user identity with the port so that the ExpressRoute management code can access the MACsec secrets if needed.

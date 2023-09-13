@@ -3,7 +3,7 @@ title: Troubleshoot Monitor Azure Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Virtual Desktop Insights.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 12/08/2022
+ms.date: 09/12/2023
 ms.author: helohr
 manager: femila
 ---
@@ -12,7 +12,34 @@ manager: femila
 This article presents known issues and solutions for common problems in Azure Virtual Desktop Insights.
 
 >[!IMPORTANT]
->[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). While Azure Virtual Desktop Insights currently uses the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) by August 31, 2024. We'll provide instructions for how to migrate when we release the update that allows Azure Virtual Desktop Insights to support the Azure Monitor Agent. Until then, continue to use the Log Analytics Agent.
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you use the Log Analytics Agent for Azure Virtual Desktop support, you'll eventually need to migrate to the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) by August 31, 2024.
+
+# [Azure Monitor Agent](#tab/monitor)
+
+## Issues with configuration and setup
+
+If the configuration workbook isn't working properly to automate setup, you can use these resources to set up your environment manually:
+
+- To manually enable diagnostics or access the Log Analytics workspace, see [Send Azure Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
+- To install the Azure Monitor Agent extension on a session host manually, see [Azure Monitor Agent virtual machine extension for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md#install).
+- To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- To validate the Data Collection Rules in use, see [View data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md#view-data-collection-rules).
+
+## My data isn't displaying properly
+
+If your data isn't displaying properly, check the following common solutions:
+
+- First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
+- Check your access permissions & contact the resource owners to request missing permissions; anyone monitoring Azure Virtual Desktop requires the following permissions:
+    - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
+    - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
+    - Read-access to whichever Log Analytics workspaces you're using
+- You may need to open outgoing ports in your server's firewall to allow Azure Monitor to send data to the portal. To learn how to do this, see [Firewall requirements](../azure-monitor/agents/azure-monitor-agent-data-collection-endpoint.md#firewall-requirements).
+- If you're not seeing data from recent activity, you may need to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
+
+If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. For more information, see [known issues and limitations](#known-issues-and-limitations). 
+
+# [Log Analytics agent](#tab/analytics)
 
 ## Issues with configuration and setup
 
@@ -29,7 +56,7 @@ If the configuration workbook isn't working properly to automate setup, you can 
 If your data isn't displaying properly, check the following common solutions:
 
 - First, make sure you've set up correctly with the configuration workbook as described in [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md). If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
-- Check your access permissions & contact the resource owners to request missing permissions; anyone monitoring Azure Virtual Desktop requires the following permissions:
+- Check your access permissions and contact the resource owners to request missing permissions. Anyone monitoring Azure Virtual Desktop requires the following permissions:
     - Read-access to the Azure resource groups that hold your Azure Virtual Desktop resources
     - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
     - Read-access to whichever Log Analytics workspaces you're using
@@ -38,7 +65,9 @@ If your data isn't displaying properly, check the following common solutions:
       - [Log Analytics Firewall Requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
 - Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
-If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. Review [known issues and limitations](#known-issues-and-limitations). 
+If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. For more information, see [known issues and limitations](#known-issues-and-limitations). 
+
+---
 
 ## I want to customize Azure Virtual Desktop Insights
 
@@ -49,6 +78,17 @@ By design, custom Workbook templates will not automatically adopt updates from t
 ## I can't interpret the data
 
 Learn more about data terms at the [Azure Virtual Desktop Insights glossary](insights-glossary.md).
+
+# [Azure Monitor Agent](#tab/monitor)
+
+## The data I need isn't available
+
+If this article doesn't have the data point you need to resolve an issue, you can send us feedback at the following places:
+
+- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
+- You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+
+# [Log Analytics agent](#tab/analytics)
 
 ## The data I need isn't available
 
@@ -62,19 +102,19 @@ Can't find a data point to help diagnose an issue? Send us feedback!
 - To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
+---
+
 ## Known issues and limitations
 
 The following are issues and limitations we're aware of and working to fix:
 
-- You can only monitor one host pool at a time unless you select **Insights (Preview)** where you can you select multiple subscriptions, resource groups, and host pools at a time.
 - To save favorite settings, you have to save a custom template of the workbook. Custom templates won't automatically adopt updates from the product group.
-- The configuration workbook will sometimes show "query failed" errors when loading your selections. Refresh the query, reenter your selection if needed, and the error should resolve itself. 
+- The configuration workbook will sometimes show *query failed* errors when loading your selections. Refresh the query, reenter your selection if needed, and the error should resolve itself. 
 - Some error messages aren't phrased in a user-friendly way, and not all error messages are described in documentation.
 - The total sessions performance counter can over-count sessions by a small number and your total sessions may appear to go above your Max Sessions limit.
 - Available sessions count doesn't reflect scaling policies on the host pool. 	
 - Do you see contradicting or unexpected connection times? While rare, a connection's completion event can go missing and can impact some visuals and metrics.
-- Time to connect includes the time it takes users to enter their credentials; this correlates to the experience but in some cases can show false peaks. 
-	
+- Time to connect includes the time it takes users to enter their credentials; this correlates to the experience but in some cases can show false peaks.
 
 ## Next steps
 

@@ -6,8 +6,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/11/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: blobs 
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurecli
 ---
 

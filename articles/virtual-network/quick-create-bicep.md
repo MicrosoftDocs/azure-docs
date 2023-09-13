@@ -90,6 +90,9 @@ When the deployment finishes, a message indicates that the deployment succeeded.
 
 Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
+>[!NOTE]
+>[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 Use the [Azure Bastion as a service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Azure Bastion in your virtual network. This Bicep template defines the following Azure resources:
 
 - [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an AzureBastionSubnet subnet.

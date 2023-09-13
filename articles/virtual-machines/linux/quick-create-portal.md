@@ -9,7 +9,7 @@ ms.workload: infrastructure
 ms.date: 3/29/2023
 ms.author: cynthn
 ms.reviewer: mattmcinnes
-ms.custom: mvc, mode-ui
+ms.custom: mvc, mode-ui, devx-track-linux
 ---
 
 # Quickstart: Create a Linux virtual machine in the Azure portal

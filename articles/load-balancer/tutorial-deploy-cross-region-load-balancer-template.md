@@ -68,7 +68,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 ## Deploy the template
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Enter and select **Deploy a custom template** in the search bar
 1. In the **Custom deployment** page, enter **load-balancer-cross-region** in the **Quickstart template** textbox and select **quickstarts/microsoft.network/load-balancer-cross-region**.
 

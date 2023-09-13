@@ -156,6 +156,8 @@ items:
           items:
             - name: Configure
               href: configure-managed-instance.md
+            - name: Pod scheduling
+              href: pod-scheduling.md
             - name: Monitor, log analytics, and billing information - portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: Reserved capacity
@@ -233,7 +235,13 @@ items:
             - name: High availability
               href: managed-instance-high-availability.md
             - name: Disaster recovery
-              href: managed-instance-disaster-recovery.md
+              items:
+                - name: Overview
+                  href: managed-instance-disaster-recovery.md
+                - name: Configure failover group - portal
+                  href: managed-instance-disaster-recovery-portal.md
+                - name: Configure failover group - CLI
+                  href: managed-instance-disaster-recovery-cli.md
             - name: Reprovision replica
               href: reprovision-replica.md
         - name: Troubleshoot

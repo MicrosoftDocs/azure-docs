@@ -11,11 +11,11 @@ Azure Kubernetes Service (AKS) continuously monitors the health state of worker 
 
 In this article, you learn how the automatic node repair functionality behaves for Windows and Linux nodes.
 
-## How AKS checks for unhealthy nodes
+## How AKS checks for NotReady nodes
 
 AKS uses the following rules to determine if a node is unhealthy and needs repair:
 
-* The node reports the **NotReady** status on consecutive checks within a 10-minute time frame.
+* The node reports the [**NotReady**](https://kubernetes.io/docs/reference/node/node-status/#condition) status on consecutive checks within a 10-minute time frame.
 * The node doesn't report any status within 10 minutes.
 
 You can manually check the health state of your nodes with the `kubectl get nodes` command.
@@ -33,7 +33,10 @@ If AKS identifies an unhealthy node that remains unhealthy for *five* minutes, A
 
 AKS engineers investigate alternative remediations if auto-repair is unsuccessful.
 
-If you want the remediator to reimage the node, you can add the `nodeCondition "customerMarkedAsUnhealthy": true`.
+> [!NOTE]
+> Auto-repair is not triggered if the following taints are present on the node:` node.cloudprovider.kubernetes.io/shutdown`, `ToBeDeletedByClusterAutoscaler`.
+> 
+> The overall auto repair process can take up to an hour to complete. AKS retries for a max of 3 times for each step. 
 
 ## Node auto-drain
 

@@ -1,0 +1,136 @@
+### YamlMime:Landing
+
+title: Custom Vision documentation # < 60 chars
+summary: Azure AI Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies content labels to images based on their visual characteristics.  # < 160 chars
+
+metadata:
+  title: Custom Vision documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
+  description: Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, based on their visual characteristics.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: custom-vision
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 11/03/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card 
+  - title: About Custom Vision
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Custom Vision?
+            url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: whats-new.md
+      - linkListType: learn
+        links:
+          - text: Microsoft Learn training
+            url: /training/modules/classify-images-custom-vision/
+      - linkListType: video
+        links:
+          - text: Train and identify unique images
+            url: /Shows/AI-Show/Azure-Custom-Vision-How-to-Train-and-Identify-Unique-Designs-or-Image-Content
+
+  - title: Build an image classifier
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the web portal
+            url: getting-started-build-a-classifier.md
+          - text: Using the Custom Vision SDK or REST API
+            url: quickstarts/image-classification.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use the prediction API
+            url: use-prediction-api.md
+  - title: Build an object detector
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the web portal
+            url: get-started-build-detector.md
+          - text: Using the Custom Vision SDK
+            url: quickstarts/object-detection.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use the prediction API
+            url: use-prediction-api.md
+      - linkListType: tutorial
+        links:
+          - text: Logo detector for mobile
+            url: logo-detector-mobile.md
+
+  - title: Test and improve models
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Test your model
+            url: test-your-model.md
+          - text: Improve your model
+            url: getting-started-improving-your-classifier.md
+          - text: Use Smart Labeler
+            url: suggested-tags.md
+
+  - title: Export your model
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Export model to mobile
+            url: export-your-model.md
+          - text: Export a model programmatically
+            url: export-programmatically.md
+          - text: Use ONNX model with Windows ML
+            url: custom-vision-onnx-windows-ml.md
+          - text: Run TensorFlow model in Python
+            url: export-model-python.md
+      - linkListType: tutorial
+        links:
+          - text: IoT Visual Alerts app
+            url: iot-visual-alerts-tutorial.md
+          - text: Logo detector for mobile
+            url: logo-detector-mobile.md
+  
+  - title: Keep your project up to date
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Update your app to the 3.0 API
+            url: update-application-to-3.0-sdk.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Training API
+            url: https://go.microsoft.com/fwlink/?linkid=865446
+          - text: Prediction API
+            url: https://go.microsoft.com/fwlink/?linkid=865445
+          - text: .NET SDK
+            url: /dotnet/api/overview/azure/custom-vision
+          - text: Python SDK
+            url: /python/api/azure-cognitiveservices-vision-customvision/
+          - text: Java SDK
+            url: /java/api/overview/azure/cognitiveservices/client/customvision
+          - text: Go SDK (training)
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
+          - text: Go SDK (prediction)
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
+          - text: Azure PowerShell
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
+          - text: Azure Command-Line Interface (CLI)
+            url: /cli/azure/cognitiveservices
+
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/custom-vision-service/context/context

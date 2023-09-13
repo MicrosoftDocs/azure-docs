@@ -141,7 +141,7 @@ The following table lists common errors your admins might run into.
 |5001|SessionHostNotFound|The session host you queried might be offline. Check the host pool's status.|
 |5008|SessionHostUserSessionsExist |You must sign out all users on the session host before executing your intended management activity.|
 |6000|AppGroupNotFound|The application group name you entered doesn't match any existing application groups. Review the application group name for typos and try again.|
-|6022|RemoteAppNotFound|The RemoteApp name you entered doesn't match any RemoteApps. Review RemoteApp name for typos and try again.|
+|6022|RemoteAppNotFound|The RemoteApp name you entered doesn't match any application. Review RemoteApp name for typos and try again.|
 |6010|PublishedItemsExist|The name of the resource you're trying to publish is the same as a resource that already exists. Change the resource name and try again.|
 |7002|NameNotValidWhiteSpace|Don't use white space in the name.|
 |8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |

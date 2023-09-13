@@ -1,59 +1,70 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium profile - Terraform'
+title: 'Quickstart: Create an Azure Front Door Standard/Premium profile using Terraform'
 description: This quickstart describes how to create an Azure Front Door Standard/Premium using Terraform.
 services: front-door
 author: johndowns
 ms.author: jodowns
-ms.date: 10/25/2022
+ms.date: 8/11/2023
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.custom: devx-track-terraform
+content_well_notification: 
+  - AI-contribution
 ---
 
-# Create a Front Door Standard/Premium profile using Terraform
+# Quickstart: Create an Azure Front Door Standard/Premium profile using Terraform
 
 This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
 
-The steps in this article were tested with the following Terraform and Terraform provider versions:
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
-- [Terraform v1.3.2](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.3.27.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+In this article, you learn how to:
+
+> [!div class="checklist"]
+> * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet).
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group).
+> * Create a random value for the Front Door endpoint resource name and App Service app name using [random_id](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id).
+> * Create a Front Door profile using [azurerm_cdn_frontdoor_profile](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_profile).
+> * Create a Front Door endpoint using [azurerm_cdn_frontdoor_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_endpoint).
+> * Create a Front Door origin group using [azurerm_cdn_frontdoor_origin_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_origin_group)
+> * Create a Front Door origin, which refers to the App Service app, using [azurerm_cdn_frontdoor_origin](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_origin).
+> * Create a Front Door route using [azurerm_cdn_frontdoor_route](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_route).
+> * Create an App Service plan using [azurerm_service_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan).
+> * Create an App Service app using [azurerm_windows_web_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app).
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
-
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
-- IP address or FQDN of a website or web application.
 
 ## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-front-door-standard-premium). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-front-door-standard-premium/TestRecord.md).
+>
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/providers.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/providers.tf":::
 
-1. Create a file named `resource-group.tf` and insert the following code:
+1. Create a file named `main.tf` and insert the following code:
 
-   [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/resource-group.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/main.tf":::
 
 1. Create a file named `app-service.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/app-service.tf)]
-
-1. Create a file named `front-door.tf` and insert the following code:
-
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/front-door.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/app-service.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/variables.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/outputs.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/outputs.tf":::
 
 ## Initialize Terraform
 
@@ -69,37 +80,15 @@ The steps in this article were tested with the following Terraform and Terraform
 
 ## Verify the results
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+1. Get the Front Door endpoint:
 
-# [Portal](#tab/Portal)
+    ```console
+    terraform output -raw frontDoorEndpointHostName
+    ```
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Paste the endpoint into a browser.
 
-1. Select **Resource groups** from the left pane.
-
-1. Select the FrontDoor resource group.
-
-1. Select the Front Door you created and you'll be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
-
-    :::image type="content" source="./media/create-front-door-bicep/front-door-bicep-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
-
-# [Azure CLI](#tab/CLI)
-
-Run the following command:
-
-```azurecli-interactive
-az resource list --resource-group FrontDoor
-```
-
-# [PowerShell](#tab/PowerShell)
-
-Run the following command:
-
-```azurepowershell-interactive
-Get-AzResource -ResourceGroupName FrontDoor
-```
-
----
+    :::image type="content" source="./media/create-front-door-terraform/endpoint.png" alt-text="Screenshot of a successful connection to endpoint.":::
 
 ## Clean up resources
 
@@ -111,4 +100,5 @@ Get-AzResource -ResourceGroupName FrontDoor
 
 ## Next steps
 
-In this quickstart, you deployed a simple Front Door profile using Terraform. [Learn more about Azure Front Door.](front-door-overview.md)
+> [!div class="nextstepaction"] 
+> [Overview of Azure Front Door](front-door-overview.md)

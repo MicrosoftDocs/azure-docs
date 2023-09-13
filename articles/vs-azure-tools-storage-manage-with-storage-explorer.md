@@ -3,7 +3,7 @@ title: Get started with Storage Explorer
 description: Start managing Azure storage resources with Storage Explorer. Download and install Azure Storage Explorer, connect to a storage account or service, and more.
 services: storage
 author: cawaMS
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
@@ -37,6 +37,8 @@ Additional requirements include:
 The following versions of macOS support Storage Explorer:
 
 * macOS 10.13 High Sierra and later versions
+
+Starting with Storage Explorer version 1.31.0, both x64 (Intel) and ARM64 (Apple Silicon) versions of Storage Explorer are available for download.
 
 # [Ubuntu](#tab/linux-ubuntu)
 

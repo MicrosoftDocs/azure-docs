@@ -21,7 +21,7 @@ In this article, you can learn to secure header and LDAP-based applications usin
 * Improved governance: See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and learn more about Azure AD pre-authentication
   * See also, [What is Conditional Access?](../conditional-access/overview.md) to learn about how it helps enforce organizational policies
 * Full single sign-on (SSO) between Azure AD and BIG-IP published services
-* Manage identities and access from one control plane, the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from one control plane, the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 To learn about more benefits, see [F5 BIG-IP and Azure AD integration](./f5-integration.md).
 
@@ -38,7 +38,7 @@ Having a BIG-IP in front of the app enables overlay of the service with Azure AD
 The secure hybrid access solution for this scenario has:
 
 * **Application** - BIG-IP published service to be protected by Azure AD secure hybrid access (SHA)
-* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access (CA), and SAML-based SSO to the BIG-IP. With SSO, Azure AD provides the BIG-IP with required session attributes.
+* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP. With SSO, Azure AD provides the BIG-IP with required session attributes.
 * **HR system** - LDAP-based employee database as the source of truth for application permissions
 * **BIG-IP** - Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before performing header-based SSO to the back-end application
 
@@ -66,8 +66,8 @@ Prior BIG-IP experience isn't necessary, but you need:
   - F5 BIG-IP Access Policy Manager™ (APM) standalone license
   - F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
   - 90-day BIG-IP product [Free Trial](https://www.f5.com/trial/big-ip-trial.php)
-- User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD
-- An account with Azure AD Application Admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+- User identities [synchronized](../hybrid/connect/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD
+- One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 - An [SSL Web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certificates while testing
 - A header-based application or [set up a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
 - A user directory that supports LDAP, such as Windows Active Directory Lightweight Directory Services (AD LDS), OpenLDAP etc.
@@ -81,17 +81,18 @@ This tutorial uses Guided Configuration 16.1 with an Easy Button template. With 
 
 ## Register Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
 
 This first step creates a tenant app registration to authorize the **Easy Button** access to Graph. With these permissions, the BIG-IP can push the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with Application Administrative rights.
-2. From the left navigation pane, select the **Azure Active Directory** service.
-3. Under Manage, select **App registrations > New registration**.
-4. Enter a display name for your application. For example, F5 BIG-IP Easy Button.
-5. Specify who can use the application > **Accounts in this organizational directory only**.
-6. Select **Register**.
-7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations** > **New registration**.
+3. Enter a display name for your application. For example, F5 BIG-IP Easy Button.
+4. Specify who can use the application > **Accounts in this organizational directory only**.
+5. Select **Register**.
+6. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
 
     * Application.Read.All
     * Application.ReadWrite.All
@@ -221,9 +222,9 @@ On the **Additional User Attributes** tab, you can enable session augmentation f
 
 #### Conditional Access Policy
 
-CA policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view lists CA policies that don't include user actions.
+The **Available Policies** view lists Conditional Access policies that don't include user actions.
 
 The **Selected Policies** view shows policies targeting all cloud apps. These policies can't be deselected or moved to the Available Policies list because they're enforced at a tenant level.
 

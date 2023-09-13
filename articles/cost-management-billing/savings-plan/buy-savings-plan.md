@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 09/07/2023
 ms.author: banders
 ---
 
@@ -19,6 +19,9 @@ Azure savings plans help you save money by committing to an hourly spend for one
 ## Who can buy a savings plan
 
 Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA). You can buy a savings plan for an Azure subscription that's of type EA (MS-AZR-0017P or MS-AZR-0148P), MCA or MPA. To determine if you're eligible to buy a plan, [check your billing type](../manage/view-all-accounts.md#check-the-type-of-your-account).
+
+>[!NOTE]
+> Azure savings plan isn't supported for the China legacy Online Service Premium Agreement (OSPA) platform.
 
 ### Enterprise Agreement customers
 
@@ -36,7 +39,11 @@ To disallow savings plan purchases on a billing profile, billing profile contrib
 
 ### Microsoft Partner Agreement partners
 
-- Partners can use **Home** > **Savings plan** in the [Azure portal](https://portal.azure.com/) to purchase savings plans on behalf of their customers.
+Partners can use **Home** > **Savings plan** in the [Azure portal](https://portal.azure.com/) to purchase savings plans on behalf of their customers.
+
+As of June 2023, partners can purchase an Azure savings plan through Partner Center. Previously, Azure savings plan was only supported for purchase through the Azure portal. Partners can now purchase Azure savings plan through the Partner Center portal, APIs, or they can continue to use the Azure portal.
+
+To purchase Azure savings plan using the Partner Center APIs, see [Purchase Azure savings plans](/partner-center/developer/azure-purchase-savings-plan).
 
 ## Change agreement type to one supported by savings plan
 
@@ -49,6 +56,8 @@ If your current agreement type isn't supported by a savings plan, you might be a
 ## Purchase savings plan
 
 You can purchase a savings plan using the [Azure portal](https://portal.azure.com/) or with the [Savings Plan Order Alias - Create](/rest/api/billingbenefits/savings-plan-order-alias/create) REST API.
+
+After you buy a savings plan, you can [change the savings plan scope](manage-savings-plan.md#change-the-savings-plan-scope) to a different subscription.
 
 ### Buy a savings plan in the Azure portal
 

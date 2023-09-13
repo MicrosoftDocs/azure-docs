@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 10/15/2022
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Azure Data Protection with Veeam

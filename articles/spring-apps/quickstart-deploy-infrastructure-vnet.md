@@ -2,7 +2,7 @@
 title: Quickstart - Provision Azure Spring Apps using an Azure Resource Manager template (ARM template)
 description: This quickstart shows you how to use an ARM template to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-resource-manager
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java, mode-arm, event-tier1-build-2022, devx-track-arm-template
@@ -48,15 +48,15 @@ The Enterprise deployment plan includes the following Tanzu components:
 
 ## Review the template
 
-The templates used in this quickstart are from the [Azure Spring Apps Reference Architecture](reference-architecture.md).
-
-### [Standard plan](#tab/azure-spring-apps-standard)
-
-:::code language="json" source="~/azure-spring-apps-reference-architecture/ARM/brownfield-deployment/azuredeploySpringStandard.json":::
+The templates used in this quickstart are from the [Azure Spring Apps Reference Architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
 ### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
 :::code language="json" source="~/azure-spring-apps-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
+
+### [Standard plan](#tab/azure-spring-apps-standard)
+
+:::code language="json" source="~/azure-spring-apps-reference-architecture/ARM/brownfield-deployment/azuredeploySpringStandard.json":::
 
 ---
 
@@ -71,13 +71,13 @@ To deploy the template, use the following steps.
 
 First, select the following image to sign in to Azure and open a template. The template creates an Azure Spring Apps instance in an existing Virtual Network and a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
 
-### [Standard plan](#tab/azure-spring-apps-standard)
-
-:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
-
 ### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
 :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
+
+### [Standard plan](#tab/azure-spring-apps-standard)
+
+:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
 
 ---
 
@@ -128,7 +128,7 @@ In this quickstart, you deployed an Azure Spring Apps instance into an existing 
 * Deploy one of the following sample applications from the following locations:
   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices)
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI)
-* Use [custom domains](tutorial-custom-domain.md) with Azure Spring Apps.
+* Use [custom domains](how-to-custom-domain.md) with Azure Spring Apps.
 * Expose applications in Azure Spring Apps to the internet using Azure Application Gateway. For more information, see [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
-* View the secure end-to-end [Azure Spring Apps reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
+* View the secure end-to-end [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 * Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md).

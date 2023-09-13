@@ -12,75 +12,75 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Azure Communication Services Call Recording Logs
+# Azure Communication Services Call Recording logs
 
-Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
+Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 
-> [!IMPORTANT]
-> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
 ## Resource log categories
 
 Communication Services offers the following types of logs that you can enable:
 
-* **Usage logs** - provides usage data associated with each billed service offering
-* **Call Recording Summary Logs** - provides summary information for call recordings like:
-  - Call duration.
-  - Media content (for example, audio/video, unmixed, or transcription).
-  - Format types used for the recording (for example, WAV or MP4).
-  - The reason why the recording ended.
+* **Usage logs**: Provide usage data associated with each billed service offering.
+* **Call Recording summary logs**: Provide summary information for call recordings, like:
+  * Call duration.
+  * Media content (for example, audio/video, unmixed, or transcription).
+  * Format types used for the recording (for example, WAV or MP4).
+  * The reason why the recording ended.
+* **Recording incoming operations logs**: Provide information about incoming requests for Call Recording operations. Every entry corresponds to the result of a call to the Call Recording APIs, such as StartRecording, StopRecording, PauseRecording, and ResumeRecording.
 
-A recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot). It can also end because of a system failure.
+A recording file is generated at the end of a call or meeting. Either a user or an app (bot) can start and stop the recording. The recording can also end because of a system failure.
 
 Summary logs are published after a recording is ready to be downloaded. The logs are published within the standard latency time for Azure Monitor resource logs. See [Log data ingestion time in Azure Monitor](../../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log).
 
-### Usage logs schema
+### Usage log schema
 
 | Property | Description |
 | -------- | ---------------|
-| `Timestamp` | The timestamp (UTC) of when the log was generated. |
-| `Operation Name` | The operation associated with log record. |
-| `Operation Version` | The `api-version` associated with the operation, if the operationName was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
-| `Category` | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
-| `Correlation ID` | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
-| `Properties` | Other data applicable to various modes of Communication Services. |
-| `Record ID` | The unique ID for a given usage record. |
-| `Usage Type` | The mode of usage. (for example, Chat, PSTN, NAT, etc.) |
-| `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
-| `Quantity` | The number of units used or consumed for this record. |
+| `timestamp` | The timestamp (UTC) of when the log was generated. |
+| `operationName` | The operation associated with the log record. |
+| `operationVersion` | The `api-version` value associated with the operation, if the `operationName` operation was performed through an API. If no API corresponds to this operation, the version represents the version of the operation, in case the properties associated with the operation change in the future. |
+| `category` | The log category of the event. The category is the granularity at which you can enable or disable logs on a resource. The properties that appear within the `properties` blob of an event are the same within a log category and resource type. |
+| `correlationID` | The ID for correlated events. You can use it to identify correlated events between multiple tables. |
+| `Properties` | Other data that's applicable to various modes of Communication Services. |
+| `recordID` | The unique ID for a usage record. |
+| `usageType` | The mode of usage (for example, Chat, PSTN, or NAT). |
+| `unitType` | The type of unit that usage is based on for a mode of usage (for example, minutes, megabytes, or messages). |
+| `quantity` | The number of units used or consumed for this record. |
 
-### Call Recording summary logs schema
+### Call Recording summary log schema
 
 | Property name |	Data type |	Description |
 |----------  |-----------|--------------|
-|`timeGenerated`|DateTime|Time stamp (UTC) of when the log was generated.|
-|`operationName`|String|Operation associated with a log record.|
-|`correlationId`|String|ID that's used to correlate events between tables.|
-|`recordingID`|String|ID for the recording that this log refers to.|
-|`category`|String|Log category of the event. Logs with the same log category and resource type have the same property fields.|        
-|`resultType`|String| Status of the operation.|
-|`level`|String	|Severity level of the operation.| 
-|`chunkCount`|Integer|Total number of chunks created for the recording.|
-|`channelType`|String|Channel type of the recording, such as mixed or unmixed.|
-|`recordingStartTime`|DateTime|Time that the recording started.|
-|`contentType`|String|Content of the recording, such as audio only, audio/video, or transcription.|
-|`formatType`|String|File format of the recording.|
-|`recordingLength`|Double|Duration of the recording in seconds.|                                                               
-|`audioChannelsCount`|Integer|Total number of audio channels in the recording.|
-|`recordingEndReason`|String|Reason why the recording ended.|   
+| `timeGenerated` | DateTime | The time stamp (UTC) of when the log was generated. |
+| `operationName` | String | The operation associated with a log record. |
+| `correlationId` | String | The ID that's used to correlate events between tables. |
+| `recordingID` | String | The ID for the recording that this log refers to. |
+| `category` | String | The log category of the event. Logs with the same log category and resource type have the same property fields. |
+| `resultType` | String | The status of the operation. |
+| `level` |String| The severity level of the operation. |
+| `chunkCount` | Integer | The total number of chunks created for the recording. |
+| `channelType` | String | The channel type of the recording, such as mixed or unmixed. |
+| `recordingStartTime` | DateTime| The time that the recording started.|
+| `contentType` | String | The content of the recording, such as audio only, audio/video, or transcription. |
+| `formatType` | String | The file format of the recording. |
+| `recordingLength` | Double | The duration of the recording in seconds.|
+| `audioChannelsCount` | Integer | The total number of audio channels in the recording. |
+| `recordingEndReason` | String | The reason why the recording ended. |
 
 ### Call Recording and example data
 
 ```json
 "operationName":            "Call Recording Summary",
 "operationVersion":         "1.0",
-"category":                 "RecordingSummaryPUBLICPREVIEW",
+"category":                 "RecordingSummary",
 
 ```
+
 A call can have one recording or many recordings, depending on how many times a recording event is triggered.
 
-For example, if an agent initiates an outbound call on a recorded line and the call drops because of a poor network signal, `callid` will have one `recordingid` value. If the agent calls back the customer, the system generates a new `callid` instance and a new `recordingid` value. 
-
+For example, if an agent starts an outbound call on a recorded line and the call drops because of a poor network signal, `callID` will have one `recordingID` value. If the agent calls back the customer, the system generates a new `callID` instance and a new `recordingID` value.
 
 #### Example: Call Recording for one call to one recording
 
@@ -105,11 +105,11 @@ For example, if an agent initiates an outbound call on a recorded line and the c
 }
 ```
 
-If the agent initiates a recording and then stops and restarts the recording multiple times while the call is still on, `callid` will have many `recordingid` values, depending on how many times the recording events were triggered.
+If the agent starts a recording and then stops and restarts the recording multiple times while the call is still on, `callID` will have many `recordingID` values. The number of values depends on how many times the recording events were triggered.
 
 #### Example: Call Recording for one call to many recordings
 
-```json 
+```json
 
 {   
  "TimeGenerated": "2022-08-17T23:55:46.6304762Z",
@@ -147,8 +147,50 @@ If the agent initiates a recording and then stops and restarts the recording mul
 }
 ```
 
+### ACSCallRecordingIncomingOperations logs
+
+Here are the properties:
+
+| Property | Description |
+| -------- | ---------------|
+| `timeGenerated` | The time stamp (UTC) of when the log was generated. |
+| `callConnectionId` | The ID of the call connection or leg, if available. |
+| `callerIpAddress` | The caller IP address, if the operation corresponds to an API call that comes from an entity with a publicly available IP address. |
+| `correlationId` | The ID for correlated events. You can use it to identify correlated events between multiple tables. |
+| `durationMs` | The duration of the operation in milliseconds. |
+| `level` | The severity level of the operation. |
+| `operationName` | The operation associated with log records. |
+| `operationVersion` | The API version associated with the operation or version of the operation (if there is no API version). |
+| `resourceId` | A unique identifier for the resource that the record is associated with. |
+| `resultSignature` | The substatus of the operation. If this operation corresponds to a REST API call, this field is the HTTP status code of the corresponding REST call. |
+| `resultType` | The status of the operation. |
+| `sdkType` | The SDK type used in the request. |
+| `sdkVersion` | The SDK version. |
+| `serverCallId` | The server call ID. |
+| `URI` | The URI of the request. |
+
+Here's an example:
+
+```json
+"properties"
+{  "TimeGenerated": "2023-05-09T15:58:30.100Z",
+    "Level": "Informational",
+    "CorrelationId": "a999f996-b4e1-xxxx-ac04-a59test87d97",
+    "OperationName": "ResumeCallRecording",
+    "OperationVersion": "2023-03-06",
+    "URI": "https://acsresouce.communication.azure.com/calling/recordings/   eyJQbGF0Zm9ybUVuZHBviI0MjFmMTIwMC04MjhiLTRmZGItOTZjYi0...:resume?api-version=2023-03-06",
+    "ResultType": "Succeeded",
+    "ResultSignature": 202,
+    "DurationMs": 130,
+    "CallerIpAddress": "127.0.0.1",
+    "CallConnectionId": "d5596715-ab0b-test-8eee-575c250e4234",
+    "ServerCallId": "aHR0cHM6Ly9hcGk0vjCCCCCCQd2pRP2k9OTMmZT02Mzc5OTQ3xMDAzNDUwMzg...",
+    "SdkVersion": "1.0.0-alpha.20220829.1",
+    "SdkType": "dotnet"
+}
+```
+
 ## Next steps
 
-- Get [Call Recording insights](../insights/call-recording-insights.md)
-- Learn more about [Call Recording](../../voice-video-calling/call-recording.md). 
-
+- Get [Call Recording insights](../insights/call-recording-insights.md).
+- Learn more about [Call Recording](../../voice-video-calling/call-recording.md).

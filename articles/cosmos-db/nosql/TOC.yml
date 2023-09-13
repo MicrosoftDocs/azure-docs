@@ -406,6 +406,8 @@
           href: ../notebooks-overview.md
         - name: FAQ
           href: ../notebooks-faq.yml
+    - name: Emulator
+      href: ../emulator.md
 - name: How to
   items:
     - name: Access preview features
@@ -518,6 +520,9 @@
       href: query/toc.yml
     - name: Materialized views (preview)
       href: materialized-views.md
+    - name: Index and query geospatial data
+      displayName: geospatial, geojson, spatial, index, query, geography, geometry
+      href: how-to-geospatial-index-query.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput
@@ -640,6 +645,8 @@
               href: performance-tips-dotnet-sdk-v3.md
             - name: Performance tips for .NET SDK v2
               href: performance-tips.md
+            - name: Tune connection configurations for Azure Cosmos DB .NET SDK v3
+              href: tune-connection-configurations-net-sdk-v3.md
         - name: Java
           items:
             - name: Best practices for Java SDK
@@ -651,7 +658,11 @@
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2
-              href: performance-tips-java.md
+              href: performance-tips-java.md        
+        - name: JavaScript
+          items:
+            - name: Best practices for JavaScript SDK
+              href: best-practices-javascript.md
         - name: Configure the integrated cache
           href: ../how-to-configure-integrated-cache.md
         - name: Benchmarking framework
@@ -803,8 +814,12 @@
               href: ../how-to-always-encrypted.md
             - name: Self-serve minimum TLS version enforcement
               href: ../self-serve-minimum-tls-enforcement.md
-            - name: Configure customer-managed keys with Azure key vault
+            - name: Configure customer-managed keys with Azure Key Vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure customer-managed keys on existing accounts with Azure Key Vault
+              href: ../how-to-setup-customer-managed-keys-existing-accounts.md
+            - name: CMK troubleshooting guide
+              href: ../cmk-troubleshooting-guide.md
             - name: Configure customer-managed keys with Azure managed HSM key vault
               href: ../how-to-setup-customer-managed-keys-mhsm.md
             - name: Configure cross-tenant customer-managed keys
@@ -914,6 +929,8 @@
           href: migrate-hbase-to-cosmos-db.md
     - name: Integrate with other Azure services
       items:
+        - name: RAG with Azure OpenAI
+          href: ../rag-data-openai.md
         - name: Change feed Ecommerce solution
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service
@@ -968,6 +985,8 @@
           href: sdk-java-spring-data-v2.md
         - name: Spring Data Connector v3
           href: sdk-java-spring-data-v3.md
+        - name: Spring Data Connector v5
+          href: sdk-java-spring-data-v5.md
         - name: Spark 3.x OLTP Connector
           href: sdk-java-spark-v3.md
         - name: Spark 2.x LTS OLTP Connector
@@ -994,6 +1013,12 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ../policy-reference.md
+    - name: Emulator
+      items:
+        - name: Release notes
+          href: ../emulator-release-notes.md
+        - name: Windows command-line arguments
+          href: ../emulator-windows-arguments.md
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training

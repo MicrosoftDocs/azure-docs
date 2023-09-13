@@ -75,7 +75,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
 ### Move
 
-1. To link two caches together for geo-replication, fist select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from **Geo-replication** on the left.
+1. To link two caches together for geo-replication, first select **Geo-replication** from the Resource menu of the cache that you intend to be the primary linked cache. Next, select **Add cache replication link** from **Geo-replication** on the left.
 
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-menu.png" alt-text="Screenshot showing the cache's Geo-replication menu.":::
 

@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: troubleshooting
-ms.custom: devx-track-python, automl, references_regions, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, automl, references_regions, sdkv1, event-tier1-build-2022
 monikerRange: 'azureml-api-1'
 ---
 
 # Troubleshoot automated ML experiments in Python
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this guide, learn how to identify and resolve known issues in your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
@@ -210,8 +210,8 @@ If you have over 100 automated ML experiments, this may cause new automated ML e
 
 If you are under virtual networks (VNets), you may run into model download failures when using AutoML NLP. This is because network traffic is blocked from downloading the models and tokenizers from Azure CDN. To unblock this, please allow list the below URLs in the "Application rules" setting of the VNet firewall policy:
 
-* aka.ms 
-* https://automlresources-prod.azureedge.net 
+* ```aka.ms ```
+* ```https://automlresources-prod.azureedge.net ```
 
 Please follow the instructions [here to configure the firewall settings.](../how-to-access-azureml-behind-firewall.md)
 

@@ -4,8 +4,8 @@ titleSuffix: Azure Files
 description: View code samples that use the Azure File Share client library for .NET version 11.x.
 services: storage
 author: pauljewellmsft
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 05/05/2023
 ms.author: pauljewell

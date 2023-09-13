@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
-ms.date: 05/01/2023
+ms.date: 06/20/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -26,9 +26,9 @@ The Microsoft Security DevOps uses the following Open Source tools:
 | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
-## Prerequisites 
+## Prerequisites
 
-- Admin privileges to the Azure DevOps organization are required to install the extension. 
+- Admin privileges to the Azure DevOps organization are required to install the extension.
 
 If you don't have access to install the extension, you must request access from your Azure DevOps organization's administrator during the installation process.
 
@@ -77,15 +77,15 @@ If you don't have access to install the extension, you must request access from 
 
     :::image type="content" source="media/msdo-azure-devops-extension/repo-git.png" alt-text="Screenshot that shows you where to navigate to, to select Azure repo git.":::
 
-1.  Select the relevant repository.
+1. Select the relevant repository.
 
     :::image type="content" source="media/msdo-azure-devops-extension/repository.png" alt-text="Screenshot showing where to select your repository.":::
 
-5.  Select **Starter pipeline**.
+1. Select **Starter pipeline**.
 
     :::image type="content" source="media/msdo-azure-devops-extension/starter-piepline.png" alt-text="Screenshot showing where to select starter pipeline.":::
 
-1.  Paste the following YAML into the pipeline:
+1. Paste the following YAML into the pipeline:
 
     ```yml
     # Starter pipeline
@@ -96,30 +96,15 @@ If you don't have access to install the extension, you must request access from 
     pool:
       vmImage: 'windows-latest'
     steps:
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 3.1.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 5.0.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 6.0.x
     - task: MicrosoftSecurityDevOps@1
       displayName: 'Microsoft Security DevOps'
     ```
 
-> [!Note] 
-> The MicrosoftSecurityDevOps build task depends on .NET 6. The CredScan analyzer depends on .NET 3.1. See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops).
-
-9. To commit the pipeline, select **Save and run**.
+1. To commit the pipeline, select **Save and run**.
 
 The pipeline will run for a few minutes and save the results.
 
-> [!Note] 
+> [!NOTE]
 > Install the SARIF SAST Scans Tab extension on the Azure DevOps organization in order to ensure that the generated analysis results will be displayed automatically under the Scans tab.
 
 ## Learn more

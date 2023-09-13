@@ -4,7 +4,8 @@ description: Learn how to configure a remote desktop gateway in Azure DevTest La
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/30/2023
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Configure and use a remote desktop gateway in Azure DevTest Labs
@@ -132,7 +133,7 @@ Follow these steps to set up a sample remote desktop gateway farm.
    |`signCertificate`           |**Required** |The Base64 encoding for the signing certificate for the gateway machine. |
    |`signCertificatePassword`   |**Required** |The password for the signing certificate for the gateway machine. |
    |`signCertificateThumbprint` |**Required** |The certificate thumbprint for identification in the local certificate store of the signing certificate. |
-   |`_artifactsLocation`        |**Required** |The URI location to find artifacts this template requires. This value must be a fully qualified URI, not a relative path. The artifacts include other templates, PowerShell scripts, and the Remote Desktop Gateway Pluggable Authentication module, expected to be named *RDGatewayFedAuth.msi*, that supports token authentication. |
+   |`_artifactsLocation`        |**Required** |The URI location to find artifacts this template requires. This value must be a fully qualified URI, not a relative path. The artifacts include other templates, PowerShell scripts, and the Remote Desktop Gateway Pluggable Authentication module, expected to be named *RDGatewayFedAuth.msi* that supports token authentication. |
    |`_artifactsLocationSasToken`|**Required** |The shared access signature (SAS) token to access artifacts, if the `_artifactsLocation` is an Azure storage account. |
 
 1. Run the following Azure CLI command to deploy *azuredeploy.json*:
@@ -190,7 +191,7 @@ Once you configure both the gateway and the lab, the RDP connection file created
 
 ### Automate lab configuration
 
-- Powershell: [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) is a sample PowerShell script to automatically set **Gateway hostname** and **Gateway token secret** settings.
+- PowerShell: [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) is a sample PowerShell script to automatically set **Gateway hostname** and **Gateway token secret** settings.
 
 - ARM: Use the [Gateway sample ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/lab) in the Azure DevTest Labs GitHub repository to create or update labs with **Gateway hostname** and **Gateway token secret** settings.
 

@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/09/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn about how to build a Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
@@ -54,7 +53,3 @@ Learn how to add sign-in support to a Node.js browserless application:
 
 > [!div class="nextstepaction"]
 > [Add sign in and sign out >](how-to-browserless-app-node-sign-in-sign-out.md)
-
-
-
-

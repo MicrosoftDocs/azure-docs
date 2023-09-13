@@ -28,7 +28,7 @@ To get started, you need:
   * If you don't have one, get a [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) 
-* Go to [noknok.com](https://noknok.com/products/strong-authentication-service/). On the top menu, select **Demo**.
+* Go to [noknok.com](https://noknok.com/). On the top menu, select **Demo**.
 
 ## Scenario description
 

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 06/09/2023
+ms.date: 06/20/2023
 ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023
 #Customer intent: As an experienced Python developer, I need to read my data, to make it available to a remote compute resource, to train my machine learning models.
 ---
 
 # Access data in a job
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 In this article you learn:
@@ -40,18 +40,18 @@ In this article you learn:
 
 ## Quickstart
 
-Before delving into the detailed options available to you when accessing data, we show you the relevant code snippets to access data so you can get started quickly.
+Before you explore the detailed options available to you when accessing data, we show you the relevant code snippets to access data so you can get started quickly.
 
 ### Read data from Azure storage in an Azure Machine Learning job
 
-In this example, you submit an Azure Machine Learning job that accesses data from a *public* blob storage account. However, you can adapt the snippet to access your own data in a private Azure Storage account by updating the path (for details on how to specify paths, read [Paths](#paths)). Azure Machine Learning seamlessly handles authentication to cloud storage using Azure Active Directory passthrough. When you submit a job, you can choose:
+In this example, you submit an Azure Machine Learning job that accesses data from a *public* blob storage account. However, you can adapt the snippet to access your own data in a private Azure Storage account, by updating the path (for details on how to specify paths, read [Paths](#paths)). Azure Machine Learning seamlessly handles authentication to cloud storage using Azure Active Directory passthrough. When you submit a job, you can choose:
 
 - **User identity:** Passthrough your Azure Active Directory identity to access the data.
 - **Managed identity:** Use the managed identity of the compute target to access data.
 - **None:** Don't specify an identity to access the data. Use None when using credential-based (key/SAS token) datastores or when accessing public data.
 
 > [!TIP]
-> If you are using keys or SAS tokens to authenticate then we recommend you [create an Azure Machine Learning datastore](how-to-datastore.md) as the runtime will automatically connect to storage without exposing the key/token.
+> If you use keys or SAS tokens to authenticate, we recommend that you [create an Azure Machine Learning datastore](how-to-datastore.md), because the runtime will automatically connect to storage without exposure of the key/token.
 
 # [Python SDK](#tab/python)
 
@@ -186,7 +186,7 @@ az ml job create -f <file-name>.yml
 
 ### Write data from your Azure Machine Learning job to Azure Storage
 
-In this example, you submit an Azure Machine Learning job that writes data to your default Azure Machine Learning Datastore.
+In this example, you submit an Azure Machine Learning job that writes data to your default Azure Machine Learning Datastore. You can optionally set the `name` value of your data asset to create a data asset in the output.
 
 # [Python SDK](#tab/python)
 
@@ -249,7 +249,14 @@ inputs = {
 }
 
 outputs = {
-    "output_data": Output(type=data_type, path=output_path, mode=output_mode)
+    "output_data": Output(type=data_type, 
+                          path=output_path, 
+                          mode=output_mode,
+                          # optional: if you want to create a data asset from the output, 
+                          # then uncomment name (name can be set without setting version)
+                          # name = "<name_of_data_asset>",
+                          # version = "<version>",
+                  )
 }
 
 # This command job copies the data to your default Datastore
@@ -305,6 +312,11 @@ outputs:
     mode: rw_mount
     path: azureml://datastores/workspaceblobstore/paths/quickstart-output/titanic.csv
     type: uri_file
+    # optional: if you want to create a data asset from the output, 
+    # then uncomment name (name can be set without setting version)
+    # name: <name_of_data_asset>
+    # version: <version>
+    
 ```
 
 Next, submit the job using the CLI:
@@ -317,22 +329,22 @@ az ml job create --file <file-name>.yml
 
 ## The Azure Machine Learning data runtime
 
-When you submit a job, the Azure Machine Learning data runtime controls the data load from the storage location to the compute target. The Azure Machine Learning data runtime has been built to be fast and efficient for machine learning tasks. The key benefits include:
+When you submit a job, the Azure Machine Learning data runtime controls the data load, from the storage location to the compute target. The Azure Machine Learning data runtime has been optimized for speed and efficiency for machine learning tasks. The key benefits include:
 
-- Data loading is written in the [Rust language](https://www.rust-lang.org/), which is known for high speed and high memory efficiency. Avoids issues with Python GIL when doing concurrent data downloading.
-- Light weight; there are *no* dependencies on other technologies - such as JVM - making the runtime fast to install, and doesn't drain extra resources (CPU, Memory) on the compute target.
+- Data loads are written in the [Rust language](https://www.rust-lang.org/), a language known for high speed and high memory efficiency. For concurrent data downloads, Rust avoids Python [Global Interpreter Lock (GIL)](https://wikipedia.org/wiki/Global_interpreter_lock) issues.
+- Light weight; Rust has *no* dependencies on other technologies - for example JVM. As a result, the runtime installs quickly, and it doesn't drain extra resources (CPU, Memory) on the compute target.
 - Multi-process (parallel) data loading.
 - Prefetches data as a background task on the CPU(s), to enable better utilization of the GPU(s) when doing deep-learning.
 - Seamlessly handles authentication to cloud storage.
 - Provides options to mount data (stream) or download all the data. For more information, read [Mount (streaming)](#mount-streaming) and [Download](#download) sections.
-- Seamless integration with [fsspec](https://filesystem-spec.readthedocs.io/en/latest/) - a unified pythonic interface to local, remote and embedded file systems and bytes storage.
+- Seamless integration with [fsspec](https://filesystem-spec.readthedocs.io/en/latest/) - a unified pythonic interface to local, remote and embedded file systems and byte storage.
 
 > [!TIP]
-> We recommend that you leverage the Azure Machine Learning data runtime, rather than creating your own mounting/downloading capability in your training (client) code. In particular, we have seen storage throughput constrained when the client code uses Python to download data from storage due to [Global Interpreter Lock (GIL)](https://wikipedia.org/wiki/Global_interpreter_lock) issues.
+> We suggest that you leverage the Azure Machine Learning data runtime, instead of creating your own mounting/downloading capability in your training (client) code. In particular, we have seen storage throughput constrained when the client code uses Python to download data from storage due to [Global Interpreter Lock (GIL)](https://wikipedia.org/wiki/Global_interpreter_lock) issues.
 
 ## Paths
 
-When you provide a data input/output to a job, you must specify a `path` parameter that points to the data location. This table shows both the different data locations that Azure Machine Learning supports, and examples for the `path` parameter:
+When you provide a data input/output to a job, you must specify a `path` parameter that points to the data location. This table shows the different data locations that Azure Machine Learning supports, and also shows `path` parameter examples:
 
 |Location  | Examples  |
 |---------|---------|
@@ -346,11 +358,11 @@ When you provide a data input/output to a job, you must specify a `path` paramet
 
 When you run a job with data inputs/outputs, you can select from various *modes*:
 
-- **`ro_mount`:** Mount storage location as read-only on the compute target's local disk (SSD).
-- **`rw_mount`:** Mount storage location as read-write on the compute target's local disk (SSD).
-- **`download`:** Download the data from the storage location to the compute target's local disk (SSD).
+- **`ro_mount`:** Mount storage location, as read-only on the local disk (SSD) compute target.
+- **`rw_mount`:** Mount storage location, as read-write on the local disk (SSD) compute target.
+- **`download`:** Download the data from the storage location to the local disk (SSD) compute target.
 - **`upload`:** Upload data from the compute target to the storage location.
-- **`eval_mount`/`eval_download`:** *These modes are unique to MLTable.* In some scenarios, an MLTable can yield files that aren't necessarily located in the same storage account as the MLTable file. Or, an MLTable can subset or shuffle the data located in the storage resource. That view of the subset/shuffle becomes visible only if the Azure Machine Learning data runtime actually evaluates the MLTable file. For example, this diagram shows how an MLTable used with `eval_mount` or `eval_download` can take images from two different storage containers and an annotations file located in a different storage account and then mount/download to the remote compute target's filesystem.
+- **`eval_mount`/`eval_download`:** *These modes are unique to MLTable.* In some scenarios, an MLTable can yield files that might be located in a different storage account than the storage account that hosts the MLTable file. Or, an MLTable can subset or shuffle the data located in the storage resource. That view of the subset/shuffle becomes visible only if the Azure Machine Learning data runtime actually evaluates the MLTable file. For example, this diagram shows how an MLTable used with `eval_mount` or `eval_download` can take images from two different storage containers, and an annotations file located in a different storage account, and then mount/download to the filesystem of the remote compute target.
 
     :::image type="content" source="media/how-to-read-write-data-v2/eval-mount.png" alt-text="Screenshot showing evaluation of mount." lightbox="media/how-to-read-write-data-v2/eval-mount.png":::
 
@@ -370,7 +382,7 @@ When you run a job with data inputs/outputs, you can select from various *modes*
         └── container1
             └── annotations.csv
     ```
-- **`direct`:** You may want to read data directly from a URI through other APIs rather than go through the Azure Machine Learning data runtime. For example, you may want to access data on an s3 bucket (with a virtual-hosted–style or path-style `https` URL) using the boto s3 client. You can get URI of the input as a *string* by choosing `direct` mode. You see the direct mode used in Spark Jobs because the `spark.read_*()` methods know how to process the URIs. For **non-Spark** jobs, it is *your* responsibility to manage access credentials. For example, you need to explicitly make use compute MSI or broker access otherwise.
+- **`direct`:** You might want to read data directly from a URI through other APIs, rather than go through the Azure Machine Learning data runtime. For example, you may want to access data on an s3 bucket (with a virtual-hosted–style or path-style `https` URL) using the boto s3 client. You can obtain the URI of the input as a *string* with the `direct` mode. You see use of the direct mode in Spark Jobs, because the `spark.read_*()` methods know how to process the URIs. For **non-Spark** jobs, it is *your* responsibility to manage access credentials. For example, you must explicitly make use of compute MSI, or otherwise broker access.
 
 This table shows the possible modes for different type/mode/input/output combinations:
 
@@ -384,21 +396,21 @@ Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct`
 `mltable`   | Output | ✓  |   |    | ✓  | ✓  |  | 
 
 ### Download
-In download mode, all the input data is copied to the local disk (SSD) of the compute target. The Azure Machine Learning data runtime starts the user training script once all the data is copied. When user script starts, it reads data from the local disk just like any other files. When the job finishes, the data is removed from the disk of the compute target.
+In download mode, all the input data is copied to the local disk (SSD) of the compute target. The Azure Machine Learning data runtime starts the user training script, once all the data is copied. When the user script starts, it reads data from the local disk, just like any other files. When the job finishes, the data is removed from the disk of the compute target.
 
 | Advantages | Disadvantages |
 |------| -----|
-| When training starts, all the data is available on the local disk (SSD) of the compute target for the training script. No Azure storage / network interaction is required. | Dataset must completely fit on a compute target disk.|
-|After user script starts, there are no dependencies on storage / network reliability. |Entire dataset is downloaded (if training needs to randomly select only a small portion of a data, then much of the download is wasted).|
-|Azure Machine Learning data runtime can parallelize download (significant difference on many small files) and max network / storage throughput.|The job waits until all data is downloaded to the compute target's local disk. If you submit a deep-learning job, the GPUs idle until data is ready.|
+| When training starts, all the data is available on the local disk (SSD) of the compute target, for the training script. No Azure storage / network interaction is required. | The dataset must completely fit on a compute target disk.|
+|After the user script starts, there are no dependencies on storage / network reliability. |The entire dataset is downloaded (if training needs to randomly select only a small portion of a data, then much of the download is wasted).|
+|Azure Machine Learning data runtime can parallelize the download (significant difference on many small files) and max network / storage throughput.|The job waits until all data downloads to the local disk of the compute target. If you submit a deep-learning job, the GPUs idle until data is ready.|
 |No unavoidable overhead added by the FUSE layer (roundtrip: user space call in user script → kernel → user space fuse daemon → kernel → response to user script in user space) | Storage changes aren't reflected on the data after download is done. |
 
 #### When to use download
 
-- The data is small enough to fit on the compute target's disk without interfering with other training.
+- The data is small enough to fit on the compute target's disk without interference with other training.
 - The training uses most or all of the dataset.
 - The training reads files from a dataset more than once.
-- The training needs to jump to random positions of a large file.
+- The training must jump to random positions of a large file.
 - It's OK to wait until all the data downloads before training starts.
 
 #### Available download settings
@@ -409,7 +421,7 @@ You can tune the download settings with the following environment variables in y
 | `RSLEX_DOWNLOADER_THREADS` | u64 | `NUMBER_OF_CPU_CORES * 4` | Number of concurrent threads download can use |
 | `AZUREML_DATASET_HTTP_RETRY_COUNT` | u64 | 7 | Number of retry attempts of individual storage / `http` request to recover from transient errors. |
 
-In your job, you can change the above defaults by setting the environment variables, for example:
+In your job, you can change the above defaults by setting the environment variables - for example:
 
 # [Python SDK](#tab/python)
 
@@ -447,11 +459,11 @@ environment_variables:
 #### Download performance metrics
 The VM size of your compute target has an effect on the download time of your data. Specifically:
 
-- *The number of cores*. The more cores available, the more concurrency and therefore faster download.
+- *The number of cores*. The more cores available, the more concurrency and therefore faster download speed.
 - *The expected network bandwidth*. Each VM in Azure has a maximum throughput from the Network Interface Card (NIC).
 
 > [!NOTE]
-> For A100 GPU VMs, the Azure Machine Learning data runtime can saturating the NIC (Network Interface Card) when downloading data to the compute target (~24 Gbit/s): **The theoretical maximum throughput possible**.
+> For A100 GPU VMs, the Azure Machine Learning data runtime can saturate the NIC (Network Interface Card) when downloading data to the compute target (~24 Gbit/s): **The theoretical maximum throughput possible**.
 
 This table shows the download performance the Azure Machine Learning data runtime can handle for a 100-GB file on a `Standard_D15_v2` VM (20cores, 25 Gbit/s Network throughput):
 
@@ -461,7 +473,7 @@ This table shows the download performance the Azure Machine Learning data runtim
 |100 x 1 GB Files | 58.09 | 259.47| 13.77 Gbit/s
 |1 x 100 GB File | 96.13 | 300.61 | 8.32 Gbit/s
 
-We can see that a larger file, broken up into smaller files, can improve download performance due to parallelism. We recommend that files don't become too small (not less than 4 MB) as the time spent on storage request submissions increases, relative to time spent downloading the payload. For more information, read [Many small files problem](#many-small-files-problem).
+We can see that a larger file, broken up into smaller files, can improve download performance due to parallelism. We recommend that you avoid files that become too small (less than 4 MB) because the time needed for storage request submissions increases, relative to time spent downloading the payload. For more information, read [Many small files problem](#many-small-files-problem).
 
 ### Mount (streaming)
 In mount mode, the Azure Machine Learning data capability uses the [FUSE (filesystem in user space)](https://www.kernel.org/doc/html/latest/filesystems/fuse.html) Linux feature, to create an emulated filesystem. Instead of downloading all the data to the local disk (SSD) of the compute target, the runtime can react to the user's script actions *in real-time*. For example, *"open file"*, *"read 2-KB chunk from position X"*, *"list directory content"*.
@@ -469,13 +481,13 @@ In mount mode, the Azure Machine Learning data capability uses the [FUSE (filesy
 | Advantages | Disadvantages |
 |-----------|-------------|
 |Data that exceeds the compute target local disk capacity can be used (not limited by compute hardware)|Added overhead of the Linux FUSE module.|
-|No delay at the beginning of training (unlike download mode).|Dependency on user’s code behavior (if the training code that sequentially reads small files in a single thread mount also requests data from storage, it may not maximize the network or storage throughput).|
+|No delay at the start of training (unlike download mode).|Dependency on user’s code behavior (if the training code that sequentially reads small files in a single thread mount also requests data from storage, it may not maximize the network or storage throughput).|
 |More available settings to tune for a usage scenario.| No windows support.|
 |Only data needed for training is read from storage.| |
 
 #### When to use Mount
 
-- The data is large, and it can’t fit on the compute target local disk.
+- The data is large, and it won’t fit on the compute target local disk.
 - Each individual compute node in a cluster doesn't need to read the entire dataset (random file or rows in csv file selection, etc.).
 - Delays waiting for all data to download before training starts can become a problem (idle GPU time).
 
@@ -527,7 +539,7 @@ environment_variables:
 ---
 
 #### Block-based open mode
-In block-based open mode, each file is split into blocks of predefined size (except for the last block). A read request from a specified position requests a corresponding block from storage, and returns the requested data immediately. A read also triggers background prefetching of *N* next blocks, using multiple threads (optimized for sequential read). Downloaded blocks are cached in two layer cache (RAM and local disk).
+In block-based open mode, each file is split into blocks of a predefined size (except for the last block). A read request from a specified position requests a corresponding block from storage, and returns the requested data immediately. A read also triggers background prefetching of *N* next blocks, using multiple threads (optimized for sequential read). Downloaded blocks are cached in two layer cache (RAM and local disk).
 
 | Advantages | Disadvantages |
 |------------|-------------- |
@@ -541,7 +553,7 @@ Recommended for most scenarios *except* when you need fast reads from random fil
 
 #### Whole file cache open mode
 
-In whole file mode, when a file under a mount folder is opened (for example, `f = open(path, args)`) the call is blocked until the entire file is downloaded into a compute target cache folder on the disk. All subsequent read calls redirect to the cached file, so no storage interaction is needed. If cache doesn't have enough available space to fit the current file, mount tries to prune by deleting from the cache the least recently used file. In cases where the file can’t fit on disk (with respect to cache settings), the data runtime falls back to streaming mode.
+When a file under a mount folder is opened (for example, `f = open(path, args)`) in whole file mode, the call is blocked until the entire file is downloaded into a compute target cache folder on the disk. All subsequent read calls redirect to the cached file, so no storage interaction is needed. If cache doesn't have enough available space to fit the current file, mount tries to prune by deleting the least-recently used file from the cache. In cases where the file can’t fit on disk (with respect to cache settings), the data runtime falls back to streaming mode.
 
 |Advantages | Disadvantages |
 |-----------|---------------|
@@ -581,7 +593,7 @@ environment_variables:
 
 #### Mount: Listing files
 
-When working with *millions* of files, avoid a *recursive listing* - for example `ls -R /mnt/dataset/folder/`. A recursive listing triggers many calls to list the directory contents of the parent directory. It then requires a separate recursive call for each directory inside, at all child levels. Typically, Azure Storage allows only 5000 elements to be returned per single list request. This means a recursive listing of 1M folders containing 10 files each requires `1,000,000 / 5000 + 1,000,000 = 1,000,200` requests to storage. In comparison, 1,000 folders with 10,000 files would only need 1001 requests to storage for a recursive listing.
+When working with *millions* of files, avoid a *recursive listing* - for example `ls -R /mnt/dataset/folder/`. A recursive listing triggers many calls to list the directory contents of the parent directory. It then requires a separate recursive call for each directory inside, at all child levels. Typically, Azure Storage allows only 5000 elements to be returned per single list request. As a result, a recursive listing of 1M folders containing 10 files each requires `1,000,000 / 5000 + 1,000,000 = 1,000,200` requests to storage. In comparison, 1,000 folders with 10,000 files would only need 1001 requests to storage for a recursive listing.
 
 Azure Machine Learning mount handles listing in a lazy manner. Therefore, to list many small files, it's better to use an iterative client library call (for example, `os.scandir()` in Python) instead of a client library call that returns the full list (for example, `os.listdir()` in Python). An iterative client library call returns a generator, meaning that it doesn't need to wait until the entire list loads. It can then proceed faster.
 
@@ -767,7 +779,7 @@ environment_variables:
 
 ## Diagnosing and solving data loading bottlenecks
 
-When an Azure Machine Learning job executes with data, the `mode` of an input determines how bytes are read from storage and cached on the compute target local SSD disk. For download mode, all the data caches on disk before the user code starts execution. Therefore, factors such as
+When an Azure Machine Learning job executes with data, the `mode` of an input determines how bytes are read from storage and cached on the compute target local SSD disk. For download mode, all the data caches on disk, before the user code starts its execution. Therefore, factors such as
 
 - number of parallel threads
 - the number of files
@@ -775,7 +787,7 @@ When an Azure Machine Learning job executes with data, the `mode` of an input de
 
 have an effect on maximum download speeds. For mount, no data caches until the user code starts to open files. Different mount settings result in different reading and caching behavior. Various factors have an effect on the speed that data loads from storage:
 
-- **Data locality to compute**:  Your storage and compute target locations should be the same. If your storage and compute target are in different regions, performance degrades because data must transfer across regions. To learn more about ensuring that your data colocates with compute, read [Colocate data with compute](#colocate-data-with-compute).
+- **Data locality to compute**:  Your storage and compute target locations should be the same. If your storage and compute target are located in different regions, performance degrades because data must transfer across regions. To learn more about ensuring that your data colocates with compute, read [Colocate data with compute](#colocate-data-with-compute).
 - **The compute target size**: Small computes have lower core counts (less parallelism) and smaller expected network bandwidth compared to larger compute sizes - both factors affect data loading performance.
     - For example, if you use a small VM size, such as `Standard_D2_v2` (2 cores, 1500 Mbps NIC), and you try to load 50,000 MB (50 GB) of data, the best achievable data loading time would be ~270 secs (assuming you saturate the NIC at 187.5-MB/s throughput). In contrast, a `Standard_D5_v2` (16 cores, 12,000 Mbps) would load the same data in ~33 secs (assuming you saturate the NIC at 1500-MB/s throughput).
 - **Storage tier**: For most scenarios - including Large Language Models (LLM) - standard storage provides the best cost/performance profile. However, if you have [many small files](#many-small-files-problem), *premium* storage offers a better cost/performance profile. For more information, read [Azure Storage options](#azure-storage-options).
@@ -806,15 +818,15 @@ If the download throughput is a fraction of the expected network bandwidth for t
 2023-05-18T14:08:25.388762Z  INFO copy_uri:copy_uri:copy_dataset:write_streams_to_files:collect:reduce:reduce_and_combine:combine: rslex::dataset_crossbeam: close time.busy=1.22ms time.idle=9.50µs sessionId=012ea46a-341c-4258-8aba-90bde4fdfb51 source=Dataset[Partitions: 1, Sources: 1] file_name_column=None break_on_first_error=true skip_existing_files=false parallelization_degree=4 self=Dataset[Partitions: 1, Sources: 1] parallelization_degree=4 self=Dataset[Partitions: 1, Sources: 1] parallelization_degree=4 self=Dataset[Partitions: 1, Sources: 1] parallelization_degree=4
 ```
 
-The **rslex.log** file details all the file copying, whether or not you chose the mount or download modes. It also describes the Settings (environment variables) used. To start debugging, to check whether you have set the [Optimum mount settings for common scenarios](#optimum-mount-settings-for-common-scenarios).
+The **rslex.log** file provides details about all the file copying, whether or not you chose the mount or download modes. It also describes the Settings (environment variables) used. To start debugging, check whether you have set the [Optimum mount settings for common scenarios](#optimum-mount-settings-for-common-scenarios).
 
 #### Monitor Azure storage
 
-In the Azure portal, you can select your Storage account and then **Metrics** to see the storage metrics:
+In the Azure portal, you can select your Storage account, and then **Metrics**, to see the storage metrics:
 
 :::image type="content" source="media/how-to-read-write-data-v2/blob-metrics.png" alt-text="Screenshot showing blob metrics." lightbox="media/how-to-read-write-data-v2/blob-metrics.png":::
 
-You then plot the **SuccessE2ELatency** with **SuccessServerLatency**. If the **metrics show high SuccessE2ELatency and low SuccessServerLatency**, you have limited available threads, or you're low on resources such as CPU, memory, or network bandwidth. You should:
+You then plot the **SuccessE2ELatency** with **SuccessServerLatency**. If the **metrics show high SuccessE2ELatency and low SuccessServerLatency**, you have limited available threads, or you run low on resources such as CPU, memory, or network bandwidth, you should:
 
 - Use [monitoring view in the Azure Machine Learning studio](#monitor-disk-usage-during-a-job) to check the CPU and memory utilization of your job. If you're low on CPU and memory, consider increasing the compute target VM size.
 - Consider increasing `RSLEX_DOWNLOADER_THREADS` if you're downloading and you aren't utilizing the CPU and memory. If you use mount, you should increase `DATASET_MOUNT_READ_BUFFER_BLOCK_COUNT` to do more prefetching, and increase `DATASET_MOUNT_READ_THREADS` for more read threads.
@@ -831,9 +843,9 @@ From the Azure Machine Learning studio, you can also monitor the compute target 
 :::image type="content" source="media/how-to-read-write-data-v2/disk-usage.png" alt-text="Screenshot showing disk usage during job execution." lightbox="media/how-to-read-write-data-v2/disk-usage.png":::
 
 > [!NOTE]
-> Job monitoring supports only compute that Azure Machine Learning manages. Jobs with a runtime of less than 5 minutes will not have enough data to populate this view.
+> Job monitoring supports only compute resources that Azure Machine Learning manages. Jobs with a runtime of less than 5 minutes will not have enough data to populate this view.
 
-Azure Machine Learning data runtime doesn't use the last `RESERVED_FREE_DISK_SPACE` bytes of disk space to keep the compute healthy (the default value is `150MB`). If your disk is full, your code is writing files to disk without declaring the files as an output. Therefore, check your code to make sure that data isn't being written erroneously to temporary disk. If you must write files to temporary disk, and that resource is becoming full, consider:
+Azure Machine Learning data runtime doesn't use the last `RESERVED_FREE_DISK_SPACE` bytes of disk space, to keep the compute healthy (the default value is `150MB`). If your disk is full, your code is writing files to disk without declaring the files as an output. Therefore, check your code to make sure that data isn't being written erroneously to temporary disk. If you must write files to temporary disk, and that resource is becoming full, consider:
 
 - Increasing the VM Size to one that has a larger temporary disk.
 - Setting a TTL on the cached data (`DATASET_MOUNT_ATTRIBUTE_CACHE_TTL`), to purge your data from disk.
@@ -930,7 +942,7 @@ data_path_for_this_rank = args.data[rank]
 
 Reading files from storage involves making requests for each file. The request count per file varies, based on file sizes and the settings of the software that handles the file reads.
 
-Files are usually read in *blocks* of 1-4 MB size. Files smaller than a block are read with a single request (GET file.jpg 0-4MB) and files larger than a block have one request made per block (GET file.jpg 0-4MB, GET file.jpg 4-8 MB). The following table shows that files smaller than a 4-MB block result in more storage requests compared to larger files:
+Files are generally read in *blocks* of 1-4 MB size. Files smaller than a block are read with a single request (GET file.jpg 0-4MB), and files larger than a block have one request made per block (GET file.jpg 0-4MB, GET file.jpg 4-8 MB). The following table shows that files smaller than a 4-MB block result in more storage requests compared to larger files:
 
 |# Files  |File Size | Total data size | Block size |# Storage requests  |
 |---------|---------|---------|---------|--------|

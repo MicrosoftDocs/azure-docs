@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 08/24/2023
 ms.author: jfields
 ---
 
@@ -113,17 +113,22 @@ To view status of onboarding after saving the configuration:
 
 ### 2. Review and save.
 
-- In **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
+1. In **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
     On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.**
 
-    You have now completed onboarding Azure, and Permissions Management has started collecting and processing your data.
+    The status column in your Permissions Management UI shows you which step of data collection you're at:  
+ 
+    - **Pending**: Permissions Management has not started detecting or onboarding yet. 
+    - **Discovering**: Permissions Management is detecting the authorization systems. 
+    - **In progress**: Permissions Management has finished detecting the authorization systems and is onboarding. 
+    - **Onboarded**: Data collection is complete, and all detected authorization systems are onboarded to Permissions Management. 
 
 ### 3. View the data.
 
-- To view the data, select the **Authorization Systems** tab.
+1. To view the data, select the **Authorization Systems** tab.
 
     The **Status** column in the table displays **Collecting Data.**
 
@@ -136,5 +141,5 @@ To view status of onboarding after saving the configuration:
 - For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](onboard-gcp.md).
 - For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](onboard-enable-controller-after-onboarding.md).
 - For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md).
-- For an overview on Permissions Management, see [What's Permissions Management?](overview.md).
+- For an overview on Permissions Management, see [What's Microsoft Entra Permissions Management?](overview.md).
 - For information on how to start viewing information about your authorization system in Permissions Management, see [View key statistics and data about your authorization system](ui-dashboard.md).

@@ -2,7 +2,6 @@
 title: What is the Azure Machine Learning designer(v2)?
 titleSuffix: Azure Machine Learning
 description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables customer to build machine learning pipeline. 
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -15,30 +14,30 @@ ms.custom: designer
 
 # What is Azure Machine Learning designer(v2)?
 
-Azure Machine Learning designer is a drag-and-drop UI interface to build pipeline in Azure Machine Learning.
+Azure Machine Learning designer is a drag-and-drop UI interface for building machine learning pipelines in Azure Machine Learning Workspaces.
 
-As shown in below GIF, you can build a pipeline visually by drag and drop your building blocks and connect them.
+As shown in below GIF, you can build a pipeline visually by dragging and dropping building blocks and connecting them.
 
 :::image type="content" source="./media/concept-designer/designer-drag-and-drop.gif" alt-text="GIF of a building a pipeline in the designer." lightbox= "./media/concept-designer/designer-drag-and-drop.gif":::
 
 
 >[!Note]
-> Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible.
+>Designer supports two types of components, classic prebuilt components (v1) and custom components(v2). These two types of components are NOT compatible.
+
+>Classic prebuilt components support typical data processing and machine learning tasks including regression and classification. Though classic prebuilt components will continue to be supported, no new components will be added.
 >
->Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added.
+>Custom components allow you to wrap your own code as a component enabling sharing across workspaces and seamless authoring across the Azure Machine Learning Studio, CLI v2, and SDK v2 interfaces.
 >
->Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across Studio, CLI v2, and SDK v2 interfaces.
+>For new projects, we highly recommend that you use custom components since they are compatible with AzureML V2 and will continue to receive new updates.
 >
->For new projects, we highly suggest you use custom component, which is compatible with AzureML V2 and will keep receiving new updates.
->
->This article applies to custom components.
+>This article applies to custom components..
 
 
 ## Assets
 
 The building blocks of pipeline are called assets in Azure Machine Learning, which includes:
  - [Data](./concept-data.md)
- - Model
+ - [Model](how-to-manage-models.md?view=azureml-api-2&preserve-view=true&tabs=cli)
  - [Component](./concept-component.md)
 
 Designer has an asset library on the left side, where you can access all the assets you need to create your pipeline. It shows both the assets you created in your workspace, and the assets shared in [registry](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have permission to access.

@@ -4,7 +4,7 @@ description: Describes how to add a custom transformation to data flowing throug
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 07/01/2022
+ms.date: 07/17/2023
 ---
 
 # Tutorial: Add a transformation in a workspace data collection rule by using the Azure portal

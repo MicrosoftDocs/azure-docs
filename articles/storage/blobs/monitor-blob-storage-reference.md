@@ -5,11 +5,10 @@ description: Log and metrics reference for monitoring data from Azure Blob Stora
 recommendations: false
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: reference
 ms.date: 06/06/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: subject-monitoring
 ---
 

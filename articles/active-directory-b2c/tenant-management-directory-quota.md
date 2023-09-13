@@ -65,7 +65,7 @@ The response from the API call looks similar to the following json:
         {
             "directorySizeQuota": {
                 "used": 211802,
-                "total": 300000
+                "total": 50000000
             }
         }
     ]
@@ -82,7 +82,3 @@ If your tenant usage is higher that 80%, you can remove inactive users or reques
 ## Request increase directory quota size
 
 You can request to increase the quota size by [contacting support](find-help-open-support-ticket.md) 
-
-## Next steps
-
-- Learn [how to manage inactive user accounts](user-manage-inactive.md).

@@ -56,7 +56,7 @@ The server can revoke refresh tokens because of a change in credentials, user ac
 
 - [Access tokens in the Microsoft identity platform](access-tokens.md) 
 - [ID tokens in the Microsoft identity platform](id-tokens.md)
-- [Invalidate refresh token](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken)
+- [Invalidate refresh token](/powershell/module/microsoft.graph.beta.users.actions/invoke-mgbetainvalidatealluserrefreshtoken?view=graph-powershell-beta&preserve-view=true)
 - [Single sign-out](v2-protocols-oidc.md#single-sign-out)
 
 ## Next steps

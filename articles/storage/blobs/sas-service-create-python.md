@@ -4,12 +4,11 @@ titleSuffix: Azure Storage
 description: Learn how to create a service shared access signature (SAS) for a blob using the Azure Blob Storage client library for Python.
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, engagement-fy23
 ---
@@ -34,7 +33,7 @@ You can create a service SAS to delegate limited access to a blob resource using
 
 The storage account access key used to sign the SAS is passed to the method as the `account_key` argument. Allowed permissions are passed to the method as the `permission` argument, and are defined in the [BlobSasPermissions](/python/api/azure-storage-blob/azure.storage.blob.blobsaspermissions) class. 
 
-The following code example shows how to create service SAS for a blob resource with read permissions:
+The following code example shows how to create a service SAS with read permissions for a blob resource:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_service_sas_blob":::
 
@@ -46,7 +45,7 @@ The following code example shows how to use the service SAS created in the earli
 
 ## Resources
 
-To learn more about creating a service SAS using the Azure Blob Storage client library for Python, see the following resources.
+To learn more about using the Azure Blob Storage client library for Python, see the following resources.
 
 ### Code samples
 

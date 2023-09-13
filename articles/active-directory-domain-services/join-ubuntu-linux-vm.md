@@ -12,8 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: justinha
-ms.custom: fasttrack-edit
-
+ms.custom: fasttrack-edit, devx-track-linux
 ---
 # Join an Ubuntu Linux virtual machine to an Azure Active Directory Domain Services managed domain
 

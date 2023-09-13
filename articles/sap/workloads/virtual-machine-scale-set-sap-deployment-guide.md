@@ -8,7 +8,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/30/2023
+ms.custom: devx-track-azurepowershell
+ms.date: 06/30/2023
 ---
 
 # Virtual Machine Scale Sets for SAP workload

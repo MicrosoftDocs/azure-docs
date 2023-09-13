@@ -73,7 +73,7 @@ In the Azure portal, define the logo and name for the application to represent c
 
 :::image type="content" source="./media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
 
-For more information, see [Add branding to your organization's sign-in page](../fundamentals/customize-branding.md).
+For more information, see [Add branding to your organization's sign-in page](../fundamentals/how-to-customize-branding.md).
 
 ## Manage access to applications
 
@@ -102,13 +102,9 @@ An icon is added to the right of the address bar, which enables sign in and cust
 
 ### Permissions
 
-Permissions that have been granted to an application can be reviewed by looking at the permissions tab for it. To access the permissions tab, select the upper right corner of the tile that represents the application and then select **Manage your application**.
+Permissions that have been granted to an application can be reviewed by selecting the upper right corner of the tile that represents the application and then selecting **Manage your application**.
 
 The permissions that are shown have been consented to by an administrator or have been consented to by the user. Permissions consented to by the user can be revoked by the user.
-
-The following image shows the `email` permission for Microsoft Graph consented to the application by the administrator of the tenant.
-
-:::image type="content" source="./media/myapps-overview/permission-consent.png" alt-text="Screenshot that shows permissions granted for an application in the My Apps portal.":::
 
 ### Self-service access
 

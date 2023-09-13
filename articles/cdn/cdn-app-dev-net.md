@@ -50,7 +50,7 @@ Our project is going to use some Azure libraries contained in NuGet packages.  L
     ![Manage Nuget Packages](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 2. In the Package Manager Console, execute the following command to install the **Active Directory Authentication Library (ADAL)**:
 
-    `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
+    `Install-Package Microsoft.Identity.Client`
 3. Execute the following to install the **Azure CDN Management Library**:
 
     `Install-Package Microsoft.Azure.Management.Cdn`
@@ -67,7 +67,7 @@ Let's get the basic structure of our program written.
     using Microsoft.Azure.Management.Cdn.Models;
     using Microsoft.Azure.Management.Resources;
     using Microsoft.Azure.Management.Resources.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     using Microsoft.Rest;
     ```
 2. We need to define some constants our methods use.  In the `Program` class, but before the `Main` method, add the following code blocks.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
@@ -288,7 +288,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path.  This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Verizon** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.  However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need to include specific paths to purge.
+> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path.  This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Edgio** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.  However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need to include specific paths to purge.
 >
 >
 

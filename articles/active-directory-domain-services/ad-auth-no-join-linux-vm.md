@@ -7,10 +7,10 @@ author: DevOpsStyle
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: tommasosacco
-
 ---
 
 # Active Directory authentication non domain joined Linux Virtual Machines
@@ -230,5 +230,5 @@ Now you are ready to use AD authentication on your Linux VM.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md

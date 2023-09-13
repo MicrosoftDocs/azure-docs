@@ -3,7 +3,7 @@ title: Quickstart - Register an existing system with Azure Center for SAP soluti
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: kanamudu
@@ -20,7 +20,7 @@ After you register an SAP system with *Azure Center for SAP solutions*, you can 
 This quickstart requires the Az PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 ## Prerequisites for Registering a system
-- Check that you're trying to register a [supported SAP system configuration](/articles/sap/center-sap-solutions/register-existing-system.md)
+- Check that you're trying to register a [supported SAP system configuration](/azure/sap/center-sap-solutions/register-existing-system#supported-systems)
 - Grant access to Azure Storage accounts from the virtual network where the SAP system exists. Use one of these options:
     - Allow outbound internet connectivity for the VMs.
     - Use a [**Storage** service tag](../../virtual-network/service-tags-overview.md) to allow connectivity to any Azure storage account from the VMs.
@@ -64,6 +64,7 @@ To register an existing SAP system in Azure Center for SAP solutions:
        -IdentityType 'UserAssigned' `
        -UserAssignedIdentity @{'/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-MSI'= @{}} `
      ```
+   - **ResourceGroupName** is used to specify the name of the existing Resource Group into which you want the Virtual Instance for SAP solutions resource to be deployed. It could be the same RG in which you have Compute, Storage resources of your SAP system or a different one. 
    - **Name** attribute is used to specify the SAP System ID (SID) that you are registering with Azure Center for SAP solutions.
    - **Location** attribute is used to specify the Azure Center for SAP solutions service location. Following table has the mapping that enables you to choose the right service location based on where your SAP system infrastructure is located on Azure.
 
@@ -85,6 +86,8 @@ To register an existing SAP system in Azure Center for SAP solutions:
 
    - **Environment** is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
    - **SapProduct** is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
+   - **ManagedResourceGroupName** is used to specify the name of the managed resource group which is deployed by ACSS service in your Subscription. This RG is unique for each SAP system (SID) you register. If you do not specify the name, ACSS service sets a name with this naming convention 'mrg-{SID}-{random string}'.
+   - **ManagedRgStorageAccountName** is used to specify the name of the Storage Account which is deployed into the managed resource group. This storage account is unique for each SAP system (SID) you register. ACSS service sets a default name using '{SID}{random string}' naming convention. 
 
 2. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
 

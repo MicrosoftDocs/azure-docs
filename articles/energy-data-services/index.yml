@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Microsoft Azure Data Manager for Energy Preview documentation # < 60 chars
-summary: Microsoft Azure Data Manager for Energy Preview is an open, secure, reliable, and fully managed cloud-based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and SLB's extensive domain expertise.
+title: Microsoft Azure Data Manager for Energy documentation # < 60 chars
+summary: Microsoft Azure Data Manager for Energy is an open, secure, reliable, and fully managed cloud-based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and SLB's extensive domain expertise.
 
 metadata:
-  title: Microsoft Azure Data Manager for Energy Preview
+  title: Microsoft Azure Data Manager for Energy
   description: description
   ms.service: energy-data-services
   ms.topic: landing-page
@@ -18,15 +18,15 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Microsoft Azure Data Manager for Energy Preview
+  - title: About Microsoft Azure Data Manager for Energy
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Azure Data Manager for Energy Preview?
+          - text: What is Microsoft Azure Data Manager for Energy?
             url: overview-microsoft-energy-data-services.md
       - linkListType: quickstart
         links:
-          - text: Create a Microsoft Azure Data Manager for Energy Preview instance
+          - text: Create a Microsoft Azure Data Manager for Energy instance
             url: quickstart-create-microsoft-energy-data-services-instance.md
       - linkListType: tutorial
         links:
@@ -74,6 +74,8 @@ landingContent:
             url: how-to-convert-segy-to-ovds.md
           - text: How to convert SEG-Y to ZGY
             url: how-to-convert-segy-to-zgy.md
+          - text: How to Upload large files using file service
+            url: how-to-upload-large-files-using-file-service.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide

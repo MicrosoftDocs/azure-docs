@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 06/24/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -149,7 +149,8 @@ Azure service: [API Management](../../../api-management/index.yml)
 > | Microsoft.ApiManagement/service/gateways/generateToken/action | Gets the Shared Access Authorization Token for the gateway. |
 > | Microsoft.ApiManagement/service/gateways/token/action | Gets the Shared Access Authorization Token for the gateway. |
 > | Microsoft.ApiManagement/service/gateways/invalidateDebugCredentials/action | Forces gateway to reset all issued debug credentials |
-> | Microsoft.ApiManagement/service/gateways/getDebugCredentials/action | Issue a debug credentials for requests |
+> | Microsoft.ApiManagement/service/gateways/listDebugCredentials/action | Issue a debug credentials for requests |
+> | Microsoft.ApiManagement/service/gateways/listTrace/action | List collected trace created by gateway |
 > | Microsoft.ApiManagement/service/gateways/apis/read | Lists a collection of the APIs associated with a gateway. |
 > | Microsoft.ApiManagement/service/gateways/apis/write | Adds an API to the specified Gateway. |
 > | Microsoft.ApiManagement/service/gateways/apis/delete | Deletes the specified API from the specified Gateway. |
@@ -170,7 +171,7 @@ Azure service: [API Management](../../../api-management/index.yml)
 > | Microsoft.ApiManagement/service/identityProviders/delete | Deletes the specified identity provider configuration. |
 > | Microsoft.ApiManagement/service/identityProviders/listSecrets/action | Gets Identity Provider secrets. |
 > | Microsoft.ApiManagement/service/issues/read | Lists a collection of issues in the specified service instance. or Gets API Management issue details |
-> | Microsoft.ApiManagement/service/locations/networkstatus/read | Gets the network access status of resources on which the service depends in the location. |
+> | Microsoft.ApiManagement/service/locations/networkstatus/read | Gets the network access status of resources on which the service depends on in the location. |
 > | Microsoft.ApiManagement/service/loggers/read | Lists a collection of loggers in the specified service instance. or Gets the details of the logger specified by its identifier. |
 > | Microsoft.ApiManagement/service/loggers/write | Creates or Updates a logger. or Updates an existing logger. |
 > | Microsoft.ApiManagement/service/loggers/delete | Deletes the specified logger. |
@@ -179,7 +180,7 @@ Azure service: [API Management](../../../api-management/index.yml)
 > | Microsoft.ApiManagement/service/namedValues/delete | Deletes specific named value from the API Management service instance. |
 > | Microsoft.ApiManagement/service/namedValues/listValue/action | Gets the secret of the named value specified by its identifier. |
 > | Microsoft.ApiManagement/service/namedValues/refreshSecret/action | Refreshes named value by fetching it from Key Vault. |
-> | Microsoft.ApiManagement/service/networkstatus/read | Gets the network access status of resources on which the service depends. |
+> | Microsoft.ApiManagement/service/networkstatus/read | Gets the network access status of resources on which the service depends on. |
 > | Microsoft.ApiManagement/service/notifications/read | Lists a collection of properties defined within a service instance. or Gets the details of the Notification specified by its identifier. |
 > | Microsoft.ApiManagement/service/notifications/write | Create or Update API Management publisher notification. |
 > | Microsoft.ApiManagement/service/notifications/recipientEmails/read | Gets the list of the Notification Recipient Emails subscribed to a notification. |
@@ -193,7 +194,7 @@ Azure service: [API Management](../../../api-management/index.yml)
 > | Microsoft.ApiManagement/service/openidConnectProviders/delete | Deletes specific OpenID Connect Provider of the API Management service instance. |
 > | Microsoft.ApiManagement/service/openidConnectProviders/listSecrets/action | Gets specific OpenID Connect Provider secrets. |
 > | Microsoft.ApiManagement/service/operationresults/read | Gets current status of long running operation |
-> | Microsoft.ApiManagement/service/outboundNetworkDependenciesEndpoints/read | Gets the outbound network dependency status of resources on which the service depends. |
+> | Microsoft.ApiManagement/service/outboundNetworkDependenciesEndpoints/read | Gets the outbound network dependency status of resources on which the service depends on. |
 > | Microsoft.ApiManagement/service/policies/read | Lists all the Global Policy definitions of the Api Management service. or Get the Global policy definition of the Api Management service. |
 > | Microsoft.ApiManagement/service/policies/write | Creates or updates the global policy configuration of the Api Management service. |
 > | Microsoft.ApiManagement/service/policies/delete | Deletes the global policy configuration of the Api Management Service. |
@@ -568,6 +569,8 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Delete | Delete arc resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/GeneratePassword/Action | Generate password for Arc settings identity |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/CreateArcIdentity/Action | Create Arc settings identity |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/ConsentAndInstallDefaultExtensions/Action | Updates Consent Time and Installs default extensions |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/InitializeDisableProcess/Action | Initializes disable process for arc settings resource |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Read | Gets extension resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Write | Create or update extension resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of HCI cluster |
@@ -589,6 +592,13 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Delete | Deletes virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Write | Creates/Updates virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Read | Gets/Lists virtual hard disk resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/Restart/Action | Restarts virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/Start/Action | Starts virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/Stop/Action | Stops virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/Delete | Deletes virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/Write | Creates/Updates virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/Read | Gets/Lists virtual machine instance resource |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/HybridIdentityMetadata/Read | Gets/Lists virtual machine instance hybrid identity metadata proxy resource |
 > | Microsoft.AzureStackHCI/VirtualMachines/Restart/Action | Restarts virtual machine resource |
 > | Microsoft.AzureStackHCI/VirtualMachines/Start/Action | Starts virtual machine resource |
 > | Microsoft.AzureStackHCI/VirtualMachines/Stop/Action | Stops virtual machine resource |
@@ -604,6 +614,8 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualNetworks/Read | Gets/Lists virtual networks resource |
 > | **DataAction** | **Description** |
 > | Microsoft.AzureStackHCI/Clusters/WACloginAsAdmin/Action | Manage OS of HCI resource via Windows Admin Center as an administrator |
+> | Microsoft.AzureStackHCI/VirtualMachineInstances/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
+> | Microsoft.AzureStackHCI/virtualMachines/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
 
 ### Microsoft.DataBoxEdge
 
@@ -763,6 +775,7 @@ Azure service: [Event Grid](../../../event-grid/index.yml)
 > | Microsoft.EventGrid/locations/operationResults/read | Read the result of a regional operation |
 > | Microsoft.EventGrid/locations/operationsStatus/read | Read the status of a regional operation |
 > | Microsoft.EventGrid/locations/topictypes/eventSubscriptions/read | List regional event subscriptions by topictype |
+> | Microsoft.EventGrid/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for namespaces |
 > | Microsoft.EventGrid/operationResults/read | Read the result of an operation |
 > | Microsoft.EventGrid/operations/read | List EventGrid operations. |
 > | Microsoft.EventGrid/operationsStatus/read | Read the status of an operation |
@@ -868,6 +881,103 @@ Azure service: [Event Grid](../../../event-grid/index.yml)
 > | Microsoft.EventGrid/verifiedPartners/read | Read a verified partner |
 > | **DataAction** | **Description** |
 > | Microsoft.EventGrid/events/send/action | Send events to topics |
+
+### Microsoft.HealthcareApis
+
+Azure service: [Azure API for FHIR](../../../healthcare-apis/azure-api-for-fhir/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.HealthcareApis/register/action | Subscription Registration Action |
+> | Microsoft.HealthcareApis/unregister/action | Unregisters the subscription for the resource provider. |
+> | Microsoft.HealthcareApis/checkNameAvailability/read | Checks for the availability of the specified name. |
+> | Microsoft.HealthcareApis/locations/checkNameAvailability/read | Checks for the availability of the specified name. |
+> | Microsoft.HealthcareApis/locations/operationresults/read | Read the status of an asynchronous operation. |
+> | Microsoft.HealthcareApis/Operations/read | Read the operations for all resource types. |
+> | Microsoft.HealthcareApis/services/read | Reads resources. |
+> | Microsoft.HealthcareApis/services/write | Writes resources. |
+> | Microsoft.HealthcareApis/services/delete | Deletes resources. |
+> | Microsoft.HealthcareApis/services/privateEndpointConnectionProxies/validate/action | Validate |
+> | Microsoft.HealthcareApis/services/privateEndpointConnectionProxies/write | Writes Private Endpoint Connection Proxy resources. |
+> | Microsoft.HealthcareApis/services/privateEndpointConnectionProxies/read | Reads Private Endpoint Connection Proxy resources. |
+> | Microsoft.HealthcareApis/services/privateEndpointConnectionProxies/delete | Deletes Private Endpoint Connection Proxy resources. |
+> | Microsoft.HealthcareApis/services/privateEndpointConnections/read | Reads Private Endpoint Connections resources. |
+> | Microsoft.HealthcareApis/services/privateEndpointConnections/write | Writes connection status to Private Endpoint Connection. |
+> | Microsoft.HealthcareApis/services/privateEndpointConnections/delete | Deletes Private Endpoint Connections. |
+> | Microsoft.HealthcareApis/services/privateLinkResources/read | Reads Private Link resources. |
+> | Microsoft.HealthcareApis/services/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic settings for Azure API for FHIR |
+> | Microsoft.HealthcareApis/services/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic settings for Azure API for FHIR |
+> | Microsoft.HealthcareApis/services/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Azure API for FHIR |
+> | Microsoft.HealthcareApis/services/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics settings for Azure API for FHIR |
+> | Microsoft.HealthcareApis/validateMedtechMappings/read | Handles requests related to editing IotConnector mapping files |
+> | Microsoft.HealthcareApis/workspaces/read |  |
+> | Microsoft.HealthcareApis/workspaces/write |  |
+> | Microsoft.HealthcareApis/workspaces/delete |  |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/read |  |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/write |  |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/delete |  |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/dicomcasts/read |  |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/dicomcasts/write |  |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/dicomcasts/delete |  |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/eventGridFilters/read |  |
+> | Microsoft.HealthcareApis/workspaces/eventGridFilters/write |  |
+> | Microsoft.HealthcareApis/workspaces/eventGridFilters/delete |  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/read |  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/write |  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/delete |  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/read |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/write |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/delete |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/destinations/read |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/destinations/write |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/destinations/delete |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations/read |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations/write |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations/delete |  |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/iotconnectors/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics settings for the Azure service. |
+> | Microsoft.HealthcareApis/workspaces/privateEndpointConnectionProxies/read |  |
+> | Microsoft.HealthcareApis/workspaces/privateEndpointConnectionProxies/write |  |
+> | Microsoft.HealthcareApis/workspaces/privateEndpointConnectionProxies/delete |  |
+> | Microsoft.HealthcareApis/workspaces/privateEndpointConnectionProxies/validate/action | Validate |
+> | Microsoft.HealthcareApis/workspaces/privateEndpointConnections/read |  |
+> | Microsoft.HealthcareApis/workspaces/privateEndpointConnections/write |  |
+> | Microsoft.HealthcareApis/workspaces/privateEndpointConnections/delete |  |
+> | Microsoft.HealthcareApis/workspaces/privateLinkResources/read | Reads Private Link resources. |
+> | **DataAction** | **Description** |
+> | Microsoft.HealthcareApis/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | Microsoft.HealthcareApis/services/fhir/resources/write | Write FHIR resources (includes create and update). |
+> | Microsoft.HealthcareApis/services/fhir/resources/delete | Delete FHIR resources (soft delete). |
+> | Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action | Hard Delete (including version history). |
+> | Microsoft.HealthcareApis/services/fhir/resources/export/action | Export operation ($export). |
+> | Microsoft.HealthcareApis/services/fhir/resources/smart/action | Allows user to access FHIR Service according to SMART on FHIR specification. |
+> | Microsoft.HealthcareApis/services/fhir/resources/convertData/action | Data convert operation ($convert-data) |
+> | Microsoft.HealthcareApis/services/fhir/resources/resourceValidate/action | Validate operation ($validate). |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/resources/read | Read DICOM resources (includes searching and change feed).  |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/resources/write | Write DICOM resources. |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/resources/delete | Delete DICOM resources. |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/resources/manageExtendedQueryTags/action | Manage DICOM extended query tags. |
+> | Microsoft.HealthcareApis/workspaces/dicomservices/resources/export/action | Export resources from the DICOM service. |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/write | Write FHIR resources (includes create and update). |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/delete | Delete FHIR resources (soft delete). |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action | Hard Delete (including version history). |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/export/action | Export operation ($export). |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/convertData/action | Data convert operation ($convert-data) |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/resourceValidate/action | Validate operation ($validate). |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action | Import FHIR resources in batch. |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/smart/action | Allows user to access FHIR Service according to SMART on FHIR specification. |
 
 ### Microsoft.Logic
 

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
+ms.custom: developer, devx-track-dotnet
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI desktop app to sign in and sign out users with the Azure AD for customers tenant
 ---
 
@@ -69,9 +69,15 @@ git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
 
 ## Run and test sample .NET MAUI desktop application
 
-Select the Windows platform to work on by setting the startup project in the **Solution Explorer**. Make sure that your platform of choice is marked for build and deploy in the configuration manager.
+.NET MAUI apps are designed to run on multiple operating systems and devices. You'll need to select which target you want to test and debug your app with.
 
-Clean the solution, rebuild the solution, and run it.
+Set the **Debug Target** in the Visual Studio toolbar to the device you want to debug and test with. The following steps demonstrate setting the **Debug Target** to _Windows_:
+
+1. Select **Debug Target** drop-down.
+1. Select **Framework** 
+1. Select **net7.0-windows...**
+
+Run the app by pressing _F5_ or select the _play button_ at the top of Visual Studio.
 
 1. You can now test the sample .NET MAUI desktop application. After you run the application, the desktop application window appears automatically:
 

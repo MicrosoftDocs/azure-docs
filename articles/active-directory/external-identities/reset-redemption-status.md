@@ -26,7 +26,7 @@ In this article, you'll learn how to update the [guest user's](user-properties.m
 - The user has moved to a different company, but they still need the same access to your resources
 - The user’s responsibilities have been passed along to another user
 
-To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use the Azure portal, PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UserPrincipalName (UPN) of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
+To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use the Microsoft Entra admin center, PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UserPrincipalName (UPN) of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
 ## Required Azure AD roles
 
@@ -38,7 +38,9 @@ To reset a user's redemption status, you'll need one of the following roles:
 
 ## Use the Azure portal to reset redemption status
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator or User administrator account for the directory.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or User administrator account for the directory.
 1. Search for and select **Azure Active Directory**.
 1. Select **Users**.
 1. In the list, select the user's name to open their user profile.
@@ -121,4 +123,3 @@ ContentType: application/json
 
 - [Properties of an Azure AD B2B guest user](user-properties.md)
 - [Add Azure Active Directory B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)
-

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 08/10/2023
 ms.author: makromer
 ---
 
@@ -57,7 +57,7 @@ Specifically, this generic REST connector supports:
 
 Use the following steps to create a REST linked service in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -213,7 +213,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| aadResourceId | Specify the Microsoft Azure Active Directory resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 
 **Example**
 
@@ -539,7 +539,7 @@ AlterRow1 sink(allowSchemaDrift: true,
 
 ## Pagination support
 
-When copying data from REST APIs, normally, the REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
+When you copy data from REST APIs, normally, the REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
 
 This generic REST connector supports the following pagination patterns: 
 
@@ -880,7 +880,7 @@ The pagination rules should be set as the following screenshot:
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-8.png" alt-text="Screenshot showing how to set the pagination rule for Example 8."::: 
 
-By default, the pagination will stop when body **.{@odata.nextLink}** is null or empty. 
+By default, the pagination will stop when body.{@odata.nextLink}** is null or empty. 
 
 But if the value of **@odata.nextLink** in the last response body is equal to the last request URL, then it will lead to the endless loop. To avoid this condition, define end condition rules.
 
@@ -894,7 +894,7 @@ But if the value of **@odata.nextLink** in the last response body is equal to th
 
 #### Example 9: The response format is XML and the next request URL is from the response body when use pagination in mapping data flows
 
-This example states how to set the pagination rule in mapping data flows when the response format is XML and the next request URL is from the response body. As shown in the following screenshot, the first URL is *https://\<user\>.dfs.core.windows.net/bugfix/test/movie_1.xml*
+This example states how to set the pagination rule in mapping data flows when the response format is XML and the next request URL is from the response body. As shown in the following screenshot, the first URL is *https://\<user\>.dfs.core.windows.NET/bugfix/test/movie_1.xml*
 
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-9-situation.png" alt-text="Screenshot showing the response format is X M L and the next request U R L is from the response body."::: 

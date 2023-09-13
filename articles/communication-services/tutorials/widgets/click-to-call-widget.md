@@ -2,11 +2,10 @@
 title: Tutorial - Embed a Teams call widget into your web application
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to use Azure Communication Services to embed a calling widget into your web application.
-author: ddematheu2
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: chpalm
 ms.date: 04/17/2023
 ms.topic: tutorial
 ms.service: azure-communication-services
@@ -183,7 +182,7 @@ We provide a test script hosted on GitHub for you to use for testing. For produc
 
     ```
 
-Add a Microsoft Graph [User](https://learn.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) ID to the `participantIds` array. You can find this value through [Microsoft Graph](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http) or through [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) for testing purposes. There you can grab the `id` value from the response.
+Add a Microsoft Graph [User](/graph/api/resources/user) ID to the `participantIds` array. You can find this value through [Microsoft Graph](/graph/api/user-get?tabs=http) or through [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) for testing purposes. There you can grab the `id` value from the response.
 
 ## Run code
 

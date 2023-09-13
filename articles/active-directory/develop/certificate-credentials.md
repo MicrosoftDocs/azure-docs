@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/27/2023
 ms.author: owenrichards
 ms.reviewer: kenwith
@@ -21,7 +21,7 @@ The Microsoft identity platform allows an application to use its own credentials
 
 One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) assertion signed with a certificate that the application owns. This is described in the [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) specification for the `private_key_jwt` client authentication option.
 
-If you're interested in using a JWT issued by another identity provider as a credential for your application, please see [workload identity federation](workload-identity-federation.md) for how to set up a federation policy.
+If you're interested in using a JWT issued by another identity provider as a credential for your application, please see [workload identity federation](../workload-identities/workload-identity-federation.md) for how to set up a federation policy.
 
 ## Assertion format
 
@@ -138,4 +138,4 @@ Client assertions can be used anywhere a client secret would be used. For exampl
 
 The [MSAL.NET library handles this scenario](msal-net-client-assertions.md) in a single line of code.
 
-The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.
+The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.

@@ -1,0 +1,91 @@
+### YamlMime:FAQ
+metadata:
+  title: "Frequently asked questions - Custom Vision"
+  titleSuffix: Azure AI services
+  description: Get answers to frequently asked questions about the Custom Vision Service in Azure AI services.
+  services: cognitive-services
+  author: PatrickFarley
+  manager: nitinme
+  
+  ms.service: cognitive-services
+  ms.subservice: custom-vision
+  ms.topic: faq
+  ms.date: 04/18/2022
+  ms.author: pafarley
+  ms.custom: 
+title: Custom Vision frequently asked questions
+summary: |
+  > [!TIP]
+  > If you can't find answers to your questions in this FAQ, ask the Azure AI Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
+  
+  
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          Can I stop training once it has started?
+        answer: |
+          There is no way to cancel a training once it has been started.
+      - question: |
+          Where is my key?
+        answer: |
+          You can find your key in the Azure portal, under the **key and endpoint** tab.
+      - question: |
+          Where is my prediction resource ID?
+        answer: |
+          You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
+      - question: |
+          Does my Custom vision prediction endpoint accept base64 encoded images?
+        answer: |
+          Yes. We recommend using open-source libraries that help you convert URL images to base64 encoded images and back. The OpenCV and Pillow libraries are popular with our customers for image conversion.
+      - question: |
+          Is Custom Vision available in my region?
+        answer: |
+          You can find the region availability for Custom Vision on the [Region support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) page.
+      - question: |
+          Will I have to relabel images if I change domains in a project?
+        answer: |
+          You can switch domains in the project without relabeling, as long as you keep the same supervised learning domain (object detection or image classification).
+      - question: |
+          Once I've trained a Custom Vision model, can I manage/deploy the same model to different regions?
+        answer: |
+          We don't have a use case for publishing a model to a different region, but we do offer the ability to export/import a project into different regions. See [Copy and back up Custom Vision projects](./copy-move-projects.md).
+      - question: |
+          What is the difference between Custom Vision and AutoML?
+        answer: |
+          Custom Vision is a tool for easily building Azure AI Vision models without needing to have any data science or ML knowledge. These models are pre-trained using datasets optimized for specific domains.
+
+          Sometimes, your scenario might require more control over model training, deployment and the end-to-end ML lifecycle. AutoML is the ideal solution when you need this extra control, and it's addressed to customers with ML knowledge.
+      - question: |
+          Does Custom Vision support polygon bounding boxes?
+        answer: |
+          No, we only support rectangle bounding boxes.
+
+      - question: |
+          What is the difference between the free and standard pricing tiers?
+        answer: |
+          See the [Limits and quotas](./limits-and-quotas.md) page.
+
+      - question: |
+          How can users be added to a multi-service account to collaborate on a Custom Vision project in the web portal?
+        answer: |
+          You can use Azure RBAC roles to give specific users access to collaborate on a custom vision portal project. See the [Role-based access control docs](./role-based-access-control.md)
+      - question: | 
+          Can training images be exported with the tags that were added in the Custom Vision portal?
+        answer: |
+          Yes, you can use the [GetImages API](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb4) to export with tags.
+
+      - question: |
+          I'm getting the message, `Can't train just yet. Reserved budget in hours is not enough to do advanced training`. What should I do? 
+        answer: |
+          If you get this message, you need to increase your training budget to train a higher volume of images.
+
+      - question: |
+          My project training took many hours to complete. Why is the turnaround time so long?
+        answer: |
+          High training traffic or high usage periods when many customers are training can impact training time. It leads to long queues and tight GPU resources. Sometimes, the job may stay in the queue and won't finish within a certain time frame, but it's guaranteed that our customers won't be charged for more than the set time budget.
+
+      - question: |
+          How can I write logs on this service?
+        answer: |
+          Use [Diagnostic logging](../diagnostic-logging.md).

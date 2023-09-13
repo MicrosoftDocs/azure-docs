@@ -174,9 +174,11 @@ password hash synchronization for this on-premises Active Directory account fail
 
 #### User has a temporary password
 
-Currently, Azure AD Connect does not support synchronizing temporary passwords with Azure AD. A password is considered to be temporary if the **Change password at next logon** option is set on the on-premises Active Directory user. The following error is returned:
+Older versions of Azure AD Connect did not support synchronizing temporary passwords with Azure AD. A password is considered to be temporary if the **Change password at next logon** option is set on the on-premises Active Directory user. The following error is returned with these older versions:
 
 ![Temporary password is not exported](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
+
+To enable synchonization of temporary passwords you must have Azure AD Connect version 2.0.3.0 or higher installed and the feature [ForcePasswordChangeOnLogon](../connect/how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon) must be enabled.
 
 #### Results of last attempt to synchronize password aren't available
 

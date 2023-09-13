@@ -10,7 +10,7 @@ Although many applications can be associated with your user flow, a single appli
 
 1. On the sidebar menu, select **Azure Active Directory**.
 1. Select **External Identities**, then **User flows**.
-1. Select the self-service sign-up user flow that you created earlier from the list, for example, *SignInSignUpSample*.
+1. In the **User flows** page, select the **User flow name** you created earlier, for example, _SignInSignUpSample_.
 1. Under **Use**, select **Applications**.
 1. Select **Add application**.
    <!--[Screenshot the shows how to associate an application to a user flow.](media/20-create-user-flow-add-application.png)-->

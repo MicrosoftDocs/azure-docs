@@ -56,36 +56,37 @@ Regions are paired for cross-region replication based on proximity and other fac
 
 | Geography | Regional pair A | Regional pair B |
 | --- | --- | --- |
-| Asia-Pacific |East Asia (Hong Kong) | Southeast Asia (Singapore) |
-| Australia |Australia East |Australia Southeast |
-| Australia |Australia Central |Australia Central 2\* |
-| Brazil |Brazil South |South Central US |
-| Brazil |Brazil Southeast\* |Brazil South |
-| Canada |Canada Central |Canada East |
-| China |China North |China East|
-| China |China North 2 |China East 2|
-| China |China North 3 |China East 3\* |
-| Europe |North Europe (Ireland) |West Europe (Netherlands) |
-| France |France Central|France South\*|
-| Germany |Germany West Central |Germany North\* |
-| India |Central India |South India |
-| India |West India |South India |
-| Japan |Japan East |Japan West |
-| Korea |Korea Central |Korea South\* |
-| North America |East US |West US |
-| North America |East US 2 |Central US |
-| North America |North Central US |South Central US |
-| North America |West US 2 |West Central US |
-| North America |West US 3 |East US |
-| Norway | Norway East | Norway West\* |
-| South Africa | South Africa North |South Africa West\* |
-| Sweden | Sweden Central |Sweden South\* |
-| Switzerland | Switzerland North |Switzerland West\* |
-| UK |UK West |UK South |
-| United Arab Emirates | UAE North | UAE Central\* |
-| US Department of Defense |US DoD East\* |US DoD Central\* |
-| US Government |US Gov Arizona\* |US Gov Texas\* |
-| US Government |US Gov Virginia\* |US Gov Texas\* |
+| **Asia-Pacific** |East Asia (Hong Kong Special Administrative Region) | Southeast Asia (Singapore) |
+| **Australia** |Australia East |Australia Southeast |
+| |Australia Central |Australia Central 2\* |
+| **Brazil** |Brazil South |South Central US |
+| |Brazil Southeast\* |Brazil South |
+| **Canada** |Canada Central |Canada East |
+| **China** |China North |China East|
+| |China North 2 |China East 2|
+| |China North 3 |China East 3\* |
+| **Europe** |North Europe (Ireland) |West Europe (Netherlands) |
+| **France** |France Central |France South\*|
+| **Germany** |Germany West Central |Germany North\* |
+| **India** |Central India |South India |
+|  |Central India |West India |
+| |West India |South India |
+| **Japan** |Japan East |Japan West |
+| **Korea** |Korea Central |Korea South\* |
+| **Norway** | Norway East | Norway West\* |
+| **South Africa** | South Africa North |South Africa West\* |
+| **Sweden** | Sweden Central |Sweden South\* |
+| **Switzerland** | Switzerland North |Switzerland West\* |
+| **United Kingdom** |UK West |UK South |
+| **United States** |East US |West US |
+| |East US 2 |Central US |
+| |North Central US |South Central US |
+| |West US 2 |West Central US |
+| |West US 3 |East US |
+| **United Arab Emirates** | UAE North | UAE Central\* |
+| **US Department of Defense** |US DoD East\* |US DoD Central\* |
+| **US Government** |US Gov Arizona\* |US Gov Texas\* |
+| |US Gov Virginia\* |US Gov Texas\* |
 
 (\*) Certain regions are access restricted to support specific customer scenarios, such as in-country/region disaster recovery. These regions are available only upon request by [creating a new support request](/troubleshoot/azure/general/region-access-request-process#reserved-access-regions).
 
@@ -95,9 +96,10 @@ Regions are paired for cross-region replication based on proximity and other fac
 
 ## Regions with availability zones and no region pair
 
-Azure continues to expand globally with Qatar as the first region with no regional pair and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Such regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines allowing the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf)
+Azure continues to expand globally with Qatar as the first region with no regional pair and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Such regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines allowing the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf).
 
 ## Next steps
 
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)
 - [Quickstart templates](https://aka.ms/azqs)
+

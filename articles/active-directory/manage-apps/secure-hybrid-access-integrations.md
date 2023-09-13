@@ -37,10 +37,10 @@ The solution that you build can include the following parts:
 
 * **App discovery** - Often, customers aren't aware of every application in use
   * Application discovery finds applications, facilitating app integrating with Azure AD
-* **App migration** - Create a workflow to integrate apps with Azure AD without using the Azure portal
+* **App migration** - Create a workflow to integrate apps with Azure AD without using the Microsoft Entra admin center
   * Integrate apps that customers use today
 * **Legacy authentication support** - Connect apps with legacy authentication methods and single sign-on (SSO)
-* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Azure portal
+* **Conditional Access** - Enable customers to apply Azure AD policies to apps in your solution without using the Microsoft Entra admin center
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md) 
 
@@ -60,7 +60,7 @@ There are several ways to enable SSO for IT administrators to your solution. See
 
 Microsoft Graph uses OIDC/OAuth. Customers use OIDC to sign in to your solution. Use the JSON Web Token (JWT) Azure AD issues to interact with Microsoft Graph. See, [OpenID Connect on the Microsoft identity platform](../develop/v2-protocols-oidc.md).
 
-If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md).
+If your solution uses SAML for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD, so it can get a JWT from Azure AD to interact with Microsoft Graph. See, [How the Microsoft identity platform uses the SAML protocol](../develop/saml-protocol-reference.md).
 
 You can use one of the following SAML approaches:
 
@@ -250,7 +250,7 @@ https://graph.microsoft.com/v1.0/applications/54c4806b-b260-4a12-873c-9671169837
 
 After the SaaS applications are registered in Azure AD, the applications need to start using Azure AD as the identity provider (IdP):
 
-- **Applications support one-click SSO** - Azure AD enables the applications. In the Azure portal, the customer performs one-click SSO with the administrative credentials for the supported SaaS applications. 
+- **Applications support one-click SSO** - Azure AD enables the applications. In the Microsoft Entra admin center, the customer performs one-click SSO with the administrative credentials for the supported SaaS applications. 
   - Learn more: [One-click app configuration of single sign-on](./one-click-sso-tutorial.md)
 - **Applications don't support one-click SSO** - The customer enables the applications to use Azure AD. 
   - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
@@ -357,7 +357,7 @@ https://graph.microsoft.com/v1.0/applications/{Application Object ID}
 
 ### Apply Conditional Access policies
 
-Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Azure portal. There are two options to apply Azure AD Conditional Access policies:
+Customers and partners can use the Microsoft Graph API to create or apply per application [Conditional Access policies](../conditional-access/overview.md). For partners, customers can apply these policies from your solution without using the Microsoft Entra admin center. There are two options to apply Azure AD Conditional Access policies:
 
 - [Assign the application to a Conditional Access policy](#use-a-conditional-access-policy)
 - [Create a new Conditional Access policy and assign the application to it](#create-a-new-conditional-access-policy)
@@ -381,7 +381,7 @@ Method: PATCH
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/{policyid}
 {
-    "displayName":"Existing CA Policy",
+    "displayName":"Existing Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -418,7 +418,7 @@ Method: POST
 
 https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/
 {
-    "displayName":"New CA Policy",
+    "displayName":"New Conditional Access Policy",
     "state":"enabled",
     "conditions": 
     {
@@ -596,7 +596,7 @@ The following VPN solution providers connect with Azure AD to enable modern auth
 The following software-defined perimeter (SDP) solutions providers connect with Azure AD for authentication and authorization methods like SSO and MFA.
 
 * **Datawiza Access Broker**
-  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
+  * [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-configure-sha.md)
 * **Perimeter 81**
   * [Tutorial: Azure AD SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 * **Silverfort Authentication Platform**

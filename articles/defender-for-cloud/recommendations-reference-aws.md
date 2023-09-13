@@ -1,16 +1,14 @@
 ---
-title: Reference table for all Microsoft Defender for Cloud recommendations for AWS resources
+title: Reference table for all recommendations for AWS resources
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your AWS resources.
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 06/27/2023
 ms.custom: generated
 ---
 
 # Security recommendations for AWS resources - a reference guide
 
-This article lists the recommendations you might see in Microsoft Defender for Cloud if you've connected an 
-AWS account from the **Environment settings** page. The recommendations shown in your environment depend 
-on the resources you're protecting and your customized configuration.
+This article lists the recommendations you might see in Microsoft Defender for Cloud if you've connected an AWS account from the **Environment settings** page. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
 
 To learn about how to respond to these recommendations, see
 [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
@@ -26,6 +24,10 @@ impact on your secure score.
 ## <a name='recs-aws-container'></a> AWS Container recommendations
 
 [!INCLUDE [asc-recs-aws-container](../../includes/mdfc/mdfc-recs-aws-container.md)]
+
+### Data plane recommendations
+
+All the data plane recommendations listed [here](kubernetes-workload-protections.md#view-and-configure-the-bundle-of-recommendations) are supported under AWS after [enabling Azure Policy for Kubernetes](kubernetes-workload-protections.md#enable-kubernetes-data-plane-hardening). 
 
 ## <a name='recs-aws-data'></a> AWS Data recommendations
 

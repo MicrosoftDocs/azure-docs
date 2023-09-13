@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 06/16/2023
 ms.author: banders
 ---
 
@@ -56,12 +56,12 @@ To allow other people to manage savings plans, you have two options:
 
 If you're a billing administrator, use following steps to view and manage all savings plans and savings plan transactions in the Azure portal:
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Products + services** > **Savings plans**.
     The complete list of savings plans for your EA enrollment or billing profile is shown.
-1. Billing administrators can take ownership of a savings plan by selecting one or multiple savings plans, selecting **Grant access** and selecting **Grant access** in the window that appears.
+1. Billing administrators can take ownership of a savings plan with the [Savings Plan Order - Elevate REST API](/rest/api/billingbenefits/savings-plan-order/elevate) to give themselves Azure RBAC roles.
 
 ### Adding billing administrators
 
@@ -77,7 +77,7 @@ Add a user as billing administrator to an Enterprise Agreement or a Microsoft Cu
 
 If you purchased the savings plan or you're added to a savings plan, use the following steps to view and manage savings plans in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Savings plans** to list savings plans that you have access to.
 
 ## Manage subscriptions and management groups with elevated access

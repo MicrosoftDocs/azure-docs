@@ -5,6 +5,7 @@ description: Step-by-step guidance to migrate from MFA Server on-premises to Azu
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/29/2023
 
@@ -57,7 +58,7 @@ Microsoft's MFA server can be integrated with many systems, and you must evaluat
 
 Common ways to think about moving users in batches include moving them by regions, departments, or roles such as administrators. You should move user accounts iteratively, starting with test and pilot groups, and make sure you have a rollback plan in place. 
 
-You can use the [MFA Server Migration Utility](how-to-mfa-server-migration-utility.md) to synchronize MFA data stored in the on-premises Azure MFA Server to Azure AD MFA and use [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md) to reroute users to Azure MFA. Staged Rollout helps you test without making any changes to your domain federation settings.
+You can use the [MFA Server Migration Utility](how-to-mfa-server-migration-utility.md) to synchronize MFA data stored in the on-premises Azure MFA Server to Azure AD MFA and use [Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md) to reroute users to Azure MFA. Staged Rollout helps you test without making any changes to your domain federation settings.
 
 To help users to differentiate the newly added account from the old account linked to the MFA Server, make sure the Account name for the Mobile App on the MFA Server is named in a way to distinguish the two accounts. 
 For example, the Account name that appears under Mobile App on the MFA Server has been renamed to **On-Premises MFA Server**. 
@@ -68,7 +69,7 @@ We therefore recommend that regardless of the migration path you choose, that yo
 
 #### Migrating hardware security keys
 
-Azure AD provides support for OATH hardware tokens. You can use the [MFA Server Migration Utility](how-to-mfa-server-migration-utility.md) to synchronize MFA settings between MFA Server and Azure AD MFA and use [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md) to test user migrations without changing domain federation settings. 
+Azure AD provides support for OATH hardware tokens. You can use the [MFA Server Migration Utility](how-to-mfa-server-migration-utility.md) to synchronize MFA settings between MFA Server and Azure AD MFA and use [Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md) to test user migrations without changing domain federation settings. 
 
 If you only want to migrate OATH hardware tokens, you need to [upload tokens to Azure AD by using a CSV file](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview), commonly referred to as a "seed file". 
 The seed file contains the secret keys, token serial numbers, and other necessary information needed to upload the tokens into Azure AD. 
@@ -95,7 +96,7 @@ Our recommendations:
 - Use Azure AD for authentication as it enables more robust security and governance
 - Move applications to Azure AD if possible
 
-To select the best user authentication method for your organization, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn.md). 
+To select the best user authentication method for your organization, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/connect/choose-ad-authn.md). 
 We recommend that you use Password Hash Synchronization (PHS).
 
 ### Passwordless authentication
@@ -160,4 +161,3 @@ Others might include:
 - [Moving to Azure AD Multi-Factor Authentication with federation](how-to-migrate-mfa-server-to-mfa-with-federation.md)
 - [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-mfa-user-authentication.md)
 - [How to use the MFA Server Migration Utility](how-to-mfa-server-migration-utility.md)
-

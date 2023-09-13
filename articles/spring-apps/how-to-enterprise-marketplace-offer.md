@@ -1,7 +1,7 @@
 ---
 title: Enterprise plan in Azure Marketplace
 description: Learn about the Azure Spring Apps Enterprise plan offering available in Azure Marketplace.
-author: karlerickson
+author: KarlErickson
 ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
@@ -166,7 +166,7 @@ The following list shows the errors you might encounter when you create an Azure
 
 - `Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement.`
 
-  You haven't accepted the marketplace legal terms and privacy statements while provisioning the tier. Use the following command to accept the terms:
+  You haven't accepted the marketplace legal terms and privacy statements while provisioning the plan. Use the following command to accept the terms:
 
   ```azurecli
   az term accept \

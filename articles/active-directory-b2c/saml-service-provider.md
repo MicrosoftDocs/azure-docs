@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 06/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -175,7 +175,11 @@ Now that your policy can create SAML responses, you must configure the policy to
 
 1. Open the *SignUpOrSigninSAML.xml* file in your preferred editor.
 
-1. Change the `PolicyId` and `PublicPolicyUri` values of the policy to `B2C_1A_signup_signin_saml` and `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`.
+1. Change the value of:
+    
+    1. `PolicyId` to `B2C_1A_signup_signin_saml` 
+    
+    1. `PublicPolicyUri` to `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`. Replace `<tenant-name>` placeholder with the subdomain of your Azure AD B2C tenant's domain name. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn [how to read your tenant details](tenant-management-read-tenant-name.md#get-your-tenant-name).  
 
     ```xml
     <TrustFrameworkPolicy
@@ -183,7 +187,7 @@ Now that your policy can create SAML responses, you must configure the policy to
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
     PolicySchemaVersion="0.3.0.0"
-    TenantId="tenant-name.onmicrosoft.com"
+    TenantId="<tenant-name>.onmicrosoft.com"
     PolicyId="B2C_1A_signup_signin_saml"
     PublicPolicyUri="http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
@@ -206,7 +210,7 @@ If you started from a different folder in the starter pack or you customized the
 
 The relying party element determines which protocol your application uses. The default is `OpenId`. The `Protocol` element must be changed to `SAML`. The output claims will create the claims mapping to the SAML assertion.
 
-Replace the entire `<TechnicalProfile>` element in the `<RelyingParty>` element with the following technical profile XML. Update `tenant-name` with the name of your Azure AD B2C tenant.
+Replace the entire `<TechnicalProfile>` element in the `<RelyingParty>` element with the following technical profile XML.
 
 ```xml
     <TechnicalProfile Id="PolicyProfile">
@@ -433,7 +437,7 @@ The following SAML application scenarios are supported via your own metadata end
 
 - Get the SAML test web app from the [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
 - See the [options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md).
-- Learn how to build [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json).
+- Learn how to build [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp

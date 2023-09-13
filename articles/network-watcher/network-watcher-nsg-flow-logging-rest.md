@@ -21,9 +21,9 @@ ms.custom: template-how-to, engagement-fy23
 
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
 
-This article helps use the REST API to enable, disable, and query flow logs using.
+This article shows you how to use the REST API to enable, disable, and query flow logs using the REST API. You can learn how to manage an NSG flow log using the [Azure portal](nsg-flow-logging.md), [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), or [ARM template](network-watcher-nsg-flow-logging-azure-resource-manager.md).
 
-You learn how to:
+In this article, uou learn how to:
 
 > [!div class="checklist"]
 > * Enable flow logs (Version 2)

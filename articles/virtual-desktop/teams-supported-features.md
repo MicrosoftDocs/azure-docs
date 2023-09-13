@@ -3,7 +3,7 @@ title: Supported features for Microsoft Teams on Azure Virtual Desktop - Azure
 description: Supported features for Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 07/26/2023
 ms.author: helohr
 manager: femila
 ---
@@ -30,6 +30,7 @@ The following table lists whether the Windows Desktop client, Azure Virtual Desk
 | Dynamic e911 | Yes | Yes |
 | Give and take control | Yes | Yes |
 | Live captions | Yes | Yes |
+| Live reactions | Yes | Yes |
 | Manage breakout rooms | Yes | Yes |
 | Mirror my video | Yes | No |
 | Multiwindow | Yes | Yes |
@@ -37,6 +38,7 @@ The following table lists whether the Windows Desktop client, Azure Virtual Desk
 | Screen share and video together | Yes | Yes |
 | Screen share | Yes | Yes |
 | Secondary ringer | Yes | Yes |
+| Shared system audio | Yes | No |
 | Simulcast | Yes | Yes |
 
 ## Version requirements
@@ -53,8 +55,8 @@ The following table lists the minimum required versions for each Teams feature. 
 |--|--|--|--|--|
 | Application window sharing | 1.2.3770 and later | Not supported | 1.31.2211.15001 | Updates within 90 days of the current version |
 | Audio/video call | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
-| Background blur | 1.2.3004 and later | 10.7.10 and later | 1.1.2110.16001 and later | 1.5.00.11865 and later |
-| Background images | 1.2.3004 and later | 10.7.10 and later | 1.1.2110.16001 and later | 1.5.00.11865 and later |
+| Background blur | 1.2.3004 and later | 10.7.10 and later | 1.1.2110.16001 and later | Updates within 90 days of the current version |
+| Background images | 1.2.3004 and later | 10.7.10 and later | 1.1.2110.16001 and later | Updates within 90 days of the current version |
 | CART transcriptions | 1.2.2322 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Call health panel | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Configure audio devices | 1.2.1755 and later | Not supported | 1.0.2006.11001 and later | Updates within 90 days of the current version |
@@ -63,13 +65,15 @@ The following table lists the minimum required versions for each Teams feature. 
 | Dynamic e911 | 1.2.2600 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Give and take control | 1.2.2924 and later | 10.7.10 and later | 1.0.2006.11001 and later (Windows), 1.31.2211.15001 and later (macOS) | Updates within 90 days of the current version |
 | Live captions | 1.2.2322 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
+| Live reactions | 1.2.1755 and later | 10.7.7 and later | 1.1.2110.16001 and later | Updates within 90 days of the current version |
 | Manage breakout rooms | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Mirror my video | 1.2.3770 and later | Not supported | 1.0.2006.11001 and later | Updates within 90 days of the current version |
-| Multiwindow | 1.2.1755 and later | 10.7.7 and later | 1.1.2110.16001 and later | 1.5.00.11865 and later |
+| Multiwindow | 1.2.1755 and later | 10.7.7 and later | 1.1.2110.16001 and later | Updates within 90 days of the current version |
 | Noise suppression | 1.2.3316 and later | 10.8.1 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Screen share and video together | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Screen share | 1.2.1755 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 | Secondary ringer | 1.2.3004 and later | 10.7.7 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
+| Shared system audio | 1.2.4058 and later | Not supported | 1.0.2006.11001 and later  | Updates within 90 days of the current version |
 | Simulcast | 1.2.3667 and later | 10.8.1 and later | 1.0.2006.11001 and later | Updates within 90 days of the current version |
 
 ## Next steps

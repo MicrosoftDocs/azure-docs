@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, devx-track-python, automl, FY21Q4-aml-seo-hack, con
 
 # Train a regression model with AutoML and Python (SDK v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to train a regression model with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML. This regression model predicts NYC taxi fares. 
 
@@ -38,7 +38,7 @@ For no-code AutoML, try the following tutorials:
 
 ## Prerequisites
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
 * After you complete the quickstart:
@@ -49,7 +49,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md). 
 To get the required packages, 
-* [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
+* [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Run `pip install azureml-opendatasets azureml-widgets` to get the required packages.
 
 ## Download and prepare data
@@ -81,7 +81,7 @@ for sample_month in range(12):
 green_taxi_df.head(10)
 ```
 
-|vendorID| lpepPickupDatetime|	lpepDropoffDatetime|	passengerCount|	tripDistance|	puLocationId|	doLocationId|	pickupLongitude|	pickupLatitude|	dropoffLongitude	|...|	paymentType	|fareAmount	|extra|	mtaTax|	improvementSurcharge|	tipAmount|	tollsAmount|	ehailFee|	totalAmount|	tripType|
+|vendorID| lpepPickupDatetime|    lpepDropoffDatetime|    passengerCount|    tripDistance|    puLocationId|    doLocationId|    pickupLongitude|    pickupLatitude|    dropoffLongitude    |...|    paymentType    |fareAmount    |extra|    mtaTax|    improvementSurcharge|    tipAmount|    tollsAmount|    ehailFee|    totalAmount|    tripType|
 |----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|
 |131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4.84|None|None|-73.88|40.84|-73.94|...|2|15.00|0.50|0.50|0.3|0.00|0.00|nan|16.30|
 |1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0.69|None|None|-73.96|40.81|-73.96|...|2|4.50|1.00|0.50|0.3|0.00|0.00|nan|6.30|
@@ -92,7 +92,7 @@ green_taxi_df.head(10)
 |737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0.90|None|None|-73.88|40.76|-73.87|...|2|6.00|0.00|0.50|0.3|0.00|0.00|nan|6.80|
 |113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3.30|None|None|-73.96|40.72|-73.91|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|
 |150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|None|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|
-|432136|2|2015-01-22 23:16:33	2015-01-22 23:20:13	1	0.65|None|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|
+|432136|2|2015-01-22 23:16:33    2015-01-22 23:20:13    1    0.65|None|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|
 
 Remove some of the columns that you won't need for training or additional feature building.  Automate machine learning will automatically handle time-based features such as **lpepPickupDatetime**.
 
@@ -115,7 +115,7 @@ Run the `describe()` function on the new dataframe to see summary statistics for
 green_taxi_df.describe()
 ```
 
-|vendorID|passengerCount|tripDistance|pickupLongitude|pickupLatitude|dropoffLongitude|dropoffLatitude|	totalAmount|month_num	day_of_month|day_of_week|hour_of_day
+|vendorID|passengerCount|tripDistance|pickupLongitude|pickupLatitude|dropoffLongitude|dropoffLatitude|    totalAmount|month_num    day_of_month|day_of_week|hour_of_day
 |----|----|---|---|----|---|---|---|---|---|---|
 |count|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|
 |mean|1.78|1.37|2.87|-73.83|40.69|-73.84|40.70|14.75|6.50|15.13|
@@ -367,7 +367,7 @@ Do not complete this section if you plan on running other Azure Machine Learning
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
+[!INCLUDE [aml-stop-server](../includes/aml-stop-server.md)]
 
 ### Delete everything
 

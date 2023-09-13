@@ -5,6 +5,8 @@ ms.topic: article
 ms.date: 12/14/2021
 ms.reviewer: ushan
 ms.custom: github-actions-azure, devx-track-azurecli
+author: cephalin
+ms.author: cephalin
 ---
 
 # Deploy to App Service using GitHub Actions
@@ -140,7 +142,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
     ("credential.json" contains the following content)
     {
         "name": "<CREDENTIAL-NAME>",
-        "issuer": "https://token.actions.githubusercontent.com/",
+        "issuer": "https://token.actions.githubusercontent.com",
         "subject": "repo:organization/repository:ref:refs/heads/main",
         "description": "Testing",
         "audiences": [

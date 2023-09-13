@@ -3,9 +3,11 @@ title: Managed identities
 description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back-end resource.
 
 ms.topic: article
-ms.date: 01/27/2022
+ms.date: 06/27/2023
 ms.reviewer: yevbronsh,mahender
-ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, AppServiceConnectivity
+author: cephalin
+ms.author: cephalin
 ---
 
 # How to use managed identities for App Service and Azure Functions
@@ -13,14 +15,14 @@ ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli
 This article shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
 
 > [!IMPORTANT] 
-> Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by [disabling](#remove) and re-enabling the feature. Downstream resources also need to have access policies updated to use the new identity.
+> Because [managed identities don't support cross-directory scenarios](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant), they won't behave as expected if your app is migrated across subscriptions or tenants. To recreate the managed identities after such a move, see [Will managed identities be recreated automatically if I move a subscription to another directory?](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory). Downstream resources also need to have access policies updated to use the new identity.
 
 > [!NOTE]
 > Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
-The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, navigate to the slot first. To find the managed identity for your web app or deployment slot in your Azure Active Directory tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app name>/slots/<slot name>`.
+The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, navigate to the slot first. To find the managed identity for your web app or deployment slot in your Azure Active Directory tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app-name>/slots/<slot-name>`.
 
 ## Add a system-assigned identity
 
@@ -78,7 +80,7 @@ For example, a web app's template might look like the following JSON:
 
 ```json
 {
-    "apiVersion": "2016-08-01",
+    "apiVersion": "2022-03-01",
     "type": "Microsoft.Web/sites",
     "name": "[variables('appName')]",
     "location": "[resourceGroup().location]",
@@ -103,8 +105,8 @@ When the site is created, it has the following additional properties:
 ```json
 "identity": {
     "type": "SystemAssigned",
-    "tenantId": "<TENANTID>",
-    "principalId": "<PRINCIPALID>"
+    "tenantId": "<tenant-id>",
+    "principalId": "<principal-id>"
 }
 ```
 
@@ -135,14 +137,13 @@ First, you'll need to create a user-assigned identity resource.
 
 1. Select **Identity**.
 
-1. Within the **User assigned** tab, click **Add**.
+1. Select **User assigned** > **Add**.
 
-1. Search for the identity you created earlier and select it. Click **Add**.
+1. Search for the identity you created earlier, select it, and select **Add**.
 
     ![Managed identity in App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
     
-> [!IMPORTANT]
-> If you select **Add** after you select a user-assigned identity to add, your application will restart.
+    Once you select **Add**, the app restarts.
 
 # [Azure CLI](#tab/cli)
 
@@ -155,7 +156,7 @@ First, you'll need to create a user-assigned identity resource.
 1. Run the `az webapp identity assign` command to assign the identity to the app.
 
     ```azurepowershell-interactive
-    az webapp identity assign --resource-group <group-name> --name <app-name> --identities <identity-name>
+    az webapp identity assign --resource-group <group-name> --name <app-name> --identities <identity-id>
     ```
 
 # [Azure PowerShell](#tab/ps)
@@ -183,13 +184,13 @@ Adding a user-assigned identity in App Service is currently not supported.
 
 An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service/deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
-Any resource of type `Microsoft.Web/sites` can be created with an identity by including the following block in the resource definition, replacing `<RESOURCEID>` with the resource ID of the desired identity:
+Any resource of type `Microsoft.Web/sites` can be created with an identity by including the following block in the resource definition, replacing `<resource-id>` with the resource ID of the desired identity:
 
 ```json
 "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
-        "<RESOURCEID>": {}
+        "<resource-id>": {}
     }
 }
 ```
@@ -203,7 +204,7 @@ For example, a web app's template might look like the following JSON:
 
 ```json
 {
-    "apiVersion": "2016-08-01",
+    "apiVersion": "2022-03-01",
     "type": "Microsoft.Web/sites",
     "name": "[variables('appName')]",
     "location": "[resourceGroup().location]",
@@ -233,9 +234,9 @@ When the site is created, it has the following additional properties:
 "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
-        "<RESOURCEID>": {
-            "principalId": "<PRINCIPALID>",
-            "clientId": "<CLIENTID>"
+        "<resource-id>": {
+            "principalId": "<principal-id>",
+            "clientId": "<client-id>"
         }
     }
 }
@@ -365,7 +366,7 @@ When you remove a system-assigned identity, it's deleted from Azure Active Direc
 1. Select **Identity**. Then follow the steps based on the identity type:
 
     - **System-assigned identity**: Within the **System assigned** tab, switch **Status** to **Off**. Click **Save**.
-    - **User-assigned identity**: Click the **User assigned** tab, select the checkbox for the identity, and click **Remove**. Click **Yes** to confirm.
+    - **User-assigned identity**: Select the **User assigned** tab, select the checkbox for the identity, and select **Remove**. Select **Yes** to confirm.
 
 # [Azure CLI](#tab/cli)
 
@@ -378,7 +379,7 @@ az webapp identity remove --name <app-name> --resource-group <group-name>
 To remove one or more user-assigned identities:
 
 ```azurecli-interactive
-az webapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-name1>,<identity-name2>,...
+az webapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-id1> <identity-id2> ...
 ```
 
 You can also remove the system assigned identity by specifying `[system]` in `--identities`.

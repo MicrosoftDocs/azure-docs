@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/30/2021
+ms.date: 06/23/2023
 ---
 # Configuration set pattern
 

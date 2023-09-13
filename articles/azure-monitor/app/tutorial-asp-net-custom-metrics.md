@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 08/22/2022
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
-ms.reviewer: casocha
+ms.reviewer: mmcc
 ---
 
 # Capture Application Insights custom metrics with .NET and .NET Core

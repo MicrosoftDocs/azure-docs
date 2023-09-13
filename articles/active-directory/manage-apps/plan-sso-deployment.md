@@ -39,7 +39,7 @@ Always use the role with the fewest permissions available to accomplish the requ
 | Infrastructure admins | Certificate rollover owner | Cloud Application Administrator |
 | Business owner/stakeholder | User attestation in application, configuration on users with permissions | None |
 
-To learn more about Azure AD administrative roles, see [Azure AD built-in roles](../users-groups-roles/directory-assign-admin-roles.md).
+To learn more about Azure AD administrative roles, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
 ## Certificates
 
@@ -51,7 +51,7 @@ You change that certificate duration in the Azure portal. Make sure to document 
 - Owner On-Call for application troubleshooting support
 - Closely monitored email distribution list for certificate-related change notifications
 
-Set up a process for how you'll handle a certificate change between Azure AD and your application. By having this process in place, you can help prevent or minimize an outage due to a certificate expiring or a forced certificate rollover. For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
+Set up a process for how you'll handle a certificate change between Azure AD and your application. By having this process in place, you can help prevent or minimize an outage due to a certificate expiring or a forced certificate rollover. For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](./tutorial-manage-certificates-for-federated-single-sign-on.md).
 
 ## Communications
 
@@ -77,6 +77,9 @@ From the sign-in perspective, applications with shared accounts aren't different
 - Reset the shared credentials. After the application is deployed in Azure AD, individuals don't need the password of the shared account. Azure AD stores the password and you should consider setting it to be long and complex.
 - Configure automatic rollover of the password if the application supports it. That way, not even the administrator who did the initial setup knows the password of the shared account.
 
+<a id='choosing-a-single-sign-on-method'></a>
+<a id='password-based-sso'></a>
+
 ## Single sign-on options
 
 There are several ways you can configure an application for SSO. Choosing an SSO method depends on how the application is configured for authentication.
@@ -89,7 +92,7 @@ This flowchart can help you decide which SSO method is best for your situation.
  
 The following SSO protocols are available to use:
 
-- **OpenID Connect and OAuth** - Choose OpenID Connect and OAuth 2.0 if the application you're connecting to supports it. For more information, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](../develop/active-directory-v2-protocols.md). For steps to implement OpenID Connect SSO, see [Set up OIDC-based single sign-on for an application in Azure Active Directory](add-application-portal-setup-oidc-sso.md).
+- **OpenID Connect and OAuth** - Choose OpenID Connect and OAuth 2.0 if the application you're connecting to supports it. For more information, see [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](../develop/v2-protocols.md). For steps to implement OpenID Connect SSO, see [Set up OIDC-based single sign-on for an application in Azure Active Directory](add-application-portal-setup-oidc-sso.md).
 
 - **SAML** - Choose SAML whenever possible for existing applications that don't use OpenID Connect or OAuth. For more information, see [single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md).
 

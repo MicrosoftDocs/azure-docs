@@ -3,8 +3,8 @@ title: Use the sys_schema - Azure Database for MySQL
 description: Learn how to use the sys_schema to find performance issues and maintain databases in Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: troubleshooting
 ms.date: 06/20/2022
 ---

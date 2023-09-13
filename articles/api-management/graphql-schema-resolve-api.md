@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 05/31/2023
 ms.custom: event-tier1-build-2022
 ---
 
@@ -64,9 +64,7 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
 
 ## Configure resolver
 
-Configure a resolver to map a field in the schema to an existing HTTP endpoint. 
-
-<!-- Add link to resolver how-to article for details -->
+Configure a resolver to map a field in the schema to an existing HTTP endpoint. High level steps are provided here. For details, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
 Suppose you imported the following basic GraphQL schema and wanted to set up a resolver for the *users* query.
 
@@ -82,15 +80,18 @@ type User {
 ```
 
 1. From the side navigation menu, under the **APIs** section, select **APIs** > your GraphQL API.
-1. On the **Design** tab, review the schema for a field in an object type where you want to configure a resolver. 
+1. On the **Schema** tab, review the schema for a field in an object type where you want to configure a resolver. 
     1. Select a field, and then in the left margin, hover the pointer. 
     1. Select **+ Add Resolver**
 
         :::image type="content" source="media/graphql-schema-resolve-api/add-resolver.png" alt-text="Screenshot of adding a GraphQL resolver in the portal.":::
 
-1. On the **Create Resolver** page, update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
+1. On the **Create Resolver** page:
 
-1. In the **Resolver policy** editor, update the `<http-data-source>` element with child elements for your scenario. For example, the following resolver retrieves the *users* field by using a `GET` call on an existing HTTP data source.
+    1. Update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
+    1. In **Data source**, select **HTTP API**. 
+
+1. In the **Resolver policy** editor, update the `<http-data-source>` element with child elements for your scenario. For example, the following resolver retrieves the *users* field by making a `GET` call to an existing HTTP data source.
 
     
     ```xml
@@ -105,6 +106,9 @@ type User {
     :::image type="content" source="media/graphql-schema-resolve-api/configure-resolver-policy.png" alt-text="Screenshot of configuring resolver policy in the portal.":::
 1. Select **Create**. 
 1. To resolve data for another field in the schema, repeat the preceding steps to create a resolver. 
+
+> [!TIP]
+> As you edit a resolver policy, select **Run Test** to check the output from the data source, which you can validate against the schema. If errors occur, the response includes troubleshooting information. 
 
 [!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
 

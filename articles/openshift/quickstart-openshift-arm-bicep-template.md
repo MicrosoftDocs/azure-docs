@@ -64,7 +64,7 @@ The template defines three Azure resources:
 
 More Azure Red Hat OpenShift template samples can be found on the [Red Hat OpenShift web site](https://docs.openshift.com/container-platform/4.9/installing/installing_azure/installing-azure-user-infra.html).
 
-Save the following example as *azuredeploy.json*:
+Save the following example as *azuredeploy.bicep*:
 
 ```json
 {
@@ -791,7 +791,7 @@ ARO_RP_SP_OBJECT_ID=$(az ad sp list --display-name "Azure Red Hat OpenShift RP" 
 az deployment group create \
     --name aroDeployment \
     --resource-group $RESOURCEGROUP \
-    --template-file azuredeploy.json \
+    --template-file azuredeploy.bicep \
     --parameters location=$LOCATION \
     --parameters domain=$DOMAIN \
     --parameters pullSecret=$PULL_SECRET \

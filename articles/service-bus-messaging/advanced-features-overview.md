@@ -33,7 +33,7 @@ A queue or subscription client can defer retrieval of a received message until a
 A transaction groups two or more operations together into an execution scope. Service Bus allows you to group operations against multiple messaging entities within the scope of a single transaction. A message entity can be a queue, topic, or subscription. For more information, see [Overview of Service Bus transaction processing](service-bus-transactions.md).
 
 ## Autodelete on idle
-Autodelete on idle enables you to specify an idle interval after which a queue or topic subscription is automatically deleted. The interval is reset when a message is added to or removed from the subscription. The minimum duration is 5 minutes. 
+Autodelete on idle enables you to specify an idle interval after which a queue or topic subscription is automatically deleted. The interval is reset when a message is added to or removed from the subscription. The minimum duration is 5 minutes. For an overview on what is considered as idleness for entities, please check [Idleness](message-expiration.md#idleness).
 
 ## Duplicate detection
 The duplicate detection feature enables the sender to resend the same message again and for the broker to drop a potential duplicate. For more information, see [Duplicate detection](duplicate-detection.md).

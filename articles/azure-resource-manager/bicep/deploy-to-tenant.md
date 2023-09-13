@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/22/2021
+ms.date: 06/23/2023
 ---
 
 # Tenant deployments with Bicep file
@@ -141,7 +141,7 @@ Resources defined within the Bicep file are applied to the tenant.
 targetScope = 'tenant'
 
 // create resource at tenant
-resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2021-04-01' = {
   ...
 }
 ```
@@ -203,7 +203,7 @@ The following template creates a management group.
 targetScope = 'tenant'
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2021-04-01' = {
   name: mgName
   properties: {}
 }
@@ -226,7 +226,7 @@ param roleDefinitionId string = '8e3af657-a8ff-443c-a75c-2fe8c4bcb635'
 
 var roleAssignmentName = guid(principalId, roleDefinitionId)
 
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-03-01-preview' = {
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: roleAssignmentName
   properties: {
     roleDefinitionId: tenantResourceId('Microsoft.Authorization/roleDefinitions', roleDefinitionId)

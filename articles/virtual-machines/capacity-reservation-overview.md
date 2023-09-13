@@ -96,7 +96,7 @@ Capacity Reservations are priced at the same rate as the underlying VM size. For
 
 If you then deploy a D2s_v3 VM and specify reservation property, the Capacity Reservation gets used. Once in use, you pay for only VM and not the Capacity Reservation. Let’s say you deploy six D2s_v3 VMs against the previously mentioned Capacity Reservation. You see a bill for six D2s_v3 VMs and four unused Capacity Reservation, both charged at the same rate as a D2s_v3 VM.  
 
-Both used and unused Capacity Reservation are eligible for Reserved Instances term commitment discounts. In the previous example, if you have Reserved Instances for two D2s_v3 VMs in the same Azure region, the billing for two resources (either VM or unused Capacity Reservation) will be zeroed out. The remaining eight D2s_v3 is billed normally. The term commitment discounts could be applied on either the VM or the unused Capacity Reservation. 
+Both used and unused Capacity Reservation and Saving Plan are eligible for Reserved Instances term commitment discounts. In the previous example, if you have Reserved Instances for two D2s_v3 VMs in the same Azure region, the billing for two resources (either VM or unused Capacity Reservation) will be zeroed out. The remaining eight D2s_v3 is billed normally. The term commitment discounts could be applied on either the VM or the unused Capacity Reservation. 
 
 ## Difference between On-demand Capacity Reservation and Reserved Instances 
 

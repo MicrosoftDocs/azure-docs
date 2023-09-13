@@ -90,7 +90,7 @@ Cloud Service version 4 caches can't be upgraded to version 6 until they're migr
 
 For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml).
 
-Starting on April 30, 2023, Cloud Service caches receive only critical security updates and critical bug fixes. Cloud Service caches won't support any new features released after April 30, 2023. We highly recommend migrating your caches to Azure Virtual Machine Scale Set.
+Cloud Service cache will continue to function beyond June 30, 2023, however, starting on April 30, 2023, Cloud Service caches receive only critical security updates and bug fixes with limited support. Cloud Service caches won't support any new features released after April 30, 2023. We highly recommend migrating your caches to Azure Virtual Machine Scale Set as soon as possible.
 
 #### Do I need to update my application to be able to use Redis version 6?
 

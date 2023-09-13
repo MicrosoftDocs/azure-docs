@@ -12,7 +12,7 @@ ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 # Azure AD Connect: Version release history archive
 
@@ -842,7 +842,7 @@ The issue that arises is that the **Sync all domains and OUs option** is always 
   * This option is only visible to existing deployments that are using objectGuid as sourceAnchor attribute.
   * When configuring the option, the wizard validates the state of the ms-DS-ConsistencyGuid attribute in your on-premises Active Directory. If the attribute isn't configured on any user object in the directory, the wizard uses the ms-DS-ConsistencyGuid as the sourceAnchor attribute. If the attribute is configured on one or more user objects in the directory, the wizard concludes the attribute is being used by other applications and is not suitable as sourceAnchor attribute and does not permit the Source Anchor change to proceed. If you are certain that the attribute isn't used by existing applications, you need to contact Support for information on how to suppress the error.
 
-* Specific to **userCertificate** attribute on Device objects, Azure AD Connect now looks for certificates values required for [Connecting domain-joined devices to Azure AD for Windows 10 experience](../../devices/hybrid-azuread-join-plan.md) and filters out the rest before synchronizing to Azure AD. To enable this behavior, the out-of-box sync rule “Out to AAD - Device Join SOAInAD” has been updated.
+* Specific to **userCertificate** attribute on Device objects, Azure AD Connect now looks for certificates values required for [Connecting domain-joined devices to Azure AD for Windows 10 experience](../../devices/hybrid-join-plan.md) and filters out the rest before synchronizing to Azure AD. To enable this behavior, the out-of-box sync rule “Out to AAD - Device Join SOAInAD” has been updated.
 
 * Azure AD Connect now supports writeback of Exchange Online **cloudPublicDelegates** attribute to on-premises AD **publicDelegates** attribute. This enables the scenario where an Exchange Online mailbox can be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. To support this feature, a new out-of-box sync rule “Out to AD – User Exchange Hybrid PublicDelegates writeback” has been added. This sync rule is only added to Azure AD Connect when Exchange Hybrid feature is enabled.
 
@@ -1213,8 +1213,8 @@ Released: February 2016
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) feature for Express settings customers.
 * Support for the Hybrid Identity Administrator by using Azure AD Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
-  * You need to allow your proxy to also allow traffic to `https://secure.aadcdn.microsoftonline-p.com` if you use Multi-Factor Authentication.
-  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
+  * You need to allow your proxy to also allow traffic to ```https://secure.aadcdn.microsoftonline-p.com``` if you use Multi-Factor Authentication.
+  * You need to add ```https://secure.aadcdn.microsoftonline-p.com``` to your trusted sites list for Multi-Factor Authentication to properly work.
 * Allow changing the user's sign-in method after initial installation.
 * Allow [Domain and OU filtering](how-to-connect-install-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 * [Scheduler](how-to-connect-sync-feature-scheduler.md) is built in to the sync engine.

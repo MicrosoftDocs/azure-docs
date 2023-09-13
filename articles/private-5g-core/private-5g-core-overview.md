@@ -1,8 +1,8 @@
 ---
 title: What is Azure Private 5G Core?
 description: Azure Private 5G Core is an Azure cloud service for deploying 5G core network functions to form on-premises private mobile networks for 5G Internet of Things (IoT) devices. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: overview 
 ms.date: 02/20/2022
@@ -41,7 +41,7 @@ You'll also need the following to deploy a private mobile network using Azure Pr
 
   The Azure private multi-access edge compute (MEC) solution offers an ecosystem of technology solution partners, including the following: 
 
-  - Radio vendors who can connect Azure Private 5G Core to a gNodeB (for 5G deployments) or eNodeB (for 4G deployments), allowing you to choose from a broad range of shared or licensed spectrum options available in different countries.
+  - Radio vendors who can connect Azure Private 5G Core to a gNodeB (for 5G deployments) or eNodeB (for 4G deployments), allowing you to choose from a broad range of shared or licensed spectrum options available in different countries/regions.
   - SIM vendors offering physical SIM and eSIM services. These vendors can integrate directly with Azure Private 5G Core through the SIM manager to securely provision physical SIMs and eSIMs.
 
    For more information, see [What is Azure private multi-access edge compute?](../private-multi-access-edge-compute-mec/overview.md).

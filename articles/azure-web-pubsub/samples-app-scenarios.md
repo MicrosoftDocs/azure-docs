@@ -7,7 +7,7 @@ ms.author: kevinguo
 ms.service: azure-web-pubsub
 ms.topic: sample
 ms.date: 05/15/2023
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: azure-web-pubsub-samples-app-scenarios
 ---
 # Azure Web PubSub samples - app scenarios

@@ -86,6 +86,9 @@ display(df)
 | `spark.cosmos.timetravel.ignoreTransactionalUserDeletes` | `FALSE` | Ignore the records the user deleted from the transactional store. Set this setting to `TRUE` if you would like to see the records in time travel result set that is deleted from the transactional store. |
 | `spark.cosmos.timetravel.fullFidelity` | `FALSE` | Set this setting to `TRUE` if you would like to access all versions of records (including intermediate updates) at a specific point in history. |
 
+> [!IMPORTANT]
+> All configuration settings are used in UTC timezone.
+
 ## Limitations
 
 - Time Travel is only available for Azure Synapse Spark.

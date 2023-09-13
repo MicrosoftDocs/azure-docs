@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.author: duau
 manager: kumud
-ms.date: 10/12/2020
+ms.date: 06/30/2023
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
@@ -15,11 +15,11 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an ExpressRoute circuit with private peering.
 
-:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using ARM template .":::
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using ARM template. ":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fexpressroute-private-peering-vnet%2Fazuredeploy.json)
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/expressroute-private-peering-vnet).
 
-In this quickstart, you'll create an ExpressRoute circuit with *Equinix* as the service provider. The circuit will be using a *Premium SKU*, with a bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering will be enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network will also be created along with a *HighPerformance ExpressRoute gateway*.
+In this quickstart, you create an ExpressRoute circuit with *Equinix* as the service provider. The circuit is using a *Premium SKU*, with a bandwidth of *50 Mbps*, and the peering location of *Washington DC*. Private peering is enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30* respectively. A virtual network gets created along with a *HighPerformance ExpressRoute gateway*.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/expressroute-private-peering-vnet/azuredeploy.json":::
 
@@ -100,7 +100,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the ExpressRoute circuit, delete the resource group. This removes the ExpressRoute circuit and all the related resources.
+When you no longer need the resources that you created with the ExpressRoute circuit, delete the resource group to remove the ExpressRoute circuit and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 

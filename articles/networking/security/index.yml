@@ -38,6 +38,9 @@ highlightedContent:
     - title: What is Azure Web Application Firewall?
       itemType: video
       url: https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM
+    - title: Azure network security webinars
+      itemType: video
+      url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/recordings-security-community-webinars/ba-p/2865990
 
 
 # additionalContent section (optional)
@@ -50,13 +53,19 @@ additionalContent:
         # Card
         - title: I want to...
           links:
+            - text: Protect my network from DDos attacks
+              url: ../../ddos-protection/ddos-protection-overview.md
             - text: Protect my outbound network connections
               url: ../../firewall/overview.md
             - text: Protect my inbound web application connections
               url: ../../web-application-firewall/overview.md
+            - text: Implement the Zero Trust model
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/zero-trust-with-azure-network-security/ba-p/3668280
+            - text: Apply Zero Trust principles to an Azure Virtual WAN deployment
+              url: /security/zero-trust/azure-virtual-wan
             - text: Manage my network firewall
               url: ../../firewall-manager/overview.md
-            - text: See more
+            - text: Learn more about Azure Firewall
               url: ../../firewall/index.yml
         - title: Training
           links:
@@ -78,11 +87,19 @@ additionalContent:
         # Card
         - title: I want to...
           links:
+            - text: Secure networks with Zero Trust
+              url: /security/zero-trust/deploy/networks
+            - text: Apply Zero Trust principles to a spoke virtual network in Azure
+              url: /security/zero-trust/azure-infrastructure-iaas
+            - text: Apply Zero Trust principles to a hub virtual network in Azure
+              url: /security/zero-trust/azure-infrastructure-networking
             - text: Filter network traffic between Azure resources
               url: ../../virtual-network/network-security-groups-overview.md
             - text: Secure access to Azure services
               url: ../../virtual-network/virtual-network-service-endpoints-overview.md
-            - text: See more
+            - text: Inspect traffic to a private endpoint
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/deploy-azure-firewall-to-inspect-traffic-to-a-private-endpoint/ba-p/3714575
+            - text: Learn more about Azure Virtual Network
               url: ../../virtual-network/index.yml
         - title: Training
           links:
@@ -98,21 +115,27 @@ additionalContent:
               url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
             - text: Choose between virtual network peering and VPN gateways
               url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering
-    - title: Protect your apps
+    - title: Protect your apps and services
       items:
         # Card
         - title: I want to...
           links:
+            - text: Apply Zero Trust principles to a spoke virtual network with Azure PaaS Services
+              url: /security/zero-trust/azure-infrastructure-paas
+            - text: Zero-trust network for web applications with Azure Firewall and Application Gateway
+              url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
             - text: Protect my service from DDoS attacks
               url: ../../ddos-protection/ddos-protection-overview.md
+            - text: Protect against PaperCut vulnerability
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/protect-against-papercut-vulnerability-with-azure-firewall/ba-p/3859945
             - text: Securely access my PaaS Services in Azure
               url: ../../private-link/private-link-overview.md
             - text: Create a private interface to connect to a service
               url: ../../private-link/private-endpoint-overview.md
             - text: Connect a service using a private link 
               url: ../../private-link/private-link-service-overview.md
-            - text: See more
-              url: ../..//ddos-protection/index.yml
+            - text: Learn more about Azure DDoS Protection
+              url: ../../ddos-protection/index.yml
         - title: Training
           links:
             - text: Introduction to Azure DDoS Protection
@@ -134,7 +157,7 @@ additionalContent:
           links:
             - text: Connect to my VMs without a public IP address exposure
               url: ../../bastion/bastion-overview.md
-            - text: See more
+            - text: Learn more about Azure Bastion
               url: ../../bastion/index.yml
         - title: Training
           links:

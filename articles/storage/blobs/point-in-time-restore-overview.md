@@ -5,11 +5,10 @@ description: Point-in-time restore for block blobs provides protection against a
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/31/2023
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Point-in-time restore for block blobs

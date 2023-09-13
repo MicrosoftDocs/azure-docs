@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 06/23/2023
 ms.devlang: csharp, java, javascript, python
 ms.reviewer: rijolly
 ---
@@ -419,7 +419,7 @@ When developing a custom client to obtain an access token from Azure AD for the 
 | Azure cloud version | Token audience value |
 | --- | --- |
 | Azure public cloud | `https://monitor.azure.com` |
-| Azure China cloud | `https://monitor.azure.cn` |
+| Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
 | Azure US Government cloud | `https://monitor.azure.us` |
 
 If you're using sovereign clouds, you can find the audience information in the connection string as well. The connection string follows this structure:

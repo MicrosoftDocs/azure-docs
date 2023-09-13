@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/29/2023
+ms.date: 07/10/2023
 ms.author: jeedes
 
 ---
@@ -57,28 +57,21 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. Click **Upload metadata file**.
+    1. In the **Identifier** textbox, type a URL using the following pattern:
+    `https://<ORG_ID>.<REGION>.informaticacloud.com`
 
-    ![Screenshot shows how to upload metadata file.](common/upload-metadata.png "Folder")
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	![Screenshot shows to choose metadata file.](common/browse-upload-metadata.png "File")
-
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section.
-
-    > [!NOTE]
-    > You will get the **Service Provider metadata file** from the **Configure Informatica Intelligent Data Management Cloud SSO** section, which is explained later in the tutorial. If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
+    1. In the **Reply URL** textbox, type a URL using the following pattern:
+    `https://<REGION>.informaticacloud.com/identity-service/acs/<ORG_ID>`
 
 1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
     In the **Sign on URL** textbox, type a URL using the following pattern:
-    `https://<INFORMATICA_CLOUD_REGION>.informaticacloud.com/ma/sso/<INFORMATICA_CLOUD_ORG_ID>`
+    `https://<REGION>.informaticacloud.com/ma/sso/<ORG_ID>`
 
     > [!NOTE]
-    > This value is not real. Update this value with the actual Sign on URL. Contact [Informatica Intelligent Data Management Cloud support team](mailto:support@informatica.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Informatica Intelligent Data Management Cloud support team](mailto:support@informatica.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -105,8 +98,6 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Signing Certificate** textbox.
 
     1. Click **Save** to save the details.
-
-    1. **Download Service Provider Metadata** xml file and upload in the **Basic SAML Configuration** section in the Azure portal.
 
 ### Create Informatica Intelligent Data Management Cloud test user
 

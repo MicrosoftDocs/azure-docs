@@ -22,15 +22,15 @@ The following table shows each development environment covered in this article, 
 | Environment | Pros | Cons |
 | --- | --- | --- |
 | [Local environment](#local-computer-or-remote-vm-environment) | Full control of your development environment and dependencies. Run with any build tool, environment, or IDE of your choice. | Takes longer to get started. Necessary SDK packages must be installed, and an environment must also be installed if you don't already have one. |
-| [The Data Science Virtual Machine (DSVM)](#data-science-virtual-machine) | Similar to the cloud-based compute instance (Python and the SDK are pre-installed), but with additional popular data science and machine learning tools pre-installed. Easy to scale and combine with other custom tools and workflows. | A slower getting started experience compared to the cloud-based compute instance. |
-| [Azure Machine Learning compute instance](#azure-machine-learning-compute-instance) | Easiest way to get started. The entire SDK is already installed in your workspace VM, and notebook tutorials are pre-cloned and ready to run. | Lack of control over your development environment and dependencies. Additional cost incurred for Linux VM (VM can be stopped when not in use to avoid charges). See [pricing details](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
-| [Azure Databricks](how-to-configure-databricks-automl-environment.md) | Ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform. | Overkill for experimental machine learning, or smaller-scale experiments and workflows. Additional cost incurred for Azure Databricks. See [pricing details](https://azure.microsoft.com/pricing/details/databricks/). |
+| [The Data Science Virtual Machine (DSVM)](#data-science-virtual-machine) | Similar to the cloud-based compute instance (Python and the SDK are pre-installed), but with other popular data science and machine learning tools pre-installed. Easy to scale and combine with other custom tools and workflows. | A slower getting started experience compared to the cloud-based compute instance. |
+| [Azure Machine Learning compute instance](#azure-machine-learning-compute-instance) | Easiest way to get started. The entire SDK is already installed in your workspace VM, and notebook tutorials are pre-cloned and ready to run. | Lack of control over your development environment and dependencies. Extra cost incurred for Linux VM (VM can be stopped when not in use to avoid charges). See [pricing details](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Azure Databricks](how-to-configure-databricks-automl-environment.md) | Ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform. | Overkill for experimental machine learning, or smaller-scale experiments and workflows. Extra cost incurred for Azure Databricks. See [pricing details](https://azure.microsoft.com/pricing/details/databricks/). |
 
-This article also provides additional usage tips for the following tools:
+This article also provides usage tips for the following tools:
 
 * Jupyter Notebooks: If you're already using Jupyter Notebooks, the SDK has some extras that you should install.
 
-* Visual Studio Code: If you use Visual Studio Code, the [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) includes extensive language support for Python as well as features to make working with the Azure Machine Learning much more convenient and productive.
+* Visual Studio Code: If you use Visual Studio Code, the [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) includes extensive language support for Python and features to make working with the Azure Machine Learning much more convenient and productive.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ The workspace configuration file is a JSON file that tells the SDK how to commun
 }
 ```
 
-This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
+This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named `.azureml`, or in a parent directory.
 
 To use this file from your code, use the [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace#from-config-path-none--auth-none---logger-none---file-name-none-) method. This code loads the information from the file and connects to your workspace.
 
@@ -64,7 +64,7 @@ Create a workspace configuration file in one of the following methods:
 
     Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace#write-config-path-none--file-name-none-) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -129,27 +129,27 @@ To use Visual Studio Code for development:
 1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Install the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md) (preview).
 
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Once you have the Visual Studio Code extension installed, use it to:
 
 * [Manage your Azure Machine Learning resources](../how-to-manage-resources-vscode.md)
 * [Launch Visual Studio Code remotely connected to a compute instance (preview)](../how-to-launch-vs-code-remote.md)
-* [Run and debug experiments](../how-to-debug-visual-studio-code.md)
-* [Deploy trained models](../tutorial-train-deploy-image-classification-model-vscode.md).
+* [Run and debug experiments](how-to-debug-visual-studio-code.md)
+* [Deploy trained models (CLI v2)](../tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## Azure Machine Learning compute instance
 
 The Azure Machine Learning [compute instance](../concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter Notebook server, JupyterLab, and a fully managed machine learning environment.
 
-There is nothing to install or configure for a compute instance.  
+There's nothing to install or configure for a compute instance.  
 
 Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with [Create resources to get started](../quickstart-create-resources.md).
 
-To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
+To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [stop the compute instance](../how-to-create-manage-compute-instance.md#manage). Or [enable idle shutdown](../how-to-create-manage-compute-instance.md#enable-idle-shutdown) for the compute instance.
+> To prevent incurring charges for an unused compute instance, [stop the compute instance](../how-to-manage-compute-instance.md). Or [enable idle shutdown](../how-to-create-compute-instance.md#configure-idle-shutdown) for the compute instance.
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](../how-to-run-jupyter-notebooks.md).
 

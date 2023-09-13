@@ -59,7 +59,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
    1. Certs signed by a CA. This can be a self-signed CA or even a public one. In this case we need the root CA certificate (refer to instructions on [preparing SSL certificates for production](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html)), and all intermediaries (if applicable).
 
-   Optionally, if you want to implement client-to-node certificate authentication or mutual Transport Layer Security (mTLS) as well, you need to provide the certificates in the same format as when creating the hybrid cluster. See Azure CLI sample below - the certificates are provided in the `--client-certificates` parameter. This will upload and apply your client certificates to the truststore for your Cassandra Managed Instance cluster (i.e. you do not need to edit cassandra.yaml settings). Once applied, your cluster will require Cassandra to verify the certificates when a client connects (see `require_client_auth: true` in Cassandra [client_encryption_options](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#client_encryption_options )).
+   Optionally, if you want to implement client-to-node certificate authentication or mutual Transport Layer Security (mTLS) as well, you need to provide the certificates in the same format as when creating the hybrid cluster. See Azure CLI sample below - the certificates are provided in the `--client-certificates` parameter. This will upload and apply your client certificates to the truststore for your Cassandra Managed Instance cluster (i.e. you do not need to edit cassandra.yaml settings). Once applied, your cluster will require Cassandra to verify the certificates when a client connects (see `require_client_auth: true` in Cassandra [client_encryption_options](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#client_encryption_options)).
 
    > [!NOTE]
    > The value of the `delegatedManagementSubnetId` variable you will supply below is exactly the same as the value of `--scope` that you supplied in the command above:
@@ -121,7 +121,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    >   filename="cert$num.pem"
    >   cert=$(jq '.pem' <<< $item)
    >   echo -e $cert >> $filename
-   >   sed -e '1d' -e '$d' -i $filename
+   >   sed -e 's/^"//' -e 's/"$//' -i $filename
    > done
    > ```
 

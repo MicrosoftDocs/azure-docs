@@ -31,6 +31,7 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.16.0 | [1.16.0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.16.0-0) |
 | 1.14.23 | [1.14.23](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.23-0) |
 | 1.14.20 | [1.14.20](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.20-0) |
 | 1.14.19 | [1.14.19](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.19-0) |
@@ -89,7 +90,7 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.13",
+    "typeHandlerVersion": "1.16",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId",
@@ -112,7 +113,7 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.13 |
+| typeHandlerVersion | 1.16 |
 | workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -139,7 +140,7 @@ The following example assumes the VM extension is nested inside the virtual mach
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.13",
+    "typeHandlerVersion": "1.16",
     "settings": {
       "workspaceId": "myWorkspaceId",
       "skipDockerProviderInstall": true
@@ -165,7 +166,7 @@ When placing the extension JSON at the root of the template, the resource name i
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.13",
+    "typeHandlerVersion": "1.16",
     "settings": {
       "workspaceId": "myWorkspaceId",
       "skipDockerProviderInstall": true

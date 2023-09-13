@@ -10,12 +10,12 @@ ms.reviewer: lagayhar
 ms.author: ilmat
 author: imatiach-msft
 ms.date: 5/10/2023
-ms.custom: responsible-ml, build-2023
+ms.custom: responsible-ml, build-2023, devx-track-python
 ---
 
 # Generate Responsible AI vision insights with YAML and Python (preview)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Understanding and assessing computer vision models requires a different set of Responsible AI tools, compared to tabular and text scenarios. The Responsible AI dashboard now supports image data by expanding debugging capabilities to be able to digest and visualize image data. The Responsible AI dashboard for Image provides several mature Responsible AI tools in the areas of model performance, data exploration, and model interpretability for a holistic assessment and debugging of computer vision models – leading to informed mitigations to resolve fairness issues, and transparency across stakeholders to build trust. You can generate a Responsible AI vision dashboard via an Azure Machine Learning pipeline job by using Responsible AI components.
 

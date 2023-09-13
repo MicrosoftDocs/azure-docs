@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/08/2023
+ms.date: 06/20/2023
 
 ---
 
@@ -138,6 +138,8 @@ When you copy data from a source data store to a sink data store, you might choo
 When you activate the staging feature, first the data is copied from the source data store to the staging storage (bring your own Azure Blob or Azure Data Lake Storage Gen2). Next, the data is copied from the staging to the sink data store. The copy activity automatically manages the two-stage flow for you, and also cleans up temporary data from the staging storage after the data movement is complete.
 
 :::image type="content" source="media/copy-activity-performance/staged-copy.png" alt-text="Staged copy":::
+
+You need to grant delete permission to your Azure Data Factory in your staging storage, so that the temporary data can be cleaned after the copy activity runs.
 
 When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before you move data from the source data store to the staging store and then decompressed before you move data from an interim or staging data store to the sink data store.
 

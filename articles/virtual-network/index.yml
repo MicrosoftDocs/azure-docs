@@ -74,6 +74,8 @@ landingContent:
             url: virtual-networks-faq.md#security
           - text: Default outbound access
             url: ./ip-services/default-outbound-access.md
+          - text: Virtual network encryption
+            url: ./virtual-network-encryption-overview.md
       - linkListType: tutorial
         links:
           - text: Filter network traffic using network security groups
@@ -82,6 +84,10 @@ landingContent:
             url: tutorial-restrict-network-access-to-resources.md
           - text: Work with application security groups
             url: manage-network-security-group.md#work-with-application-security-groups
+      - linkListType: how-to-guide
+        links:
+          - text: Create a virtual network with encryption
+            url: ./how-to-create-encryption-portal.md
       - linkListType: learn
         links:
           - text: Secure and isolate access to Azure resources
@@ -95,7 +101,7 @@ landingContent:
           - text: Virtual network peering
             url: virtual-network-peering-overview.md
           - text: Virtual network peering FAQ
-            url: virtual-networks-faq.md#vnet-peering            
+            url: virtual-networks-faq.md#virtual-network-peering            
       - linkListType: tutorial
         links:
           - text: Connect VNets with virtual network peering

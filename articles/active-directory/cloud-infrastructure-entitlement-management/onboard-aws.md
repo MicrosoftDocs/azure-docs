@@ -1,6 +1,6 @@
 ---
-title:  Onboard an Amazon Web Services (AWS) account on Permissions Management
-description: How to onboard an Amazon Web Services (AWS) account on Permissions Management.
+title:  Onboard an Amazon Web Services (AWS) account to Permissions Management
+description: How to onboard an Amazon Web Services (AWS) account to Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 08/24/2023
 ms.author: jfields
 ---
 
 # Onboard an Amazon Web Services (AWS) account
 
-This article describes how to onboard an Amazon Web Services (AWS) account on Permissions Management.
+This article describes how to onboard an Amazon Web Services (AWS) account in Microsoft Entra Permissions Management.
 
 > [!NOTE]
-> A *global administrator* or *root user* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
+> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Microsoft Entra Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
 ## Explanation
 
@@ -30,8 +30,6 @@ There are several moving parts across AWS and Azure, which are required to be co
 * An AWS OIDC role
 * An AWS Cross Account role assumed by OIDC role
  
-
-<!-- diagram from gargi -->
 
 ## Onboard an AWS account
 
@@ -188,7 +186,12 @@ This option detects all AWS accounts that are accessible through OIDC role acces
 
     On the **Data Collectors** dashboard, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.**
 
-    You have now completed onboarding AWS, and Permissions Management has started collecting and processing your data.
+    The status column in your Permissions Management UI shows you which step of data collection you're at:  
+ 
+    - **Pending**: Permissions Management has not started detecting or onboarding yet. 
+    - **Discovering**: Permissions Management is detecting the authorization systems. 
+    - **In progress**: Permissions Management has finished detecting the authorization systems and is onboarding. 
+    - **Onboarded**: Data collection is complete, and all detected authorization systems are onboarded to Permissions Management. 
 
 ### 7. View the data
 

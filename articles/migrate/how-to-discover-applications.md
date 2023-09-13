@@ -4,8 +4,9 @@ description: Learn how to discover software inventory on on-premises servers wit
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 07/19/2023
 ms.custom: engagement-fy23
 ---
 
@@ -64,7 +65,7 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
 
 ## Discover SQL Server instances and databases
 
-- Software inventory also identifies the SQL Server instances running in your VMware, Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+- Software inventory also identifies the SQL Server instances running in your VMware, Microsoft Hyper-V, and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 - If you haven't provided Windows authentication or SQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective SQL Server instances.
 
     > [!NOTE]
@@ -84,8 +85,6 @@ Once connected, the appliance gathers configuration and performance data of SQL 
 - User can add both domain and non-domain credentials on appliance. Make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
 - After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
 
-> [!Note]
-> Currently the discovery of ASP.NET web apps is only available with appliance used for discovery of servers running in your VMware environment.
 
 ## Next steps
 

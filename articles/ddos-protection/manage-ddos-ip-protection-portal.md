@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 04/04/2023
+ms.date: 06/22/2023
 ms.workload: infrastructure-services
 ms.custom: template-quickstart 
 # Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address.
@@ -16,10 +16,12 @@ ms.custom: template-quickstart
 Get started with Azure DDoS IP Protection by using the Azure portal.
 In this quickstart, you'll enable DDoS IP protection and link it to a public IP address.
 
+:::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png" alt-text="Diagram of DDoS IP Protection protecting the Public IP address.":::
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Sign in to the Azure portal at https://portal.azure.com. 
+- Sign in to the [Azure portal](https://portal.azure.com). 
 
 ## Enable DDoS IP Protection on a public IP address
 
@@ -49,7 +51,7 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
     | DNS name label          | Enter a DNS name label. In this example, we left the value blank.    |
 
 
-    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-create-ip.png" alt-text="Screenshot of create standard IP address in Azure portal.":::
+    :::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-protection-create-ip.png" alt-text="Screenshot of create standard IP address in Azure portal.":::
 
 1. Select **Create**.
 
@@ -59,11 +61,11 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
 1. Select your Public IP address. In this example, select **myStandardPublicIP**.
 1. In the **Overview** pane, select the **Properties** tab, then select **DDoS protection**. 
 
-    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-view-status.png" alt-text="Screenshot showing view of Public IP Properties." lightbox="./media/ddos-protection-quickstarts/ddos-protection-view-status.png":::
+    :::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-protection-view-status.png" alt-text="Screenshot showing view of Public IP Properties." lightbox="./media/manage-ddos-ip-protection-portal/ddos-protection-view-status.png":::
 
 1. In the **Configure DDoS protection** pane, under **Protection type**, select  **IP**, then select **Save**.
 
-    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-select-status.png" alt-text="Screenshot of selecting IP Protection in Public IP Properties.":::
+    :::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-protection-select-status.png" alt-text="Screenshot of selecting IP Protection in Public IP Properties.":::
 
 ### Disable for a Public IP address:
 
@@ -71,7 +73,7 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
 1. Under **Properties** in the overview pane, select **DDoS Protection**.
 1. Under **Protection type** select **Disable**, then select **Save**.
 
-    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-disable-status.png" alt-text="Screenshot of disabling IP Protection in Public IP Properties.":::
+    :::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-protection-disable-status.png" alt-text="Screenshot of disabling IP Protection in Public IP Properties.":::
 
 > [!NOTE]
 > When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will no longer be active.
@@ -85,7 +87,7 @@ First, check the details of your public IP address:
 1. In the **Overview** pane, select the **Properties** tab in the middle of the page, then select **DDoS protection**. 
 1. View **Protection status** and verify your public IP is protected.
 
-    :::image type="content" source="./media/ddos-protection-quickstarts/ddos-protection-protected-status.png" alt-text="Screenshot of status of IP Protection in Public IP Properties." lightbox="./media/ddos-protection-quickstarts/ddos-protection-protected-status.png":::
+    :::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-protection-protected-status.png" alt-text="Screenshot of status of IP Protection in Public IP Properties." lightbox="./media/manage-ddos-ip-protection-portal/ddos-protection-protected-status.png":::
 
 
 ## Clean up resources

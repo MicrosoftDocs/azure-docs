@@ -10,6 +10,8 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
+author: cephalin
+ms.author: cephalin
 ---
 
 <!-- NOTES:
@@ -296,6 +298,8 @@ Follow these steps to create your App Service resources and publish your project
     ```azurecli
     az login
     ```
+
+     - If the `az` command isn't recognized, ensure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
     
 1. Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
@@ -303,7 +307,6 @@ Follow these steps to create your App Service resources and publish your project
     az webapp up --sku F1 --name <app-name> --os-type <os>
     ```
 
-    - If the `az` command isn't recognized, ensure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
     - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
     - The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
     - Replace `<os>` with either `linux` or `windows`. 

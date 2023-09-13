@@ -56,8 +56,8 @@
         href: visual-studio-code-tutorial.md
 - name: Samples
   items:
-      - name: Policies
-        href: ./policies/index.md
+      - name: Policy snippets
+        href: https://github.com/Azure/api-management-policy-snippets
       - name: Azure PowerShell
         href: powershell-samples.md
 - name: Concepts
@@ -247,6 +247,8 @@
                   href: import-logic-app-as-api.md
                 - name: Configure Service Fabric backend
                   href: how-to-configure-service-fabric-backend.md
+                - name: Import OData API
+                  href: import-api-from-odata.md
                 - name: Import SAP OData metadata
                   href: sap-api.md
                 - name: Configure API for SSE
@@ -468,6 +470,8 @@
               href: choose-policy.md
             - name: cors
               href: cors-policy.md
+            - name: cosmosdb-data-source
+              href: cosmosdb-data-source-policy.md
             - name: cross-domain
               href: cross-domain-policy.md
             - name: emit-metric
@@ -540,6 +544,8 @@
               href: set-status-policy.md
             - name: set-variable
               href: set-variable-policy.md
+            - name: sql-data-source
+              href: sql-data-source-policy.md
             - name: trace
               href: trace-policy.md
             - name: validate-azure-ad-token
@@ -554,6 +560,8 @@
               href: validate-headers-policy.md
             - name: validate-jwt
               href: validate-jwt-policy.md
+            - name: validate-odata-request
+              href: validate-odata-request-policy.md
             - name: validate-parameters
               href: validate-parameters-policy.md
             - name: validate-status-code

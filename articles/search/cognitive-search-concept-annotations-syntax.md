@@ -2,11 +2,10 @@
 title: Reference inputs and outputs in skillsets
 titleSuffix: Azure Cognitive Search
 description: Explains the annotation syntax and how to reference inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 ms.date: 09/16/2022
 ---

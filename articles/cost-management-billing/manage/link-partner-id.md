@@ -1,10 +1,10 @@
 ---
 title: Link a partner ID to your account that’s used to manage customers
 description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
-author: dhirajgandhi
-ms.reviewer: dhgandhi
+author: bandersmsft
+ms.reviewer: presharm
 ms.author: banders
-ms.date: 12/05/2022
+ms.date: 07/27/2023
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
@@ -112,15 +112,13 @@ C:\ az managementpartner update --partner-id 12345
 C:\ az managementpartner delete --partner-id 12345
 ```
 
-## Next steps
-
-Join the discussion in the [Microsoft Partner Community](https://aka.ms/PALdiscussion) to receive updates or send feedback.
-
 ## Frequently asked questions
 
 **What PAL identity permissions are needed to show revenue?**
 
 PAL can be as granular as a resource instance. For example, a single virtual machine. However, PAL is set on a user account. The scope of the Azure Consumed Revenue (ACR) measurement is whatever administrative permissions that a user account has within the environment. An administrative scope can be subscription, resource group, or resource instance using standard Azure RBAC roles.
+
+In other words, PAL association can happen for all RBAC roles. The roles determine eligibility for partner incentives. For more information about eligibility, see [Partner Incentives](https://aka.ms/partnerincentives).
 
 For example, if you're partner, your customer might hire you to do a project. Your customer can give you an administrative account to deploy, configure, and support an application. Your customer can scope your access to a resource group. If you use PAL and associate your MPN ID with the administrative account, Microsoft measures the consumed revenue from the services within the resource group.
 
@@ -131,7 +129,7 @@ Various partner programs have differing rules for the RBAC roles. Contact your P
 For more information, see: 
 
 - [Azure Partner Admin Link](https://www.microsoftpartnercommunity.com/atvwr79957/attachments/atvwr79957/Webinars/53/1/Azure%20Partner%20Admin%20Link%20FAQ.pdf)
-- [Get recognized with Partner Admin Link](https://www.microsoftpartnercommunity.com/t5/Microsoft-Partner-Network/Get-recognized-with-Partner-Admin-Link/td-p/8389/page/2)
+- [Get recognized with Partner Admin Link](https://techcommunity.microsoft.com/t5/microsoft-partner-community/ct-p/PartnerCommunity)
 
 **Who can link the partner ID?**
 
@@ -190,3 +188,7 @@ PAL association only adds partner’s ID to the credential already provisioned a
 **What happens if the PAL identity is deleted?**
 
 If the partner network ID, also called MPN ID, is deleted, then all the recognition mechanisms including Azure Consumed Revenue (ACR) attribution stops working.
+
+## Next steps
+
+Join the discussion in the [Microsoft Partner Community](https://aka.ms/PALdiscussion) to receive updates or send feedback.

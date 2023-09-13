@@ -16,7 +16,7 @@ ms.custom: sdkv2, event-tier1-build-2022, ignite-2022, build-2023, devx-track-py
 
 # Tutorial: Create production machine learning pipelines
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 > [!NOTE]
 > For a tutorial that uses SDK v1 to build a pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](v1/tutorial-pipeline-python-sdk.md)
@@ -50,6 +50,8 @@ The two steps are first data preparation and second training.
 1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
 
 1. [!INCLUDE [sign in](includes/prereq-sign-in.md)]
+
+1. Complete the tutorial [Upload, access and explore your data](tutorial-explore-data.md) to create the data asset you need in this tutorial.  Make sure you run all the code to create the initial data asset.  Explore the data and revise it if you wish, but you'll only need the initial data in this tutorial.
 
 1. [!INCLUDE [open or create  notebook](includes/prereq-open-or-create.md)]
     * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
@@ -95,56 +97,31 @@ ml_client = MLClient(
     resource_group_name="<RESOURCE_GROUP>",
     workspace_name="<AML_WORKSPACE_NAME>",
 )
+cpu_cluster = None
 ```
 
 > [!NOTE]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (this will happen when creating the `credit_data` data asset, two code cells from here).
 
-## Register data from an external url
+## Access the registered data asset
 
-If you have been following along with the other tutorials in this series and already registered the data, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`. Then you may skip this section. To learn about data more in depth or if you would rather complete the data tutorial first, see [Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md).
+Start by getting the data that you previously registered in the [Upload, access and explore your data](tutorial-explore-data.md) tutorial.
 
-* Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the next section, you consume some data from web url as one example. Data from other sources can be created as well. `Data` assets from other sources can be created as well.
-
-
-
-
-```python
-from azure.ai.ml.entities import Data
-from azure.ai.ml.constants import AssetTypes
-
-web_path = "https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls"
-
-credit_data = Data(
-    name="creditcard_defaults",
-    path=web_path,
-    type=AssetTypes.URI_FILE,
-    description="Dataset for credit card defaults",
-    tags={"source_type": "web", "source": "UCI ML Repo"},
-    version="1.0.0",
-)
-```
-
-This code just created a `Data` asset, ready to be consumed as an input by the pipeline that you'll define in the next sections. In addition, you can register the data to your workspace so it becomes reusable across pipelines.
-
+* Azure Machine Learning uses a `Data` object to register a reusable definition of data, and consume data within a pipeline.
 Since this is the first time that you're making a call to the workspace, you may be asked to authenticate. Once the authentication is complete, you then see the dataset registration completion message.
 
 
-
-
 ```python
-credit_data = ml_client.data.create_or_update(credit_data)
-print(
-    f"Dataset with name {credit_data.name} was registered to workspace, the dataset version is {credit_data.version}"
-)
+# get a handle of the data asset and print the URI
+credit_data = ml_client.data.get(name="credit-card", version="initial")
+print(f"Data asset URI: {credit_data.path}")
 ```
 
-In the future, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`.
-
-## Create a compute resource to run your pipeline
+## Create a compute resource to run your pipeline (Optional)
 
 > [!NOTE]
-> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment-for-pipeline-steps).
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md) to run this pipeline, you can skip this compute creation step and proceed directly to [create a job environment](#create-a-job-environment-for-pipeline-steps).
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md) to run this pipeline, you can skip this compute creation step and proceed directly to [create a job environment](#create-a-job-environment-for-pipeline-steps).
 
 Each step of an Azure Machine Learning pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
@@ -172,9 +149,8 @@ except Exception:
     print("Creating a new cpu compute target...")
 
     # Let's create the Azure Machine Learning compute object with the intended parameters
-    # if you run into an out of quota error, change the size to a comparable VM that is available.\
+    # if you run into an out of quota error, change the size to a comparable VM that is available.
     # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
-
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service
@@ -229,8 +205,8 @@ dependencies:
   - pip:
     - inference-schema[numpy-support]==1.3.0
     - xlrd==2.0.1
-    - mlflow== 1.26.1
-    - azureml-mlflow==1.42.0
+    - mlflow== 2.4.1
+    - azureml-mlflow==1.51.0
 ```
 
 The specification contains some usual packages, that you use in your pipeline (numpy, pip), together with some Azure Machine Learning specific packages (azureml-mlflow).
@@ -252,7 +228,7 @@ pipeline_job_env = Environment(
     tags={"scikit-learn": "0.24.2"},
     conda_file=os.path.join(dependencies_dir, "conda.yaml"),
     image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
-    version="0.1.0",
+    version="0.2.0",
 )
 pipeline_job_env = ml_client.environments.create_or_update(pipeline_job_env)
 
@@ -325,7 +301,7 @@ def main():
 
     print("input data:", args.data)
 
-    credit_df = pd.read_excel(args.data, header=1, index_col=0)
+    credit_df = pd.read_csv(args.data, header=1, index_col=0)
 
     mlflow.log_metric("num_samples", credit_df.shape[0])
     mlflow.log_metric("num_features", credit_df.shape[1] - 1)
@@ -350,7 +326,7 @@ if __name__ == "__main__":
 
 Now that you have a script that can perform the desired task, create an Azure Machine Learning Component from it.
 
-Use the general purpose `CommandComponent` that can run command line actions. This command line action can directly call system commands or run a script. The inputs/outputs are specified on the command line via the `${{ ... }}` notation.
+Use the general purpose `CommandComponent` that can run command line actions. This command line action can directly call system commands or run a script. The inputs/outputs are specified on the command line via the `${{ ... }}` (expression) notation. For more information, see [SDK and CLI v2 expressions](concept-expressions.md).
 
 
 
@@ -515,7 +491,7 @@ First, create the *yaml* file describing the component:
 
 
 ```python
-%%writefile {train_src_dir}/train.yaml
+%%writefile {train_src_dir}/train.yml
 # <component>
 name: train_credit_defaults_model
 display_name: Train Credit Defaults Model
@@ -555,8 +531,8 @@ Now create and register the component.  Registering it allows you to re-use it i
 # importing the Component Package
 from azure.ai.ml import load_component
 
-# Loading the component from the yaml file
-train_component = load_component(source=os.path.join(train_src_dir, "train.yaml"))
+# Loading the component from the yml file
+train_component = load_component(source=os.path.join(train_src_dir, "train.yml"))
 
 # Now we register the component to the workspace
 train_component = ml_client.create_or_update(train_component)
@@ -581,16 +557,15 @@ To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifi
 
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
-> [!NOTE]
-> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), replace `compute=cpu_compute_target` with `compute=azureml:serverless` in this code.
-
-```pythons
+```python
 # the dsl decorator tells the sdk that we are defining an Azure Machine Learning pipeline
 from azure.ai.ml import dsl, Input, Output
 
 
 @dsl.pipeline(
-    compute=cpu_compute_target, # to use serverless compute, change this to: compute=azureml:serverless
+    compute=cpu_compute_target
+    if (cpu_cluster)
+    else "serverless",  # "serverless" value runs pipeline on serverless compute
     description="E2E data_perp-train pipeline",
 )
 def credit_defaults_pipeline(
@@ -693,7 +668,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

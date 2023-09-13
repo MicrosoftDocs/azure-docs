@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 07/20/2023
 ms.author: kgremban
 ms.custom: references_regions
 ---
@@ -32,19 +32,37 @@ The IoT Hub service provides intra-region HA by implementing redundancies in alm
 
 ## Availability zones
 
-IoT Hub supports [Azure availability zones](../availability-zones/az-overview.md). An availability zone is a high-availability offering that protects your applications and data from datacenter failures. A region with availability zone support comprises three zones supporting that region. Each zone provides one or more datacenters, each in a unique physical location with independent power, cooling, and networking. This configuration provides replication and redundancy within the region. Availability zone support for IoT Hub is enabled automatically for new IoT Hub resources created in the following Azure regions:
+IoT Hub supports [Azure availability zones](../availability-zones/az-overview.md). An availability zone is a high-availability offering that protects your applications and data from datacenter failures. A region with availability zone support comprises three zones supporting that region. Each zone provides one or more datacenters, each in a unique physical location with independent power, cooling, and networking. This configuration provides replication and redundancy within the region.
 
-* Australia East
-* Brazil South
-* Canada Central
-* Central US
-* France Central
-* Germany West Central
-* Japan East
-* North Europe
-* Southeast Asia
-* UK South
-* West US 2
+Availability zones provide two advantages: data resiliency and smoother deployments.
+
+*Data resiliency* comes from replacing the underlying storage services with availability-zones-supported storage. Data resilience is important for IoT solutions because these solutions often operate in complex, dynamic, and uncertain environments where failures or disruptions can have significant consequences. Whether an IoT solution supports a manufacturing floor, retail or restaurant environments, healthcare systems, or infrastructure, the availability and quality of data is necessary to recover from failures and to provide reliable and consistent services.
+
+*Smoother deployments* come from replacing the underlying data center hardware with newer hardware that supports availability zones. These hardware improvements minimize customer impact from device disconnects and reconnects as well as other deployment-related downtime. The IoT Hub engineering team deploys multiple updates to each IoT hub ever month, for both security reasons and to provide feature improvements. Availability-zones-supported hardware is split into 15 update domains so that each update goes smoother, with minimal impact to your workflows. For more information about update domains, see [Availability sets](../virtual-machines/availability-set-overview.md).
+
+Availability zone support for IoT Hub is enabled automatically for new IoT Hub resources created in the following Azure regions:
+
+| Region | Data resiliency | Smoother deployments |
+| ------ | --------------- | ------------ |
+| Australia East | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Brazil South | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Canada Central | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Central India | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Central US | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| East US | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| France Central | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Germany West Central | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Japan East | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Korea Central | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| North Europe  | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Norway East | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Qatar Central | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Southcentral US | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Southeast Asia  | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| UK South | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| West Europe | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| West US 2 | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| West US 3 | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 
 ## Cross region DR
 
@@ -184,5 +202,5 @@ Here's a summary of the HA/DR options presented in this article that can be used
 ## Next steps
 
 * [What is Azure IoT Hub?](about-iot-hub.md)
-* [Get started with IoT Hubs (Quickstart)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
+* [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 * [Tutorial: Perform manual failover for an IoT hub](tutorial-manual-failover.md)

@@ -195,9 +195,11 @@ Next, create a test user account. Create this account in your on-premises Active
 
 ## Create an Azure AD tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Now, create an Azure AD tenant, so you can sync your users in Azure:
 
-1. In the [Azure portal](https://portal.azure.com), sign in with the account that's associated with your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the account that's associated with your Azure subscription.
 1. Search for and then select **Azure Active Directory**.
 1. Select **Create**.
 
@@ -245,7 +247,7 @@ Now you'll verify that the users in your on-premises Active Directory tenant hav
 
 To verify that the users are synced:
 
-1. In the [Azure portal](https://portal.azure.com), sign in to the account that's associated with your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) using the account that's associated with your Azure subscription.
 1. In the portal menu, select **Azure Active Directory**.
 1. In the resource menu under **Manage**, select **Users**.
 1. Verify that the new users appear in your tenant.
