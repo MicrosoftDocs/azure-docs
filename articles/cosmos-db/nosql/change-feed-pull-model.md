@@ -310,7 +310,7 @@ Here's an example of how to obtain the iterator in latest version mode that retu
 
 ```js
 const options = {
-    changeFeedStartFrom: ChangeFeedStartFrom.Beginning()
+    changeFeedStartFrom: ChangeFeedStartFrom.Now()
 };
 
 const iterator = container.items.getChangeFeedIterator(options);
