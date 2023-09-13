@@ -252,6 +252,20 @@ UserSession item = new UserSession()
 ItemResponse<UserSession> createResponse = await container.CreateItemAsync(item);
 ```
 
+##### [Java SDK v4](#tab/java-v4)
+
+```java
+// Create a new item
+UserSession item = new UserSession();
+item.setId("f7da01b0-090b-41d2-8416-dacae09fbb4a");
+item.setTenantId("Microsoft");
+item.setUserId("8411f20f-be3e-416a-a3e7-dcd5a3c1f28b");
+item.setSessionId("0000-11-0000-1111");
+   
+// Pass in the object, and the SDK automatically extracts the full partition key path
+Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item);
+```
+
 ##### [Javascript SDK v4](#tab/javascript-v4)
 
 ```javascript
@@ -267,11 +281,8 @@ const item: UserSession = {
 const { resource: document } = await = container.items.create(item);
 
 ```
-
 ---
 
-// Pass in the object, and the SDK automatically extracts the full partition key path
-const { resource: document } = await = container.items.create(it
 #### Manually specify the path
 
 The `PartitionKeyBuilder` class in the SDK can construct a value for a previously defined hierarchical partition key path. Use this class when you add a new item to a container that has subpartitioning enabled.
@@ -323,8 +334,6 @@ PartitionKey partitionKey = new PartitionKeyBuilder()
 Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item, partitionKey);
 ```
 
----
-
 ##### [Javascript SDK v4](#tab/javascript-v4)
 
 ```javascript
@@ -344,7 +353,7 @@ const partitionKey: PartitionKey = new PartitionKeyBuilder()
 
 // Create the item in the container
 const { resource: document } = await container.items.create(item, partitionKey);
-
+```
 ---
 
 ### Perform a key/value lookup (point read) of an item
