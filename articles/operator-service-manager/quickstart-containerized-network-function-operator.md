@@ -54,7 +54,7 @@ az aks create -g ${resourceGroup} -n ${clusterName} --node-count 1 --generate-ss
 ## Enable Azure Arc
 
 Enable Azure Arc for the Azure Kubernetes Service (AKS) cluster. Follow the prerequisites outlined in 
-[Create and manage custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md)
+[Create and manage custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
 
 
 ```azurecli
@@ -94,6 +94,19 @@ Create a custom location:
 ```azurecli
 az customlocation create -g ${resourceGroup} -n ${customlocationId} --namespace "azurehybridnetwork" --host-resource-id $ConnectedClusterResourceId --cluster-extension-ids $ClusterExtensionResourceId
 ``````
+
+### Retrieve custom location value
+
+Retrieve the Custom location value. You'll need this information when filling in the Configuration Group values for your Site Network Service (SNS).
+
+Search for the name of the Custom location (ARC_LOCATION) in the Azure portal, then select Properties. Locate the full Resource ID under the Essentials information area and look for field name Id. The following image provides an example of where the Resource ID information is located.
+
+:::image type="content" source="media/retrieve-azure-arc-custom-location-value.png" alt-text="Screenshot showing the search field and Properties  information.":::
+
+
+> [!TIP]
+> The full Resource ID has a format of: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.extendedlocation/customlocation/{customLocationName}
+
 
 ## Next steps
 
