@@ -29,11 +29,11 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
 
 1. In the Azure portal, add the user to Active Directory: 
 
-   1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) by using an account that's a global admin for the directory.
+   1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
     
-   1. Select **Azure Active Directory** and then **Users and groups**.
+   1. Browse to **Azure Active Directory** > **Users** > **All users**.
     
-   1. In **Users and groups**, select **All users**, and then select **New user**.
+   1. Select **New user**.
    
         The **User** pane opens:
       

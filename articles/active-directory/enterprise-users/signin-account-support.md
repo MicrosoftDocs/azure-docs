@@ -27,7 +27,7 @@ You can tell if the sign-in page your organization uses supports Microsoft accou
 
 ![Difference between account sign-in pages](./media/signin-account-support/ui-prompt.png)
 
-[Additional sign-in options work only for personal Microsoft accounts](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) but can't be used for signing in to work or school account resources.
+[Additional sign-in options work only for personal Microsoft accounts](https://azure.microsoft.com/updates/microsoft-account-signin-options/) but can't be used for signing in to work or school account resources.
 
 ## Next steps
 

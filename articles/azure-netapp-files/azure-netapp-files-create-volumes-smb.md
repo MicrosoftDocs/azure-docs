@@ -183,7 +183,6 @@ You can modify SMB share permissions using Microsoft Management Console (MMC).
 * [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) 
 * [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
 * [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)

@@ -87,6 +87,8 @@
           href: howto-kubernetes-service-load-balancer.md
         - name: Configure role-based access control
           href: howto-kubernetes-cluster-aad-rbac.md
+        - name: Connect to the cluster
+          href: howto-kubernetes-cluster-connect.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -107,6 +109,13 @@
           href: howto-cluster-metrics-configuration-management.md
         - name: Tracking asynchronous operations
           href: howto-track-async-operations-cli.md
+    - name: Security
+      expanded: false
+      items:
+        - name: Set up Defender for Cloud security
+          href: howto-set-up-defender-for-cloud-security.md
+        - name: Use Azure Policy for AKS Clusters
+          href: howto-use-azure-policy-for-aks-cluster-security.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
@@ -148,3 +157,5 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
+    - name: Nexus Kubernetes service VM SKUs
+      href: reference-nexus-kubernetes-cluster-sku.md

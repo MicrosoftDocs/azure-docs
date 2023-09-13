@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management
-description: Frequently asked questions (FAQs) about Microsoft Permissions Management.
+description: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 06/16/2023
+ms.date: 08/23/2023
 ms.author: jfields
 ---
 
@@ -19,7 +19,6 @@ This article answers frequently asked questions (FAQs) about Microsoft Entra Per
 ## What's Microsoft Entra Permissions Management?
 
 Microsoft Entra Permissions Management (Permissions Management) is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
-
 
 ## What are the prerequisites to use Permissions Management?
 
@@ -57,7 +56,7 @@ Permissions Management currently supports the three major public clouds: Amazon 
 
 Permissions Management currently doesn't support hybrid environments.
 
-## What types of identities are supported by Permissions Management?
+## What types of identities does Permissions Management support?
 
 Permissions Management supports user identities (for example, employees, customers, external partners) and workload identities (for example, virtual machines, containers, web apps, serverless functions).
 
@@ -83,7 +82,7 @@ The Permissions Creep Index (PCI) is a quantitative measure of risk associated w
 
 ## How can customers use Permissions Management to delete unused or excessive permissions?
 
-Permissions Management allows users to right-size excessive permissions and automate least privilege policy enforcement with just a few clicks. The solution continuously analyzes historical permission usage data for each identity and gives customers the ability to right-size permissions of that identity to only the permissions that are being used for day-to-day operations. All unused and other risky permissions can be automatically removed.
+Permissions Management allows users to right-size excessive permissions and automate least privilege policy enforcement with just a few clicks. The solution continuously analyzes historical permission usage data for each identity and gives customers the ability to right-size the permissions of that identity to permissions that are only being used for day-to-day operations. All unused and other risky permissions can be automatically removed.
 
 ## How can customers grant permissions on-demand with Permissions Management?
 
@@ -130,13 +129,19 @@ No, Permissions Management doesn't have access to sensitive personal data.
 
 You can read our [blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity) and visit our [web page](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-permissions-management). You can also get in touch with your Microsoft point of contact to schedule a demo.
 
-## What is the data destruction/decommission process? 
+## What is the data destruction/decommission process?
 
-If a customer initiates a free Permissions Management 45-day trial, but does not follow up and convert to a paid license within 45 days of the free trial expiration, we will delete all collected data on or just before 45 days.  
+If a customer initiates a free Permissions Management 45-day trial and does not convert to a paid license within 45 days of the trial expiration, all collected data is deleted within 30 days of the trial expiration date.  
 
-If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 45 days of license termination.  
+If a customer decides to discontinue licensing the service, all previously collected data is deleted within 30 days of license termination.
 
-We also have the ability to remove, export or modify specific data should the Global Administrator using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+Customers can also remove, export or modify specific data if a Global Administrator using the Permissions Management service files an official Data Subject Request. To file a request:
+
+If you're an enterprise customer, you can contact your Microsoft representative, account team, or tenant admin to file a high-priority IcM support ticket requesting a Data Subject Request. Do not include details or any personally identifiable information in the IcM request. We'll reach out to you for these details only after an IcM is filed.
+
+If you're a self-service customer (you set up a trial or paid license in the Microsoft 365 admin center) you can contact the Permissions Management privacy team by selecting your profile drop-down menu, then **Account Settings** in Permissions Management. Follow the instructions to make a Data Subject Request.
+
+Learn more about [Azure Data Subject Requests](https://go.microsoft.com/fwlink/?linkid=2245178).
 
 ## Do I require a license to use Entra Permissions Management? 
 
@@ -148,11 +153,11 @@ Permissions Management is $125 per resources/year ($10.40 per resource/month). P
 
 ## Do I need to pay for all resources?
 
-Although Permissions Management supports all resources, Microsoft only requires licenses for certain resources per cloud. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
+Although Permissions Management supports all resources, Microsoft only requires licenses for billable resources per cloud environment. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
 
-## How do I figure out how many resources I have? 
+## How do I calculate the number of billable resources I have? 
 
-To find out how many resources you have across your multicloud infrastructure, select Settings (gear icon) and view the Billable Resources tab in Permissions Management. 
+To calculate the billable resources you have across your multicloud infrastructure, you must first activate a [45-day free trial](https://aka.ms/TryPermissionsManagement) of Permissions Management or [purchase a paid license](https://aka.ms/BuyPermissionsManagement). In Permissions Management, select **Settings** (gear icon), then click the **Billable Resources** tab. View the amount of billable resources in the **Total Number of Licenses** column.
 
 ## What do I do if I’m using the legacy version of the CloudKnox service?  
 
