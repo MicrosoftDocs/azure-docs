@@ -30,7 +30,7 @@ Depending on your setup and scenario, RAG workflows in Azure Machine Learning ma
 * A secure Azure Machine Learning workspace: either with Workspace Managed Virtual Network or "Bring Your Own" Virtual Network setup.
 * Prompt flows enabled in your Azure Machine Learning workspace. You can enable prompt flows by turning on Build AI solutions with Prompt flow on the Manage preview features panel.
 
-## With Azure Machine Learning Workspace Managed Vnet:
+## With Azure Machine Learning Workspace Managed VNet
 
 1. Follow [Workspace managed network isolation](./how-to-managed-network.md) to enable workspace managed VNet.
 
