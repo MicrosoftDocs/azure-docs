@@ -5,8 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
-ms.date: 06/30/2023
-ms.custom: template-overview, engagement-fy23
+ms.date: 09/13/2023
 # Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
@@ -20,7 +19,7 @@ Network Watcher consists of three major sets of tools and capabilities:
 - [Network diagnostics tools](#network-diagnostics-tools)
 - [Traffic](#traffic)
 
-:::image type="content" source="./media/network-watcher-monitoring-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
+:::image type="content" source="./media/network-watcher-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
 > [!NOTE] 
 > When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
@@ -89,19 +88,21 @@ Network Watcher offers two traffic tools that help you log and visualize network
 
 ### Flow logs
 
-**Flow logs** allows you to log information about IP traffic flowing through a network security group. Flow logs stores data in Azure storage. For more information, see [Flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md) and [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md).
+**Flow logs** allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network. For more information, see:
+- [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) and [Log network traffic to and from a virtual machine](network-watcher-nsg-flow-logging-portal.md).
+- [VNet flow logs (preview)](vnet-flow-logs-overview.md) and [Manage VNet flow logs](vnet-flow-logs-powershell.md).
 
 ### Traffic analytics
 
 **Traffic analytics** provides rich visualizations of flow logs data. For more information about traffic analytics, see [traffic analytics](traffic-analytics.md) and [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
 
-:::image type="content" source="./media/network-watcher-monitoring-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
+:::image type="content" source="./media/network-watcher-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
 
 ## Usage + quotas
 
 The **Usage + quotas** capability of Network Watcher provides a summary of how many of each network resource you've deployed in a subscription and region and what the limit is for the resource. For more information, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/network-watcher/toc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. This information is helpful when planning future resource deployments as you can't create more resources if you reach their limits within the subscription or region.
 
-:::image type="content" source="./media/network-watcher-monitoring-overview/subscription-limits.png" alt-text="Screenshot showing Networking resources usage and limits per subscription in the Azure portal.":::
+:::image type="content" source="./media/network-watcher-overview/subscription-limits.png" alt-text="Screenshot showing Networking resources usage and limits per subscription in the Azure portal.":::
 
 ## Network Watcher limits
 
@@ -125,7 +126,7 @@ To get answers to most frequently asked questions about Network Watcher, see [Az
 
 To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?query=network%20watcher).
 
-## Next steps
+## Related content
 
 - To get started using Network Watcher diagnostics tools, see [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
 - [Training module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).

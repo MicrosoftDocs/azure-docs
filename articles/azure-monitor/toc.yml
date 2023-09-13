@@ -22,7 +22,7 @@ items:
   - name: Analysis and visualizations
     href: best-practices-analysis.md
   - name: Configure alerts and automated actions
-    href: best-practices-alerts.md
+    href: alerts/alerts-plan.md
   - name: Optimize costs
     href: best-practices-cost.md
 - name: Monitoring scenarios
