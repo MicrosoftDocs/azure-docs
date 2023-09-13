@@ -110,7 +110,7 @@ $SchPol.ScheduleRunTimezone = "PST"
 
 ```
 
-This sample cmdlet, contains the following parameters:
+This sample cmdlet contains the following parameters:
 
 - `$ScheduleInterval`: Defines the difference (in hours) between two successive backups per day. Currently, the acceptable values are *4*, *6*, *8* and *12*.
 
