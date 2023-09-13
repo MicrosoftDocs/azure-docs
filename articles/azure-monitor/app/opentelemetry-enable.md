@@ -43,7 +43,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-- [ASP.NET Core Application](https://learn.microsoft.com/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet)
+- [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet)
 
 ### [.NET](#tab/net)
 
