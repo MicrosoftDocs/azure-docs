@@ -35,12 +35,11 @@ The top bar has controls for working with a query in the query window.
 
 | Option | Description |
 |:---|:---|
-| Time picker | Select the time range for the data available to the query. This action is overridden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](./scope.md). |
-|Filter|Filter the results by selecting the funnel next to a column name. Clear the filters and reset the sorting by running the query again.|
-|Limit|Limit the number of records displayed in the table.|
-|Simple/Advanced|Switch between simple and advanced mode.|
-| Example queries button | Open the example queries dialog that appears when you first open Log Analytics. |
-| Query Explorer button | Open **Query Explorer**, which provides access to saved queries in the workspace. |
+| **Time range** | Select the time range for the data available to the query. In advanced mode, if you set a different time range in your query, the time range you set in the time picker is overridden. See [Log query scope and time range in Azure Monitor Log Analytics](./scope.md). |
+|**Filter**|Filter data, and apply simple mode operators, as described in [Query in simple mode](#query-in-simple-mode).|
+|**Limit**|Configure the number of entries Log Analytics displays in simple mode. The default limit is 1000.|
+|**Simple/Advanced**|Switch between simple and advanced mode.|
+| **Queries** | Open the example queries dialog that appears when you first open Log Analytics. |
 
 ### Left sidebar
 
@@ -51,7 +50,7 @@ The sidebar on the left lists tables in the workspace, sample queries, and filte
 | Tables | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog with a description of the table and options to view its documentation and preview its data. Expand a table to view its columns. Double-click a table or column name to add it to the query. |
 | Queries | List of example queries that you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click a query to add it to the query window or hover over it for other options. |
 | Filter | Creates filter options based on the results of a query. After you run a query, columns appear with different values from the results. Select one or more values, and then select **Apply & Run** to add a **where** command to the query and run it again. |
-
+| Query Explorer button | Open **Query Explorer**, which provides access to saved queries in the workspace. |
 ## Switch modes
 
 To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
