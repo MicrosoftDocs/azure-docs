@@ -70,9 +70,9 @@ In addition to choosing who can be nudged, you can define how many days a user c
  
    ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
 
-## Enable the registration campaign policy using the portal
+## Enable the registration campaign policy using Microsoft Entra admin center
 
-To enable a registration campaign in the Azure portal, complete the following steps:
+To enable a registration campaign in the Microsoft Entra admin center, complete the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 1. Browse to **Protection** > **Authentication methods** > **Registration campaign**.
@@ -84,7 +84,7 @@ To enable a registration campaign in the Azure portal, complete the following st
 
 ## Enable the registration campaign policy using Graph Explorer
 
-In addition to using the Azure portal, you can also enable the registration campaign policy using Graph Explorer. To enable the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+In addition to using the Microsoft Entra admin center, you can also enable the registration campaign policy using Graph Explorer. To enable the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 
@@ -219,8 +219,7 @@ Here are a few sample JSONs you can use to get started!
 
 ### Identify the GUIDs of users to insert in the JSONs
 
-1. Navigate to the Azure portal.
-1. Tap **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 1. In the **Manage** blade, tap **Users**.
 1. In the **Users** page, identify the specific user you want to target.
 1. When you tap the specific user, you’ll see their **Object ID**, which is the user’s GUID.
@@ -229,8 +228,7 @@ Here are a few sample JSONs you can use to get started!
 
 ### Identify the GUIDs of groups to insert in the JSONs
 
-1. Navigate to the Azure portal.
-1. Tap **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 1. In the **Manage** blade, tap **Groups**.
 1. In the **Groups** page, identify the specific group you want to target.
 1. Tap the group and get the **Object ID**.
