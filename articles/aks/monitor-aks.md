@@ -55,7 +55,13 @@ Control plane logs for AKS clusters are implemented as [resource logs](../azure-
 See [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for AKS are listed in [AKS monitoring data reference](monitor-aks-reference.md#resource-logs).
 
 > [!IMPORTANT]
-> There can be substantial cost when collecting resource logs for AKS, particularly for *kube-audit* logs. Consider disabling kube-audit logging when not required. An alternative approach to significantly reduce cost is by enabling collection from *kube-audit-admin*, which excludes the get and list audit events. See [Monitor Azure Kubernetes Service (AKS) with Azure Monitor]() for further recommendations and [Cost optimization and Azure Monitor][cost-optimization-azure-monitor] for further strategies to reduce your Azure Monitor.
+> There can be substantial cost when collecting resource logs for AKS, particularly for *kube-audit* logs. Consider the following recommendations to reduce the amount of data collected:
+> 
+> - Disable kube-audit logging when not required.
+> - Enable collection from *kube-audit-admin*, which excludes the get and list audit events. 
+> - Enable resource-specific logs as described below and configure `AKSAudit` table as [basic logs](../azure-monitor/logs/basic-logs-configure.md).
+> 
+> See [Monitor Kubernetes clusters using Azure services and cloud native tools](../azure-monitor/containers/monitor-kubernetes.md) for further recommendations and [Cost optimization and Azure Monitor](../azure-monitor/best-practices-cost.md) for further strategies to reduce your monitoring costs.
 
 :::image type="content" source="media/monitor-aks/diagnostic-setting-categories.png" alt-text="Screenshot of AKS diagnostic setting dialog box." lightbox="media/monitor-aks/diagnostic-setting-categories.png":::
 
