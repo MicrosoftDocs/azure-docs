@@ -21,7 +21,7 @@ You can take a look at [voice and video calling events](https://learn.microsoft.
 
 ## Current limitations with the Push Notification model
 
-The current limitations of using the ACS Native Calling SDK and [Push Notifications](../how-tos/calling-sdk/push-notifications) are:
+The current limitations of using the ACS Native Calling SDK and [Push Notifications](../how-tos/calling-sdk/push-notifications.md) are:
 
 * There's a **24-hour limit** after the register push notification API is called when the device token information is saved. After 24 hours, the device endpoint information is deleted. Any incoming calls on those devices can't be delivered to the devices if those devices don't call the register push notification API again.
 * Can't deliver push notifications using Baidu or any other notification types supported by Azure Notification Hub but not yet supported in the ACS SDK.
