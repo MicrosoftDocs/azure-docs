@@ -49,7 +49,7 @@ To manage the legacy MFA policy, click **Security** > **Multifactor Authenticati
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
-To manage authentication methods for self-service password reset (SSPR), click **Password reset** > **Authentication methods**. The **Mobile phone** option in this policy allows either voice calls or SMS to be sent to a mobile phone. The **Office phone** option allows only voice calls. 
+To manage authentication methods for self-service password reset (SSPR), click **Password reset** > **Authentication methods**. The **Mobile phone** option in this policy allows either voice calls or text message to be sent to a mobile phone. The **Office phone** option allows only voice calls. 
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/password-reset.png" alt-text="Screenshot of password reset settings.":::
 
@@ -69,7 +69,7 @@ If the user can't register Microsoft Authenticator based on either of those poli
 - **Mobile app notification**
 - **Mobile app code**
 
-For users who are enabled for **Mobile phone** for SSPR, the independent control between policies can impact sign-in behavior. Where the other policies have separate options for SMS and voice calls, the **Mobile phone** for SSPR enables both options. As a result, anyone who uses **Mobile phone** for SSPR can also use voice calls for password reset, even if the other policies don't allow voice calls. 
+For users who are enabled for **Mobile phone** for SSPR, the independent control between policies can impact sign-in behavior. Where the other policies have separate options for text message and voice calls, the **Mobile phone** for SSPR enables both options. As a result, anyone who uses **Mobile phone** for SSPR can also use voice calls for password reset, even if the other policies don't allow voice calls. 
 
 Similarly, let's suppose you enable **Voice calls** for a group. After you enable it, you find that even users who aren't group members can sign-in with a voice call. In this case, it's likely those users are enabled for **Mobile phone** in the legacy SSPR policy or **Call to phone** in the legacy MFA policy.  
 

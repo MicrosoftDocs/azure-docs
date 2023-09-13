@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro, mode-other
@@ -40,9 +40,10 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
 
-2. Select **Groups**, and then select **General**.
+2. Select **Groups** > **All groups** and then select **General**.
   
    ![Self-service group settings page](./media/groups-quickstart-expiration/self-service-settings.png)
 
@@ -52,7 +53,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Set group expiration
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Groups** > **Expiration** to open the expiration settings.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Groups** > **All groups** > **Expiration** to open the expiration settings.
   
    ![Expiration settings page for group](./media/groups-quickstart-expiration/expiration-settings.png)
 
@@ -70,9 +73,10 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 
 ### To remove the expiration policy
 
-1. Sign in to to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your Azure AD organization.
-2. Select **Azure Active Directory** > **Groups** > **Expiration**.
-3. Set **Enable expiration for these Microsoft 365 groups** to **None**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Groups** > **All groups** > **Expiration**.
+1. Set **Enable expiration for these Microsoft 365 groups** to **None**.
 
 ### To turn off user creation for groups
 

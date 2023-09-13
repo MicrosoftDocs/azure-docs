@@ -186,7 +186,7 @@ Next, download the SAP installation media to the VM using a script.
     	
 1. Where `playbook_bom_downloader_yaml_path` is the absolute path to sap-automation/deploy/ansible/playbook_bom_downloader.yaml. e.g. */home/loggedinusername/sap-automation/deploy/ansible/playbook_bom_downloader.yaml*
 
-1. For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_** or **_S42022_SPS00_v0001ms_**
+1. For `<bom_base_name>`, use the SAP Version you want to install i.e. **_S41909SPS03_v0011ms_** or **_S42020SPS03_v0003ms_** or **_S4HANA_2021_ISS_v0001ms_** or **_S42022SPS00_v0001ms_**
 
 1. For `<s_user>`, use your SAP username.
     
@@ -278,7 +278,7 @@ First, set up an Azure Storage account for the SAP components:
 
         1. **HANA_2_00_071_v0001ms**
 
-        1. **S42022_SPS00_v0001ms**
+        1. **S42022SPS00_v0001ms**
 
         1. **SWPM20SP15_latest**
 

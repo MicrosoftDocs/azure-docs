@@ -64,7 +64,7 @@ Find the latest preview version of each supported SDK:
 | --- | --- | --- |
 | .NET SDK v3 | >= 3.33.0 | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0/> |
 | Java SDK v4 | >= 4.42.0 | <https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#4420-2023-03-17/> |
-| JavaScript SDK v3 | 3.17.4-beta.1 | <https://www.npmjs.com/package/@azure/cosmos/v/3.17.4-beta.1/> |
+| JavaScript SDK v4 | 4.0.0 | <https://www.npmjs.com/package/@azure/cosmos/> |
 
 ## Create a container by using hierarchical partition keys
 
@@ -134,7 +134,9 @@ Container container = await database.CreateContainerIfNotExistsAsync(containerPr
 
 #### [Java SDK v4](#tab/java-v4)
 
-```java
+#### [JavaScript SDK v4](#tab/javascript-v4)
+
+```javascript
 // List of partition keys, in hierarchical order. You can have up to three levels of keys.
 List<String> subpartitionKeyPaths = new ArrayList<String>();
 subpartitionKeyPaths.add("/TenantId");
@@ -264,6 +266,21 @@ item.setSessionId("0000-11-0000-1111");
 Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item);
 ```
 
+##### [Javascript SDK v4](#tab/javascript-v4)
+
+```javascript
+ // Create a new item
+const item: UserSession = {
+    Id: 'f7da01b0-090b-41d2-8416-dacae09fbb4a',
+    TenantId: 'Microsoft',
+    UserId: '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b',
+    SessionId: '0000-11-0000-1111'
+}
+
+// Pass in the object, and the SDK automatically extracts the full partition key path
+const { resource: document } = await = container.items.create(item);
+
+```
 ---
 
 #### Manually specify the path
@@ -317,6 +334,26 @@ PartitionKey partitionKey = new PartitionKeyBuilder()
 Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item, partitionKey);
 ```
 
+##### [Javascript SDK v4](#tab/javascript-v4)
+
+```javascript
+const item: UserSession = {
+    Id: 'f7da01b0-090b-41d2-8416-dacae09fbb4a',
+    TenantId: 'Microsoft',
+    UserId: '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b',
+    SessionId: '0000-11-0000-1111'
+}
+
+// Specify the full partition key path when creating the item
+const partitionKey: PartitionKey = new PartitionKeyBuilder()
+    .addValue(item.TenantId)
+    .addValue(item.UserId)
+    .addValue(item.SessionId)
+    .build();
+
+// Create the item in the container
+const { resource: document } = await container.items.create(item, partitionKey);
+```
 ---
 
 ### Perform a key/value lookup (point read) of an item
@@ -359,7 +396,22 @@ PartitionKey partitionKey = new PartitionKeyBuilder()
 // Perform a point read
 Mono<CosmosItemResponse<UserSession>> readResponse = container.readItem(id, partitionKey, UserSession.class);
 ```
+##### [Javascript SDK v4](#tab/javascript-v4)
 
+```javascript
+// Store the unique identifier
+const id = "f7da01b0-090b-41d2-8416-dacae09fbb4a";
+
+// Build the full partition key path
+const partitionKey: PartitionKey = new PartitionKeyBuilder()
+    .addValue(item.TenantId)
+    .addValue(item.UserId)
+    .addValue(item.SessionId)
+    .build();
+
+// Perform a point read
+const { resource: document } = await container.item(id, partitionKey).read();
+```
 ---
 
 ### Run a query
@@ -427,6 +479,20 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
     return Flux.empty();
 }).blockLast();
 ```
+##### [Javascript SDK v4](#tab/javascript-v4)
+
+```javascript
+// Define a single-partition query that specifies the full partition key path
+const query: string = "SELECT * FROM c WHERE c.TenantId = 'Microsoft' AND c.UserId = '8411f20f-be3e-416a-a3e7-dcd5a3c1f28b' AND c.SessionId = '0000-11-0000-1111'";
+
+// Retrieve an iterator for the result set
+const queryIterator = container.items.query(query);
+
+while (queryIterator.hasMoreResults()) {
+    const { resources: results } = await queryIterator.fetchNext();
+    // Process result
+}
+```
 
 ---
 
@@ -476,6 +542,20 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
 }).blockLast();
 ```
 
+##### [Javascript SDK v4](#tab/javascript-v4)
+
+```javascript
+// Define a targeted cross-partition query specifying prefix path[s]
+const query: string = "SELECT * FROM c WHERE c.TenantId = 'Microsoft'";
+
+// Retrieve an iterator for the result set
+const queryIterator = container.items.query(query);
+
+while (queryIterator.hasMoreResults()) {
+    const { resources: results } = await queryIterator.fetchNext();
+    // Process result
+}
+```
 ---
 
 ## Limitations and known issues
