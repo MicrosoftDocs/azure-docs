@@ -259,11 +259,11 @@
         href: integrations/service-now-legacy.md
   - name: Maintain your Defender for IoT system
     items:
-    - name: Manage plans on your Azure subscription
+    - name: Manage billing plans
       items:
-      - name: Manage OT plans
+      - name: Manage OT licenses
         href: how-to-manage-subscriptions.md
-      - name: Manage Enterprise IoT plans
+      - name: Manage enterprise IoT security monitoring
         href: manage-subscriptions-enterprise.md
     - name: Manage sensors from the Azure portal
       href: how-to-manage-sensors-on-the-cloud.md

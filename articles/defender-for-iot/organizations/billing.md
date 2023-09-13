@@ -25,11 +25,11 @@ To evaluate Defender for IoT, start a free trial as follows:
 
 ## Defender for IoT devices
 
-When purchasing a Defender for IoT license for an OT plan, or when onboarding or editing a monthly Enterprise IoT plan, we recommend that you have a sense of how many devices you'll want to cover.
+We recommend that you have a sensor how many devices you want to monitor so that you know how many OT sites you'll need to license, or if you need any standalone licenses for enterprise IoT security.
 
 - **OT monitoring**: Purchase a license for each site that you're planning to monitor. License fees differ based on the site size, each which covers a different number of devices.
 
-- **Enterprise IoT monitoring**: 5 devices are supported for each ME5/E5 Security user license. If you have more devices to monitor, and are a Defender for Endpoint P2 customer, purchase additional, standalone licenses for each device you want to monitor.
+- **Enterprise IoT monitoring**: Five devices are supported for each ME5/E5 Security user license. If you have more devices to monitor, and are a Defender for Endpoint P2 customer, purchase additional, standalone licenses for each device you want to monitor.
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 

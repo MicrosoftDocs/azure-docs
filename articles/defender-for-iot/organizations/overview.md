@@ -78,7 +78,7 @@ For more information, see [Manage proprietary protocols with Horizon plugins](re
 
 ## Protect enterprise IoT networks
 
-Extend Defender for IoT's agentless security features beyond OT environments to enterprise IoT devices. Add an Enterprise IoT plan in Microsoft Defender for Endpoint for added alerts, vulnerabilities, and recommendations for IoT devices in Defender for Endpoint. An Enterprise IoT plan also provides a shared device inventory across the Azure portal and Microsoft 365 Defender.
+Extend Defender for IoT's agentless security features beyond OT environments to enterprise IoT devices by using enterprise IoT security with Microsoft Defender for Endpoint, and view related alerts, vulnerabilities, and recommendations for IoT devices in Microsoft 365 Defender.
 
 Enterprise IoT devices can include devices such as printers, smart TVs, and conferencing systems and purpose-built, proprietary devices.
 

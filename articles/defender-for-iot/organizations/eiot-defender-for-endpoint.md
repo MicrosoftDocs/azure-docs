@@ -68,7 +68,7 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     :::image type="content" source="media/enterprise-iot/select-a-device.png" alt-text="Screenshot of the IoT devices tab in Microsoft 365 Defender." lightbox="media/enterprise-iot/select-a-device.png":::
 
-1. On the device details page, explore the following tabs to view data added by the Enterprise IoT plan for your device:
+1. On the device details page, explore the following tabs to view data added by the enterprise IoT security for your device:
 
     - On the **Alerts** tab, check for any alerts triggered by the device.
 

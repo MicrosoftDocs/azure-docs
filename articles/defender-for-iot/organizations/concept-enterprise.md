@@ -19,14 +19,12 @@ While the number of IoT devices continues to grow, they often lack the security 
 
 Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and [Azure portals](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started).
 
-If you're a Microsoft 365 E5 (ME5) or E5 Security customer, toggle on support for enterprise IoT (eIoT) devices in the Microsoft 365 Defender portal to view IoT-specific security value, including risk levels, exposure levels, vulnerabilities, and recommendations in Microsoft 365 Defender. <!--what about alerts?--> If you don't have ME5/E5 Security licenses, but you are a Microsoft Defender for Endpoint customer, purchase standalone, per-device licenses to gain the same IoT-specific security value.
+Toggle on support for **Enterprise IoT security** in Microsoft 365 Defender view IoT-specific security value, including alerts, risk and exposure levels, vulnerabilities, and recommendations in Microsoft 365 Defender.
 
-The added security value is available in Microsoft 365 Defender, which is Microsoft's central portal for combined enterprise IT and IoT device security.<!--discovered by MDE agents? what if i don't have MDE?-->
+If you're a Microsoft 365 E5 (ME5)/ E5 Security and Defender for Endpoint P2 customer, toggle on support for enterprise IoT (eIoT) devices in the Microsoft 365 Defender portal. Then, 
 
-Integrating your Enterprise IoT plan with Microsoft 365 Defender requires the following:
+If you don't have ME5/E5 Security licenses, but you are a Microsoft Defender for Endpoint customer, purchase standalone, per-device licenses to gain the same IoT-specific security value.
 
-- Either an ME5 or E5 Security license, or a Microsoft Defender for Endpoint P2 license for standalone licenses
-- Microsoft 365 Defender access as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
 <!--removing this- Azure access as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)-->
 
 
