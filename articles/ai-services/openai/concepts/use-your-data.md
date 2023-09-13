@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 09/05/2023
+ms.date: 09/13/2023
 recommendations: false
 ---
 
@@ -81,7 +81,7 @@ After you approve the request in your search service, you can start using the [c
 > Virtual networks & private endpoints are only supported for the API, and not currently supported for Azure OpenAI Studio. 
 ### Storage accounts in private virtual networks
 
-Storage accounts in virtual networks and private endpoints are currently not supported by Azure OpenAI on your data.
+Storage accounts in virtual networks, firewalls, and private endpoints are currently not supported by Azure OpenAI on your data.
 
 ## Azure Role-based access controls (Azure RBAC)
 
