@@ -16,7 +16,7 @@ ms.author: pafarley
 
 Use the Image Analysis client SDK for C++ to analyze an image to read text and generate an image caption. This quickstart defines a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
 
-[Reference documentation](/cpp/cognitive-services/vision) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](/cpp/cognitive-services/vision) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -41,11 +41,11 @@ Open Visual Studio, and under **Get started** select **Create a new project**. S
 
 ### Install the client SDK 
 
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. For more information, see the [SDK installation guide](../../how-to/install-sdk.md).
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-cpp).
 
 #### [Linux](#tab/linux)
 
-Follow the [SDK installation guide](../../how-to/install-sdk.md) to install the Vision SDK for Linux.
+Follow the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp) to install the Vision SDK for Linux.
 
 ---
 

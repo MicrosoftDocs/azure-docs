@@ -1,7 +1,7 @@
 ---
 title: Install the Vision SDK
 titleSuffix: Azure AI services
-description: In this guide, you'll learn how to install the Vision SDK for your preferred programming language.
+description: In this guide, you learn how to install the Vision SDK for your preferred programming language.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,11 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/01/2023
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp
-zone_pivot_groups: programming-languages-vision-40-sdk
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+zone_pivot_groups: programming-languages-vision-40-sdk 
 ---
 
 # Install the Vision SDK
+
+[!INCLUDE [License Notice](../includes/setup-sdk/license-notice-sdk.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](../includes/setup-sdk/csharp.md)]
@@ -25,7 +27,7 @@ zone_pivot_groups: programming-languages-vision-40-sdk
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python include](./../includes/setup-sdk/python.md)]
+[!INCLUDE [Python include](../includes/setup-sdk/python.md)]
 ::: zone-end
 
 ## Next steps
