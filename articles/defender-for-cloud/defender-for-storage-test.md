@@ -74,11 +74,11 @@ To simulate a malware upload using an EICAR test file, follow these steps:
     1. Select on **Security Alerts**.
 
 1. Review the security alert:
+1. a. Locate the alert titled **Malicious file uploaded to storage account**.
 
-   . Locate the alert titled **Malicious file uploaded to storage account**.
-    1. Select on the alert’s **View full details** button to see all the related details.
+1. b. Select on the alert’s **View full details** button to see all the related details.
 
-    1. Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
+1. Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-azurestorage).
 
 ## Testing sensitive data threat detection
 
@@ -200,5 +200,6 @@ Learn more about:
 - [Customizing data sensitivity settings](defender-for-storage-data-sensitivity.md)
 
 - [Threat detection and alerts](defender-for-storage-threats-alerts.md)
+
 
 

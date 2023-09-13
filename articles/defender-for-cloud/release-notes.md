@@ -57,7 +57,7 @@ September 6, 2023
 
 Containers vulnerability assessment powered by Microsoft Defender Vulnerability Management (MDVM), now supports an additional trigger for scanning images pulled from an ACR. This newly added trigger provides additional coverage for active images in addition to the existing triggers scanning images pushed to an ACR in the last 90 days and images currently running in AKS.
 
-This new trigger is available today for some customers, and will be available to all customers by mid-September.
+The new trigger will start rolling out today, and is expected to be available to all customers by end of September.
 
 For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-container-registry-vulnerability-assessment.md)
 
