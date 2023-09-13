@@ -142,15 +142,6 @@ The chart view displays the results as one of multiple available chart types. Yo
 | Split by | Column in the results that defines the series in the chart. A series is created for each value in the column. |
 | Aggregation | Type of aggregation to perform on the numeric values in the y-axis. |
 
-## Relationship to Azure Data Explorer
-
-
-## Filter and sort columns
-
-## Show or hide columns
-
-## Aggregate data
-
  
 ## Next steps
 - Walk through a [tutorial on writing queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
