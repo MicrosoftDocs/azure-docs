@@ -21,6 +21,9 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up your app to update its configuration in response to changes in an App Configuration store.
 
+> [!NOTE]
+> Requires azure-appconfiguration-provider package version 1.1.0b1 or later.
+
 ## Sentinel key
 
 A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
