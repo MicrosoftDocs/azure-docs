@@ -6,8 +6,8 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 07/14/2023
-ms.custom: engagement-fy23
+ms.date: 08/24/2023
+ms.custom: engagement-fy24
 ---
 
 # Dependency analysis

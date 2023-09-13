@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 08/31/2023
+ms.date: 09/07/2023
 ms.author: anfdocs
 ---
 
@@ -21,11 +21,21 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## August 2023
+## September 2023
 
 * [Volume user and group quotas](default-individual-user-group-quotas-introduction.md) is now generally available (GA).
 
-    User and group quotas enable you to stay in control and define how much storage capacity can be used by individual users or groups can use within a specific Azure NetApp Files volume. You can set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can define a default (that is, same for all users) or individual group quotas.    
+    User and group quotas enable you to stay in control and define how much storage capacity can be used by individual users or groups can use within a specific Azure NetApp Files volume. You can set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can define a default (that is, same for all users) or individual group quotas.   
+
+* [Standard network features in select US Gov regions (Preview)](azure-netapp-files-network-topologies.md)
+
+    Azure NetApp Files now supports Standard network features for new volumes in select US Gov regions. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files. You can now choose Standard or Basic network features when creating a new Azure NetApp Files volume. This feature is Generally Available in Azure commercial regions and public preview US Gov region(s).
+
+* [Troubleshooting enhancement: validate user connectivity, group membership and access to LDAP-enabled volumes](troubleshoot-user-access-ldap.md)
+
+    Azure NetApp Files now provides you with the ability to validate user connectivity and access to LDAP-enabled volumes based on group membership. When you provide a user ID, Azure NetApp Files reports a list of primary and auxiliary group IDs that the user belongs to from the LDAP server. Validating user access is helpful for scenarios such as ensuring POSIX attributes set on the LDAP server are accurate or when you encounter permission errors. 
+
+## August 2023
 
 * [Cross-region replication enhancement: re-establish deleted volume replication](reestablish-deleted-volume-relationships.md) (Preview)
 

@@ -110,6 +110,17 @@ The access policy is now saved to Key Vault. Next, access the secret's URI to us
     ```text
     @Microsoft.KeyVault(SecretUri=<YOUR-KEY-VAULT-SECRET-URI>)
     ```
+    For example, a final string would look like the following sample:
+
+    ```
+    @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
+    ```
+
+    Alternatively:
+
+    ```
+    @Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
+    ```
 
     Use the following steps to build the full secret value.
 

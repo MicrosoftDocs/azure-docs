@@ -153,7 +153,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** | Supported | Supported | Doha<br/>Doha2<br/>London2<br/>Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Supported | Supported | Melbourne<br/>Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin2 Frankfurt<br/>Hong Kong<br/>Johannesburg<br/>London<br/>London2<br/>Mumbai2<br/>Melbourne<br/>Paris<br/>Sao Paulo<br/>Silicon 
-| **Orange Poland** | Supported | Supported | Warsaw |
+| **[Orange Poland](https://www.orange.pl/duze-firmy)** | Supported | Supported | Warsaw |
 | **[Orixcom](https://www.orixcom.com/solutions/azure-expressroute)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** | Supported | Supported | Amsterdam<br/>Chicago<br/>Dallas<br/>Denver<br/>Las Vegas<br/>London<br/>Los Angeles2<br/>Miami<br/>New York<br/>Seattle<br/>Silicon Valley<br/>Toronto<br/>Washington DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** | Supported | Supported | Chicago<br/>Hong Kong<br/>Hong Kong2<br/>London<br/>Singapore<br/>Singapore2<br/>Tokyo2 |
@@ -177,7 +177,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** | Supported | Supported | London<br/>London2<br/>Singapore2 |
 | **Telenor** |Supported |Supported | Amsterdam<br/>London<br/>Oslo<br/>Stavanger |
 | **[Telia Carrier](https://www.teliacarrier.com/)** | Supported | Supported | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong<br/>London<br/>Oslo<br/>Paris<br/>Seattle<br/>Silicon Valley<br/>Stockholm<br/>Washington DC |
-| **[Telin](https://www.telin.net/product/data-connectivity/telin-cloud-exchange)** | Supported | Supported | Jakarta |
+| **[Telin](https://telin.net/)** | Supported | Supported | Jakarta |
 | **Telmex Uninet**| Supported | Supported | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Supported | Melbourne<br/>Singapore<br/>Sydney |
 | **[Telus](https://www.telus.com)** | Supported | Supported | Montreal<br/>Quebec City<br/>Seattle<br/>Toronto<br/>Vancouver |
@@ -187,7 +187,8 @@ The following table shows locations by service provider. If you want to view ava
 | **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | Supported | Supported | Osaka<br/>Tokyo2 |
 | **TPG Telecom**| Supported | Supported | Melbourne<br/>Sydney |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** | Supported | Supported | Dallas<br/>Queretaro(Mexico City)|
-| **[T-Mobile/Sprint](https://www.t-mobile.com/business/solutions/networking/cloud-networking )** |Supported |Supported | Chicago<br/>Silicon Valley<br/>Washington DC |
+| **[T-Mobile/Sprint](https://www.t-mobile.com/business/solutions/networking/cloud-networking)** |Supported |Supported | Chicago<br/>Silicon Valley<br/>Washington DC |
+| **[T-Mobile Poland](https://biznes.t-mobile.pl/pl/produkty-i-uslugi/sieci-teleinformatyczne/cloud-on-edge)** |Supported |Supported | warsaw |
 | **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported | Supported | Frankfurt |
 | **UOLDIVEO** | Supported | Supported | Sao Paulo |
 | **[UIH](https://www.uih.co.th/products-services/managed-services/cloud-direct/)** | Supported | Supported | Bangkok |
@@ -309,7 +310,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | London | 
 | **[Tata Teleservices](https://www.tatatelebusiness.com/data-services/ez-cloud-connect/)** | Tata Communications | Chennai<br/>Mumbai |
 | **[TDC Erhverv](https://tdc.dk/Produkter/cloudaccessplus)** | Equinix | Amsterdam | 
-| **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amsterdam |
+| **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect)**| Equinix | Amsterdam |
 | **[Telekom Deutschland GmbH](https://cloud.telekom.de/de/infrastruktur/managed-it-services/managed-hybrid-infrastructure-mit-microsoft-azure)** | Interxion | Amsterdam<br/>Frankfurt |
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdam |
 | **[ThinkTel](https://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
@@ -333,7 +334,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | IX Reach<br/>Megaport PacketFabric |
 | **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport<br/>PacketFabric |
 | **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach<br/>Megaport<br/>PacketFabric |
-| **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud )** | Megaport<br/>PacketFabric |
+| **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud)** | Megaport<br/>PacketFabric |
 | **[Stream Data Centers](https://www.streamdatacenters.com/products-services/network-cloud/)** | Megaport |
 | **RagingWire Data Centers** | IX Reach<br/>Megaport<br/>PacketFabric |
 | **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |

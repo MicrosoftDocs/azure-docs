@@ -38,9 +38,8 @@ Using the information in this tutorial, an administrator learns how to:
 
 For the application that the administrator added to their tenant, they want to set it up so that all users in the organization can use it and not have to individually request consent to use it. To avoid the need for user consent, they can grant consent for the application on behalf of all users in the organization. For more information, see [Consent and permissions overview](./user-admin-consent-overview.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with one of the roles listed in the prerequisites.
-2. Search for and select **Azure Active Directory**.
-3. Select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 4. Select the application to which you want to grant tenant-wide admin consent.
 5. Under **Security**, select **Permissions**.
 6. Carefully review the permissions that the application requires. If you agree with the permissions the application requires, select **Grant admin consent**.
@@ -53,7 +52,7 @@ The administrator wants to make sure that only the people they assign to the app
 
 It's easier for an administrator to manage access to the application by assigning all users of the application to a group. The administrator can then manage access at a group level.
 
-1. In the left menu of the tenant overview, select **Groups**.
+1. In the left menu of the tenant overview, select **Groups** > **All groups**.
 1. Select **New group** at the top of the pane.
 1. Enter *MFA-Test-Group* for the name of the group.
 1. Select No members selected, and then choose the user account that you assigned to the application.
@@ -61,7 +60,7 @@ It's easier for an administrator to manage access to the application by assignin
 
 ### Create a Conditional Access policy for the group
 
-1. In the left menu of the tenant overview, select **Security**.
+1. In the left menu of the tenant overview, select **Protection**.
 1. Select **Conditional Access**, select **+ New policy**, and then select **Create new policy**.
 1. Enter a name for the policy, such as *MFA Pilot*.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -83,7 +82,7 @@ In this tutorial, the administrator can find the basic steps to configure the ap
 ### Test multi-factor authentication
 
 1. Open a new browser window in InPrivate or incognito mode and browse to the URL of the application.
-1. Sign in with the user account that you assigned to the application. You're required to register for and use Azure AD Multi-Factor Authentication. Follow the prompts to complete the process and verify you successfully sign in to the Azure portal.
+1. Sign in with the user account that you assigned to the application. You're required to register for and use Azure AD Multi-Factor Authentication. Follow the prompts to complete the process and verify you successfully sign in to the Microsoft Entra admin center.
 1. Close the browser window.
 
 ## Create a terms of use statement
@@ -104,7 +103,7 @@ Juan wants to make sure that certain terms and conditions are known to users bef
 
 ### Add the terms of use to the policy
 
-1. In the left menu of the tenant overview, select **Security**.
+1. In the left menu of the tenant overview, select **Protection**.
 1. Select **Conditional Access**, and then **Policies**. From the list of policies, select the *MFA Pilot* policy.
 1. Under **Access controls** and **Grant**, select the controls selected link.
 1. Select *My TOU*.
@@ -120,10 +119,10 @@ The My Apps portal enables administrators and users to manage the applications u
 
 By default, all applications are listed together on a single page. But you can use collections to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. In this section, you create a collection  and assign it to users and groups.
 
-1. Open the Azure portal.
-1. Go to **Azure Active Directory**, and then select **Enterprise Applications**.
-1. Under **Manage**, select **Collections**.
-1. Select **New collection**. In the New collection page, enter a **Name** for the collection (it's recommended to not use "collection" in the name. Then enter a **Description**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** .
+1. Under **Manage**, select **App launchers** > **Collections**.
+1. Select **New collection**. In the New collection page, enter a **Name** for the collection (it's recommended to not use "collection" in the name). Then enter a **Description**.
 1. Select the **Applications** tab. Select **+ Add application**, and then in the Add applications page, select all the applications you want to add to the collection, or use the Search box to find applications.
 1. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the arrows to change the order of applications in the list.
 1. Select the **Owners** tab. Select **+ Add users and groups**, and then in the Add users and groups page, select the users or groups you want to assign ownership to. When you're finished selecting users and groups, choose **Select**.
@@ -150,14 +149,14 @@ You can keep the resources for future use, or if you're not going to continue to
 ### Delete the Conditional Access policy
 
 1. Select **Enterprise applications**.
-1. Under **Security**, select **Conditional Access**.
+1. Under **Protection**, select **Conditional Access**.
 1. Search for and select **MFA Pilot**.
 1. Select **Delete** at the top of the pane.
 
 ### Delete the group
 
-1. Select **Azure Active Directory**, and then select **Groups**.
-1. From the **Groups - All groups** page, search for and select the **MFA-Test-Group** group.
+1. Select **Identity** > **Groups**.
+1. From the **All groups** page, search for and select the **MFA-Test-Group** group.
 1. On the overview page, select **Delete**.
 
 ## Next steps

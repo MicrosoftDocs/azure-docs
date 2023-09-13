@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 07/07/2022
+ms.date: 09/01/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -48,11 +48,15 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy](../../../../includes/resource-graph/samples/bycat/azure-policy.md)]
 
+[!INCLUDE [policy-resources-exemption-query](../../includes/policy/policy-resources-exemption-query.md)]
+
 ## Azure Policy guest configuration
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy-guest-configuration](../../../../includes/resource-graph/samples/bycat/azure-policy-guest-configuration.md)]
 
 ## Azure RBAC
+
+[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
 
 [!INCLUDE [authorization-resources-role-assignments-key-properties](../../includes/resource-graph/query/authorization-resources-role-assignments-key-properties.md)]
 
@@ -63,8 +67,6 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 [!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
 
 [!INCLUDE [authorization-resources-classic-administrators-key-properties](../../includes/resource-graph/query/authorization-resources-classic-administrators-key-properties.md)]
-
-[!INCLUDE [authorization-resources-troubleshoot-rbac-limits](../../includes/resource-graph/query/authorization-resources-troubleshoot-rbac-limits.md)]
 
 ## Azure Service Health
 
