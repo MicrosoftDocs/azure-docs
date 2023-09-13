@@ -55,17 +55,15 @@ This section explains how to use Log Analytics to query the application logs, an
 
 This section explains how to query application logs from the table `AppPlatformLogsforSpring` hosted by the Azure Spring Apps. You can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. Use the following step to see the built-in example query statements or write your own queries:
 
-- Open the Azure Spring Apps instance and go to the **Logs** menu.
+Open the Azure Spring Apps instance and go to the **Logs** menu.
 
-#### 4.1.1. Show the application logs which contain the "error" or "exception" terms
+#### Show the application logs which contain the "error" or "exception" terms
 
 Use the following steps to see the application logs containing the terms "error" or "exception":
 
-- On the **Queries** page, select **Alerts**, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section. 
+On the **Queries** page, select **Alerts**, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section. 
 
 The application logs that contain the "error" or "exception" terms within the last hour opens up by default.
-
-:::image type="content" source="media/tutorial-applications-observability/example-query.png" alt-text="Screenshot of Azure portal that shows the example queries." lightbox="media/tutorial-applications-observability/example-query.png":::
 
 To customize the query with any keyword you want, enter the following commands:
 
@@ -76,13 +74,11 @@ AppPlatformLogsforSpring
 | project TimeGenerated , ServiceName , AppName , InstanceName , Log , _ResourceId 
 ```
 
-:::image type="content" source="media/tutorial-applications-observability/show-application-logs-abnormal.png" alt-text="Screenshot of the Azure portal that shows abnormal logs for the Azure Spring Apps instance." lightbox="media/tutorial-applications-observability/show-application-logs-abnormal.png":::
-
-#### 4.1.2. Show the error and exception number of each application
+#### Show the error and exception number of each application
 
 Use the following step to see the error and exception number of an application:
 
-- On the open **Queries** page, select **Alerts**, and then select **Run** in the **Show the error and exception number of each application** section.
+On the open **Queries** page, select **Alerts**, and then select **Run** in the **Show the error and exception number of each application** section.
 
 A pie chart of the number of the logs containing the "error" or "exception" terms in the last 24 hours opens up. To view the results in a table format, select **Result**.
 
@@ -100,7 +96,7 @@ AppPlatformLogsforSpring
 
 :::image type="content" source="media/tutorial-applications-observability/show-application-logs-abnormal-num.png" alt-text="Screenshot of the Azure portal that shows abnormal logs number for the Azure Spring Apps instance." lightbox="media/tutorial-applications-observability/show-application-logs-abnormal-num.png":::
 
-#### 4.1.3. Query the customers service log with a key word
+#### Query the customers service log with a key word
 
 To review a list of logs with `root cause` in the app `customers-service` and to customize your query with the keyword you want, enter the following commands:
 
@@ -110,8 +106,6 @@ AppPlatformLogsforSpring
 | where Log contains "root cause"
 | project-keep InstanceName, Log
 ```
-
-:::image type="content" source="media/tutorial-applications-observability/show-error-logs.png" alt-text="Screenshot of the Azure portal that shows the error logs for the Azure Spring Apps instance." lightbox="media/tutorial-applications-observability/show-error-logs.png":::
 
 ### 4.2. Investigate request failures
 
@@ -125,11 +119,7 @@ To investigate request failures in the application cluster and to view the faile
 
 1. On the **Failure** page, select the `PUT` operation that has the most failed requests count, select **1 Samples** to go into the details, and then select the suggested sample in the right panel.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-failure-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the suggested failure sample." lightbox="media/tutorial-applications-observability/application-insights-failure-suggested-sample.png":::
-
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel.
-
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-e2e-exception.png" alt-text="Screenshot of the Azure portal that shows the failure exception." lightbox="media/tutorial-applications-observability/application-insights-e2e-exception.png":::
 
 ## 5. Improve the application performance using Application Insights
 
@@ -145,11 +135,7 @@ To use Application Insights to investigate the performance issues, use the follo
 
 1. On the **Performance** page, select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to go into the details, and then select the suggested sample in the right panel.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the suggested performance sample." lightbox="media/tutorial-applications-observability/application-insights-performance-suggested-sample.png":::
-
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel. 
-
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-e2e-performance.png" alt-text="Screenshot of the Azure portal that shows the performance issue." lightbox="media/tutorial-applications-observability/application-insights-e2e-performance.png":::
 
 [!INCLUDE [clean-up-resources-portal](includes/tutorial-applications-observability/clean-up-resources.md)]
 
