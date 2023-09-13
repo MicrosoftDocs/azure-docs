@@ -80,7 +80,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name. See [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile).
+> You can also analyze a local image by passing in the full-path image file name (see [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile)), or by copying the image into the SDK's input buffer (see [VisionSource.FromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer))
 
 #### [Python](#tab/python)
 
@@ -89,7 +89,7 @@ In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL.
+> You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL (see argument name **filename**). Alternatively, you can analyze an image in a memory buffer by constructing **VisionSource** using the argument **image_source_buffer**.
 
 #### [C++](#tab/cpp)
 
@@ -98,7 +98,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name. See [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile).
+> You can also analyze a local image by passing in the full-path image file name (see [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile)), or by copying the image into the SDK's input buffer (see  [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer)).
 
 #### [REST API](#tab/rest)
 

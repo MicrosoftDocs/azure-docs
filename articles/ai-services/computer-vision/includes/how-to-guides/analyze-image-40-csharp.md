@@ -38,8 +38,6 @@ You can select an image by providing a publicly accessible image URL, a local im
 
 Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.common.visionsource.fromurl). **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
-The code in this guide uses an example image URL. You may want to try different images on your own to see the full capability of the Image Analysis service.
-
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
 
 ### Image file
@@ -57,7 +55,7 @@ This is done by first creating a new [ImageSourceBuffer](/dotnet/api/azure.ai.vi
 ```csharp
 using var imageSourceBuffer = new ImageSourceBuffer();
 imageSourceBuffer.GetWriter().Write(imageBuffer);
-using var visionSource = VisionSource.FromImageSourceBuffer(imageSourceBuffer);
+using var imageSource = VisionSource.FromImageSourceBuffer(imageSourceBuffer);
 ```
 
 Both **VisionSource** and **ImageSourceBuffer** implement **IDisposable**, therefore create the objects with a **using** statement or explicitly call their **Dispose** method after analysis completes.

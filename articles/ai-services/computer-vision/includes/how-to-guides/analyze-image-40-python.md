@@ -38,8 +38,6 @@ You can select an image by providing a publicly accessible image URL, a local im
 
 In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from the URL of the image you want to analyze.
 
-The code in this guide uses an example image URL. You may want to try different images on your own to see the full capability of the Image Analysis service.
-
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=vision_source)]
 
 ### Image file
@@ -52,12 +50,10 @@ In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai
 
 In your script, first create an [image_source_buffer](/python/api/azure-ai-vision/azure.ai.vision.imagesourcebuffer). Get its [image_writer](/python/api/azure-ai-vision/azure.ai.vision.imagewriter) and call the **write** method to copy the image data into the writer. Then create a new [vision_source](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from your **image_source_buffer**. In the following code example, `image_buffer` is a variable of type `bytes` containing the image data.
 
-```java
-import azure.ai.vision as visionsdk
-
-image_source_buffer = visionsdk.ImageSourceBuffer()
+```python
+image_source_buffer = sdk.ImageSourceBuffer()
 image_source_buffer.image_writer.write(image_buffer)
-vision_source = visionsdk.VisionSource(image_source_buffer=image_source_buffer)
+vision_source = sdk.VisionSource(image_source_buffer=image_source_buffer)
 ```
 
 ## Select analysis options

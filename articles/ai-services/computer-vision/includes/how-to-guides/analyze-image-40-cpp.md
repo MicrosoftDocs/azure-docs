@@ -41,8 +41,6 @@ You can select an image by providing a publicly accessible image URL, a local im
 
 Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource::FromUrl](/cpp/cognitive-services/vision/input-visionsource#fromurl).
 
-The code in this guide uses an example image URL. You may want to try different images on your own to see the full capability of the Image Analysis service.
-
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
 
 ### Image file
@@ -60,7 +58,7 @@ This is done by first creating a new [ImageSourceBuffer](/cpp/cognitive-services
 ```cpp
   auto imageSourceBuffer = std::make_shared<ImageSourceBuffer>();
   imageSourceBuffer->GetWriter()->Write(imageBuffer.data(), imageBuffer.size());
-  auto visionSource = VisionSource::FromImageSourceBuffer(imageSourceBuffer);
+  auto imageSource = VisionSource::FromImageSourceBuffer(imageSourceBuffer);
 ```
 
 ## Select analysis options
