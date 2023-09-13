@@ -110,6 +110,7 @@ The following table shows the properties returned after running connection troub
 | SourceSecurityRuleAnalysis.Results[].NetworkSecurityGroupResult.RulesEvaluationResult[].ProtocolMatched | Value indicates if protocol is matched. Boolean values. |
 | SourceSecurityRuleAnalysis.Results[].NetworkSecurityGroupResult.RulesEvaluationResult[].SourceMatched | Value indicates if source is matched. Boolean values. |
 | SourceSecurityRuleAnalysis.Results[].NetworkSecurityGroupResult.RulesEvaluationResult[].SourcePortMatched | Value indicates if source port is matched. Boolean values. |
+| DestinationSecurityRuleAnalysis | Same as SourceSecurityRuleAnalysis format. |
 | SourcePortStatus | Determines whether the port at source is reachable or not. Possible Values are: <br>**Unknown** <br>**Reachable** <br>**Unstable** <br>**NoConnection** <br>**Timeout** |
 | DestinationPortStatus | Determines whether the port at destination is reachable or not. Possible Values are: <br>**Unknown** <br>**Reachable** <br>**Unstable** <br>**NoConnection** <br>**Timeout** |
 
@@ -144,7 +145,7 @@ Connection troubleshoot returns fault types about the connection. The following 
 | NetworkSecurityRule | Traffic is blocked by a network security group rule (security rule is returned). |
 | UserDefinedRoute | Traffic is dropped due to a user defined or system route. |
 
-### Next steps
+### Next step
 
 To learn how to use connection troubleshoot to test and troubleshoot connections, continue to:
 > [!div class="nextstepaction"]
