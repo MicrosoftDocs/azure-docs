@@ -52,15 +52,15 @@
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
-      href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+      href: ../active-directory/hybrid/connect/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Custom attributes
       href: concepts-custom-attributes.md
     - name: Virtual network considerations
       href: network-considerations.md
     - name: What is Azure Active Directory?
-      href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+      href: ../active-directory/fundamentals/whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Azure Active Directory architecture
-      href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+      href: ../active-directory/architecture/architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: How to
   items:
     - name: Configure common settings
