@@ -83,7 +83,7 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 This image shows the Log Analytics simple mode components.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode.png" alt-text="Screenshot that shows the Log Analytics simple mode interface." lightbox="media/log-analytics-explorer/log-analytics-simple-mode.png":::
+:::image type="content" source="media/log-analytics-explorer/new-log-analytics-user-interface.png" alt-text="Screenshot that shows the Log Analytics simple mode interface." lightbox="media/log-analytics-explorer/new-log-analytics-user-interface.png":::
 
 ### Top action bar
 
