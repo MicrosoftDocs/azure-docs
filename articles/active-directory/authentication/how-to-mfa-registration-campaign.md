@@ -19,16 +19,16 @@ ms.collection: M365-identity-device-management
 
 # How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator
 
-You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to the Authenticator app.  
+You can nudge users to set up Microsoft Authenticator during sign-in. Users go through their regular sign-in, perform multifactor authentication as usual, and then get prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to Authenticator.  
 
-In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to postpone the app setup, they'll be nudged again on the next MFA attempt after the snooze duration has elapsed. Users with free and trial subscriptions can postpone the app setup up to three times.
+You can also define how many days a user can postpone, or "snooze," the nudge. If a user taps **Not now** to postpone the app setup, they get nudged again on the next MFA attempt after the snooze duration has elapsed. Users with free and trial subscriptions can postpone the app setup up to three times.
 
 >[!NOTE]
 >As users go through their regular sign-in, Conditional Access policies that govern security info registration apply before the user is prompted to set up Authenticator. For example, if a Conditional Access policy requires security info updates can only occur on an internal network, then users won't be prompted to set up Authenticator unless they are on the internal network. 
 
 ## Prerequisites 
 
-- Your organization must have enabled Azure AD Multi-Factor Authentication. Every edition of Azure AD includes Azure AD Multi-Factor Authentication. No additional license is needed for a registration campaign.
+- Your organization must have enabled Azure AD Multi-Factor Authentication. Every edition of Azure AD includes Azure AD Multi-Factor Authentication. No other license is needed for a registration campaign.
 - Users can't have already set up the Authenticator app for push notifications on their account. 
 - Admins need to enable users for the Authenticator app using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
@@ -132,7 +132,7 @@ Here are a few sample JSONs you can use to get started!
 
 - Include all users 
   
-  If you want to include ALL users in your tenant simply [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/All%20Users%20Enabled.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. 
+  If you want to include ALL users in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/All%20Users%20Enabled.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
   {
