@@ -34,7 +34,7 @@ The current limitations of using the ACS Native Calling SDK and [Push Notificati
 * [The Azure Event Grid topic](https://learn.microsoft.com/azure/event-grid/custom-event-quickstart-portal): Create an Azure Event Grid topic in your Azure subscription, it's used to send events when incoming calls occur.
 * Optional: Complete the quickstart for [getting started with adding calling to your application](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 * Optional [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to build your own serverless applications. For example, you can host your authentication application in Azure Functions.
-* Optional, review the quickstart to learn how to [handle voice and video calling events](../quickstarts/voice-video-calling/handle-calling-events).
+* Optional, review the quickstart to learn how to [handle voice and video calling events](../quickstarts/voice-video-calling/handle-calling-events.md).
 
 Let's consider a scenario where you want to notify users on their mobile devices (iOS and Android) when they receive an incoming call through Azure Communication Services. We use Azure Event Grid to achieve.
 
