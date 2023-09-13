@@ -58,7 +58,7 @@ Select **+ Add** to choose which custom attributes to synchronize. The list show
 If you don't see the directory extension you are looking for, enter the extension’s associated application appId and click **Search** to load only that application’s defined extension properties. This search helps when multiple applications define many extensions in your tenant.  
 
 >[!NOTE]
->If you would like to see directory extensions synchronized by Azure AD Connect, click **Enterprise App** and look for the Application ID of the **Tenant Schema Extension App**. For more information, see [Azure AD Connect sync: Directory extensions](../active-directory/hybrid/how-to-connect-sync-feature-directory-extensions.md#configuration-changes-in-azure-ad-made-by-the-wizard).  
+>If you would like to see directory extensions synchronized by Azure AD Connect, click **Enterprise App** and look for the Application ID of the **Tenant Schema Extension App**. For more information, see [Azure AD Connect sync: Directory extensions](../active-directory/hybrid/connect/how-to-connect-sync-feature-directory-extensions.md#configuration-changes-in-azure-ad-made-by-the-wizard).  
 
 Click **Select**, and then **Save** to confirm the change. 
 
@@ -72,4 +72,4 @@ To check the backfilling status, click **Azure AD DS Health** and verify the **S
 
 To configure onPremisesExtensionAttributes or directory extensions for cloud-only users in Azure AD, see [Custom data options in Microsoft Graph](/graph/extensibility-overview?tabs=http#custom-data-options-in-microsoft-graph). 
 
-To sync onPremisesExtensionAttributes or directory extensions from on-premises to Azure AD, [configure Azure AD Connect](../active-directory/hybrid/how-to-connect-sync-feature-directory-extensions.md). 
+To sync onPremisesExtensionAttributes or directory extensions from on-premises to Azure AD, [configure Azure AD Connect](../active-directory/hybrid/connect/how-to-connect-sync-feature-directory-extensions.md). 

@@ -643,6 +643,8 @@
         - name: National clouds and MSAL
           displayName: china, germany, gov, 21vianet
           href: msal-national-cloud.md
+        - name: Application configuration
+          href: msal-client-application-configuration.md
         - name: MSAL Android
           items:
             - name: Library initialization
@@ -748,66 +750,12 @@
                   href: msal-js-known-issues-ie-edge-browsers.md
         - name: MSAL.NET
           displayName: ASP.NET Core, Xamarin
-          items:
-            - name: Library initialization
-              items:
-                - name: Microsoft.Identity.Web (MSAL wrapper)
-                  displayName: auth, library, .NET Core, msal
-                  href: microsoft-identity-web.md
-                - name: Application configuration
-                  href: msal-client-application-configuration.md
-                - name: Application initialization
-                  href: msal-net-initializing-client-applications.md
-                - name: Confidential client instantiation
-                  href: msal-net-instantiate-confidential-client-config-options.md
-                - name: Confidential client credentials (cert, secret, assertion)
-                  displayName: certificate
-                  href: msal-net-client-assertions.md
-                - name: Public client instantiation
-                  href: msal-net-instantiate-public-client-config-options.md
-                - name: Instantiation with custom HttpClient
-                  href: msal-net-provide-httpclient.md
-                - name: Web browser interaction (system and embedded)
-                  href: msal-net-web-browsers.md
-                - name: Universal Windows Platform
-                  href: msal-net-uwp-considerations.md
-            - name: Authentication and single sign-on (SSO)
-              displayName: caching, token caching, caching tokens
-              items:
-                - name: Get a token from the cache
-                  displayName: acquire access token
-                  href: msal-net-acquire-token-silently.md
-                - name: Clear the token cache
-                  href: msal-net-clear-token-cache.md
-                - name: Serialize the token cache
-                  displayName: serialization
-                  href: msal-net-token-cache-serialization.md
-                - name: Get consent for several resources
-                  href: msal-net-user-gets-consent-for-multiple-resources.md
-            - name: Connections and integrations
-              items:
-                - name: Integrate with AD FS
-                  href: msal-net-adfs-support.md
-                - name: Integrate with Azure AD B2C
-                  href: msal-net-b2c-considerations.md
-            - name: Logging and error handling
-              displayName: MSAL.NET
-              items:
-                - name: Handle errors and exceptions in MSAL.NET
-                  displayName: handling, catch
-                  href: msal-error-handling-dotnet.md
-                - name: Logging in MSAL.NET
-                  href: msal-logging-dotnet.md
-            - name: Migration to MSAL.NET
-              items:
-                - name: Migrate from ADAL.NET to MSAL.NET
-                  href: msal-net-migration.md
-                - name: Migrate confidential client apps to MSAL.NET
-                  href: msal-net-migration-confidential-client.md
-                - name: Migrate public client apps to MSAL.NET
-                  href: msal-net-migration-public-client.md
-                - name: Differences between ADAL.NET and MSAL.NET
-                  href: msal-net-differences-adal-net.md
+          href: /entra/msal/dotnet
+        - name: Microsoft.Identity.Web (MSAL wrapper)
+          displayName: auth, library, .NET Core, msal
+          href: /entra/msal/dotnet/microsoft-identity-web/
+        - name: Application configuration
+          href: msal-client-application-configuration.md
         - name: MSAL Node
           displayName: Node.js
           items:

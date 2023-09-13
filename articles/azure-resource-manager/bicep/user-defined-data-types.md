@@ -3,26 +3,14 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/29/2023
+ms.date: 09/11/2023
 ---
 
-# User-defined data types in Bicep (Preview)
+# User-defined data types in Bicep
 
 Learn how to use user-defined data types in Bicep.
 
 [Bicep version 0.12.1 or newer](./install.md) is required to use this feature.
-
-## Enable the preview feature
-
-To enable this preview, modify your project's [bicepconfig.json](./bicep-config.md) file to include the following JSON:
-
-```json
-{
-  "experimentalFeaturesEnabled": {
-    "userDefinedTypes": true
-  }
-}
-```
 
 ## User-defined data type syntax
 
