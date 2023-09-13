@@ -17,10 +17,14 @@ In this article, you learn how to secure access to Azure OpenAI from Azure Kuber
 * Create an Azure AD federated credential.
 * Enable workload identity on a Kubernetes Pod.
 
+> [!NOTE]
+> We recommend using Azure AD Workload Identity and managed identities on AKS for Azure OpenAI access because it enables a secure, passwordless authentication process for accessing Azure resources.
+
 ## Before you begin
 
 * You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * This article builds on [Deploy an application that uses OpenAI on AKS](./open-ai-quickstart.md). You should complete that article before you begin this one.
+* You need a custom domain name enabled on your Azure OpenAI account to use for Azure AD authorization. For more information, see [Custom subdomain names for Azure AI services](../ai-services/cognitive-services-custom-subdomains.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -196,7 +200,7 @@ To use Azure AD Workload Identity on AKS, you need to make a few changes to the 
             "kubernetes.io/os": linux
           containers:
           - name: ai-service
-            image: $IMAGE_NAME
+            image: ghcr.io/azure-samples/aks-store-demo/ai-service:latest
             ports:
             - containerPort: 5001
             env:
@@ -218,9 +222,6 @@ To use Azure AD Workload Identity on AKS, you need to make a few changes to the 
     EOF
     ```
 
-    > [!NOTE]
-    > If `$IMAGE_NAME` is no longer valid, you need to build and push the container image again.
-
 ### Test the application
 
 1. Verify the new pod is running using the [`kubectl get pods`][kubectl-get-pods] command.
@@ -235,16 +236,17 @@ To use Azure AD Workload Identity on AKS, you need to make a few changes to the 
     kubectl logs --selector app=ai-service -f
     ```
 
-    The following example output shows the app has initialized and is ready to accept requests:
+    The following example output shows the app has initialized and is ready to accept requests. The first line suggests the code is missing configuration variables. However, the Azure Identity SDK handles this process and sets the `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` variables.
 
     ```output
+    Incomplete environment configuration. These variables are set: AZURE_CLIENT_ID, AZURE_TENANT_ID
     INFO:     Started server process [1]
     INFO:     Waiting for application startup.
     INFO:     Application startup complete.
     INFO:     Uvicorn running on http://0.0.0.0:5001 (Press CTRL+C to quit)
     ```
 
-3. Get the pod environment variables using the [`kubectl describe pod`][kubectl-describe-pod] command.
+3. Get the pod environment variables using the [`kubectl describe pod`][kubectl-describe-pod] command. The output demonstrates that the Azure OpenAI API key no longer exists in the Pod's environment variables.
 
     ```azurecli-interactive
     kubectl describe pod --selector app=ai-service
