@@ -15,7 +15,7 @@ ms.date: 02/27/2023
 
 # Tutorial: Register a Single-page application with the Microsoft identity platform
 
-To interact with the Microsoft identity platform, Azure Active Directory (Azure AD) must be made aware of the application you create. This tutorial shows you how to register a single-page application (SPA) in a tenant on the Azure portal.
+To interact with the Microsoft identity platform, Azure Active Directory (Azure AD) must be made aware of the application you create. This tutorial shows you how to register a single-page application (SPA) in a tenant on the Microsoft Entra admin center.
 
 In this tutorial:
 
@@ -38,10 +38,9 @@ In this tutorial:
 
 To complete registration, provide the application a name, specify the supported account types, and add a redirect URI. Once registered, the application **Overview** pane displays the identifiers needed in the application source code.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations > New registration**.
+1. Browse to **Identity** > **Applications** > **App registrations**, select **New registration**.
 1. Enter a **Name** for the application, such as *NewSPA1*.
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option.
 1. Under **Redirect URI (optional)**, use the drop-down menu to select **Single-page-application (SPA)** and enter `http://localhost:3000` into the text box.

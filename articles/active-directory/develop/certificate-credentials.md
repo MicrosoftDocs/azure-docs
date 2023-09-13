@@ -87,7 +87,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## Register your certificate with Microsoft identity platform
 
-You can associate the certificate credential with the client application in the Microsoft identity platform through the Azure portal using any of the following methods:
+You can associate the certificate credential with the client application in the Microsoft identity platform through the Microsoft Entra admin center using any of the following methods:
 
 ### Uploading the certificate file
 

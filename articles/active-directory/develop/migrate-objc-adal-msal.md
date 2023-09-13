@@ -218,9 +218,9 @@ ADAL and MSAL coexistence between multiple applications is fully supported.
 
 You don't need to change your existing Azure AD application to switch to MSAL and enable Azure AD accounts. However, if your ADAL-based application doesn't support brokered authentication, you'll need to register a new redirect URI for the application before you can switch to MSAL.
 
-The redirect URI should be in this format: `msauth.<app.bundle.id>://auth`. Replace `<app.bundle.id>` with your application's bundle ID. Specify the redirect URI in the [Azure portal](https://aka.ms/MobileAppReg).
+The redirect URI should be in this format: `msauth.<app.bundle.id>://auth`. Replace `<app.bundle.id>` with your application's bundle ID. Specify the redirect URI in the [Microsoft Entra admin center](https://entra.microsoft.com/?feature.broker=true#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 
-For iOS only, to support cert-based authentication, an additional redirect URI needs to be registered in your application and the Azure portal in the following format: `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. For example, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+For iOS only, to support cert-based authentication, an additional redirect URI needs to be registered in your application and the Microsoft Entra admin center in the following format: `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. For example, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 We recommend all apps register both redirect URIs.
 
