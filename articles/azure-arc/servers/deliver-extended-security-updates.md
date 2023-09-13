@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Deliver Extended Security Updates for Windows Server 2012
 
-This article provides instructions for enabling delivery of Extended Security Updates (ESUs) to Windows Server 2012 machines onboarded to Arc-enabled servers. ESUs can be enabled on Windows Server 2012 machines individually or at scale.
+This article provides steps to enable delivery of Extended Security Updates (ESUs) to Windows Server 2012 machines onboarded to Arc-enabled servers. You can enable ESUs to these machines individually or at scale.
 
 ## Before you begin
 
@@ -19,18 +19,18 @@ You'll also need the [Contributor](../../role-based-access-control/built-in-role
 
 1. From your browser, sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Azure Arc** page, select **Extended Security Updates** in the left pane:
+1. On the **Azure Arc** page, select **Extended Security Updates** in the left pane.
 
     :::image type="content" source="media/deliver-extended-security-updates/esu-main-window.png" alt-text="Screenshot  of main ESU window showing licenses tab and eligible resources tab.":::
 
     From here, you can view and create ESU **Licenses** and view **Eligible resources** for ESUs.
 
 > [!NOTE]
-> When viewing all your Arc-enabled servers from the **Servers** page, a notification specifies how many Windows 2012 machines are eligible for ESUs. You can then select **View servers in Extended Security Updates** to view a list of resources that are eligible for ESUs, together with machines already ESU enabled.
+> When viewing all your Arc-enabled servers from the **Servers** page, a banner specifies how many Windows 2012 machines are eligible for ESUs. You can then select **View servers in Extended Security Updates** to view a list of resources that are eligible for ESUs, together with machines already ESU enabled.
 > 
 ## Create Azure Arc WS2012 licenses
 
-The first step is to provision Windows Server 2012/R2 Extended Security Update licenses from Azure Arc. You'll link these licenses to selected Arc-enabled servers in the next step.
+The first step is to provision Windows Server 2012 and 2012 R2 Extended Security Update licenses from Azure Arc. You link these licenses to one or more Arc-enabled servers that you select in the next section.
 
 To provision an ESU license, you need to specify the SKU (Standard or Datacenter), type of cores (Physical or vCore), and number of 16-core and 2-core packs to provision an ESU license. You can also provision a deactivated license that won't be billed or functional until billing for extra control. Moreover, the cores associated with the license can be modified after provisioning.
 
@@ -44,9 +44,7 @@ To provision an ESU license, you need to specify the SKU (Standard or Datacenter
 
     :::image type="content" source="media/deliver-extended-security-updates/esu-licenses.png" alt-text="Screenshot showing existing licenses.":::
 
-1. To create a new WS2012 license, select **Create ESUs license**, then complete the fields in the window that appears:
-
-    :::image type="content" source="media/deliver-extended-security-updates/esu-license-create.png" alt-text="Screenshot of the window and fields for creating a license.":::
+1. To create a new WS2012 license, select **Create ESUs license**, then complete the fields in the window that appears.
 
     For guidance in completing this window, see [License provisioning guidelines for Extended Security Updates for Windows Server 2012](license-extended-security-updates.md).
 
@@ -63,15 +61,15 @@ You can select one or more Arc-enabled servers to link to an Extended Security U
 > [!NOTE]
 > Customers have the flexibility to configure their patching solution of choice to receive these updates – whether that’s Update Management Center, WSUS, Microsoft Updates, SCCM, or a 3P patching solution. 
 > 
-1. Select the **Eligible Resources** tab to view a list of all your WS2012 Arc-enabled servers.
+1. Select the **Eligible Resources** tab to view a list of all your Arc-enabled servers running Windows Server 2012 and 2012 R2.
 
     :::image type="content" source="media/deliver-extended-security-updates/esu-eligible-resources.png" alt-text="Screenshot of eligible resources tab showing servers eligible to receive ESUs.":::
 
-    The **ESUs status** column indicates whether or not the WS2012 machine is currently ESUs-enabled.
+    The **ESUs status** column indicates whether or not the machine is ESUs-enabled.
 
-1. To enable ESUs for particular machine, check the boxes for them in the list, then select **Enable ESUs**.
+1.  To enable ESUs for one or more machines, select them in the list, and then select **Enable ESUs**.
     
-    A page appears displaying the number of machines to enable ESU and the existing WS2012 licenses available to apply.
+1.  On the **Enable Extended Security Updates** page, it shows the number of machines selected to enable ESU and the WS2012 licenses available to apply. Select a license to link to the selected machine(s) and then select **Enable**.
 
     :::image type="content" source="media/deliver-extended-security-updates/esu-select-license.png" alt-text="Screenshot of window for selecting the license to apply to previously chosen machines.":::
 
@@ -79,11 +77,8 @@ You can select one or more Arc-enabled servers to link to an Extended Security U
     > You can also create a license from this page by selecting **Create an ESU license**.
     > 
 
-1. Select a license to link to the machine or machines, and then select **Enable**.
+The status of the selected machines changes to **Enabled**.
 
-    The status of the selected machines changes to show they're now ESU enabled.
-
-    :::image type="content" source="media/deliver-extended-security-updates/esu-enabled-resources.png" alt-text="Screenshot of eligible resources tab showing status of enabled for previously selected servers.":::
-
+:::image type="content" source="media/deliver-extended-security-updates/esu-enabled-resources.png" alt-text="Screenshot of eligible resources tab showing status of enabled for previously selected servers.":::
 
 If any problems occur during the enablement process, see [Troubleshoot delivery of Extended Security Updates for Windows Server 2012](troubleshoot-extended-security-updates.md) for assistance.
