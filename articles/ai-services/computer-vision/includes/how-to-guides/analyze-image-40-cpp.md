@@ -53,7 +53,7 @@ Create a new **VisionSource** object from the local image file you want to analy
 
 Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer).
 
-Start by creating a new [ImageSourceBuffer](/cpp/cognitive-services/vision/input-imagesourcebuffer), then get access to its [ImageWriter](/cpp/cognitive-services/input-imagewriter) object and write the image data into it. In the following code example, `imageBuffer` is a variable of type `std::vector<uint8_t>` containing the image data.
+Start by creating a new [ImageSourceBuffer](/cpp/cognitive-services/vision/input-imagesourcebuffer), then get access to its [ImageWriter](/cpp/cognitive-services/vision/input-imagewriter) object and write the image data into it. In the following code example, `imageBuffer` is a variable of type `std::vector<uint8_t>` containing the image data.
 
 ```cpp
   auto imageSourceBuffer = std::make_shared<ImageSourceBuffer>();
