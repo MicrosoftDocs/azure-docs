@@ -46,7 +46,7 @@
   - name: Next hop
     href: network-watcher-next-hop-overview.md
   - name: Connection troubleshoot
-    href: network-watcher-connectivity-overview.md
+    href: connection-troubleshoot-overview.md
   - name: VPN troubleshoot
     href: network-watcher-troubleshoot-overview.md
   - name: Packet capture
