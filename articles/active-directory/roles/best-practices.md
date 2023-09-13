@@ -33,7 +33,7 @@ Follow these steps to help you find the right role.
 
 1. Use the **Service** filter to narrow down the list of roles.
 
-    ![Roles and administrators page in Azure AD with Service filter open](./media/best-practices/roles-administrators.png)
+    :::image type="content" source="media/best-practices/roles-administrators.png" alt-text="Roles and administrators page in admin center with Service filter open." lightbox="media/best-practices/roles-administrators.png":::
 
 1. Refer to the [Azure AD built-in roles](permissions-reference.md) documentation. Permissions associated with each role are listed together for better readability. To understand the structure and meaning of role permissions, see [How to understand role permissions](privileged-roles-permissions.md#how-to-understand-role-permissions).
 
