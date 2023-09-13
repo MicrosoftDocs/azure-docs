@@ -694,8 +694,11 @@
           href: how-to-create-vector-index.md
         - name: How to create an RAG pipeline
           href: how-to-use-pipelines-prompt-flow.md
+        - name: How to secure RAG workflows
+          href: how-to-secure-rag-workflows.md
         - name: RAG cloud to local 
           href: how-to-retrieval-augmented-generation-cloud-to-local.md
+
 - name: Responsibly develop & monitor
   items:
   - name: Responsible AI overview
