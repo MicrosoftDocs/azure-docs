@@ -295,7 +295,7 @@ spec:
 
 ### Consume ConfigMap
 
-Applications running in Kubernetes typically consume the ConfigMap either as environment variables or as configuration files. If the `configMapData.type` property is absent or is set to environment variables, the ConfigMap is populated with the itemized list of data retrieved from Azure App Configuration, which can be easily consumed as environment variables. If the `configMapData.type` property is set to json, yaml or properties, data retrieved from Azure App Configuration is grouped into one item with key name specified by the `configMapData.key` property in the generated ConfigMap, which can be consumed as a mounted file.
+Applications running in Kubernetes typically consume the ConfigMap either as environment variables or as configuration files. If the `configMapData.type` property is absent or is set to default, the ConfigMap is populated with the itemized list of data retrieved from Azure App Configuration, which can be easily consumed as environment variables. If the `configMapData.type` property is set to json, yaml or properties, data retrieved from Azure App Configuration is grouped into one item with key name specified by the `configMapData.key` property in the generated ConfigMap, which can be consumed as a mounted file.
 
 The following examples show how the data is populated in the generated ConfigMap with different settings of the `configMapData.type` property.
 
