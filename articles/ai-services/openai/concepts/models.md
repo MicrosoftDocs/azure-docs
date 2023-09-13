@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 09/05/2023
+ms.date: 09/12/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -52,14 +52,7 @@ Like GPT-4, use the Chat Completions API to use GPT-3.5 Turbo. To learn more abo
 > [!IMPORTANT]
 > We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
 
-
-Currently, we offer three families of Embeddings models for different functionalities:
- The following list indicates the length of the numerical vector returned by the service, based on model capability:
-
-|  Base Model  |  Model(s)  |  Dimensions  |
-|---|---|---|
-| Ada | models ending in -001 (Version 1) | 1024 |
-| Ada | text-embedding-ada-002 (Version 2) | 1536 |
+`text-embedding-ada-002`
 
 ## DALL-E (Preview)
 
@@ -94,11 +87,19 @@ GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can als
 |  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
 | `gpt-35-turbo`<sup>1</sup> (0301) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
-| `gpt-35-turbo` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | N/A | 4,096 | Sep 2021 |
+| `gpt-35-turbo` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | North Central US, Sweden Central | 4,096 | Sep 2021 |
 | `gpt-35-turbo-16k` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | N/A | 16,384 | Sep 2021 |
 
 <sup>1</sup> Version `0301` of gpt-35-turbo will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.
 
+### GPT base
+
+GPT base models can understand and generate natural language or code **but are not trained with instruction following**. These models are intended for fine-tuning and to serve as baseline for testing and evaluating newly created fine-tuned models. `babbage-002` is the replacement for the legacy `ada` and `babbage` base models. `davinci-002` is the replacement for the legacy `curie` and `davinci` base models. GPT base models use the Completions API.
+
+|  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
+| `babbage-002` | North Central US, Sweden Central | North Central US, Sweden Central | 16,385 | Sep 2021 |
+| `davinci-002` | North Central US, Sweden Central | North Central US, Sweden Central | 16,385 | Sep 2021 |
 
 ### Embeddings models
 
@@ -107,10 +108,10 @@ These models can only be used with Embedding API requests.
 > [!NOTE]
 > We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
 
-|  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  | Output dimensions |
 |  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 (version 2) | Canada East, East US, France Central, Japan East, North Central US, South Central US, Switzerland North, UK South, West Europe | N/A |8,191 | Sep 2021 |
-| text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
+| text-embedding-ada-002 (version 2) | Canada East, East US, France Central, Japan East, North Central US, South Central US, Switzerland North, UK South, West Europe | N/A |8,191 | Sep 2021 | 1536 |
+| text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 | 1536 |
 
 ### DALL-E models (Preview)
 
@@ -134,11 +135,11 @@ Azure OpenAI now supports automatic updates for select model deployments. On mod
 
 When **Auto-update to default** is selected your model deployment will be automatically updated within two weeks of a new version being released.
 
-If you are still in the early testing phases for completion and chat completion based models, we recommend deploying models with **auto-update to default** set whenever it is available.
+If you are still in the early testing phases for inference models, we recommend deploying models with **auto-update to default** set whenever it is available.
 
 ### Specific model version
 
-As your use of Azure OpenAI evolves, and you start to build and integrate with applications you will likely want to manually control model updates so that you can first test and validate that model performance is remaining consistent for your use case prior to upgrade.
+As your use of Azure OpenAI evolves, and you start to build and integrate with applications you may want to manually control model updates so that you can first test and validate that model performance is remaining consistent for your use case prior to upgrade.
 
 When you select a specific model version for a deployment this version will remain selected until you either choose to manually update yourself, or once you reach the retirement date for the model. When the retirement date is reached the model will auto-upgrade to the default version at the time of retirement.
 
@@ -156,9 +157,77 @@ To view deprecation/expiration dates for all available models in a given region 
 
 :::image type="content" source="../media/models/column-options.png" alt-text="Screenshot of the models UI of Azure OpenAI Studio." lightbox="../media/models/column-options.png":::
 
+### Model deployment upgrade configuration
+
+There are three distinct model deployment upgrade options which are configurable via REST API:
+
+- `OnceNewDefaultVersionAvailable`
+- `OnceCurrentVersionExpired`
+- `NoAutoUpgrade`
+
+To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0)  
+
+```azurecli-interactive
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments?api-version=2023-05-01
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```acountname``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```resourceGroupName``` | string |  Required | The name of the associated resource group for this model deployment. |
+| ```subscriptionId``` | string |  Required | Subscription ID for the associated subscription. |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format. |
+
+**Supported versions**
+
+- `2023-05-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/1e71ad94aeb8843559d59d863c895770560d7c93/specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2023-05-01/cognitiveservices.json)
+
+### Example response
+
+```json
+{
+      "id": "/subscriptions/{Subcription-GUID}/resourceGroups/{Resource-Group-Name}/providers/Microsoft.CognitiveServices/accounts/{Resource-Name}/deployments/text-davinci-003",
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "name": "text-davinci-003",
+      "sku": {
+        "name": "Standard",
+        "capacity": 60
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "text-davinci-003",
+          "version": "1"
+        },
+        "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
+        "capabilities": {
+          "completion": "true",
+          "search": "true"
+        },
+        "raiPolicyName": "Microsoft.Default",
+        "provisioningState": "Succeeded",
+        "rateLimits": [
+          {
+            "key": "request",
+            "renewalPeriod": 10,
+            "count": 60
+          },
+          {
+            "key": "token",
+            "renewalPeriod": 60,
+            "count": 60000
+          }
+        ]
+      }
+```
+
+You can then take the settings from this list to construct an update model REST API call as described below if you want to modify the deployment upgrade configuration.
+
 ### Update & deploy models via the API
 
-```http
+```azurecli-interactive
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}?api-version=2023-05-01
 ```
 
