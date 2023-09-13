@@ -46,6 +46,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: How to disable events and delete event enabled Azure Health Data Services workspaces
+          - text: How to disable events and delete event enabled workspaces
             url: events-disable-delete-workspace.md
    

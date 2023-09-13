@@ -25,11 +25,11 @@ To disable events from sending event messages for a single **Event Subscription*
 
    :::image type="content" source="media/disable-delete-workspaces/select-event-subscription.png" alt-text="Screenshot of Events Subscriptions and select event subscription to be deleted." lightbox="media/disable-delete-workspaces/select-event-subscription.png":::
 
-2. Select **Delete** and confirm the Event Subscription deletion.
+2. Select **Delete** and confirm the **Event Subscription** deletion.
 
    :::image type="content" source="media/disable-delete-workspaces/select-subscription-delete.png" alt-text="Screenshot of events subscriptions and select delete and confirm the event subscription to be deleted." lightbox="media/disable-delete-workspaces/select-subscription-delete.png":::
 
-3. If you have multiple Event Subscriptions, follow the steps to delete the Event Subscriptions so that no Event Subscriptions remain.
+3. If you have multiple **Event Subscriptions**, follow the steps to delete the **Event Subscriptions** so that no **Event Subscriptions** remain.
 
    :::image type="content" source="media/disable-delete-workspaces/no-event-subscriptions-found.png" alt-text="Screenshot of Event Subscriptions and delete all event subscriptions to disable events." lightbox="media/disable-delete-workspaces/no-event-subscriptions-found.png":::
 
