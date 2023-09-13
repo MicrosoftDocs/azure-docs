@@ -3,15 +3,15 @@ title: API concepts in Privileged Identity management
 description: Information for understanding the APIs in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: how-to
-ms.date: 04/18/2022
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ For requests and other details about PIM APIs, check out:
 
 ## PIM API history
 
-There have been several iterations of the PIM APIs over the past few years. You'll find some overlaps in functionality, but they don't represent a linear progression of versions.
+There have been several iterations of the PIM APIs over the past few years. There are some overlaps in functionality, but they don't represent a linear progression of versions.
 
 ### Iteration 1 – Deprecated
 
@@ -40,7 +40,7 @@ Under the `/beta/privilegedAccess` endpoint, Microsoft supported both `/aadRoles
 
 ### Current iteration – Azure AD roles and groups in Microsoft Graph and Azure resource roles in Azure Resource Manager
 
-Currently, in general availability, this is the final iteration of the PIM APIs. Based on customer feedback, the PIM APIs for managing Azure AD roles are now under the **unifiedRoleManagement** set of APIs and the Azure Resource PIM APIs is now under the Azure Resource Manager role assignment APIs. These locations also provide a few additional benefits including:
+Currently, in general availability, this is the final iteration of the PIM APIs. Based on customer feedback, the PIM APIs for managing Azure AD roles are now under the **unifiedRoleManagement** set of APIs and the Azure Resource PIM APIs is now under the Azure Resource Manager role assignment APIs. These locations also provide a few more benefits including:
 
 - Alignment of the PIM APIs for regular role assignment of both Azure AD roles and Azure Resource roles.
 - Reducing the need to call additional PIM APIs to onboard a resource, get a resource, or get a role definition.
