@@ -30,6 +30,9 @@ Here are a few key factors to help you decide which is the right option for you.
 
 [**Get started with Azure Cosmos DB for MongoDB RU**](./quickstart-python.md)
 
+> [!TIP]
+> Want to try the Azure Cosmos DB for MongoDB RU with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
+
 ### Choose vCore-based if
 
 - You're migrating (lift & shift) an existing MongoDB workload or building a new MongoDB application.
@@ -38,9 +41,6 @@ Here are a few key factors to help you decide which is the right option for you.
 - You're running applications requiring 99.995% availability.
 
 [**Get started with Azure Cosmos DB for MongoDB vCore**](./vcore/quickstart-portal.md)
-
-> [!TIP]
-> Want to try the Azure Cosmos DB for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
 
 ## Resource and billing differences between the options
 

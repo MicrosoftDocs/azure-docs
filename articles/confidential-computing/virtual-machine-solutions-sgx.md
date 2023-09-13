@@ -119,13 +119,13 @@ Under **properties**, you also have to specify an image under **storageProfile**
         "version": "latest"
       },
       "20_04-lts-gen2": {
-        "offer": "0001-com-ubuntu-server-jammy",
+        "offer": "0001-com-ubuntu-server-focal",
         "publisher": "Canonical",
         "sku": "20_04-lts-gen2",
         "version": "latest"
       }
       "22_04-lts-gen2": {
-        "offer": "UbuntuServer",
+        "offer": "0001-com-ubuntu-server-jammy",
         "publisher": "Canonical",
         "sku": "22_04-lts-gen2",
         "version": "latest"
