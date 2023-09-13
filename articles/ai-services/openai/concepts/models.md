@@ -52,6 +52,8 @@ Like GPT-4, use the Chat Completions API to use GPT-3.5 Turbo. To learn more abo
 > [!IMPORTANT]
 > We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
 
+The previous embeddings models have been consolidated into the following new replacement model:
+
 `text-embedding-ada-002`
 
 ## DALL-E (Preview)
