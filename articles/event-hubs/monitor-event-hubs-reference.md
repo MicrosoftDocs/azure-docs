@@ -80,6 +80,9 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 | ------------------- | ----------------- |
 |Entity Name| Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension will see a value of '-NamespaceOnlyMetric-' in addition to all your Event Hubs. This represents request which were made at the namespace level. Examples include a  request to list all Event Hubs under the namespace or requests to entities which failed authentication or authorization.|
 
+Azure Event Hubs now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics.You could use the toggle available on Azure Portal to choose destination tables. 
+
+:::image type="content" source="media/monitor-event-hubs-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-event-hubs-reference/destination-table-toggle.png":::
 ## Resource logs
 [!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
@@ -108,8 +111,8 @@ Name | Description | Supported in Azure Diagnostics | Supported in Resource Spec
 `Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes 
 `Properties` | Metadata that are specific to the data plane operation. | Yes | Yes 
 `Category` | Log category | Yes | NO
- `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
- `Type`  | AZMSOperationalLogs| No | Yes
+ `Provider`|Name of Service emitting the logs e.g., Eventhub | No | Yes 
+ `Type`  | Type of logs emitted | No | Yes
 
 
 Here's an example of a runtime audit log entry:
@@ -168,8 +171,7 @@ Name | Description
 `IncomingBytes` | Details of Publisher throughput sent to Event Hubs
 `OutgoinMessages` | Details of number of messages consumed from Event Hubs. 
 `OutgoingBytes` | Details of Consumer throughput from Event Hubs.
-
-Application Metric logs shares partial common schema to Runtime Audit logs  as shown above. 
+ 
 
 ## Azure Monitor Logs tables
 Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
