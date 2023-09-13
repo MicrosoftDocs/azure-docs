@@ -54,7 +54,8 @@ Different replication designs place different priorities on data consistency, pe
     
 - *Active-passive* replication reserves replicas for live use during failover only. 
     
-    
+>[!NOTE]
+>Most fully featured database systems and other data-storage products and services include some kind of replication, such as geo-redundant storage (GRS), due to their functional and performance requirements.   
 
 ### Building resilient applications  
 
@@ -67,6 +68,8 @@ Depending on your application design, you can use several different strategies a
 Most services that run on Azure platform as a service (PaaS) offerings like [Azure App Service](./reliability-app-service.md) provide features and guidance to support DR. For some scenarios, you can use service-specific features to support fast recovery. For example, Azure SQL Server supports geo-replication for quickly restoring service in another region. Azure App Service has a Backup and Restore feature, and the documentation includes guidance for using Azure Traffic Manager to support routing traffic to a secondary region. 
 
 
-## More information
+## Next steps
+
+- [Disaster recovery guidance by service](./disaster-recovery-guidance-overview.md)
 
 - [Cloud Adaption Framework for Azure - Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery)

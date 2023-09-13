@@ -23,7 +23,7 @@ landingContent:
           - text: Azure reliability guidance by service
             url: reliability-guidance-overview.md
           - text: Azure Service Manager Retirement
-            url: asm-retirement.md
+            url: asm-retirement.md    
   # Card
   - title: Availability zone support
     linkLists:
@@ -50,6 +50,9 @@ landingContent:
             url: business-continuity-management-program.md
           - text: Cross-region pairs
             url: cross-region-replication-azure.md
+          - text: Azure disaster recovery guidance by service
+            url: disaster-recovery-guidance-overview.md
+  
   # Service availability
   - title: Service availability
     linkLists:

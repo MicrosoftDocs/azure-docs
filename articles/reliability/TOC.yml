@@ -162,7 +162,7 @@
     href: disaster-recovery-overview.md
   - name: Business continuity management program
     href: business-continuity-management-program.md
-  - name: Cross-region pairs
+  - name: Cross-region replication
     href: cross-region-replication-azure.md
   - name: Disaster recovery guidance by service
     items:

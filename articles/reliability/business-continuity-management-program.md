@@ -90,5 +90,5 @@ For more information on certifications, see the [Microsoft Trust Center](https:/
 
 ## Next steps
 
-- [Cross-region pairs](./cross-region-replication-azure.md)
-- [Add Reliability guidance overview for Microsoft Azure products and services](./reliability-guidance-overview.md)
+- [Cross-region replication](./cross-region-replication-azure.md)
+- [Reliability guidance overview for Microsoft Azure products and services](./reliability-guidance-overview.md)
