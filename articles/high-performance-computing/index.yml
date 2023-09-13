@@ -82,12 +82,12 @@ productDirectory:
           - title: HPC Workload Orchestration
             #imageSrc: ../high-performance-computing/media/azure-batch.svg
             links:
-             - url: ../batch/batch-technical-overview.md
-               text: Azure Batch
-             - url: /azure/cyclecloud/overview
-               text: Azure CycleCloud
-             - url: /azure/logic-apps/overview
-               text: Azure Logic Apps          
+              - url: ../batch/batch-technical-overview.md
+                text: Azure Batch
+              - url: /azure/cyclecloud/overview
+                text: Azure CycleCloud
+              - url: /azure/logic-apps/overview
+                text: Azure Logic Apps          
     # Card
           - title: HPC Optimization
             #imageSrc: ../high-performance-computing/media/azure-batch.svg
