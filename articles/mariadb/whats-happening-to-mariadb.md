@@ -1,10 +1,22 @@
+---
+title: What's happening to Azure Database for MariaDB?
+description: The Azure Database for MariaDB service is being deprecated.
+author: karla-escobar
+ms.author: karlaescobar
+ms.reviewer: maghan
+ms.date: 09/14/2023
+ms.service: mariadb
+ms.topic: overview
+ms.custom: Deprecation announcement
+---
+
 # __What's happening to Azure Database for MariaDB?__
 
- 
+[[!INCLUDE [azure-database-for-mariadb-deprecation](Includes/azure-database-for-mariadb-deprecation.md)]]
 
 Hello! We have news to share - __Azure Database for MariaDB is on the retirement path__ and Azure Database for MariaDB is scheduled for retirement by __September 19, 2025__.
 
-As part of this retirement, we will no longer support creating new MariaDB server instances from the Azure portal beginning __December 19, 2023__. If you still need to create MariaDB instances to meet business continuity needs, you can leverage [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
+As part of this retirement, we will no longer support creating new MariaDB server instances from the Azure portal beginning __December 19, 2023__. If you still need to create MariaDB instances to meet business continuity needs, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until __March 19, 2024__.
 
 After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for MySQL - Flexible Server.
 
@@ -16,11 +28,11 @@ __Migrate from Single Server to Flexible Server__
 
 Learn how to migrate from Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server.
 
-|Scenario|Tool(s)|Details|
-| -------- | -------- | -------- |
-|Offline|Database Migration Service (classic) and the Azure portal|[Tutorial: DMS (classic) with the Azure portal (offline)](/azure/dms/tutorial-mysql-azure-single-to-flex-offline-portal)|
-|Offline|Azure MySQL Import and the Azure CLI|[Tutorial: Azure MySQL Import with the Azure CLI (offline)](/azure/mysql/migrate/migrate-single-flexible-mysql-import-cli)|
-|Online|Database Migration Service (classic) and the Azure portal|[Tutorial: DMS (classic) with the Azure portal (online)](/azure/dms/tutorial-mysql-azure-single-to-flex-online-portal)|
+| Scenario | Tool(s) | Details |
+| --- | --- | --- |
+| Offline | Database Migration Service (classic) and the Azure portal | [Tutorial: DMS (classic) with the Azure portal (offline)](/azure/dms/tutorial-mysql-azure-single-to-flex-offline-portal) |
+| Offline | Azure MySQL Import and the Azure CLI | [Tutorial: Azure MySQL Import with the Azure CLI (offline)](/azure/mysql/migrate/migrate-single-flexible-mysql-import-cli) |
+| Online | Database Migration Service (classic) and the Azure portal | [Tutorial: DMS (classic) with the Azure portal (online)](/azure/dms/tutorial-mysql-azure-single-to-flex-online-portal) |
 
 For more information on migrating from Single Server to Flexible Server using other migration tools, visit [Select the right tools for migration to Azure Database for MySQL](/azure/mysql/migrate/how-to-decide-on-right-migration-tools).
 
@@ -32,18 +44,18 @@ __Migration Eligibility__
 
 To upgrade to Azure Database for MySQL Flexible Server, it's important to know when you're eligible to migrate your single server. Find the migration eligibility criteria in the below table.
 
-|Single Server configuration not supported in Flexible Server|How and when to migrate?|
-| -------- | -------- |
-|Single servers with Private Link enabled|Private Link for flexible server is available now, and you can start migrating your single server.|
-|Single servers with Cross-Region Read Replicas enabled|Cross-Region Read Replicas for flexible server (for paired region) is available now, and you can start migrating your single server.|
-|Single servers with Query Store enabled|You are eligible to migrate and you can configure slow query logs on the target flexible server by following steps [here](/azure/mysql/flexible-server/tutorial-query-performance-insights). You can then view query insights by using [workbooks template](/azure/mysql/flexible-server/tutorial-query-performance-insights).|
-|Single server deployed in regions where flexible server isn't supported (Learn more about regions [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=mysql)).|Azure Database Migration Service (classic) supports cross-region migration. Deploy your target flexible server in a suitable region and migrate using DMS (classic).|
+| Single Server configuration not supported in Flexible Server | How and when to migrate? |
+| --- | --- |
+| Single servers with Private Link enabled | Private Link for flexible server is available now, and you can start migrating your single server. |
+| Single servers with Cross-Region Read Replicas enabled | Cross-Region Read Replicas for flexible server (for paired region) is available now, and you can start migrating your single server. |
+| Single servers with Query Store enabled | You are eligible to migrate and you can configure slow query logs on the target flexible server by following steps [here](/azure/mysql/flexible-server/tutorial-query-performance-insights). You can then view query insights by using [workbooks template](/azure/mysql/flexible-server/tutorial-query-performance-insights). |
+| Single server deployed in regions where flexible server isn't supported (Learn more about regions [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=mysql)). | Azure Database Migration Service (classic) supports cross-region migration. Deploy your target flexible server in a suitable region and migrate using DMS (classic). |
 
 __Frequently Asked Questions (FAQs)__
 
 __Q. Why is Azure Database for MySQL-Single Server being retired?__
 
-__A.__ Azure Database for MySQL – Single Server became Generally Available (GA) in 2018. However, given customer feedback and new advancements in the computation, availability, scalability and performance capabilities in the Azure database landscape, the Single Server offering needs to be retired and upgraded with a new architecture – Azure Database for MySQL Flexible Server to bring you the best of Azure’s open-source database platform.
+__A.__ Azure Database for MySQL – Single Server became Generally Available (GA) in 2018. However, given customer feedback and new advancements in the computation, availability, scalability and performance capabilities in the Azure database landscape, the Single Server offering needs to be retired and upgraded with a new architecture – Azure Database for MySQL Flexible Server to bring you the best of Azure's open-source database platform.
 
 __Q. Why am I being asked to migrate to Azure Database for MySQL - Flexible Server?__
 
@@ -69,7 +81,7 @@ __A.__ Unfortunately, we don't plan to support Single Server beyond the sunset 
 
 __Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?__
 
-__A.__ As part of this retirement, we will no longer support creating new Single Server instances from the Azure portal beginning __January 16, 2023__. If you still need to create Single Server instances to meet business continuity needs, you can leverage [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli). Additionally, you can still use your Terraform template to create single server instances.
+__A.__ As part of this retirement, we will no longer support creating new Single Server instances from the Azure portal beginning __January 16, 2023__. If you still need to create Single Server instances to meet business continuity needs, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli). Additionally, you can still use your Terraform template to create single server instances.
 
 __Q. After the Single Server retirement announcement, what if I still need to create a new read replica for my single server instance?__
 
@@ -91,15 +103,15 @@ __Q. Will there be future updates to Single Server to support latest MySQL versi
 
 __A.__ The last minor version upgrade to Single Server version 8.0 will be 8.0.15. Consider migrating to Flexible Server to use the benefits of the latest version upgrades.
 
-__Q. How does the flexible server’s 99.99% availability SLA differ from that of single server?__
+__Q. How does the flexible server's 99.99% availability SLA differ from that of single server?__
 
-__A.__ Flexible server’s zone-redundant deployment provides 99.99% availability with zonal-level resiliency whereas the single server provides resiliency in a single availability zone. Flexible Server’s High Availability (HA) architecture deploys a warm standby with redundant compute and storage (with each site’s data stored in 3x copies) as compared to single server’s HA architecture, which doesn't have a passive hot standby to help recover from zonal failures. The flexible server’s HA architecture enables reduced downtime during unplanned outages and planned maintenance.
+__A.__ Flexible server's zone-redundant deployment provides 99.99% availability with zonal-level resiliency whereas the single server provides resiliency in a single availability zone. Flexible Server's High Availability (HA) architecture deploys a warm standby with redundant compute and storage (with each site's data stored in 3x copies) as compared to single server's HA architecture, which doesn't have a passive hot standby to help recover from zonal failures. The flexible server's HA architecture enables reduced downtime during unplanned outages and planned maintenance.
 
 __Q. What migration options are available to help me migrate my single server to a flexible server?__
 
 __A.__ You can use Database Migration Service (classic) to run [online](/azure/dms/tutorial-mysql-azure-single-to-flex-online-portal) or [offline](/azure/dms/tutorial-mysql-azure-single-to-flex-offline-portal) migrations (recommended). In addition, you can use community tools such as m[ydumper/myloader together with Data-in replication](/azure/mysql/migrate/how-to-migrate-single-flexible-minimum-downtime) to perform migrations.
 
-__Q. My single server is deployed in a region that doesn’t support flexible server. How should I proceed with migration?__
+__Q. My single server is deployed in a region that doesn't support flexible server. How should I proceed with migration?__
 
 __A.__ Azure Database Migration Service (classic) supports cross-region migration, so you can select a suitable region for your target flexible server and then proceed with DMS (classic) migration.
 
@@ -117,7 +129,7 @@ __A.__ To support modern security standards, MySQL community edition has discon
 
 __Q. Is there an option to rollback a Single Server to Flexible Server migration?__
 
-__A.__ You can perform any number of test migrations, and after gaining confidence through testing, perform the final migration. A test migration doesn’t affect the source single server, which remains operational and continues replicating until you perform the actual migration. If there are any errors during the test migration, you can choose to postpone the final migration and keep your source server running. You can then reattempt the final migration after you resolve the errors. After you've performed a final migration to Flexible Server and the source single server has been shut down, you can't perform a rollback from Flexible Server to Single Server.
+__A.__ You can perform any number of test migrations, and after gaining confidence through testing, perform the final migration. A test migration doesn't affect the source single server, which remains operational and continues replicating until you perform the actual migration. If there are any errors during the test migration, you can choose to postpone the final migration and keep your source server running. You can then reattempt the final migration after you resolve the errors. After you've performed a final migration to Flexible Server and the source single server has been shut down, you can't perform a rollback from Flexible Server to Single Server.
 
 __Q. The size of my database is greater than 1 TB, so how should I proceed with an Azure Database Migration Service initiated migration?__
 
@@ -141,7 +153,7 @@ Yes, migration from lower version MySQL servers (v5.6 and above) to higher versi
 
 __Q. I have further questions on retirement. How can I get assistance around it?__
 
-__A.__ If you have questions, get answers from community experts in [Microsoft Q&A.](https://aka.ms/microsoft-azure-mysql-qa) If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest): 
+__A.__ If you have questions, get answers from community experts in [Microsoft Q&A.](https://aka.ms/microsoft-azure-mysql-qa) If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 
 1.     For _Summary_, type a description of your issue.
 
@@ -177,9 +189,4 @@ __Next steps__
 
 ·       [What is Flexible Server](/azure/mysql/flexible-server/overview)
 
- 
-
  iaDB?
-
-
-
