@@ -13,7 +13,7 @@ ms.date: 09/04/2023
 
 The new Log Analytics features a simplified user interface and two modes for working with log data: simple and advanced. 
 
-Simple mode provides a spreadsheet-like experience to get you started quickly. Similar to working in Excel, you can navigate your data and apply a set of operators without writing any KQL. For more complex analysis, switch to advanced mode and take advantage of Azure Monitor's full data analysis capabilities.
+Simple mode provides a spreadsheet-like experience to get you started quickly. Similar to working in Excel, you can navigate your data and apply a set of operators without writing Kusto Query Language (KQL). For more complex analysis, switch to advanced mode and take advantage of Azure Monitor's full data analysis capabilities.
 
 This article explains the new Log Analytics interface and how to use simple and advanced modes to explore and analyze data in Azure Monitor Logs.     
 
@@ -27,19 +27,11 @@ The new Log Analytics is currently in preview and available to a limited number 
 
 To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
 
-When you begin to query logs in simple mode and then switch to advanced mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
-
+When you begin to query logs in simple mode and then switch to advanced mode, the query editor is pre-populated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 
 ## Query in simple mode 
-
-Select a table
-
-Simple mode provides an easy, spreadsheet-like experience for navigating your logs and arriving at insights in Log Analytics, without writing queries. Similar to working with data in Excel, you can scroll through entries, search for specific values, filter and sort, hide columns you don't need, and aggregate data, all without any query language expertise.
-
-Advanced mode provides a full-featured query editor for writing and running queries. You can use the query editor to write queries in Kusto Query Language (KQL) to analyze your log data. You can also use the query editor to write queries in Power Query Formula Language (PQFL) to transform your log data.
-
 
 **Select a table to view log data**
 
@@ -56,15 +48,39 @@ Advanced mode provides a full-featured query editor for writing and running quer
     
 **Search for entries that have a specific value in the table**
 
+1. Select **Search**.
+1. Enter a value in the **Search this table** box and select **Apply**.
 
+    Log Analytics filters the table to show only entries that contain the value you entered.
 
 **Aggregate**
 
-**Show columns**
+1. Select **Aggregate**.
+1. Select a column to aggregate by.
+1. 
 
-**Sort**
+**Show or hide columns**
 
-Log Analytics presents up to 1000 entries in the table from the last 24 hours. You can change the time range and the number of records displayed using the **Time range** and **Limit** cards.
+1. Select **Show columns**.
+1. Select or clear columns to show or hide them, then select **Apply**.
+1. Select an operator to aggregate by.
+
+
+| Operator | Description |
+|:---|:---|
+|count|Counts the number of times each distinct value exists in the column.|
+|dcount|For the `dcount` operator, you select two columns. The operator counts the total number of distinct values in the second column correlated to each value in the first column. For example, this shows the distinct number of result codes for successful and failed operations:<br/> :::image type="content" source="media/log-analytics-explorer/log-analytics-dcount.png" alt-text="Screenshot that shows the result of an aggregation using the dcount operator in Azure Monitor Log Analytics.":::  |
+|sum|For the `sum` operator, you select two columns. The second column must contain only numeric values. The operator calculates the sum of all values in the second column for each value in the first column. For example, this shows the total duration of each operation in milliseconds for the past 24 hours:<br/>:::image type="content" source="media/log-analytics-explorer/log-analytics-sum.png" alt-text="Screenshot that shows the results of an aggregation using the sum operator in Azure Monitor Log Analytics.":::  |
+|avg||
+|max||    
+|min||
+
+**Sort by column**
+
+1. Select **Sort**.
+1. Select a column to sort by.
+1. Select **Ascending** or **Descending**, then select **Apply**.  
+1. Select **Sort** again to sort by another column.
 
 ## Log Analytics interface
 
