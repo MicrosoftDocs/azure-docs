@@ -44,6 +44,9 @@ items:
       tocHref: /azure/azure-sql/database/
       topicHref: /azure/reliability/index
     - name: Reliability
+      tocHref: /azure/databox/
+      topicHref: /azure/reliability/index
+    - name: Reliability
       tocHref: /azure/route-server/
       topicHref: /azure/reliability/index
     - name: Reliability
@@ -198,4 +201,13 @@ items:
       topicHref: /azure/reliability/index
     - name: Reliability
       tocHref: /azure/energy-data-services/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/migrate/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/media-services/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/data-share/
       topicHref: /azure/reliability/index
