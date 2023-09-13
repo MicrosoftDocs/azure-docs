@@ -64,14 +64,14 @@ productDirectory:
               text: HPC Deployments
     # Card
           - title: HPC Compute
-          #imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
-          links:
-            - url: ../virtual-machines/sizes-hpc.md
-              text: High Performance VMs 
-            - url: ../virtual-machines/sizes-gpu.md
-              text: GPU Accelarated VMs
-            - url: ../virtual-machines/hx-series.md
-              text: Memory Optimized VMs
+            #imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
+            links:
+              - url: ../virtual-machines/sizes-hpc.md
+                text: High Performance VMs 
+              - url: ../virtual-machines/sizes-gpu.md
+                text: GPU Accelarated VMs
+              - url: ../virtual-machines/hx-series.md
+                text: Memory Optimized VMs
     # Card
         - title: HPC Storage
           #imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
