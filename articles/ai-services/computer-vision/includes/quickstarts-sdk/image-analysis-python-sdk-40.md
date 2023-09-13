@@ -59,9 +59,9 @@ Use the Image Analysis client SDK for Python to analyze a remote image to read t
     python quickstart.py
     ```
 
-
-
 ## Output
+
+The console output should show something similar to the following text:
 
 ```console
 Caption:

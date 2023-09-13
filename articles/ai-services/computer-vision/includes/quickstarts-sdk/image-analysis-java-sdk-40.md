@@ -24,7 +24,7 @@ Use the Image Analysis client SDK for Java to analyze an image to read text and 
 ## Prerequisites
 
 * A Windows 10 (or higher) x64, or Linux x64 machine.
-* [Java 8](https://www.java.com/download/) or newer installed. Run `java -version` from a command line to see your version and confirm a successful install. Make sure that the Java installation is native to the system architecture (e.g. Linux x64) and not running through emulation.
+* [Java 8](https://www.java.com/download/) or newer installed. Run `java -version` from a command line to see your version and confirm a successful install. Make sure that the Java installation is native to the system architecture and not running through emulation.
 * [Apache Maven](https://maven.apache.org/download.cgi) installed. On Linux, install from the distribution repositories if available. Run `mvn -v` to confirm successful installation.
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, select **Go to resource**.
@@ -36,7 +36,7 @@ Use the Image Analysis client SDK for Java to analyze an image to read text and 
 
 Open a console window and create a new folder for your quickstart application.
 
-1. Open a text editor and copy the content below to a new file. Save the file as `pom.xml` in your project directory
+1. Open a text editor and copy the following content to a new file. Save the file as `pom.xml` in your project directory
 
 [!INCLUDE][](https://raw.githubusercontent.com/Azure-Samples/azure-ai-vision-sdk/main/docs/learn.microsoft.com/java/image-analysis/quick-start/pom.xml)]
 
@@ -52,7 +52,7 @@ For more information, see the [SDK installation guide](../../sdk/install-sdk.md?
 
 ## Analyze Image
 
-Open a text editor and copy the content below to a new file. Save the file as `ImageAnalysis.java`
+Open a text editor and copy the following content to a new file. Save the file as `ImageAnalysis.java`
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/quick-start/ImageAnalysis.java?name=snippet_single)]
 
@@ -67,7 +67,8 @@ java -cp ".;target\dependency\*" ImageAnalysis
 
 ## Output
 
-The output should be similar to the following:
+The console output should show something similar to the following text:
+
 ```console
 Caption:
    "a person pointing at a screen", Confidence 0.4892

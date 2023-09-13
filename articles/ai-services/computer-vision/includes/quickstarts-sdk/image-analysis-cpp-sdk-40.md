@@ -67,6 +67,8 @@ Then, compile and run the application by selecting **Start Debugging** from the 
 
 ## Output
 
+The console output should show something similar to the following text:
+
 ```console
 Caption:
    "a person pointing at a screen", Confidence 0.489159
