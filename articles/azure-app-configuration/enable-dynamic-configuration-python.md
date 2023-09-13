@@ -84,6 +84,20 @@ A *sentinel key* is a key that you update after you complete the change of all o
     print(config["Sentinel"])
     ```
 
+1. Run your script:
+
+    ```cli
+    python app.py
+    ```
+
+1. Verify Output:
+
+    ```cli
+    Hello World!
+    1
+    Hello World Updated!
+    2
+    ```
 
 ## Next steps
 
