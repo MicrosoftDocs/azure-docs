@@ -51,7 +51,7 @@ The following images show how Azure AD CBA simplifies the customer environment b
 The following scenarios are supported:
 
 - User sign-ins to web browser-based applications on all platforms.
-- User sign-ins to Office mobile apps, including Outlook, OneDrive, and so on.
+- User sign-ins to Office mobile apps on iOS/Android platforms as well as Office native apps in Windows, including Outlook, OneDrive, and so on.
 - User sign-ins on mobile native browsers.
 - Support for granular authentication rules for multifactor authentication by using the certificate issuer **Subject** and **policy OIDs**.
 - Configuring certificate-to-user account bindings by using any of the certificate fields:
