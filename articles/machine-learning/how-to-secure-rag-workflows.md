@@ -40,7 +40,7 @@ Depending on your setup and scenario, RAG workflows in Azure Machine Learning ma
 
    The Azure Machine Learning workspace creates a private endpoint in the related resource with autoapprove. If the status is stuck in pending, go to related resource to approve the private endpoint manually.
 
-:::image type="content" source="./media/how-to-secure-rag-workflows/add-private-cognitive-services.png" alt-text="Screenshot showing the location in Azure Studio to add private cognitive services user outbound rule." lightbox="./media/how-to-secure-rag-workflows/add-private-cognitive-services.png":::
+   :::image type="content" source="./media/how-to-secure-rag-workflows/add-private-cognitive-services.png" alt-text="Screenshot showing the location in Azure Studio to add private cognitive services user outbound rule." lightbox="./media/how-to-secure-rag-workflows/add-private-cognitive-services.png":::
 
 4. Navigate to the settings of the storage account associated with your workspace. Select **Access Control (IAM)** in the left-hand menu. Select **Add Role Assignment**. Add **Storage Table Data Contributor** and **Storage Blob Data Contributor** access to Workspace Managed Identity. This can be done typing **Storage Table Data Contributor** and **Storage Blob Data Contributor** into the search bar. You'll need to complete this step and the next step twice. Once for Blob Contributor and the second time for Table Contributor. 
 
