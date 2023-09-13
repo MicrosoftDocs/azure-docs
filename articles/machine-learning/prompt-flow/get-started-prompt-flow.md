@@ -233,13 +233,13 @@ To understand how this accuracy was calculated, you can view the evaluation resu
 
 :::image type="content" source="./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png" alt-text="Screenshot of Web classification batch run detail page on the output tab." lightbox = "./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png":::
 
-You can adjust column width, hide/unhide columns, and select **Export** to download a csv file of the batch run outputs for further investigation. 
+You can adjust column width, hide/unhide columns, and select **Export** to download a csv file of the batch run outputs for further investigation.
 
 As you might know, accuracy isn't the only metric that can evaluate a classification task, for example you can also use recall to evaluate. In this case, you can select **New evaluation**, choose other evaluation methods to evaluate.
 
 ## Deployment
 
-After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference. You can refer to [this article](how-to-deploy-for-real-time-inference.md) for a detailed guidance.
+After you build a flow and test it properly, you may want to [deploy it as an endpoint so that you can invoke the endpoint for real-time inference.](how-to-deploy-for-real-time-inference.md)
 
 ### Configure the endpoint
 
