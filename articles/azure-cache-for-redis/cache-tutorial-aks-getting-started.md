@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started with connecting your AKS application to Azure Cache for Redis'
-description: In this tutorial, you learn how to connect your AKS hosted application to Azure Cache for Redis.
+title: 'Tutorial: Get started connecting an AKS application to a cache'
+description: In this tutorial, you learn how to connect your AKS-hosted application to an Azure Cache for Redis instance.
 author: flang-msft
 
 ms.author: franlanglois
@@ -41,6 +41,8 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 Creating the cache can take a few minutes. You can move to the next section while the process finishes.
 
 ## Install and connect to your AKS cluster
+
+In this section, you first install the Kubernetes CLI and then connect to an AKS cluster.
 
 ### Install the Kubernetes CLI
 
