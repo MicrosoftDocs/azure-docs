@@ -22,7 +22,7 @@ Download for [Windows](https://download.microsoft.com/download/b/3/2/b3220316-13
 
 ### New features
 
-- [Extended Security Updates for Windows Server 2012 and 2012 R2](prepare-extended-security-updates.md) can purchased and enabled through Azure Arc. If your server is already running the Azure Connected Machine agent, [upgrade to agent version 1.34](manage-agent.md#upgrade-the-agent) or later to take advantage of this new capability.
+- [Extended Security Updates for Windows Server 2012 and 2012 R2](prepare-extended-security-updates.md) can be purchased and enabled through Azure Arc. If your server is already running the Azure Connected Machine agent, [upgrade to agent version 1.34](manage-agent.md#upgrade-the-agent) or later to take advantage of this new capability.
 - Additional system metadata is collected to enhance your device inventory in Azure:
   - Total physical memory
   - Additional processor information
