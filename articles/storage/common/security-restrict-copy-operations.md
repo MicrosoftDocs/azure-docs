@@ -5,6 +5,7 @@ description: Learn how to use the "Permitted scope for copy operations (preview)
 author: jimmart-dev
 ms.author: jammart
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.reviewer: santoshc 

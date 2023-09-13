@@ -26,8 +26,8 @@ In this article, you learn how to prevent users from signing in to an applicatio
 
 To disable user sign-in, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: An administrator, or owner of the service principal.
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 ## Disable user sign-in
 
@@ -35,9 +35,8 @@ To disable user sign-in, you need:
 
 :::zone pivot="portal"
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator for your directory.
-1. Search for and select **Azure Active Directory**.
-1. Select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. Search for the application you want to disable a user from signing in, and select the application.
 1. Select **Properties**.
 1. Select **No** for **Enabled for users to sign-in?**.
@@ -49,11 +48,11 @@ To disable user sign-in, you need:
 
 You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being preauthorized by Microsoft. You can manually create the service principal for the app and then disable it by using the following Microsoft Graph PowerShell cmdlet.
 
-Ensure you've installed the AzureAD module (use the command `Install-Module -Name AzureAD`). In case you're prompted to install a NuGet module or the new Azure AD V2 PowerShell module, type Y and press ENTER.
+Ensure you've installed the AzureAD module (use the command `Install-Module -Name AzureAD`). In case you're prompted to install a NuGet module or the new Azure AD V2 PowerShell module, type Y and press ENTER. You need to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 ```PowerShell
 # Connect to Azure AD PowerShell
-Connect-AzureAD -Scopes "Application.ReadWrite.All"
+Connect-AzureAD -Scopes
 
 # The AppId of the app to be disabled
 $appId = "{AppId}"
@@ -74,7 +73,7 @@ if ($servicePrincipal) {
 
 You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being preauthorized by Microsoft. You can manually create the service principal for the app and then disable it by using the following Microsoft Graph PowerShell cmdlet.
 
-Ensure you've installed the Microsoft Graph module (use the command `Install-Module Microsoft.Graph`).
+Ensure you've installed the Microsoft Graph module (use the command `Install-Module Microsoft.Graph`). You need to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 ```powershell
 # Connect to Microsoft Graph PowerShell
@@ -98,7 +97,7 @@ else {  $servicePrincipal = New-MgServicePrincipal -AppId $appId –AccountEnabl
 
 You may know the AppId of an app that doesn't appear on the Enterprise apps list. For example, you may have deleted the app or the service principal hasn't yet been created due to the app being preauthorized by Microsoft. You can manually create the service principal for the app and then disable it by using the following Microsoft Graph PowerShell cmdlet.
 
-To disable sign-in to an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
+To disable sign-in to an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 You need to consent to the `Application.ReadWrite.All` permission.
 

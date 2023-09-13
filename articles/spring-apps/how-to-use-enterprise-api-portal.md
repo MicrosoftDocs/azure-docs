@@ -24,10 +24,6 @@ This article shows you how to use API portal for VMware Tanzu® with the Azure S
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan instance with API portal enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > To use API portal, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
-
 - [Spring Cloud Gateway for Tanzu](./how-to-use-enterprise-spring-cloud-gateway.md) is enabled during provisioning and the corresponding API metadata is configured.
 
 ## Configure API portal
@@ -39,7 +35,7 @@ The following sections describe configuration in API portal.
 API portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
-> Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
+> Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the API portal. Refer to your authorization server's documentation and add `https://<api-portal-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
 
 | Property | Required? | Description |
 | - | - | - |
@@ -52,9 +48,6 @@ To set up SSO with Azure AD, see [How to set up single sign-on with Azure AD for
 
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
-
-> [!IMPORTANT]
-> If you're using the SSO feature, only one instance count is supported.
 
 ### Configure the instance count
 

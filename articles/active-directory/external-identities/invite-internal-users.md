@@ -40,21 +40,20 @@ Sending an invitation to an existing internal account lets you retain that user�
 > In Azure AD Connect sync, there’s a default rule that writes the onPremisesUserPrincipalName attribute to the user object. Because the presence of this attribute can prevent a user from signing in using external credentials, we block internal-to-external conversions for user objects with this attribute. If you’re using Azure AD Connect and you want to be able to invite internal users to B2B collaboration, you'll need to [modify the default rule](../hybrid/connect/how-to-connect-sync-change-the-configuration.md) so the onPremisesUserPrincipalName attribute isn’t written to the user object.
 ## How to invite internal users to B2B collaboration
 
-You can use the Azure portal, PowerShell, or the invitation API to send a B2B invitation to the internal user. Some things to note:
+You can use the Microsoft Entra admin center, PowerShell, or the invitation API to send a B2B invitation to the internal user. Some things to note:
 
-- Before you invite the user, make sure the `User.Mail` property of the internal user object (the user's **Email** property in the Azure portal) is set to the external email address they'll use for B2B collaboration. If the internal user has an existing mailbox, you can't change this property to an external email address. You must update their attributes in the [Exchange admin center](/exchange/exchange-admin-center).
+- Before you invite the user, make sure the `User.Mail` property of the internal user object (the user's **Email** property in the Microsoft Entra admin center) is set to the external email address they'll use for B2B collaboration. If the internal user has an existing mailbox, you can't change this property to an external email address. You must update their attributes in the [Exchange admin center](/exchange/exchange-admin-center).
 
 - When you invite the user, an invitation is sent to the user via email. If you're using PowerShell or the invitation API, you can suppress this email by setting `SendInvitationMessage` to `False`. Then you can notify the user in another way. [Learn more about the invitation API](customize-invitation-api.md).
 
 - When the user redeems the invitation, the account they're using must match the domain in the `User.Mail` property. Otherwise, some services, such as Teams, won't be able to authenticate the user.
 
-## Use the Azure portal to send a B2B invitation
+## Use the Microsoft Entra admin center to send a B2B invitation
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or User administrator account for the directory.
-1. Select the **Azure Active Directory** service.
-1. Select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [External Identity Provider administrator](../roles/permissions-reference.md#external-identity-provider-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. Find the user in the list or use the search box. Then select the user.
 1. In the **Overview** tab, under **My Feed**, select **Convert to external user**. 
 

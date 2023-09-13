@@ -15,7 +15,7 @@ sections:
   - name: Availability and onboarding
     questions:      
       - question: I’m getting an error while onboarding APIs to Defender for APIs from the Recommendations page.
-        answer: If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", or "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-apis-introduction). 
+        answer: If you encounter errors like "Access Denied", "Forbidden", "Role Assignment not found", or "Authorization Failed", ensure that you have the right level of permission for the Azure API Management service and Microsoft Defender for Cloud. Required set of permissions can be found [here](/azure/defender-for-cloud/defender-for-apis-introduction). 
                 The error "Request Header or Cookie Too Large" can typically be fixed by clearing all cookies; clear your browser cookies and try the operation again.
 
       - question: Does onboarding APIs to Defender for APIs affect my Azure API Management service?
@@ -26,9 +26,6 @@ sections:
 
   - name: Questions related to region/geo 
     questions:
-      - question: Does Defender for APIs move API traffic data out of my region/geo?
-        answer: Defender for APIs doesn't move API traffic out of customer’s region or geo. All the data processed will always remain within the customer onboarded geo. In terms of data retention, Defender for APIs doesn't store API payloads for more than 48 hours.
-
       - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?
         answer: APIs that are moved from one region to another region require [offboarding](defender-for-apis-manage.md#offboard-an-api) and [onboarding](defender-for-apis-deploy.md) of the APIs.
 

@@ -4,7 +4,7 @@ description: This article discusses best practices to consider during the implem
 author: TerryLanfear
 manager: rkarlin
 ms.author: terrylan
-ms.date: 01/22/2023
+ms.date: 08/30/2023
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -26,7 +26,7 @@ The following SDL phases are covered in this article:
 
 ## Implementation
 
-The focus of the implementation phase is to establish best practices for early prevention and to detect and remove security issues from the code. Assume that your application will be used in ways that you didn't intend it to be used. This helps you guard against accidental or intentional misuse of your application.
+The focus of the implementation phase is to establish best practices for early prevention and to detect and remove security issues from the code. Assume that your application is used in ways that you didn't intend it to be used. This helps you guard against accidental or intentional misuse of your application.
 
 ### Perform code reviews
 
@@ -34,7 +34,7 @@ Before you check in code, conduct code reviews to increase overall code quality 
 
 ### Perform static code analysis
 
-[Static code analysis](https://owasp.org/www-community/controls/Static_Code_Analysis) (also known as *source code analysis*) is usually performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in non-running code by using techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Static code analysis](https://owasp.org/www-community/controls/Static_Code_Analysis) (also known as *source code analysis*) is performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in nonrunning code. Static code analysis uses techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace offers [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) that perform static code analysis and assist with code reviews.
 
@@ -62,7 +62,7 @@ Any output that you present either visually or within a document should always b
 
 Escaping makes sure that everything is displayed as *output.* Escaping also lets the interpreter know that the data isn't intended to be executed, and this prevents attacks from working. This is another common attack technique called *cross-site scripting* (XSS).
 
-If you are using a web framework from a third party, you can verify your options for output encoding on websites by using the [OWASP XSS prevention cheat sheet](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md).
+If you're using a web framework from a third party, you can verify your options for output encoding on websites by using the [OWASP XSS prevention cheat sheet](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md).
 
 ### Use parameterized queries when you contact the database
 
@@ -77,7 +77,7 @@ See [removing standard server headers on Azure websites](https://azure.microsoft
 
 ### Segregate your production data
 
-Your production data, or "real" data, should not be used for development, testing, or any other purpose than what the business intended. A masked ([anonymized](https://en.wikipedia.org/wiki/Data_anonymization)) dataset should be used for all development and testing.
+Your production data, or "real" data, shouldn't be used for development, testing, or any other purpose than what the business intended. A masked ([anonymized](https://en.wikipedia.org/wiki/Data_anonymization)) dataset should be used for all development and testing.
 
 This means fewer people have access to your real data, which reduces your attack surface. It also means fewer employees see personal data, which eliminates a potential breach in confidentiality.
 
@@ -102,7 +102,7 @@ Antimalware protection helps identify and remove viruses, spyware, and other mal
 
 ### Don't cache sensitive content
 
-Don't cache sensitive content on the browser. Browsers can store information for caching and history. Cached files are stored in a folder like the Temporary Internet Files folder, in the case of Internet Explorer. When these pages are referred to again, the browser displays the pages from its cache. If sensitive information (address, credit card details, Social security number, username) is displayed to the user, the information might be stored in the browser's cache and be retrievable by examining the browser's cache or by simply pressing the browser's **Back** button.
+Don't cache sensitive content on the browser. Browsers can store information for caching and history. Cached files are stored in a folder like the Temporary Internet Files folder, in the case of Internet Explorer. When these pages are referred to again, the browser displays the pages from its cache. If sensitive information (address, credit card details, Social security number, username) is displayed to the user, the information might be stored in the browser's cache and be retrievable by examining the browser's cache or by pressing the browser's **Back** button.
 
 ## Verification
 
@@ -114,9 +114,9 @@ You scan your application and its dependent libraries to identify any known vuln
 
 ### Test your application in an operating state
 
-Dynamic application security testing (DAST) is a process of testing an application in an operating state to find security vulnerabilities. DAST tools analyze programs while they are executing to find security vulnerabilities such as memory corruption, insecure server configuration, cross-site scripting, user privilege issues, SQL injection, and other critical security concerns.
+Dynamic application security testing (DAST) is a process of testing an application in an operating state to find security vulnerabilities. DAST tools analyze programs while they're executing to find security vulnerabilities such as memory corruption, insecure server configuration, cross-site scripting, user privilege issues, SQL injection, and other critical security concerns.
 
-DAST is different from static application security testing (SAST). SAST tools analyze source code or compiled versions of code when the code is not executing in order to find security flaws.
+DAST is different from static application security testing (SAST). SAST tools analyze source code or compiled versions of code when the code isn't executing in order to find security flaws.
 
 Perform DAST, preferably with the assistance of a security professional (a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
 
@@ -130,7 +130,7 @@ In [fuzz testing](https://www.microsoft.com/security/blog/2007/09/20/fuzz-testin
 
 Reviewing the attack surface after code completion helps ensure that any design or implementation changes to an application or system has been considered. It helps ensure that any new attack vectors that were created as a result of the changes, including threat models, has been reviewed and mitigated.
 
-You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Zed Attack Proxy Project](https://owasp.org/www-project-zap/), [Arachni](http://arachni-scanner.com/), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Attack Surface Detector](https://owasp.org/www-project-attack-surface-detector/), [Arachni](http://arachni-scanner.com/), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
 ### Perform security penetration testing
 

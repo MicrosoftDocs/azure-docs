@@ -187,13 +187,12 @@ To update the configuration server, run the [unified setup](service-updates-how-
 
 ## Azure Active Directory application creation failure
 
-You have insufficient permissions to create an application in Azure Active Directory (AAD) using the [Open Virtualization Application (OVA)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template
-) template.
+You have insufficient permissions to create an application in Azure Active Directory (Azure AD) using the [Open Virtualization Application (OVA)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) template.
 
 To resolve the issue, sign in to the Azure portal and do one of the following:
 
-- Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
-- Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+- Request the Application Developer role in Azure AD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
+- Verify that the **User can create application** flag is set to *true* in Azure AD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Process server/Master Target are unable to communicate with the configuration server 
 
