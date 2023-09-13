@@ -80,10 +80,13 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 | ------------------- | ----------------- |
 |Entity Name| Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension will see a value of '-NamespaceOnlyMetric-' in addition to all your Event Hubs. This represents request which were made at the namespace level. Examples include a  request to list all Event Hubs under the namespace or requests to entities which failed authentication or authorization.|
 
+
+## Resource logs
+
 Azure Event Hubs now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics.You could use the toggle available on Azure Portal to choose destination tables. 
 
 :::image type="content" source="media/monitor-event-hubs-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-event-hubs-reference/destination-table-toggle.png":::
-## Resource logs
+
 [!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 
@@ -171,6 +174,8 @@ Name | Description
 `IncomingBytes` | Details of Publisher throughput sent to Event Hubs
 `OutgoinMessages` | Details of number of messages consumed from Event Hubs. 
 `OutgoingBytes` | Details of Consumer throughput from Event Hubs.
+`OffsetCommit` | Number of offset commit calls made to the event hub 
+`OffsetFetch` | Number of offset fetch calls made to the event hub.
  
 
 ## Azure Monitor Logs tables
