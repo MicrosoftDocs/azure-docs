@@ -30,13 +30,13 @@
       href: manage-data-dotnet.md
 - name: Tutorials
   items:
-    - name: 1 - Create and manage data
+    - name: Create and manage data
       href: create-account-java.md
-    - name: 2 - Load data
+    - name: Load data
       href: load-data-table.md
-    - name: 3 - Query data
+    - name: Query data
       href: query-data.md
-    - name: 4 - Migrate data
+    - name: Migrate data
       displayName: import
       href: migrate-data.md
     - name: Create Jupyter notebooks
