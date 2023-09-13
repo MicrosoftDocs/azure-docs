@@ -219,29 +219,27 @@ When completed, select the link, go to batch run detail page.
 
 :::image type="content" source="./media/get-started-prompt-flow/batch-run-status.png" alt-text="Screenshot of Web classification showing a successful batch run and link to detail page." lightbox = "./media/get-started-prompt-flow/batch-run-status.png":::
 
-Select **Refresh** until the run is completed. The upper area displays the batch run information, the lower section shows the evaluation run. By selecting the link of run name, you can view the snapshot of a run and overview the output result.
+The batch run may take a while to finish. You can **Refresh** the page to load the latest status. 
 
-:::image type="content" source="./media/get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png" alt-text="Screenshot of Web classification batch run detail page." lightbox = "./media//get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png":::
+After the batch run is completed, select **View outputs** to view the result of your batch run.
 
-Go to the **Outputs** tab, you can view the result of your batch run.
+:::image type="content" source="./media/get-started-prompt-flow/check-outputs.png" alt-text="Screenshot of Web classification batch run details page to view outputs." lightbox = "./media/get-started-prompt-flow/check-outputs.png":::
 
-:::image type="content" source="./media/get-started-prompt-flow/check-outputs.png" alt-text="Screenshot of Web classification batch run details page on the outputs tab." lightbox = "./media/get-started-prompt-flow/check-outputs.png":::
-
-If you have added an evaluation method to evaluate your flow, go to the **Metrics** tab, check the evaluation metrics.
+If you have added an evaluation method to evaluate your flow, go to the **Metrics** tab, check the evaluation metrics. You can see the overall accuracy of your batch run.
 
 :::image type="content" source="./media/get-started-prompt-flow/check-metrics.png" alt-text="Screenshot of Web classification batch run detail page on the metrics tab." lightbox = "./media/get-started-prompt-flow/check-metrics.png":::
 
-To understand in which case the flow classifies incorrectly, you need to see the evaluation results for each row of data. Go to **Outputs** tab, select the evaluation run, you can see in the table below for most cases the flow classifies correctly except for few rows.
+To understand how this accuracy was calculated, you can view the evaluation results for each row of data. In **Outputs** tab, select the evaluation run, you can see in the table which cases are predicted correctly and which are not.
 
 :::image type="content" source="./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png" alt-text="Screenshot of Web classification batch run detail page on the output tab." lightbox = "./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png":::
 
-You can adjust column width, hide/unhide columns, and export table to csv file for further investigation. 
+You can adjust column width, hide/unhide columns, and select **Export** to download a csv file of the batch run outputs for further investigation. 
 
 As you might know, accuracy isn't the only metric that can evaluate a classification task, for example you can also use recall to evaluate. In this case, you can select **New evaluation**, choose other evaluation methods to evaluate.
 
 ## Deployment
 
-After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
+After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference. You can refer to [this article](how-to-deploy-for-real-time-inference.md) for a detailed guidance.
 
 ### Configure the endpoint
 
