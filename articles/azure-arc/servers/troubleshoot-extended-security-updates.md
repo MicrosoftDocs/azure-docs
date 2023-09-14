@@ -7,33 +7,33 @@ ms.topic: conceptual
 
 # Troubleshoot delivery of Extended Security Updates for Windows Server 2012
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to [enable Extended Security Updates for Windows Server 2012 through Arc-enabled servers](deliver-extended-security-updates.md).
+This article provides information on troubleshooting and resolving issues that may occur while [enabling Extended Security Updates for Windows Server 2012 and Windows Server 2012 R2 through Arc-enabled servers](deliver-extended-security-updates.md).
 
 ## License provisioning issues
 
 If you're unable to provision a Windows Server 2012 Extended Security Update license for Azure Arc-enabled servers, check the following:
 
-- **Permissions:** Validate you have sufficient permissions (Contributor role or higher) over the subscription and resource group.  
+- **Permissions:** Verify you have sufficient permissions (Contributor role or higher) scoped to the resource group hosting the machines.  
 
-- **Core minimums:** Validate you have specified sufficient cores for the ESU License. Physical core-based licenses require a minimum of 16 cores, and virtual core-based licenses require a minimum of 8 cores per VM. 
+- **Core minimums:** Verify you have specified sufficient cores for the ESU License. Physical core-based licenses require a minimum of 16 cores, and virtual core-based licenses require a minimum of 8 cores per virtual machine (VM). 
 
-- **Conventions:** Validate you have selected an appropriate subscription and resource group and provided a unique name for the ESU license.     
+- **Conventions:** Verify you have selected an appropriate subscription and resource group and provided a unique name for the ESU license.     
 
 ## ESU enrollment issues
 
-If you're unable to successfully link your Azure Arc-enabled server to an activated Extended Security Updates license, assure the following conditions are met:
+If you're unable to successfully link your Azure Arc-enabled server to an activated Extended Security Updates license, verify the following conditions are met:
 
-- **Connectivity:** Azure Arc-enabled server is **Connected**. 
+- **Connectivity:** Azure Arc-enabled server is **Connected**. For information about viewing the status of Azure Arc-enabled machines, see [Agent status](overview#agent-status).
 
-- **Agent version:** Connected Machine agent is version 1.34 or higher. If the agent version is below 1.34, you must update to a higher agent version.
+- **Agent version:** Connected Machine agent is version 1.34 or higher. If the agent version is less than 1.34, you need to update it to this version or higher.
 
-- **Operating system:** Only Azure Arc-enabled servers with an Operating System that is Windows Server 2012 / 2012 R2 are eligible for this Extended Security Update option.
+- **Operating system:** Only Azure Arc-enabled servers running the Windows Server 2012 and 2012 R2 operating system are eligible to enroll in Extended Security Updates.
 
-- **Environment:** The underlying server should not be running on Azure Stack HCI, Azure VMware Solution, or as an Azure Virtual Machine. In these scenarios, WS2012 ESUs are available for free.
+- **Environment:** The connected machine should not be running on Azure Stack HCI, Azure VMWare solution, or as an Azure virtual machine. In these scenarios, WS2012 ESUs are available for free.
 
-- **License properties:** Ensure that the license is activated and has sufficient physical or virtual cores to cover the intended scope of servers.
+- **License properties:** Verify the license is activated and has been allocated sufficient physical or virtual cores to support the intended scope of servers.
 
 ## ESU patches issues
 
-If you have problems receiving ESU patches after the server has been successfully enrolled in Extended Security Updates enabled by Azure Arc, or want additional information regarding issues affecting ESU deployment, see [Troubleshoot issues in ESU](/troubleshoot/windows-client/windows-7-eos-faq/troubleshoot-extended-security-updates-issues).
+If you have issues receiving ESUs after successfully enrolling the server through Arc-enabled servers, or you need additional information related to issues affecting ESU deployment, see [Troubleshoot issues in ESU](/troubleshoot/windows-client/windows-7-eos-faq/troubleshoot-extended-security-updates-issues).
 
