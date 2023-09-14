@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 08/24/2023
+ms.date: 09/13/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -130,6 +130,9 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/raiPolicies/delete | Deletes a custom Responsible AI policy that's not referenced by an existing deployment. |
 > | Microsoft.CognitiveServices/accounts/skus/read | Reads available SKUs for an existing resource. |
 > | Microsoft.CognitiveServices/accounts/usages/read | Get the quota usage for an existing resource. |
+> | Microsoft.CognitiveServices/attestationdefinitions/read | Reads all subscription level attestation definitions |
+> | Microsoft.CognitiveServices/attestations/read | Reads Attestations |
+> | Microsoft.CognitiveServices/attestations/write | Writes Attestation |
 > | Microsoft.CognitiveServices/deletedAccounts/read | List deleted accounts. |
 > | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
 > | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notification from Microsoft.Network of deleting VirtualNetworks or Subnets. |
@@ -321,6 +324,7 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/blocklistHitCalls/read | Show blocklist hit request count at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/blocklistTopTerms/read | List top terms hit in blocklist at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/categories/requestCounts/read | List API request count at different timestamps of a specific category given a time range. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/rejectCounts/read | List API reject counts at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/requestCounts/read | List API request counts at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/requestLatencies/read | List API request latencies at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/projects/write | Update a project if project does exist, create a new project if not. Note that modality cannot be updated. |
@@ -1113,6 +1117,7 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/write | Create or update deployments. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/delete | Delete deployment. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/audio/action | Return the transcript or translation for a given audio file. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/rainbow/action | Creates a completion for the provided prompt, consisting of text and images |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action | Creates a completion for the chat message |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action | Creates a completion for the chat message with extensions |
