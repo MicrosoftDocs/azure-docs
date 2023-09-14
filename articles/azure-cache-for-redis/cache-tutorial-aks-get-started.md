@@ -33,7 +33,7 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 1. On the **Advanced** tab, enable **Non-TLS port**.
     :::image type="content" source="media/cache-tutorial-aks-getting-started/cache-non-tls.png" alt-text="Screenshot of the Advanced tab with Non-TLS enabled during cache creation.":::
 
-1. Follows the steps through to create the cache.
+1. Follow the steps through to create the cache.
 
 > [!IMPORTANT]
 > This tutorial uses a non-TLS port for demonstration, but we highly recommend that you use a TLS port for anything in production.
