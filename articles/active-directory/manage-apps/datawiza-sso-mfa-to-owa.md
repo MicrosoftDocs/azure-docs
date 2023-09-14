@@ -377,23 +377,13 @@ time, effort, and errors.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To provide more sign-in security, you can enforce Microsoft Entra ID Multi-Factor Authentication. The process starts in the Azure portal.
+To provide more sign-in security, you can enforce Microsoft Entra ID Multi-Factor Authentication. The process starts in the Microsoft Entra admin center.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-
-2. Select **Azure Active Directory**.
-
-3. Select **Manage**
-
-4. Select **Properties**
-
-5. Under **Tenant properties**, select **Manage security defaults**
-
-    ![Screenshot shows the manage security defaults.](media/datawiza-access-proxy/manage-security-defaults.png)
-
-6. For **Enable Security defaults**, select **Yes**
-
-7. Select **Save**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+2. Browse to **Identity** > **Overview** > **Properties** tab.
+3. Under **Security defaults**, select **Manage security defaults**.
+4. On the **Security defaults** pane, toggle the dropdown menu to select **Enabled**.
+5. Select **Save**.
 
 ## Next steps
 
