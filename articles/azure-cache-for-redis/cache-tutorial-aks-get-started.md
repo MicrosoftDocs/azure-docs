@@ -28,10 +28,10 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](quickstart-create-redis.md) to get started.
 
     For this tutorial, use a Standard C1 cache.
-    :::image type="content" source="media/cache-tutorial-aks-getting-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
+    :::image type="content" source="media/cache-tutorial-aks-get-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
 
 1. On the **Advanced** tab, enable **Non-TLS port**.
-    :::image type="content" source="media/cache-tutorial-aks-getting-started/cache-non-tls.png" alt-text="Screenshot of the Advanced tab with Non-TLS enabled during cache creation.":::
+    :::image type="content" source="media/cache-tutorial-aks-get-started/cache-non-tls.png" alt-text="Screenshot of the Advanced tab with Non-TLS enabled during cache creation.":::
 
 1. Follow the steps through to create the cache.
 
@@ -184,7 +184,7 @@ azure-vote-front       LoadBalancer   10.0.166.147   20.69.136.105   80:30390/TC
 
 Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running as follows:
 
-:::image type="content" source="media/cache-tutorial-aks-getting-started/cache-web-voting-app.png" alt-text="Screenshot of the voting application running in a browser with buttons for cats, dogs, and reset.":::
+:::image type="content" source="media/cache-tutorial-aks-get-started/cache-web-voting-app.png" alt-text="Screenshot of the voting application running in a browser with buttons for cats, dogs, and reset.":::
 
 ## Clean up your deployment
 
@@ -197,7 +197,7 @@ kubectl delete service azure-vote-front
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-## Related Content
+## Related content
 
 - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
 - [AKS sample voting application](https://github.com/Azure-Samples/azure-voting-app-redis/tree/master)
