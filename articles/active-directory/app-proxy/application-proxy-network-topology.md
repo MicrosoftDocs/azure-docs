@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -40,10 +40,9 @@ In order to optimize the traffic flow and reduce latency to a connector group as
 > [!IMPORTANT]
 > Connectors must be using at least version 1.5.1975.0 to use this capability.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
-1. In left navigation panel, select **Azure Active Directory**.
-1. Under **Manage**, select **Application proxy**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Select **New Connector Group**, provide a **Name** for the connector group.
 1. Next, under **Advanced Settings** and select the drop down under Optimize for a specific region and select the region closest to the connectors.
 1. Select **Create**.
