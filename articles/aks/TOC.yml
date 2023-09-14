@@ -123,7 +123,11 @@
             - name: CIS Azure Linux benchmark
               href: cis-azure-linux.md
     - name: Networking
-      href: concepts-network.md
+      items:
+        - name: Concepts
+          href: concepts-network.md
+        - name: CNI networking
+          href: azure-cni-overview.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
