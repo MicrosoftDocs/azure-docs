@@ -85,6 +85,26 @@ Service Connector sets the connection configuration when creating a connection. 
   - The key name of the first connection configuration uses the format `<Cloud>_<Type>_<Name>`. For example, `AZURE_STORAGEBLOB_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_BOOTSTRAPSERVER`.
   - For the same type of target resource, the key name of the second connection configuration uses the format `<Cloud>_<Type>_<Connection Name>_<Name>`. For example, `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
 
+## Service network solution
+
+Service Connector offers three network solutions for users to choose from when creating a connection. These solutions are designed to facilitate secure and efficient communication between resources.
+
+1. Firewall: This solutions allows connection through public network and compute resource will access target resource with public IP address. When selecting this option, Service Connector verifies the target resource's firewall settings and adds a rule to allow connections from the source resource's public IP address. If the resource's firewall have an option to allows all Azure resources accessing, Service Connector will enable this setting. However, if the target resource denies all public network traffic by default, Service Connector will not modify this setting. In this case, you should choose another option or update the network settings manually before trying again.
+
+2. Service Endpoint: This solution enables compute resource to connect to target resources via a virtual network, ensuring that connection traffic does not pass through the public network. It is only available if certain preconditions are met:
+- The compute resource must have VNet integration enabled. For Azure App Service, this can be configured in its networking settings; for Azure Spring Apps, users must choose to deploy their app in a VNet during the creation stage.
+- The target service must support VNet solutions. For a list of supported services, refer to [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+When selecting this option, Service Connector adds the private IP address of the compute resource in the VNet to the target resource's Virtual Network rules and enables the service endpoint in the source resource's subnet configuration. If the user lacks sufficient permissions or the resource's SKU or region does not support service endpoints, connection creation will fail.
+
+3. Private Endpoint: This solution is a recommended way to connect resources via a virtual network and is only available if certain preconditions are met:
+- The compute resource must have VNet integration enabled. For Azure App Service, this can be configured in its networking settings; for Azure Spring Apps, users must choose to deploy their app in a VNet during the creation stage.
+- The target service must support VNet solutions. For a list of supported services, refer to [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource).
+
+When selecting this option, Service Connector does not perform any additional configurations in the compute or target resources. Instead, it verifies the existence of a valid private endpoint and fails the connection if no one is found. For added convenience, users can select the "New Private Endpoint" checkbox in the Azure Portal when creating a connection. With it, Service Connector will automatically create all related resources for the private endpoint in the proper sequence, simplifying the connection creation process.
+
+
+
 ## Service connection validation
 
 When validating a connection, Service connector checks the following elements:
