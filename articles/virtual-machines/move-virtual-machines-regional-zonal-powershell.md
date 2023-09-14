@@ -190,19 +190,21 @@ Add resources as follows:
 Check whether the regional VMs you added have any dependencies on other resources, and add as needed.
 
 1. Resolve dependencies as follows:
-    ```azurepowershell-interactive
-    Resolve-AzResourceMoverMoveCollectionDependency -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC"
-    ``````
+    
+     ```
+     Resolve-AzResourceMoverMoveCollectionDependency -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC"
+     ```
     
     **Output (when dependencies exist)**
 
        :::image type="content" source="./media/tutorial-move-regional-zonal/resolve-dependencies.png" alt-text="Output text after resolving move dependencies.":::
 
 >[!NOTE]
-> - If you want to get a list of resources added to the move collection, you can call:
+>
+> - If you want to get a list of resources added to the move collection, you can call: <br>
 >`$list = Get-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" $list.Name`
 > <br>
->**Output**
+>**Output** <br>
 >:::image type="content" source="./media/tutorial-move-regional-zonal/call-move-collection.png" alt-text="Output text after retrieving the move collection.":::
 >
 > - If you want to remove resources from the resource collection, follow these [instructions](../resource-mover/remove-move-resources.md).
@@ -235,20 +237,20 @@ After the initial move, you can decide whether you want to commit the move or di
 
 2. Verify that all regional VMs have moved to the target region:
     
-        ```
-        Get-AzResourceMover-VMZonalMoveMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS " -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
-        ```
+    ```
+    Get-AzResourceMover-VMZonalMoveMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS " -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
+    ```
     
 All resources are now in a *Delete Source Pending* state in the target region.
 
 ## Delete source regional VMs
 
 After you commit the move and verify that the resources work as expected in the target region, you can delete each source resource using:
+
 - [Azure portal](../azure-resource-manager/management/manage-resources-portal.md#delete-resources)
 - [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources)
-- [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#delete-resources). 
-
+- [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#delete-resource-groups)
 
 ## Next steps
 
-- Learn how to move single instance Azure VMs from regional to zonal configuration via [portal](./move-virtual-macines-regional-zonal-portal.md).
+Learn how to move single instance Azure VMs from regional to zonal configuration via [portal](./move-virtual-machines-regional-zonal-portal.md).
