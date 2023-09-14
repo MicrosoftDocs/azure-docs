@@ -3,7 +3,6 @@ title: Disaster recovery guidance overview for Microsoft Azure products and serv
 description: Disaster recovery guidance overview for Microsoft Azure products and services
 author: anaharris-ms
 ms.service: reliability
-ms.subservice: disaster-recovery
 ms.topic: conceptual
 ms.date: 09/14/2023
 ms.author: anaharris
