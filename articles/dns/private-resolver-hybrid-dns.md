@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: dns
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 09/14/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
 ---
@@ -49,7 +49,10 @@ Create a private zone with at least one resource record to use for testing. The 
 - [Create a private zone - PowerShell](private-dns-getstarted-powershell.md) 
 - [Create a private zone - CLI](private-dns-getstarted-cli.md) 
 
-In this article, the private zone **azure.contoso.com** and the resource record **test** are used.  Autoregistration isn't required for the current demonstration.  
+In this article, the private zone **azure.contoso.com** and the resource record **test** are used.  Autoregistration isn't required for the current demonstration.
+
+> [!NOTE]
+> To forward queries from on-premises to Azure, the zone (azure.contoso.com) must not already exist on-premises. Forwarding is not possible for authoritative zones, such as child zones that are delegated on-premises.
 
 [ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records-small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
 
