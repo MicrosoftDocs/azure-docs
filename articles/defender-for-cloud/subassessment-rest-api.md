@@ -15,16 +15,17 @@ Get security subassessments on all your scanned resources inside a scope.
 ## Overview
 
 Use Azure Resource Graph (ARG) to access vulnerability assessment results pragmatically for both registry and runtime recommendations.
-Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview)
-* [Overview of Azure Resource Graph - Azure Resource Graph | Microsoft Learn
+Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview).
 
-Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources.  For more information see: [Security Resources ARG Query Samples](https://learn.microsoft.com/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#securityresources).
-* [Generic Security Sub Assessment Query Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources.  For more information see: [Security Resources ARG Query Samples](/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#securityresources).
-](https://learn.microsoft.com/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
+Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources. For more information see:
+* [Security Resources ARG Query Samples
+](/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#securityresources)
+* [Generic Security Sub Assessment Query
+](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
 
 ## ARG Query Examples
-As can be seen in the Generic Security Sub Assessment Query example, in order to pull specific sub assessments, you need the assessment key, for MDVM powered sub-assessments (AKA AzureContainerRegistryVulnerability) the key is **“c0b7cfc6-3172-465a-b378-53c7ff2cc0d5”**.
-Below is a basic query to ARG which can be used as a reference to more elaborate queries.  In this query we pull the first sub assessment generated today.
+As can be seen in the Generic Security Sub Assessment Query example, in order to pull specific sub assessments, you need the assessment key. For MDVM powered sub-assessments (AKA AzureContainerRegistryVulnerability) the key is **“c0b7cfc6-3172-465a-b378-53c7ff2cc0d5”**.
+Below is a basic query to ARG which can be used as a reference to more elaborate queries.  In this query we pull the first sub assessment generated in the last hour.
 ```kql
 securityresources 
 | where type =~ "microsoft.security/assessments/subassessments" and properties.additionalData.assessedResourceType == "AzureContainerRegistryVulnerability"
