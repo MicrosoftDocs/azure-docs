@@ -48,7 +48,7 @@ Also, Global Administrators and Privileged Role Administrators receive an email 
 
 The first two emails sent by the request approval engine can be delayed. Currently, 90% of emails take three to ten minutes, but for 1% customers it can be longer, up to fifteen minutes.
 
-If an approval request is approved in the Azure portal before the first email is sent, the first email will no longer be triggered and other approvers won't be notified by email of the approval request. It might appear as if the they didn't get an email but it's the expected behavior.
+If an approval request is approved in the Azure portal before the first email is sent, the first email will no longer be triggered and other approvers won't be notified by email of the approval request. It might appear as if they didn't get an email but it's the expected behavior.
 
 ## Notifications for Azure AD roles
 

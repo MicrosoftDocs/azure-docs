@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Privileged Identity Management (PIM) for Groups
 
-Microsoft Entra ID, formerly known as Azure AD, allows you to grant users just-in-time membership and ownership of groups through Privileged Identity Management(PIM) for Groups. Groups can be used to control access to a variety of scenarios, including Azure AD roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
+Microsoft Entra ID, formerly known as Azure AD, allows you to grant users just-in-time membership and ownership of groups through Privileged Identity Management (PIM) for Groups. Groups can be used to control access to a variety of scenarios, including Azure AD roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
 
 ## What is PIM for Groups?
 
@@ -54,7 +54,7 @@ Groups can be role-assignable or non-role-assignable. The group can be enabled i
 
 If you want to assign an Entra ID role to a group, it has to be role-assignable. Even if you don't intend to assign an Entra ID role to the group but the group provides access to sensitive resources, it is still recommended to consider creating the group as role-assignable. This is because of extra protections role-assignable groups have – see [“What are Entra ID role-assignable groups?”](#what-are-entra-id-role-assignable-groups) in the section above.
 
-<!IMPORTANT>
+>[!IMPORTANT]
 > Up until January 2023, it was required that every Privileged Access Group (former name for this PIM for Groups feature) had to be role-assignable group. This restriction is currently removed. Because of that, it is now possible to enable more than 500 groups per tenant in PIM, but only up to 500 groups can be role-assignable.
 
 ## Making group of users eligible for Entra ID role

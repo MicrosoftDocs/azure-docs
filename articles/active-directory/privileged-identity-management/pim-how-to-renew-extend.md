@@ -177,7 +177,7 @@ After the request has been submitted, administrators are notified of a pending r
 
 ### Admin approves
 
-Emtra ID administrators can access the renewal request from the link in the email notification, or by accessing Privileged Identity Management from the Microsoft Entra admin center and selecting **Approve requests** in PIM.
+Entra ID administrators can access the renewal request from the link in the email notification, or by accessing Privileged Identity Management from the Microsoft Entra admin center and selecting **Approve requests** in PIM.
 
 ![Azure AD roles - Approve requests page listing requests and links to approve or deny](./media/pim-how-to-renew-extend/extend-admin-approve-list.png)
 
