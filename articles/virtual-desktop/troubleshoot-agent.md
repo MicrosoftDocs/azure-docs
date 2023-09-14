@@ -44,9 +44,9 @@ To resolve this issue, start the RDAgent boot loader:
 
 1. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN](#error-invalid_registration_token).
 
-## Error: INVALID_REGISTRATION_TOKEN
+## Error: INVALID_REGISTRATION_TOKEN or EXPIRED_MACHINE_TOKEN
 
-On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **INVALID_REGISTRATION_TOKEN** in the description, the registration token that has been used isn't recognized as valid.
+On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **INVALID_REGISTRATION_TOKEN** or **EXPIRED_MACHINE_TOKEN** in the description, the registration token that has been used isn't recognized as valid.
 
 To resolve this issue, create a valid registration token:
 
