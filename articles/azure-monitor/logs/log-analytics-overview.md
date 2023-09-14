@@ -15,7 +15,9 @@ You might write a simple query that returns a set of records and then use featur
 Whether you work with the results of your queries interactively or use them with other Azure Monitor features, such as log query alerts or workbooks, Log Analytics is the tool that you'll use to write and test them.
 
 > [!TIP]
-> This article describes Log Analytics and its features. If you want to jump right into a tutorial, see [Log Analytics tutorial](./log-analytics-tutorial.md).
+> The new Log Analytics is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor.
+> :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
+
 
 ## Start Log Analytics
 
