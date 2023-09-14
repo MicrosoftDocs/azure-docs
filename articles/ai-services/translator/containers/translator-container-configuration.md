@@ -85,7 +85,7 @@ Translator containers support the following logging providers:
 
 * The `Logging` settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core application.
 
-* The `Logging.LogLevel**` specifies the minimum level to log. The severity of the `LogLevel` ranges from 0 to 6. When a `LogLevel` is specified, logging is enabled for messages at the specified level and higher: Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, None = 6.
+* The `Logging.LogLevel` specifies the minimum level to log. The severity of the `LogLevel` ranges from 0 to 6. When a `LogLevel` is specified, logging is enabled for messages at the specified level and higher: Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, None = 6.
 
 * Currently, Translator containers have the ability to restrict logs at the **Warning** LogLevel or higher.
 
