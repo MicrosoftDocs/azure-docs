@@ -5,7 +5,7 @@ description: Learn how to configure Application Gateway with a frontend private 
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 09/08/2023
+ms.date: 09/14/2023
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
