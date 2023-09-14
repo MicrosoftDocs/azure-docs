@@ -75,7 +75,89 @@ This setting can be found in the following place:
 
 ## Logging settings
 
-[!INCLUDE [Container shared configuration logging settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+The `Logging` settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core application.
+
+The general command syntax for logging is as follows:
+
+```bash
+    -Logging:{Provider}:LogLevel:{FilterSpecs=}
+
+```
+
+The following logging providers are supported by the container:
+
+|Provider|Purpose|
+|--|--|
+|[Console](/aspnet/core/fundamentals/logging/#console-provider)|The ASP.NET Core `Console` logging provider. All of the ASP.NET Core configuration settings and default values for this logging provider are supported.|
+|[Debug](/aspnet/core/fundamentals/logging/#debug-provider)|The ASP.NET Core `Debug` logging provider. All of the ASP.NET Core configuration settings and default values for this logging provider are supported.|
+|[Disk](#disk-logging)|The JSON logging provider. This logging provider writes log data to the output mount.|
+
+`**Logging.LogLevel**` specifies the minimum level to log. The LogLevel indicates the severity of the log ranging from 0 to 6. When a LogLevel is specified, logging is enabled for messages at the specified level and higher: Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, None = 6.
+
+Log level (lowest to highest)
+
+| LogLevel | Value | Description |
+| -------- | ----- | ----------- |
+| **Trace** | 0  | Logs containing the most detailed messages. These logs may contain sensitive app data and are disabled by default. Trace logs should **_never*_** be enabled in production. |
+| **Debug** | 1  | Logs used for interactive investigation during development. Use with caution in production due to the high volume. |
+| **Information** | 2 | Logs tracking the general flow of the application.|
+| **Warning** | 3 | Logs highlighting abnormal or unexpected events during the application flow. These logs typically includes errors or conditions that don't cause the app to fail. |
+| **Error** | 4 | Logs highlighting a failure in the current operation or request, not an application-wide failure. |
+| **Critical** | 5 | Logs describing an unrecoverable application, system crash, or catastrophic failure and require immediate attention. Examples: data loss scenarios, out of disk space. |
+| **None** | 6 | Logs specifying that a logging category shouldn't write messages. |
+
+Currently, Translator containers have the ability to restrict logs at the **Warning** LogLevel or higher. This command starts the Docker container with the logging provider set to "Console". This will cause all logs from the container to be printed to the console.
+
+```bash
+docker run --rm -it -p 5000:5000
+-v /mnt/d/TranslatorContainer:/usr/local/models \
+-e apikey={API_KEY} \
+-e eula=accept \
+-e billing={ENDPOINT_URI} \
+-e Languages=en,fr,es,ar,ru  \
+-e Logging:LogLevel:Console="Warning"
+mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
+
+```
+
+### Console provider example
+
+This container command shows debugging information, prefixed with `dbug`, while the container is running:
+
+```bash
+docker run --rm -it -p 5000:5000 \
+--memory 2g --cpus 1 \
+<registry-location>/<image-name> \
+Eula=accept \
+Billing=<endpoint> \
+ApiKey=<api-key> \
+Logging:Console:LogLevel:Default=Debug
+```
+
+### Disk logging
+
+The `Disk` logging provider supports the following configuration settings:
+
+| Name | Data type | Description |
+|------|-----------|-------------|
+| `Format` | String | The output format for log files.<br/> **Note:** This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |
+| `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. When the size of the current log file meets or exceeds this value, a new log file is started by the logging provider. If -1 is specified, the size of the log file is limited only by the maximum file size, if any, for the output mount. The default value is 1. |
+
+#### Disk provider example
+
+```bash
+docker run --rm -it -p 5000:5000 \
+--memory 2g --cpus 1 \
+--mount type=bind,src=/home/azureuser/output,target=/output \
+<registry-location>/<image-name> \
+Eula=accept \
+Billing=<endpoint> \
+ApiKey=<api-key> \
+Logging:Disk:Format=json \
+Mounts:Output=/output
+```
+
+For more information about configuring ASP.NET Core logging support, see [Settings file configuration](/aspnet/core/fundamentals/logging/).
 
 ## Mount settings
 
