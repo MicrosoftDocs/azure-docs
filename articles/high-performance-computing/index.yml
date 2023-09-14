@@ -45,8 +45,10 @@ highlightedContent:
 # Azure Services
 conceptualContent:
   sections:
-    - items:
-        # Card
+    - title: HPC Components # < 60 chars (Optional; Remove if not applicable.)
+      summary: See Azure HPC solutions, tutorials, guides and resources. # < 160 chars (Optional; Remove if not applicable.)
+      items:
+      # Card
         - title: HPC Scenarios and Architectures
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
@@ -105,44 +107,6 @@ conceptualContent:
             - url: /azure/open-datasets/
               text: Azure Open Datasets
 
-conceptualContent:
-  # Supports up to 4 subsections
-  sections:
-    - title: Take the next step # < 60 chars (Optional; Remove if not applicable.)
-      summary: See Azure HPC solutions, tutorials, guides and resources. # < 160 chars (Optional; Remove if not applicable.)
-      items:
-      # Card
-      - title: Landing Zone Accelerators
-        links:
-          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
-            text: Infra Landing Zone 
-          - url: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone
-            text: Data Landing Zone
-          - url: https://azure.github.io/az-hop/
-            text: HPC OnDemand Platform Zone
-      # Card
-      - title: Cloud Adoption
-        links:
-          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
-            text: Cloud Adoption Scenarios
-          - url: /azure/cloud-adoption-framework/migrate/
-            text: Cloud Migration Overview          
-      # Card
-      - title: HPC Support
-        links:
-          - url: https://learn.microsoft.com/azure/fasttrack/
-            text: Get expert help with Azure FastTrack
-      # Card
-      - title: Tutorials
-        links:
-          - url: /training/modules/intro-to-hpc/2-azure-batch
-            text: Run HPC applications on Azure
-          - url: /training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/
-            text: Run Parallel Tasks in Azure Batch
-          - url: /training/modules/azure-cyclecloud-high-performance-computing/
-            text: Create, customize and manage HPC Cluster using CycleCloud
-          - url: /azure/virtual-machines/extensions/enable-infiniband
-            text: Enable Inifiniband
 
 # HPC Resourcess
 additionalContent:
@@ -213,7 +177,7 @@ additionalContent:
               text: HPC saves the day!
             - url: https://busenq.com/article/microsoft-azure/
               text: HPC Powers Word-Record Simulation
-            - url: https://www.bigcompute.org/blog/high-performance-computing-for-randd
+            - url: https://bigcompute.org/blog/high-performance-computing-for-rd/
               text: HPC for Innovation in R&D          
             - url: https://idcdocserv.com/US50583623
               text: HPC for Product Modeling
