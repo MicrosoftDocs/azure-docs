@@ -78,7 +78,6 @@ spec:
     timeout: 1s
     healthyThreshold: 1
     unhealthyThreshold: 1
-    port: 80
     protocol: HTTP
     http:
       host: contoso.com
@@ -109,7 +108,6 @@ spec:
         timeout: 1s
         unhealthyThreshold: 1
         healthyThreshold: 1
-        port: 80
         protocol: HTTP
         http:
           host: contoso.com
