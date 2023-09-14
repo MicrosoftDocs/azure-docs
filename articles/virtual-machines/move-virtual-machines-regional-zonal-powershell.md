@@ -3,7 +3,6 @@ title: Move Azure single instance Virtual Machines from regional to zonal availa
 description: Move single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region using PowerShell.
 author: ankitaduttaMSFT
 ms.service: virtual-machines
-ms.subservice: availability-zones
 ms.topic: tutorial
 ms.date: 08/10/2023
 ms.author: ankitadutta
@@ -11,9 +10,9 @@ ms.author: ankitadutta
 
 # Move a virtual machine in an availability zone using Azure PowerShell
 
-This article details using Azure PowerShell to move Azure single instance VMs from regional to zonal availability zones. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
+This article details using Azure PowerShell to move Azure single instance VMs from regional to zonal availability zones. An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
+To use an availability zone, create your virtual machine in a [supported Azure region](../availability-zones/az-region.md).
 
 In this tutorial, you learn how to:
 
@@ -214,7 +213,7 @@ Check whether the regional VMs you added have any dependencies on other resource
     **Note:**
      - If you want to get a list of resources added to the move collection, you can call
 
-            ```azurepowershell-interactive
+            ```
             $list = Get-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" $list.Name
             ```
             **Output**
@@ -241,7 +240,7 @@ After the initial move, you can decide whether you want to commit the move or di
 
 1. Commit the move as follows:
 
-    ```azurepowershell-interactive
+    ```
     Invoke-AzResourceMover-VMZonalMoveCommit -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -MoveResource $('psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg', ‘PSDemoVM’) -MoveResourceInputType "MoveResourceId"
     ```
 
@@ -250,18 +249,15 @@ After the initial move, you can decide whether you want to commit the move or di
 
 2. Verify that all regional VMs have moved to the target region:
     
-        ```azurepowershell-interactive
+        ```
         Get-AzResourceMover-VMZonalMoveMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS " -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
         ```
     
-        **Output**
-        :::image type="content" source="./media/tutorial-move-region-powershell/output-retrieve-resource.png" alt-text="Output text after retrieving the resource ID":::
-
 All resources are now in a *Delete Source Pending* state in the target region.
 
 ## Delete source regional VMs
 
-After committing the move, and verifying that resources work as expected in the target region, you can delete each source resource in the Azure portal, using PowerShell, or using [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md). https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resources-cli#delete-resources
+After committing the move, and verifying that resources work as expected in the target region, you can delete each source resource in the Azure portal, using PowerShell, or using [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#delete-resources). 
 
 
 ## Next steps

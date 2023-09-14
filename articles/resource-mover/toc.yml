@@ -58,3 +58,15 @@
   items:
   - name: Monitor Move across region
     href: move-across-region-dashboard.md
+- name: Related
+  items:
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/index.yml
+  - name: Azure Site Recovery
+    href: ../site-recovery/index.yml
+  - name: Azure Reliability
+    href: ../reliability/index.yml
+  - name: Azure Virtual Machines
+    href: ../virtual-machines/index.yml
+  - name: Azure Virtual Machine Scale Sets
+    href: ../virtual-machine-scale-sets/index.yml
