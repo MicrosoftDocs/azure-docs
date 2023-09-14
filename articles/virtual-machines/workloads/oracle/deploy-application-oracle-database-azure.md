@@ -16,11 +16,11 @@ This article provides reference architecture to deploy Oracle application on Azu
 
 Oracle workloads comprise not only of Oracle Databases, but also of Oracle first-party applications such as Siebel, Peoplesoft, JD Edwards, E-Business Suite, or customized WebLogic Server applications. Deploying Oracle applications on Azure Infrastructure as a Service (IaaS) is a common scenario for organizations looking to use the cloud for their Oracle workloads along with [Oracle database](oracle-reference-architecture.md). Microsoft offers reference architectures and best practices to ease this process. 
 
-## General Application Migration Guidelines
+## General application migration guidelines
 
 As Oracle applications move on Azure IaaS, there are common design considerations, which must be followed irrespective of type of applications. Some considerations are specific to applications. In this section, we're listing common design considerations of all applications, and any application specific considerations are covered under each application.
 
-### Network & Security 
+### Network and security 
 
 The provided network settings for Oracle Applications on Azure cover various aspects of network and security considerations. Here's a breakdown of the recommended network settings:
 
