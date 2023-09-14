@@ -19,9 +19,9 @@ Azure Active Directory (Azure AD) has an Application Proxy service that enables 
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Application Proxy Overview Diagram" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
 
-Before you get started, make sure you're familiar with app management and **Single Sign-On (SSO)** concepts. Check out the following links:
+Before you get started, make sure you're familiar with app management and **single sign-on (SSO)** concepts. Check out the following links:
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
-- [What is Single Sign-On (SSO)?](../manage-apps/what-is-single-sign-on.md)
+- [What is single sign-on (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
 Connectors are a key part of Application Proxy. To learn more about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
@@ -105,7 +105,7 @@ To enable TLS 1.2:
 1. Restart the server.
 
 > [!NOTE]
-> Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. See [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md) for more information.
+> Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. For more information, see [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md).
 
 ## Prepare your on-premises environment
 
