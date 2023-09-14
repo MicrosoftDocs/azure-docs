@@ -58,7 +58,7 @@ For data asset input/output, you must specify a `path` parameter that points to 
 |A path to a Data Asset  |  `azureml:<my_data>:<version>`  |✓ | ✓ |
 
 > [!NOTE]
-> For input/output on storage, we highly suggest to use Azure Machine Learning Datastore path instead of direct Azure Storage path. Datastore path are suppported across various job types in pipeline.   
+> For input/output on storage, we highly suggest to use Azure Machine Learning datastore path instead of direct Azure Storage path. Datastore path are supported across various job types in pipeline.   
 
 For data input/output, you can choose from various modes (download or mount) to define how the data is accessed in the compute target.
 This table shows the possible modes for different type/mode/input/output combinations. Refer to [data asset modes](./how-to-read-write-data-v2.md#modes) to learn more. 
