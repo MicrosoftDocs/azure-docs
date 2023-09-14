@@ -111,7 +111,7 @@ $assignments | ForEach-Object {
 Use the following Microsoft Graph PowerShell script to revoke all permissions granted to an application. You need to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 ```powershell
-Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All", "AppRoleAssignment.ReadWrite.All"
+Connect-MgGraph -Scopes "Application.ReadWrite.All", "Directory.ReadWrite.All", "DelegatedPermissionGrant.ReadWrite.All", "AppRoleAssignment.ReadWrite.All" #### I think there is a mistake in the scopes here. I have connected to MgGraph and confirmed that these 4 scopes are activated. When I run the line "$spOAuth2PermissionsGrants= Get-MgOauth2PermissionGrant -All| Where-Object { $_.clientId -eq $sp.Id }" and then $spOAuth2PermissionsGrants.Count, it only returns a few results (in our case, roughly 60). If I try to do it in AzureAD according to this article, "$spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true| Where-Object { $_.clientId -eq $sp.ObjectId }", then $spOAuth2PermissionsGrants.Count returns around 900 entries, which is roughly the number I would expect. I am a Global Administrator.
 
 # Get Service Principal using objectId
 $sp = Get-MgServicePrincipal -ServicePrincipalID "$ServicePrincipalID"
