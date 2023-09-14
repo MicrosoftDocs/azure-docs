@@ -33,7 +33,7 @@ When you're developing your LLM application using prompt flow, you may want a se
 - Other non Azure resources such as SerpAPI, pinecone etc. If you have strict outbound rule, you need add FQDN rule to access them. 
 ## Secure prompt flow with workspace managed virtual network
 
-Workspace managed virtual network is the recommend way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
+Workspace managed virtual network is the recommended way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
 
 1. Follow [Workspace managed network isolation](../how-to-managed-network.md) to enable workspace managed virtual network.
 
