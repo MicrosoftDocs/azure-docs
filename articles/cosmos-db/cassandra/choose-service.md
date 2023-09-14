@@ -1,5 +1,5 @@
 ---
-title: Differences from Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra
+title: Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra
 description: Learn about the differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra. You also learn the benefits of each of these services and when to choose them.
 author: TheovanKraay
 ms.author: thvankra
