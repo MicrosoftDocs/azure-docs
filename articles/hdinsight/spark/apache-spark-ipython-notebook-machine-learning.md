@@ -81,7 +81,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
 
     In the code snippet, you define a function that compares the actual temperature with the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. Otherwise the building is cold, denoted by the value **0.0**.
 
-1. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr.
+1. Configure the Spark machine learning pipeline that consists of three stages: `tokenizer`, `hashingTF`, and `lr`.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
