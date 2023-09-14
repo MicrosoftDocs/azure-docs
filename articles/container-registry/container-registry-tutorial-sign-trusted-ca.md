@@ -160,7 +160,7 @@ To import the certificate:
     ```
 
 > [!IMPORTANT]
-> If you have Docker installed on your system and used `az acr login` or `docker login` to authenticate to your ACR, your credentials are already stored and available to notation. In this case, you don’t need to run `notation login` again to authenticate to your ACR. To learn more about authentication options for notation, see [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/).
+> If you have Docker installed on your system and used `az acr login` or `docker login` to authenticate to your ACR, your credentials are already stored and available to notation. In this case, you don’t need to run `notation login` again to authenticate to your ACR. To learn more about authentication options for notation, see [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/user-guides/how-to/registry-authentication/).
 
 2. Build and push a new image with ACR Tasks. Always use `digest` to identify the image for signing, since tags are mutable and can be overwritten.
 
