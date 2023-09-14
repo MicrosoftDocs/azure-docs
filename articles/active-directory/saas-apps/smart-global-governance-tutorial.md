@@ -147,7 +147,7 @@ When you select the Smart Global Governance tile in Access Panel, you should be 
 
 ## Additional resources
 
-- [Tutorials on how to integrate SaaS apps with Azure Active Directory ](./tutorial-list.md)
+- [Tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
 
 - [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
