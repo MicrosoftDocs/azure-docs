@@ -75,16 +75,7 @@ This setting can be found in the following place:
 
 ## Logging settings
 
-The `Logging` settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core application.
-
-The general command syntax for logging is as follows:
-
-```bash
-    -Logging:{Provider}:LogLevel:{FilterSpecs=}
-
-```
-
-The following logging providers are supported by the container:
+Translator containers support the following logging providers:
 
 |Provider|Purpose|
 |--|--|
@@ -92,7 +83,17 @@ The following logging providers are supported by the container:
 |[Debug](/aspnet/core/fundamentals/logging/#debug-provider)|The ASP.NET Core `Debug` logging provider. All of the ASP.NET Core configuration settings and default values for this logging provider are supported.|
 |[Disk](#disk-logging)|The JSON logging provider. This logging provider writes log data to the output mount.|
 
-`**Logging.LogLevel**` specifies the minimum level to log. The LogLevel indicates the severity of the log ranging from 0 to 6. When a LogLevel is specified, logging is enabled for messages at the specified level and higher: Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, None = 6.
+* The `Logging` settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core application.
+
+* The `Logging.LogLevel**` specifies the minimum level to log. The severity of the `LogLevel` ranges from 0 to 6. When a `LogLevel` is specified, logging is enabled for messages at the specified level and higher: Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, None = 6.
+
+* Currently, Translator containers have the ability to restrict logs at the **Warning** LogLevel or higher.
+
+The general command syntax for logging is as follows:
+
+```bash
+    -Logging:{Provider}:LogLevel:{FilterSpecs=}
+```
 
 Log level (lowest to highest)
 
@@ -106,7 +107,7 @@ Log level (lowest to highest)
 | **Critical** | 5 | Logs describing an unrecoverable application, system crash, or catastrophic failure and require immediate attention. Examples: data loss scenarios, out of disk space. |
 | **None** | 6 | Logs specifying that a logging category shouldn't write messages. |
 
-Currently, Translator containers have the ability to restrict logs at the **Warning** LogLevel or higher. This command starts the Docker container with the logging provider set to "Console". This will cause all logs from the container to be printed to the console.
+The following command starts the Docker container with the `LogLevel` set to **Warning** and logging provider set to **Console**. This command print abnormal or unexpected events during the application flow to the console:
 
 ```bash
 docker run --rm -it -p 5000:5000
@@ -118,20 +119,6 @@ docker run --rm -it -p 5000:5000
 -e Logging:LogLevel:Console="Warning"
 mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 
-```
-
-### Console provider example
-
-This container command shows debugging information, prefixed with `dbug`, while the container is running:
-
-```bash
-docker run --rm -it -p 5000:5000 \
---memory 2g --cpus 1 \
-<registry-location>/<image-name> \
-Eula=accept \
-Billing=<endpoint> \
-ApiKey=<api-key> \
-Logging:Console:LogLevel:Default=Debug
 ```
 
 ### Disk logging
@@ -149,7 +136,10 @@ The `Disk` logging provider supports the following configuration settings:
 docker run --rm -it -p 5000:5000 \
 --memory 2g --cpus 1 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
-<registry-location>/<image-name> \
+-e apikey={API_KEY} \
+-e eula=accept \
+-e billing={ENDPOINT_URI} \
+-e Languages=en,fr,es,ar,ru  \
 Eula=accept \
 Billing=<endpoint> \
 ApiKey=<api-key> \
