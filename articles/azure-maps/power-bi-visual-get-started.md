@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article discusses how to use Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 11/29/2021
+ms.date: 09/29/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
