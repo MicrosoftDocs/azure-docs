@@ -319,6 +319,7 @@ The following table explains the properties that you can set on the `options` ob
 |---------|----------------------|
 |**path** | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+|**source** | Sets the source of the triggering event. Use `EventGrid` for an [Event Grid-based blob trigger](functions-event-grid-blob-trigger.md), which provides much lower latency. The default is `LogsAndContainerScan`, which uses the standard polling mechanism to detect changes in the container. |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -331,6 +332,7 @@ The following table explains the binding configuration properties that you set i
 |**name** |  The name of the variable that represents the blob in function code. |
 |**path** | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+|**source** | Sets the source of the triggering event. Use `EventGrid` for an [Event Grid-based blob trigger](functions-event-grid-blob-trigger.md), which provides much lower latency. The default is `LogsAndContainerScan`, which uses the standard polling mechanism to detect changes in the container. |
 
 ---
 

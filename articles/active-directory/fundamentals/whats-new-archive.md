@@ -1668,7 +1668,7 @@ When setting up federation with a partner's IdP, new guest users from that domai
 
  
 
-Groups Administrators assigned over the scope of an administrative unit can now create groups within the administrative unit.  This enables scoped group administrators to create groups that they can manage directly, without needing to elevate to Global Administrator or Privileged Role Administrator. For more information, see: [Administrative units in Azure Active Directory](../roles/administrative-units.md).
+Groups Administrators assigned over the scope of an administrative unit can now create groups within the administrative unit.  This enables scoped Group Administrators to create groups that they can manage directly, without needing to elevate to Global Administrator or Privileged Role Administrator. For more information, see: [Administrative units in Azure Active Directory](../roles/administrative-units.md).
  
 
 ---

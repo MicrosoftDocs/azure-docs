@@ -42,7 +42,7 @@ After a custom domain for Azure AD B2C is configured using Azure Front Door, [te
 
 ## Create a Cloudflare account
 
-On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-up). To enable WAF, on [Application Services]([https://www.cloudflare.com/plans/](https://www.cloudflare.com/plans/#price-matrix) select **Pro**, which is required.
+On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-up). To enable WAF, on [Application Services](https://www.cloudflare.com/plans/#price-matrix), select **Pro**, which is required.
 
 ### Configure DNS
 

@@ -67,7 +67,7 @@ Every new Azure AD B2C tenant comes with an initial domain name, &lt;domainname&
 
 Follow these steps to add a custom domain to your Azure AD B2C tenant:
 
-1. [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name-to-azure-ad).
+1. [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name).
 
     > [!IMPORTANT]
     > For these steps, be sure to sign in to your **Azure AD B2C** tenant and select the **Azure Active Directory** service.

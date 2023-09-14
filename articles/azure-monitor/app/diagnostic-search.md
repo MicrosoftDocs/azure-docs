@@ -2,7 +2,7 @@
 title: Use Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/12/2023
 ms.reviewer: saars
 
 ---
