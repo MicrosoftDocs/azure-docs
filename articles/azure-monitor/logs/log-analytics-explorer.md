@@ -13,7 +13,7 @@ ms.date: 09/04/2023
 
 The new Log Analytics features a simplified user interface and two modes for working with log data:  
 
-- **Simple mode** provides a spreadsheet-like experience to get you started quickly. Similar to working in Excel, in simple mode, you can navigate your data and apply a set of operators that are fundamental to data analysis and help you extract valuable insights without using Kusto Query Language (KQL). 
+- **Simple mode** provides a spreadsheet-like experience to get you started quickly. Similar to working in Excel, you point and click to navigate your data. Simple mode offers a set of operators that are fundamental to data analysis and help you extract valuable insights without using Kusto Query Language (KQL). 
 - For more complex analysis, switch to **advanced mode**, which offers a full-feature query editor and lets you take advantage of all of Azure Monitor's data analysis capabilities.
 
 This article explains the new Log Analytics interface and how to use simple and advanced modes to explore and analyze data in Azure Monitor Logs.     
@@ -42,14 +42,18 @@ In simple mode, the top bar has controls for working with data and switching to 
 |**Simple/Advanced**|Switch between simple and advanced mode.|
 | **Queries** | Open the example queries dialog that appears when you first open Log Analytics. |
 
-### Left sidebar
+### Left pane
 
-The sidebar on the left lists tables in the workspace, sample queries, and filter options for the current query.
+The collapsible left pane gives you access to tables in the workspace, sample and saved queries, query history, and filter options for the current query.
+
+Pin the left pane to keep it open while you work, or maximize your query window by selecting an icon from the left pane only when you need it.
+
+:::image type="content" source="media/log-analytics-explorer/log-analytics-left-sidebar.png" alt-text="Screenshot that shows the left sidebar in Log Analytics.":::
 
 | Tab | Description |
 |:---|:---|
 | **Tables** | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog with a description of the table and options to view its documentation and preview its data. Expand a table to view its columns. Double-click a table or column name to add it to the query. |
-| **Queries** | List of example queries that you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click a query to add it to the query window or hover over it for other options. |
+| **Queries** | List of example and saved queries you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click a query to add it to the query window or hover over it for other options. |
 |**Functions**|Lists functions, which allow you to reuse predefined query logic in your log queries. For more information, see [Function](../logs/functions.md)|
 |**Query history**|Lists your query history. Select a query to rerun it.|
 | **Filter** | We recommend using the new filter experience in the [top action bar](#top-action-bar). However, you can still access the classic filter experience here.|
