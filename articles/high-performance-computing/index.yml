@@ -92,7 +92,7 @@ conceptualContent:
             - url: /azure/cyclecloud/overview
               itemType: overview
               text: Azure CycleCloud
-            - url: /azure/logic-apps/overview
+            - url: /azure/logic-apps/logic-apps-overview
               itemType: overview
               text: Azure Logic Apps
         # Card
