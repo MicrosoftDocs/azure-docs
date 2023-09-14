@@ -4,7 +4,7 @@ description: Sign in Azure AD users by using the Microsoft identity platform's i
 author: OwenRichards1
 manager: CelesteDG
 ms.custom: aaddev, identityplatformtop40
-ms.date: 05/30/2023
+ms.date: 09/13/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.service: active-directory
@@ -33,6 +33,9 @@ The *ID token* introduced by OpenID Connect is issued by the authorization serve
 ID tokens aren't issued by default for an application registered with the Microsoft identity platform. ID tokens for an application are enabled by using one of the following methods:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Under **Platform configurations**, select **Add a platform**. 
+1. In the pane that opens, select the appropriate platform for your application. For example, select **Web** for a web application.
+1. Under Redirect URIs, add the redirect URI of your application. For example, `https://localhost:8080/`.
 1. Under **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 
 Or:
