@@ -177,9 +177,9 @@ We don’t really have four independent services, we have three services that ar
 
 ![Diagram showing how to balance services together, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png)
 
-Because of this chain, it's possible that an imbalance in metrics 1-4 can cause replicas or instances belonging to services 1-3 to move around. We also know that an imbalance in Metrics 1, 2, or 3 can't cause movements in Service4. There would be no point since moving the replicas or instances belonging to Service4 around can do absolutely nothing to impact the balance of Metrics 1-3.
+Because of this chain, it's possible that an imbalance in metrics 1-4 can cause replicas or instances belonging to services 1-3 to move around. We also know that an imbalance in Metrics 1, 2, or 3 can't cause movements in Service 4. There would be no point since moving the replicas or instances belonging to Service 4 around can do absolutely nothing to impact the balance of Metrics 1-3.
 
-The Cluster Resource Manager automatically figures out what services are related. Adding, removing, or changing the metrics for services can impact their relationships. For example, between two runs of balancing Service2 may have been updated to remove Metric2. This breaks the chain between Service1 and Service2. Now instead of two groups of related services, there are three:
+The Cluster Resource Manager automatically figures out what services are related. Adding, removing, or changing the metrics for services can impact their relationships. For example, between two runs of balancing Service 2 may have been updated to remove Metric 2. This breaks the chain between Service 1 and Service 2. Now instead of two groups of related services, there are three:
 
 ![Diagram showing that Cluster Resource Manager determines what services are related, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png)
 
@@ -321,11 +321,3 @@ Maximum load of node type **A** of *600* is lower than defined activity threshol
 * Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. For more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
 * The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](service-fabric-cluster-resource-manager-advanced-throttling.md)
 * The Cluster Resource Manager can recognize and handle subclustering (a situation that sometimes arises when you use placement constraints and balancing). To learn how subclustering can affect balancing and how you can handle it, see [here](cluster-resource-manager-subclustering.md)
-
-[Image1]:
-[Image2]:
-[Image3]:
-[Image4]:
-[Image5]:
-[Image6]:
-[Image7]:
