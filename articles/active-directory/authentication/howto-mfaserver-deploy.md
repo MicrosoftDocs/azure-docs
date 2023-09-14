@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -117,9 +117,8 @@ Follow these steps to download the Azure AD Multi-Factor Authentication Server f
 >
 > Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual. The following steps only work if you were an existing MFA Server customer.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Search for and select *Azure Active Directory*. Select **Security** > **MFA**.
-3. Under **Manager MFA Server**, select **Server settings**.
+11. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Protection** > **Multifactor authentication** > **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 
    ![Download MFA Server from the Azure portal](./media/howto-mfaserver-deploy/downloadportal.png)
@@ -139,7 +138,7 @@ Now that you have downloaded the server you can install and configure it. Be sur
 5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
 > [!NOTE]
-> Only global administrators are able to generate activation credentials in the Azure portal.
+> Only global administrators are able to generate activation credentials in the Microsoft Entra admin center.
 
 ## Send users an email
 

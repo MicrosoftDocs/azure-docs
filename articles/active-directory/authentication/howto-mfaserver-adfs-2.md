@@ -6,12 +6,12 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/29/2022
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
