@@ -20,7 +20,6 @@ Learn more about [ARG references and query examples](/azure/governance/resource-
 ](https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview)
 
 Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources.  For more information see: [Security Resources ARG Query Samples](https://learn.microsoft.com/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#securityresources).
-* [Security Resources ARG Query Samples
 ](https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#securityresources)
 * [Generic Security Sub Assessment Query
 ](https://learn.microsoft.com/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
