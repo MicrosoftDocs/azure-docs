@@ -11,16 +11,16 @@ ms.custom: template-how-to
 
 # How to convert a SEG-Y file to ZGY
 
-In this article, you will learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion). This tutorial is a step by step guideline how to perform the conversion. Please note the actual production workflow may differ and use this as a guide for the required set of steps to achieve the conversion. 
+In this article, you learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion). This tutorial is a step by step guideline how to perform the conversion. Note the actual production workflow may differ and use as a guide for the required set of steps to achieve the conversion. 
 
 ## Prerequisites
 - An Azure subscription
 - An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription.
 - A SEG-Y File
   - You may use any of the following files from the Volve dataset as a test. The Volve data set itself is available from [Equinor](https://www.equinor.com/energy/volve-data-sharing).
-    - [Small < 100MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PSDM_DELTA_FIELD_DEPTH.MIG_FIN.POST_STACK.3D.JS-017534.segy)
-    - [Medium < 250MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PS_PSDM_RAW_DEPTH.MIG_RAW.POST_STACK.3D.JS-017534.segy)
-    - [Large ~ 1GB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/283ba58aff7c40e62c2ac649e48a33643571f449/source/ddms-smoke-tests/sample-ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-017536.segy)
+    - [Small < 100 MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PSDM_DELTA_FIELD_DEPTH.MIG_FIN.POST_STACK.3D.JS-017534.segy)
+    - [Medium < 250 MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PS_PSDM_RAW_DEPTH.MIG_RAW.POST_STACK.3D.JS-017534.segy)
+    - [Large ~ 1 GB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/283ba58aff7c40e62c2ac649e48a33643571f449/source/ddms-smoke-tests/sample-ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-017536.segy)
 
 ## Get your Azure Data Manager for Energy instance details
 
@@ -34,7 +34,7 @@ The first step is to get the following information from your [Azure Data Manager
 | base_url           | URL                      | `https://<instance>.energy.azure.com` |
 | data-partition-id  | Data Partition(s)        | `<data-partition-name>`               |
 
-You'll use this information later in the tutorial.
+You use this information later in the tutorial.
 
 ## Set up Postman
 
@@ -81,10 +81,10 @@ Prepare the metadata / manifest file / records file for the dataset. The manifes
   - FileCollection
   - SeismicTraceData
 
-Conversion uses a manifest file that you'll upload to your storage account later in order to run the conversion. This manifest file is created by using multiple JSON files and running a script. The JSON files for this process are stored [here](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/doc/sample-records/volve) for the Volve Dataset. For more information on Volve, such as where the dataset definitions come from, visit [their website](https://www.equinor.com/energy/volve-data-sharing). Complete the following steps in order to create the manifest file:
+Conversion uses a manifest file that you upload to your storage account later in order to run the conversion. This manifest file is created by using multiple JSON files and running a script. The JSON files for this process are stored [here](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/doc/sample-records/volve) for the Volve Dataset. For more information on Volve, such as where the dataset definitions come from, visit [their website](https://www.equinor.com/energy/volve-data-sharing). Complete the following steps in order to create the manifest file:
 
 1. Clone the [repo](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/) and navigate to the folder `doc/sample-records/volve`
-2. Edit the values in the `prepare-records.sh` bash script. Recall that the format of the legal tag will be prefixed with the Azure Data Manager for Energy instance name and data partition name, so it looks like `<instancename>-<datapartitionname>-<legaltagname>`.
+2. Edit the values in the `prepare-records.sh` bash script. Recall that the format of the legal tag is prefixed with the Azure Data Manager for Energy instance name and data partition name, so it looks like `<instancename>-<datapartitionname>-<legaltagname>`.
 ```bash
 DATA_PARTITION_ID=<your-partition-id>
 ACL_OWNER=data.default.owners@<your-partition-id>.<your-tenant>.com
@@ -92,7 +92,7 @@ ACL_VIEWER=data.default.viewers@<your-partition-id>.<your-tenant>.com
 LEGAL_TAG=<legal-tag-created>
 ```
 3. Run the `prepare-records.sh` script.
-4. The output will be a JSON array with all objects and will be saved in the `all_records.json` file.
+4. The output is a JSON array with all objects and is saved in the `all_records.json` file.
 5. Save the `filecollection_segy_id` and the `work_product_id` values in that JSON file to use in the conversion step. That way the converter knows where to look for this contents of your `all_records.json`.
 
 > [!NOTE]
@@ -119,9 +119,9 @@ The user needs to be part of the `users.datalake.admins` group. Validate the cur
 
 [![Screenshot that shows the API call to get user groups in Postman](media/how-to-convert-segy-to-zgy/postman-api-get-user-groups.png)](media/how-to-convert-segy-to-zgy/postman-api-get-user-groups.png#lightbox)
 
-Later in this tutorial, you'll need at least one `owner` and at least one `viewer`. These user groups will look like `data.default.owners` and `data.default.viewers`. Make sure to note one of each in your list.
+Later in this tutorial, you need at least one `owner` and at least one `viewer`. These user groups look like `data.default.owners` and `data.default.viewers`. Make sure to note one of each in your list.
 
-If the user is not part of the required group, you can add the required entitlement using the following sample call:
+If the user isn't part of the required group, you can add the required entitlement using the following sample call:
     email-id: Is the value "Id" returned from the call above.
 
 [![Screenshot that shows the API call to get register a user as an admin in Postman](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png)](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png#lightbox)
@@ -136,7 +136,7 @@ If you haven't yet created entitlements groups, follow the directions as outline
 
 #### 2. Create Subproject
 
-Use your previously created entitlement groups that you would like to add as ACL (Access Control List) admins and viewers. Data partition entitlements do not necessarily translate to the subprojects within it, so it is important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
+Use your previously created entitlement groups that you would like to add as ACL (Access Control List) admins and viewers. Data partition entitlements don't necessarily translate to the subprojects within it, so it is important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
 
 [![Screenshot that shows the API call to create a seismic subproject in Postman](media/how-to-convert-segy-to-zgy/postman-api-create-subproject.png)](media/how-to-convert-segy-to-zgy/postman-api-create-subproject.png#lightbox)
 
@@ -149,8 +149,8 @@ Use your previously created entitlement groups that you would like to add as ACL
 
 ### Upload the File
 
-There are two ways to upload a SEGY file. One option is use the sasurl through Postman / curl call. You will need to download Postman or setup Curl on your OS. 
-The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable). To login to your instance for ADME via the tool you will need to generate a refresh token for the instance. See [How to generate a refresh token](how-to-generate-refresh-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you have not already, you will need to setup SDUTIL. Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
+There are two ways to upload a SEGY file. One option is used the sasurl through Postman / curl call. You need to download Postman or setup Curl on your OS. 
+The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/). To login to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate a refresh token](how-to-generate-refresh-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you have not already, you need to setup SDUTIL. Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
 seistore:
@@ -181,7 +181,7 @@ azure:
 
 ##### Upload the file:
 
-You will need to select the file to upload in the Body section of the API call.
+You need to select the file to upload in the Body section of the API call.
 
 [![Screenshot that shows the API call to upload a file in Postman](media/how-to-convert-segy-to-zgy/postman-api-upload-file.png)](media/how-to-convert-segy-to-zgy/postman-api-upload-file.png#lightbox)
 
@@ -194,7 +194,7 @@ You will need to select the file to upload in the Body section of the API call.
 
 #### Method 2: SDUTIL
 
-**sdutil** is an OSDU desktop utility to access seismic service. We will use it to upload/download files.
+**sdutil** is an OSDU desktop utility to access seismic service. We use it to upload/download files.
  ```markdown
   git clone https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil.git
   git checkout azure/stable
@@ -240,7 +240,7 @@ python sdutil auth idtoken
 
 2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the above call
 
-[![Screenshot that shows the API call to start the conversion workflow in Postman](media/how-to-convert-segy-to-zgy/postman-api-check-workflow-status.png)](media/how-to-convert-segy-to-zgy/postman-api-check-workflow-status.png#lightbox)
+[![Screenshot that shows the API call to check the conversion workflow's status in Postman](media/how-to-convert-segy-to-zgy/postman-api-check-workflow-status.png)](media/how-to-convert-segy-to-zgy/postman-api-check-workflow-status.png#lightbox)
 
 3. You can see if the converted file is present using the following command in sdutil or in the Postman API call:
 
