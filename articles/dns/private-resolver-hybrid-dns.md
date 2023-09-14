@@ -56,7 +56,7 @@ In this article, the private zone **azure.contoso.com** and the resource record 
 
 [ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records-small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
 
-**Requirement**: You must create a virtual network link in the zone to the virtual network where you'll deploy your Azure DNS Private Resolver.  In the example shown below, the private zone is linked to two vnets: **myeastvnet** and **mywestvnet**. At least one link is required.
+**Requirement**: You must create a virtual network link in the zone to the virtual network where you deploy your Azure DNS Private Resolver.  In the following example, the private zone is linked to two vnets: **myeastvnet** and **mywestvnet**. At least one link is required.
 
 [ ![View zone links](./media/private-resolver-hybrid-dns/private-zone-links-small.png) ](./media/private-resolver-hybrid-dns/private-zone-links.png#lightbox)
 
@@ -66,7 +66,7 @@ The following quickstarts are available to help you create a private resolver. T
 - [Create a private resolver - portal](dns-private-resolver-get-started-portal.md)
 - [Create a private resolver - PowerShell](dns-private-resolver-get-started-powershell.md) 
 
- When you're finished, write down the IP address of the inbound endpoint for the Azure DNS Private Resolver, as shown below. In this case, the IP address is **10.10.0.4**.  This IP address will be used later to configure on-premises DNS conditional forwarders.
+ When you're finished, write down the IP address of the inbound endpoint for the Azure DNS Private Resolver. In this example, the IP address is **10.10.0.4**.  This IP address is used later to configure on-premises DNS conditional forwarders.
 
 [ ![View endpoint IP address](./media/private-resolver-hybrid-dns/inbound-endpoint-ip-small.png) ](./media/private-resolver-hybrid-dns/inbound-endpoint-ip.png#lightbox)
 
