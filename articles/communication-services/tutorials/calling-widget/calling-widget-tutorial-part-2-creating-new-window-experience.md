@@ -219,12 +219,17 @@ Finally on this screen, let's add the `startNewWindow` handler to the widget so 
 
 Next, we need to make sure that our application can listen for and ask for the messages from what would be the parent window. First to start, you might recall that we added a new query parameter to the URL of the application `newSession=true`. To use this and have our app look for that in the URL, we need to create a utility function to parse out that parameter. Once we do that, we'll use it to make our application behave differently when it's received.
 
-To do that, let's add a new folder `src/utils` and in this folder, we add the file `AppUtils.ts`. In this file let's put the following function:
-
+To do that, let's add a new folder `src/utils` and in this folder, we add the file `AppUtils.ts`. In this file let's put the following:
+`AppUtils.ts`
+```ts
+// imports needed for the file
+import { CallAdapterLocator } from '@azure/communication-react';
+import { CommunicationIdentifier } from '@azure/communication-common';
+```
 `AppUtils.ts`
 ```ts
 /**
- * get go ahead to request for adapter args from url
+ * Function to see if we should be making a request for the adapter args from URL
  * @returns
  */
 export const getStartSessionFromURL = (): boolean | undefined => {

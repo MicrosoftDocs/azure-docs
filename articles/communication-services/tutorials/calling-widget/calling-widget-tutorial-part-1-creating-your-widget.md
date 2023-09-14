@@ -328,7 +328,8 @@ import { Stack, Text } from '@fluentui/react';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { CallingWidgetComponent } from '../components/CallingWidgetComponent';
 import { CallAdapterLocator } from '@azure/communication-react';
-import hero from '../hero.svg';
+// This import pulls in the place holder react logo from CRA, you can replace this with a logo or other image of your choosing
+import logo from '../logo.svg';
 ```
 ```ts
 export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element => {
@@ -364,8 +365,8 @@ export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element 
           </Text>
           <img
             style={{ width: "7rem", height: "auto" }}
-            src={hero}
-            alt="kcup logo"
+            src={logo}
+            alt="logo"
           />
         </Stack>
 
@@ -399,7 +400,7 @@ export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element 
             return (
               <img
                 style={{ height: "4rem", width: "4rem", margin: "auto" }}
-                src={hero}
+                src={logo}
                 alt="logo"
               />
             );
@@ -425,12 +426,12 @@ import { CallingWidgetScreen } from './views/CallingWidgetScreen';
 ```
 
 ```ts
-    
+    // we will replace the existing case statement with this
     case 'calling-widget': {
         if (!token || !userId || !locator) {
         return (
         <Stack verticalAlign='center' style={{height: '100%', width: '100%'}}>
-            <Spinner label={'Getting user credentials from server'} ariaLive="assertive" labelPosition="top" />;
+            <Spinner label={'Waiting for user credentials'} ariaLive="assertive" labelPosition="top" />;
         </Stack>
         )
     }

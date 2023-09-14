@@ -41,7 +41,8 @@ This tutorial is broken down into three parts:
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
+- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version. 
+- An Azure Communication Services resource. [Create a Communications Resource](https://learn.microsoft.com/en-gb/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp)
 
 
 ### Set up the project
@@ -63,13 +64,13 @@ cd ui-library-click-to-call-app
 
 Then you need to update the dependency array in the `package.json` to include some beta and alpha packages from Azure Communication Services for this to work:
 ```json
-"@azure/communication-calling": "1.14.1-beta.1",
-"@azure/communication-chat": "1.3.2-beta.2",
-"@azure/communication-react": "1.7.0-beta.1",
+"@azure/communication-calling": "1.16.3-beta.1",
+"@azure/communication-chat": "1.4.0-beta.1",
+"@azure/communication-react": "1.8.0-beta.1",
 "@azure/communication-calling-effects": "1.0.0-beta.2",
-"@azure/communication-common": "2.2.1",
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
+"@azure/communication-common": "2.2.1"
 ```
 
 Once you run these commands, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
@@ -162,9 +163,6 @@ function App() {
           />
         </Stack>
       );
-    }
-    default: {
-      return <>Something went wrong!</>
     }
   }
 }
