@@ -57,13 +57,6 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 |**Functions**|Lists functions, which allow you to reuse predefined query logic in your log queries. For more information, see [Function](../logs/functions.md)|
 |**Query history**|Lists your query history. Select a query to rerun it.|
 | **Filter** | We recommend using the new filter experience in the [top action bar](#top-action-bar). However, you can still access the classic filter experience here.|
-## Switch modes
-
-To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
-
-When you begin to query logs in simple mode and then switch to advanced mode, the query editor is pre-populated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
-
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-1.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 
 ### More tools
 
@@ -79,6 +72,14 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 | **Format query** | Format query text in advanced mode. |
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
 | **Switch back to classic Logs** | Switch back to the classic Log Analytics user interface. |
+
+## Switch modes
+
+To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
+
+When you begin to query logs in simple mode and then switch to advanced mode, the query editor is pre-populated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
+
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-1.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 
 ## Query in simple mode 
 
