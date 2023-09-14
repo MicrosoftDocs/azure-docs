@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-portal-azd
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
 
-::: zone pivot="azure-portal"  
+:::zone pivot="azure-portal"  
 In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
@@ -664,7 +664,9 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     |What would you like to do with these files?     | **Keep my existing files unchanged**        |
     |Enter a new environment name     | Type a unique name. The azd template uses this name as part of the DNS name of your web app in Azure (`<app-name>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
     
-1. Create the Azure resources and deploy your application code by using the `azd up` command and following the prompt:
+### Provision and deploy the app resources
+
+1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. The `azd up` command will also prompt you to select the desired subscription and location to deploy to.
 
     ```bash
     azd up
@@ -672,12 +674,6 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
 
     The `azd up` command might take a few minutes to complete. It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
-### Provision and deploy the app resources
-
-1. Run the `azd up` command to provision the necessary Azure resources and deploy the app code. The `azd up` command will also prompt you to select the desired subscription and location to deploy to.
-    ```bash
-    azd up
-    ```
 1. If you are not already signed-in to Azure, the browser will launch and ask you to sign-in.
 
 1. Once you are signed-in to Azure, you will be prompted for the following information:
@@ -715,25 +711,25 @@ Having issues? Check the [Troubleshooting guide](configure-language-python.md#tr
 
 1. Open *azureproject/production.py*, uncomment the following lines, and save the file:
 
-    ```python
-    conn_str = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
-    conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}
-    
-    DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
-        dbuser=conn_str_params['user'],
-        dbpass=conn_str_params['password'],
-        dbhost=conn_str_params['host'],
-        dbname=conn_str_params['dbname']
-    )
-    ```
+```python
+conn_str = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
+conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}
+
+DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
+    dbuser=conn_str_params['user'],
+    dbpass=conn_str_params['password'],
+    dbhost=conn_str_params['host'],
+    dbname=conn_str_params['dbname']
+)
+```
 
     Your application code is now configured to connect to the PostgreSQL database in Azure. If you want, open `app.py` and see how the `DATABASE_URI` environment variable is used.
 
 2. In the cloud shell, run `azd deploy`
  
-    ```bash
-    azd deploy
-    ```
+```bash
+azd deploy
+```
 
 Having issues? Check the [Troubleshooting guide](configure-language-python.md#troubleshooting).
 
@@ -772,25 +768,15 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 ## 5. Browse to the app
 
-:::row:::
-    :::column span="2":::
-        **Step 1:** In the App Service page:
-        1. From the left menu, select **Overview**.
+    1. In the App Service page, from the left menu, select **Overview**.
         1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
-    :::column-end:::
-    :::column:::
+
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** Add a few restaurants to the list.
+
+        2. Add a few restaurants to the list.
         Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
-    :::column-end:::
-    :::column:::
+
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews." lightbox="./media/tutorial-python-postgresql-app/azure-portal-browse-app-2.png":::
-    :::column-end:::
-:::row-end:::
 
 ## 6. Stream diagnostic logs
 
@@ -819,6 +805,7 @@ To delete all Azure resources in the current deployment environment, run `azd do
 ```bash
 azd down
 ```
+::: zone-end
 
 ## Troubleshooting
 
