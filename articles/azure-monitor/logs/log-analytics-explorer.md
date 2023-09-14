@@ -151,9 +151,9 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 ## Advanced mode
 
-The query window is where you edit your query. IntelliSense is used for KQL commands and color coding enhances readability. Select **+** at the top of the window to open another tab.
+Advanced mode lets you use KQL to query and analyze data. The Log Analytics query editor offer IntelliSense features, such as auto-suggestion, syntax highlighting, and table and column name suggestions. 
 
-A single window can include multiple queries. A query can't include any blank lines, so you can separate multiple queries in a window with one or more blank lines. The current query is the one with the cursor positioned anywhere in it.
+:::image type="content" source="media/log-analytics-explorer/log-analytics-advanced-mode.png" alt-text="Screenshot that shows the Log Analytics query editor.":::
 
 To run the current query, select the **Run** button or select **Shift+Enter**.
 
