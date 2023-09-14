@@ -16,14 +16,12 @@ This guide shows how to install the Vision SDK for Java.
 
 ## Install the Vision SDK for Java
 
-The Vision SDK for Java is available as a Maven package. For more information, see <a href="https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis" target="_blank">Azure.AI.Vision.ImageAnalysis</a>.
+The Azure AI Vision SDK for Java is available as a Maven package. For more information, see the package <a href="https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis" target="_blank">azure-ai-vision-imageanalysis</a> in the Maven repository.
 
 
 # [Maven](#tab/maven)
 
-## Apache Maven
-
-Follow these steps to install the Azure AI Vision SDK for Java using Apache Maven:
+Follow these steps to install the Vision SDK for Java using Apache Maven:
 
 1. Install [Apache Maven](https://maven.apache.org/download.cgi). On Linux, install from the distribution repositories if available.
 
@@ -31,7 +29,7 @@ Follow these steps to install the Azure AI Vision SDK for Java using Apache Mave
 
 1. Open a command prompt where you want to place the new project, and create a new pom.xml file.
 
-1. Copy the following XML content into pom.xml
+1. Copy the following XML content into your pom.xml file:
 
   ```xml
   <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -77,13 +75,12 @@ Follow these steps to install the Azure AI Vision SDK for Java using Apache Mave
     mvn clean dependency:copy-dependencies
 ```
 
+2. Verify that the local folder path `target\dependency` was created, and it contains `.jar` files including three file named `azure-ai-vision-*.jar`
 
 # [Gradle](#tab/gradle)
 
-Gradle configurations require an explicit reference to the .jar dependency extension:
+Gradle configurations require an explicit reference to the .jar dependency extension. Add the following line in your `build.gradle` file:
 ```gradle
-// build.gradle
-
 dependencies {
     implementation group: 'com.azure', name: ' azure-ai-vision-imageanalysis', version: "0.15.1-beta.1", ext: "jar"
 }
