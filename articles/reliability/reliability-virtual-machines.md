@@ -473,9 +473,9 @@ For migrating existing virtual machine resources to a zone redundant configurati
 - [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
 - [Move region maintenance configuration resources](../virtual-machines/move-region-maintenance-configuration-resources.md)
 
-## Disaster recovery: cross-region failover
+## Disaster recovery and business continuity
 
-In the case of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md).
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
 You can use Cross Region restore to restore Azure VMs via paired regions. With Cross Region restore, you can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region. For more details on Cross Region restore, refer to the Cross Region table row entry in our [restore options](../backup/backup-azure-arm-restore-vms.md#restore-options).
 
