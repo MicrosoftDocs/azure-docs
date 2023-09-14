@@ -89,7 +89,7 @@ When you hover the mouse on an input/output port, the type is displayed.
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/hover-port.png" lightbox="./media/how-to-manage-pipeline-input-output/hover-port.png" alt-text="Screenshot highlighting the port type when hovering the mouse.":::
 
 
-The primitive type inputs won't be displayed on the graph. It can be found in the **Settings** tab of the pipeline job overview panel (for pipeline level inputs) or the component panel(for component level inputs). Following screenshot shows the **Settings** tab of a pipeline job, it can be opened by clicking the **Job Overview** link. 
+The primitive type inputs won't be displayed on the graph. It can be found in the **Settings** tab of the pipeline job overview panel (for pipeline level inputs) or the component panel (for component level inputs). Following screenshot shows the **Settings** tab of a pipeline job, it can be opened by selecting the **Job Overview** link. 
 
 If you want to check inputs for a component, double click on the component to open component panel.
 
