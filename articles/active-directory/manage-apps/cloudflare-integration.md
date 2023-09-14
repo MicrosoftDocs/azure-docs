@@ -18,16 +18,16 @@ ms.custom: not-enterprise-apps
 
 In this tutorial, learn to integrate Azure Active Directory (Azure AD) with Cloudflare Zero Trust. Build rules based on user identity and group membership. Users authenticate with Azure AD credentials and connect to Zero Trust protected applications.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 * An Azure AD subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD tenant linked to the Azure AD subscription
-  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md)
+  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
 * A Cloudflare Zero Trust account
   * If you don't have one, go to [Get started with Cloudflare's Zero Trust platform](https://dash.cloudflare.com/sign-up/teams)
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
+
 
 ## Integrate organization identity providers with Cloudflare Access
 
@@ -63,15 +63,16 @@ Integrate Cloudflare Zero Trust account with an instance of Azure AD.
 
 ## Register Cloudflare with Azure AD
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the instructions in the following three sections to register Cloudflare with Azure AD.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Under **Azure Services**, select **Azure Active Directory**.
-3. In the left menu, under **Manage**, select **App registrations**.
-4. Select the **+ New registration** tab.
-5. Enter an application **Name**
-6. Enter a team name with **callback** at the end of the path. For example, `https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback`
-7. Select **Register**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations**.
+3. Select **New registration**.
+4. Enter an application **Name**.
+5. Enter a team name with **callback** at the end of the path. For example, `https://<your-team-name>.cloudflareaccess.com/cdn-cgi/access/callback`
+6. Select **Register**.
 
 See the [team domain](https://developers.cloudflare.com/cloudflare-one/glossary#team-domain) definition in the Cloudflare Glossary.
 

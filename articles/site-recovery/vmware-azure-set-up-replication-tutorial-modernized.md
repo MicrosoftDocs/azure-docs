@@ -3,7 +3,7 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Mo
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/21/2022
+ms.date: 08/01/2023
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT

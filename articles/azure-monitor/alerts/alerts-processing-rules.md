@@ -76,7 +76,7 @@ Severity |  The rule applies only to alerts with the selected severities. |
 * If you define multiple filters in a rule, all the rules apply. There's a logical AND between all filters.  
   For example, if you set both `resource type = "Virtual Machines"` and `severity = "Sev0"`, then the rule applies only for `Sev0` alerts on virtual machines in the scope.
 * Each filter can include up to five values. There's a logical OR between the values.  
-  For example, if you set `description contains ["this", "that"]`, then the rule applies only to alerts whose description contains either `this` or `that`.
+  For example, if you set `description contains "this, that" (in the field there is no need to write the apostrophes), then the rule applies only to alerts whose description contains either `this` or `that`. 
 
 ### What should this rule do?
 
@@ -225,7 +225,7 @@ az monitor alert-processing-rules list
 az monitor alert-processing-rules show --resource-group RG1 --name MyRule
 
 # Update an alert processing rule
-az monitor alert-processing-rules update --resource-group RG1 --name MyRule --status Disabled
+az monitor alert-processing-rule update --resource-group RG1 --name MyRule --enabled true
 
 # Delete an alert processing rule
 az monitor alert-processing-rules delete --resource-group RG1 --name MyRule

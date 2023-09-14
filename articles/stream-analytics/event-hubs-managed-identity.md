@@ -9,7 +9,7 @@ ms.date: 05/15/2023
 ms.custom: subject-rbac-steps
 ---
 
-# Use managed identities to access Event Hubs from an Azure Stream Analytics job
+# Use managed identities to access Event Hubs  from an Azure Stream Analytics job
 
 Azure Stream Analytics supports Managed Identity authentication for both Azure Event Hubs input and output. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate because of password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.  
 

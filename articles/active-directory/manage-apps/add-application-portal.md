@@ -21,22 +21,22 @@ In this quickstart, you use the Azure portal to add an enterprise application to
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To add an enterprise application to your Azure AD tenant, you need:
 
 - An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, or Application Administrator.
+- One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 
 ## Add an enterprise application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To add an enterprise application to your tenant:
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
-1. Browse to **Azure Active Directory** and select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant.
-1. In the **Enterprise applications** pane, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select **New application**.
 1. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning. Search for and select the application. In this quickstart, **Azure AD SAML Toolkit** is being used.
 
     :::image type="content" source="media/add-application-portal/browse-gallery.png" alt-text="Browse in the enterprise application gallery for the application that you want to add.":::

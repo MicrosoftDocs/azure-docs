@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 08/02/2022
 ms.author: danlep
 ---
 
@@ -38,7 +38,9 @@ By default, API Management enables TLS 1.2 for client and backend connectivity a
 
 1. In the left navigation of your API Management instance, under **Security**, select **Protocols + ciphers**.  
 1. Enable or disable desired protocols or ciphers.
-1. Select **Save**. Changes are applied within an hour.  
+1. Select **Save**.
+
+Changes can take 1 hour or longer to apply. An instance in the Developer service tier has downtime during the process. Instances in the Basic and higher tiers don't have downtime during the process.  
 
 > [!NOTE]
 > Some protocols or cipher suites (such as backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST API call. Use the `properties.customProperties` structure in the [Create/Update API Management Service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.

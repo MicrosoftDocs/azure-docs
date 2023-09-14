@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
-ms.custom: 
+ms.custom: has-azure-ad-ps-ref
 ---
 # Integrate your existing Network Policy Server (NPS) infrastructure with Azure AD Multi-Factor Authentication
 
@@ -93,17 +93,16 @@ The following libraries are installed automatically with the extension.
 
 The Microsoft Azure Active Directory Module for Windows PowerShell is also installed through a configuration script you run as part of the setup process, if not already present. There's no need to install this module ahead of time if it's not already installed.
 
-### Azure Active Directory
+### Obtain the directory tenant ID
 
-Everyone using the NPS extension must be synced to Azure AD using Azure AD Connect, and must be registered for MFA.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-When you install the extension, you need the *Tenant ID* and admin credentials for your Azure AD tenant. To get the tenant ID, complete the following steps:
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. Search for and select the **Azure Active Directory**.
-1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Settings**.
 
-   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
+   ![Getting the Tenant ID from the Microsoft Entra admin center](./media/howto-mfa-nps-extension-vpn/tenant-id.png)
 
 ### Network requirements
 
@@ -111,14 +110,14 @@ The NPS server must be able to communicate with the following URLs over TCP port
 
 * `https://login.microsoftonline.com`
 * `https://login.microsoftonline.us (Azure Government)`
-* `https://login.chinacloudapi.cn (Azure China 21Vianet)`
+* `https://login.chinacloudapi.cn (Microsoft Azure operated by 21Vianet)`
 * `https://credentials.azure.com`
 * `https://strongauthenticationservice.auth.microsoft.com`
 * `https://strongauthenticationservice.auth.microsoft.us (Azure Government)`
-* `https://strongauthenticationservice.auth.microsoft.cn (Azure China 21Vianet)`
+* `https://strongauthenticationservice.auth.microsoft.cn (Microsoft Azure operated by 21Vianet)`
 * `https://adnotifications.windowsazure.com`
 * `https://adnotifications.windowsazure.us (Azure Government)`
-* `https://adnotifications.windowsazure.cn (Azure China 21Vianet)`
+* `https://adnotifications.windowsazure.cn (Microsoft Azure operated by 21Vianet)`
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script):
 
@@ -131,7 +130,7 @@ Additionally, connectivity to the following URLs is required to complete the [se
 
 ## Prepare your environment
 
-Before you install the NPS extension, prepare you environment to handle the authentication traffic.
+Before you install the NPS extension, prepare your environment to handle the authentication traffic.
 
 ### Enable the NPS role on a domain-joined server
 
@@ -152,11 +151,11 @@ Depending on which VPN solution you use, the steps to configure your RADIUS auth
 
 This step may already be complete on your tenant, but it's good to double-check that Azure AD Connect has synchronized your databases recently.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Select **Azure Active Directory** > **Azure AD Connect**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Hybrid management** > **Azure AD Connect**.
 3. Verify that your sync status is **Enabled** and that your last sync was less than an hour ago.
 
-If you need to kick off a new round of synchronization, see [Azure AD Connect sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+If you need to kick off a new round of synchronization, see [Azure AD Connect sync: Scheduler](../hybrid/connect/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### Determine which authentication methods your users can use
 
@@ -183,7 +182,8 @@ If you need to create and configure a test account, use the following steps:
 
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account.
 2. Follow the prompts to set up a verification method.
-3. In the Azure portal as an admin user, [create a Conditional Access policy](howto-mfa-getstarted.md#plan-conditional-access-policies) to require multi-factor authentication for the test account.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** >  **Multifactor authentication** and enable for the test account.
 
 > [!IMPORTANT]
 >
@@ -244,7 +244,7 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
 
    > [!IMPORTANT]
-   > For customers that use the Azure Government or Azure China 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
+   > For customers that use the Azure Government or Microsoft Azure operated by 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
    >
    > For more information, see [Connect-MsolService parameter reference](/powershell/module/msonline/connect-msolservice#parameters).
 
@@ -253,7 +253,7 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    ```
 
 1. When prompted, sign in to Azure AD as a Global administrator.
-1. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied from the Azure portal in the prerequisites section.
+1. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied in the prerequisites section.
 1. A success message is shown when the script is finished.  
 
 If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
@@ -261,16 +261,16 @@ If your previous computer certificate has expired, and a new certificate has bee
 > [!NOTE]
 > If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**.
 
-### Microsoft Azure Government or Azure China 21Vianet additional steps
+### Microsoft Azure Government or Microsoft Azure operated by 21Vianet additional steps
 
-For customers that use the Azure Government or Azure China 21Vianet clouds, the following additional configuration steps are required on each NPS server.
+For customers that use the Azure Government or Azure operated by 21Vianet clouds, the following additional configuration steps are required on each NPS server.
 
 > [!IMPORTANT]
-> Only configure these registry settings if you're an Azure Government or Azure China 21Vianet customer.
+> Only configure these registry settings if you're an Azure Government or Azure operated by 21Vianet customer.
 
-1. If you're an Azure Government or Azure China 21Vianet customer, open **Registry Editor** on the NPS server.
+1. If you're an Azure Government or Azure operated by 21Vianet customer, open **Registry Editor** on the NPS server.
 1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
-1. For Azure Government customers, set the following key values.:
+1. For Azure Government customers, set the following key values:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
@@ -278,7 +278,7 @@ For customers that use the Azure Government or Azure China 21Vianet clouds, the 
     | AZURE_MFA_RESOURCE_HOSTNAME | adnotifications.windowsazure.us |
     | STS_URL            | https://login.microsoftonline.us/ |
 
-1. For Azure China 21Vianet customers, set the following key values:
+1. For Microsoft Azure operated by 21Vianet customers, set the following key values:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
@@ -341,16 +341,16 @@ The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azur
 
 ### How to fix the error "Service principal was not found" while running `AzureMfaNpsExtnConfigSetup.ps1` script? 
 
-If for any reason the "Azure Multi-Factor Auth Client" service principal was not created in the tenant , it can be manually created by running the `New-MsolServicePrincipal` cmdlet as shown below. 
+If for any reason the "Azure Multi-Factor Auth Client" service principal was not created in the tenant, it can be manually created by running the `New-MsolServicePrincipal` cmdlet as shown below. 
 
 ```powershell
 import-module MSOnline
 Connect-MsolService
 New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
 ```
-Once done , go to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
+Once done, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Browse to **Identity** > **Applications** > **Enterprise applications** > and search for "Azure Multi-Factor Auth Client". Then click **Check properties for this app**. Confirm if the service principal is enabled or disabled. Click the application entry > **Properties**. If the option **Enabled for users to sign-in?** is set to **No**, set it to **Yes**.
 
-Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
+Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the **Service principal was not found** error. 
 
 ### How do I verify that the client cert is installed as expected?
 

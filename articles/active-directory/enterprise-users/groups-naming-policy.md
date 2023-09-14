@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn                   
 ms.reviewer: krbain
-ms.custom: "it-pro;seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -77,8 +77,10 @@ Some administrator roles are exempted from these policies, across all group work
 
 ## Configure naming policy in Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a Group Administrator account.
-1. Browse to **Azure Active Directory** > **Groups**, then select **Naming policy** to open the Naming policy page.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+
+1. Select **All groups** > **Groups**, then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)
 
@@ -255,9 +257,9 @@ Microsoft 365 admin center | Microsoft 365 admin center is compliant with naming
 
 These articles provide additional information on Azure AD groups.
 
-- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [See existing groups](../fundamentals/groups-view-azure-portal.md)
 - [Expiration policy for Microsoft 365 groups](groups-lifecycle.md)
-- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage members of a group](../fundamentals/active-directory-groups-members-azure-portal.md)
-- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage members of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

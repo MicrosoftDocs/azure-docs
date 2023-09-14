@@ -14,6 +14,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
+
 # System-preferred multifactor authentication  - Authentication methods policy
 
 System-preferred multifactor authentication (MFA) prompts users to sign in by using the most secure method they registered. Administrators can enable system-preferred MFA to improve sign-in security and discourage less secure sign-in methods like SMS.
@@ -111,7 +112,7 @@ When a user signs in, the authentication process checks which authentication met
 
 1. [Temporary Access Pass](howto-authentication-temporary-access-pass.md)
 1. [FIDO2 security key](concept-authentication-passwordless.md#fido2-security-keys)
-1. [Microsoft Authenticator push notifications](concept-authentication-authenticator-app.md)
+1. [Microsoft Authenticator notifications](concept-authentication-authenticator-app.md)
 1. [Time-based one-time password (TOTP)](concept-authentication-oath-tokens.md)<sup>1</sup>
 1. [Telephony](concept-authentication-phone-options.md)<sup>2</sup>
 1. [Certificate-based authentication](concept-certificate-based-authentication.md)
@@ -134,3 +135,5 @@ The system-preferred MFA also applies for users who are enabled for MFA in the l
 
 * [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
 * [How to run a registration campaign to set up Microsoft Authenticator](how-to-mfa-registration-campaign.md)
+
+

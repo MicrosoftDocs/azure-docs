@@ -25,7 +25,7 @@ With access reviews, you can easily enable collaboration across organizational b
 You also can easily ensure that guest users have appropriate access. You can ask the guests themselves or a decision maker to participate in an access review and re-certify (or attest) to the guests' access. The reviewers can give their input on each user's need for continued access, based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access for guests who no longer need it.
 
 > [!NOTE]
-> This document focuses on reviewing guest users' access. If you want to review all users' access, not just guests, see [Manage user access with access reviews](manage-user-access-with-access-reviews.md). If you want to review users' membership in administrative roles, such as global administrator, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
+> This document focuses on reviewing guest users' access. If you want to review all users' access, not just guests, see [Manage user access with access reviews](manage-user-access-with-access-reviews.md). If you want to review users' membership in administrative roles, such as global administrator, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md).
 
 ## Prerequisites
 
@@ -71,9 +71,9 @@ You can use access reviews to ensure that users who were invited and added to a 
 
 5. If the group isn't used for access management, you also can remove users who weren't selected to participate in the review because they didn't accept their invitation. Not accepting might indicate that the invited user's email address had a typo. If a group is used as a distribution list, perhaps some guest users weren't selected to participate because they're contact objects.
 
-### Ask a sponsor to review a guest's membership in a group
+### Ask an authorized user to review a guest's membership in a group
 
-You can ask a sponsor, such as the owner of a group, to review a guest's need for continued membership in a group.
+You can ask an authorized user, such as the owner of a group, to review a guest's need for continued membership in a group.
 
 1. To create an access review for the group, select the review to include guest user members only. Then specify one or more reviewers. For more information, see [Create an access review of groups or applications](create-access-review.md).
 
@@ -94,9 +94,9 @@ You can use access reviews to ensure that users who were invited for a particula
 
 4. In addition to users who denied their own need for continued access, you also can remove guest users who didn't respond. Non-responding users potentially no longer receive email. You also can remove guest users who weren't selected to participate, especially if they weren't recently invited. Those users didn't accept their invitation and so didn't have access to the application. 
 
-### Ask a sponsor to review a guest's access to an application
+### Ask an authorized user to review a guest's access to an application
 
-You can ask a sponsor, such as the owner of an application, to review guest's need for continued access to the application.
+You can ask an authorized user, such as the owner of an application, to review guest's need for continued access to the application.
 
 1. To create an access review for the application, select the review to include guests only. Then specify one or more users as reviewers. For more information, see [Create an access review of groups or applications](create-access-review.md).
 

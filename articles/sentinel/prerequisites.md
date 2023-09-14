@@ -1,47 +1,30 @@
 ---
-title: Prerequisites for deploying Microsoft Sentinel
+title: Plan and prepare for your Microsoft Sentinel deployment
 description: Learn about pre-deployment activities and prerequisites for deploying Microsoft Sentinel.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 06/29/2023
 ---
+# Plan and prepare for your Microsoft Sentinel deployment
 
-# Pre-deployment activities and prerequisites for deploying Microsoft Sentinel
+This article introduces the activities and prerequisites that help you plan and prepare before deploying Microsoft Sentinel.
 
-This article introduces the pre-deployment activities and prerequisites for deploying Microsoft Sentinel.
-
-## Pre-deployment activities
+The plan and prepare phase is typically performed by a SOC architect or related roles.
 
 Before deploying Microsoft Sentinel, we recommend taking the following steps to help focus your deployment on providing maximum value, as soon as possible.
 
-1. Determine which [data sources](connect-data-sources.md) you need and the data size requirements to help you accurately project your deployment's budget and timeline.
+## Plan and prepare overview
 
-   You might determine this information during your business use case review, or by evaluating a current SIEM that you already have in place. If you already have a SIEM in place, analyze your data to understand which data sources provide the most value and should be ingested into Microsoft Sentinel.
+| Step | Details |
+| --------- | ------- |
+| **1. Plan and prepare overview and prerequisites** | **YOU ARE HERE**<br><br>Review the [Azure tenant prerequisites](#azure-tenant-prerequisites). |
+| **2. Plan workspace architecture** | Design your Microsoft Sentinel workspace. Consider parameters such as:<br><br>- Whether you'll use a single tenant or multiple tenants<br>- Any compliance requirements you have for data collection and storage<br>- How to control access to Microsoft Sentinel data<br><br>Review these articles:<br><br>1. [Review best practices](best-practices-workspace-architecture.md)<br>2. [Design workspace architecture](design-your-workspace-architecture.md)<br>3. [Review sample workspace designs](sample-workspace-designs.md)<br>4. [Prepare for multiple workspaces](prepare-multiple-workspaces.md) |
+| **3. [Prioritize data connectors](prioritize-data-connectors.md)** | Determine which data sources you need and the data size requirements to help you accurately project your deployment's budget and timeline.<br><br>You might determine this information during your business use case review, or by evaluating a current SIEM that you already have in place. If you already have a SIEM in place, analyze your data to understand which data sources provide the most value and should be ingested into Microsoft Sentinel. |
+| **4. [Plan roles and permissions](roles.md)** |Use Azure role based access control (RBAC) to create and assign roles within your security operations team to grant appropriate access to Microsoft Sentinel. The different roles give you fine-grained control over what Microsoft Sentinel users can see and do. Azure roles can be assigned in the Microsoft Sentinel workspace directly, or in a subscription or resource group that the workspace belongs to, which Microsoft Sentinel inherits. |
+| **5. [Plan costs](billing.md)** |Start planning your budget, considering cost implications for each planned scenario.<br><br>   Make sure that your budget covers the cost of data ingestion for both Microsoft Sentinel and Azure Log Analytics, any playbooks that will be deployed, and so on. |
 
-1. Design your Microsoft Sentinel workspace. Consider parameters such as:
-
-   - Whether you'll use a single tenant or multiple tenants
-   - Any compliance requirements you have for data collection and storage
-   - How to control access to Microsoft Sentinel data
-
-   For more information, see [Workspace architecture best practices](best-practices-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md).
-
-1. After the business use cases, data sources, and data size requirements have been identified, [start planning your budget](billing.md), considering cost implications for each planned scenario.
-
-   Make sure that your budget covers the cost of data ingestion for both Microsoft Sentinel and Azure Log Analytics, any playbooks that will be deployed, and so on.
-
-   For more information, see:
-
-   - [Microsoft Sentinel costs and billing](billing.md)
-   - [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/)
-   - [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
-   - [Logic apps (playbooks) pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-   - [Integrating Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md)
-
-1. Nominate an engineer or architect lead the deployment, based on requirements and timelines. This individual should lead the deployment and be the main point of contact on your team.
-
-## Azure tenant requirements
+## Azure tenant prerequisites
 
 Before deploying Microsoft Sentinel, make sure that your Azure tenant has the following requirements:
 
@@ -59,14 +42,15 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant has the fo
 
 - A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) is required to house all of the data that Microsoft Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md). Microsoft Sentinel doesn't support Log Analytics workspaces with a resource lock applied.
 
-We recommend that when you set up your Microsoft Sentinel workspace, [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) that's dedicated to Microsoft Sentinel and the resources that Microsoft Sentinel uses, including the Log Analytics workspace, any playbooks, workbooks, and so on.
+- We recommend that when you set up your Microsoft Sentinel workspace, [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) that's dedicated to Microsoft Sentinel and the resources that Microsoft Sentinel uses, including the Log Analytics workspace, any playbooks, workbooks, and so on.
 
-A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Microsoft Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Microsoft Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
-To implement more access control to resources by tiers, use extra resource groups to house the resources that should be accessed only by those groups. Using multiple tiers of resource groups enables you to separate access between those tiers.
+  A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Microsoft Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Microsoft Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
+
+  To implement more access control to resources by tiers, use extra resource groups to house the resources that should be accessed only by those groups. Using multiple tiers of resource groups enables you to separate access between those tiers.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> >[On-board Microsoft Sentinel](quickstart-onboard.md)
-> [!div class="nextstepaction"]
-> >[Get visibility into alerts](get-visibility.md)
 
+In this article, you reviewed the activities and prerequisites that help you plan and prepare before deploying Microsoft Sentinel.
+
+> [!div class="nextstepaction"]
+> >[Review workspace architecture best practices](best-practices-workspace-architecture.md)

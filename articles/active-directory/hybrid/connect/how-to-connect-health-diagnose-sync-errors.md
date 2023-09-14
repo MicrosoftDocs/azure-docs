@@ -61,7 +61,7 @@ Follow the steps from the Azure portal to narrow down the sync error details and
 ![Sync error diagnosis steps](./media/how-to-connect-health-diagnose-sync-errors/IIdFixSteps.png)
 
 From the Azure portal, take a few steps to identify specific fixable scenarios:  
-1.	Check the **Diagnose status** column. The status shows if there's a possible way to fix a sync error directly from Azure Active Directory. In other words, a troubleshooting flow exists that can narrow down the error case and potentially fix it.
+1. Check the **Diagnose status** column. The status shows if there's a possible way to fix a sync error directly from Azure Active Directory. In other words, a troubleshooting flow exists that can narrow down the error case and potentially fix it.
 
 | Status | What does it mean? |
 | ------------------ | -----------------|
@@ -130,7 +130,7 @@ The sync error will be resolved after the next sync. Connect Health will no long
 
 ## Failures and error messages
 **User with conflicting attribute is soft deleted in the Azure Active Directory. Ensure the user is hard deleted before retry.**  
-The user with conflicting attribute in Azure AD should be cleaned before you can apply fix. Check out [how to delete the user permanently in Azure AD](../../fundamentals/active-directory-users-restore.md) before retrying the fix. The user will also be automatically deleted permanently after 30 days in soft deleted state. 
+The user with conflicting attribute in Azure AD should be cleaned before you can apply fix. Check out [how to delete the user permanently in Azure AD](../../fundamentals/users-restore.md) before retrying the fix. The user will also be automatically deleted permanently after 30 days in soft deleted state. 
 
 **Updating source anchor to cloud-based user in your tenant is not supported.**  
 Cloud-based user in Azure AD should not have source anchor. Updating source anchor is not supported in this case. Manual fix is required from on premises. 

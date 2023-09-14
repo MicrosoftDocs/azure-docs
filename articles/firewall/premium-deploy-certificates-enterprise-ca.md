@@ -25,7 +25,7 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 - an Active Directory Forest 
 - an Active Directory Certification Services Root CA with Web Enrollment enabled 
 - an Azure Firewall Premium with Premium tier Firewall Policy 
-- an Azure Key Vault 
+- an [Azure Key Vault](premium-certificates.md#azure-key-vault) 
 - a Managed Identity with Read permissions to **Certificates and Secrets** defined in the Key Vault Access Policy 
 
 ## Request and export a certificate
@@ -80,4 +80,6 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 
 ## Next steps
 
-[Azure Firewall Premium in the Azure portal](premium-portal.md)
+- [Azure Firewall Premium in the Azure portal](premium-portal.md)
+- [Building a POC for TLS inspection in Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/building-a-poc-for-tls-inspection-in-azure-firewall/ba-p/3676723)
+

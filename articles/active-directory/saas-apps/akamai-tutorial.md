@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Akamai with Azure Active Directo
 * Enable your users to be automatically signed-in to Akamai with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-Azure Active Directory and Akamai Enterprise Application Access integration allows seamless access to legacy applications hosted in the cloud or on-premises. The integrated solution takes advantages of all the modern capabilities of Azure Active Directory like [Azure AD conditional access](../conditional-access/overview.md), [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) and [Azure AD Identity Governance](../governance/identity-governance-overview.md) for legacy applications access without app modifications or agents installation.
+Azure Active Directory and Akamai Enterprise Application Access integration allows seamless access to legacy applications hosted in the cloud or on-premises. The integrated solution takes advantages of all the modern capabilities of Azure Active Directory like [Azure AD Conditional Access](../conditional-access/overview.md), [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) and [Azure AD Identity Governance](../governance/identity-governance-overview.md) for legacy applications access without app modifications or agents installation.
 
 The below image describes, where Akamai EAA fits into the broader Hybrid Secure Access scenario.
 
@@ -66,7 +66,7 @@ Akamai EAA Application is set up individually on the Azure portal. Admin can con
 
 **Pros**:
 
-* You can define individual CA Policies.
+* You can define individual Conditional Access Policies.
 
 * All Apps are represented on the 0365 Waffle and myApps.microsoft.com Panel.
 
@@ -362,7 +362,7 @@ Click **Save and go to Advanced Settings**.
 
 1. Conditional Access
 
-    ![Screenshot of the conditional access message: Approve sign in request. We've sent a notification to your mobile device. Please respond to continue.](./media/header-akamai-tutorial/conditional-access-4.png)
+    ![Screenshot of the Conditional Access message: Approve sign in request. We've sent a notification to your mobile device. Please respond to continue.](./media/header-akamai-tutorial/conditional-access-4.png)
 
     ![Screenshot of an Applications screen showing icons for the MyHeaderApp and SecretRDPApp.](./media/header-akamai-tutorial/conditional-access-5.png)
 

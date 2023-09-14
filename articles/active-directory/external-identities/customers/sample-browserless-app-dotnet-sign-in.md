@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
 ms.date: 06/23/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-dotnet
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET browserless app to sign in users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
@@ -82,7 +81,7 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
     ```console
     dotnet run
     ```
-1. When the app launches, copy the suggested URL *https://microsoft.com/devicelogin* from the terminal and visit it in a browser. Then, copy the device code from the terminal and [follow the prompts](./how-to-browserless-app-dotnet-sign-in-sign-in.md#sign-in-to-your-app) on *https://microsoft.com/devicelogin*.
+1. When the app launches, copy the suggested URL *https://microsoft.com/devicelogin* from the terminal and visit it in a browser. Then, copy the device code from the terminal and [follow the prompts](./tutorial-browserless-app-dotnet-sign-in-build-app.md#sign-in-to-your-app) on *https://microsoft.com/devicelogin*.
 
 ## How it works
 
@@ -103,4 +102,4 @@ Console.WriteLine($"You signed in as {result.Account.Username}");
 Next, learn how to prepare your Azure AD for customers tenant.
 
 > [!div class="nextstepaction"]
-> [Build your own ASP.NET browserless app and sign in users >](how-to-browserless-app-dotnet-sign-in-overview.md)
+> [Build your own ASP.NET browserless app and sign in users >](./tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md)

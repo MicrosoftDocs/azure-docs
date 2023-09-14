@@ -6,7 +6,7 @@ keywords:
 author: bandersmsft
 ms.author: banders
 ms.reviewer: micfaln
-ms.date: 10/20/2022
+ms.date: 08/07/2023
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
@@ -126,7 +126,7 @@ How you organize and allocate costs plays a huge role in how people within your 
 Cost Management and Billing offer many different types of emails and alerts to keep you informed and help you proactively manage your account and incurred costs.
 
 - [**Budget alerts**](./costs/tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in cost analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
-- [**Anomaly alerts**](./understand/analyze-unexpected-charges.md)notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within the cost analysis preview. Anomaly alerts can be configured from the cost alerts page.
+- [**Anomaly alerts**](./understand/analyze-unexpected-charges.md) notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within the cost analysis smart view. Anomaly alerts can be configured from the cost alerts page.
 - [**Scheduled alerts**](./costs/save-share-views.md#subscribe-to-scheduled-alerts) notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost in order to view the email, chart, or linked CSV.
 - **EA commitment balance alerts** are automatically sent to any notification contacts configured on the EA billing account when the balance is 90% or 100% used.
 - **Invoice alerts** can be configured for MCA billing profiles and Microsoft Online Services Program (MOSP) subscriptions. For details, see [View and download your Azure invoice](./understand/download-azure-invoice.md).

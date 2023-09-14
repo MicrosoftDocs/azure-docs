@@ -24,6 +24,25 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## July 2023
+
+### Change Data Capture
+
+Top-level CDC resource now supports schema evolution. [Learn more](how-to-change-data-capture-resource-with-schema-evolution.md)
+
+### Data flow
+
+Merge schema option in delta sink now supports schema evolution in Mapping Data Flows. [Learn more](format-delta.md#delta-sink-optimization-options)
+
+### Data movement
+
+- Comment Out Part of Pipeline with Deactivation. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/comment-out-part-of-pipeline/ba-p/3868069)
+- Pipeline return value is now generally available. [Learn more](tutorial-pipeline-return-value.md)
+
+### Developer productivity
+
+Documentation search now included in the Azure Data Factory search toolbar. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/documentation-search-now-embedded-in-azure-data-factory/ba-p/3873890)
+
 ## June 2023
 
 ### Continuous integration and continuous deployment
@@ -122,21 +141,6 @@ Express virtual network injection for SSIS now generally available [Learn more](
 - Save column width for pipeline monitoring
 - Monitor filter updates for faster searches
 - Directly launch Pipeline Template Gallery through Azure portal [Learn more]()
-
-## December 2022
-
-### Data flow
-
-SQL change data capture (CDC) incremental extract - supports numeric columns in mapping dataflow [Learn more](connector-azure-sql-database.md?tabs=data-factory#source-transformation)
-
-### Data movement
-
-Express virtual network injection for SSIS in Azure Data Factory is generally available [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
-
-### Region expansion
-
-Continued region expansion - Azure Data Factory is now available in China North 3 [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
-
 
 ## More information
 

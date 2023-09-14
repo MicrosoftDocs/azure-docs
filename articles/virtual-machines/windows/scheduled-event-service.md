@@ -105,7 +105,7 @@ We now want to connect a Log Analytics Workspace to the collector VM. The Log An
 1. Open the page for the workspace you created.
 1. Under **Connect to a data source** select **Azure virtual machines (VMs)**.
 
-	![Connect to a VM as a data source](./media/notifications/connect-to-data-source.png)
+    ![Connect to a VM as a data source](./media/notifications/connect-to-data-source.png)
 
 1. Search for and select **myCollectorVM**. 
 1. On the new page for **myCollectorVM**, select **Connect**.
@@ -118,7 +118,7 @@ This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md)
 1. Select **Data** from the left menu, then select **Windows Event Logs**.
 1. In **Collect from the following event logs**, start typing *application* and then select **Application** from the list.
 
-	![Select Advanced settings](./media/notifications/advanced.png)
+    ![Select Advanced settings](./media/notifications/advanced.png)
 
 1. Leave **ERROR**, **WARNING**, and **INFORMATION** selected and then select **Save** to save the settings.
 
@@ -129,28 +129,27 @@ This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md)
 
 ## Creating an alert rule with Azure Monitor 
 
-
 Once the events are pushed to Log Analytics, you can run the following [query](../../azure-monitor/logs/log-analytics-tutorial.md) to look for the schedule Events.
 
 1. At the top of the page, select **Logs** and paste the following into the text box:
 
-	```
-	Event
-	| where EventLog == "Application" and Source contains "AzureScheduledEvents" and RenderedDescription contains "Scheduled" and RenderedDescription contains "EventStatus" 
-	| project TimeGenerated, RenderedDescription
-	| extend ReqJson= parse_json(RenderedDescription)
-	| extend EventId = ReqJson["EventId"]
-	,EventStatus = ReqJson["EventStatus"]
-	,EventType = ReqJson["EventType"]
-	,NotBefore = ReqJson["NotBefore"]
-	,ResourceType = ReqJson["ResourceType"]
-	,Resources = ReqJson["Resources"]
-	| project-away RenderedDescription,ReqJson
-	```
+    ```
+    Event
+    | where EventLog == "Application" and Source contains "AzureScheduledEvents" and RenderedDescription contains "Scheduled" and RenderedDescription contains "EventStatus" 
+    | project TimeGenerated, RenderedDescription
+    | extend ReqJson= parse_json(RenderedDescription)
+    | extend EventId = ReqJson["EventId"]
+    ,EventStatus = ReqJson["EventStatus"]
+    ,EventType = ReqJson["EventType"]
+    ,NotBefore = ReqJson["NotBefore"]
+    ,ResourceType = ReqJson["ResourceType"]
+    ,Resources = ReqJson["Resources"]
+    | project-away RenderedDescription,ReqJson
+    ```
 
 1. Select **Save**, and then type `ogQuery` for the name, leave **Query** as the type, type `VMLogs` as the **Category**, and then select **Save**. 
 
-	![Save the query](./media/notifications/save-query.png)
+    ![Save the query](./media/notifications/save-query.png)
 
 1. Select **New alert rule**. 
 1. In the **Create rule** page, leave `collectorworkspace` as the **Resource**.

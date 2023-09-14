@@ -56,7 +56,12 @@ can provide. In this scenario, you could utilize our [Video constraints](video-c
 
 ## Implement existing quality and reliability capabilities before deployment
 
-Before you launch and scale your Azure Communication Services calling
+> [!Note]
+> We recommend you use our easy to implement samples since they are already optimized to give your users the best call quality. Please see: [Samples](../../overview.md#samples)
+
+If our calling samples don't meet your needs or you decide to customize your solution please ensure you understand and implement the following capabilities in your custom calling scenarios. 
+
+Before you launch and scale your customized Azure Communication Services calling
 solution, implement the following capabilities to support a high quality calling experience. These tools help prevent common quality and reliability calling issues from happening and diagnose issues if they occur. Keep in mind, some of these call data aren't created or stored unless you implement them.
 
 The following sections detail the tools to implement at different phases of a call: 
@@ -74,7 +79,7 @@ The following sections detail the tools to implement at different phases of a ca
 <!-- This is not possible yet ... ~~You could also
   have callers with poor network conditions join from [PSTN (Public
   Switched Telephone Network) voice
-  calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
+  calling](/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
 
 
 <!-- TODO need to add a Permissions section. - filippos for input
@@ -111,7 +116,7 @@ Maybe you want to build your own Network Diagnostic Tool or to perform a deeper 
   <!-- - ~~If a user has a poor network connection, you can instruct them to
     join their audio from [PSTN (Public Switched Telephone Network)
     voice
-    calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept)
+    calling](/en-us/azure/communication-services/concepts/telephony/telephony-concept)
     before they join.~~ -->
 
   - For example, if a user's hardware test has an issue, you can notify the users

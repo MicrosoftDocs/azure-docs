@@ -67,6 +67,10 @@ Opt for the next generation Microsoft Entra External ID platform if:
 - You’re starting fresh building identities into apps or you're in the early stages of product discovery.
 - The benefits of rapid innovation, new features and capabilities are a priority.
 
+### Why is Azure AD B2C not part of Entra ID/External ID?
+
+Microsoft Entra External ID and Azure AD B2C are two separate platforms powered by ESTS and IEF respectively. Entra External ID is our new converged platform which is future proof and developer friendly to meet all your identity needs – B2E, B2B and B2C. At the same time, we will still continue to support Azure AD B2C as a separate product offering with no change in SLA, and we’ll continue investments in the product to ensure security, availability, and reliability.
+
 ## Next steps
 
 [Learn more about Microsoft Entra External ID for customers](index.yml)

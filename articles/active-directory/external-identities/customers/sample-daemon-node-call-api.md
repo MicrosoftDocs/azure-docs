@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
 ms.date: 06/23/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to configure a sample Node.js daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
 
@@ -162,7 +161,7 @@ A Web API endpoint should be prepared to accept calls from both users and applic
 
 ## Next steps
 
-- Learn how to [Acquire an access token, then call a web API in your own Node.js daemon app](how-to-daemon-node-call-api-overview.md).
+- Learn how to [Acquire an access token, then call a web API in your own Node.js daemon app](tutorial-daemon-node-call-api-prepare-tenant.md).
 
 - Learn how to [Use client certificate instead of a secret for authentication in your Node.js confidential app](how-to-web-app-node-use-certificate.md).
 

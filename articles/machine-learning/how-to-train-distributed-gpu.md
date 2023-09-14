@@ -41,7 +41,7 @@ Azure Machine Learning offers an [MPI job](https://www.mcs.anl.gov/research/proj
 
 To run distributed training using MPI, follow these steps:
 
-1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environment](resource-curated-environments.md) for popular frameworks.
+1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environment](resource-curated-environments.md) for popular frameworks. Or [create a custom environment](how-to-manage-environments-v2.md#create-an-environment) with the preferred deep learning framework and MPI.
 1. Define  a `command` with `instance_count`. `instance_count` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script will be responsible for launching the processes per node.
 1. Use the `distribution` parameter of the `command` to specify settings for `MpiDistribution`.
 
@@ -181,3 +181,5 @@ If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-e
 
 * [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+* [Troubleshooting environment issues](how-to-troubleshoot-environments.md)
+

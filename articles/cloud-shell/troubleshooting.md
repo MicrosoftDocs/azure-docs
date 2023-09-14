@@ -4,6 +4,7 @@ ms.contributor: jahelmic
 ms.date: 05/03/2023
 ms.topic: article
 tags: azure-resource-manager
+ms.custom: has-azure-ad-ps-ref
 title: Azure Cloud Shell troubleshooting
 ---
 # Troubleshooting & Limitations of Azure Cloud Shell
@@ -222,7 +223,7 @@ TODO:
 - Should we be using a newer API version?
 -->
    ```bash
-   token=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".accessToken")
+   token=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")
    curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token" -s | jq
    ```
 
@@ -233,7 +234,7 @@ TODO:
        Uri = "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/"
        Headers = @{Metadata='true'}
    }
-   $token= ((Invoke-WebRequest @parameters ).content |  ConvertFrom-Json).accessToken
+   $token= ((Invoke-WebRequest @parameters ).content |  ConvertFrom-Json).access_token
    $parameters = @{
        Uri = 'https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview'
        Headers = @{Authorization = "Bearer $token"}
@@ -258,7 +259,7 @@ again.
    Bash:
 
    ```bash
-   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")
+   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
    curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $TOKEN"
    ```
 

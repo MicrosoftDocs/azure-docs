@@ -83,13 +83,13 @@ To set up Workday as a managed device, perform the following steps:
 
 1. In **Cloud apps or actions**:
 
-    a. Switch **Select what this policy applies to** to **Cloud apps**.
+    1. Switch **Select what this policy applies to** to **Cloud apps**.
 
-    b. In **Include**, choose **Select apps**.
+    1. In **Include**, choose **Select apps**.
 
-    c. From the **Select** list, choose **Workday**.
+    1. From the **Select** list, choose **Workday**.
 
-    d. Select **Done**.
+    1. Select **Done**.
 
 1. Switch **Enable policy** to **On**.
 
@@ -105,13 +105,13 @@ For **Grant** access, perform the following steps:
 
 1. In **Grant**:
 
-    a. Select the controls to be enforced as **Grant access**.
+    1. Select the controls to be enforced as **Grant access**.
 
-    b. Select **Require device to be marked as compliant**.
+    1. Select **Require device to be marked as compliant**.
 
-    c. Select **Require one of the selected controls**.
+    1. Select **Require one of the selected controls**.
 
-    d. Choose **Select**.
+    1. Choose **Select**.
 
 1. Switch **Enable policy** to **On**.
 
@@ -135,7 +135,7 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 
 ## iOS configuration policies
 
-1. Go to the [Azure portal](https://portal.azure.com/), and sign in.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and sign in.
 1. Search for **Intune** or select the widget from the list.
 1. Go to **Client Apps** > **Apps** > **App Configuration Policies**. Then select **+ Add** > **Managed Devices**.
 1. Enter a name.
@@ -168,7 +168,7 @@ To ensure that iOS devices are only able to sign in through Workday managed by m
 
 ## Android configuration policies
 
-1. Go to the [Azure portal](https://portal.azure.com/), and sign in.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and sign in.
 2. Search for **Intune** or select the widget from the list.
 3. Go to **Client Apps** > **Apps** > **App Configuration Policies**. Then select **+ Add** > **Managed Devices**.
 5. Enter a name. 

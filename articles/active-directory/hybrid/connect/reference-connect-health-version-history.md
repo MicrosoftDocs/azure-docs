@@ -74,10 +74,10 @@ Azure AD Connect Health AD DS and ADFS Health Agents (version 3.2.2256.26, Downl
   - Fix to resolve NT4 formatted username to a UPN during sign-in events.
   - Fix to identify incorrect application identifier scenarios with a dedicated error code.
   - Changes to add a new property for OAuth client identifier.
-  - Fix to display correct values in the **Protocol** and **Authentication Type** fields in Azure AD Sign-In Report for certain sign-in scenarios.
-  - Fix to display IP addresses in Azure AD Sign-In Report's IP chain field in order of the request.
+  - Fix to display correct values in the **Protocol** and **Authentication Type** fields in Azure AD sign-in report for certain sign-in scenarios.
+  - Fix to display IP addresses in Azure AD sign-in report's IP chain field in order of the request.
   - Changes to introduce a new field to differentiate if secondary authentication was requested during a sign-in.
-  - Fix for AD FS application identifier property to display in Azure AD Sign-In Report.
+  - Fix for AD FS application identifier property to display in Azure AD sign-in report.
 
 ## April 2020
 **Agent Update**

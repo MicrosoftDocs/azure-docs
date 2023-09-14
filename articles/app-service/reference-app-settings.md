@@ -3,6 +3,8 @@ title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
 ms.date: 05/09/2023
+author: cephalin
+ms.author: cephalin
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -599,7 +601,7 @@ The following environment variables are related to the [push notifications](/pre
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. | 
 
 >[!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 <!-- 
 ## WellKnownAppSettings

@@ -24,7 +24,7 @@ Before combined registration, users registered authentication methods for Azure 
 
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout.
 
-Azure AD combined security information registration is available for Azure US Government but not Azure China 21Vianet.
+Azure AD combined security information registration is available for Azure US Government but not Microsoft Azure operated by 21Vianet.
 
 *My Account* pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages continue to render in the last language used. If you clear the cache, the pages re-render.
 
@@ -170,6 +170,13 @@ Or, you can specify a tenant by URL to access security information.
 `https://mysignins.microsoft.com/security-info?tenant=<Tenant Name>`
 
 `https://mysignins.microsoft.com/security-info/?tenantId=<Tenant ID>`
+
+> [!NOTE]
+> Customers attempting to register or manage security info through combined registration or the My Sign-ins page should use a modern browser such as Microsoft Edge. 
+> 
+> IE11 is not officially supported for creating a webview or browser in applications as it will not work as expected in all scenarios.
+> 
+> Applications that have not been updated and are still using Azure AD Authentication Library (ADAL) that rely on legacy webviews can fallback to older versions of IE. In these scenarios, users will experience a blank page when directed to the My Sign-ins page. To resolve this issue, switch to a modern browser.
 
 ## Next steps
 

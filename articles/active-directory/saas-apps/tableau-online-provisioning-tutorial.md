@@ -200,7 +200,7 @@ In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below 
 >Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings.
 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 
 1. Navigate to your current Tableau Cloud app under **Azure Active Directory > Enterprise Applications**.

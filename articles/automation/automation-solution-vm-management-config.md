@@ -86,7 +86,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 1. Preview the action and make any necessary changes before implementing against production VMs. When ready, manually execute the **monitoring-and-diagnostics/monitoring-action-groupsrunbook** with the parameter set to **False**. Alternatively, let the Automation schedules **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.
 
-## <a name="cpuutil"></a>Scenario 3: Start or stop automatically based on CPU utilization
+## <a name="cpuutil"></a>Scenario 3: Stop automatically based on CPU utilization
 
 Start/Stop VMs during off-hours can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 

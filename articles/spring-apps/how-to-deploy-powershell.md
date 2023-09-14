@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: spring-apps
 ms.devlang: azurepowershell
 ms.date: 2/15/2022
-ms.custom: devx-track-azurepowershell, event-tier1-build-2022, devx-track-java, devx-track-extended-java
+ms.custom: devx-track-azurepowershell, event-tier1-build-2022, devx-track-java
 ---
 
 # Create and deploy applications by using PowerShell

@@ -86,6 +86,8 @@
         href: flexible-server/concepts-server-parameters.md
       - name: Limitations
         href: flexible-server/concepts-limitations.md
+      - name: Storage IOPS
+        href: flexible-server/concepts-storage-iops.md
     - name: Networking
       items:
       - name: Networking concepts
@@ -140,6 +142,8 @@
         href: flexible-server/concepts-customer-managed-key.md
   - name: Integrations
     items:
+    - name: Automation tasks
+      href: flexible-server/create-automation-tasks.md
     - name: Azure Key Vault
       href: flexible-server/tutorial-add-mysql-connection-in-key-vault.md
     - name: Power Apps

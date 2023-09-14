@@ -14,11 +14,11 @@ adobe-target: true
 
 Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations called dev boxes. You can set up dev boxes with tools, source code, and prebuilt binaries that are specific to a project, so developers can immediately start work. If you're a developer, you can use dev boxes in your day-to-day workflows.
 
-The Dev Box service was designed with three organizational roles in mind: dev infrastructure (infra) admins, developer team leads, and developers.
+The Dev Box service was designed with three organizational roles in mind: platform engineers, developer team leads, and developers.
 
 :::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" alt-text="Diagram that shows roles and responsibilities for dev boxes." border="false":::
 
-Dev infra admins and IT admins work together to provide developer infrastructure and tools to the developer teams. Dev infra admins set and manage security settings, network configurations, and organizational policies to ensure that dev boxes can access resources securely.
+Platform engineers and IT admins work together to provide developer infrastructure and tools to the developer teams. Platform engineers set and manage security settings, network configurations, and organizational policies to ensure that dev boxes can access resources securely.
 
 Developer team leads are experienced developers who have in-depth knowledge of their projects. They can be assigned the DevCenter Project Admin role and assist with creating and managing the developer experience. Project admins create and manage pools of dev boxes.
 
@@ -29,9 +29,9 @@ Microsoft Dev Box bridges the gap between development teams and IT, by bringing 
 ## Scenarios for Microsoft Dev Box
 
 Organizations can use Microsoft Dev Box in a range of scenarios.
-### Dev infra scenarios
+### Platform engineering scenarios
 
-Dev Box helps dev infra teams provide the appropriate dev boxes for each user's workload. Dev infra admins can:
+Dev Box helps platform engineering teams provide the appropriate dev boxes for each user's workload. Platform engineers can:
 
 - Create dev box pools, add appropriate dev box definitions, and assign access for only dev box users who are working on those specific projects.
 - Control costs by using auto-stop schedules.

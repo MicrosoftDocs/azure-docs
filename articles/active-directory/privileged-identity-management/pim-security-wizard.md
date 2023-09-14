@@ -32,11 +32,13 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 ## Open Discovery and insights (preview)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. From the left menu, select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure ad roles** >**Discovery and insights (Preview)**.
+
+1. Opening the page begins the discovery process to find relevant role assignments.
 
     ![Azure AD roles - Discovery and insights page showing the 3 options](./media/pim-security-wizard/new-preview-link.png)
 

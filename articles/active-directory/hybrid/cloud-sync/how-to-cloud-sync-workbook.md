@@ -85,7 +85,7 @@ You can create custom queries and show the data on Azure dashboards. To learn ho
 
 Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Provisioning. For example, you might want to receive an alert on spikes in failures. Or perhaps spikes in disables or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
 
-To learn more about alerts, see [Azure Monitor Log Alerts](../../../azure-monitor/alerts/alerts-log.md).
+To learn more about alerts, see [Azure Monitor Log Alerts](../../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 ## Next steps 
 

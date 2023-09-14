@@ -1,9 +1,9 @@
 ---
 title: The Global Secure Access Client for Windows (preview)
-description: Install the Global Secure Access Client for Windows to enable client connectivity.
+description: Install the Global Secure Access Client for Windows to enable connectivity to Microsoft's Security Edge Solutions, Microsoft Entra Internet Access and Microsoft Entra Private Access.
 ms.service: network-access
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 08/04/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -12,6 +12,8 @@ ms.reviewer: lirazb
 # The Global Secure Access Client for Windows (preview)
 
 The Global Secure Access Client allows organizations control over network traffic at the end-user computing device, giving organizations the ability to route specific traffic profiles through Microsoft Entra Internet Access and Microsoft Entra Private Access. Routing traffic in this method allows for more controls like continuous access evaluation (CAE), device compliance, or multifactor authentication to be required for resource access.
+
+The Global Secure Access Client acquires traffic using a lightweight filter (LWF) driver, while many other security service edge (SSE) solutions integrate as a virtual private network (VPN) connection. This distinction allows the Global Secure Access Client to coexist with these other solutions. The Global Secure Access Client acquires the traffic based on the traffic forwarding profiles you configure prior to other solutions.
 
 ## Prerequisites
 
@@ -35,7 +37,7 @@ There are several other limitations based on the traffic forwarding profile in u
 | --- | --- |
 | [Microsoft 365](how-to-manage-microsoft-365-profile.md) | Tunneling [IPv6 traffic isn't currently supported](#disable-ipv6-and-secure-dns). |
 | [Microsoft 365](how-to-manage-microsoft-365-profile.md) and [Private access](how-to-manage-private-access-profile.md) | To tunnel network traffic based on rules of FQDNs (in the forwarding profile), [DNS over HTTPS (Secure DNS) needs to be disabled](#disable-ipv6-and-secure-dns). |
-| [Microsoft 365](how-to-manage-microsoft-365-profile.md) | The Global Secure Access Client currently only supports TCP traffic. Exchange Online uses the QUIC protocol for some traffic over UDP port 443 force this traffic to use HTTPS (443 TCP) by [blocking the QUIC traffic with a local firewall rule](#block-quic-when-tunneling-exchange-online-traffic). Non-HTTP protocols, such as POP3, IMAP, SMTP, are not acquired from the Client and are sent direct-and-local. |
+| [Microsoft 365](how-to-manage-microsoft-365-profile.md) | The Global Secure Access Client currently only supports TCP traffic. Exchange Online uses the QUIC protocol for some traffic over UDP port 443 force this traffic to use HTTPS (443 TCP) by [blocking the QUIC traffic with a local firewall rule](#block-quic-when-tunneling-exchange-online-traffic). Non-HTTP protocols, such as POP3, IMAP, SMTP, aren't acquired from the Client and are sent direct-and-local. |
 | [Microsoft 365](how-to-manage-microsoft-365-profile.md) and [Private access](how-to-manage-private-access-profile.md) | If the end-user device is configured to use a proxy server, locations that you wish to tunnel using the Global Secure Access Client must be excluded from that configuration. For examples, see [Proxy configuration example](#proxy-configuration-example). |
 | [Private access](how-to-manage-private-access-profile.md) | Single label domains, like `https://contosohome` for private apps aren't supported, instead use a fully qualified domain name (FQDN), like `https://contosohome.contoso.com`. Administrators can also choose to append DNS suffixes via Windows. |
 
@@ -43,7 +45,7 @@ There are several other limitations based on the traffic forwarding profile in u
 
 The most current version of the Global Secure Access Client can be downloaded from the Microsoft Entra admin center.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
 1. Browse to **Global Secure Access (Preview)** > **Devices** > **Clients**.
 1. Select **Download**.
 
@@ -173,7 +175,7 @@ Organizations must then create a system variable named `grpc_proxy` with a value
 Since UDP traffic isn't supported in the current preview, organizations that plan to tunnel their Exchange Online traffic should disable the QUIC protocol (443 UDP). Administrators can disable this protocol triggering clients to fall back to HTTPS (443 TCP) with the following Windows Firewall rule:
 
 ```powershell
-@New-NetFirewallRule -DisplayName "Block QUIC for Exchange Online" -Direction Outbound -Action Block -Protocol UDP -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32,6.6.0.0/16 -RemotePort 443 
+New-NetFirewallRule -DisplayName "Block QUIC for Exchange Online" -Direction Outbound -Action Block -Protocol UDP -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32,6.6.0.0/16 -RemotePort 443 
 ```
 
 This list of IPv4 addresses is based on the [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges#exchange-online) and the IPv4 block used by the Global Secure Access Client.

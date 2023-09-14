@@ -99,4 +99,4 @@ You can use the **Data Collectors** dashboard in Permissions Management to view 
 
 ## Next steps
 
-- To view an inventory of created resources and licensing information for your authorization system, see [Display an inventory of  created resources and licenses for your authorization system](product-data-inventory.md)
+- To view an inventory of created resources and licensing information for your authorization system, see [Display an inventory of  created resources and licenses for your authorization system](./product-data-billable-resources.md)

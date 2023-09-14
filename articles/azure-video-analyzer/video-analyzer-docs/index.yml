@@ -24,8 +24,6 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure Video Analyzer (preview)
-            url: overview.md
           - text: Terminology
             url: /previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/terminology
       - linkListType: quickstart

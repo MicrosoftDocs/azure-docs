@@ -37,13 +37,7 @@ You can also integrate Azure Digital Twins into a [Microsoft Power Platform](/po
 
 You may want to send Azure Digital Twins data to other downstream services for storage or additional processing. 
 
-There are two main egress options in Azure Digital Twins. Digital twin data can be sent to most Azure services using *endpoints*. Or, if your destination is [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can use *data history* to automatically send graph updates to an Azure Data Explorer cluster, where they are stored as historical data and can be queried as such.
-
-In order for Azure Digital Twins to send data to other Azure services via endpoints or data history, the receiving service must have either public network access enabled or the Trusted Microsoft Service option enabled. For data history, the data history connection must be configured with public network access enabled on the Event Hub and Azure Data Explorer instances. Once data history is configured, the Event Hub and Azure Data Explorer firewall and security settings will need to be configured manually.
-
-Once the connection is set up, Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
-
-The rest of this section describes the two egress options in more detail.
+There are two main egress options in Azure Digital Twins. Digital twin data can be sent to most Azure services using *endpoints*. Or, if your destination is [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can use *data history* to automatically send graph updates to an Azure Data Explorer cluster, where they are stored as historical data and can be queried as such. The subsections below describe the two egress options in more detail.
 
 ### Endpoints
 
@@ -66,7 +60,15 @@ Once the data has been historized, you can query this data in Azure Data Explore
 
 You can also use data history in combination with [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) to aggregate data from disparate sources. This can be useful in many scenarios. Here are two examples:
 * Combine information technology (IT) data from ERP or CRM systems (like Dynamics 365, SAP, or Salesforce) with operational technology (OT) data from IoT devices and production management systems. For an example that illustrates how a company might combine this data, see the following blog post: [Integrating IT and OT Data with Azure Digital Twins, Azure Data Explorer, and Azure Synapse](https://techcommunity.microsoft.com/t5/internet-of-things-blog/integrating-it-and-ot-data-with-azure-digital-twins-azure-data/ba-p/3401981).
-* Integrate with the Azure AI and Cognitive Services [Multivariate Anomaly Detector](../cognitive-services/anomaly-detector/overview-multivariate.md), to quickly connect your Azure Digital Twins data with a downstream AI/machine learning solution that specializes in anomaly detection. The [Azure Digital Twins Multivariate Anomaly Detection Toolkit](/samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/) is a sample project that provides a workflow for training multiple Multivariate Anomaly Detector models for several scenario analyses, based on historical digital twin data. It then leverages the trained models to detect abnormal operations and anomalies in modeled Azure Digital Twins environments, in near real-time. 
+* Integrate with the Azure AI and Azure AI services [Multivariate Anomaly Detector](../ai-services/anomaly-detector/overview.md), to quickly connect your Azure Digital Twins data with a downstream AI/machine learning solution that specializes in anomaly detection. The [Azure Digital Twins Multivariate Anomaly Detection Toolkit](/samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/) is a sample project that provides a workflow for training multiple Multivariate Anomaly Detector models for several scenario analyses, based on historical digital twin data. It then leverages the trained models to detect abnormal operations and anomalies in modeled Azure Digital Twins environments, in near real-time. 
+
+### Security and delivery details
+
+In order for Azure Digital Twins to send data to other Azure services via endpoints or data history, the receiving service must have either public network access enabled or the Trusted Microsoft Service option enabled. For data history, the data history connection must be configured with public network access enabled on the Event Hub and Azure Data Explorer instances. Once data history is configured, the Event Hub and Azure Data Explorer firewall and security settings will need to be configured manually.
+
+Once the connection is set up, Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
+
+If the event hub, Event Grid, or Service Bus topic used for your endpoint is unavailable and the message can't be delivered, Azure Digital Twins will try to resend the message for at least 20 minutes and for up to 24 hours.
 
 ## Next steps
 

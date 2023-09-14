@@ -4,8 +4,8 @@ description: This article provides a support matrix listing all workloads, data 
 ms.date: 08/08/2022
 ms.topic: conceptual
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix

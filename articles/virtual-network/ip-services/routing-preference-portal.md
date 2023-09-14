@@ -2,12 +2,12 @@
 title: Configure routing preference for a public IP address - Azure portal
 description: Learn how to create a public IP with an Internet traffic routing preference
 services: virtual-network
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/22/2021
-ms.author: allensu
 ---
 
 # Configure routing preference for a public IP address using the Azure portal

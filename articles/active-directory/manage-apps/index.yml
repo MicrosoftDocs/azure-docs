@@ -48,7 +48,7 @@ landingContent:
           - text: Register your app
             url: ../develop/quickstart-register-app.md
           - text: Migrate AD FS apps to Azure AD
-            url: migrate-adfs-apps-to-azure.md
+            url: ./migrate-adfs-apps-stages.md
   - title: Configure an app
     linkLists:
       - linkListType: how-to-guide
@@ -60,7 +60,7 @@ landingContent:
           - text: Provision an app
             url: ../governance/what-is-provisioning.md
           - text: Configure My Apps
-            url: my-apps-deployment-plan.md
+            url: ./myapps-overview.md
       - linkListType: learn
         links:
           - text: Enable single sign-on
@@ -74,7 +74,7 @@ landingContent:
           - text: Set up Multi-Factor Authentication
             url: ../authentication/howto-mfa-getstarted.md
           - text: Manage certificates
-            url: manage-certificates-for-federated-single-sign-on.md
+            url: ./tutorial-manage-certificates-for-federated-single-sign-on.md
           - text: Set up tenant restrictions
             url: tenant-restrictions.md
           - text: Configure token encryption
@@ -94,7 +94,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Assign roles
-            url: ../develop/howto-add-app-roles-in-azure-ad-apps.md
+            url: ../develop/howto-add-app-roles-in-apps.md
           - text: Configure user consent
             url: configure-user-consent.md
           - text: Configure admin consent

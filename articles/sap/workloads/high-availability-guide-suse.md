@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/20/2023
+ms.date: 07/17/2023
 ms.author: radeltch
 ---
 
@@ -521,15 +521,22 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources as follows:
 
+   > [!NOTE]
+   > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+   >
+   > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
+
    ```bash
    sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure property priority-fencing-delay=30
    
    sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
      operations \$id=rsc_sap_NW1_ASCS00-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_nw1-ascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_nw1-ascs" \
      AUTOMATIC_RECOVER=false \
-     meta resource-stickiness=5000
+     meta resource-stickiness=5000 priority=100
    
    sudo crm configure primitive rsc_sap_NW1_ERS02 SAPInstance \
      operations \$id=rsc_sap_NW1_ERS02-operations \
@@ -964,6 +971,44 @@ The following tests are a copy of the test cases in the best practices guides of
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
+1. Blocking network communication
+
+   Resource state before starting the test:
+
+   ```bash
+   stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   ```
+
+   Execute firewall rule to block the communication on one of the nodes.
+
+   ```bash
+   # Execute iptable rule on nw1-cl-0 (10.0.0.5) to block the incoming and outgoing traffic to nw1-cl-1 (10.0.0.6)
+   iptables -A INPUT -s 10.0.0.6 -j DROP; iptables -A OUTPUT -d 10.0.0.6 -j DROP
+   ```
+
+   When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes will try to simultaneously fence each other, resulting in fence race.
+
+   When configuring a fencing device, it's recommended to configure [`pcmk_delay_max`](https://www.suse.com/support/kb/doc/?id=000019110) property. So, in the event of split-brain scenario, the cluster introduces a random delay up to the `pcmk_delay_max` value, to the fencing action on each node. The node with the shortest delay will be selected for fencing.
+
+   Additionally, in ENSA 2 configuration, to prioritize the node hosting the ASCS resource over the other node during a split brain scenario, it's recommended to configure [`priority-fencing-delay`](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing) property in the cluster. Enabling priority-fencing-delay property allows the cluster to introduce an additional delay in the fencing action specifically on the node hosting the ASCS resource, allowing the ASCS node to win the fence race.
+
+   Execute below command to delete the firewall rule.
+
+   ```bash
+   # If the iptables rule set on the server gets reset after a reboot, the rules will be cleared out. In case they have not been reset, please proceed to remove the iptables rule using the following command.
+   iptables -D INPUT -s 10.0.0.6 -j DROP; iptables -D OUTPUT -d 10.0.0.6 -j DROP
+   ```
+
 1. Test manual restart of ASCS instance
 
    Resource state before starting the test:
@@ -1063,7 +1108,7 @@ The following tests are a copy of the test cases in the best practices guides of
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Kill enqueue server process
+2. Kill enqueue server process
 
    Resource state before starting the test:
 
@@ -1114,7 +1159,7 @@ The following tests are a copy of the test cases in the best practices guides of
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-1. Kill enqueue replication server process
+3. Kill enqueue replication server process
 
    Resource state before starting the test:
 
@@ -1160,7 +1205,7 @@ The following tests are a copy of the test cases in the best practices guides of
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-1. Kill enqueue sapstartsrv process
+4. Kill enqueue sapstartsrv process
 
    Resource state before starting the test:
 

@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 ASE/SQL workload blueprint sample overview
 description: Overview and architecture of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Overview of the ISO 27001 App Service Environment/SQL Database workload blueprint sample

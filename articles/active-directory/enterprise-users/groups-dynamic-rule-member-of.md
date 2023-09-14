@@ -44,10 +44,10 @@ This feature can be used in the Azure portal, Microsoft Graph, and in PowerShell
 
 ### Steps to create a memberOf dynamic group
 
-1. Sign in to the Azure portal with an account that has Global Administrator, Intune Administrator, or User Administrator role permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that has Global Administrator, Intune Administrator, or User Administrator role permissions.
 1. Select **Azure Active Directory** > **Groups**, and then select **New group**.
 1. Fill in group details. The group type can be Security or Microsoft 365, and the membership type can be set to **Dynamic User** or **Dynamic Device**.
-1.	Select **Add dynamic query**.
+1. Select **Add dynamic query**.
 1. MemberOf isn't yet supported in the rule builder. Select **Edit** to write the rule in the **Rule syntax** box.
     1. Example user rule: `user.memberof -any (group.objectId -in ['groupId', 'groupId'])`
     1. Example device rule: `device.memberof -any (group.objectId -in ['groupId', 'groupId'])`

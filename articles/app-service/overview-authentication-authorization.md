@@ -5,7 +5,9 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 02/03/2023
 ms.reviewer: mahender
-ms.custom: "UpdateFrequency3, seodec18, fasttrack-edit"
+ms.custom: UpdateFrequency3, seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 

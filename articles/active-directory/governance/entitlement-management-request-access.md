@@ -1,6 +1,6 @@
 ---
 title: Request an access package - entitlement management
-description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management.
+description: Learn how to use the My Access portal to request access to an access package in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -32,9 +32,11 @@ The first step is to sign in to the My Access portal where you can request acces
 
 **Prerequisite role:** Requestor
 
-1. Look for an email or a message from the project or business manager you're working with. The email should include a link to the access package you'll need access to. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.  (For US Government, the domain may be `https://myaccess.microsoft.us` instead.)
+1. Look for an email or a message from the project or business manager you're working with. The email should include a link to the access package you need access to. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.  (For US Government, the domain may be `https://myaccess.microsoft.us` instead.)
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
+    > [!NOTE]
+    > When signing into My Access via your directory hint link, you will be required to reauthenticate with your login credentials.
 
 1. Open the link.
 
@@ -107,7 +109,7 @@ When you request access to an access package, your request might be denied or yo
     
     ![Select access package and view link](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
 
-    A pane will open to the right with the request history for the access package.
+    A pane opens to the right with the request history for the access package.
     
     ![Select resubmit button](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
 

@@ -35,6 +35,8 @@ The Microsoft identity platform performs identity and access management (IAM) on
 
 ## Register an application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around. Once created, the application object cannot be moved between different tenants. 
 
 Follow these steps to create the app registration:

@@ -1,9 +1,8 @@
 ---
-title: Protect your resources with Defender CSPM plan on your subscription - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your resources with Defender CSPM plan on your subscription
 description: Learn how to enable Defender CSPM on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/27/2023
+ms.date: 09/05/2023
 ---
 
 # Protect your resources with Defender CSPM
@@ -21,7 +20,7 @@ You have the ability to enable the **Defender CSPM** plan, which offers extra pr
 
 For availability and to learn more about the features offered by each plan, see the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
 
-You can learn more about Defender for CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
+You can learn more about Defender CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
 
 ## Prerequisites
 
@@ -33,11 +32,11 @@ You can learn more about Defender for CSPM's pricing on [the pricing page](https
 
 - In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
 
-## Enable the Defender for CSPM plan
+## Enable the Defender CSPM plan
 
 When you enable Defender for Cloud, you automatically receive the protections offered by the Foundational CSPM capabilities. In order to gain access to the other features provided by Defender CSPM, you need to enable the Defender CSPM plan on your subscription.
 
-**To enable the Defender for CSPM plan on your subscription**:
+**To enable the Defender CSPM plan on your subscription**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -51,23 +50,35 @@ When you enable Defender for Cloud, you automatically receive the protections of
 
 1. Select **Save**.
 
-## Configure monitoring coverage
+## Enable the components of the Defender CSPM plan
 
-Once the Defender CSPM plan is enabled on your subscription, you have the ability to disable the agentless scanner or add exclusion tags to your subscription.
+Once the Defender CSPM plan is enabled on your subscription, you have the ability to enable the individual components of the Defender CSPM plan:
 
-**To configure monitoring coverage**:
+- **Agentless scanning for machines**: Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. You can disable the agentless scanner or add exclusion tags to your subscription.
+
+- **Agentless discovery for Kubernetes**: API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup. Required for Kubernetes inventory, identity and network exposure detection, risk hunting as part of the cloud security explorer. This extension is required for attack path analysis (DCSPM only).
+
+- **Container registries vulnerability assessments**: Provides vulnerability management for images stored in your container registries.
+
+- **Sensitive data discovery**: Sensitive data discovery automatically discovers managed cloud data resources containing sensitive data at scale. This feature accesses your data, it is agentless, uses smart sampling scanning, and integrates with Microsoft Purview sensitive information types and labels.
+
+**To enable the components of the Defender CSPM plan**:
 
 1. On the Defender plans page, select **Settings**.
 
     :::image type="content" source="media/tutorial-enable-cspm-plan/cspm-settings.png" alt-text="Screenshot of the Defender plans page that shows where to select the settings option." lightbox="media/tutorial-enable-cspm-plan/cspm-settings.png":::
 
-1. On the Settings and monitoring page, select **Edit configuration**.
+1. Select **On** for each component to enable it.
+
+1. (Optional) For agentless scanning for machine select **Edit configuration**.
 
     :::image type="content" source="media/tutorial-enable-cspm-plan/cspm-configuration.png" alt-text="Screenshot that shows where to select edit configuration." lightbox="media/tutorial-enable-cspm-plan/cspm-configuration.png":::
 
-1. Enter a tag name and tag value for any machines to be excluded from scans.
+    1. Enter a tag name and tag value for any machines to be excluded from scans.
 
-1. Select **Apply**. 
+    1. Select **Apply**. 
+
+1. Select **Continue**.
 
 ## Next steps
 
