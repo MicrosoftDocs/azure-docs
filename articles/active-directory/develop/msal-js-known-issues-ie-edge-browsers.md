@@ -34,7 +34,7 @@ The cause for most of these issues is as follows. The session storage and local 
 
 - **Pop-up window doesn't close or is stuck when using login through pop-up window to authenticate**. When authenticating through a pop-up window in Microsoft Edge or IE (InPrivate), after entering credentials and signing in, if multiple domains across security zones are involved in the navigation, the pop-up window doesn't close because `MSAL.js` loses the handle to the pop-up window.
 
-- **Cannot log in using redirect URL prefixed with tauri**. The only supported schemes for redirect URIs are `https:` for production apps and `http://localhost` for local development. If you attempt to use a different scheme, like `tauri://localhost`, for a mobile or deskop application, the below error message appears. This error arises as a result of how the backend of the SPA is designed.
+- **Cannot log in using redirect URL prefixed with tauri**. The only supported schemes for redirect URIs are `https:` for production apps and `http://localhost` for local development. If you attempt to use a different scheme, like `tauri://localhost`, for a mobile or desktop application, the below error message appears. This error arises as a result of how the backend of the SPA is designed.
 
     `AADSTS90023: Cross-origin token redemption is permitted only for the 'Single-Page Application' client-type or 'Native' client-type with origin registered in AllowedOriginForNativeAppCorsRequestInOAuthToken allow list.`
 
