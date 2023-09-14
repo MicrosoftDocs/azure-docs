@@ -1045,12 +1045,6 @@
       "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
       "branch": "main",
       "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azure-docs-repo",
-      "url": "https://github.com/MicrosoftDocs/azure-docs-pr",
-      "branch": "main",
-      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
