@@ -24343,6 +24343,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-preface.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-preface",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-configuration.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-control-plane.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-control-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-data-plane.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-data-plane",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/operator-nexus/howto-hybrid-aks.md",
             "redirect_url": "/azure/operator-nexus/howto-kubernetes-cluster-agent-pools",
             "redirect_document_id": false
