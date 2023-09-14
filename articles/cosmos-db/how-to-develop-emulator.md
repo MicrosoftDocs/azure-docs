@@ -671,53 +671,19 @@ Use the [MongoDB Python driver](mongodb/quickstart-python.md) to use the emulato
 
 1. Import the `os`, `sys`, and `pymongo` modules.
 
-    ```python
-    import os
-    import sys
-    import pymongo
-    ```
+    :::code language="python" source="~/cosmos-db-mongodb-python-samples/601-emulator/app.py" id="imports":::
 
 1. Create a new [`MongoClient`](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) using the emulator's credentials.
 
-    ```python
-    client = pymongo.MongoClient(
-        host="mongodb://localhost:C2y6yDjf5%2FR%2Bob0N8A7Cgv30VRDJIWEHLM%2B4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw%2FJw%3D%3D@localhost:10255/admin?ssl=true",
-        tls=True
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-mongodb-python-samples/601-emulator/app.py" highlight="3-5" id="client":::
 
 1. Create a new database and container using [`list_database_names`](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) and [`list_collection_names`](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) along with the [`CreateDatabase`](mongodb/custom-commands.md#create-database) and [`CreateCollection`](mongodb/custom-commands.md#create-collection) custom commands.
 
-    ```python
-    db = client["cosmicworks"]
-    if "cosmicworks" not in client.list_database_names():
-        db.command({
-            "customAction": "CreateDatabase",
-            "offerThroughput": 400,
-        })
-
-    collection = db["products"]
-    if "products" not in db.list_collection_names():
-        db.command({
-            "customAction": "CreateCollection",
-            "collection": "products"
-        })
-    ```
+    :::code language="python" source="~/cosmos-db-mongodb-python-samples/601-emulator/app.py" highlight="2,3,5,11,13" id="resources":::
 
 1. Use [`update_one`](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one) to create a new item in the container.
 
-    ```python
-    item = {
-        "id": "68719518371",
-        "name": "Kiama classic surfboard"
-    }
-
-    collection.update_one(
-        filter={"id": item["id"]},
-        update={"$set": item},
-        upsert=True
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-mongodb-python-samples/601-emulator/app.py" highlight="3" id="upsert":::
 
 1. Run the Python application.
 
