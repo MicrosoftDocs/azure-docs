@@ -145,67 +145,67 @@ The following sample code uses the [Azure Monitor Ingestion client module for Go
 
 1. Replace the variables in the following sample code with values from your DCE and DCR. You might also want to replace the sample data with your own.
 
-```go
-package main
-
-import (
-	"context"
-	"encoding/json"
-	"os"
-	"strconv"
-	"time"
-
-    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest"
-)
-
-const endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com"
-
-// set necessary data collection rule variables
-const ruleID = "dcr-00000000000000000000000000000000"
-const streamName = "Custom-MyTableRawData"
-
-type Computer struct {
-	Time              time.Time
-	Computer          string
-	AdditionalContext string
-}
-
-func main() {
-	// generating logs
-	// logs should match the schema defined by the provided stream
-	var data []Computer
-	for i := 0; i < 10; i++ {
-		data = append(data, Computer{
-			Time:              time.Now().UTC(),
-			Computer:          "Computer" + strconv.Itoa(i),
-			AdditionalContext: "context",
-		})
-	}
-
-	// Marshal data into []byte
-	logs, err := json.Marshal(data)
-	if err != nil {
-		panic(err)
-	}
-
-    cred, err := azidentity.NewDefaultAzureCredential(nil)
-    if err != nil {
-        //TODO: handle error
+    ```go
+    package main
+    
+    import (
+    	"context"
+    	"encoding/json"
+    	"os"
+    	"strconv"
+    	"time"
+    
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    	"github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest"
+    )
+    
+    const endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com"
+    
+    // set necessary data collection rule variables
+    const ruleID = "dcr-00000000000000000000000000000000"
+    const streamName = "Custom-MyTableRawData"
+    
+    type Computer struct {
+    	Time              time.Time
+    	Computer          string
+    	AdditionalContext string
     }
-
-    client, err := azingest.NewClient(endpoint, cred, nil)
-    if err != nil {
-    	//TODO: handle error
+    
+    func main() {
+    	// generating logs
+    	// logs should match the schema defined by the provided stream
+    	var data []Computer
+    	for i := 0; i < 10; i++ {
+    		data = append(data, Computer{
+    			Time:              time.Now().UTC(),
+    			Computer:          "Computer" + strconv.Itoa(i),
+    			AdditionalContext: "context",
+    		})
+    	}
+    
+    	// Marshal data into []byte
+    	logs, err := json.Marshal(data)
+    	if err != nil {
+    		panic(err)
+    	}
+    
+        cred, err := azidentity.NewDefaultAzureCredential(nil)
+        if err != nil {
+            //TODO: handle error
+        }
+    
+        client, err := azingest.NewClient(endpoint, cred, nil)
+        if err != nil {
+        	//TODO: handle error
+        }
+    
+    	// upload logs
+    	_, err = client.Upload(context.TODO(), ruleID, streamName, logs, nil)
+    	if err != nil {
+    		//TODO: handle error
+    	}
     }
-
-	// upload logs
-	_, err = client.Upload(context.TODO(), ruleID, streamName, logs, nil)
-	if err != nil {
-		//TODO: handle error
-	}
-}
-```
+    ```
 
 1. Execute the code, and the data should arrive in your Log Analytics workspace within a few minutes.
 
