@@ -4,7 +4,7 @@ description: Disaster recovery guidance overview for Microsoft Azure products an
 author: anaharris-ms
 ms.service: reliability
 ms.topic: conceptual
-ms.date: 09/14/2023
+ms.date: 09/13/2023
 ms.author: anaharris
 ms.custom: subject-reliability
 ---

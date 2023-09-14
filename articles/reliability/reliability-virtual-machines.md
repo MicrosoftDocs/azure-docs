@@ -11,7 +11,7 @@ ms.date: 07/18/2023
 
 # Reliability in Virtual Machines
 
-This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
+This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). 
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 

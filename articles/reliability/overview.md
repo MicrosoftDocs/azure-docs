@@ -71,7 +71,7 @@ Regions and Availability Zones are a big part of the reliability equation. Regio
 
 Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your disaster recovery and business continuity strategy needs. 
 
-For disaster recovery planning, regions that are paired with other regions offer [cross-region replication](/reliability/cross-region-replication-azure) and provide protection by asynchronously replicating data across other Azure regions.  Regions without a pair follow [data residency guidelines](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview) and offer high availability with availability zones and locally redundant or zone-redundant storage. Customers will need to plan for their cross-region disaster recovery based on their RTO/RPO needs.   
+For disaster recovery planning, regions that are paired with other regions offer [cross-region replication](cross-region-replication-azure.md) and provide protection by asynchronously replicating data across other Azure regions.  Regions without a pair follow [data residency guidelines](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview) and offer high availability with availability zones and locally redundant or zone-redundant storage. Customers will need to plan for their cross-region disaster recovery based on their RTO/RPO needs.   
 
 Choose the best region for your needs based on technical and regulatory considerations—service capabilities, data residency, compliance requirements, latency—and begin advancing your reliability strategy. For more information, see [Azure regions and availability zones](availability-zones-overview.md).
 
@@ -95,4 +95,4 @@ For service migration guides to availability zone support, see [Availability zon
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
 - [What are Azure regions and availability zones?](availability-zones-overview.md)
 - [Cross-region replication in Azure | Microsoft Learn](./cross-region-replication-azure.md)
-- [Training: Describe high availability and disaster recovery strategies](https://learn.microsoft.com/training/modules/describe-high-availability-disaster-recovery-strategies/) 
+- [Training: Describe high availability and disaster recovery strategies](/training/modules/describe-high-availability-disaster-recovery-strategies/) 
