@@ -83,7 +83,7 @@ Here's how values in the overview tiles are calculated.
 - The value shown in the **New purchase amount** tile is calculated as the sum of `newPurchases`.
 - The value shown in the **Total charges** tile is calculated as the sum of (`adjustments` + `ServiceOverage` + `chargesBilledseparately` + `azureMarketplaceServiceCharges`).
 
-The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure marketplace service charges as Total charges.
+The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure Marketplace service charges as Total charges.
  
 The Prepayment Usage shown in the EA portal isn't available in the Template app as part of the total charges.
 
@@ -97,7 +97,7 @@ The Prepayment Usage shown in the EA portal isn't available in the Template app 
 
 :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" alt-text="Screenshot showing the full Azure Hybrid Benefits report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" :::
 
-The report also identifies Windows VMs where Hybrid Benefit is **enabled** but there are _less than_ 8 vCPUs. It also shows where Hybrid Benefit is **not enabled** that have 8 _or more_ vCPUs. This information helps you fully use your Hybrid Benefit. Apply the benefit to your most expensive virtual machines to maximize your potential savings.
+The report also identifies Windows VMs where Hybrid Benefit is **enabled** but there are _fewer than_ 8 vCPUs. It also shows where Hybrid Benefit is **not enabled** that have 8 _or more_ vCPUs. This information helps you fully use your Hybrid Benefit. Apply the benefit to your most expensive virtual machines to maximize your potential savings.
 
 :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" alt-text="Screenshot showing the Less than 8 vCPUs and vCPUs not enabled area of the Azure Hybrid Benefits report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" :::
 
