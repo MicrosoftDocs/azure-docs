@@ -55,6 +55,12 @@ zone_pivot_groups: openai-quickstart-dall-e
 
 ::: zone-end
 
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/dall-e-powershell.md)]
+
+::: zone-end
+
 ::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/dall-e-rest.md)]

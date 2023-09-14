@@ -35,9 +35,9 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
-           - text: 🆕 SDK overview
+           - text: 🆕 SDK overview v3.1 latest (GA)
              url: sdk-overview-v3-1.md
-           - text: SDK overview (GA)
+           - text: SDK overview v3.0 (GA)
              url: sdk-overview-v3-0.md
            - text: Help and support
              url: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/document-intelligence/context/context
@@ -63,8 +63,8 @@ landingContent:
                url:  concept-health-insurance-card.md
              - text: Custom model
                url: concept-custom.md
-             - text: W-2 Form model
-               url: concept-w2.md
+             - text: Tax document models
+               url: concept-tax-document.md
              - text: Invoice model
                url: concept-invoice.md
              - text: Receipt model

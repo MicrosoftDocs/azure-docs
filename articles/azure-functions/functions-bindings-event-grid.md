@@ -5,7 +5,7 @@ description: Understand how to handle Event Grid events in Azure Functions.
 ms.topic: reference
 ms.date: 03/04/2022
 ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Event Grid bindings for Azure Functions
@@ -82,7 +82,7 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 

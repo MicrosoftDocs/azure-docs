@@ -32,9 +32,9 @@ To configure FastPath, the virtual network gateway must be either:
 
 While FastPath supports most configurations, it doesn't support the following features:
 
-* Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
+* Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer is sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
 
-* Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, over a non-100Gbps ExpressRoute Direct circuit, the connection will go through the virtual network gateway. FastPath Connectivity to a private endpoint over a 100Gb ExpressRoute Direct circuit is supported. For more information, see [enable FastPath and Private Link for 100 Gbps ExpressRoute Direct](expressroute-howto-linkvnet-arm.md#fastpath-and-private-link-for-100-gbps-expressroute-direct).
+* Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, over a non-100Gbps ExpressRoute Direct circuit, the connection goes through the virtual network gateway. FastPath Connectivity to a private endpoint over a 100Gb ExpressRoute Direct circuit is supported. For more information, see [enable FastPath and Private Link for 100 Gbps ExpressRoute Direct](expressroute-howto-linkvnet-arm.md#fastpath-and-private-link-for-100-gbps-expressroute-direct).
 
 ### IP address limits
 
@@ -46,7 +46,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 > [!NOTE]
 > * ExpressRoute Direct has a cumulative limit at the port level.
-> * Traffic will flow through the ExpressRoute gateway when these limits are reached.
+> * Traffic flows through the ExpressRoute gateway when these limits are reached.
 
 ## Public preview
 
@@ -54,7 +54,7 @@ The following FastPath features are in Public preview:
 
 ### Virtual network (VNet) Peering
 
-FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This feature is available for both IPv4 and IPv6 connectivity.
+FastPath sends traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This feature is available for both IPv4 and IPv6 connectivity.
 
 **FastPath support for VNet peering is only available for ExpressRoute Direct connections.**
 
@@ -63,7 +63,7 @@ FastPath will send traffic directly to any VM deployed in a virtual network peer
 
 ### User Defined Routes (UDRs)
 
-FastPath will honor UDRs configured on the GatewaySubnet and send traffic directly to an Azure Firewall or third party NVA.
+FastPath honors UDRs configured on the GatewaySubnet and send traffic directly to an Azure Firewall or third party NVA.
 
 **FastPath support for UDRs is only available for ExpressRoute Direct connections**
 
@@ -71,7 +71,7 @@ FastPath will honor UDRs configured on the GatewaySubnet and send traffic direct
 > * FastPath UDR connectivity is not supported for Azure Dedicated Host workloads.
 > * FastPath UDR connectivity is not supported for IPv6 workloads.
 
-To enroll in the Public preview, please send an email **exrpm@microsoft.com** with the following information:
+To enroll in the Public preview, send an email to **exrpm@microsoft.com** with the following information:
 - Azure subscription ID
 - Virtual Network(s) Azure Resource ID(s)
 - ExpressRoute Circuit(s) Azure Resource ID(s)
@@ -109,6 +109,13 @@ This preview is available for connections associated to ExpressRoute Direct circ
 > [!NOTE]
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 > 
+## Limited General Availability (GA)
+FastPath Private Endpoint/Private Link support for 100Gbps ExpressRoute Direct connections is available for limited scenarios. To review the supported scenarios and enroll in the limited GA offering, send an email to **exrpm@microsoft.com** with the following information:
+- Azure subscription ID
+- Virtual Network(s) Azure Resource ID(s)
+- ExpressRoute Circuit(s) Azure Resource ID(s)
+- ExpressRoute Virtual Network Gateway Connection(s) Azure Resource ID(s)
+- Number of Private Endpoints/Private Link services deployed to the Virtual Network
 
 ## Next steps
 

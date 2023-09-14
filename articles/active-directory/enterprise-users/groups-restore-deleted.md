@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan, mode-other, has-azure-ad-ps-ref
@@ -31,15 +31,13 @@ User | Can restore any deleted Microsoft 365 group that they own
 
 ## View and manage the deleted Microsoft 365 groups that are available to restore
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com) with a User Administrator account.
-
-2. Browse to **Azure Active Directory** > **Groups**, then select **Deleted groups** to view the deleted groups that are available to restore.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Groups** > **All groups** and then select **Deleted groups** to view the deleted groups that are available to restore.
 
     ![view groups that are available to restore](./media/groups-restore-deleted/deleted-groups3.png)
 
-3. On the **Deleted groups** blade, you can:
+1. On the **Deleted groups** blade, you can:
 
    - Restore the deleted group and its contents by selecting **Restore group**.
    - Permanently remove the deleted group by selecting **Delete permanently**. To permanently remove a group, you must be an administrator.

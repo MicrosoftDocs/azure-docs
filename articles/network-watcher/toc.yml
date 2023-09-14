@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Network Watcher
-    href: network-watcher-monitoring-overview.md
+    href: network-watcher-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -46,7 +46,7 @@
   - name: Next hop
     href: network-watcher-next-hop-overview.md
   - name: Connection troubleshoot
-    href: network-watcher-connectivity-overview.md
+    href: connection-troubleshoot-overview.md
   - name: VPN troubleshoot
     href: network-watcher-troubleshoot-overview.md
   - name: Packet capture

@@ -117,13 +117,11 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
 The following examples show how to assign a custom security attribute role to a principal at an attribute set scope named Engineering.
 
-# [Portal](#tab/azure-portal)
+# [Admin center](#tab/admin-center)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Click **Azure Active Directory**.
-
-1. In the left navigation menu, click **Custom security attributes (Preview)**.
+1. Browse to **Protection** > **Custom security attributes**.
 
 1. Click the attribute set you want grant access to.
 
@@ -138,7 +136,7 @@ The following examples show how to assign a custom security attribute role to a 
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0)
+[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment)
 
 ```powershell
 $roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
@@ -180,13 +178,11 @@ $roleAssignment = New-AzureADMSRoleAssignment -RoleDefinitionId $roleDefinitionI
 
 The following examples show how to assign a custom security attribute role to a principal at tenant scope.
 
-# [Portal](#tab/azure-portal)
+# [Admin center](#tab/admin-center)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Click **Azure Active Directory**.
-
-1. In the left navigation menu, click **Roles and administrators**.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
     ![Screenshot of assigning attribute roles at tenant scope.](./media/custom-security-attributes-manage/manage-tenant.png)
 
@@ -194,7 +190,7 @@ The following examples show how to assign a custom security attribute role to a 
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0)
+[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment)
 
 ```powershell
 $roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"

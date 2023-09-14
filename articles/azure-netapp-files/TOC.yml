@@ -385,6 +385,8 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Troubleshoot user access on LDAP volumes
+      href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
 - name: Reference

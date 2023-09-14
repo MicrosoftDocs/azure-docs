@@ -186,6 +186,8 @@
   - name: Azure Policy built-ins 
     displayName: samples, policies, definitions
     href: policy-reference.md
+  - name: License terms
+    href: /legal/azure-arc/license-terms?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
 - name: Resources
   items:
   - name: Azure Arc Jumpstart

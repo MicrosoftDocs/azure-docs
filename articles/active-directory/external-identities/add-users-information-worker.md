@@ -85,18 +85,16 @@ Self-service app management requires some initial setup by a Global Administrato
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-2. In the navigation panel, select **Azure Active Directory**.
-3. Select **Groups**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Groups** > **All groups**.
 4. Under **Settings**, select **General**.
 5. Under **Self Service Group Management**, next to **Owners can manage group membership requests in the Access Panel**, select **Yes**.
 6. Select **Save**.
 
 ### Create a group to assign to the app and make the user an owner
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator or Global Administrator.
-2. In the navigation panel, select **Azure Active Directory**.
-3. Select **Groups**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Groups** > **All groups**.
 4. Select **New group**.
 5. Under **Group type**, select **Security**.
 6. Type a **Group name** and **Group description**.
@@ -107,10 +105,9 @@ Self-service app management requires some initial setup by a Global Administrato
 
 ### Configure the app for self-service and assign the group to the app
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator or Global Administrator.
-2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **Enterprise applications** > **All applications**.
-4. In the application list, find and open the app.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+4. Select **All applications**, in the application list, find and open the app.
 5. Under **Manage**, select **Single sign-on**, and configure the application for single sign-on. (For details, see [how to manage single sign-on for enterprise apps](../manage-apps/add-application-portal-setup-sso.md).)
 6. Under **Manage**, select **Self-service**, and set up self-service app access. (For details, see [how to use self-service app access](../manage-apps/manage-self-service-access.md).) 
 

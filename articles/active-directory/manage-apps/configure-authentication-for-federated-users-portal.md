@@ -29,8 +29,8 @@ For federated users with cloud-enabled credentials, such as SMS sign-in or FIDO 
 
 > [!IMPORTANT]
 > Starting April 2023, organizations who use auto-acceleration or smartlinks may begin to see a new screen added to the sign-in UI. This screen, termed the Domain Confirmation Dialog, is part of Microsoft's general commitment to security hardening and requires the user to confirm the domain of the tenant in which they are signing in to. If you see the Domain Confirmation Dialog and do not recognize the tenant domain listed, you should cancel the authentication flow and contact your IT Admin.
-> 
-> While the Domain Confirmation Dialog does not need to be shown for every instance of auto-acceleration or smartlinks, the presence of the Domain Confirmation Dialog means auto-acceleration and smartlinks can no longer proceed seamlessly when shown. Finally, given Microsoft identity platform manages the auto-acceleration sign-in flow end-to-end, the introduction of the Domain Confirmation Dialog should not result in any application breakages. 
+>
+> While the Domain Confirmation Dialog does not need to be shown for every instance of auto-acceleration or smartlinks, the presence of the Domain Confirmation Dialog means auto-acceleration and smartlinks can no longer proceed seamlessly when shown. If your organization clears cookies due to browser policies or otherwise, you may experience the domain confirmation dialog more frequently. Finally, given Microsoft identity platform manages the auto-acceleration sign-in flow end-to-end, the introduction of the Domain Confirmation Dialog should not result in any application breakages. 
 
 ## Prerequisites
 

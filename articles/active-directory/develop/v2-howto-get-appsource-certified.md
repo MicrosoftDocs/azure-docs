@@ -26,7 +26,7 @@ To list a standalone SaaS application on AppSource, your application must accept
 A *multi-tenant application* is an application that accepts sign-ins from users from any company or organization that have Azure AD without requiring a separate instance, configuration, or deployment. AppSource recommends that applications implement multi-tenancy to enable the *single-click* free trial experience.
 
 To enable multi-tenancy on your application, follow these steps:
-1. Set `Multi-Tenanted` property to `Yes` on your application registration's information in the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). By default, applications created in the Azure portal are configured as *[single-tenant](#single-tenant-applications)*.
+1. Set `Multi-Tenanted` property to `Yes` on your application registration's information in the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade). By default, applications created in the Microsoft Entra admin center are configured as *[single-tenant](#single-tenant-applications)*.
 1. Update your code to send requests to the `common` endpoint. To do this, update the endpoint from `https://login.microsoftonline.com/{yourtenant}` to `https://login.microsoftonline.com/common*`.
 1. For some platforms, like ASP.NET, you need also to update your code to accept multiple issuers.
 

@@ -60,3 +60,9 @@ Use this article to get started making your first calls to Azure OpenAI.
 [!INCLUDE [REST API quickstart](includes/rest.md)]
 
 ::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/powershell.md)]
+
+::: zone-end

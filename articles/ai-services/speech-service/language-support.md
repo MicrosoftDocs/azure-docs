@@ -58,7 +58,7 @@ Additional remarks for Text to speech locales are included in the [Voice styles 
 
 In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. All prebuilt voices with speaking styles and multi-style custom voices support style degree adjustment. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
 
-To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#speaking-styles-and-roles). 
+To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup-voice.md#use-speaking-styles-and-roles). 
 
 Use the following table to determine supported styles and roles for each neural voice.
 

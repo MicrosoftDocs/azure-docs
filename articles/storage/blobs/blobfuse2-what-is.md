@@ -5,7 +5,7 @@ description: An overview of how to use BlobFuse to mount an Azure Blob Storage c
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.custom: engagement-fy23
