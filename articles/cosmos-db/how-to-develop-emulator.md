@@ -519,15 +519,15 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
 
 1. Create a new <xref:azure.cosmos.CosmosClient> using the emulator's credentials.
 
-    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" id="client":::
+    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" highlight="2,4-5" id="client":::
 
 1. Create a new database and container using <xref:azure.cosmos.CosmosClient.create_database_if_not_exists> and <xref:azure.cosmos.DatabaseProxy.create_container_if_not_exists>.
 
-    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" id="resources":::
+    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" highlight="1,6" id="resources":::
 
 1. Use <xref:azure.cosmos.ContainerProxy.upsert_item> to create a new item in the container.
 
-    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" id="upsert":::
+    :::code language="python" source="~/cosmos-db-nosql-python-samples/601-emulator/app.py" highlight="3" id="upsert":::
 
 1. Run the Python application.
 
