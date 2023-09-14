@@ -15,7 +15,7 @@ In this article, you learn how to properly configure Playwright's visual compari
 
 ## Background
 
-The Playwright Test runner uses the host OS as a part of the expected screenshot path. If you're running tests using remote browsers on a different OS than your host machine, which means the visual comparison tests will fail. Our recommendation is to only run visual comparisons when using the service. If you're taking screenshots on the service, there's no need to compare them to your local setup since they'll never match.
+The Playwright Test runner uses the host OS as a part of the expected screenshot path. If you're running tests using remote browsers on a different OS than your host machine, the visual comparison tests will fail. Our recommendation is to only run visual comparisons when using the service. If you're taking screenshots on the service, there's no need to compare them to your local setup since they'll never match.
 
 ## Configure ignoreSnapshots
 
