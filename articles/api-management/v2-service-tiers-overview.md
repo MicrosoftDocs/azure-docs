@@ -7,7 +7,7 @@ editor: ''
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/06/2023        
+ms.date: 09/14/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -24,7 +24,7 @@ Currently in preview, the following v2 tiers are available:
 
 ## Key capabilities
 
-* **Faster deployment and scaling** - Deploy a production-ready API Management instance in minutes. Scale up quickly to meet the needs of your API management workloads.
+* **Faster deployment and scaling** - Deploy a production-ready API Management instance in minutes. Scale a v2 instance quickly to any number of units to meet the needs of your API management workloads.
 
 * **Simplified networking** - The Standard v2 tier supports [outbound connections](#networking-options) to network-isolated backends.
 
@@ -34,11 +34,11 @@ Currently in preview, the following v2 tiers are available:
 
 * **Consumption-based pricing** - The v2 tiers have a consumption-based pricing model, based on the number of API calls made through your API Management gateway. For details, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
-* **Developer portal options** - Enable the [developer-portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. The developer portal is included in the Standard v2 tier, and is an add-on in the Basic v2 tier.
+* **Developer portal options** - Enable the [developer portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. The developer portal is included in the Standard v2 tier, and is an add-on in the Basic v2 tier.
 
 ## Networking options
 
-In preview, the v2 tiers currently support the following options to limit network traffic from your API Management instance:
+In preview, the v2 tiers currently support the following options to limit network traffic from your API Management instance to protected API backends:
 
 
 * **Standard v2**
@@ -84,12 +84,12 @@ Currently, the following API Management capabilities are unavailable in the v2 t
 **Infrastructure and networking**
 * Zone redundancy (*Standard v2*)
 * Multi-region deployment (*Standard v2*)
+* Capacity metric
 * Autoscaling
 * Multiple custom domain names (*Standard v2*)
-* Capacity metric
 * Deployment (injection) in a VNet (*Standard v2*) 
 * Inbound connection using a private endpoint
-* Upgrade to v2 tiers from v1 tiers
+* Upgrade to v2 tiers from v1 tiers or changing a v2 tier
 * Workspaces
 * Compute platform version property  
 

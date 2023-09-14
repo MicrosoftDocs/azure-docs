@@ -45,7 +45,7 @@ This section will guide you through the process of enabling VNet integration for
 
 ## (Optional) Test VNet integration
 
-If you have an API hosted in the virtual network, you can import it into your Management instance and test the VNet integration. For basic steps, see [Import and publish an API](import-and-publish.md).
+If you have an API hosted in the virtual network, you can import it to your Management instance and test the VNet integration. For basic steps, see [Import and publish an API](import-and-publish.md).
 
 
 ## Related content
