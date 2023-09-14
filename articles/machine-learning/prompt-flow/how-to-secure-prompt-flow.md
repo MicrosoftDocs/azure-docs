@@ -30,10 +30,10 @@ When you're developing your LLM application using prompt flow, you may want a se
 - Container registry: you may also want to secure your container registry with virtual network.
 - Endpoint: you may want to limit Azure services or IP address to access your endpoint.
 - Related Azure Cognitive Services as such Azure OpenAI, Azure content safety and Azure cognitive search, you can use network config to make them as private then using private endpoint to let Azure Machine Learning services communicate with them.
-
+- Other non Azure resources such as SerpAPI, pinecone etc. If you have strict outbound rule, you need add FQDN rule to access them. 
 ## Secure prompt flow with workspace managed virtual network
 
-Workspace managed virtual network is the recommend way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
+Workspace managed virtual network is the recommended way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
 
 1. Follow [Workspace managed network isolation](../how-to-managed-network.md) to enable workspace managed virtual network.
 
@@ -61,6 +61,7 @@ Workspace managed virtual network is the recommend way to support network isolat
 
 ## Limitations
 
+- Only public access enable storage account is supported. You can't use private storage account now.
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
 - Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
 
