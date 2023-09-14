@@ -73,7 +73,7 @@ To create a new rule group from the portal home page:
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
 1. Select **Prometheus Rule Groups**
 1. Select **+ Create** to open up the rule group creation wizard
-    :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-start.png" alt-text="Screenshot that shows steps to create a new Prometheus rule group.":::
+:::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-start.png" alt-text="Screenshot that shows steps to create a new Prometheus rule group.":::
 
 To edit a new rule group from the portal home page:
 
@@ -97,7 +97,7 @@ On the rule group  **Details** tab:
 3. Select the **Evaluate every** period for the rule group. 1 minute is the default.
 4. Select if the rule group is to be enabled when created.
 5. Select **Next** to configure the rules in the group.
-   :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-details.png" alt-text="Screenshot that shows configuration of Prometheus rule group details.":::
+:::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-details.png" alt-text="Screenshot that shows configuration of Prometheus rule group details.":::
 
 #### Configure the rules in the group 
 1. On the rule group **Rules** tab you can see the list of recording rules and alert rules in the group.
