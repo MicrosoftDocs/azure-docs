@@ -48,7 +48,7 @@ sections:
       - question: |
           Where can I find out what legal or business standards Azure Synapse is compliant with?
         answer: |
-          Visit the [Microsoft Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO. First, choose by Compliance title. Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
+          Visit [Microsoft compliance offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO. First, choose by Compliance title. Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
           
       - question: |
           Can I connect Power BI?
