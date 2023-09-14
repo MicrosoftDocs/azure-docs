@@ -93,7 +93,7 @@
     items:
       - name: Workspaces overview
         href: workspaces-overview.md
-      - name: Create a workspaces
+      - name: Create a workspace
         href: how-to-create-workspace.md
       - name: Use a workspace
         href: api-management-in-workspace.md  
