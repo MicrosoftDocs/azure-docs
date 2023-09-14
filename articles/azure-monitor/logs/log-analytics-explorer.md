@@ -29,7 +29,7 @@ This section explains the elements of the new Log Analytics interface.
 
 :::image type="content" source="media/log-analytics-explorer/new-log-analytics-user-interface.png" alt-text="Screenshot that shows the Log Analytics simple mode interface." lightbox="media/log-analytics-explorer/new-log-analytics-user-interface.png":::
 
-### Top action bar
+### Top query bar
 
 In simple mode, the top bar has controls for working with data and switching to advanced mode.
 
