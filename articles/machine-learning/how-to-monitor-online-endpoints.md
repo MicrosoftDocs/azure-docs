@@ -8,7 +8,7 @@ ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
 ms.subservice: mlops
-ms.date: 07/17/2023
+ms.date: 09/14/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
@@ -31,12 +31,7 @@ In this article you learn how to:
 > * Create a dashboard for your metrics
 > * Create a metric alert
 > * View logs for your online endpoint
-> * Use application insights (legacy) to track metrics and logs 
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> * Use application insights to track metrics and logs 
 
 ## Prerequisites
 
@@ -110,6 +105,32 @@ Split on the following dimension:
 - InstanceId
 
 For instance, you can compare CPU and/or memory utilization between difference instances for an online deployment. 
+
+### Create dashboards and alerts
+
+Azure Monitor allows creating dashboards and alerts based on metrics.
+
+#### Create dashboards and visualize queries
+
+You can create custom dashboards and visualize metrics from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information on creating dashboards and visualizing queries, see [Dashboards using log data](../azure-monitor/visualize/tutorial-logs-dashboards.md) and [Dashboards using application data](../azure-monitor/app/tutorial-app-dashboards.md).
+    
+#### Create alerts
+
+You can also create custom alerts to notify you of important status updates to your online endpoint:
+
+1. At the top right of the metrics page, select **New alert rule**.
+
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Screenshot showing 'New alert rule' button surrounded by a red box.":::
+
+1. Select a condition name to specify when your alert should be triggered.
+
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Screenshot showing 'Configure signal logic' button surrounded by a red box.":::
+
+1. Select **Add action groups** > **Create action groups** to specify what should happen when your alert is triggered.
+
+1. Choose **Create alert rule** to finish creating your alert.
+
+For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 
 ## Logs
@@ -204,33 +225,6 @@ The following tables provide details on the data stored in each log:
 ## Using Application Insights
 
 When your online deployment uses curated docker image, it includes the integration with Application Insights. To activate log collection using Application Insights, you can simply enable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures and Performance. 
-
-
-## Create dashboards and alerts
-
-Azure Monitor allows creating dashboards and alerts based on metrics.
-
-### Create dashboards and visualize queries
-
-You can create custom dashboards and visualize metrics from multiple sources in the Azure portal, including the metrics for your online endpoint. For more information on creating dashboards and visualizing queries, see [Dashboards using log data](../azure-monitor/visualize/tutorial-logs-dashboards.md) and [Dashboards using application data](../azure-monitor/app/tutorial-app-dashboards.md).
-    
-### Create alerts
-
-You can also create custom alerts to notify you of important status updates to your online endpoint:
-
-1. At the top right of the metrics page, select **New alert rule**.
-
-    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Screenshot showing 'New alert rule' button surrounded by a red box.":::
-
-1. Select a condition name to specify when your alert should be triggered.
-
-    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Screenshot showing 'Configure signal logic' button surrounded by a red box.":::
-
-1. Select **Add action groups** > **Create action groups** to specify what should happen when your alert is triggered.
-
-1. Choose **Create alert rule** to finish creating your alert.
-
-For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 
 ## Next steps
