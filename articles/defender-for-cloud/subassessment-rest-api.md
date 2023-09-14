@@ -23,7 +23,7 @@ Azure container registry vulnerabilities sub assessments are published to ARG as
 * [Security Resources ARG Query Samples
 ](https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#securityresources)
 * [Generic Security Sub Assessment Query
-](https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
+](https://learn.microsoft.com/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results)
 
 ## ARG Query Examples
 As can be seen in the Generic Security Sub Assessment Query example, in order to pull specific sub assessments, you need the assessment key, for MDVM powered sub-assessments (AKA AzureContainerRegistryVulnerability) the key is **“c0b7cfc6-3172-465a-b378-53c7ff2cc0d5”**.
