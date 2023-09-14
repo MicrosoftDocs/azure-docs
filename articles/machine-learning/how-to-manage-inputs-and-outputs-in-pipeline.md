@@ -228,7 +228,7 @@ But you can also customize where to store the output by defining path of an outp
 
 # [Azure CLI](#tab/cli)
 
-The `pipeline.yaml` defines a pipeline that has three pipeline level outputs. The full YAML can be found [here](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml)
+The `pipeline.yaml` defines a pipeline that has three pipeline level outputs. The full YAML can be found in the [train-score-eval pipeline with registered components example](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml).
 You can use following command to set custom output path for the `pipeline_job_trained_model`output.
 
 ```azurecli
