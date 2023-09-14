@@ -68,7 +68,7 @@ Instead of using ACLs, you can use APIs to expose a set of **application permiss
 * Send mail as any user
 * Read directory data
 
-To use app roles (application permissions) with your own API (as opposed to Microsoft Graph), you must first [expose the app roles](./howto-add-app-roles-in-apps.md) in the API's app registration in the Azure portal. Then, [configure the required app roles](./howto-add-app-roles-in-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any app roles in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
+To use app roles (application permissions) with your own API (as opposed to Microsoft Graph), you must first [expose the app roles](./howto-add-app-roles-in-apps.md) in the API's app registration in the Microsoft Entra admin center. Then, [configure the required app roles](./howto-add-app-roles-in-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any app roles in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Microsoft Entra admin center.
 
 When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* because there is no user for your app to act on behalf of. You must use application permissions, also known as app roles, that are granted by an admin or by the API's owner.
 
@@ -102,7 +102,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 |    Parameter   |  Condition  | Description |
 | -------------- | ----------- | ----------- |
 |    `tenant`    |  Required   | The directory tenant that you want to request permission from. This can be in GUID or friendly name format. If you don't know which tenant the user belongs to and you want to let them sign in with any tenant, use `common`. |
-|  `client_id`   |  Required   | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
+|  `client_id`   |  Required   | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `redirect_uri` |  Required   | The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded, and it can have additional path segments. |
 |    `state`     | Recommended | A value that's included in the request that's also returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 

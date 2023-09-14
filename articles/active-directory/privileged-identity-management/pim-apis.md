@@ -79,7 +79,7 @@ Creation of **\*AssignmentScheduleRequest** or **\*EligibilityScheduleRequest** 
   - **\*AssignmentSchedule** and **\*EligibilitySchedule** objects show current assignments and requests for assignments to be created in the future. 
   - **\*AssignmentScheduleInstance** and **\*EligibilityScheduleInstance** objects show current assignments only. 
 
-When an eligible assignment is activated (Create **\*AssignmentScheduleRequest** was called), the **\*EligibilityScheduleInstance** continues to exist, new **\*AssignmentSchedule** and a **\*AssignmentScheduleInstance** objects will be created for that activated duration. 
+When an eligible assignment is activated (**Create** **\*AssignmentScheduleRequest** was called), the **\*EligibilityScheduleInstance** continues to exist, new **\*AssignmentSchedule** and a **\*AssignmentScheduleInstance** objects will be created for that activated duration. 
 
 For more information about assignment and activation APIs, see [PIM API for managing role assignments and eligibilities](/graph/api/resources/privilegedidentitymanagementv3-overview#pim-api-for-managing-role-assignment). 
 
@@ -87,7 +87,7 @@ For more information about assignment and activation APIs, see [PIM API for ma
 
 #### PIM Policies (role settings) 
 
-To manage the PIM policies, use **roleManagementPolicy** and **roleManagementPolicyAssignment** entities: 
+To manage the PIM policies, use **\*roleManagementPolicy** and **\*roleManagementPolicyAssignment** entities: 
   - For PIM for Azure AD roles, PIM for Groups: [unifiedroleManagementPolicy](/graph/api/resources/unifiedrolemanagementpolicy), [unifiedroleManagementPolicyAssignment](/graph/api/resources/unifiedrolemanagementpolicyassignment) 
   - For PIM for Azure resources: [Role Management Policies](/rest/api/authorization/role-management-policies), [Role Management Policy Assignments](/rest/api/authorization/role-management-policy-assignments) 
 

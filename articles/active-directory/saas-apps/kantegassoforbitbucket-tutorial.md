@@ -217,7 +217,7 @@ To enable Azure AD users to sign in to Bitbucket, they must be provisioned into 
 
 1. Under **Administration** tab section, click **Users**.
 
-	![Screenshot shows BitBucket Administration with Users selected. ](./media/kantegassoforbitbucket-tutorial/add-user.png)
+	![Screenshot shows BitBucket Administration with Users selected.](./media/kantegassoforbitbucket-tutorial/add-user.png)
 
 1. Click **Create user**.
 

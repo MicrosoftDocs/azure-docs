@@ -133,11 +133,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Download the **Service Provider metadata file** by clicking **here** in the Adra page and upload this metadata file in the Azure portal.
 
-   [ ![Screenshot that shows the Configuration Settings.](./media/adra-by-trintech-tutorial/settings.png "Configuration") ](./media/adra-by-trintech-tutorial/settings.png#lightbox)
+   [ ![Screenshot that shows the Configuration Settings.](./media/adra-by-trintech-tutorial/settings.png "Configuration")](./media/adra-by-trintech-tutorial/settings.png#lightbox)
 
 1. Click on the **Add a new federated identity provider** button and perform the following steps:
 
-   [ ![Screenshot that shows the Organization Algorithm.](./media/adra-by-trintech-tutorial/certificate.png "Organization") ](./media/adra-by-trintech-tutorial/certificate.png#lightbox)
+   [ ![Screenshot that shows the Organization Algorithm.](./media/adra-by-trintech-tutorial/certificate.png "Organization")](./media/adra-by-trintech-tutorial/certificate.png#lightbox)
 
    a. Enter a valid **Name** and **Description** values in the textbox.
 
