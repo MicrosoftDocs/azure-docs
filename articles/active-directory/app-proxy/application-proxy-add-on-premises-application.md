@@ -19,7 +19,7 @@ Azure Active Directory (Azure AD) has an Application Proxy service that enables 
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Application Proxy Overview Diagram" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
 
-Before you get started, make sure you are familiar with app management and **Single Sign-On (SSO)** concepts. Check out the following links:
+Before you get started, make sure you're familiar with app management and **Single Sign-On (SSO)** concepts. Check out the following links:
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
 - [What is Single Sign-On (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
@@ -57,7 +57,7 @@ For high availability in your production environment, we recommend having more t
 > 
 > **HTTP 2.0**
 >
->  If you are installing the connector on Windows Server 2019, you must disable HTTP2 protocol support in the WinHttp component for Kerberos Constrained Delegation to properly work. This is disabled by default in earlier versions of supported operating systems. Adding the following registry key and restarting the server disables it on Windows Server 2019. Note that this is a machine-wide registry key.
+>  If you're installing the connector on Windows Server 2019, you must disable HTTP2 protocol support in the WinHttp component for Kerberos Constrained Delegation to properly work. This is disabled by default in earlier versions of supported operating systems. Adding the following registry key and restarting the server disables it on Windows Server 2019. Note that this is a machine-wide registry key.
 >
 > ```
 > Windows Registry Editor Version 5.00
@@ -143,7 +143,7 @@ You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and
 
 ### DNS name resolution for Azure AD Application Proxy endpoints
 
-Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records pointing to an A record. Setting up the records this way ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`. However, during the name resolution the CNAME records might contain DNS records with different host names and suffixes. Due to this, you must ensure that the device (depending on your setup - connector server, firewall, outbound proxy) can resolve all the records in the chain and allows connection to the resolved IP addresses. Since the DNS records in the chain might be changed from time to time, we cannot provide you with any list DNS records.
+Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records pointing to an A record. Setting up the records this way ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`. However, during the name resolution the CNAME records might contain DNS records with different host names and suffixes. Due to the difference, you must ensure that the device (depending on your setup - connector server, firewall, outbound proxy) can resolve all the records in the chain and allows connection to the resolved IP addresses. Since the DNS records in the chain might be changed from time to time, we can't provide you with any list DNS records.
 
 ## Install and register a connector
 
@@ -268,7 +268,7 @@ For troubleshooting, see [Troubleshoot Application Proxy problems and error mess
 
 ## Clean up resources
 
-Don't forget to delete any of the resources you created in this tutorial when you are done.
+Don't forget to delete any of the resources you created in this tutorial when you're done.
 
 ## Next steps
 
