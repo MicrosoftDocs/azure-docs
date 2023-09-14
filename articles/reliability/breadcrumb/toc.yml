@@ -211,3 +211,9 @@ items:
     - name: Reliability
       tocHref: /azure/data-share/
       topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /sql/sql-server/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/azure-monitor/
+      topicHref: /azure/reliability/index
