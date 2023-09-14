@@ -43,12 +43,11 @@ highlightedContent:
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
 
 # Azure Services
-productDirectory:
-  title: HPC Components # < 60 chars (optional)
-  # summary: # < 160 chars (optional)
-  items: 
-  # Card
-        - title: HPC Scenarios and Architectures   
+conceptualContent:
+  sections:
+    - items:
+        # Card
+        - title: HPC Scenarios and Architectures
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
               text: 3D Video Rendering
@@ -57,10 +56,9 @@ productDirectory:
             - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
               text: Digital image-based modeling on Azure
             - url: /azure/architecture/guide/hpc/hpc-deployments/
-              text: HPC Deployments
-  # Card
+              text: HPC Deployments              
+        # Card
         - title: HPC Compute
-          #imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
           links:
             - url: ../virtual-machines/sizes-hpc.md
               text: High Performance VMs 
@@ -68,39 +66,35 @@ productDirectory:
               text: GPU Accelarated VMs
             - url: ../virtual-machines/hx-series.md
               text: Memory Optimized VMs
-  # Card
+        # Card
         - title: HPC Storage
-          #imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
           links:
             - url: ../azure-netapp-files/azure-netapp-files-introduction.md
               text: Azure NetApp Files
             - url: /azure/azure-managed-lustre/amlfs-overview
               text: Azure Managed Lustre
             - url: /azure/azure-managed-lustre/blob-integration
-              text: Use Azure Blob storage with an Azure Managed Lustre file system          
-  # Card
+              text: Use Azure Blob storage with an Azure Managed Lustre file system              
+        # Card
         - title: HPC Workload Orchestration
-          #imageSrc: ../high-performance-computing/media/azure-batch.svg
           links:
             - url: ../batch/batch-technical-overview.md
               text: Azure Batch
             - url: /azure/cyclecloud/overview
               text: Azure CycleCloud
             - url: /azure/logic-apps/overview
-              text: Azure Logic Apps          
-  # Card
+              text: Azure Logic Apps
+        # Card
         - title: HPC Optimization
-          #imageSrc: ../high-performance-computing/media/azure-batch.svg
           links:
             - url: ../hpc-cache/hpc-cache-overview.md
               text: Azure HPC Cache
             - url: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
               text: Autoscaling
             - url: /azure/virtual-machines/spot-vms
-              text: Spot VMs 
-  # Card
+              text: Spot VMs             
+        # Card
         - title: Manage, Monitor and Control
-          #imageSrc: ../high-performance-computing/media/azure-batch.svg
           links:
             - url: /azure/azure-monitor/
               text: Azure Monitor
@@ -111,7 +105,6 @@ productDirectory:
             - url: /azure/open-datasets/
               text: Azure Open Datasets
 
-# Azure Services
 conceptualContent:
   # Supports up to 4 subsections
   sections:
@@ -153,6 +146,43 @@ conceptualContent:
 
 # HPC Resourcess
 additionalContent:
+  sections:
+    - title: Take the next step # < 60 chars (Optional; Remove if not applicable.)
+      summary: See Azure HPC solutions, tutorials, guides and resources. # < 160 chars (Optional; Remove if not applicable.)
+      items:
+      # Card
+      - title: Landing Zone Accelerators
+        links:
+          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
+            text: Infra Landing Zone 
+          - url: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone
+            text: Data Landing Zone
+          - url: https://azure.github.io/az-hop/
+            text: HPC OnDemand Platform Zone
+      # Card
+      - title: Cloud Adoption
+        links:
+          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
+            text: Cloud Adoption Scenarios
+          - url: /azure/cloud-adoption-framework/migrate/
+            text: Cloud Migration Overview          
+      # Card
+      - title: HPC Support
+        links:
+          - url: https://learn.microsoft.com/azure/fasttrack/
+            text: Get expert help with Azure FastTrack
+      # Card
+      - title: Tutorials
+        links:
+          - url: /training/modules/intro-to-hpc/2-azure-batch
+            text: Run HPC applications on Azure
+          - url: /training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/
+            text: Run Parallel Tasks in Azure Batch
+          - url: /training/modules/azure-cyclecloud-high-performance-computing/
+            text: Create, customize and manage HPC Cluster using CycleCloud
+          - url: /azure/virtual-machines/extensions/enable-infiniband
+            text: Enable Inifiniband
+         
     - title: HPC Community and Support # < 60 chars (optional)
       summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
       items:
