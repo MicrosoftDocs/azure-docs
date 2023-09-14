@@ -93,13 +93,12 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
     Log Analytics filters the table to show only entries that contain the value you entered.
 
 > [!IMPORTANT]
-> We recommend using the filter by column option if you know which column holds the data you're searching for. The [search operator is substantially less performant](../logs/query-optimization.md#avoid-unnecessary-use-of-search-and-union-operators) than filtering, and might not function well on large volumes of data.
+> We recommend using **Filter** if you know which column holds the data you're searching for. The [search operator is substantially less performant](../logs/query-optimization.md#avoid-unnecessary-use-of-search-and-union-operators) than filtering, and might not function well on large volumes of data.
 
 **Aggregate**
 
 1. Select **Aggregate**.
-1. Select a column to aggregate by.
-1. Select an operator to aggregate by, as described in [Use aggregation operators](#use-aggregation-operators).
+1. Select a column to aggregate by and select an operator to aggregate by, as described in [Use aggregation operators](#use-aggregation-operators).
 
 **Show or hide columns**
 
@@ -113,9 +112,12 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 1. Select **Sort**.
 1. Select a column to sort by.
 1. Select **Ascending** or **Descending**, then select **Apply**.  
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-sort.png" alt-text="Screenshot that shows the Sort by column window in Log Analytics.":::
+
 1. Select **Sort** again to sort by another column.
 
-### Use aggregate operators
+### Use aggregation operators
 
 | Operator | Description |
 |:---|:---|
