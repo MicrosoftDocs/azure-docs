@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 09/14/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -293,7 +293,20 @@ To download all the logs together in one ZIP file, access `https://<app-name>.sc
 
 ## Customize container memory
 
-By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default all Windows Containers deployed in Azure App Service have a memory limit configured.  The following table lists the default settings per App Service Plan SKU. 
+
+| App Service PLan SKU | Default memory limit per app in MB |
+|-|-|
+| P1v3 | 1024 |
+| P1Mv3 | 1024 |
+| P2v3 | 1536 |
+| P2Mv3 | 1536 |
+| P3v3 | 2048 |
+| P3Mv3 | 2048 |
+| P4Mv3 | 2560 |
+| P5Mv3 | 3072 |
+
+You can change this value by providing the `WEBSITE_MEMORY_LIMIT_MB` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_MEMORY_LIMIT_MB=2000
