@@ -21,7 +21,7 @@ For this article, you create three virtual networks:
 
 - **VNet-Hub**: The firewall is in this virtual network.
 - **VNet-Spoke**: The spoke virtual network represents the workload located on Azure.
-- **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a VPN connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
+- **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a Virtual Private Network (VPN) connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
 
 ![Diagram that shows a firewall in a hybrid network.](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -49,7 +49,7 @@ Azure Firewall must have direct internet connectivity. If your **AzureFirewallSu
 > [!NOTE]
 > You can configure Azure Firewall to support forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
-Traffic between directly peered virtual networks is routed directly, even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
+Traffic between directly peered virtual networks is routed directly, even if a UDR points to Azure Firewall as the default gateway. To send subnet-to-subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -204,7 +204,7 @@ The hub and on-premises virtual networks are connected via VPN gateways.
 
 ### Create a VPN gateway for the hub virtual network
 
-Create the VPN gateway for the hub virtual network. Network-to-network configurations require a route-based VPN type. Creating a VPN gateway can often take 45 minutes or more, depending on the selected VPN gateway's SKU.
+Create the VPN gateway for the hub virtual network. Network-to-network configurations require a route-based VPN type. Creating a VPN gateway can often take 45 minutes or more, depending on the SKU that you select.
 
 1. From the Azure portal's home page, select **Create a resource**.
 1. In the search box, enter **virtual network gateway**.
@@ -222,7 +222,7 @@ Create the VPN gateway for the hub virtual network. Network-to-network configura
 
 ### Create a VPN gateway for the on-premises virtual network
 
-Create the VPN gateway for the on-premises virtual network. Network-to-network configurations require a route-based VPN type. Creating a VPN gateway can often take 45 minutes or more, depending on the selected VPN gateway's SKU.
+Create the VPN gateway for the on-premises virtual network. Network-to-network configurations require a route-based VPN type. Creating a VPN gateway can often take 45 minutes or more, depending on the SKU that you select.
 
 1. From the Azure portal's home page, select **Create a resource**.
 1. In the search box, enter **virtual network gateway**.
@@ -256,7 +256,7 @@ In the following steps, you create the connection from the hub virtual network t
 1. Select **Review + Create**.
 1. Select **Create**.
 
-Create the virtual network connection between on-premises and the hub. The following steps are similar to the previous ones, except that you create the connection from **VNet-Onprem** to **VNet-Hub**. Make sure the shared keys match. The connection is established after a few minutes.
+Create the virtual network connection between on-premises and the hub. The following steps are similar to the previous ones, except that you create the connection from **VNet-Onprem** to **VNet-Hub**. Make sure that the shared keys match. The connection is established after a few minutes.
 
 1. Open the **RG-fw-hybrid-test** resource group and select the **GW-Onprem** gateway.
 1. Select **Connections** in the left column.
@@ -376,7 +376,7 @@ Create the spoke workload and on-premises virtual machines, and place them in th
 
 ### Create the workload virtual machine
 
-Create a virtual machine in the spoke virtual network that's running Internet Information Services (IIS) and has no public IP address:
+Create a virtual machine in the spoke virtual network that runs Internet Information Services (IIS) and has no public IP address:
 
 1. From the Azure portal's home page, select **Create a resource**.
 1. Under **Popular Marketplace products**, select **Windows Server 2019 Datacenter**.
@@ -415,7 +415,7 @@ Create a virtual machine in the spoke virtual network that's running Internet In
 
 ### Create the on-premises virtual machine
 
-Create a virtual machine that you use to connect via remote desktop to the public IP address. From there, you can connect to the spoke server through the firewall.
+Create a virtual machine that you use to connect via remote access to the public IP address. From there, you can connect to the spoke server through the firewall.
 
 1. From the Azure portal's home page, select **Create a resource**.
 1. Under **Popular**, select **Windows Server 2019 Datacenter**.
@@ -448,7 +448,7 @@ Create a virtual machine that you use to connect via remote desktop to the publi
 
    ![Screenshot that shows the webpage for the spoke virtual machine.](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 
-1. From the **VM-Onprem** virtual machine, open a remote desktop connection to **VM-Spoke-01** at the private IP address.
+1. From the **VM-Onprem** virtual machine, open a remote access connection to **VM-Spoke-01** at the private IP address.
 
    Your connection should succeed, and you should be able to sign in.
 
@@ -465,7 +465,7 @@ Next, change the action for the collection of firewall network rules to **Deny**
 4. For **Action**, select **Deny**.
 5. Select **Save**.
 
-Close any existing remote desktops before you test the changed rules. Now run the tests again. They should all fail this time.
+Close any existing remote access connections. Run the tests again to test the changed rules. They should all fail this time.
 
 ## Clean up resources
 
