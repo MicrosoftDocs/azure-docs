@@ -71,7 +71,7 @@ For:
 
 ## Testing 
 
-Your application is now ready to test. Access the external URL you used to publish Tableau, and login as a user assigned to both applications.
+Your application is now ready to test. Access the external URL you used to publish Tableau, and log in as a user assigned to both applications.
 
 
 
