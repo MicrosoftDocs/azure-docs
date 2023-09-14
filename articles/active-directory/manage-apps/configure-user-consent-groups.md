@@ -44,7 +44,7 @@ You can configure which users are allowed to consent to apps accessing their gro
 
 :::zone pivot="portal"
 
-To configure group and team owner consent settings through the Azure portal:
+To configure group and team owner consent settings through the Microsoft Entra admin center:
 
 Follow these steps to manage group owner consent to apps accessing group data:
 
