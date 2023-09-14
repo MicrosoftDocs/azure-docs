@@ -113,7 +113,7 @@ Following that, plan your migration plan according to your organization requirem
 | -------- | -------- | -------- | -------- |
 | |No |Yes |You can remove MMA starting April 2024, using GA version of Defender for Server capabilities according to your needs (preview versions will be available earlier)  |
 | |No |No |You can remove MMA starting now |
-| |Yes |No |You can start migration from MMA to AMA now* |
+| |Yes |No |You can start migration from MMA to AMA now |
 | |Yes |Yes |You can either start migration from MMA to AMA starting April 2024 or alternatively, you can use both agents side by side starting now. |
 
 **Customers with Log analytics Agent** **(MMA) enabled** 
