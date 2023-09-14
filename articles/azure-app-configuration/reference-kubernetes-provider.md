@@ -102,7 +102,7 @@ The authentication method of each *vault* can be specified with the following pr
 |managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with a vault|false|string|
 
 The `spec.keyValues.refresh` property has the following child properties.
-  
+
 |Name|Description|Required|Type|
 |---|---|---|---|
 |monitoring|The key-values that are monitored by the provider, provider automatically refreshes the ConfigMap or Secret if value change in any designated key-value|true|object|
@@ -236,7 +236,7 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
 ### Key-value selection
 
 Use the `selectors` property to filter the key-values to be downloaded from Azure App Configuration.
-  
+
 The following sample downloads all key-values with no label.
 
 ``` yaml
