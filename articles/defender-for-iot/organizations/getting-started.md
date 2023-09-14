@@ -10,7 +10,7 @@ ms.date: 09/14/2023
 
 This article describes how to set up a trial license and create an initial OT plan for Microsoft Defender for IoT. Use Defender for IoT to monitor network traffic across your OT networks.
 
-A trial lasts for 60 days. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
+A trial supports a **Large** site size with up to 1000 devices, and lasts for 60 days. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
 
 ## Prerequisites
 
