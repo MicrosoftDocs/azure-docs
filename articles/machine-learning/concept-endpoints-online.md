@@ -213,7 +213,7 @@ To learn how to use traffic mirroring, see [Safe rollout for online endpoints](h
 
 ## More capabilities of online endpoints in Azure Machine Learning
 
-### Security
+### Authentication and encryption
 
 - Authentication: Key and Azure Machine Learning Tokens
 - Managed identity: User assigned and system assigned
