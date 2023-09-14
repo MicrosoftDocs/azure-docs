@@ -8,21 +8,21 @@ ms.custom: playwright-testing-preview
 
 # Configure visual comparisons with Microsoft Playwright Testing Preview
 
-In this article, you'll learn how to properly configure Playwright's visual comparison tests when using Microsoft Playwright Testing Preview. Unexpected test failures may occur because Playwright's snapshots differ between local and remote browsers.
+In this article, you learn how to properly configure Playwright's visual comparison tests when using Microsoft Playwright Testing Preview. Unexpected test failures may occur because Playwright's snapshots differ between local and remote browsers.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Background
 
-The Playwright Test runner uses the host OS as a part of the expected screenshot path. If you're running tests using remote browsers on a different OS than your host machine, this means the visual comparison tests will likely fail. Our recommendation is to only run visual comparisons when using the service. If you're taking screenshots on the service, there's no need to compare them to your local setup since they'll never match.
+The Playwright Test runner uses the host OS as a part of the expected screenshot path. If you're running tests using remote browsers on a different OS than your host machine, which means the visual comparison tests will fail. Our recommendation is to only run visual comparisons when using the service. If you're taking screenshots on the service, there's no need to compare them to your local setup since they'll never match.
 
 ## Configure ignoreSnapshots
 
 1. Set `ignoreSnapshots: true` in the original `playwright.config.ts` that doesn't use the service.
 1. Set `ignoreSnapshots: false` in `playwright.service.config.ts`.
 
-When using the service it's configuration will override `playwright.config.ts`, and run visual comparisons.
+When using the service its configuration overrides `playwright.config.ts`, and run visual comparisons.
 
 ## Configure the snapshot path
 
@@ -38,7 +38,7 @@ config.snapshotPathTemplate = '{testDir}/__screenshots__/{testFilePath}/linux/{a
 
 ## Example service config
 
-This is an example service config that runs visual comparisons and configures the path for `snapshotPathTemplate`:
+Example service config that runs visual comparisons and configures the path for `snapshotPathTemplate`:
 
 ```typeScript
 import { defineConfig } from '@playwright/test';
@@ -80,4 +80,4 @@ export default defineConfig(config, {
 
 ## Related content
 
-- Learn more about [Playwright Visual Comarisons](https://playwright.dev/docs/test-snapshots).
+- Learn more about [Playwright Visual Comparisons](https://playwright.dev/docs/test-snapshots).
