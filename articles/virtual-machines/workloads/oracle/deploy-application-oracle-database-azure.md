@@ -1,6 +1,6 @@
 ---
-title: Architectures to deploy Oracle applications with Oracle database on Azure IaaS 
-description: Architectures to deploy Oracle applications with Oracle database on Azure IaaS. 
+title: Architectures to deploy Oracle applications with Oracle database on Azure 
+description: Architectures to deploy Oracle applications with Oracle database on Azure. 
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: virtual-machines
@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 08/23/2023
 ---
 
-# Architectures to deploy Oracle applications with Oracle database on Azure IaaS 
+# Architectures to deploy Oracle applications with Oracle database on Azure 
 
 This article provides reference architecture to deploy Oracle application on Azure IaaS where the Oracle database also resides or is colocated. 
 
@@ -32,7 +32,7 @@ The provided network settings for Oracle Applications on Azure cover various asp
 - Network Security Groups (NSG): Secure your subnets by using [Network Security Groups](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview) (NSG). NSGs allow you to control inbound and outbound traffic to network interfaces, Virtual Machines, and subnets by defining security rules.
 - Role-Based Access Control (RBAC): To grant access to specific individuals or roles, use Azure Role-Based Access Control (RBAC). [RBAC](https://learn.microsoft.com/azure/role-based-access-control/overview) provides fine-grained access control to Azure resources based on roles and permissions.
 - Bastion Host for SSH Access: Use a [Bastion host](https://learn.microsoft.com/azure/bastion/bastion-overview) as a jump box to enhance security for SSH access. A Bastion host acts as a secure gateway for administrators to access Virtual Machines in the virtual network. This host provides an added layer of security.
-- More Considerations:
+- More considerations:
   - Data Encryption: Ensure that data at rest and in transit is encrypted. Azure provides tools like Azure Disk Encryption and SSL/TLS for this purpose.
   - Patch Management: Regularly update and patch your EBS environment to protect against known vulnerabilities.
   - Monitoring and Logging: Implement [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) and [Azure Defender](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction) for security to continuously check your environment for security threats and anomalies. Set up logging for auditing and forensic analysis.
@@ -113,7 +113,7 @@ Web Tier: The application web tier typically consists of multiple application se
 
 - Presentation Tier: Each instance in the presentation tier is associated with storage. Cutting dependencies between instances can lead to high latencies, so it's crucial to assess them carefully.
 
-- Server Performance Variation: Some servers may handle more tasks and create higher throughput than others. During the design phase, it's essential to evaluate this throughput variation to ensure that your infrastructure can handle peak workloads efficiently.
+- Server Performance Variation: Some servers can handle more tasks and create higher throughput than others. During the design phase, it's essential to evaluate this throughput variation to ensure that your infrastructure can handle peak workloads efficiently.
 - Rearchitecture: Using Azure Virtual machine Scale Sets for autoscaling doesn't require a rearchitecture of your JD Edwards setup. It's a scalable solution that can be implemented without significant changes to your application's architecture.
 
 Database Tier - Primary and secondary stay within one datacenter, the synchronous configuration should be used. If you install your application across datacenters, you should configure Data Guard in Asynchronous mode. Data from the database tier are sent directly to an Azure Storage. The Storage is dependent on your current architecture setup.
@@ -140,5 +140,5 @@ Database Tier - The primary and replicated to a secondary should stay within one
  
 [Reference architectures for Oracle Database](oracle-reference-architecture.md)  
 
-[Migrate Oracle workload to Azure Virtual Machines (IaaS)](oracle-migration.md)
+[Migrate Oracle workload to Azure Virtual Machines](oracle-migration.md)
 
