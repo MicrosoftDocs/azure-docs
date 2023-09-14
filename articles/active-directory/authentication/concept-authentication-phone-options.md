@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 08/23/2023
 
 ms.author: justinha
 author: justinha
@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 # Authentication methods in Azure Active Directory - phone options
 
-Microsoft recommends users move away from using text message or voice calls for multifactor authentication (MFA). Modern authentication methods like [Microsoft Authenticator](concept-authentication-authenticator-app.md) are a recommended alternative. For more information, see [It's Time to Hang Up on Phone Transports for Authentication](https://aka.ms/hangup). Users can still verify themselves using a mobile phone or office phone as secondary form of authentication used for multifactor authentication (MFA) or self-service password reset (SSPR).
+Microsoft recommends users move away from using text messages or voice calls for multifactor authentication (MFA). Modern authentication methods like [Microsoft Authenticator](concept-authentication-authenticator-app.md) are a recommended alternative. For more information, see [It's Time to Hang Up on Phone Transports for Authentication](https://aka.ms/hangup). Users can still verify themselves using a mobile phone or office phone as secondary form of authentication used for multifactor authentication (MFA) or self-service password reset (SSPR).
 
-You can [configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md) for direct authentication using SMS. SMS sign-in is convenient for Frontline workers. With SMS sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
+You can [configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md) for direct authentication using text message. Text messages are convenient for Frontline workers. With text messages, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
 
 >[!NOTE]
 >Phone call verification isn't available for Azure AD tenants with trial subscriptions. For example, if you sign up for a trial license Microsoft Enterprise Mobility and Security (EMS), phone call verification isn't available. Phone numbers must be provided in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*. There must be a space between the country/region code and the phone number.
@@ -46,9 +46,13 @@ Microsoft doesn't guarantee consistent text message or voice-based Azure AD Mult
 
 With text message verification during SSPR or Azure AD Multi-Factor Authentication, a text message is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface. 
 
-Android users can enable Rich Communication Services (RCS) on their devices. RCS offers encryption and other improvements over Simple Message Service (SMS). For Android, MFA text messages may be sent over RCS rather than SMS. The experience is similar to text message, but RCS messages have more Microsoft branding and a verified checkmark so users know they can trust the message.
+Text messages can be sent over channels such as Short Message Service (SMS), Rich Communication Services (RCS), or WhatsApp.
+
+Android users can enable RCS on their devices. RCS offers encryption and other improvements over SMS. For Android, MFA text messages may be sent over RCS rather than SMS. The MFA text message is similar to SMS, but RCS messages have more Microsoft branding and a verified checkmark so users know they can trust the message.
 
 :::image type="content" source="media/concept-authentication-methods/brand.png" alt-text="Screenshot of Microsoft branding in RCS messages.":::
+
+Some users with phone numbers that have country codes belonging to India, Indonesia and New Zealand may receive their verification codes via WhatsApp. Like RCS, these messages are similar to SMS, but have more Microsoft branding and a verified checkmark. Only users that have WhatsApp will receive verification codes via this channel. To determine whether a user has WhatsApp, we silently attempt delivering them a message via the app using the phone number they already registered for text message verification and see if it's successfully delivered. If users don't have any internet connectivity or uninstall WhatsApp, they'll receive their verification codes via SMS. The phone number associated with Microsoft's WhatsApp Business Agent is: *+1 (217) 302 1989*.
 
 ### Phone call verification
 
@@ -78,13 +82,13 @@ If you have problems with phone authentication for Azure AD, review the followin
    * Ensure that the user has their phone turned on and that service is available in their area, or use alternate method.
 * User is blocked
    * Have an Azure AD administrator unblock the user in the Azure portal.
-* text message is not subscribed on the device.
-   * Have the user change methods or activate text message on the device.
-* Faulty telecom providers such as no phone input detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked text messages across multiple devices.
-   * Microsoft uses multiple telecom providers to route phone calls and text messages for authentication. If you see any of the above issues, have a user attempt to use the method at least five times within 5 minutes and have that user's information available when contacting Microsoft support.
+* Text messaging platforms like SMS, RCS, or WhatsApp aren't subscribed on the device.
+   * Have the user change methods or activate a text messaging platform on the device.
+* Faulty telecom providers, such as when no phone input is detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked text messages across multiple devices.
+   * Microsoft uses multiple telecom providers to route phone calls and text messages for authentication. If you see any of these issues, have a user attempt to use the method at least five times within 5 minutes and have that user's information available when contacting Microsoft support.
 *  Poor signal quality.
    * Have the user attempt to log in using a wi-fi connection by installing the Authenticator app.
-   * Or, use text message authentication instead of phone (voice) authentication.
+   * Or use a text message instead of phone (voice) authentication.
 
 * Phone number is blocked and unable to be used for Voice MFA 
 

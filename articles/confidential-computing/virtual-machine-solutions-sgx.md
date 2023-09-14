@@ -56,7 +56,7 @@ Because of their specialized hardware, you can only resize Intel SGX VM instance
 
 ### Image
 
-To provide Intel SGX support on confidential compute instances, all deployments must run on Generation 2 images. Azure confidential computing supports workloads running on **Ubuntu 20.04 Gen 2**, **Ubuntu 18.04 Gen 2**, and **Windows Server 2019 Gen 2**. For more information about supported and unsupported scenarios, see [support for Generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+To provide Intel SGX support on confidential compute instances, all deployments must run on Generation 2 images. Azure confidential computing supports workloads running on **Ubuntu 20.04 Gen 2**, **Windows Server 2019 Gen 2** and **Ubuntu 22.04 Gen 2**. For more information about supported and unsupported scenarios, see [support for Generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
 ### Storage
 
@@ -119,13 +119,13 @@ Under **properties**, you also have to specify an image under **storageProfile**
         "version": "latest"
       },
       "20_04-lts-gen2": {
-        "offer": "0001-com-ubuntu-server-jammy",
+        "offer": "0001-com-ubuntu-server-focal",
         "publisher": "Canonical",
         "sku": "20_04-lts-gen2",
         "version": "latest"
       }
       "22_04-lts-gen2": {
-        "offer": "UbuntuServer",
+        "offer": "0001-com-ubuntu-server-jammy",
         "publisher": "Canonical",
         "sku": "22_04-lts-gen2",
         "version": "latest"
