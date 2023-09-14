@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: conceptual
-ms.date: 08/22/2023
+ms.date: 09/14/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -29,7 +29,7 @@ The multi-tenant organization capability is designed for organizations that own 
 
 ## New Microsoft Teams
 
-The [new Microsoft Teams](/microsoftteams/new-teams-desktop-admin) experience improves upon Microsoft 365 people search and Teams external access for a unified seamless collaboration experience. For this improved experience to light up, the multi-tenant organization representation in Azure AD is required and collaborating users shall be provisioned as B2B members.
+The [new Microsoft Teams](/microsoftteams/new-teams-desktop-admin) experience improves upon Microsoft 365 people search and Teams external access for a unified seamless collaboration experience. For this improved experience to light up, the multi-tenant organization representation in Azure AD is required and collaborating users shall be provisioned as B2B members. For more information, see [Announcing more seamless collaboration in Microsoft Teams for multi-tenant organizations](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/announcing-more-seamless-collaboration-in-microsoft-teams-for/ba-p/3901092).
 
 ## Collaborating user set
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: sopand
@@ -47,15 +47,15 @@ The following roles have the required permissions:
 
 To access authentication method usage and insights:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Click **Azure Active Directory** > **Security** > **Authentication Methods** > **Activity**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication Methods** > **Activity**.
 1. There are two tabs in the report: **Registration** and **Usage**.
 
    ![Authentication Methods Activity overview](media/how-to-authentication-methods-usage-insights/registration-usage-tabs.png)
 
 ## Registration details
 
-You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passwordless authentication, and self-service password reset. 
+You can access the **Registration** tab to show the number of users capable of multi-factor authentication, passwordless authentication, and self-service password reset. 
 
 Click any of the following options to pre-filter a list of user registration details:
 
