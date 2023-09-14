@@ -29,7 +29,7 @@ In this article you learn:
 
 Azure Machine Learning pipelines support inputs and outputs at both the component and pipeline levels.
 
-At component level, the inputs and outputs define the interface of a component. The output from one component can be used as an input for another component in the same parent pipeline, allowing for data or models to be passed between components. This interconnectivity forms a graph, illustrating the data flow within the pipeline.
+At the component level, the inputs and outputs define the interface of a component. The output from one component can be used as an input for another component in the same parent pipeline, allowing for data or models to be passed between components. This interconnectivity forms a graph, illustrating the data flow within the pipeline.
 
 At pipeline level, inputs and outputs are useful for submitting pipeline jobs with varying data inputs or parameters that control the training logic (for example `learning_rate`). They're especially useful when invoking the pipeline via a REST endpoint. These inputs and outputs enable you to assign different values to the pipeline input or access the output of pipeline jobs through the REST endpoint. For more information, see the guide on [Creating Jobs and Input Data for Batch Endpoint.](./how-to-access-data-batch-endpoints-jobs.md)
 
