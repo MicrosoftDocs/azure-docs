@@ -329,6 +329,8 @@
             href: migrate-data-striim.md
           - name: Migrate - Oracle DB to API for Apache Cassandra using Arcion
             href: oracle-migrate-cosmos-db-arcion.md
+      - name: Develop with the emulator
+        href: ../how-to-develop-emulator.md?pivots=api-apache-cassandra
       - name: Use developer tools
         items:
           - name: Develop locally with emulator
