@@ -71,8 +71,8 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
 1. End the VM session.
 1. Connect to the target VM again using Bastion. Sign-in should succeed, indicating that Bastion used Kerberos (and not NTLM) for authentication.
 
-  > [!NOTE]
-  > To prevent failback to NTLM, make sure you follow the preceding steps. Enabling Kerberos (without following the procedure) won't prevent failback to NTLM.
+   > [!NOTE]
+   > To prevent failback to NTLM, make sure you follow the preceding steps. Enabling Kerberos (without following the procedure) won't prevent failback to NTLM.
 
 ## Quickstart: Set up Bastion with Kerberos - Resource Manager template
 
