@@ -104,7 +104,11 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 1. Select **Show columns**.
 1. Select or clear columns to show or hide them, then select **Apply**.
-1. Select an operator to aggregate by.
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-show-column.png" alt-text="Screenshot that shows the Show columns window in Log Analytics.":::
+
+> [!NOTE]
+> Showing or hiding columns in simple mode does not add the [project](/azure/data-explorer/kusto/query/projectoperator) or [project-away](/azure/data-explorer/kusto/query/projectawayoperator) operators to your query when you switch to advanced mode.
 
 
 **Sort by column**
