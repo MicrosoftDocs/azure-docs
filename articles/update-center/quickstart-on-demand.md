@@ -46,9 +46,7 @@ To configure the settings on your machines, follow these steps:
 
     :::image type="content" source="./media/quickstart-on-demand/quickstart-update-settings.png" alt-text="Screenshot showing how to access update settings option to configure updates for virtual machines.":::
 
-1. In the **Change update settings**, select **+Add machines** to add the machines to which you want to change the settings.
-1. In **Select resources**, select the machine(s) and then select **Add**. The machines are categorized under **Windows** and **Linux**.
-1. Under the settings *Periodic assessment*, *Hotpatch* and *Patch orchestration*, select the settings you want to change and select **Save** For more information, see [Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-single-vm).
+1. In **Update setting(s) to change**, select any option —*Periodic assessment*, *Hotpatch* and *Patch orchestration* to configure and select **Next**. For more information, see [Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-a-single-vm).
 
     A notification appears to confirm that the update settings have been successfully applied.
 

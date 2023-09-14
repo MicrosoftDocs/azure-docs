@@ -8,18 +8,19 @@ ms.date: 09/18/2023
 ms.topic: conceptual
 ---
 
-# Manage Update configuration settings
+# Manage update configuration settings
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 The article describes how to configure update settings from Azure Update Manager, to control the update settings on your Azure VMs and Arc-enabled servers for one or more machines.
 
-:::image type="content" source="./media/manage-update-settings/manage-update-settings-option-inline.png" alt-text="Screenshot Viewing the update manager manage update settings option." lightbox="./media/manage-update-settings/manage-update-settings-option-expanded.png":::
+:::image type="content" source="./media/manage-update-settings/manage-update-settings-option-inline.png" alt-text="Screenshot that shows the Update Manager (preview) Update settings option." lightbox="./media/manage-update-settings/manage-update-settings-option-expanded.png":::
 
+## Configure settings on a single VM
 
-## Configure settings on single VM
+To configure update settings on your machines on a single VM:
 
-To configure update settings on your machines on a single VM, follow these steps:
+You can schedule updates from **Overview** or **Machines** on the **Update Manager (preview)** page or from the selected VM.
 
 >[!NOTE]
 > You can schedule updates from the Overview blade or Machines blade in Update Manager page or from the selected VM.
@@ -32,9 +33,9 @@ To configure update settings on your machines on a single VM, follow these steps
 1. In **Select resources**, select the machine and select **Add**.
 1. In the **Change update settings** page, you will see the machine classified as per the operating system with the list of following updates that you can select and apply.
 
-    :::image type="content" source="./media/manage-update-settings/update-setting-to-change.png" alt-text="Highlighting the Update settings to change option in the Azure portal.":::
+    :::image type="content" source="./media/manage-update-settings/update-setting-to-change.png" alt-text="Screenshot that shows highlighting the Update settings to change option in the Azure portal.":::
  
-    The following update settings are available for configuration for the selected machine(s):
+    The following update settings are available for configuration for the selected machines:
 
    - **Periodic assessment** - The **periodic Assessment** is set to run every 24 hours. You can either enable or disable this setting.
      
@@ -51,15 +52,14 @@ To configure update settings on your machines on a single VM, follow these steps
 
 1. After you make the selection, select **Save**.
 
-
-# [From Machines blade](#tab/manage-single-machines)
+# [From Machines pane](#tab/manage-single-machines)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In **Azure Update Manager**, select **Machines** > your **subscription**. 
 1. Select the checkbox of your machine from the list and select **Update settings**.
 1. Select **Update Settings** to proceed with the type of update for your machine.
-1. In **Change update settings**, select **+Add machine** to select the machine for which you want to change the update settings.
-1. In **Select resources**, select the machine and select **Add** and follow the procedure from step 5 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
+1. On the **Change update settings** pane, select **Add machine** to select the machine for which you want to change the update settings.
+1. On the **Select resources** pane, select the machine and select **Add**. Follow the procedure from step 5 listed in **From Overview pane** of [Configure settings on a single VM](#configure-settings-on-a-single-vm).
 
 # [From a selected VM](#tab/singlevm-schedule-home)
 
@@ -74,10 +74,10 @@ A notification appears to confirm that the update settings are successfully chan
 
 ## Configure settings at scale
 
-To configure update settings on your machines at scale, follow these steps:
+Follow these steps to configure update settings on your machines at scale.
 
->[!NOTE]
-> You can schedule updates from the Overview blade or Machines blade.
+> [!NOTE]
+> You can schedule updates from **Overview** or **Machines**.
 
 # [From Overview blade](#tab/manage-scale-overview)
  
@@ -92,7 +92,7 @@ To configure update settings on your machines at scale, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In **Azure Update Manager**, select **Machines** > your **subscription**, and select the checkbox for all your machines from the list.
 1. Select **Update Settings** to proceed with the type of update for your machines.
-1. In **Change update settings**, you can select the update settings that you want to change for your machine and follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
+1. In **Change update settings**, you can select the update settings that you want to change for your machine. Follow the procedure from step 3 listed in **From Overview pane** of [Configure settings on a single VM](#configure-settings-on-a-single-vm).
 
 ---
 
