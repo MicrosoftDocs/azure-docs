@@ -25,13 +25,13 @@ The new Log Analytics is currently in preview and available to a limited number 
 
 ## New Log Analytics interface
 
-The new Log Analytics interface image shows the Log Analytics simple mode components.
+This section explains the elements of the new Log Analytics interface.
 
 :::image type="content" source="media/log-analytics-explorer/new-log-analytics-user-interface.png" alt-text="Screenshot that shows the Log Analytics simple mode interface." lightbox="media/log-analytics-explorer/new-log-analytics-user-interface.png":::
 
 ### Top action bar
 
-The top bar has controls for working with a query in the query window.
+In simple mode, the top bar has controls for working with data and switching to advanced mode.
 
 | Option | Description |
 |:---|:---|
@@ -67,9 +67,12 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 1. Click **Select a table** and select a table from the **Tables** tab.
 
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-select-table.png" alt-text="Screenshot that shows the Select a table button in Log Analytics.":::
     By default, simple mode lists the last 1000 entries in the table from the last 24 hours. 
 
-1. To change the time range and number of records displayed, use the **Time range** and **Limit** cards.
+1. To change the time range and number of records displayed, use the **Time range** and **Limit** selectors.
+    
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-time-range-limit.png" alt-text="Screenshot that shows the time range and limit selectors in Log Analytics.":::
 
 **Filter by column**
 
