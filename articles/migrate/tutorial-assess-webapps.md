@@ -13,7 +13,7 @@ ms.custom: engagement-fy24
 # Tutorial: Assess ASP.NET web apps for migration to Azure App Service
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
-This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool.
+This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
 
 In this tutorial, you learn how to: 
 
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Review an Azure App Service assessment
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options where possible. 
+> Tutorials show the quickest path for trying out a scenario and use default options where possible. 
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ To run an assessment, follow these steps:
 
 4. Select **Edit** to review the assessment properties.
 
-5. The following are included in Azure App Service assessment properties:
+   The following are included in Azure App Service assessment properties:
 
    :::image type="content" source="./media/tutorial-assess-webapps/create-settings.png" alt-text="Screenshot of assessment settings for Azure Migrate.":::
 
@@ -55,14 +55,14 @@ To run an assessment, follow these steps:
     **Environment type** | Type of environment in which it's running.
     **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
     **Currency** | The billing currency for your account.
-    **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+    **Discount (%)** | Any subscription-specific discounts that you receive on top of the Azure offer. The default setting is 0%.
     **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Retain the default settings for reserved instances and discount (%) properties.
     **Savings options (Compute)** | The Savings option the assessment must consider.
-    **Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter.
+    **Isolation required** | Select **Yes** if you want your web apps to run in a private and dedicated environment in an Azure datacenter.
 
     - In **Savings options (Compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure Compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or three year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or three year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or three year savings plan) provides additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select *None*, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.
         - You need to select Pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than *None*, the **Discount (%)** setting isn't applicable.
 
