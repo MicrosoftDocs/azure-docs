@@ -42,7 +42,7 @@ To resolve this issue, start the RDAgent boot loader:
 
 1. Select **Refresh**.
 
-1. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN](#error-invalid_registration_token).
+1. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN or EXPIRED_MACHINE_TOKEN](#error-invalid_registration_token-or-expired_machine_token).
 
 ## Error: INVALID_REGISTRATION_TOKEN or EXPIRED_MACHINE_TOKEN
 
@@ -157,7 +157,7 @@ To resolve this issue:
 
 1. Make sure [the agent can connect to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
 
-1. Make sure [your VM has a valid registration token](#error-invalid_registration_token).
+1. Make sure [your VM has a valid registration token](#error-invalid_registration_token-or-expired_machine_token).
 
 1. Make sure [the VM registration token hasn't expired](./faq.yml). 
 
