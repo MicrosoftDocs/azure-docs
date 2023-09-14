@@ -72,7 +72,7 @@ This article shows you how to use Azure CNI networking to create and use a virtu
 
 1. In **Container networking** in the **Networking** tab, verify that **Azure CNI** is selected.
 
-:::image type="content" source="./media/configure-azure-cni/aks-create-networking-tab.png" alt-text="Screenshot of the networking tab when creating an AKS cluster in the Azure portal.":::
+    :::image type="content" source="./media/configure-azure-cni/aks-create-networking-tab.png" alt-text="Screenshot of the networking tab when creating an AKS cluster in the Azure portal.":::
 
 1. Select **Review + create**.
 
