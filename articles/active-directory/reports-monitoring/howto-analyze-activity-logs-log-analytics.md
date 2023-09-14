@@ -1,6 +1,6 @@
 ---
 title: Analyze activity logs using Log Analytics
-description: Learn how to analyze Azure Active Directory activity logs using Log Analytics
+description: Learn how to analyze audit, sign-in, and provisioning logs Azure Active Directory using Log Analytics queries.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -27,15 +27,47 @@ This article describes to analyze the Azure AD activity logs in your Log Analyti
 
 ## Roles and licenses
 
-To analyze Azure AD logs with Azure Monitor, you need the following roles and licenses:
+To analyze activity logs with Log Analytics, you need:
 
-* **An Azure subscription:** If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
+- An Azure AD tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
+- A Log Analytics workspace *and* access to that workspace
+- The appropriate roles for Azure Monitor *and* Azure AD
 
-* **An Azure AD Premium P1 or P2 tenant:** You can find the license type of your tenant on the [Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page in Azure AD.
+### Log Analytics workspace
 
-* **Reports Reader**, **Security Reader**, or **Security Administrator** access for the Azure AD tenant: These roles are required to view Log Analytics through the Azure AD portal.
+You must create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). There are a combination of factors that determine access to Log Analytics workspaces. You need the right roles for the workspace *and* the resources sending the data.
 
-* **Permission to access data in a Log Analytics workspace:** See [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md) for information on the different permission options and how to configure permissions.
+For more information, see [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md).
+
+### Azure Monitor roles
+
+Azure Monitor provides [two built-in roles](../../azure-monitor/roles-permissions-security.md#monitoring-reader) for viewing monitoring data and editing monitoring settings. Azure role-based access control (RBAC) also provides two Log Analytics built-in roles that grant similar access.
+
+- **View**:
+    - Monitoring Reader
+    - Log Analytics Reader
+
+- **View and modify settings**:
+    - Monitoring Contributor
+    - Log Analytics Contributor
+
+For more information on the Azure Monitor built-in roles, see [Roles, permissions, and security in Azure Monitor](../../azure-monitor/roles-permissions-security.md#monitoring-reader).
+
+For more information on the Log Analytics RBAC roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
+
+### Azure AD roles
+
+Read only access allows you to view Azure AD log data inside a workbook, query data from Log Analytics, or read logs in the Azure AD portal. Update access adds the ability to create and edit diagnostic settings to send Azure AD data to a Log Analytics workspace.
+
+- **Read**:
+  - Reports Reader
+  - Security Reader
+  - Global Reader
+
+- **Update**:
+  - Security Administrator
+
+For more information on Azure AD built-in roles, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
 ## Access Log Analytics
 
@@ -43,9 +75,9 @@ To view the Azure AD Log Analytics, you must already be sending your activity lo
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader). 
 
-1. Browse to **Azure Active Directory** > **Monitoring** > **Log Analytics**. A default search query runs.
+1. Browse to **Identity** > **Monitoring & health** > **Log Analytics**. A default search query runs.
 
     ![Default query](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 

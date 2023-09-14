@@ -69,11 +69,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Uber SSO
 
-To configure single sign-on on **Uber** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Uber support team](mailto:business-api-support@uber.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Uber** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Uber support team](mailto:business-support@uber.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Uber test user
 
-In this section, you create a user called Britta Simon in Uber. Work with [Uber support team](mailto:business-api-support@uber.com) to add the users in the Uber platform. Users must be created and activated before you use single sign-on. Uber also supports automatic user provisioning, you can find more details [here](uber-provisioning-tutorial.md) on how to configure automatic user provisioning.
+In this section, you create a user called Britta Simon in Uber. Work with [Uber support team or your Uber POC](mailto:business-support@uber.com) to add the users in the Uber platform. Users must be created and activated before you use single sign-on. Uber also supports automatic user provisioning, you can find more details [here](uber-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

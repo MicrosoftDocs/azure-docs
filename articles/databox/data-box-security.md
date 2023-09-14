@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box security overview | Microsoft Docs in data 
 description: Describes Azure Data Box security features in the device, service, and data that resides on Data Box.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
 ms.date: 04/13/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 # Azure Data Box security and data protection
 

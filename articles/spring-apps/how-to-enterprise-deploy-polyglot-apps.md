@@ -597,6 +597,8 @@ The following table lists the features supported in Azure Spring Apps:
 | Enable configuration of labels on the created image                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                                   | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>`                          |
 | Support building Maven-based applications from source.              | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty).                                                                                                                                    | `BP_MAVEN_BUILT_MODULE`                                                                                               | `--build-env BP_MAVEN_BUILT_MODULE=./gateway`                 |
 
+There are some limitations for Java Native Image. For more information, see the [Java Native Image limitations](#java-native-image-limitations) section.
+
 ### Deploy PHP applications
 
 The buildpack for deploying PHP applications is [tanzu-buildpacks/php](https://network.tanzu.vmware.com/products/tbs-dependencies/#/releases/1335849/artifact_references).

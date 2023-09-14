@@ -133,6 +133,8 @@ items:
           href: conversational-language-understanding/concepts/none-intent.md
         - name: Deploy to multiple regions
           href: concepts/custom-features/multi-region-deployment.md
+        - name: Choosing between conversational apps
+          href: conversational-language-understanding/concepts/app-architecture.md
     - name: Tutorials
       items:
         - name: Use Bot Framework
@@ -198,7 +200,7 @@ items:
           href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
-        - name: Cognitive Services containers documentation
+        - name: Azure AI containers documentation
           href: ../containers/index.yml
   - name: Key phrase extraction
     items:
@@ -233,7 +235,7 @@ items:
           href: ../containers/azure-container-instance-recipe.md?context=/azure/ai-services/language-service/context/context
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
-        - name: Azure AI services containers documentation
+        - name: Azure AI containers documentation
           href: ../containers/index.yml
     - name: Tutorials
       items:
@@ -328,7 +330,7 @@ items:
             href: concepts/configure-containers.md
           - name: Use container instances
             href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
-          - name: Cognitive Services containers documentation
+          - name: Azure AI containers documentation
             href: ../containers/index.yml
       - name: Concepts
         items:
@@ -388,6 +390,8 @@ items:
           href: named-entity-recognition/concepts/entity-metadata.md
         - name: Preview API overview
           href: named-entity-recognition/concepts/ga-preview-mapping.md
+        - name: Choosing between conversational apps
+          href: conversational-language-understanding/concepts/app-architecture.md
     - name: Tutorials
       items:
         - name: Connect conversational language understanding and custom question answering
@@ -484,6 +488,8 @@ items:
         href: question-answering/how-to/best-practices.md
       - name: Troubleshooting
         href: question-answering/how-to/troubleshooting.md
+      - name: Connect to Azure OpenAI
+        href: question-answering/how-to/azure-openai-integration.md
     - name: Concepts
       items:
       - name: Development lifecycle
@@ -500,6 +506,8 @@ items:
         href: question-answering/concepts/best-practices.md
       - name: Limits
         href: question-answering/concepts/limits.md
+      - name: Choosing between conversational apps
+        href: conversational-language-understanding/concepts/app-architecture.md
     - name: Tutorials
       items:
       - name: Create a FAQ Bot
@@ -559,7 +567,7 @@ items:
               href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
             - name: Use containers in disconnected environments
               href: ../containers/disconnected-containers.md
-            - name: Cognitive Services containers documentation
+            - name: Azure AI containers documentation
               href: ../containers/index.yml
         - name: Tutorials
           items:
@@ -657,7 +665,7 @@ items:
             href: text-analytics-for-health/how-to/configure-containers.md
           - name: Use container instances
             href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
-          - name: Cognitive Services containers documentation
+          - name: Azure AI containers documentation
             href: ../containers/index.yml
       - name: Concepts
         items:
@@ -900,7 +908,7 @@ items:
       items:
       - name: Virtual networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-      - name: Cognitive Services security
+      - name: Azure AI services security
         href: ../security-features.md?context=/azure/cognitive-services/language-service/context/context
       - name: Encryption of data at rest
         href: concepts/encryption-data-at-rest.md

@@ -140,7 +140,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    > [!NOTE]
    > The linked service that you create here isn't dedicated to Azure Synapse Link for SQL. It can be used by any workspace user who has the appropriate permissions. Take time to understand the scope of users who might have access to this linked service and its credentials. For more information about permissions in Azure Synapse workspaces, see [Azure Synapse workspace access control overview - Azure Synapse Analytics](../security/synapse-workspace-access-control-overview.md).
-
+   
 ## Create the Azure Synapse Link connection
 
 1. From Synapse Studio, open the **Integrate** hub.
@@ -184,6 +184,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    > [!NOTE]
    > The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the target dedicated SQL pool confiruation.
+   > If you can’t connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
 
 1. With the new Azure Synapse Link connection open, you can now update the target table name, distribution type, and structure type.
 
@@ -274,6 +275,9 @@ A shared access signature token is required for the SQL change feed to get acces
 1. To get the new shared access signature token, select **Generate automatically** or **Input manually**, and then select **OK**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/landing-zone-rotate-sas-token.png" alt-text="Screenshot that shows how to get a new shared access signature token.":::
+
+   > [!NOTE]
+   > If you can’t connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
 
 
 ## Next steps

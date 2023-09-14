@@ -112,7 +112,7 @@ When you migrate the following services, which currently use Log Analytics agent
 
 |	Service	|	Migration recommendation	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
-|	 [Update Management](../../automation/update-management/overview.md)	|	 Update Management Center - Public preview (no dependency on Log Analytics agents or Azure Monitor Agent)	|	None	|	[Update management center (Public preview with Azure Monitor Agent) documentation](../../update-center/index.yml)	|
+|	 [Update Management](../../automation/update-management/overview.md)	|	 Update Manager - Public preview (no dependency on Log Analytics agents or Azure Monitor Agent)	|	None	|	[Update Manager (Public preview with Azure Monitor Agent) documentation](../../update-center/index.yml)	|
 |	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md)	|	 Automation Hybrid Worker Extension - Generally available (no dependency on Log Analytics agents or Azure Monitor Agent)	|	None	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
 
 ## Next steps

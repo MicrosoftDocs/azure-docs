@@ -1,6 +1,6 @@
 ---
 title: Prerequisites for Azure Active Directory reporting API
-description: Learn about the prerequisites to access the Azure AD reporting API
+description: Learn how to configure the prerequisites that are required to access the Microsoft Graph reporting API.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -42,9 +42,8 @@ To enable your application to access Microsoft Graph without user intervention, 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role.
-
-1. Browse to **Azure Active Directory** > **App registrations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Reader](../roles/permissions-reference.md#security-reader).
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
 1. Select **New registration**.
 
@@ -62,7 +61,8 @@ To enable your application to access Microsoft Graph without user intervention, 
 
 To access the Azure AD reporting API, you must grant your app *Read directory data* and *Read all audit log data* permissions for the Microsoft Graph API.
 
-1. Browse to **Azure Active Directory** > **App Registrations**> **API permissions** and select **Add a permission**.
+1. Browse to **Identity** > **Applications** > **App Registrations**.
+1. Select **Add a permission**.
 
     ![Screenshot of the API permissions menu option and Add permissions button.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-new-permission.png)
 
@@ -81,7 +81,9 @@ To access the Azure AD reporting API, you must grant your app *Read directory da
 
 Once you have the app registration configured, you can run activity log queries in Microsoft Graph.
 
-1. Sign in to https://graph.microsoft.com using the **Security Reader** role. You may need to confirm that you're signed into the appropriate role. Select your profile icon in the upper-right corner of Microsoft Graph.
+1. Sign in to https://graph.microsoft.com using the **Security Reader** role.
+    - You may need to confirm that you're signed into the appropriate role.
+    - Select your profile icon in the upper-right corner of Microsoft Graph.
 1. Use one of the following queries to start using Microsoft Graph for accessing activity logs:
     - GET `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
     - GET `https://graph.microsoft.com/v1.0/auditLogs/signIns`
@@ -99,10 +101,11 @@ To use PowerShell to access the Azure AD reporting API, you need to gather a few
 
 You need these values when configuring calls to the reporting API. We recommend using a certificate because it's more secure.
 
-1. Browse to **Azure Active Directory** > **App Registrations**.
+1. Browse to **Identity** > **Applications** > **App Registrations**.
+1. Open the application you created.
 1. Copy the **Directory (tenant) ID**.
 1. Copy the **Application (client) ID**.
-1. Go to **App Registration** > Select your application > **Certificates & secrets** > **Certificates** > **Upload certificate** and upload your certificate's public key file.
+1. Browse to **Certificates & secrets** > **Certificates** > **Upload certificate** and upload your certificate's public key file.
     - If you don't have a certificate to upload, follow the steps outlined in the [Create a self-signed certificate to authenticate your application](../develop/howto-create-self-signed-certificate.md) article. 
 
 Next you need to authenticate with the configuration settings you just gathered. Open PowerShell and run the following command, replacing the placeholders with your information.

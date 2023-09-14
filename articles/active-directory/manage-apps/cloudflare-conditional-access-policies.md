@@ -26,7 +26,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD tenant linked to the Azure AD subscription
   * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
-* Global Administrator permissions
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 * Configured users in the Azure AD subscription  
 * A Cloudflare account
   * Go to dash.cloudflare.com to [Get started with Cloudflare](https://dash.cloudflare.com/sign-up?https%3A%2F%2Fone.dash.cloudflare.com%2F)
@@ -48,16 +48,15 @@ Go to developers.cloudflare.com to [set up Azure AD as an IdP](https://developer
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory**.
-3. Under **Manage**, select **App registrations**.
-4. Select the application you created.
-5. Go to **Branding & properties**.
-6. For **Home page URL**, enter the application hostname.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations** > **All applications**
+3. Select the application you created.
+4. Go to **Branding & properties**.
+5. For **Home page URL**, enter the application hostname.
 
    ![Screenshot of options and entries for branding and properties.](./media/cloudflare-conditional-access-policies/branding-properties.png)
 
-7. Under **Manage**, select **Enterprise applications**.
+7. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 8. Select your application.
 9. Select **Properties**.
 10. For **Visible to users**, select **Yes**. This action enables the app to appear in App Launcher and in [My Apps](https://myapplications.microsoft.com/).

@@ -35,11 +35,11 @@ This sample script creates an app in App Service with its related resources, and
 Create the following variables containing your GitHub information.
 
 ```azurecli
-gitrepo=<Replace with your Visual Studio Team Services repo URL>
-token=<Replace with a Visual Studio Team Services personal access token>
+gitrepo=<Replace with your Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) repo URL>
+token=<Replace with a Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) personal access token>
 ```
 
-Configure continuous deployment from Visual Studio Team Services. The `--git-token` parameter is required only once per Azure account (Azure remembers token).
+Configure continuous deployment from Azure DevOps Services (formerly Visual Studio Team Services, or VSTS). The `--git-token` parameter is required only once per Azure account (Azure remembers token).
 
 ```azurecli
 az webapp deployment source config --name $webapp --resource-group $resourceGroup \

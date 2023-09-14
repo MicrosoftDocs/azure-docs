@@ -451,7 +451,7 @@ You must generate a new registration key that is used to re-register your sessio
 
 ### Step 4: Reinstall the agent and boot loader
 
-Reinstalling the latest version of the agent and boot loader also automatically installs the side-by-side stack and Geneva monitoring agent. To reinstall the agent and boot loader:
+Reinstalling the latest version of the agent and boot loader also automatically installs the side-by-side stack and Geneva monitoring agent. To reinstall the agent and boot loader, follow these steps. This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
 
 1. Sign in to your session host VM as an administrator and run the agent installer and bootloader for your session host VM:
    

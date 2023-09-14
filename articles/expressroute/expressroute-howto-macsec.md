@@ -83,7 +83,7 @@ To start the configuration, sign in to your Azure account and select the subscri
 
 
  > [!NOTE]
-   > ExpressRoute is a Trusted Service within Azure that supports Network Security policies within the Azure Key Vault. For more information refer to [Configure Azure Key Vault Firewall and Virtual Networks](https://learn.microsoft.com/azure/key-vault/general/network-security)
+   > ExpressRoute is a Trusted Service within Azure that supports Network Security policies within the Azure Key Vault. For more information refer to [Configure Azure Key Vault Firewall and Virtual Networks](../key-vault/general/network-security.md)
    >
 
 1. Assign the GET permission to the user identity.

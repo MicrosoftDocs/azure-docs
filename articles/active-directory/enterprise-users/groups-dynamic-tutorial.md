@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -41,8 +41,9 @@ You're not required to assign licenses to the users for them to be members in dy
 
 First, you'll create a group for your guest users who all are from a single partner company. They need special licensing, so it's often more efficient to create a group for this purpose.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the global administrator for your organization.
-2. Select **Azure Active Directory** > **Groups** > **New group**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+2. Select **Groups** > **All groups** > **New group**.
    ![select command to start a new group](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
   
@@ -84,12 +85,14 @@ Perhaps your ultimate administrative plan is to assign all of your guest users t
 
 ## Clean up resources
 
-**To remove the guest users group**
+### To remove the guest users group
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your organization.
-2. Select **Azure Active Directory** > **Groups**. Select the **Guest users Contoso** group, select the ellipsis (...), and then select **Delete**. When you delete the group, any assigned licenses are removed.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+2. Select **Groups**. Select the **Guest users Contoso** group, select the ellipsis (...), and then select **Delete**. When you delete the group, any assigned licenses are removed.
 
-**To restore the All Users group**
+### To restore the All Users group
+
 1. Select **Azure Active Directory** > **Groups**. Select the name of the **All users** group to open the group.
 1. Select **Dynamic membership rules**, clear all the text in the rule, and select **Save**.
 
