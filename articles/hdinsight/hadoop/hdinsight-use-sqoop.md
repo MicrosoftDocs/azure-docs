@@ -4,7 +4,7 @@ description: Learn how to use Azure PowerShell from a workstation to run Sqoop i
 ms.service: hdinsight
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/28/2022
+ms.date: 09/14/2023
 ---
 
 # Use Apache Sqoop with Hadoop in HDInsight
