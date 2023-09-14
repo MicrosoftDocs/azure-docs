@@ -170,8 +170,49 @@ We're constantly assessing opportunities to expand our support for other languag
 
 ## Frequently asked questions
 
-Review [frequently asked questions](../faq.yml).
+This section provides answers to common questions.
 
+### What telemetry does Application Insights collect?
+
+From server web apps:
+          
+* HTTP requests.
+* [Dependencies](./asp-net-dependencies.md). Calls to SQL databases, HTTP calls to external services, Azure Cosmos DB, Azure Table Storage, Azure Blob Storage, and Azure Queue Storage.
+* [Exceptions](./asp-net-exceptions.md) and stack traces.
+* [Performance counters](./performance-counters.md): If you use the [Azure Monitor Application Insights agent](./application-insights-asp-net-agent.md), [Azure monitoring for VMs or virtual machine scale sets](./azure-vm-vmss-apps.md), or the [Application Insights collectd writer](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#collectd-linux-performance-metrics-in-application-insights-deprecated).
+* [Custom events and metrics](./api-custom-events-metrics.md) that you code.
+* [Trace logs](./asp-net-trace-logs.md) if you configure the appropriate collector.
+          
+From [client webpages](./javascript-sdk.md):
+          
+* Uncaught exceptions in your app, including information on
+  * Stack trace
+  * Exception details and message accompanying the error
+  * Line & column number of error
+  * URL where error was raised
+* Network Dependency Requests made by your app XHR and Fetch (fetch collection is disabled by default) requests, include information on:
+  * Url of dependency source
+  * Command & Method used to request the dependency
+  * Duration of the request
+  * Result code and success status of the request
+  * ID (if any) of user making the request
+  * Correlation context (if any) where request is made
+* User information (for example, Location, network, IP)
+* Device information (for example, Browser, OS, version, language, model)
+* Session information
+
+  > [!Note]
+  > For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
+
+    For more information, see [Data collection, retention, and storage in Application Insights](./data-retention-privacy.md).
+          
+From other sources, if you configure them:
+          
+* [Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md)
+* [Import to Log Analytics](../logs/data-collector-api.md)
+* [Log Analytics](../logs/data-collector-api.md)
+* [Logstash](../logs/data-collector-api.md)
+          
 ## Troubleshooting
 
 Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.

@@ -325,6 +325,21 @@ This section only applies to you if you're using the deprecated functions and yo
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How can I update my third-party server configuration for the JavaScript SDK?
+
+The server side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server side, it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context`, and `traceparent` (W3C distributed header).
+
+Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
+
+### How can I disable distributed tracing for the JavaScript SDK?
+
+Distributed tracing can be disabled in configuration.
+      
+
 ## Next steps
 
 * [Track usage](usage-overview.md)
