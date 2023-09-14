@@ -194,7 +194,6 @@ A custom user-assigned managed identity for the control plane enables access to 
         --name myManagedCluster \
         --network-plugin azure \
         --vnet-subnet-id <subnet-id> \
-        --docker-bridge-address 172.17.0.1/16 \
         --dns-service-ip 10.2.0.10 \
         --service-cidr 10.2.0.0/24 \
         --enable-managed-identity \
@@ -330,7 +329,6 @@ Now you can create your AKS cluster with your existing identities. Make sure to 
         --name myManagedCluster \
         --network-plugin azure \
         --vnet-subnet-id <subnet-id> \
-        --docker-bridge-address 172.17.0.1/16 \
         --dns-service-ip 10.2.0.10 \
         --service-cidr 10.2.0.0/24 \
         --enable-managed-identity \
