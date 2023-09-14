@@ -87,7 +87,7 @@ For more information about assignment and activation APIs, see [PIM API for ma
 
 #### PIM Policies (role settings) 
 
-To manage the PIM policies, use * **roleManagementPolicy** and * **roleManagementPolicyAssignment** entities: 
+To manage the PIM policies, use **\*roleManagementPolicy** and **\*roleManagementPolicyAssignment** entities: 
   - For PIM for Azure AD roles, PIM for Groups: [unifiedroleManagementPolicy](/graph/api/resources/unifiedrolemanagementpolicy), [unifiedroleManagementPolicyAssignment](/graph/api/resources/unifiedrolemanagementpolicyassignment) 
   - For PIM for Azure resources: [Role Management Policies](/rest/api/authorization/role-management-policies), [Role Management Policy Assignments](/rest/api/authorization/role-management-policy-assignments) 
 
