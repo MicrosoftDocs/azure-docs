@@ -56,6 +56,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Architectures to deploy Oracle applications with Oracle database on Azure IaaS
+            url: deploy-application-oracle-database-azure.md
           - text: Configure Oracle ASM
             url: configure-oracle-asm.md
           - text: Configure Oracle Data Guard
