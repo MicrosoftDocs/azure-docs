@@ -79,12 +79,20 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 1. Select **Filter** and choose a column.
 1. Select an operator and enter a value for the filter, or enter text or numbers in the **Search** box.
     
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows the filter menu that opens when you select Filter in Log Analytics simple mode.":::
+
 **Search for entries that have a specific value in the table**
 
 1. Select **Search**.
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-search.png" alt-text="Screenshot that shows the Search option in Log Analytics simple mode.":::
+
 1. Enter a value in the **Search this table** box and select **Apply**.
 
     Log Analytics filters the table to show only entries that contain the value you entered.
+
+> [!IMPORTANT]
+> We recommend using the filter by column option if you know which column holds the data you're searching for. The [search operator is substantially less performant](../logs/query-optimization.md#avoid-unnecessary-use-of-search-and-union-operators) than filtering, and might not function well on large volumes of data.
 
 **Aggregate**
 
