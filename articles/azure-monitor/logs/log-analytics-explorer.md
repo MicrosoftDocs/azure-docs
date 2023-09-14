@@ -50,7 +50,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-left-sidebar.png" alt-text="Screenshot that shows the left sidebar in Log Analytics.":::
 
-| Tab | Description |
+| Option | Description |
 |:---|:---|
 | **Tables** | Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog with a description of the table and options to view its documentation and preview its data. Expand a table to view its columns. Double-click a table or column name to add it to the query. |
 | **Queries** | List of example and saved queries you can open in the query window. This list is the same one that appears when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click a query to add it to the query window or hover over it for other options. |
@@ -65,6 +65,20 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-1.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 
+### More tools
+
+:::image type="content" source="media/log-analytics-explorer/log-analytics-more-tools.png" alt-text="Screenshot that shows the More tools window in Log Analytics.":::
+
+| Option | Description |
+|:---|:---|
+| **Save** |  |
+| **New alert rule** |  |
+|**Export**||
+|**Pin to**||
+| **Filter** | |
+| **Format query** | |
+| **Search job mode** | |
+| **Switch back to classic Logs** | |
 
 ## Query in simple mode 
 
