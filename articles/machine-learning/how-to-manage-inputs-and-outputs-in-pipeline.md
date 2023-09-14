@@ -93,7 +93,7 @@ The primitive type inputs won't be displayed on the graph. It can be found in th
 
 If you want to check inputs for a component, double click on the component to open component panel.
 
- :::image type="content" source="./media/how-to-manage-pipeline-input-output/job-overview-setting.png" lightbox="./media/how-to-manage-pipeline-input-output/job-overview-setting.png" alt-text="Screenshot highlighting the job overview setting panel":::
+ :::image type="content" source="./media/how-to-manage-pipeline-input-output/job-overview-setting.png" lightbox="./media/how-to-manage-pipeline-input-output/job-overview-setting.png" alt-text="Screenshot highlighting the job overview setting panel.":::
 
 
 Similarly, when editing a pipeline in designer, you can find the pipeline inputs & outputs in **Pipeline interface** panel, and the component inputs&outputs in the component's panel (trigger by double click on the component). 
