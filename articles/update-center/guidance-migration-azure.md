@@ -8,7 +8,7 @@ ms.date: 08/23/2023
 ms.author: sudhirsneha
 ---
 
-# Guidance on migrating Azure VMs from Microsoft Configuration Manager to Azure 
+# Guidance on migrating Azure VMs from Microsoft Configuration Manager to Azure Update Manager 
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
