@@ -68,7 +68,7 @@ Follow these steps:
      Note that Hourly backup frequency is in preview.
    
    - **Instant Restore**: You can set the retention of recovery snapshot from _1_ to _30_ days. The default value is set to _7_.
-   - **Retention range**: Options for retention range are auto-selected based on backup frequency you choose. The default retention for daily, weekly, monthly, and yearly backup points are set to 180 days, 12 weeks, 60 months, and 10 years respectively. You can customize these values as required.
+   - **Retention range**: Options for retention range are autoselected based on backup frequency you choose. The default retention for daily, weekly, monthly, and yearly backup points are set to 180 days, 12 weeks, 60 months, and 10 years respectively. You can customize these values as required.
    
    :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing to configure the enhanced backup policy.":::
 
@@ -114,7 +114,7 @@ This sample cmdlet contains the following parameters:
 
 - `$ScheduleInterval`: Defines the difference (in hours) between two successive backups per day. Currently, the acceptable values are *4*, *6*, *8* and *12*.
 
-- `$ScheduleWindowStartTime`: The time at which the first backup job is triggered, in case of *hourly backups*. The current limits (in policy's timezone) are:
+- `$ScheduleWindowStartTime`: The time at which the first backup job is triggered in case of *hourly backups*. The current limits (in policy's timezone) are:
   - `Minimum: 00:00`
   - `Maximum:19:30`
 
@@ -264,7 +264,7 @@ Trusted Launch VMs can only be backed up using Enhanced policies.
 
 ## Enable selective disk backup and restore
 
-You can exclude non-critical disks from backup by using selective disk backup to save costs. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier. [Learn more](selective-disk-backup-restore.md).
+You can exclude noncritical disks from backup by using selective disk backup to save costs. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier. [Learn more](selective-disk-backup-restore.md).
 
 ## Next steps
 
