@@ -24323,23 +24323,23 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/networking/connectivty-interoperability-preface.md",
-            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-preface",
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-preface.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-preface",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/networking/connectivty-interoperability-configuration.md",
-            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-configuration",
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-configuration.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-configuration",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/networking/connectivty-interoperability-control-plane.md",
-            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-control-plane",
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-control-plane.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-control-plane",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/networking/connectivty-interoperability-data-plane.md",
-            "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-data-plane",
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-data-plane.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-data-plane",
             "redirect_document_id": false
         },
         {
