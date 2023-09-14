@@ -122,7 +122,7 @@ Following that, plan your migration plan according to your organization requirem
 
 - If the features mentioned above are required in your organization, and Azure Monitor agent (AMA) is required for other services as well, you can start migrating from MMA to AMA in April 2024. Alternatively, use both MMA and AMA to get all GA features, then remove MMA in April 2024. 
 
-- If the features mentioned above are not required, and Azure Monitor agent (AMA) is required for other services you can start migrating from MMA to AMA now. However, notice that the preview Defender for Servers capabilities over AMA will be deprecated in April 2024. 
+- If the features mentioned above are not required, and Azure Monitor agent (AMA) is required for other services, you can start migrating from MMA to AMA now. However, note that the preview Defender for Servers capabilities over AMA will be deprecated in April 2024. 
 
 **Customers with Azure Monitor agent (AMA) enabled** 
 
