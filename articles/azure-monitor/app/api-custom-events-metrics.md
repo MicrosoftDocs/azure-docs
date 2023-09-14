@@ -1166,7 +1166,11 @@ Each item that's transmitted carries an `itemCount` property that shows how many
 ```
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
-          
+
+### How can I set an alert on an event?
+
+Azure alerts are only on metrics. Create a custom metric that crosses a value threshold whenever your event occurs. Then set an alert on the metric. You get a notification whenever the metric crosses the threshold in either direction. You won't get a notification until the first crossing, no matter whether the initial value is high or low. There's always a latency of a few minutes.
+
 
 ## <a name="next"></a>Next steps
 

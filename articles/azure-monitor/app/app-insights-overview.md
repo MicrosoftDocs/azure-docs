@@ -212,6 +212,30 @@ From other sources, if you configure them:
 * [Import to Log Analytics](../logs/data-collector-api.md)
 * [Log Analytics](../logs/data-collector-api.md)
 * [Logstash](../logs/data-collector-api.md)
+
+### How can I manage Application Insights resources with PowerShell?
+          
+You can [write PowerShell scripts](./powershell.md) by using Azure Resource Monitor to:
+          
+* Create and update Application Insights resources.
+* Set the pricing plan.
+* Get the instrumentation key.
+* Add a metric alert.
+* Add an availability test.
+          
+You can't set up a metrics explorer report or set up continuous export.
+
+### How can I query Application Insights telemetery? 
+          
+Use the [REST API](/rest/api/application-insights/) to run [Log Analytics](./logs/log-query-overview.md) queries.
+
+### Can I send telemetry to the Application Insights portal?
+
+We recommend that you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/app-insights-overview.md#supported-languages). These SDKs handle processes like buffering, compression, throttling, and retries. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.   
+
+### How long does it take for telemetry to be collected?
+
+Most Application Insights data has a latency of under 5 minutes. Some data can take longer, which is typical for larger log files. See the [Application Insights service-level agreement](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).    
           
 ## Troubleshooting
 
