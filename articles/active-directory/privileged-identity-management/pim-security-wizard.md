@@ -62,7 +62,7 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 1. You can then select **Eliminate standing access** or **Review service principals** to repeat the above steps on other privileged roles and on service principal role assignments. For service principal role assignments, you can only remove role assignments.
 
-    ![Additional Insights options to eliminate standing access and review service principals ](./media/pim-security-wizard/new-preview-page-service-principals.png)
+    ![Additional Insights options to eliminate standing access and review service principals](./media/pim-security-wizard/new-preview-page-service-principals.png)
 
 ## Next steps
 
