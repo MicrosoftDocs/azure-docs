@@ -272,7 +272,7 @@ A: No, this feature is designed for testing cloud authentication. After successf
 A: Yes. To learn how to use PowerShell to perform Staged Rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## Next steps
-- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
+- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout)
 - [Change the sign-in method to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md)
 - [Change sign-in method to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md)
 - [Staged Rollout interactive guide](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)
