@@ -42,67 +42,89 @@ highlightedContent:
       itemType: whats-new
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
 
-# Azure Services
 conceptualContent:
+  # Supports up to 3 subsections
   sections:
+    - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
+      summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
       items:
       # Card
         - title: HPC Scenarios and Architectures
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
+              itemType: overview
               text: 3D Video Rendering
             - url: /azure/architecture/example-scenario/apps/hpc-saas
+              itemType: overview
               text: Computer-aided Engineering
             - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
+              itemType: overview
               text: Digital image-based modeling on Azure
             - url: /azure/architecture/guide/hpc/hpc-deployments/
+              itemType: overview
               text: HPC Deployments              
         # Card
         - title: HPC Compute
           links:
             - url: ../virtual-machines/sizes-hpc.md
+              itemType: concept
               text: High Performance VMs 
             - url: ../virtual-machines/sizes-gpu.md
+              itemType: concept
               text: GPU Accelarated VMs
             - url: ../virtual-machines/hx-series.md
+              itemType: concept
               text: Memory Optimized VMs
         # Card
         - title: HPC Storage
           links:
             - url: ../azure-netapp-files/azure-netapp-files-introduction.md
+              itemType: concept
               text: Azure NetApp Files
             - url: /azure/azure-managed-lustre/amlfs-overview
+              itemType: overview
               text: Azure Managed Lustre
             - url: /azure/azure-managed-lustre/blob-integration
+              itemType: concept
               text: Use Azure Blob storage with an Azure Managed Lustre file system              
         # Card
         - title: HPC Workload Orchestration
           links:
             - url: ../batch/batch-technical-overview.md
+              itemType: overview
               text: Azure Batch
             - url: /azure/cyclecloud/overview
+              itemType: overview
               text: Azure CycleCloud
             - url: /azure/logic-apps/overview
+              itemType: overview
               text: Azure Logic Apps
         # Card
         - title: HPC Optimization
           links:
             - url: ../hpc-cache/hpc-cache-overview.md
+              itemType: overview
               text: Azure HPC Cache
             - url: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+              itemType: overview
               text: Autoscaling
             - url: /azure/virtual-machines/spot-vms
+              itemType: overview
               text: Spot VMs             
         # Card
         - title: Manage, Monitor and Control
           links:
             - url: /azure/azure-monitor/
+              itemType: reference
               text: Azure Monitor
-            - url: /azure/databox/data-box-overview
+            - url: /azure/databox/
+              itemType: reference
               text: Azure Databox
             - url: /azure/confidential-ledger/
+              itemType: reference
               text: Azure Confidential Ledger 
             - url: /azure/open-datasets/
+              itemType: reference
               text: Azure Open Datasets
 
 
