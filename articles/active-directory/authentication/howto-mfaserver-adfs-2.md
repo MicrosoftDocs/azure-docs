@@ -77,7 +77,7 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
    ![Configure LDAP settings for specific LDAP settings](./media/howto-mfaserver-adfs-2/ldap1.png)
 
 3. Click **Edit**.
-4. In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller. Descriptions of the fields are included in the Azure Multi-Factor Authentication Server help file.
+4. In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller. 
 5. Test the LDAP connection by clicking the **Test** button.
 
    ![Test LDAP Configuration in MFA Server](./media/howto-mfaserver-adfs-2/ldap2.png)
@@ -89,7 +89,7 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
 1. Next, click the **Company Settings** icon and select the **Username Resolution** tab.
 2. Select the **Use LDAP unique identifier attribute for matching usernames** radio button.
 3. If users enter their username in "domain\username" format, the Server needs to be able to strip the domain off the username when it creates the LDAP query, which can be done through a registry setting.
-4. Open the registry editor and go to HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server. If on a 32-bit server, take the "Wow6432Node" out of the path. Create a DWORD registry key called "UsernameCxz_stripPrefixDomain" and set the value to 1. Azure Multi-Factor Authentication is now securing the AD FS proxy.
+4. Open the registry editor and go to HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server. If you use a 32-bit server, remove **/Wow6432Node** from the path. Create a DWORD registry key called "UsernameCxz_stripPrefixDomain" and set the value to 1. Azure Multi-Factor Authentication is now securing the AD FS proxy.
 
 Make sure users are imported from Active Directory into the Server. To allow users to skip two-step verification from internal IP addresses, see the [Trusted IPs](#trusted-ips).
 
@@ -115,7 +115,7 @@ You can secure AD FS when the AD FS proxy isn't used. Install the Azure Multi-Fa
 
 Azure Multi-Factor Authentication is now securing AD FS.
 
-Ensure that users have been imported from Active Directory into the Server. See the Trusted IPs section if you would like to allow internal IP addresses so that two-step verification isn't required when signing in to the website from those locations.
+Ensure that users have been imported from Active Directory into the Server. See the next section if you would like to allow internal IP addresses so that two-step verification isn't required when signing in to the website from those locations.
 
 ## Trusted IPs
 
