@@ -45,8 +45,7 @@ highlightedContent:
 conceptualContent:
   # Supports up to 3 subsections
   sections:
-    - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
-      summary: See Azure HPC solutions, tutorials, guides and resources # < 160 chars (Optional; Remove if not applicable.)
+    - title: HPC Solution Components # < 60 chars (Optional; Remove if not applicable.)
       items:
       # Card
         - title: HPC Scenarios and Architectures
@@ -81,12 +80,9 @@ conceptualContent:
             - url: ../azure-netapp-files/azure-netapp-files-introduction.md
               itemType: concept
               text: Azure NetApp Files
-            - url: /azure/azure-managed-lustre/amlfs-overview
-              itemType: overview
-              text: Azure Managed Lustre
             - url: /azure/azure-managed-lustre/blob-integration
               itemType: concept
-              text: Use Azure Blob storage with an Azure Managed Lustre file system              
+              text: Azure Blob Storage               
         # Card
         - title: HPC Workload Orchestration
           links:
