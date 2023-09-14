@@ -130,7 +130,7 @@ Additionally, connectivity to the following URLs is required to complete the [se
 
 ## Prepare your environment
 
-Before you install the NPS extension, prepare you environment to handle the authentication traffic.
+Before you install the NPS extension, prepare your environment to handle the authentication traffic.
 
 ### Enable the NPS role on a domain-joined server
 
@@ -270,7 +270,7 @@ For customers that use the Azure Government or Azure operated by 21Vianet clouds
 
 1. If you're an Azure Government or Azure operated by 21Vianet customer, open **Registry Editor** on the NPS server.
 1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
-1. For Azure Government customers, set the following key values.:
+1. For Azure Government customers, set the following key values:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
@@ -341,7 +341,7 @@ The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azur
 
 ### How to fix the error "Service principal was not found" while running `AzureMfaNpsExtnConfigSetup.ps1` script? 
 
-If for any reason the "Azure Multi-Factor Auth Client" service principal was not created in the tenant , it can be manually created by running the `New-MsolServicePrincipal` cmdlet as shown below. 
+If for any reason the "Azure Multi-Factor Auth Client" service principal was not created in the tenant, it can be manually created by running the `New-MsolServicePrincipal` cmdlet as shown below. 
 
 ```powershell
 import-module MSOnline
