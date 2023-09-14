@@ -78,6 +78,8 @@
       href: troubleshoot.md
 - name: Guidance
   items:
+  - name: Migration from Automation Update Management to Azure Update Manager
+    href: guidance-migration-automation-update-management-azure-update-managr.md
   - name: Migration of Azure VMs from Microsoft Configuration Manager to Azure Update Manager
     href: guidance-migration-azure.md
   - name: Security awareness and Ubuntu Pro support
