@@ -271,7 +271,7 @@ private void callGraphAPI(final IAuthenticationResult authenticationResult) {
 
 This is the configuration file for a MSAL app that uses a single account.
 
-See [Understand the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
+See [Understand the Android MSAL configuration file](msal-configuration.md) for an explanation of these fields.
 
 Note the presence of `"account_mode" : "SINGLE"`, which configures this app to use a single account.
 
@@ -427,7 +427,7 @@ mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelected
 
 This is the configuration file for a MSAL app that uses multiple accounts.
 
-See [Understand the Android MSAL configuration file ](msal-configuration.md) for an explanation of the various fields.
+See [Understand the Android MSAL configuration file](msal-configuration.md) for an explanation of the various fields.
 
 Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) configuration file, this config file has `"account_mode" : "MULTIPLE"` instead of `"account_mode" : "SINGLE"` because this is a multiple account app.
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -64,7 +64,7 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
    >[!Note]
    >Your users are asked to authenticate once to Azure AD and once to RD Web, but they have single sign-on to RD Gateway.
 
-4. Select **Azure Active Directory**, and then **App Registrations**. Choose your app from the list.
+1. Browse to **Identity** > **Applications** > **App registrations**. Choose your app from the list.
 5. Under **Manage**, select **Branding**.
 6. Update the **Home page URL** field to point to your RD Web endpoint (like `https://<rdhost>.com/RDWeb`).
 
