@@ -25,7 +25,7 @@ To perform the procedures in this article, make sure that you have:
 
 OT sensors automatically run connectivity checks to ensure that your sensor has access to all required endpoints. If a sensor isn't connected, an error is indicated in the Azure portal, on the **Sites and sensors** page, and on the sensor's **Overview** page. For example:
 
-:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page.":::
+:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page." lightbox="media/release-notes/connectivity-error.png":::```
 
 Use the **Cloud connectivity troubleshooting** page in your OT sensor to learn more about the error that occurred and recommended mitigation actions you can take.
 
