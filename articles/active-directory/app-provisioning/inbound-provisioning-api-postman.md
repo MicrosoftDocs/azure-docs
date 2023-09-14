@@ -31,7 +31,7 @@ In this step, you'll configure the Postman app and invoke the API using the conf
 1. From the **Workspaces** menu, select **Create Workspace** to create a new Workspace called **Microsoft Entra ID Provisioning API**. 
 1. Download the following Postman collections and save it in your local directory.
     - [Entra ID Inbound Provisioning.postman_collection.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Entra%20ID%20Inbound%20Provisioning.postman_collection.json) (Request collection)
-    - [Test-API2AAD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AAD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD)- 
+    - [Test-API2AAD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AAD.postman_environment.json) (Environment collection for API-driven provisioning to Azure AD)- 
     - [Test-API2AD.postman_environment.json](https://github.com/AzureAD/entra-id-inbound-provisioning/blob/main/Postman/Test-API2AD.postman_environment.json) (Environment collection for API-driven provisioning to on-premises AD) 
 1. Use the **Import** option in Postman to import both of these files into your Workspace.  
      :::image type="content" source="media/inbound-provisioning-api-postman/postman-import-elements.png" alt-text="Screenshot of Postman Import elements." lightbox="media/inbound-provisioning-api-postman/postman-import-elements.png":::

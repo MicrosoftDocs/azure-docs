@@ -18,5 +18,5 @@ The Network Watcher resource represents the backend service for Network Watcher 
 Moving resources across regions is currently not supported for any child resource of the `networkWatcher` resource type.
 
 ## Next Steps
-* For more information about Network Watcher, see the [Network Watcher overview](./network-watcher-monitoring-overview.md).
-* For answers to the frequently asked questions, see the [Network Watcher FAQ](./frequently-asked-questions.yml).
+* For more information about Network Watcher, see [What is Azure Network Watcher?](network-watcher-overview.md)
+* For answers to the frequently asked questions, see [Network Watcher FAQ](frequently-asked-questions.yml).

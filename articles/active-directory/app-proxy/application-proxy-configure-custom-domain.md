@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -59,8 +59,9 @@ To configure an on-premises app to use a custom domain, you need a verified Azur
 ### Create and verify a custom domain
 
 To create and verify a custom domain:
-
-1. In Azure Active Directory, select **Custom domain names** in the left navigation, and then select **Add custom domain**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Settings** > **Domain names**.
+1. Select **Add custom domain**. 
 1. Enter your custom domain name and select **Add Domain**. 
 1. On the domain page, copy the TXT record information for your domain. 
 1. Go to your domain registrar and create a new TXT record for your domain, based on your copied DNS information.
@@ -72,7 +73,8 @@ For more detailed instructions, see [Add your custom domain name using the Azure
 
 To publish your app through Application Proxy with a custom domain:
 
-1. For a new app, in Azure Active Directory, select **Enterprise applications** in the left navigation. Select **New application**. In the **On-premises applications** section, select **Add an on-premises application**. 
+1. For a new app, in the Microsoft Entra admin center, browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
+1. Select **New application**. In the **On-premises applications** section, select **Add an on-premises application**. 
    
    For an app already in **Enterprise applications**, select it from the list, and then select **Application proxy** in the left navigation. 
 

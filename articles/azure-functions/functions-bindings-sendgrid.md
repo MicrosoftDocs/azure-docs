@@ -5,7 +5,7 @@ ms.topic: reference
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/04/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions SendGrid bindings
@@ -63,7 +63,7 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -222,7 +222,7 @@ public class Message
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 The following example shows a SendGrid output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
 Here's the binding data in the *function.json* file:
@@ -439,7 +439,7 @@ The [SendGridOutput](/java/api/com.microsoft.azure.functions.annotation.sendgrid
 + [text](/java/api/com.microsoft.azure.functions.annotation.sendgridoutput.text)
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
 

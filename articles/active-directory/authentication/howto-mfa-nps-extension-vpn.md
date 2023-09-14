@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 
 ms.author: justinha
 author: justinha
@@ -322,17 +322,16 @@ If the value is set to *TRUE* or is blank, all authentication requests are subje
 
 
 
-### Obtain the Azure Active Directory tenant ID
+### Obtain the directory tenant ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
-1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Settings**.
 
-   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
+   ![Getting the Tenant ID from the Microsoft Entra admin center](./media/howto-mfa-nps-extension-vpn/tenant-id.png)
 
 ### Install the NPS extension
 
@@ -432,7 +431,7 @@ Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
 
 ## Troubleshooting guide
 
-If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user sign in to the [Azure portal](https://portal.azure.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
+If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
 
 If MFA is working for the user, review the relevant Event Viewer logs. The logs include the security event, Gateway operational, and Azure AD Multi-Factor Authentication logs that are discussed in the previous section.
 

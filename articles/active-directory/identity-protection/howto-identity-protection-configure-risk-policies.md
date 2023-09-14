@@ -129,7 +129,7 @@ If you already have risk policies enabled in Identity Protection, we highly reco
 
 ### Migrating to Conditional Access
 
-1. **Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based ](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can create a policy with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md) based on Microsoft's recommendations and your organizational requirements.
+1. **Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can create a policy with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md) based on Microsoft's recommendations and your organizational requirements.
     1. Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md).
 1. **Enable** the new Conditional Access risk policy. You can choose to have both policies running side-by-side to confirm the new policies are working as expected before turning off the Identity Protection risk policies.
     1. Browse back to **Protection** > **Conditional Access**. 
