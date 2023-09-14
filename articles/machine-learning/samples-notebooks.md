@@ -34,9 +34,9 @@ The easiest way to get started with the samples is to complete the [Create resou
 
 To view example notebooks:
 
-    1. Sign in to [studio](https://ml.azure.com) and select your workspace if necessary.
-    1. Select **Notebooks**.
-    1. Select the **Samples** tab. Use the **SDK v2** folder for examples using Python SDK v2.
+1. Sign in to [studio](https://ml.azure.com) and select your workspace if necessary.
+1. Select **Notebooks**.
+1. Select the **Samples** tab. Use the **SDK v2** folder for examples using Python SDK v2.
 
 
 ## Option 2: Access on your own notebook server
