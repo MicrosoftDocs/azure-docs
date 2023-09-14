@@ -268,7 +268,7 @@ az ml job download --output-name <OUTPUT_PORT_NAME> -n <JOB_NAME> -g <RESOURCE_G
 ```
 # [Python SDK](#tab/python)
 
-Before we dive in the code, you need a way to reference your workspace. You create `ml_client` for a handle to the workspace. Refer to [this article](./tutorial-explore-data.md#create-handle-to-workspace) to initialize `ml_client`.
+Before we dive in the code, you need a way to reference your workspace. You create `ml_client` for a handle to the workspace. Refer to [Create handle to workspace](./tutorial-explore-data.md#create-handle-to-workspace) to initialize `ml_client`.
  
 ```python
 # Download all the outputs of the job
