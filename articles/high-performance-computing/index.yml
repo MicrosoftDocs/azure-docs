@@ -45,8 +45,6 @@ highlightedContent:
 # Azure Services
 conceptualContent:
   sections:
-    - title: HPC Components # < 60 chars (Optional; Remove if not applicable.)
-      summary: See Azure HPC solutions, tutorials, guides and resources. # < 160 chars (Optional; Remove if not applicable.)
       items:
       # Card
         - title: HPC Scenarios and Architectures
