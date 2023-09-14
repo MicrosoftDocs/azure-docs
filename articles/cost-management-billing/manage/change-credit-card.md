@@ -91,9 +91,10 @@ If your credit card gets renewed and the number stays the same, update the exist
     :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot of Search." lightbox="./media/change-credit-card/search.png" :::
 1. Select **Payment methods**.
     :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods" lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. Select the credit card that you'd like to edit. A credit card form appears.
-    :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot showing Edit payment method." lightbox="./media/change-credit-card/edit-card-x.png" :::
-1. Update the credit card details.
+1. On the right side of the page, for the credit card that you want to edit, select the ellipsis (`...`) at the end of the row. Select **Edit**. 
+    :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot showing Edit navigation." lightbox="./media/change-credit-card/edit-card-x.png" :::
+1. Update the credit card details.  
+    :::image type="content" source="./media/change-credit-card/edit-payment-method.png" alt-text="Screenshot showing Edit payment method." lightbox="./media/change-credit-card/edit-payment-method.png" :::
 1. Select **Next**.
 
 ## Manage Microsoft Customer Agreement credit cards
@@ -127,7 +128,7 @@ To change your credit card, follow these steps:
     :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods option selected." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
 1. In the top-left corner, select **Add payment method** to add a card. A credit card form appears.
 1. Enter credit card details.  
-    :::image type="content" source="./media/change-credit-card/sub-add-new-card-billing-profile.png" alt-text="Screenshot showing adding a new card." lightbox="./media/change-credit-card/sub-add-new-card-billing-profile.png" :::
+    :::image type="content" source="./media/change-credit-card/sub-add-new-card-billing-profile.png" alt-text="Screenshot showing adding a new credit card as a payment method." lightbox="./media/change-credit-card/sub-add-new-card-billing-profile.png" :::
 1. To make this card your default payment method, select **Make this my default payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
 1. Select **Next**.
 
