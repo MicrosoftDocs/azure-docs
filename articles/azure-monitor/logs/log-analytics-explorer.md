@@ -98,7 +98,7 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 1. Select **Aggregate**.
 1. Select a column to aggregate by.
-1. Select an operator to aggregate by, as described in the table below.
+1. Select an operator to aggregate by, as described in [Use aggregation operators](#use-aggregation-operators).
 
 **Show or hide columns**
 
