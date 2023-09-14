@@ -170,7 +170,7 @@ Select **Group columns** to display the grouping bar above the query results. Gr
 
 ### Chart view
 
-The chart view displays the results as one of multiple available chart types. You can specify the chart type in a **render** command in your query. You can also select it from the **Visualization Type** dropdown.
+The chart view displays the results as one of multiple available chart types. In advanced mode, you can specify the chart type using a `render` command in your query. You can also select it from the **Visualization Type** dropdown.
 
 | Option | Description |
 |:---|:---|
