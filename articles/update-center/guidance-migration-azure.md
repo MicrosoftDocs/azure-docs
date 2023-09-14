@@ -4,7 +4,7 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.author: sudhirsneha
 ---
 

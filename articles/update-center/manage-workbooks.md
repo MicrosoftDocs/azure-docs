@@ -4,7 +4,7 @@ description: This article describes how to create and manage workbooks for VM in
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.topic: how-to
 ---
 

@@ -4,7 +4,7 @@ description: Provides a summary of supported regions and operating system settin
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/15/2023
+ms.date: 09/18/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
