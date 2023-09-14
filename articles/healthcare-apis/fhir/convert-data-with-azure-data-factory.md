@@ -1,6 +1,6 @@
 ---
-title: Transform HL7v2 data to FHIR R4 with the $convert-data operation and Azure Data Factory - Azure Health Data Services
-description: Learn how to transform HL7v2 data to FHIR R4 with the $convert-data operation and Azure Data Factory
+title: Transform HL7v2 data to FHIR R4 with $convert-data and Azure Data Factory - Azure Health Data Services
+description: Learn how to transform HL7v2 data to FHIR R4 with $convert-data and Azure Data Factory
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,7 +9,7 @@ ms.date: 09/05/2023
 ms.author: jasteppe
 ---
 
-# Transform HL7v2 data to FHIR R4 with the $convert-data operation and Azure Data Factory
+# Transform HL7v2 data to FHIR R4 with $convert-data and Azure Data Factory
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.

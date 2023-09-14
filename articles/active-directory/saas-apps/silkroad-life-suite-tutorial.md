@@ -202,7 +202,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Disable all other authentication sources.
 
-    ![Screenshot shows Authentication Sources where you can disable other sources. ](./media/silkroad-life-suite-tutorial/manage-source.png)
+    ![Screenshot shows Authentication Sources where you can disable other sources.](./media/silkroad-life-suite-tutorial/manage-source.png)
 
 ### Create SilkRoad Life Suite test user
 

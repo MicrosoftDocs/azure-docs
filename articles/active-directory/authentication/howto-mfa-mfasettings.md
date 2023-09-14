@@ -175,7 +175,7 @@ Default number: *+1 (855) 330-8653*
 
 The following table lists more numbers for different countries.
 
-| Country              | Number(s)       |
+| Country/Region       | Number(s)       |
 |:---------------------|:----------------|
 | Austria              | +43 6703062076  |
 | Bangladesh           | +880 9604606026 |
@@ -186,7 +186,7 @@ The following table lists more numbers for different countries.
 | Ghana                | +233 308250245  |
 | Greece               | +30 2119902739  |
 | Guatemala            | +502 23055056   |
-| Hong Kong            | +852 25716964   |
+| Hong Kong SAR        | +852 25716964   |
 | India                | +91 3371568300, +91 1205089400, +91 4471566601, +91 2271897557, +91 1203524400, +91 3335105700, +91 2235544120, +91 4435279600|
 | Jordan               | +962 797639442  |
 | Kenya                | +254 709605276  |
@@ -206,7 +206,7 @@ The following table lists more numbers for different countries.
 | Vietnam              | +84 2039990161  |
 
 > [!NOTE]
-> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-).
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-short-codes-are-used-for-sending-text-messages-to-my-users-).
 
 To configure your own caller ID number, complete the following steps:
 
@@ -215,7 +215,7 @@ To configure your own caller ID number, complete the following steps:
 1. Select **Save**.
 
 > [!NOTE]
-> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-).
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-short-codes-are-used-for-sending-text-messages-to-my-users-).
 
 ### Custom voice messages
 

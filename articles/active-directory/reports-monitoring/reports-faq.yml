@@ -9,10 +9,9 @@ metadata:
   ms.workload: identity
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 07/14/2023
+  ms.date: 09/08/2023
   ms.author: sarahlipsey
   ms.reviewer: besiler
-  ms.collection: M365-identity-device-management
 title: Frequently asked questions around Azure Active Directory reports
 summary: |
   This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](overview-reports.md). 
@@ -76,7 +75,7 @@ sections:
       - question: |
           How many records I can download from the Azure portal?
         answer: |
-          How many logs you can download from the Azure portal is determined by a few factors, including browser memory size, network speeds, and current load on Azure AD Reporting APIs. In general, you can expect to download up to 250,000 records from the Azure portal. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data. The specific set of logs you download is determined by the filters active in the Azure portal when you begin the download (for example, filtering to a specific user in the Azure portal will mean your download pulls logs for that specific user). 
+          How many logs you can download from the Azure portal is determined by a few factors, including browser memory size, network speeds, and current load on Azure AD Reporting APIs. In general, you can expect to download up to 250,000 records from the Azure portal. Depending on the number of fields you included, this number could vary. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data. The specific set of logs you download is determined by the filters active in the Azure portal when you begin the download (for example, filtering to a specific user in the Azure portal will mean your download pulls logs for that specific user). 
 
       - question: |
           How long does Azure AD store activity logs? What is the data retention?

@@ -413,7 +413,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|
 |[Stratus Solutions](https://stratussolutions.com)|
-|[Stratum Technology Manamgent, LLC](https://www.stratumtechnology.com)|
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
 |[Sumo Logic](https://www.sumologic.com/)|
