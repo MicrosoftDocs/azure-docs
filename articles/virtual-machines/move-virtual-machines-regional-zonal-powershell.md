@@ -10,7 +10,7 @@ ms.author: ankitadutta
 
 # Move a virtual machine in an availability zone using Azure PowerShell
 
-This article details using Azure PowerShell to move Azure single instance VMs from regional to zonal availability zones. An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
+This article details using Azure PowerShell to move Azure single instance VMs from regional to zonal availability zones. An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire data center.
 
 To use an availability zone, create your virtual machine in a [supported Azure region](../availability-zones/az-region.md).
 
@@ -28,19 +28,17 @@ Verify the following requirements:
 | Requirement | Description |
 | --- | --- |
 | **Subscription permissions** | Check you have *Owner* access on the subscription containing the resources that you want to move<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles. |
-| **VM support** |  Review supported regions. <br><br>  - Check supported [compute], [storage], and [networking] settings.|
-| **SQL support** | If you want to move SQL resources, review the [SQL requirements list].|
-| **Destination subscription** | The subscription in the destination region needs enough quota to create the resources you're moving in the target region. If it doesn't have a quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).|
-| **Destination region charges** | Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you. |
- 
+| **VM support** |  [Review](../resource-mover/common-questions.md) the supported regions. <br><br>  - Check supported [compute](../resource-mover/support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](../resource-mover/support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](../resource-mover/support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
+
+
 ### Review PowerShell requirements
 
 Most move resources operations are the same whether using the Azure portal or PowerShell, with a couple of exceptions.
 
 | Operation | Portal | PowerShell |
 | --- | --- | --- |
-| Create a move collection | A move collection (a list of all the regional VMs you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You use PowerShell cmdlets to: <br> - Assign a managed identity to the collection.  <br> - Add regional VMs to the collection. |
-| Resource move operations | Validate steps validates the User setting changes. Initiate Move starts the move process and creates a copy of source VM in the target zone and finalizes the move of the newly created VM in the target zone. | PowerShell cmdlets to: <br> - Resolve dependencies <br> - Perform the move <br> - Commit the move | 
+| Create a move collection | A move collection (a list of all the regional VMs that you're moving) is created automatically. Required identity permissions are assigned in the backend by the portal. | You can use [PowerShell cmdlets](/powershell/module/az.resourcemover/?view=azps-10.3.0#resource-mover) to: <br> - Assign a managed identity to the collection.  <br> - Add regional VMs to the collection. |
+| Resource move operations | Validate steps and validates the *User* setting changes. **Initiate move** starts the move process and creates a copy of source VM in the target zone and finalizes the move of the newly created VM in the target zone. | [PowerShell cmdlets](/powershell/module/az.resourcemover/?view=azps-10.3.0#resource-mover) to: <br> - Resolve dependencies <br> - Perform the move. <br> - Commit the move. | 
 
 ### Sample values
 
@@ -86,18 +84,7 @@ New-AzResourceGroup -Name "RegionToZone-DemoMCRG" -Location "EastUS"
 **Output**:
 The output shows that the managed disk is in the same availability zone as the VM:
 
-```powershell
-ResourceGroupName  : RegionToZone-DemoMCR
-Location           : eastus
-ProvisioningState  : Succeeded
-Tags               : 
-                    Name      Value
-                    ----      -----
-                    Created    20230908
-
-ResourceId         : /subscriptions/<Subscription id>/resourceGroups/RegionToZone-DemoMCRG
-
-```
+:::image type="content" source="./media/tutorial-move-regional-zonal/create-resource-group.png" alt-text="Output text after creating resource group":::
 
 ## Register the resource provider
 
@@ -127,7 +114,7 @@ New-AzResourceMoverMoveCollection -Name "RegionToZone-DemoMC"  -ResourceGroupNam
 
 **Output**:
 
-:::image type="content" source="./media/tutorial-move-region-powershell/output-move-collection.png" alt-text="Output text after creating move collection":::
+:::image type="content" source="./media/tutorial-move-regional-zonal/create-move-collection.png" alt-text="Output text after creating move collection":::
 
 
 ## Grant access to the managed identity
@@ -165,7 +152,8 @@ Add resources as follows:
     ```
 
     **Output**
-    :::image type="content" source="./media/tutorial-move-region-powershell/output-retrieve-resource.png" alt-text="Output text after retrieving the resource ID":::
+
+    :::image type="content" source="./media/tutorial-move-regional-zonal/add-regional-machines.png" alt-text="Output text after adding regional virtual machines to the move collection.":::
 
   
 **Modify settings as follows:**
@@ -194,7 +182,7 @@ Add resources as follows:
     ```
     
     **Output**
-        :::image type="content" source="./media/tutorial-move-region-powershell/output-retrieve-resource.png" alt-text="Output text after retrieving the resource ID":::
+        :::image type="content" source="./media/tutorial-move-regional-zonal/modify-settings.png" alt-text="Output text after modifying move settings.":::
 
 
 ## Resolve dependencies
@@ -208,18 +196,16 @@ Check whether the regional VMs you added have any dependencies on other resource
     
     **Output (when dependencies exist)**
 
-       :::image type="content" source="./media/tutorial-move-region-powershell/output-retrieve-resource.png" alt-text="Output text after retrieving the resource ID":::
+       :::image type="content" source="./media/tutorial-move-regional-zonal/resolve-dependencies.png" alt-text="Output text after resolving move dependencies.":::
 
-    **Note:**
-     - If you want to get a list of resources added to the move collection, you can call
-
-            ```
-            $list = Get-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" $list.Name
-            ```
-            **Output**
-            :::image type="content" source="./media/tutorial-move-region-powershell/output-retrieve-resource.png" alt-text="Output text after retrieving the resource ID":::
-     
-     - If for any reason you want to remove resources from the resource collection, follow the instructions in this article.
+>[!NOTE]
+> - If you want to get a list of resources added to the move collection, you can call:
+>`$list = Get-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" $list.Name`
+> <br>
+>**Output**
+>:::image type="content" source="./media/tutorial-move-regional-zonal/call-move-collection.png" alt-text="Output text after retrieving the move collection.":::
+>
+> - If you want to remove resources from the resource collection, follow these [instructions](../resource-mover/remove-move-resources.md).
     
 
 ## Initiate move of VM resources
@@ -230,7 +216,7 @@ Invoke-AzResourceMoverInitiateMove -ResourceGroupName "RegionToZone-DemoMCRG" -M
 
 **Output**
 
-:::image type="content" source="./media/tutorial-move-region-powershell/output-retrieve-resource.png" alt-text="Output text after retrieving the resource ID":::
+:::image type="content" source="./media/tutorial-move-regional-zonal/initiate-move-resources.png" alt-text="Output text after initiating the move.":::
 
 ## Commit
 
@@ -245,7 +231,7 @@ After the initial move, you can decide whether you want to commit the move or di
     ```
 
     **Output**
-    :::image type="content" source="./media/tutorial-move-region-powershell/output-retrieve-resource.png" alt-text="Output text after retrieving the resource ID":::
+    **IMAGE**
 
 2. Verify that all regional VMs have moved to the target region:
     
@@ -257,7 +243,10 @@ All resources are now in a *Delete Source Pending* state in the target region.
 
 ## Delete source regional VMs
 
-After committing the move, and verifying that resources work as expected in the target region, you can delete each source resource in the Azure portal, using PowerShell, or using [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#delete-resources). 
+After you commit the move and verify that the resources work as expected in the target region, you can delete each source resource using:
+- [Azure portal](../azure-resource-manager/management/manage-resources-portal.md#delete-resources)
+- [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources)
+- [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#delete-resources). 
 
 
 ## Next steps

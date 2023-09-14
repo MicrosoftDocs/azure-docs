@@ -1125,7 +1125,7 @@
     - name: Migrate to Availability Zones
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ../availability-zones/migrate-vm.md
-    - name: Migrate from regional to zonal support
+    - name: How-to guides- Regional to zonal move
       items:
       - name: PowerShell
         displayName: availability and scale, availability, single instance virtual machines, autoscale, availability zones, AV zones
