@@ -152,6 +152,7 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
+Auto instrumentation of Logs are currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
 Logs
 - [Node.js console](https://nodejs.org/api/console.html)
 - [Bunyan](https://github.com/trentm/node-bunyan#readme)
@@ -234,12 +235,12 @@ Other OpenTelemetry Instrumentations are available [here](https://github.com/ope
 
  ```javascript
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
-    const { metrics, trace } = require("@opentelemetry/api");
+    const { metrics, trace, ProxyTracerProvider } = require("@opentelemetry/api");
     const { registerInstrumentations } = require( "@opentelemetry/instrumentation");
     const { ExpressInstrumentation } = require('@opentelemetry/instrumentation-express');
 
     useAzureMonitor();
-    const tracerProvider = trace.getTracerProvider().getDelegate();
+    const tracerProvider = (trace.getTracerProvider() as ProxyTracerProvider).getDelegate();
     const meterProvider = metrics.getMeterProvider();
     registerInstrumentations({
         instrumentations: [
@@ -1376,12 +1377,13 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
 ```typescript
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
-    const { trace } = require("@opentelemetry/api");
+    const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
     const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
+    const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
     const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
 
     useAzureMonitor();
-    const tracerProvider = trace.getTracerProvider().getDelegate();
+    const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
 
     class SpanEnrichingProcessor implements SpanProcessor{
         forceFlush(): Promise<void>{
@@ -1579,27 +1581,23 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
 #### [Node.js](#tab/nodejs)
-  
-Attributes could be added only when calling manual track APIs only. Log attributes for console, bunyan and Winston are currently not supported.
 
 ```typescript
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { logs } = require("@opentelemetry/api-logs");
+    import { Logger } from "@opentelemetry/sdk-logs";
 
     useAzureMonitor();
-    const logger = logs.getLogger("testLogger");
+    const logger = (logs.getLogger("testLogger") as Logger);
     const logRecord = {
-        body : "testEvent",
-        attributes:  {
+        body: "testEvent",
+        attributes: {
             "testAttribute1": "testValue1",
             "testAttribute2": "testValue2",
             "testAttribute3": "testValue3"
         }
     };
-    logger.emit({
-        name: "testEvent",
-        properties: attributes
-    });
+    logger.emit(logRecord);
 ```
 
 #### [Python](#tab/python)
@@ -1708,9 +1706,9 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
     
     ```typescript
     const { useAzureMonitor, ApplicationInsightsOptions } = require("@azure/monitor-opentelemetry");
+    const { HttpInstrumentationConfig }= require("@opentelemetry/instrumentation-http");
     const { IncomingMessage } = require("http");
     const { RequestOptions } = require("https");
-    const { HttpInstrumentationConfig }= require("@opentelemetry/instrumentation-http");
 
     const httpInstrumentationConfig: HttpInstrumentationConfig = {
         enabled: true,
