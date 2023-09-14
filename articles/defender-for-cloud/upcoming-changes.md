@@ -93,7 +93,7 @@ The following table explains how each capability will be provided after the Log 
 
 The current provisioning process that provides the installation and configuration of both agents (MMA/AMA), will be adjusted according to the plan mentioned above: 
 
-1. MMA auto-provisioning mechanism and its’ related policy initiative will remain optional and supported until August 2024 through MDC platform.   
+1. MMA auto-provisioning mechanism and its related policy initiative will remain optional and supported until August 2024 through the Defender for Cloud platform.   
 1. In October 2023: 
    1. The current shared ‘Log Analytics agent’/’Azure Monitor agent’ auto-provisioning mechanism will be updated and applied to ‘Log Analytics agent’ only.  
 
