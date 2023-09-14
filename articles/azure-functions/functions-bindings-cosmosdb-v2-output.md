@@ -375,62 +375,11 @@ The function creates Azure Cosmos DB documents in the following format for each 
 
 Here's the TypeScript code:
 
-```typescript
-import { app, InvocationContext, output } from '@azure/functions';
-
-interface MyQueueItem {
-    name: string;
-    employeeId: string;
-    address: string;
-}
-
-interface MyCosmosItem {
-    id: string;
-    name: string;
-    employeeId: string;
-    address: string;
-}
-
-export async function storageQueueTrigger1(queueItem: MyQueueItem, context: InvocationContext): Promise<MyCosmosItem> {
-    return {
-        id: `${queueItem.name}-${queueItem.employeeId}`,
-        name: queueItem.name,
-        employeeId: queueItem.employeeId,
-        address: queueItem.address,
-    };
-}
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'inputqueue',
-    connection: 'MyStorageConnectionAppSetting',
-    return: output.cosmosDB({
-        databaseName: 'MyDatabase',
-        collectionName: 'MyCollection',
-        createIfNotExists: true,
-        connectionStringSetting: 'MyAccount_COSMOSDB',
-    }),
-    handler: storageQueueTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosOutput1.ts" :::
 
 To output multiple documents, return an array instead of a single object. For example:
 
-```typescript
-return [
-    {
-        id: 'John Henry-123456',
-        name: 'John Henry',
-        employeeId: '123456',
-        address: 'A town nearby',
-    },
-    {
-        id: 'John Doe-123457',
-        name: 'John Doe',
-        employeeId: '123457',
-        address: 'A town far away',
-    },
-];
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosOutput2.ts" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -466,49 +415,11 @@ The function creates Azure Cosmos DB documents in the following format for each 
 
 Here's the JavaScript code:
 
-```javascript
-const { app, output } = require('@azure/functions');
-
-const cosmosOutput = output.cosmosDB({
-    databaseName: 'MyDatabase',
-    collectionName: 'MyCollection',
-    createIfNotExists: true,
-    connectionStringSetting: 'MyAccount_COSMOSDB',
-});
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'inputqueue',
-    connection: 'MyStorageConnectionAppSetting',
-    return: cosmosOutput,
-    handler: (queueItem, context) => {
-        return {
-            id: `${queueItem.name}-${queueItem.employeeId}`,
-            name: queueItem.name,
-            employeeId: queueItem.employeeId,
-            address: queueItem.address,
-        };
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosOutput1.js" :::
 
 To output multiple documents, return an array instead of a single object. For example:
 
-```javascript
-return [
-    {
-        id: 'John Henry-123456',
-        name: 'John Henry',
-        employeeId: '123456',
-        address: 'A town nearby',
-    },
-    {
-        id: 'John Doe-123457',
-        name: 'John Doe',
-        employeeId: '123457',
-        address: 'A town far away',
-    },
-];
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosOutput2.js" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -764,7 +675,7 @@ _Applies only to the Python v1 programming model._
 
 # [Model v4](#tab/nodejs-v4)
 
-The following table explains the properties that you can set on the `options` object passed to the `output.cosmosDB()` method. The "type", "direction", and "name" properties can be ignored for model v4.
+The following table explains the properties that you can set on the `options` object passed to the `output.cosmosDB()` method. The `type`, `direction`, and `name` properties don't apply to the v4 model.
 
 # [Model v3](#tab/nodejs-v3)
 

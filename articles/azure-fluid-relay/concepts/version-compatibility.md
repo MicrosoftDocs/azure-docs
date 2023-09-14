@@ -1,7 +1,6 @@
 ---
 title: Version compatibility with Fluid Framework releases
 description: How to determine what versions of the Fluid Framework releases are compatible with Azure Fluid Relay
-services: azure-fluid
 author: tylerbutler
 ms.author: tylerbu
 ms.date: 09/28/2021
@@ -41,7 +40,6 @@ npx install-peerdeps @fluidframework/azure-client
 | @fluidframework/azure-client        | [1.0.2][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
 | fluid-framework                     | [1.2.4][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
 | @fluidframework/azure-service-utils | [1.0.2][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
-| @fluidframework/test-client-utils   | [1.2.4][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
 
 [1.0.2]: https://fluidframework.com/docs/updates/v1.0.0/
 [1.2.4]: https://fluidframework.com/docs/updates/v1.0.0/

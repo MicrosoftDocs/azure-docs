@@ -864,3 +864,4 @@ The studio currently doesn't support monitoring for custom signals. See the Azur
 - [Data collection from models in production (preview)](concept-data-collection.md)
 - [Collect production data from models deployed for real-time inferencing](how-to-collect-production-data.md)
 - [CLI (v2) schedule YAML schema for model monitoring (preview)](reference-yaml-monitor.md)
+- [Model monitoring for generative AI applications](./prompt-flow/how-to-monitor-generative-ai-applications.md)

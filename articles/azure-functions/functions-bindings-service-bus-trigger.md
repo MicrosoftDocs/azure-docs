@@ -111,22 +111,7 @@ Java functions can also be triggered when a message is added to a Service Bus to
 
 The following example shows a Service Bus trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
-```typescript
-import { app, InvocationContext } from '@azure/functions';
-
-export async function serviceBusQueueTrigger1(message: unknown, context: InvocationContext): Promise<void> {
-    context.log('Service bus queue function processed message:', message);
-    context.log('EnqueuedTimeUtc =', context.triggerMetadata.enqueuedTimeUtc);
-    context.log('DeliveryCount =', context.triggerMetadata.deliveryCount);
-    context.log('MessageId =', context.triggerMetadata.messageId);
-}
-
-app.serviceBusQueue('serviceBusQueueTrigger1', {
-    connection: 'MyServiceBusConnection',
-    queueName: 'testqueue',
-    handler: serviceBusQueueTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -141,20 +126,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a Service Bus trigger [JavaScript function](functions-reference-node.md). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.serviceBusQueue('serviceBusQueueTrigger1', {
-    connection: 'MyServiceBusConnection',
-    queueName: 'testqueue',
-    handler: (message, context) => {
-        context.log('Service bus queue function processed message:', message);
-        context.log('EnqueuedTimeUtc =', context.triggerMetadata.enqueuedTimeUtc);
-        context.log('DeliveryCount =', context.triggerMetadata.deliveryCount);
-        context.log('MessageId =', context.triggerMetadata.messageId);
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

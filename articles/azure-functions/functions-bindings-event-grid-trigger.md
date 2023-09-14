@@ -198,17 +198,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 The following example shows an event grid trigger [TypeScript function](functions-reference-node.md?tabs=typescript).
 
-```typescript
-import { app, EventGridEvent, InvocationContext } from '@azure/functions';
-
-export async function eventGridTrigger1(event: EventGridEvent, context: InvocationContext): Promise<void> {
-    context.log('Event grid function processed event:', event);
-}
-
-app.eventGrid('eventGridTrigger1', {
-    handler: eventGridTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -223,15 +213,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows an event grid trigger [JavaScript function](functions-reference-node.md).
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.eventGrid('eventGridTrigger1', {
-    handler: (event, context) => {
-        context.log('Event grid function processed event:', event);
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

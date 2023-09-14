@@ -398,7 +398,7 @@ You can clone the repo and run `npm install` to install project dependencies.
 ### Start the server
 
 ```bash
-node index.js <web-pubsub-connection-string>
+node server.js <web-pubsub-connection-string>
 ```
 
 This is the connection string that you received in [an earlier step](#get-a-connection-string).

@@ -745,39 +745,7 @@ The following example shows a [TypeScript function](functions-reference-node.md?
 
 # [Model v4](#tab/nodejs-v4)
 
-```typescript
-import { app, input, InvocationContext, output } from '@azure/functions';
-
-const cosmosInput = input.cosmosDB({
-    databaseName: 'MyDatabase',
-    collectionName: 'MyCollection',
-    id: '{queueTrigger}',
-    partitionKey: '{queueTrigger}',
-    connectionStringSetting: 'MyAccount_COSMOSDB',
-});
-
-const cosmosOutput = output.cosmosDB({
-    databaseName: 'MyDatabase',
-    collectionName: 'MyCollection',
-    createIfNotExists: false,
-    partitionKey: '{queueTrigger}',
-    connectionStringSetting: 'MyAccount_COSMOSDB',
-});
-
-export async function storageQueueTrigger1(queueItem: unknown, context: InvocationContext): Promise<void> {
-    const doc = context.extraInputs.get(cosmosInput);
-    doc.text = 'This was updated!';
-    context.extraOutputs.set(cosmosOutput, doc);
-}
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'outqueue',
-    connection: 'MyStorageConnectionAppSetting',
-    extraInputs: [cosmosInput],
-    extraOutputs: [cosmosOutput],
-    handler: storageQueueTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosInput1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -793,38 +761,7 @@ The following example shows a [TypeScript function](functions-reference-node.md?
 
 # [Model v4](#tab/nodejs-v4)
 
-```typescript
-import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
-
-const cosmosInput = input.cosmosDB({
-    databaseName: 'ToDoItems',
-    collectionName: 'Items',
-    id: '{Query.id}',
-    partitionKey: '{Query.partitionKeyValue}',
-    connectionStringSetting: 'CosmosDBConnection',
-});
-
-export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    const toDoItem = context.extraInputs.get(cosmosInput);
-    if (!toDoItem) {
-        return {
-            status: 404,
-            body: 'ToDo item not found',
-        };
-    } else {
-        return {
-            body: `Found ToDo item, Description=${toDoItem.Description}`,
-        };
-    }
-}
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    extraInputs: [cosmosInput],
-    handler: httpTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosInput2.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -840,39 +777,7 @@ The following example shows a [TypeScript function](functions-reference-node.md?
 
 # [Model v4](#tab/nodejs-v4)
 
-```typescript
-import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
-
-const cosmosInput = input.cosmosDB({
-    databaseName: 'ToDoItems',
-    collectionName: 'Items',
-    id: '{id}',
-    partitionKey: '{partitionKeyValue}',
-    connectionStringSetting: 'CosmosDBConnection',
-});
-
-export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    const toDoItem = context.extraInputs.get(cosmosInput);
-    if (!toDoItem) {
-        return {
-            status: 404,
-            body: 'ToDo item not found',
-        };
-    } else {
-        return {
-            body: `Found ToDo item, Description=${toDoItem.Description}`,
-        };
-    }
-}
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    route: 'todoitems/{partitionKeyValue}/{id}',
-    extraInputs: [cosmosInput],
-    handler: httpTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosInput3.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -890,30 +795,7 @@ The queue trigger provides a parameter `departmentId`. A queue message of `{ "de
 
 # [Model v4](#tab/nodejs-v4)
 
-```typescript
-import { app, input, InvocationContext } from '@azure/functions';
-
-const cosmosInput = input.cosmosDB({
-    databaseName: 'MyDb',
-    collectionName: 'MyCollection',
-    sqlQuery: 'SELECT * from c where c.departmentId = {departmentId}',
-    connectionStringSetting: 'CosmosDBConnection',
-});
-
-export async function storageQueueTrigger1(queueItem: unknown, context: InvocationContext): Promise<void> {
-    const documents = context.extraInputs.get(cosmosInput);
-    for (const document of documents) {
-        // operate on each document
-    }
-}
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'outqueue',
-    connection: 'MyStorageConnectionAppSetting',
-    extraInputs: [cosmosInput],
-    handler: storageQueueTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosInput4.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -939,37 +821,7 @@ The following example shows a [JavaScript function](functions-reference-node.md)
 
 # [Model v4](#tab/nodejs-v4)
 
-```javascript
-const { app, input, output } = require('@azure/functions');
-
-const cosmosInput = input.cosmosDB({
-    databaseName: 'MyDatabase',
-    collectionName: 'MyCollection',
-    id: '{queueTrigger}',
-    partitionKey: '{queueTrigger}',
-    connectionStringSetting: 'MyAccount_COSMOSDB',
-});
-
-const cosmosOutput = output.cosmosDB({
-    databaseName: 'MyDatabase',
-    collectionName: 'MyCollection',
-    createIfNotExists: false,
-    partitionKey: '{queueTrigger}',
-    connectionStringSetting: 'MyAccount_COSMOSDB',
-});
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'outqueue',
-    connection: 'MyStorageConnectionAppSetting',
-    extraInputs: [cosmosInput],
-    extraOutputs: [cosmosOutput],
-    handler: (queueItem, context) => {
-        const doc = context.extraInputs.get(cosmosInput);
-        doc.text = 'This was updated!';
-        context.extraOutputs.set(cosmosOutput, doc);
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosInput1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1020,36 +872,7 @@ The following example shows a [JavaScript function](functions-reference-node.md)
 
 # [Model v4](#tab/nodejs-v4)
 
-```javascript
-const { app, input } = require('@azure/functions');
-
-const cosmosInput = input.cosmosDB({
-    databaseName: 'ToDoItems',
-    collectionName: 'Items',
-    id: '{Query.id}',
-    partitionKey: '{Query.partitionKeyValue}',
-    connectionStringSetting: 'CosmosDBConnection',
-});
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    extraInputs: [cosmosInput],
-    handler: (request, context) => {
-        const toDoItem = context.extraInputs.get(cosmosInput);
-        if (!toDoItem) {
-            return {
-                status: 404,
-                body: 'ToDo item not found',
-            };
-        } else {
-            return {
-                body: `Found ToDo item, Description=${toDoItem.Description}`,
-            };
-        }
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosInput2.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1113,37 +936,7 @@ The following example shows a [JavaScript function](functions-reference-node.md)
 
 # [Model v4](#tab/nodejs-v4)
 
-```javascript
-const { app, input } = require('@azure/functions');
-
-const cosmosInput = input.cosmosDB({
-    databaseName: 'ToDoItems',
-    collectionName: 'Items',
-    id: '{id}',
-    partitionKey: '{partitionKeyValue}',
-    connectionStringSetting: 'CosmosDBConnection',
-});
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    route: 'todoitems/{partitionKeyValue}/{id}',
-    extraInputs: [cosmosInput],
-    handler: (request, context) => {
-        const toDoItem = context.extraInputs.get(cosmosInput);
-        if (!toDoItem) {
-            return {
-                status: 404,
-                body: 'ToDo item not found',
-            };
-        } else {
-            return {
-                body: `Found ToDo item, Description=${toDoItem.Description}`,
-            };
-        }
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosInput3.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1211,28 +1004,7 @@ The queue trigger provides a parameter `departmentId`. A queue message of `{ "de
 
 # [Model v4](#tab/nodejs-v4)
 
-```javascript
-const { app, input } = require('@azure/functions');
-
-const cosmosInput = input.cosmosDB({
-    databaseName: 'MyDb',
-    collectionName: 'MyCollection',
-    sqlQuery: 'SELECT * from c where c.departmentId = {departmentId}',
-    connectionStringSetting: 'CosmosDBConnection',
-});
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'outqueue',
-    connection: 'MyStorageConnectionAppSetting',
-    extraInputs: [cosmosInput],
-    handler: (queueItem, context) => {
-        const documents = context.extraInputs.get(cosmosInput);
-        for (const document of documents) {
-            // operate on each document
-        }
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosInput4.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1808,7 +1580,7 @@ _Applies only to the Python v1 programming model._
 
 # [Model v4](#tab/nodejs-v4)
 
-The following table explains the properties that you can set on the `options` object passed to the `input.cosmosDB()` method. The "type", "direction", and "name" properties can be ignored for model v4.
+The following table explains the properties that you can set on the `options` object passed to the `input.cosmosDB()` method. The `type`, `direction`, and `name` properties don't apply to the v4 model.
 
 # [Model v3](#tab/nodejs-v3)
 

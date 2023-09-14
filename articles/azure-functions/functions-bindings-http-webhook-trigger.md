@@ -295,23 +295,7 @@ public HttpResponseMessage run(
 
 The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
-```typescript
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
-
-export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    context.log(`Http function processed request for url "${request.url}"`);
-
-    const name = request.query.get('name') || (await request.text()) || 'world';
-
-    return { body: `Hello, ${name}!` };
-}
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    handler: httpTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -326,21 +310,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.http('httpTrigger1', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    handler: async (request, context) => {
-        context.log(`Http function processed request for url "${request.url}"`);
-
-        const name = request.query.get('name') || (await request.text()) || 'world';
-
-        return { body: `Hello, ${name}!` };
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -804,23 +774,7 @@ public class HttpTriggerJava {
 
 As an example, the following TypeScript code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`. The example reads the parameters from the request and returns their values in the response.
 
-```typescript
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
-
-export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    const category = request.params.category;
-    const id = request.params.id;
-
-    return { body: `Category: ${category}, ID: ${id}` };
-}
-
-app.http('httpTrigger1', {
-    methods: ['GET'],
-    authLevel: 'anonymous',
-    route: 'products/{category:alpha}/{id:int?}',
-    handler: httpTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger2.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -835,21 +789,7 @@ TypeScript samples are not documented for model v3.
 
 As an example, the following JavaScript code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`. The example reads the parameters from the request and returns their values in the response.
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.http('httpTrigger1', {
-    methods: ['GET'],
-    authLevel: 'anonymous',
-    route: 'products/{category:alpha}/{id:int?}',
-    handler: async (request, context) => {
-        const category = request.params.category;
-        const id = request.params.id;
-
-        return { body: `Category: ${category}, ID: ${id}` };
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger2.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1018,28 +958,7 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 ::: zone pivot="programming-language-typescript"
 # [Model v4](#tab/nodejs-v4)
 
-```typescript
-import { app, HttpRequest, HttpResponseInit, input, InvocationContext } from '@azure/functions';
-
-const tableInput = input.generic({
-    type: 'table',
-    partitionKey: 'products',
-    tableName: 'products',
-    rowKey: '{id}',
-});
-
-export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    return { jsonBody: context.extraInputs.get(tableInput) };
-}
-
-app.http('httpTrigger1', {
-    methods: ['GET'],
-    authLevel: 'anonymous',
-    route: 'products/{id}',
-    extraInputs: [tableInput],
-    handler: httpTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger3.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1050,26 +969,7 @@ TypeScript samples are not documented for model v3.
 ::: zone pivot="programming-language-javascript"
 # [Model v4](#tab/nodejs-v4)
 
-```javascript
-const { app, input } = require('@azure/functions');
-
-const tableInput = input.generic({
-    type: 'table',
-    partitionKey: 'products',
-    tableName: 'products',
-    rowKey: '{id}',
-});
-
-app.http('httpTrigger1', {
-    methods: ['GET'],
-    authLevel: 'anonymous',
-    route: 'products/{id}',
-    extraInputs: [tableInput],
-    handler: async (request, context) => {
-        return { jsonBody: context.extraInputs.get(tableInput) };
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger3.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

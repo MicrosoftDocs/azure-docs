@@ -148,18 +148,7 @@ The following example shows a timer trigger [TypeScript function](functions-refe
 
 # [Model v4](#tab/nodejs-v4)
 
-```TypeScript
-import { app, InvocationContext, Timer } from '@azure/functions';
-
-export async function timerTrigger1(myTimer: Timer, context: InvocationContext): Promise<void> {
-    context.log('Timer function processed request.');
-}
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    handler: timerTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/timerTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -174,16 +163,7 @@ The following example shows a timer trigger [JavaScript function](functions-refe
 
 # [Model v4](#tab/nodejs-v4)
 
-```JavaScript
-const { app } = require('@azure/functions');
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    handler: (myTimer, context) => {
-        context.log('Timer function processed request.');
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/timerTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

@@ -27,9 +27,9 @@ When planning your access control strategy, it's a best practice to manage to le
 
 Follow these steps to help you find the right role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Roles and administrators** to see the list of Azure AD roles.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
 1. Use the **Service** filter to narrow down the list of roles.
 

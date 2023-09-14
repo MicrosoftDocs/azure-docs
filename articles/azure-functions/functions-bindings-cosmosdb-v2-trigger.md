@@ -215,21 +215,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 The following example shows an Azure Cosmos DB trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function writes log messages when Azure Cosmos DB records are added or modified.
 
-```typescript
-import { app, InvocationContext } from '@azure/functions';
-
-export async function cosmosDBTrigger1(documents: unknown[], context: InvocationContext): Promise<void> {
-    context.log(`Cosmos DB function processed ${documents.length} documents`);
-}
-
-app.cosmosDB('cosmosDBTrigger1', {
-    connection: '<connection-app-setting>',
-    databaseName: 'Tasks',
-    containerName: 'Items',
-    createLeaseContainerIfNotExists: true,
-    handler: cosmosDBTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosDBTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -244,19 +230,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows an Azure Cosmos DB trigger [JavaScript function](functions-reference-node.md). The function writes log messages when Azure Cosmos DB records are added or modified.
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.cosmosDB('cosmosDBTrigger1', {
-    connection: '<connection-app-setting>',
-    databaseName: 'Tasks',
-    containerName: 'Items',
-    createLeaseContainerIfNotExists: true,
-    handler: (documents, context) => {
-        context.log(`Cosmos DB function processed ${documents.length} documents`);
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosDBTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -423,7 +397,7 @@ _Applies only to the Python v1 programming model._
 
 # [Model v4](#tab/nodejs-v4)
 
-The following table explains the properties that you can set on the `options` object passed to the `app.cosmosDB()` method. The "type", "direction", and "name" properties can be ignored for model v4.
+The following table explains the properties that you can set on the `options` object passed to the `app.cosmosDB()` method. The `type`, `direction`, and `name` properties don't apply to the v4 model.
 
 # [Model v3](#tab/nodejs-v3)
 

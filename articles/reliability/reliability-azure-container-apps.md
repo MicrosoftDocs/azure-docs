@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability, references_regions, devx-track-azurepowershell
 ms.topic: reliability-article
 ms.date: 08/29/2023
 ---

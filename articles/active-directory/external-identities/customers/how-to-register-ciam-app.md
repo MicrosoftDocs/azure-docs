@@ -65,20 +65,15 @@ The following steps show you how to register your SPA in the Microsoft Entra adm
 ### Grant delegated permissions
 This app signs in users. You can add delegated permissions to it, by following the steps below:
 
-[!INCLUDE [grant permision for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
+[!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
 
 ### Grant API permissions (optional):
 
 If your SPA needs to call an API, you must grant your SPA API permissions so it can call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call. 
 
-[!INCLUDE [grant permisions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
+[!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 If you'd like to learn how to expose the permissions by adding a link, go to the [Web API](how-to-register-ciam-app.md?tabs=webapi) section.
-
-## Next steps
- 
-- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
-- [Sign in users in a sample vanilla JavaScript single-page app](./sample-single-page-app-vanillajs-sign-in.md) 
 
 # [Web app](#tab/webapp)
 ## Register your Web app
@@ -123,11 +118,6 @@ If your web app needs to call an API, you must grant your web app API permission
 
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
-## Next steps
- 
-- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
-- [Sign in users in a sample Node.js web app](./sample-web-app-node-sign-in.md) 
-
 # [Web API](#tab/webapi)
 ## Register your Web API
 
@@ -141,10 +131,6 @@ If your web app needs to call an API, you must grant your web app API permission
 ### Add app roles
 
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
-
-## Next steps
- 
-- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md) 
 
 # [Desktop or Mobile app](#tab/desktopmobileapp)
 ## Register your Desktop or Mobile app
@@ -179,11 +165,6 @@ The following steps show you how to register your app in the Microsoft Entra adm
 If your mobile app needs to call an API, you must grant your mobile app API permissions so it can call the API. You must also [register the web API](how-to-register-ciam-app.md?tabs=webapi) that you need to call.
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
-## Next steps
- 
-- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
-- [Sign in users in a sample Electron desktop app](how-to-desktop-app-electron-sample-sign-in.md) 
-
 # [Daemon app](#tab/daemonapp)
 ## Register your Daemon app
 
@@ -195,11 +176,6 @@ A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/a
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/grant-api-permissions-app-permissions.md)]
 
-## Next steps
- 
-- Learn more about a [daemon app that calls a web API in the daemon's name](/azure/active-directory/develop/authentication-flows-app-scenarios#daemon-app-that-calls-a-web-api-in-the-daemons-name)
-- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
-
 # [Microsoft Graph API](#tab/graphapi)
 ## Register a Microsoft Graph API application
 [!INCLUDE [register client app](../customers/includes/register-app/register-client-app-common.md)]
@@ -210,5 +186,10 @@ A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/a
 ### Create a client secret 
 [!INCLUDE [add app client secret](../customers/includes/register-app/add-app-client-secret.md)]
 
+---
+
+[!INCLUDE [find the application ID](../customers/includes/register-app/find-application-id.md)] 
+
 ## Next steps
-- Learn more how to manage [Azure Active Directory for customers resources with Microsoft Graph](microsoft-graph-operations.md)
+ 
+- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)

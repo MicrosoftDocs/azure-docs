@@ -24,7 +24,7 @@ Update Manager (preview) provides you the flexibility to take an immediate actio
 
 ## Update Now/One-time update
 
-Update Manager (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-single-vm).
+Update Manager (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-a-single-vm).
 
 
 ## Scheduled patching
@@ -51,7 +51,7 @@ This mode of patching allows operating system to automatically install updates a
 
 Hotpatching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. For more information, see [Hotpatch for new virtual machines](../automanage/automanage-hotpatch.md)
 
-Hotpatching property is available as a setting in Update Manager (preview) which you can enable by using Update settings flow. Refer to detailed instructions [here](manage-update-settings.md#configure-settings-on-single-vm)
+Hotpatching property is available as a setting in Update Manager (preview) which you can enable by using Update settings flow. Refer to detailed instructions [here](manage-update-settings.md#configure-settings-on-a-single-vm)
 
 :::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot that shows the hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
 

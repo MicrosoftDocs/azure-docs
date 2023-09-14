@@ -89,25 +89,7 @@ public void run(
 
 The following example shows a queue trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
-```typescript
-import { app, InvocationContext } from '@azure/functions';
-
-export async function storageQueueTrigger1(queueItem: unknown, context: InvocationContext): Promise<void> {
-    context.log('Storage queue function processed work item:', queueItem);
-    context.log('expirationTime =', context.triggerMetadata.expirationTime);
-    context.log('insertionTime =', context.triggerMetadata.insertionTime);
-    context.log('nextVisibleTime =', context.triggerMetadata.nextVisibleTime);
-    context.log('id =', context.triggerMetadata.id);
-    context.log('popReceipt =', context.triggerMetadata.popReceipt);
-    context.log('dequeueCount =', context.triggerMetadata.dequeueCount);
-}
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'myqueue-items',
-    connection: 'MyStorageConnectionAppSetting',
-    handler: storageQueueTrigger1,
-});
-```
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueTrigger1.ts" :::
 
 The [usage](#usage) section explains `queueItem`. The [message metadata section](#message-metadata) explains all of the other variables shown.
 
@@ -124,23 +106,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a queue trigger [JavaScript function](functions-reference-node.md). The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
-```javascript
-const { app } = require('@azure/functions');
-
-app.storageQueue('storageQueueTrigger1', {
-    queueName: 'myqueue-items',
-    connection: 'MyStorageConnectionAppSetting',
-    handler: (queueItem, context) => {
-        context.log('Storage queue function processed work item:', queueItem);
-        context.log('expirationTime =', context.triggerMetadata.expirationTime);
-        context.log('insertionTime =', context.triggerMetadata.insertionTime);
-        context.log('nextVisibleTime =', context.triggerMetadata.nextVisibleTime);
-        context.log('id =', context.triggerMetadata.id);
-        context.log('popReceipt =', context.triggerMetadata.popReceipt);
-        context.log('dequeueCount =', context.triggerMetadata.dequeueCount);
-    },
-});
-```
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueTrigger1.js" :::
 
 The [usage](#usage) section explains `queueItem`. The [message metadata section](#message-metadata) explains all of the other variables shown.
 

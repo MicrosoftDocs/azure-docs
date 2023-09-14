@@ -128,10 +128,10 @@ New-MgOauth2PermissionGrant -BodyParameter $params |
   Format-List Id, ClientId, ConsentType, ResourceId, Scope
 ```
      
-1. Confirm that you've granted tenant wide admin consent by running the following request.   
+4. Confirm that you've granted tenant wide admin consent by running the following request.   
     
   ```powershell
-   Get-MgOauth2PermissionGrant-Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
+   Get-MgOauth2PermissionGrant -Filter "clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' consentType eq 'AllPrincipals'" 
   ```      
 ## Grant admin consent for application permissions
 

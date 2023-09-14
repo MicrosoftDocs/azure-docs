@@ -123,7 +123,11 @@
             - name: CIS Azure Linux benchmark
               href: cis-azure-linux.md
     - name: Networking
-      href: concepts-network.md
+      items:
+        - name: Concepts
+          href: concepts-network.md
+        - name: CNI networking
+          href: azure-cni-overview.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -293,7 +297,7 @@
               href: manage-node-pools.md
             - name: Add an Azure Spot node pool
               href: spot-node-pool.md
-            - name: Multi-instance GPU Node pool
+            - name: Multi-instance GPU node pool
               href: gpu-multi-instance.md
             - name: Node pool snapshot
               href: node-pool-snapshot.md
@@ -381,28 +385,6 @@
               href: use-cvm.md
             - name: Use Dedicated Hosts with AKS
               href: use-azure-dedicated-hosts.md
-        - name: Workload security
-          items:
-            - name: Secrets Store CSI Driver
-              items:
-                - name: Secrets Store CSI Driver configuration
-                  href: csi-secrets-store-driver.md
-                - name: Provide Azure Key Vault access
-                  href: csi-secrets-store-identity-access.md
-                - name: Configure TLS for NGINX ingress controller
-                  href: csi-secrets-store-nginx-tls.md
-            - name: Azure AD pod identity
-              href: use-azure-ad-pod-identity.md
-            - name: Migrate your app from pod identity to workload identity
-              href: workload-identity-migrate-from-pod-identity.md
-            - name: Secure pod traffic with network policies
-              href: use-network-policies.md
-            - name: Use Pod Sandboxing
-              href: use-pod-sandboxing.md
-            - name: Use pod security policies
-              href: use-pod-security-policies.md
-            - name: Use Pod Security Admission
-              href: use-psa.md
         - name: Role-based access control and authorization
           items: 
             - name: Use managed identities
@@ -517,6 +499,8 @@
               href: limit-egress-traffic.md
         - name: Ingress
           items:
+            - name: Create a controller in AKS using Terraform
+              href: create-k8s-cluster-with-aks-application-gateway-ingress.md
             - name: Use ingress-nginx
               items:
                 - name: Create an ingress controller
@@ -669,6 +653,8 @@
           href: /virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Optimize Dockerfiles for Windows Server containers
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
+        - name: Windows AKS partner solutions
+          href: windows-aks-partner-solutions.md
     - name: Develop and run applications
       items:
         - name: Install existing applications with Helm

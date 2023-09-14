@@ -42,7 +42,7 @@ Follow these steps to enable data-aware security posture. Don't forget to review
 
 ### Enable for AWS resources
 
-#### S3 buckets and RD instances
+#### S3 buckets and RDS instances
 
 1. Enable data security posture as described above
 1. Proceed with the instructions to download the CloudFormation template and to run it in AWS.
