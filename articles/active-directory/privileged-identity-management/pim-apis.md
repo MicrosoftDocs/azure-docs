@@ -3,15 +3,15 @@ title: API concepts in Privileged Identity management
 description: Information for understanding the APIs in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: how-to
-ms.date: 04/18/2022
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ Find more details about APIs that allow to manage assignments in the documentati
 - [PIM for Azure AD roles API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)
 - [PIM for Azure resource roles API reference](/rest/api/authorization/privileged-role-eligibility-rest-sample)
 - [PIM for Groups API reference](/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview)
-- [PIM Alerts for Azure AD Roles API reference](/graph/api/resources/privilegedidentitymanagementv3-overview?view=graph-rest-beta#building-blocks-of-the-pim-alerts-apis)
+- [PIM Alerts for Azure AD Roles API reference](/graph/api/resources/privilegedidentitymanagementv3-overview?view=graph-rest-beta#building-blocks-of-the-pim-alerts-apis&preserve-view=true)
 - [PIM Alerts for Azure Resources API reference](/rest/api/authorization/role-management-alert-rest-sample)
 
 
@@ -41,7 +41,7 @@ There have been several iterations of the PIM API over the past few years. You'l
 
 ### Iteration 1 – Deprecated
 
-Under the /beta/privilegedRoles endpoint, Microsoft had a classic version of the PIM API which only supported Azure AD roles and is no longer supported. Access to this API was deprecated in June 2021.
+Under the /beta/privilegedRoles endpoint, Microsoft had a classic version of the PIM API, which only supported Azure AD roles and is no longer supported. Access to this API was deprecated in June 2021.
 
 ### Iteration 2 – Supports Azure AD roles and Azure resource roles
 
