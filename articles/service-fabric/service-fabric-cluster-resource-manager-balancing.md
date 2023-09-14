@@ -14,9 +14,9 @@ The Service Fabric Cluster Resource Manager supports dynamic load changes, react
 
 There are three different categories of work that the Cluster Resource Manager performs:
 
-1. Placement – this stage deals with placing any stateful replicas or stateless instances that are missing. Placement includes both new services and handling stateful replicas or stateless instances that have failed. Deleting and dropping replicas or instances are handled here.
-2. Constraint Checks – this stage checks for and corrects violations of the different placement constraints (rules) within the system. Examples of rules are things like ensuring that nodes aren't over capacity and that a service’s placement constraints are met.
-3. Balancing – this stage checks to see if rebalancing is required based on the configured desired level of balance for different metrics. If so it attempts to find an arrangement in the cluster that is more balanced.
+* Placement – this stage deals with placing any stateful replicas or stateless instances that are missing. Placement includes both new services and handling stateful replicas or stateless instances that have failed. Deleting and dropping replicas or instances are handled here.
+* Constraint Checks – this stage checks for and corrects violations of the different placement constraints (rules) within the system. Examples of rules are things like ensuring that nodes aren't over capacity and that a service’s placement constraints are met.
+* Balancing – this stage checks to see if rebalancing is required based on the configured desired level of balance for different metrics. If so it attempts to find an arrangement in the cluster that is more balanced.
 
 ## Configuring Cluster Resource Manager Timers
 The first set of controls around balancing is a set of timers. These timers govern how often the Cluster Resource Manager examines the cluster and takes corrective actions.
@@ -109,13 +109,13 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ]
 ```
 
-![Diagram showing an example of a node balancing threshold, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png)
+![Diagram showing an example of a node balancing threshold](./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png)
 
 In this example, each service is consuming one unit of some metric. In the top example, the maximum load on a node is five and the minimum is two. Let’s say that the balancing threshold for this metric is three. Since the ratio in the cluster is 5/2 = 2.5 and that is less than the specified balancing threshold of three, the cluster is balanced. No balancing is triggered when the Cluster Resource Manager checks.
 
 In the bottom example, the maximum load on a node is 10, while the minimum is two, resulting in a ratio of five. Five is greater than the designated balancing threshold of three for that metric. As a result, a rebalancing run will be scheduled next time the balancing timer fires. In a situation like this some load is usually distributed to Node 3. Because the Service Fabric Cluster Resource Manager doesn't use a greedy approach, some load could also be distributed to Node 2. 
 
-![Diagram showing an action taken in response to a balancing threshold, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png)
+![Diagram showing an action taken in response to a balancing threshold.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png)
 
 > [!NOTE]
 > "Balancing" handles two different strategies for managing load in your cluster. The default strategy that the Cluster Resource Manager uses is to distribute load across the nodes in the cluster. The other strategy is [defragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md). Defragmentation is performed during the same balancing run. The balancing and defragmentation strategies can be used for different metrics within the same cluster. A service can have both balancing and defragmentation metrics. For defragmentation metrics, the ratio of the loads in the cluster triggers rebalancing when it's _below_ the balancing threshold. 
@@ -128,7 +128,7 @@ Sometimes, although nodes are relatively imbalanced, the *total* amount of load 
 
 Let’s say that we retain our Balancing Threshold of three for this metric. Let's also say we have an Activity Threshold of 1536. In the first case, while the cluster is imbalanced per the Balancing Threshold there's no node meets that Activity Threshold, so nothing happens. In the bottom example, Node 1 is over the Activity Threshold. Since both the Balancing Threshold and the Activity Threshold for the metric are exceeded, balancing is scheduled. As an example, let's look at the following diagram: 
 
-![Diagram showing an example of a node activity threshold, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png)
+![Diagram showing an example of a node activity threshold.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png)
 
 Just like Balancing Thresholds, Activity Thresholds are defined per-metric via the cluster definition:
 
@@ -175,13 +175,13 @@ Occasionally though, a service that wasn’t itself imbalanced gets moved (remem
 
 We don’t really have four independent services, we have three services that are related and one that is off on its own.
 
-![Diagram showing how to balance services together, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png)
+![Diagram showing how to balance services together.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together-1.png)
 
 Because of this chain, it's possible that an imbalance in metrics 1-4 can cause replicas or instances belonging to services 1-3 to move around. We also know that an imbalance in Metrics 1, 2, or 3 can't cause movements in Service 4. There would be no point since moving the replicas or instances belonging to Service 4 around can do absolutely nothing to impact the balance of Metrics 1-3.
 
 The Cluster Resource Manager automatically figures out what services are related. Adding, removing, or changing the metrics for services can impact their relationships. For example, between two runs of balancing Service 2 may have been updated to remove Metric 2. This breaks the chain between Service 1 and Service 2. Now instead of two groups of related services, there are three:
 
-![Diagram showing that Cluster Resource Manager determines what services are related, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png)
+![Diagram showing that Cluster Resource Manager determines what services are related.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together-2.png)
 
 ## Balancing of a cluster per node type
 
@@ -197,7 +197,7 @@ During balancing of a cluster per node type, the Service Fabric Cluster Resource
 - **Metric activity thresholds** per node type are values that have a similar role to the globally defined activity threshold used in classical balancing. The maximum metric load is calculated for each node type. If the maximum load of a node type is higher than the defined activity threshold for that node type, the node type is marked as imbalanced. For more details regarding configuration of metric activity thresholds per node type, please check the [activity-thresholds-per-node-type section](#activity-thresholds-per-node-type).
 - **Minimum balancing interval** per node type has a role similar to the globally defined minimum balancing interval. For each node type, the Cluster Resource Manager preserves the timestamp of the last balancing. Two consecutive balancing phases couldn't be executed on a node type within the defined minimum balancing interval. For more details regarding configuration of minimum balancing interval per node type, please check the [minimum balancing interval per node type section](#minimum-balancing-interval-per-node-type).
 
-### Describing balancing per node type
+### Describe balancing per node type
 
 In order to enable balancing per node type, parameter SeparateBalancingStrategyPerNodeType needs to be enabled in a cluster manifest. Additionally, subclustering feature needs to be enabled as well. Example of a cluster manifest PlacementAndLoadBalancing section for enabling the feature:
 
@@ -300,7 +300,7 @@ If minimal balancing interval isn't defined for a node type, interval inherits v
 
 Let's consider a case where a cluster contains two node types, node type **A** and node type **B**. All services report a same metric and they're split between these node types, thus load statistics are different for them. In the example, the node type **A** has maximum load of 300 and minimum of 100, and the node type **B** has maximum load of 700 and minimum load of 500: 
 
-![Diagram showing an example of a node type balancing threshold wtih two node types, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-per-node-type-example1.png)
+![Diagram showing an example of a node type balancing threshold wtih two node types.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-per-node-type-example-1.png)
 
 Customer detected that workloads of two node types have different balancing needs and decided to set different balancing and activity thresholds per node type. Balancing threshold of node type **A** is *2.5*, and activity threshold is *50*. For node type **B**, customer set balancing threshold to *1.2*, and activity threshold to *400*.
 
@@ -310,7 +310,7 @@ During detection of imbalance for the cluster in this example, both node types v
 
 Let's consider a case where a cluster contains three node types, node type **A**, **B** and **C**. All services report a same metric and they're split between these node types, thus load statistics are different for them. In the example, the node type **A** has maximum load of 600 and minimum of 100, the node type **B** has maximum load of 900 and minimum load of 100, and node type **C** has maximum load of 600 and minimum load of 300: 
 
-![Diagram showing an example of a node type balancing threshold with three node types, PNG.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-per-node-type-example2.png)
+![Diagram showing an example of a node type balancing threshold with three node types.](./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-per-node-type-example-2.png)
 
 Customer detected that workloads of these node types have different balancing needs and decided to set different balancing and activity thresholds per node type. Balancing threshold of node type **A** is *5*, and activity threshold is *700*. For node type **B**, customer set balancing threshold to *10*, and activity threshold to *200*. For node type **C**, customer set balancing threshold to *2*, and activity threshold to *300*.
 
