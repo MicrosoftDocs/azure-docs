@@ -1005,16 +1005,6 @@ Each of these options is described in the [detailed instructions](?tabs=detailed
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
 
-## Troubleshooting
-
-See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
-
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
-
-## Frequently asked questions
-
-This section provides answers to common questions.
-
 ### How do I achieve proxy passthrough?
 
 To achieve proxy passthrough, configure a machine-level proxy or an application-level proxy.
@@ -1029,6 +1019,12 @@ Example Web.config:
     </defaultProxy>
 </system.net>
 ```
+
+## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 
