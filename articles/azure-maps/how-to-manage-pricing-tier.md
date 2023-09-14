@@ -16,9 +16,9 @@ You can manage the pricing tier of your Azure Maps account through the [Azure po
 
 > [!NOTE]
 >
-> **Azure Maps Gen1 Price Tier Retirement**
+> **Azure Maps Gen1 pricing tier retirement**
 >
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 before it’s retired, otherwise it will automatically be updated.
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated.
 >
 > After 9/14/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts via the Azure Portal. After 10/12/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts using ARM templates.
 >
