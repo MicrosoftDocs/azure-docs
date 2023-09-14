@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 12/20/2021
+ms.date: 9/12/2023
 ms.author: mamccrea
 ms.custom: ignite-fall-2021, devx-track-arm-template
 ---
@@ -118,18 +118,18 @@ Under **properties**, you also have to specify an image under **storageProfile**
         "sku": "2019-datacenter-gensecond",
         "version": "latest"
       },
-        "18_04-lts-gen2": {
-        "offer": "UbuntuServer",
-        "publisher": "Canonical",
-        "sku": "18_04-lts-gen2",
-        "version": "latest"
-      },
       "20_04-lts-gen2": {
-        "offer": "UbuntuServer",
+        "offer": "0001-com-ubuntu-server-focal",
         "publisher": "Canonical",
         "sku": "20_04-lts-gen2",
         "version": "latest"
       }
+      "22_04-lts-gen2": {
+        "offer": "0001-com-ubuntu-server-jammy",
+        "publisher": "Canonical",
+        "sku": "22_04-lts-gen2",
+        "version": "latest"
+      },
 ```
 
 ## Next step

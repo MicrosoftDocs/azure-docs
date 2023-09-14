@@ -162,7 +162,7 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
 #### Use Connection String
 
 1. Create a Kubernetes Secret in the same namespace as the `AzureAppConfigurationProvider` resource and add Azure App Configuration connection string with key *azure_app_configuration_connection_string* in the Secret.
-2. Set the `spec.connectionStringReference` property to the name of the Secret in the following sample `AzureAppConfigurationProvider` resource and deploy it to the Kubernetes cluster.
+1. Set the `spec.connectionStringReference` property to the name of the Secret in the following sample `AzureAppConfigurationProvider` resource and deploy it to the Kubernetes cluster.
 
     ``` yaml
     apiVersion: azconfig.io/v1beta1
@@ -174,7 +174,6 @@ The `spec.keyValues.refresh.monitoring.keyValues` is an array of objects, which 
       target:
         configMapName: configmap-created-by-appconfig-provider
     ```
-
 ### Key-value selection
 
 Use the `selectors` property to filter the key-values to be downloaded from Azure App Configuration.

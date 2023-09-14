@@ -4,9 +4,8 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 09/07/2023
+ms.date: 09/12/2023
 ms.author: kendownie
-ms.custom:
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
@@ -58,10 +57,12 @@ az k8s-extension list --cluster-name <cluster-name> --resource-group <resource-g
 
 Congratulations, you've successfully installed Azure Container Storage. You now have new storage classes that you can use for your Kubernetes workloads.
 
-## Next steps
+## Choose a data storage option
 
-Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Depending on the back-end storage type you want to use, follow the steps in the appropriate how-to article.
+Next you'll need to choose a back-end storage option to create your storage pool. Choose one of the following three options and follow the link to create a storage pool and persistent volume claim.
 
-- [Use Azure Container Storage Preview with Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md)
-- [Use Azure Container Storage Preview with Azure Disks](use-container-storage-with-managed-disks.md)
-- [Use Azure Container Storage with Azure Ephemeral disk (NVMe)](use-container-storage-with-local-disk.md)
+- **Azure Elastic SAN Preview**: Azure Elastic SAN preview is a good fit for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. [Create a storage pool using Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md#create-a-storage-pool).
+
+- **Azure Disks**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size. [Create a storage pool using Azure Disks](use-container-storage-with-managed-disks.md#create-a-storage-pool).
+
+- **Ephemeral Disk**: This option uses local NVMe drives on the AKS nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment. [Create a storage pool using Ephemeral Disk](use-container-storage-with-local-disk.md#create-a-storage-pool).

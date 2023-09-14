@@ -45,9 +45,8 @@ Role-assignable groups benefit from extra protections comparing to non-role-assi
 
 To learn more about Entra ID built-in roles and their permissions, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
-One Entra ID tenant can have up to 500 role-assignable groups. To learn more about Entra ID service limits and restrictions, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
+Azure AD role-assignable group feature is not part of Azure AD Privileged Identity Management (Azure AD PIM). For more information on licensing, see [Microsoft Entra ID Governance licensing fundamentals](../../active-directory/governance/licensing-fundamentals.md) .
 
-Entra ID role-assignable group feature isn't part of Azure AD Privileged Identity Management (Azure AD PIM). It requires a Microsoft Entra Premium P1, P2, or Microsoft Entra ID Governance license.
 
 ## Relationship between role-assignable groups and PIM for Groups
 
@@ -77,9 +76,7 @@ If a user is an active member of Group A, and Group A is an eligible member of G
 
 ## Privileged Identity Management and app provisioning (Public Preview)
 
-> [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
-
-If the group is configured for [app provisioning](../app-provisioning/index.yml), activation of group membership triggers provisioning of group membership (and user account itself if it wasn’t provisioned previously) to the application using SCIM protocol. 
+If the group is configured for [app provisioning](../app-provisioning/index.yml), activation of group membership will trigger provisioning of group membership (and user account itself if it wasn’t provisioned previously) to the application using SCIM protocol. 
 
 In Public Preview we have a functionality that triggers provisioning right after group membership is activated in PIM.
 Provisioning configuration depends on the application. Generally, we recommend having at least two groups assigned to the application. Depending on the number of roles in your application, you may choose to define additional “privileged groups.”:

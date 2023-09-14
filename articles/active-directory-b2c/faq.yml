@@ -101,7 +101,7 @@ sections:
       - question: |
           How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
         answer: |
-          You can use the [company branding feature](../active-directory/fundamentals/customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
+          You can use the [company branding feature](../active-directory/fundamentals/how-to-customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
           
           * **Banner logo**: Shown at the bottom-right.
           * **Background color**: Shown at the top.
@@ -119,7 +119,7 @@ sections:
           Currently you can’t change the "From:" field on the email.
           
           > [!TIP]
-          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com).
+          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true).
           
       - question: |
           How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
@@ -146,12 +146,12 @@ sections:
       - question: |
           Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
         answer: |
-          Integration with Microsoft Dynamics 365 Portal is available. See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](/dynamics365/customer-engagement/portals/azure-ad-b2c).
+          Integration with Microsoft Dynamics 365 Portal is available. See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](/power-apps/maker/portals/configure/azure-ad-b2c).
           
       - question: |
           Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
         answer: |
-          Azure AD B2C isn't meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) instead.
+          Azure AD B2C isn't meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/learn-all-about-the-azure-ad-b2b-collaboration-preview/ba-p/244082) instead.
           
       - question: |
           Should I use Azure AD B2C or B2B to manage external identities?
