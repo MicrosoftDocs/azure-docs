@@ -753,56 +753,23 @@ Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to use
 
 1. Import `PROTOCOL_TLS_CLIENT`, `SSLContext`, and `CERT_NONE` from the `ssl` module. Then, import `Cluster` from the `cassandra.cluster` module. Finally, import `PlainTextAuthProvider` from the `cassandra.auth` module.
 
-    ```python
-    from ssl import PROTOCOL_TLS_CLIENT, SSLContext, CERT_NONE
-    from cassandra.cluster import Cluster
-    from cassandra.auth import PlainTextAuthProvider
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" id="imports":::
 
 1. Create a new TLS/SSL context variable using `SSLContext`. Configure the context to not verify the emulator's self-signed certificate.
 
-    ```python
-    ssl_context = SSLContext(PROTOCOL_TLS_CLIENT)
-    ssl_context.check_hostname = False
-    ssl_context.verify_mode = CERT_NONE
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" highlight="1" id="ssl":::
 
 1. Create a new `session` using the emulator's credentials, `PlainTextAuthProvider`, `Cluster`, and `cluster.connect()`.
 
-    ```python
-    auth_provider = PlainTextAuthProvider(
-        username="localhost", 
-        password="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
-    )
-    cluster = Cluster(
-        ["localhost"], 
-        port = "10350", 
-        auth_provider=auth_provider,
-        ssl_context=ssl_context
-    )
-    session = cluster.connect()
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" highlight="1,4-5,9,15" id="client":::
 
 1. Create a new keyspace and table using `session.execute`.
 
-    ```python
-    session.execute("CREATE KEYSPACE IF NOT EXISTS cosmicworks WITH replication = {'class':'basicclass', 'replication_factor': 1};")
-
-    session.execute("CREATE TABLE IF NOT EXISTS cosmicworks.products (id text PRIMARY KEY, name text)")
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" highlight="1,6" id="resources":::
 
 1. Use `session.execute` to create a new item in the table.
 
-    ```python
-    item = {
-        "id": "68719518371",
-        "name": "Kiama classic surfboard"
-    }
-    session.execute(
-        "INSERT INTO cosmicworks.products (id, name) VALUES (%s, %s)", 
-        [item["id"], item["name"]]
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" highlight="2" id="upsert":::
 
 1. Run the Python application.
 
