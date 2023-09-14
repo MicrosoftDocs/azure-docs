@@ -129,11 +129,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Users > Add new user**.
 
-    ![Create test user1 ](./media/timeclock-365-saml-tutorial/add-user-1.png)
+    ![Create test user1](./media/timeclock-365-saml-tutorial/add-user-1.png)
 
 1. Provide all the required information  in the **User information** page and click on **Save**.
 
-    ![Create test user2 ](./media/timeclock-365-saml-tutorial/add-user-2.png)
+    ![Create test user2](./media/timeclock-365-saml-tutorial/add-user-2.png)
 
 1. Click on **Create** button to create the test user.
 
