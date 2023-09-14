@@ -57,7 +57,8 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 
 The following example shows a context variable:
 
-```
+
+```yaml
 {"RecoveryPlanName":"hrweb-recovery",
 "FailoverType":"Test",
 "FailoverDirection":"PrimaryToSecondary",
@@ -74,7 +75,8 @@ The following example shows a context variable:
 
 If you want to access all VMs in VMMap in a loop, you can use the following code:
 
-```
+
+```powershell
 $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 $vmMap = $RecoveryPlanContext.VmMap
     foreach($VMID in $VMinfo)
@@ -88,13 +90,7 @@ $vmMap = $RecoveryPlanContext.VmMap
         }
 ```
 
-
-
 Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has a useful example of a [recovery plan context script](http://harvestingclouds.com/post/script-sample-azure-automation-runbook-for-asr-recovery-plan/).
-
-
-
-
 
 ## Before you start
 
@@ -107,7 +103,6 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
     - AzureRM.Compute
 
     All modules should be of compatible versions. The simplest way is to always use the latest versions of all modules.
-
 
 ## Customize the recovery plan
 
@@ -183,8 +178,6 @@ For each recovery plan, create independent variables so that you can reuse the s
 
 For a complete, end-to-end script for this scenario, review [this script](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
 
-
-
 ### Use a complex variable to store more information
 
 In some scenarios you might not be able to create separate variables for each recovery plan. Consider a scenario in which you want a single script to assign a public IP address on specific VMs. In another scenario, you might want to apply different NSGs on different VMs (not on all VMs). Note that:
@@ -253,13 +246,12 @@ To deploy sample scripts to your Automation account, click the **Deploy to Azure
 
 This video provides another example. It demonstrates how to recover a two-tier WordPress application to Azure:
 
-
 ## Next steps
 
 - Learn about an [Azure Automation Run As account](../automation/manage-runas-account.md)
-- - Review [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
-- Also Review [A few tasks you might want to run during an Azure Site Recovery DR](https://github.com/WernerRall147/RallTheory/tree/main/AzureSiteRecoveryDRRunbooks)
+- Review [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
 
-- - [Learn more](site-recovery-failover.md) about running failovers.
+- Also Review [A few tasks you might want to run during an Azure Site Recovery DR](https://github.com/WernerRall147/RallTheory/tree/main/AzureSiteRecoveryDRRunbooks)
+- [Learn more](site-recovery-failover.md) about running failovers.
 
 
