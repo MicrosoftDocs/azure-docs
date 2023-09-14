@@ -75,6 +75,9 @@ The Postman collection provided has all of the sample calls to serve as a guide.
 
 [![Screenshot of creating Legal Tag](media/how-to-convert-segy-to-vds/postman-api-create-legal-tag.png)](media/how-to-convert-segy-to-vds/postman-api-create-legal-tag.png#lightbox)
 
+### Prepare dataset files
+
+This file contains the sample Vector Header Mapping (admesample URL to be included) and this file contains the sample Storage records (admesample URL to be included) for the VDS conversion.
 
 ### User Access
 
