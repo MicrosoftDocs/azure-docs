@@ -52,7 +52,7 @@ Azure AD role-assignable group feature is not part of Azure AD Privileged Identi
 
 Groups can be role-assignable or non-role-assignable. The group can be enabled in PIM for Groups or not enabled in PIM for Groups. These are independent properties of the group. Any Entra ID security group and any Microsoft 365 group (except dynamic groups and groups synchronized from on-premises environment) can be enabled in PIM for Groups. The group doesn't have to be role-assignable group to be enabled in PIM for Groups.
 
-If you want to assign an Entra ID role to a group, it has to be role-assignable. Even if you don't intend to assign an Entra ID role to the group but the group provides access to sensitive resources, it is still recommended to consider creating the group as role-assignable. This is because of extra protections role-assignable groups have – see [“What are Azure AD role-assignable groups?”](#what-are-azure-ad-role-assignable-groups) in the section above.
+If you want to assign an Entra ID role to a group, it has to be role-assignable. Even if you don't intend to assign an Entra ID role to the group but the group provides access to sensitive resources, it is still recommended to consider creating the group as role-assignable. This is because of extra protections role-assignable groups have – see [“What are Entra ID role-assignable groups?”](#what-are-entra-id-role-assignable-groups) in the section above.
 
 <!IMPORTANT>
 > Up until January 2023, it was required that every Privileged Access Group (former name for this PIM for Groups feature) had to be role-assignable group. This restriction is currently removed. Because of that, it is now possible to enable more than 500 groups per tenant in PIM, but only up to 500 groups can be role-assignable.
