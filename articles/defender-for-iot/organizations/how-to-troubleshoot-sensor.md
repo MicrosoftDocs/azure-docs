@@ -29,12 +29,10 @@ OT sensors automatically run connectivity checks to ensure that your sensor has 
 
 Use the **Cloud connectivity troubleshooting** page in your OT sensor to learn more about the error that occurred and recommended mitigation actions you can take.
 
-**To troubleshoot connectivity errors**:
-
-1. Sign into your OT sensor and do one of the following:
+**To troubleshoot connectivity errors**, sign into your OT sensor and do one of the following:
 
 - From the sensor's **Overview** page, select the **Learn more** link in the error at the top of the page
-- Select **System settings > System settings > Sensor management > Cloud connectivity troubleshooting**
+- Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
 
 The **Cloud connectivity troubleshooting** pane opens on the right. If the sensor is connected to the Azure portal, the pane indicates that **The sensor is connected to cloud successfully**. If the sensor isn't connected, a description of the issue and any mitigation instructions are listed instead. For example: <!--need new image-->
 

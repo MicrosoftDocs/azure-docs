@@ -28,12 +28,12 @@ Starting in version 23.1.3, OT sensors automatically help you troubleshoot conne
 
 For example:
 
-:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page.":::
+:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page." lightbox="media/release-notes/connectivity-error.png":::
 
 From your sensor, do one of the following to open the **Cloud connectivity troubleshooting** pane, which provides details about the connectivity issues and mitigation steps:
 
 - On the **Overview** page, select the **Cloud connectivity error** link
-- Select **System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**
+- Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
 
 
 For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
