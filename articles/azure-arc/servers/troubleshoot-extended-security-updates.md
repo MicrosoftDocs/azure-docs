@@ -1,7 +1,7 @@
 ---
 title: How to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to troubleshoot delivery of Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 09/06/2023
+ms.date: 09/14/2023
 ms.topic: conceptual
 ---
 
@@ -13,7 +13,7 @@ This article provides information on troubleshooting and resolving issues that m
 
 If you're unable to provision a Windows Server 2012 Extended Security Update license for Azure Arc-enabled servers, check the following:
 
-- **Permissions:** Verify you have sufficient permissions (Contributor role or higher) scoped to the resource group hosting the machines.  
+- **Permissions:** Verify you have sufficient permissions (Contributor role or higher) within the scope of ESU provisioning and linking.  
 
 - **Core minimums:** Verify you have specified sufficient cores for the ESU License. Physical core-based licenses require a minimum of 16 cores, and virtual core-based licenses require a minimum of 8 cores per virtual machine (VM). 
 

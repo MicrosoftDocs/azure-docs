@@ -1,7 +1,7 @@
 ---
 title: Deliver Extended Security Updates for Windows Server 2012
 description: Learn how to deliver Extended Security Updates for Windows Server 2012.
-ms.date: 09/06/2023
+ms.date: 09/14/2023
 ms.topic: conceptual
 ---
 
@@ -32,7 +32,7 @@ You'll also need the [Contributor](../../role-based-access-control/built-in-role
 
 The first step is to provision Windows Server 2012 and 2012 R2 Extended Security Update licenses from Azure Arc. You link these licenses to one or more Arc-enabled servers that you select in the next section.
 
-After you provision an ESU license, you need to specify the SKU (Standard or Datacenter), type of cores (Physical or vCore), and number of 16-core and 2-core packs to provision an ESU license. You can also provision a deactivated license that won't be billed or functional until billing for extra control. Moreover, the cores associated with the license can be modified after provisioning.
+After you provision an ESU license, you need to specify the SKU (Standard or Datacenter), type of cores (Physical or vCore), and number of 16-core and 2-core packs to provision an ESU license. You can also provision an Extended Security Update license in a deactivated state so that it won’t initiate billing or be functional on creation. Moreover, the cores associated with the license can be modified after provisioning.
 
 > [!NOTE]
 > The provisioning of ESU licenses requires you to attest to their SA or SPLA coverage.
@@ -57,7 +57,7 @@ The **Licenses** tab displays Azure Arc WS2012 licenses that are available. From
 You can select one or more Arc-enabled servers to link to an Extended Security Update license. Once you've linked a server to an activated ESU license, the server is eligible to receive Windows Server 2012 and 2012 R2 ESUs. 
 
 > [!NOTE]
-> You have the flexibility to configure your patching solution of choice to receive these updates – whether that’s Update Manager, Windows Server Update Services, Microsoft Updates, Microsoft Endpoint Configuration Manager, or a third-party patch management solution. 
+> You have the flexibility to configure your patching solution of choice to receive these updates – whether that’s [Update Manager](../../update-center/overview.md), [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus), Microsoft Updates, [Microsoft Endpoint Configuration Manager](/mem/configmgr/core/understand/introduction), or a third-party patch management solution. 
 > 
 1. Select the **Eligible Resources** tab to view a list of all your Arc-enabled servers running Windows Server 2012 and 2012 R2.
 
