@@ -6,7 +6,7 @@ ms.date: 09/13/2023
 ms.custom: playwright-testing-preview
 ---
 
-# Configure visual comparisons with Microsoft Playwright Testing
+# Configure visual comparisons with Microsoft Playwright Testing Preview
 
 The Playwright Test runner uses the host OS as a part of the expected screenshot path. If you're running tests using remote browsers on a different OS than your host machine, this means the visual comparison tests will likely fail. To configure snapshot paths for a particular project or the whole config, you can set [`snapshotPathTemplate` option](https://playwright.dev/docs/api/class-testproject#test-project-snapshot-path-template):
 
