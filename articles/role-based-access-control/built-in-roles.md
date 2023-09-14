@@ -7894,6 +7894,14 @@ Full access including the ability to fine-tune, deploy and generate text [Learn 
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/deployments/write | Writes deployments. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/deployments/delete | Deletes deployments. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/raiPolicies/read | Gets all applicable policies under the account including default policies. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/raiPolicies/write | Create or update a custom Responsible AI policy. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/raiPolicies/delete | Deletes a custom Responsible AI policy that's not referenced by an existing deployment. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/commitmentplans/read | Reads commitment plans. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/commitmentplans/write | Writes commitment plans. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/commitmentplans/delete | Deletes commitment plans. |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
 > | **NotActions** |  |
@@ -7915,6 +7923,14 @@ Full access including the ability to fine-tune, deploy and generate text [Learn 
     {
       "actions": [
         "Microsoft.CognitiveServices/*/read",
+        "Microsoft.CognitiveServices/accounts/deployments/write",
+        "Microsoft.CognitiveServices/accounts/deployments/delete",
+        "Microsoft.CognitiveServices/accounts/raiPolicies/read",
+        "Microsoft.CognitiveServices/accounts/raiPolicies/write",
+        "Microsoft.CognitiveServices/accounts/raiPolicies/delete",
+        "Microsoft.CognitiveServices/accounts/commitmentplans/read",
+        "Microsoft.CognitiveServices/accounts/commitmentplans/write",
+        "Microsoft.CognitiveServices/accounts/commitmentplans/delete",
         "Microsoft.Authorization/roleAssignments/read",
         "Microsoft.Authorization/roleDefinitions/read"
       ],
