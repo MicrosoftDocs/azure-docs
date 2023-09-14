@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -93,19 +93,16 @@ The following libraries are installed automatically with the extension.
 
 The Microsoft Azure Active Directory Module for Windows PowerShell is also installed through a configuration script you run as part of the setup process, if not already present. There's no need to install this module ahead of time if it's not already installed.
 
-### Azure Active Directory
+### Obtain the directory tenant ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Everyone using the NPS extension must be synced to Azure AD using Azure AD Connect, and must be registered for MFA.
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 
-When you install the extension, you need the *Tenant ID* and admin credentials for your Azure AD tenant. To get the tenant ID, complete the following steps:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Settings**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. Search for and select the **Azure Active Directory**.
-1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
-
-   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
+   ![Getting the Tenant ID from the Microsoft Entra admin center](./media/howto-mfa-nps-extension-vpn/tenant-id.png)
 
 ### Network requirements
 
@@ -154,8 +151,8 @@ Depending on which VPN solution you use, the steps to configure your RADIUS auth
 
 This step may already be complete on your tenant, but it's good to double-check that Azure AD Connect has synchronized your databases recently.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Select **Azure Active Directory** > **Azure AD Connect**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Hybrid management** > **Azure AD Connect**.
 3. Verify that your sync status is **Enabled** and that your last sync was less than an hour ago.
 
 If you need to kick off a new round of synchronization, see [Azure AD Connect sync: Scheduler](../hybrid/connect/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
@@ -185,7 +182,8 @@ If you need to create and configure a test account, use the following steps:
 
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account.
 2. Follow the prompts to set up a verification method.
-3. In the Azure portal as an admin user, [create a Conditional Access policy](howto-mfa-getstarted.md#plan-conditional-access-policies) to require multi-factor authentication for the test account.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** >  **Multifactor authentication** and enable for the test account.
 
 > [!IMPORTANT]
 >
@@ -255,7 +253,7 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    ```
 
 1. When prompted, sign in to Azure AD as a Global administrator.
-1. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied from the Azure portal in the prerequisites section.
+1. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied in the prerequisites section.
 1. A success message is shown when the script is finished.  
 
 If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
@@ -350,9 +348,9 @@ import-module MSOnline
 Connect-MsolService
 New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
 ```
-Once done, sign in to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in?" is set to `No` in Properties of this app, please set it to `Yes`.
+Once done, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Browse to **Identity** > **Applications** > **Enterprise applications** > and search for "Azure Multi-Factor Auth Client". Then click **Check properties for this app**. Confirm if the service principal is enabled or disabled. Click the application entry > **Properties**. If the option **Enabled for users to sign-in?** is set to **No**, set it to **Yes**.
 
-Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
+Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the **Service principal was not found** error. 
 
 ### How do I verify that the client cert is installed as expected?
 
