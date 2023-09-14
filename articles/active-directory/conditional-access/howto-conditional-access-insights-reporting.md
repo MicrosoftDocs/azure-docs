@@ -36,8 +36,8 @@ If you haven't integrated Azure AD logs with Azure Monitor logs, you need to tak
 
 To access the insights and reporting workbook:  
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Insights and reporting**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Insights and reporting**.
 
 ### Get started: Select parameters 
 
@@ -90,8 +90,8 @@ You can also investigate the sign-ins of a specific user by searching for sign-i
 
 To configure a Conditional Access policy in report-only mode:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select an existing policy or create a new policy.
 1. Under **Enable policy** set the toggle to **Report-only** mode.
 1. Select **Save**
@@ -105,8 +105,8 @@ To configure a Conditional Access policy in report-only mode:
 
 In order to access the workbook, you need the proper permissions in Azure AD and Log Analytics. To test whether you have the proper workspace permissions by running a sample log analytics query:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Azure Active Directory** > **Log Analytics**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Identity** > **Monitoring & health** > **Log Analytics**.
 1. Type `SigninLogs` into the query box and select **Run**.
 1. If the query doesn't return any results, your workspace may not have been configured correctly. 
 

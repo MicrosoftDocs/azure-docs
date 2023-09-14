@@ -3,9 +3,9 @@ title: Roles, permissions, and security in Azure Monitor
 description: Learn how to use roles and permissions in Azure Monitor to restrict access to monitoring resources.
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 ms.date: 08/09/2023 
 ms.reviewer: Dale Koetke 
-
 ---
 # Roles, permissions, and security in Azure Monitor
 

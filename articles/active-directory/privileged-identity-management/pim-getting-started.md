@@ -1,6 +1,6 @@
 ---
 title: Start using PIM
-description: Learn how to enable and get started using Azure AD Privileged Identity Management (PIM) in the Azure portal.
+description: Learn how to enable and get started using Privileged Identity Management (PIM) in the Microsoft Entra admin center.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -76,11 +76,11 @@ Once Privileged Identity Management is set up, you can learn your way around.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To make it easier to open Privileged Identity Management, add a PIM tile to your Azure portal dashboard.
+To make it easier to open Privileged Identity Management, add a PIM tile to your Microsoft Entra admin center dashboard.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center all services page](https://entra.microsoft.com/#allservices/category/All)
 
-1. Select **All services** and find the **Azure AD Privileged Identity Management** service.
+1. Find the **Azure AD Privileged Identity Management** service.
 
     ![Azure AD Privileged Identity Management in All services](./media/pim-getting-started/pim-all-services-find.png)
 

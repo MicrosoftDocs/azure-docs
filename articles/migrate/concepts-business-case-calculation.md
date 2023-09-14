@@ -6,7 +6,8 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/06/2023
+ms.date: 08/24/2023
+ms.custom: engagement-fy24
 ---
 
 # Business case (preview) overview
@@ -130,10 +131,12 @@ Cost components for running on-premises servers. For TCO calculations, an annual
  --- | --- | --- | --- |
 | Compute | Hardware | Server Hardware (Host machines) | Total hardware acquisition cost is calculated using a cost per core linear regression formula: Cost per core = 16.232*(Hyperthreaded core: memory in GB ratio) + 113.87. Hyperthreaded cores = 2*(cores) 
 |     | Software - SQL Server licensing | License cost | Calculated per two core pack license pricing of 2019 Enterprise or Standard. |
+|     | SQL Server - Extended Security Update (ESU) | License cost | Calculated for 3 years after the end of support of SQL server license as follows:<br/><br/> ESU (Year 1) – 75% of the license cost <br/><br/> ESU (Year 2) – 100% of the license cost <br/><br/> ESU (Year 3) – 125% of the license cost <br/><br/> |
 |     |     | Software Assurance | Calculated per year as in settings. |
 |     | Software - Windows Server licensing | License cost | Calculated per two core pack license pricing of Windows Server. |
+|     | Windows Server - Extended Security Update (ESU) | License cost | Calculated for 3 years after the end of support of Windows server license: <br/><br/> ESU (Year 1) – 75% of the license cost <br/><br/> ESU (Year 2) – 100% of the license cost <br/><br/> ESU (Year 3) – 125% of the license cost <br/><br/>|
 |     |     | Software Assurance | Calculated per year as in settings. |
-|     | Virtualization software for servers running in VMware environment | Virtualization Software (VMware license cost + support + management software cost) | License cost for vSphere Standard license + Production support for vSphere Standard license + Management software cost for VSphere Standard + production support cost of management software. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
+|     | Virtualization software for servers running in VMware environment | Virtualization Software (VMware license cost + support + management software cost) | License cost for vSphere Standard license + Production support for vSphere Standard license + Management software cost for vSphere Standard + production support cost of management software. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
 |     | Virtualization software for servers running in Microsoft Hyper-V environment| Virtualization Software (management software cost + software assurance) | Management software cost for System Center + software assurance. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
 | Storage | Storage Hardware |     | The total storage hardware acquisition cost is calculated by multiplying the Total volume of storage attached to  per GB cost. Default is USD 2 per GB per month. |
 |     | Storage Maintenance |     | Default is 10% of storage hardware acquisition cost. |
@@ -183,7 +186,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | **Operating Asset Expense (OPEX) (B)** |     |     |     |
 | Network maintenance | Per year |     |     |
 | Storage maintenance | Per year | Power draw per Server, Average price per KW per month based on location. |     |
-| License Support | License support cost for virtualization + Windows Server + SQL Server + Linux OS |     | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure. |
+| License Support | License support cost for virtualization + Windows Server + SQL Server + Linux OS + Windows server extended security update (ESU) + SQL Server extended security update (ESU) |     | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure. |
 | Security | Per year |  Per server annual security/protection cost.  |  |
 | Datacenter Admin cost | Number of people * hourly cost * 730 hours | Cost per hour based on location. |     |
 

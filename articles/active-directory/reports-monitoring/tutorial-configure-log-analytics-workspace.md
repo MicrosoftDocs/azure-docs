@@ -1,13 +1,11 @@
 ---
 title: Configure a log analytics workspace in Azure AD
-description: Learn how to configure Log Analytics workspace and run KQL queries on your identity data.
-
+description: Learn how to configure an Azure AD Log Analytics workspace and run Kusto queries on your identity data.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: tutorial
-ms.date: 07/28/2023
-
+ms.date: 08/25/2023
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -15,7 +13,6 @@ ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up log analytics so I can analyze the health of my environment.
 
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure a log analytics workspace
 
@@ -35,7 +32,7 @@ In this tutorial, you learn how to:
 
 - An Azure Active Directory (Azure AD) tenant.
 
-- A user who's a Global Administrator or Security Administrator for the Azure AD tenant.
+- A user who's at least a **Security Administrator** for the Azure AD tenant.
 
 
 Familiarize yourself with these articles:
@@ -54,6 +51,8 @@ Familiarize yourself with these articles:
 
 ## Configure a workspace 
 
+
+
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 This procedure outlines how to configure a log analytics workspace for your audit and sign-in logs.
@@ -64,14 +63,13 @@ Configuring a log analytics workspace consists of two main steps:
 
 **To configure a workspace:** 
 
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
-
-2. Search for **log analytics workspaces**.
+2. Browse to **Log Analytics workspaces**.
 
     ![Search resources services and docs](./media/tutorial-log-analytics-wizard/search-services.png)
 
-3. On the log analytics workspaces page, click **Add**.
+3. Select **Create**.
 
     ![Screenshot shows the Add button in the log analytics workspaces page.](./media/tutorial-log-analytics-wizard/add.png)
 
@@ -128,8 +126,6 @@ This procedure shows how to run queries using the **Kusto Query Language (KQL)**
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 
 2. Search for **Azure Active Directory**.
-
-    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Logs**.
 
@@ -206,8 +202,6 @@ This procedure shows how to send alerts when the breakglass account is used.
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 
 2. Search for **Azure Active Directory**.
-
-    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Logs**.
 
@@ -291,14 +285,9 @@ This procedure shows how to send alerts when the breakglass account is used.
 
 This procedure shows how to create a new workbook using the quickstart template.
 
-
-
-
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 
 2. Search for **Azure Active Directory**.
-
-    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Workbooks**.
 
@@ -349,8 +338,6 @@ This procedure shows how to add a query to an existing workbook template. The ex
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 
 2. Search for **Azure Active Directory**.
-
-    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Workbooks**.
 

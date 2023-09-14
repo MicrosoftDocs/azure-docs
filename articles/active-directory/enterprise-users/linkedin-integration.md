@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: beengen
 ms.custom: it-pro, has-azure-ad-ps-ref
@@ -36,9 +36,10 @@ You can allow users in your organization to access their LinkedIn connections wi
 
 You can enable LinkedIn account connections for only the users you want to have access, from your entire organization to only selected users in your organization.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global Administrator for the Azure AD organization.
-1. Browse to **Azure Active Directory** > **Users**.
-1. On the **Users** page, select **User settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Users** > **All users**.
+1. Select **User settings**.
 1. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
 
     * Select **Yes** to enable the service for all users in your organization

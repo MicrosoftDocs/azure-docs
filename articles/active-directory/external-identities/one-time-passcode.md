@@ -92,11 +92,9 @@ The email one-time passcode feature is now turned on by default for all new tena
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD global administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
 
-1. In the navigation pane, select **Azure Active Directory**.
-
-1. Select **External Identities** > **All identity providers**.
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 
 1. Select **Email one-time passcode**.
 

@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022, build-2023
 Azure Container Apps is a fully managed environment that enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
 
 - Deploying API endpoints
-- Hosting background processing applications
+- Hosting background processing jobs
 - Handling event-driven processing
 - Running microservices
 
@@ -39,6 +39,8 @@ With Azure Container Apps, you can:
 - [**Enable HTTPS or TCP ingress**](ingress.md) without having to manage other Azure infrastructure.
 
 - [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
+
+- [**Run jobs**](jobs.md) on-demand, on a schedule, or based on events.
 
 - Add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 

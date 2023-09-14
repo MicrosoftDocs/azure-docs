@@ -4,7 +4,7 @@ description: Azure Storage inventory is a tool to help get an overview of all yo
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.date: 07/24/2023
 ms.topic: conceptual
 ms.author: normesta

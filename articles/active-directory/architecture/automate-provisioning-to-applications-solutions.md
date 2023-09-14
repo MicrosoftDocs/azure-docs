@@ -91,15 +91,24 @@ In addition to the pre-integrated gallery applications, Azure AD supports provis
 
 [Learn more about provisioning to SCIM enabled applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-### Automate provisioning to SQL and LDAP based applications
+### Automate provisioning to on-premises applications
 
- Many applications don't support the SCIM standard, and customers have historically used connectors developed for MIM to connect to them. The Azure AD provisioning service supports reusing connectors developed for MIM and provisioning users into applications that rely on an LDAP user store or a SQL database.
+Many applications don't support the SCIM standard, and customers have historically used connectors developed for MIM to connect to them. The Azure AD provisioning service supports reusing connectors built for MIM, without needing a MIM sync deployment. This opens up connectivity to a wide range of on-premises and SaaS applications.
+
+|Protocol |Connector|
+|-----|-----|
+| LDAP | [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md)|
+| SQL  | [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) |
+| REST | [Web Services](../app-provisioning/on-premises-web-services-connector.md)|
+| SOAP | [Web Services](../app-provisioning/on-premises-web-services-connector.md)|
+| Flat-file| [PowerShell](../app-provisioning/on-premises-powershell-connector.md) |
+| Custom | [Custom ECMA connectors](../app-provisioning/on-premises-custom-connector.md) |
 
 [Learn more about on-premises application provisioning](../app-provisioning/user-provisioning.md)
 
 ### Use integrations developed by partners
 
-Many applications may not yet support SCIM or rely on SQL / LDAP databases. Microsoft partners have developed SCIM gateways that allow you to synchronize users between Azure AD and various systems such as mainframes, HR systems, and legacy databases. In the image below, the SCIM Gateways are built and managed by partners.
+Microsoft partners have developed SCIM gateways that allow you to synchronize users between Azure AD and various systems such as mainframes, HR systems, and legacy databases. In the image below, the SCIM Gateways are built and managed by partners.
 
 ![Agent with SCIM gateway](media/automate-user-provisioning-to-applications-solutions/provisioning-agent-with-scim-gateway.png)
 

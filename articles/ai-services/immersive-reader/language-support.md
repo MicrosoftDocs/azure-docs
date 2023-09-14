@@ -95,7 +95,7 @@ This article lists supported human languages for Immersive Reader features.
 | French (France) | fr-FR |
 | French (Switzerland) | fr-CH |
 | Galician | gl |
-| Galician (Spain) | gl-ES |
+| Galician | gl-ES |
 | Georgian | ka |
 | Georgian (Georgia) | ka-GE |
 | German | de |

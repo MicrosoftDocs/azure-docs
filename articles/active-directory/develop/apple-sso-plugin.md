@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/18/2023
+ms.date: 09/05/2023
 ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev
@@ -328,6 +328,7 @@ The Microsoft Enterprise SSO plug-in relies on Apple's [enterprise SSO](https://
 For the SSO plug-in to function properly, Apple devices should be allowed to reach to both identity provider URLs and its own URLs without additional interception. This means that those URLs need to be excluded from network proxies, interception and other enterprise systems. 
 
 Here is the minimum set of URLs that need to be allowed for the SSO plug-in to function:
+
   - `*.cdn-apple.com`
   - `*.networking.apple`
   - `login.microsoftonline.com`
@@ -338,7 +339,12 @@ Here is the minimum set of URLs that need to be allowed for the SSO plug-in to f
   - `login.microsoftonline.us`
   - `login-us.microsoftonline.com`
 
-Additional Apple's URLs that may need to be allowed are documented here: https://support.apple.com/en-us/HT210060
+> [!WARNING]
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
+
+If your organization blocks these URLs users may see errors like `1012 NSURLErrorDomain error` or `1000 com.apple.AuthenticationServices.AuthorizationError`.
+
+Other Apple URLs that may need to be allowed are documented in their support article, [Use Apple products on enterprise networks](https://support.apple.com/HT210060).
 
 #### Use Intune for simplified configuration
 

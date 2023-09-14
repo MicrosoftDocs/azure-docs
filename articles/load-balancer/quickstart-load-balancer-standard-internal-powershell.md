@@ -94,11 +94,8 @@ $gwpublicip = New-AzPublicIpAddress @gwpublicip
 
 * Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
 
-    > [!IMPORTANT]
-
-    > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
-
-    >
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 ```azurepowershell-interactive
 

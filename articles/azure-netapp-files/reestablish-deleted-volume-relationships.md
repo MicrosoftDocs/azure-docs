@@ -9,7 +9,7 @@ ms.workload: storage
 ms.topic: how-to
 ms.date: 02/21/2023
 ---
-# Re-establish deleted volume replication relationships in Azure NetApp Files
+# Re-establish deleted volume replication relationships in Azure NetApp Files (preview)
 
 Azure NetApp Files allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. You can only re-establish the relationship from the destination volume. 
 

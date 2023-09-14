@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) provides a central place to manage device iden
 
 You can access the devices overview by completing these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
 1. Go to **Azure Active Directory** > **Devices**.
 
 In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. 
@@ -109,8 +109,6 @@ To view or copy BitLocker keys, you need to be the owner of the device or have o
 
 ## View and filter your devices (preview)
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 In this preview, you have the ability to infinitely scroll, reorder columns, and select all devices. You can filter the device list by these device attributes:
 
 - Enabled state
@@ -129,11 +127,11 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 
 To enable the preview in the **All devices** view:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
-2. Go to **Azure Active Directory** > **Devices** > **All devices**.
-3. Select the **Preview features** button.
-4. Turn on the toggle that says **Enhanced devices list experience**. Select **Apply**.
-5. Refresh your browser.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Identity** > **Devices** > **All devices**.
+1. Select the **Preview features** button.
+1. Turn on the toggle that says **Enhanced devices list experience**. Select **Apply**.
+1. Refresh your browser.
 
 You can now experience the enhanced **All devices** view.
 

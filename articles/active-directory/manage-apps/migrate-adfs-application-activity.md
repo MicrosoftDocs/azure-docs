@@ -30,42 +30,42 @@ The AD FS application activity data is available to users who are assigned any o
 
 ## Prerequisites
 
-* Your organization must be currently using AD FS to access applications.
-* Azure AD Connect Health must be enabled in your Azure AD tenant.
-* The Azure AD Connect Health for AD FS agent must be installed.
-* [Learn more about Azure AD Connect Health](../hybrid/connect/how-to-connect-health-adfs.md)
-* [Get started with setting up Azure AD Connect Health and install the AD FS agent](../hybrid/connect/how-to-connect-health-agent-install.md)
+- Your organization must be currently using AD FS to access applications.
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, Global Reader, or owner of the service principal.
+- Azure AD Connect Health must be enabled in your Azure AD tenant.
+- The Azure AD Connect Health for AD FS agent must be installed.
+- [Learn more about Azure AD Connect Health](../hybrid/connect/how-to-connect-health-adfs.md).
+- [Get started with setting up Azure AD Connect Health and install the AD FS agent](../hybrid/connect/how-to-connect-health-agent-install.md).
+
 
 >[!IMPORTANT]
 >There are a couple reasons you won't see all the applications you are expecting after you have installed Azure AD Connect Health. The AD FS application activity report only shows AD FS relying parties with user logins in the last 30 days. Also, the report won't display Microsoft related relying parties such as Office 365.
 
 ## Discover AD FS applications that can be migrated
 
-The AD FS application activity report is available in the [Microsoft Entra admin center](https://entra.microsoft.com) under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed.
+The AD FS application activity report is available in the Microsoft Entra admin center under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with an admin role that has access to AD FS application activity data (global administrator, reports reader, security reader, application administrator, or cloud application administrator).
-
-2. Select **Azure Active Directory**, and then select **Enterprise applications**.
-
-3. Under **Activity**, select **Usage & Insights**, and then select **AD FS application activity** to open a list of all AD FS applications in your organization.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Under **Activity**, select **Usage & Insights**, and then select **AD FS application activity** to open a list of all AD FS applications in your organization.
 
    ![AD FS application activity](media/migrate-adfs-application-activity/adfs-application-activity.png)
 
-4. For each application in the AD FS application activity list, view the **Migration status**:
+1. For each application in the AD FS application activity list, view the **Migration status**:
 
-   * **Ready to migrate** means the AD FS application configuration is fully supported in Azure AD and can be migrated as-is.
+   - **Ready to migrate** means the AD FS application configuration is fully supported in Azure AD and can be migrated as-is.
 
-   * **Needs review** means some of the application's settings can be migrated to Azure AD, but you'll need to review the settings that can't be migrated as-is.
+   - **Needs review** means some of the application's settings can be migrated to Azure AD, but you'll need to review the settings that can't be migrated as-is.
 
-   * **Additional steps required** means Azure AD doesn't support some of the application's settings, so the application can’t be migrated in its current state.
+   - **Additional steps required** means Azure AD doesn't support some of the application's settings, so the application can’t be migrated in its current state.
 
 ## Evaluate the readiness of an application for migration
 
-1. In the AD FS application activity list, click the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
+1. In the AD FS application activity list, select the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
 
    ![Migration details](media/migrate-adfs-application-activity/migration-details.png)
 
-2. Click a message to open additional migration rule details. For a full list of the properties tested, see the [AD FS application configuration tests](#ad-fs-application-configuration-tests) table, below.
+1. Select a message to open additional migration rule details. For a full list of the properties tested, see the [AD FS application configuration tests](#ad-fs-application-configuration-tests) table, below.
 
    ![Migration rule details](media/migrate-adfs-application-activity/migration-rule-details.png)
 
@@ -97,7 +97,7 @@ The following table lists all configuration tests that are performed on AD FS ap
 
 If you have configured a claim rule for the application in AD FS, the experience will provide a granular analysis for all the claim rules. You'll see which claim rules can be moved to Azure AD and which ones need further review.
 
-1. In the AD FS application activity list, click the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
+1. In the AD FS application activity list, select the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
 
 2. On the **Migration rule details** page, expand the results to display details about potential migration issues and to get additional guidance. For a detailed list of all claim rules tested, see the [Check the results of claim rule tests](#check-the-results-of-claim-rule-tests) table, below.
 
