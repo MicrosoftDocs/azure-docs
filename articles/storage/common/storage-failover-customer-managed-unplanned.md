@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 09/14/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: 
@@ -30,16 +30,16 @@ When a storage account is configured for GRS or RA-GRS redundancy, data is repli
 
 During the customer-managed failover process, the DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account. After failover, the copy of your storage account in the original primary region is deleted and your storage account continues to be replicated three times locally within the original secondary region (the new primary). At that point, your storage account becomes locally redundant (LRS).
 
-Azure *remembers* the redundancy configuration of your storage account to allow you eventually return to it when you fail back.
+The original and current redundancy configurations are stored in the properties of the storage account to allow you eventually return to your original configuration when you fail back.
 
 To regain geo-redundancy after a failover, you will need to reconfigure your account as GRS. (GZRS is not an option post-failover since the new primary will be LRS after the failover). After the account is reconfigured for geo-redundancy, Azure immediately begins copying data from the new primary region to the new secondary. If you configure your storage account for read access (RA) to the secondary region, that access will be available but it may take some time for replication from the primary to make the secondary current.
 
 > [!WARNING]
 > After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.
 >
-> **To avoid a major data loss**, check the value of the **Last Sync Time** property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate potential data loss.
+> **To avoid a major data loss**, check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate potential data loss.
 
-The failback process is essentially the same as the failover process except Azure *remembers* the replication configuration within the original primary region and restores it to its original state (the replication configuration, not the data). So, if your storage account was originally configured as GZRS, the primary region after faillback will be ZRS.
+The failback process is essentially the same as the failover process except Azure restores the replication configuration to its original state before it was failed over (the replication configuration, not the data). So, if your storage account was originally configured as GZRS, the primary region after faillback will be ZRS.
 
 After failback, you can configure your storage account to be geo-redundant again. If the original primary region was configured for LRS, you can configure it to be GRS or RA-GRS. If the original primary was configured as ZRS, you can configure it to be GZRS or RA-GZRS. For additional options, see [Change how a storage account is replicated](redundancy-migration.md).
 
