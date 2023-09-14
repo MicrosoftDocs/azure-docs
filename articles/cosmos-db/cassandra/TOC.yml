@@ -505,66 +505,66 @@
 - name: Azure Managed Instance for Apache Cassandra
   items:
     - name: Azure Managed Instance for Apache Cassandra documentation
-      href: ../../index.yml
+      href: ../../managed-instance-apache-cassandra/index.yml
     - name: Overview
       items:
         - name: What is Azure Managed Instance for Apache Cassandra?
-          href: ../../introduction.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/introduction.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Management operations
-          href: ../../management-operations.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/management-operations.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Quickstarts
       items:
         - name: Create a cluster - portal
-          href: ../../create-cluster-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/create-cluster-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Create a cluster - CLI
           displayName: az managed-cassandra, cluster, datacenter, connect
-          href: ../../create-cluster-cli.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/create-cluster-cli.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Create a multi-region cluster - CLI
-          href: ../../create-multi-region-cluster.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/create-multi-region-cluster.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Configure a hybrid cluster
-          href: ../../configure-hybrid-cluster.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/configure-hybrid-cluster.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Deploy Spark Cluster with Databricks
-          href: ../../deploy-cluster-databricks.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/deploy-cluster-databricks.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Search using Lucene Index
-          href: ../../search-lucene-index.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/search-lucene-index.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Tutorials
       items:
         - name: Migration
           items:
             - name: Use dual-write proxy - live
-              href: ../../dual-write-proxy-migration.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+              href: ../../managed-instance-apache-cassandra/dual-write-proxy-migration.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Use Apache Spark - offline
-              href: ../../spark-migration.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+              href: ../../managed-instance-apache-cassandra/spark-migration.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Concepts
       items:
         - name: Security overview
-          href: ../../security.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/security.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Frequently asked questions
           displayName: cost, region, monitor, backup
-          href: ../../faq.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/faq.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: How-to guides
       items:
         - name: Best practices for optimal performance
-          href: ../../best-practice-performance.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/best-practice-performance.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Add service principal for deployment
-          href: ../../add-service-principal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/add-service-principal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Configure Customer-Managed Keys
-          href: ../../customer-managed-keys.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/customer-managed-keys.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Enable LDAP authentication
-          href: ../../ldap.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/ldap.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Monitor
-          href: ../../monitor-clusters.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/monitor-clusters.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage with Azure CLI
           displayName: az managed-cassandra, cluster, datacenter
-          href: ../../manage-resources-cli.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/manage-resources-cli.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Required outbound network rules
-          href: ../../network-rules.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/network-rules.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Visualize metrics in Prometheus with Grafana
-          href: ../../visualize-prometheus-grafana.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/visualize-prometheus-grafana.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Enable materialized views
-          href: ../../materialized-views.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/materialized-views.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Commands
-          href: ../../dba-commands.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: ../../managed-instance-apache-cassandra/dba-commands.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Reference
       items:
         - name: REST API
