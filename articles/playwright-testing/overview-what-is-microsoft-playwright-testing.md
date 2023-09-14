@@ -2,7 +2,7 @@
 title: What is Microsoft Playwright Testing?
 description: 'Microsoft Playwright Testing is a fully managed service for end-to-end testing built on top of Playwright. Run Playwright tests with high parallelization across different operating system and browser combinations simultaneously.'
 ms.topic: overview
-ms.date: 09/04/2023
+ms.date: 09/27/2023
 ms.custom: playwright-testing-preview
 ---
 
@@ -19,7 +19,7 @@ To learn more about how Playwright works, visit the [Getting started documentati
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Get test suite results faster
+## Accelerate tests with parallel remote browsers
 
 As your application becomes more complex, your test suite increases in size. The time to complete your test suite also grows accordingly.
 
@@ -45,20 +45,11 @@ To run existing tests with Microsoft Playwright Testing requires no changes to y
 
 After a test run completes, Playwright sends the test run metadata to the service. The test results, trace files, and other test run files are available on the client machine. 
 
-## Limitations
-
-- Only hosted browsers on Linux and Windows are supported.
-- Supports all [browsers that are supported by Playwright](https://playwright.dev/docs/browsers).
-- During preview, the service supports up to a maximum of 50 parallel workers.
-- Only the Playwright runner and test code written in JavaScript or TypeScript are supported.
-
-## Data at rest
-
-Microsoft Playwright Testing automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). For example, this data includes workspace details and Playwright test run meta data like test start and end time, test minutes, and who ran the test.
-
-## In-region data residency
+## In-region data residency & data at rest
 
 Microsoft Playwright Testing doesn't store or process customer data outside the region you deploy the workspace in. When you use the regional affinity feature, the metadata is transferred from the cloud hosted browser region to the workspace region in a secure and compliant manner.
+
+Microsoft Playwright Testing automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). For example, this data includes workspace details and Playwright test run meta data like test start and end time, test minutes, and who ran the test.
 
 ## Next step
 

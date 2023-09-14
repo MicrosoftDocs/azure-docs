@@ -172,3 +172,4 @@ To delete a Playwright workspace:
 - [Manage workspace access](./how-to-manage-workspace-access.md)
 
 - Get started with [running Playwright tests at scale](./quickstart-run-end-to-end-tests.md)
+- Learn more about the [Microsoft Playwright Testing resource limits](./resource-limits-quotas-capacity.md)
