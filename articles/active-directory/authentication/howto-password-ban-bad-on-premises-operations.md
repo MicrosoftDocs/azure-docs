@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -31,7 +31,8 @@ This article shows you how to enable Azure AD Password Protection for your on-pr
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Password protection**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Password protection**.
 1. Set the option for **Enable password protection on Windows Server Active Directory** to *Yes*.
 
     When this setting is set to *No*, all deployed Azure AD Password Protection DC agents go into a quiescent mode where all passwords are accepted as-is. No validation activities are performed, and audit events aren't generated.
@@ -39,7 +40,7 @@ This article shows you how to enable Azure AD Password Protection for your on-pr
 1. It's recommended to initially set the **Mode** to *Audit*. After you're comfortable with the feature and the impact on users in your organization, you can switch the **Mode** to *Enforced*. For more information, see the following section on [modes of operation](#modes-of-operation).
 1. When ready, select **Save**.
 
-    [![Enable on-premises password protection under Authentication Methods in the Azure portal](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Enable on-premises password protection under Authentication Methods in the Microsoft Entra admin center](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
 ## Modes of operation
 
