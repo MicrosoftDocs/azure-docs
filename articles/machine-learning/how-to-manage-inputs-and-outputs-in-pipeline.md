@@ -98,7 +98,7 @@ If you want to check inputs for a component, double click on the component to op
 
 Similarly, when editing a pipeline in designer, you can find the pipeline inputs & outputs in **Pipeline interface** panel, and the component inputs&outputs in the component's panel (trigger by double click on the component). 
 
- :::image type="content" source="./media/how-to-manage-pipeline-input-output/pipeline-interface.png" lightbox="./media/how-to-manage-pipeline-input-output/pipeline-interface.png" alt-text="Screenshot highlighting the pipeline interface in designer":::
+ :::image type="content" source="./media/how-to-manage-pipeline-input-output/pipeline-interface.png" lightbox="./media/how-to-manage-pipeline-input-output/pipeline-interface.png" alt-text="Screenshot highlighting the pipeline interface in designer.":::
 
 
 ## How to promote component inputs & outputs to pipeline level
