@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 06/25/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About SAP HANA database backup on Azure VMs
@@ -104,7 +104,7 @@ As per SAP recommendation, it's mandatory to have weekly full snapshots for all 
 Learn how to:
 
 - [Back up SAP HANA databases on Azure VMs](backup-azure-sap-hana-database.md).
-- [Back up SAP HANA System Replication databases on Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
-- [Back up SAP HANA database snapshot instances on Azure VMs](sap-hana-database-instances-backup.md).
+- [Back up SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-with-hana-system-replication-backup.md).
+- [Back up SAP HANA database snapshot instances on Azure VMs (preview)](sap-hana-database-instances-backup.md).
 - [Restore SAP HANA databases on Azure VMs](./sap-hana-db-restore.md).
 - [Manage SAP HANA databases that are backed up by using Azure Backup](./sap-hana-db-manage.md).

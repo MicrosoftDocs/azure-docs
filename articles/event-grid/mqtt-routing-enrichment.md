@@ -8,13 +8,13 @@ author: george-guirguis
 ms.author: geguirgu
 ---
 # Enrichments for MQTT Routed Messages
-
-
 The enrichments support enables you to add up to 20 custom key-value properties to your messages before they're sent to the Event Grid custom topic. These enrichments enable you to:
 
 - Add contextual data to your messages. For example, enriching the message with the client's name or the namespace name could provide endpoints with information about the source of the message.
 - Reduce computing load on endpoints. For example, enriching the message with the MQTT publish request's payload format indicator or the content type informs endpoints how to process the message's payload without trying multiple parsers first.
 - Filter your routed messages through Event Grid event subscriptions based on the added data. For example, enriching a client attribute enables you to filter the messages to be routed to the endpoint based on the different attribute's values.
+
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)] 
 
 ## Configuration
 
@@ -22,8 +22,8 @@ The enrichments support enables you to add up to 20 custom key-value properties 
 
 The enrichment key is a string that needs to comply with these requirements:
 - Include only lower-case alphanumerics: only (a-z) and (0-9)
-- Must not be "specversion", "id", "time", "type", "source", "subject", "datacontenttype", "dataschema", "data", or "data_base64".
-- Must not start with “azsp”.
+- Must not be `specversion`, `id`, `time`, `type`, `source`, `subject`, `datacontenttype`, `dataschema`, `data`, or `data_base64`.
+- Must not start with `azsp`.
 - Must not be duplicated.
 - Must not be more than 20 characters.
 
@@ -165,8 +165,8 @@ The following CloudEvent is a sample output of a MQTTv5 message with PFI=0 after
 
 ### Handling special cases:
 
-- Unspecified client attributes/user properties: if a dynamic enrichment pointed to a client attribute/user property that doesn’t exist, the enrichment will include the specified key with an empty string for a value. For example, "emptyproperty": "".
-- Arrays: Arrays in client attributes and duplicate user properties are transformed to a comma-separated string. For example: if the enriched client attribute is set to be “array”: “value1”, “value2”, “value3”, the resulting enriched property will be “array”: “value1,value2,value3”. Another example: if the same MQTT publish request has the following user properties > "userproperty1": "value1", "userproperty1": "value2", resulting enriched property will be “userproperty1”: “value1,value2”.
+- Unspecified client attributes/user properties: if a dynamic enrichment pointed to a client attribute/user property that doesn’t exist, the enrichment will include the specified key with an empty string for a value. For example, `emptyproperty`: "".
+- Arrays: Arrays in client attributes and duplicate user properties are transformed to a comma-separated string. For example: if the enriched client attribute is set to be “array”: “value1”, “value2”, “value3”, the resulting enriched property will be `array`: `value1,value2,value3`. Another example: if the same MQTT publish request has the following user properties > "userproperty1": "value1", "userproperty1": "value2", resulting enriched property will be `userproperty1`: `value1,value2`.
 
 ## Next steps:
 

@@ -1,10 +1,10 @@
 ---
 title:  "Tutorial: Managed identity to invoke Azure Functions"
 description: Learn how to use a managed identity to invoke Azure Functions from an Azure Spring Apps app.
-author: karlerickson
+author: KarlErickson
 ms.author: margard
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022, devx-track-java, devx-track-azurecli
+ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 05/07/2023
 ---

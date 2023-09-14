@@ -7,7 +7,7 @@ ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Monitor applications end-to-end
@@ -45,8 +45,8 @@ You must manually provide the Application Insights connection string to the Orde
 1. Use the following commands to retrieve the Application Insights connection string and set it in Key Vault:
 
    ```azurecli
-   INSTRUMENTATION_KEY=$(az monitor app-insights component show \
-       --resource-group=<resource-group-name> \
+   export INSTRUMENTATION_KEY=$(az monitor app-insights component show \
+       --resource-group <resource-group-name> \
        --app <app-insights-name> | jq -r '.connectionString')
 
    az keyvault secret set \
@@ -110,12 +110,12 @@ There are two ways to see logs on Azure Spring Apps: log streaming of real-time 
 Generate traffic in the application by moving through the application, viewing the catalog, and placing orders. Use the following commands to generate traffic continuously, until canceled:
 
 ```azurecli
-GATEWAY_URL=$(az spring gateway show \
+export GATEWAY_URL=$(az spring gateway show \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
 cd traffic-generator
-GATEWAY_URL=https://${GATEWAY_URL} ./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation
+export GATEWAY_URL=https://${GATEWAY_URL} ./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation
 ```
 
 Use the following command to get the latest 100 lines of application console logs from the Catalog Service application:

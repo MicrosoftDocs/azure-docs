@@ -5,7 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: tutorial
-ms.date: 04/28/2023
+ms.date: 06/29/2023
+ms.service: azure-migrate
 ms.custom: engagement-fy23
 
 ---
@@ -85,7 +86,7 @@ Set up a new Azure Migrate project if you don't have one.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Create project**.
+3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 

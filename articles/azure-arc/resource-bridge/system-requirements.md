@@ -37,17 +37,17 @@ These minimum requirements enable most scenarios. However, a partner product may
 
 ## IP address prefix (subnet) requirements
 
-The IP address prefix (subnet) where Arc resource bridge will be deployed requires a minimum prefix of /29. The IP address prefix must have enough available IP addresses for the gateway IP, control plane IP, appliance VM IP, and reserved appliance VM IP.
+The IP address prefix (subnet) where Arc resource bridge will be deployed requires a minimum prefix of /29. The IP address prefix must have enough available IP addresses for the gateway IP, control plane IP, appliance VM IP, and reserved appliance VM IP. Please work with your network engineer to ensure that there is an available subnet with the required available IP addresses and IP address prefix for Arc resource bridge.
 
 The IP address prefix is the subnet's IP address range for the virtual network and subnet mask (IP Mask) in CIDR notation, for example `192.168.7.1/24`. You provide the IP address prefix (in CIDR notation) during the creation of the configuration files for Arc resource bridge. 
 
-Consult your system or network administrator to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
+Consult your network engineer to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
 
-## Static configuration
+## Static IP configuration
 
-Static IP configuration is recommended for Arc resource bridge, because the resource bridge needs three static IPs in the same subnet for the control plane, appliance VM, and reserved appliance VM. 
+If deploying Arc resource bridge to a production environment, static configuration must be used when deploying Arc resource bridge. Static IP configuration is used to assign three static IPs (that are in the same subnet) to the Arc resource bridge control plane, appliance VM, and reserved appliance VM.
 
-If using DHCP, reserve those IP addresses, ensuring the IPs are outside of the assignable DHCP range of IPs (i.e. the control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP). DHCP is generally not recommended because a change in IP address (ex: due to an outage) impacts the resource bridge availability.
+DHCP is only supported in a test environment for testing purposes only for VM management on Azure Stack HCI. DHCP should not be used in a production environment. It is not supported on any other Arc-enabled private cloud, including Arc-enabled VMware, Arc for AVS or Arc-enabled SCVMM. If using DHCP, you must reserve the IP addresses used by the control plane and appliance VM. In addition, these IPs must be outside of the assignable DHCP range of IPs. Ex: The control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP. If the control plane IP or appliance VM IP changes (ex: due to an outage, this impacts the resource bridge availability and functionality.
 
 ## Management machine requirements
 
@@ -168,7 +168,7 @@ By default, these files are generated in the current CLI directory when `createc
 
 ### Kubeconfig
 
-The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location to the management machine, because it's required for maintaining the appliance VM.
+The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location to the management machine, because it's required for maintaining the appliance VM. 
 
 ### HCI login configuration file (Azure Stack HCI only)
 
@@ -199,5 +199,6 @@ For instructions to deploy Arc resource bridge on AKS Hybrid, see [How to instal
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
 
 

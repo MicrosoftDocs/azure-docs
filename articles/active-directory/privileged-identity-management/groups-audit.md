@@ -1,9 +1,9 @@
 ---
 title: Audit activity history for group assignments in Privileged Identity Management
-description: View activity and audit activity history for group assignments in Azure AD Privileged Identity Management (PIM).
+description: View activity and audit activity history for group assignments in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: article
 ms.workload: identity
 ms.subservice: pim
 ms.date: 6/7/2023
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
@@ -26,11 +26,13 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
 ## View resource audit history
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 **Resource audit** gives you a view of all activity associated with groups in PIM.
 
-1. [Sign in to the Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD Privileged Identity Management -> Groups**. 
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Groups**.
 
 1. Select the group you want to view audit history for.
 
@@ -38,15 +40,15 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
     :::image type="content" source="media/pim-for-groups/pim-group-19.png" alt-text="Screenshot of where to select Resource audit." lightbox="media/pim-for-groups/pim-group-19.png":::
 
-1.	Filter the history using a predefined date or custom range.
+1. Filter the history using a predefined date or custom range.
 
 ## View my audit
 
 **My audit** enables you to view your personal role activity for groups in PIM.
 
-1. [Sign in to the Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure AD Privileged Identity Management -> Groups**. 
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Groups**.
 
 1. Select the group you want to view audit history for.
 
@@ -54,7 +56,7 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
     :::image type="content" source="media/pim-for-groups/pim-group-20.png" alt-text="Screenshot of where to select My audit." lightbox="media/pim-for-groups/pim-group-20.png":::
 
-1.	Filter the history using a predefined date or custom range.
+1. Filter the history using a predefined date or custom range.
 
 ## Next steps
 

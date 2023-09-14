@@ -564,6 +564,11 @@ sections:
           In Solution Explorer, right-click **ApplicationInsights.config** and select **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in **ApplicationInsights.config**, which determines where the server SDK sends your data. Unless you clear **Update all**, it also changes the key where it appears in your webpages.
 
       - question: |
+          Will I incur network costs if my Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region?
+        answer: |
+          Yes, you may incur additional network costs which will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
+
+      - question: |
           Do new Azure regions require the use of connection strings?
         answer: |
           New Azure regions *require* the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints your resource uses as a destination for your telemetry. Copy the connection string and add it to your application's code or to an environment variable.
@@ -712,7 +717,7 @@ sections:
         answer: |
           ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
           --- | --- | --- | --- | --- |
-          Chrome Latest ✔ |  Firefox Latest ✔ | IE 9+ & Microsoft Edge ✔<br>IE 8- Compatible | Opera Latest ✔ | Safari Latest ✔ |
+          Chrome Latest ✔ |  Firefox Latest ✔ | v3.x: IE 9+ & Microsoft Edge ✔<br>v2.x: IE 8+ Compatible & Microsoft Edge ✔ | Opera Latest ✔ | Safari Latest ✔ |
 
       - question: |
           Where can I find code examples for the JavaScript SDK?
@@ -974,11 +979,15 @@ sections:
         answer: |
           There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
           - Reduces enablement effort
+          - Supported by Microsoft
           - Brings in Azure Specific features such as:
-              - Azure Active Directory (Azure AD) Authentication
-              - Offline Storage and Automatic Retries
               - Preserves traces with service components using Application Insights SDKs
-              - Live Metrics (future)
+              - [Azure Active Directory (Azure AD) Authentication](app/azure-ad-authentication.md)
+              - [Offline Storage and Automatic Retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
+              - [Statsbeat](app/statsbeat.md)
+              - [Application Insights Standard Metrics](app/standard-metrics.md)
+              - Detect resource metadata to autopopulate [Cloud Role Name](app/app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
+              - [Live Metrics](app/live-stream.md) (future)
           
           In the spirit of OpenTelemetry, we've designed the distro to be open and extensible. For example, you can add:
            - An OTLP exporter and send to a second destination simultaneously
@@ -1002,15 +1011,18 @@ sections:
           |Feature                                                                                                             | .NET      | Node.js   | Python    | Java               |
           |--------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
           | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                            | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Custom metrics](app/opentelemetry-add-modify.md#add-custom-metrics)                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Custom metrics](app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                              | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Exception reporting](app/asp-net-exceptions.md)                                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Logs collection](app/asp-net-trace-logs.md)                                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Custom Events](app/usage-overview.md#custom-business-events)                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Azure Active Directory authentication](app/azure-ad-authentication.md)                                            | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Autopopulate cloud role name/role instance on Azure](app/distributed-tracing-telemetry-correlation.md#role-names) | :x:       | :warning: | :warning: | :white_check_mark: |
           | [Live metrics](app/live-stream.md)                                                                                 | :x:       | :x:       | :x:       | :white_check_mark: |
+          | Detect Resource Context for VM/VMSS and App Svc                                                                    | :warning: | :x:       | :warning: | :white_check_mark: |
+          | Detect Resource Context for AKS and Functions                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |           
+          | Availability Testing Span Filtering                                                                                | :x:       | :x:       | :x:       | :white_check_mark: |
           | Autopopulation of user ID, authenticated user ID, and user IP                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
           | Manually override/set operation name, user ID, or authenticated user ID                                            | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Adaptive sampling](app/sampling.md#adaptive-sampling)                                                             | :x:       | :x:       | :x:       | :white_check_mark: |
@@ -1070,7 +1082,22 @@ sections:
           [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](app/opencensus-python.md) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
 
   - name: Container insights
+  
     questions:
+      - question: |
+          Why do I see info banner "You do not have the right cluster permissions which will restrict your access to Container Insights features. Please reach out to your cluster admin to get the right permission"?
+        answer: |
+          Container Insights has historically allowed users to access the Azure portal experience based on the access permission of the Log Analytics workspace. It now checks cluster-level permission to provide access to the Azure portal experience. You may need your cluster admin to assign this permission.
+
+          For basic read-only cluster level access, assign the **Monitoring Reader** role for the following types of clusters.
+
+          - AKS without Kubernetes role-based access control (RBAC) authorization enabled
+          - AKS enabled with Azure Active Directory (Azure AD) SAML-based single sign-on
+          - AKS enabled with Kubernetes RBAC authorization
+          - AKS configured with the cluster role binding clusterMonitoringUser
+          - [Azure Arc-enabled Kubernetes clusters](https://learn.microsoft.com/azure/azure-arc/kubernetes/overview)
+
+          See [Assign role permissions to a user or group](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md) to learn more about role assignments.
       - question: |
           What does "Other processes" represent under the Node view?
         answer: |
@@ -1181,7 +1208,7 @@ sections:
       - question: |
           How do I enable multi-line logging?
         answer: |
-          Container insights now supports multi-line logging (preview), for more information on how to enable, checkout the [Multi-line logging in Container Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-logging-v2) docs. 
+          Container insights now supports multi-line logging (preview), for more information on how to enable, checkout the [Multi-line logging in Container Insights](/azure/azure-monitor/containers/container-insights-logging-v2) docs. 
           
           As an alternative you can also configure all the services to write in JSON format, and then Docker/Moby writes them as a single line. For example, you can wrap your log as a JSON object as shown in the following example for a sample Node.js application
           
@@ -1215,7 +1242,7 @@ sections:
       - question: |
           Which ports and domains do I need to open or allow for the agent?
         answer: |
-          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Azure China 21Vianet clouds.
+          See the [Network firewall requirements](containers/container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information that's required for the containerized agent with Azure, Azure US Government, and Microsoft Azure operated by 21Vianet clouds.
           
       - question: |
           Is there support for collecting Kubernetes audit logs for ARO clusters?
@@ -1230,7 +1257,7 @@ sections:
       - question: |
           Does Container Insights support pod sandboxing?
         answer: |
-          Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](https://learn.microsoft.com/azure/aks/use-pod-sandboxing).
+          Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](/azure/aks/use-pod-sandboxing).
           
 
       

@@ -96,8 +96,8 @@ Document your processes for operating the Azure AD environment. Use Azure AD fea
 
 Learn more:
 
-* [Azure AD governance operations reference guide](../fundamentals/ops-guide-govern.md)
-* [Azure AD security operations guide](../fundamentals/security-operations-introduction.md)
+* [Azure AD governance operations reference guide](../architecture/ops-guide-govern.md)
+* [Azure AD security operations guide](../architecture/security-operations-introduction.md)
 * [What is Microsoft Entra Identity Governance?](../governance/identity-governance-overview.md) 
 * [Meet authorization requirements of memorandum 22-09](memo-22-09-authorization.md). 
 

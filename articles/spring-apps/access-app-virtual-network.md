@@ -1,16 +1,16 @@
 ---
-title: Access your application in a private network
-description: Access an app in Azure Spring Apps in a virtual network.
-author: karlerickson
+title: Access an app in Azure Spring Apps in a virtual network
+description: Shows how to access an app in Azure Spring Apps in a virtual network.
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/30/2021
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
-# Access your application in a private network
+# Access an app in Azure Spring Apps in a virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -19,7 +19,7 @@ ms.devlang: azurecli
 
 This article explains how to access an endpoint for your application in a private network.
 
-When **Assign Endpoint** on applications in an Azure Spring Apps service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
+When you assign an endpoint on an application in an Azure Spring Apps service instance deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
 ## Find the IP for your application
 
@@ -41,17 +41,17 @@ When **Assign Endpoint** on applications in an Azure Spring Apps service instanc
 Find the IP Address for your Spring Cloud services. Customize the value of your Azure Spring Apps instance name based on your real environment.
 
 ```azurecli
-SPRING_CLOUD_NAME='spring-cloud-name'
-SERVICE_RUNTIME_RG=`az spring show \
+export SPRING_CLOUD_NAME='spring-cloud-name'
+export SERVICE_RUNTIME_RG=$(az spring show \
     --resource-group $RESOURCE_GROUP \
     --name $SPRING_CLOUD_NAME \
     --query "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
-    --output tsv`
-IP_ADDRESS=`az network lb frontend-ip list \
+    --output tsv)
+export IP_ADDRESS=$(az network lb frontend-ip list \
     --lb-name kubernetes-internal \
     --resource-group $SERVICE_RUNTIME_RG \
-    --query "[0].privateIpAddress" \
-    --output tsv`
+    --query "[0].privateIPAddress" \
+    --output tsv)
 ```
 
 ---
@@ -61,7 +61,7 @@ IP_ADDRESS=`az network lb frontend-ip list \
 If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain `*.private.azuremicroservices.io` to the [IP address](#find-the-ip-for-your-application). Otherwise, you can follow the following instructions to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
 > [!NOTE]
-> If you're using Azure China, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you're using Microsoft Azure operated by 21Vianet, be sure to replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 ## Create a private DNS zone
 
@@ -84,9 +84,9 @@ The following procedure creates a private DNS zone for an application in the pri
 1. Define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
 
    ```azurecli
-   SUBSCRIPTION='subscription-id'
-   RESOURCE_GROUP='my-resource-group'
-   VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
+   export SUBSCRIPTION='subscription-id'
+   export RESOURCE_GROUP='my-resource-group'
+   export VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription.
@@ -96,7 +96,7 @@ The following procedure creates a private DNS zone for an application in the pri
    az account set --subscription ${SUBSCRIPTION}
    ```
 
-1. Create the private DNS zone. 
+1. Create the private DNS zone.
 
    ```azurecli
    az network private-dns zone create \
@@ -167,14 +167,14 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
 #### [CLI](#tab/azure-CLI)
 
-Use the [IP address](#find-the-ip-for-your-application) to create the A record in your DNS zone. 
+Use the [IP address](#find-the-ip-for-your-application) to create the A record in your DNS zone.
 
 ```azurecli
 az network private-dns record-set a add-record \
-  --resource-group $RESOURCE_GROUP \
-  --zone-name private.azuremicroservices.io \
-  --record-set-name '*' \
-  --ipv4-address $IP_ADDRESS
+    --resource-group $RESOURCE_GROUP \
+    --zone-name private.azuremicroservices.io \
+    --record-set-name '*' \
+    --ipv4-address $IP_ADDRESS
 ```
 
 ---
@@ -200,7 +200,7 @@ After following the procedure in [Deploy Azure Spring Apps in a virtual network]
 Update your app to assign an endpoint to it. Customize the value of your app name based on your real environment.
 
 ```azurecli
-SPRING_CLOUD_APP='your spring cloud app'
+export SPRING_CLOUD_APP='your spring cloud app'
 az spring app update \
     --resource-group $RESOURCE_GROUP \
     --name $SPRING_CLOUD_APP \

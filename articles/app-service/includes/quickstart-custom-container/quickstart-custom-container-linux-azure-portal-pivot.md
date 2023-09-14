@@ -63,7 +63,7 @@ Make sure you are in the cloned repository's root folder. This repository contai
 
 ### Sign in to Azure portal
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create Azure resources
 

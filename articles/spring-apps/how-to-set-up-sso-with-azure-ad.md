@@ -2,7 +2,7 @@
 title: How to set up single sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API Portal for Tanzu with the Azure Spring Apps Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: ninpan
 ms.service: spring-apps
 ms.topic: how-to

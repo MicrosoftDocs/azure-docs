@@ -2,7 +2,7 @@
 title: Monitor Azure App Service performance in .NET Core | Microsoft Docs
 description: Application performance monitoring for Azure App Service using ASP.NET Core. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 08/11/2023
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.reviewer: abinetabate
@@ -14,26 +14,26 @@ Enabling monitoring on your ASP.NET Core-based web applications running on [Azur
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## Enable auto-instrumentation monitoring
+## Enable autoinstrumentation monitoring
 
-For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a complete list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 # [Windows](#tab/Windows)
 
 > [!IMPORTANT]
-> Only .NET Core [Long Term Support](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) is supported for auto-instrumentation on Windows.
+> Only .NET Core [Long Term Support](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) is supported for autoinstrumentation on Windows.
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is *not supported*. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
 > [!NOTE]
-> Auto-instrumentation used to be known as "codeless attach" before October 2021.
+> Autoinstrumentation used to be known as "codeless attach" before October 2021.
 
 See the following [Enable monitoring](#enable-monitoring) section to begin setting up Application Insights with your App Service resource.
 
 # [Linux](#tab/Linux)
 
 > [!IMPORTANT]
-> Only ASP.NET Core 6.0 is supported for auto-instrumentation on Linux.
+> Only .NET Core [Long Term Support](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) is supported for autoinstrumentation on Linux.
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is *not supported*. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
@@ -83,7 +83,7 @@ To enable telemetry collection with Application Insights, only the application s
 
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` for Windows or `~3` for Linux |
+|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~3` |
 |XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled to ensure optimal performance. | `disabled` or `recommended`. |
 |XDT_MicrosoftApplicationInsights_PreemptSdk | For ASP.NET Core apps only. Enables Interop (interoperation) with the Application Insights SDK. Loads the extension side by side with the SDK and uses it to send telemetry. (Disables the Application Insights SDK.) |`1`|
 
@@ -105,7 +105,7 @@ To check which version of the extension you're running, go to `https://yoursiten
 
 Starting with version 2.8.9, the preinstalled site extension is used. If you're using an earlier version, you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](#enable-auto-instrumentation-monitoring): Even if you have the Application Insights extension for App Service installed, the UI shows only the **Enable** button. Behind the scenes, the old private site extension will be removed.
+* [Upgrade by enabling via the portal](#enable-autoinstrumentation-monitoring): Even if you have the Application Insights extension for App Service installed, the UI shows only the **Enable** button. Behind the scenes, the old private site extension will be removed.
 * [Upgrade through PowerShell](#enable-through-powershell):
 
     1. Set the application settings to enable the preinstalled site extension `ApplicationInsightsAgent`. For more information, see [Enable through PowerShell](#enable-through-powershell).
@@ -129,7 +129,7 @@ What follows is our step-by-step troubleshooting guide for extension/agent-based
     
     - Confirm that **Application Insights Extension Status** is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.`
     
-         If it isn't running, follow the instructions in the section [Enable Application Insights monitoring](#enable-auto-instrumentation-monitoring).
+         If it isn't running, follow the instructions in the section [Enable Application Insights monitoring](#enable-autoinstrumentation-monitoring).
 
     - Confirm that the status source exists and looks like `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`.
 
@@ -158,7 +158,9 @@ What follows is our step-by-step troubleshooting guide for extension/agent-based
    * The value `Auto-Instrumentation enabled successfully` is displayed. If a similar value isn't present, it means the application isn't running or isn't supported. To ensure that the application is running, try manually visiting the application URL/application endpoints, which will allow the runtime information to become available.
    * **IKeyExists** is `True`. If it's `False`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey GUID to your application settings.
 
-   :::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot that shows the auto-instrumentation status webpage." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
+   :::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot that shows the autoinstrumentation status webpage." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
+
+
 
 ---
 ### Default website deployed with web apps doesn't support automatic client-side monitoring
@@ -196,3 +198,4 @@ For the latest updates and bug fixes, see the [Release notes](web-app-extension-
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and webpages](javascript.md) to get client telemetry from the browsers that visit a webpage.
 * [Availability](availability-overview.md)
+

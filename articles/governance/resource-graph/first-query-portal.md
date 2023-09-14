@@ -76,7 +76,7 @@ functions to achieve your intended results.
 To download CSV results from the Azure portal, browse to the Azure Resource Graph Explorer and run a
 query. On the toolbar, click **Download as CSV** as shown in the following screenshot:
 
-:::image type="content" source="./arg-export-csv.png" alt-text="Screenshot of Azure Resource Graph Explorer in Azure portal with Download as CSV button highlighted.":::
+:::image type="content" source="./media/first-query-portal/arg-export-csv.png" alt-text="Screenshot of Azure Resource Graph Explorer in Azure portal with Download as CSV button highlighted.":::
 
 > [!NOTE]
 > When using the comma-separated value (CSV) export functionality of Azure Resource Graph Explorer, the result set is limited to 55,000 records. This is a platform limit that cannot be overridden by filing an Azure support ticket.
@@ -134,11 +134,11 @@ your Azure portal workflow, try out these example dashboards.
 
 - [Resource Graph Explorer - Sample Dashboard #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Example image for Sample Dashboard #1" lightbox="./media/arge-sample1-large.png":::
+  :::image type="content" source="./media/first-query-portal/arge-sample1-small.png" alt-text="Example image for Sample Dashboard #1" lightbox="./media/first-query-portal/arge-sample1-large.png":::
 
 - [Resource Graph Explorer - Sample Dashboard #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Example image for Sample Dashboard #2" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/first-query-portal/arge-sample2-small.png" alt-text="Example image for Sample Dashboard #2" lightbox="./media/first-query-portal/arge-sample2-large.png":::
 
 > [!NOTE]
 > Counts and charts in the above example dashboard screenshots vary depending on your Azure

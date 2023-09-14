@@ -2,11 +2,10 @@
 title: StorSimple 8000 series migration to Azure File Sync
 description: Learn how to migrate a StorSimple 8100 or 8600 appliance to Azure File Sync.
 author: fauhse
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 01/12/2023
 ms.author: kendownie
-ms.subservice: files
 ms.reviewer: khdownie
 ---
 
@@ -622,7 +621,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube-nocookie.com/embed/jd49W33DxkQ]
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
@@ -712,7 +711,7 @@ At this point, there are differences between your on-premises Windows Server ins
 > [!WARNING]
 > You *must not* start the RoboCopy before the server has the namespace for an Azure file share downloaded fully. For more information, see [Determine when your namespace has fully downloaded to your server](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
- You only want to copy files that were changed after the migration job last ran and files that haven't moved through these jobs before. You can solve the problem as to why they didn't move later on the server, after the migration is complete. For more information, see [Azure File Sync troubleshooting](../file-sync/file-sync-troubleshoot-sync-errors.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+ You only want to copy files that were changed after the migration job last ran and files that haven't moved through these jobs before. You can solve the problem as to why they didn't move later on the server, after the migration is complete. For more information, see [Azure File Sync troubleshooting](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing?toc=/azure/storage/file-sync/toc.json).
 
 RoboCopy has several parameters. The following example showcases a finished command and a list of reasons for choosing these parameters.
 
@@ -811,4 +810,4 @@ During the copy phase of a migration job run, individual namespace items (files 
 * Get more familiar with [Azure File Sync: aka.ms/AFS](../file-sync/file-sync-planning.md).
 * Understand the flexibility of [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) policies.
 * [Enable Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) on your Azure file shares to schedule snapshots and define backup retention schedules.
-* If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](../file-sync/file-sync-troubleshoot.md) for steps to resolve these issues.
+* If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json) for steps to resolve these issues.

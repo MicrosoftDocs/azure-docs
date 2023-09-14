@@ -1,13 +1,13 @@
 ---
 title: Compute and storage – Azure Cosmos DB for PostgreSQL
 description: Options for a cluster, including node compute and storage
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 07/06/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL compute and storage
@@ -25,12 +25,12 @@ Postgres server logs.
 You can select the compute and storage settings independently for worker nodes
 and the coordinator node in a multi-node cluster.
  
-| Resource              | Worker node                    | Coordinator node         |
-|-----------------------|--------------------------------|--------------------------|
-| Compute, vCores       | 4, 8, 16, 32, 64, 96, 104      | 4, 8, 16, 32, 64, 96     |
-| Memory per vCore, GiB | 8                              | 4                        |
-| Storage size, TiB     | 0.5, 1, 2, 4, 8, 16            | 0.5, 1, 2, 4, 8, 16      |
-| Storage type          | General purpose (SSD)          | General purpose (SSD)    |
+| Resource              | Worker node                    | Coordinator node                 |
+|-----------------------|--------------------------------|----------------------------------|
+| Compute, vCores       | 4, 8, 16, 32, 64, 96, 104      | 4, 8, 16, 32, 64, 96             |
+| Memory per vCore, GiB | 8                              | 4                                |
+| Storage size, TiB     | 0.5, 1, 2, 4, 8, 16            | 0.128, 0.25, 0.5, 1, 2, 4, 8, 16 |
+| Storage type          | General purpose (SSD)          | General purpose (SSD)            |
 
 The total amount of RAM in a single node is based on the
 selected number of vCores.

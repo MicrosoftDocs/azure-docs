@@ -21,7 +21,7 @@ In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD)
 * [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) 
 * [What is Conditional Access?](../conditional-access/overview.md)
 * Single sign-on (SSO) between Azure AD and BIG-IP published services
-* Manage identities and access from the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from the [Microsoft Entra admin center](https://entra.microsoft.com)
 
 Learn more: 
 
@@ -68,9 +68,8 @@ SHA supports SP and IdP initiated flows. The following image illustrates the SP-
     * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
     * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to the on-premises directory
-  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
-* An account with Azure AD Application Admin permissions
-  * See, [Azure AD built-in roles](../roles/permissions-reference.md)
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
 * An SSL Web certificate to publish services over HTTPS, or use default BIG-IP certs for testing
   * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * An SAP ERP environment configured for Kerberos authentication
@@ -84,20 +83,21 @@ This tutorial uses Guided Configuration 16.1 with an Easy Button template. With 
 
 ## Register Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it. 
 
 See, [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 Register the Easy Button client in Azure AD, then it's allowed to establish a trust between SAML SP instances of a BIG-IP published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrator permissions.
-2. In the left navigation pane, select the **Azure Active Directory** service.
-3. Under Manage, select **App registrations > New registration**.
-4. Enter a **Name**. 
-5. In **Accounts in this organizational directory only**, specify who can use the application.
-6. Select **Register**.
-7. Navigate to **API permissions**.
-8. Authorize the following Microsoft Graph Application permissions:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations** > **New registration**.
+3. Enter a **Name** for the new application. 
+4. In **Accounts in this organizational directory only**, specify who can use the application.
+5. Select **Register**.
+6. Navigate to **API permissions**.
+7. Authorize the following Microsoft Graph Application permissions:
 
    * Application.Read.All
    * Application.ReadWrite.All
@@ -163,15 +163,15 @@ Use the Service Provider settings to define SAML SP instance properties of the a
  
    ![Screenshot of the Create New option from the Assertion Decryption Private Key list.](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
-5.	Select **OK**. 
-6.	The **Import SSL Certificate and Keys** dialog appears in a new tab. 
+5. Select **OK**. 
+6. The **Import SSL Certificate and Keys** dialog appears in a new tab. 
 
-7.	To import the certificate and private key, select **PKCS 12 (IIS)**. 
-8.	Close the browser tab to return to the main tab.
+7. To import the certificate and private key, select **PKCS 12 (IIS)**. 
+8. Close the browser tab to return to the main tab.
 
    ![Screenshot of options and selections for Import SSL Certificates and Keys.](./media/f5-big-ip-easy-button-sap-erp/import-ssl-certificates-and-keys.png)
 
-9.	For **Enable Encrypted Assertion**, check the box.
+9. For **Enable Encrypted Assertion**, check the box.
 10. If you enabled encryption, from the **Assertion Decryption Private Key** list, select the private key for the certificate BIG-IP APM uses to decrypt Azure AD assertions.
 11. If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
 
@@ -238,9 +238,9 @@ The **Selected Policies** view lists policies targeting cloud apps. You can't de
 
 To select a policy for the application being published:
 
-1.	From the **Available Policies** list, select the policy.
-2.	Select the right arrow.
-3.	Move the policy to the **Selected Policies** list.
+1. From the **Available Policies** list, select the policy.
+2. Select the right arrow.
+3. Move the policy to the **Selected Policies** list.
 
 Selected policies have an **Include** or **Exclude** option checked. If both options are checked, the selected policy isn't enforced.
 

@@ -3,6 +3,7 @@ title: Tutorial - Create a distributed highly available SAP system with Azure Ce
 description: In this tutorial you learn to create a distributed highly available SAP system in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 05/04/2023
 ms.author: sagarkeswani

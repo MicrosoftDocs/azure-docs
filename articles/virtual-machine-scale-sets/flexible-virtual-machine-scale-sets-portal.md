@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, vmss-flex
+ms.custom: mimckitt, vmss-flex, devx-track-linux
 ---
 
 # Create virtual machines in a scale set using Azure portal
 
 This article steps through using Azure portal to create a Virtual Machine Scale Set. 
 ## Log in to Azure
-Log in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 
 ## Create a Virtual Machine Scale Set

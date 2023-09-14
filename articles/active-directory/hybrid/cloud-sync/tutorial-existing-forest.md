@@ -26,7 +26,7 @@ In this scenario, there's an existing forest synced using Azure AD Connect sync 
 ## Prerequisites
 ### In the Azure portal
 
-1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../../fundamentals/add-users-azure-active-directory.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
+1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../../fundamentals/add-users.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
 2. Add one or more [custom domain names](../../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
 ### In your on-premises environment
@@ -59,24 +59,27 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 [!INCLUDE [active-directory-cloud-sync-how-to-verify-installation](../../../../includes/active-directory-cloud-sync-how-to-verify-installation.md)]
 
 ## Configure Azure AD Connect cloud sync
- Use the following steps to configure provisioning
 
-1.  Sign in to the Azure portal.
-2.  Select **Azure Active Directory**
-3.  Select **Azure AD Connect**
-4.  Select **Manage cloud sync**
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Use the following steps to configure provisioning:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **Azure Active Directory**
+3. Select **Azure AD Connect**
+4. Select **Manage cloud sync**
 
     ![Screenshot showing "Manage cloud sync" link.](media/how-to-configure/manage-1.png)
 
-5.  Select **New Configuration**
+5. Select **New Configuration**
 
     ![Screenshot of Azure AD Connect cloud sync screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)
 
-7.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and select **Save**.
+6. On the configuration screen, enter a **Notification email**, move the selector to **Enable** and select **Save**.
 
     ![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/how-to-configure/configure-2.png)
 
-1.  The configuration status should now be **Healthy**.
+7. The configuration status should now be **Healthy**.
 
     ![Screenshot of Azure AD Connect cloud sync screen showing Healthy status.](media/how-to-configure/manage-4.png)
 
@@ -84,8 +87,7 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 You'll now verify that the users that you had in our on-premises directory have been synchronized and now exist in our Azure AD tenant.  This process may take a few hours to complete.  To verify users are synchronized, do the following:
 
-
-1. Browse to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
 2. On the left, select **Azure Active Directory**
 3. Under **Manage**, select **Users**.
 4. Verify that you see the new users in our tenant

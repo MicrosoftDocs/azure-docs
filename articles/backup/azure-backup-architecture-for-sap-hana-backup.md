@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 06/20/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Azure Backup architecture for SAP HANA backup
 
@@ -147,4 +147,4 @@ This section provides you with an understanding about the backup process of an H
 - Learn about the supported configurations and scenarios in the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 - Learn about how to [backup SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md).
 - Learn about how to [backup SAP HANA System Replication databases in Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
-- Learn about how to [backup SAP HANA databases' snapshot instances in Azure VMs](sap-hana-database-instances-backup.md).
+- Learn about how to [backup SAP HANA databases' snapshot instances in Azure VMs (preview)](sap-hana-database-instances-backup.md).

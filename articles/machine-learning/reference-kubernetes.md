@@ -163,7 +163,7 @@ spec:
        storage: 1Gi
 ```
 > [!IMPORTANT]
-> Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
+> Only training job pods and batch-deployment pods will have access to the PVC(s); managed and Kubernetes online-deployment pods will not. In addition, only the pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
 
 ## Supported Azure Machine Learning taints and tolerations
@@ -394,6 +394,7 @@ More information about how to use ARM template can be found from [ARM template d
 
 | Date | Version |Version description |
 |---|---|---|
+|July 18, 2023 | 1.1.29|  Add new identity operator errors. Bug fixes. |
 |June 4, 2023 | 1.1.28 | Improve auto-scaler to handle multiple node pool. Bug fixes. |
 | Apr 18 , 2023| 1.1.26 | Bug fixes and vulnerabilities fix. | 
 | Mar 27, 2023| 1.1.25 | Add Azure machine learning job throttle. Fast fail for training job when SSH setup failed. Reduce Prometheus scrape interval to 30s. Improve error messages for inference. Fix vulnerable image. |

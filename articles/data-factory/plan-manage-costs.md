@@ -60,8 +60,8 @@ Azure Data Factory is a serverless and elastic data integration service built fo
 When you create or use Azure Data Factory resources, you might get charged for the following meters:
 
 - Orchestration Activity Runs - You're charged for it based on the number of activity runs orchestrate.
-- Data Integration Unit (DIU) Hours – For copy activities run on Azure Integration Runtime, you're charged based on number of DIU used and execution duration.
-- vCore Hours – for data flow execution and debugging, you're charged for based on compute type, number of vCores, and execution duration.
+- Data Integration Unit (DIU) Hours - For copy activities run on Azure Integration Runtime, you're charged based on number of DIU used and execution duration.
+- vCore Hours - for data flow execution and debugging, you're charged for based on compute type, number of vCores, and execution duration.
 
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Data Factory costs. There's a separate line item for each meter.

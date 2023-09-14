@@ -19,7 +19,8 @@ Virtual network (VNet) support enables you to lock down access to Azure Stream A
 - [Service tags](../virtual-network/service-tags-overview.md), which allow or deny traffic to Azure Stream Analytics. 
 
 ## Availability 
-Currently, this capability is only available in select regions.  If you're interested in enabling VNet integration in your region, fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u).    
+Currently, this capability is only available in select regions: **West US**, **Central Canada**, **East US**, **East US 2**, **Central US**, **West Europe**, and **North Europe**.
+If you're interested in enabling VNet integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.    
 
 ## Requirements for VNet integration support 
 

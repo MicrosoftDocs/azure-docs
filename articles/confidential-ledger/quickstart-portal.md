@@ -19,7 +19,7 @@ In this quickstart, you create a confidential ledger with the [Azure portal](htt
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a confidential ledger
 

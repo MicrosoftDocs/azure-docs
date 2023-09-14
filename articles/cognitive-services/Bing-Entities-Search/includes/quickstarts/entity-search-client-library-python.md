@@ -1,6 +1,6 @@
 ---
 title: Bing Entity Search Python client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -75,4 +75,4 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 > [!div class="nextstepaction"]
 > [Create a single-page web app](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../../overview.md )
+* [What is the Bing Entity Search API?](../../overview.md)

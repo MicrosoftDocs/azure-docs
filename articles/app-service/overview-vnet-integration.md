@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 07/21/2023
 ms.author: madsd
 ms.custom: UpdateFrequency3
 
@@ -73,7 +73,19 @@ When you scale up/down in size or in/out in number of instances, the required ad
 Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required. If the subnet already exists before integrating through the portal, you can use a /28 subnet.
 
 >[!NOTE]
-> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have for example 10 Windows Container App Service plan instances with 4 apps running, you will need 50 IP addresses and additional addresses to support horizontal (up/down) scale. 
+> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have for example 10 Windows Container App Service plan instances with 4 apps running, you will need 50 IP addresses and additional addresses to support horizontal (in/out) scale.
+>
+> Sample calculation:
+>
+> For each App Service plan instance, you need:  
+> 4 Windows Container apps = 4 IP addresses  
+> 1 IP address per App Service plan instance  
+> 4 + 1 = 5 IP addresses
+>
+> For 10 instances:  
+> 5 x 10 = 50 IP addresses per App Service plan
+>
+> Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
 
 When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing virtual network integration.
 

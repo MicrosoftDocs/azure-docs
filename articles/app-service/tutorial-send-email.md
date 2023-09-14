@@ -4,7 +4,9 @@ description: Learn how to invoke business processes from your App Service app. S
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.devlang: csharp, javascript, php, python, ruby
-ms.custom: "devx-track-csharp, mvc"
+ms.custom: devx-track-csharp, mvc, AppServiceConnectivity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Tutorial: Send email and invoke other business processes from App Service

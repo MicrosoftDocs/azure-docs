@@ -1,10 +1,10 @@
 ---
 title: Identify and remediate attack paths
-titleSuffix: Defender for Cloud
+
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 03/27/2023
+ms.date: 08/10/2023
 ---
 
 # Identify and remediate attack paths
@@ -19,11 +19,11 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 
 | Aspect | Details |
 |--|--|
-| Release state | GA (General Availability) |
+| Release state | GA (General Availability) for Azure, AWS <Br> Preview for GCP |
 | Prerequisites | - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md), or [Enable Defender for Server P1 (which includes MDVM)](defender-for-servers-introduction.md) or [Defender for Server P2 (which includes MDVM and Qualys)](defender-for-servers-introduction.md). <br> - [Enable Defender CSPM](enable-enhanced-security.md) <br> - Enable agentless container posture extension in Defender CSPM, or [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This also gives you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer. |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS, GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Features of the attack path overview page
 
@@ -47,9 +47,9 @@ You can use Attack path analysis  to locate the biggest risks to your environmen
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack path**.
+1. Navigate to **Microsoft Defender for Cloud** > **Attack path analysis**.
 
-    :::image type="content" source="media/how-to-manage-attack-path/attack-path-icon.png" alt-text="Screenshot that shows where the icon is on the recommendations page to get to attack paths." lightbox="media/how-to-manage-attack-path/attack-path-icon.png":::
+    :::image type="content" source="media/how-to-manage-attack-path/attack-path-blade.png" alt-text="Screenshot that shows the attack path analysis blade on the main screen." lightbox="media/how-to-manage-attack-path/attack-path-blade.png":::
 
 1. Select an attack path.
 
@@ -86,7 +86,7 @@ Attack path analysis also gives you the ability to see all recommendations by at
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack paths**.
+1. Navigate to **Microsoft Defender for Cloud** > **Attack path analysis**.
 
 1. Select an attack path.
 
@@ -167,7 +167,7 @@ While you're [investigating and remediating an attack path](#investigate-and-rem
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack paths**.
+1. Navigate to **Microsoft Defender for Cloud** > **Attack path analysis**.
 
 1. Select an attack path.
 

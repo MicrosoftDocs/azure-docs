@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 08/28/2023
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -50,7 +50,7 @@ The following table shows connectivity locations and the service providers for e
 |--|--|--|--|--|--|
 | **Abu Dhabi** | Etisalat KDC | 3 | UAE Central | Supported |  |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | West Europe | Supported | Aryaka Networks<br/>AT&T NetBond<br/>British Telecom<br/>Colt<br/>Equinix<br/>euNetworks<br/>GÉANT<br/>InterCloud<br/>Interxion<br/>KPN<br/>IX Reach<br/>Level 3 Communications<br/>Megaport<br/>NTT Communications<br/>Orange<br/>Tata Communications<br/>Telefonica<br/>Telenor<br/>Telia Carrier<br/>Verizon<br/>Zayo |
-| **Amsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | West Europe | Supported | BICS<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>DE-CIX<br/>Equinix<br/>euNetworks<br/>GÉANT<br/>Interxion<br/>NL-IX<br/>NOS<br/>NTT Global DataCenters EMEA<br/>Orange<br/>Vodafone |
+| **Amsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | West Europe | Supported | BICS<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>DE-CIX<br/>Equinix<br/>euNetworks<br/>GÉANT<br/>Interxion<br/>Megaport<br/>NL-IX<br/>NOS<br/>NTT Global DataCenters EMEA<br/>Orange<br/>Vodafone |
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | n/a | Supported | Equinix<br/>Megaport |
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/a | Supported | Devoli<br/>Kordia<br/>Megaport<br/>REANNZ<br/>Spark NZ<br/>Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | n/a | Supported | AIS<br/>National Telecom UIH |
@@ -94,7 +94,7 @@ The following table shows connectivity locations and the service providers for e
 | **Milan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | n/a | Supported | Colt<br/>Equinix<br/>Fastweb<br/>IRIDEOS<br/>Retelit<br/>Vodafone |
 | **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) and [Cologix MIN3](https://www.cologix.com/data-centers/minneapolis/min3/) | 1 | n/a | Supported | Cologix<br/>Megaport |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/a | Supported | Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Fibrenoire<br/>Megaport<br/>Telus<br/>Zayo |
-| **Mumbai** | Tata Communications | 2 | West India | Supported | BSNL<br/>DE-CIX<br/>Global CloudXchange (GCX)<br/>Reliance Jio<br/>Sify<br/>Tata Communications<br/>Verizon |
+| **Mumbai** | Tata Communications | 2 | West India | Supported | BSNL<br/>British Telecom<br/>DE-CIX<br/>Global CloudXchange (GCX)<br/>Reliance Jio<br/>Sify<br/>Tata Communications<br/>Verizon |
 | **Mumbai2** | Airtel | 2 | West India | Supported | Airtel<br/>Sify<br/>Orange<br/>Vodafone Idea |
 | **Munich** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | n/a | Supported | Colt<br/>DE-CIX<br/>Megaport |
 | **New York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | 1 | n/a | Supported | CenturyLink Cloud Connect<br/>Coresite<br/>Crown Castle<br/>DE-CIX<br/>Equinix<br/>InterCloud<br/>Lightpath<br/>Megaport<br/>NTT Communications<br/>Packet<br/>Zayo |
@@ -134,7 +134,7 @@ The following table shows connectivity locations and the service providers for e
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | Supported | AT&T NetBond<br/>Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Equinix<br/>IX Reach Megaport<br/>Orange<br/>Telus<br/>Verizon<br/>Zayo |
 | **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | Supported | Fibrenoire |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | n/a | Supported | Bell Canada<br/>Cologix<br/>Megaport<br/>Telus<br/>Zayo |
-| **Warsaw** | [Equinix WA1](https://www.equinix.com/data-centers/europe-colocation/poland-colocation/warsaw-data-centers/wa1) | 1 | Poland Central | Supported | Equinix |
+| **Warsaw** | [Equinix WA1](https://www.equinix.com/data-centers/europe-colocation/poland-colocation/warsaw-data-centers/wa1) | 1 | Poland Central | Supported | Equinix, Orange Poland, T-mobile Poland |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/)<br/>[Equinix DC6](https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc6) | 1 | East US<br/>East US 2 | Supported | Aryaka Networks<br/>AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Colt<br/>Comcast<br/>Coresite<br/>Cox Business Cloud Port<br/>Crown Castle<br/>Equinix<br/>Internet2<br/>InterCloud<br/>Iron Mountain<br/>IX Reach<br/>Level 3 Communications<br/>Lightpath<br/>Megaport<br/>Neutrona Networks<br/>NTT Communications<br/>Orange<br/>PacketFabric<br/>SES<br/>Sprint<br/>Tata Communications<br/>Telia Carrier<br/>Verizon<br/>Zayo |
 | **Washington DC2** | [Coresite VA2](https://www.coresite.com/data-center/va2-reston-va) | 1 | East US<br/>East US 2 | n/a | CenturyLink Cloud Connect<br/>Coresite<br/>Intelsat<br/>Megaport<br/>Viasat<br/>Zayo |
 | **Zurich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Switzerland North | Supported | Colt<br/>Equinix<br/>Intercloud<br/>Interxion<br/>Megaport<br/>Swisscom<br/>Zayo |
@@ -163,7 +163,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | Location | Address | Local Azure regions | ER Direct | Service providers |
 |--|--|--|--|--|
 | **Beijing** | China Telecom | n/a | Supported | China Telecom |
-| **Beijing2** | GDS | n/a | Supported | China Telecom<br/>China Unicom<br/>GDS |
+| **Beijing2** | GDS | n/a | Supported | China Telecom<br/>China Mobile<br/>China Unicom<br/>GDS |
 | **Shanghai** | China Telecom | n/a | Supported | China Telecom |
 | **Shanghai2** | GDS | n/a | Supported | China Telecom<br/>China Unicom<br/>GDS |
 
@@ -206,7 +206,7 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 | **Dallas** | Equinix<br/>Megaport | Axtel<br/>C3ntro Telecom<br/>Cox Business<br/>Crown Castle<br/>Data Foundry<br/>Spectrum Enterprise<br/>Transtelco |
 | **Frankfurt** | Interxion | BICS<br/>Cinia<br/>Equinix<br/>Nianet<br/>QSC AG<br/>Telekom Deutschland GmbH |
 | **Hamburg** | Equinix | Cinia |
-| **Hong Kong SAR** | Equinix | Chief<br/>Macroview Telecom |
+| **Hong Kong** | Equinix | Chief<br/>Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |
 | **London** | BICS<br/>Equinix<br/>euNetworks | Bezeq International Ltd.<br/>CoreAzure<br/>Epsilon Telecommunications Limited<br/>Exponential E<br/>HSO<br/>NexGen Networks<br/>Proximus<br/>Tamares Telecom<br/>Zain |
 | **Los Angeles** | Equinix | Crown Castle<br/>Spectrum Enterprise<br/>Transtelco |

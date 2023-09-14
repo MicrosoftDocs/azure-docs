@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/28/2022
+ms.date: 07/06/2023
 ms.author: jasteppe
 ---
 
@@ -14,12 +14,9 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-You may prefer to deploy the MedTech service using the Azure portal if you:
+In this quickstart, learn how to deploy the MedTech service and required resources using the Azure portal.
 
-* Need to track every step of the provisioning process.
-* Want to customize or troubleshoot your deployment.
-
-In this quickstart, the MedTech service deployment using the Azure portal is divided into the following three sections:
+The MedTech service deployment using the Azure portal is divided into the following three sections:
 
 * [Deploy prerequisite resources](#deploy-prerequisite-resources)
 * [Configure and deploy the MedTech service](#configure-and-deploy-the-medtech-service)
@@ -36,14 +33,14 @@ As a prerequisite, you need an Azure subscription and have been granted the prop
 
 The first step is to deploy the MedTech service prerequisite resources:
 
-* Azure resource group.
-* Azure Event Hubs namespace and event hub.
-* Azure Health Data services workspace.
-* Azure Health Data Services FHIR service.
+* Azure resource group
+* Azure Event Hubs namespace and event hub
+* Azure Health Data services workspace
+* Azure Health Data Services FHIR service
 
 Once the prerequisite resources are available, deploy:
  
-* Azure Health Data Services MedTech service.
+* Azure Health Data Services MedTech service
 
 ### Deploy a resource group 
 
@@ -93,11 +90,11 @@ Follow these four steps to fill in the **Basics** tab configuration:
 
 2. Select the **Event Hubs Namespace**.
 
-   The **Event Hubs Namespace** is the name of the *Event Hubs namespace* that you previously deployed. For this example, we're using *eh-azuredocsdemo* for our MedTech service device messages.
+   The **Event Hubs Namespace** is the name of the *Event Hubs namespace* that you previously deployed. For this example, we're using the name *eh-azuredocsdemo*.
 
 3. Select the **Events Hubs name**.
 
-   The **Event Hubs name** is the name of the event hub that you previously deployed within the Event Hubs Namespace. For this example, we're using *devicedata* for our MedTech service device messages.  
+   The **Event Hubs name** is the name of the event hub that you previously deployed within the Event Hubs Namespace. For this example, we're using the name *devicedata*.  
 
 4. Select the **Consumer group**.
 
@@ -130,24 +127,25 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 * Next, enter the **Destination name**.
 
-  The **Destination name** is a friendly name for the destination. Enter a unique name for your destination. In this example, the **Destination name** is
+  The **Destination name** is a friendly name for the destination. Enter a unique name for your destination. In this example, the **Destination name** name is
   *fs-azuredocsdemo*.
 
 * Next, select the **Resolution type**.
 
-  **Resolution type** specifies how MedTech service associates device data with FHIR Device resources and FHIR Patient resources. MedTech reads device and patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/patient-definitions.html#Patient.identifier).
+   **Resolution type** specifies how the MedTech service associates device data with Device resources and Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the [encounter identifier](../../healthcare-apis/release-notes.md#medtech-service) is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown.
 
   Device and Patient resources can be resolved by choosing a **Resolution type** of **Create** and **Lookup**:
 
   - **Create**
 
-    If **Create** was selected, and device or patient resources are missing when you're reading data, new resources are created using the identifiers included in the device message.
+    If **Create** was selected, and Device or Patient resources are missing when the MedTech service is reading the device data, new resources are created using the identifiers included in the device data.
 
   - **Lookup**
   
-    If **Lookup** was selected, and device or patient resources are missing, an error occurs, and the data isn't processed. The errors **DeviceNotFoundException** and/or a **PatientNotFoundException** error is generated, depending on the type of resource not found.
+    If **Lookup** was selected, and Device or Patient resources are missing, an error occurs, and the device data isn't processed. A **DeviceNotFoundException** and/or a **PatientNotFoundException** error is generated, depending on the type of resource not found.
 
  * For the **Destination mapping** field, accept the default **Destination mapping**. The FHIR destination mapping is addressed in the [Post-deployment](#post-deployment) section of this quickstart.
+
 
 The **Destination** tab should now look something like this after you've filled it out:
 
@@ -212,7 +210,7 @@ Valid and conforming device and FHIR destination mappings have to be provided to
 
 ## Next steps
 
-This article described the deployment steps needed to get started using the MedTech service. 
+In this article, you learned how to deploy the MedTech service and required resources using the Azure portal.  
 
 To learn about other methods of deploying the MedTech service, see
 

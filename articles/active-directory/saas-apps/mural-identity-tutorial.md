@@ -150,7 +150,7 @@ e. In the **Claim mapping** section, fill the following fields.
 f. Click **Test single sign-on** to test the configuration and **Save** it.
 
 > [!NOTE]
-> For more information on how to configure the SSO at MURAL, please follow [this](https://support.mural.co/articles/6224385-mural-s-azure-ad-integration) support page.
+> For more information on how to configure the SSO at MURAL, please follow [this](https://support.mural.co/s/article/configure-sso-with-mural-and-azure-ad) support page.
 
 ### Create Mural Identity test user
 

@@ -3,7 +3,7 @@ title: Activate your group membership or ownership in Privileged Identity Manage
 description: Learn how to activate your group membership or ownership in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 6/7/2023
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -30,11 +30,13 @@ This article is for eligible members or owners who want to activate their group 
 
 ## Activate a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you need to take on a group membership or ownership, you can request activation by using the **My roles** navigation option in PIM.
 
-1. [Sign in to the Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD Privileged Identity Management -> My roles -> Groups**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My roles** > **Groups**. 
     >[!NOTE]
     > You may also use this [short link](https://aka.ms/pim) to open the **My roles** page directly.
 
@@ -52,7 +54,7 @@ When you need to take on a group membership or ownership, you can request activa
 
     :::image type="content" source="media/pim-for-groups/pim-group-7.png" alt-text="Screenshot of where to provide a justification in the Reason box." lightbox="media/pim-for-groups/pim-group-7.png":::
 
-1.	Select **Activate**.
+1. Select **Activate**.
 
 If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, an Azure notification appears in the upper right corner of your browser informing you the request is pending approval.
 
@@ -60,7 +62,7 @@ If the [role requires approval](pim-resource-roles-approval-workflow.md) to acti
 
 You can view the status of your pending requests to activate. It is specifically important when your requests undergo approval of another person.
 
-1. [Sign in to the Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> My requests -> Groups**. 
 
@@ -71,7 +73,7 @@ You can view the status of your pending requests to activate. It is specifically
 
 ## Cancel a pending request
 
-1. [Sign in to the Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure AD Privileged Identity Management -> My requests -> Groups**. 
 
@@ -84,4 +86,3 @@ When you select **Cancel**, the request will be canceled. To activate the role a
 ## Next steps
 
 - [Approve activation requests for group members and owners](groups-approval-workflow.md)
-

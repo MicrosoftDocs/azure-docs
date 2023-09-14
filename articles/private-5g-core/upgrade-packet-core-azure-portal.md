@@ -2,8 +2,8 @@
 title: Upgrade a packet core instance
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 04/27/2022
@@ -118,9 +118,6 @@ If you encountered issues after the upgrade, you can roll back the packet core i
 
 If any of the configuration you set while your packet core instance was running a newer version isn't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
 
-> [!NOTE]
-> You can roll back your packet core instance to version [PMN-2211-0](azure-private-5g-core-release-notes-2211.md) or later.
-
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
 1. Navigate to the **Packet Core Control Plane** resource that you want to roll back as described in [View the current packet core version](#view-the-current-packet-core-version).
 1. Select **Rollback version**.
@@ -132,7 +129,7 @@ If any of the configuration you set while your packet core instance was running 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/confirm-rollback.png" alt-text="Screenshot of the Azure portal showing the Confirm rollback field in the Rollback packet core screen.":::
 
 1. Select **Roll back packet core**.
-1. Azure will now redeploy the packet core instance at the new software version. You can check the latest status of the rollback by looking at the **Packet core installation state** field. The **Packet Core Control Plane** resource's overview page will refresh every 20 seconds, and you can select **Refresh** to trigger a manual update. The **Packet core installation state** field will show as **RollingBack** during the rollback and update to **Installed** when the process completes.
+1. Azure will now redeploy the packet core instance at the previous software version. You can check the latest status of the rollback by looking at the **Packet core installation state** field. The **Packet Core Control Plane** resource's overview page will refresh every 20 seconds, and you can select **Refresh** to trigger a manual update. The **Packet core installation state** field will show as **RollingBack** during the rollback and update to **Installed** when the process completes.
 1. Follow the steps in [Restore backed up deployment information](#restore-backed-up-deployment-information) to reconfigure your deployment.
 1. Follow the steps in [Verify upgrade](#verify-upgrade) to check if the rollback was successful.
 

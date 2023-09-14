@@ -4,6 +4,7 @@ description: A tutorial to walk through how to create a chat app with Azure Web 
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial 
 ms.date: 11/01/2021
 ---

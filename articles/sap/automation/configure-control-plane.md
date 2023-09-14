@@ -1,6 +1,6 @@
 ---
 title: Configure control plane for automation framework
-description: Configure your deployment control plane for the SAP on Azure Deployment Automation Framework.
+description: Configure your deployment control plane for SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -13,40 +13,41 @@ ms.custom: devx-track-terraform
 
 # Configure the control plane
 
-The control plane for the [SAP on Azure Deployment Automation Framework](deployment-framework.md) consists of the following components:
+The control plane for [SAP Deployment Automation Framework](deployment-framework.md) consists of the following components:
+
  - Deployer
  - SAP library
 
-:::image type="content" source="./media/deployment-framework/control-plane.png" alt-text="Diagram Control Plane.":::
+:::image type="content" source="./media/deployment-framework/control-plane.png" alt-text="Diagram that shows the control plane.":::
 
 ## Deployer
 
-The [deployer](deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](deployment-framework.md). It's a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands. When using Azure DevOps the deployer is a self-hosted agent.
+The [deployer](deployment-framework.md#deployment-components) is the execution engine of [SAP Deployment Automation Framework](deployment-framework.md). It's a preconfigured virtual machine (VM) that's used for running Terraform and Ansible commands. When you use Azure DevOps, the deployer is a self-hosted agent.
 
-The configuration of the deployer is performed in a Terraform tfvars variable file.
+The configuration of the deployer is performed in a Terraform `tfvars` variable file.
 
-## Terraform Parameters
+## Terraform parameters
 
-This table shows the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
+This table shows the Terraform parameters. These parameters need to be entered manually if you aren't using the deployment scripts.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                                                                                  | Type       |
 > | ----------------------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
-> | `tfstate_resource_id`   | Azure resource identifier for the storage account in the SAP Library that contains the Terraform state files | Required   |
+> | `tfstate_resource_id`   | Azure resource identifier for the storage account in the SAP library that contains the Terraform state files | Required   |
 
-
-### Environment Parameters
+### Environment parameters
 
 This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                | Description                                       | Type       | Notes                                                                                       |
-> | ----------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`           | Identifier for the control plane (max 5 chars)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
-> | `location`              | The Azure region in which to deploy.              | Required   | Use lower case                                                                              |
-> | 'name_override_file'    | Name override file                                | Optional   | see [Custom naming](naming-module.md)                                            |
+> | Variable                        | Description                                       | Type       | Notes                                                                                       |
+> | ------------------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`                   | Identifier for the control plane (maximum of five characters).    | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment. |
+> | `location`                      | Azure region in which to deploy.              | Required   | Use lowercase.                                                                              |
+> | `name_override_file`            | Name override file.                                | Optional   | See [Custom naming](naming-module.md).                                            |
+> | `place_delete_lock_on_resources` | Place a delete lock on the key resources.          | Optional   |
 
-### Resource Group
+### Resource group
 
 This table shows the parameters that define the resource group.
 
@@ -57,68 +58,67 @@ This table shows the parameters that define the resource group.
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
 
+### Network parameters
 
-### Network Parameters
+The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field:
 
-The automation framework supports both creating the virtual network and the subnets (green field) or using an existing virtual network and existing subnets (brown field) or a combination of green field and brown field.
- - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified
- - For the brown field scenario, the Azure resource identifier for the virtual network and the subnets must be specified
+ - **Green-field scenario**: The virtual network address space and the subnet address prefixes must be specified.
+ - **Brown-field scenario**: The Azure resource identifier for the virtual network and the subnets must be specified.
 
 The recommended CIDR of the virtual network address space is /27, which allows space for 32 IP addresses. A CIDR value of /28 only allows 16 IP addresses. If you want to include Azure Firewall, use a CIDR value of /25, because Azure Firewall requires a range of /26.
 
-The recommended CIDR value for the management subnet is /28 that allows 16 IP addresses.
-The recommended CIDR value for the firewall subnet is /26 that allows 64 IP addresses.
+The recommended CIDR value for the management subnet is /28, which allows 16 IP addresses.
+The recommended CIDR value for the firewall subnet is /26, which allows 64 IP addresses.
 
 This table shows the networking parameters.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                    | Description                                                      | Type       | Notes  |
 > | ------------------------------------------  | ---------------------------------------------------------------- | ---------- | ------ |
-> | `management_network_name`                   | The name of the VNet into which the deployer will be deployed    | Optional   | For green field deployments. |
+> | `management_network_name`                   | The name of the virtual network into which the deployer will be deployed    | Optional   | For green-field deployments |
 > | `management_network_logical_name`           | The logical name of the network (DEV-WEEU-MGMT01-INFRASTRUCTURE) | Required   | |
-> | `management_network_arm_id`                 | The Azure resource identifier for the virtual network            | Optional   | For brown field deployments.  |
-> | `management_network_address_space`          | The address range for the virtual network                        | Mandatory  | For green field deployments.  |
+> | `management_network_arm_id`                 | The Azure resource identifier for the virtual network            | Optional   | For brown-field deployments  |
+> | `management_network_address_space`          | The address range for the virtual network                        | Mandatory  | For green-field deployments  |
 > |                                             |                                                                  |            | |
 > | `management_subnet_name`                    | The name of the subnet                                           | Optional   | |
-> | `management_subnet_address_prefix`          | The address range for the subnet                                 | Mandatory  | For green field deployments.  |
-> | `management_subnet_arm_id`	                | The Azure resource identifier for the subnet                     | Mandatory  | For brown field deployments.  |
-> | `management_subnet_nsg_name`                | The name of the Network Security Group name                      | Optional   | |
-> | `management_subnet_nsg_arm_id`              | The Azure resource identifier for the Network Security Group     | Mandatory  | Mandatory For brown field deployments.  |
+> | `management_subnet_address_prefix`          | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
+> | `management_subnet_arm_id`	                | The Azure resource identifier for the subnet                     | Mandatory  | For brown-field deployments  |
+> | `management_subnet_nsg_name`                | The name of the network security group                      | Optional   | |
+> | `management_subnet_nsg_arm_id`              | The Azure resource identifier for the network security group     | Mandatory  | For brown-field deployments  |
 > | `management_subnet_nsg_allowed_ips`	        | Range of allowed IP addresses to add to Azure Firewall           | Optional   | |
 > |                                             |                                                                  |            | |
-> | `management_firewall_subnet_arm_id`		      | The Azure resource identifier for the Firewall subnet            | Mandatory  | For brown field deployments.  |
-> | `management_firewall_subnet_address_prefix` | The address range for the subnet                                 | Mandatory  | For green field deployments.  |
+> | `management_firewall_subnet_arm_id`		      | The Azure resource identifier for the Azure Firewall subnet            | Mandatory  | For brown-field deployments  |
+> | `management_firewall_subnet_address_prefix` | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
 > |                                             |                                                                  |            | |
-> | `management_bastion_subnet_arm_id`		      | The Azure resource identifier for the Bastion subnet             | Mandatory  | For brown field deployments.  |
-> | `management_bastion_subnet_address_prefix`  | The address range for the subnet                                 | Mandatory  | For green field deployments.  |
+> | `management_bastion_subnet_arm_id`		      | The Azure resource identifier for the Azure Bastion subnet             | Mandatory  | For brown-field deployments  |
+> | `management_bastion_subnet_address_prefix`  | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
 > |                                             |                                                                  |            | |
-> | `webapp_subnet_arm_id`		                  | The Azure resource identifier for the web app subnet             | Mandatory  | For brown field deployments using the web app |
-> | `webapp_subnet_address_prefix`              | The address range for the subnet                                 | Mandatory  | For green field deployments using the web app |
+> | `webapp_subnet_arm_id`		                  | The Azure resource identifier for the web app subnet             | Mandatory  | For brown-field deployments by using the web app |
+> | `webapp_subnet_address_prefix`              | The address range for the subnet                                 | Mandatory  | For green-field deployments by using the web app |
 
 > [!NOTE]
-> When using an existing subnet for the web app, the subnet must be empty, in the same region as the resource group being deployed, and delegated to Microsoft.Web/serverFarms
+> When you use an existing subnet for the web app, the subnet must be empty, in the same region as the resource group being deployed, and delegated to Microsoft.Web/serverFarms.
 
+### Deployer virtual machine parameters
 
-### Deployer Virtual Machine Parameters
-
-This table shows the parameters related to the deployer virtual machine.
+This table shows the parameters related to the deployer VM.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                        | Description                                                                            | Type       |
 > | ------------------------------- | -------------------------------------------------------------------------------------- | ---------- |
-> | `deployer_size`                 | Defines the Virtual machine SKU to use, for example	Standard_D4s_v3                    | Optional   |
-> | `deployer_count`                | Defines the number of Deployers                                                        | Optional   |
-> | `deployer_image`	              | Defines the Virtual machine image to use, see below                                    | Optional	  |
-> | `plan`	                        | Defines the plan associated to the Virtual machine image, see below                    | Optional	  |
-> | `deployer_disk_type`            | Defines the disk type, for example Premium_LRS                                         | Optional   |
-> | `deployer_use_DHCP`             | Controls if Azure subnet provided IP addresses should be used (dynamic) true           | Optional   |
-> | `deployer_private_ip_address`   | Defines the Private IP address to use                                                  | Optional   |
+> | `deployer_size`                 | Defines the VM SKU to use, for example, Standard_D4s_v3                    | Optional   |
+> | `deployer_count`                | Defines the number of deployers                                                        | Optional   |
+> | `deployer_image`	              | Defines the VM image to use                                               | Optional	  |
+> | `plan`	                        | Defines the plan associated to the VM image                               | Optional	  |
+> | `deployer_disk_type`            | Defines the disk type, for example, Premium_LRS                                         | Optional   |
+> | `deployer_use_DHCP`             | Controls if the Azure subnet-provided IP addresses should be used (dynamic) true           | Optional   |
+> | `deployer_private_ip_address`   | Defines the private IP address to use                                                  | Optional   |
 > | `deployer_enable_public_ip`     | Defines if the deployer has a public IP                                                | Optional   |
-> | `auto_configure_deployer`       | Defines deployer will be configured with the required software (Terraform and Ansible) | Optional   |
-> | `add_system_assigned_identity`  | Defines deployer will be assigned a system identity                                    | Optional   |
+> | `auto_configure_deployer`       | Defines if the deployer is configured with the required software (Terraform and Ansible) | Optional   |
+> | `add_system_assigned_identity`  | Defines if the deployer is assigned a system identity                                    | Optional   |
 
+The VM image is defined by using the following structure:
 
-The Virtual Machine image is defined using the following structure:
 ```python
 {
   "os_type"         = ""
@@ -132,65 +132,61 @@ The Virtual Machine image is defined using the following structure:
 ```
 
 > [!NOTE]
-> type can be marketplace/marketplace_with_plan/custom
-> Note that using a image of type 'marketplace_with_plan' will require that the image in question has been used at least once in the subscription. This is because the first usage prompts the user to accept the License terms and the automation has no mean to approve it.
+> The type can be `marketplace/marketplace_with_plan/custom`.
+> Using an image of type `marketplace_with_plan` requires that the image in question was used at least once in the subscription. The first usage prompts the user to accept the license terms and the automation has no means to approve it.
 
+### Authentication parameters
 
-
-### Authentication Parameters
-
-The table below defines the parameters used for defining the Virtual Machine authentication
-
+This section defines the parameters used for defining the VM authentication.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                         | Description                                         | Type      |
 > | ------------------------------------------------ | --------------------------------------------------- | --------- |
-> | `deployer_vm_authentication_type`                | Defines the default authentication for the Deployer | Optional  |
+> | `deployer_vm_authentication_type`                | Defines the default authentication for the deployer | Optional  |
 > | `deployer_authentication_username`               | Administrator account name                          | Optional  |
 > | `deployer_authentication_password`               | Administrator password                              | Optional  |
 > | `deployer_authentication_path_to_public_key`     | Path to the public key used for authentication      | Optional  |
 > | `deployer_authentication_path_to_private_key`    | Path to the private key used for authentication     | Optional  |
 
-### Key Vault Parameters
+### Key vault parameters
 
-The table below defines the parameters used for defining the Key Vault information
+This section defines the parameters used for defining the Azure Key Vault information.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                         | Description                                                                       | Type       |
 > | ------------------------------------------------ | --------------------------------------------------------------------------------- | ---------- |
-> | `user_keyvault_id`	                             | Azure resource identifier for the user key vault                                  | Optional	  |
-> | `spn_keyvault_id`                                | Azure resource identifier for the key vault containing the deployment credentials | Optional	  |
-> | `deployer_private_key_secret_name`               | The Azure Key Vault secret name for the deployer private key                      | Optional	  |
-> | `deployer_public_key_secret_name`                | The Azure Key Vault secret name for the deployer public key                       | Optional	  |
-> | `deployer_username_secret_name`	                 | The Azure Key Vault secret name for the deployer username                         | Optional	  |
-> | `deployer_password_secret_name`	                 | The Azure Key Vault secret name for the deployer password                         | Optional	  |
-> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies       | Optional	  |
+> | `user_keyvault_id`	                             | Azure resource identifier for the user key vault.                                  | Optional	  |
+> | `spn_keyvault_id`                                | Azure resource identifier for the key vault that contains the deployment credentials. | Optional	  |
+> | `deployer_private_key_secret_name`               | The key vault secret name for the deployer private key.                      | Optional	  |
+> | `deployer_public_key_secret_name`                | The key vault secret name for the deployer public key.                       | Optional	  |
+> | `deployer_username_secret_name`	                 | The key vault secret name for the deployer username.                         | Optional	  |
+> | `deployer_password_secret_name`	                 | The key vault secret name for the deployer password.                         | Optional	  |
+> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment key vault access policies.       | Optional	  |
+> | `set_secret_expiry`	                             | Set expiry of 12 months for key vault secrets.                                     | Optional	  |
 
-
-### DNS Support
+### DNS support
 
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                          | Type     |
 > | ----------------------------------- | -------------------------------------------------------------------- | -------- |
-> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
-> | `use_custom_dns_a_registration`	    | Uses an external system for DNS, set to false for Azure native       | Optional |
-> | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
-> | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
-
+> | `dns_label`	                        | DNS name of the Private DNS zone.                                     | Optional |
+> | `use_custom_dns_a_registration`	    | Uses an external system for DNS, set to false for Azure native.       | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription that contains the Private DNS zone. | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group that contains the Private DNS zone.                       | Optional |
 
 ### Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                     | Description                                                            | Type        | Notes                         |
 > | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
-> | `firewall_deployment`	                       | Boolean flag controlling if an Azure firewall is to be deployed        | Optional    |                               |
-> | `bastion_deployment`	                       | Boolean flag controlling if Azure Bastion host is to be deployed       | Optional    |                               |
-> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard)             | Optional    |                               |
-> | `enable_purge_control_for_keyvaults`         | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional    | Use only for test deployments |
-> | `use_private_endpoint`                       | Use private endpoints                                                  | Optional    |
-> | `use_service_endpoint`                       | Use service endpoints for subnets                                      | Optional    |
-> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets                                    | Optional    |
+> | `firewall_deployment`	                       | Boolean flag that controls if an Azure firewall is to be deployed.        | Optional    |                               |
+> | `bastion_deployment`	                       | Boolean flag that controls if Azure Bastion host is to be deployed.       | Optional    |                               |
+> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard).             | Optional    |                               |
+> | `enable_purge_control_for_keyvaults`         | Boolean flag that controls if purge control is enabled on the key vault. | Optional    | Use only for test deployments. |
+> | `use_private_endpoint`                       | Use private endpoints.                                                  | Optional    |
+> | `use_service_endpoint`                       | Use service endpoints for subnets.                                      | Optional    |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                    | Optional    |
 
 ### Example parameters file for deployer (required parameters only)
 
@@ -220,34 +216,33 @@ firewall_deployment=true
 bastion_deployment=true
 ```
 
+## SAP library
 
-## SAP Library
+The [SAP library](deployment-framework.md#deployment-components) provides the persistent storage of the Terraform state files and the downloaded SAP installation media for the control plane.
 
-The [SAP Library](deployment-framework.md#deployment-components) provides the persistent storage of the Terraform state files and the downloaded SAP installation media for the control plane.
+The configuration of the SAP library is performed in a Terraform `tfvars` variable file.
 
-The configuration of the SAP Library is performed in a Terraform tfvars variable file.
+### Terraform parameters
 
-### Terraform Parameters
-
-This table shows the Terraform parameters, these parameters need to be entered manually when not using the deployment scripts
+This table shows the Terraform parameters. These parameters need to be entered manually if you aren't using the deployment scripts or Azure Pipelines.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                           | Type       | Notes |
 > | ----------------------- | ------------------------------------- | ---------- | ----- |
-> | `deployer_tfstate_key`  | The state file name for the deployer  | Required   | 
+> | `deployer_tfstate_key`  | State file name for the deployer  | Required   | 
 
-### Environment Parameters
+### Environment parameters
 
 This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                       | Type       | Notes                                                                                       |
 > | ----------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`           | Identifier for the control plane (max 5 chars)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
-> | `location`              | The Azure region in which to deploy.              | Required   | Use lower case                                                                              |
-> | 'name_override_file'    | Name override file                                | Optional   | see [Custom naming](naming-module.md)                                            |
+> | `environment`           | Identifier for the control plane (maximum of five characters)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment. |
+> | `location`              | Azure region in which to deploy              | Required   | Use lowercase.                                                                              |
+> | `name_override_file`    | Name override file                                | Optional   | See [Custom naming](naming-module.md).                                            |
 
-### Resource Group
+### Resource group
 
 This table shows the parameters that define the resource group.
 
@@ -258,8 +253,7 @@ This table shows the parameters that define the resource group.
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
 
-
-### SAP Installation media storage account
+### SAP installation media storage account
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                  | Description                 | Type       |
@@ -273,29 +267,27 @@ This table shows the parameters that define the resource group.
 > | -------------------------------- | -------------------------- | ---------- |
 > | `library_terraform_state_arm_id` | Azure resource identifier  | Optional   |
 
-### DNS Support
-
+### DNS support
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                          | Type     |
 > | ----------------------------------- | -------------------------------------------------------------------- | -------- |
-> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
-> | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
-> | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
-> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
-
+> | `dns_label`	                        | DNS name of the Private DNS zone.                                     | Optional |
+> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone.                                     | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription that contains the Private DNS zone. | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group that contains the Private DNS zone.                       | Optional |
 
 ### Extra parameters
 
-
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                     | Description                         | Type     |
-> | -------------------------------------------- | ----------------------------------- | -------- |
-> | `use_private_endpoint`                       | Use private endpoints               | Optional |
-> | `use_service_endpoint`                       | Use service endpoints for subnets   | Optional |
-> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets | Optional |
+> | Variable                                               | Description                                                  | Type     |
+> | ------------------------------------------------------ | ------------------------------------------------------------ | -------- |
+> | `use_private_endpoint`                                 | Use private endpoints.                                        | Optional |
+> | `use_service_endpoint`                                 | Use service endpoints for subnets.                            | Optional |
+> | `enable_firewall_for_keyvaults_and_storage`            | Restrict access to selected subnets.                          | Optional |
+> | `subnets_to_add_to_firewall_for_keyvaults_and_storage` | Subnets that need access to key vaults and storage accounts. | Optional |
 
-### Example parameters file for sap library (required parameters only)
+### Example parameters file for the SAP library (required parameters only)
 
 ```terraform
 # The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
@@ -306,8 +298,7 @@ location = "westeurope"
 
 ```
 
-
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Configure SAP system](configure-system.md)

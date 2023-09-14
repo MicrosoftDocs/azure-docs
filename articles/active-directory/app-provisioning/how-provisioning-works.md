@@ -201,7 +201,7 @@ Confirm the mapping for *active* for your application. If you're using an applic
 **Configure your application to delete a user**
 
 The scenario triggers a disable or a delete: 
-* A user is soft-deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false). Thirty days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
+* A user is soft-deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false). Thirty days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/users-restore.md), which sends a delete request to the application.
 * A user is permanently deleted / removed from the recycle bin in Azure AD.
 * A user is unassigned from an app.
 * A user goes from in scope to out of scope (doesn't pass a scoping filter anymore).

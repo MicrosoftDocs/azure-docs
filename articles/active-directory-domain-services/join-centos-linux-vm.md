@@ -9,10 +9,10 @@ ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 06/17/2021
 ms.author: justinha
-
 ---
 # Join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain
 

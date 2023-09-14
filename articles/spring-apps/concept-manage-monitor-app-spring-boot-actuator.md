@@ -1,7 +1,7 @@
 ---
 title: "Manage and monitor app with Spring Boot Actuator"
 description: Learn how to manage and monitor app with Spring Boot Actuator.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual

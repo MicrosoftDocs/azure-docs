@@ -5,17 +5,15 @@ ms.topic: tutorial
 ms.date: 06/20/2023
 ms.custom: devx-track-azurecli
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM using Azure CLI
 
-This tutorial describes how to back up SAP HANA database and SAP HANA System Replication (HSR) instances using Azure CLI.
+This tutorial describes how to back up SAP HANA database instance and SAP HANA System Replication (HSR) instance using Azure CLI.
 
 Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This documentation details how to back up an SAP HANA database and trigger on-demand backups - all using Azure CLI. You can also perform these steps using the [Azure portal](./backup-azure-sap-hana-database.md).
-
-Azure Backup also supports backup and restore of SAP HANA System Replication (HSR).
 
 This document assumes that you already have an SAP HANA database installed on an Azure VM. (You can also [create a VM using Azure CLI](../virtual-machines/linux/quick-create-cli.md)).
 

@@ -16,21 +16,11 @@ This article provides:
 
 ## Default privileged on-premises users
 
-By default, each [sensor](ot-deploy/install-software-ot-sensor.md) and [on-premises management console](ot-deploy/install-software-on-premises-management-console.md) is installed  with the *cyberx* and *support* privileged users. OT sensors are also installed with the *cyberx_host* privileged user.
+By default, each [sensor](ot-deploy/install-software-ot-sensor.md) and [on-premises management console](ot-deploy/install-software-on-premises-management-console.md) is installed with a privileged *support* user. The on-premises management console is also installed with a default *cyberx* user.
 
-Privileged users have access to advanced tools for troubleshooting and setup, such as the CLI. When first setting up your sensor or on-premises management console, first sign in with one of the privileged users. Then create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
+The privileged *support* and *cyberx* users have access to advanced tools for troubleshooting and setup, such as the CLI. When first setting up your sensor or on-premises management console, first sign in with the *support* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
 
-On the sensor, the default passwords created for the *cyber* and *cyberx_host* users are identical.
-
-The following table describes each default privileged user in detail:
-
-|Username  |Connects to  |Permissions  |
-|---------|---------|---------|
-|**cyberx**     |   The sensor or on-premises management console's `sensor_app` container      | Serves as a root user within the main application. <br><br>Used for troubleshooting with advanced root access.<br><br>Can access the container filesystem, commands, and dedicated CLI commands for controlling OT monitoring.  <br><br>Can recover or change passwords for users with any roles. |
-|**support**     |   The sensor or on-premises management console's `sensor_app` container       | Serves as a locked-down, user shell for dedicated CLI tools.<br><br>Has no filesystem access.<br><br>Can access only dedicated CLI commands for controlling OT monitoring. <br><br>Can recover or change passwords for the *support* user, and any user with the **Admin**, **Security Analyst**, and **Read-only** roles.  |
-|**cyberx_host**     | The on-premises management console's host OS        | Serves as a root user in the on-premises management console's host OS.<br><br>Used for support scenarios with containers and filesystem access.        |
-
-Supported CLI commands and command syntax differ for each user. For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md) and [CLI command reference from OT network sensors](cli-ot-sensor.md).
+In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also available. In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), [change their passwords](manage-users-sensor.md#change-a-sensor-users-password).
 
 ## On-premises user roles
 

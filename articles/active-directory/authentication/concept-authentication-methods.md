@@ -23,7 +23,7 @@ Microsoft recommends passwordless authentication methods such as Windows Hello, 
 
 :::image type="content" border="true" source="media/concept-authentication-methods/authentication-methods.png" alt-text="Illustration of the strengths and preferred authentication methods in Azure AD." :::
 
-Azure AD Multi-Factor Authentication (MFA) adds additional security over only using a password when a user signs in. The user can be prompted for additional forms of authentication, such as to respond to a push notification, enter a code from a software or hardware token, or respond to an SMS or phone call.
+Azure AD Multi-Factor Authentication (MFA) adds additional security over only using a password when a user signs in. The user can be prompted for additional forms of authentication, such as to respond to a push notification, enter a code from a software or hardware token, or respond to a text message or phone call.
 
 To simplify the user on-boarding experience and register for both MFA and self-service password reset (SSPR), we recommend you [enable combined security information registration](howto-registration-mfa-sspr-combined.md). For resiliency, we recommend that you require users to register multiple authentication methods. When one method isn't available for a user during sign-in or SSPR, they can choose to authenticate with another method. For more information, see [Create a resilient access control management strategy in Azure AD](concept-resilient-controls.md).
 
@@ -106,6 +106,8 @@ The following additional verification methods can be used in certain scenarios:
 Administrators can view user authentication methods in the Azure portal. Usable methods are listed first, followed by non-usable methods. 
 
 Each authentication method can become non-usable for different reasons. For example, a Temporary Access Pass may expire, or FIDO2 security key may fail attestation. The portal will be updated to provide the reason for why the method is non-usable. 
+
+Authentication methods that are no longer available due to "Require re-register multifactor authentication" are also displayed here.
 
 :::image type="content" border="true" source="media/concept-authentication-methods/non-usable.png" alt-text="Screenshot of non-usable authentication methods." :::
 

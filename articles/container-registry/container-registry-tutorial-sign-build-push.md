@@ -210,7 +210,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 
    The trust policy is a JSON document named `trustpolicy.json`, which is stored under the notation configuration directory. Users who verify signed artifacts from a registry use the trust policy to specify trusted identities that sign the artifacts, and the level of signature verification to use.
 
-   Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`. See [Trust store and trust policy specification](https://notaryproject.dev/docs/concepts/trust-store-trust-policy-specification/) for details.
+   Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/main/specs/trust-store-trust-policy.md) for details.
 
     ```bash
     cat <<EOF > ./trustpolicy.json
@@ -249,4 +249,4 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 
 ## Next steps
 
-See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/examples/ratify-verify-azure-cmd.md).
+See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/quickstarts/ratify-on-azure.md).

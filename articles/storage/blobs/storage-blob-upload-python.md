@@ -6,9 +6,8 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 06/02/2023
-ms.service: storage
-ms.subservice: blobs
+ms.date: 08/02/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -20,13 +19,10 @@ This article shows how to upload a blob using the [Azure Storage client library 
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob](/rest/api/storageservices/put-blob#authorization)
     - [Put Block](/rest/api/storageservices/put-block#authorization)
-- The package **azure-storage-blob** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and Python](storage-blob-python-get-started.md#set-up-your-project).
 
 ## Upload data to a block blob
 
@@ -79,13 +75,17 @@ The following code example shows how to specify data transfer options when creat
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_transfer_options":::
 
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with Python](storage-blobs-tune-upload-download-python.md).
+
 ### Set a blob's access tier on upload
 
-You can set a blob's access tier on upload by passing the `standard_blob_tier` keyword argument to [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). Azure Storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. Setting the access tier is only allowed for block blobs. 
+You can set a blob's access tier on upload by passing the `standard_blob_tier` keyword argument to [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). Azure Storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used.
 
 The following code example shows how to set the access tier when uploading a blob:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_access_tier":::
+
+Setting the access tier is only allowed for block blobs.  You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/python/api/azure-storage-blob) version of 12.15.0.
 
 To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
 

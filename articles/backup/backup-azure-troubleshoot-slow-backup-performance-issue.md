@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 12/28/2022
 ms.service: backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
 

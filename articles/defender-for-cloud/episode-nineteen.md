@@ -1,6 +1,6 @@
 ---
 title: Defender for DevOps | Defender for Cloud in the Field
-titleSuffix: Microsoft Defender for Cloud
+
 description: Learn about Defender for Cloud integration with Defender for DevOps.
 ms.topic: reference
 ms.date: 04/27/2023
@@ -9,9 +9,8 @@ ms.date: 04/27/2023
 # Defender for DevOps | Defender for Cloud in the Field
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Sukhandeep Singh joins Yuri Diogenes to talk about Defender for DevOps. Sukhandeep explains how Defender for DevOps uses a central console to provide security teams DevOps insights across multi-pipeline environments, such as GitHub and Azure DevOps. Sukhandeep also covers the security recommendations created by Defender for DevOps and demonstrates how to configure a GitHub connector using Defender for Cloud dashboard.
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=f1e5ec4f-1e65-400d-915b-4db6cf550014" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+
+> [!VIDEO https://aka.ms/docs/player?id=f1e5ec4f-1e65-400d-915b-4db6cf550014]
 
 - [01:16](/shows/mdc-in-the-field/defender-for-devops#time=01m16s) - What is Defender for DevOps?
 

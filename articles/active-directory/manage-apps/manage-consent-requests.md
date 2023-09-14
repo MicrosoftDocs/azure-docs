@@ -66,9 +66,9 @@ Before you grant tenant-wide admin consent, it's important to ensure that you tr
 
 When you're evaluating a request to grant admin consent, here are some recommendations to consider:
 
-- Understand the [permissions and consent framework](../develop/consent-framework.md) in the Microsoft identity platform.
+- Understand the [permissions and consent framework](../develop/permissions-consent-overview.md) in the Microsoft identity platform.
 
-- Understand the difference between [delegated permissions and application permissions](../develop/v2-permissions-and-consent.md#permission-types).
+- Understand the difference between [delegated permissions and application permissions](../develop/permissions-consent-overview.md#permission-types).
 
    Application permissions allow the application to access the data for the entire organization, without any user interaction. Delegated permissions allow the application to act on behalf of a user who was signed into the application at some point.
 

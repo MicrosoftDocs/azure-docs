@@ -4,18 +4,18 @@ title: Azure operational security overview| Microsoft Docs
 description: Learn about Azure operational security in this overview. Operational security refers to asset protection services, controls, and features.
 services: security
 documentationcenter: na
-author: unifycloud
+author: terrylanfear
 manager: rkarlin
-editor: tomsh
+
 
 ms.assetid:
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
-ms.author: tomsh
+ms.date: 08/29/2023
+ms.author: terrylan
 
 ---
 
@@ -153,7 +153,7 @@ For more information, see [Configure Network Watcher](../../network-watcher/netw
 
 [Customer Lockbox for Microsoft Azure](customer-lockbox-overview.md) is a service integrated into Azure portal that gives you explicit control in the rare instance when a Microsoft Support Engineer may need access to your data to resolve an issue.
 There are very few instances, such as a debugging remote access issue, where a Microsoft Support Engineer requires elevated permissions to resolve this issue. In such cases, Microsoft engineers use just-in-time access service that provides limited, time-bound authorization with access limited to the service.  
-While Microsoft has always obtained customer consent for access, Customer Lockbox now gives you the ability to review and approve or deny such requests from the Azure Portal. Microsoft support engineers will not be granted access until you approve the request.
+While Microsoft has always obtained customer consent for access, Customer Lockbox now gives you the ability to review and approve or deny such requests from the Azure portal. Microsoft support engineers will not be granted access until you approve the request.
 
 ## Standardized and Compliant Deployments
 

@@ -71,7 +71,7 @@ With a public domain mapped to the application gateway, you don't need to config
 
 ### A valid public certificate
 
-For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. With [App Service Certificates](../configure-ssl-certificate.md#start-certificate-purchase), you can buy a TLS/SSL certificate and export it in .pfx format.
+For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. With [App Service certificates](../configure-ssl-app-service-certificate.md), you can buy a TLS/SSL certificate and export it in .pfx format.
 
 | Name  | Value               | Description|
 | ----- | ------------------- |------------|

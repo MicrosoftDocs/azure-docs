@@ -43,7 +43,7 @@ Daemon applications require that a tenant admin pre-consent to the application c
 
 If you're an ISV building a multitenant application, you should read the section [Deployment - case of multitenant daemon apps](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Pre-requisites](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 

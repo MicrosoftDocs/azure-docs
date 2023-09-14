@@ -105,7 +105,7 @@ When you configure an Azure Cosmos DB account for multiple write regions, strong
 
 #### Conflict-resolution region
 
-When an Azure Cosmos DB account is configured with multiple-region writes, one of the regions will act as an arbiter in write conflicts. When such conflicts happen, they're routed to this region for consistent resolution.
+When an Azure Cosmos DB account is configured with multiple-region writes, one of the regions will act as an arbiter in write conflicts.  
 
 #### Best practices for multi-region writes
 
@@ -239,5 +239,6 @@ Next, you can read the following articles:
 * [Configure multi-region writes in your applications that use Azure Cosmos DB](how-to-multi-master.md)
 
 * [Diagnose and troubleshoot the availability of Azure Cosmos DB SDKs in multiregional environments](troubleshoot-sdk-availability.md)
+
 
 

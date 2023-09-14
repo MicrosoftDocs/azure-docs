@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 06/27/2023
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
-ms.reviewer: ludwignick, sreyanthmora
+ms.reviewer: joroja
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)
 
@@ -42,7 +42,7 @@ You can set token lifetime policies for access tokens, SAML tokens, and ID token
 
 Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user's account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.
 
-The default lifetime of an access token is variable. When issued, an access token's default lifetime is assigned a random value ranging between 60-90 minutes (75 minutes on average).  The default lifetime also varies depending on the client application requesting the token or if conditional access is enabled in the tenant. For more information, see [Access token lifetime](access-tokens.md#token-lifetime).
+The default lifetime of an access token is variable. When issued, an access token's default lifetime is assigned a random value ranging between 60-90 minutes (75 minutes on average).  The default lifetime also varies depending on the client application requesting the token or if Conditional Access is enabled in the tenant. For more information, see [Access token lifetime](access-tokens.md#token-lifetime).
 
 ### SAML tokens
 
@@ -117,16 +117,6 @@ All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api
 ## REST API reference
 
 You can configure token lifetime policies and assign them to apps using Microsoft Graph. For more information, see the [tokenLifetimePolicy resource type](/graph/api/resources/tokenlifetimepolicy) and its associated methods.
-
-### Service principal policies
-
-You can use the following Microsoft Graph REST API commands for service principal policies.</br></br>
-
-| Command | Description |
-| --- | --- |
-| [Assign tokenLifetimePolicy](/graph/api/application-post-tokenlifetimepolicies) | Specify the service principal object ID to link the specified policy to a service principal. |
-| [List assigned tokenLifetimePolicy](/graph/api/application-list-tokenlifetimepolicies) | Specify the service principal object ID to get the policies that are assigned to a service principal. |
-| [Remove tokenLifetimePolicy](/graph/api/application-delete-tokenlifetimepolicies) | Specify the service principal object ID to remove a policy from the service principal. |
 
 ## Cmdlet reference
 

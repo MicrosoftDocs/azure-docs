@@ -33,12 +33,6 @@ Before you begin, make sure that you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="python-mode-configuration" 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
-::: zone-end
-::: zone pivot="python-mode-decorators" 
-+ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools), version 4.0.4785 or a later version.
-::: zone-end
 + Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
@@ -55,6 +49,8 @@ Before you begin, make sure that you have the following requirements in place:
 ::: zone-end
 
 [!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
+
+[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -75,7 +71,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a template for your project's first function**| Choose `HTTP trigger`.|
     |**Provide a function name**| Enter `HttpExample`.|
     |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**| Choose `Open in current window`.|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
 ::: zone-end
@@ -86,56 +81,21 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language**| Choose `Python (Programming Model V2)`.|
     |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
-    |**Select how you would like to open your project**| Choose `Open in current window`.|
+    |**Select a template for your project's first function** | Choose `HTTP trigger`. |
+    |**Name of the function you want to create**| Enter `HttpExample`.|
+    |**Authorization level**| Choose `ANONYMOUS`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
 
-4. Visual Studio Code uses the provided information and generates an Azure Functions project.   
-
-5. Open the generated `function_app.py` project file, which contains your functions.
-
-6. Uncomment the `test_function` function, which is an HTTP triggered function.
-
-7. Replace the `app.route()` method call with the following code:
-
-    ```python
-    @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
-    ```
-
-    This code enables your HTTP function endpoint to be called in Azure without having to provide an [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys). Local execution doesn't require authorization keys. 
-
-    Your function code should now look like the following example:
-
-    ```python
-    app = func.FunctionApp()
-    @app.function_name(name="HttpTrigger1")
-    @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
-    def test_function(req: func.HttpRequest) -> func.HttpResponse:
-        logging.info('Python HTTP trigger function processed a request.')
-
-        name = req.params.get('name')
-        if not name:
-            try:
-                req_body = req.get_json()
-            except ValueError:
-                pass
-            else:
-                name = req_body.get('name')
-
-        if name:
-            return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
-        else:
-            return func.HttpResponse(
-                "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-                status_code=200
-            ) 
-    ```
+4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. The generated `function_app.py` project file contains your functions.   
  
-8. Open the local.settings.json project file and updated the `AzureWebJobsStorage` setting as in the following example:
+5. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
+
+6. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
 
     ```json
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     ```
 
-    This tells the local Functions host to use the storage emulator for the storage connection currently required by the v2 model. When you publish your project to Azure, you'll instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.
+    This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you'll need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.
 
 ## Start the emulator
 

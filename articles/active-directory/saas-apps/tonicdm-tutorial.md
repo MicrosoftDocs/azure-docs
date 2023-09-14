@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 07/20/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with TonicDM
@@ -31,7 +31,7 @@ To configure Azure AD integration with TonicDM, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* TonicDM supports **SP** initiated SSO.
+* TonicDM supports **SP** and **IDP** initiated SSO.
 
 * TonicDM supports **Just In Time** user provisioning.
 
@@ -49,7 +49,7 @@ To configure the integration of TonicDM into Azure AD, you need to add TonicDM f
 1. In the **Add from the gallery** section, type **TonicDM** in the search box.
 1. Select **TonicDM** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for TonicDM
 
@@ -72,23 +72,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Configuration")
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    a. In the **Identifier (Entity ID)** text box, type the URL:
-    `https://tonicdm.com/saml/metadata`
+1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
 
-	b. In the **Sign on URL** text box, type the URL:
-    `https://tonicdm.com/`
+	In the **Sign on URL** text box, type the URL:
+    `https://app.tonicdm.com/logon`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
 6. On the **Set up TonicDM** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Attributes")
 
 ### Create an Azure AD test user 
 
@@ -124,13 +123,19 @@ In this section, you create a user called Britta Simon in TonicDM. Work with [To
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to TonicDM Sign-on URL where you can initiate the login flow. 
+#### SP initiated:
+
+* Click on **Test this application** in Azure portal. This will redirect to TonicDM Sign on URL where you can initiate the login flow.  
 
 * Go to TonicDM Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the TonicDM tile in the My Apps, this will redirect to TonicDM Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the TonicDM for which you set up the SSO.
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the TonicDM tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the TonicDM for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

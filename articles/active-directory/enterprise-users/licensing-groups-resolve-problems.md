@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 08/31/2023
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -62,11 +62,9 @@ To see which users and groups are consuming licenses, select a product. Under **
 
 **Problem:** One of the products that's specified in the group contains a service plan that conflicts with another service plan that's already assigned to the user via a different product. Some service plans are configured in a way that they can't be assigned to the same user as another, related service plan.
 
-Consider the following example. A user has a license for Office 365 Enterprise *E1* assigned directly, with all the plans enabled. The user has been added to a group that has the Office 365 Enterprise *E3* product assigned to it. The E3 product contains service plans that can't overlap with the plans that are included in E1, so the group license assignment fails with the “Conflicting service plans” error. In this example, the conflicting service plans are:
-
-- Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
-
-To solve this conflict, you need to disable one of the plans. You can disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
+> [!TIP]
+> Previously, Exchange Online Plan1 and Plan2 were unique and couldn't be duplicated. Now, both service plans have been updated to allow duplication.
+> If you are experiencing conflicts with these service plans, try reprocessing them.
 
 The decision about how to resolve conflicting product licenses always belongs to the administrator. Azure AD doesn't automatically resolve license conflicts.
 
@@ -116,7 +114,7 @@ Updating license assignment on a user causes the proxy address calculation to be
 ## LicenseAssignmentAttributeConcurrencyException in audit logs
 
 **Problem:** User has LicenseAssignmentAttributeConcurrencyException for license assignment in audit logs.
-When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. Azure AD will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
+When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. Azure AD retries processing the user license until the issue is resolved. There is no action required from the customer to fix this issue.
 
 ## More than one product license assigned to a group
 
@@ -173,7 +171,7 @@ For example, after you resolve duplicate proxy address problem for an affected u
 
 To learn more about other scenarios for license management through groups, see the following:
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](./licensing-groups-assign.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
 * [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)

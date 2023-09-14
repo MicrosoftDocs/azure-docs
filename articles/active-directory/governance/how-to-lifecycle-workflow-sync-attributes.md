@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/31/2023
+ms.date: 09/12/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
@@ -88,23 +88,22 @@ To ensure timing accuracy of scheduled workflows it’s crucial to consider:
 
 ## Create a custom sync rule in Azure AD Connect cloud sync for EmployeeHireDate
  The following steps will guide you through creating a synchronization rule using cloud sync.
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  Select **Azure AD Connect**.
- 3.  Select **Manage cloud sync**.
- 4. Under **Configuration**, select your configuration.
- 5. Select **Click to edit mappings**.  This link opens the **Attribute mappings** screen.
- 6. Select **Add attribute**.
- 7. Fill in the following information: 
+ 1.  In the Microsoft Entra admin center, browse to > **Hybrid management** > **Azure AD Connect**.
+ 2.  Select **Manage Azure AD cloud sync**.
+ 3. Under **Configuration**, select your configuration.
+ 4. Select **Click to edit mappings**.  This link opens the **Attribute mappings** screen.
+ 5. Select **Add attribute**.
+ 6. Fill in the following information: 
      - Mapping Type: Direct
      - Source attribute: extensionAttribute1
      - Default value: Leave blank
      - Target attribute: employeeHireDate
      - Apply this mapping: Always
- 8. Select **Apply**.
- 9. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
- 10. Select **Save schema**.
+ 7. Select **Apply**.
+ 8. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
+ 9. Select **Save schema**.
 
-For more information on attributes, see [Attribute mapping in Azure AD Connect cloud sync.](../cloud-sync/how-to-attribute-mapping.md)
+For more information on attributes, see [Attribute mapping in Azure AD Connect cloud sync.](../hybrid/cloud-sync/how-to-attribute-mapping.md)
 
 ## How to create a custom sync rule in Azure AD Connect for EmployeeHireDate
 The following example will walk you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
@@ -149,10 +148,10 @@ The following example will walk you through setting up a custom synchronization 
 
 > [!NOTE]
 >- **msDS-cloudExtensionAttribute1** is an example source.
->- **Starting with [Azure AD Connect 2.0.3.0](../hybrid/reference-connect-version-history.md#functional-changes-10), `employeeHireDate` is added to the default 'Out to Azure AD' rule, so steps 10-16 are not required.**
->- **Starting with [Azure AD Connect 2.1.19.0](../hybrid/reference-connect-version-history.md#functional-changes-1), `employeeLeaveDateTime` is added to the default 'Out to Azure AD' rule, so steps 10-16 aren't required.**
+>- **Starting with [Azure AD Connect 2.0.3.0](../hybrid/connect/reference-connect-version-history.md#functional-changes-10), `employeeHireDate` is added to the default 'Out to Azure AD' rule, so steps 10-16 are not required.**
+>- **Starting with [Azure AD Connect 2.1.19.0](../hybrid/connect/reference-connect-version-history.md#functional-changes-1), `employeeLeaveDateTime` is added to the default 'Out to Azure AD' rule, so steps 10-16 aren't required.**
 
-For more information, see [How to customize a synchronization rule](../hybrid/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/how-to-connect-sync-change-the-configuration.md)
+For more information, see [How to customize a synchronization rule](../hybrid/connect/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/connect/how-to-connect-sync-change-the-configuration.md)
 
 
 ## How to verify these attribute values in Azure AD

@@ -3,7 +3,7 @@ title: Activate Azure resource roles in PIM
 description: Learn how to activate your Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 4/14/2023
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: rianakarim
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -33,11 +33,15 @@ This article is for members who need to activate their Azure resource role in Pr
 
 ## Activate a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you need to take on an Azure resource role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
+1. Browse to **Identity governance** > **Privileged Identity Management**.
+
+1. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
 1. Select **My roles**.
 

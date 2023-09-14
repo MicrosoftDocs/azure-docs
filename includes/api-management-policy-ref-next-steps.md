@@ -14,4 +14,4 @@ For more information about working with policies, see:
 + [Policy expressions](../articles/api-management/api-management-policy-expressions.md)
 + [Set or edit policies](../articles/api-management/set-edit-policies.md)
 + [Reuse policy configurations](../articles/api-management/policy-fragments.md)
-+ [Policy samples](../articles/api-management/policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	

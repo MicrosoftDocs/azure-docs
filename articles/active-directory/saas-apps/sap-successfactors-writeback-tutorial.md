@@ -105,8 +105,8 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 1. In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
 1. From the **Permission Role List**, select the role that you created for API usage permissions.
-1. Under **Grant this role to...**, click **Add...** button.
-1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
+1. Under **Grant this role to...**, click **Add...** Button.
+1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above.
 
    > [!div class="mx-imgBorder"]
    > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
@@ -126,7 +126,7 @@ The SuccessFactors Writeback provisioning app uses certain *code* values for set
 
 ### Identify Email and Phone Number picklist names 
 
-In SAP SuccessFactors, a *picklist* is a configurable set of options from which a user can make a selection. The different types of email and phone number (e.g. business, personal, other) are represented using a picklist. In this step, we will identify the picklists configured in your SuccessFactors tenant to store email and phone number values. 
+In SAP SuccessFactors, a *picklist* is a configurable set of options from which a user can make a selection. The different types of email and phone number (such as business, personal, and other) are represented using a picklist. In this step, we will identify the picklists configured in your SuccessFactors tenant to store email and phone number values. 
  
 1. In SuccessFactors Admin Center, search for *Manage business configuration*. 
 
@@ -156,7 +156,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
 ### Retrieve constant value for emailType
 
 1. In SuccessFactors Admin Center, search and open *Picklist Center*. 
-1. Use the name of the email picklist captured from the previous section (e.g. ecEmailType) to find the email picklist. 
+1. Use the name of the email picklist captured from the previous section (such as ecEmailType) to find the email picklist.
 
    > [!div class="mx-imgBorder"]
    > ![Find email type picklist](./media/sap-successfactors-inbound-provisioning/find-email-type-picklist.png)
@@ -177,7 +177,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
    > ![Get email type code](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
 
    > [!NOTE]
-   > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *8,448*, then set the *emailType* in Azure AD to the constant number *8448* (without the comma character). 
+   > Drop the comma character when you copy over the value. For example, if the **Option ID** value is *8,448*, then set the *emailType* in Azure AD to the constant number *8448* (without the comma character). 
 
 ### Retrieve constant value for phoneType
 
@@ -208,7 +208,7 @@ In SAP SuccessFactors, a *picklist* is a configurable set of options from which 
    > ![Get cell phone code](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
 
    > [!NOTE]
-   > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *10,606*, then set the *cellPhoneType* in Azure AD to the constant number *10606* (without the comma character). 
+   > Drop the comma character when you copy over the value. For example, if the **Option ID** value is *10,606*, then set the *cellPhoneType* in Azure AD to the constant number *10606* (without the comma character).
 
 
 ## Configuring SuccessFactors Writeback App
@@ -223,7 +223,7 @@ This section provides steps for
 
 **To configure SuccessFactors Writeback:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation bar, select **Azure Active Directory**
 

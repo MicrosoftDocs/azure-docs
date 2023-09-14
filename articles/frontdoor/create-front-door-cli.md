@@ -5,13 +5,15 @@ ms.topic: quickstart
 author: duau
 ms.author: duau
 ms.service: frontdoor
-ms.date: 6/13/2022
+ms.date: 6/30/2023
 ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Front Door Standard/Premium - Azure CLI
 
-In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using  Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
+In this quickstart, you learn how to create an Azure Front Door Standard/Premium profile using  Azure CLI. You create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure CLI." border="false":::
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
@@ -30,7 +32,7 @@ az group create --name myRGFD --location centralus
 ```
 ## Create an Azure Front Door profile
 
-In this step, you'll create the Azure Front Door profile that your two App services will use as your origin.
+In this step, you create the Azure Front Door profile that your two App services use as your origin.
 
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
@@ -46,11 +48,11 @@ az afd profile create \
 
 ## Create two instances of a web app
 
-In this step, you'll create two web app instances that run in different Azure regions for this tutorial. Both the web application instances run in Active/Active mode, so either one can service traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
+In this step, you create two web app instances that run in different Azure regions for this tutorial. Both the web application instances run in Active/Active mode, so either one can service traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
 
 ### Create app service plans
 
-Before you can create the web apps you'll need two app service plans, one in *Central US* and the second in *East US*.
+Before you can create the web apps you need two app service plans, one in *Central US* and the second in *East US*.
 
 Run [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create&preserve-view=true) to create your app service plans.
 
@@ -103,7 +105,7 @@ az afd profile create \
 ```
 ### Add an endpoint
 
-In this step, you'll create an endpoint in your Front Door profile. In Front Door Standard/Premium, an *endpoint* is a logical grouping of one or more routes that are associated with domain names. Each endpoint is assigned a domain name by Front Door, and you can associate endpoints with custom domains by using routes. Front Door profiles can also contain multiple endpoints.
+In this step, you create an endpoint in your Front Door profile. In Front Door Standard/Premium, an *endpoint* is a logical grouping of one or more routes that are associated with domain names. Each endpoint is assigned a domain name by Front Door, and you can associate endpoints with custom domains by using routes. Front Door profiles can also contain multiple endpoints.
 
 Run [az afd endpoint create](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your profile.
 
@@ -115,11 +117,11 @@ az afd endpoint create \
     --enabled-state Enabled
 ```
 
-For more information about endpoints in Front Door, please read [Endpoints in Azure Front Door](./endpoint.md).
+For more information about endpoints in Front Door, see [Endpoints in Azure Front Door](./endpoint.md).
 
 ### Create an origin group
 
-You'll now create an origin group that will define the traffic and expected responses for your app instances. Origin groups also define how origins should be evaluated by health probes, which you'll also define in this step.
+Create an origin group that defines the traffic and expected responses for your app instances. Origin groups also define how origins get evaluated by health probes, which you can define in this step.
 
 Run [az afd origin-group create](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two web apps.
 
@@ -139,7 +141,7 @@ az afd origin-group create \
 
 ### Add an origin to the group
 
-You'll now add both of your app instances created earlier as origins to your new origin group. Origins in Front Door refers to applications that Front Door will retrieve contents from when caching isn't enabled or when a cache gets missed.
+Add both of your app instances created earlier as origins to your new origin group. Origins in Front Door refer to applications that Front Door retrieves contents from when caching isn't enabled or when a cache gets missed.
 
 Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to add your first app instance as an origin to your origin group.
 
@@ -175,11 +177,11 @@ az afd origin create \
     --https-port 443
 ```
 
-For more information about origins, origin groups and health probes, please read [Origins and origin groups in Azure Front Door](./origin.md)
+For more information about origins, origin groups and health probes, see [Origins and origin groups in Azure Front Door](./origin.md)
 
 ### Add a route
 
-You'll now add a route to map the endpoint that you created earlier to the origin group. This route forwards requests from the endpoint to your origin group.
+Add a route to map the endpoint that you created earlier to the origin group. This route forwards requests from the endpoint to your origin group.
 
 Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. 
 
@@ -196,20 +198,20 @@ az afd route create \
     --link-to-default-domain Enabled 
 ```
 
-To learn more about routes in Azure Front Door, please read [Traffic routing methods to origin](./routing-methods.md).
+To learn more about routes in Azure Front Door, see [Traffic routing methods to origin](./routing-methods.md).
 
 ## Create a new security policy
 
 Azure Web Application Firewall (WAF) on Front Door provides centralized protection for your web applications, defending them against common exploits and vulnerabilities.
 
-In this tutorial, you'll create a WAF policy that adds two managed rules. You can also create WAF policies with custom rules
+In this tutorial, you create a WAF policy that adds two managed rules. You can also create WAF policies with custom rules
 
 ### Create a WAF policy
 
 Run [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) to create a new WAF policy for your Front Door. This example creates a policy that is enabled and in prevention mode.
 
 > [!NOTE]
-> Managed rules will only work with Front Door Premium SKU. You can opt for Standard SKU below to use custom rules.
+> Managed rules will only work with Front Door Premium tier. You can opt for Standard tier to use onlu custom rules.
     
 ```azurecli-interactive
 az network front-door waf-policy create \
@@ -223,7 +225,7 @@ az network front-door waf-policy create \
 > [!NOTE]
 > If you select `Detection` mode, your WAF doesn't block any requests.
 
-To learn more about WAF policy settings for Front Door, please read [Policy settings for Web Application Firewall on Azure Front Door](../web-application-firewall/afds/waf-front-door-policy-settings.md).
+To learn more about WAF policy settings for Front Door, see [Policy settings for Web Application Firewall on Azure Front Door](../web-application-firewall/afds/waf-front-door-policy-settings.md).
 
 ### Assign managed rules to the WAF policy
 
@@ -248,16 +250,16 @@ az network front-door waf-policy managed-rules add \
     --version 1.0
 ```
 
-To learn more about managed rules in Front Door, please read [Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md).
+To learn more about managed rules in Front Door, see [Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md).
 
 ### Create the security policy
 
-You'll now apply these two WAF polcies to your Front Door by creating a security policy. This will apply the Azure-managed rules to the endpoint that you defined earlier.
+Now apply these two WAF policies to your Front Door by creating a security policy. This setting applies the Azure-managed rules to the endpoint that you defined earlier.
 
 Run [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) to apply your WAF policy to the endpoint's default domain.
 
 > [!NOTE]
-> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters below. Run [az account subscription list](/cli/azure/account/subscription#az-account-subscription-list) to get Subscription ID details.
+> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters. Run [az account subscription list](/cli/azure/account/subscription#az-account-subscription-list) to get Subscription ID details.
 
 
 ```azurecli-interactive
@@ -278,13 +280,13 @@ Run [az afd endpoint show](/cli/azure/afd/endpoint#az-afd-endpoint-show) to get 
 ```azurecli-interactive
 az afd endpoint show --resource-group myRGFD --profile-name contosoafd --endpoint-name contosofrontend
 ```
-In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
+In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request automatically gets routed to the least latent Web App in the origin group.
 
 :::image type="content" source="./media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
 
-To test instant global failover, we'll use the following steps:
+To test instant global failover, we use the following steps:
 
-1. Open a browser, as described above, and go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`.
+1. Open a browser and go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`.
 
 2. Stop one of the Web Apps by running [az webapp stop](/cli/azure/webapp#az-webapp-stop&preserve-view=true)
 
@@ -308,7 +310,7 @@ To test instant global failover, we'll use the following steps:
     :::image type="content" source="./media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
 
 
-6. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
+6. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page go back to normal.
 
     ```azurecli-interactive
     az webapp start --name WebAppContoso-01 --resource-group myRGFD

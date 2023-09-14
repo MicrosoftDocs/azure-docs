@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: faq
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
-ms.date: 01/27/2023
+ms.date: 08/01/2023
 ---
 
 # Frequently asked questions about forecasting in AutoML
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 This article answers common questions about forecasting in automatic machine learning (AutoML). For general information about forecasting methodology in AutoML, see the [Overview of forecasting methods in AutoML](./concept-automl-forecasting-methods.md) article.
 
@@ -25,9 +25,9 @@ You can start by reading the [Set up AutoML to train a time-series forecasting m
   
 - [Bike share example](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-bike-share/auto-ml-forecasting-bike-share.ipynb)
 - [Forecasting using deep learning](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb)
-- [Many Models solution](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb)
-- [Forecasting recipes](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-recipes-univariate/auto-ml-forecasting-univariate-recipe-experiment-settings.ipynb)
-- [Advanced forecasting scenarios](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
+- [Many Models solution](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb)
+- [Forecasting recipes](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-recipes-univariate/auto-ml-forecasting-univariate-recipe-experiment-settings.ipynb)
+- [Advanced forecasting scenarios](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
 
 ## Why is AutoML slow on my data?
 
@@ -35,7 +35,7 @@ We're always working to make AutoML faster and more scalable. To work as a gener
 
 One common source of slow runtime is training AutoML with default settings on data that contains numerous time series. The cost of many forecasting methods scales with the number of series. For example, methods like Exponential Smoothing and Prophet [train a model for each time series](./concept-automl-forecasting-methods.md#model-grouping) in the training data.
 
-The Many Models feature of AutoML scales to these scenarios by distributing training jobs across a compute cluster. It has been successfully applied to data with millions of time series. For more information, see the [Forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) article. You can also read about [the success of Many Models](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/automated-machine-learning-on-the-m5-forecasting-competition/ba-p/2933391) on a high-profile competition dataset.
+The Many Models feature of AutoML scales to these scenarios by distributing training jobs across a compute cluster. It has been successfully applied to data with millions of time series. For more information, see the [many models](concept-automl-forecasting-at-scale.md#many-models) article section. You can also read about [the success of Many Models](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/automated-machine-learning-on-the-m5-forecasting-competition/ba-p/2933391) on a high-profile competition dataset.
 
 ## How can I make AutoML faster?
 
@@ -60,14 +60,14 @@ AutoML forecasting supports four basic configurations:
 |--|--|--|--|
 |**Default AutoML**|Recommended if the dataset has a small number of time series that have roughly similar historical behavior.|- Simple to configure from code/SDK or Azure Machine Learning studio. <br><br> - AutoML can learn across different time series because the regression models pool all series together in training. For more information, see [Model grouping](./concept-automl-forecasting-methods.md#model-grouping).|- Regression models might be less accurate if the time series in the training data have divergent behavior. <br> <br> - Time series models might take a long time to train if the training data has a large number of series. For more information, see the [Why is AutoML slow on my data?](#why-is-automl-slow-on-my-data) answer.|
 |**AutoML with deep learning**|Recommended for datasets with more than 1,000 observations and, potentially, numerous time series that exhibit complex patterns. When it's enabled, AutoML will sweep over [temporal convolutional neural network (TCN) models](./concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster) during training. For more information, see [Enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning).|- Simple to configure from code/SDK or Azure Machine Learning studio. <br> <br> - Cross-learning opportunities, because the TCN pools data over all series. <br> <br> - Potentially higher accuracy because of the large capacity of deep neural network (DNN) models. For more information, see [Forecasting models in AutoML](./concept-automl-forecasting-methods.md#forecasting-models-in-automl).|- Training can take much longer because of the complexity of DNN models. <br> <br> - Series with small amounts of history are unlikely to benefit from these models.|
-|**Many Models**|Recommended if you need to train and manage a large number of forecasting models in a scalable way. For more information, see [Forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale).|- Scalable. <br> <br> - Potentially higher accuracy when time series have divergent behavior from one another.|- No learning across time series. <br> <br> - You can't configure or run Many Models jobs from Azure Machine Learning studio. Only the code/SDK experience is currently available.|
-|**Hierarchical time series (HTS)**|Recommended if the series in your data have a nested, hierarchical structure, and you need to train or make forecasts at aggregated levels of the hierarchy. For more information, see [Hierarchical time series forecasting](how-to-auto-train-forecast.md#hierarchical-time-series-forecasting).|- Training at aggregated levels can reduce noise in the leaf-node time series and potentially lead to higher-accuracy models. <br> <br> - You can retrieve forecasts for any level of the hierarchy by aggregating or disaggregating forecasts from the training level.|- You need to provide the aggregation level for training. AutoML doesn't currently have an algorithm to find an optimal level.|
+|**Many Models**|Recommended if you need to train and manage a large number of forecasting models in a scalable way. For more information, see the [many models](concept-automl-forecasting-at-scale.md#many-models) article section.|- Scalable. <br> <br> - Potentially higher accuracy when time series have divergent behavior from one another.|- No learning across time series. <br> <br> - You can't configure or run Many Models jobs from Azure Machine Learning studio. Only the code/SDK experience is currently available.|
+|**Hierarchical time series (HTS)**|Recommended if the series in your data have a nested, hierarchical structure, and you need to train or make forecasts at aggregated levels of the hierarchy. For more information, see the [hierarchical time series forecasting](concept-automl-forecasting-at-scale.md#hierarchical-time-series-forecasting) article section.|- Training at aggregated levels can reduce noise in the leaf-node time series and potentially lead to higher-accuracy models. <br> <br> - You can retrieve forecasts for any level of the hierarchy by aggregating or disaggregating forecasts from the training level.|- You need to provide the aggregation level for training. AutoML doesn't currently have an algorithm to find an optimal level.|
 
 > [!NOTE]
 > We recommend using compute nodes with GPUs when deep learning is enabled to best take advantage of high DNN capacity. Training time can be much faster in comparison to nodes with only CPUs. For more information, see the [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) article.
 
 > [!NOTE]
-> HTS is designed for tasks where training or prediction is required at aggregated levels in the hierarchy. For hierarchical data that requires only leaf-node training and prediction, use [Many Models](./how-to-auto-train-forecast.md#many-models) instead.
+> HTS is designed for tasks where training or prediction is required at aggregated levels in the hierarchy. For hierarchical data that requires only leaf-node training and prediction, use [many models](concept-automl-forecasting-at-scale.md#many-models) instead.
 
 ## How can I prevent overfitting and data leakage?
 
@@ -108,8 +108,8 @@ To choose between them, note that NRMSE penalizes outliers in the training data 
 ## How can I improve the accuracy of my model?
 
 - Ensure that you're configuring AutoML the best way for your data. For more information, see the [What modeling configuration should I use?](#what-modeling-configuration-should-i-use) answer.
-- Check out the [forecasting recipes notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-recipes-univariate/auto-ml-forecasting-univariate-recipe-experiment-settings.ipynb) for step-by-step guides on how to build and improve forecast models.  
-- Evaluate the model by using back tests over several forecasting cycles. This procedure gives a more robust estimate of forecasting error and gives you a baseline to measure improvements against. For an example, see the [back-testing notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-backtest-single-model/auto-ml-forecasting-backtest-single-model.ipynb).
+- Check out the [forecasting recipes notebook](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-recipes-univariate/auto-ml-forecasting-univariate-recipe-experiment-settings.ipynb) for step-by-step guides on how to build and improve forecast models.  
+- Evaluate the model by using back tests over several forecasting cycles. This procedure gives a more robust estimate of forecasting error and gives you a baseline to measure improvements against. For an example, see the [back-testing notebook](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-backtest-single-model/auto-ml-forecasting-backtest-single-model.ipynb).
 - If the data is noisy, consider aggregating it to a coarser frequency to increase the signal-to-noise ratio. For more information, see [Frequency and target data aggregation](./how-to-auto-train-forecast.md#frequency--target-data-aggregation).
 - Add new features that can help predict the target. Subject matter expertise can help greatly when you're selecting training data.
 - Compare validation and test metric values, and determine if the selected model is underfitting or overfitting the data. This knowledge can guide you to a better training configuration. For example, you might determine that you need to use more cross-validation folds in response to overfitting.
@@ -136,11 +136,11 @@ You can resolve disk out-of-memory errors by deleting the compute cluster and cr
 AutoML supports the following advanced prediction scenarios:
 
 - Quantile forecasts
-- Robust model evaluation via [rolling forecasts](./how-to-auto-train-forecast.md#evaluating-model-accuracy-with-a-rolling-forecast)
+- Robust model evaluation via [rolling forecasts](concept-automl-forecasting-evaluation.md#rolling-forecast)
 - Forecasting beyond the forecast horizon
 - Forecasting when there's a gap in time between training and forecasting periods
 
-For examples and details, see the [notebook for advanced forecasting scenarios](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb).
+For examples and details, see the [notebook for advanced forecasting scenarios](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb).
 
 ## How do I view metrics from forecasting training jobs?
 

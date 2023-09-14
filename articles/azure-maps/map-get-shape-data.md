@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: In this article learn, how to get shape data drawn on a map using the Microsoft Azure Maps Web SDK.
 author: dubiety
 ms.author: yuchungchen
-ms.date: 06/15/2023
+ms.date: 07/13/2023
 ms.topic: how-to
 ms.service: azure-maps
 ---
@@ -25,13 +25,12 @@ function getDrawnShapes() {
 }
 ```
 
-The [Get drawn shapes from drawing manager] code sample allows you to draw a shape on a map and then get the code used to create those drawings by using the drawing managers `drawingManager.getSource()` function.
+The [Get drawn shapes from drawing manager] code sample allows you to draw a shape on a map and then get the code used to create those drawings by using the drawing managers `drawingManager.getSource()` function. For the source code for this sample, see [Get drawn shapes from drawing manager sample code].
 
 :::image type="content" source="./media/map-get-shape-data/get-data-from-drawn-shape.png" alt-text="A screenshot of a map with a circle drawn around Seattle. Next to the map is the code used to create the circle.":::
 
 <!-----------------------------------------
-<iframe height="686" title="Get shape data" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>Get shape data</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result]
 ------------------------------------------->
 
 ## Next steps
@@ -56,3 +55,4 @@ Learn more about the classes and methods used in this article:
 > [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 [Get drawn shapes from drawing manager]: https://samples.azuremaps.com/drawing-tools-module/get-drawn-shapes-from-drawing-manager
+[Get drawn shapes from drawing manager sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Get%20drawn%20shapes%20from%20drawing%20manager/Get%20drawn%20shapes%20from%20drawing%20manager.html

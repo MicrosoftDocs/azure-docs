@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning SDK (v1).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.author: balapv
 author: balapv
 ms.reviewer: mopeakande
@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Train Keras models at scale with Azure Machine Learning (SDK v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your Keras training scripts with Azure Machine Learning.
 
@@ -46,7 +46,7 @@ Run this code on either of these environments:
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
-[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota-prereq.md)]
+[!INCLUDE [gpu quota](../includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the experiment
 
@@ -105,7 +105,7 @@ dataset = dataset.register(workspace=ws,
 
 Create a compute target for your training job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
 
-[!INCLUDE [gpu quota](../../../includes/machine-learning-gpu-quota.md)]
+[!INCLUDE [gpu quota](../includes/machine-learning-gpu-quota.md)]
 
 ```Python
 cluster_name = "gpu-cluster"
@@ -123,7 +123,7 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-[!INCLUDE [low-pri-note](../../../includes/machine-learning-low-pri-vm.md)]
+[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
 
 For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 

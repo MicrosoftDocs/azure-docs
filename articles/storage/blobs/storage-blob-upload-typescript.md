@@ -6,8 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 06/21/2023
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
@@ -15,17 +14,14 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Upload a blob with TypeScript
 
-This article shows how to upload a blob using the [Azure Storage client library for JavaScript and TypeScript](/javascript/api/overview/azure/storage-blob-readme). You can upload data to a block blob from a file path, a stream, a buffer, or a text string. You can also upload blobs with index tags.
+This article shows how to upload a blob using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can upload data to a block blob from a file path, a stream, a buffer, or a text string. You can also upload blobs with index tags.
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob](/rest/api/storageservices/put-blob#authorization)
     - [Put Block](/rest/api/storageservices/put-block#authorization)
-- The package **@azure/storage-blob** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and TypeScript](storage-blob-typescript-get-started.md#set-up-your-project).
 
 ## Upload data to a block blob
 
@@ -94,7 +90,7 @@ You can set a blob's access tier on upload by using the [BlockBlobParallelUpload
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-access-tier.ts" id="Snippet_UploadAccessTier":::
 
-Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`.
+Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/javascript/api/preview-docs/@azure/storage-blob/) version of 12.13.0.
 
 To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
 

@@ -37,7 +37,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * A Code42 tenant with Identity Management enabled.
-* A Code42 user account with [Customer Cloud Admin](https://support.code42.com/Administrator/Cloud/Monitoring_and_managing/Roles_reference#Customer_Cloud_Admin) permission.
+* A Code42 user account with [Customer Cloud Admin](https://support.code42.com/hc/en-us/articles/14827655905943-Roles-reference#Customer_Cloud_Admin) permission.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Code42 to support provisioning with Azure AD
 
-This section guides you through the steps to configure Azure AD as a provisioning provider in the Identity Management section of Code42's console. Doing so will enable Code42 to securely receive provisioning requests from Azure AD. It is recommended to review [Code42's support documentation](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD) before provisioning with Azure AD.
+This section guides you through the steps to configure Azure AD as a provisioning provider in the Identity Management section of Code42's console. Doing so will enable Code42 to securely receive provisioning requests from Azure AD. It is recommended to review [Code42's support documentation](https://support.code42.com/hc/en-us/articles/14827670461207-How-to-provision-users-to-Code42-from-Azure-AD) before provisioning with Azure AD.
 
 ### To create a provisioning provider in Code42's console:
 
@@ -161,8 +161,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure organization assignments based on SCIM groups in Code42](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD#Step_6:_Choose_an_organization_mapping_method)
-* [Configure role assignments based on SCIM groups in Code42](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD#Step_7:_Configure_role_mapping)
+* [Configure organization assignments based on SCIM groups in Code42](https://support.code42.com/hc/en-us/articles/14827670461207-How-to-provision-users-to-Code42-from-Azure-AD#step-6-map-users-to-organizations-and-roles-using-scim-groups-0-18)
+* [Configure role assignments based on SCIM groups in Code42](https://support.code42.com/hc/en-us/articles/14827670461207-How-to-provision-users-to-Code42-from-Azure-AD#apply-organization-and-role-mappings-0-21)
 
 ## Next steps
 

@@ -20,7 +20,7 @@ In this quickstart, you use the Azure portal to deploy an isolated Docker contai
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 If you don't have an Azure subscription, create a [free account][azure-free-account] before you begin.
 

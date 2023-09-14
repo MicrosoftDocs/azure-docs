@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 09/12/2023
 ms.devlang: csharp, java, javascript, vb
 ms.custom: devx-track-csharp
 ms.reviewer: mmcc
@@ -1040,7 +1040,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](./create-new-resource.md) and change their keys, depending on the environment.
+To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](./create-workspace-resource.md) and change their keys, depending on the environment.
 
 Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as `global.aspx.cs` in an ASP.NET service:
 
@@ -1151,9 +1151,9 @@ Yes, the [data access API](/rest/api/application-insights/). Other ways to extra
 
 ### Why are my calls to custom events and metrics APIs ignored?
 
-The Application Insights SDK isn't compatible with auto-instrumentation. If auto-instrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
+The Application Insights SDK isn't compatible with autoinstrumentation. If autoinstrumentation is enabled, calls to <code class="notranslate">Track()</code> and other custom events and metrics APIs will be ignored.
 
-Turn off auto-instrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
+Turn off autoinstrumentation in the Azure portal on the Application Insights tab of the App Service page or set <code class="notranslate">ApplicationInsightsAgent_EXTENSION_VERSION</code> to <code class="notranslate">disabled</code>.
 
 ## <a name="next"></a>Next steps
 

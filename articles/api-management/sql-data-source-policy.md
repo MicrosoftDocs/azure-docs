@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 06/07/2023
 ms.author: danlep
 ---
@@ -15,7 +15,7 @@ ms.author: danlep
 The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and an optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management as a GraphQL API.  
 
 > [!NOTE]
-> This policy is currently in preview.
+> This policy is in preview. Currently, the policy isn't supported in the Consumption tier of API Management.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -117,7 +117,7 @@ The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request 
 ## Usage
 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) dedicated
 
 ### Usage notes
 
@@ -157,6 +157,35 @@ Enable Azure Active Directory authentication to SQL Database by assigning an Azu
     ```
 
 ## Examples
+
+### Example schema
+
+The examples in this section are resolvers for the following GraphQL schema:
+
+```GraphQL
+type Family {
+  id: Int!
+  name: String!
+}
+
+type Person {
+  id: Int!
+  name: String!
+}
+
+type PersonQueryResult {
+  items: [Person]  
+}
+
+type Query {
+  familyById(familyId: Int!): Family
+  familyMembers(familyId: Int!): PersonQueryResult
+}
+
+type Mutation {
+  createFamily(familyId: Int!, familyName: String!): Family
+}
+```
 
 ### Resolver for GraphQL query using single-result T-SQL request
 
@@ -219,7 +248,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
         <set-body template="liquid"> 
             { 
                 "items": [ 
-                    {% JSONArray For person in body.results %} 
+                    {% JSONArray For person in body.items %} 
                         "id": "{{ person.id }}" 
                         "name": "{{ person.firstName }} + "" "" + {{body.lastName}}" 
                     {% endJSONArrayFor %} 
@@ -232,7 +261,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
 
 ### Resolver for GraphQL mutation 
 
-The following example resolves a GraphQL mutation using a T-SQL INSERT statement to insert a row an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL 
+The following example resolves a GraphQL mutation using a T-SQL INSERT statement to insert a row an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL database.
 
 ```xml
 <sql-data-source> 
@@ -240,7 +269,7 @@ The following example resolves a GraphQL mutation using a T-SQL INSERT statement
         <connection-string use-managed-identity="true">
             Server=tcp:{your_server_name}.database.windows.net,1433;Initial Catalog={your_database_name};</connection-string>
     </connection-info> 
-    <request> 
+    <request single-result="true"> 
         <sql-statement> 
                 INSERT INTO [dbo].[Family]
                        ([Id]

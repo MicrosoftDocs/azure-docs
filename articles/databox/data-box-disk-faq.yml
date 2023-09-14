@@ -3,13 +3,13 @@ metadata:
   title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data
   description: Contains frequently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
   services: databox
-  author: alkohli
+  author: stevenmatthew
   
   ms.service: databox
   ms.subservice: disk
   ms.topic: faq
   ms.date: 05/06/2022
-  ms.author: alkohli
+  ms.author: shaas
   ms.custom: references_regions
 title: "Azure Data Box Disk: Frequently Asked Questions"
 summary: |
@@ -43,7 +43,7 @@ sections:
       - question: |
           How do I get Data Box Disks? 
         answer: |
-          To get Azure Data Box Disks, log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.
+          To get Azure Data Box Disks, sign in to the Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.
 
       - question: |
           What is the maximum amount of data I can transfer with Data Box Disks in one instance?
@@ -110,7 +110,7 @@ sections:
       - question: |
           How do I get Data Box Disk? 
         answer: |
-          To get Azure Data Box Disk, sign into the Azure portal and create a Data Box Disk order. Provide your contact information and notification details. Once you place an order, based on the availability, Data Box Disk is shipped to you within 10 days. For more information, go to [Order a Data Box](data-box-disk-deploy-ordered.md).
+          To get Azure Data Box Disk, sign in to the Azure portal and create a Data Box Disk order. Provide your contact information and notification details. Once you place an order, based on the availability, Data Box Disk is shipped to you within 10 days. For more information, go to [Order a Data Box](data-box-disk-deploy-ordered.md).
           
       - question: |
           I couldn't create a Data Box Disk order in the Azure portal. Why?
@@ -272,7 +272,7 @@ sections:
       - question: |
           Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
         answer: |
-          Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
+          Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Data Box Disk will transfer file/directory timestamps, attributes, and ACLs to Azure Files. Azure File Sync usage with Data Box disk is now supported.
           
           
   - name: Verify and upload

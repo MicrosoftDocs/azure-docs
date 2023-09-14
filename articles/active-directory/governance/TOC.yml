@@ -1,4 +1,4 @@
-- name: Microsoft Entra Identity Governance documentation
+- name: Microsoft Entra ID Governance documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -45,7 +45,9 @@
       - name: Migrate an organizational role model
         href: identity-governance-organizational-roles.md
       - name: Automated ServiceNow Ticket Creation Integration
-        href: entitlement-management-ticketed-provisioning.md  
+        href: entitlement-management-ticketed-provisioning.md
+      - name: Automated Teams Messaging Integration
+        href: entitlement-management-custom-teams-extension.md      
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph
@@ -56,15 +58,15 @@
         href: /graph/tutorial-accessreviews-roleassignments?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
     - name: Lifecycle Workflows
       items:
-      - name: Automate employee onboarding tasks - Azure portal
+      - name: Automate employee onboarding tasks - Entra portal
         href: tutorial-onboard-custom-workflow-portal.md 
       - name: Automate employee onboarding tasks - Microsoft Graph
         href: /graph/tutorial-lifecycle-workflows-onboard-custom-workflow?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
-      - name: Offboarding employees in real-time - Azure portal
+      - name: Offboarding employees in real-time - Entra portal
         href: tutorial-offboard-custom-workflow-portal.md
       - name: Offboarding employees in real-time - Microsoft Graph
         href: /graph/tutorial-lifecycle-workflows-offboard-custom-workflow?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
-      - name: Automate employee offboarding tasks - Azure portal
+      - name: Automate employee offboarding tasks - Entra portal
         href: tutorial-scheduled-leaver-portal.md  
       - name: Automate employee offboarding tasks - Microsoft Graph
         href: /graph/tutorial-lifecycle-workflows-scheduled-leaver?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
@@ -172,6 +174,8 @@
         href: entitlement-management-reprocess-access-package-requests.md
       - name: View, add, and remove assignments
         href: entitlement-management-access-package-assignments.md
+      - name: Convert users to governed
+        href: entitlement-management-access-package-manage-lifecycle.md  
       - name: Reprocess assignments
         href: entitlement-management-reprocess-access-package-assignments.md
       - name: Hide or delete
@@ -213,11 +217,11 @@
     - name: Azure AD roles and Azure resource roles
       items:
       - name: Create an access review
-        href: ../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        href: ../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json
       - name: Perform an access review
-        href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        href: ../privileged-identity-management/pim-perform-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json
       - name: Complete an access review
-        href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+        href: ../privileged-identity-management/pim-complete-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json
     - name: Azure AD PIM for Groups
       items:
       - name: Create an access review
@@ -257,6 +261,12 @@
 - name: Reference
   expanded: true
   items:
+  - name: Identity Governance Dashboard
+    href: governance-dashboard.md
+  - name: Licensing fundamentals
+    href: licensing-fundamentals.md
+  - name: Services and integration partners
+    href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell
     href: /powershell/module/microsoft.graph.identity.governance/?view=graph-powershell-beta&preserve-view=true
   - name: Access reviews - Microsoft Graph API
@@ -272,7 +282,7 @@
     - name: Set EmployeeLeaveDateTime for leaver workflows
       href: /graph/tutorial-lifecycle-workflows-set-employeeleavedatetime?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
     - name: Preparing user accounts for Lifecycle workflows tutorials
-      href: tutorial-prepare-azure-ad-user-accounts.md 
+      href: tutorial-prepare-user-accounts.md 
     - name: Configure a Logic App for Lifecycle Workflow use
       href: configure-logic-app-lifecycle-workflows.md
       

@@ -38,12 +38,12 @@ Lifecycle Workflows are an [Azure AD Identity Governance](identity-governance-ov
  
 Planning your Lifecycle Workflow deployment is essential to make sure you achieve your desired governance strategy for users in your organization.
 
-For more information on deployment plans, see [Azure AD deployment plans](../fundamentals/deployment-plans.md)
+For more information on deployment plans, see [Azure AD deployment plans](../architecture/deployment-plans.md)
 
 ## License requirements
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 >[!Note]
 >Be aware that if your license expires, any workflows that you have created will stop working.
@@ -56,7 +56,7 @@ Consider your organizational needs to determine the strategy for deploying Lifec
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md) and that project roles are clear.
+When technology projects fail, they typically do so because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md) and that project roles are clear.
 
 For Lifecycle Workflows, you'll likely include representatives from the following teams within your organization:
 
@@ -109,7 +109,7 @@ The following information is important information about your organization and t
 
 |Item|Description|Documentation|
 |-----|-----|-----|
-|Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Azure AD Connect](../hybrid/whatis-azure-ad-connect-v2.md)<br><br>[Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md)|
+|Inbound Provisioning|You have a process to create user accounts for employees in Azure AD such as HR inbound, SuccessFactors, or MIM.<br><br> Alternatively you have a process to create user accounts in Active Directory and those accounts are provisioned to Azure AD.|[Workday to Active Directory](../saas-apps/workday-inbound-tutorial.md)<br><br>[Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md)<br><br>[SuccessFactors to Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)</br></br>[SuccessFactors to Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)<br><br>[Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect-v2.md)<br><br>[Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md)|
 |Attribute synchronization|The accounts in Azure AD have the employeeHireDate and employeeLeaveDateTime attributes populated.  The values may be populated when the accounts are created from an HR system or synchronized from AD using Azure AD Connect or cloud sync. You have extra attributes that are used to determine the scope such as department, populated or the ability to populate, with data.|[How to synchronize attributes for Lifecycle Workflows](how-to-lifecycle-workflow-sync-attributes.md)
 
 ## Understanding parts of a workflow
@@ -256,7 +256,7 @@ In your pilot, we recommend that you:
 * Start with Lifecycle Workflows where the results are applied to a small subset of users.
 * Monitor audit logs to ensure all events are properly audited.
 
-For more information, see [Best practices for a pilot.](../fundamentals/deployment-plans.md).
+For more information, see [Best practices for a pilot.](../architecture/deployment-plans.md).
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: Remove role assignments from a group in Azure Active Directory
-description: Remove role assignments from a group in Azure Active Directory using the Azure portal, PowerShell, or Microsoft Graph API.
+description: Remove role assignments from a group in Azure Active Directory using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
 
 # Remove role assignments from a group in Azure Active Directory
 
-This article describes how an IT admin can remove Azure AD roles assigned to groups. In the Azure portal, you can now remove both direct and indirect role assignments to a user. If a user is assigned a role by a group membership, remove the user from the group to remove the role assignment.
+This article describes how an IT admin can remove Azure AD roles assigned to groups. In the Microsoft Entra admin center, you can now remove both direct and indirect role assignments to a user. If a user is assigned a role by a group membership, remove the user from the group to remove the role assignment.
 
 ## Prerequisites
 
@@ -29,11 +29,15 @@ This article describes how an IT admin can remove Azure AD roles assigned to gro
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Select **Azure Active Directory** > **Roles and administrators** > *role name*.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
+
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
+
+1. Select a *role name*.
 
 1. Select the group from which you want to remove the role assignment and select **Remove assignment**.
 

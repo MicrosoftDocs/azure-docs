@@ -8,7 +8,7 @@ ms.workload: identity
 ms.topic: include
 ms.date: 04/10/2023
 ms.author: rolyon
-ms.custom: include file
+ms.custom: include file, has-azure-ad-ps-ref
 ---
 
 > [!IMPORTANT]

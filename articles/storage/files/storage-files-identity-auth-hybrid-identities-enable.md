@@ -2,11 +2,10 @@
 title: Use Azure Active Directory to access Azure file shares over SMB for hybrid identities using Kerberos authentication
 description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Azure Active Directory (Azure AD). Your users can then access Azure file shares by using their Azure AD credentials.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 08/03/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: engagement-fy23
 recommendations: false
 ---
@@ -44,7 +43,7 @@ The Azure AD Kerberos functionality for hybrid identities is only available on t
 
 To learn how to create and configure a Windows VM and log in by using Azure AD-based authentication, see [Log in to a Windows virtual machine in Azure by using Azure AD](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
-Clients must be Azure AD-joined or [hybrid Azure AD-joined](../../active-directory/devices/hybrid-azuread-join-plan.md). Azure AD Kerberos isn’t supported on clients joined to Azure AD DS or joined to AD only.
+Clients must be Azure AD-joined or [hybrid Azure AD-joined](../../active-directory/devices/hybrid-join-plan.md). Azure AD Kerberos isn’t supported on clients joined to Azure AD DS or joined to AD only.
 
 This feature doesn't currently support user accounts that you create and manage solely in Azure AD. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Azure AD Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Azure AD. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
 
@@ -54,7 +53,7 @@ With Azure AD Kerberos, the Kerberos ticket encryption is always AES-256. But yo
 
 ## Regional availability
 
-Azure Files authentication with Azure AD Kerberos is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/).
+This feature is supported in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Enable Azure AD Kerberos authentication for hybrid user accounts
 
@@ -130,11 +129,13 @@ az storage account update --name <storageAccountName> --resource-group <resource
 ---
 
 > [!WARNING]
-> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
+> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
 
 ## Grant admin consent to the new service principal
 
-After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant to complete your configuration. You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
+After enabling Azure AD Kerberos authentication, you'll need to explicitly grant admin consent to the new Azure AD application registered in your Azure AD tenant. This service principal is auto-generated and isn't used for authorization to the file share, so don't make any edits to the service principal other than those documented here. If you do, you might get an error.
+
+You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
 
 1. Open **Azure Active Directory**.
 2. Select **App registrations** on the left pane.
@@ -148,7 +149,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 7. Select **Yes** to confirm.
 
   > [!IMPORTANT]
-  > If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Azure AD application. For instructions, see the entry in our [troubleshooting guide](files-troubleshoot-smb-authentication.md#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
+  > If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Azure AD application. For instructions, see the entry in our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
 
 ## Disable multi-factor authentication on the storage account
 
@@ -194,7 +195,7 @@ Enable the Azure AD Kerberos functionality on the client machine(s) you want to 
 
 Use one of the following three methods:
 
-- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled)
+- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled), set to 1
 - Configure this group policy on the client(s): `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
 - Create the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
@@ -211,10 +212,33 @@ Add an entry for each storage account that uses on-premises AD DS integration. U
 
 - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
 - Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
-- Configure the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v <DomainName> /d <StorageAccountEndPoint>`
-  - For example, `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\domain_realm /v contoso.local /d <your-storage-account-name>.file.core.windows.net`
+- Run the `ksetup` Windows command on the client(s): `ksetup /addhosttorealmmap <hostname> <realmname>`
+  - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net contoso.local`
+
+Changes aren't instant, and require a policy refresh or a reboot to take effect.
+
+## Undo the client configuration to retrieve Kerberos tickets
+
+If you no longer want to use a client machine for Azure AD Kerberos authentication, you can disable the Azure AD Kerberos functionality on that machine. Use one of the following three methods:
+
+- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled), set to 0
+- Configure this group policy on the client(s): `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+- Create the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 0`
 
 Changes are not instant, and require a policy refresh or a reboot to take effect.
+
+If you followed the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds), you can optionally remove all host name to Kerberos realm mappings from the client machine. Use one of the following three methods:
+
+- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
+- Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
+- Run the `ksetup` Windows command on the client(s): `ksetup /delhosttorealmmap <hostname> <realmname>`
+  - For example, `ksetup /delhosttorealmmap <your storage account name>.file.core.windows.net contoso.local`
+  - You can view the list of current host name to Kerberos realm mappings by inspecting the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\HostToRealm`.
+
+Changes aren't instant, and require a policy refresh or a reboot to take effect.
+
+> [!IMPORTANT]
+> Once this change is applied, the client(s) won't be able to connect to storage accounts that are configured for Azure AD Kerberos authentication. However, they will be able to connect to storage accounts configured to AD DS, without any additional configuration.
 
 ## Disable Azure AD authentication on your storage account
 

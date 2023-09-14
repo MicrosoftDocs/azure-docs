@@ -89,4 +89,4 @@ Refer to your software vendor's documentation to understand the load-balancing r
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Enable Conditional Access](./application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
-- [Learn how Azure AD architecture supports high availability](../fundamentals/active-directory-architecture.md)
+- [Learn how Azure AD architecture supports high availability](../architecture/architecture.md)

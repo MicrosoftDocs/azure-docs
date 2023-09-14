@@ -7,10 +7,10 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
 ms.date: 04/03/2023
 ms.author: justinha
-
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain and define advanced configuration options so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---
 

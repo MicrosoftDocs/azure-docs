@@ -54,6 +54,8 @@ Ensure that the following prerequisites are in place:
 
 ## Enable the feature
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Enable Seamless SSO through [Azure AD Connect](../whatis-hybrid-identity.md).
 
 > [!NOTE]

@@ -4,6 +4,7 @@ description: Quickly get Oracle Data Guard up and running in your Azure environm
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 03/23/2023
@@ -541,8 +542,9 @@ $ mkdir -p /u01/app/oracle/admin/cdb1/adump
 
 Create a password file:
 
+
 ```bash
-$ orapwd file=/u01/app/oracle/product/19.0.0/dbhome_1/dbs/orapwcdb1 password=OracleLab123 entries=10 format=
+$ orapwd file=/u01/app/oracle/product/19.0.0/dbhome_1/dbs/orapwcdb1 password=OracleLab123 entries=10 force=y
 ```
 
 Start the database on `OracleVM2`:

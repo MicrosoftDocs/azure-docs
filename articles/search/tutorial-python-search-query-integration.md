@@ -1,5 +1,5 @@
 ---
-title: "Python tutorial: Search integration highlights"
+title: "Explore code (Python tutorial)"
 titleSuffix: Azure Cognitive Search
 description: Understand the Python SDK Search integration queries used in the Search-enabled website with this cheat sheet. 
 manager: nitinme
@@ -7,12 +7,12 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/02/2022
+ms.date: 07/18/2023
 ms.custom: devx-track-python
 ms.devlang: python
 ---
 
-# 4 - Python Search integration cheat sheet
+# 4 - Explore the Python search code
 
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you're looking for a cheat sheet on how to integrate search into your Python app, this article explains what you need to know.
 

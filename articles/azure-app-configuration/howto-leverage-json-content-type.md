@@ -9,10 +9,8 @@ ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 03/27/2023
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-azurecli
 ms.author: avgupta
-
-
 #Customer intent: I want to store JSON key-values in App Configuration store without losing the data type of each setting.
 ---
 

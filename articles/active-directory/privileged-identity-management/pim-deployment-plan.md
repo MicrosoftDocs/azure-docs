@@ -3,7 +3,7 @@ title: Plan a Privileged Identity Management deployment
 description: Learn how to deploy Privileged Identity Management (PIM) in your Azure AD organization.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
 ms.date: 2/3/2023
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -93,11 +93,11 @@ In case the role expires, you can **extend** or **renew** these assignments.
 
 ## Plan the project
 
-When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it’s typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you’re engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
-At each stage of your deployment ensure that you are evaluating that the results are as expected. See [best practices for a pilot](../fundamentals/deployment-plans.md#best-practices-for-a-pilot).
+At each stage of your deployment ensure that you are evaluating that the results are as expected. See [best practices for a pilot](../architecture/deployment-plans.md#best-practices-for-a-pilot).
 
 * Start with a small set of users (pilot group) and verify that the PIM behaves as expected.
 
@@ -138,7 +138,7 @@ For both Azure AD and Azure resource role, make sure that you’ve users represe
 
 ### Plan rollback
 
-If PIM fails to work as desired in the production environment, you can change the role assignment from eligible to active once again. For each role that you’ve configured, select the ellipsis (…) for all users with assignment type as **eligible**. You can then select the **Make active** option to go back and make the role assignment **active**.
+If PIM fails to work as desired in the production environment, you can change the role assignment from eligible to active once again. For each role that you’ve configured, select the ellipsis **(…)** for all users with assignment type as **eligible**. You can then select the **Make active** option to go back and make the role assignment **active**.
 
 ## Plan and implement PIM for Azure AD roles
 
@@ -148,7 +148,7 @@ Follow these tasks to prepare PIM to manage Azure AD roles.
 
 List who has privileged roles in your organization. Review the users assigned, identify administrators who no longer need the role, and remove them from their assignments. 
 
-You can use [Azure AD roles access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) to automate the discovery, review, and approval or removal of assignments.
+You can use [Azure AD roles access reviews](./pim-create-roles-and-resource-roles-review.md) to automate the discovery, review, and approval or removal of assignments.
 
 ### Determine roles to be managed by PIM
 
@@ -210,7 +210,7 @@ Minimize Owner and User Access Administrator assignments attached to each subscr
 
 As a Global Administrator you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md). You can then find each subscription owner and work with them to remove unnecessary assignments within their subscriptions.
 
-Use [access reviews for Azure resources](./pim-create-azure-ad-roles-and-resource-roles-review.md) to audit and remove unnecessary role assignments. 
+Use [access reviews for Azure resources](./pim-create-roles-and-resource-roles-review.md) to audit and remove unnecessary role assignments. 
 
 ### Determine roles to be managed by PIM
 
@@ -254,7 +254,7 @@ When these important events occur in Azure resource roles, PIM sends [email noti
 
 ### Approve or deny PIM activation requests
 
-[Approve or deny activation requests for Azure AD role](azure-ad-pim-approval-workflow.md)- A delegated approver receives an email notification when a request is pending for approval.
+[Approve or deny activation requests for Azure AD role](./pim-approval-workflow.md)- A delegated approver receives an email notification when a request is pending for approval.
 
 ### View audit history for Azure Resource roles
 
@@ -313,5 +313,4 @@ Configure PIM for Groups members and owners to require approval for activation a
 
 * If there is PIM-related issues, see [Troubleshooting a problem with PIM](pim-troubleshoot.md).
 
-* [Deploy other identity features](../fundamentals/deployment-plans.md)
-
+* [Deploy other identity features](../architecture/deployment-plans.md)

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 06/08/2023
+ms.date: 07/21/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
@@ -25,7 +25,6 @@ This article discusses known issues to be aware of when you work with app provis
 
 ### Unsupported synchronization scenarios
 
-- Restoring a previously soft-deleted user in the target tenant
 - Synchronizing groups, devices, and contacts into another tenant
 - Synchronizing users across clouds
 - Synchronizing photos across tenants
@@ -167,7 +166,7 @@ The following information is a current list of known limitations with the Azure 
 The following applications and directories aren't yet supported.
 
 #### Active Directory Domain Services (user or group writeback from Azure AD by using the on-premises provisioning preview)
-   - When a user is managed by Azure AD Connect, the source of authority is on-premises Azure AD. So, user attributes can't be changed in Azure AD. This preview doesn't change the source of authority for users managed by Azure AD Connect.
+   - When a user is managed by Azure AD Connect, the source of authority is on-premises Active Directory Domain Services. So, user attributes can't be changed in Azure AD. This preview doesn't change the source of authority for users managed by Azure AD Connect.
    - Attempting to use Azure AD Connect and the on-premises provisioning to provision groups or users into Active Directory Domain Services can lead to creation of a loop, where Azure AD Connect can overwrite a change that was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group or user writeback. Upvote the UserVoice feedback on [this website](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789/) to track the status of the preview. Alternatively, you can use [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for user or group writeback from Azure AD to Active Directory.
 
 #### Azure AD

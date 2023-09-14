@@ -35,7 +35,7 @@ By selecting an alert you will be provided with additional information as well a
 ### Limited Evaluation of Alerts
 If Azure AD Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Azure AD Connect Health agent will not upload the error events related to Azure AD Connect.
 
-This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the Azure Portal under your service.
+This limits the evaluation of alerts by the service. You will see a banner that indicates this condition in the Azure portal under your service.
 
 ![Screenshot of the the alert banner that says Alert evaluation is limited. Update your settings to enable all alerts.](./media/how-to-connect-health-sync/banner.png)
 
@@ -50,7 +50,7 @@ Admins Frequently want to know about the time it takes to sync changes to Azure 
 * Object Change trend
 
 ### Sync Latency
-This feature provides a graphical trend of latency of the sync operations (import, export, etc.) for connectors.  This provides a quick and easy way to understand not only the latency of your operations (larger if you have a large set of changes occurring) but also a way to detect anomalies in the latency that may require further investigation.
+This feature provides a graphical trend of latency of the sync operations (such as import and export) for connectors.  This provides a quick and easy way to understand not only the latency of your operations (larger if you have a large set of changes occurring) but also a way to detect anomalies in the latency that may require further investigation.
 
 ![Screenshot of the Run Profile Latency from past 3 days graph.](./media/how-to-connect-health-sync/synclatency02.png)
 

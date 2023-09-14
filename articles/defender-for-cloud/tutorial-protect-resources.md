@@ -1,14 +1,14 @@
 ---
-title: Protect your VMs with Microsoft Defender for Servers
+title: Protect your Virtual Machines (VMs) with Microsoft Defender for Servers
 description: This tutorial shows you how to configure a just-in-time VM access policy and an application control policy.
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/08/2023
+ms.date: 06/29/2023
 
 ---
-# Tutorial: Protect your VMs with Microsoft Defender for Servers
+# Protect your Virtual Machines (VMs) with Microsoft Defender for Servers
 
-Defender for Cloud limits your exposure to threats by using access and application controls to block malicious activity. Just-in-time (JIT) virtual machine (VM) access reduces your exposure to attacks by enabling you to deny persistent access to VMs. Instead, you provide controlled and audited access to VMs only when needed. Adaptive application controls help harden VMs against malware by controlling which applications can run on your VMs. Defender for Cloud uses machine learning to analyze the processes running in the VM and helps you apply allowlist rules using this intelligence.
+Defender for Servers in Microsoft Defender for Cloud, limits your exposure to threats by using access and application controls to block malicious activity. Just-in-time (JIT) virtual machine (VM) access reduces your exposure to attacks by enabling you to deny persistent access to VMs. Instead, you provide controlled and audited access to VMs only when needed. Adaptive application controls help harden VMs against malware by controlling which applications can run on your VMs. Defender for Cloud uses machine learning to analyze the processes running in the VM and helps you apply allowlist rules using this intelligence.
 
 In this tutorial you'll learn how to:
 

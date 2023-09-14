@@ -2,7 +2,7 @@
 title: Usage analysis with Application Insights | Azure Monitor
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 09/12/2023
 ms.reviewer: mmcc
 ---
 
@@ -16,7 +16,7 @@ The best experience is obtained by installing Application Insights both in your 
 
 1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./opentelemetry-enable.md?tabs=java), [Node.js](./nodejs.md), or [other](./app-insights-overview.md#supported-languages) app.
 
-    * If you don't want to install server code, [create an Application Insights resource](./create-new-resource.md).
+    * If you don't want to install server code, [create an Application Insights resource](./create-workspace-resource.md).
 
 1. **Webpage code:** Use the JavaScript SDK to collect data from webpages. See [Get started with the JavaScript SDK](./javascript-sdk.md).
     
@@ -133,8 +133,6 @@ In the Application Insights portal, filter and split your data on the property v
 
 To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
-**ASP.NET apps**
-
 ```csharp
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
@@ -152,7 +150,19 @@ To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#ad
     }
 ```
 
-In the web app initializer, such as Global.asax.cs:
+# [NET 6.0+](#tab/aspnetcore)
+
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+
+builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+```
+
+# [.NET Framework 4.8](#tab/aspnet-framework)
+
+In the web app initializer, such as `Global.asax.cs`:
 
 ```csharp
 
@@ -164,21 +174,7 @@ In the web app initializer, such as Global.asax.cs:
     }
 ```
 
-**ASP.NET Core apps**
-
-> [!NOTE]
-> Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications.
-
-For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility;
-
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
-}
-```
+---
 
 ## Next steps
 

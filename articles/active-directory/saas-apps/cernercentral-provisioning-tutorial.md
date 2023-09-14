@@ -47,7 +47,7 @@ Before configuring and enabling the provisioning service, you should decide what
 This section guides you through connecting your Azure AD to Cerner Central’s User Roster using Cerner's SCIM user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Cerner Central based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Cerner Central, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other. For more information, see the [Cerner Central single sign-on tutorial](cernercentral-tutorial.md).
+> You may also choose to enable SAML-based single sign-on for Cerner Central, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other. For more information, see the [Cerner Central single sign-on tutorial](cernercentral-tutorial.md).
 
 ### To configure automatic user account provisioning to Cerner Central in Azure AD:
 
@@ -92,10 +92,10 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
    * In the **Tenant URL** field, enter a URL in the format below, replacing "User-Roster-Realm-ID" with the realm ID you acquired in step #4.
 
     > Sandbox:
-    > https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > ```https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/```
     > 
     > Production:
-    > https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > ```https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/``` 
 
    * In the **Secret Token** field, enter the OAuth bearer token you generated in step #3 and click **Test Connection**.
 

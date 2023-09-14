@@ -15,7 +15,7 @@ Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage 
 
 * Azure CLI. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* After installing, sign in for the first time. For more information, see [How to sign into the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
+* After installing, sign in for the first time. For more information, see [How to sign in to the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
 
 ## What is a resource group
 

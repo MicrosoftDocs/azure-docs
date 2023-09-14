@@ -5,11 +5,10 @@ description: Learn how to manage Azure storage containers using Azure PowerShell
 services: storage
 author: stevenmatthew
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/03/2022
 ms.author: shaas
-ms.subservice: blobs
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ---

@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/26/2023
+ms.date: 07/21/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -17,11 +17,9 @@ This article explains the common tasks that an Enterprise Agreement (EA) adminis
 > [!NOTE]
 > We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 >
-> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> As of February 20, 2023 indirect EA customers no longer manage their billing account in the EA portal. Instead, they use the Azure portal.
 > 
-> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
-> 
-> As of April 24, 2023 EA customers won't be able to manage their Azure Government EA enrollments from [Azure portal](https://portal.azure.com) instead they can manage it from [Azure Government portal](https://portal.azure.us).
+> Until August 14, 2023, this change doesn’t affect customers with Azure Government EA enrollments. They continue using the EA portal to manage their enrollment until then. However, after August 14, 2023, EA customers won't be able to manage their Azure Government EA enrollments from the [Azure portal](https://portal.azure.com). Instead, they can manage it from the Azure Government portal at [https://portal.azure.us](https://portal.azure.us). The functionality mentioned in this article the same as the Azure Government portal.
 
 ## Manage your enrollment
 
@@ -222,14 +220,15 @@ After account ownership is confirmed, you can create subscriptions and purchase 
 
 If you're a new EA account owner with a .onmicrosoft.com account, you might not have a forwarding email address by default. In that situation, you might not receive the activation email. If this situation applies to you, use the following steps to activate your account ownership.
 
-1. Sign into the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
+1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
 1. Navigate to **Cost Management + Billing** and select a billing scope.
 1. Select your account.
 1. In the left menu under **Settings**, select **Activate Account**.
 1. On the Activate Account page, select **Yes, I wish to continue** and the select **Activate this account**.  
     :::image type="content" source="./media/direct-ea-administration/activate-account.png" alt-text="Screenshot showing the Activate Account page for onmicrosoft.com accounts." lightbox="./media/direct-ea-administration/activate-account.png" :::
 1. After the activation process completes, copy and paste the following link to your browser. The page opens and creates a subscription that's associated with your enrollment.  
-    `https://signup.azure.com/signup?offer=MS-AZR-0017P&appId=IbizaCatalogBlade`
+    - For Azure global, the URL is `https://signup.azure.com/signup?offer=MS-AZR-0017P&appId=IbizaCatalogBlade`.
+    - For Azure Government, the URL is `https://signup.azure.us/signup?offer=MS-AZR-0017P&appId=IbizaCatalogBlade`.
 
 ## Change Azure subscription or account ownership
 
@@ -369,6 +368,9 @@ An Azure EA account is an organizational unit in the Azure portal. In the Azure 
 
 As an EA admin, you can allow account owners in your organization to create subscriptions based on the EA Dev/Test offer. To do so, select the **Dev/Test** option in the Edit account window. After you've selected the Dev/Test option, let the account owner know so that they can create EA Dev/Test subscriptions needed for their teams of Dev/Test subscribers. The offer enables active Visual Studio subscribers to run development and testing workloads on Azure at special Dev/Test rates. It provides access to the full gallery of Dev/Test images including Windows 8.1 and Windows 10.
 
+>[!NOTE]
+> The Enterprise Dev/Test Offer isn't available for Azure Government customers. If you're an Azure Government customer, your can't enable the Dev/Test option.
+
 ### To set up the Enterprise Dev/Test offer
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
@@ -382,8 +384,6 @@ As an EA admin, you can allow account owners in your organization to create subs
 :::image type="content" source="./media/direct-ea-administration/dev-test-option.png" alt-text="Screenshot showing navigation to the Dev/Test option." lightbox="./media/direct-ea-administration/dev-test-option.png" :::
 
 When a user is added as an account owner, any Azure subscriptions associated with the user that is based on either the pay-as-you-go Dev/Test offer or the monthly credit offers for Visual Studio subscribers get converted to the [Enterprise Dev/Test](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/) offer. Subscriptions based on other offer types, such as pay-as-you-go, associated with the account owner get converted to Microsoft Azure Enterprise offers.
-
-Currently, the Enterprise Dev/Test Offer isn't applicable to Azure Gov customers.
 
 ## Create a subscription
 
