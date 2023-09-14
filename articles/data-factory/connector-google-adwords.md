@@ -216,18 +216,29 @@ In **Edit linked service** page, select **v14** in **Google Ads API version**. I
 
 ### Migrate from SQL to GAQL
 
-If you use SQL statements in your pipelines that refer to the old Google AdWords linked service, you need to update it to GAQL statements. Go to [Google Ads Query Language Grammar](https://developers.google.com/google-ads/api/docs/query/grammar) for the introduction of GAQL.
+If you use SQL statements in your pipelines that refer to the old Google AdWords linked service, you need to update it to GAQL statements. 
+
+In contrast to SQL, the query in GAQL is made up of six kinds of clauses:
+
+- `SELECT`
+- `FROM`
+- `WHERE`
+- `ORDER BY`
+- `LIMIT`
+- `PARAMETERS`
+
+Go to [Google Ads Query Language Grammar](https://developers.google.com/google-ads/api/docs/query/grammar) for the introduction of GAQL.
 
 Take the following SQL statement as an example:
 
-`SELECT */FieldName FROM ResourceName WHERE FieldName Operator Value`
+`SELECT *|FieldName FROM ResourceName WHERE FieldName Operator Value`
 
 You can follow the guidance below to convert the SQL statement to the corresponding GAQL statement:
 
 1. If `*` (asterisk) is used after the `SELECT` clause, then you need to specify all the required fields in place of the asterisk as GAQL doesn't support `SELECT *`. Go to this [article](https://developers.google.com/google-ads/api/fields/v14/ad_group) to see all the selectable fields in the specific resource.
 2. If the field name is used after the `SELECT` clause, then you need to convert the name to the corresponding field name in GAQL as they have different naming conventions. For example, the field name `campaign_id` in SQL query statement should be converted to `campaign.id` in GAQL. See [Field name](#field-name) for more details on field name conversion.
 3. The resource name should be left as it is.
-4. `WHERE` clause should be updated according to the GAQL grammar as the operators supported by GAQL are not consistent with SQL, and field name should also be converted as described in the second point.
+4. `WHERE` clause should be updated according to the [GAQL grammar](https://developers.google.com/google-ads/api/docs/query/grammar) as the operators supported by GAQL are not consistent with SQL, and field name should also be converted as described in the second point.
 
 Here are two very useful tools offered by Google and they are highly recommended when building the corresponding GAQL query statements:
 
