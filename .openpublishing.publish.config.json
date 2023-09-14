@@ -993,8 +993,14 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "cosmos-db-apache-cassandra-python-samples",
+      "path_to_root": "cosmos-db-apache-gremlin-python-samples",
       "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-table-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-table-python-samples",
       "branch": "main",
       "branch_mapping": {}
     },

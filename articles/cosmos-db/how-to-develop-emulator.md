@@ -921,40 +921,19 @@ Use the [Azure Tables Python SDK](table/quickstart-python.md) to use the emulato
 
 1. Import [`TableServiceClient`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient) and [`UpdateMode`](/python/api/azure-data-tables/azure.data.tables.updatemode) from the `azure.data.tables` module.
 
-    ```python
-    from azure.data.tables import TableServiceClient, UpdateMode
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-table-python-samples/601-emulator/app.py" id="imports":::
 
 1. Use [`TableServiceClient.from_connection_string`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient#azure-data-tables-tableserviceclient-from-connection-string) to create a new service-level client.
 
-    ```python
-    service = TableServiceClient.from_connection_string(
-        conn_str="DefaultEndpointsProtocol=http;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=http://localhost:8902/;"
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-table-python-samples/601-emulator/app.py" highlight="1" id="client":::
 
 1. Create a new table-level client using [`create_table_if_not_exists`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient#azure-data-tables-tableserviceclient-create-table-if-not-exists).
 
-    ```python
-    client = service.create_table_if_not_exists(
-        table_name="cosmicworksproducts"
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-table-python-samples/601-emulator/app.py" id="resources":::
 
 1. Use [`upsert_entity`](/python/api/azure-data-tables/azure.data.tables.tableclient#azure-data-tables-tableclient-upsert-entity) to create a new item in the container.
 
-    ```python
-    item = {
-        "PartitionKey": "68719518371",
-        "RowKey": "Surfboards",
-        "name": "Kiama classic surfboard"
-    }
-
-    client.upsert_entity(
-        entity=item,
-        mode=UpdateMode.REPLACE
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-table-python-samples/601-emulator/app.py" highlight="7" id="upsert":::
 
 1. Run the Python application.
 
