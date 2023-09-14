@@ -18,7 +18,7 @@ ms.custom: contperf-fy22q2, mode-other, enterprise-apps
 
 # Enable single sign-on for an enterprise application
 
-In this article, you use the Azure portal to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
+In this article, you use the Microsoft Entra admin center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
 
 Azure AD has a gallery that contains thousands of pre-integrated applications that use SSO. This article uses an enterprise application named **Azure AD SAML Toolkit 1** as an example, but the concepts apply for most pre-configured enterprise applications in the gallery.
 

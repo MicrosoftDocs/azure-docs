@@ -8768,6 +8768,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/choose-pricing-tier.md",
+            "redirect_url": "/azure/azure-maps/how-to-manage-pricing-tier",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/how-to-request-real-time-data.md",
             "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false
@@ -13430,6 +13435,21 @@
         {
           "source_path_from_root": "/articles/governance/policy/samples/rbi_itf_nbfc_v2017.md",
           "redirect_url": "/azure/governance/policy/samples/rbi-itf-nbfc-2017",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/gov-dod-impact-level-4.md",
+          "redirect_url": "/azure/governance/policy/samples",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/gov-dod-impact-level-5.md",
+          "redirect_url": "/azure/governance/policy/samples",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/swift-cscf-v2021.md",
+          "redirect_url": "/azure/governance/policy/samples/swift-csp-cscf-2021",
           "redirect_document_id": false
         },
         {
@@ -24335,6 +24355,26 @@
         {
             "source_path_from_root": "/articles/networking/connectivty-interoperability-data-plane.md",
             "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-data-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-preface.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-preface",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-configuration.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-control-plane.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-control-plane",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-data-plane.md",
+            "redirect_url": "/azure/networking/connectivity-interoperability-data-plane",
             "redirect_document_id": false
         },
         {

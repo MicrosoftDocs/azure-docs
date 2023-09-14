@@ -323,7 +323,7 @@ The `platform` section controls platform specific settings, such as the API lang
 
 ## Networking
 
-The `networking` section controls the network configuration of your static web app. To restrict access to your app, specify a list of allowed IP address blocks in `allowedIpRanges`. See the [quotas](/articles/static-web-apps/quotas.md) page for details on the amount of allowed IP address blocks. 
+The `networking` section controls the network configuration of your static web app. To restrict access to your app, specify a list of allowed IP address blocks in `allowedIpRanges`. For more information about the number of allowed IP address blocks, see [Quotas in Azure Static Web Apps](../static-web-apps/quotas.md). 
 
 > [!NOTE]
 > Networking configuration is only available in the Azure Static Web Apps Standard plan.
