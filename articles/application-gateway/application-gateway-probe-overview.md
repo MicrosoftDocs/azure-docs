@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/29/2023
+ms.date: 09/14/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,7 +24,7 @@ The source IP address of the probes depends on the backend server type:
 - If the server in the backend pool is a private endpoint, the source IP address will be from your application gateway subnet's address space.
 
 ### Probe operations
-The gateway starts firing probes as soon as you configure a Rule associating the Backend Setting and Backend Pool (and the Listener, of course). The illustration shows that the gateway independently probes the backend pool servers. And the incoming requests are sent only to the healthy servers as they start arriving. By default, the first probe is assumed Healthy to begin serving the requests immediately.
+A gateway starts firing probes immediately after you configure a Rule by associating it with a Backend Setting and Backend Pool (and the Listener, of course). The illustration shows that the gateway independently probes all the backend pool servers. The incoming requests that start arriving are sent only to the healthy servers. A backend server is marked as unhealthy by default until a successful probe response is received.
 
 :::image type="content" source="media/application-gateway-probe-overview/appgatewayprobe.png" alt-text="Diagram showing Application Gateway initiating health probes to individual backend targets within a backend pool":::
 
@@ -35,9 +35,9 @@ The required probes are determined based on the unique combination of the Backen
 Moreover, all instances of the application gateway probe the backend servers independently of each other.
 
 ### Probe intervals
-The same probe configuration applies to each instance. For example, if the application gateway has two instances and the probe interval is set to 20 seconds, both instances will send the health probe every 20 seconds.
+The same probe configuration applies to each instance of your Application Gateway. For example, if an application gateway has two instances and the probe interval is set to 20 seconds, both instances will send the health probe every 20 seconds.
 
-A probe marks a server as unhealthy only after the consecutive failure count matches the "Unhealthy threshold" limit. Accordingly, if you set this limit as 2 and a backend server stops functioning, the application gateway probes will mark it as unhealthy only after 2 x 20 seconds.
+Once the probe detects a failed response, the counter for "Unhealthy threshold" sets off and marks the server as unhealthy if the consecutive failed count matches the configured threshold. Accordingly, if you set this Unhealthy Threshold as 2, the subsequent probe will first detect this failure. The application gateway will then mark the server as unhealthy after 2 consecutive failed probes [First detection 20 secs + (2 consecutive failed probes * 20 secs)].
 
 > [!NOTE]
 > The Backend health report is updated based on the respective probe's refresh interval and doesn't depend on the user's request.
@@ -99,9 +99,9 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 Once the match criteria is specified, it can be attached to probe configuration using a `-Match` parameter in PowerShell.
 
-### Some use cases for custom probes
-- When the backend server allows access to only authenticated users, the application gateway probes will receive a 401 response code instead of 200. As the users are bound to authenticate themselves for the live traffic, you need configure the probe traffic to accept 401 as an expected response.
-- When the backend server has a wildcard certificate (*.contoso.com) installed to serve different sub-domains and is fronted by an application gateway. In this case, you can use a Custom probe with a specific hostname (required for SNI) that is acceptable to establish a successful TLS probe and report that server as healthy. With "override hostname" in the backend setting set to NO, the different incoming hostnames (subdomains) will be passed as is to the backend.
+### Some use cases for Custom probes
+- If a backend server allows access to only authenticated users, the application gateway probes will receive a 403 response code instead of 200. As the clients (users) are bound to authenticate themselves for the live traffic, you can configure the probe traffic to accept 403 as an expected response.
+- When a backend server has a wildcard certificate (*.contoso.com) installed to serve different sub-domains, you can use a Custom probe with a specific hostname (required for SNI) that is accepted to establish a successful TLS probe and report that server as healthy. With "override hostname" in the Backend Setting set to NO, the different incoming hostnames (subdomains) will be passed as is to the backend.
 
 ## NSG considerations
 
