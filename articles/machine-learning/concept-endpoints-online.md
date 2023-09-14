@@ -68,12 +68,12 @@ Managed online endpoints can help streamline your deployment process and provide
     - Monitor model availability, performance, and SLA using [native integration with Azure Monitor](how-to-monitor-online-endpoints.md).
     - Debug deployments using the logs and native integration with [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview).
 
-    :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency.":::
+    :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency." lightbox="media/concept-endpoints/log-analytics-and-azure-monitor.png":::
 
 - View costs 
     - Managed online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
     
-    :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment.":::
+    :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment." lightbox="media/concept-endpoints/endpoint-deployment-costs.png":::
     > [!NOTE]
     > Managed online endpoints are based on Azure Machine Learning compute. When using a managed online endpoint, you pay for the compute and networking charges. There is no additional surcharge. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
     >
@@ -83,7 +83,7 @@ Managed online endpoints can help streamline your deployment process and provide
 
 The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints.
 
-|                               | Managed online endpoints                                                                                                          | Kubernetes online endpoints                                                                                             |
+|                               | Managed online endpoints                                                                                                          | Kubernetes online endpoints (AKS(v2))                                                                                             |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | **Recommended users**         | Users who want a managed model deployment and enhanced MLOps experience                                                           | Users who prefer Kubernetes and can self-manage infrastructure requirements                                             |
 | **Node provisioning**         | Managed compute provisioning, update, removal                                                                                     | User responsibility                                                                                                     |
@@ -105,7 +105,7 @@ A **deployment** is a set of resources and computes required for hosting the mod
 
 The following diagram shows an online endpoint that has two deployments, _blue_ and _green_. The blue deployment uses VMs with a CPU SKU, and runs version 1 of a model. The green deployment uses VMs with a GPU SKU, and runs version 2 of the model. The endpoint is configured to route 90% of incoming traffic to the blue deployment, while the green deployment receives the remaining 10%.
 
-:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
+:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments." lightbox="media/concept-endpoints/endpoint-concept.png":::
 
 The following table describes the key attributes of a deployment:
 
@@ -197,17 +197,17 @@ Blue/green deployment is a deployment strategy that allows you to roll out a new
 
 The following image shows settings in Azure Machine Learning studio for allocating traffic between a blue and green deployment.
 
-:::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments.":::
+:::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments." lightbox="media/concept-endpoints/traffic-allocation.png":::
 
 This traffic allocation routes traffic as shown in the following image, with 10% of traffic going to the green deployment, and 90% of traffic going to the blue deployment.
 
-:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
+:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments." lightbox="media/concept-endpoints/endpoint-concept.png":::
 
 ### Traffic mirroring to online deployments
 
 The endpoint can also mirror (or copy) traffic from one deployment to another deployment. Traffic mirroring (also called [shadow testing](https://microsoft.github.io/code-with-engineering-playbook/automated-testing/shadow-testing/)) is useful when you want to test a new deployment with production traffic without impacting the results that customers are receiving from existing deployments. For example, when implementing a blue/green deployment where 100% of the traffic is routed to blue and 10% is _mirrored_ to the green deployment, the results of the mirrored traffic to the green deployment aren't returned to the clients, but the metrics and logs are recorded.
 
-:::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment.":::
+:::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment." lightbox="media/concept-endpoints/endpoint-concept-mirror.png":::
 
 To learn how to use traffic mirroring, see [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
 
