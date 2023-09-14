@@ -111,6 +111,9 @@ On the rule group  **Details** tab:
    * Select if the rule is to be enabled when created.
    * You can enter optional **Labels** key/value pairs for the rule. These labels are added to the metric created by the rule.
    * Select **Create** to add the new rule to the rule list.
+  
+:::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-recording.png" alt-text="Screenshot that shows configuration of Prometheus rule group recording rule.":::
+
 1. To add a new alert rule:
    * Select **+ Add alert rule** to open the "Create an alert rule" pane.
    * Select the **Severity** of alerts fired by this rule.
@@ -124,6 +127,8 @@ On the rule group  **Details** tab:
    * Select the auto resolution period using **Time to auto-resolve**.
    * Select if the rule is to be enabled when created.
    * Select **Create** to add the new rule to the rule list.
+  
+:::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-alert.png" alt-text="Screenshot that shows configuration of Prometheus rule group alert rule.":::
 
 #### Finish creating the rule group
 1. On the **Tags** tab, set any required tags on the rule group resource.
