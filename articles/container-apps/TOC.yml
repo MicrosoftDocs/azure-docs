@@ -4,6 +4,14 @@
 - name: Get started
   expanded: true
   items:
+    - name: Start here
+      items:
+        - name: Introduction
+          href: start.md
+        - name: Introduction to containers
+          href: start-containers.md
+        - name: Introduction to serverless containers
+          href: start-serverless-containers.md
     - name: About Azure Container Apps
       href: overview.md
     - name: Compare container options in Azure
@@ -12,8 +20,6 @@
       href: code-to-cloud-options.md
     - name: Overview
       items:
-        - name: Start here
-          href: start.md
         - name: What's new
           href: whats-new.md
         - name: Plans
