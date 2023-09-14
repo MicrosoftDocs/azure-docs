@@ -17,6 +17,15 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## September 2023
+
+### Retirement of outdated Computer Vision API versions
+
+Computer Vision API versions 1.0, 2.0, 3.0, and 3.1 will be deprecated on September 13, 2026. Developers won’t be able to make API calls to these APIs after that date.
+We recommend that all affected customers migrate their workloads to the generally available Computer Vision 3.2 API by following this [QuickStart](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=linux%2Cvisual-studio&pivots=programming-language-rest-api) at their earliest convenience. Customers should also consider migrating to [Image Analysis 4.0 API (preview)](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?tabs=visual-studio%2Clinux&pivots=programming-language-python), which has our latest and greatest Image Analysis capabilities. 
+
+Visit our [FAQ](https://learn.microsoft.com/en-us/answers/tags/127/azure-computer-vision) for any questions.
+
 ## May 2023
 
 ### Image Analysis 4.0 Product Recognition (public preview)
