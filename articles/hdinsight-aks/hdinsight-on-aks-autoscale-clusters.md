@@ -29,7 +29,7 @@ Load-based scaling changes the number of nodes in your cluster, within a range t
 Schedule-based scaling changes the number of nodes in your cluster based on a schedule of scale-up and scale-down operations. 
 
 > [!NOTE]
-> Auto scale does not support changing SKU type of an existing cluster 
+> Auto scale does not support changing SKU type of an existing cluster.
 
 ### Cluster compatibility
 
@@ -46,7 +46,7 @@ The following table describes the cluster types that are compatible with the Aut
 ## Scaling Methods
 
 * **Schedule-based scaling**:
-    * When your jobs  expected to run on fixed schedules and for a predictable duration or when you anticipate low usage during specific times of the day For example, test and dev environments in post-work hours, end-of day jobs.
+    * When your jobs are expected to run on fixed schedules and for a predictable duration or when you anticipate low usage during specific times of the day For example, test and dev environments in post-work hours, end-of day jobs.
       
       :::image type="content" source="./media/hdinsight-on-aks-autoscale-clusters/schedule-based-concept-step-1.png" alt-text="Screenshot showing how to select schedule-based-scaling." border="true" lightbox="./media/hdinsight-on-aks-autoscale-clusters/schedule-based-concept-step-1.png":::
 
@@ -74,7 +74,7 @@ When the following conditions are detected, Auto scale issues a scale request
 * For scale-down, Auto scale issues a request to remove some nodes. The scale-down considerations include the number of pods per node, the current CPU and memory requirements, and worker nodes, which are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
   > [!IMPORTANT]
-  > The Auto scale Rule Engine proactively flushes older events every **30 minutes** to optimize system memory. As a result, there exists an upper bound limit of 30 minutes on the scaling rule interval. To ensure the consistent and reliable triggering of scaling actions, it's imperative to set the scaling rule interval to a value which is lesser than the limit. By adhering to this guideline, you can guarantee a smooth and efficient scaling process while effectively managing system resources.
+  > The Auto scale Rule Engine proactively flushes old events every **30 minutes** to optimize system memory. As a result, there exists an upper bound limit of 30 minutes on the scaling rule interval. To ensure the consistent and reliable triggering of scaling actions, it's imperative to set the scaling rule interval to a value which is lesser than the limit. By adhering to this guideline, you can guarantee a smooth and efficient scaling process while effectively managing system resources.
 
 #### Cluster metrics
 
@@ -89,7 +89,7 @@ Cluster Metrics Available for Scaling Purposes
 |Allocated Cores Percentage|The total number of cores allocated in the cluster compared to the total number of cores in the cluster.|
 |Allocated Memory Percentage|The amount of memory allocated in the cluster compared to the total amount of memory in the cluster.|
 
-By default, the above metrics are checked every **300 seconds**, it's also configurable when you customize the poll interval with customize autoscale option. Auto scale makes scale-up or scale-down decisions based on these metrics. Auto scale makes a scale-up or scale- down decisions based on these metrics.
+By default, the above metrics are checked every **300 seconds**, it is also configurable when you customize the poll interval with customize autoscale option. Auto scale makes scale-up or scale-down decisions based on these metrics.
 
 > [!NOTE]
 > By default Auto scale uses default resource calculator for YARN for Apache Spark. Load based scaling is available for Apache Spark Clusters.
@@ -112,7 +112,7 @@ The default value is set to **180 seconds**
 
 > [!Note]
 > * In custom scale rules, no rule trigger can have a trigger interval greater than 30 minutes. After an auto scaling event occurs, the amount of time to wait before enforcing another scaling policy.
-> * Cooldown period should be greater than policy interval, so the cluster metrics can get reset. 
+> * Cool down period should be greater than policy interval, so the cluster metrics can get reset. 
 
 
 ## Get started
@@ -134,7 +134,7 @@ The default value is set to **180 seconds**
 1. Once your cluster pool is created, create a [new cluster](./quickstart-create-cluster.md) with your desired workload (on the Cluster type), and complete the other steps as part of the normal cluster creation process.
 1. On the **Configuration** tab, enable **Auto scale** toggle.
 1. Select **Schedule based** autoscale
-1. Select your timezone and then click **+ Add Rule**
+1. Select your timezone and then click **+ Add rule**
 1. Select the days of the week that the new condition should apply to.
 1. Edit the time the condition should take effect and the number of nodes that the cluster should be scaled to.
 

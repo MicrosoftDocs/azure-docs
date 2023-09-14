@@ -61,7 +61,7 @@ The following steps describe how to provide access to other users, groups, user-
 
 #### How to remove access
 
-1. Select the members to be removed and click **remove**.
+1. Select the members to be removed and click **Remove**.
 
    :::image type="content" source="./media/hdinsight-on-aks-manage-authorization-profile/remove-access.png" alt-text="Screenshot showing how to remove cluster access for a member.":::
 

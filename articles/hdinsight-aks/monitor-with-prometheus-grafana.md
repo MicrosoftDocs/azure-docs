@@ -41,7 +41,7 @@ The Azure Managed Prometheus and Grafana Monitoring must be configured at cluste
 
 ## During cluster pool creation
 
-Currently, Managed Prometheus **CANNOT** be enabled during ClusterPool creation time. You can configure it post cluster pool creation.
+Currently, Managed Prometheus **CANNOT** be enabled during Cluster Pool creation time. You can configure it post cluster pool creation.
 
 ## Post cluster pool creation
 

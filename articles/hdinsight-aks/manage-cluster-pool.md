@@ -31,7 +31,7 @@ This article describes how to manage a cluster pool.
    
 In a cluster pool, you can add multiple clusters of different types. For example, you can have a Trino cluster and an Apache Flink cluster inside the same pool. 
 
-To create a new cluster, click on the  **+New cluster** and continue to use the Azure portal to create a Trino, Apache Flink, and Apache Spark cluster. 
+To create a new cluster, click on the  **+New cluster** on the Azure portal and continue to use the Azure portal to create a Trino, Apache Flink, and Apache Spark cluster. 
 
 Learn more on how to [create a cluster](./quickstart-create-cluster.md).
 

@@ -149,7 +149,7 @@ For more information about Trino configuration options, see the sample ARM templ
 
 * [arm-trino-config-sample.json](https://hdionaksresources.blob.core.windows.net/trino/samples/arm/arm-trino-config-sample.json)
 
-## Export the configurations using RestAPI
+## Export the configurations using REST API
 
 You can also export cluster configurations to check the default and updated values. At this time, you can only export configurations via the REST API.
 
