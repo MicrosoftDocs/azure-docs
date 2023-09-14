@@ -43,11 +43,11 @@ The IPv6 Application Gateway preview is available to all public cloud regions wh
 
 ## Limitations
 
-* Supported for Application Gateway Standard V2 only
-* Not supported for upgrading an existing gateway to IPv6
-* Not supported for IPv6 private addresses
-* Not supported for IPv6 backend
-* Not supported for IPv6 Private Link
+* Applicable for Application Gateway Standard V2 only
+* Can not upgrade an existing gateway to IPv6
+* IPv6 backends are currently not supported
+* IPv6 Private Link is not supported
+* Private only IPv6 Gateway is not supported
 
 ## Prerequisites
 
