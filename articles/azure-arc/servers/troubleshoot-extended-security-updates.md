@@ -23,7 +23,7 @@ If you're unable to provision a Windows Server 2012 Extended Security Update lic
 
 If you're unable to successfully link your Azure Arc-enabled server to an activated Extended Security Updates license, verify the following conditions are met:
 
-- **Connectivity:** Azure Arc-enabled server is **Connected**. For information about viewing the status of Azure Arc-enabled machines, see [Agent status](overview#agent-status).
+- **Connectivity:** Azure Arc-enabled server is **Connected**. For information about viewing the status of Azure Arc-enabled machines, see [Agent status](overview.md#agent-status).
 
 - **Agent version:** Connected Machine agent is version 1.34 or higher. If the agent version is less than 1.34, you need to update it to this version or higher.
 
