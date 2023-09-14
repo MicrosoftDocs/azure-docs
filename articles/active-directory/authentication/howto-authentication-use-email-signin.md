@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: calui
@@ -135,24 +135,23 @@ Email as an alternate login ID applies to [Azure AD B2B collaboration](../extern
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
-During preview, you currently need *Global Administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Azure portal or Graph PowerShell to set up the feature.
+During preview, you currently need *Global Administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Microsoft Entra admin center or Graph PowerShell to set up the feature.
 
-### Azure portal
+### Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a *Global Administrator*.
-1. Search for and select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Azure AD Connect > Email as alternate login ID**.
 
-    ![Screenshot of email as alternate login ID option in the Azure portal.](media/howto-authentication-use-email-signin/azure-ad-connect-screen.png)
+    ![Screenshot of email as alternate login ID option in the Microsoft Entra admin center.](media/howto-authentication-use-email-signin/azure-ad-connect-screen.png)
 
 1. Click the checkbox next to *Email as an alternate login ID*.
 1. Click **Save**.
 
-    ![Screenshot of email as alternate login ID blade in the Azure portal.](media/howto-authentication-use-email-signin/email-alternate-login-id-screen.png)
+    ![Screenshot of email as alternate login ID blade in the Microsoft Entra admin center.](media/howto-authentication-use-email-signin/email-alternate-login-id-screen.png)
 
-With the policy applied, it can take up to 1 hour to propagate and for users to be able to sign in using their alternate login ID.
+With the policy applied, it can take up to one hour to propagate and for users to be able to sign in using their alternate login ID.
 
 ### PowerShell
 

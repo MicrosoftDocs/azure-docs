@@ -99,8 +99,8 @@ Configuration for SAP **/hana/data** volume:
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M416s_8_v2 | 7,600 | 2,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 4 x P50 | 1,000 MBps | no bursting | 30,000 | no bursting |
-| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
-| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -126,8 +126,8 @@ For the **/hana/log** volume. the configuration would look like:
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
-| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
-| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -151,8 +151,8 @@ For the other volumes, the configuration would look like:
 | M416s_v2 | 5,700 GiB | 2,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 | 
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 | 
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 | 
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 

@@ -23,7 +23,7 @@ As an organization that uses Azure Active Directory (Azure AD) B2B collaboration
 
 ## Access to SAML apps
 
-If your on-premises app uses SAML-based authentication, you can easily make these apps available to your Azure AD B2B collaboration users through the Azure portal using Azure AD Application Proxy.
+If your on-premises app uses SAML-based authentication, you can easily make these apps available to your Azure AD B2B collaboration users through the Microsoft Entra admin center using Azure AD Application Proxy.
 
 You must do the following:
 

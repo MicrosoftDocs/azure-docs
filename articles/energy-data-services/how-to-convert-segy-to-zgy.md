@@ -250,7 +250,7 @@ python sdutil auth idtoken
 
 [![Screenshot that shows the API call to check if the file has been converted](media/how-to-convert-segy-to-zgy/postman-api-verify-file-converted.png)](media/how-to-convert-segy-to-zgy/postman-api-verify-file-converted.png#lightbox)
 
-4. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) `cp` command:
+4. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil) `cp` command:
 
     ```bash
     python sdutil cp sd://<data-partition-id>/<subproject>/<filename.zgy> <local/destination/path>

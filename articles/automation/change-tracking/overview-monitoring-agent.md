@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent (Preview), which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 08/01/2023
+ms.date: 09/08/2023
 ms.topic: conceptual
 ---
 
@@ -13,6 +13,7 @@ ms.topic: conceptual
 
 > [!Important]
 > Currently, Change tracking and inventory uses Log Analytics Agent and this is scheduled to retire by 31.August.2024. We recommend that you use Azure Monitoring Agent as the new supporting agent.
+> Guidance on migration from Change Tracking & Inventory using Log Analytics agent to Azure Monitoring Agent will be available once it is generally available.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent (Preview) as a singular agent for data collection. 
 

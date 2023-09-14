@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory data retention
-description: Learn how long Azure Active Directory stores the various types of reporting data. 
+description: Learn about the data retention policies for the Azure Active Directory audit, sign-in, and provisioning logs. 
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,11 +8,9 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/03/2023
+ms.date: 09/08/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk
-
-ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory data retention
