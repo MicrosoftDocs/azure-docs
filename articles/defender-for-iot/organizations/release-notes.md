@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: release-notes
-ms.date: 09/03/2023
+ms.date: 09/14/2023
 ---
 
 # OT monitoring software versions

@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 09/03/2023
+ms.date: 09/14/2023
 ms.custom: enterprise-iot
 ---
 
@@ -32,7 +32,7 @@ For example:
 
 From your sensor, do one of the following to open the **Cloud connectivity troubleshooting** pane, which provides details about the connectivity issues and mitigation steps:
 
-- On the **Overview** page, select the **Cloud connectivity error** link
+- On the **Overview** page, select the **Troubleshoot** link at the top of the page
 - Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
 
 
