@@ -94,7 +94,7 @@ NC2 on Azure requires manual escalation to request, approve and deliver ESU keys
    1. Point of Contact: Name and email address of a customer employee who can either install or manage the keys once provided. Manage in this context means ensuring that
       1. Keys are not disclosed to anyone outside of the client company
       2. Keys are not publicly exposed
-1. The MSFT response will include the ESU Keys and [Terms of Use].
+1. The MSFT response will include the ESU Keys and Terms of Use.
 
 >> **Terms of Use**
 
