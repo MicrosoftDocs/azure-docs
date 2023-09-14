@@ -1,15 +1,16 @@
 ---
-title: Get started with OT network security monitoring - Microsoft Defender for IoT
+title: Get started with OT monitoring - Microsoft Defender for IoT
 description: Use this quickstart to set up a trial OT plan with Microsoft Defender for IoT and understand the next steps required to configure your network sensors.
 ms.topic: get-started
-ms.date: 06/04/2023
+ms.date: 09/14/2023
+#CustomerIntent: As a prospective Defender for IoT customer with OT networks, I want to understand how I can set up a trial and evaluate Defender for IoT.
 ---
 
 # Start a Microsoft Defender for IoT trial
 
 This article describes how to set up a trial license and create an initial OT plan for Microsoft Defender for IoT. Use Defender for IoT to monitor network traffic across your OT networks.
 
-A trial license supports a **Large** site size for 60 days. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
+A trial lasts for 60 days. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
 
 ## Prerequisites
 
@@ -29,23 +30,31 @@ This procedure describes how to add a trial license for Defender for IoT to your
 
 **To add a trial license**:
 
-1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) **Billing > Purchase services**. If you don't have this option, select **Marketplace** instead.
+1. In a browser, open the [Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial wizard](https://signup.microsoft.com/get-started/signup?OfferId=11c457e2-ac0a-430d-8500-88c99927ff9f&ali=1&products=11c457e2-ac0a-430d-8500-88c99927ff9f).
 
-1. Search for **Microsoft Defender for IoT** and locate the **Microsoft Defender for IoT - OT Site License - Large Site** item.
+1. In the **Email** box, enter the email address you want to associate with the trial license, and select **Next**.
 
-1. Select **Details** > **Start free trial** > **Try now** to start the trial.
+1. In the **Tell us about yourself** page, enter your details, and then select **Next**.
 
-For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
+1. Select whether you want the confirmation message to be sent to you via SMS or a phone call. Verify your phone number, and then select **Send verification code**.
+
+1. After receiving the code, enter it in the **Enter your verification code** box.
+
+1. In the **How you'll sign in** page, enter a username and password and select <what?>
+
+1. In the **Confirmation details** page, note your order number and username, and then select **Start using Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial** button to continue.
+
+Use the Microsoft 365 admin center manage your users, billing details, and more. For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
 
 ## Add an OT plan
  
-This procedure describes how to add an OT plan for Defender for IoT in the Azure portal, based on the trial license you'd obtained from the [Microsoft 365 admin center](#add-a-trial-license).
+This procedure describes how to add an OT plan for Defender for IoT in the Azure portal, based on your [new trial license](#add-a-trial-license).
 
 **To add an OT plan in Defender for IoT**:
 
-1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started), select **Plans and pricing** > **Add plan**.
+1. Open [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, select **Plans and pricing** > **Add plan**.
 
-1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan. 
+1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan.
 
     You can only add a single subscription, and you'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
 
