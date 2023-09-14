@@ -118,7 +118,7 @@ Following that, plan your migration plan according to your organization requirem
 
 **Customers with Log analytics Agent** **(MMA) enabled** 
 
-- If the following features are required in your organization: File Integrity Monitoring (FIM), Endpoint Protection recommendations, OS misconfigurations (security baselines recommendations), you can start retiring from MMA in April 2024 when alternative will be delivered in GA (preview versions will be available earlier). 
+- If the following features are required in your organization: File Integrity Monitoring (FIM), Endpoint Protection recommendations, OS misconfigurations (security baselines recommendations), you can start retiring from MMA in April 2024 when an alternative will be delivered in GA (preview versions will be available earlier). 
 
 - If the features mentioned above are required in your organization, and Azure Monitor agent (AMA) is required for other services as well, you can start migrating from MMA to AMA in April 2024. Alternately -use both MMA and AMA to get all features GA, then remove MMA in April 2024. 
 
