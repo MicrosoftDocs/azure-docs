@@ -21,7 +21,7 @@ For this article, you create three virtual networks:
 
 - **VNet-Hub**: The firewall is in this virtual network.
 - **VNet-Spoke**: The spoke virtual network represents the workload located on Azure.
-- **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a Virtual Private Network (VPN) connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
+- **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a virtual private network (VPN) connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
 
 ![Diagram that shows a firewall in a hybrid network.](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -58,7 +58,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 First, create the resource group to contain the resources:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the Azure portal home page, select **Resource groups** > **Create**.
+1. On the Azure portal's home page, select **Resource groups** > **Create**.
 1. For **Subscription**, select your subscription.
 1. For **Resource group**, enter **RG-fw-hybrid-test**.
 1. For **Region**, select a region. All resources that you create later must be in the same region.
@@ -473,4 +473,4 @@ You can keep your firewall resources for further testing. If you no longer need 
 
 ## Next steps
 
-[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+[Monitor Azure Firewall logs](./firewall-diagnostics.md)

@@ -21,7 +21,7 @@ For this article, you create three virtual networks:
 
 - **VNet-Hub**: The firewall is in this virtual network.
 - **VNet-Spoke**: The spoke virtual network represents the workload located on Azure.
-- **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a  Virtual Private Network (VPN) connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
+- **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a virtual private network (VPN) connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
 
 ![Diagram that shows a firewall in a hybrid network.](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -38,13 +38,13 @@ There are three key requirements for this scenario to work correctly:
 - A user-defined route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. Virtual network gateway route propagation must be *disabled* on this route table.
 - A UDR on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
 
-  No UDR is required on the Azure Firewall subnet, because it learns routes from BGP.
+  No UDR is required on the Azure Firewall subnet, because it learns routes from Border Gateway Protocol (BGP).
 - Be sure to set `AllowGatewayTransit` when you're peering **VNet-Hub** to **VNet-Spoke**. Set `UseRemoteGateways` when you're peering **VNet-Spoke** to **VNet-Hub**.
 
 The [Create the routes](#create-the-routes) section later in this article shows how to create these routes.
 
 >[!NOTE]
->Azure Firewall must have direct internet connectivity. If your **AzureFirewallSubnet** subnet learns a default route to your on-premises network via Border Gateway Protocol (BGP), you must configure Azure Firewall in forced tunneling mode. If this is an existing Azure Firewall instance that can't be reconfigured in forced tunneling mode, we recommend that you add a 0.0.0.0/0 UDR on the **AzureFirewallSubnet** subnet with the `NextHopType` value set as `Internet` to maintain direct internet connectivity.
+>Azure Firewall must have direct internet connectivity. If your **AzureFirewallSubnet** subnet learns a default route to your on-premises network via BGP, you must configure Azure Firewall in forced tunneling mode. If this is an existing Azure Firewall instance that can't be reconfigured in forced tunneling mode, we recommend that you add a 0.0.0.0/0 UDR on the **AzureFirewallSubnet** subnet with the `NextHopType` value set as `Internet` to maintain direct internet connectivity.
 >
 >For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
@@ -407,7 +407,7 @@ Set-AzVMExtension `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
 
-#Create a host firewall rule to allow ping in
+#Create a host firewall rule to allow pings in
 Set-AzVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -458,7 +458,7 @@ Now that you've verified that the firewall rules are working, you can:
 - Browse to web server on the spoke virtual network.
 - Connect to the server on the spoke virtual network by using RDP.
 
-Next, run the following script to change the collection action for the firewall network rules to `Deny`:
+Next, run the following script to change the action for the collection of firewall network rules to `Deny`:
 
 ```azurepowershell
 $rcNet = $azfw.GetNetworkRuleCollectionByName("RCNet01")
@@ -475,4 +475,4 @@ You can keep your firewall resources for the next tutorial. If you no longer nee
 
 ## Next steps
 
-[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+[Monitor Azure Firewall logs](./firewall-diagnostics.md)
