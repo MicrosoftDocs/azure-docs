@@ -66,7 +66,7 @@ You can schedule updates from **Overview** or **Machines** on the **Update Manag
 1. Select your virtual machine and the **virtual machines | Updates** page opens.
 1. Under **Operations**, select **Updates**.
 1. In **Updates**, select **Update Settings**.
-1. In **Change update settings**, you can select the update settings that you want to change for your machine and follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
+1. In **Change update settings**, you can select the update settings that you want to change for your machine and follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-a-single-vm).
 
 ---
 
@@ -85,7 +85,7 @@ Follow these steps to configure update settings on your machines at scale.
 
 1. In **Azure Update Manager**, select **Overview**, select your **Subscription** and select **Update settings**.
 
-1. In **Change update settings**, select the update settings that you want to change for your machines. Follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-single-vm).
+1. In **Change update settings**, select the update settings that you want to change for your machines. Follow the procedure from step 3 listed in **From Overview blade** of [Configure settings on single VM](#configure-settings-on-a-single-vm).
 
 # [From Machines blade](#tab/manage-scale-machines)
 

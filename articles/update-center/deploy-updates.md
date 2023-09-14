@@ -97,7 +97,7 @@ To install one-time updates on a single VM:
 1. Under **Operations**, select **Updates**.
 1. In **Updates**, select **Go to Updates using Azure Update Manager**.
 1. In **Updates**, select **One-time update** to install the updates.
-1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 4 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 4 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-a-single-vm).
  
 ---
 
