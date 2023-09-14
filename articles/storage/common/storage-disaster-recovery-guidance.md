@@ -125,7 +125,7 @@ A customer-managed failover loses its geo-redundancy after a failover (and failb
 You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account, but note that converting from LRS to GRS or RA-GRS incurs an additional cost. The cost is due to the network egress charges to re-replicate the data to the new secondary region. Additionally, all archived blobs need to be rehydrated to an online tier before the account can be configured for geo-redundancy, which will incur a cost. For additional information about pricing, see:
 
 - [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/)
-- [Azure Storage pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/)
+- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
 
 After you re-enable GRS for your storage account, Microsoft begins replicating the data in your account to the new secondary region. Replication time depends on many factors, which include:
 
