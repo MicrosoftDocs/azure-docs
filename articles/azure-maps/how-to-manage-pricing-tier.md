@@ -18,9 +18,11 @@ You can manage the pricing tier of your Azure Maps account through the [Azure po
 >
 > **Azure Maps Gen1 pricing tier retirement**
 >
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated.
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated.
 >
-> After 9/14/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts via the Azure Portal. After 10/12/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts using ARM templates.
+>After 9/14/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts via the Azure Portal. After 10/12/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts when using an ARM template.
+>
+> You don't have to generate new subscription keys, client ID (for Azure AD authentication) or shared access signature (SAS) tokens if you change the pricing tier for your Azure Maps account.
 >
 > For more information on Gen2 pricing tier, see [Azure Maps pricing].
 
