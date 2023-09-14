@@ -71,14 +71,14 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 | Option | Description |
 |:---|:---|
-| **Save** |  |
-| **New alert rule** |  |
-|**Export**||
-|**Pin to**||
-| **Filter** | |
-| **Format query** | |
-| **Search job mode** | |
-| **Switch back to classic Logs** | |
+| **Save** | [Save a query to a query pack](../logs/save-query.md). |
+| **Share** | Copy a link to your query, the query text, or query results. |
+| **New alert rule** | [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal). |
+|**Export**|[Export data to Excel](../logs/log-excel.md), CSV, or [Power BI](../logs/log-powerbi.md).|
+|**Pin to**|Pin your query to a [workbook](../visualize/workbooks-overview.md), or an [Azure dashboard](../visualize/tutorial-logs-dashboards.md) or [Grafana dashboard](../visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana).|
+| **Format query** | Format query text in advanced mode. |
+| **Search job mode** | [Run a search job](../logs/search-jobs.md). |
+| **Switch back to classic Logs** | Switch back to the classic Log Analytics user interface. |
 
 ## Query in simple mode 
 
