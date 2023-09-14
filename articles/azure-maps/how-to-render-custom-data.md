@@ -35,8 +35,10 @@ Use the Azure Maps [Data service] to store and render overlays.
 ## Render pushpins with labels and a custom image
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account in the Gen 1 or Gen 2 pricing tier.
-The Azure Maps account Gen 1 Standard S0 tier supports only a single instance of the `pins` parameter. It allows you to render up to five pushpins, specified in the URL request, with a custom image.
+> The procedure in this section requires an Azure Maps account in the Gen1 or Gen2 pricing tier.
+The Azure Maps account Gen1 Standard S0 tier supports only a single instance of the `pins` parameter. It allows you to render up to five pushpins, specified in the URL request, with a custom image.
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 ### Get static image with custom pins and labels
 
@@ -65,7 +67,7 @@ To get a static image with custom pins and labels:
 ## Upload pins and path data
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
+> The procedure in this section requires an Azure Maps account Gen1 (S1) or Gen2 pricing tier.
 
 In this section, you upload path and pin data to Azure Map data storage.
 
@@ -215,7 +217,7 @@ To render the uploaded pins and path data on the map:
 ## Render a polygon with color and opacity
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
+> The procedure in this section requires an Azure Maps account Gen1 (S1) or Gen2 pricing tier.
 
 You can modify the appearance of a polygon by using style modifiers with the [path parameter].
 
@@ -243,7 +245,7 @@ To render a polygon with color and opacity:
 ## Render a circle and pushpins with custom labels
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
+> The procedure in this section requires an Azure Maps account Gen1 (S1) or Gen2 pricing tier.
 
 You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` "scale style" modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 makes the pins larger, and values smaller than 1 makes them smaller. For more information about style modifiers, see [static image service path parameters].
 
@@ -291,11 +293,11 @@ Similarly, you can change, add, and remove other style modifiers.
 > [!div class="nextstepaction"]
 > [Data service]
 
-
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Render - Get Map Image]: /rest/api/maps/render/getmapimage
 [Data service]: /rest/api/maps/data
 [Data Upload]: /rest/api/maps/data-v2/upload
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [path parameter]: /rest/api/maps/render/getmapimage#uri-parameters
 [Postman]: https://www.postman.com/
 [Render service]: /rest/api/maps/render/get-map-image

@@ -268,9 +268,10 @@ As mentioned in the confirmation message, it can take several minutes for the mi
 You can use Audit logs or Log Analytics to view details of MFA Server to Azure MFA user migrations.
 
 ##### Use Audit logs 
-To access the Audit logs in the Azure portal to view details of MFA Server to Azure MFA user migrations, follow these steps: 
+To access the Audit logs in the Microsoft Entra admin center to view details of MFA Server to Azure MFA user migrations, follow these steps: 
 
-1. Click **Azure Active Directory** > **Audit logs**. To filter the logs, click **Add filters**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Identity** > **Monitoring & health** > **Audit logs**. To filter the logs, click **Add filters**.
 
    :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/add-filter.png" alt-text="Screenshot of how to add filters.":::
 

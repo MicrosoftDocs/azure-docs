@@ -79,17 +79,17 @@ Azure AD CBA is an MFA (Multi factor authentication) capable method, that is Azu
 If CBA enabled user only has a Single Factor (SF) certificate and need MFA
    1. Use Password + SF certificate.
    1. Issue Temporary Access Pass (TAP)
-   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+   1. Admin adds Phone Number to user account and allows Voice/text message method for user.
 
 If CBA enabled user has not yet been issued a certificate and need MFA
    1. Issue Temporary Access Pass (TAP)
-   1. Admin adds Phone Number to user account and allows Voice/SMS method for user.
+   1. Admin adds Phone Number to user account and allows Voice/text message method for user.
 
 If CBA enabled user cannot use MF cert (such as on mobile device without smart card support) and need MFA
    1. Issue Temporary Access Pass (TAP)
    1. User Register another MFA method (when user can use MF cert)
    1. Use Password + MF cert (when user can use MF cert)
-   1. Admin adds Phone Number to user account and allows Voice/SMS method for user
+   1. Admin adds Phone Number to user account and allows Voice/text message method for user
 
 
 ## MFA with Single-factor certificate-based authentication
