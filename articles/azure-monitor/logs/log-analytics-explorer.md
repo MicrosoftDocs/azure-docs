@@ -118,6 +118,8 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 1. Select **Aggregate**.
 1. Select a column to aggregate by and select an operator to aggregate by, as described in [Use aggregation operators](#use-aggregation-operators).
 
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-aggregate.png" alt-text="Screenshot that shows the aggregation operators in the Aggregate table window in Log Analytics.":::
+
 **Show or hide columns**
 
 1. Select **Show columns**.
