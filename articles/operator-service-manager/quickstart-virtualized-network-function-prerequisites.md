@@ -44,7 +44,7 @@ If you prefer to run CLI reference commands locally, install the Azure CLI using
 
 If you're machine runs on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
-For local installation, sign into Azure CLI using the `az login`  command. For more information and examples, see [az login](/cli/azure/reference-index?view=azure-cli-latest).
+For local installation, sign into Azure CLI using the `az login`  command.
 
 To finish the authentication process, follow the steps displayed in your terminal. For other sign in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
