@@ -126,4 +126,4 @@ Now head over to your browser and visit your deployed Web App. The url usually i
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Check out more Socket.IO samples](aka.ms/sio/sample)
+> [Check out more Socket.IO samples](aka.ms/awps/sio/sample)

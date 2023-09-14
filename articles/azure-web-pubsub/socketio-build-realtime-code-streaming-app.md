@@ -389,7 +389,7 @@ As mentioned [earlier](#the-finished-app), you have two user roles on the client
 
 ### Locate the repo
 
-The preceding sections covered the core logic related to synchronizing the editor state between viewers and the writer. You can find the complete code in the [examples repository](aka.ms/sio/sample/codestream).
+The preceding sections covered the core logic related to synchronizing the editor state between viewers and the writer. You can find the complete code in the [examples repository](aka.ms/awps/sio/sample/codestream).
 
 ### Clone the repo
 
