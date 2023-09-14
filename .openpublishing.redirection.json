@@ -13438,6 +13438,21 @@
           "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/governance/policy/samples/gov-dod-impact-level-4.md",
+          "redirect_url": "/azure/governance/policy/samples",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/gov-dod-impact-level-5.md",
+          "redirect_url": "/azure/governance/policy/samples",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/swift-cscf-v2021.md",
+          "redirect_url": "/azure/governance/policy/samples/swift-csp-cscf-2021",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-policy/create-manage-policy.md",
             "redirect_url": "/azure/governance/policy/tutorials/create-and-manage",
             "redirect_document_id": false
