@@ -9,26 +9,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
-ms.collection: M365-identity-device-management
 ---
-
 # Add or update a user's profile information and settings
+
 A user's profile information and settings can be managed on an individual basis and for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
 
-This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](./add-users.md). 
+This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Microsoft Entra ID administration portal. Some settings may be managed in more than one area. For more information about adding new users, see [How to add or delete users in Azure Active Directory](./add-users.md). 
 
 ## Add or change profile information
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-When new users are created, only some details are added to their user profile. If your organization needs more details, they can be added after the user is created. 
+When new users are created, only a few details are added to their user profile. If your organization needs more details, they can be added after the user is created. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 
-1. Go to **Azure Active Directory** > **Users** and select a user.
+1. Browse to **Identity** > **Users** > **All users**.
+
+1. Select a user.
    
 1. There are two ways to edit user profile details. Either select **Edit properties** from the top of the page or select **Properties**.
 
@@ -51,6 +52,7 @@ If you selected the **Properties tab option**:
    ![Screenshot the Properties tab, with the edit options highlighted.](media/how-to-manage-user-profile-info/user-profile-properties-single-page-view.png)
 
 ### Profile categories
+
 There are six categories of profile details you may be able to edit. 
 
 - **Identity:** Add or update other identity values for the user, such as a married last name. You can set this name independently from the values of First name and Last name. For example, you could use it to include initials, a company name, or to change the sequence of names shown. If you have two users with the same name, such as ‘Chris Green,’ you could use the Identity string to set their names to 'Chris B. Green' and 'Chris R. Green.'
@@ -65,7 +67,7 @@ There are six categories of profile details you may be able to edit.
 
 - **On-premises:** Accounts synced from Windows Server Active Directory include other values not applicable to Azure AD accounts.
 
-> [!Note]
+> [!NOTE]
 > You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
 
 ### Add or edit the profile picture
@@ -73,17 +75,19 @@ On the user's overview page, select the camera icon in the lower-right corner of
 
 All your changes are saved for the user.
 
-> [!Note]
+> [!NOTE]
 > If you're having issues updating a user's profile picture, please ensure that your Office 365 Exchange Online Enterprise App is Enabled for users to sign in.
 
 ## Manage settings for all users
-In the **User settings** area of Azure AD, you can adjust several settings that affect all users. Some settings are managed in a separate area of Azure AD and linked from this page. These settings require the Global Administrator role.
 
-Go to **Azure AD** > **User settings**. 
+In the **User settings** area, you can adjust several settings that affect all users. Some settings are managed in a separate area linked from this page. These settings require the Global Administrator role.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Users** > **User settings**.
 
 [ ![Screenshot of the Azure AD user settings options.](media/how-to-manage-user-profile-info/user-settings.png) ](media/how-to-manage-user-profile-info/user-settings.png#lightbox)
 
-The following settings can be managed from Azure AD **User settings**.
+The following settings can be managed from **User settings**.
 
 - Allow users to register their own applications
 - Prevent non-admins from creating their own tenants
@@ -93,7 +97,7 @@ The following settings can be managed from Azure AD **User settings**.
     - Guest users have the same access as members (most inclusive)
     - Guest users have limited access to properties and memberships of directory objects
     - Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)
-- Restrict access to the Azure AD administration portal
+- Restrict access to the Microsoft Entra ID administration portal
 - [Allow users to connect their work or school account with LinkedIn](../enterprise-users/linkedin-user-consent.md)
 - [Enable the "Stay signed in?" prompt](how-to-manage-stay-signed-in-prompt.md)
 - Manage external collaboration settings

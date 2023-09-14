@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 08/28/2023
+ms.date: 09/14/2023
 ms.custom: enterprise-iot
 ---
 
@@ -16,13 +16,46 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## September 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Version 23.1.3**: <br>- [Troubleshoot OT sensor connectivity](#troubleshoot-ot-sensor-connectivity) <br>- [Event timeline access for OT sensor Read Only users](#event-timeline-access-for-ot-sensor-read-only-users)|
+
+### Troubleshoot OT sensor connectivity
+
+Starting in version 23.1.3, OT sensors automatically help you troubleshoot connectivity issues with the Azure portal. If a cloud-managed sensor isn't connected, an error is indicated in the Azure portal on the **Sites and sensors** page, and on the sensor's **Overview** page.
+
+For example:
+
+:::image type="content" source="media/release-notes/connectivity-error.png" alt-text="Screenshot of a connectivity error on the Overview page." lightbox="media/release-notes/connectivity-error.png":::
+
+From your sensor, do one of the following to open the **Cloud connectivity troubleshooting** pane, which provides details about the connectivity issues and mitigation steps:
+
+- On the **Overview** page, select the **Troubleshoot** link at the top of the page
+- Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
+
+
+For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
+
+### Event timeline access for OT sensor Read Only users
+
+Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page. For example:
+
+:::image type="content" source="media/track-sensor-activity/event-timeline-view-events.png" alt-text="Screenshot of events on the event timeline." lightbox="media/track-sensor-activity/event-timeline-view-events.png":::
+
+For more information, see:
+
+- [Track network and sensor activity with the event timeline](how-to-track-sensor-activity.md)
+- [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
+
 ## August 2023
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Defender for IoT's CVE's align to CVSS v3](#defender-for-iots-cves-align-to-cvss-v3) |
+| **OT networks** | [Defender for IoT's CVEs align to CVSS v3](#defender-for-iots-cves-align-to-cvss-v3) |
 
-### Defender for IoT's CVE's align to CVSS v3
+### Defender for IoT's CVEs align to CVSS v3
 
 CVE scores shown in the OT sensor and on the Azure portal are aligned with the [National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss), and starting with Defender for IoT's August threat intelligence update, CVSS v3 scores are shown if they're relevant. If there's no CVSS v3 score relevant, the CVSS v2 score is shown instead.
 

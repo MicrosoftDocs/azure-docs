@@ -27,6 +27,8 @@ When you first set up Privileged Identity Management for Azure resources, you ne
 
 ## Required permissions
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can view and manage the management groups or subscriptions to which you have Microsoft.Authorization/roleAssignments/write permissions, such as User Access Administrator or Owner roles. If you are not a subscription owner, but are a Global Administrator and don't see any Azure subscriptions or management groups to manage, then you can [elevate access to manage your resources](../../role-based-access-control/elevate-access-global-admin.md).
 
 ## Discover resources

@@ -58,7 +58,8 @@ As mentioned above, Microsoft recommends that HDInsight clusters be regularly mi
      * **Third-party software**. Customers have the ability to install third-party software on their HDInsight clusters; however, we'll recommend recreating the cluster if it breaks the existing functionality.
      * **Multiple workloads on the same cluster**. In HDInsight 4.0, the Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. [Follow these steps to set up both clusters in Azure HDInsight](interactive-query/apache-hive-warehouse-connector.md). Similarly, integrating [Spark with HBASE](hdinsight-using-spark-query-hbase.md) requires two  different clusters.
      * **Custom Ambari DB password changed**. The Ambari DB password is set during cluster creation and there's no current mechanism to update it. If a customer deploys the cluster with a [custom Ambari DB](hdinsight-custom-ambari-db.md), they have the ability to change the DB password on the SQL DB; however, there's no way to update this password for a running HDInsight cluster.
-
+     * **Modifying HDInsight Load Balancers**. The HDInsight load balancers that are automatically deployed for Ambari and SSH access **should not** be modified or deleted. If you modify the HDInsight load balancer(s) and it breaks the cluster functionality, you will be advised to redeploy the cluster.
+       
 ## Next steps
 
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

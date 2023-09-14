@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 05/30/2023
 ms.topic: how-to
-ms.service: storage
+ms.service: azure-blob-storage
 ms.reviewer: sadodd 
 ms.custom: engagement-fy23
 ---

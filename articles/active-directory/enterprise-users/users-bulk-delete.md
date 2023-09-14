@@ -5,7 +5,7 @@ services: active-directory
 author: barclayn
 ms.author: barclayn
 manager: amycolannino
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -40,8 +40,9 @@ The rows in a downloaded CSV template are as follows:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User Administrator in the organization.
-1. Browse to **Azure Active Directory** > **Users** > **Bulk operations** > **Bulk delete**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **Users** > **All users** > **Bulk operations** > **Bulk delete**.
 1. On the **Bulk delete user** page, select **Download** to download the latest version of the CSV template.
 1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Save the file.
 1. On the **Bulk delete user** page, under **Upload your csv file**, browse to the file. When you select the file and click submit, validation of the CSV file starts.
@@ -61,10 +62,9 @@ Next, you can check to see that the users you deleted exist in the Azure AD orga
 
 ## Verify deleted users in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a User administrator in the organization.
-1. In the navigation pane, select **Azure Active Directory**.
-1. Under **Manage**, select **Users**.
-1. Under **Show**, select **All users** only and verify that the users you deleted are no longer listed.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **All users** only and verify that the users you deleted are no longer listed.
 
 ### Verify deleted users with PowerShell
 

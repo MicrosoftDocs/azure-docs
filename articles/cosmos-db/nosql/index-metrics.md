@@ -80,6 +80,17 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
         return Flux.just(itemsResponse);
     }).blockLast();   
 ```
+
+## [JavaScript SDK](#tab/javascript)
+```javascript
+const querySpec = {
+    query: "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2",
+  };
+const { resources: resultsIndexMetrics, indexMetrics } = await container.items
+    .query(querySpec, { populateIndexMetrics: true })
+    .fetchAll();
+console.log("IndexMetrics: ", indexMetrics);
+```
 ---
 
 ### Example output

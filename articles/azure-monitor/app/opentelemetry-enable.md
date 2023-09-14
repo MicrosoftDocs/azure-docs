@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 08/11/2023
+ms.date: 09/12/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -43,7 +43,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-- Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
+- [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet)
 
 ### [.NET](#tab/net)
 
@@ -87,7 +87,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.4.15.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.15/applicationinsights-agent-3.4.15.jar) file.
+Download the [applicationinsights-agent-3.4.16.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.16/applicationinsights-agent-3.4.16.jar) file.
 
 > [!WARNING]
 >
@@ -101,10 +101,10 @@ Download the [applicationinsights-agent-3.4.15.jar](https://github.com/microsoft
 
 Install these packages:
 
-- [applicationinsights](https://www.npmjs.com/package/applicationinsights/v/beta)
+- [@azure/monitor-opentelemetry](https://www.npmjs.com/package/@azure/monitor-opentelemetry)
 
 ```sh
-npm install applicationinsights@beta
+npm install @azure/monitor-opentelemetry
 ```
 
 The following packages are also used for some specific scenarios described later in this article:
@@ -180,7 +180,7 @@ var loggerFactory = LoggerFactory.Create(builder =>
 
 Java autoinstrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.15.jar"` to your application's JVM args.
+Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.16.jar"` to your application's JVM args.
 
 > [!TIP]
 > For scenario-specific guidance, see [Get Started (Supplemental)](./java-get-started-supplemental.md).
@@ -190,10 +190,9 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 
 ##### [Node.js](#tab/nodejs)
 
-```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-const config = new ApplicationInsightsConfig();
-const appInsights = new ApplicationInsightsClient(config);
+```typescript
+const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+useAzureMonitor();
 ```
 
 ##### [Python](#tab/python)
@@ -243,7 +242,7 @@ To paste your Connection String, select from the following options:
 
   B. Set via Configuration File - Java Only (Recommended)
   
-  Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.15.jar` with the following content:
+  Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.16.jar` with the following content:
     
    ```json
    {
@@ -313,8 +312,8 @@ As part of using Application Insights instrumentation, we collect and send diagn
 ### [Node.js](#tab/nodejs)
 
 - For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md)
-- To review the source code, see the [Application Insights Beta GitHub repository](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta).
-- To install the npm package and check for updates, see the [applicationinsights npm Package](https://www.npmjs.com/package/applicationinsights/v/beta) page.
+- To review the source code, see the [Azure Monitor OpenTelemetry GitHub repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry).
+- To install the npm package and check for updates, see the [`@azure/monitor-opentelemetry` npm Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry JavaScript GitHub repository](https://github.com/open-telemetry/opentelemetry-js).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).

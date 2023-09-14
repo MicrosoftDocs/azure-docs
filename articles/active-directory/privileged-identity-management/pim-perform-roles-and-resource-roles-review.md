@@ -27,6 +27,8 @@ If you're a privileged role administrator or global administrator interested in 
 
 ## Approve or deny access
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can approve or deny access based on whether the user still needs access to the role. Choose **Approve** if you want them to stay in the role, or **Deny** if they don't need the access anymore. The users' assignment status won't change until the review closes and the administrator applies the results. Common scenarios in which certain denied users can't have results applied to them may include the following:
 
 - **Reviewing members of a synced on-premises Windows AD group**: If the group is synced from an on-premises Windows AD, the group can't be managed in Azure AD, and therefore membership can't be changed.

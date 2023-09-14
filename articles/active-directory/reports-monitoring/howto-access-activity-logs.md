@@ -1,6 +1,6 @@
 ---
 title: Access activity logs in Azure AD
-description: Learn how to choose the right method for accessing the activity logs in Azure Active Directory.
+description: How to choose the right method for accessing and integrating the activity logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 08/28/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---

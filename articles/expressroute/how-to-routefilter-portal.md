@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/20/2022
+ms.date: 08/31/2023
 ms.author: duau
 ms.custom: seodec18, template-tutorial
 ---

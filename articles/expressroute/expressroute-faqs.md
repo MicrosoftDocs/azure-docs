@@ -96,6 +96,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Power BI - Available via an Azure Regional Community, see [here](/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
+* [Microsoft PSTN services](./using-expressroute-for-microsoft-pstn.md)
 * Azure Public IP addresses for IaaS (Virtual Machines, Virtual Network Gateways, Load Balancers, etc.)  
 * Most of the other Azure services are also supported. Check directly with the service that you want to use to verify support.
 
