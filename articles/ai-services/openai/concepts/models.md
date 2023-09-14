@@ -20,8 +20,8 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 | Models | Description |
 |--|--|
-| [GPT-4](#gpt-4) | A set of models that improve on GPT-3.5 and can understand as well as generate natural language and code. |
-| [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand as well as generate natural language and code. |
+| [GPT-4](#gpt-4) | A set of models that improve on GPT-3.5 and can understand and generate natural language and code. |
+| [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
 | [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
 
@@ -156,13 +156,13 @@ There are three distinct model deployment upgrade options which are configurable
 
 | Name | Description |
 |------|--------|
-| `OnceNewDefaultVersionAvailable` | Once a new default version is released the model deployment will auto-upgrade to the default version within two weeks of the release. |
+| `OnceNewDefaultVersionAvailable` | Once a new version is designated as the default, the model deployment will auto-upgrade to the default version within two weeks of that designation change being made. |
 `OnceCurrentVersionExpired` | Once the retirement date is reached the model deployment will auto-upgrade to the current default version. |
-`NoAutoUpgrade` | The model deployment will never auto-upgrade. Once the retirement date is reached the model deployment will stop working. You will need to manually update your code referencing that deployment to point to a non-expired model deployment. |
+`NoAutoUpgrade` | The model deployment will never auto-upgrade. Once the retirement date is reached the model deployment will stop working. You will need to update your code referencing that deployment to point to a non-expired model deployment. |
 
 To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0)  
 
-```http-interactive
+```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments?api-version=2023-05-01
 ```
 
@@ -222,7 +222,7 @@ You can then take the settings from this list to construct an update model REST 
 
 ### Update & deploy models via the API
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments/{deploymentName}?api-version=2023-05-01
 ```
 
