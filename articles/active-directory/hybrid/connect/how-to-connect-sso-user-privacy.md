@@ -61,6 +61,6 @@ If audit logging is enabled, this product may generate security logs for your Do
 
 ## Next steps
 
-* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
+* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trust-center)
   - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
   - [**UserVoice**](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - For filing new feature requests.
