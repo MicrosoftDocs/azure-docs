@@ -10,7 +10,7 @@ ms.service: azure-operator-service-manager
 
 # Quickstart: Create a Virtualized Network Functions (VNF) Site for an Ubuntu Virtual Machine
 
-This article shows you how to create a Site using the Azure Portal. A Site is the collection of assets representing one or more instances of nodes in a network service which it is useful to the operator to discuss and manage in a similar manner. 
+This article shows you how to create a Site using the Azure portal.  A site is the collection of assets that represent one or more instances of nodes in a network service that should be discussed and managed in a similar manner. 
 
 A site may represent:
 - A physical location such as DC or rack(s). 
@@ -22,7 +22,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Complete the [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized--network-function-operator.md)
+- Complete the [Quickstart: Prerequisites for Operator and Virtualized Network Function (VNF)](quickstart-virtualized-network-function-operator.md)
 
 ## Create a Site
 
