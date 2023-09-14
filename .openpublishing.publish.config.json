@@ -993,6 +993,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-apache-cassandra-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-apache-gremlin-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-cosmos-db-table-dotnet-v12",
       "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
       "branch": "v12",

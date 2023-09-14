@@ -839,37 +839,19 @@ Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to use the 
 
 1. Import `client` from the `gremlin_python.driver` module.
 
-    ```python
-    from gremlin_python.driver import client
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-samples/601-emulator/app.py" id="imports":::
 
 1. Create a new `Client` using the emulator's credentials.
 
-    ```python
-    client = client.Client(
-        url="ws://localhost:8901/",
-        traversal_source="g",
-        username="/dbs/db1/colls/coll1",
-        password="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-samples/601-emulator/app.py" highlight="1" id="client":::
 
 1. Clean up the graph using `client.submit`.
 
-    ```python
-    client.submit(
-        message="g.V().drop()"
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-samples/601-emulator/app.py" id="graph":::
 
 1. Use `client.submit` to add a new item.
 
-    ```python
-    client.submit(
-        message="g.addV('product').property('id', prop_id).property('name', prop_name)", 
-        bindings={ "prop_id": "68719518371", "prop_name": "Kiama classic surfboard"}
-    )
-    ```
+    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-samples/601-emulator/app.py" highlight="1" id="insert":::
 
 1. Run the Python application.
 
