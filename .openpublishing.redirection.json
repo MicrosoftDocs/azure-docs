@@ -8768,6 +8768,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/choose-pricing-tier.md",
+            "redirect_url": "/azure/azure-maps/how-to-manage-pricing-tier",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/how-to-request-real-time-data.md",
             "redirect_url": "/azure/azure-maps",
             "redirect_document_id": false

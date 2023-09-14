@@ -5,11 +5,11 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 09/13/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jpettere
 ms.collection: M365-identity-device-management
 ---
 # Plan an Azure Active Directory Multi-Factor Authentication deployment 
@@ -243,7 +243,7 @@ You can monitor authentication method registration and usage across your organiz
 
 The Azure AD sign-in reports include authentication details for events when a user is prompted for MFA, and if any Conditional Access policies were in use. You can also use PowerShell for reporting on users registered for Azure AD Multi-Factor Authentication. 
 
-NPS extension and AD FS logs for cloud MFA activity are now included in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md), and no longer published to **Security** > **MFA** > **Activity report**.
+NPS extension and AD FS logs for cloud MFA activity are now included in the [Sign-in logs](../reports-monitoring/concept-sign-ins.md), and no longer published to the **Activity report**.
 
 For more information, and additional Azure AD Multi-Factor Authentication reports, see [Review Azure AD Multi-Factor Authentication events](howto-mfa-reporting.md#view-the-azure-ad-sign-ins-report).
 
