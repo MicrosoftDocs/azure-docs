@@ -38,7 +38,7 @@ In this article:
 
 ## Install the notation CLI and AKV plugin
 
-1. Install `Notation v1.0.0` on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/installation/cli/) to download the package for other environments.
+1. Install `Notation v1.0.0` on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
@@ -63,7 +63,7 @@ In this article:
     ```
 
 > [!NOTE]
-> The plugin directory varies depending upon the operating system in use. The directory path assumes Ubuntu. For more information, see [Notation directory structure for system configuration.](https://notaryproject.dev/docs/concepts/directory-structure/)
+> The plugin directory varies depending upon the operating system in use. The directory path assumes Ubuntu. For more information, see [Notation directory structure for system configuration.](https://notaryproject.dev/docs/user-guides/how-to/directory-structure/)
 
 3. List the available plugins.
     
@@ -74,7 +74,7 @@ In this article:
 ## Configure environment variables 
 
 > [!NOTE]
-> We recommend to provide values for the Azure resources to match the existing AKV and ACR resources for easy execution of commands in the tutorial.
+> This guide uses environment variables for convenience when configuring the AKV and ACR. Update the values of these environment variables for your specific resources.
 
 1. Configure AKV resource names. 
 
@@ -116,34 +116,34 @@ To learn more about Azure CLI and how to sign in with it, see [Sign in with Azur
 
 ### Certificate requirements
 
-When creating certificates for signing and verification, it is important to ensure that they meet the [Notary Project certificate requirement](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements). 
+When creating certificates for signing and verification, the certificates must meet the [Notary Project certificate requirement](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements). 
 
-The requirements for root and intermediate certificates are as follows:
-- The `basicConstraints` extension MUST be present and MUST be marked as critical. The `cA` field MUST be set `true`.
-- The `keyUsage` extension MUST be present and MUST be marked `critical`. Bit positions for `keyCertSign` MUST be set. 
+Here are the requirements for root and intermediate certificates:
+- The `basicConstraints` extension must be present and marked as critical. The `CA` field must be set `true`.
+- The `keyUsage` extension must be present and marked `critical`. Bit positions for `keyCertSign` MUST be set. 
 
-The requirements for certificates issued by a CA are as follows:
+Here are the requirements for certificates issued by a CA:
 - X.509 certificate properties:
-  - Subject MUST contain common name (`CN`), country (`C`), state or province (`ST`), and organization (`O`). In this tutorial, `$CERT_SUBJECT` is used as the subject.
+  - Subject must contain common name (`CN`), country (`C`), state or province (`ST`), and organization (`O`). In this tutorial, `$CERT_SUBJECT` is used as the subject.
   - X.509 key usage flag must be `DigitalSignature` only.
   - Extended Key Usages (EKUs) must be empty or `1.3.6.1.5.5.7.3.3` (for Codesigning).
 - Key properties:
-  - The property "exportable" should be set to `false`
-  - Select [supported key type and size](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#algorithm-selection)
+  - The `exportable` property must be set to `false`.
+  - Select a supported key type and size from the [Notary Project specification](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#algorithm-selection).
 
 > [!NOTE]
-> Version v1.0.0 of the Notation AKV plugin requires a specific certificate order in a certificate chain. However, this limitation has been removed in version v1.0.1. We recommend using the latest version of the plugin.
+> This guide uses version 1.0.1 of the AKV plugin. Prior versions of the plugin had a limitation that required a specific certificate order in a certificate chain. Version 1.0.1 of the plugin does not have this limitation so it is recommended that you use version 1.0.1 or later.
 
 ### Create a certificate issued by a CA
 
-To create a certificate issued by a CA, follow these steps:
+Create a certificate signing request (CSR) by following the instructions in [create certificate signing request](../key-vault/certificates/create-certificate-signing-request.md). 
 
-1. Create a certificate signing request (CSR) by following the instructions in [create certificate signing request](../key-vault/certificates/create-certificate-signing-request.md).
-2. When merging the CSR, make sure you merge the entire chain that brought back from the CA vendor.
+> [!IMPORTANT]
+> When merging the CSR, make sure you merge the entire chain that brought back from the CA vendor.
 
-### Import a certificate in AKV
+### Import the certificate in AKV
 
-To import a certificate, follow these steps:
+To import the certificate:
 
 1. Get the certificate file from CA vendor with entire certificate chain.
 2. Import the certificate into Azure Key Vault by following the instructions in [import a certificate](../key-vault/certificates/tutorial-import-certificate.md).
@@ -162,16 +162,22 @@ To import a certificate, follow these steps:
 > [!IMPORTANT]
 > If you have Docker installed on your system and used `az acr login` or `docker login` to authenticate to your ACR, your credentials are already stored and available to notation. In this case, you don’t need to run `notation login` again to authenticate to your ACR. To learn more about authentication options for notation, see [Authenticate with OCI-compliant registries](https://notaryproject.dev/docs/how-to/registry-authentication/).
 
-2. Build and push a new image with ACR Tasks. Always use `digest` to identify the image for signing, because tags are mutable and and can be overwritten.
+2. Build and push a new image with ACR Tasks. Always use `digest` to identify the image for signing, since tags are mutable and can be overwritten.
 
     ```bash
     DIGEST=$(az acr build -r $ACR_NAME -t $REGISTRY/${REPO}:$TAG $IMAGE_SOURCE --no-logs --query "outputImages[0].digest" -o tsv)
     IMAGE=$REGISTRY/${REPO}@$DIGEST
     ```
 
-3. Assign access policy in AKV (Azure CLI)
+    In this tutorial, if the image has already been built and is stored in the registry, the tag serves as an identifier for that image for convenience.
 
-   To sign a container image with a certificate in AKV, a principal must have authorized access to AKV. The principal can be a user principal, service principal, or managed identity. In this tutorial, we assign access policy to a signed-in user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy). 
+    ```bash
+    IMAGE=$REGISTRY/${REPO}@$TAG
+    ```
+
+3. Assign access policy in AKV using the Azure CLI
+
+   To sign a container image with a certificate in AKV, a principal must have authorized access to AKV. The principal can be a user principal, service principal, or managed identity. In this tutorial, we assign an access policy to a signed-in user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy). 
     
    To set the subscription that contains the AKV resources, run the following command:
 
@@ -179,27 +185,27 @@ To import a certificate, follow these steps:
    az account set --subscription <your_subscription_id>
    ```
     
-   If the certificate contains the entire certificate chain, the principal must be granted key permission `Sign`, secret permission `Get`, and certificate permissions `Get`. To grant these permissions to the principal, run the following command:
+   If the certificate contains the entire certificate chain, the principal must be granted key permission `Sign`, secret permission `Get`, and certificate permissions `Get`. To grant these permissions to the principal:
 
    ```bash
    USER_ID=$(az ad signed-in-user show --query id -o tsv)
    az keyvault set-policy -n $AKV_NAME --key-permissions sign --secret-permissions get --certificate-permissions get --object-id $USER_ID
    ```
     
-   If the certificate doesn't contain the chain, the principal must be granted key permission `Sign`, and certificate permissions `Get`. To grant these permissions to the principal, run the following command:
+   If the certificate doesn't contain the chain, the principal must be granted key permission `Sign`, and certificate permissions `Get`. To grant these permissions to the principal:
     
    ```bash
    USER_ID=$(az ad signed-in-user show --query id -o tsv)
    az keyvault set-policy -n $AKV_NAME --key-permissions sign --certificate-permissions get --object-id $USER_ID
    ```
 
-4. Get the Key ID for a certificate, assuming the certificate name is $CERT_NAME. A certificate in AKV can have multiple versions, the following command get the Key Id for the latest version.
+4. Get the Key ID for a certificate. A certificate in AKV can have multiple versions, the following command get the Key Id for the latest version of the `$CERT_NAME` certificate.
 
    ```bash
    KEY_ID=$(az keyvault certificate show -n $CERT_NAME --vault-name $AKV_NAME --query 'kid' -o tsv) 
    ```
 
-5. Sign the container image with the COSE signature format using the key ID. 
+5. Sign the container image with the COSE signature format using the Key ID. 
 
    If the certificate contains the entire certificate chain, run the following command:
 
@@ -207,7 +213,7 @@ To import a certificate, follow these steps:
    notation sign --signature-format cose $IMAGE --id $KEY_ID --plugin azure-kv 
    ```
 
-   If the certificate does not contain the chain, you need to use an additional plugin parameter `--plugin-config ca_certs=<ca_bundle_file>` to pass the CA certificates in a PEM file to AKV plugin, run the following command:
+   If the certificate does not contain the chain, use the `--plugin-config ca_certs=<ca_bundle_file>` parameter to pass the CA certificates in a PEM file to AKV plugin, run the following command:
 
    ```bash
    notation sign --signature-format cose $IMAGE --id $KEY_ID --plugin azure-kv --plugin-config ca_certs=<ca_bundle_file> 
@@ -219,9 +225,17 @@ To import a certificate, follow these steps:
     notation ls $IMAGE 
     ```
 
+    In the following example of output, a signature of type `application/vnd.cncf.notary.signature` identified by digest `sha256:d7258166ca820f5ab7190247663464f2dcb149df4d1b6c4943dcaac59157de8e` is associated to the `$IMAGE`.
+
+    ```
+    myregistry.azurecr.io/net-monitor@sha256:17cc5dd7dfb8739e19e33e43680e43071f07497ed716814f3ac80bd4aac1b58f
+└── application/vnd.cncf.notary.signature
+    └── sha256:d7258166ca820f5ab7190247663464f2dcb149df4d1b6c4943dcaac59157de8e
+    ```
+
 ## Verify a container image with Notation CLI 
 
-1. Add root certificate to a named trust store for signature verification. Users need to obtain the root certificate from the CA vendor, and assuming the root certificate file is stored in $ROOT_CERT. 
+1. Add the root certificate to a named trust store for signature verification. If you do not have the root certificate, you can obtain it from your CA. The following example adds the root certificate `$ROOT_CERT` to the `$STORE_NAME` trust store. 
 
     ```bash
     STORE_TYPE="ca" 
@@ -229,7 +243,7 @@ To import a certificate, follow these steps:
     notation cert add --type $STORE_TYPE --store $STORE_NAME $ROOT_CERT  
     ```
 
-2. List the root certificate to confirm. 
+2. List the root certificate to confirm the `$ROOT_CERT` is added successfully.
 
     ```bash
     notation cert ls 
@@ -237,7 +251,7 @@ To import a certificate, follow these steps:
 
 3. Configure trust policy before verification.
 
-   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. Assuming that the user trusts a specific identity with the X.509 subject `$CERT_SUBJECT`, which is used for the signing certificate. The named trust store `$STORE_NAME` of type `$STORE_TYPE` contains the root certificates. See [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/v1.0.0/specs/trust-store-trust-policy.md) for details.
+   Trust policies allow users to specify fine-tuned verification policies. Use the following command to configure trust policy.
 
     ```bash
     cat <<EOF > ./trustpolicy.json
@@ -260,19 +274,29 @@ To import a certificate, follow these steps:
     EOF
     ```
 
-4. Use `notation policy` to import the trust policy configuration from a JSON file that we created previously. 
+    The above `trustpolicy.json` file defines one trust policy named `wabbit-networks-images`. This trust policy applies to all the artifacts stored in the `$REGISTRY/$REPO` repositories. The named trust store `$STORE_NAME` of type `$STORE_TYPE` contains the root certificates. It also assumes that the user trusts a specific identity with the X.509 subject `$CERT_SUBJECT`. For more details, see [Trust store and trust policy specification](https://github.com/notaryproject/notaryproject/blob/v1.0.0/specs/trust-store-trust-policy.md).
+
+4. Use `notation policy` to import the trust policy configuration from `trustpolicy.json`. 
 
     ```bash
     notation policy import ./trustpolicy.json
+    ```
+
+5. Show the trust policy configuration to confirm its successful import.
+
+    ```bash
     notation policy show
     ```
     
-5. The notation command can also help to ensure the container image hasn't been tampered with since build time by comparing the `sha` with what is in the registry.
+5. Use `notation verify` to verify the integrity of the image:
 
     ```bash
     notation verify $IMAGE
     ```
-   Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
+
+   Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message. An example of output:
+
+   `Successfully verified signature for myregistry.azurecr.io/net-monitor@sha256:17cc5dd7dfb8739e19e33e43680e43071f07497ed716814f3ac80bd4aac1b58f`
 
 ## FAQ
 
