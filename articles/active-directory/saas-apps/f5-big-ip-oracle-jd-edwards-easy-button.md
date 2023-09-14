@@ -194,7 +194,7 @@ The Service Provider settings define the properties for the SAML SP instance of 
 
 This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **JD Edwards Protected by F5 BIG-IP > Add**.
 
-![ Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-oracle-jde/azure-configuration-add-big-ip-application.png)
+![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-oracle-jde/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
