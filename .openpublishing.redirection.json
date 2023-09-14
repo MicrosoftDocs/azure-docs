@@ -24335,6 +24335,9 @@
         {
             "source_path_from_root": "/articles/hdinsight/hdinsight-business-continuity.md",
             "redirect_url": "/azure/reliability/reliability-hdinsight",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/reliability/reliability-postgre-flexible.md",
             "redirect_url": "/azure/reliability/reliability-postgresql-flexible-server",
             "redirect_document_id": false
@@ -24342,11 +24345,6 @@
         {
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-cosmosdb-portal.md",
             "redirect_url": "/azure/cosmos-db/how-to-configure-private-endpoints",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/hdinsight/hdinsight-business-continuity.md",
-            "redirect_url": "/azure/reliability/reliabiilty-hdinsight",
             "redirect_document_id": false
         }
 
