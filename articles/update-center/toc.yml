@@ -4,12 +4,12 @@
   items:
   - name: About Azure Update Manager (preview)
     href: overview.md
+  - name: Support matrix
+    href: support-matrix.md
   - name: What's New 
     href: whats-new.md
   - name: What's upcoming
     href: whats-upcoming.md
-  - name: Support matrix
-    href: support-matrix.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
