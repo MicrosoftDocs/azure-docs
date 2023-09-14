@@ -295,7 +295,7 @@ To download all the logs together in one ZIP file, access `https://<app-name>.sc
 
 By default all Windows Containers deployed in Azure App Service have a memory limit configured.  The following table lists the default settings per App Service Plan SKU. 
 
-| App Service PLan SKU | Default memory limit per app in MB |
+| App Service Plan SKU | Default memory limit per app in MB |
 |-|-|
 | P1v3 | 1024 |
 | P1Mv3 | 1024 |
