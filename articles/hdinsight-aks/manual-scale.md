@@ -31,7 +31,7 @@ When you **add nodes** to an operational HDInsight on AKS cluster (scale up):
 
 - Successful scaling operation using manual scale will add worker nodes to the cluster.
 - New jobs can be safely submitted when the scaling process is completed.
-- If the scaling operation fails, the failure leaves your cluster in the "failed” state.
+- If the scaling operation fails, the failure leaves your cluster in the "Failed” state.
 - You can expect to experience job failures during the scaling operation as services get restarted.
 
 If you **remove nodes** (scale down) from an HDInsight on AKS cluster:  
@@ -39,7 +39,7 @@ If you **remove nodes** (scale down) from an HDInsight on AKS cluster:
 - Pending or running jobs fails when the scaling operation completes. This failure is because of some of the services restarting during the scaling process. The impact of changing the number of cluster nodes varies for each cluster type.
 
 >[!IMPORTANT] 
->- To avoid quota errors during scaling operations, please plan for quota in your subscription. In case you have insufficient quota, you can increase quota with this [documentation.](/azure/quotas/regional-quota-requests).
+>- To avoid quota errors during scaling operations, please plan for quota in your subscription. In case you have insufficient quota, you can increase quota with this [documentation](/azure/quotas/regional-quota-requests).
 >- In case scale down selects a head node, which hosts coordinator/ingress and other services, it will result in downtime.
 
 ## Frequently Asked Questions

@@ -24,7 +24,7 @@ This article explains how you can provision script actions when you create an HD
    
 1. Create a new cluster as described [here](./quickstart-create-cluster.md).
    
-1. From the Configurations tab, select **+ Add script action**.
+1. From the Configuration tab, select **+ Add script action**.
   
    :::image type="content" source="./media/manage-script-actions/manage-script-action-creation-step-1.png" alt-text="Screenshot showing the New cluster page with Add Script action button in the Azure portal." border="true" lightbox="./media/manage-script-actions/manage-script-action-creation-step-1.png":::
 
@@ -62,7 +62,7 @@ This article explains how you can provision script actions when you create an HD
 
 ### View the list of Script Actions
 
-1. You can view the list of Script Actions in the "Configurations" tab.
+1. You can view the list of Script Actions in the "Configuration" tab.
 
    :::image type="content" source="./media/manage-script-actions/manage-script-action-view-scripts-step-5.png" alt-text="Screenshot showing the Create to save Script actions page." border="true" lightbox="./media/manage-script-actions/manage-script-action-view-scripts-step-5.png":::
   
