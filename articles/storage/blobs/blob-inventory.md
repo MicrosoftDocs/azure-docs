@@ -374,6 +374,7 @@ Each inventory run for a rule generates the following files:
   "version" : "1.0"
   }
   ```
+This file is created when the run begins. The `status` field of this file is set to `Pending` until the run completes. After the run completes, this field is set to a completion status (For example: `Succeeded` or `Failed`).
 
 ## Pricing and billing
 
