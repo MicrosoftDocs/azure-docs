@@ -72,8 +72,8 @@ Filter the report by IP address or user name to see an expanded view of sign-ins
 
 To access the workbook:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+2. Browse to **Identity** > **Hybrid management** > ***Monitoring and health** > **Workbooks**. 
 3. Select the Risky IP report workbook. 
 
 ## Load balancer IP addresses in the list

@@ -43,7 +43,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-- Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
+- [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet)
 
 ### [.NET](#tab/net)
 
@@ -128,7 +128,7 @@ npm install @opentelemetry/sdk-trace-base
 Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-monitor-opentelemetry/) PyPI package:
 
 ```sh
-pip install azure-monitor-opentelemetry --pre
+pip install azure-monitor-opentelemetry
 ```
 
 ---
