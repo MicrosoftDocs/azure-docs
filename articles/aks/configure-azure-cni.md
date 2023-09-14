@@ -85,6 +85,13 @@ When you create an AKS cluster with Azure PowerShell, you can also configure Azu
 Use [New-AzAksCluster](/powershell/module/az.aks/new-azakscluster) to create an AKS cluster with default settings and Azure CNI networking:
 
 ```azurepowershell-interactive
+## Create a resource group for the AKS cluster. ##
+$rg = @{
+    Name = "test-rg"
+    Location = "eastus2"
+}
+New-AzResourceGroup @rg
+
 $net = @{
       NetworkPlugin = "azure"
       ResourceGroupName = "test-rg"
@@ -100,6 +107,10 @@ When you create an AKS cluster with the Azure CLI, you can also configure Azure 
 Use  [`az aks create`][az-aks-create] with the `--network-plugin azure` argument to create a cluster with advanced networking:
 
 ```azurecli-interactive
+az group create \
+    --name test-rg \
+    --location eastus2
+
 az aks create \
     --resource-group test-rg \
     --name aks-cluster \
