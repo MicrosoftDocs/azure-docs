@@ -527,21 +527,6 @@ sections:
           Yes, you may incur additional network costs which will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
 
       - question: |
-          Do new Azure regions require the use of connection strings?
-        answer: |
-          New Azure regions *require* the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints your resource uses as a destination for your telemetry. Copy the connection string and add it to your application's code or to an environment variable.
-          
-      - question: |
-          Should I use connection strings or instrumentation keys?
-        answer: |
-          We recommend that you use [connection strings](./app/sdk-connection-string.md) instead of instrumentation keys.
-          
-      - question: |
-          Can I use providers('Microsoft.Insights', 'components').apiVersions[0] in my Azure Resource Manager deployments?
-        answer: |
-          We don't recommend using this method of populating the API version. The newest version can represent preview releases, which might contain breaking changes. Even with newer nonpreview releases, the API versions aren't always backward compatible with existing templates. In some cases, the API version might not be available to all subscriptions.
-
-      - question: |
           What telemetry does Application Insights collect?
         answer: |
           From server web apps:

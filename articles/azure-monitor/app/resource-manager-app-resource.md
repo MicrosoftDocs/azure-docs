@@ -269,6 +269,14 @@ resource component 'Microsoft.Insights/components@2020-02-02' = {
 }
 ```
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Can I use providers('Microsoft.Insights', 'components').apiVersions[0] in my Azure Resource Manager deployments?
+
+We don't recommend using this method of populating the API version. The newest version can represent preview releases, which might contain breaking changes. Even with newer nonpreview releases, the API versions aren't always backward compatible with existing templates. In some cases, the API version might not be available to all subscriptions.
+
 ## Next steps
 
 * Get other [sample templates for Azure Monitor](../resource-manager-samples.md).

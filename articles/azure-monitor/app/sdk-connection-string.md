@@ -255,6 +255,18 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 ---
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### Do new Azure regions require the use of connection strings?
+
+New Azure regions *require* the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate with your telemetry data. It also allows you to modify the endpoints your resource uses as a destination for your telemetry. Copy the connection string and add it to your application's code or to an environment variable.
+
+### Should I use connection strings or instrumentation keys?
+
+We recommend that you use connection strings instead of instrumentation keys.
+
 ## Next steps
 
 Get started at runtime with:
