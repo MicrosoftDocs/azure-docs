@@ -247,7 +247,7 @@ Output:
 
 Locate and copy the Resource ID for the managed identity identity-for-ubuntu-vm-sns.
 
-:::image type="content" source="media/identity-for-ubuntu-vm-sns.png" alt-text="Screenshot showing Managed Identity Properties and Id under Essentials." lightbox="media/identity-for-ubuntu-vm-sns.png":::
+:::image type="content" source="media/identity-for-ubuntu-vm-sns.png" alt-text="Screenshot showing Managed Identity Properties and ID under Essentials." lightbox="media/identity-for-ubuntu-vm-sns.png":::
 
 ## Locate Resource ID for Virtual Network (VM)
 
@@ -284,7 +284,7 @@ Select Managed identity, then choose + Select members. Navigate to the user-assi
 
 Follow the following steps to grant permissions:
 
-1. Navigate to the Azure Portal, search for Managed Identities.
+1. Navigate to the Azure portal, search for Managed Identities.
 1. Locate and select the Managed Identities named "identity-for-ubuntu-vm-sns" then select it.
 1. In the Managed Identity menu, select "Access Control (IAM)."
 1. Select "Add Role Assignment."
