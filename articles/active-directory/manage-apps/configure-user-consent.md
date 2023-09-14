@@ -39,7 +39,7 @@ To configure user consent, you need:
 
 :::zone pivot="portal"
 
-To configure user consent settings through the Azure portal:
+To configure user consent settings through the Microsoft Entra admin center:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
