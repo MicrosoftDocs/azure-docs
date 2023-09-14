@@ -1,7 +1,7 @@
 ---
 title: Manage inputs and outputs of a pipeline
 titleSuffix: Azure Machine Learning
-description: How to manage inputs and outputs of components and pipeline 
+description: How to manage inputs and outputs of components and pipeline in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
