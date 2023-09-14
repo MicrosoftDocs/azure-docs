@@ -522,15 +522,6 @@ sections:
             1. Search for **Cost Management and Billing** and open the **Billing scopes** pane to see current charges across subscriptions.
           
       - question: |
-          How do I upgrade from older SDK versions?
-        answer: |
-          See the [release notes](app/release-notes.md) for the SDK appropriate to your type of application.
-          
-      - question: How can I change which Azure resource my project sends data to?
-        answer: |
-          In Solution Explorer, right-click **ApplicationInsights.config** and select **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in **ApplicationInsights.config**, which determines where the server SDK sends your data. Unless you clear **Update all**, it also changes the key where it appears in your webpages.
-
-      - question: |
           Will I incur network costs if my Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region?
         answer: |
           Yes, you may incur additional network costs which will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
@@ -605,10 +596,6 @@ sections:
           
           You can [use Power BI](logs/log-powerbi.md) to display your request telemetry on a map if you've [migrated to a workspace-based resource](app/convert-classic-resource.md).
           
-      - question: How long is data retained in the portal? Is it secure?
-        answer: |
-          See [Data retention and privacy](app/data-retention-privacy.md).
-          
       - question: |
           What happens to Application Insight telemetry when a server or device loses connection with Azure?
         answer: |
@@ -623,34 +610,6 @@ sections:
           
           The [Application Insights JavaScript SDK](app/javascript.md) doesn't include any personal data in its autocompletion, by default. However, some personal data used in your application might be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
           
-      - question: How do I see POST data in Diagnostic Search?
-        answer: |
-          We don't log POST data automatically, but you can use a `TrackTrace` call. To do so, put the data in the message parameter. Message parameters have a longer size limit than the limits on string properties, although you can't filter on it.
-          
-      - question: |
-          Should I use single or multiple Application Insights resources?
-        answer: |
-          Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
-          
-          * See [How many Application Insights resources should I deploy?](app/separate-resources.md).
-          * [Example: Cloud service with worker and web roles](app/azure-web-apps-net-core.md).
-          
-      - question: |
-          How do I dynamically change the instrumentation key?
-        answer: |
-          * See [How many Application Insights resources should I deploy?](app/separate-resources.md).
-          * [Example: Cloud service with worker and web roles](app/azure-web-apps-net-core.md).
-
-      - question: |
-          Can I filter out or modify some telemetry?
-        answer: |
-          Yes. In the server, you can write:
-          
-          * Telemetry Processor to filter or add properties to selected telemetry items before they're sent from your app.
-          * Telemetry Initializer to add properties to all items of telemetry.
-          
-          Learn more about [ASP.NET, ASP.NET Core, JavaScript (Web), Python](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).    
-      
       - question: |
           What are the user and session counts?
         answer: |
@@ -659,19 +618,6 @@ sections:
           * If one real user uses your site in different browsers, or by using in-private/incognito browsing, or different machines, they're counted more than once.
           * To identify a signed-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
-      - question: |
-          Why is my instrumentation key visible in my webpage source?
-        answer: |
-          * This visibility is common practice in monitoring solutions.
-          * It can't be used to steal your data.
-          * It could be used to skew your data or trigger alerts.
-          * We haven't heard that any customer has had such problems.
-          
-          You can:
-          
-          * Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data.
-          * Write a proxy that runs in your server and have the web client send data through that proxy.    
-      
       - question: |
           What is the JavaScript SDK performance/overhead?
         answer: |
@@ -690,11 +636,6 @@ sections:
           Where can I find code examples for the JavaScript SDK?
         answer: |
           For runnable examples, see [Application Insights JavaScript SDK samples](https://github.com/microsoft/ApplicationInsights-JS/tree/master/examples).
-      
-      - question: |
-          How can I upgrade from the old version of the Application Insights JavaScript SDK?
-        answer: |
-          For more information, see [Upgrade from old versions of the Application Insights JavaScript SDK](./app/javascript-sdk-upgrade.md).
       
       - question: |
           What is the ES3/Internet Explorer 8 compatibility with the JavaScript SDK?
@@ -736,19 +677,6 @@ sections:
           
           Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
                     
-      - question:  Have I enabled everything in Application Insights?
-        answer: |
-          | What you should see | How to get it | Why you want it |
-          | --- | --- | --- |
-          | Availability charts |[Web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability). |Know your web app is up. |
-          | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [install Azure Monitor Application Insights Agent on server](app/application-insights-asp-net-agent.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)). |Detect perf issues. |
-          | Dependency telemetry |[Install Azure Monitor Application Insights Agent on server](app/application-insights-asp-net-agent.md). |Diagnose issues with databases or other external components. |
-          | Get stack traces from exceptions |[Insert TrackException calls in your code](app/asp-net-exceptions.md) (but some are reported automatically). |Detect and diagnose exceptions. |
-          | Search log traces |[Add a logging adapter](app/asp-net-trace-logs.md). |Diagnose exceptions, perf issues. |
-          | Client usage basics: page views, sessions, ... |[JavaScript initializer in webpages](app/javascript.md). |Usage analytics. |
-          | Client custom metrics |[Tracking calls in webpages](app/api-custom-events-metrics.md). |Enhance user experience. |
-          | Server custom metrics |[Tracking calls in server](app/api-custom-events-metrics.md). |Business intelligence. |
-          
       - question: |
           Why are the counts in Search and Metrics charts unequal?
         answer: |
@@ -831,10 +759,6 @@ sections:
           - TelemetryChannel `https://dc.services.visualstudio.com:443`
           
           See [IP addresses used by Azure Monitor](app/ip-addresses.md) to review our full list of services and IP addresses.
-          
-          ### Firewall exception
-          
-          Allow your web server to send telemetry to our endpoints.
           
           ### Gateway redirect
           
