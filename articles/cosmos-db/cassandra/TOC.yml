@@ -505,7 +505,7 @@
 - name: Azure Managed Instance for Apache Cassandra
   items:
     - name: Azure Managed Instance for Apache Cassandra documentation
-      href: ../../managed-instance-apache-cassandra/index.yml
+      href: ../../managed-instance-apache-cassandra/index.yml?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Overview
       items:
         - name: What is Azure Managed Instance for Apache Cassandra?
