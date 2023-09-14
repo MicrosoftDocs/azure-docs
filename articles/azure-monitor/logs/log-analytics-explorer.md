@@ -74,14 +74,6 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
 | **Switch back to classic Logs** | Switch back to the classic Log Analytics user interface. |
 
-## Switch modes
-
-To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
-
-When you begin to query logs in simple mode and then switch to advanced mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
-
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-1.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
-
 ## Query in simple mode 
 
 **Select a table to view log data**
@@ -150,6 +142,14 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 |`count`|Counts the number of times each distinct value exists in the column.|
 |`dcount`|For the `dcount` operator, you select two columns. The operator counts the total number of distinct values in the second column correlated to each value in the first column. For example, this shows the distinct number of result codes for successful and failed operations:<br/> :::image type="content" source="media/log-analytics-explorer/log-analytics-dcount.png" alt-text="Screenshot that shows the result of an aggregation using the dcount operator in Azure Monitor Log Analytics.":::  |
 |`sum`<br/>`avg`<br/>`max`<br/>`min`|For these operators, you select two columns. The operators calculate the sum, average, maximum, or minimum of all values in the second column for each value in the first column. For example, this shows the total duration of each operation in milliseconds for the past 24 hours:<br/>:::image type="content" source="media/log-analytics-explorer/log-analytics-sum.png" alt-text="Screenshot that shows the results of an aggregation using the sum operator in Azure Monitor Log Analytics.":::  |
+
+## Switch modes
+
+To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
+
+When you begin to query logs in simple mode and then switch to advanced mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
+
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-1.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 
 ## Advanced mode
 
