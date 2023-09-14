@@ -679,7 +679,7 @@ Use the [MongoDB Python driver](mongodb/quickstart-python.md) to use the emulato
 
 1. Create a new database and container using [`list_database_names`](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient.list_database_names) and [`list_collection_names`](https://pymongo.readthedocs.io/en/stable/api/pymongo/database.html#pymongo.database.Database.list_collection_names) along with the [`CreateDatabase`](mongodb/custom-commands.md#create-database) and [`CreateCollection`](mongodb/custom-commands.md#create-collection) custom commands.
 
-    :::code language="python" source="~/cosmos-db-mongodb-python-samples/601-emulator/app.py" highlight="2,3,5,11,13" id="resources":::
+    :::code language="python" source="~/cosmos-db-mongodb-python-samples/601-emulator/app.py" highlight="2,5,12" id="resources":::
 
 1. Use [`update_one`](https://pymongo.readthedocs.io/en/stable/api/pymongo/collection.html#pymongo.collection.Collection.update_one) to create a new item in the container.
 
