@@ -77,7 +77,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 To switch modes, select **Simple mode** or **Advanced mode** from the dropdown in the top right corner of the query editor.
 
-When you begin to query logs in simple mode and then switch to advanced mode, the query editor is pre-populated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
+When you begin to query logs in simple mode and then switch to advanced mode, the query editor is prepopulated with the KQL query related to your simple mode analysis. You can then edit and continue working with the query.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-1.gif" alt-text="A GIF showing two Log Analytics query tabs, one in simple mode and one in advanced mode.":::
 
@@ -152,7 +152,7 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 ## Advanced mode
 
-Advanced mode lets you use KQL to query and analyze data. The Log Analytics query editor offer IntelliSense features, such as auto-suggestion, syntax highlighting, and table and column name suggestions. 
+Advanced mode lets you use KQL to query and analyze data. The Log Analytics query editor offers IntelliSense features, such as autosuggestion, syntax highlighting, and table and column name suggestions. 
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-advanced-mode.png" alt-text="Screenshot that shows the Log Analytics query editor.":::
 
