@@ -106,8 +106,6 @@ The following are sample scripts for creating a login and provisioning it with t
   ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
-    DECLARE @SID NVARCHAR(MAX) = N'';
     CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
 	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
 	IF (ISNULL(@SID,'') != '')
@@ -164,7 +162,7 @@ The following are sample scripts for creating a login and provisioning it with t
    ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
+	-- If a SID needs to be specified, add the BINARY(16) value here as 0x prefixed string
     DECLARE @SID NVARCHAR(MAX) = N'';
 	IF (@SID = N'')
 	BEGIN
@@ -173,11 +171,12 @@ The following are sample scripts for creating a login and provisioning it with t
 	END
 	ELSE
 	BEGIN
-		CREATE LOGIN [evaluator]
-			WITH PASSWORD = '<provide a strong password>'
-			, SID = @SID 
+		DECLARE @SQLString NVARCHAR(500) = 'CREATE LOGIN [evaluator]
+			WITH PASSWORD = ''<provide a strong password>''
+			, SID = '+@SID
+                EXEC SP_EXECUTESQL @SQLString 
 	END
-	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'evaluator'
+	SELECT @SID = N'0x'+CONVERT(NVARCHAR(32), sid, 2) FROM sys.syslogins where name = 'evaluator'
 	IF (ISNULL(@SID,'') != '')
 		PRINT N'Created login [evaluator] with SID = '+@SID
 	ELSE
