@@ -93,10 +93,11 @@ On the rule group  **Scope** tab:
 #### Configure the rule group details 
 On the rule group  **Details** tab:
 1. Select the  **Subscription** and **Resource group** where the rule group should be stored.
-2. Enter the rule group **Name** and **Description**. The rule group name can't be changed after the rule group is created.
-3. Select the **Evaluate every** period for the rule group. 1 minute is the default.
-4. Select if the rule group is to be enabled when created.
-5. Select **Next** to configure the rules in the group.
+1. Enter the rule group **Name** and **Description**. The rule group name can't be changed after the rule group is created.
+1. Select the **Evaluate every** period for the rule group. 1 minute is the default.
+1. Select if the rule group is to be enabled when created.
+1. Select **Next** to configure the rules in the group.
+   
 :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-details.png" alt-text="Screenshot that shows configuration of Prometheus rule group details.":::
 
 #### Configure the rules in the group 
