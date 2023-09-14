@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 08/22/2023
+ms.date: 09/14/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -48,7 +48,7 @@ Here are the primary benefits of a multi-tenant organization:
     In Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization. This differentiation facilitates the application of different policies for in-organization and out-of-organization external users.
 - Improved collaborative experience in Microsoft Teams
 
-    In new Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
+    In new Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Announcing more seamless collaboration in Microsoft Teams for multi-tenant organizations](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/announcing-more-seamless-collaboration-in-microsoft-teams-for/ba-p/3901092) and [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
 
 - Improved people search experience across tenants
 

@@ -3,7 +3,7 @@ title: Configure Azure AD role settings in PIM
 description: Learn how to configure Azure AD role settings in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 6/7/2023
-ms.author: billmath
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -24,8 +24,6 @@ You must have the Global Administrator or Privileged Role Administrator role to 
 PIM role settings are also known as PIM policies.
 
 ## Open role settings
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To open the settings for an Azure AD role:
 
@@ -158,6 +156,7 @@ On the **Notifications** tab on the **Role settings** page, Privileged Identity 
 
 >[!NOTE]
 >One event in Privileged Identity Management can generate email notifications to multiple recipients – assignees, approvers, or administrators. The maximum number of notifications sent per one event is 1000. If the number of recipients exceeds 1000 – only the first 1000 recipients will receive an email notification. This does not prevent other assignees, administrators, or approvers from using their permissions in Microsoft Entra and Privileged Identity Management.
+
 ## Manage role settings by using Microsoft Graph
 
 To manage settings for Azure AD roles by using PIM APIs in Microsoft Graph, use the [unifiedRoleManagementPolicy resource type and related methods](/graph/api/resources/unifiedrolemanagementpolicy).
