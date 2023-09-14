@@ -76,13 +76,14 @@ Open a console window and create a new folder for your quickstart application.
     </dependencies>
   </project>
   ```
-2. Install the SDK and dependencies by running the following in the project directory:
+
+1. Install the SDK and dependencies by running the following in the project directory:
 
   ```console
   mvn clean dependency:copy-dependencies
   ```
 
-3. Once the operation succeeds, verify that the folders `target\dependency` were creating and they contain `.jar` files.
+1. Once the operation succeeds, verify that the folders `target\dependency` were creating and they contain `.jar` files.
 
 For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-java).
 

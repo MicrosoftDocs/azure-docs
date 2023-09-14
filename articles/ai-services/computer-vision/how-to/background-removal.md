@@ -86,7 +86,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name (see [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile)), or by copying the image into the SDK's input buffer (see [VisionSource.FromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer)). For more details, see [Call the Analyze API](./call-analyze-image-40?pivots=programming-language-csharp#select-the-image-to-analyze).
+> You can also analyze a local image by passing in the full-path image file name (see [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile)), or by copying the image into the SDK's input buffer (see [VisionSource.FromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer)). For more details, see [Call the Analyze API](./call-analyze-image-40.md?pivots=programming-language-csharp#select-the-image-to-analyze).
 
 #### [Python](#tab/python)
 
@@ -95,7 +95,7 @@ In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL (see argument name **filename**). Alternatively, you can analyze an image in a memory buffer by constructing **VisionSource** using the argument **image_source_buffer**. For more details, see [Call the Analyze API](./call-analyze-image-40?pivots=programming-language-python#select-the-image-to-analyze).
+> You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL (see argument name **filename**). Alternatively, you can analyze an image in a memory buffer by constructing **VisionSource** using the argument **image_source_buffer**. For more details, see [Call the Analyze API](./call-analyze-image-40.md?pivots=programming-language-python#select-the-image-to-analyze).
 
 #### [Java](#tab/java)
 
@@ -106,7 +106,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 **VisionSource** implements **AutoCloseable**, therefore create the object in a try-with-resources block, or explicitly call the **close** method on this object when you're done analyzing the image.
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name (see [VisionSource.fromFile](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromfile(java-lang-string)), or by copying the image into the SDK's input buffer (see [VisionSource.fromImageSourceBuffer](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromimagesourcebuffer(com-azure-ai-vision-common-imagesourcebuffer))). For more details, see [Call the Analyze API](./call-analyze-image-40?pivots=programming-language-java#select-the-image-to-analyze).
+> You can also analyze a local image by passing in the full-path image file name (see [VisionSource.fromFile](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromfile(java-lang-string)), or by copying the image into the SDK's input buffer (see [VisionSource.fromImageSourceBuffer](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromimagesourcebuffer(com-azure-ai-vision-common-imagesourcebuffer))). For more details, see [Call the Analyze API](./call-analyze-image-40.md?pivots=programming-language-java#select-the-image-to-analyze).
 
 #### [C++](#tab/cpp)
 
@@ -115,7 +115,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
 
 > [!TIP]
-> You can also analyze a local image by passing in the full-path image file name (see [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile)), or by copying the image into the SDK's input buffer (see  [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer)). For more details, see [Call the Analyze API](./call-analyze-image-40?pivots=programming-language-cpp#select-the-image-to-analyze).
+> You can also analyze a local image by passing in the full-path image file name (see [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile)), or by copying the image into the SDK's input buffer (see  [VisionSource::FromImageSourceBuffer](/cpp/cognitive-services/vision/input-visionsource#fromimagesourcebuffer)). For more details, see [Call the Analyze API](./call-analyze-image-40.md?pivots=programming-language-cpp#select-the-image-to-analyze).
 
 #### [REST API](#tab/rest)
 
