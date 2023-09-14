@@ -40,6 +40,7 @@ In simple mode, the top bar has controls for working with data and switching to 
 |**Filter**|Filter data, and apply simple mode operators, as described in [Query in simple mode](#query-in-simple-mode).|
 |**Limit**|Configure the number of entries Log Analytics displays in simple mode. The default limit is 1000.|
 |**Simple/Advanced**|Switch between simple and advanced mode.|
+| **Search**|Search through query results to find all instances of a particular string.|
 | **Queries** | Open the example queries dialog that appears when you first open Log Analytics. |
 
 ### Left pane
