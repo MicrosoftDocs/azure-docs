@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 
 # Azure AD cloud sync insights workbook
-The Cloud sync workbook provides a flexible canvas for data analysis. The workbook allows you to create rich visual reports within the Azure portal. To learn more, see Azure Monitor Workbooks overview.
+The Cloud sync workbook provides a flexible canvas for data analysis. The workbook allows you to create rich visual reports within the Entra portal. To learn more, see Azure Monitor Workbooks overview.
 
 This workbook is intended for Hybrid Identity Admins who use cloud sync to sync users from AD to Azure AD.  It allows admins to gain insights into sync status and details.
 

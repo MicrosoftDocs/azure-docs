@@ -375,6 +375,8 @@ Each inventory run for a rule generates the following files:
   }
   ```
 
+  This file is created when the run begins. The `status` field of this file is set to `Pending` until the run completes. After the run completes, this field is set to a completion status (For example: `Succeeded` or `Failed`).
+
 ## Pricing and billing
 
 Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. The [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page shows the price per one million objects scanned. For example, if the price to scan one million objects is $0.003, your account contains three million objects, and you produce four reports in a month, then your bill would be 4 * 3  * $0.003 = $0.036.

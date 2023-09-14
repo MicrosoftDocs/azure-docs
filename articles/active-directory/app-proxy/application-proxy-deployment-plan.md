@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ---
 
@@ -224,8 +224,8 @@ Once your application is published, it should be accessible by typing its extern
 ### Enable pre-authentication
 
 Verify that your application is accessible through Application Proxy accessing it via the external URL.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications** and choose the app you want to manage.
 
-1. Navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** and choose the app you want to manage.
 
 2. Select **Application Proxy**.
 
