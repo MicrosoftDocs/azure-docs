@@ -247,7 +247,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 | -------- | ----- |
 | AZ_ACR_NAME | (your Azure Container Registry instance, for example. azurearctest.azurecr.io) |
 | AZURE_SUBSCRIPTION | (your Azure Service Connection, which should be **arc-demo-acr** from earlier in the tutorial) |
-| AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repository, for example azurearctest.azurecr.io/azvote |
+| AZ_ACR_NAME | Azure ACR name, for example arc-demo-acr |
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | `arc-cicd-demo-gitops` |
@@ -291,7 +291,7 @@ The CD pipeline uses the security token of the running build to authenticate to 
 
 For more information, see:
 
-* [Grant VC Permissions to the Build Service](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control )
+* [Grant VC Permissions to the Build Service](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control)
 * [Manage Build Service Account Permissions](/azure/devops/pipelines/process/access-tokens?preserve-view=true&tabs=yaml&view=azure-devops#manage-build-service-account-permissions)
 
 ### Deploy the dev environment for the first time
@@ -527,7 +527,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 | Secret | Value |
 | -------- | ----- |
 | AZURE_CREDENTIALS | Credentials for Azure in the following format {"clientId":"GUID","clientSecret":"GUID","subscriptionId":"GUID","tenantId":"GUID"} |
-| AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repository, for example azurearctest.azurecr.io/azvote |
+| AZ_ACR_NAME | Azure ACR name, for example arc-demo-acr |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `arc-cicd-cluster` |
 | MANIFESTS_REPO | `https://github.com/your-organization/arc-cicd-demo-gitops` |

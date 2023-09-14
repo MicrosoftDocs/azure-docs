@@ -35,7 +35,7 @@ Azure Container Instances also supports executing a command in a running contain
 
 ### Hypervisor-level security
 
-Historically, containers have offered application dependency isolation and resource governance but have not been considered sufficiently hardened for hostile multi-tenant usage. Azure Container Instances guarantees your application is as isolated in a container as it would be in a VM.
+Historically, containers have offered application dependency isolation and resource governance but haven't been considered sufficiently hardened for hostile multi-tenant usage. Azure Container Instances guarantees your application is as isolated in a container as it would be in a VM.
 
 ### Customer data
 
@@ -53,7 +53,7 @@ To retrieve and persist state with Azure Container Instances, we offer direct [m
 
 ## Linux and Windows containers
 
-Azure Container Instances can schedule both Windows and Linux containers with the same API. Simply specify the OS type when you create your [container groups](container-instances-container-groups.md).
+Azure Container Instances can schedule both Windows and Linux containers with the same API. You can specify your OS type preference when you create your [container groups](container-instances-container-groups.md).
 
 Some features are currently restricted to Linux containers:
 
@@ -74,7 +74,13 @@ Azure Container Instances supports scheduling of [multi-container groups](contai
 Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). When deployed into a subnet within your virtual network, container instances can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## Confidential container deployment
-Confidential containers on ACI enables you to run containers in a trusted execution environment (TEE) that provides hardware-based confidentiality and integrity protections for your container workloads. Confidential containers on ACI can protect data-in-use and encrypts data being processed in memory. Confidential Containers on ACI is supported as a SKU that you can select when deploying your workload. For more information, see [confidential container groups](./container-instances-confidential-overview.md).
+
+Confidential containers on ACI enable you to run containers in a trusted execution environment (TEE) that provides hardware-based confidentiality and integrity protections for your container workloads. Confidential containers on ACI can protect data-in-use and encrypts data being processed in memory. Confidential containers on ACI are supported as a SKU that you can select when deploying your workload. For more information, see [confidential container groups](./container-instances-confidential-overview.md).
+
+## Spot container deployment
+
+ACI Spot containers allow customers to run interruptible, containerized workloads on unused Azure capacity at significantly discounted prices of up to 70% compared to regular-priority ACI containers. ACI spot containers may be preempted when Azure encounters a shortage of surplus capacity, and they're suitable for workloads without strict availability requirements. Customers are billed for per-second memory and core usage. To utilize ACI Spot containers, you can deploy your workload with a specific property flag indicating that you want to use Spot container groups and take advantage of the discounted pricing model. 
+For more information, see [spot container groups](container-instances-spot-containers-overview.md).
 
 ## Considerations
 
@@ -82,7 +88,7 @@ There are default limits that require quota increases. Not all quota increases m
 
 If your container group stops working, we suggest trying to restart your container, checking your application code, or your local network configuration before opening a [support request][azure-support]. 
 
-Container Images cannot be larger than 15 GB, any images above this size may cause unexpected behavior: [How large can my container image be?](./container-instances-faq.yml)
+Container Images can't be larger than 15 GB, any images above this size may cause unexpected behavior: [How large can my container image be?](./container-instances-faq.yml)
 
 Some Windows Server base images are no longer compatible with Azure Container Instances:  
 [What Windows base OS images are supported?](./container-instances-faq.yml)
@@ -95,7 +101,7 @@ There are ports that are reserved for service functionality. We advise you not t
 
 Your container groups may restart due to platform maintenance events. These maintenance events are done to ensure the continuous improvement of the underlying infrastructure: [Container had an isolated restart without explicit user input](./container-instances-faq.yml)
 
-ACI does not allow [privileged container operations](./container-instances-faq.yml). We advise you to not depend on using the root directory for your scenario 
+ACI doesn't allow [privileged container operations](./container-instances-faq.yml). We advise you to not depend on using the root directory for your scenario 
 
 ## Next steps
 

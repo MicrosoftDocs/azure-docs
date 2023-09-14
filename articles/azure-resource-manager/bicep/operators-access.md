@@ -1,11 +1,9 @@
 ---
 title: Bicep accessor operators
 description: Describes Bicep resource access operator and property access operator.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/10/2021
+ms.date: 06/23/2023
 ---
 
 # Bicep accessor operators
@@ -41,7 +39,7 @@ var arrayVar = [
 ]
 
 output accessorResult string = arrayVar[1]
-``` 
+```
 
 Output from the example:
 
@@ -81,7 +79,7 @@ Two functions - [getSecret](bicep-functions-resource.md#getsecret) and [list*](b
 The following example references an existing key vault, then uses `getSecret` to pass a secret to a module.
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -109,7 +107,7 @@ Within the parent resource, you reference the nested resource with just the symb
 The following example shows how to reference a nested resource from within the parent resource and from outside of the parent resource.
 
 ```bicep
-resource demoParent 'demo.Rp/parentType@2020-01-01' = {
+resource demoParent 'demo.Rp/parentType@2023-01-01' = {
   name: 'demoParent'
   location: 'West US'
 
@@ -168,7 +166,7 @@ Output from the example:
 Typically, you use the property accessor with a resource deployed in the Bicep file. The following example creates a public IP address and uses property accessors to return a value from the deployed resource.
 
 ```bicep
-resource publicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
+resource publicIp 'Microsoft.Network/publicIPAddresses@2022-11-01' = {
   name: publicIpResourceName
   location: location
   properties: {

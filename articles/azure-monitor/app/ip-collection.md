@@ -2,8 +2,8 @@
 title: Application Insights IP address collection | Microsoft Docs
 description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
-ms.date: 04/06/2023
-ms.custom: devx-track-js
+ms.date: 06/23/2023
+ms.custom:
 ms.reviewer: saars
 ---
 
@@ -131,10 +131,10 @@ Content-Length: 54
 The Powershell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
 
 ```powershell
-Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking $false
+Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking:$true
 ```
 
-For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](https://learn.microsoft.com/powershell/module/az.applicationinsights/update-azapplicationinsights)
+For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights)
 
 ## Telemetry initializer
 

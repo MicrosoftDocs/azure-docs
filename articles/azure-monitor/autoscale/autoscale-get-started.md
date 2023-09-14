@@ -1,12 +1,9 @@
 ---
 title: Get started with autoscale in Azure
 description: "Learn how to scale your resource web app, cloud service, virtual machine, or Virtual Machine Scale Set in Azure."
-author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
 ms.date: 04/10/2023
-ms.subservice: autoscale
-ms.reviewer: akkumari
 ---
 # Get started with autoscale in Azure
 
@@ -42,6 +39,10 @@ To discover the resources that you can autoscale, follow these steps.
     :::image type="content" source="./media/autoscale-get-started/scaling-page.png" lightbox="./media/autoscale-get-started/scaling-page.png" alt-text="A screenshot showing a resource overview page with the scaling menu item.":::
 
 ## Create your first autoscale setting  
+
+> [!NOTE]
+> In addition to the Autoscale instructions in this article, there's new, automatic scaling in Azure App Service. You'll find more on this capability in the [automatic scaling](../../app-service/manage-automatic-scaling.md) article.
+>
 
 Follow the steps below to create your first autoscale setting.
 
@@ -120,7 +121,7 @@ You have now defined a scale condition for a specific day. When CPU usage is gre
 
 ### View the history of your resource's scale events
 
-Whenever your resource is scaled up or down, an event is logged in the activity log. You can view the history of the scale events in the **Run history** tab.
+Whenever your resource has any scaling event, it is logged in the activity log. You can view the history of the scale events in the **Run history** tab.
 
 :::image type="content" source="./media/autoscale-get-started/run-history.png" lightbox="./media/autoscale-get-started/run-history.png" alt-text="A screenshot showing the run history tab in autoscale settings.":::
 

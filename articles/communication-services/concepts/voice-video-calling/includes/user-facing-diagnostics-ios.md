@@ -17,7 +17,7 @@ ms.subservice: calling
 User-facing diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```swift
-let userFacingDiagnostics = self.call?.feature(Features.diagnostics)
+let userFacingDiagnostics = self.call?.feature(Features.localUserDiagnostics)
 ```
 
 ## User Facing Diagnostic events
@@ -27,85 +27,85 @@ let userFacingDiagnostics = self.call?.feature(Features.diagnostics)
 ```swift
 extension CallObserver: MediaDiagnosticsDelegate {
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeCameraFreezeValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsCameraFrozen args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
     
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeSpeakerMutedValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsSpeakerMuted args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeCameraStartFailedValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsCameraStartFailed args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-  
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeSpeakerNotFunctioningValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsSpeakerVolumeZero args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-  
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeCameraPermissionDeniedValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsSpeakerNotFunctioning args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-  
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeMicrophoneNotFunctioningValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsCameraPermissionDenied args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeMicrophoneMuteUnexpectedlyValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsMicrophoneNotFunctioning args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeCameraStartTimedOutValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsCameraStartTimedOut args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-  
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeSpeakerVolumeIsZeroValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsMicrophoneMutedUnexpectedly args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-  
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeNoSpeakerDevicesEnumeratedValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsZeroSpeakerDevicesAvailable args: DiagnosticFlagChangedEventArgs) {
+    let newValue = args.value
+    // Handle the diagnostic event value changed...                            
+  }
+    
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeIsZeroMicrophoneDevicesAvailable args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-  
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeNoMicrophoneDevicesEnumeratedValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsSpeakingWhileMicrophoneIsMuted args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-  
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeSpeakingWhileMicrophoneIsMutedValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsSpeakerBusy args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-  
+    
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeSpeakerNotFunctioningDeviceInUseValue args: FlagDiagnosticChangedEventArgs) {
-    let newValue = args.value
-    // Handle the diagnostic event value changed...
-  }
-  
-  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
-                        didChangeMicrophoneNotFunctioningDeviceInUseValue args: FlagDiagnosticChangedEventArgs) {
+                        didChangeIsMicrophoneBusy args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
@@ -113,31 +113,31 @@ extension CallObserver: MediaDiagnosticsDelegate {
 
 extension CallObserver: NetworkDiagnosticsDelegate {
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
-                          didChangeNoNetworkValue args: FlagDiagnosticChangedEventArgs) {
+                          didChangeIsNetworkRelaysUnreachable args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-
+    
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
-                          didChangeNetworkReconnectValue args: QualityDiagnosticChangedEventArgs) {
+                          didChangeNetworkReconnectionQuality args: DiagnosticQualityChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-
+    
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
-                          didChangeNetworkSendQualityValue args: QualityDiagnosticChangedEventArgs) {
+                          didChangeNetworkSendQuality args: DiagnosticQualityChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-
+    
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
-                          didChangeNetworkReceiveQualityValue args: QualityDiagnosticChangedEventArgs) {
+                          didChangeIsNetworkUnavailable args: DiagnosticFlagChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
-
+    
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
-                          didChangeNetworkRelaysNotReachableValue args: FlagDiagnosticChangedEventArgs) {
+                          didChangeNetworkReceiveQuality args: DiagnosticQualityChangedEventArgs) {
     let newValue = args.value
     // Handle the diagnostic event value changed...
   }
@@ -153,13 +153,16 @@ self.mediaDiagnostics?.delegate = self.callObserver
 self.networkDiagnostics?.delegate = self.callObserver
 ```
 
+>[!NOTE]
+> If you have [`CallKit`](../../../how-tos/calling-sdk/callkit-integration.md) enabled via SDK or implement CallKit integration in your application, reporting mute state to CallKit can result in the OS making the application loose the hold to microphone due to privacy reasons which would cause the `didIsSpeakingWhileMicrophoneIsMuted` event not to work as expected because we cannot capture input from microphone device to detect that the user is speaking.
+
 ## Get the latest User Facing Diagnostics
 
 - Get the latest diagnostic values that were raised. If we still didn't receive a value for the diagnostic, `nil` or `.unknown` is returned.
 
 ```swift
-let lastSpeakerNotFunctionValue = self.mediaDiagnostics.latest.speakerNotFunctioning // Boolean?
-let lastNetworkRelayNotReachableValue = self.networkDiagnostics.latest.networkRelaysNotReachable // Boolean?
+let lastSpeakerNotFunctionValue = self.mediaDiagnostics.latest.isSpeakerNotFunctioning // Boolean?
+let lastNetworkRelayNotReachableValue = self.networkDiagnostics.latest.networkRelaysUnreachable // Boolean?
 let lastReceiveQualityValue = self.networkDiagnostics.latest.networkReceiveQuality // DiagnosticQuality (.good, .poor, .bad)
 // or .unknown if there isn't a diagnostic for this.
 ```

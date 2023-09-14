@@ -2,14 +2,13 @@
 title: Overview of Azure page blobs
 description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: article
-ms.date: 06/15/2020
-ms.author: tamram
+ms.date: 05/11/2023
+ms.author: akashdubey
 ms.reviewer: wielriac
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -35,6 +34,8 @@ First party Microsoft services like Azure Site Recovery, Azure Backup, as well a
 - Application-directed incremental snapshot management: Applications can leverage page blob snapshots and REST APIs for saving the application checkpoints without incurring costly duplication of data. Azure Storage supports local snapshots for page blobs, which don't require copying the entire blob. These public snapshot APIs also enable accessing and copying of deltas between snapshots.
 - Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 - [SAS-based](../common/storage-sas-overview.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
+
+Unmanaged disks are being retired, for details see [Migrate your Azure unmanaged disks by September 30, 2025](../../virtual-machines/unmanaged-disks-deprecation.md).
 
 ## Pricing
 
@@ -111,7 +112,12 @@ An alternative option is to use the page blobs directly via Azure Storage REST A
 
 ### Durability and high availability
 
-Both Standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability. For more information about Azure Storage Redundancy, see this [documentation](../common/storage-redundancy.md). Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+Both standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability.Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+
+For more information about Azure Storage redundancy for standard and premium storage accounts, see [Azure Storage redundancy](../common/storage-redundancy.md), and these two sections specifically:
+
+- [Supported Azure Storage services](../common/storage-redundancy.md#supported-azure-storage-services)
+- [Supported storage account types](../common/storage-redundancy.md#supported-storage-account-types)
 
 ### Seamless migration to Azure
 

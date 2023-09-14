@@ -30,8 +30,8 @@ This article shows you how to use Azure CNI networking for dynamic allocation of
 > [!NOTE]
 > When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service isn't supported.
 
-* Review the [prerequisites](./configure-azure-cni.md#prerequisites) for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
-* Review the [deployment parameters](./configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS, as the same parameters apply.
+* Review the [prerequisites][azure-cni-prereq] for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
+* Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.
 * AKS Engine and DIY clusters aren't supported.
 * Azure CLI version `2.37.0` or later.
 
@@ -56,7 +56,7 @@ All other guidance related to configuring the maximum pods per node remains the 
 
 ## Deployment parameters
 
-The [deployment parameters](./configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
+The [deployment parameters][azure-cni-deployment-parameters]for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
 
 * The **subnet** parameter now refers to the subnet related to the cluster's nodes.
 * An additional parameter **pod subnet** is used to specify the subnet whose IP addresses will be dynamically allocated to pods.
@@ -151,7 +151,7 @@ Set the variables for subscription, resource group and cluster. Consider the fol
 
 4.	To view the metrics on the cluster, go to Workbooks on the cluster page in the Azure portal, and find the workbook named "Subnet IP Usage". Your view will look similar to the following:
 
-    :::image type="content" source="media/configure-azure-cni-dynamic-ip-allocation/ip-subnet-usage.png" alt-text="A diagram of the Azure portal's workbook blade is shown, and metrics for an AKS cluster's subnet IP usage are displayed.":::    
+    :::image type="content" source="media/configure-azure-cni-dynamic-ip-allocation/ip-subnet-usage.png" alt-text="A diagram of the Azure portal's workbook blade is shown, and metrics for an AKS cluster's subnet IP usage are displayed.":::
 
 ## Dynamic allocation of IP addresses and enhanced subnet support FAQs
 
@@ -189,3 +189,5 @@ Learn more about networking in AKS in the following articles:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[azure-cni-prereq]: ./configure-azure-cni.md#prerequisites
+[azure-cni-deployment-parameters]: ./azure-cni-overview.md#deployment-parameters

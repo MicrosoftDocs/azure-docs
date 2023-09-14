@@ -2,8 +2,8 @@
 title: Deploy a private mobile network - Azure portal
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to deploy a private mobile network through Azure Private 5G Core using the Azure portal 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/03/2022
@@ -78,6 +78,20 @@ In this step, you'll create the Mobile Network resource representing your privat
     - **Service**, **SIM Policy**, and **Data Network** resources (if you decided to use the default service and allow-all SIM policy).
 
     :::image type="content" source="media/pmn-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing Mobile Network, SIM, SIM group, Service, SIM policy, Data Network, and Slice resources.":::
+
+## Modify a private mobile network
+
+You can change the public land mobile network (PLMN) identifier, comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), using the **Modify mobile network** button on the **Mobile Network** resource.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select the **Mobile Network** resource representing the private mobile network.
+1. Select **Modify mobile network**.
+
+    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/modify-mobile-network-button.png" alt-text="Screenshot of the Azure portal showing the modify mobile network button.":::
+
+1. Update the MCC and/or MNC as required.
+1. Select **Modify**.
+1. [Reinstall the packet core](reinstall-packet-core.md) to apply the change. If you have multiple packet cores in this mobile network, you will need to reinstall all of them.
 
 ## Next steps
 

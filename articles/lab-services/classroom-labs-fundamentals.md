@@ -43,7 +43,7 @@ Lab users connect to their lab virtual machine through a load balancer.  Lab vir
 
 Inbound rules on the load balancer forward the connection, depending on the operating system, to either port 22 (SSH) or port 3389 (RDP) of the lab virtual machine. A network security group (NSG) blocks external traffic to any other port.
 
-If you configured the lab to use [advanced networking](how-to-connect-vnet-injection.md), then each lab uses the subnet that was connected to the lab plan and delegated to Azure Lab Services. In this case, you're responsible for creating a [network security group with an inbound security rule to allow RDP and SSH traffic](how-to-connect-vnet-injection.md#associate-delegated-subnet-with-nsg) to the lab virtual machines.
+If the lab is using [advanced networking](how-to-connect-vnet-injection.md), then each lab is using the same subnet that was delegated to Azure Lab Services and connected to the lab plan. You're also responsible for creating an [NSG with an inbound security rule to allow RDP and SSH traffic](how-to-connect-vnet-injection.md#associate-the-subnet-with-the-network-security-group) so lab users can connect to their VMs.
 
 ## Access control to the lab virtual machines
 
@@ -51,7 +51,7 @@ Azure Lab Services manages access to lab virtual machines at different levels:
 
 - Start or stop a lab VM. Azure Lab Services grants lab users permission to perform such actions on their own virtual machines. The service also controls access to the lab virtual machine connection information.
 
-- Register for a lab. Azure Lab Services offers two different access settings: restricted and nonrestricted. *Restricted access* means that Azure Lab Services verifies that lab users are added to the lab before allowing access. *Nonrestricted access* means that any user can register for a lab by using the lab registration link, if there's capacity in the lab. Nonrestricted access can be useful for hackathon events. For more information, see the [manage lab users](how-to-configure-student-usage.md#send-invitations-to-users) article.
+- Register for a lab. Azure Lab Services offers two different access settings: restricted and nonrestricted. *Restricted access* means that Azure Lab Services verifies that lab users are added to the lab before allowing access. *Nonrestricted access* means that any user can register for a lab by using the lab registration link, if there's capacity in the lab. Nonrestricted access can be useful for hackathon events. For more information, see the [manage lab users](how-to-manage-lab-users.md#send-invitations-to-users) article.
 
 - Virtual machine credentials. Lab virtual machines that are hosted in the lab have a username and password set by the creator of the lab. Alternately, the creator of the lab can allow registered users to choose their own password on first sign-in.
 

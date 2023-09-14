@@ -1,112 +1,72 @@
 ---
-title: WHERE clause in Azure Cosmos DB
-description: Learn about SQL WHERE clause for Azure Cosmos DB
-author: seesharprun
+title: WHERE
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL clause that applies a filter to return a subset of items in the query results.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
-ms.topic: conceptual
-ms.date: 03/06/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
+ms.topic: reference
+ms.date: 07/31/2023
+ms.custom: query-reference
 ---
-# WHERE clause in Azure Cosmos DB
+
+# WHERE clause (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-The optional WHERE clause (`WHERE <filter_condition>`) specifies condition(s) that the source JSON items must satisfy for the query to include them in results. A JSON item must evaluate the specified conditions to `true` to be considered for the result. The index layer uses the WHERE clause to determine the smallest subset of source items that can be part of the result.
-  
+The optional ``WHERE`` clause (``WHERE <filter_condition>``) specifies condition(s) that the source JSON items must satisfy for the query to include them in results. A JSON item must evaluate the specified conditions to ``true`` to be considered for the result. The index layer uses the ``WHERE`` clause to determine the smallest subset of source items that can be part of the result.
+
 ## Syntax
-  
-```sql  
+
+```sql
 WHERE <filter_condition>  
-<filter_condition> ::= <scalar_expression>  
-  
-```  
-  
-## Arguments
+<filter_condition> ::= <scalar_expression>
+```
 
-- `<filter_condition>`  
-  
-   Specifies the condition to be met for the documents to be returned.  
-  
-- `<scalar_expression>`  
-  
-   Expression representing the value to be computed. See [Scalar expressions](scalar-expressions.md) for details.  
-  
-## Remarks
-  
-  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value `true` will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.
+| | Description |
+| --- | --- |
+| **``<filter_condition>``** | Specifies the condition to be met for the items to be returned. |
+| **``<scalar_expression>``** | Expression representing the value to be computed. |
 
-  If you include your partition key in the `WHERE` clause as part of an equality filter, your query will automatically filter to only the relevant partitions.
+> [!NOTE]
+> For more information on scalar expressions, see [scalar expressions](scalar-expressions.md)
 
 ## Examples
 
-The following query requests items that contain an `id` property whose value is `AndersenFamily`. It excludes any item that does not have an `id` property or whose value doesn't match `AndersenFamily`.
+This first example uses a simple equality query to return a subset of items. The ``=`` operator is used with the ``WHERE`` clause to create a filter based on simple equality.
 
-```sql
-    SELECT f.address
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where/query.sql" highlight="7-8":::
 
-The results are:
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where/result.json":::
 
-```json
-    [{
-      "address": {
-        "state": "WA",
-        "county": "King",
-        "city": "Seattle"
-      }
-    }]
-```
+In this next example, a more complex filter is composed of [scalar expressions](scalar-expressions.md).
 
-### Scalar expressions in the WHERE clause
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where-scalar/query.sql" range="1-8" highlight="7-8":::
 
-The previous example showed a simple equality query. The API for NoSQL also supports various [scalar expressions](scalar-expressions.md). The most commonly used are binary and unary expressions. Property references from the source JSON object are also valid expressions.
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where-scalar/result.json":::
 
-You can use the following supported binary operators:  
+In this final example, a property reference to a boolean property is used as the filter.
 
-|**Operator type**  | **Values** |
-|---------|---------|
-|Arithmetic | +,-,*,/,% |
-|Bitwise    | \|, &, ^, <<, >>, >>> (zero-fill right shift) |
-|Logical    | AND, OR, NOT      |
-|Comparison | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (concatenate) |
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/where-field/query.sql" range="1-8" highlight="7-8":::
 
-The following queries use binary operators:
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/where-field/result.json":::
 
-```sql
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade % 2 = 1     -- matching grades == 5, 1
+## Remarks
 
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade ^ 4 = 1    -- matching grades == 5
-
-    SELECT *
-    FROM Families.children[0] c
-    WHERE c.grade >= 5    -- matching grades == 5
-```
-
-You can also use the unary operators +,-, ~, and NOT in queries, as shown in the following examples:
-
-```sql
-    SELECT *
-    FROM Families.children[0] c
-    WHERE NOT(c.grade = 5)  -- matching grades == 1
-
-    SELECT *
-    FROM Families.children[0] c
-    WHERE (-c.grade = -5)  -- matching grades == 5
-```
-
-You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result. Additionally, you can use the `IS_DEFINED` type checking function to query based on the presence or absence of a given JSON property. For instance, `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` returns any JSON item that does not have a value for `isRegistered`.
+- In order for an item to be returned, an expression specified as a filter condition must evaluate to true. Only the boolean value ``true`` satisfies the condition, any other value: ``undefined``, ``null``, ``false``, a number scalar, an array, or an object doesn't satisfy the condition.
+- If you include your partition key in the ``WHERE`` clause as part of an equality filter, your query automatically filters to only the relevant partitions.
+- You can use the following supported binary operators:  
+  | | Operators |
+  | --- | --- |
+  | **Arithmetic** | ``+``,``-``,``*``,``/``,``%`` |
+  | **Bitwise** | ``|``, ``&``, ``^``, ``<<``, ``>>``, ``>>>`` *(zero-fill right shift)* |
+  | **Logical** | ``AND``, ``OR``, ``NOT`` |
+  | **Comparison** | ``=``, ``!=``, ``<``, ``>``, ``<=``, ``>=``, ``<>`` |
+  | **String** |  ``||`` *(concatenate)* |
 
 ## Next steps
 
-- [Getting started](getting-started.md)
-- [IN keyword](keywords.md#in)
-- [FROM clause](from.md)
+- [``SELECT`` clause](select.md)
+- [``FROM`` clause](from.md)

@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 05/31/2023
 
 ms.author: mimart
 author: msmimart
@@ -27,6 +27,9 @@ Use cross-tenant access settings to manage how you collaborate with other Azure 
 
 Learn more about using cross-tenant access settings to [manage B2B direct connect](b2b-direct-connect-overview.md#managing-cross-tenant-access-for-b2b-direct-connect).
 
+> [!IMPORTANT]
+> Microsoft is beginning to move customers using cross-tenant access settings to a new storage model on August 30, 2023. You may notice an entry in your audit logs informing you that your cross-tenant access settings were updated as our automated task migrates your settings. For a brief window while the migration processes, you will be unable to make changes to your settings. If you are unable to make a change, you should wait a few moments and try the change again. Once the migration completes, [you will no longer be capped with 25kb of storage space](/azure/active-directory/external-identities/faq#how-many-organizations-can-i-add-in-cross-tenant-access-settings-) and there will be no more limits on the number of partners you can add.
+
 ## Before you begin
 
 - Review the [Important considerations](cross-tenant-access-overview.md#important-considerations) section in the [cross-tenant access overview](cross-tenant-access-overview.md) before configuring your cross-tenant access settings.
@@ -34,14 +37,16 @@ Learn more about using cross-tenant access settings to [manage B2B direct connec
 - Identify any Azure AD organizations that will need customized settings.
 - Contact organizations with which you want to set up B2B direct connect. Because B2B direct connect is established through mutual trust, both you and the other organization need to enable B2B direct connect with each other in your cross-tenant access settings.
 - Obtain any required information from external organizations. If you want to apply access settings to specific users, groups, or applications within an external organization, you'll need to obtain these IDs from the organization before you can configure access settings.
-- To configure cross-tenant access settings in the Azure portal, you'll need an account with a Global administrator or Security administrator role. Teams administrators can read cross-tenant access settings, but they can't update these settings.
+- To configure cross-tenant access settings in the Microsoft Entra admin center, you'll need an account with a Global administrator or Security administrator role. Teams administrators can read cross-tenant access settings, but they can't update these settings.
 
 ## Configure default settings
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
  Default cross-tenant access settings apply to all external tenants for which you haven't created organization-specific customized settings. If you want to modify the Azure AD-provided default settings, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
+1. Browse to **Identity** > **External Identities** > **Cross-tenant access settings**.
 1. Select the **Default settings** tab and review the summary page.
 
    ![Screenshot showing the Cross-tenant access settings Default settings tab](media/cross-tenant-access-settings-b2b-direct-connect/cross-tenant-defaults.png)
@@ -60,8 +65,8 @@ Learn more about using cross-tenant access settings to [manage B2B direct connec
 
 Follow these steps to configure customized settings for specific organizations.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-2. Select **External Identities**, and then select **Cross-tenant access settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
+1. Browse to **Identity** > **External Identities** > **Cross-tenant access settings**.
 3. Select **Organizational settings**.
 4. Select **Add organization**.
 5. On the **Add organization** pane, type the full domain name (or tenant ID) for the organization.
@@ -83,9 +88,9 @@ Follow these steps to configure customized settings for specific organizations.
 
 With inbound settings, you select which external users and groups will be able to access the internal applications you choose. Whether you're configuring default settings or organization-specific settings, the steps for changing inbound cross-tenant access settings are the same. As described in this section, you'll navigate to either the **Default** tab or an organization on the **Organizational settings** tab, and then make your changes.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
 
-1. Select **External Identities**, and then select **Cross-tenant access settings**.
+1. Browse to **Identity** > **External Identities** > **Cross-tenant access settings**.
 
 1. Navigate to the settings you want to modify:
    - To modify default inbound settings, select the **Default settings** tab, and then under **Inbound access settings**, select **Edit inbound defaults**.
@@ -128,6 +133,9 @@ With inbound settings, you select which external users and groups will be able t
    - In the **Add other users and groups** pane, type the user object ID or the group object ID in the search box.
    - In the menu next to the search box, choose either **user** or **group**.
    - Select **Add**.
+
+   > [!NOTE]
+   > You cannot target users or groups in inbound default settings.
 
    ![Screenshot showing adding external users for inbound b2b direct connect](media/cross-tenant-access-settings-b2b-direct-connect/b2b-direct-connect-inbound-external-users-groups-add.png)
 
@@ -179,24 +187,24 @@ With inbound settings, you select which external users and groups will be able t
 
     ![Screenshot showing inbound trust settings.](media/cross-tenant-access-settings-b2b-direct-connect/inbound-trust-settings.png)
 
-1. (This step applies to **Organizational settings** only.) Review the consent prompt option:
+1. (This step applies to **Organizational settings** only.) Review the **Automatic redemption** option:
 
-   - **Suppress consent prompts for users from the other tenant when they access apps and resources in my tenant**: Select this checkbox if you want to automatically redeem invitations so users from the specified tenant don't have to accept the consent prompt when they access resources in this tenant using B2B direct connect. This setting will only suppress the consent prompt if the specified tenant checks this setting for outbound access as well.
+   - **Automatically redeem invitations with the tenant** &lt;tenant&gt;: Check this setting if you want to automatically redeem invitations. If so, users from the specified tenant won't have to accept the consent prompt the first time they access this tenant using cross-tenant synchronization, B2B collaboration, or B2B direct connect. This setting will only suppress the consent prompt if the specified tenant checks this setting for outbound access as well.
 
-    ![Screenshot that shows the inbound suppress consent prompt check box.](../media/external-identities/inbound-consent-prompt-setting.png)
+    ![Screenshot that shows the inbound Automatic redemption check box.](../media/external-identities/inbound-consent-prompt-setting.png)
 
 1. Select **Save**.
 
 > [!NOTE]
-> When configuring settings for an organization, you'll notice a **Cross-tenant sync (Preview)** tab. This tab doesn't apply to your B2B direct connect configuration. Instead, this feature is used by multi-tenant organizations to enable B2B collaboration across their tenants. For more information, see the [multi-tenant organization documentation](../multi-tenant-organizations/index.yml).
+> When configuring settings for an organization, you'll notice a **Cross-tenant sync** tab. This tab doesn't apply to your B2B direct connect configuration. Instead, this feature is used by multi-tenant organizations to enable B2B collaboration across their tenants. For more information, see the [multi-tenant organization documentation](../multi-tenant-organizations/index.yml).
 
 ## Modify outbound access settings
 
 With outbound settings, you select which of your users and groups will be able to access the external applications you choose. The detailed steps for modifying outbound cross-tenant access settings are the same whether you're configuring default or organization-specific settings. As described in this section, navigate to the **Default** tab or an organization on the **Organizational settings** tab, and then make your changes.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
 
-1. Select **External Identities** > **Cross-tenant access settings**.
+1. Browse to **Identity** > **External Identities** > **Cross-tenant access settings**.
 
 1. Navigate to the settings you want to modify:
 
@@ -272,11 +280,11 @@ With outbound settings, you select which of your users and groups will be able t
 
 1. Select the **Trust settings** tab.
 
-1. Review the consent prompt option:
+1. Review the **Automatic redemption** option:
 
-   - **Suppress consent prompts for users from my tenant when they access apps and resources in the other tenant**: Select this checkbox if you want to automatically redeem invitations so users from this tenant don't have to accept the consent prompt when they access resources in the specified tenant using B2B direct connect. This setting will only suppress the consent prompt if the specified tenant checks this setting for inbound access as well.
+   - **Automatically redeem invitations with the tenant** &lt;tenant&gt;: Check this setting if you want to automatically redeem invitations. If so, users from this tenant don't have to accept the consent prompt the first time they access the specified tenant using cross-tenant synchronization, B2B collaboration, or B2B direct connect. This setting will only suppress the consent prompt if the specified tenant checks this setting for inbound access as well.
 
-    ![Screenshot that shows the outbound suppress consent prompt check box.](../media/external-identities/outbound-consent-prompt-setting.png)
+    ![Screenshot that shows the outbound Automatic redemption check box.](../media/external-identities/outbound-consent-prompt-setting.png)
 
 1. Select **Save**.
 
@@ -287,9 +295,9 @@ When you remove an organization from your Organizational settings, the default c
 > [!NOTE]
 > If the organization is a cloud service provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true), you won't be able to remove the organization.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
 
-1. Select **External Identities**, and then select **Cross-tenant access settings**.
+1. Browse to **Identity** > **External Identities** > **Cross-tenant access settings**.
 
 1. Select the **Organizational settings** tab.
 

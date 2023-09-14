@@ -3,8 +3,8 @@ title: Application Insights for Worker Service apps (non-HTTP apps)
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-ms.date: 04/24/2023
+ms.custom: devx-track-csharp, devx-track-dotnet
+ms.date: 09/12/2023
 ms.reviewer: cithomas
 ---
 
@@ -20,7 +20,7 @@ The [Application Insights SDK for Worker Service](https://www.nuget.org/packages
 
 ## Prerequisites
 
-You must have a valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-new-resource.md).
+You must have a valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Connection Strings](./sdk-connection-string.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -43,13 +43,13 @@ You must have a valid Application Insights connection string. This string is req
 
 Specific instructions for each type of application are described in the following sections.
 
-## .NET Core LTS Worker Service application
+## .NET Core Worker Service application
 
 The full example is shared at the [NuGet website](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService).
 
-1. Download and install .NET Core [Long Term Support (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+1. [Download and install the .NET SDK](https://dotnet.microsoft.com/download).
 1. Create a new Worker Service project either by using a Visual Studio new project template or the command line `dotnet new worker`.
-1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+1. Add the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
 1. Add `services.AddApplicationInsightsTelemetryWorkerService();` to the `CreateHostBuilder()` method in your `Program.cs` class, as in this example:
 
@@ -217,13 +217,13 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
     ```
 
 1. Set up the connection string.
-   Use the same `appsettings.json` from the preceding .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) Worker Service example.
+   Use the same `appsettings.json` from the preceding [.NET](/dotnet/fundamentals/) Worker Service example.
 
 ## .NET Core/.NET Framework console application
 
-As mentioned in the beginning of this article, the new package can be used to enable Application Insights telemetry from even a regular console application. This package targets [`NetStandard2.0`](/dotnet/standard/net-standard), so it can be used for console apps in .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher, and .NET Framework [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
+As mentioned in the beginning of this article, the new package can be used to enable Application Insights telemetry from even a regular console application. This package targets [`netstandard2.0`](/dotnet/standard/net-standard), so it can be used for console apps in [.NET Core](/dotnet/fundamentals/) or higher, and [.NET Framework](/dotnet/framework/) or higher.
 
-The full example is shared at this [GitHub page](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ConsoleApp).
+The full example is shared at this [GitHub page](https://github.com/microsoft/ApplicationInsights-dotnet/tree/main/examples/ConsoleApp).
 
 1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
@@ -303,7 +303,7 @@ Run your application. The workers from all the preceding examples make an HTTP c
 
 Application Insights collects these ILogger logs, with a severity of Warning or above by default, and dependencies. They're correlated to `RequestTelemetry` with a parent-child relationship. Correlation also works across process/network boundaries. For example, if the call was made to another monitored component, it's correlated to this parent as well.
 
-This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical web application. It isn't necessary to use an operation, but it fits best with the [Application Insights correlation data model](./correlation.md). `RequestTelemetry` acts as the parent operation and every telemetry generated inside the worker iteration is treated as logically belonging to the same operation.
+This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical web application. It isn't necessary to use an operation, but it fits best with the [Application Insights correlation data model](distributed-tracing-telemetry-correlation.md). `RequestTelemetry` acts as the parent operation and every telemetry generated inside the worker iteration is treated as logically belonging to the same operation.
 
 This approach also ensures all the telemetry generated, both automatic and manual, will have the same `operation_id`. Because sampling is based on `operation_id`, the sampling algorithm either keeps or drops all the telemetry from a single iteration.
 
@@ -352,7 +352,7 @@ Dependency collection is enabled by default. The article [Dependency tracking in
 
 ### EventCounter
 
-`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on how to customize the list.
+`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from [.NET](/dotnet/fundamentals/) apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on how to customize the list.
 
 ### Manually track other telemetry
 
@@ -407,29 +407,28 @@ The Application Insights SDK for Worker Service supports both [fixed-rate sampli
 To configure other sampling settings, you can use the following example:
 
 ```csharp
+using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.ApplicationInsights.WorkerService;
 
-public void ConfigureServices(IServiceCollection services)
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
 {
-    // ...
+   var telemetryProcessorChainBuilder = telemetryConfiguration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
-    var aiOptions = new ApplicationInsightsServiceOptions();
-    
-    // Disable adaptive sampling.
-    aiOptions.EnableAdaptiveSampling = false;
-    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+   // Using adaptive sampling
+   telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 5);
 
-    // Add Adaptive Sampling with custom settings.
-    // The following adds adaptive sampling with 15 items per sec.
-    services.Configure<TelemetryConfiguration>((telemetryConfig) =>
-        {
-            var builder = telemetryConfig.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-            builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 15);
-            builder.Build();
-        });
-    //...
-}
+   // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
+   // telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+});
+
+builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
+{
+   EnableAdaptiveSampling = false,
+});
+
+var app = builder.Build();
 ```
 
 For more information, see the [Sampling](#sampling) document.
@@ -495,8 +494,7 @@ The following auto-collection modules are enabled by default. These modules are 
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule` (There's currently an issue involving this telemetry module. For a temporary workaround, see [GitHub Issue 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
-).)
+* `AppServicesHeartbeatTelemetryModule` (There's currently an issue involving this telemetry module. For a temporary workaround, see [GitHub Issue 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689).)
 * `AzureInstanceMetadataTelemetryModule`
 
 To configure any default telemetry module, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example:
@@ -587,7 +585,7 @@ Visual Studio IDE onboarding is currently supported only for ASP.NET/ASP.NET Cor
 
 ### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) only.
+No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports [.NET](/dotnet/fundamentals/) only.
 
 ### Are all features supported if I run my application in Linux?
 
@@ -621,7 +619,7 @@ Use this sample if you're using a console application written in either .NET Cor
 Use this sample if you're in ASP.NET Core and creating background tasks in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services).
 
 [.NET Core Worker Service](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService):
-Use this sample if you have a .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) Worker Service application in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template).
+Use this sample if you have a [.NET](/dotnet/fundamentals/) Worker Service application in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template).
 
 ## Open-source SDK
 

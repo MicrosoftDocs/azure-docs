@@ -2,6 +2,7 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/22/2023
 ms.author: azfuncdf
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -17,7 +18,6 @@ Make sure to choose your Durable Functions development language at the top of th
 
 > [!IMPORTANT]   
 > This article supports both Python v1 and Python v2 programming models for Durable Functions.  
-> The Python v2 programming model is currently in preview. 
 
 ## Python v2 programming model
 
@@ -25,9 +25,9 @@ Durable Functions provides preview support of the new [Python v2 programming mod
 
 Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) isn't currently supported for the v2 model with Durable Functions. You'll instead need to manage your extensions manually as follows:
 
-1. Remove the `extensionBundle` section of your `host.json` as described in [this Functions article](../functions-run-local.md#install-extensions).
+1. Remove the `extensionBundle` section of your `host.json` file.
  
-1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview.
+1. Run the `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` command on your terminal. This installs the Durable Functions extension for your app, which allows you to use the v2 model preview. For more information, see [func extensions install](../functions-core-tools-reference.md#func-extensions-install).
 
 ::: zone-end
 
@@ -189,8 +189,8 @@ main = df.Orchestrator.create(orchestrator_function)
 ```powershell
 param($Context)
 
-$input = $Context.Input
-$input
+$InputData = $Context.Input
+$InputData
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
@@ -361,7 +361,7 @@ public static string SayHello([ActivityTrigger] string name)
 In the .NET-isolated worker, only serializable types representing your input are supported for the `[ActivityTrigger]`.
 
 ```csharp
-[FunctionName("SayHello")]
+[Function("SayHello")]
 public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
@@ -666,6 +666,35 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
     instance_id = await client.start_new("HelloWorld", client_input=payload)
 ```
 ---
+
+::: zone-end 
+::: zone pivot="programming-language-powershell" 
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "queueTrigger",
+      "queueName": "durable-function-trigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**run.ps1**
+```powershell
+param([string]$InputData, $TriggerMetadata)
+
+$InstanceId = Start-DurableOrchestration -FunctionName 'HelloWorld' -Input $InputData
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 

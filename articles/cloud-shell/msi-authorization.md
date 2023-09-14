@@ -4,6 +4,7 @@ ms.contributor: jahelmic
 ms.date: 11/14/2022
 ms.topic: article
 tags: azure-resource-manager
+ms.custom: devx-track-linux
 title: Acquiring a user token in Azure Cloud Shell
 ---
 # Acquire a token in Azure Cloud Shell
@@ -58,7 +59,7 @@ has expired.
 - There's an allowlist of resources that Cloud Shell tokens can be provided for. When you try to use
   a token with a service that is not listed, you may see the following error message:
 
-  ```
+  ```output
   "error":{"code":"AudienceNotSupported","message":"Audience https://newservice.azure.com/
   isn't a supported MSI token audience...."}
   ```

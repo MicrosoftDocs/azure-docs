@@ -8,14 +8,11 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/13/2023
+ms.date: 06/15/2023
 ms.author: depadia
-
 ---
 
 # SAP BusinessObjects BI platform planning and implementation guide on Azure
-
-## Overview
 
 The purpose of this guide is to provide guidelines for planning, deploying, and configuring SAP BusinessObjects BI Platform, also known as SAP BOBI Platform on Azure. This guide is intended to cover common Azure services and features that are relevant for SAP BOBI Platform. This guide isn't an exhaustive list of all possible configuration options. It covers solutions common to typical deployment scenarios.
 
@@ -29,7 +26,7 @@ This document provides guidance on planning and implementation consideration for
 
 ### Architecture overview
 
-SAP BusinessObjects BI Platform is a self-contained system that can exist on a single Azure virtual machine or can be scaled into a cluster of many Azure Virtual Machines that run different components. SAP BOBI Platform consists of six conceptual tiers: Client Tier, Web Tier, Management Tier, Storage Tier, Processing Tier, and Data Tier. (For more details on each tier, refer Administrator Guide in [SAP BusinessObjects Business Intelligence Platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/4.3/en-US) help portal). Following is the high-level details on each tier:
+SAP BusinessObjects BI Platform is a self-contained system that can exist on a single Azure virtual machine or can be scaled into a cluster of many Azure Virtual Machines that run different components. SAP BOBI Platform consists of six conceptual tiers: Client Tier, Web Tier, Management Tier, Storage Tier, Processing Tier, and Data Tier. (For more details on each tier, refer Administrator Guide in [SAP BusinessObjects Business Intelligence Platform](https://help.sap.com/docs/r/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/4.3/en-US) help portal). Following is the high-level details on each tier:
 
 - **Client Tier:** It contains all desktop client applications that interact with the BI platform to provide different kind of reporting, analytic, and administrative capabilities.
 - **Web Tier:** It contains web applications deployed to Java web application servers. Web applications provide BI Platform functionality to end users through a web browser.
@@ -40,7 +37,7 @@ SAP BusinessObjects BI Platform is a self-contained system that can exist on a s
 
 The SAP BI Platform consists of a collection of servers running on one or more hosts. It's essential that you choose the correct deployment strategy based on the sizing, business need and type of environment. For small installation like development or test, you can use a single Azure Virtual Machine for web application server, database server, and all BI Platform servers. In case you're using Database-as-a-Service (DBaaS) offering from Azure, database server runs separately from other components. For medium and large installation, you can have servers running on multiple Azure virtual machines.
 
-In below figure, architecture of large-scale deployment of SAP BOBI Platform on Azure virtual machines is shown, where each component is distributed and placed in availability sets that can sustain failover if there's service disruption.
+The diagram below illustrates the architecture of a large-scale deployment of the SAP BOBI Platform on Azure virtual machines, with each component distributed. To ensure infrastructure resilience against service disruption, VMs can be deployed using either [flexible scale set](./sap-high-availability-architecture-scenarios.md#virtual-machine-scale-set-with-flexible-orchestration), [availability sets](sap-high-availability-architecture-scenarios.md#multiple-instances-of-virtual-machines-in-the-same-availability-set) or [availability zones](sap-high-availability-architecture-scenarios.md#azure-availability-zones).
 
 ![SAP BusinessObjects BI Platform Architecture on Azure](./media/businessobjects-deployment-guide/businessobjects-architecture-on-azure.png)
 
@@ -52,7 +49,7 @@ In below figure, architecture of large-scale deployment of SAP BOBI Platform on 
 
 - Web application servers
 
-  The web server hosts the web applications of SAP BOBI Platform like CMC and BI Launch Pad. To achieve high availability for web server, you must deploy at least two web application servers to manage redundancy and load balancing. In Azure, these web application servers can be placed either in availability sets or availability zones for better availability.
+  The web server hosts the web applications of SAP BOBI Platform like CMC and BI Launch Pad. To achieve high availability for web server, you must deploy at least two web application servers to manage redundancy and load balancing. In Azure, these web application servers can be placed either in flexible scale set, availability zones or availability sets for better availability.
 
   Tomcat is the default web application for SAP BI Platform. To achieve high availability for tomcat, enable session replication using [Static Membership Interceptor](https://tomcat.apache.org/tomcat-9.0-doc/config/cluster-membership.html#Static_Membership_Attributes) in Azure. It ensures that user can access SAP BI web application even when tomcat service is disrupted.
 
@@ -89,7 +86,7 @@ Azure Infrastructure as a Service (IaaS) enables you to deploy and configure SAP
 - SAP BusinessObjects BI Platform 4.2 SP04+
 - SAP BusinessObjects BI Platform 4.1 SP05+
 
-The SAP BI Platform runs on different operating system and databases. Supportability of SAP BOBI platform between Operating System and Database version can be found in [Product Availability Matrix](https://apps.support.sap.com/sap/support/pam) for SAP BOBI.
+The SAP BI Platform runs on different operating system and databases. Supportability of SAP BOBI platform between Operating System and Database version can be found in [Product Availability Matrix](https://userapps.support.sap.com/sap/support/pam) for SAP BOBI.
 
 ### Operating system
 
@@ -114,7 +111,7 @@ The BI Platform needs database for CMS and Auditing Data store, which can be ins
 
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) (Follow same compatibility guidelines as mentioned for MySQL AB in SAP PAM)
 
-  It's a relational database service powered by the MySQL community edition. Being a fully managed Database-as-a-Service (DBaaS) offering, it can handle mission-critical workloads with predictable performance and dynamic scalability. It has built-in high availability, automatic backups, software patching, automatic failure detection, and point-in-time restore for up to 35 days, which substantially reduce operation tasks. For more details, check [Azure Database for MySQL](../../mysql/overview.md) documentation.
+  It's a relational database service powered by the MySQL community edition. Being a fully managed Database-as-a-Service (DBaaS) offering, it can handle mission-critical workloads with predictable performance and dynamic scalability. It has built-in high availability, automatic backups, software patching, automatic failure detection, and point-in-time restore for up to 35 days, which substantially reduce operation tasks. For more details, check [Azure Database for MySQL](../../mysql/single-server/overview.md) documentation.
 
 - SAP HANA
 
@@ -136,7 +133,7 @@ For storage need for SAP BOBI Platform, Azure offers different types of [Managed
 
 Azure supports two DBaaS offering for SAP BOBI Platform data tier - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) (BI Application running on Windows) and [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) (BI Application running on Linux and Windows). So based on the sizing result, you can choose purchasing model that best fits your need.
 
-> [!Tip]
+> [!TIP]
 > For quick sizing reference, consider 800 SAPS = 1 vCPU while mapping the SAPS result of SAP BOBI Platform database tier to Azure Database-as-a-Service (Azure SQL Database or Azure Database for MySQL).
 
 ### Sizing models for Azure SQL database
@@ -165,12 +162,12 @@ Azure SQL Database offers the following three purchasing models:
 
   It's more suitable for intermittent, unpredictable usage with low average compute utilization over time. So this model can be used for nonproduction SAP BOBI deployment.
 
-> [!Note]
+> [!NOTE]
 > For SAP BOBI, it's convenient to use vCore based model and choose either General Purpose or Business Critical service tier based on the business need.
 
 ### Sizing models for Azure database for MySQL
 
-Azure Database for MySQL comes with three different pricing tiers. They're differentiated by the amount of compute in vCores, memory per vCore, and the storage technology used to store the date. Following is the high-level details on the options and for more details on different attributes, refer [Pricing Tier](../../mysql/concepts-pricing-tiers.md) for Azure Database for MySQL.
+Azure Database for MySQL comes with three different pricing tiers. They're differentiated by the amount of compute in vCores, memory per vCore, and the storage technology used to store the date. Following is the high-level details on the options and for more details on different attributes, refer [Pricing Tier](../../mysql/single-server/concepts-pricing-tiers.md) for Azure Database for MySQL.
 
 - Basic
 
@@ -184,7 +181,7 @@ Azure Database for MySQL comes with three different pricing tiers. They're diffe
 
   For high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
 
-> [!Note]
+> [!NOTE]
 > For SAP BOBI, it is convenient to use General Purpose or Memory Optimized pricing tier based on the business workload.
 
 ## Azure resources
@@ -195,13 +192,19 @@ Azure region is one or a collection of data-centers that contains the infrastruc
 
 SAP BI Platform contains different components that might require specific VM types, Storage like Azure Files or Azure NetApp Files or Database as a Service (DBaaS) for its data tier that might not be available in certain regions. You can find out the exact information on VM types, Azure Storage types or, other Azure Services in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) site. If you're already running your SAP systems on Azure, probably you have your region identified. In that case, you need to first investigate that the necessary services are available in those regions to decide the architecture of SAP BI Platform.
 
+### Virtual machine scale sets with flexible orchestration
+
+[Virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) with flexible orchestration provide a logical grouping of platform-managed virtual machines. You have an option to create scale set within region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute VMs across specified zone and the scale set would also distribute VMs across different fault domains within the zone on a best effort basis.
+
+**For SAP workload only flexible scale set with FD=1 is supported.** The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner. To learn more about SAP workload deployment with scale set, see [flexible virtual machine scale deployment guide](./sap-high-availability-architecture-scenarios.md).
+
 ### Availability zones
 
 Availability Zones are physically separate locations within an Azure region. Each Availability Zone is made of one or more datacenters equipped with independent power, cooling, and networking.
 
 To achieve high availability on each tier for SAP BI Platform, you can distribute VMs across Availability Zone by implementing high availability framework, which can provide the best SLA in Azure. For Virtual Machine SLA in Azure, check the latest version of [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
-For data tier, Azure Database as a Service (DBaaS) service provides high availability framework by default. You just need to select the region and service inherent high availability, redundancy, and resiliency capabilities to mitigate database downtime from planned and unplanned outages, without requiring you to configure any additional components. For more details on the SLA for supported DBaaS offering on Azure, check [High availability in Azure Database for MySQL](../../mysql/concepts-high-availability.md) and [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla).
+For data tier, Azure Database as a Service (DBaaS) service provides high availability framework by default. You just need to select the region and service inherent high availability, redundancy, and resiliency capabilities to mitigate database downtime from planned and unplanned outages, without requiring you to configure any additional components. For more details on the SLA for supported DBaaS offering on Azure, check [High availability in Azure Database for MySQL](../../mysql/single-server/concepts-high-availability.md) and [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla).
 
 ### Availability sets
 
@@ -213,8 +216,10 @@ Also the number of update and fault domains that can be used by an Azure Availab
 
 To understand the concept of Azure availability sets and the way availability sets relate to Fault and Upgrade Domains, read [manage availability](../../virtual-machines/availability.md) article.
 
-> [!Important]
-> The concepts of Azure Availability Zones and Azure availability sets are mutually exclusive. That means, you can either deploy a pair or multiple VMs into a specific Availability Zone or an Azure availability set. But not both.
+> [!IMPORTANT]
+>
+> - The concepts of Azure availability zones and Azure availability sets are mutually exclusive. You can deploy a pair or multiple VMs into either a specific availability zone or an availability set, but you can't do both.
+> - If you planning to deploy across availability zones, it is advised to use [flexible scale set with FD=1](./virtual-machine-scale-set-sap-deployment-guide.md) over standard availability zone deployment.
 
 ### Virtual machines
 
@@ -248,7 +253,7 @@ Azure Storage has different Storage types available for customers and details fo
 
 SAP BOBI is a reporting and analytics BI platform that doesn’t hold any business data. So the system is connected to other database servers from where it fetches all the data and provide insight to users. Azure provides a network infrastructure, which allows the mapping of all scenarios that can be realized with SAP BI Platform like connecting to on-premises system, systems in different virtual network and others. For more information check [Microsoft Azure Networking for SAP Workload](planning-guide.md#azure-networking).
 
-For Database-as-a-Service offering, any newly created database (Azure SQL Database or Azure Database for MySQL) has a firewall that blocks all external connections. To allow access to the DBaaS service from BI Platform virtual machines, you need to specify one or more server-level firewall rules to enable access to your DBaaS server. For more information, see [Firewall rules](../../mysql/concepts-firewall-rules.md) for Azure Database for MySQL and [Network Access Controls](/azure/azure-sql/database/network-access-controls-overview) section for Azure SQL database.
+For Database-as-a-Service offering, any newly created database (Azure SQL Database or Azure Database for MySQL) has a firewall that blocks all external connections. To allow access to the DBaaS service from BI Platform virtual machines, you need to specify one or more server-level firewall rules to enable access to your DBaaS server. For more information, see [Firewall rules](../../mysql/single-server/concepts-firewall-rules.md) for Azure Database for MySQL and [Network Access Controls](/azure/azure-sql/database/network-access-controls-overview) section for Azure SQL database.
 
 ## Next steps
 

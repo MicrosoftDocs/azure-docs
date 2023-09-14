@@ -6,6 +6,8 @@ ms.date: 09/13/2022
 ms.author: jukullam
 ms.manager: mijacobs
 ms.custom: "devops-pipelines-deploy"
+author: cephalin
+
 ---
 
 # Deploy to App Service using Azure Pipelines
@@ -14,7 +16,7 @@ ms.custom: "devops-pipelines-deploy"
 
 Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web app to [Azure App Service](./overview.md) on every successful build. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
 
-YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (pre-packaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
+YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (prepackaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
 You'll use the [Azure Web App task](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) to deploy to Azure App Service in your pipeline. For more complicated scenarios such as needing to use XML parameters in your deploy, you can use the [Azure App Service Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app).  
 
@@ -33,7 +35,7 @@ You'll use the [Azure Web App task](/azure/devops/pipelines/tasks/deploy/azure-r
 
 ### Create your pipeline
 
-The code examples in this section assume you are deploying an ASP.NET web app. You can adapt the instructions for other frameworks. 
+The code examples in this section assume you're deploying an ASP.NET web app. You can adapt the instructions for other frameworks. 
 
 Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/ecosystems/ecosystems).  
 
@@ -43,15 +45,15 @@ Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/eco
 
 1. Go to **Pipelines**, and then select **New Pipeline**.
 
-1. Walk through the steps of the wizard by first selecting **GitHub** as the location of your source code.
+1. When prompted, select the location of your source code: either **Azure Repos Git** or **GitHub**.
 
-1. You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
+   You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
 
 1. When the list of repositories appears, select your repository.
 
 1. You might be redirected to GitHub to install the Azure Pipelines app. If so, select **Approve & install**.
 
-1.  When the **Configure** tab appears, select **ASP.NET Core**.
+1. When the **Configure** tab appears, select **ASP.NET Core**.
 
 1. When your new pipeline appears, take a look at the YAML to see what it does. When you're ready, select **Save and run**.
 
@@ -61,9 +63,7 @@ Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/eco
 
     :::image type="content" source="media/deploy-azure-pipelines/azure-web-app-task.png" alt-text="Screenshot of Azure web app task.":::
 
-1. Select **Azure Resource Manager** for the **Connection type** and choose your **Azure subscription**. Make sure to **Authorize** your connection. 
-
-1. Select  **Web App on Linux** and enter your `azureSubscription`, `appName`, and `package`. Your complete YAML should look like this. 
+1. Select **Azure Resource Manager** for the **Connection type** and choose your **Azure subscription**. Make sure to **Authorize** your connection.  
 
 1. Select  **Web App on Linux** and enter your `azureSubscription`, `appName`, and `package`. Your complete YAML should look like this. 
 
@@ -105,7 +105,7 @@ To get started:
 
 ---
 
-Now you're ready to read through the rest of this topic to learn some of the more common changes that people make to customize an Azure Web App deployment.
+Now you're ready to read through the rest of this article to learn some of the more common changes that people make to customize an Azure Web App deployment.
 
 ## Use the Azure Web App task
 
@@ -184,7 +184,7 @@ This is where the task picks up the web package for deployment.
 
 To deploy to Azure App Service, you'll need to use an Azure Resource Manager [service connection](/azure/devops/pipelines/library/service-endpoints). The Azure service connection stores the credentials to connect from Azure Pipelines or Azure DevOps Server to Azure.
 
-Learn more about [Azure Resource Manager service connections](/azure/devops/pipelines/library/connect-to-azure). If your service connection is not working as expected, see [Troubleshooting service connections](/azure/devops/pipelines/release/azure-rm-endpoint). 
+Learn more about [Azure Resource Manager service connections](/azure/devops/pipelines/library/connect-to-azure). If your service connection isn't working as expected, see [Troubleshooting service connections](/azure/devops/pipelines/release/azure-rm-endpoint). 
 
 # [YAML](#tab/yaml/)
 
@@ -210,8 +210,8 @@ By default, your deployment happens to the root application in the Azure Web App
     VirtualApplication: '<name of virtual application>'
 ```
 
-* **VirtualApplication**: the name of the Virtual Application that has been configured in the Azure portal. See [Configure an App Service app in the Azure portal
-](./configure-common.md) for more details.
+* **VirtualApplication**: the name of the Virtual Application that has been configured in the Azure portal. For more information, see [Configure an App Service app in the Azure portal
+](./configure-common.md).
 
 # [Classic](#tab/classic/)
 
@@ -237,6 +237,7 @@ The following example shows how to deploy to a staging slot, and then swap to a 
     deployToSlotOrASE: true
     resourceGroupName: '<name of resource group>'
     slotName: staging
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
 
 - task: AzureAppServiceManage@0
   inputs:
@@ -253,7 +254,8 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 * **appName**: the name of your existing app service.
 * **deployToSlotOrASE**: Boolean. Deploy to an existing deployment slot or Azure App Service Environment.
 * **resourceGroupName**: Name of the resource group. Required if `deployToSlotOrASE` is true. 
-* **slotName**: Name of the slot, defaults to `production`. Required if `deployToSlotOrASE` is true. 
+* **slotName**: Name of the slot, which defaults to `production`. Required if `deployToSlotOrASE` is true.
+* **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
 * **SourceSlot**: Slot sent to production when `SwapWithProduction` is true. 
 * **SwapWithProduction**: Boolean. Swap the traffic of source slot with production. 
 
@@ -414,8 +416,8 @@ To learn more about conditions, see [Specify conditions](/azure/devops/pipelines
 In your release pipeline, you can implement various checks and conditions to control the deployment:
 
 * Set *branch filters* to configure the *continuous deployment trigger* on the artifact of the release pipeline.
-* Set *pre-deployment approvals* as a pre-condition for deployment to a stage.
-* Configure *gates* as a pre-condition for deployment to a stage.
+* Set *pre-deployment approvals* as a precondition for deployment to a stage.
+* Configure *gates* as a precondition for deployment to a stage.
 * Specify conditions for a task to run.
 
 To learn more, see [Release, branch, and stage triggers](/azure/devops/pipelines/release/triggers), [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals), [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates), and [Specify conditions for running a task](/azure/devops/pipelines/process/conditions).
@@ -431,10 +433,10 @@ You can use a release pipeline to pick up the artifacts published by your build 
    * If you've just completed a CI build, choose the link (for example, _Build 20170815.1_)
      to open the build summary. Then choose **Release** to start a new release pipeline that's automatically linked to the build pipeline.
 
-   * Open the **Releases** tab in **Azure Pipelines**, open the **+** drop-down
+   * Open the **Releases** tab in **Azure Pipelines**, open the **+** dropdown
      in the list of release pipelines, and choose **Create release pipeline**.
 
-1. The easiest way to create a release pipeline is to use a template. If you are deploying a Node.js app, select the **Deploy Node.js App to Azure App Service** template.
+1. The easiest way to create a release pipeline is to use a template. If you're deploying a Node.js app, select the **Deploy Node.js App to Azure App Service** template.
    Otherwise, select the **Azure App Service Deployment** template. Then choose **Apply**.
 
    > [!NOTE]
@@ -448,13 +450,12 @@ You can use a release pipeline to pick up the artifacts published by your build 
    continuous deployment trigger is enabled, and add a filter to include the **main** branch.
 
    > [!NOTE]
-   > Continuous deployment is not enabled by default when you create a new release pipeline from the **Releases** tab.
+   > Continuous deployment isn't enabled by default when you create a new release pipeline from the **Releases** tab.
 
 1. Open the **Tasks** tab and, with **Stage 1** selected, configure the task property variables as follows:
 
    * **Azure Subscription:** Select a connection from the list under **Available Azure Service Connections** or create a more restricted permissions connection to your Azure subscription.
-     If you are using Azure Pipelines and if you see an **Authorize** button next to the input, click on it to authorize Azure Pipelines to connect to your Azure subscription. If you are using TFS or if you do not see
-     the desired Azure subscription in the list of subscriptions, see [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) to manually set up the connection.
+     If you're using Azure Pipelines and if you see an **Authorize** button next to the input, select it to authorize Azure Pipelines to connect to your Azure subscription. If you're using TFS or if you don't see the desired Azure subscription in the list of subscriptions, see [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure) to manually set up the connection.
 
    * **App Service Name**: Select the name of the web app from your subscription.
 

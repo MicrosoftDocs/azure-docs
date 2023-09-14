@@ -3,10 +3,11 @@ title: Configure Data-in Replication - Azure Database for MySQL
 description: This article describes how to set up Data-in Replication for Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+ms.custom: devx-track-linux
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 05/03/2023
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
@@ -61,7 +62,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    2. Execute the following query.
 
-      ```bash
+      ```sql
       mysql> SELECT @@global.redirect_server_host;
       ```
 
@@ -84,7 +85,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
       For example:
 
-      ```bash
+      ```cmd
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
       ```
@@ -109,7 +110,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    2. Open the configuration file to edit it and locate **mysqld** section in the file.
    3. In the mysqld section, add following line:
 
-       ```bash
+       ```config
        log-bin=mysql-bin.log
        ```
 
@@ -193,6 +194,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```sql
     show master status;
    ```
+
    The results should appear similar to the following. Make sure to note the binary file name for use in later steps.
 
    :::image type="content" source="./media/how-to-data-in-replication/master-status.png" alt-text="Master Status Results":::

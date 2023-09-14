@@ -18,7 +18,7 @@ summary: |
   This FAQ answers common questions about Azure AD Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
   
   > [!IMPORTANT]
-  > In September 2022, Microsoft announced deprecation of Multi-Factor Authentication Server. Beginning September 30, 2024, Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md) to the cloud-based Azure AD MFA service by using the latest Migration Utility included in the most recent [MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
+  > In September 2022, Microsoft announced deprecation of Multi-Factor Authentication Server. Beginning September 30, 2024, Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure AD MFA service by using the latest Migration Utility included in the most recent [MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
   
 
 sections:
@@ -34,7 +34,7 @@ sections:
           * **Unique ID** (either user name or on-premises Multi-Factor Authentication Server ID)
           * **First and Last Name** (optional)
           * **Email Address** (optional)
-          * **Phone Number** (when using a voice call or SMS authentication)
+          * **Phone Number** (when using a voice call or text message authentication)
           * **Device Token** (when using mobile app authentication)
           * **Authentication Mode**
           * **Authentication Result**
@@ -49,27 +49,24 @@ sections:
           For more information, see [Data residency and customer data for Azure AD Multi-Factor Authentication](concept-mfa-data-residency.md).
           
       - question: |
-          What SMS short codes are used for sending SMS messages to my users?
+          What short codes are used for sending text messages to my users?
         answer: |
-          In the United States, we use the following SMS short codes:
+          In the United States, we use the following short codes:
           
           * *97671*
           * *69829*
           * *51789*
           * *99399*
           
-          In Canada, we use the following SMS short codes:
+          In Canada, we use the following short codes:
           
           * *759731*
           * *673801*
           
-          There's no guarantee of consistent SMS or voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability.
+          There's no guarantee of consistent text message or voice-based multifactor authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve text message deliverability.
           
           We don't support short codes for countries or regions besides the United States and Canada.
           
-          ## Billing
-          Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation for [Azure AD Multi-Factor Authentication versions and consumption plans](concept-mfa-licensing.md).
-
       - question: |
           Does Azure AD Multi-Factor Authentication throttle user sign-ins?
         answer: |
@@ -103,7 +100,7 @@ sections:
         answer: |
           Security defaults can be enabled in the Azure AD Free tier. With security defaults, all users are enabled for multi-factor authentication using the Microsoft Authenticator app. There's no ability to use text message or phone verification with security defaults, just the Microsoft Authenticator app.
           
-          For more information, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md)
+          For more information, see [What are security defaults?](../fundamentals/security-defaults.md)
           
       - question: |
           Can my organization switch between per-user and per-authentication consumption billing models at any time?
@@ -135,7 +132,7 @@ sections:
       - question: |
           What should I tell my users to do if they don't receive a response on their phone?
         answer: |
-          Have your users attempt up to five times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this approach doesn't work, open a support case to troubleshoot further.
+          Have your users attempt up to five times in 5 minutes to get a phone call or text message for authentication. Microsoft uses multiple providers for delivering calls and text messages. If this approach doesn't work, open a support case to troubleshoot further.
           
           Third-party security apps may also block the verification code text message or phone call. If using a third-party security app, try disabling the protection, then request another MFA verification code be sent.
           
@@ -168,7 +165,7 @@ sections:
       - question: |
           My users say that sometimes they don't receive the text message or the verification times out.
         answer: |
-          Delivery of SMS messages aren't guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country or region, the mobile phone carrier, and the signal strength.
+          Delivery of text messages isn't guaranteed because uncontrollable factors might affect the reliability of the service. These factors include the destination country or region, the mobile phone carrier, and the signal strength.
           
           Third-party security apps may also block the verification code text message or phone call. If using a third-party security app, try disabling the protection, then request another MFA verification code be sent.
           

@@ -1,93 +1,92 @@
 ---
 title: Custom disk configurations
-description: Provide custom disk configurations for your system in the SAP on Azure Deployment Automation Framework. Add extra disks to a new system, or an existing system.
+description: Provide custom disk configurations for your system in SAP Deployment Automation Framework. Add extra disks to a new system or an existing system.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 06/09/2022
+ms.date: 05/05/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Change the disk configuration for the SAP deployment automation
+# Change the disk configuration for SAP Deployment Automation Framework
 
-By default, the [SAP on Azure Deployment Automation Framework](deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration json file.
+By default, [SAP Deployment Automation Framework](deployment-framework.md) defines the disk configuration for SAP systems. As needed, you can change the default configuration by providing a custom disk configuration JSON file.
 
 > [!TIP]
 > When possible, it's a best practice to increase the disk size instead of adding more disks.
 
-
 ### HANA databases
 
-The table below shows the default disk configuration for HANA systems. 
+The table shows the default disk configuration for HANA systems.
 
-| Size      | VM SKU              | OS disk       | Data disks       | Log disks        | Hana shared    | User SAP     | Backup          |
+| Size      | VM SKU              | OS disk       | Data disks       | Log disks        | HANA shared    | User SAP     | Backup          |
 |-----------|---------------------|---------------|------------------|------------------|----------------|--------------|-----------------|
 | Default   | Standard_D8s_v3     | E6 (64 GB)    | P20 (512 GB)     | P20 (512 GB)     | E20 (512 GB)   | E6 (64 GB)   | E20 (512 GB)    |  
-| S4DEMO    | Standard_E32ds_v4   | P10 (128 GB)  | 4 P10 (128 GB)   | 3 P10 (128 GB)   |                | P20 (512 GB) | P20 (512 GB)    |
-| M32ts     | Standard_M32ts      | P6 (64 GB)    | 4 P6 (64 GB)     | 3 P10 (128 GB)   | P20 (512 GB)   | P6 (64 GB)   | P20 (512 GB)    |
-| M32ls     | Standard_M32ls      | P6 (64 GB)    | 4 P6 (64 GB)     | 3 P10 (128 GB)   | P20 (512 GB)   | P6 (64 GB)   | P20 (512 GB)    |
-| M64ls     | Standard_M64ls      | P6 (64 GB)    | 4 P10 (128 GB)   | 3 P10 (128 GB)   | P20 (512 GB)   | P6 (64 GB)   | P30 (1024 GB)   |
-| M64s      | Standard_M64s       | P10 (128 GB)  | 4 P15 (256 GB)   | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P30 (1024 GB)   |
-| M64ms     | Standard_M64ms      | P6 (64 GB)    | 4 P20 (512 GB)   | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 2 P30 (1024 GB) |
-| M128s     | Standard_M128s      | P10 (128 GB)  | 4 P20 (512 GB)   | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 2 P30 (1024 GB) |
-| M128ms    | Standard_M128m      | P10 (128 GB)  | 4 P30 (1024 GB)  | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 4 P30 (1024 GB) |
-| M208s_v2  | Standard_M208s_v2   | P10 (128 GB)  | 4 P30 (1024 GB)  | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 3 P40 (2048 GB) |
-| M208ms_v2 | Standard_M208ms_v2  | P10 (128 GB)  | 4 P40 (2048 GB)  | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 3 P40 (2048 GB) |
-| M416s_v2  | Standard_M416s_v2   | P10 (128 GB)  | 4 P40 (2048 GB)  | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 3 P40 (2048 GB) |
-| M416ms_v2 | Standard_M416m_v2   | P10 (128 GB)  | 4 P50 (4096 GB)  | 3 P15 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | 4 P50 (4096 GB) |
-| E20ds_v4  | Standard_E20ds_v4   | P6 (64 GB)    | 3 P10 (128 GB)   | 1 Ultra (80 GB)  | P15 (256 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E20ds_v5  | Standard_E20ds_v5   | P6 (64 GB)    | 3 P10 (128 GB)   | 1 Ultra (80 GB)  | P15 (256 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E32ds_v4  | Standard_E32ds_v4   | P6 (64 GB)    | 3 P10 (128 GB)   | 1 Ultra (128 GB) | P15 (256 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E32ds_v5  | Standard_E32ds_v5   | P6 (64 GB)    | 3 P10 (128 GB)   | 1 Ultra (128 GB) | P15 (256 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E48ds_v4  | Standard_E48ds_v4   | P6 (64 GB)    | 3 P15 (256 GB)   | 1 Ultra (192 GB) | P20 (512 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E48ds_v5  | Standard_E48ds_v4   | P6 (64 GB)    | 3 P15 (256 GB)   | 1 Ultra (192 GB) | P20 (512 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E64ds_v3  | Standard_E64ds_v3   | P6 (64 GB)    | 3 P15 (256 GB)   | 1 Ultra (220 GB) | P20 (512 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E64ds_v4  | Standard_E64ds_v4   | P6 (64 GB)    | 3 P15 (256 GB)   | 1 Ultra (256 GB) | P20 (512 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E64ds_v5  | Standard_E64ds_v5   | P6 (64 GB)    | 3 P15 (256 GB)   | 1 Ultra (256 GB) | P20 (512 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
-| E96ds_v5  | Standard_E96ds_v4   | P6 (64 GB)    | 3 P15 (256 GB)   | 1 Ultra (256 GB) | P20 (512 GB)   | P6 (64 GB)   | 1 P15 (256 GB)  |
+| S4DEMO    | Standard_E32ds_v4   | P10 (128 GB)  | P10x4 (128 GB)   | P10x3 (128 GB)   |                | P20 (512 GB) | P20 (512 GB)    |
+| M32ts     | Standard_M32ts      | P6 (64 GB)    | P6x4 (64 GB)     | P10x3 (128 GB)   | P20 (512 GB)   | P6 (64 GB)   | P20 (512 GB)    |
+| M32ls     | Standard_M32ls      | P6 (64 GB)    | P6x4 (64 GB)     | P10x3 (128 GB)   | P20 (512 GB)   | P6 (64 GB)   | P20 (512 GB)    |
+| M64ls     | Standard_M64ls      | P6 (64 GB)    | P10x4 (128 GB)   | P10x3 (128 GB)   | P20 (512 GB)   | P6 (64 GB)   | P30 (1024 GB)   |
+| M64s      | Standard_M64s       | P10 (128 GB)  | P15x4 (256 GB)   | P15x3 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P30 (1024 GB)   |
+| M64ms     | Standard_M64ms      | P6 (64 GB)    | P20x4 (512 GB)   | P15x3 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P30x2 (1024 GB) |
+| M128s     | Standard_M128s      | P10 (128 GB)  | P20x4 (512 GB)   | P15x3 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P30x2 (1024 GB) |
+| M128ms    | Standard_M128m      | P10 (128 GB)  | P30x4 (1024 GB)  | P15x3 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P30x4 (1024 GB) |
+| M208s_v2  | Standard_M208s_v2   | P10 (128 GB)  | P30x4 (1024 GB)  | P15x3 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P40x3 (2048 GB) |
+| M208ms_v2 | Standard_M208ms_v2  | P10 (128 GB)  | P40x4 (2048 GB)  | P15x3 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P40x3 (2048 GB) |
+| M416s_v2  | Standard_M416s_v2   | P10 (128 GB)  | P40x4 (2048 GB)  | P15x3 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P40x3 (2048 GB) |
+| M416ms_v2 | Standard_M416m_v2   | P10 (128 GB)  | P50x4 (4096 GB)  | P15x3 (256 GB)   | P30 (1024 GB)  | P6 (64 GB)   | P50x4 (4096 GB) |
+| E20ds_v4  | Standard_E20ds_v4   | P6 (64 GB)    | P10x3 (128 GB)   | Ultra (80 GB)    | P15 (256 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E20ds_v5  | Standard_E20ds_v5   | P6 (64 GB)    | P10x3 (128 GB)   | Ultra (80 GB)    | P15 (256 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E32ds_v4  | Standard_E32ds_v4   | P6 (64 GB)    | P10x3 (128 GB)   | Ultra (128 GB)   | P15 (256 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E32ds_v5  | Standard_E32ds_v5   | P6 (64 GB)    | P10x3 (128 GB)   | Ultra (128 GB)   | P15 (256 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E48ds_v4  | Standard_E48ds_v4   | P6 (64 GB)    | P15x3 (256 GB)   | Ultra (192 GB)   | P20 (512 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E48ds_v5  | Standard_E48ds_v4   | P6 (64 GB)    | P15x3 (256 GB)   | Ultra (192 GB)   | P20 (512 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E64ds_v3  | Standard_E64ds_v3   | P6 (64 GB)    | P15x3 (256 GB)   | Ultra (220 GB)   | P20 (512 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E64ds_v4  | Standard_E64ds_v4   | P6 (64 GB)    | P15x3 (256 GB)   | Ultra (256 GB)   | P20 (512 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E64ds_v5  | Standard_E64ds_v5   | P6 (64 GB)    | P15x3 (256 GB)   | Ultra (256 GB)   | P20 (512 GB)   | P6 (64 GB)   | P15 (256 GB)    |
+| E96ds_v5  | Standard_E96ds_v4   | P6 (64 GB)    | P15x3 (256 GB)   | Ultra (256 GB)   | P20 (512 GB)   | P6 (64 GB)   | P15 (256 GB)    |
 
 ### AnyDB databases
 
-The table below shows the default disk configuration for AnyDB systems. 
+The table shows the default disk configuration for AnyDB systems.
 
 | Size    | VM SKU           | OS disk     | Data disks       | Log disks       |
 |---------|------------------|-------------|------------------|-----------------|
 | Default | Standard_E4s_v3  | P6 (64 GB)  | P15 (256 GB)     | P10 (128 GB)    |
 | 200 GB  | Standard_E4s_v3  | P6 (64 GB)  | P15 (256 GB)     | P10 (128 GB)    |
 | 500 GB  | Standard_E8s_v3  | P6 (64 GB)  | P20 (512 GB)     | P15 (256 GB)    |
-| 1   TB  | Standard_E16s_v3 | P10(128 GB) | 2 P20 (512 GB)   | 2 P15 (256 GB)  |
-| 2   TB  | Standard_E32s_v3 | P10(128 GB) | 2 P30 (1024 GB)  | 2 P20 (512 GB)  |
-| 5   TB  | Standard_M64ls   | P10(128 GB) | 5 P30 (1024 GB)  | 2 P20 (512 GB)  |
-| 10  TB  | Standard_M64s    | P10(128 GB) | 5 P40 (2048 GB)  | 2 P20 (512 GB)  |
-| 15  TB  | Standard_M64s    | P10(128 GB) | 4 P50 (4096 GB)  | 2 P20 (512 GB)  |
-| 20  TB  | Standard_M64s    | P10(128 GB) | 5 P50 (4096 GB)  | 2 P20 (512 GB)  |
-| 30  TB  | Standard_M128s   | P10(128 GB) | 8 P50 (4096 GB)  | 2 P40 (2048 GB) |
-| 40  TB  | Standard_M128s   | P10(128 GB) | 10 P50 (4096 GB) | 2 P40 (2048 GB) |
-| 50  TB  | Standard_M128s   | P10(128 GB) | 13 P50 (4096 GB) | 2 P40 (2048 GB) |
-
+| 1   TB  | Standard_E16s_v3 | P10(128 GB) | P20x2 (512 GB)   | P15x2 (256 GB)  |
+| 2   TB  | Standard_E32s_v3 | P10(128 GB) | P30x2 (1024 GB)  | P20x2 (512 GB)  |
+| 5   TB  | Standard_M64ls   | P10(128 GB) | P30x5 (1024 GB)  | P20x2 (512 GB)  |
+| 10  TB  | Standard_M64s    | P10(128 GB) | P40x5 (2048 GB)  | P20x2 (512 GB)  |
+| 15  TB  | Standard_M64s    | P10(128 GB) | P50x4 (4096 GB)  | P20x2 (512 GB)  |
+| 20  TB  | Standard_M64s    | P10(128 GB) | P50x5 (4096 GB)  | P20x2 (512 GB)  |
+| 30  TB  | Standard_M128s   | P10(128 GB) | P50x8 (4096 GB)  | P40x2 (2048 GB) |
+| 40  TB  | Standard_M128s   | P10(128 GB) | P50x10 (4096 GB) | P40x2 (2048 GB) |
+| 50  TB  | Standard_M128s   | P10(128 GB) | P50x13 (4096 GB) | P40x2 (2048 GB) |
 
 ## Custom sizing file
 
-The disk sizing for an SAP system can be defined using a custom sizing json file. The file is grouped in four sections: "db", "app", "scs", and "web" and each section contains a list of disk configuration names, for example for the database tier "M32ts", "M64s", etc. 
+You can define the disk sizing for an SAP system by using a custom sizing JSON file. The file is grouped in four sections: `db`, `app`, `scs`, and `web`. Each section contains a list of disk configuration names. For example, for the database tier, the names might be `M32ts` or `M64s`.
 
-These sections contain the information for which is the default Virtual machine size and the list of disk to be deployed for each tier.
+These sections contain the information for the default virtual machine size and the list of disks to be deployed for each tier.
 
-Create a file using the structure shown below and save the file in the same folder as the parameter file for the system, for instance 'XO1_sizes.json'.  Then, define the parameter `custom_disk_sizes_filename` in the parameter file. For example, `custom_disk_sizes_filename  = "XO1_db_sizes.json"`. 
+Create a file by using the structure shown in the following code sample. Save the file in the same folder as the parameter file for the system. For instance, use `XO1_sizes.json`. Then define the parameter `custom_disk_sizes_filename` in the parameter file. For example, use `custom_disk_sizes_filename  = "XO1_db_sizes.json"`.
 
 > [!TIP]
-> The path to the disk configuration needs to be relative to the folder containing the tfvars file.
+> The path to the disk configuration needs to be relative to the folder that contains the `tfvars` file.
 
+The following sample code is an example configuration file. It defines three data disks (LUNs 0, 1, and 2), a log disk (LUN 9, using the Ultra SKU), and a backup disk (LUN 13). The application tier servers (application, central services, and web dispatchers) are deployed with just a single `sap` data disk.
 
-The following sample code is an example configuration file. It defines three data disks (LUNs 0, 1, and 2), a log disk (LUN 9, using the Ultra SKU) and a backup disk (LUN 13, using the standard SSDN SKU). The application tier servers (Application, Central Services amd Web Dispatchers) will be deployed with jus a single 'sap' data disk.
+The three data disks are striped by using LVM. The log disk and the backup disk are each mounted as a single disk.
 
 ```json
 {
   "db" : {
     "Default": {
       "compute": {
-        "vm_size"                 : "Standard_D4s_v3",
+        "vm_size"                 : "Standard_E20ds_v4",
         "swap_size_gb"            : 2
       },
       "storage": [
@@ -121,7 +120,7 @@ The following sample code is an example configuration file. It defines three dat
         {
           "name"                  : "backup",
           "count"                 : 1,
-          "disk_type"             : "StandardSSD_LRS",
+          "disk_type"             : "Premium_LRS",
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
           "write_accelerator"     : false,
@@ -212,7 +211,7 @@ The following sample code is an example configuration file. It defines three dat
 }
 ```
 
-## Add extra disks to existing system
+## Add extra disks to an existing system
 
 If you need to add disks to an already deployed system, you can add a new block to your JSON structure. Include the attribute `append` in this block, and set the value to `true`. For example, in the following sample code, the last block contains the attribute `"append" : true,`. The last block adds a new disk to the database tier, which is already configured in the first `"data"` block in the code.
 
@@ -255,7 +254,7 @@ If you need to add disks to an already deployed system, you can add a new block 
         {
           "name"                  : "backup",
           "count"                 : 1,
-          "disk_type"             : "StandardSSD_LRS",
+          "disk_type"             : "Premium_LRS",
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
           "write_accelerator"     : false,
@@ -279,8 +278,7 @@ If you need to add disks to an already deployed system, you can add a new block 
 }
 ```
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Configure custom naming module](naming-module.md)
-
+> [Configure custom naming](naming-module.md)

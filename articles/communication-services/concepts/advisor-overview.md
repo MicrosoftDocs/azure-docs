@@ -3,10 +3,8 @@ title: Use Azure Advisor for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Advisor offerings for Azure Communication Services.
 author: tophpalmer
-
 manager: chpalm
 services: azure-communication-services
-
 ms.author: chpalm
 ms.date: 10/10/2022
 ms.topic: conceptual
@@ -33,6 +31,7 @@ The following SDKs are supported for this feature, along with all their supporte
 * Phone Numbers
 * Management
 * Network Traversal
+* Call Automation
 
 ## Next steps
 

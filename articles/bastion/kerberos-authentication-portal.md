@@ -5,21 +5,23 @@ description: Learn how to configure Bastion to use Kerberos authentication via t
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 09/14/2023
 ms.author: cherylmc
 
 ---
 
-# How to configure Bastion for Kerberos authentication using the Azure portal (Preview)
+# Configure Bastion for Kerberos authentication using the Azure portal
 
 This article shows you how to configure Azure Bastion to use Kerberos authentication. Kerberos authentication can be used with both the Basic and the Standard Bastion SKUs. For more information about Kerberos authentication, see the [Kerberos authentication overview](/windows-server/security/kerberos/kerberos-authentication-overview). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 ## Considerations
 
-* During Preview, the Kerberos setting for Azure Bastion can be configured in the Azure portal only and not with native client.
-* VMs migrated from on-premises to Azure are not currently supported for Kerberos. 
-* Cross-realm authentication is not currently supported for Kerberos. 
-* Changes to DNS server are not currently supported for Kerberos. After making any changes to DNS server, you will need to delete and re-create the Bastion resource.
+* The Kerberos setting for Azure Bastion can be configured in the Azure portal only and not with native client.
+* VMs migrated from on-premises to Azure aren't currently supported for Kerberos. 
+* Cross-realm authentication isn't currently supported for Kerberos. 
+* Changes to DNS server aren't currently supported for Kerberos. After making any changes to DNS server, you'll need to delete and re-create the Bastion resource.
+* If additional DC (domain controllers) are added, Bastion will only recognize the first DC.
+* If additional DCs are added for different domains, the added domains can't successfully authenticate with Kerberos.
 
 ## Prerequisites
 
@@ -54,11 +56,11 @@ In this section, the following steps help you modify your virtual network and ex
 1. [Update the DNS settings](#update-vnet-dns-servers) for your virtual network.
 1. Go to the portal page for your Bastion deployment and select **Configuration**.
 1. On the Configuration page, select **Kerberos authentication**, then select **Apply**.
-1. Bastion will update with the new configuration settings.
+1. Bastion updates with the new configuration settings.
 
 ## To verify Bastion is using Kerberos
 
-> [!NOTE] 
+> [!NOTE]
 > You must use the User Principal Name (UPN) to sign in using Kerberos.
 
 Once you have enabled Kerberos on your Bastion resource, you can verify that it's actually using Kerberos for authentication to the target domain-joined VM.
@@ -69,7 +71,10 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
 1. End the VM session.
 1. Connect to the target VM again using Bastion. Sign-in should succeed, indicating that Bastion used Kerberos (and not NTLM) for authentication.
 
-## Quickstart: Setup Bastion with Kerberos - Resource Manager template
+   > [!NOTE]
+   > To prevent failback to NTLM, make sure you follow the preceding steps. Enabling Kerberos (without following the procedure) won't prevent failback to NTLM.
+
+## Quickstart: Set up Bastion with Kerberos - Resource Manager template
 
 ### Review the template
 
@@ -416,21 +421,21 @@ Once you have enabled Kerberos on your Bastion resource, you can verify that it'
 The following resources have been defined in the template:
 - Deploys the following Azure resources: 
   - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
-  - [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionHosts): create a Standard SKU Bastion with a public IP and Kerberos feature enabled
-  - Create a Windows 10 ClientVM and a Windows Server 2019 ServerVM
-- Have the DNS Server of the VNET point to the private IP address of the ServerVM (domain controller).
+  - [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionHosts): create a Standard SKU Bastion with a public IP and Kerberos feature enabled.
+  - Create a Windows 10 ClientVM and a Windows Server 2019 ServerVM.
+- Have the DNS Server of the VNet point to the private IP address of the ServerVM (domain controller).
 - Runs a Custom Script Extension on the ServerVM to promote it to a domain controller with domain name: `bastionkrb.test`.
 - Runs a Custom Script Extension on the ClientVM to have it: 
   - **Restrict NTLM: Incoming NTLM traffic** = Deny all domain accounts (this is to ensure Kerberos is used for authentication).
   - Domain-join the `bastionkrb.test` domain.
 
 ## Deploy the template
-To setup Kerberos, deploy the ARM template above by running the following PS cmd: 
+To set up Kerberos, deploy the preceding ARM template by running the following PowerShell cmd: 
 ```
 New-AzResourceGroupDeployment -ResourceGroupName <your-rg-name> -TemplateFile "<path-to-template>\KerberosDeployment.json"`
 ```
 ## Review deployed resources
-Now, login to ClientVM using Bastion with Kerberos authentication:
+Now, sign in to ClientVM using Bastion with Kerberos authentication:
 - credentials: username = `serveruser@bastionkrb.test` and password = `<password-entered-during-deployment>`.
 
 

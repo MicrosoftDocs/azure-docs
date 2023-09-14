@@ -4,12 +4,60 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/24/2023
+ms.date: 8/30/2023
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## August 2023
+
+**Available in 30 Azure Regions**
+
+Azure VMware Solution is now available in 30 Azure regions. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+
+**Pure Cloud Block Store (preview)**
+
+Pure Cloud Block Store for Azure VMware Solution is now in public preview. Now customers can use Pure Cloud Block Store from Pure Storage to scale compute and storage independently for storage heavy workloads. With Pure Cloud Block Store, customers can right size their storage and achieve sizeable savings in the process. [Learn more](ecosystem-external-storage-solutions.md)
+
+**Azure Arc-enabled VMware vSphere (preview)**
+
+Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](/azure/azure-arc/vmware-vsphere/overview)
+
+**VMware Cloud Director Service**
+
+VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multi-cloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud. [Learn more](https://blogs.vmware.com/cloud/2023/08/15/cloud-director-service-ga-for-avs/)
+
+**Stretched Clusters Generally Available**
+
+Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically failover to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
+
+**Well-Architected Assessment Tool**
+
+Azure VMware Solution Well-Architected Assessment Tool is now available. Based upon the Microsoft Azure Well-Architected Framework, the assessment tool methodically checks how your workloads align with best practices for resiliency, security, efficiency, and cost optimization. [Learn more](https://aka.ms/avswafdocs)
+
+**VMware Cloud Universal**
+
+VMware Cloud Universal now includes Azure VMware Solution. [Learn more](https://blogs.vmware.com/cloud/2023/07/06/avs-with-vmcu-announcement/)
+
+**Updated cloudadmin Permissions**
+
+Customers using the cloudadmin@vsphere.local credentials with the vSphere Client now have read-only access to the Management Resource Pool that contains the management and control plane of Azure VMware Solution (vCenter Server, NSX-T Data Center, HCX Manager, SRM Manager).
+
+## May 2023
+
+**Azure VMware Solution in Azure Gov**
+ 
+Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virgina. With this release, we are combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
+
+**New Azure VMware Solution Region: Qatar**
+
+We are excited to announce that the Azure VMware Solution has gone live in Qatar Central and is now available to customers. 
+
+With the introduction of AV36P in Qatar, customers will receive access to 36 cores, 2.6 GHz clock speed, 768GB of RAM, and 19.2TB of SSD storage.
+
+To learn more about available regions of Azure products, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all)
 
 ## April 2023
 
@@ -25,7 +73,7 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX-
 
 VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
-**Azure Log analytics - monitor Azure VMware Solution**
+**Azure Log Analytics - Monitor Azure VMware Solution**
 
 The data in Azure Log Analytics offer insights into issues by searching using Kusto Query Language.
 
@@ -43,11 +91,15 @@ You can use customer-managed keys to bring and manage your master encryption key
 
 You can use Azure NetApp Files volumes as a file share for Azure VMware Solution workloads using Network File System (NFS) or Server Message Block (SMB).
 
-**Stretched clusters - increase uptime with Stretched Clusters (Preview)**
+**Stretched Clusters - increase uptime with Stretched Clusters (Preview)**
 
 Stretched clusters for Azure VMware Solution, provides 99.99% uptime for mission critical applications that require the highest availability.
 
 For more information, see [Azure Migration and Modernization blog](https://techcommunity.microsoft.com/t5/azure-migration-and/bg-p/AzureMigrationBlog). 
+
+## January 2023
+
+Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter Server and NSX-T Data Center.
 
 ## November 2022
 
@@ -157,8 +209,8 @@ Azure VMware Solution will apply the [VMware ESXi 6.7, Patch Release ESXi670-202
 
 Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://www.vmware.com/security/advisories/VMSA-2021-0002.html), will also be applied **through March 15, 2021**.
  
-   >[!NOTE]
-   >This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
+>[!NOTE]
+>This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.

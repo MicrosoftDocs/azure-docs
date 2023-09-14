@@ -7,6 +7,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 02/02/2022
 ms.author: kengaderdus

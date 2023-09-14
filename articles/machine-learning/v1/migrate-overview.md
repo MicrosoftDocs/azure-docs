@@ -4,7 +4,7 @@ description: Migrate from Studio (classic) to Azure Machine Learning for a moder
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
-ms.custom: event-tier1-build-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022
 ms.topic: how-to
 ms.reviewer: larryfr
 author: xiaoharper
@@ -50,7 +50,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
     >[!NOTE]
     > The **designer** feature in Azure Machine Learning provides a similar drag-and-drop experience to Studio (classic). However, Azure Machine Learning also provides robust [code-first workflows](../concept-model-management-and-deployment.md) as an alternative. This migration series focuses on the designer, since it's most similar to the Studio (classic) experience.
 
-    [!INCLUDE [aml-compare-classic](../../../includes/machine-learning-compare-classic-aml.md)]
+    [!INCLUDE [aml-compare-classic](../includes/machine-learning-compare-classic-aml.md)]
 
 3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer component-mapping](#studio-classic-and-designer-component-mapping) table below.
 

@@ -1,14 +1,14 @@
 ---
 title: Create a custom IPv4 address prefix - Azure CLI
 titleSuffix: Azure Virtual Network
-description: Learn about how to create a custom IP address prefix using the Azure CLI
-author: asudbring
+description: Learn how to create a custom IP address prefix using the Azure CLI
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/31/2022
-ms.author: allensu
+ms.date: 08/24/2023
 ---
 
 # Create a custom IPv4 address prefix using the Azure CLI
@@ -39,8 +39,6 @@ The steps in this article detail the process to:
 ## Pre-provisioning steps
 
 To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IPv4 address range.
-
-### Requirements and prefix readiness
 
 ### Requirements and prefix readiness
 
@@ -79,8 +77,7 @@ The following steps show the steps required to prepare sample customer range (1.
 
 > [!NOTE]
 > Execute the following commands in PowerShell with OpenSSL installed.  
-
-    
+ 
 1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/whois/rdap) sites. 
 
     An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months:

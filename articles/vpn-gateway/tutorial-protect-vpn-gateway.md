@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Protect your VPN gateway with Azure DDoS Protection Standard'
+title: 'Tutorial: Protect your VPN gateway with Azure DDoS Protection'
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up a VPN gateway and protect it with Azure DDoS protection
 author: asudbring
 ms.author: allensu
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 01/25/2023
+ms.date: 06/06/2023
 
 ---
 
-# Tutorial: Protect your VPN gateway with Azure DDoS Protection Standard
+# Tutorial: Protect your VPN gateway with Azure DDoS Protection 
 
-This article helps you create an Azure VPN Gateway with a DDoS protected virtual network. Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your VPN gateway from large scale DDoS attacks.
+This article helps you create an Azure VPN Gateway with a DDoS protected virtual network. Azure DDoS Protection enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your VPN gateway from large scale DDoS attacks.
 
 > [!IMPORTANT]
-> Azure DDoS Protection incurs a cost when you use the Standard SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,8 @@ In this tutorial, you learn how to:
 
 The following diagram shows the virtual network and the VPN gateway created as part of this tutorial.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-expand.png":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
+
 
 ## Prerequisites
 
@@ -68,7 +69,7 @@ Create a VNet using the following values:
 
 ## Enable DDoS protection
 
-Azure DDoS protection Standard is enabled at the virtual network where the resource you want to protect reside. 
+Azure DDoS Network Protection is enabled at the virtual network where the resource you want to protect reside. 
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 

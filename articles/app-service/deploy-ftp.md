@@ -5,8 +5,9 @@ description: Learn how to deploy your app to Azure App Service using FTP or FTPS
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 ms.date: 02/26/2021
-ms.reviewer: dariac
 ms.custom: seodec18
+author: cephalin
+ms.author: cephalin
 ---
 
 # Deploy your app to Azure App Service using FTP/S

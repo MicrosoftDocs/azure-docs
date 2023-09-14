@@ -48,11 +48,11 @@ To follow the steps described in this article, you must have:
      - A CER file for the root certificate of the PFX certificates.
      
     For more information, see [Certificates for the back end](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
-* The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-az-ps).
+* The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Scenario
 
-In this article, you learn how to use a single API Management instance for internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You'll create an API Management instance of the newer single-tenant version 2 (stv2) type. You'll also understand how to expose only a subset of your APIs for external consumption by using routing functionality available in Application Gateway. In the example, the APIs are highlighted in green.
+In this article, you learn how to use a single API Management instance for internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You create an API Management instance of the newer single-tenant version 2 (stv2) type. You also understand how to expose only a subset of your APIs for external consumption by using routing functionality available in Application Gateway. In the example, the APIs are highlighted in green.
 
 In the first setup example, all your APIs are managed only from within your virtual network. Internal consumers can access all your internal and external APIs. Traffic never goes out to the internet. High-performance connectivity can be delivered via Azure ExpressRoute circuits. In the example, the internal consumers are highlighted in orange.
 
@@ -66,7 +66,7 @@ In the first setup example, all your APIs are managed only from within your virt
 * **Listener**: The listener has a front-end port, a protocol (Http or Https, these values are case sensitive), and the TLS/SSL certificate name (if configuring TLS offload).
 * **Rule**: The rule binds a listener to a back-end server pool.
 * **Custom health probe**: Application Gateway, by default, uses IP address-based probes to figure out which servers in `BackendAddressPool` are active. API Management only responds to requests with the correct host header, so the default probes fail. You define a custom health probe to help the application gateway determine that the service is alive and should forward requests.
-* **Custom domain certificates**: To access API Management from the internet, create DNS records to map its host names to the Application Gateway front-end IP address. This mapping ensures that the host name header and certificate sent to Application Gateway and forwarded to API Management are ones that API Management recognizes as valid. In this example, we'll use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
+* **Custom domain certificates**: To access API Management from the internet, create DNS records to map its host names to the Application Gateway front-end IP address. This mapping ensures that the Host header and certificate sent to API Management are valid. In this example, we use three certificates. They're for API Management's gateway (the back end), the developer portal, and the management endpoint.
 
 ### Expose the developer portal and management endpoint externally through Application Gateway
 
@@ -179,7 +179,7 @@ The following example shows how to create a virtual network by using Resource Ma
 
 The following example shows how to create an API Management instance in a virtual network configured for internal access only.
 
-1. API Management stv2 requires a public IP with a `DomainNameLabel`:
+1. API Management stv2 requires a public IP with a unique `DomainNameLabel`:
 
     ```powershell
     $apimPublicIpAddressId = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "pip-apim" -location $location `
@@ -213,17 +213,17 @@ To set up custom domain names in API Management:
 1. Initialize the following variables with the details of the certificates with private keys for the domains and the trusted root certificate. In this example, we use `api.contoso.net`, `portal.contoso.net`, and `management.contoso.net`.  
 
     ```powershell
-    $gatewayHostname = "api.$domain"                 # API gateway host
-    $portalHostname = "portal.$domain"               # API developer portal host
-    $managementHostname = "management.$domain"               # API management endpoint host
-    $gatewayCertPfxPath = "C:\Users\Contoso\gateway.pfx" # Full path to api.contoso.net .pfx file
-    $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # Full path to portal.contoso.net .pfx file
-    $managementCertPfxPath = "C:\Users\Contoso\management.pfx"   # Full path to management.contoso.net .pfx file
-    $gatewayCertPfxPassword = "certificatePassword123"   # Password for api.contoso.net pfx certificate
-    $portalCertPfxPassword = "certificatePassword123"    # Password for portal.contoso.net pfx certificate
-    $managementCertPfxPassword = "certificatePassword123"    # Password for management.contoso.net pfx certificate
+    $gatewayHostname = "api.$domain"                                # API gateway host
+    $portalHostname = "portal.$domain"                              # API developer portal host
+    $managementHostname = "management.$domain"                      # API management endpoint host
+    $gatewayCertPfxPath = "C:\Users\Contoso\gateway.pfx"            # Full path to api.contoso.net .pfx file
+    $portalCertPfxPath = "C:\Users\Contoso\portal.pfx"              # Full path to portal.contoso.net .pfx file
+    $managementCertPfxPath = "C:\Users\Contoso\management.pfx"      # Full path to management.contoso.net .pfx file
+    $gatewayCertPfxPassword = "certificatePassword123"              # Password for api.contoso.net pfx certificate
+    $portalCertPfxPassword = "certificatePassword123"               # Password for portal.contoso.net pfx certificate
+    $managementCertPfxPassword = "certificatePassword123"           # Password for management.contoso.net pfx certificate
     # Path to trusted root CER file used in Application Gateway HTTP settings
-    $trustedRootCertCerPath = "C:\Users\Contoso\trustedroot.cer" # Full path to contoso.net trusted root .cer file
+    $trustedRootCertCerPath = "C:\Users\Contoso\trustedroot.cer"    # Full path to contoso.net trusted root .cer file
     
     $certGatewayPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -Force
     $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
@@ -361,7 +361,7 @@ All configuration items must be set up before you create the application gateway
 1. Upload the trusted root certificate to be configured on the HTTP settings.
     
     ```powershell
-    $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whitelistcert1" -CertificateFile $trustedRootCertCerPath
+    $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "allowlistcert1" -CertificateFile $trustedRootCertCerPath
     ```
 
 1. Configure HTTP back-end settings for the application gateway, including a timeout limit for back-end requests, after which they're canceled. This value is different from the probe timeout.

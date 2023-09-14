@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, mode-other
+ms.custom: mode-other
 ---
 
 # Quickstart: Convert a model for rendering
 
-In [Quickstart: Render a model with Unity](render-model.md), you learned how to use the Unity sample project to render a built-in model. This guide shows how to convert your own models.
+In [Quickstart: Render a model with Unity](render-model.md), you learned how to use the Unity sample project to render a built-in model.
 
-You'll learn how to:
+This guide shows how to convert your own models, entailing these steps:
 
 > [!div class="checklist"]
 >
@@ -44,13 +44,14 @@ You need:
 
 ## Azure setup
 
-If you don't have an account yet, go to [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), select the free account option, and follow the instructions.
+If you don't have an account yet, go to [Get started with Azure](https://azure.microsoft.com/get-started/), select the free account option, and follow the instructions.
 
-Once you have an Azure account, go to [https://portal.azure.com/#home](https://portal.azure.com/#home).
+Once you have an Azure account, sign in to the [Azure portal](https://portal.azure.com).
 
 ### Storage account creation
 
 To create blob storage, you first need a storage account.
+
 1. To create one, select "Create a resource":
 
 ![Azure - add resource](media/azure-add-a-resource.png)
@@ -59,22 +60,22 @@ To create blob storage, you first need a storage account.
 
 ![Azure - add storage](media/azure-add-storage.png)
 
-3. Clicking this button will bring up the following screen with storage properties to fill out:
+3. Clicking this button brings up the following screen with storage properties to fill out:
 
 ![Azure Setup](media/azure-setup1.png)
 
 4. Fill out the form in the following manner:
 
 * Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
-* For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already taken. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
+* For the **Storage account name**, enter a unique name here. **This name must be globally unique**. An error message is shown if the name is already taken. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
 * Select a **Region** close to you. Ideally use the same [region](../reference/regions.md) as used for setting up the rendering in the other quickstart.
-* **Performance** set to 'Premium'. 'Standard' works as well, but has lower loading time characteristics when a model is loaded by the runtime.
+* **Performance** set to 'Premium'. 'Standard' works as well, but has lower loading time characteristics when loading a model.
 * **Premium account type** set to 'Block blobs'
 * **Redundancy** set to 'Zone-redundant storage (ZRS)'
 
-5. None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
+1. None of the properties in other tabs have to be changed, so you can proceed with **"Review + create"** and then follow the steps to complete the setup.
 
-6. The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Select **"Go to resource"** for the next steps:
+2. The website now informs you about the progress of your deployment and reports "Your deployment is complete" eventually. Select **"Go to resource"** for the next steps:
 
 ![Azure Storage creation complete](./media/storage-creation-complete.png)
 
@@ -82,7 +83,7 @@ To create blob storage, you first need a storage account.
 
 Next we need two blob containers, one for input and one for output.
 
-1. From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, select **"Containers"**:
+1. From the **"Go to resource"** button, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, select **"Containers"**:
 
 ![Azure - add Containers](./media/azure-add-containers.png)
 
@@ -117,7 +118,8 @@ To make it easier to call the asset conversion service, we provide a utility scr
 In particular, this script
 
 * uploads all files in a given directory from local disk to the input storage container,
-* calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md), which will retrieve the data from the input storage container and start a conversion, which will return a conversion ID,
+* calls the [asset conversion REST API](../how-tos/conversion/conversion-rest-api.md)
+  * this api retrieves the data from the input storage container, starts a conversion and returns a conversion ID,
 * polls the conversion status API with the retrieved conversion ID until the conversion process terminates with success or failure,
 * retrieves a link to the converted asset in the output storage.
 
@@ -128,11 +130,10 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
     "accountSettings": {
         "arrAccountId": "8*******-****-****-****-*********d7e",
         "arrAccountKey": "R***************************************l04=",
-        "region": "<your-region>"
+        "arrAccountDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>"
     },
     "renderingSessionSettings": {
-        "vmSize": "standard",
-        "maxLeaseTime": "1:00:00"
+        "remoteRenderingDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>"
     },
     "assetConversionSettings": {
         "localAssetDirectoryPath": "D:\\tmp\\robot",
@@ -148,20 +149,22 @@ The script reads its configuration from the file *Scripts\arrconfig.json*. Open 
 }
 ```
 
-The configuration within the **accountSettings** group (account ID and key) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
+The configuration within the **accountSettings** group (account ID, key and domain) should be filled out analogous to the credentials in the [Render a model with Unity quickstart](render-model.md).
 
-Inside the **assetConversionSettings** group, make sure to change **resourceGroup**, **blobInputContainerName**, and **blobOutputContainerName** as seen above.
+A full configuration of the **renderingSessionSettings** group (domain, vmSize and maxLeaseTime) can be seen in [PowerShell Example scripts](../samples/powershell-example-scripts.md). The vmSize and maxLeaseTime aren't important for conversion and can be omitted, as they don't affect the conversion.
+
+Inside the **assetConversionSettings** group, make sure to change **resourceGroup**, **blobInputContainerName**, and **blobOutputContainerName**.
 The value for **arrtutorialstorage** needs to be replaced with the unique name you picked during storage account creation.
 
 Change **localAssetDirectoryPath** to point to the directory on your disk, which contains the model you intend to convert. Be careful to properly escape backslashes ("\\") in the path using double backslashes ("\\\\").
 
-All data from the path given in **localAssetDirectoryPath** will be uploaded to the **blobInputContainerName** blob container under a subpath given by **inputFolderPath**. So in the example configuration above the content of the "D:\\tmp\\robot" directory will be uploaded to the blob container "arrinput" of the storage account "arrtutorialstorage" under the path "robotConversion". Already existing files will be overwritten.
+The service uploads all data from the path given in **localAssetDirectoryPath** to the **blobInputContainerName** blob container under a subpath given by **inputFolderPath**. With the example configuration, the service uploads the content of the "D:\\tmp\\robot" directory to the blob container "arrinput" of the storage account "arrtutorialstorage" under the path "robotConversion". Already existing files are overwritten.
 
 Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file, which is located directly in "D:\\tmp\\robot", use "robot.fbx".
 
-Once the model was converted, it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example above, the resulting "robot.arrAsset" will be copied to the output blob container under "converted/robot".
+Once the model was converted, it's written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example, the service copies the resulting "robot.arrAsset" to the output blob container under "converted/robot".
 
-The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise.
+The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and if not specified the service uses the input file name to generate an output name.
 
 Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription with the following command and follow the on-screen directions:
 
@@ -198,9 +201,9 @@ The conversion script generates a *Shared Access Signature (SAS)* URI for the co
 
 ## Optional: Re-creating a SAS URI
 
-The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you don't need to convert your model again. Instead, you can create a new SAS in the portal as described in the next steps:
+The SAS URI created by the conversion script expires after 24 hours. However, after it expired you don't need to convert your model again. Instead, you can create a new SAS in the portal as described in the next steps:
 
-1. Go to the [Azure portal](https://www.portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select your **Storage account** resource:
 
 ![Screenshot that highlights the selected Storage account resource.](./media/portal-storage-accounts.png)

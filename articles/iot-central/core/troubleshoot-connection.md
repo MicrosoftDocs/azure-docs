@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot device connections to Azure IoT Central | Microsoft Docs
-description: Troubleshoot why you're not seeing data from your devices in IoT Central
+title: Troubleshoot device connections to Azure IoT Central
+description: Troubleshoot and resolve why you're not seeing data from your devices in your IoT Central application
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2022
+ms.date: 05/22/2023
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
@@ -14,7 +14,7 @@ ms.custom: device-developer, devx-track-azurecli
 
 # Troubleshoot why data from your devices isn't showing up in Azure IoT Central
 
-This document helps you find out why the data your devices are sending to IoT Central may not be showing up in the application.
+This document helps you determine why the data your devices are sending to IoT Central isn't showing up in the application.
 
 There are two main areas to investigate:
 
@@ -55,10 +55,10 @@ az account set --subscription <your-subscription-id>
 To monitor the telemetry your device is sending, use the following command:
 
 ```azurecli
-az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-events --app-id <iot-central-app-id> --device-id <device-name>
 ```
 
-If the device has connected successfully to IoT Central, you see output similar to the following:
+If the device has connected successfully to IoT Central, you see output similar to the following example:
 
 ```output
 Monitoring telemetry.
@@ -80,10 +80,10 @@ Filtering on device: device-001
 To monitor the property updates your device is exchanging with IoT Central, use the following preview command:
 
 ```azurecli
-az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-properties --app-id <iot-central-app-id> --device-id <device-name>
 ```
 
-If the device successfully sends property updates, you see output similar to the following:
+If the device successfully sends property updates, you see output similar to the following example:
 
 ```output
 Changes in reported properties:
@@ -97,14 +97,14 @@ If you see data appear in your terminal, then the data is making it as far as yo
 
 If you don't see any data appear after a few minutes, try pressing the `Enter` or `return` key on your keyboard, in case the output is stuck.
 
-If you're still not seeing any data appear on your terminal, it's likely that your device is having network connectivity issues, or is not sending data correctly to IoT Central.
+If you're still not seeing any data appear on your terminal, it's likely that your device is having network connectivity issues, or isn't sending data correctly to IoT Central.
 
 ### Check the provisioning status of your device
 
-If your data is not appearing on the monitor, check the provisioning status of your device by running the following command:
+If your data isn't appearing in the CLI monitor, check the provisioning status of your device by running the following command:
 
 ```azurecli
-az iot central device registration-info --app-id <app-id> --device-id <device-name>
+az iot central device registration-info --app-id <iot-central-app-id> --device-id <device-name>
 ```
 
 The following output shows an example of a device that's blocked from connecting:
@@ -130,12 +130,12 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Device provisioning status | Description | Possible mitigation |
 | - | - | - |
 | Provisioned | No immediately recognizable issue. | N/A |
-| Registered | The device has not yet connected to IoT Central. | Check your device logs for connectivity issues. |
+| Registered | The device hasn't yet connected to IoT Central. | Check your device logs for connectivity issues. |
 | Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values). |
-| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values) |
-| Unassigned | The device is not assigned to a device template. | Assign the device to a device template so that IoT Central knows how to parse the data. |
+| Unapproved | The device isn't approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values) |
+| Unassigned | The device isn't assigned to a device template. | Assign the device to a device template so that IoT Central knows how to parse the data. |
 
-Learn more about [Device status values](howto-manage-devices-individually.md#device-status-values).
+Learn more about [Device status values in the UI](howto-manage-devices-individually.md#device-status-values) and [Device status values in the REST API](howto-manage-devices-with-rest-api.md#get-a-device).
 
 ### Error codes
 
@@ -145,30 +145,30 @@ Start a debugging session on your device, or collect logs from your device. Chec
 
 The following tables show the common error codes and possible actions to mitigate.
 
-If you are seeing issues related to your authentication flow:
+If you're seeing issues related to your authentication flow:
 
 | Error code | Description | Possible Mitigation |
 | - | - | - |
-| 400 | The body of the request is not valid. For example, it cannot be parsed, or the object cannot be validated. | Ensure that you're sending the correct request body as part of the attestation flow, or use a device SDK. |
-| 401 | The authorization token cannot be validated. For example, it has expired or doesn't apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | Ensure that your device has the correct credentials. |
+| 400 | The body of the request isn't valid. For example, it can't be parsed, or the object can't be validated. | Ensure that you're sending the correct request body as part of the attestation flow, or use a device SDK. |
+| 401 | The authorization token can't be validated. For example, it has expired or doesn't apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | Ensure that your device has the correct credentials. |
 | 404 | The Device Provisioning Service instance, or a resource such as an enrollment doesn't exist. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
-| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
+| 429 | The service is throttling operations. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
 | 500 | An internal error occurred. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
 
 ### Detailed authorization error codes
 
 | Error | Sub error code | Notes |
 | - | - | - |
-| 401 Unauthorized | 401002 | The device is using invalid or expired credentials. This error is reported by DPS. |
-| 401 Unauthorized | 400209 | The device is either waiting for approval by an operator or has been blocked by an operator. |
-| 401 IoTHubUnauthorized |  | The device is using expired security token. This error is reported by IoT Hub. |
-| 401 IoTHubUnauthorized | DEVICE_DISABLED | The device is disabled in this IoT hub and has moved to another IoT hub. Re-provision the device. |
+| 401 Unauthorized | 401002 | The device is using invalid or expired credentials. DPS reports this error. |
+| 401 Unauthorized | 400209 | The device is either waiting for approval by an operator or an operator has blocked it. |
+| 401 IoTHubUnauthorized |  | The device is using expired security token. IoT Hub reports this error. |
+| 401 IoTHubUnauthorized | DEVICE_DISABLED | The device is disabled in this IoT hub and has moved to another IoT hub. Reprovision the device. |
 | 401 IoTHubUnauthorized | DEVICE_BLOCKED | An operator has blocked this device. |
 
 ### File upload error codes
 
-Here is a list of common error codes you might see when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file uploads](howto-configure-file-uploads.md) in your application.
+Here's a list of common error codes you might see when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file uploads](howto-configure-file-uploads.md) in your application.
 
 | Error code | Description | Possible Mitigation |
 | - | - | - |
@@ -183,13 +183,13 @@ To detect which categories your issue is in, run the most appropriate Azure CLI 
 - To validate telemetry, use the preview command:
 
     ```azurecli
-    az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-messages --app-id <iot-central-app-id> --device-id <device-name>
     ```
 
 - To validate property updates, use the preview command:
 
     ```azurecli
-    az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-properties --app-id <iot-central-app-id> --device-id <device-name>
     ```
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
@@ -240,7 +240,7 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ### Invalid JSON
 
-If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
 
 You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
 

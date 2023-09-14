@@ -63,12 +63,12 @@ In this article, you'll learn how to use the Azure Synapse database templates to
 8. Once the canvas has all the tables that meet your requirements, select **Create database** to continue with creation of lake database. The new database will show up in the database designer and you can customize it per your business needs.
 
 9. The database designer has more **Properties** on the right that need to be configured.
-    - **Name** give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
-    - **Description** Giving your database a description is optional, but it allows users to understand the purpose of the database.
-    - **Storage settings for database** is a section containing the default storage information for tables in the database. This default is applied to each table in the database unless it's overridden on the table itself.
-    - **Linked service** is the default linked service used to store your data in Azure Data Lake Storage. The default linked service associated with the Synapse workspace will be shown, but you can change the **Linked Service** to any ADLS storage account you like. 
-    - **Input folder** used to set the default container and folder path within that linked service using the file browser or manually editing the path with the pencil icon.
-    - **Data format** lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
+    - **Name**: Give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.
+    - **Description**: Giving your database a description is optional, but it allows users to understand the purpose of the database.
+    - **Storage settings for database**: This section contains the default storage information for tables in the database. This default is applied to each table in the database unless it's overridden on the table itself.
+    - **Linked service**: This is the default linked service used to store your data in Azure Data Lake Storage. The default linked service associated with the Synapse workspace will be shown, but you can change the **Linked Service** to any ADLS storage account you like. 
+    - **Input folder**: This is used to set the default container and folder path within that linked service using the file browser or manually editing the path with the pencil icon.
+    - **Data format**: Lake databases in Azure Synapse Analytics support Apache Parquet and delimited text as the storage formats for data.
 > [!NOTE]
 > You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. If you are unsure of the folder hierarchy in the data lake, you can also specify wildcards to traverse the directory structure.
  

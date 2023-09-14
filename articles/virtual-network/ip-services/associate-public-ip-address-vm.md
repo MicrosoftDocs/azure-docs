@@ -3,13 +3,13 @@ title: Associate a public IP address to a virtual machine
 titlesuffix: Azure Virtual Network
 description: Learn how to associate a public IP address to a virtual machine (VM) by using the Azure portal, the Azure CLI, or Azure PowerShell.
 services: virtual-network
-author: asudbring
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/17/2023
-ms.author: allensu
+ms.date: 08/24/2023
+ms.author: mbender
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -123,7 +123,7 @@ Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netw
 
 ## Azure PowerShell
 
-Install [Azure PowerShell](/powershell/azure/install-az-ps) on your machine, or use Cloud Shell. Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It includes Azure PowerShell preinstalled and configured to use with your Azure account. Select the **Open Cloudshell** button in the Azure PowerShell code examples that follow. When you select **Open Cloudshell**, Cloud Shell loads in your browser and prompts you to sign into your Azure account.
+Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your machine, or use Cloud Shell. Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It includes Azure PowerShell preinstalled and configured to use with your Azure account. Select the **Open Cloudshell** button in the Azure PowerShell code examples that follow. When you select **Open Cloudshell**, Cloud Shell loads in your browser and prompts you to sign into your Azure account.
 
 1. If you're using Azure PowerShell locally, sign in to Azure with `Connect-AzAccount`.
 

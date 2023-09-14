@@ -20,7 +20,13 @@ You can protect your data and guard against extended downtime by creating virtua
 
 An individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. You can use VM restore points to easily capture multi-disk consistent backups.  VM restore points contain a disk restore point for each of the attached disks and a disk restore point consists of a snapshot of an individual managed disk.
 
-VM restore points support application consistency for VMs running Windows operating systems and support file system consistency for VMs running Linux operating system. Application consistent restore points use VSS writers (or pre/post scripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application consistent restore point, the application running in the VM needs to provide a VSS writer (for Windows), or pre and post scripts (for Linux) to achieve application consistency.
+VM restore points supports both application consistency and crash consistency (in preview).
+Application consistency is supported for VMs running Windows operating systems and support file system consistency for VMs running Linux operating system. Application consistent restore points use VSS writers (or pre/post scripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application consistent restore point, the application running in the VM needs to provide a VSS writer (for Windows), or pre and post scripts (for Linux) to achieve application consistency.
+
+Multi-disk crash consistent VM restore point stores the VM configuration and point-in-time write-order consistent snapshots for all managed disks attached to a virtual machine. This is the same as the status of data in the VM after a power outage or a crash. The "consistencyMode" optional parameter has to be set to "crashConsistent" in the creation request. This feature is currently in preview.
+
+> [!NOTE]
+> For disks configured with read/write host caching, multi-disk crash consistency can't be guaranteed because writes occurring while the snapshot is taken might not have been acknowledged by Azure Storage. If maintaining consistency is crucial, we advise using the application consistency mode.
 
 VM restore points are organized into restore point collections. A restore point collection is an Azure Resource Management resource that contains the restore points for a specific VM. If you want to utilize ARM templates for creating restore points and restore point collections, visit the public [Virtual-Machine-Restore-Points](https://github.com/Azure/Virtual-Machine-Restore-Points) repository on GitHub.
 
@@ -42,7 +48,8 @@ Currently, restore points can only be created in one VM at a time, that is, you 
 
 - Restore points are supported only for managed disks. 
 - Ultra-disks, Ephemeral OS disks, and Shared disks are not supported. 
-- Restore points APIs require an API of version 2021-03-01 or later. 
+- API version for application consistent restore point is 2021-03-01 or later.
+- API version for crash consistent restore point is 2021-07-01 or later. (in preview)
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
 - Concurrent creation of restore points for a VM is not supported. 
 - Restore points for Virtual Machine Scale Sets in Uniform orchestration mode are not supported. 

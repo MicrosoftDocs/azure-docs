@@ -5,8 +5,9 @@ description: Integrate your VPN infrastructure with Azure AD MFA by using the Ne
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 
 ms.author: justinha
 author: justinha
@@ -238,12 +239,11 @@ In this section, you configure your VPN server to use RADIUS authentication. The
 
 7. In the **Add RADIUS Server** window, do the following:
 
-    a. In the **Server name** box, enter the name or IP address of the RADIUS server that you configured in the previous section.
+    1. In the **Server name** box, enter the name or IP address of the RADIUS server that you configured in the previous section.
 
-    b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
+    1. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
-    c. In the **Time-out (seconds)** box, enter a value of **60**.  
-    To minimize discarded requests, we recommend that VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
+    1. In the **Time-out (seconds)** box, enter a value of **60**. To minimize discarded requests, we recommend that VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
 
 8. Select **OK**.
 
@@ -322,15 +322,16 @@ If the value is set to *TRUE* or is blank, all authentication requests are subje
 
 
 
-### Obtain the Azure Active Directory tenant ID
+### Obtain the directory tenant ID
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
-1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Settings**.
 
-   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
+   ![Getting the Tenant ID from the Microsoft Entra admin center](./media/howto-mfa-nps-extension-vpn/tenant-id.png)
 
 ### Install the NPS extension
 
@@ -430,7 +431,7 @@ Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
 
 ## Troubleshooting guide
 
-If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user connect to the [Azure portal](https://portal.azure.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
+If the configuration is not working as expected, begin troubleshooting by verifying that the user is configured to use MFA. Have the user sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). If the user is prompted for secondary authentication and can successfully authenticate, you can eliminate an incorrect configuration of MFA as an issue.
 
 If MFA is working for the user, review the relevant Event Viewer logs. The logs include the security event, Gateway operational, and Azure AD Multi-Factor Authentication logs that are discussed in the previous section.
 

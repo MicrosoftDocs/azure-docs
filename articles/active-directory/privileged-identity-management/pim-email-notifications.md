@@ -3,15 +3,15 @@ title: Email notifications in Privileged Identity Management (PIM)
 description: Describes email notifications in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: amsliu
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -19,7 +19,10 @@ ms.collection: M365-identity-device-management
 
 # Email notifications in PIM
 
-Privileged Identity Management (PIM) lets you know when important events occur in your Azure Active Directory (Azure AD) organization, such as when a role is assigned or activated. Privileged Identity Management keeps you informed by sending you and other participants email notifications. These emails might also include links to relevant tasks, such activating or renewing a role. This article describes what these emails look like, when they are sent, and who receives them.
+Privileged Identity Management (PIM) lets you know when important events occur in your Entra ID (Previously known as Azure AD) organization, such as when a role is assigned or activated. Privileged Identity Management keeps you informed by sending you and other participants email notifications. These emails might also include links to relevant tasks, such activating or renewing a role. This article describes what these emails look like, when they are sent, and who receives them.
+
+>[!NOTE]
+>One event in Privileged Identity Management can generate email notifications to multiple recipients – assignees, approvers, or administrators. The maximum number of notifications sent per one event is 1000. If the number of recipients exceeds 1000 – only the first 1000 recipients will receive an email notification. This does not prevent other assignees, administrators, or approvers from using their permissions in Microsoft Entra and Privileged Identity Management.
 
 ## Sender email address and subject line
 
@@ -34,7 +37,7 @@ These emails include a **PIM** prefix in the subject line. Here's an example:
 
 ## Email timing for activation approvals
 
-When users activate their role and the role setting requires approval, approvers will receive two emails for each approval:
+When users activate their role and the role setting requires approval, approvers receive two emails for each approval:
 
 - Request to approve or deny the user's activation request (sent by the request approval engine)
 - The user's request is approved (sent by the request approval engine)
@@ -43,9 +46,9 @@ Also, Global Administrators and Privileged Role Administrators receive an email 
 
 - The user's role is activated (sent by Privileged Identity Management)
 
-The first two emails sent by the request approval engine can be delayed. Currently, 90% of emails take three to ten minutes, but for 1% customers it can be much longer, up to fifteen minutes.
+The first two emails sent by the request approval engine can be delayed. Currently, 90% of emails take three to ten minutes, but for 1% customers it can be longer, up to fifteen minutes.
 
-If an approval request is approved in the Azure portal before the first email is sent, the first email will no longer be triggered and other approvers won't be notified by email of the approval request. It might appear as if the they didn't get an email but it's the expected behavior.
+If an approval request is approved in the Azure portal before the first email is sent, the first email will no longer be triggered and other approvers won't be notified by email of the approval request. It might appear as if they didn't get an email but it's the expected behavior.
 
 ## Notifications for Azure AD roles
 
@@ -130,4 +133,4 @@ Privileged Identity Management sends emails to end users when the following even
 ## Next steps
 
 - [Configure Azure AD role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md)

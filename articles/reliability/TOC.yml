@@ -20,10 +20,6 @@
         href: migrate-api-mgt.md
       - name: Azure App Configuration
         href: migrate-app-configuration.md
-      - name: Azure App Service Environment
-        href: migrate-app-service-environment.md
-      - name: Azure App Service
-        href: migrate-app-service.md
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
       - name: Azure Functions
@@ -44,8 +40,12 @@
         href: migrate-recovery-services-vault.md
       - name: Azure Service Fabric
         href: migrate-service-fabric.md
+      - name: Azure SQL Database
+        href: migrate-sql-database.md
       - name: Azure Storage accounts
         href: migrate-storage.md
+      - name: Azure SQL managed instance
+        href: migrate-sql-managed-instance.md
       - name: Azure Virtual Machines and virtual machine scale sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
@@ -163,6 +163,10 @@
         href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Cognitive Search
         href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Communications Gateway
+        href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Container Apps
+        href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Container Instances
         href: reliability-containers.md
       - name: Azure Container Registry
@@ -176,9 +180,9 @@
       - name: Azure Database for MySQL - Flexible Server
         href: ../mysql/flexible-server/concepts-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Database for PostgreSQL - Flexible Server
-        href: ../postgresql/single-server/concepts-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-postgresql-flexible-server.md
       - name: Azure Data Manager for Energy
-        href: reliability-energy-data-services.md
+        href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure DDoS Protection
         href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Disk Encryption 
@@ -200,11 +204,11 @@
       - name: Azure Functions 
         href: reliability-functions.md
       - name: Azure HDInsight
-        href: ../hdinsight/hdinsight-use-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-hdinsight.md
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Image Builder
-        href: ../virtual-machines/image-builder-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-image-builder.md
       - name: Azure Key Vault
         href: ../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Kubernetes Service (AKS)
@@ -219,6 +223,8 @@
         href: ../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy
       - name: Azure Notification Hubs
         href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Operator Nexus
+        href: reliability-operator-nexus.md
       - name: Azure Private Link
         href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Public IP
@@ -241,10 +247,13 @@
         href: ../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan
       - name: Azure Web Application Firewall
         href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Virtual Machines
+        href: reliability-virtual-machines.md
+      - name: Azure Virtual Machines Image Builder
+        href: reliability-image-builder.md
       - name: Azure Virtual Machine Scale Sets
         href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Virtual Machines
-        href: ../virtual-machines/virtual-machines-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+
       - name: Azure Virtual Network
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
@@ -297,7 +306,7 @@
     items:
     - name: US Government
       href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
-    - name: Azure in China
+    - name: Microsoft Azure operated by 21Vianet
       href: sovereign-cloud-china.md     
   - name: Service availability by region
     href: https://azure.microsoft.com/global-infrastructure/services/

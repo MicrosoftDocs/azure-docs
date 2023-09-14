@@ -135,15 +135,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EasySSO for Bamboo SSO
 
-1. To automate the configuration within Zoom, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Zoom** will direct you to the Zoom application. From there, provide the admin credentials to sign into Zoom. The browser extension will automatically configure the application for you and automate steps 3-10.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Zoom manually, in a different web browser window, sign in to your Zoom company site as an administrator.
+1. In a different web browser window, sign in to your Zoom company site as an administrator
 
 1. Navigate to the **Manage Apps** section. 
 
@@ -210,7 +205,7 @@ There's a possibility you may encounter the following screen after getting redir
 
 ![EasySSO failure screen](./media/easysso-for-bamboo-tutorial/bamboo-admin-8.png)
 
-In this case you have to follow the [instructions on this page]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) to get access to **atlassian-bamboo.log** file. Details of the error will be available by the reference ID found on EasySSO error page.
+In this case you have to follow the [instructions on this page](https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) to get access to **atlassian-bamboo.log** file. Details of the error will be available by the reference ID found on EasySSO error page.
 
 Should you have any issues digesting the log messages, please contact [EasySSO support team](mailto:support@techtime.co.nz).
 

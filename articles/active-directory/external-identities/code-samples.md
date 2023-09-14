@@ -11,9 +11,8 @@ ms.date: 04/06/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
+ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref, devx-track-linux, has-azure-ad-ps-ref
 ms.collection: engagement-fy23, M365-identity-device-management
-
 # Customer intent: As a tenant administrator, I want to bulk-invite external users to an organization from email addresses that I've stored in a .csv file.
 ---
 
@@ -37,14 +36,14 @@ You can bulk-invite external users to an organization from email addresses that 
 
 3. Sign in to your tenancy
 
-    ```powershell
+    ```azurepowershell-interactive
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. Run the PowerShell cmdlet
 
-   ```powershell
+   ```azurepowershell-interactive
    $invitations = import-csv C:\data\invitations.csv
    $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
    $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"

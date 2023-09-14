@@ -24,7 +24,7 @@ This article describes current and past issues with the Azure AD user provisioni
 ## Understanding the provisioning job
 The provisioning service uses the concept of a job to operate against an application. The jobID can be found in the [progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar). All new provisioning applications are created with a jobID starting with "scim". The scim job represents the current state of the service. Older jobs have the ID "customappsso". This job represents the state of the service in 2018. 
 
-If you are using an application in the gallery, the job generally contains the name of the app (e.g. zoom snowFlake, dataBricks, etc.). You can skip this documentation when using a gallery application. This primarily applies for non-gallery applications with jobID SCIM or customAppSSO.
+If you are using an application in the gallery, the job generally contains the name of the app (such as zoom snowFlake or dataBricks). You can skip this documentation when using a gallery application. This primarily applies for non-gallery applications with jobID SCIM or customAppSSO.
 
 ## SCIM 2.0 compliance issues and status
 In the table below, any item marked as fixed means that the proper behavior can be found on the SCIM job. We have worked to ensure backwards compatibility for the changes we have made. We recommend using the new behavior for any new implementations and updating existing implementations. Please note that the customappSSO behavior that was the default prior to December 2018 is not supported anymore. 
@@ -96,40 +96,39 @@ Below are sample requests to help outline what the sync engine currently sends v
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
-    {
+      {
         "op": "Add",
         "path": "nickName",
         "value": "Babs"
-     }
-   ]
-}
-
+      }
+    ]
+  }
   ```
 
 **With feature flag**
   ```json
-{
-  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-  "Operations": [
-    {
-      "op": "add",
-      "path": "nickName",
-      "value": "Babs"
-    }
-  ]
-}
+  {
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [
+      {
+        "op": "add",
+        "path": "nickName",
+        "value": "Babs"
+      }
+    ]
+  }
   ```
 
 **Requests to replace multiple attributes:**
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -165,12 +164,12 @@ Below are sample requests to help outline what the sync engine currently sends v
             "value": "Eqpj"
         }
     ]
-}
+  }
   ```
 
 **With feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -190,14 +189,14 @@ Below are sample requests to help outline what the sync engine currently sends v
             }
         }
     ]
-} 
+  }
   ```
 
 **Requests made to remove a group member:**
 
 **Without feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -212,12 +211,12 @@ Below are sample requests to help outline what the sync engine currently sends v
             ]
         }
     ]
-} 
+  }
   ```
 
 **With feature flag**
   ```json
-{
+  {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
@@ -227,22 +226,20 @@ Below are sample requests to help outline what the sync engine currently sends v
             "path": "members[value eq \"7f4bc1a3-285e-48ae-8202-5accb43efb0e\"]"
         }
     ]
-}
+  }
   ```
-
 
   * **Downgrade URL:** Once the new SCIM compliant behavior becomes the default on the non-gallery application, you can use the following URL to roll back to the old, non SCIM compliant behavior: AzureAdScimPatch2017
 
 
 
 ## Upgrading from the older customappsso job to the SCIM job
-Following the steps below will delete your existing customappsso job and create a new scim job. 
+Following the steps below will delete your existing customappsso job and create a new SCIM job.
 
-1. Sign into the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the **Azure Active Directory > Enterprise Applications** section of the Azure portal, locate and select your existing SCIM application.
 3. In the **Properties** section of your existing SCIM app, copy the **Object ID**.
-4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer 
-   and sign in as the administrator for the Azure AD tenant where your app is added.
+4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added.
 5. In the Graph Explorer, run the command below to locate the ID of your provisioning job. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
 
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -278,11 +275,10 @@ Following the steps below will delete your existing customappsso job and create 
 ## Downgrading from the SCIM job to the customappsso job (not recommended)
  We allow you to downgrade back to the old behavior but don't recommend it as the customappsso does not benefit from some of the updates we make, and may not be supported forever. 
 
-1. Sign into the Azure portal at https://portal.azure.com.
-2. in the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. In the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
 3. In the **Properties** section of your new custom app, copy the **Object ID**.
-4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer 
-   and sign in as the administrator for the Azure AD tenant where your app is added.
+4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added.
 5. In the Graph Explorer, run the command below to initialize the provisioning configuration for your app.
    Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
 

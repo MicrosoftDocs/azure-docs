@@ -3,7 +3,7 @@ title: Best practices for storage and backup
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
-ms.date: 11/30/2022
+ms.date: 04/28/2023
 
 ---
 
@@ -22,7 +22,7 @@ This best practices article focuses on storage considerations for cluster operat
 ## Choose the appropriate storage type
 
 > **Best practice guidance**
-> 
+>
 > Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for network-based storage when you need multiple concurrent connections.
 
 Applications often require different types and speeds of storage. Determine the most appropriate storage type by asking the following questions.
@@ -50,6 +50,8 @@ Both Azure Files and Azure Disks are available in Standard and Premium performan
 - *Standard* disks
     - Backed by regular spinning disks (HDDs).
     - Good for archival or infrequently accessed data.
+
+While the default storage tier for the Azure Disk CSI driver is Premium SSD, your custom StorageClass can use Premium SSD, Standard SSD, or Standard HDD.
 
 Understand the application performance needs and access patterns to choose the appropriate storage tier. For more information about Managed Disks sizes and performance tiers, see [Azure Managed Disks overview][managed-disks]. 
 
@@ -88,8 +90,6 @@ Work with your application development team to understand their storage capacity
 > By default, disk size and performance for managed disks is assigned according to the selected VM SKU and vCPU count. Default OS disk sizing is only used on new clusters or node pools when Ephemeral OS disks are not supported and a default OS disk size is not specified. For more information, see [Default OS disk sizing](cluster-configuration.md#default-os-disk-sizing).
 
 For more information about available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
-
-
 
 ## Dynamically provision volumes
 

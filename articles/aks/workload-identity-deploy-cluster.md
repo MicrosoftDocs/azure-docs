@@ -2,8 +2,8 @@
 title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 04/19/2023
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 07/26/2023
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
@@ -37,7 +37,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
 export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity" 
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity" 
 ```
 
 ## Create AKS cluster
@@ -45,7 +45,7 @@ export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity"
 Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
+az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -53,17 +53,35 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 > [!NOTE]
 > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
+## Update an existing AKS cluster
+
+You can update an AKS cluster using the [az aks update][az aks update] command with the `--enable-oidc-issuer` and the `--enable-workload-identity` parameter to use the OIDC Issuer and enable workload identity. The following example updates a cluster named *myAKSCluster*:
+
+```azurecli-interactive
+az aks update -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
+```
+
+## Retrieve the OIDC Issuer URL
+
 To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster:
 
 ```bash
 export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
+The variable should contain the Issuer URL similar to the following example:
+
+```output
+https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+```
+
+By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key.
+
 ## Create a managed identity
 
 Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
-```azurecli
+```azurecli-interactive
 az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
 ```
 
@@ -77,7 +95,7 @@ export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_
 
 Create a Kubernetes service account and annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
-```azurecli
+```azurecli-interactive
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
 ```
 
@@ -105,7 +123,7 @@ Serviceaccount/workload-identity-sa created
 
 Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject.
 
-```azurecli
+```azurecli-interactive
 az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:"${SERVICE_ACCOUNT_NAMESPACE}":"${SERVICE_ACCOUNT_NAME}" --audience api://AzureADTokenExchange
 ```
 
@@ -122,18 +140,18 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: quick-start
-  namespace: SERVICE_ACCOUNT_NAMESPACE
+  namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
   labels:
     azure.workload.identity/use: "true"
 spec:
-  serviceAccountName: workload-identity-sa
+  serviceAccountName: "${SERVICE_ACCOUNT_NAME}"
 EOF
 ```
 
 > [!IMPORTANT]
 > Ensure your application pods using workload identity have added the following label [azure.workload.identity/use: "true"] to your running pods/deployments, otherwise the pods will fail once restarted.
 
-```azurecli-interactive
+```bash
 kubectl apply -f <your application>
 ```
 
@@ -162,7 +180,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 1. Set an access policy for the managed identity to access secrets in your Key Vault by running the following commands:
 
-    ```azurecli
+    ```azurecli-interactive
     export RESOURCE_GROUP="myResourceGroup"
     export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
     export KEYVAULT_NAME="myKeyVault"
@@ -175,8 +193,8 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 To disable the Azure AD workload identity on the AKS cluster where it's been enabled and configured, you can run the following command:
 
-```azurecli
-az aks update --resource-group myResourceGroup --name myAKSCluster --enable-workload-identity false
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-workload-identity
 ```
 
 ## Next steps
@@ -197,6 +215,7 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [aks-identity-concepts]: concepts-identity.md
 [az-account]: /cli/azure/account
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az aks update]: /cli/azure/aks#az-aks-update
 [aks-two-resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-account-set]: /cli/azure/account#az-account-set
 [az-identity-create]: /cli/azure/identity#az-identity-create

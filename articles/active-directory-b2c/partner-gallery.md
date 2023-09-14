@@ -102,7 +102,7 @@ Microsoft partners with the following ISVs for Web Application Firewall (WAF).
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 |  ![Screenshot of Akamai logo](./media/partner-gallery/akamai-logo.png) | [Akamai WAF](./partner-akamai.md) allows fine grained manipulation of traffic to protect and secure your identity infrastructure against malicious attacks.  |
-|  ![Screenshot of Azure WAF logo](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-azure-web-application-firewall.md) provides centralized protection of your web applications from common exploits and vulnerabilities.  |
+|  ![Screenshot of Azure WAF logo](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-web-application-firewall.md) provides centralized protection of your web applications from common exploits and vulnerabilities.  |
 ![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
 
 ## Developer tools 

@@ -9,10 +9,9 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/06/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: has-azure-ad-ps-ref
 ---
 # Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using Azure AD PowerShell
 
@@ -87,7 +86,7 @@ foreach ($groupName in $groupsToAdd)
 Write-Output "****************************************************************************`n"
 Write-Output "`n****************************************************************************"
 
-$currentAssignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId
+$currentAssignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true
 Write-Output "Total current group-assignments: $($currentAssignments.Count), SP-ObjectId: $($sp.ObjectId)"
 
 $currAssignedObjectIds = New-Object 'System.Collections.Generic.HashSet[string]'

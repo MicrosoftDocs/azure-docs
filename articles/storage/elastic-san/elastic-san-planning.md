@@ -2,11 +2,10 @@
 title: Planning for an Azure Elastic SAN Preview
 description: Understand planning for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 06/09/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: ignite-2022
 ---
 
@@ -40,7 +39,9 @@ Using the same example of a 100 TiB SAN that has 250,000 IOPS and 4,000 MB/s. Sa
 
 ## Networking
 
-In Preview, Elastic SAN supports public endpoint from selected virtual network, restricting access to specified virtual networks. You configure volume groups to allow network access only from specific vnet subnets. Once a volume group is configured to allow access from a subnet, this configuration is inherited by all volumes belonging to the volume group. You can then mount volumes from any clients in the subnet, with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. You must enable [service endpoint for Azure Storage](../../virtual-network/virtual-network-service-endpoints-overview.md) in your virtual network before setting up the network rule on volume group.
+In the Elastic SAN Preview, you can configure access to volume groups over both public [Azure Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) and [private endpoints](../../private-link/private-endpoint-overview.md) from selected virtual network subnets. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
+
+To allow network access, you must [enable a service endpoint for Azure Storage](elastic-san-networking.md#configure-an-azure-storage-service-endpoint) or a [private endpoint](elastic-san-networking.md#configure-a-private-endpoint) in your virtual network, then [setup a network rule](elastic-san-networking.md#configure-virtual-network-rules) on the volume group for any service endpoints. You don't need a network rule to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints. You can then mount volumes from [AKS](elastic-san-connect-aks.md), [Linux](elastic-san-connect-linux.md), or [Windows](elastic-san-connect-windows.md) clients in the subnet with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
 
 ## Redundancy
 
@@ -80,6 +81,10 @@ Elastic SAN supports the [internet Small Computer Systems Interface](https://en.
 - VERIFY (16)
 - SYNCHRONIZE CACHE (10)
 - SYNCHRONIZE CACHE (16)
+- RESERVE
+- RELEASE
+- PERSISTENT RESERVE IN
+- PERSISTENT RESERVE OUT
 
 The following iSCSI features aren't currently supported:
 - CHAP authorization
@@ -87,10 +92,10 @@ The following iSCSI features aren't currently supported:
 - iSCSI Error Recovery Levels 1 and 2
 - ESXi iSCSI flow control
 - More than one LUN per iSCSI target
-- Multiple connections per session (MC/S)
 
 ## Next steps
 
 For a video that goes over the general planning and deployment with a few example scenarios, see [Getting started with Azure Elastic SAN](/shows/inside-azure-for-it/getting-started-with-azure-elastic-san).
 
+[Networking options for Elastic SAN Preview](elastic-san-networking-concepts.md)
 [Deploy an Elastic SAN Preview](elastic-san-create.md)

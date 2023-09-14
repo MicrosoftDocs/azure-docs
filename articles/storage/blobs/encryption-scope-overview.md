@@ -3,14 +3,13 @@ title: Encryption scopes for Blob storage
 titleSuffix: Azure Storage
 description: Encryption scopes provide the ability to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
-ms.date: 03/17/2023
+ms.service: azure-blob-storage
+ms.date: 06/01/2023
 ms.topic: conceptual
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: common
 ms.custom: engagement-fy23
 ---
 
@@ -69,8 +68,6 @@ If no default encryption scope is specified for the container, then you can uplo
 
 When you disable an encryption scope, any subsequent read or write operations made with the encryption scope will fail with HTTP error code 403 (Forbidden). If you re-enable the encryption scope, read and write operations will proceed normally again.
 
-When an encryption scope is disabled, you are no longer billed for it. Disable any encryption scopes that are not needed to avoid unnecessary charges.
-
 If your encryption scope is protected with a customer-managed key, and you revoke the key in the key vault, the data will become inaccessible. Be sure to disable the encryption scope prior to revoking the key in key vault to avoid being charged for the encryption scope.
 
 Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
@@ -80,6 +77,16 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 
 > [!IMPORTANT]
 > It is not possible to delete an encryption scope.
+
+## Billing for encryption scopes
+
+When you enable an encryption scope, you are billed for a minimum of 30 days. After 30 days, charges for an encryption scope are prorated on an hourly basis.
+
+After enabling the encryption scope, if you disable it within 30 days, you are still billed for 30 days. If you disable the encryption scope after 30 days, you are charged for those 30 days plus the number of hours the encryption scope was in effect after 30 days.
+
+Disable any encryption scopes that are not needed to avoid unnecessary charges.
+
+To learn about pricing for encryption scopes, see [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
 
 ## Feature support
 
@@ -91,3 +98,4 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 - [Create and manage encryption scopes](encryption-scope-manage.md)
 - [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
+

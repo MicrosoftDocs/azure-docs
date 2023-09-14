@@ -15,7 +15,7 @@ items:
     - name: Transparency note for Onco Phenotype
       href: transparency-note.md
     - name: Data, privacy, and security
-      href: ../responsible-ai/data-privacy-security.md
+      href: /azure/azure-health-insights/responsible-ai/data-privacy-security?toc=/azure/azure-health-insights/oncophenotype/toc.json
 - name: Concepts
   items:
      - name: Model configuration

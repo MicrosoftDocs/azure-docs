@@ -18,7 +18,11 @@ AKS emits the following event types
 |    Event Type                                             |    Description                                                       |
 |-----------------------------------------------------------|----------------------------------------------------------------------|
 | Microsoft.ContainerService.NewKubernetesVersionAvailable  | Triggered when the list of available Kubernetes versions is updated. |
-
+| Microsoft.ContainerService.ClusterSupportEnded  | Triggered when the cluster goes out of support |
+| Microsoft.ContainerService.ClusterSupportEnding | Triggered when the clusters kubernetes version is soon going out of support |
+| Microsoft.ContainerService.NodePoolRollingFailed  | Triggered when NodepoolRolling fails as a result of upgrade or update |
+| Microsoft.ContainerService.NodePoolRollingStarted  | Triggered when NodepoolRolling started as a result of upgrade or an update |
+| Microsoft.ContainerService.NodePoolRollingSucceeded| Triggered when NodepoolRolling succeeded as a result of upgrade or an update |
 ## Properties common to all events
 
 # [Event Grid event schema](#tab/event-grid-event-schema)

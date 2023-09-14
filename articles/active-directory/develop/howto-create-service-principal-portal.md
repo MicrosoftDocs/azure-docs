@@ -2,13 +2,13 @@
 title: Create an Azure AD app and service principal in the portal
 description: Create a new Azure Active Directory app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
-author: rwike77
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 05/12/2023
 ms.author: cwerner
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps, devx-track-arm-template
 ---
@@ -36,9 +36,10 @@ You must have sufficient permissions to register an application with your Azure 
 
 ## Register an application with Azure AD and create a service principal
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
-1. Search for and Select **Azure Active Directory**.
-1. Select **App registrations**, then select **New registration**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **App registrations** then select **New registration**.
 1. Name the application, for example "example-app". 
 1. Select a supported account type, which determines who can use the application. 
 1. Under **Redirect URI**, select **Web** for the type of application you want to create. Enter the URI where the access token is sent to.
@@ -54,7 +55,7 @@ To access resources in your subscription, you must assign a role to the applicat
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, search for and select **Subscriptions**. If you don't see the subscription you're looking for, select **global subscriptions filter**. Make sure the subscription you want is selected for the tenant.
 1. Select **Access control (IAM)**.
 1. Select **Add**, then select **Add role assignment**.
@@ -74,18 +75,28 @@ The next section shows how to get values that are needed when signing in program
 
 When programmatically signing in, pass the tenant ID and the application ID in your authentication request. You also need a certificate or an authentication key. To obtain the directory (tenant) ID and application ID:
 
-1. Search for select **Azure Active Directory**.
-1. From **App registrations** in Azure AD, select your application.
+1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
 1. On the app's overview page, copy the Directory (tenant) ID value and store it in your application code.
 1. Copy the Application (client) ID value and store it in your application code.
 
 ## Set up authentication
 
-There are two types of authentication available for service principals: password-based authentication (application secret) and certificate-based authentication. *We recommend using a certificate*, but you can also create an application secret.
+There are two types of authentication available for service principals: password-based authentication (application secret) and certificate-based authentication. *We recommend using a trusted certificate issued by a certificate authority*, but you can also create an application secret or create a self-signed certificate for testing.
 
-### Option 1 (recommended): Create and upload a self-signed certificate
+### Option 1 (recommended): Upload a trusted certificate issued by a certificate authority
 
-You can use an existing certificate if you've one.  Optionally, you can create a self-signed certificate for *testing purposes only*. To create a self-signed certificate, open Windows PowerShell and run [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) with the following parameters to create the certificate in the user certificate store on your computer:
+To upload the certificate file:
+
+1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
+1. Select **Certificates & secrets**.
+1. Select **Certificates**, then select **Upload certificate** and then select the certificate file to upload.
+1. Select **Add**. Once the certificate is uploaded, the thumbprint, start date, and expiration values are displayed.
+
+After registering the certificate with your application in the application registration portal, enable the [confidential client application](authentication-flows-app-scenarios.md#single-page-public-client-and-confidential-client-applications) code to use the certificate.
+
+### Option 2: Testing only- create and upload a self-signed certificate
+
+Optionally, you can create a self-signed certificate for *testing purposes only*. To create a self-signed certificate, open Windows PowerShell and run [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) with the following parameters to create the certificate in the user certificate store on your computer:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -100,20 +111,18 @@ Export this certificate to a file using the [Manage User Certificate](/dotnet/fr
 
 To upload the certificate:
 
-1. Search for and select **Azure Active Directory**.
-1. From **App registrations** in Azure AD, select your application.
+1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
 1. Select **Certificates & secrets**.
 1. Select **Certificates**, then select **Upload certificate** and then select the certificate (an existing certificate or the self-signed certificate you exported).
 1. Select **Add**.
 
-After registering the certificate with your application in the application registration portal, enable the client application code to use the certificate.
+After registering the certificate with your application in the application registration portal, enable the [confidential client application](authentication-flows-app-scenarios.md#single-page-public-client-and-confidential-client-applications) code to use the certificate.
 
-### Option 2: Create a new application secret
+### Option 3: Create a new application secret
 
 If you choose not to use a certificate, you can create a new application secret.
 
-1. Search for and select **Azure Active Directory**.
-1. Select **App registrations** and select your application from the list.
+1. Browse to **Identity** > **Applications** > **App registrations**, then select your application.
 1. Select **Certificates & secrets**.
 1. Select **Client secrets**, and then Select **New client secret**.
 1. Provide a description of the secret, and a duration.
@@ -129,7 +138,7 @@ You might need to configure extra permissions on resources that your application
 
 To configure access policies:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your key vault and select **Access policies**.
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
 1. Select **Add** to add the access policy.

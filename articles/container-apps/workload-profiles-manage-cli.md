@@ -1,27 +1,19 @@
 ---
-title: Create a Consumption + Dedicated workload profiles environment (preview) 
-description: Learn to create an environment with a specialized hardware profile. 
+title: Create a workload profiles environment with the Azure CLI
+description: Learn to create an environment with a specialized hardware profile using the Azure CLI.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic:  how-to
-ms.date: 04/11/2023
+ms.date: 08/29/2023
 ms.author: cshoe
 zone_pivot_groups: container-apps-vnet-types
 ---
 
-# Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview)
+# Manage workload profiles with the Azure CLI
 
-Learn to manage a Container Apps environment with workload profile support.
-
-## Supported regions
-
-The following regions support workload profiles during preview:
-
-- North Central US
-- North Europe
-- West Europe
-- East US
+Learn to manage a workload profiles environment using the Azure CLI.
 
 <a id="create"></a>
 
@@ -29,9 +21,9 @@ The following regions support workload profiles during preview:
 
 ::: zone pivot="aca-vnet-managed"
 
-Azure Container Apps run in an environment, which uses a virtual network (VNet). By default, your Container App environment is created with a managed VNet that is automatically generated for you. Generated VNets are inaccessible to you as they're created in Microsoft's tenant.
+By default, your Container Apps environment is created with a managed VNet that is automatically generated for you. Generated VNets are inaccessible to you as they're created in Microsoft's tenant.
 
-Create a container apps environment with a [custom VNet](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom) if you need any of the following features:
+Alternatively, you can create an environment with a [custom VNet](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom) if you need any of the following features:
 
 - [User defined routes](user-defined-routes.md)
 - Integration with Application Gateway
@@ -51,7 +43,7 @@ When you create an environment with a custom VNet, you have full control over th
 
 ::: zone-end
 
-Use the following commands to create an environment with workload profile support.
+Use the following commands to create a workload profiles environment.
 
 ::: zone pivot="aca-vnet-custom"
 
@@ -77,28 +69,28 @@ Use the following commands to create an environment with workload profile suppor
         --query "id"
       ```
 
-     Copy the ID value and paste into the next command.
+     Copy the **ID** value and paste into the next command.
 
-     The `Microsoft.App/environments` delegation is required to give the Container Apps runtime the needed control over your VNet to run workload profiles in the Container Apps environment.
+     The `Microsoft.App/environments` delegation is required to give the Container Apps runtime the required control over your VNet to run workload profiles in the Container Apps environment.
 
-     You can specify as small as a `/27` CIDR (32 IPs-8 reserved) for the subnet. Some things to consider if you're going to specify a `/27` CIDR:
+     You can specify as small as a `/27` CIDR (32 IPs-8 reserved) for the subnet. If you're going to specify a `/27` CIDR, consider the following items:
 
-      - There are 11 IP addresses reserved for Container Apps infrastructure. Therefore, a `/27` CIDR has a maximum of 21 IP available addresses.
+      - There are 11 IP addresses reserved for Container Apps infrastructure. Therefore, a `/27` CIDR has a maximum of 21 available IP addresses.
 
-      - IP addresses are allocated differently between Consumption and Dedicated profiles:
+      - IP addresses are allocated differently between Consumption only and Dedicated plans:
 
-        | Consumption | Consumption + Dedicated |
+        | Consumption only | Dedicated |
         |---|---|  
-        | Every replica requires one IP. Users can't have apps with more than 21 replicas across all apps. Zero downtime deployment requires double the IPs since the old revision is running until the new revision is successfully deployed. | Every instance (VM node) requires a single IP.  You can have up to 21 instances across all workload profiles, and hundreds or more replicas running on these workload profiles. |
+        | Every replica requires one IP. Users can't have apps with more than 21 replicas across all apps. Zero downtime deployment requires double the IPs since the old revision is running until the new revision is successfully deployed. | Every instance (VM node) requires a single IP. You can have up to 21 instances across all workload profiles, and hundreds or more replicas running on these workload profiles. |
 
     ::: zone-end
 
-1. Create *Consumption + Dedicated* environment with workload profile support
+1. Create *workload profiles* environment
 
     ::: zone pivot="aca-vnet-custom"
 
     >[!Note]
-    > In Container Apps, you can configure whether your Container Apps will allow public ingress or only ingress from within your VNet at the environment level. In order to restrict ingress to just your VNet, you need to set the `--internal-only` flag.
+    > You can configure whether your container app allows public ingress or only ingress from within your VNet at the environment level. In order to restrict ingress to just your VNet, set the `--internal-only` flag.
 
     # [External environment](#tab/external-env)
 
@@ -140,7 +132,7 @@ Use the following commands to create an environment with workload profile suppor
 
       This command can take up to 10 minutes to complete.
 
-1. Check status of environment. Here, you're looking to see if the environment is created successfully.
+1. Check the status of your environment. The following command reports if the environment is created successfully.
 
       ```bash
       az containerapp env show \
@@ -180,7 +172,7 @@ Use the following commands to create an environment with workload profile suppor
 
     ---
 
-    This command deploys the application to the built-in Consumption workload profile. If you want to create an app in a dedicated workload profile, you first need to [add the profile to the environment](#add-profiles).
+    This command deploys the application to the built-in Consumption workload profile. If you want to create an app in a Dedicated profile, you first need to [add the profile to the environment](#add-profiles).
 
     This command creates the new application in the environment using a specific workload profile.
 
@@ -198,7 +190,7 @@ az containerapp env workload-profile set \
   --max-nodes <MAX_NODES>
 ```
 
-The value you select for the `<WORKLOAD_PROFILE_NAME>` placeholder is the workload profile "friendly name".
+The value you select for the `<WORKLOAD_PROFILE_NAME>` placeholder is the workload profile *friendly name*.
 
 Using friendly names allow you to add multiple profiles of the same type to an environment. The friendly name is what you use as you deploy and maintain a container app in a workload profile.
 
@@ -238,7 +230,7 @@ The following commands allow you to list available profiles in your region and o
 
 Use the `list-supported` command to list the supported workload profiles for your region.
 
-The following Azure CLI command displays the results in a table  
+The following Azure CLI command displays the results in a table. 
 
 ```azurecli
 az containerapp env workload-profile list-supported \
@@ -258,6 +250,7 @@ D16          16       64           GeneralPurpose
 E4           4        32           MemoryOptimized
 E8           8        64           MemoryOptimized
 E16          16       128          MemoryOptimized
+E32          32       256          MemoryOptimized
 Consumption  4        8            Consumption
 ```
 

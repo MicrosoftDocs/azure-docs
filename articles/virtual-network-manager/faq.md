@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: article
-ms.date: 03/15/2023
+ms.date: 08/03/2023
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021, engagement-fy23
 ---
@@ -40,7 +40,9 @@ For current region support, refer to [products available by region](https://azur
 
 ### What's the cost of using Azure Virtual Network Manager?
 
-Azure Virtual Network Manager charges $0.10/hour per subscription managed. AVNM charges are based on the number of subscriptions that contain a virtual network with an active network manager configuration deployed onto it. For example, if a network manager's scope consists of ten subscriptions but only three subscriptions' virtual networks are covered by a network manager deployment, then there are three managed subscriptions, so $0.10/hour * three subscriptions = $0.30/hour.
+Azure Virtual Network Manager charges are based on the number of subscriptions that contain a virtual network with an active network manager configuration deployed onto it. Also, a Virtual Network Peering charge applies to the traffic volume of virtual networks managed by a deployed connectivity configuration (either Mesh, or Hub-and-Spoke).
+
+Current pricing for your region can be found on the [Azure Virtual Network Manager pricing](https://azure.microsoft.com/pricing/details/virtual-network-manager/) page.
 
 ## Technical
 
@@ -92,12 +94,19 @@ Should a regional outage occur, all configurations applied to current resources 
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to a non-managed virtual network?
 
-Yes, you can choose to override and delete an existing peering already created, or allow them to coexist with those created by Azure Virtual Network Manager.
+Yes, Azure Virtual Network Manager is fully compatible with pre-existing hub and spoke topology deployments using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+
+### Can I migrate an existing hub and spoke topology to Azure Virtual Network Manager?
+
+Yes, 
 
 ### How do connected groups differ from virtual network peering regarding establishing connectivity between virtual networks?
 
 In Azure, VNet peering and connected groups are two methods of establishing connectivity between virtual networks (VNets). While VNet peering works by creating a 1:1 mapping between each peered VNet, connected groups use a new construct that establishes connectivity without such a mapping. In a connected group, all virtual networks are connected without individual peering relationships.  For example, if VNetA, VNetB, and VNetC are part of the same connected group, connectivity is enabled between each VNet without the need for individual peering relationships.
 
+### Do security admin rules apply to Azure Private Endpoints?
+
+Currently, security admin rules don't apply to Azure Private Endpoints that fall under the scope of a virtual network managed by Azure Virtual Network Manager.
 ### How can I explicitly allow Azure SQL Managed Instance traffic before having deny rules?
 
 Azure SQL Managed Instance has some network requirements. If your security admin rules can block the network requirements, you can use the below sample rules to allow SQLMI traffic with higher priority than the deny rules that can block the traffic of SQL Managed Instance.
@@ -140,7 +149,7 @@ A network manager is only delegated enough access to apply configurations to vir
 
 #### Are you applying security rules to a VNet containing Azure SQL Managed Instances?
 
-Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowOnlyRules on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
+Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowRulesOnly on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
 
 ## Limits
 

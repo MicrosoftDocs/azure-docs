@@ -4,12 +4,11 @@ titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using the Azure portal and Azure attribute-based access control (Azure ABAC).
 author: jimmart-dev
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
-ms.subservice: blobs
-ms.date: 10/25/2022
+ms.date: 03/15/2023
 
 #Customer intent:
 
@@ -178,7 +177,7 @@ Here is what the condition looks like in code:
 
 ## Step 6: Test the condition
 
-1. In a new window, open the [Azure portal](https://portal.azure.com).
+1. In a new window, sign in to the [Azure portal](https://portal.azure.com).
 
 1. Sign in as the user you created earlier.
 

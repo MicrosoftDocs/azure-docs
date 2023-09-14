@@ -4,6 +4,7 @@ description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to g
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.date: 09/14/2023
+
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster

@@ -61,11 +61,11 @@ In order for the [User Administrator](permissions-reference.md#user-administrato
 
 ## License requirements
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and an Azure AD Free license for each administrative unit member. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator who is assigned directory roles over the scope of the administrative unit, and an Azure AD Free license for each administrative unit member. Creating administrative units is available with an Azure AD Free license. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 
-You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph API. For more information, see:
+You can manage administrative units by using the Microsoft Entra admin center, PowerShell cmdlets and scripts, or Microsoft Graph API. For more information, see:
 
 - [Create or delete administrative units](admin-units-manage.md)
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
@@ -88,7 +88,7 @@ You can expect the creation of administrative units in the organization to go th
 
 ## Currently supported scenarios
 
-As a Global Administrator or a Privileged Role Administrator, you can use the Azure portal to:
+As a Global Administrator or a Privileged Role Administrator, you can use the Microsoft Entra admin center to:
 
 - Create administrative units
 - Add users, groups, or devices as members of administrative units
@@ -97,7 +97,7 @@ As a Global Administrator or a Privileged Role Administrator, you can use the Az
 
 Administrative unit-scoped admins can use the Microsoft 365 admin center for basic management of users in their administrative units. A group administrator with administrative unit scope can manage groups by using PowerShell, Microsoft Graph, and the Microsoft 365 admin centers.
 
-Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
+Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Microsoft Entra admin center, PowerShell, and other Microsoft services.
 
 >[!Note]
 >Only the features described in this section are available in the Microsoft 365 admin center. No organization-level features are available for an Azure AD role with administrative unit scope.
@@ -106,7 +106,7 @@ The following sections describe current support for administrative unit scenario
 
 ### Administrative unit management
 
-| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| Permissions | Microsoft Graph/PowerShell | Microsoft Entra admin center | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Create or delete administrative units | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Add or remove members | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -116,7 +116,7 @@ The following sections describe current support for administrative unit scenario
 
 ### User management
 
-| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| Permissions | Microsoft Graph/PowerShell | Microsoft Entra admin center | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Administrative unit-scoped management of user properties, passwords | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of user licenses | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -125,7 +125,7 @@ The following sections describe current support for administrative unit scenario
 
 ### Group management
 
-| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| Permissions | Microsoft Graph/PowerShell | Microsoft Entra admin center | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Administrative unit-scoped creation and deletion of groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of group properties and membership for Microsoft 365 groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -134,7 +134,7 @@ The following sections describe current support for administrative unit scenario
 
 ### Device management
 
-| Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
+| Permissions | Microsoft Graph/PowerShell | Microsoft Entra admin center | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Enable, disable, or delete devices | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Read BitLocker recovery keys | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -144,6 +144,5 @@ Managing devices in Intune is *not* supported at this time.
 ## Next steps
 
 - [Create or delete administrative units](admin-units-manage.md)
-- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Restricted management administrative units](admin-units-restricted-management.md)
 - [Administrative unit limits](../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context)

@@ -50,7 +50,7 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
 
 1. Select the **Cloud Shell** icon from the page header in the Azure portal.
 
-    :::image type="content" source="./media/quickstart-send-telemetry-cli/cloud-shell-button.png" alt-text="Screenshot of the global controls from the page header of the Azure portal, highlighting the Cloud Shell icon.":::
+    :::image type="content" source="./media/device-management-cli/cloud-shell-button.png" alt-text="Screenshot of the global controls from the page header of the Azure portal, highlighting the Cloud Shell icon.":::
 
     > [!NOTE]
     > If this is the first time you've used the Cloud Shell, it prompts you to create storage, which is required to use the Cloud Shell.  Select a subscription to create a storage account and Microsoft Azure Files share.
@@ -60,7 +60,7 @@ If you want to use the Azure Cloud Shell, you must first launch and configure it
     > [!NOTE]
     > Some commands require different syntax or formatting in the **Bash** and **PowerShell** environments.  For more information, see [Tips for using the Azure CLI successfully](/cli/azure/use-cli-effectively?tabs=bash%2Cbash2).
 
-    :::image type="content" source="./media/quickstart-send-telemetry-cli/cloud-shell-environment.png" alt-text="Screenshot of an Azure Cloud Shell window, highlighting the environment selector in the toolbar.":::
+    :::image type="content" source="./media/device-management-cli/cloud-shell-environment.png" alt-text="Screenshot of an Azure Cloud Shell window, highlighting the environment selector in the toolbar.":::
 
 ## Prepare two CLI sessions
 
@@ -81,7 +81,7 @@ Next, you must prepare two Azure CLI sessions. If you're using the Cloud Shell, 
 
 1. Open the second CLI session.  If you're using the Cloud Shell in a browser, select the **Open new session** icon on the toolbar of your first CLI session. If using the CLI locally, open a second CLI instance.
 
-    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-new-session.png" alt-text="Screenshot of an Azure Cloud Shell window, highlighting the Open New Session icon in the toolbar.":::
+    :::image type="content" source="media/device-management-cli/cloud-shell-new-session.png" alt-text="Screenshot of an Azure Cloud Shell window, highlighting the Open New Session icon in the toolbar.":::
 
 ## Create and simulate a device
 

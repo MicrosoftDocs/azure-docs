@@ -2,9 +2,9 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 07/14/2023
 ms.devlang: csharp, python
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
 
 # Use Azure Batch to run container workloads
@@ -31,6 +31,15 @@ You should be familiar with container concepts and how to create a Batch pool an
 - **Accounts**: In your Azure subscription, you need to create a [Batch account](accounts.md) and optionally an Azure Storage account.
 
 - **A supported virtual machine (VM) image**: Containers are only supported in pools created with the Virtual Machine Configuration, from a supported image (listed in the next section). If you provide a custom image, see the considerations in the following section and the requirements in [Use a managed image to create a custom image pool](batch-custom-images.md).
+
+> [!NOTE]
+> From Batch SDK versions:
+> - Batch .NET SDK version 16.0.0
+> - Batch Python SDK version 14.0.0
+> - Batch Java SDK version 11.0.0
+> - Batch Node.js SDK version 11.0.0
+
+Currently, the `containerConfiguration` requires `Type` property to be passed and the supported values are: `ContainerType.DockerCompatible` and `ContainerType.CriCompatible`.
 
 Keep in mind the following limitations:
 
@@ -96,7 +105,7 @@ To configure a container-enabled pool without prefetched container images, defin
 image_ref_to_use = batch.models.ImageReference(
     publisher='microsoft-azure-batch',
     offer='ubuntu-server-container',
-    sku='16-04-lts',
+    sku='20-04-lts',
     version='latest')
 
 """
@@ -110,7 +119,7 @@ new_pool = batch.models.PoolAddParameter(
     virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
         image_reference=image_ref_to_use,
         container_configuration=container_conf,
-        node_agent_sku_id='batch.node.ubuntu 16.04'),
+        node_agent_sku_id='batch.node.ubuntu 20.04'),
     vm_size='STANDARD_D1_V2',
     target_dedicated_nodes=1)
 ...
@@ -120,7 +129,7 @@ new_pool = batch.models.PoolAddParameter(
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
-    sku: "16-04-lts",
+    sku: "20-04-lts",
     version: "latest");
 
 // Specify container configuration. This is required even though there are no prefetched images.
@@ -129,7 +138,7 @@ ContainerConfiguration containerConfig = new ContainerConfiguration();
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+    nodeAgentSkuId: "batch.node.ubuntu 20.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
@@ -150,7 +159,7 @@ The following basic Python example shows how to prefetch a standard Ubuntu conta
 image_ref_to_use = batch.models.ImageReference(
     publisher='microsoft-azure-batch',
     offer='ubuntu-server-container',
-    sku='16-04-lts',
+    sku='20-04-lts',
     version='latest')
 
 """
@@ -165,7 +174,7 @@ new_pool = batch.models.PoolAddParameter(
     virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
         image_reference=image_ref_to_use,
         container_configuration=container_conf,
-        node_agent_sku_id='batch.node.ubuntu 16.04'),
+        node_agent_sku_id='batch.node.ubuntu 20.04'),
     vm_size='STANDARD_D1_V2',
     target_dedicated_nodes=1)
 ...
@@ -177,7 +186,7 @@ The following C# example assumes that you want to prefetch a TensorFlow image fr
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
-    sku: "16-04-lts",
+    sku: "20-04-lts",
     version: "latest");
 
 ContainerRegistry containerRegistry = new ContainerRegistry(
@@ -194,7 +203,7 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+    nodeAgentSkuId: "batch.node.ubuntu 20.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
@@ -219,7 +228,7 @@ You can also prefetch container images by authenticating to a private container 
 image_ref_to_use = batch.models.ImageReference(
         publisher='microsoft-azure-batch',
         offer='ubuntu-server-container',
-        sku='16-04-lts',
+        sku='20-04-lts',
         version='latest')
 
 # Specify a container registry
@@ -238,7 +247,7 @@ new_pool = batch.models.PoolAddParameter(
             virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
                 image_reference=image_ref_to_use,
                 container_configuration=container_conf,
-                node_agent_sku_id='batch.node.ubuntu 16.04'),
+                node_agent_sku_id='batch.node.ubuntu 20.04'),
             vm_size='STANDARD_D1_V2',
             target_dedicated_nodes=1)
 ```
@@ -259,7 +268,7 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+    nodeAgentSkuId: "batch.node.ubuntu 20.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
@@ -290,7 +299,7 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+    nodeAgentSkuId: "batch.node.ubuntu 20.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
@@ -326,7 +335,9 @@ If the container image for a Batch task is configured with an [ENTRYPOINT](https
 
 - To use the default ENTRYPOINT of the container image, set the task command line to the empty string `""`.
 
-- To override the default ENTRYPOINT, or if the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`.
+- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--endpoint "/bin/sh - python"`
+
+- If the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`
 
 Optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) are additional arguments you provide to the `docker create` command that Batch uses to create and run the container. For example, to set a working directory for the container, set the `--workdir <directory>` option. See the [docker create](https://docs.docker.com/engine/reference/commandline/create/) reference for additional options.
 

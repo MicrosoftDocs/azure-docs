@@ -3,7 +3,7 @@ title: Azure AD roles Discovery and insights (preview) in Privileged Identity Ma
 description: Discovery and insights (formerly Security Wizard) help you convert permanent Azure AD role assignments to just-in-time assignments with Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: barclayn
 manager: amycolannino
 editor: ''
 
@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/29/2022
-ms.author: amsliu
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -32,11 +32,11 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 ## Open Discovery and insights (preview)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure ad roles** >**Discovery and insights (Preview)**.
 
-1. From the left menu, select **Azure AD roles** and then select **Discovery and insights (Preview)**. Opening the page begins the discovery process to find relevant role assignments.
+1. Opening the page begins the discovery process to find relevant role assignments.
 
     ![Azure AD roles - Discovery and insights page showing the 3 options](./media/pim-security-wizard/new-preview-link.png)
 
@@ -60,7 +60,7 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 1. You can then select **Eliminate standing access** or **Review service principals** to repeat the above steps on other privileged roles and on service principal role assignments. For service principal role assignments, you can only remove role assignments.
 
-    ![Additional Insights options to eliminate standing access and review service principals ](./media/pim-security-wizard/new-preview-page-service-principals.png)
+    ![Additional Insights options to eliminate standing access and review service principals](./media/pim-security-wizard/new-preview-page-service-principals.png)
 
 ## Next steps
 

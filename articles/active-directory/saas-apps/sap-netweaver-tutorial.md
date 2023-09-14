@@ -8,6 +8,7 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
@@ -97,7 +98,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	c. Double-click on relevant client to enable HTTP security session.
 
-	![The HTTP Security session ](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+	![The HTTP Security session](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
 	d. Activate below SICF services:
     ```
@@ -159,7 +160,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. SAP NetWeaver application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![edit attribue](common/edit-attribute.png)
+	![edit attribute](common/edit-attribute.png)
 
 1. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
@@ -261,7 +262,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 1. Give the **User ID Source** value as **Assertion Attribute**, **User ID mapping mode** value as **Email** and **Assertion Attribute Name** as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-	![Configure Single Sign-On ](./media/sapnetweaver-tutorial/nameid-format.png)
+	![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameid-format.png)
 
 14. Note that **User ID Source** and **User ID mapping mode** values determine the link between SAP user and Azure AD claim.
 

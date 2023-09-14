@@ -7,8 +7,9 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: harshja
 ---
@@ -42,10 +43,12 @@ You can set the home page URL either through the Azure portal or by using PowerS
 
 ## Change the home page in the Azure portal
 
-To change the home page URL of your app through the Azure portal, follow these steps:
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an administrator.
-1. Select **Azure Active Directory**, and then **App registrations**. The list of registered apps appears.
+To change the home page URL of your app through the Azure portal, follow these steps:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses 
+1. Browse to **Identity** > **Applications** > **App registrations**. The list of registered apps appears.
 1. Choose your app from the list. A page showing the details of the registered app appears.
 1. Under **Manage**, select **Branding**.
 1. Update the **Home page URL**  with your new path.

@@ -1,5 +1,5 @@
 ---
-title: Azure single sign-on SAML protocol
+title: Single sign-on SAML protocol
 description: This article describes the single sign-on (SSO) SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
@@ -9,8 +9,8 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 08/31/2022
+ms.topic: reference
+ms.date: 08/11/2023
 ms.author: owenrichards
 ms.reviewer: kenwith
 ms.custom: aaddev
@@ -23,7 +23,7 @@ This article covers the SAML 2.0 authentication requests and responses that Azur
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
 
-![Single Sign-On (SSO) Workflow](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Screenshot of the Single Sign-On (SSO) Workflow.](./media/single-sign-on-saml-protocol/saml-single-sign-on-workflow.png)
 
 > [!NOTE]
 > This article discusses using SAML for single sign-on. For more information on other ways to handle single sign-on (for example, by using OpenID Connect or integrated Windows authentication), see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
@@ -44,14 +44,14 @@ To request a user authentication, cloud services send an `AuthnRequest` element 
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| ID | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "ID" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
-| Version | Required | This parameter should be set to **2.0**. |
-| IssueInstant | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
-| AssertionConsumerServiceURL | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
-| ForceAuthn | Optional | This is a boolean value. If true, it means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
-| IsPassive | Optional | This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
+| `ID` | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "ID" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
+| `Version` | Required | This parameter should be set to `2.0`. |
+| `IssueInstant` | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
+| `AssertionConsumerServiceURL` | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
+| `ForceAuthn` | Optional | This is a boolean value. If true, it means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
+| `IsPassive` | Optional | This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
 
-All other `AuthnRequest` attributes, such as Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex, and ProviderName are **ignored**.
+All other `AuthnRequest` attributes, such as `Consent`, `Destination`, `AssertionConsumerServiceIndex`, `AttributeConsumerServiceIndex`, and `ProviderName` are **ignored**.
 
 Azure AD also ignores the `Conditions` element in `AuthnRequest`.
 

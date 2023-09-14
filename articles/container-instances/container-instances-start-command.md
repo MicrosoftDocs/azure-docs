@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -78,9 +78,7 @@ Once the container's state shows as *Terminated* (use [az container show][az-con
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-Output:
-
-```console
+```output
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
@@ -104,9 +102,7 @@ Again, once the container is *Terminated*, view the output by showing the contai
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Output:
-
-```console
+```output
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
@@ -122,4 +118,3 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[portal]: https://portal.azure.com

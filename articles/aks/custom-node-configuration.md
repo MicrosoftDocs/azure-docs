@@ -1,7 +1,7 @@
 ---
 title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
 description: Learn how to customize the configuration on Azure Kubernetes Service (AKS) cluster nodes and node pools.
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: article
 ms.date: 04/24/2023
 ms.author: jpalma
@@ -19,6 +19,7 @@ Customizing your node configuration allows you to adjust operating system (OS) s
 ### Prerequisites for Windows kubelet custom configuration (preview)
 
 Before you begin, make sure you have an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You also need to register the feature flag using the following steps:
+
 
 1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
 
@@ -192,7 +193,7 @@ Kubelet custom configuration is supported for Linux and Windows node pools. Supp
 | `imageGcLowThreshold` | 0-100, no higher than `imageGcHighThreshold` | 80 | The percent of disk usage before which image garbage collection is never run. Minimum disk usage that **can** trigger garbage collection. |
 | `topologyManagerPolicy` | none, best-effort, restricted, single-numa-node | none | Optimize NUMA node alignment, see more [here](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | None | Allowed list of unsafe sysctls or unsafe sysctl patterns. |
-| `containerLogMaxSizeMB` | Size in megabytes (MB) | 10 | The maximum size (for example, 10 MB) of a container log file before it's rotated. |
+| `containerLogMaxSizeMB` | Size in megabytes (MB) | 50 | The maximum size (for example, 10 MB) of a container log file before it's rotated. |
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. |
 | `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
@@ -206,6 +207,12 @@ Kubelet custom configuration is supported for Linux and Windows node pools. Supp
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. |
 
 ## Linux custom OS configuration settings
+
+> [!IMPORTANT]
+> To simplify search and readability, the OS settings are displayed in this article by their name, but they should be added to the configuration JSON file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
+>
+> For example, if you modify the 'vm.max_map_count setting', you should reformat to 'vmMaxMapCount' in the configuration JSON file.
+> 
 
 ### File handle limits
 
@@ -234,7 +241,7 @@ For agent nodes, which are expected to handle very large numbers of concurrent s
 | `net.ipv4.tcp_fin_timeout` | 5 - 120 | 60 | The length of time an orphaned (no longer referenced by any application) connection will remain in the FIN_WAIT_2 state before it's aborted at the local end. |
 | `net.ipv4.tcp_keepalive_time` | 30 - 432000 | 7200 | How often TCP sends out `keepalive` messages when `keepalive` is enabled. |
 | `net.ipv4.tcp_keepalive_probes` | 1 - 15 | 9 | How many `keepalive` probes TCP sends out, until it decides that the connection is broken. |
-| `net.ipv4.tcp_keepalive_intvl` | 1 - 75 | 75 | How frequently the probes are sent out. Multiplied by `tcp_keepalive_probes` it makes up the time to kill a connection that isn't responding, after probes started. |
+| `net.ipv4.tcp_keepalive_intvl` | 10 - 75 | 75 | How frequently the probes are sent out. Multiplied by `tcp_keepalive_probes` it makes up the time to kill a connection that isn't responding, after probes started. |
 | `net.ipv4.tcp_tw_reuse` | 0 or 1 | 0 | Allow to reuse `TIME-WAIT` sockets for new connections when it's safe from protocol viewpoint. | 
 | `net.ipv4.ip_local_port_range` | First: 1024 - 60999 and Last: 32768 - 65000] | First: 32768 and Last: 60999 | The local port range that is used by TCP and UDP traffic to choose the local port. Comprised of two numbers: The first number is the first local port allowed for TCP and UDP traffic on the agent node, the second is the last local port number. | 
 | `net.ipv4.neigh.default.gc_thresh1`| 	128 - 80000 | 4096 | Minimum number of entries that may be in the ARP cache. Garbage collection won't be triggered if the number of entries is below this setting. |
@@ -264,8 +271,7 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) is a Linux kernel feature intended to improve performance by making more efficient use of your processor’s memory-mapping hardware. When enabled the kernel attempts to allocate `hugepages` whenever possible and any Linux process will receive 2-MB pages if the `mmap` region is 2 MB naturally aligned. In certain cases when `hugepages` are enabled system wide, applications may end up allocating more memory resources. An application may `mmap` a large region but only touch 1 byte of it, in that case a 2-MB page might be allocated instead of a 4k page for no good reason. This scenario is why it's possible to disable `hugepages` system-wide or to only have them inside `MADV_HUGEPAGE madvise` regions. |
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | This value controls whether the kernel should make aggressive use of memory compaction to make more `hugepages` available. |
 
-> [!IMPORTANT]
-> For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
+
 
 ## Next steps
 

@@ -2,14 +2,14 @@
 title: Manage an Azure Automation Run As account
 description: This article tells how to manage your Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
-ms.date: 04/12/2023
+ms.date: 05/05/2023
 ms.topic: conceptual 
 ---
 
 # Manage an Azure Automation Run As account
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
 
 
 
@@ -25,7 +25,7 @@ To learn more about Azure Automation account authentication, permissions require
 
 ## <a name="cert-renewal"></a>Renew a self-signed certificate
 
-The self-signed certificate that you have created for the Run As account expires one year from the date of creation. At some point before your Run As account expires, you must renew the certificate. You can renew it any time before it expires.
+The self-signed certificate that you have created for the Run As account expires one month from the date of creation. At some point before your Run As account expires, you must renew the certificate. You can renew it any time before it expires.
 
 When you renew the self-signed certificate, the current valid certificate is retained to ensure that any runbooks that are queued up or actively running, and that authenticate with the Run As account, aren't negatively affected. The certificate remains valid until its expiration date.
 

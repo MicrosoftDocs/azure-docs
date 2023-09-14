@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 08/29/2023
 
 ms.author: justinha
 author: justinha
@@ -15,6 +15,7 @@ ms.reviewer: michmcla, dawoo
 
 ms.collection: M365-identity-device-management
 ---
+
 # Manage user authentication methods for Azure AD Multi-Factor Authentication
 
 Users in Azure AD have two distinct sets of contact information:  
@@ -32,17 +33,17 @@ When managing Azure AD Multi-Factor Authentication methods for your users, Authe
 
 ## Add authentication methods for a user 
 
-You can add authentication methods for a user via the Azure portal or Microsoft Graph.  
+You can add authentication methods for a user by using the Microsoft Entra admin center or Microsoft Graph.  
 
 > [!NOTE]
 > For security reasons, public user contact information fields should not be used to perform MFA. Instead, users should populate their authentication method numbers to be used for MFA.  
 
-:::image type="content" source="media/howto-mfa-userdevicesettings/add-authentication-method-detail.png" alt-text="Add authentication methods from the Azure portal":::
+:::image type="content" source="media/howto-mfa-userdevicesettings/add-authentication-method-detail.png" alt-text="Add authentication methods from the Microsoft Entra admin center":::
 
-To add authentication methods for a user via the Azure portal:  
+To add authentication methods for a user in the Microsoft Entra admin center:  
 
-1. Sign into the **Azure portal**. 
-1. Browse to **Azure Active Directory** > **Users** > **All users**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Identity** > **Users** > **All users**. 
 1. Choose the user for whom you wish to add an authentication method and select **Authentication methods**.  
 1. At the top of the window, select **+ Add authentication method**.
    1. Select a method (phone number or email). Email may be used for self-password reset but not authentication. When adding a phone number, select a phone type and enter phone number with valid format (e.g. +1 4255551234).
@@ -51,13 +52,13 @@ To add authentication methods for a user via the Azure portal:
 > [!NOTE]
 > The preview experience allows administrators to add any available authentication methods for users, while the original experience only allows updating of phone and alternate phone methods.
 
-### Manage methods using PowerShell:  
+### Manage methods using PowerShell
 
 Install the Microsoft.Graph.Identity.Signins PowerShell module using the following commands. 
 
 ```powershell
 Install-module Microsoft.Graph.Identity.Signins
-Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+Connect-MgGraph -Scopes "User.Read.all","UserAuthenticationMethod.Read.All","UserAuthenticationMethod.ReadWrite.All"
 Select-MgProfile -Name beta
 ```
 
@@ -79,24 +80,24 @@ Remove a specific phone method for a user
 Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthenticationMethodId 3179e48a-750b-4051-897c-87b9720928f7
 ```
 
-Authentication methods can also be managed using Microsoft Graph APIs, more information can be found in the document [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview)
+Authentication methods can also be managed using Microsoft Graph APIs. For more information, see [Authentication and authorization basics](/graph/auth/auth-concepts).
 
 ## Manage user authentication options
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 If you're assigned the *Authentication Administrator* role, you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object. To manage user settings, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the left, select **Azure Active Directory** > **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Identity** > **Users** > **All users**. 
 1. Choose the user you wish to perform an action on and select **Authentication methods**. At the top of the window, then choose one of the following options for the user:
    - **Reset Password** resets the user's password and assigns a temporary password that must be changed on the next sign-in.
    - **Require Re-register MFA** makes it so that when the user signs in next time, they're requested to set up a new MFA authentication method.
-   
       > [!NOTE]
       > The user's currently registered authentication methods aren't deleted when an admin requires re-registration for MFA. After a user re-registers for MFA, we recommend they review their security info and delete any previously registered authentication methods that are no longer usable.
-   
    - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it's required by the policy on the device.
    
-    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Manage authentication methods from the Azure portal":::
+    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Manage authentication methods from the Microsoft Entra admin center":::
 
 ## Delete users' existing app passwords
 
@@ -104,14 +105,14 @@ For users that have defined app passwords, administrators can also choose to del
 
 To delete a user's app passwords, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the left-hand side, select **Azure Active Directory** > **Users** > **All users**.
-1. Select **Multi-Factor Authentication**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Identity** > **Users** > **All users**. 
+1. Select **Multi-Factor Authentication**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full window and menu location:
     [![Select Multi-Factor Authentication from the Users window in Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Check the box next to the user or users that you wish to manage. A list of quick step options appears on the right.
 1. Select **Manage user settings**, then check the box for **Delete all existing app passwords generated by the selected users**, as shown in the following example:
    ![Delete all existing app passwords](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-1. Select **save**, then **close**.
+1. 1. Select **save**, then **close**.
 
 ## Next steps
 

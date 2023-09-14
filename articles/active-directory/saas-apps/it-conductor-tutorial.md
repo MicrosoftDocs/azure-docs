@@ -82,7 +82,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure IT-Conductor SSO
 
-To configure single sign-on on **IT-Conductor** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [IT-Conductor support team](mailto:support@itconductor.com). They set this setting to have the SAML SSO connection set properly on both sides. For more information, please refer [this](https://docs.itconductor.com/wiki/start-here/sso-setup) link.
+To configure single sign-on on **IT-Conductor** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [IT-Conductor support team](mailto:support@itconductor.com). They set this setting to have the SAML SSO connection set properly on both sides. For more information, please refer [this](https://docs.itconductor.com/start-here/sso-setup) link.
 
 ### Create IT-Conductor test user
 
@@ -94,7 +94,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the IT-Conductor for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the IT-Conductor tile in the My Apps, you should be automatically signed in to the IT-Conductor for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the IT-Conductor tile in the My Apps, you should be automatically signed in to the IT-Conductor for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Additional resources
 

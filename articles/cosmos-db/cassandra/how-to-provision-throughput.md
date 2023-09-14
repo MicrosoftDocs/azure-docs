@@ -8,7 +8,7 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.devlang: csharp
-ms.custom: devx-track-azurecli, ignite-2022, devx-track-arm-template, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, ignite-2022, devx-track-arm-template, devx-track-azurepowershell, devx-track-dotnet
 ---
 
 # Provision database, container or autoscale throughput on Azure Cosmos DB for Apache Cassandra resources

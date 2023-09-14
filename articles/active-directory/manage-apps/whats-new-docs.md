@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 04/03/2023
+ms.date: 09/04/2023
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -15,48 +15,49 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
 
-## March 2023
+## August 2023
+### New articles
+
+- [Manage app consent policies for group owners](manage-group-owner-consent-policies.md) - New how-to guide on how to manage group owner consent policies.
 
 ### Updated articles
 
-- [Move application authentication to Azure Active Directory](migrate-adfs-apps-to-azure.md)
-- [Quickstart: Create and assign a user account](add-application-portal-assign-users.md)
-- [Configure sign-in behavior using Home Realm Discovery](configure-authentication-for-federated-users-portal.md)
-- [Disable auto-acceleration sign-in](prevent-domain-hints-with-home-realm-discovery.md)
-- [Review permissions granted to enterprise applications](manage-application-permissions.md)
-- [Migrate application authentication to Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
-- [Azure Active Directory application management: What's new](whats-new-docs.md)
-- [Configure permission classifications](configure-permission-classifications.md)
-- [Restrict access to a tenant](tenant-restrictions.md)
-- [Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
-- [Delete an enterprise application](delete-application-portal.md)
-- [Restore an enterprise application in Azure AD](restore-application.md)
-
-## February 2023
-
-### Updated articles
-
-[Manage custom security attributes for an application (Preview)](custom-security-attributes-apps.md)
-- [Manage app consent policies](manage-app-consent-policies.md)
-- [Configure permission classifications](configure-permission-classifications.md)
-- [Disable user sign-in for an application](disable-user-sign-in-portal.md)
-- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-azure-ad-sso-mfa-oracle-ebs.md)
-
-## January 2023
+- [Properties of an enterprise application](application-properties.md) - Updates on the user requirement property
+- [Configure group and team owner consent to applications](configure-user-consent-groups.md) - Updates to examples for configuring group and team owner consent
+- [Configure how users consent to applications](configure-user-consent.md) - Updates to examples for configuring user consent
+- [Manage app consent policies](manage-app-consent-policies.md) - Updates to examples for managing app consent policies
+- [Review the application activity report](migrate-adfs-application-activity.md) - Updates to stale local links
+## July 2023
 
 ### New articles
 
-- [Configure Datawiza for Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-azure-ad-sso-mfa-oracle-ebs.md)
+- [Restore revoked permissions granted to applications](restore-permissions.md) - New how-to guide on how to restore previously revoked permissions.
 
 ### Updated articles
 
-- [Manage app consent policies](manage-app-consent-policies.md)
-- [Assign enterprise application owners](assign-app-owners.md)
-- [Configure enterprise application properties](add-application-portal-configure.md)
-- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
-- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft](datawiza-azure-ad-sso-oracle-peoplesoft.md)
-- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza](datawiza-with-azure-ad.md)
-- [Secure hybrid access: Protect legacy apps with Azure Active Directory](secure-hybrid-access.md)
-- [Create an enterprise application from a multi-tenant application in Azure Active Directory](create-service-principal-cross-tenant.md)
-- [Configure sign-in behavior using Home Realm Discovery](configure-authentication-for-federated-users-portal.md)
-- [Secure hybrid access with Azure Active Directory partner integrations](secure-hybrid-access-integrations.md)
+- [Review permissions granted to enterprise applications](manage-application-permissions.md) - Added portal UI procedures for revoking permissions.
+- [Debug SAML-based single sign-on to applications](debug-saml-sso-issues.md) - Reviewed the article for freshness.
+- [Configure Azure Active Directory SAML token encryption](howto-saml-token-encryption.md) - Added Microsoft Graph PowerShell examples and removed unnecessary steps.
+
+The following PowerShell samples were updated to use Microsoft Graph PowerShell cmdlets.
+- [Export secrets and certs (app registrations)](scripts/powershell-export-all-app-registrations-secrets-and-certs.md)
+- [Export secrets and certs (enterprise apps)](scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md)
+- [Export expiring secrets and certs (app registrations)](scripts/powershell-export-apps-with-expiring-secrets.md)
+
+The following PowerShell sample was added:
+- [Export expiring secrets and certs (enterprise apps)](scripts/powershell-export-enterprise-apps-with-expiring-secrets.md)
+
+## June 2023
+
+### Updated articles
+
+- [Manage consent to applications and evaluate consent requests](manage-consent-requests.md)
+- [Plan application migration to Azure Active Directory](migrate-adfs-apps-phases-overview.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort](silverfort-integration.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle JD Edwards](datawiza-sso-oracle-jde.md)
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft](datawiza-sso-oracle-peoplesoft.md)
+- [Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access](cloudflare-integration.md)
+- [Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS](datawiza-sso-mfa-oracle-ebs.md)
+- [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+- [Tutorial: Configure F5 BIG-IP Easy Button for Kerberos single sign-on](f5-big-ip-kerberos-easy-button.md)

@@ -3,8 +3,8 @@ title: 'Quickstart: Create an Azure Database for MySQL - ARM template'
 description: In this Quickstart, learn how to create an Azure Database for MySQL server with virtual network integration, by using an Azure Resource Manager template.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 06/20/2022
@@ -66,7 +66,7 @@ More Azure Database for MySQL template samples can be found in the [quickstart t
 
 Select the following link to deploy the Azure Database for MySQL server template in the Azure portal:
 
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure in portal":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformysql%2Fmanaged-mysql-with-vnet%2Fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure via the Azure portal":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformysql%2Fmanaged-mysql-with-vnet%2Fazuredeploy.json)
 
 On the **Deploy Azure Database for MySQL with VNet** page:
 

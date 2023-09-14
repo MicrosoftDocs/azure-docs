@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 08/16/2022
 ROBOTS: NOINDEX
 ms.author: dmwendia
-ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api, devx-track-extended-java
 ---
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: Java web app with user sign-in](web-app-quickstart.md?pivots=devlang-java)
+> > [Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-web-app-java-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -181,7 +181,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > import com.microsoft.aad.msal4j.*;
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

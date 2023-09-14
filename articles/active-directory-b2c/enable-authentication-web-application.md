@@ -260,7 +260,7 @@ Azure AD B2C identity provider settings are stored in the *appsettings.json* fil
   "Instance": "https://<your-tenant-name>.b2clogin.com",
   "ClientId": "<web-app-application-id>",
   "Domain": "<your-b2c-domain>",
-  "SignedOutCallbackPath": "/signout-oidc
+  "SignedOutCallbackPath": "/signout-oidc",
   "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
 }
 ```

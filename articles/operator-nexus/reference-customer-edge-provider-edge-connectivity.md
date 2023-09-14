@@ -53,7 +53,7 @@ You can use standard BGP (option A). You can also use MP-BGP with inter-as Optio
 For MP-BGP make sure you configure matching route targets on both PE and CE.
 
 ```azurecli
-az nf fabric create \
+az networkfabric fabric create \
 --resource-group "example-rg" \
 --location "eastus" \
 --resource-name "example-nf" \

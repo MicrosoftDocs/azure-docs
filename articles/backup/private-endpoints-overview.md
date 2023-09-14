@@ -2,11 +2,11 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 03/01/2023
-ms.custom: devx-track-azurepowershell
+ms.date: 08/14/2023
+ms.custom:
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview and concepts of private endpoints (v1 experience) for Azure Backup
@@ -20,13 +20,12 @@ This article will help you understand how private endpoints for Azure Backup wor
 
 ## Before you start
 
-- Private endpoints can be created for new Recovery Services vaults only (that doesn't have any items registered to the vault). So private endpoints must be created before you attempt to protect any items to the vault.
+- Private endpoints can be created for new Recovery Services vaults only (that doesn't have any items registered to the vault). So private endpoints must be created before you attempt to protect any items to the vault. However, private endpoints are currently not supported for Backup vaults.
 - One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints for it in multiple virtual networks. However, the maximum number of private endpoints that can be created for a vault is 12.
 - If the public network access for the vault is set to **Allow from all networks**, the vault allows backups and restores from any machine registered to the vault. If the public network access for the vault is set to **Deny**, the vault only allows backups and restores from the machines registered to the vault that are requesting backups/restores via private IPs allocated for the vault.
 - A private endpoint connection for Backup uses a total of 11 private IPs in your subnet, including those used by Azure Backup for storage. This number may be higher for certain Azure regions. So we suggest that you have enough private IPs (/26) available when you attempt to create private endpoints for Backup.
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses use of private endpoints for Azure Backup only.
 - Private endpoints for Backup don’t include access to Azure Active Directory (Azure AD) and the same needs to be ensured separately. So, IPs and FQDNs required for Azure AD to work in a region will need outbound access to be allowed from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable.
-- Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to [disable Network Polices](../private-link/disable-private-endpoint-network-policy.md) before continuing.
 - You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
 - [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported if the vault has private endpoints enabled.
 - When you move a Recovery Services vault already using private endpoints to a new tenant, you'll need to update the Recovery Services vault to recreate and reconfigure the vault’s managed identity and create new private endpoints as needed (which should be in the new tenant). If this isn't done, the backup and restore operations will start failing. Also, any Azure role-based access control (Azure RBAC) permissions set up within the subscription will need to be reconfigured.
@@ -52,19 +51,19 @@ In all the scenarios (with or without private endpoints), both the workload exte
 
 In addition to these connections when the workload extension or MARS agent is installed for recovery services vault *without private endpoints*, connectivity to the following domains is also required:
 
-| Service | Domain names |
-| --- | --- |
-| Azure Backup | `*.backup.windowsazure.com` |
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
-| Azure Active Directory (Azure AD) | [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). |
+| Service | Domain names | Port |
+| --- | --- | --- |
+| Azure Backup | `*.backup.windowsazure.com` | 443 |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` <br><br> `*.storage.azure.net` | 443 |
+| Azure Active Directory (Azure AD) | `*.australiacentral.r.login.microsoft.com` <br><br>  [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 When the workload extension or MARS agent is installed for Recovery Services vault with private endpoint, the following endpoints are hit:
 
-| Service | Domain name |
-| --- | --- |
-| Azure Backup | `*.privatelink.<geo>.backup.windowsazure.com` | 
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 
-| Azure Active Directory (Azure AD) | [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). |
+| Service | Domain name | Port |
+| --- | --- | --- |
+| Azure Backup | `*.privatelink.<geo>.backup.windowsazure.com` | 443 |
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net`   <br><br> `*.storage.azure.net` | 443 | 
+| Azure Active Directory (Azure AD) |`*.australiacentral.r.login.microsoft.com` <br><br> [Allow access to FQDNs under sections 56 and 59](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 >[!Note]
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:

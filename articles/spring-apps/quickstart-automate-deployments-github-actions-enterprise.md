@@ -1,7 +1,7 @@
 ---
 title: "Quickstart - Automate deployments"
-titleSuffix: Azure Spring Apps Enterprise tier
-description: Explains how to automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Explains how to automate deployments to the Azure Spring Apps Enterprise plan by using GitHub Actions and Terraform.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
@@ -15,14 +15,14 @@ ms.custom: devx-track-java, devx-track-terraform
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart shows you how to automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
+This quickstart shows you how to automate deployments to the Azure Spring Apps Enterprise plan by using GitHub Actions and Terraform.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
@@ -95,10 +95,10 @@ The automation associated with the sample application requires a Storage account
 
    - `TF_PROJECT_NAME`: Use a value of your choosing. This value will be the name of your Terraform Project.
    - `AZURE_LOCATION`: The Azure Region your resources will be created in.
-   - `OIDC_JWK_SET_URI`: Use the `JWK_SET_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
-   - `OIDC_CLIENT_ID`: Use the `CLIENT_ID` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
-   - `OIDC_CLIENT_SECRET`: Use the `CLIENT_SECRET` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
-   - `OIDC_ISSUER_URI`: Use the `ISSUER_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_JWK_SET_URI`: Use the `JWK_SET_URI` defined in [Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_CLIENT_ID`: Use the `CLIENT_ID` defined in [Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_CLIENT_SECRET`: Use the `CLIENT_SECRET` defined in [Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_ISSUER_URI`: Use the `ISSUER_URI` defined in [Quickstart: Configure single sign-on for applications using the Azure Spring Apps Enterprise plan](quickstart-configure-single-sign-on-enterprise.md).
 
 1. Add the secret `TF_BACKEND_CONFIG` to GitHub Actions with the following value:
 

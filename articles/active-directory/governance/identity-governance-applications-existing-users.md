@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/22/2022
+ms.date: 06/20/2023
 ms.author: mwahl
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -24,6 +24,9 @@ ms.collection: M365-identity-device-management
 # Govern an application's existing users - Microsoft PowerShell
 
 There are three common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application before you use the application with a Microsoft Entra identity governance feature such as [access reviews](access-reviews-application-preparation.md).
+
+## License requirements
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 ### Application migrated to Azure AD after using its own identity provider
 
@@ -73,7 +76,7 @@ When you create an assignment for a user to an access package, Azure AD entitlem
 
 - You must have one of the following licenses in your tenant:
 
-  - Azure AD Premium P2
+  - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
   - Enterprise Mobility + Security E5 license
 
 - You need to have an appropriate administrative role. If this is the first time you're performing these steps, you need the Global Administrator role to authorize the use of Microsoft Graph PowerShell in your tenant.
@@ -341,7 +344,7 @@ If the application does not support provisioning, then
 
    If you don't see users being provisioned, check the [troubleshooting guide for no users being provisioned](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md). If you see an error in the provisioning status and are provisioning to an on-premises application, check the [troubleshooting guide for on-premises application provisioning](../app-provisioning/on-premises-ecma-troubleshoot.md).
 
-1. Check the provisioning log through the [Azure portal](../reports-monitoring/concept-provisioning-logs.md) or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-provisioning-events-using-the-provisioning-logs).  Filter the log to the status **Failure**.  If there are failures with an ErrorCode of **DuplicateTargetEntries**,  this indicates an ambiguity in your provisioning matching rules, and you'll need to update the Azure AD users or the mappings that are used for matching to ensure each Azure AD user matches one application user.  Then filter the log to the action **Create** and status **Skipped**.  If users were skipped with the SkipReason code of **NotEffectivelyEntitled**, this may indicate that the user accounts in Azure AD were not matched because the user account status was **Disabled**.
+1. Check the provisioning log through the [Microsoft Entra admin center](../reports-monitoring/concept-provisioning-logs.md) or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-provisioning-events-using-the-provisioning-logs).  Filter the log to the status **Failure**.  If there are failures with an ErrorCode of **DuplicateTargetEntries**,  this indicates an ambiguity in your provisioning matching rules, and you'll need to update the Azure AD users or the mappings that are used for matching to ensure each Azure AD user matches one application user.  Then filter the log to the action **Create** and status **Skipped**.  If users were skipped with the SkipReason code of **NotEffectivelyEntitled**, this may indicate that the user accounts in Azure AD were not matched because the user account status was **Disabled**.
 
 After the Azure AD provisioning service has matched the users based on the application role assignments you've created, subsequent changes to those users will be sent to the application.
 

@@ -14,13 +14,13 @@ manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom: has-azure-ad-ps-ref
 ---
 # Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events
 
 To secure user sign-in events in Azure AD, you can require multi-factor authentication (MFA). Enabling Azure AD Multi-Factor Authentication using Conditional Access policies is the recommended approach to protect users. Conditional Access is an Azure AD Premium P1 or P2 feature that lets you apply rules to require MFA as needed in certain scenarios. To get started using Conditional Access, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-For Azure AD free tenants without Conditional Access, you can [use security defaults to protect users](../fundamentals/concept-fundamentals-security-defaults.md). Users are prompted for MFA as needed, but you can't define your own rules to control the behavior.
+For Azure AD free tenants without Conditional Access, you can [use security defaults to protect users](../fundamentals/security-defaults.md). Users are prompted for MFA as needed, but you can't define your own rules to control the behavior.
 
 If needed, you can instead enable each account for per-user Azure AD Multi-Factor Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remember MFA on trusted devices_ feature is turned on).
 
@@ -51,10 +51,12 @@ All users start out *Disabled*. When you enroll users in per-user Azure AD Multi
 
 ## View the status for a user
 
-To view and manage user states, complete the following steps to access the Azure portal page:
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator.
-1. Search for and select **Azure Active Directory**, then select **Users** > **All users**.
+To view and manage user states, complete the following steps:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select **Per-user MFA**. 
    :::image type="content" border="true" source="media/howto-mfa-userstates/selectmfa-cropped.png" alt-text="Screenshot of select Multi-Factor Authentication from the Users window in Azure AD.":::
 1. A new page opens that displays the user state, as shown in the following example.

@@ -11,10 +11,10 @@ ms.date: 03/31/2023
 
 This Document lists steps that must be followed to set up connectivity between VM and HDI Kafka residing in two different VNet. 
 
-1. Create two different VNets where HDInsight Kafka cluster and VM will be hosted respectively. For more information, see [Create a virtual network using the Azure portal](https://learn.microsoft.com/azure/virtual-network/quick-create-portal)
+1. Create two different VNets where HDInsight Kafka cluster and VM will be hosted respectively. For more information, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md)
 
    > [!Note]
-   > These two  VNets must be peered, so that IP addresses of their subnets must not overlap with each other. For more information, see [Connect virtual networks with virtual network peering using the Azure portal](https://learn.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal)
+   > These two  VNets must be peered, so that IP addresses of their subnets must not overlap with each other. For more information, see [Connect virtual networks with virtual network peering using the Azure portal](../../virtual-network/tutorial-connect-virtual-networks-portal.md)
 
 1. Make sure that the peering status shows as connected.
   
@@ -22,7 +22,7 @@ This Document lists steps that must be followed to set up connectivity between V
    
 1. After the above steps are completed, we can create HDInsight Kafka cluster in one VNet. For more information, see [Create an Apache Kafka cluster](./apache-kafka-get-started.md#create-an-apache-kafka-cluster)
 
-1. Create a Virtual Machine in the second VNet. While creating the VM, specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+1. Create a Virtual Machine in the second VNet. While creating the VM, specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
 
 1. After this step, we can copy the entries of the file /etc/host from Kafka headnode to VM.
    

@@ -3,6 +3,7 @@ title: Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 description: This article tells how to install an agent-based  Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
+ms.custom: devx-track-linux
 ms.date: 04/12/2023
 ms.topic: conceptual 
 ---
@@ -222,11 +223,11 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 
 Run the following commands as root on the agent-based Linux Hybrid Worker:
 
-1. ```python
+1. ```bash
       sudo bash
    ```
 
-1. ```python
+1. ```bash
       rm -r /home/nxautomation
    ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
@@ -261,8 +262,9 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 ## Check version of Hybrid Worker
 To check the version of agent-based Linux Hybrid Runbook Worker, go to the following path:
 
-`vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION`
-
+```bash
+   sudo cat /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION
+```
 The file *VERSION* has the version number of Hybrid Runbook Worker. 
 
 ## Next steps

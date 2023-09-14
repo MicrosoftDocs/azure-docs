@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 05/29/2019
 ms.author: owenrichards
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 #Customer intent: As an application developer, I want to learn about avoiding page reloads so I can create more robust applications.
 ---
 
@@ -27,7 +27,7 @@ To avoid the entire app reloading again or other errors caused due to this, plea
 
 ## Specify different HTML for the iframe
 
-Set the `redirect_uri` property on config to a simple page, that does not require authentication. You have to make sure that it matches with the `redirect_uri` registered in Azure portal. This will not affect user's login experience as MSAL saves the start page when user begins the login process and redirects back to the exact location after login is completed.
+Set the `redirect_uri` property on config to a simple page, that does not require authentication. You have to make sure that it matches with the `redirect_uri` registered in Microsoft Entra admin center. This will not affect user's login experience as MSAL saves the start page when user begins the login process and redirects back to the exact location after login is completed.
 
 ## Initialization in your main app file
 

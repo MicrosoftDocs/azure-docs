@@ -4,10 +4,10 @@ description: Learn the best practices for using the Azure Cosmos DB Java SDK v4
 author: kushagraThapar
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 04/01/2022
 ms.author: kuthapar
-
 ---
 
 # Best practices for Azure Cosmos DB Java SDK
@@ -38,6 +38,7 @@ This article walks through the best practices for using the Azure Cosmos DB Java
 | <input type="checkbox"/> |    Page Size   | By default, query results are returned in chunks of 100 items or 4 MB, whichever limit is hit first. If a query will return more than 100 items, increase the [page size](performance-tips-query-sdk.md#tune-the-page-size-1) to reduce the number of round trips required. Memory consumption will increase as page size increases. |
 |  <input type="checkbox"/> |    Enabling Query Metrics     |  For additional logging of your backend query executions, follow instructions on how to capture SQL Query Metrics using [Java SDK](troubleshoot-java-sdk-v4.md#query-operations)    |
 |  <input type="checkbox"/>    | SDK Logging   | Use SDK logging to capture additional diagnostics information and troubleshoot latency issues.  Log the [CosmosDiagnostics](/java/api/com.azure.cosmos.cosmosdiagnostics?view=azure-java-stable&preserve-view=true) in Java SDK for more detailed Azure Cosmos DB diagnostic information for the current request to the service. As an example use case, capture Diagnostics on any exception and on completed operations if the `CosmosDiagnostics#getDuration()` is greater than a designated threshold value (i.e. if you have an SLA of 10 seconds, then capture diagnostics when `getDuration()` > 10 seconds). It's advised to only use these diagnostics during performance testing. For more information, follow [capture diagnostics on Java SDK](./troubleshoot-java-sdk-v4.md#capture-the-diagnostics)     |
+|  <input type="checkbox"/>    | Avoid using any special characters in identifiers   | Some characters are restricted and cannot be used in some identifiers: '/', '\\', '?', '#'. The general recommendation is to not use any special characters in identifiers like database name, collection name, item id, or partition key to avoid any unexpected behavior. |
 
 ## Best practices when using Gateway mode
 Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to tweak [maxConnectionPoolSize](/java/api/com.azure.cosmos.gatewayconnectionconfig.setmaxconnectionpoolsize?view=azure-java-stable#com-azure-cosmos-gatewayconnectionconfig-setmaxconnectionpoolsize(int)&preserve-view=true) to a different value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In Java v4 SDK, the default value for `GatewayConnectionConfig#maxConnectionPoolSize` is 1000. To change the value, you can set `GatewayConnectionConfig#maxConnectionPoolSize` to a different value.

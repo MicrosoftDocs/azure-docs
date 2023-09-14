@@ -105,11 +105,13 @@ The response contains details for the role assignment created, similar to the fo
 
 ## Get an access token using the VM's identity and use it to call Resource Manager 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 For the remainder of the tutorial, we will work from the VM we created earlier.
 
 To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). 
 
-1. Sign in to the Azure [portal](https://portal.azure.com).
+1. Sign in to the [Azure portal]portal](https://portal.azure.com).
 2. In the portal, navigate to **Virtual Machines** and go to the Linux virtual machine and in the **Overview**, click **Connect**. Copy the string to connect to your VM.
 3. Connect to the VM with the SSH client of your choice. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 4. In the terminal window, use CURL to make a request to the Azure Instance Metadata Service (IMDS) identity endpoint to get an access token for Azure Resource Manager.  

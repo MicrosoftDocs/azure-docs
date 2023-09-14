@@ -1,7 +1,7 @@
 ---
 title: "Deploy and manage Azure Arc-enabled Kubernetes cluster extensions"
-ms.custom: event-tier1-build-2022, ignite-2022
-ms.date: 04/14/2023
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
+ms.date: 04/27/2023
 ms.topic: how-to
 description: "Create and manage extension instances on Azure Arc-enabled Kubernetes clusters."
 ---
@@ -29,7 +29,7 @@ Before you begin, read the [conceptual overview of Arc-enabled Kubernetes cluste
     az extension update --name k8s-extension
     ```
 
-* An existing Azure Arc-enabled Kubernetes connected cluster, with at least one node of operating system and architecture type `linux/amd64`.
+* An existing Azure Arc-enabled Kubernetes connected cluster, with at least one node of operating system and architecture type `linux/amd64`. If deploying [Flux (GitOps)](extensions-release.md#flux-gitops), you can use an ARM64-based cluster without a `linux/amd64` node.
   * If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
   * [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
@@ -101,7 +101,7 @@ The following parameters are required when using `az k8s-extension create` to cr
 | `--cluster-type` | The cluster type on which the extension instance has to be created. For most scenarios, use `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes clusters. |
 
 > [!NOTE]
-> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview, you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
+> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview), you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ### Optional parameters
 

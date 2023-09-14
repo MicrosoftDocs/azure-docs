@@ -1,12 +1,12 @@
 ---
 title: Choose a deployment method for the MedTech service - Azure Health Data Services
-description: In this article, learn about the different methods for deploying the MedTech service.
+description: Learn about the different methods for deploying the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.topic: quickstart
-ms.date: 04/25/2023
+ms.date: 07/05/2023
 ms.author: jasteppe
 ---
 
@@ -23,7 +23,7 @@ In this quickstart, learn about these deployment methods:
 * ARM template using the **Deploy to Azure** button.
 * ARM template using Azure PowerShell or the Azure CLI.
 * Bicep file using Azure PowerShell or the Azure CLI.
-* Manually in the Azure portal. 
+* Azure portal.
 
 ## Deployment overview
 
@@ -59,30 +59,40 @@ Using a Bicep file with Azure PowerShell or the Azure CLI is a more advanced dep
 
 To learn more about deploying the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI, see [Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI](deploy-bicep-powershell-cli.md).
 
-## Manually in the Azure portal
+## Azure portal
 
-Using the Azure portal manual deployment allows you to see the details of each deployment step. The manual deployment has many steps, but it provides valuable technical information that may be useful for customizing and troubleshooting your MedTech service.
+Using the Azure portal allows you to see the details of each deployment step. The Azure portal deployment has many steps, but it provides valuable technical information that may be useful for customizing and troubleshooting your MedTech service.
 
-To learn more about deploying the MedTech service manually using the Azure portal, see [Deploy the MedTech service manually using the Azure portal](deploy-manual-prerequisites.md).
+To learn more about deploying the MedTech service using the Azure portal, see [Deploy the MedTech service using the Azure portal](deploy-manual-portal.md).
 
 > [!IMPORTANT]
-> If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+> If you're going to allow access from multiple services to the event hub, it is highly recommended that each service has its own event hub consumer group.
 >
 > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
 >
 > Examples:
 >
-> * Two MedTech services accessing the same device message event hub.
+> * Two MedTech services accessing the same event hub.
 >
-> * A MedTech service and a storage writer application accessing the same device message event hub.
+> * A MedTech service and a storage writer application accessing the same event hub.
 
 ## Next steps
 
 In this quickstart, you learned about the different types of deployment methods for the MedTech service. 
 
-To learn about the MedTech service, see
+To learn about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [What is the MedTech service?](overview.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+For an overview of the MedTech service device data processing stages, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+For frequently asked questions (FAQs) about the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

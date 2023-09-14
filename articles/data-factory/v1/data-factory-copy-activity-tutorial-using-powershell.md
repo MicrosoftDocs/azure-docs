@@ -39,7 +39,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 - Complete prerequisites listed in the [tutorial prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article.
-- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Steps
 Here are the steps you perform as part of this tutorial:
@@ -95,7 +95,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
 1. Run the **New-AzDataFactory** cmdlet to create a data factory named **ADFTutorialDataFactoryPSH**:  
 
     ```powershell
-    $df=New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
+    $df=New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH -Location "West US"
     ```
     This name may already have been taken. Therefore, make the name of the data factory unique by adding a prefix or suffix (for example: ADFTutorialDataFactoryPSH05152017) and run the command again.  
 
@@ -336,7 +336,7 @@ In this part of the step, you create an output dataset named **OutputDataset**. 
     | tableName | Specified the **table** to which the data is copied. | 
     | frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the output slices are produced **hourly** between the pipeline start and end times, not before or after these times.  |
 
-    There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
+    There are three columns - **ID**, **FirstName**, and **LastName** - in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 
     For more information about these JSON properties, see [Azure SQL connector article](data-factory-azure-sql-connector.md#dataset-properties).
 1. Run the following command to create the data factory dataset.

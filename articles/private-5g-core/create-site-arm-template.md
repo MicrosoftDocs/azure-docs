@@ -2,8 +2,8 @@
 title: Create a site - ARM template
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a site in your private mobile network using an Azure Resource Manager (ARM) template. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 03/16/2022
@@ -54,7 +54,7 @@ Four Azure resources are defined in the template.
     | **Subscription** | Select the Azure subscription you used to create your private mobile network. |
     | **Resource group** | Select the resource group containing the mobile network resource representing your private mobile network. |
     | **Region** | Select the region in which you deployed the private mobile network. |
-    | **Location** | Enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*. |
+    | **Location** | Enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. |
     | **Existing Mobile Network Name** | Enter the name of the mobile network resource representing your private mobile network. |
     | **Existing Data Network Name** | Enter the name of the data network. This value must match the name you used when creating the data network. |
     | **Site Name** | Enter a name for your site.|

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/18/2023
+ms.date: 05/16/2023
 ms.author: alkohli
 ---
 
@@ -148,7 +148,7 @@ Before you configure clustering on your device, you must cable the devices as pe
 ![Figure showing the steps in the deployment of a two-node Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
 
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
-1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
+1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md?pivots=twonode#cable-the-device).
 1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes. See detailed steps in [Configure network and web proxy on your device](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Ensure that port settings match between same port name on each appliance. Get the authentication token on this node.
 1. Use the authentication token from the prepared node and join this node to the first node to form a cluster.

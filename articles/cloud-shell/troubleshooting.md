@@ -1,9 +1,10 @@
 ---
 description: This article covers troubleshooting Cloud Shell common scenarios.
 ms.contributor: jahelmic
-ms.date: 11/14/2022
+ms.date: 05/03/2023
 ms.topic: article
 tags: azure-resource-manager
+ms.custom: has-azure-ad-ps-ref
 title: Azure Cloud Shell troubleshooting
 ---
 # Troubleshooting & Limitations of Azure Cloud Shell
@@ -20,6 +21,13 @@ This article covers troubleshooting Cloud Shell common scenarios.
   automatically during PowerShell startup. To speed up start time, the cmdlet no longer runs
   automatically. You can choose to restore the previous behavior by adding `Connect-AzureAD` to the
   $PROFILE file in PowerShell.
+
+  > [!NOTE]
+  > These cmdlets are part of the **AzureAD.Standard.Preview** module. That module is being
+  > deprecated and won't be supported after June 30, 2023. You can use the AD cmdlets in the
+  > **Az.Resources** module or use the Microsoft Graph API instead. The **Az.Resources** module is
+  > installed by default. The **Microsoft Graph API PowerShell SDK** modules aren't installed by
+  > default. For more information, [Upgrade from AzureAD to Microsoft Graph][06].
 
 ### Early timeouts in FireFox
 
@@ -215,7 +223,7 @@ TODO:
 - Should we be using a newer API version?
 -->
    ```bash
-   token=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".accessToken")
+   token=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")
    curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token" -s | jq
    ```
 
@@ -226,7 +234,7 @@ TODO:
        Uri = "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/"
        Headers = @{Metadata='true'}
    }
-   $token= ((Invoke-WebRequest @parameters ).content |  ConvertFrom-Json).accessToken
+   $token= ((Invoke-WebRequest @parameters ).content |  ConvertFrom-Json).access_token
    $parameters = @{
        Uri = 'https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview'
        Headers = @{Authorization = "Bearer $token"}
@@ -251,7 +259,7 @@ again.
    Bash:
 
    ```bash
-   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")
+   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
    curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $TOKEN"
    ```
 
@@ -277,3 +285,4 @@ Azure Cloud Shell in Azure Government is only accessible through the Azure porta
 <!-- link references -->
 [04]: https://docs.docker.com/machine/overview/
 [05]: persisting-shell-storage.md#mount-a-new-clouddrive
+[06]: /powershell/microsoftgraph/migration-steps

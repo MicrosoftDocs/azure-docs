@@ -31,12 +31,12 @@ Before defining the Stream Analytics job, you should prepare the input data. The
     1. For **Resource group**, select an existing resource group or create a new resource group. 
     1. For **IoT hub name**, enter a name for your IoT hub. 
     1. For **Region**, select the region that's closest to you. 
+    1. for **Tier**, select **Free**, if it's still available on your subscription. For more information, see [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/). 
+    1. For **Daily message limit**, keep the default value. 
     1. Select **Next: Networking** at the bottom of the page.
 
     :::image type="content" source="./media/stream-analytics-quick-create-portal/create-iot-hub.png" alt-text="Screenshot showing the IoT Hub page for creation.":::
-4. On the **Networking** page, select **Next: Management** at the bottom of the page. 
-1. On the **Management** page, for **Pricing and scale tier**, select **F1: Free tier**, if it's still available on your subscription. For more information, see [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/). 
-6. Select **Review + create**. Review your IoT Hub information and select **Create**. Your IoT Hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
+1. Select **Review + create**. Review your IoT Hub information and select **Create**. Your IoT Hub might take a few minutes to create. You can monitor the progress in the **Notifications** pane.
 1. After the resource (IoT hub) is created, select **Go to resource** to navigate to the IoT Hub page.
 1. On the **IoT Hub** page, select **Devices** on the left menu, and then select **+ Add device**. 
 

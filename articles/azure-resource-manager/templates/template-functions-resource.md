@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 08/22/2023
 ms.custom: ignite-2022, devx-track-arm-template
 ---
 
@@ -15,6 +15,7 @@ Resource Manager provides the following functions for getting resource values in
 * [pickZones](#pickzones)
 * [providers (deprecated)](#providers)
 * [reference](#reference)
+* [references](#references)
 * [resourceId](#resourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [managementGroupResourceId](#managementgroupresourceid)
@@ -173,9 +174,8 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2022-05-15/database-accounts/list-connection-strings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2022-05-15/database-accounts/list-keys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2022-05-15/notebook-workspaces/list-connection-info) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/database-accounts/list-keys?tabs=HTTP) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2023-03-15-preview/notebook-workspaces/list-connection-info?tabs=HTTP) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/domains/list-shared-access-keys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/topics/list-shared-access-keys) |
@@ -201,9 +201,9 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2022-10-01/compute/list-keys) |
-| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2022-10-01/compute/list-nodes) |
-| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2022-10-01/workspaces/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2023-04-01/compute/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2023-04-01/compute/list-nodes) |
+| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2023-04-01/workspaces/list-keys) |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -216,16 +216,16 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
-| Microsoft.Relay/namespaces/authorizationRules | [listKeys](/rest/api/relay/namespaces/listkeys) |
+| Microsoft.Relay/namespaces/authorizationRules | [listKeys](/rest/api/relay/controlplane-stable/namespaces/list-keys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listKeys |
-| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listKeys](/rest/api/relay/hybridconnections/listkeys) |
-| Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
+| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listKeys](/rest/api/relay/controlplane-stable/hybrid-connections/list-keys) |
+| Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/controlplane-stable/wcf-relays/list-keys) |
 | Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listKeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listKeys](/rest/api/servicebus/stable/queues-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listKeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/namespaces-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/disaster-recovery-configs/list-keys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/queues-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listKeys](/rest/api/servicebus/controlplane-stable/topics%20–%20authorization%20rules/list-keys) |
 | Microsoft.SignalRService/SignalR | [listKeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listKeys](/rest/api/storagerp/storageaccounts/listkeys) |
@@ -412,17 +412,23 @@ The [providers operation](/rest/api/resources/providers) is still available thro
 
 ## reference
 
+In the templates without [symbolic names](./resource-declaration.md#use-symbolic-name):
+
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
-Returns an object representing a resource's runtime state.
+In the templates with [symbolic names](./resource-declaration.md#use-symbolic-name):
 
-In Bicep, use the [reference](../bicep/bicep-functions-resource.md#reference) function.
+`reference(symbolicName or resourceIdentifier, [apiVersion], ['Full'])`
+
+Returns an object representing a resource's runtime state. To return an array of objects representing a resource collections's runtime states, see [references](#references).
+
+Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource or when the name of the resource is ambiguous, provide the resource ID. |
+| resourceName/resourceIdentifier or symbolicName/resourceIdentifier |Yes |string |In the templates without symbolic names, specify name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource or when the name of the resource is ambiguous, provide the resource ID. </br>In the templates with symbolic names, specify symbolic name or unique identifier of a resource. When referencing a resource in the current template, provide only the resource symbolic name as a parameter. When referencing a previously deployed resource, provide the resource ID.|
 | apiVersion |No |string |API version of the specified resource. **This parameter is required when the resource isn't provisioned within same template.** Typically, in the format, **yyyy-mm-dd**. For valid API versions for your resource, see [template reference](/azure/templates/). |
 | 'Full' |No |string |Value that specifies whether to return the full resource object. If you don't specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
 
@@ -454,7 +460,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2019-09-01",
+  "apiVersion": "2022-07-01",
   "name": "vaultName",
   "properties": {
     "tenantId": "[subscription().tenantId]",
@@ -489,18 +495,30 @@ If you use the `reference` function in a resource that is conditionally deployed
 
 By using the `reference` function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the `dependsOn` property. The function isn't evaluated until the referenced resource has completed deployment.
 
-### Resource name or identifier
+### Resource name, Symbolic name or identifier
 
-When referencing a resource that is deployed in the same template, provide the name of the resource.
+When referencing a resource that is deployed in the same none-symbolic-name template, provide the name of the resource.
 
 ```json
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
+When referencing a resource that is deployed in the same symbolic-name template, provide the symbolic name of the resource.
+
+```json
+"value": "[reference('myStorage').primaryEndpoints]"
+```
+
+Or
+
+```json
+"value": "[reference('myStorage', '2022-09-01', 'Full').location]"
+```
+
 When referencing a resource that isn't deployed in the same template, provide the resource ID and `apiVersion`.
 
 ```json
-"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2022-09-01')]"
 ```
 
 To avoid ambiguity about which resource you're referencing, you can provide a fully qualified resource identifier.
@@ -568,7 +586,7 @@ The full object is in the following format:
 
 ```json
 {
-  "apiVersion":"2021-04-01",
+  "apiVersion":"2022-09-01",
   "location":"southcentralus",
   "sku": {
     "name":"Standard_LRS",
@@ -577,7 +595,7 @@ The full object is in the following format:
   "tags":{},
   "kind":"Storage",
   "properties": {
-    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "creationTime":"2021-10-09T18:55:40.5863736Z",
     "primaryEndpoints": {
       "blob":"https://examplestorage.blob.core.windows.net/",
       "file":"https://examplestorage.file.core.windows.net/",
@@ -604,6 +622,350 @@ The full object is in the following format:
 The following example template references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
+
+## references
+
+`references(symbolic name of a resource collection, ['Full', 'Properties])`
+
+The `references` function works similarly as [`reference`](#reference). Instead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a resource collection's runtime states. This function requires ARM template language version `2.0` and with [symbolic name](../bicep/file.md#resources) enabled:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  ...
+}
+```
+
+In Bicep, there is no explicit `references` function. Instead, symbolic collection usage is employed directly, and during code generation, Bicep translates it to an ARM template that utilizes the ARM template `references` function. For more information, see [Reference resource/module collections](../bicep/loops.md#reference-resourcemodule-collections).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| Symbolic name of a resource collection |Yes |string |Symbolic name of a resource collection that is defined in the current template. The `references` function does not support referencing resources external to the current template. |
+| 'Full', 'Properties' |No |string |Value that specifies whether to return an array of the full resource objects. The default value is `'Properties'`. If you don't specify `'Full'`, only the properties objects of the resources are returned. The full object includes values such as the resource ID and location. |
+
+### Return value
+
+An array of the resource collection. Every resource type returns different properties for the `reference` function. Also, the returned value differs based on the value of the `'Full'` argument. For more information, see [reference](#reference).
+
+The output order of `references` is always arranged in ascending order based on the copy index. Therefore, the first resource in the collection with index 0 is displayed first, followed by index 1, and so on. For instance, *[worker-0, worker-1, worker-2, ...]*.
+
+In the preceding example, if *worker-0* and *worker-2* are deployed while *worker-1* is not due to a false condition, the output of `references` will omit the non-deployed resource and display the deployed ones, ordered by their numbers. The output of `references` will be *[worker-0, worker-2, ...]*. If all of the resources are omitted, the function returns an empty array.
+
+### Valid uses
+
+The `references` function can't be used within [resource copy loops](./copy-resources.md) or [Bicep for loop](../bicep/loops.md). For example, `references` is not allowed in the following scenario:
+
+```json
+{
+  resources: {
+    "resourceCollection": {
+       "copy": { ... },
+       "properties": {
+         "prop": "[references(...)]"
+       }
+    }
+  }
+}
+```
+
+To use the `references` function or any `list*` function in the outputs section of a nested template, you must set the `expressionEvaluationOptions` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
+
+### Implicit dependency
+
+By using the `references` function, you implicitly declare that one resource depends on another resource. You don't need to also use the `dependsOn` property. The function isn't evaluated until the referenced resource has completed deployment.
+
+### Reference example
+
+The following example deploys a resource collection, and references that resource collection.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "numWorkers": {
+      "type": "int",
+      "defaultValue": 4,
+      "metadata": {
+        "description": "The number of workers"
+      }
+    }
+  },
+  "resources": {
+    "containerWorkers": {
+      "copy": {
+        "name": "containerWorkers",
+        "count": "[length(range(0, parameters('numWorkers')))]"
+      },
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2023-05-01",
+      "name": "[format('worker-{0}', range(0, parameters('numWorkers'))[copyIndex()])]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[format('worker-container-{0}', range(0, parameters('numWorkers'))[copyIndex()])]",
+            "properties": {
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGB": 2
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      }
+    },
+    "containerController": {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2023-05-01",
+      "name": "controller",
+      "location": "[parameters('location')]",
+      "properties": {
+        "containers": [
+          {
+            "name": "controller-container",
+            "properties": {
+              "command": [
+                "echo",
+                "[format('Worker IPs are {0}', join(map(references('containerWorkers', 'full'), lambda('w', lambdaVariables('w').properties.ipAddress.ip)), ','))]"
+              ],
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGB": 2
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "containerWorkers"
+      ]
+    }
+  },
+  "outputs": {
+    "workerIpAddresses": {
+      "type": "string",
+      "value": "[join(map(references('containerWorkers', 'full'), lambda('w', lambdaVariables('w').properties.ipAddress.ip)), ',')]"
+    },
+    "containersFull": {
+      "type": "array",
+      "value": "[references('containerWorkers', 'full')]"
+    },
+    "container": {
+      "type": "array",
+      "value": "[references('containerWorkers')]"
+    }
+  }
+}
+```
+
+The preceding example returns the three objects.
+
+```json
+"outputs": {
+  "workerIpAddresses": {
+    "type": "String",
+    "value": "20.66.74.26,20.245.100.10,13.91.86.58,40.83.249.30"
+  },
+  "containersFull": {
+    "type": "Array",
+    "value": [
+      {
+        "apiVersion": "2023-05-01",
+        "condition": true,
+        "copyContext": {
+          "copyIndex": 0,
+          "copyIndexes": {
+            "": 0,
+            "containerWorkers": 0
+          },
+          "name": "containerWorkers"
+        },
+        "copyLoopSymbolicName": "containerWorkers",
+        "deploymentResourceLineInfo": {
+          "lineNumber": 30,
+          "linePosition": 25
+        },
+        "existing": false,
+        "isAction": false,
+        "isConditionTrue": true,
+        "isTemplateResource": true,
+        "location": "westus",
+        "properties": {
+          "containers": [
+            {
+              "name": "worker-container-0",
+              "properties": {
+                "environmentVariables": [],
+                "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+                "instanceView": {
+                  "currentState": {
+                    "detailStatus": "",
+                    "startTime": "2023-07-31T19:25:31.996Z",
+                    "state": "Running"
+                  },
+                  "restartCount": 0
+                },
+                "ports": [
+                  {
+                    "port": 80,
+                    "protocol": "TCP"
+                  }
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": 1.0,
+                    "memoryInGB": 2.0
+                  }
+                }
+              }
+            }
+          ],
+          "initContainers": [],
+          "instanceView": {
+            "events": [],
+            "state": "Running"
+          },
+          "ipAddress": {
+            "ip": "20.66.74.26",
+            "ports": [
+              {
+                "port": 80,
+                "protocol": "TCP"
+              }
+            ],
+            "type": "Public"
+          },
+          "isCustomProvisioningTimeout": false,
+          "osType": "Linux",
+          "provisioningState": "Succeeded",
+          "provisioningTimeoutInSeconds": 1800,
+          "restartPolicy": "Always",
+          "sku": "Standard"
+        },
+        "provisioningOperation": "Create",
+        "references": [],
+        "resourceGroupName": "demoRg",
+        "resourceId": "Microsoft.ContainerInstance/containerGroups/worker-0",
+        "scope": "",
+        "subscriptionId": "",
+        "symbolicName": "containerWorkers[0]"
+      },
+      ...
+    ]
+  },
+  "containers": {
+    "type": "Array",
+    "value": [
+      {
+        "containers": [
+          {
+            "name": "worker-container-0",
+            "properties": {
+              "environmentVariables": [],
+              "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+              "instanceView": {
+                "currentState": {
+                  "detailStatus": "",
+                  "startTime": "2023-07-31T19:25:31.996Z",
+                  "state": "Running"
+                },
+                "restartCount": 0
+              },
+              "ports": [
+                {
+                  "port": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1.0,
+                  "memoryInGB": 2.0
+                }
+              }
+            }
+          }
+        ],
+        "initContainers": [],
+        "instanceView": {
+          "events": [],
+          "state": "Running"
+        },
+        "ipAddress": {
+          "ip": "20.66.74.26",
+          "ports": [
+            {
+              "port": 80,
+              "protocol": "TCP"
+            }
+          ],
+          "type": "Public"
+        },
+        "isCustomProvisioningTimeout": false,
+        "osType": "Linux",
+        "provisioningState": "Succeeded",
+        "provisioningTimeoutInSeconds": 1800,
+        "restartPolicy": "Always",
+        "sku": "Standard"
+      },
+      ...
+    ]
+  }
+}
+```
 
 ## resourceGroup
 
@@ -807,7 +1169,6 @@ The following template creates and assigns a policy definition. It uses the `man
       }
     }
   },
-  "functions": [],
   "variables": {
     "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
     "policyDefinitionName": "LocationRestriction"
@@ -815,7 +1176,7 @@ The following template creates and assigns a policy definition. It uses the `man
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2021-06-01",
       "name": "[variables('policyDefinitionName')]",
       "properties": {
         "policyType": "Custom",
@@ -834,9 +1195,9 @@ The following template creates and assigns a policy definition. It uses the `man
         }
       }
     },
-    {
+    "location_lock": {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2022-06-01",
       "name": "location-lock",
       "properties": {
         "scope": "[variables('mgScope')]",

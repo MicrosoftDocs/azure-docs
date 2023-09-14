@@ -30,7 +30,7 @@ The partition key is any output column. The number of output writers follows the
 
 ## Output batch size
 
-For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). The default is 100 entities per single transaction, but you can configure it to a smaller value as needed.
+For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits). The default is 100 entities per single transaction, but you can configure it to a smaller value as needed.
 
 ## Next steps
 

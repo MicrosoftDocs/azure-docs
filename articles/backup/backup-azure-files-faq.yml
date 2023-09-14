@@ -5,8 +5,8 @@ metadata:
   ms.date: 10/14/2022
   ms.topic: faq
   ms.service: backup
-  author: jyothisuri
-  ms.author: jsuri
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Questions about backing up Azure Files
 summary: |
   This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html).

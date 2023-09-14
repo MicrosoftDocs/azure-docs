@@ -8,7 +8,7 @@ ms.reviewer: sngun, garye, negust
 ms.date: 07/11/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-python
 ---
 
 # Quickstart: Read data from ADLS Gen2 to Pandas dataframe in Azure Synapse Analytics

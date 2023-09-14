@@ -3,7 +3,7 @@ title: Use source control integration in Azure Automation
 description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/12/2023
+ms.date: 07/31/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -42,7 +42,7 @@ Azure Automation supports three types of source control:
 > Azure Automation Run As Account will retire on **September 30, 2023** and will be replaced with Managed Identities. Before that date, you need to [migrate from a Run As account to Managed identities](migrate-run-as-accounts-managed-identity.md).
 
 > [!NOTE]
-> According to [this](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops#application-connection-policies) Azure DevOps documentation, **Third-party application access via OAuth** policy is defaulted to **off** for all new organizations. So if you try to configure source control in Azure Automation with **Azure Devops (Git)** as source control type without enabling **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps then you might get **SourceControl securityToken is invalid** error. Hence to avoid this error, make sure you first enable **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps. 
+> According to [this](/azure/devops/organizations/accounts/change-application-access-policies#application-connection-policies) Azure DevOps documentation, **Third-party application access via OAuth** policy is defaulted to **off** for all new organizations. So if you try to configure source control in Azure Automation with **Azure Devops (Git)** as source control type without enabling **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps then you might get **SourceControl securityToken is invalid** error. Hence to avoid this error, make sure you first enable **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps. 
 
 ## Configure source control
 
@@ -58,7 +58,7 @@ This example uses Azure PowerShell to show how to assign the Contributor role in
 
     ```powershell
     New-AzRoleAssignment `
-        -ObjectId <automation-Identity-object-id> `
+        -ObjectId <automation-Identity-Object(Principal)-Id> `
         -Scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}" `
         -RoleDefinitionName "Contributor"
     ```
@@ -106,7 +106,7 @@ The following subsections illustrate PowerShell creation of the source control c
 #### Create source control connection for GitHub
 
 ```powershell-interactive
-New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accountname>/<reponame>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch master -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accountname>/<reponame>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch main -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
 #### Create source control connection for Azure DevOps (Git)
@@ -115,7 +115,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 > Azure DevOps (Git) uses a URL that accesses **dev.azure.com** instead of **visualstudio.com**, used in earlier formats. The older URL format `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` is deprecated but still supported. The new format is preferred.
 
 ```powershell-interactive
-New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch main -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
 ```
 
 #### Create source control connection for Azure DevOps (TFVC)

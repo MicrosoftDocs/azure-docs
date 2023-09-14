@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/06/2022
+ms.date: 07/11/2023
 ms.author: radeltch
 
 ---
@@ -94,8 +94,11 @@ In the following diagram, there are three HANA nodes on each site, and a majorit
 
 [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) provides the HANA shared file system, `/hana/shared`. It's mounted via NFS v4.1 on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems, and aren't shared among the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
 
-> [!TIP]
-> For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).   
+For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md). 
+
+> [!IMPORTANT]
+> If deploying all HANA file systems on Azure NetApp Files, for production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).  
+
 
 [![Diagram of SAP HANA scale-out with HSR and Pacemaker cluster.](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
@@ -378,13 +381,13 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
 1. **[AH1]** Mount the shared Azure NetApp Files volumes on the SITE1 HANA DB VMs.  
 
     ```bash
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
     ```
 
 1. **[AH2]** Mount the shared Azure NetApp Files volumes on the SITE2 HANA DB VMs.  
 
     ```bash
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
     ```
 
 
@@ -799,12 +802,12 @@ For the next part of this process, you need to create file system resources. Her
     ```bash
     # /hana/shared file system for site 1
     pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
-    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,intr,noatime,sec=sys,vers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
     op start interval=0 timeout=120 op stop interval=0 timeout=120
 
     # /hana/shared file system for site 2	
     pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1 directory=/hana/shared \
-    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,intr,noatime,sec=sys,vers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
     op start interval=0 timeout=120 op stop interval=0 timeout=120
 
 	# clone the /hana/shared file system resources for both site1 and site2
@@ -973,7 +976,7 @@ Now you're ready to create the cluster resources:
 
    1. Create the HANA instance resource.  
       > [!NOTE]
-      > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.  
+      > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.  
  
       If you're building a RHEL **7.x** cluster, use the following commands:    
       ```bash

@@ -2,8 +2,8 @@
 title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.custom: devx-track-linux
 ms.date: 04/13/2023
-
 ---
 
 # Use Azure Blob storage Container Storage Interface (CSI) driver
@@ -90,7 +90,7 @@ The reclaim policy on both storage classes ensures that the underlying Azure Blo
 
 Use the [kubectl get sc][kubectl-get] command to see the storage classes. The following example shows the `azureblob-fuse-premium` and `azureblob-nfs-premium` storage classes available within an AKS cluster:
 
-```bash
+```output
 NAME                                  PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION     AGE
 azureblob-fuse-premium               blob.csi.azure.com   Delete          Immediate              true                   23h
 azureblob-nfs-premium                blob.csi.azure.com   Delete          Immediate              true                   23h

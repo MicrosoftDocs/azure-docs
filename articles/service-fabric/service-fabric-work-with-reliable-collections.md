@@ -58,7 +58,7 @@ If CommitAsync is not called (usually due to an exception being thrown), then th
 ## Volatile Reliable Collections 
 In some workloads, like a replicated cache for example, occasional data loss can be tolerated. Avoiding persistence of the data to disk can allow for better latencies and throughputs when writing to Reliable Dictionaries. The tradeoff for a lack of persistence is that if quorum loss occurs, full data loss will occur. Since quorum loss is a rare occurrence, the increased performance may be worth the rare possibility of data loss for those workloads.
 
-Currently, volatile support is only available for Reliable Dictionaries and Reliable Queues, and not ReliableConcurrentQueues. Please see the list of [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) to inform your decision on whether to use volatile collections.
+Currently, volatile support is only available for Reliable Dictionaries and Reliable Queues, and not ReliableConcurrentQueues. Please see the list of [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#additional-guidelines-for-volatile-reliable-collections) to inform your decision on whether to use volatile collections.
 
 To enable volatile support in your service, set the ```HasPersistedState``` flag in service type declaration to ```false```, like so:
 ```xml
@@ -213,10 +213,53 @@ Internally, Reliable Collections serialize your objects using .NET's DataContrac
 Furthermore, service code is upgraded one upgrade domain at a time. So, during an upgrade, you have two different versions of your service code running simultaneously. You must avoid having the new version of your service code use the new schema as old versions of your service code might not be able to handle the new schema. When possible, you should design each version of your service to be forward compatible by one version. Specifically, this means that V1 of your service code should be able to ignore any schema elements it does not explicitly handle. However, it must be able to save any data it doesn't explicitly know about and write it back out when updating a dictionary key or value.
 
 > [!WARNING]
-> While you can modify the schema of a key, you must ensure that your key's hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
+> While you can modify the schema of a key, you must ensure that your key's equality and comparison algorithms are stable.
+> Behavior of reliable collections after a change in either of these algorithms is undefined and may lead to data corruption, loss and
+> service crashes.
 > .NET Strings can be used as a key but use the string itself as the key--do not use the result of String.GetHashCode as the key.
 
-Alternatively, you can perform what is typically referred to as a two upgrade. With a two-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn't execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a two-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
+Alternatively, you can perform a multi-phase upgrade. 
+1. Upgrade service to a new version that
+    - has both the original V1, and the new V2 version of the data contracts included in the service code package;
+    - registers custom V2 [state serializers](/azure/service-fabric/service-fabric-reliable-services-reliable-collections-serialization#custom-serialization), if needed;
+    - performs all operations on the original, V1 collection using the V1 data contracts.
+2. Upgrade service to a new version that
+    - [creates a new, V2 collection](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.getoraddasync);
+    - performs each add, update and delete operation on first V1 and then V2 collections in a single transaction;
+    - performs read operations on the V1 collection only.
+3. Copy all data from the V1 collection to the V2 collection.
+    - This can be done in a background process by the service version deployed in step 2.
+    - [Retreieve all keys](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary2-2.createkeyenumerableasync)
+      from the V1 collection. Enumeration is performed with the
+      [IsolationLevel.Snapshot](/dotnet/api/microsoft.servicefabric.data.beta.isolationlevel)
+      by default to avoid locking the collection for the duration of the operation.
+    - For each key, use a separate transaction to
+        - [TryGetValueAsync](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2.trygetvalueasync)
+          from the V1 collection.
+        - If the value has already been removed from the V1 collection since the copy process started,
+          the key should be skipped and not resurected in the V2 collection.
+        - [TryAddAsync](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary.tryaddasync)
+          the value to the V2 collection.
+        - If the value has already been added to the V2 collection since the copy process started,
+          the key should be skipped.
+        - The transaction should be committed only if the `TryAddAsync` returns `true`.
+        - Value access APIs use the [IsolationLevel.ReadRepeatable](/dotnet/api/microsoft.servicefabric.data.beta.isolationlevel)
+          by default and rely on locking to guarantee that the values aren't modified by another caller until the transaction is committed or aborted.
+4. Upgrade service to a new version that
+    - performs read operations on the V2 collection only;
+    - still performs each add, update and delete operation on first V1 and then V2 collections to maintain the option of rolling back to V1.
+5. Comprehensively test the service and confirm it is working as expected.
+    - If you missed any value access operation that wasn't updated to work on both V1 and V2 collection, you may notice missing data.
+    - If any data is missing roll back to Step 1, remove the V2 collection and repeat the process.
+6. Upgrade service to a new version that
+    - performs all operations on the V2 collection only;
+    - going back to V1 is no longer possible with a service rollback and would require rolling forward with reversed steps 2-4.
+7. Upgrade service a new version that
+    - [removes the V1 collection](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.removeasync).
+8. Wait for log truncation.
+    - By default, this happens every 50MB of writes (adds, updates, and removes) to reliable collections.
+9. Upgrade service to a new version that
+    - no longer has the V1 data contracts included in the service code package.
 
 ## Next steps
 To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
@@ -226,3 +269,5 @@ To learn best practices on versioning data contracts, see [Data Contract Version
 To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
 To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject)
+
+To learn how to configure reliable collections, see [Replicator Configuration](/azure/service-fabric/service-fabric-reliable-services-configuration#replicator-configuration)

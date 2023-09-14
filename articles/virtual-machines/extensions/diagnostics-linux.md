@@ -8,9 +8,8 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 04/04/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
-
 ---
 # Use the Linux diagnostic extension 4.0 to monitor metrics and logs
 
@@ -40,19 +39,7 @@ This extension works with both Azure deployment models: Azure Resource Manager a
 
 ### Supported Linux distributions
 
-The following distributions and versions include only Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliances.
-
-- Ubuntu 18.04, 16.04, 14.04
-- CentOS 8, 7, 6.5+
-- Oracle Linux 7, 6.4+
-- OpenSUSE 13.1+
-- SUSE Linux Enterprise Server 12 SP5
-- Debian 9, 8, 7
-- Red Hat Enterprise Linux (RHEL) 7.9
-- Alma Linux 8
-- Rocky Linux 8
-
-A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a specific minor version is specified, only that version is supported. If a plus sign (+) is appended, minor versions equal to or later than the specified version are supported.
+See [Supported agent operating systems](../../azure-monitor/agents/agents-overview.md#linux).
 
 ### Python requirement
 
@@ -330,7 +317,7 @@ This set of configuration information contains sensitive information that should
 | Name | Value |
 | ---- | ----- |
 | storageAccountName | The name of the storage account in which the extension writes data. |
-| storageAccountEndPoint | (Optional) The endpoint that identifies the cloud in which the storage account exists. If this setting is absent, by default, LAD uses the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Azure China 21Vianet, set this value as required. |
+| storageAccountEndPoint | (Optional) The endpoint that identifies the cloud in which the storage account exists. If this setting is absent, by default, LAD uses the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Microsoft Azure operated by 21Vianet, set this value as required. |
 | storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) for blob and table services (`ss='bt'`). This token applies to containers and objects (`srt='co'`). It grants add, create, list, update, and write permissions (`sp='acluw'`). Do *not* include the leading question-mark (?). |
 | mdsdHttpProxy | (Optional) HTTP proxy information the extension needs to connect to the specified storage account and endpoint. |
 | sinksConfig | (Optional) Details of alternative destinations to which metrics and events can be delivered. The following sections provide details about each data sink the extension supports. |

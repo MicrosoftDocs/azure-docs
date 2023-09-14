@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: maulikshah
 ms.reviewer: mimckitt
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 # Automatic VM guest patching for Azure VMs
 
@@ -19,7 +19,8 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
-- Patches are applied during off-peak hours in the VM's time zone.
+- Patches are applied during off-peak hours for IaaS VMs in the VM's time zone.
+- Patches are applied during all hours for VMSS Flex.
 - Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 - Application health can be monitored through the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md).
@@ -75,7 +76,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 ## Supported OS images
 
 > [!IMPORTANT]
-> Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations aren't supported. More images are added periodically.
+> Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations aren't supported. More images are added periodically. Don't see your SKU in the list? Request support by filing out [Image Support Request](https://forms.microsoft.com/r/6vfSgT0mFx).
 
 
 | Publisher               | OS Offer      |  Sku               |
@@ -95,9 +96,9 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | microsoftcblmariner  | cbl-mariner | 1-gen2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2-gen2 |
-| microsoft-aks  | aks | aks-engine-ubuntu-1804-202112 |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
-| Redhat  | RHEL | 8, 8.1, 81gen2, 8.2, 82gen2, 8_3, 83-gen2, 8_4, 84-gen2, 8_5, 85-gen2, 8_6, 86-gen2, 8-lvm, 8-lvm-gen2 |
+| Redhat  | RHEL | 8, 8.1, 81gen2, 8.2, 82gen2, 8_3, 83-gen2, 8_4, 84-gen2, 8_5, 85-gen2, 8_6, 86-gen2, 8_7, 8-lvm, 8-lvm-gen2 |
+| Redhat  | RHEL | 9_0, 9_1, 9-lvm, 9-lvm-gen2 |
 | Redhat  | RHEL-RAW | 8-raw, 8-raw-gen2 |
 | OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7_9-gen2 |
 | OpenLogic  | centos-lvm | 7-lvm |
@@ -139,6 +140,7 @@ VMs on Azure now support the following patch orchestration modes:
 **AutomaticByPlatform (Azure-orchestrated patching):**
 - This mode is supported for both Linux and Windows VMs.
 - This mode enables automatic VM guest patching for the virtual machine and subsequent patch installation is orchestrated by Azure.
+- During the installation process, this mode will [assess the VM](/rest/api/compute/virtual-machines/assess-patches) for available patches and save the details in [Azure Resource Graph](/azure/update-center/query-logs). (preview).
 - This mode is required for availability-first patching.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
 - For Windows VMs, setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
@@ -168,6 +170,7 @@ VMs on Azure now support the following patch orchestration modes:
 
 > [!NOTE]
 >For Windows VMs, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` can only be set when the VM is first created. This impacts certain patch mode transitions. Switching between AutomaticByPlatform and Manual modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`. Similarly switching between AutomaticByPlatform and AutomaticByOS modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`. Switching between AutomaticByOS and Manual modes is not supported.
+>Azure recommends that [Assessment Mode](/rest/api/compute/virtual-machines/assess-patches) be enabled on a VM even if Azure Orchestration is not enabled for patching. This will allow the platform to assess the VM every 24 hours for any pending updates, and save the details in [Azure Resource Graph](/azure/update-center/query-logs). (preview). The platform performs assessment to report consolidated results when the machine’s desired patch configuration state is applied or confirmed. This will be reported as a ‘Platform’-initated assessment.
 
 ## Requirements for enabling automatic VM guest patching
 
@@ -425,6 +428,9 @@ Example to install all Critical and Security patches on a Windows VM, while excl
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
 ```
+## Image End-of-Life (EOL)
+
+Publishers may no longer support generating new updates for their images after a certain date. This is commonly referred to as End-of-life (EOL) for the image. Azure does not recommend using images after their EOL date, since it will expose the service to security vulnerabilities or performance issues. The Azure Guest Patching Service (AzGPS) will communicate necessary steps for customers and impacted partners. AzGPS will remove the image from the support list after the EOL date. VMs that use an end of life image on Azure might continue to work beyond their date. However, any issues experienced by these VMs are not eligible for support.
 
 ## Next steps
 > [!div class="nextstepaction"]

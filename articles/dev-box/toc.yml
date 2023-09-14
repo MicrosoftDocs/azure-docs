@@ -19,6 +19,8 @@ items:
   items:
     - name: Connect with Remote Desktop App 
       href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+    - name: Limit number of dev boxes per project
+      href: tutorial-dev-box-limits.md  
 - name: Concepts
   expanded: true
   items:
@@ -29,6 +31,8 @@ items:
 - name: How-to guides
   expanded: true
   items:
+    - name: Skip or delay an automatic shutdown
+      href: how-to-skip-delay-stop.md
     - name: Provide access to project admins
       href: how-to-project-admin.md
     - name: Provide access to dev box users
@@ -47,28 +51,43 @@ items:
       href: how-to-configure-network-connections.md
     - name: Configure an auto-stop schedule
       href: how-to-configure-stop-schedule.md
-    - name: Use Azure CLI devcenter extension
+    - name: Install Azure CLI devcenter extension
       href: how-to-install-dev-box-cli.md  
     - name: Provision a Custom Image with Azure Image Builder
       href: how-to-customize-devbox-azure-image-builder.md
+    - name: Configure Visual Studio caches
+      href: how-to-generate-visual-studio-caches.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
-    - name: Get support for Microsoft Dev Box
-      href: how-to-get-help.md  
+    - name: Configure Dev Box Hibernation
+      href: how-to-configure-dev-box-hibernation.md
+    - name: Hibernate your Dev Box
+      href: how-to-hibernate-your-dev-box.md
+    - name: Determine resource usage and quota
+      href: how-to-determine-your-quota-usage.md
+    - name: Request a quota limit increase
+      href: how-to-request-quota-increase.md   
+    - name: Configure Azure Diagnostic Logs
+      href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference
   items:
-    - name: Azure CLI
+    - name: Azure CLI - devcenter
       href: https://aka.ms/CLI-reference
     - name: REST API
       href: https://aka.ms/dev-box/restapidocs
+    - name: Monitoring Microsoft DevCenter data reference
+      href: monitor-reference.md  
 - name: Resources
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Get support for Microsoft Dev Box
+      href: how-to-get-help.md
+    - name: FAQ
+      href: dev-box-faq.yml
     - name: Report a problem
       href: https://aka.ms/devbox/report
     - name: Suggest a feature
       href: https://aka.ms/devbox/suggest
-

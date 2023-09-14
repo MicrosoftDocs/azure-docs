@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: This tutorial shows you how to use an Event Grid subscription, an Azure Function, and an Azure Databricks job to insert rows of data into a table that is stored in Azure Data Lake Storage Gen2.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: tutorial
 ms.date: 03/07/2023
 ms.author: normesta

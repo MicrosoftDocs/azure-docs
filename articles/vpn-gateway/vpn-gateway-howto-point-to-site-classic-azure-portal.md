@@ -1,35 +1,27 @@
 ---
 title: 'Connect a computer to a virtual network using P2S: certificate authentication: Azure portal classic'
 titleSuffix: Azure VPN Gateway
-description: Learn how to create a classic a Point-to-Site VPN Gateway connection using the Azure portal.
+description: Learn how to create a classic Point-to-Site VPN Gateway connection using the Azure portal.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 08/21/2023
 ms.author: cherylmc
 
 ---
 # Configure a Point-to-Site connection by using certificate authentication (classic)
 
-[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
-
-This article shows you how to create a VNet with a Point-to-Site connection. You create this VNet with the classic deployment model by using the Azure portal. This configuration uses certificates to authenticate the connecting client, either self-signed or CA issued. 
-You can also create this configuration with a different deployment tool or model by using options that are described in the following articles:
-
-> [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->
+This article shows you how to create a VNet with a Point-to-Site connection using the classic (legacy) deployment model. This configuration uses certificates to authenticate the connecting client, either self-signed or CA issued. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-point-to-site-resource-manager-portal.md)**.
 
 You use a Point-to-Site (P2S) VPN gateway to create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location. When you have only a few clients that need to connect to a VNet, a P2S VPN is a useful solution to use instead of a Site-to-Site VPN. A P2S VPN connection is established by starting it from the client computer.
 
 > [!IMPORTANT]
 > The classic deployment model supports Windows VPN clients only and uses the Secure Socket Tunneling Protocol (SSTP), an SSL-based VPN protocol. To support non-Windows VPN clients, you must create your VNet with the Resource Manager deployment model. The Resource Manager deployment model supports IKEv2 VPN in addition to SSTP. For more information, see [About P2S connections](point-to-site-about.md).
 >
->
 
-![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png" alt-text="Diagram showing classic point-to-site architecture.":::
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 ## Settings and requirements
 
@@ -73,7 +65,7 @@ If you already have a VNet, verify that the settings are compatible with your VP
 ## <a name="gateway"></a>Create a VPN gateway
 
 1. Navigate to the VNet that you created.
-1. On the VNet page, under Settings, select **Gateway**. On the **Gateway** page, you can view the gateway for your virtual network. This virtual network does not yet have a gateway. Click the note that says **Click here to add a connection and a gateway**.
+1. On the VNet page, under Settings, select **Gateway**. On the **Gateway** page, you can view the gateway for your virtual network. This virtual network doesn't yet have a gateway. Click the note that says **Click here to add a connection and a gateway**.
 1. On the **Configure a VPN connection and gateway** page, select the following settings:
 
    * Connection type: Point-to-site
@@ -83,9 +75,9 @@ If you already have a VNet, verify that the settings are compatible with your VP
 1. On the **Gateway** tab, select the following values:
 
    * **Size:** The size is the gateway SKU for your virtual network gateway. In the Azure portal, the default SKU is **Default**. For more information about gateway SKUs, see [About VPN gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-   * **Routing Type:** You must select **Dynamic** for a point-to-site configuration. Static routing will not work.
-   * **Gateway subnet:** This field is already autofilled. You cannot change the name. If you try to change the name using PowerShell or any other means, the gateway will not work properly.
-   * **Address range (CIDR block):** While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. Doing so will allow for enough addresses to accommodate possible additional configurations that you may want in the future. When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your VPN gateway to not function as expected.
+   * **Routing Type:** You must select **Dynamic** for a point-to-site configuration. Static routing won't work.
+   * **Gateway subnet:** This field is already autofilled. You can't change the name. If you try to change the name using PowerShell or any other means, the gateway won't work properly.
+   * **Address range (CIDR block):** While it's possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. Doing so will allow for enough addresses to accommodate possible additional configurations that you may want in the future. When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your VPN gateway to not function as expected.
 1. Select **Review + create** to validate your settings.
 1. Once validation passes, select **Create**. A VPN gateway can take up to 45 minutes to complete, depending on the gateway SKU that you select.
 

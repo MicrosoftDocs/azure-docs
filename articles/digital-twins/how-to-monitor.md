@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Monitor Azure Digital Twins instances with metrics, alerts, and diagnostics.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/06/2023
+ms.date: 05/17/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -77,12 +77,12 @@ Metrics having to do with data ingress:
 
 ### Bulk operation metrics (from the Jobs API)
 
-Metrics having to do with bulk operations from the [Jobs API](/rest/api/digital-twins/dataplane/import-jobs):
+Metrics having to do with bulk operations from the [Jobs API](/rest/api/digital-twins/dataplane/jobs):
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| BulkOperationLatency | Bulk Operation Latency | Milliseconds | Average | Total time taken for a bulk operation to complete. | Operation, <br>Authentication, <br>Protocol |
-| BulkOperationEntityCount | Bulk Operation Entity Count | Count | Total | The number of twins, models, or relationships processed by a bulk operation. | Operation, <br>Result |              
+| ImportJobLatency | Import Job Latency | Milliseconds | Average | Total time taken for an import job to complete. | Operation, <br>Authentication, <br>Protocol |
+| ImportJobEntityCount | Import Job Entity Count | Count | Total | The number of twins, models, or relationships processed by an import job. | Operation, <br>Result |              
 
 ### Routing metrics
 

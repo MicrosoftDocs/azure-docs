@@ -2,9 +2,9 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 09/28/2022
+ms.date: 06/30/2023
 ms.devlang: csharp
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging
@@ -41,9 +41,9 @@ As expected, throughput is higher for smaller message payloads that can be batch
 
 #### Benchmarks
 
-Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you'll receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
+Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
 
-The benchmarking sample doesn't use any advanced features, so the throughput your applications observe will be different based on your scenarios.
+The benchmarking sample doesn't use any advanced features, so the throughput your applications observe is different, based on your scenarios.
 
 #### Compute considerations
 
@@ -55,16 +55,16 @@ Using certain Service Bus features may require compute utilization that may decr
 4. Scheduled messages.
 5. Deferred messages.
 6. Transactions.
-7. De-duplication & look back time window.
+7. Deduplication & look back time window.
 8. Forward to (forwarding from one entity to another).
 
-If your application leverages any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace.
+If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace.
 
 You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md).
 
 ### Sharding across namespaces
 
-While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **may not** provide a linear increase in the throughput. This is because of Service Bus internals (storage, network, etc.), which may be limiting the throughput.
+While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **may not** provide a linear increase in the throughput. It's because of Service Bus internals (storage, network, etc.), which may be limiting the throughput.
 
 The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces. You may also consider sharding across different namespaces in different Azure regions.
 
@@ -97,7 +97,7 @@ The Service Bus clients that interact with the service, such as [ServiceBusClien
 
 We recommend that you don't close or dispose these clients after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. 
 
-This guidance does not apply to the [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), as its lifetime is the same as the session itself.  For applications working with the `ServiceBusSessionReceiver`, it is recommended to use a singleton instance of the `ServiceBusClient` to accept each session, which will spawn a new `ServiceBusSessionReceiver` bound to that session.  Once the application finishes processing that session it should dispose the associated `ServiceBusSessionReceiver`.
+This guidance doesn't apply to the [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), as its lifetime is the same as the session itself.  For applications working with the `ServiceBusSessionReceiver`, it's recommended to use a singleton instance of the `ServiceBusClient` to accept each session, which spans a new `ServiceBusSessionReceiver` bound to that session.  Once the application finishes processing that session, it should dispose the associated `ServiceBusSessionReceiver`.
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -234,7 +234,7 @@ Service Bus doesn't support transactions for receive-and-delete operations. Also
 
 To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. 
 
-- When you enable batching on a queue, writing messages into the store, and deleting messages from the store will be batched. 
+- When you enable batching on a queue, writing messages into the store, and deleting messages from the store are batched. 
 - When you enable batching on a topic, writing messages into the store are batched. 
 - When you enable batching on a subscription, deleting messages from the store are batched. 
 - When batched store access is enabled for an entity, Service Bus delays a store write operation for that entity by up to 20 ms.
@@ -248,7 +248,7 @@ When you create a new queue, topic or subscription, batched store access is enab
 
 
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
-To disable batched store access, you'll need an instance of a `ServiceBusAdministrationClient`. Create a `CreateQueueOptions` from a queue description that sets the `EnableBatchedOperations` property to `false`.
+To disable batched store access, you need an instance of a `ServiceBusAdministrationClient`. Create a `CreateQueueOptions` from a queue description that sets the `EnableBatchedOperations` property to `false`.
 
 ```csharp
 var options = new CreateQueueOptions(path)
@@ -261,7 +261,7 @@ var queue = await administrationClient.CreateQueueAsync(options);
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-To disable batched store access, you'll need an instance of a `ManagementClient`. Create a queue from a queue description that sets the `EnableBatchedOperations` property to `false`.
+To disable batched store access, you need an instance of a `ManagementClient`. Create a queue from a queue description that sets the `EnableBatchedOperations` property to `false`.
 
 ```csharp
 var queueDescription = new QueueDescription(path)
@@ -284,11 +284,11 @@ Batched store access doesn't affect the number of billable messaging operations.
 
 [Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load additional messages from the service when it receives messages. The client stores these messages in a local cache. The size of the cache is determined by the `QueueClient.PrefetchCount` or `SubscriptionClient.PrefetchCount` properties. Each client that enables prefetching maintains its own cache. A cache isn't shared across clients. If the client starts a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256 KB, whichever is smaller. If the client starts a receive operation and the cache contains a message, the message is taken from the cache.
 
-When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message can't be received by a different receiver. If the receiver can't complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy will receive an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, set the cache size smaller than the number of messages that a client can consume within the lock timeout interval.
+When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message can't be received by a different receiver. If the receiver can't complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy receives an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, set the cache size smaller than the number of messages that a client can consume within the lock timeout interval.
 
 When you use the default lock expiration of 60 seconds, a good value for `PrefetchCount` is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count shouldn't exceed 20 X 3 X 10 = 600. By default, `PrefetchCount` is set to 0, which means that no additional messages are fetched from the service.
 
-Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. Fetching the first message, however, will take longer (because of the increased message size). Receiving prefetched messages from the cache will be faster because these messages have already been downloaded by the client.
+Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. The fetch of the first message, however, takes longer (because of the increased message size). Receiving prefetched messages from the cache is faster because these messages have already been downloaded by the client.
 
 The time-to-live (TTL) property of a message is checked by the server at the time the server sends the message to the client. The client doesn't check the message's TTL property when the message is received. Instead, the message can be received even if the message's TTL has passed while the message was cached by the client.
 
@@ -321,7 +321,7 @@ While using these approaches together, consider the following cases -
 * Prefetch should be greater than or equal to the number of messages you're expecting to receive from `ReceiveBatch`.
 * Prefetch can be up to n/3 times the number of messages processed per second, where n is the default lock duration.
 
-There are some challenges with having a greedy approach, that is, keeping the prefetch count high, because it implies that the message is locked to a particular receiver. The recommendation is to try out prefetch values between the thresholds mentioned above and empirically identify what fits.
+There are some challenges with having a greedy approach, that is, keeping the prefetch count high, because it implies that the message is locked to a particular receiver. We recommend that you try out prefetch values that are between the thresholds mentioned above, and identify what fits.
 
 ## Multiple queues or topics
 
@@ -330,6 +330,9 @@ If a single queue or topic can't handle the expected number of messages, use mul
 More queues or topics mean that you have more entities to manage at deployment time. From a scalability perspective, there really isn't too much of a difference that you would notice as Service Bus already spreads the load across multiple logs internally, so if you use six queues or topics or two queues or topics won't make a material difference.
 
 The tier of service you use impacts performance predictability. If you choose **Standard** tier, throughput and latency are best effort over a shared multi-tenant infrastructure. Other tenants on the same cluster may impact your throughput. If you choose **Premium**, you get resources that give you predictable performance, and your multiple queues or topics get processed out of that resource pool. For more information, see [Pricing tiers](#pricing-tier).
+
+## Partitioned namespaces
+When you use [partitioned premium tier namespaces](service-bus-partitioning.md), multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs. 
 
 ## Scenarios
 

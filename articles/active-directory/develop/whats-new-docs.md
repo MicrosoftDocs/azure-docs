@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 04/03/2023
+ms.date: 09/04/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -18,55 +18,46 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## March 2023
-
-### New articles
-
-- [Configure a SAML app to receive tokens with claims from an external store (preview)](custom-extension-configure-saml-app.md)
-- [Configure a custom claim provider token issuance event (preview)](custom-extension-get-started.md)
-- [Custom claims provider (preview)](custom-claims-provider-overview.md)
-- [Custom claims providers](custom-claims-provider-reference.md)
-- [Custom authentication extensions (preview)](custom-extension-overview.md)
-- [Troubleshoot your custom claims provider API (preview)](custom-extension-troubleshoot.md)
-- [Understanding application-only access](app-only-access-primer.md)
+## August 2023
 
 ### Updated articles
 
-- [ADAL to MSAL migration guide for Python](migrate-python-adal-msal.md)
-- [Handle errors and exceptions in MSAL for Python](msal-error-handling-python.md)
-- [How to migrate a JavaScript app from ADAL.js to MSAL.js](msal-compare-msal-js-and-adal-js.md)
-- [Microsoft identity platform access tokens](access-tokens.md)
-- [Microsoft Enterprise SSO plug-in for Apple devices (preview)](apple-sso-plugin.md)
-- [Restrict your Azure AD app to a set of users in an Azure AD tenant](howto-restrict-your-app-to-a-set-of-users.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
-- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
-- [Tutorial: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application](tutorial-v2-windows-uwp.md)
+- [Call an ASP.NET Core web API with cURL](howto-call-a-web-api-with-curl.md) - Updated sign-in steps for admin center
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md) - Removed references to aad.portal.azure.com and terminology updates for partner program updates
+- [Configure a custom claim provider token issuance event (preview)](custom-extension-get-started.md) - Updated MS Graph sections - custom claim provider token issuance event tutorial and custom authentication extensions references
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications](jwt-claims-customization.md) - Updated sign-in steps for admin center
+- [Access tokens in the Microsoft identity platform](access-tokens.md) - Updated details about issuer validation
 
-## February 2023
+## July 2023
 
 ### New articles
 
-- [Frequently asked questions about workload identities license plans](workload-identities-faqs.md)
+- [Deploy a web app in a pipeline and configure App Service authentication](deploy-web-app-authentication-pipeline.md) - Deploy a webapp and configure auth in a pipeline
 
 ### Updated articles
 
-- [Configure the role claim issued in the SAML token](active-directory-enterprise-app-role-management.md)
-- [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
-- [Overview of shared device mode](msal-shared-devices.md)
-- [Run automated integration tests](test-automate-integration-testing.md)
-- [Tutorial: Sign in users and call Microsoft Graph in Windows Presentation Foundation (WPF) desktop app](tutorial-v2-windows-desktop.md)
+- [Access tokens in the Microsoft identity platform](access-tokens.md) - Improve the explanations on how to validate a token
+- [Claims mapping policy type](reference-claims-mapping-policy-type.md) - Updates to Restricted Claims Set
+- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md) - Improving clarity in the content
+- [Single sign-on with MSAL.js](msal-js-sso.md) - Add guidance on using the loginHint claim for SSO
+- [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md) - Simplified and leverage the Microsoft Identity App Sync .NET tool
 
-## January 2023
+## June 2023
 
 ### New articles
 
-- [Customize claims issued in the JSON web token (JWT) for enterprise applications](active-directory-jwt-claims-customization.md)
+- [Configure app multi-instancing](configure-app-multi-instancing.md) - Configuration of multiple instances of the same application within a tenant
+- [Migrate away from using email claims for user identification or authorization](migrate-off-email-claim-authorization.md) - Migration guidance for insecure authorization pattern
+- [Optional claims reference](optional-claims-reference.md) - v1.0 and v2.0 optional claims reference
 
 ### Updated articles
 
-- [Access Azure AD protected resources from an app in Google Cloud](workload-identity-federation-create-trust-gcp.md)
-- [Configure SAML app multi-instancing for an application in Azure Active Directory](reference-app-multi-instancing.md)
-- [Customize browsers and WebViews for iOS/macOS](customize-webviews.md)
-- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- [Enable cross-app SSO on Android using MSAL](msal-android-single-sign-on.md)
-- [Using redirect URIs with the Microsoft Authentication Library (MSAL) for iOS and macOS](redirect-uris-ios.md)
+- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md) - Editorial review of Node.js code snippet
+- [Claims mapping policy type](reference-claims-mapping-policy-type.md) - Editorial review of claims mapping policy type
+- [Configure token lifetime policies (preview)](configure-token-lifetimes.md) - Adding service principal policy commands
+- [Customize SAML token claims](saml-claims-customization.md) - Review of claims mapping policy type
+- [Microsoft identity platform code samples](sample-v2-code.md) - Reworking code samples file to add extra tab
+- [Refresh tokens in the Microsoft identity platform](refresh-tokens.md) - Editorial review of refresh tokens
+- [Tokens and claims overview](security-tokens.md) - Editorial review of security tokens
+- [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md) - Editorial review
+- [What's new for authentication?](reference-breaking-changes.md) - Identity breaking change: omission of unverified emails by default

@@ -1,21 +1,16 @@
 ---
-title: Register existing SAP system (preview)
+title: Register existing SAP system 
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions through the Azure portal. You can visualize, manage, and monitor your existing SAP system through Azure Center for SAP solutions.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/03/2023
-ms.author: ladolan
-author: lauradolan
+ms.author: sagarkeswani
+author: sagarkeswani
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
 ---
 
-# Register existing SAP system (preview)
-
-[!INCLUDE [Preview content notice](./includes/preview.md)]
-
-[!INCLUDE [RBAC preview content notice](./includes/preview-rbac.md)]
-
+# Register existing SAP system
 In this how-to guide, you'll learn how to register an existing SAP system with *Azure Center for SAP solutions*. After you register an SAP system with Azure Center for SAP solutions, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
 - View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP solutions (VIS)*.
@@ -25,6 +20,14 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
 - Start and Stop individual instances of ASCS, App server and HANA Database.
 - Monitor the Azure infrastructure metrics for the SAP system resources.
 - View Cost Analysis for the SAP system.
+
+When you register a system with Azure Center for SAP solutions, the following resources are created in your Subscription:
+- Virtual Instance for SAP solutions, Central service instance for SAP solutions, App server instance for SAP solutions and Database for SAP solutions. These resource types are created to represent the SAP system on Azure. These resources do not have any billing or cost associated with them.
+- A managed resource group which is used by Azure Center for SAP solutions service.
+- A Storage account within the managed resource group which contains blobs that have scripts and logs necessary for the service to provide the various capabilities including discovering and registering all components of SAP system.
+
+> [!NOTE]
+> You can customize the names of the Managed resource group and the Storage account which get deployed as part of the registration process by using [Azure PowerShell](quickstart-register-system-powershell.md) or [Azure CLI](quickstart-register-system-cli.md) interfaces for registering your systems. 
 
 ## Prerequisites
 

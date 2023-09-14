@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 06/19/2023
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ Follow the steps to integrate with a sensor partner to enable the partner to sta
 
 ## Step 1: Identify the sensor partner app and provide consent
 
-Each sensor partner has their own multi-tenant Azure Active Directory app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments(sensorPartnerId: `DavisInstruments`). However, you're free to add your own sensors by being a sensor partner yourself. Follow [these steps](./how-to-set-up-sensors-partner.md) to sign up being a sensor partner on the platform.
+Each sensor partner has their own multi-tenant Azure Active Directory app created and published on the Data Manager for Agriculture platform. The sensor partner supported by default on the platform is Davis Instruments (sensorPartnerId: `DavisInstruments`). 
 
 To start using the on-boarded sensor partners, you need to give consent to the sensor partner so that they start showing up in `App Registrations`. The steps for you to follow:
 
@@ -170,11 +170,11 @@ API Endpoint: PATCH /sensor-partners/{sensorPartnerId}/integrations/{integration
 
 This step marks the completion of the sensor partner on-boarding from a customer perspective. , get all the required information to call your API endpoints to create Sensor model, Device model, Sensors & Devices. The partners are now able to push sensor events using the connection string generated for each sensor ID.
 
-The final step is to start consuming sensor events. Before consuming the events, you need to create a mapping of every sensor ID to a specific Party ID & Boundary ID. 
+The final step is to start consuming sensor events. Before consuming the events, you need to create a mapping of every sensor ID to a specific Party ID and resource (Field, Seasonal Field). 
 
 ## Step 6: Create sensor mapping
 
-Use the `SensorMappings` collection, call into the `SensorMappings_CreateOrUpdate` API to create mapping for each of sensor. Mapping is nothing but associating a sensor ID with a specific PartyID and BoundaryID. PartyID and BoundaryID are already present in the Data Manager for Agriculture system. This association ensures that as a platform you get to build data science models around a common boundary and party dimension. Every data source (satellite, weather, farm operations) is tied to a party & boundary. As you establish this mapping object on a per sensor level you power all the agronomic use cases to benefit from sensor data.
+Use the `SensorMappings` collection, call into the `SensorMappings_CreateOrUpdate` API to create mapping for each of sensor. Mapping is nothing but associating a sensor ID with a specific PartyID and a resource(field, seasonal field etc.). PartyID and resources are already present in the Data Manager for Agriculture system. This association ensures that as a platform you get to build data science models around a common geometry of the resource and party dimension. Every data source (satellite, weather, farm operations) is tied to a party & resource. As you establish this mapping object on a per sensor level you power all the agronomic use cases to benefit from sensor data.
 
 API Endpoint: PATCH /sensor-mappings/{sensorMappingId}
 

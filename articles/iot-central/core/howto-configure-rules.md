@@ -1,9 +1,9 @@
 ---
-title: Configure rules and actions in Azure IoT Central | Microsoft Docs
+title: Configure rules and actions in Azure IoT Central
 description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -17,13 +17,13 @@ Rules in IoT Central serve as a customizable response tool that trigger on activ
 
 ## Select target devices
 
-Use the target devices section to select on what kind of devices this rule will be applied. Filters allow you to further refine what devices should be included. The filters use properties on the device template to filter down the set of devices. Filters themselves don't trigger an action. In the following screenshot, the devices that are being targeted are of device template type **Refrigerator**. The filter states that the rule should only include **Refrigerators** where the **Manufactured State** property equals **Washington**.
+Use the target devices section to select on what kind of devices this rule applies to. Filters allow you to further refine what devices should be included. The filters use properties on the device template to filter down the set of devices. Filters themselves don't trigger an action. In the following screenshot, the rule targets **Refrigerator** devices. The filter states that the rule should only include **Refrigerators** where the **Manufactured State** property equals **Washington**.
 
 :::image type="content" source="media/howto-configure-rules/filters.png" alt-text="Screenshot that shows a filter definition in a rule." lightbox="media/howto-configure-rules/filters.png":::
 
 ## Use multiple conditions
 
-Conditions are what rules trigger on. You can add multiple conditions to a rule and specify if the rule should trigger when all the conditions are true or any of the conditions are true.  
+Conditions determine which devices the rule triggers on. You can add multiple conditions to a rule and specify if the rule should trigger when all the conditions are true or any of the conditions are true.
 
 In the following screenshot, the conditions check when the temperature is greater than 70&deg; F and the humidity is less than 10%. When any of these statements are true, the rule evaluates to true and triggers an action.
 
@@ -40,13 +40,13 @@ If you choose an event type telemetry value, the **Value** drop-down includes th
 
 ## Use aggregate windowing
 
-You can specify a time aggregation to trigger your rule based on a time window. Rule conditions evaluate aggregate time windows on telemetry data as tumbling windows. If there are any property filters in the rule, they're applied at the end of the time window. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of telemetry data. The data is only evaluated once in the window to which it corresponds.
+You can specify a time aggregation to trigger your rule based on a time window. Rule conditions evaluate aggregate time windows on telemetry data as tumbling windows. If there are any property filters in the rule, they're applied at the end of the time window. In the following screenshot, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of telemetry data. The data is only evaluated once in the window to which it corresponds.
 
 :::image type="content" source="media/howto-configure-rules/tumbling-window.png" alt-text="A diagram showing how tumbling windows are defined." border="false":::
 
 ## Create an email action
 
-When you create an email action, the email address must be a **user ID** in the application, and the user must have signed in to the application at least once. You can also specify a note to include in the email. IoT Central shows an example of what the email will look like when the rule triggers:
+When you create an email action, the email address must be a **user ID** in the application, and the user must have signed in to the application at least once. You can also specify a note to include in the email. IoT Central shows an example of what the email looks like when the rule triggers:
 
 :::image type="content" source="media/howto-configure-rules/email-action.png" alt-text="Screenshot that shows an email action for a rule." lightbox="media/howto-configure-rules/email-action.png":::
 
@@ -54,7 +54,7 @@ When you create an email action, the email address must be a **user ID** in the 
 
 Webhooks let you connect your IoT Central app to other applications and services for remote monitoring and notifications. Webhooks automatically notify other applications and services you connect whenever a rule is triggered in your IoT Central app. Your IoT Central app sends a POST request to the other application's HTTP endpoint whenever a rule triggers. The payload contains device details and rule trigger details.
 
-In this example, you connect to *RequestBin* to get notified when a rule fires:
+In this example, you connect to *RequestBin* to test the notification:
 
 1. Navigate to [RequestBin](https://requestbin.com/).
 
@@ -214,9 +214,9 @@ The following table summarizes the information sent to the supported action type
 | Action type | Output format |
 | ----------- | -------------- |
 | Email       | Standard IoT Central email template |
-| SMS         | Azure IoT Central alert: ${applicationName} - "${ruleName}" triggered on "${deviceName}" at ${triggerDate} ${triggerTime} |
-| Voice       | Azure I.O.T Central alert: rule "${ruleName}" triggered on device "${deviceName}" at ${triggerDate} ${triggerTime}, in application ${applicationName} |
-| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](howto-configure-rules.md#payload)}} |
+| SMS         | Azure IoT Central alert: `${applicationName} - "${ruleName}" triggered on "${deviceName}" at ${triggerDate} ${triggerTime}` |
+| Voice       | Azure I.O.T Central alert: rule `"${ruleName}" triggered on device "${deviceName}" at ${triggerDate} ${triggerTime}, in application ${applicationName}` |
+| Webhook     | `{ "schemaId" : "AzureIoTCentralRuleWebhook", "data": {"regular webhook payload"}}` |
 
 The following text is an example SMS message from an action group:
 

@@ -12,9 +12,9 @@ ms.date: 03/08/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp
-ms.custom: azureday1
-#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
+ms.custom: azureday1, devx-track-js, AppServiceConnectivity
 ms.subservice: web-apps
+#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 
 # Tutorial: Access Microsoft Graph from a secured JavaScript app as the user

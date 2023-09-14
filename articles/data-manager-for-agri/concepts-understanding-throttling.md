@@ -1,6 +1,6 @@
 ---
-title: API throttling guidance for customers using Azure Data Manager for Agriculture.
-description: Provides information on API throttling limits to plan usage. 
+title: APIs throttling guidance for customers using Azure Data Manager for Agriculture.
+description: Provides information on APIs throttling limits to plan usage. 
 author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
@@ -9,13 +9,13 @@ ms.date: 04/18/2023
 ms.custom: template-concept
 ---
 
-# API throttling guidance for Azure Data Manager for Agriculture.
+# APIs throttling guidance for Azure Data Manager for Agriculture.
 
-The API throttling in Azure Data Manager for Agriculture allows more consistent performance within a time span for customers calling our service APIs. Throttling limits, the number of requests to our service in a time span to prevent overuse of resources. Azure Data Manager for Agriculture is designed to handle a high volume of requests, if an overwhelming number of requests occur by few customers, throttling helps maintain optimal performance and reliability for all customers.
+The APIs throttling in Azure Data Manager for Agriculture allows more consistent performance within a time span for customers calling our service APIs. Throttling limits, the number of requests to our service in a time span to prevent overuse of resources. Azure Data Manager for Agriculture is designed to handle a high volume of requests, if an overwhelming number of requests occur by few customers, throttling helps maintain optimal performance and reliability for all customers.
 
 Throttling limits vary based on product type and capabilities being used. Currently we have two versions, standard and basic (for your POC needs).
 
-## DPS API limits 
+## Data Plane Service API limits 
 
 Throttling category |	Units available per Standard version|	Units available per Basic version |
 |:------|:------|:------|
@@ -61,29 +61,29 @@ The maximum queue size for each job type is 10,000.
 Throttling category|	Units available per Standard version|	Units available per Basic version|
 |:------|:------|:------|
 Per 5 Minutes	|1,000	|1,000
-Per Month	|1,000,000	|200,000
+Per Month	|500,000	|100,000
 
 
 ### Maximum create job requests allowed for standard version
 Job Type|	Per 5 mins|	Per month|
 |:------|:------|:------|
-Cascade delete|	1,000|	500,000
+Cascade delete|	500|	250,000
 Satellite|	1,000|	500,000
 Model inference|	200|	100,000
 Farm Operation|	200|	100,000
 Rasterize|	500|	250,000
-Weather|	500|	250,000
+Weather|	1,000|	250,000
 
 
 ### Maximum create job requests allowed for basic version
 Job Type|	Per 5 mins|	Per month
 |:------|:------|:------|
-Cascade delete|	1,000|	100,000
+Cascade delete|	500|	50,000
 Satellite|	1,000|	100,000
 Model inference|	200|	20,000
 Farm Operation|	200|	20,000
 Rasterize|	500|	50,000
-Weather|	500|	50,000
+Weather|	1000|	100,000
 
 ### Sensor events limits
 100,000 event ingestion per hour by our sensor job.

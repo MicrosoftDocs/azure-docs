@@ -3,33 +3,21 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/09/2023
+ms.date: 09/11/2023
 ---
 
-# User-defined data types in Bicep (Preview)
+# User-defined data types in Bicep
 
 Learn how to use user-defined data types in Bicep.
 
-[Bicep version 1.2 or newer](./install.md) is required to use this feature.
-
-## Enable the preview feature
-
-To enable this preview, modify your project's [bicepconfig.json](./bicep-config.md) file to include the following JSON:
-
-```json
-{
-  "experimentalFeaturesEnabled": {
-    "userDefinedTypes": true
-  }
-}
-```
+[Bicep version 0.12.1 or newer](./install.md) is required to use this feature.
 
 ## User-defined data type syntax
 
 You can use the `type` statement to define user-defined data types. In addition, you can also use type expressions in some places to define custom types.
 
 ```bicep
-Type <userDefinedDataTypeName> = <typeExpression>
+type <user-defined-data-type-name> = <type-expression>
 ```
 
 The valid type expressions include:
@@ -88,6 +76,19 @@ The valid type expressions include:
     type storageAccountConfigType = {
       name: string
       sku: string?
+    }
+    ```
+
+  Decorators may be used on properties. `*` may be used to make all values require a constrant. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
+
+    ```bicep
+    type obj = {
+      @description('The object ID')
+      id: int
+
+      @description('Additional properties')
+      @minLength(10)
+      *: string
     }
     ```
 

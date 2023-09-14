@@ -55,9 +55,13 @@ An applicable resource has a compliance state of exempt for a policy assignment 
 > [!NOTE]
 > _Exempt_ is different than _excluded_. For more details, see [scope](./scope.md).
 
-### Unknown (preview)
+### Unknown
 
  Unknown is the default compliance state for definitions with `manual` effect, unless the default has been explicitly set to compliant or non-compliant. This state indicates that an [attestation](./attestation-structure.md) of compliance is warranted. This compliance state only occurs for policy assignments with `manual` effect.
+
+ ### Protected (preview)
+
+ Protected state signfies that the resource is covered under an assignment with a [denyAction](./effects.md#denyaction-preview) effect.
 
 ### Not registered
 
@@ -111,6 +115,7 @@ So how is the aggregate compliance state determined if multiple resources or pol
 1. Compliant
 1. Error
 1. Conflicting
+1. Protected (preview)
 1. Exempted
 1. Unknown (preview)
 
@@ -123,12 +128,11 @@ Assume an initiative contains 10 policies, and a resource is exempt from one pol
 
 ### Compliance percentage 
 
-The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total resources_. _Total resources_ include **Compliant**, **Non-compliant**,
-**Exempt**, and **Conflicting** resources. The overall compliance numbers are the sum of distinct
-resources that are **Compliant**, **Exempt**, and **Unknown** divided by the sum of all distinct resources. 
+The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total resources_. _Total resources_ include resources with **Compliant**, **Non-compliant**, **Unknown**, 
+**Exempt**, **Conflicting**, and **Error** states. 
 
 ```text
-overall compliance % = (compliant + exempt + unknown)  / (compliant + non-compliant + exempt + conflicting)
+overall compliance % = (compliant + exempt + unknown)  / (compliant + exempt + unknown + non-compliant + conflicting + error)
 ```
 
 In the image shown, there are 20 distinct resources that are applicable and only one is **Non-compliant**.

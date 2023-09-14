@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 03/06/2023
+ms.date: 06/06/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -22,7 +22,7 @@ In this article, learn about MAU and Go Local billing, linking Azure AD B2C tena
 
 ## MAU overview
 
-A monthly active user (MAU) is a unique user that performs an authentication within a given month. A user that authenticates multiple times within a given month is counted as one MAU. Customers aren't charged for a MAU’s subsequent authentications during the month, nor for inactive users. Authentications may include:
+A monthly active user (MAU) is a unique user that performs an authentication within a given month. A user that authenticates at least once within a given month is counted as one MAU. Customers aren't charged for a MAU’s subsequent authentications during the month, nor for inactive users. Authentications may include:
 
 - Active, interactive sign in by the user. For example, [sign-up or sign in](add-sign-up-and-sign-in-policy.md), [self-service password reset](add-password-reset-policy.md), or any type of [user flow](user-flow-overview.md) or [custom policy](custom-policy-overview.md).
 - Passive, non-interactive sign in such as [single sign-on (SSO)](session-behavior.md), or any type of token acquisition. For example, authorization code flow, token refresh, or [resource owner password credentials flow](add-ropc-policy.md).
@@ -64,9 +64,7 @@ Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing ti
 Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country/region you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). *Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country/region. This feature isn't available in all countries/regions. 
 
 > [!NOTE]
-> If you enable  Go-Local add-on , the 50,000 free MAUs per month given by your AD B2C subscription doesn't apply for  Go-Local add-on . You'll incur a charge per MAU, on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). 
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-go-local-add-on-preview-label.md)] 
+> If you enable  Go-Local add-on, the 50,000 free MAUs per month given by your Azure AD B2C subscription doesn't apply for  Go-Local add-on. You'll incur a charge per MAU, on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). 
 
 ## Link an Azure AD B2C tenant to a subscription
 

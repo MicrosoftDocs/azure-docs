@@ -33,7 +33,7 @@ added. This module can be used with locally installed PowerShell, with
 The Azure Resource Graph module requires the following software:
 
 - Azure PowerShell 8.x or higher. If it isn't yet installed, follow
-  [these instructions](/powershell/azure/install-az-ps).
+  [these instructions](/powershell/azure/install-azure-powershell).
 
 - PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
   [these instructions](/powershell/gallery/powershellget/install-powershellget).

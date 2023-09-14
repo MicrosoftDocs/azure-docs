@@ -4,7 +4,7 @@ description: Overview of Service Bus client diagnostics and end-to-end tracing (
 ms.topic: article
 ms.date: 12/21/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Distributed tracing and correlation through Service Bus messaging
@@ -403,4 +403,3 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 * [Application Insights Correlation](../azure-monitor/app/distributed-tracing-telemetry-correlation.md)
 * [Application Insights Monitor Dependencies](../azure-monitor/app/asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
 * [Track custom operations with Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md)
-

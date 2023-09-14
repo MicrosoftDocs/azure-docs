@@ -19,7 +19,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 - A virtual machine. The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
 
     1. In the Azure portal, select **Cloud Shell** from the global controls at the top of the page.
