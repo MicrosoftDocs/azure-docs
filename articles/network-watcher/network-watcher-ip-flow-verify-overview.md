@@ -17,18 +17,24 @@ IP flow verify is a feature in Azure Network Watcher that you can use to check i
 
 IP flow verify looks at the rules of all network security groups applied to a virtual machine's network interface, whether the network security group is associated to the virtual machine's subnet or network interface. It additionally, looks at the Azure Virtual Network Manager rules applied to the virtual network of the virtual machine.
 
+IP flow verify uses traffic direction, protocol, local IP, remote IP, local port, and remote port to test security and admin rules that apply to the virtual machine's network interface.
+
 :::image type="content" source="./media/network-watcher-ip-flow-verify-overview/ip-flow-verify-portal.png" alt-text="Screenshot of IP flow verify in the Azure portal." lightbox="./media/network-watcher-ip-flow-verify-overview/ip-flow-verify-portal.png":::
 
-IP flow verify uses traffic direction, protocol, local IP, remote IP, local port, and remote port to test security and admin rules that apply to the virtual machine's network interface. IP flow verify returns **Access denied** or **Access allowed**, the name of the security rule that denies or allows the traffic, and the network security group with a link to it so you can edit it if you need to. IP flow verify doesn't provide a link if a default security rule is denying or allowing the traffic. For more information, see [Default security rules](../virtual-network/network-security-groups-overview.md#default-security-rules).
+IP flow verify returns **Access denied** or **Access allowed**, the name of the security rule that denies or allows the traffic, and the network security group with a link to it so you can edit it if you need to. It doesn't provide a link if a default security rule is denying or allowing the traffic. For more information, see [Default security rules](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
 :::image type="content" source="./media/network-watcher-ip-flow-verify-overview/access-denied.png" alt-text="Screenshot of IP flow verify result in the Azure portal." lightbox="./media/network-watcher-ip-flow-verify-overview/access-denied.png":::
 
 To use IP flow verify, you need to a Network Watcher instance in the Azure subscription and region of the virtual machine and have the necessary permissions to access the feature. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md) and [RBAC permissions required to use Network Watcher capabilities](required-rbac-permissions.md).
+
+> [!NOTE]
+> - IP flow verify tests TCP and UDP traffic. To test ICMP traffic, use [NSG diagnostics](network-watcher-network-configuration-diagnostics-overview.md).
+> - IP flow verify tests security and admin rules applied to a virtual machine's network interface. To test virtual machine scale sets, use [NSG diagnostics](network-watcher-network-configuration-diagnostics-overview.md).
 
 ## Next step
 
 To learn how to use IP flow verify, continue to:
 
 > [!div class="nextstepaction"]
-> [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md)
+> [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
 
