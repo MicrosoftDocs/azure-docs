@@ -216,7 +216,7 @@ When the input is set as `optional = true`, you need use `$[[]]` to embrace the 
 
 In the pipeline graph, optional inputs of the Data/Model type are represented by a dotted circle. Optional inputs of primitive types can be located under the **Settings** tab. Unlike required inputs, optional inputs don't have an asterisk next to them, signifying that they aren't mandatory.
 
- :::image type="content" source="./media/how-to-manage-pipeline-input-output/optional-input.png" lightbox="./media/how-to-manage-pipeline-input-output/optional-input.png" alt-text="Screenshot highlighting the optional input":::
+ :::image type="content" source="./media/how-to-manage-pipeline-input-output/optional-input.png" lightbox="./media/how-to-manage-pipeline-input-output/optional-input.png" alt-text="Screenshot highlighting the optional input.":::
 
 
 ## How to customize output path
