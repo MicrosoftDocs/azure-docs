@@ -21,7 +21,7 @@ You'll also need the [Contributor](../../role-based-access-control/built-in-role
 
 1. On the **Azure Arc** page, select **Extended Security Updates** in the left pane.
 
-    :::image type="content" source="media/deliver-extended-security-updates/esu-main-window.png" alt-text="Screenshot  of main ESU window showing licenses tab and eligible resources tab.":::
+    :::image type="content" source="media/deliver-extended-security-updates/extended-security-updates-main-window.png" alt-text="Screenshot of main ESU window showing licenses tab and eligible resources tab." lightbox="media/deliver-extended-security-updates/extended-security-updates-main-window.png":::
 
     From here, you can view and create ESU **Licenses** and view **Eligible resources** for ESUs.
 
@@ -40,7 +40,7 @@ After you provision an ESU license, you need to specify the SKU (Standard or Dat
 
 The **Licenses** tab displays Azure Arc WS2012 licenses that are available. From here you can select an existing license to apply or create a new license.
 
-:::image type="content" source="media/deliver-extended-security-updates/esu-licenses.png" alt-text="Screenshot showing existing licenses.":::
+:::image type="content" source="media/deliver-extended-security-updates/extended-security-updates-licenses.png" alt-text="Screenshot showing existing licenses." lightbox="media/deliver-extended-security-updates/extended-security-updates-licenses.png":::
 
 1. To create a new WS2012 license, select **Create ESUs license**, and then provide the information required to configure the license on the page.
 
@@ -50,7 +50,7 @@ The **Licenses** tab displays Azure Arc WS2012 licenses that are available. From
 
     The license you created appears in the list and you can link it to one or more Arc-enabled servers by following the steps in the next section.
 
-    :::image type="content" source="media/deliver-extended-security-updates/esu-new-license.png" alt-text="Screenshot of licenses tab showing the newly created license in the list.":::
+    :::image type="content" source="media/deliver-extended-security-updates/extended-security-updates-new-license.png" alt-text="Screenshot of licenses tab showing the newly created license in the list." lightbox="media/deliver-extended-security-updates/extended-security-updates-new-license.png":::
 
 ## Link ESU licenses to Arc-enabled servers
 
@@ -61,7 +61,7 @@ You can select one or more Arc-enabled servers to link to an Extended Security U
 > 
 1. Select the **Eligible Resources** tab to view a list of all your Arc-enabled servers running Windows Server 2012 and 2012 R2.
 
-    :::image type="content" source="media/deliver-extended-security-updates/esu-eligible-resources.png" alt-text="Screenshot of eligible resources tab showing servers eligible to receive ESUs.":::
+    :::image type="content" source="media/deliver-extended-security-updates/extended-security-updates-eligible-resources.png" alt-text="Screenshot of eligible resources tab showing servers eligible to receive ESUs." lightbox="media/deliver-extended-security-updates/extended-security-updates-eligible-resources.png":::
 
     The **ESUs status** column indicates whether or not the machine is ESUs-enabled.
 
@@ -69,7 +69,7 @@ You can select one or more Arc-enabled servers to link to an Extended Security U
     
 1.  On the **Enable Extended Security Updates** page, it shows the number of machines selected to enable ESU and the WS2012 licenses available to apply. Select a license to link to the selected machine(s) and then select **Enable**.
 
-    :::image type="content" source="media/deliver-extended-security-updates/esu-select-license.png" alt-text="Screenshot of window for selecting the license to apply to previously chosen machines.":::
+    :::image type="content" source="media/deliver-extended-security-updates/extended-security-updates-select-license.png" alt-text="Screenshot of window for selecting the license to apply to previously chosen machines." lightbox="media/deliver-extended-security-updates/extended-security-updates-select-license.png":::
 
     > [!NOTE]
     > You can also create a license from this page by selecting **Create an ESU license**.
@@ -77,6 +77,6 @@ You can select one or more Arc-enabled servers to link to an Extended Security U
 
 The status of the selected machines changes to **Enabled**.
 
-:::image type="content" source="media/deliver-extended-security-updates/esu-enabled-resources.png" alt-text="Screenshot of eligible resources tab showing status of enabled for previously selected servers.":::
+:::image type="content" source="media/deliver-extended-security-updates/extended-security-updates-enabled-resources.png" alt-text="Screenshot of eligible resources tab showing status of enabled for previously selected servers." lightbox="media/deliver-extended-security-updates/extended-security-updates-enabled-resources.png":::
 
 If any problems occur during the enablement process, see [Troubleshoot delivery of Extended Security Updates for Windows Server 2012](troubleshoot-extended-security-updates.md) for assistance.

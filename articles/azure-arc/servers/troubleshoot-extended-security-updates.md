@@ -29,7 +29,7 @@ If you're unable to successfully link your Azure Arc-enabled server to an activa
 
 - **Operating system:** Only Azure Arc-enabled servers running the Windows Server 2012 and 2012 R2 operating system are eligible to enroll in Extended Security Updates.
 
-- **Environment:** The connected machine should not be running on Azure Stack HCI, Azure VMWare solution, or as an Azure virtual machine. In these scenarios, WS2012 ESUs are available for free.
+- **Environment:** The connected machine should not be running on Azure Stack HCI, Azure VMware solution, or as an Azure virtual machine. In these scenarios, WS2012 ESUs are available for free.
 
 - **License properties:** Verify the license is activated and has been allocated sufficient physical or virtual cores to support the intended scope of servers.
 
