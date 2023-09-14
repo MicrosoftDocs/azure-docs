@@ -309,7 +309,7 @@ for child_job in child_jobs:
 
 ## How to register output as named asset
 
-You can register output of a component or pipeline as named asset by assigning `name` and `version` to the output. The registered asset can be list in your workspace through Studio UI/CLI/SDK and also be referenced in your future jobs.
+You can register output of a component or pipeline as named asset by assigning `name` and `version` to the output. The registered asset can be list in your workspace through studio UI/CLI/SDK and also be referenced in your future jobs.
 
 ### Register pipeline output
 
