@@ -39,7 +39,7 @@ Inputs could be either of below types:
 
  - Primitive types: `string`, `number`, `integer`, or `boolean`.
 
- - Asset types: used for pass data or model between components
+ - Asset types: used for passing data or a model between components
      - Data asset types: `uri_file`, `uri_folder`, `mltable`.
      - Model asset types: `mlflow_model`, `custom_model`
 
