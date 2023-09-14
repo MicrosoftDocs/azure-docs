@@ -753,23 +753,23 @@ Use the [Apache Cassandra Python driver](cassandra/manage-data-python.md) to use
 
 1. Import `PROTOCOL_TLS_CLIENT`, `SSLContext`, and `CERT_NONE` from the `ssl` module. Then, import `Cluster` from the `cassandra.cluster` module. Finally, import `PlainTextAuthProvider` from the `cassandra.auth` module.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" id="imports":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" id="imports":::
 
 1. Create a new TLS/SSL context variable using `SSLContext`. Configure the context to not verify the emulator's self-signed certificate.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" highlight="1" id="ssl":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" highlight="1" id="ssl":::
 
 1. Create a new `session` using the emulator's credentials, `PlainTextAuthProvider`, `Cluster`, and `cluster.connect()`.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" highlight="1,4-5,9,15" id="client":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" highlight="1,4-5,9,15" id="client":::
 
 1. Create a new keyspace and table using `session.execute`.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" highlight="1,6" id="resources":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" highlight="1,6" id="resources":::
 
 1. Use `session.execute` to create a new item in the table.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-samples/601-emulator/app.py" highlight="2" id="upsert":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-cassandra-python-samples/601-emulator/app.py" highlight="2" id="upsert":::
 
 1. Run the Python application.
 
@@ -839,19 +839,19 @@ Use the [Apache Gremlin Python driver](gremlin/quickstart-python.md) to use the 
 
 1. Import `client` from the `gremlin_python.driver` module.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-samples/601-emulator/app.py" id="imports":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-python-samples/601-emulator/app.py" id="imports":::
 
 1. Create a new `Client` using the emulator's credentials.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-samples/601-emulator/app.py" highlight="1" id="client":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-python-samples/601-emulator/app.py" highlight="1" id="client":::
 
 1. Clean up the graph using `client.submit`.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-samples/601-emulator/app.py" id="graph":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-python-samples/601-emulator/app.py" id="graph":::
 
 1. Use `client.submit` to add a new item.
 
-    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-samples/601-emulator/app.py" highlight="1" id="insert":::
+    :::code language="python" source="~/cosmos-db-nosql-apache-gremlin-python-samples/601-emulator/app.py" highlight="1" id="insert":::
 
 1. Run the Python application.
 
