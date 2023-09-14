@@ -34,7 +34,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this QuickStart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/devbox-with-builtin-image/)
 
-:::code language="json" source="~/quickstart-templates/master/quickstarts/microsoft.devcenter/devbox-with-builtin-image/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devcenter/devbox-with-builtin-image/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template: 
 
@@ -115,7 +115,7 @@ Alternatively, you can provide access to a dev box project in the Azure portal, 
 
    :::image type="content" source="media/quickstart-configure-dev-box-arm-template/dev-box-template-resources.png" alt-text="Screenshot showing the newly created dev box resource group and the resources it contains in the Azure portal.":::
 
-1. Select the Dev Center. Its default name is dc-<resource-token>.
+1. Select the Dev Center. Its default name is dc-*resource-token*.
  
 ## Clean up resources 
 
