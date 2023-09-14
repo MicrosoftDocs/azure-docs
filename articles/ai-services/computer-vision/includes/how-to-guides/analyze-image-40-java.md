@@ -54,7 +54,7 @@ VisionSource imageSource = VisionSource.fromFile("sample.jpg");
 
 ### Image buffer
 
-Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource.fromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer).
+Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource.fromImageSourceBuffer](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromimagesourcebuffer(com-azure-ai-vision-common-imagesourcebuffer)).
 
 Start by creating a new [ImageSourceBuffer](/java/api/com.azure.ai.vision.common.imagesourcebuffer), then get access to its [ImageWriter](/java/api/com.azure.ai.vision.common.imagewriter) object and write the image data into it. In the following code example, `imageBuffer` is a variable of type `ByteBuffer` containing the image data.
 
@@ -131,7 +131,7 @@ Call the [setCroppingAspectRatios](/java/api/com.azure.ai.vision.imageanalysis.i
 
 This section shows you how to make an analysis call to the service using the standard model, and get the results.
 
-1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](s/java/api/com.azure.ai.vision.imageanalysis.imageanalyzer) object. **ImageAnalyzer** implements **AutoCloseable**, therefore create the object in a try-with-resources block, or explicitly call the **close** method on this object when you're done analyzing the image.
+1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](/java/api/com.azure.ai.vision.imageanalysis.imageanalyzer) object. **ImageAnalyzer** implements **AutoCloseable**, therefore create the object in a try-with-resources block, or explicitly call the **close** method on this object when you're done analyzing the image.
 
 1. Call the **analyze** method on the **ImageAnalyzer** object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the nonblocking **analyzeAsync** method.
 
