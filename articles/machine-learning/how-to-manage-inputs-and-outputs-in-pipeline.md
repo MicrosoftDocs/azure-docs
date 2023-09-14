@@ -245,7 +245,7 @@ az ml job create -f ./pipeline.yml --set outputs.pipeline_job_trained_model.path
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb?name=custom-output-path)] 
 
-The end to end notebook example can be found [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb)
+The end to end notebook example can be found in [Build pipeline with command_component decorated python function notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb).
 
 ---
  
