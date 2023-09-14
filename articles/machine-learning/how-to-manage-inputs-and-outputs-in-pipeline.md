@@ -411,3 +411,10 @@ pipeline = register_node_output()
 pipeline.settings.default_compute = "azureml:cpu-cluster"
 ```
 ---
+
+## Next steps
+
+- [YAML reference for pipeline job](./reference-yaml-job-pipeline.md)
+- [How to debug pipeline failure](./how-to-debug-pipeline-failure.md)
+- [Schedule a pipeline job](./how-to-schedule-pipeline-job.md)
+- [Deploy a pipeline with batch endpoints(preview)](./how-to-use-batch-pipeline-deployments.md)
