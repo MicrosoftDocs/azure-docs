@@ -17,7 +17,6 @@ Get security subassessments on all your scanned resources inside a scope.
 Use Azure Resource Graph (ARG) to access vulnerability assessment results pragmatically for both registry and runtime recommendations.
 Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview)
 * [Overview of Azure Resource Graph - Azure Resource Graph | Microsoft Learn
-](https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview)
 
 Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources.  For more information see: [Security Resources ARG Query Samples](https://learn.microsoft.com/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#securityresources).
 ](https://learn.microsoft.com/en-us/azure/governance/resource-graph/samples/samples-by-table?tabs=azure-cli#securityresources)
