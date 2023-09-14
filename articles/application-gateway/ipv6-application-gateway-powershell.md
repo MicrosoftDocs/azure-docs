@@ -129,7 +129,7 @@ $pipv6 = New-AzPublicIpAddress `
 -Force
 ```
 
-### Create the IP configurations, ports and listeners
+### Create the IP configurations and ports
 
 Associate *myAGSubnet* that you previously created to the application gateway using [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Assign *myAGPublicIPAddress* to the application gateway using [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
