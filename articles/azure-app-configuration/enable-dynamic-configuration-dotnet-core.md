@@ -140,6 +140,9 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
     Add the following code to *Program.cs*. 
 
     ```csharp
+    // Existing code in Program.cs
+    // ... ...
+
     // Add Azure App Configuration services to IServiceCollection
     builder.Services.AddAzureAppConfiguration();
     ```
