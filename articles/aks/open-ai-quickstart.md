@@ -388,10 +388,12 @@ Now that the application is deployed, you can deploy the Python-based microservi
 
 ## Next steps
 
-Now that you've seen how to add OpenAI functionality to an AKS application, learn more about what you can do with generative AI for your use cases. Here are some resources to get started:
+Now that you added OpenAI functionality to an AKS application, you can [Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)](./open-ai-secure-access-quickstart.md).
+
+To learn more about generative AI use cases, see the following resources:
 
 - [Azure OpenAI Service Documentation][aoai]
-- [Microsoft Learn | Introduction to Azure OpenAI Services][learn-aoai]
+- [Introduction to Azure OpenAI Services][learn-aoai]
 - [OpenAI Platform][openai-platform]
 - [Project Miyagi - Envisioning sample for Copilot stack][miyagi]
 
