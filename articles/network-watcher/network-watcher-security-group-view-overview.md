@@ -31,5 +31,5 @@ You can select a rule to see associated source and destination prefixes.
 
 ### Next steps
 
-- To learn about Network Watcher, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md)
+- To learn about Network Watcher, see [What is Azure Network Watcher?](network-watcher-overview.md)
 - To learn how traffic is evaluated with network security groups, see [How network security groups work](../virtual-network/network-security-group-how-it-works.md).
