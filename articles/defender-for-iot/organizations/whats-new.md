@@ -32,7 +32,7 @@ For example:
 
 From your sensor, do one of the following to open the **Cloud connectivity troubleshooting** pane, which provides details about the connectivity issues and mitigation steps:
 
-- On the **Overview** page, select the **Cloud connectivity errors** link
+- On the **Overview** page, select the **Cloud connectivity error** link
 - Select **System settings > Network monitoring > Customization > Cloud connectivity troubleshooting**
 
 
