@@ -502,20 +502,6 @@ sections:
           See [How many Application Insights resources should I deploy?](app/separate-resources.md).
           
       - question: |
-          Can I use Application Insights with the following apps and services?
-        answer: |
-          * [Web apps on an IIS server in Azure Virtual Machines or Azure Virtual Machine Scale Sets](app/azure-vm-vmss-apps.md)
-          * [Web apps on an IIS server: On-premises or in a VM](app/asp-net.md)
-          * [Java web apps](app/opentelemetry-enable.md?tabs=java)
-          * [Node.js apps](app/nodejs.md)
-          * [Web apps on Azure](app/azure-web-apps.md)
-          * [Cloud services on Azure](app/azure-web-apps-net-core.md)
-          * [Single-page web apps](app/javascript.md)
-          * [SharePoint](/previous-versions/azure/azure-monitor/app/sharepoint)
-          * [Windows desktop app](https://github.com/Microsoft/appcenter)
-          * [Other platforms](app/app-insights-overview.md#supported-languages)
-          
-      - question: |
           Is it free?
         answer: |
           Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development and publishing an app for a few users. You can set a cap to prevent more than a specified amount of data from being processed.
@@ -534,25 +520,6 @@ sections:
             1. Open the [Azure portal](https://portal.azure.com).
             1. Search for **Cost Management** and use the **Cost analysis** pane to see forecasted costs.
             1. Search for **Cost Management and Billing** and open the **Billing scopes** pane to see current charges across subscriptions.
-          
-      - question: What does Application Insights modify in my project?
-        answer: |
-          The details depend on the type of project. For a web application:
-          
-          * Adds these files to your project:
-            * ApplicationInsights.config
-            * ai.js
-          * Installs these NuGet packages:
-            * Application Insights API: The core API
-            * Application Insights API for Web Applications: Used to send telemetry from the server
-            * Application Insights API for JavaScript Applications: Used to send telemetry from the client
-          * The packages include these assemblies:
-            * Microsoft.ApplicationInsights
-            * Microsoft.ApplicationInsights.Platform
-          * Inserts items into:
-            * Web.config
-            * packages.config
-          * (For new projects only, you [add Application Insights to an existing project manually](app/app-insights-overview.md).) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the main page *Views/Shared/\_Layout.cshtml*.
           
       - question: |
           How do I upgrade from older SDK versions?
