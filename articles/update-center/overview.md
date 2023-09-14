@@ -43,7 +43,7 @@ Update Manager (preview) has been redesigned and doesn't depend on Azure Automat
 - Works with Azure roles and identity.
     - Granular access control at per resource level instead of access control at Automation account and Log Analytics workspace level.
     - Update Manager now as Azure Resource Manager-based operations. It allows role-based access control and roles based on Azure Resource Manager in Azure.
-- Enhanced flexibility
+- Provides enhanced flexibility.
     - Ability to take action either by installing updates immediately or scheduling them for a later date.
     - Checks updates automatically or on-demand.
     - Helps secure machines with new ways of patching, such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hotpatching](../automanage/automanage-hotpatch.md), or custom maintenance schedules.

@@ -1,6 +1,6 @@
 ---
 title: Enable periodic assessment by using Azure Policy
-description: This article describes how to manage the update settings for your Windows and Linux machines managed by Azure Update Manager (preview).
+description: Learn how to manage update settings for your Windows and Linux machines managed by Azure Update Manager (preview).
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha

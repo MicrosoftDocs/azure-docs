@@ -42,6 +42,8 @@ To identify the list of VMs with the associated schedules for which you have to 
 
 ## Enable schedule patching on Azure VMs
 
+To enable schedule patching on Azure VMs, follow these steps.
+
 # [Azure portal](#tab/new-prereq-portal)
 
 ## Prerequisites
