@@ -627,23 +627,27 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 #### [Node.js](#tab/nodejs)
 
-1. Install the [OpenTelemetry Collector Trace Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-http) package in your project.
+1. Install the [OpenTelemetry Collector Trace Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-http) and other OpenTelemetry packages in your project.
 
     ```sh
+        npm install @opentelemetry/api
         npm install @opentelemetry/exporter-trace-otlp-http
+        npm install @opentelemetry/@opentelemetry/sdk-trace-base
+        npm install @opentelemetry/sdk-trace-node
     ```
 
 2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
     ```typescript
     const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
-    const { trace } = require("@opentelemetry/api");
+    const { trace, ProxyTracerProvider } = require("@opentelemetry/api");
     const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
+    const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
     const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
 
     useAzureMonitor();
     const otlpExporter = new OTLPTraceExporter();
-    const tracerProvider = trace.getTracerProvider().getDelegate();
+    const tracerProvider = ((trace.getTracerProvider() as ProxyTracerProvider).getDelegate() as NodeTracerProvider);
     tracerProvider.addSpanProcessor(new BatchSpanProcessor(otlpExporter));
     ```
 
