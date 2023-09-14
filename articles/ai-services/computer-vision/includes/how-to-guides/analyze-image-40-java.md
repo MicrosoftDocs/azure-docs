@@ -86,7 +86,7 @@ Create a new [ImageAnalysisOptions](/java/api/azure.ai.vision.imageanalysis.imag
 
 ### Set model name when using a custom model
 
-You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You don't need to specify visual features if you use a custom model.
+You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name.
 
 To use a custom model, create the [ImageAnalysisOptions](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and call the [setModelName](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions.modelname#azure-ai-vision-imageanalysis-imageanalysisoptions-modelname) method. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to call [setFeatures](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features), as you do with the standard model, since your custom model already implies the visual features the service extracts.
 
@@ -137,7 +137,7 @@ This section shows you how to make an analysis call to the service using the sta
 
 1. Call the **getReason** method on the [ImageAnalysisResult](/java/api/azure.ai.vision.imageanalysis.imageanalysisresult) object, to determine if analysis succeeded or failed.
 
-1. If succeeded, proceed to access the call relevant result methods based on your selected visual features, as shown here. Additional information (not commonly needed) can be obtained by constructing the [ImageAnalysisResultDetails](/java/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object.
+1. If succeeded, proceed to call the relevant result methods based on your selected visual features, as shown here. Additional information (not commonly needed) can be obtained by constructing the [ImageAnalysisResultDetails](/java/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object.
 
 1. If failed, you can construct the [ImageAnalysisErrorDetails](/java/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object to get information on the failure.
 
@@ -149,7 +149,7 @@ This section shows you how to make an analysis call to the service using the sta
 This section shows you how to make an analysis call to the service, when using a custom model. 
 
 
-The code is similar to the standard model case. The only difference is that results from the custom model are available on by calling **getCustomTags** and/or **getCustomObjects** methods on the [ImageAnalysisResult](/java/api/azure.ai.vision.imageanalysis.imageanalysisresult) object.
+The code is similar to the standard model case. The only difference is that results from the custom model are available by calling **getCustomTags** and/or **getCustomObjects** methods on the [ImageAnalysisResult](/java/api/azure.ai.vision.imageanalysis.imageanalysisresult) object.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/custom-model/ImageAnalysis.java?name=analyze)]
 
