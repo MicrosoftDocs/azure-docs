@@ -98,7 +98,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	c. Double-click on relevant client to enable HTTP security session.
 
-	![The HTTP Security session ](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+	![The HTTP Security session](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
 	d. Activate below SICF services:
     ```
@@ -262,7 +262,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 1. Give the **User ID Source** value as **Assertion Attribute**, **User ID mapping mode** value as **Email** and **Assertion Attribute Name** as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-	![Configure Single Sign-On ](./media/sapnetweaver-tutorial/nameid-format.png)
+	![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameid-format.png)
 
 14. Note that **User ID Source** and **User ID mapping mode** values determine the link between SAP user and Azure AD claim.
 
