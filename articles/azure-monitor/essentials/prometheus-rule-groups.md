@@ -73,17 +73,18 @@ To create a new rule group from the portal home page:
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
 1. Select **Prometheus Rule Groups**
 1. Select **+ Create** to open up the rule group creation wizard
+    :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-start.png" alt-text="Screenshot that shows steps to create a new Prometheus rule group.":::
 
 To edit a new rule group from the portal home page:
 
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
 1. Select **Prometheus Rule Groups** to see the list of existing rule groups in your subscription
 1. Select the desired rule group to go to enter edit mode.
-    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot that shows steps to create a new alert rule.":::
+    
 
 #### Configure the rule group scope 
 On the rule group  **Scope** tab:
-1. Select the **Azure Monitor workspace** from a list of workspaces available in your subscriptions. The rules in this group query data from this workspace
+1. Select the **Azure Monitor workspace** from a list of workspaces available in your subscriptions. The rules in this group query data from this workspace.
 1. To limit your rule group to a cluster scope, select the **Specific cluster** option:
    * Select the **Cluster** from the list of clusters that are already connected to the selected Azure Monitor workspace.
    * The default **Cluster name** value is entered for you. You should change this value only if you've changed your cluster label value using [cluster_alias](../essentials/prometheus-metrics-scrape-configuration.md#cluster-alias).
@@ -96,34 +97,34 @@ On the rule group  **Details** tab:
 3. Select the **Evaluate every** period for the rule group. 1 minute is the default.
 4. Select if the rule group is to be enabled when created.
 5. Select **Next** to configure the rules in the group.
+   :::image type="content" source="media/prometheus-metrics-rule-groups/create-new-rule-group-details.png" alt-text="Screenshot that shows configuration of Prometheus rule group details.":::
 
 #### Configure the rules in the group 
 1. On the rule group **Rules** tab you can see the list of recording rules and alert rules in the group.
-2. You can add more rules up to the limit of 20 rules in a single group.
+2. You can add rules up to the limit of 20 rules in a single group.
 3. Rules are evaluated in the order they appear in the group. You can change the order of rules using the **move up** and **move down** options.
 1. To add a new recording rule:
    * Select **+ Add recording rule** to open the **Create a recording rule** pane.
    * Enter the **Name** of the rule. This name is the name of the metric created by the rule.
    * Enter the PromQL **Expression** for the rule.
    * Select if the rule is to be enabled when created.
-   * You can enter optional **Labels** key/values for the rule. These labels are added to the metric created by the rule.
+   * You can enter optional **Labels** key/value pairs for the rule. These labels are added to the metric created by the rule.
    * Select **Create** to add the new rule to the rule list.
 1. To add a new alert rule:
-   * Select **+ Add alert rule** to open the "Create an alert rule" pane
-   * Select the **Severity** of alerts fired by this rule
-   * Enter the **Name** of the rule. This name is the name alerts fired by the rule.
+   * Select **+ Add alert rule** to open the "Create an alert rule" pane.
+   * Select the **Severity** of alerts fired by this rule.
+   * Enter the **Name** of the rule. This name is the name of alerts fired by the rule.
    * Enter the PromQL **Expression** for the rule.
    * Select the **For** value for the period between the alert expression first becomes true and until the alert is fired.
-   * You can enter optional **Annotations** key/values for the rules. These annotations are added to the metric created by the rule.
-   * You can enter optional **Labels** key/values for the rule. These labels are added to the alerts fired by the rule.
+   * You can enter optional **Annotations** key/value pairs for the rule. These annotations are added to alerts fired by the rule.
+   * You can enter optional **Labels** key/value pairs for the rule. These labels are added to the alerts fired by the rule.
    * Select the [action groups](../essentials/action-groups.md) that the rule triggers.
    * Select **Automatically resolve alert** to resolve alerts after a period when the rule condition is no longer true.
    * Select the auto resolution period using **Time to auto-resolve**.
    * Select if the rule is to be enabled when created.
    * Select **Create** to add the new rule to the rule list.
 
- #### Finish creating the rule group
-
+#### Finish creating the rule group
 1. On the **Tags** tab, set any required tags on the rule group resource.
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot that shows the Tags tab when creating a new alert rule.":::
 1. On the **Review + create** tab, the rule group is validated, and lets you know about any issues.
