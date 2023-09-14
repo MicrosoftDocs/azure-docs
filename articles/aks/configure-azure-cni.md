@@ -1,7 +1,7 @@
 ---
 title: Configure Azure CNI networking in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
+description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS).
 author: asudbring
 ms.author: allensu
 ms.service: azure-kubernetes-service
