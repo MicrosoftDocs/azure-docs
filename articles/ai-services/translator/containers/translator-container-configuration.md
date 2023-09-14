@@ -15,7 +15,7 @@ recommendations: false
 
 # Configure Translator Docker containers
 
-Azure AI services provides each container with a common configuration framework.  You can easily configure your Translator containers to build Translator application architecture optimized for robust cloud capabilities and edge locality.
+Azure AI services provide each container with a common configuration framework.  You can easily configure your Translator containers to build Translator application architecture optimized for robust cloud capabilities and edge locality.
 
 The **Translator** container runtime environment is configured using the `docker run` command arguments. This container has both required and optional settings. The required container-specific settings are the billing settings.
 
@@ -55,7 +55,7 @@ The `Billing` setting specifies the endpoint URI of the _Translator_ resource on
 
 This setting can be found in the following place:
 
-* Azure portal: **Translator** Overview page, labeled `Endpoint`
+* Azure portal: **Translator** Overview page labeled `Endpoint`
 
 | Required | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
@@ -102,12 +102,12 @@ Log level (lowest to highest)
 | **Trace** | 0  | Logs containing the most detailed messages. These logs may contain sensitive app data and are disabled by default. Trace logs should **_never*_** be enabled in production. |
 | **Debug** | 1  | Logs used for interactive investigation during development. Use with caution in production due to the high volume. |
 | **Information** | 2 | Logs tracking the general flow of the application.|
-| **Warning** | 3 | Logs highlighting abnormal or unexpected events during the application flow. These logs typically includes errors or conditions that don't cause the app to fail. |
+| **Warning** | 3 | Logs highlighting anomalous or unexpected events during the application flow. They typically include errors or conditions that don't cause the app to fail. |
 | **Error** | 4 | Logs highlighting a failure in the current operation or request, not an application-wide failure. |
 | **Critical** | 5 | Logs describing an unrecoverable application, system crash, or catastrophic failure and require immediate attention. Examples: data loss scenarios, out of disk space. |
 | **None** | 6 | Logs specifying that a logging category shouldn't write messages. |
 
-The following command starts the Docker container with the `LogLevel` set to **Warning** and logging provider set to **Console**. This command print abnormal or unexpected events during the application flow to the console:
+The following command starts the Docker container with the `LogLevel` set to **Warning** and logging provider set to **Console**. This command prints anomalous or unexpected events during the application flow to the console:
 
 ```bash
 docker run --rm -it -p 5000:5000
@@ -128,7 +128,7 @@ The `Disk` logging provider supports the following configuration settings:
 | Name | Data type | Description |
 |------|-----------|-------------|
 | `Format` | String | The output format for log files.<br/> **Note:** This value must be set to `json` to enable the logging provider. If this value is specified without also specifying an output mount while instantiating a container, an error occurs. |
-| `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. When the size of the current log file meets or exceeds this value, a new log file is started by the logging provider. If -1 is specified, the size of the log file is limited only by the maximum file size, if any, for the output mount. The default value is 1. |
+| `MaxFileSize` | Integer | The maximum size, in megabytes (MB), of a log file. When the size of the current log file meets or exceeds this value, the logging provider starts a new log file. If -1 is specified, the size of the log file is limited only by the maximum file size, if any, for the output mount. The default value is 1. |
 
 #### Disk provider example
 
