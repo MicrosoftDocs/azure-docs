@@ -28,7 +28,7 @@ The new Log Analytics is currently in preview and available to a limited number 
 
 This section explains the elements of the new Log Analytics experience.
 
-:::image type="content" source="media/log-analytics-explorer/new-log-analytics-user-interface.png" alt-text="Screenshot that shows the Log Analytics simple mode interface." lightbox="media/log-analytics-explorer/new-log-analytics-user-interface.png":::
+:::image type="content" source="media/log-analytics-explorer/new-log-analytics-user-interface.png" alt-text="Screenshot that shows Log Analytics simple." lightbox="media/log-analytics-explorer/new-log-analytics-user-interface.png":::
 
 ### Top query bar
 
