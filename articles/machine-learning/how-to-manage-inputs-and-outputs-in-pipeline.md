@@ -77,7 +77,7 @@ Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct`
 
 The following screenshots provide an example of how inputs and outputs are displayed in a pipeline job in Azure Machine Learning studio. This particular job, named `nyc-taxi-data-regression`, can be found in [azureml-example.](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression) 
 
-In the pipeline job page of Studio, the asset type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. 
+In the pipeline job page of studio, the asset type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. 
 
 The pipeline level input/output is displayed as a purple box for easy identification.
 
