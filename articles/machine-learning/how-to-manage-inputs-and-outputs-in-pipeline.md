@@ -194,7 +194,7 @@ The end to end notebook example in [azureml-example repo](https://github.com/Azu
 
 ### Studio
 
-You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double click the component -> find the input you'd like to promote -> Click the three dots on the right -> Click Add to pipeline input. 
+You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double click the component -> find the input you'd like to promote -> Select the three dots on the right -> Select Add to pipeline input. 
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" lightbox="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" alt-text="Screenshot highlighting how to promote to pipeline input in designer":::
 
