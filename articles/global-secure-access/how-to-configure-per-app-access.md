@@ -26,7 +26,7 @@ To configure a Global Secure Access app, you must have:
 To manage App Proxy connector groups, which is required for Global Secure Access apps, you must have:
 
 - An **Application Administrator** role in Microsoft Entra ID
-- An Azure AD Premium P1/P2 license
+- Microsoft Entra P1 or P2 licenses
 
 ### Known limitations
 
@@ -66,8 +66,8 @@ To create a new app, you provide a name, select a connector group, and then add 
 
 ### Choose name and connector group
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** with the appropriate roles. 
-1. Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with the appropriate roles. 
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**.
 1. Select **New application**.
     
     ![Screenshot of the Enterprise apps and Add new application button.](media/how-to-configure-per-app-access/new-enterprise-app.png)
@@ -83,8 +83,8 @@ The **Add application segment** process is where you define the FQDNs and IP add
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Applications** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**.
 1. Select **New application**.
 1. Select **Add application segment**.
 
@@ -115,8 +115,8 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
 You need to grant access to the app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](/azure/active-directory/manage-apps/assign-user-or-group-access-portal)
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Applications** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**.
 1. Search for and select your application.
 1. Select **Users and groups** from the side menu.
 1. Add users and groups as needed.
@@ -128,8 +128,8 @@ You need to grant access to the app you created by assigning users and/or groups
 
 You can add or update the FQDNs and IP addresses included in your app at any time.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Applications** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**.
 1. Search for and select your application.
 1. Select **Network access properties** from the side menu.
     - To add a new FQDN or IP address, select **Add  application segment**.
@@ -146,7 +146,7 @@ You can enable or disable access to the Global Secure Access app using the Globa
 Conditional Access policies for Per-app Access are configured at the application level for each app. Conditional Access policies can be created and applied to the application from two places:
 
 - Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**. Select an application and then select **Conditional Access** from the side menu.
-- Go to **Microsoft Entra ID** > **Protection** > **Conditional Access** > **Policies**. Select **+ Create new policy**.
+- Go to **Protection** > **Conditional Access** > **Policies**. Select **+ Create new policy**.
 
 For more information, see [Apply Conditional Access policies to Private Access apps](how-to-target-resource-private-access-apps.md).
 
@@ -154,8 +154,8 @@ For more information, see [Apply Conditional Access policies to Private Access a
 
 Once you have your app configured, your private resources added, users assigned to the app, you can enable the Private access traffic forwarding profile. You can enable the profile before configuring a Global Secure Access app, but without the app and profile configured, there's no traffic to forward.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Traffic forwarding**.
 1. Select the checkbox for **Private access profile**.
 
 ![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-configure-per-app-access/private-access-traffic-profile.png)

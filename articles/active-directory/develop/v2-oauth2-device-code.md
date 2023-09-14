@@ -49,7 +49,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Required | Can be `/common`, `/consumers`, or `/organizations`. It can also be the directory tenant that you want to request permission from in GUID or friendly name format.  |
-| `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
+| `client_id` | Required | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `scope` | Required | A space-separated list of [scopes](./permissions-consent-overview.md) that you want the user to consent to.  |
 
 ### Device authorization response

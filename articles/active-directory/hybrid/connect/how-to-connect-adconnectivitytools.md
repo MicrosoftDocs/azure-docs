@@ -21,7 +21,7 @@ The ADConnectivity tool is a PowerShell module that is used in one of the follow
 - During installation, when a network connectivity problem prevents the successful validation of the Active Directory credentials.
 - Post installation by a user who calls the functions from a PowerShell session.
 
-The tool is located in: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
+The tool is located in: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ADConnectivityTool.psm1**.
 
 ## ADConnectivityTool during installation
 

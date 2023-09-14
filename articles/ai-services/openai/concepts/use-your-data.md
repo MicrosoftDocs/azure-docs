@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 09/05/2023
+ms.date: 09/13/2023
 recommendations: false
 ---
 
@@ -67,9 +67,13 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 ## Virtual network support & private endpoint support
 
+### Azure OpenAI resources
+
 You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
 
-If you have Azure OpenAI resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaionyourdata). The application will be reviewed in five business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
+### Azure Cognitive Search resources
+
+If you have an Azure Cognitive Search resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaionyourdata). The application will be reviewed in five business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
@@ -79,9 +83,9 @@ After you approve the request in your search service, you can start using the [c
 
 > [!NOTE]
 > Virtual networks & private endpoints are only supported for the API, and not currently supported for Azure OpenAI Studio. 
-### Storage accounts in private virtual networks
+### Storage accounts
 
-Storage accounts in virtual networks and private endpoints are currently not supported by Azure OpenAI on your data.
+Storage accounts in virtual networks, firewalls, and private endpoints are currently not supported by Azure OpenAI on your data.
 
 ## Azure Role-based access controls (Azure RBAC)
 
@@ -280,11 +284,12 @@ After you connect Azure OpenAI to your data, you can deploy it using the **Deplo
 
 You can deploy your model to [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various Microsoft Teams, Websites, Power Platform solutions, Dynamics 365, and other [Azure Bot Service channels](/power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels). Power Virtual Agents acts as a conversational and generative AI platform, making the process of creating, publishing and deploying a bot to any number of channels simple and accessible.
 
-While Power Virtual Agents has features that leverage Azure OpenAI such as [generative answers](/power-virtual-agents/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. For more information, see [Use a connection to Azure OpenAI on your data](/power-virtual-agents/nlu-generative-answers-azure-openai).
+While Power Virtual Agents has features that leverage Azure OpenAI such as [generative answers](/power-virtual-agents/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. The tenant used in the Azure OpenAI service and Power Platform should be the same. For more information, see [Use a connection to Azure OpenAI on your data](/power-virtual-agents/nlu-generative-answers-azure-openai).
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RW18YwQ]
 
-
+> [!NOTE]
+> Deploying to Power Virtual Agents from Azure OpenAI is only available to US regions.
 
 #### Using the web app
 

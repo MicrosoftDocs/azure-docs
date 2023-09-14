@@ -46,7 +46,7 @@ ___
         >[!Video https://www.youtube.com/embed/19v7WSt9HwU]
     :::column-end:::
      :::column:::
-        2 - [How do I grant admin consent in the Azure portal](https://www.youtube.com/watch?v=LSYcelwdhHI&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=5)(1:19)
+        2 - [How do I grant admin consent in the Microsoft Entra admin center](https://www.youtube.com/watch?v=LSYcelwdhHI&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=5)(1:19)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/LSYcelwdhHI]

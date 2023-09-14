@@ -33,7 +33,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an eBay application
 
-To enable sign-in for users with an eBay account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [eBay developer console](https://developer.ebay.com). For more information, see [Creating a developer account](https://developer.ebay.com/api-docs/static/creating-edp-account.html). If you don't already have an eBay developer account, sign up at [https://developer.ebay.com/signin](https://developer.ebay.com/signin?tab=register).
+To enable sign-in for users with an eBay account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [eBay developer console](https://developer.ebay.com). For more information, see [Creating a developer account](https://developer.ebay.com/api-docs/static/gs_join-the-ebay-developers-program.html). If you don't already have an eBay developer account, sign up at [https://developer.ebay.com/signin](https://developer.ebay.com/signin?tab=register).
 
 To create an eBay application, follow these steps:
 

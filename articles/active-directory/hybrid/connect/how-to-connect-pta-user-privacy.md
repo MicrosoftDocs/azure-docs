@@ -100,5 +100,5 @@ To schedule this script to run every 48 hours follow these steps:
 If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## Next steps
-* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
+* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trust-center)
 * [**Troubleshoot**](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
