@@ -256,7 +256,7 @@ If you enable **Application Insights diagnostics** in the UI deploy wizard, or s
 | flow_latency                         | histogram | flow,response_code,streaming,response_type| request execution cost, response_type means whether it's full/firstbyte/lastbyte|
 | flow_request                         | counter   | flow,response_code,exception,streaming    | flow request count                                                              |
 | node_latency                         | histogram | flow,node,run_status                      | node execution cost                                                             |
-| node_request                         | counter   | flow,node,exception,run_status            | node execution failure count                                                    |
+| node_request                         | counter   | flow,node,exception,run_status            | node execution count                                                    |
 | rpc_latency                          | histogram | flow,node,api_call                        | rpc cost                                                                        |
 | rpc_request                          | counter   | flow,node,api_call,exception              | rpc count                                                                       |
 | flow_streaming_response_duration     | histogram | flow                                      | streaming response sending cost, from sending first byte to sending last byte   |
