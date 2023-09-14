@@ -45,7 +45,7 @@ To learn more about Azure AD administrative roles, see [Azure AD built-in roles]
 
 When you enable federation on SAML application, Azure AD creates a certificate that is by default valid for three years. You can customize the expiration date for that certificate if needed. Ensure that you have processes in place to renew certificates prior to their expiration. 
 
-You change that certificate duration in the Azure portal. Make sure to document the expiration and know how you'll manage your certificate renewal. It’s important to identify the right roles and email distribution lists involved with managing the lifecycle of the signing certificate. The following roles are recommended:
+You change that certificate duration in the Microsoft Entra admin center. Make sure to document the expiration and know how you'll manage your certificate renewal. It’s important to identify the right roles and email distribution lists involved with managing the lifecycle of the signing certificate. The following roles are recommended:
 
 - Owner for updating user properties in the application
 - Owner On-Call for application troubleshooting support

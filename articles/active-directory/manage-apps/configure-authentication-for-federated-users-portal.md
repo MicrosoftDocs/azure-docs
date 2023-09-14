@@ -181,7 +181,7 @@ To apply the HRD policy after you've created it, you can assign it to multiple a
 
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.
 
-You can use the [Azure portal](https://portal.azure.com), or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
+You can use the [Microsoft Entra admin center](https://entra.microsoft.com), or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
 
 Because you're using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 
