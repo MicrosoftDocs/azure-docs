@@ -1175,4 +1175,3 @@ Azure alerts are only on metrics. Create a custom metric that crosses a value th
 ## <a name="next"></a>Next steps
 
 * [Search events and logs](./diagnostic-search.md)
-* [Troubleshooting](../faq.yml)
