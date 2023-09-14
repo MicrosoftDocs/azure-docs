@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provider** dropdown.
 
-	![Screenshot that shows the "Add-ons - Kantega Single Sign-on" page with the "Add identity provider" drop-down and "Azure Active Directory (Azure AD)" selected. ](./media/kantegassoforfisheyecrucible-tutorial/azure.png)
+	![Screenshot that shows the "Add-ons - Kantega Single Sign-on" page with the "Add identity provider" drop-down and "Azure Active Directory (Azure AD)" selected.](./media/kantegassoforfisheyecrucible-tutorial/azure.png)
 
 1. Select subscription level as **Basic**.
 

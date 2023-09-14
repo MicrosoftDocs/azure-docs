@@ -110,4 +110,3 @@ You can set the registry option to [skip GMSA configuration](https://go.microsof
 ## Next steps
 
 * [Learn more about the Inbound Provisioning API](inbound-provisioning-api-concepts.md)
-
