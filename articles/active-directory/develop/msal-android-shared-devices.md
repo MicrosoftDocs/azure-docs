@@ -103,10 +103,9 @@ These Microsoft applications support Azure AD's shared device mode:
 
 ## Third-party MDMs that support shared device mode
 
-These third-party MDMs support Azure AD's shared device mode:
+These third-party Mobile Device Management (MDMs) that support Azure AD's shared device mode:
 
 - [VMware Workspace ONE](https://blogs.vmware.com/euc/2023/08/announcing-general-availability-of-shared-device-conditional-access-with-vmware-workspace-one-and-microsoft-entra-id.html)
-- [SOTI MobiControl](https://soti.net/shareddevicemode)
 
 ## Shared device sign-out and the overall app lifecycle
 
