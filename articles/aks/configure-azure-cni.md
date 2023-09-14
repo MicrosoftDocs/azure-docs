@@ -13,7 +13,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)
 
-This article shows you how to use Azure CNI networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][/azure/aks/concepts-network].
+This article shows you how to use Azure CNI networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS](/azure/aks/concepts-network).
 
 ## Prerequisites
 
