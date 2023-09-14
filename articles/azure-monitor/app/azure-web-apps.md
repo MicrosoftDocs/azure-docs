@@ -160,7 +160,7 @@ The details depend on the type of project. For a web application:
 * Inserts items into:
   * Web.config
   * packages.config
-* (For new projects only, you [add Application Insights to an existing project manually](app/app-insights-overview.md).) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the main page *Views/Shared/\_Layout.cshtml*.
+* (For new projects only, you [add Application Insights to an existing project manually](./app-insights-overview.md).) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the main page *Views/Shared/\_Layout.cshtml*.
           
 
 ## Next steps

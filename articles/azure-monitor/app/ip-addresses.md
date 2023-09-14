@@ -262,7 +262,7 @@ Yes, but you need to allow traffic to our services by either firewall exceptions
 - ApplicationIdProvider `https://dc.services.visualstudio.com:443`
 - TelemetryChannel `https://dc.services.visualstudio.com:443`
           
-See [IP addresses used by Azure Monitor](app/ip-addresses.md) to review our full list of services and IP addresses.
+See [IP addresses used by Azure Monitor](./ip-addresses.md) to review our full list of services and IP addresses.
           
 ### How do I reroute traffic from my server to a gateway on my intranet?
           

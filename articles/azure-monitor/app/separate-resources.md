@@ -161,7 +161,7 @@ This section provides answers to common questions.
 
 Moving existing Application Insights resources from one region to another is *currently not supported*. Historical data that you've collected *can't be migrated* to a new region. The only partial workaround is to:
           
-1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace based](./app/create-workspace-resource.md)) in the new region.
+1. Create a new Application Insights resource ([classic](/previous-versions/azure/azure-monitor/app/create-new-resource) or [workspace based](./create-workspace-resource.md)) in the new region.
 1. Re-create all unique customizations specific to the original resource in the new resource.
 1. Modify your application to use the new region resource's [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) or [connection string](./sdk-connection-string.md).
 1. Test to confirm that everything is continuing to work as expected with your new Application Insights resource.
