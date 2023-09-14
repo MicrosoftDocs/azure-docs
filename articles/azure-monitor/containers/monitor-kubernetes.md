@@ -5,7 +5,7 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/17/2023
+ms.date: 09/14/2023
 ---
 
 # Monitor Kubernetes clusters using Azure services and cloud native tools
@@ -52,6 +52,7 @@ The following table lists the services that are commonly used by the network eng
 | Service | Description |
 |:---|:---|
 | [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Suite of tools in Azure to monitor the virtual networks used by your Kubernetes clusters and diagnose detected issues. |
+| [Traffic analytics](../../network-watcher/traffic-analytics.md) | Feature of Network Watcher that analyzes flow logs to provide insights into traffic flow. | 
 | [Network insights](../../network-watcher/network-insights-overview.md) | Feature of Azure Monitor that includes a visual representation of the performance and health of different network components and provides access to the network monitoring tools that are part of Network Watcher. |
 
 [Network insights](../../network-watcher/network-insights-overview.md) is enabled by default and requires no configuration. Network Watcher is also typically [enabled by default in each Azure region](../../network-watcher/network-watcher-create.md). 
