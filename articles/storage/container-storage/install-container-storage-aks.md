@@ -51,10 +51,7 @@ An Azure resource group is a logical group that holds your Azure resources that 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
 
-> [!IMPORTANT]
-> Azure Container Storage Preview is only available in *eastus*, *westus2*, *westus3*, and *westeurope* regions.
-
-Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with *eastus*, *westus2*, *westus3*, or *westeurope*.
+Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with an Azure region such as *eastus*, *westus2*, *westus3*, or *westeurope*.
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>

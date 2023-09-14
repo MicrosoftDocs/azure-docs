@@ -38,9 +38,9 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 
 ### How to create an emergency access account
 
-1. Sign in to the [Azure portal](https://portal.azure.com)  as an existing Global Administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity** > **Users** > **All users**.
 
 1. Select **New user**.
 
@@ -103,19 +103,26 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 
 ### Obtain Object IDs of the break glass accounts
 
-1. Sign in to the [Azure portal](https://portal.azure.com)  with an account assigned to the User Administrator role.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity** > **Users** > **All users**.
+
 1. Search for the break-glass account and select the user’s name.
+
 1. Copy and save the Object ID attribute so that you can use it later.
+
 1. Repeat previous steps for second break-glass account.
 
 ### Create an alert rule
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account assigned to the Monitoring Contributor role in Azure Monitor.
-1. Select **All services**", enter "log analytics" in Search and then select **Log Analytics workspaces**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
+
+1. Browse to **Monitor** > **Log Analytics workspaces**.
+
 1. Select a workspace.
+
 1. In your workspace, select **Alerts** > **New alert rule**.
+
     1. Under **Resource**, verify that the subscription is the one with which you want to associate the alert rule.
     1. Under **Condition**, select **Add**.
     1. Select **Custom log search** under **Signal name**.
@@ -158,12 +165,19 @@ Organizations should monitor sign-in and audit log activity from the emergency a
         ![alert logic](./media/security-emergency-access/alert-image2.png)
 
     1. Select **Done**. You may now view the estimated monthly cost of this alert.
+
 1. Select an action group of users to be notified by the alert. If you want to create one, see [Create an action group](#create-an-action-group).
+
 1. To customize the email notification sent to the members of the action group, select actions under **Customize Actions**.
+
 1. Under **Alert Details**, specify the alert rule name and add an optional description.
+
 1. Set the **Severity level** of the event. We recommend that you set it to **Critical(Sev 0)**.
+
 1. Under **Enable rule upon creation**, leave it set as **yes**.
+
 1. To turn off alerts for a while, select the **Suppress Alerts** check box and enter the wait duration before alerting again, and then select **Save**.
+
 1. Click **Create alert rule**.
 
 ### Create an action group
@@ -173,12 +187,19 @@ Organizations should monitor sign-in and audit log activity from the emergency a
     ![create an action group for notification actions](./media/security-emergency-access/action-group-image3.png)
 
 1. Enter the action group name and a short name.
+
 1. Verify the subscription and resource group.
+
 1. Under action type, select **Email/SMS/Push/Voice**.
+
 1. Enter an action name such as **Notify Global Administrator**.
+
 1. Select the **Action Type** as **Email/SMS/Push/Voice**.
+
 1. Select **Edit details** to select the notification methods you want to configure and enter the required contact information, and then select **Ok** to save the details.
+
 1. Add any additional actions you want to trigger.
+
 1. Select **OK**.
 
 ## Validate accounts regularly
