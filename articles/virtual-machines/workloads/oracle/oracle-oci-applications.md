@@ -1,6 +1,6 @@
 ---
-title: Oracle application solutions with Database on OCI
-description: Oracle application solutions with Database on Oracle Cloud Infrastructure (OCI).
+title: Architectures for Oracle application with Azure Virtual Machines with database on OCI
+description: Architectures for Oracle application with Azure Virtual Machines with database on OCI.
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -10,7 +10,7 @@ ms.date: 08/18/2023
 ms.author: jacobjaygbay
  
 ---
-# Oracle application solutions with Database on OCI
+# Architectures for Oracle application with Azure Virtual Machines with database on OCI
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 

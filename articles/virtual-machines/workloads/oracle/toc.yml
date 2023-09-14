@@ -40,11 +40,11 @@
     href: oracle-disaster-recovery.md
 - name: Solution architecture
   items:
-  - name: Architectures to deploy Oracle applications with Oracle database on Azure IaaS
+  - name: Architectures for Oracle applications with database on Azure Virtual Machines
     href: deploy-application-oracle-database-azure.md
-  - name: Architectures for Oracle solutions on Azure
+  - name: Architectures for Oracle database on Azure Virtual Machines
     href: oracle-reference-architecture.md
-  - name: Oracle application solutions with Database on OCI
+  - name: Architectures for Oracle application with Azure Virtual Machines with database on OCI
     href: oracle-oci-applications.md
   - name: Architectures for Oracle Database Enterprise Edition on Azure
     href: oracle-design.md

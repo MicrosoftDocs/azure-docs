@@ -42,12 +42,12 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Architectures for Oracle solutions on Azure
-            url: oracle-reference-architecture.md
-          - text: Oracle application solutions with Database on OCI
-            url: oracle-oci-applications.md
-          - text: Architectures to deploy Oracle applications with Oracle database on Azure IaaS
+          - text: Architectures for Oracle applications with database on Azure Virtual Machines
             url: deploy-application-oracle-database-azure.md
+          - text: Architectures for Oracle database on Azure Virtual Machines
+            url: oracle-reference-architecture.md
+          - text: Architectures for Oracle applications Azure Virtual Machines on OCI
+            url: oracle-oci-applications.md
           - text: Architectures for Oracle Database Enterprise Edition on Azure
             url: oracle-design.md
 

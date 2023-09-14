@@ -1,6 +1,6 @@
 ---
-title: Architectures to deploy Oracle applications with Oracle database on Azure 
-description: Architectures to deploy Oracle applications with Oracle database on Azure. 
+title: Architectures for Oracle applications with database on Azure Virtual Machines 
+description: Learn about architectures for Oracle applications with database on Azure Virtual Machines. 
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: virtual-machines
@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 08/23/2023
 ---
 
-# Architectures to deploy Oracle applications with Oracle database on Azure 
+# Architectures for Oracle applications with database on Azure Virtual Machines
 
 This article provides reference architecture to deploy Oracle application on Azure IaaS where the Oracle database also resides or is colocated. 
 
