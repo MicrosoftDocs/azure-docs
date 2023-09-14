@@ -65,7 +65,15 @@ To check the liveness for each app on Azure Spring Apps, use the following steps
 
 1. Select **Availability**, and then select **Add Standard test** to add a test.
 
-1. On the **Create Standard test** page, for the **Test name**, enter `api-gateway` for API gateway app, for **URL**, enter `https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/actuator/health/liveness` for the corresponding URL, extend the **Success criteria**, check the **Content match** box, enter `UP` for **Content must contain**, and then select **Save** to finish the configuration.
+1. On the **Create Standard test** page, perform following steps:
+
+- **Test name**: Enter `api-gateway` for API gateway app
+- **URL**: Enter `https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/actuator/health/liveness` for the corresponding URL 
+- **Success criteria**: Extend the option 
+- **Content match**: Select the checkboxbox 
+- **Content must contain**: Enter `UP`
+
+1. Select **Save** to finish the configuration.
 
 1. Use the following table to add other tests with these test names and URLs. Make sure the test name and app name are consistent.
 
@@ -98,7 +106,7 @@ To create a custom dashboard, and pin various quickstart blades and metrics char
 
 #### Basic monitoring
 
-CPU usage, memory usage, liveness detection, and network traffic are the most fundamental metrics for an application, especially microservices. These data are an important basis for evaluating application scalability.
+The most fundamental metrics for an application, especially microservices, are CPU usage, memory usage, liveness detection, and network traffic. These data are an important basis for evaluating application scalability.
 
 Use the following steps to pin the various charts to the dashboard. 
 
@@ -114,7 +122,9 @@ Use the following steps to pin the various charts to the dashboard.
 
    :::image type="content" source="../../media/tutorial-applications-observability/chart-app-cpu-usage.png" alt-text="Screenshot of the Azure portal that shows the app cpu usage." lightbox="../../media/tutorial-applications-observability/chart-app-cpu-usage.png":::
 
-1. Select **Save to dashboard** to open the dropdown list, then select **Pin to dashboard**. On the **Pin to dashboard** page, select the dashboard you created, and then select **Pin** to pin the quickstart chart to the dashboard.
+1. Select **Save to dashboard** to open the dropdown list, then select **Pin to dashboard**. 
+
+1. On the **Pin to dashboard** page, select the dashboard you created, and then select **Pin** to pin the quickstart chart to the dashboard.
 
 ##### Pin the "App Memory Usage" chart
 
@@ -124,7 +134,14 @@ For the **App Memory Usage** metric, save the **App Memory Usage** chart to the 
 
 ##### Pin the "App Network In" chart
 
-For the **App Network In** metric, select **Add filter**. For **Property**, select the corresponding dropdown list to choose the `App`, select `=` for **Operator**, select `admin-server` and `api-gateway` for **Values**, and then save the **App Network In Usage** chart to the dashboard.
+For the **App Network In** metric, perform the following steps:
+
+- **Add filter**: Select this option.
+- **Property**: Select the corresponding dropdown list to choose `App` 
+- **Operator**: Select `=`  
+- **Values**: Select `admin-server` and `api-gateway`
+
+1. Save the **App Network In Usage** chart to the dashboard.
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-app-network-in-usage.png" alt-text="Screenshot of the Azure portal that shows the app network in usage." lightbox="../../media/tutorial-applications-observability/chart-app-network-in-usage.png":::
 
@@ -136,7 +153,9 @@ For the **App Network In** metric, select **Add filter**. For **Property**, sele
 
 1. On the left navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to `Availability`.
 
-1. Select **Add metric**. For **Metric**, select the corresponding dropdown list to choose the `Availability` metric under the **Application Insights standard metrics** namespace, and then select `Avg` for **Aggregation**.
+1. Select **Add metric**. 
+
+1. For **Metric**, select the corresponding dropdown list to choose the `Availability` metric under the **Application Insights standard metrics** namespace, and then select `Avg` for **Aggregation**.
 
 1. Select **Apply splitting**. For **Values**, select the corresponding dropdown list to check the `Test name` box, and then save the **Availability** chart to the dashboard.
 
@@ -166,7 +185,7 @@ For the **Server requests** metric under the **Application Insights standard met
 
 ##### Pin the "Response time" chart
 
-Repeat with the previous section steps for the **Server response time** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway**, and then save the **Response time** chart to the dashboard.
+For the **Server response time** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway**, and then save the **Response time** chart to the dashboard.
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-response-time.png" alt-text="Screenshot of the Azure portal that shows the response time." lightbox="../../media/tutorial-applications-observability/chart-response-time.png":::
 
@@ -216,7 +235,11 @@ To set up an action group, use the following steps:
 
 1. On the left navigation menu, select **Alert**, select **Action groups** to go to the action groups list page, and then select **Create** to create an action group.
 
-1. On the **Create action group** page, select the subscription and resource group you want to cover. For **Action group name**, enter `email-notifacation`, for **Short name**, enter `email`, for **Region**, select the region you want to use.
+1. On the **Create action group** page, select the subscription and resource group you want to cover. Enter the following information:
+
+- **Action group name**: Enter `email-notifacation`
+- **Short name**: Enter `email`
+- **Region**: Select the region you want to use
 
 1. Navigate to the **Notification** tab on the **Create action group** page. For **Notification type**, select `Email/SMS message/Push/Voice`, for **Name**, enter `email-support`.
 
@@ -232,7 +255,13 @@ To set up an alert rule, use the following steps:
 
 1. On the left navigation menu, select **Alert**, select **Alert rules** to go to the Alert rules list page, and then select **Create** to create an alert rule.
 
-1. On the **Create an alert rule** page, for **signal name**, select the dropdown list, select **See all signals**, select `App CPU Usage` in the **Metrics** area, and then select **Apply**. For the alert logic section, select **Static** for threshold type, select **Average** for **Aggregation type**, select `Greater than` for **Operator**, and then enter `90` for **Threshold value**. For the **Split by dimensions** section, select the dropdown list to choose `App` for **Dimension name**, use the default `=` for **Operator**, and then select the dropdown list to choose `Select all` for **Dimension values**. Keep the default value for **When to evaluate** section.
+1. On the **Create an alert rule** page, for **signal name**, select the dropdown list, and then select **See all signals**. 
+
+1. In the **Metrics** area, select `App CPU Usage`, and then select **Apply**.
+
+1. For the alert logic section, select **Static** for threshold type, select **Average** for **Aggregation type**, select `Greater than` for **Operator**, and then enter `90` for **Threshold value**. 
+
+1. For the **Split by dimensions** section, select the dropdown list to choose `App` for **Dimension name**, use the default `=` for **Operator**, and then select the dropdown list to choose `Select all` for **Dimension values**. Keep the default value for **When to evaluate** section.
 
 1. Navigate to the **Actions** tab on the **Create an alert rule** page, select **Select action groups**. On the **Select action groups** page, search your email action group name, such as `email-notifacation`, check the corresponding action group, and then select **Select** to finish the configuration.
 

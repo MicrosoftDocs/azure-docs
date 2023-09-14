@@ -1,5 +1,5 @@
 ---
-title: "Tutorial - Observe your production applications in Azure Spring Apps"
+title: "Tutorial - Optimize and observe your applications in Azure Spring Apps"
 description: Learn how to observe the application of Azure Spring Apps.
 author: karlerickson
 ms.author: v-shilichen
@@ -9,7 +9,7 @@ ms.date: 09/15/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Observe your production applications in Azure Spring Apps
+# Tutorial: Optimize and observe your applications in Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -18,7 +18,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
-This quickstart shows you how to observe your production applications deployed on Azure Spring Apps, and diagnose and investigate production issues. You can provide insights, analytics, and actionable intelligence through the logs, metrics, traces, and alerts by observing your applications in Azure Spring Apps. Focus on the following areas to find out if your applications meet expectations and discover and predict issues in all applications:
+This quickstart shows you how to observe your production applications deployed on Azure Spring Apps, and diagnose and investigate production issues. You can provide insights, analytics, and actionable intelligence through the logs, metrics, traces, and alerts by observing your applications in Azure Spring Apps. To find out if your applications meet expectations and discover and predict issues in all applications, focus on the following areas:
 
 - **Availability**: Check that the application is available and accessible to the user.
 - **Reliability**: Check that the application is reliable and can be used normally.
@@ -53,19 +53,19 @@ This section explains how to use Log Analytics to query the application logs, an
 
 ### 4.1. Log queries
 
-This section explains how to query application logs from the table `AppPlatformLogsforSpring` hosted by the Azure Spring Apps. You can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. Use the following step to see the built-in example query statements or write your own queries:
+This section explains how to query application logs from the table `AppPlatformLogsforSpring` hosted by the Azure Spring Apps. You can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. 
 
-Open the Azure Spring Apps instance and go to the **Logs** menu.
+To see the built-in example query statements or to write your own queries, open the Azure Spring Apps instance and go to the **Logs** menu.
 
 #### Show the application logs which contain the "error" or "exception" terms
 
 Use the following steps to see the application logs containing the terms "error" or "exception":
 
-On the **Queries** page, select **Alerts**, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section. 
+1. On the **Queries** page, select **Alerts**, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section. 
 
 The application logs that contain the "error" or "exception" terms within the last hour opens up by default.
 
-To customize the query with any keyword you want, enter the following commands:
+1. To customize the query with any keyword you want, enter the following commands:
 
 ```sql
 AppPlatformLogsforSpring
@@ -78,11 +78,11 @@ AppPlatformLogsforSpring
 
 Use the following step to see the error and exception number of an application:
 
-On the open **Queries** page, select **Alerts**, and then select **Run** in the **Show the error and exception number of each application** section.
+1. On the **Queries** page, select **Alerts**, and then select **Run** in the **Show the error and exception number of each application** section.
 
 A pie chart of the number of the logs containing the "error" or "exception" terms in the last 24 hours opens up. To view the results in a table format, select **Result**.
 
-To customize the query with any keyword you want, enter the following commands:
+1. To customize the query with any keyword you want, enter the following commands:
 
 ```sql
 AppPlatformLogsforSpring
@@ -109,7 +109,7 @@ AppPlatformLogsforSpring
 
 ### 4.2. Investigate request failures
 
-To investigate request failures in the application cluster and to view the failed request list and the specific examples of failed requests, use the following steps:
+To investigate request failures in the application cluster and to view the failed request list and the specific examples of the failed requests, use the following steps:
 
 1. Go to the Azure Spring Apps instance overview page.
 
