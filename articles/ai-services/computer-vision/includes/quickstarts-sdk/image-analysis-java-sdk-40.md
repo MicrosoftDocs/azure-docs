@@ -16,7 +16,7 @@ ms.author: pafarley
 
 Use the Image Analysis client SDK for Java to analyze an image to read text and generate an image caption. This quickstart analyzes a remote image and prints the results to the console. 
 
-[Reference documentation](/java/api/azure.ai.vision.imageanalysis) | [Maven Package](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](/java/api/com.azure.ai.vision.imageanalysis) | [Maven Package](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.

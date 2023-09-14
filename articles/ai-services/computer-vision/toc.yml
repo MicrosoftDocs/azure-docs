@@ -246,6 +246,8 @@ items:
         href: /python/api/azure-ai-vision
       - name: C++
         href: /cpp/cognitive-services/vision
+      - name: Java
+        href: /java/api/com.azure.ai.vision.imageanalysis
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2

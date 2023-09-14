@@ -25,7 +25,7 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
 
-Start by creating a [VisionServiceOptions](/java/api/azure.ai.vision.common.visionserviceoptions) object using one of the constructors. For example:
+Start by creating a [VisionServiceOptions](/java/api/com.azure.ai.vision.common.visionserviceoptions) object using one of the constructors. For example:
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=vision_service_options)]
 
@@ -36,7 +36,7 @@ You can select an image by providing a publicly accessible image URL, a local im
 
 ### Image URL
 
-Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.fromUrl](/java/api/azure.ai.vision.common.visionsource.fromurl).
+Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.fromUrl](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromurl(java-net-url)).
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=vision_source)]
 
@@ -44,7 +44,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 
 ### Image file
 
-Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource.fromFile](/java/api/azure.ai.vision.common.visionsource.fromfile). 
+Create a new **VisionSource** object from the local image file you want to analyze, using the static constructor [VisionSource.fromFile](/java/api/com.azure.ai.vision.common.visionsource#com-azure-ai-vision-common-visionsource-fromfile(java-lang-string)). 
 
 ```java
 VisionSource imageSource = VisionSource.fromFile("sample.jpg");
@@ -56,7 +56,7 @@ VisionSource imageSource = VisionSource.fromFile("sample.jpg");
 
 Create a new **VisionSource** object from a memory buffer containing the image data, by using the static constructor [VisionSource.fromImageSourceBuffer](/dotnet/api/azure.ai.vision.common.visionsource.fromimagesourcebuffer).
 
-Start by creating a new [ImageSourceBuffer](/java/api/azure.ai.vision.common.imagesourcebuffer), then get access to its [ImageWriter](/java/api/azure.ai.vision.common.imagewriter) object and write the image data into it. In the following code example, `imageBuffer` is a variable of type `ByteBuffer` containing the image data.
+Start by creating a new [ImageSourceBuffer](/java/api/com.azure.ai.vision.common.imagesourcebuffer), then get access to its [ImageWriter](/java/api/com.azure.ai.vision.common.imagewriter) object and write the image data into it. In the following code example, `imageBuffer` is a variable of type `ByteBuffer` containing the image data.
 
 ```java
 ImageSourceBuffer imageSourceBuffer = new ImageSourceBuffer();
@@ -79,7 +79,7 @@ Visual features 'Captions' and 'DenseCaptions' are only supported in the followi
 > The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**. The SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
 
 
-Create a new [ImageAnalysisOptions](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by call the [setFeatures](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) method. [ImageAnalysisFeature](/java/api/azure.ai.vision.imageanalysis.imageanalysisfeature) enum defines the supported values.
+Create a new [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by call the [setFeatures](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setfeatures(java-util-enumset(com-azure-ai-vision-imageanalysis-imageanalysisfeature))) method. [ImageAnalysisFeature](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisfeature) enum defines the supported values.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=visual_features)]
 
@@ -88,7 +88,7 @@ Create a new [ImageAnalysisOptions](/java/api/azure.ai.vision.imageanalysis.imag
 
 You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name.
 
-To use a custom model, create the [ImageAnalysisOptions](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and call the [setModelName](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions.modelname#azure-ai-vision-imageanalysis-imageanalysisoptions-modelname) method. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to call [setFeatures](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features), as you do with the standard model, since your custom model already implies the visual features the service extracts.
+To use a custom model, create the [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object and call the [setModelName](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setmodelname(java-lang-string)) method. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to call [setFeatures](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setfeatures(java-util-enumset(com-azure-ai-vision-imageanalysis-imageanalysisfeature))), as you do with the standard model, since your custom model already implies the visual features the service extracts.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/custom-model/ImageAnalysis.java?name=model_name)]
 
@@ -99,7 +99,7 @@ You can specify the language of the returned data. The language is optional, wit
 
 Language option only applies when you're using the standard model.
 
-Call the [setLanguage](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions.language) method on your **ImageAnalysisOptions** object to specify a language.
+Call the [setLanguage](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setlanguage(java-lang-string)) method on your **ImageAnalysisOptions** object to specify a language.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=language)]
 
@@ -110,7 +110,7 @@ If you're extracting captions or dense captions, you can ask for gender neutral 
 
 Gender neutral caption option only applies when you're using the standard model.
 
-To enable gender neutral captions, call the [setGenderNeutralCaption](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions.genderneutralcaption) method on your **ImageAnalysisOptions** object with `true` as the argument.
+To enable gender neutral captions, call the [setGenderNeutralCaption](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setgenderneutralcaption(java-lang-boolean)) method on your **ImageAnalysisOptions** object with `true` as the argument.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=gender_neutral_caption)]
 
@@ -120,7 +120,7 @@ An aspect ratio is calculated by dividing the target crop width by the height. S
 
 Smart cropping aspect rations only applies when you're using the standard model.
 
-Call the [setCroppingAspectRatios](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions.croppingaspectratios) method on your **ImageAnalysisOptions** with a list of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
+Call the [setCroppingAspectRatios](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setcroppingaspectratios(java-util-list(java-lang-double))) method on your **ImageAnalysisOptions** with a list of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=cropping_aspect_ratios)]
 
@@ -131,15 +131,15 @@ Call the [setCroppingAspectRatios](/java/api/azure.ai.vision.imageanalysis.image
 
 This section shows you how to make an analysis call to the service using the standard model, and get the results.
 
-1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](/java/api/azure.ai.vision.imageanalysis.imageanalyzer) object. **ImageAnalyzer** implements **AutoCloseable**, therefore create the object in a try-with-resources block, or explicitly call the **close** method on this object when you're done analyzing the image.
+1. Using the **VisionServiceOptions**, **VisionSource** and **ImageAnalysisOptions** objects, construct a new [ImageAnalyzer](s/java/api/com.azure.ai.vision.imageanalysis.imageanalyzer) object. **ImageAnalyzer** implements **AutoCloseable**, therefore create the object in a try-with-resources block, or explicitly call the **close** method on this object when you're done analyzing the image.
 
 1. Call the **analyze** method on the **ImageAnalyzer** object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can call the nonblocking **analyzeAsync** method.
 
-1. Call the **getReason** method on the [ImageAnalysisResult](/java/api/azure.ai.vision.imageanalysis.imageanalysisresult) object, to determine if analysis succeeded or failed.
+1. Call the **getReason** method on the [ImageAnalysisResult](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisresult) object, to determine if analysis succeeded or failed.
 
-1. If succeeded, proceed to call the relevant result methods based on your selected visual features, as shown here. Additional information (not commonly needed) can be obtained by constructing the [ImageAnalysisResultDetails](/java/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object.
+1. If succeeded, proceed to call the relevant result methods based on your selected visual features, as shown here. Additional information (not commonly needed) can be obtained by constructing the [ImageAnalysisResultDetails](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisresultdetails) object.
 
-1. If failed, you can construct the [ImageAnalysisErrorDetails](/java/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object to get information on the failure.
+1. If failed, you can construct the [ImageAnalysisErrorDetails](/java/api/com.azure.ai.vision.imageanalysis.imageanalysiserrordetails) object to get information on the failure.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=analyze)]
 
@@ -149,22 +149,22 @@ This section shows you how to make an analysis call to the service using the sta
 This section shows you how to make an analysis call to the service, when using a custom model. 
 
 
-The code is similar to the standard model case. The only difference is that results from the custom model are available by calling **getCustomTags** and/or **getCustomObjects** methods on the [ImageAnalysisResult](/java/api/azure.ai.vision.imageanalysis.imageanalysisresult) object.
+The code is similar to the standard model case. The only difference is that results from the custom model are available by calling **getCustomTags** and/or **getCustomObjects** methods on the [ImageAnalysisResult](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisresult) object.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/custom-model/ImageAnalysis.java?name=analyze)]
 
 
 ## Error codes
 
-The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/java/api/azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. The error information includes:
+The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/java/api/com.azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. The error information includes:
 
-* Error reason. See enum [ImageAnalysisErrorReason](/java/api/azure.ai.vision.imageanalysis.imageanalysiserrorreason).
+* Error reason. See enum [ImageAnalysisErrorReason](/java/api/com.azure.ai.vision.imageanalysis.imageanalysiserrorreason).
 * Error code and error message. Click on the **REST API** tab to see a list of some common error codes and messages.
 
 In addition to those errors, the SDK has a few other error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
   * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
 
-Make sure the [ImageAnalysisOptions](/java/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix these errors. 
+Make sure the [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix these errors. 
 
 To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new one.
