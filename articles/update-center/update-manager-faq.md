@@ -1,7 +1,7 @@
 ---
 title: Azure Update Manager FAQ
 description: This article gives answers to frequently asked questions about Azure Update Manager
-ms.services: azure-update-manager
+ms.service: azure-update-manager
 ms.topic: conceptual
 ms.date: 09/14/2023
 author: snehasudhirG
