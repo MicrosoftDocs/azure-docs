@@ -35,7 +35,7 @@ While the service is in preview, the following limits apply on a per-subscriptio
 ## Supported operating systems and browsers
 
 - The service supports running hosted browsers on Linux and Windows.
-- Supports all [browsers that are supported by Playwright](https://playwright.dev/docs/browsers).
+- Supports all [browsers that Playwright Playwright supports](https://playwright.dev/docs/browsers).
 
 ## Request quota increases
 
