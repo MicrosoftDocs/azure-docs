@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: release-notes
-ms.date: 7/27/2023
+ms.date: 9/13/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
 
@@ -17,14 +17,16 @@ ms.custom: ignite-fall-2021, references_regions
 
 Azure AI Speech is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+> [!IMPORTANT]
+> You'll be charged for custom speech model training if the base model was created on October 1, 2023 and later. You are not charged for training if the base model was created prior to October 2023. For more information, see  [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and the [Charge for adaptation section in the speech to text 3.2 migration guide](./migrate-v3-1-to-v3-2.md#charge-for-adaptation).
+
 ## Recent highlights
 
+* [Speech to text REST API version 3.2](./migrate-v3-1-to-v3-2.md) is available in public preview.
 * Speech SDK 1.32.1 was released in September 2023.
-* Speech to text and text to speech container versions were updated in March 2023.
+* [Real-time diarization](./get-started-stt-diarization.md) is in public preview.  
 * Some Speech Studio [scenarios](speech-studio-overview.md#speech-studio-scenarios) are available to try without an Azure subscription.
-* Custom Speech to text container disconnected mode was released in January 2023.
-* Text to speech Batch synthesis API is available in public preview.
-* Speech to text REST API version 3.1 is generally available.
+* Text to speech [Batch synthesis API](./batch-synthesis.md) is available in public preview.
 
 ## Release notes
 

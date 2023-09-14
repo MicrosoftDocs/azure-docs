@@ -7,7 +7,7 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 06/08/2023
+ms.date: 09/11/2023
 ms.custom: template-concept
 manager: nitinme
 keywords: 
@@ -15,7 +15,10 @@ keywords:
 
 # Content filtering
 
-Azure OpenAI Service includes a content filtering system  that works alongside core models. This system works by running both the prompt and completion  through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design may affect completions and thus filtering behavior. The content filtering system supports the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. It might not be able to detect inappropriate content in languages that it has not been trained or tested to process.
+> [!IMPORTANT]
+> The content filtering system isn't applied to prompts and completions processed by the Whisper model in Azure OpenAI Service. Learn more about the [Whisper model in Azure OpenAI](models.md#whisper-preview).
+
+Azure OpenAI Service includes a content filtering system that works alongside core models. This system works by running both the prompt and completion through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Variations in API configurations and application design may affect completions and thus filtering behavior. The content filtering system supports the following languages: Chinese, English, French, German, Italian, Japanese, Portuguese, and Spanish. It might not be able to detect inappropriate content in languages that it has not been trained or tested to process.
 
 In addition to the content filtering system, the Azure OpenAI Service performs monitoring to detect content and/or behaviors that suggest use of the service in a manner that may violate applicable product terms. For more information about understanding and mitigating risks associated with your application, see the [Transparency Note for Azure OpenAI](/legal/cognitive-services/openai/transparency-note?tabs=text). For more information about how data is processed in connection with content filtering and abuse monitoring, see [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context#preventing-abuse-and-harmful-content-generation).  
 

@@ -16,9 +16,12 @@ ms.custom: devx-track-csharp
 
 # What is batch transcription?
 
+> [!IMPORTANT]
+> New pricing is in effect for batch transcription via [Speech to text REST API v3.2](./migrate-v3-1-to-v3-2.md). For more information, see the [pricing guide](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). 
+
 Batch transcription is used to transcribe a large amount of audio data in storage. Both the [Speech to text REST API](rest-speech-to-text.md#transcriptions) and [Speech CLI](spx-basics.md) support batch transcription. 
 
-You should provide multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time. 
+You should provide multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time.
 
 ## How does it work?
 
