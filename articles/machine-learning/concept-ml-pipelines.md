@@ -10,15 +10,18 @@ ms.author: lagayhar
 author: lgayhardt
 ms.reviewer: lagayhar
 ms.date: 05/10/2022
-ms.custom: devx-track-python, event-tier1-build-2022
+ms.custom: event-tier1-build-2022
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # What are Azure Machine Learning pipelines?
 
-[!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
-
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+:::moniker range="azureml-api-1"
+[!INCLUDE [dev v1](includes/machine-learning-dev-v1.md)]
+:::moniker-end
+:::moniker range="azureml-api-2"
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
+:::moniker-end
 
 An Azure Machine Learning pipeline is an independently executable workflow of a complete machine learning task. An Azure Machine Learning pipeline helps to standardize the best practices of producing a machine learning model, enables the team to execute at scale, and improves the model building efficiency.
 
@@ -32,7 +35,7 @@ The core of a machine learning pipeline is to split a complete machine learning 
 
 Machine learning operation (MLOps) automates the process of building machine learning models and taking the model to production. This is a complex process. It usually requires collaboration from different teams with different skills. A well-defined machine learning pipeline can abstract this complex process into a multiple steps workflow, mapping each step to a specific task such that each team can work independently.  
 
-For example, a typical machine learning project includes the steps of data collection, data preparation, model training, model evaluation, and model deployment. Usually, the data engineers concentrate on data steps, data scientists spend most time on model training and evaluation, the machine learning engineers focus on model deployment and automation of the entire workflow. By leveraging machine learning pipeline, each team only needs to work on building their own steps. The best way of building steps is using [Azure Machine Learning component](concept-component.md), a self-contained piece of code that does one step in a machine learning pipeline. All these steps built by different users are finally integrated into one workflow through the pipeline definition. The pipeline is a collaboration tool for everyone in the project. The process of defining a pipeline and all its steps can be standardized by each company's preferred DevOps practice. The pipeline can be further versioned and automated. If the ML projects are described as a pipeline, then the best MLOps practice is already applied.  
+For example, a typical machine learning project includes the steps of data collection, data preparation, model training, model evaluation, and model deployment. Usually, the data engineers concentrate on data steps, data scientists spend most time on model training and evaluation, the machine learning engineers focus on model deployment and automation of the entire workflow. By leveraging machine learning pipeline, each team only needs to work on building their own steps. The best way of building steps is using [Azure Machine Learning component (v2)](concept-component.md), a self-contained piece of code that does one step in a machine learning pipeline. All these steps built by different users are finally integrated into one workflow through the pipeline definition. The pipeline is a collaboration tool for everyone in the project. The process of defining a pipeline and all its steps can be standardized by each company's preferred DevOps practice. The pipeline can be further versioned and automated. If the ML projects are described as a pipeline, then the best MLOps practice is already applied.  
 
 ### Training efficiency and cost reduction
 
@@ -48,7 +51,11 @@ Once the teams get familiar with pipelines and want to do more machine learning 
 
 Once a team has built a collection of machine learnings pipelines and reusable components, they could start to build the machine learning pipeline from cloning previous pipeline or tie existing reusable component together. At this stage, the team's overall productivity will be improved significantly.  
 
-Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipeline using the [Azure Machine Learning SDK v1](v1/how-to-create-machine-learning-pipelines.md?view=azureml-api-1&preserve-view=true). For users who prefer to use UI, they could use the [designer to build pipeline by using registered components](how-to-create-component-pipelines-ui.md).
+:::moniker range="azureml-api-2"
+Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipeline using the [Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md). For users who prefer to use UI, they could use the [designer to build pipeline by using registered components](how-to-create-component-pipelines-ui.md).
+
+
+:::moniker-end
 
 <a name="compare"></a>
 ## Which Azure pipeline technology should I use?
@@ -65,8 +72,15 @@ The Azure cloud provides several types of pipeline, each with a different purpos
 
 Azure Machine Learning pipelines are a powerful facility that begins delivering value in the early development stages.
 
+:::moniker range="azureml-api-2"
 + [Define pipelines with the Azure Machine Learning CLI v2](./how-to-create-component-pipelines-cli.md)
 + [Define pipelines with the Azure Machine Learning SDK v2](./how-to-create-component-pipeline-python.md)
 + [Define pipelines with Designer](./how-to-create-component-pipelines-ui.md)
 + Try out [CLI v2 pipeline example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components)
 + Try out [Python SDK v2 pipeline example](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines)
++ Learn about [SDK and CLI v2 expressions](concept-expressions.md) that can be used in a pipeline.
+:::moniker-end
+:::moniker range="azureml-api-1"
++ [Create and run machine learning pipelines](v1/how-to-create-machine-learning-pipelines.md)
++ [Define pipelines with Designer](./how-to-create-component-pipelines-ui.md)
+:::moniker-end

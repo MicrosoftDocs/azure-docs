@@ -16,4 +16,4 @@ ms.custom: include file
 
 To disable the system-assigned identity on your VM, set the status of the system-assigned identity to **Off**. 
 
-![Screenshot shows the System assigned tab for a virtual machine where you can turn off the System assigned status.](./media/active-directory-msi-tut-disable/identity.png)
+![Screenshot shows the System assigned tab for a virtual machine where you can turn off the System assigned status.](./media/msi-tut-disable/identity.png)

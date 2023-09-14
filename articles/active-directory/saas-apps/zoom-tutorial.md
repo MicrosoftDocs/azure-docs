@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 06/12/2023
 ms.author: jeedes
 ---
 
@@ -69,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of Edit Basic SAML Configuration.](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -87,11 +87,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Screenshot of The Certificate download link.](common/certificatebase64.png)
 
 1. On the **Set up Zoom** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot of Copy configuration URLs.](common/copy-configuration-urls.png)
 
 > [!NOTE]
 > To learn how to configure Role in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
@@ -127,46 +127,46 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To automate the configuration within Zoom, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
+	![Screenshot of My apps extension.](common/install-myappssecure-extension.png)
 
 2. After adding extension to the browser, click on **Set up Zoom** will direct you to the Zoom application. From there, provide the admin credentials to sign into Zoom. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
+	![Screenshot of Setup configuration.](common/setup-sso.png)
 
-3. If you want to setup Zoom manually, in a different web browser window, sign in to your Zoom company site as an administrator.
+3. If you want to set up Zoom manually, in a different web browser window, sign in to your Zoom company site as an administrator.
 
 2. Click the **Single Sign-On** tab.
 
-    ![Single sign-on tab](./media/zoom-tutorial/zoom-sso1.png "Single sign-on")
+    ![Screenshot of Single sign-on tab.](./media/zoom-tutorial/single-sign-on.png "Single sign-on")
 
 3. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
 
 4. In the Single Sign-On section, perform the following steps:
 
-    ![Single sign-on section](./media/zoom-tutorial/zoom-sso2.png "Single sign-on")
+    ![Screenshot of Single sign-on section.](./media/zoom-tutorial/configuration.png "Single sign-on")
 
     a. In the **Sign-in page URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
     b. For **Sign-out page URL** value, you need to go to the Azure portal and click on **Azure Active Directory** on the left then navigate to **App registrations**.
 
-	![The Azure Active Directory button](./media/zoom-tutorial/appreg.png)
-
 	c. Click on **Endpoints**
 
-	![The End point button](./media/zoom-tutorial/endpoint.png)
+	![Screenshot of The End point button.](./media/zoom-tutorial/endpoint.png)
 
 	d. Copy the **SAML-P SIGN-OUT ENDPOINT** and paste it into **Sign-out page URL** textbox.
 
-	![The Copy End point button](./media/zoom-tutorial/endpoint1.png)
+	![Screenshot of The Copy End point button.](./media/zoom-tutorial/sign-out-endpoint.png)
 
     e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
 
-    f. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
+    f. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
 
-    g. Click **Save Changes**.
+	g. Select **HTTP-Redirect** as **Binding** and **SHA-256** as **Signature Hash Algorithm**.
+
+    h. Click **Save Changes**.
 
     > [!NOTE]
-	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
+	> For more information, visit the zoom [documentation](https://zoomus.zendesk.com/hc/articles/115005887566).
 
 ### Create Zoom test user
 

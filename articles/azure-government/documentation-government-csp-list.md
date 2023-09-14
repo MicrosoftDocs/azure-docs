@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: todorgb
 ms.author: todorb
-ms.date: 02/15/2023
+ms.date: 08/31/2023
 ---
 
 # Azure Government authorized reseller list
@@ -332,7 +332,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[People Services Inc. DBA CATCH Intelligence](https://catchintelligence.com)|
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
-|[Perspecta](https://perspecta.com/)|
 |[Phacil (By Light)](https://www.bylight.com/phacil/)|
 |[Pharicode LLC](https://pharicode.com)|
 |Philistin & Heller Group, Inc.|
@@ -359,7 +358,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Quest Media & Supplies Inc.](https://www.questsys.com/)|
 |[Quisitive](https://quisitive.com)|
 |[Quite Professionals](https://www.quietprofessionalsllc.com)|
-|[R3 LLC](https://www.r3.com)|
+|[R3 LLC](https://www.r3-it.com)|
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|
@@ -414,7 +413,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|
 |[Stratus Solutions](https://stratussolutions.com)|
-|[Stratum Technology Manamgent, LLC](https://www.stratumtechnology.com)|
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
 |[Sumo Logic](https://www.sumologic.com/)|
@@ -439,7 +437,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[TestPros Inc.](https://www.testpros.com)|
 |[The Cram Group LLC](https://aeccloud.com/)|
 |[The Informatics Application Group Inc.](https://tiag.net)|
-|[The Porter Group, LLC](https://www.thepottergroupllc.com/)|
 |[Thundercat Technology](https://www.thundercattech.com/)|
 |[TIC Business Consultants, Ltd.](https://www.ticbiz.com/)|
 |[Tier1, Inc.](https://www.tier1inc.com)|
@@ -457,7 +454,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Turnkey Technologies, Inc.](https://www.turnkeytec.com)|
 |[Tyto Athene LLC](https://gotyto.com/)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
-|[UDRI - SSG](https://udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
+|[UDRI - SSG](https://udayton.edu/)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
@@ -514,11 +511,12 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 
 |LSP name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
+|Carahsoft Technology Corporation|microsoft@carahsoft.com|844-MSFTGOV|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |Insight Public Sector|federal@insight.com|800-467-4448|
 |PC Connection|govtssms@connection.com|800-800-0019|
-|SHI, Inc.|msftgov@shi.com|888-764-8888|
+|SHI, Inc.|MSFederal@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
 
 ## Approved AOS-G partners
@@ -573,7 +571,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Novetta](https://www.novetta.com)|
 |[PAX 8](https://www.pax8.com)|
 |[Permuta Technologies, Inc.](http://www.permuta.com/)|
-|[Perspecta](https://perspecta.com)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Progeny Systems](https://www.progeny.net/)|
 |[Project Hosts](https://www.projecthosts.com)|

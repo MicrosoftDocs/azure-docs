@@ -9,23 +9,20 @@ ms.topic: how-to
 
 Activity detected by your Microsoft Defender for IoT sensors is recorded in the event timeline. Activity includes alerts and alert management actions, network events, and user operations such as user sign-in or user deletion.
 
-The event timeline provides a chronological view and context of all network activity, to help determine the cause and effect of incidents. The timeline view makes it easy to extract information from network events, and more efficiently analyze alerts and events observed on the network. With the ability to store vast amounts of data, the event timeline view can be a valuable resource for security teams to perform investigations and gain a deeper understanding of network activity.
+The OT sensor's event timeline provides a chronological view and context of all network activity, to help determine the cause and effect of incidents. The timeline view makes it easy to extract information from network events, and more efficiently analyze alerts and events observed on the network. With the ability to store vast amounts of data, the event timeline view can be a valuable resource for security teams to perform investigations and gain a deeper understanding of network activity.
 
 Use the event timeline during investigations, to understand and analyze the chain of events that preceded and followed an attack or incident. The centralized view of multiple security-related events on the same timeline helps to identify patterns and correlations, and enable security teams to quickly assess the impact of incidents and respond accordingly.
 
-Enhance your security analysis and incident investigations with the event timeline, with the following options:
+For more information, see:
 
 - [View events on the timeline](#view-the-event-timeline)
-
 - [Audit user activity](track-user-activity.md)
-
 - [View and manage alerts](how-to-view-alerts.md#view-details-and-remediate-a-specific-alert)
-
 - [Analyze programming details and changes](how-to-analyze-programming-details-changes.md)
 
 ## Permissions
 
-Administrator or Security Analyst permissions are required to perform the procedures described in this article.
+Before you perform the procedures described in this article, make sure that you have access to an OT sensor as an **Admin** or **Security Analyst** role. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## View the event timeline
 
@@ -112,8 +109,8 @@ The maximum number of events shown in the event timeline is dependent on [the ha
 
 ## Next steps
 
-[Audit user activity](track-user-activity.md)
+For more information, see:
 
-[View details and remediate a specific alert](how-to-view-alerts.md#view-details-and-remediate-a-specific-alert)
-
-[Analyze programming details and changes](how-to-analyze-programming-details-changes.md)
+- [Audit user activity](track-user-activity.md)
+- [View details and remediate a specific alert](how-to-view-alerts.md#view-details-and-remediate-a-specific-alert)
+- [Analyze programming details and changes](how-to-analyze-programming-details-changes.md)

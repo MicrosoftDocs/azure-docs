@@ -13,11 +13,11 @@ ms.custom: engagement-fy23
 >[!IMPORTANT]
 >The Connection Graphics Data Logs are currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Virtual Desktop helps users host client sessions on their session hosts running on Azure. When a user starts a session, they connect from their local device over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. In this article, we'll talk about how you can measure your connection network and connection graphics to improve the connection quality of your end-users.
+Azure Virtual Desktop helps users host client sessions on their session hosts running on Azure. When a user starts a session, they connect from their local device over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. To understand the network connectivity from a user's device to a session host, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
 
-You can analyze connection quality in your Azure Virtual Desktop deployment by using Azure Log Analytics. This article will tell you how you can use Azure Log Analytics to optimize graphics quality and improve end-user experience.
+You can analyze connection quality in your Azure Virtual Desktop deployment by using Azure Log Analytics. In this article, we'll talk about how you can measure your connection network and connection graphics to improve the connection quality of your end-users.
 
-Azure Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) to redirect the user connection to the nearest Azure Virtual Desktop gateway based on the source IP address. Azure Virtual Desktop will always use the Azure Virtual Desktop gateway that the client chooses.
+## Connection network and graphics data
 
 The connection network and graphics data that [Azure Log Analytics](diagnostics-log-analytics.md) collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports regularly throughout the session. You can also use [RemoteFX network performance counters](remotefx-graphics-performance-counters.md) to get some graphics-related performance data from your deployment, but they're not quite as comprehensive as Azure Log Analytics. Azure Virtual Desktop connection network data reports have the following advantages over RemoteFX network performance counters:
 
@@ -25,9 +25,9 @@ The connection network and graphics data that [Azure Log Analytics](diagnostics-
 
 - The round trip time measured in this table is protocol-agnostic and will record the measured latency for Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) connections.
 
-## Connection network data
+### Connection network data
 
-The network data you collect for your data tables using the NetworkData table includes the following information:
+The network data you collect for your data tables using the *NetworkData* table includes the following information:
 
 - The **estimated available bandwidth (kilobytes per second)** is the average estimated available network bandwidth during each connection time interval.
 
@@ -41,13 +41,13 @@ The network data you collect for your data tables using the NetworkData table in
 
 - The **source system**, **Subscription ID**, **Tenant ID**, and **type** (table name).
 
-### Frequency
+#### Frequency
 
 The service generates these network data points every two minutes during an active session.
 
-## The ConnectionGraphicsData table (preview)
+### Connection graphics data (preview)
 
-You should consult the ConnectionGraphicsData table (preview) when users report slow or choppy experiences in their Azure Virtual Desktop sessions. The ConnectionGraphicsData table will give you useful information whenever graphical indicators, end-to-end delay, and dropped frames percentage fall below the "healthy" threshold for Azure Virtual Desktop. This table will help your admins track and understand factors across the server, client, and network that could be contributing to the user's slow or choppy experience. However, while the ConnectionGraphicsData table is a useful tool for troubleshooting poor user experience, since it's not regularly populated throughout a session, it isn't a reliable environment baseline.
+You should consult the *ConnectionGraphicsData* table (preview) when users report slow or choppy experiences in their Azure Virtual Desktop sessions. The ConnectionGraphicsData table will give you useful information whenever graphical indicators, end-to-end delay, and dropped frames percentage fall below the "healthy" threshold for Azure Virtual Desktop. This table will help your admins track and understand factors across the server, client, and network that could be contributing to the user's slow or choppy experience. However, while the ConnectionGraphicsData table is a useful tool for troubleshooting poor user experience, since it's not regularly populated throughout a session, it isn't a reliable environment baseline.
 
 The Graphics table only captures performance data from the Azure Virtual Desktop graphics stream. This table doesn't capture performance degradation or "slowness" caused by application-specific factors or the virtual machine (CPU or storage constraints). You should use this table with other VM performance metrics to determine if the delay is caused by the remote desktop service (graphics and network) or something inherent in the VM or app itself.
 
@@ -85,7 +85,7 @@ The graphics data you collect for your data tables includes the following inform
 
 - The **source system**, **Subscription ID**, **Tenant ID**, and **type** (table name).
 
-### Frequency
+#### Frequency
 
 In contrast to other diagnostics tables that report data at regular intervals throughout a session, the frequency of data collection for the graphics data varies depending on the graphical health of a connection. The table won't record data for "Good" scenarios, but will recording if any of the following metrics are recorded as "Poor" or "Okay," and the resulting data will be sent to your storage account. Data only records once every two minutes, maximum. The metrics involved in data collection are listed in the following table:
 

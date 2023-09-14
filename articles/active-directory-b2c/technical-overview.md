@@ -117,8 +117,6 @@ In Azure AD B2C, you can craft your users' identity experiences so that the page
 > [!NOTE]
 > Customizing the pages rendered by third parties when using social accounts is limited to the options provided by that identity provider, and are outside the control of Azure AD B2C.
 
-:::image type="content" source="media/technical-overview/seamless-ux.png" alt-text="Screenshots of brand-customized sign-up sign-in page.":::
-
 For information on UI customization, see:
 
 * [Customize the user interface](customize-ui.md)
@@ -127,11 +125,7 @@ For information on UI customization, see:
 
 ## Custom domain
 
-You can customize your Azure AD B2C domain in the redirect URIs for your application. Custom domain allows you to create a seamless experience so that the pages that are shown blend seamlessly with the domain name of your application.
-
-:::image type="content" source="media/technical-overview/custom-domain.png" alt-text="Screenshot of the sign in page of the WoodGrove sample app with a red box highlighting the custom domain in the address bar.":::
-
-From the user's perspective, they remain in your domain during the sign-in process rather than redirecting to the Azure AD B2C default domain .b2clogin.com. 
+You can customize your Azure AD B2C domain in the redirect URIs for your application. Custom domain allows you to create a seamless experience so that the pages that are shown blend seamlessly with the domain name of your application. From the user's perspective, they remain in your domain during the sign-in process rather than redirecting to the Azure AD B2C default domain .b2clogin.com. 
 
 For more information, see [Enable custom domains](custom-domain.md).
  

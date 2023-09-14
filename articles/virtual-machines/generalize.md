@@ -75,14 +75,16 @@ Sysprep removes all your personal account and security information, and then pre
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep support for server roles](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) and [Unsupported scenarios](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
-> After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a snapshot of the OS disk, create a VM from the snapshot, and then and generalize that copy of the VM 
+> After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a snapshot of the OS disk, create a VM from the snapshot, and then generalize that copy of the VM. 
 >
 > Sysprep requires the drives to be fully decrypted. If you have enabled encryption on your VM, disable encryption before you run Sysprep.
 >
 > If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
 > 
-> We do not support custom answer file in the sysprep step, hence you should not use the "/unattend:_answerfile_" switch with your sysprep command.
-> 
+> We do not support custom answer file in the sysprep step, hence you should not use the "/unattend:_answerfile_" switch with your sysprep command.  
+>  
+> Azure platform mounts an ISO file to the DVD-ROM when a Windows VM is created from a generalized image. For this reason, the **DVD-ROM must be enabled in the OS in the generalized image**. If it is disabled, the Windows VM will be stuck at out-of-box experience (OOBE).
+
 
 To generalize your Windows VM, follow these steps:
 
@@ -91,6 +93,13 @@ To generalize your Windows VM, follow these steps:
 2. Open a Command Prompt window as an administrator. 
 
 3. Delete the panther directory (C:\Windows\Panther). 
+4. Verify if CD/DVD-ROM is enabled.If it is disabled, the Windows VM will be stuck at out-of-box experience (OOBE).  
+```
+   Registry key Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cdrom\start (Value 4 = disabled, expected value 1 = automatic) Make sure it is set to 1.
+   ```
+> [!NOTE]
+   > Verify if any policies applied restricting removable storage access (example: Computer configuration\Administrative Templates\System\Removable Storage Access\All Removable Storage classes: Deny all access)
+
 
 5. Then change the directory to %windir%\system32\sysprep, and then run:
    ```
@@ -98,19 +107,6 @@ To generalize your Windows VM, follow these steps:
    ```
 6. The VM will shut down when Sysprep is finished generalizing the VM. Do not restart the VM.
  
-
-
-> [!TIP]
-> **Optional** Use [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
->
-> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
->
-> ```cmd
-> DISM /image:D:\ /optimize-image /boot
-> ```
-> Where D: is the mounted VHD's path.
->
-> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
 
 Once Sysprep has finished, set the status of the virtual machine to **Generalized**.
    

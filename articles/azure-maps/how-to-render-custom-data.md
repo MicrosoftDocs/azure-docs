@@ -30,13 +30,17 @@ The following are examples of custom data:
 
 This article uses the [Postman] application, but you may use a different API development environment.
 
-We'll use the Azure Maps [Data service] to store and render overlays.
+Use the Azure Maps [Data service] to store and render overlays.
 
 ## Render pushpins with labels and a custom image
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account in the Gen 1 or Gen 2 pricing tier.
-The Azure Maps account Gen 1 Standard S0 tier supports only a single instance of the `pins` parameter. It allows you to render up to five pushpins, specified in the URL request, with a custom image.
+> The procedure in this section requires an Azure Maps account in the Gen1 or Gen2 pricing tier.
+The Azure Maps account Gen1 Standard S0 tier supports only a single instance of the `pins` parameter. It allows you to render up to five pushpins, specified in the URL request, with a custom image.
+>
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 ### Get static image with custom pins and labels
 
@@ -65,9 +69,9 @@ To get a static image with custom pins and labels:
 ## Upload pins and path data
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
+> The procedure in this section requires an Azure Maps account Gen1 (S1) or Gen2 pricing tier.
 
-In this section, we'll upload path and pin data to Azure Map data storage.
+In this section, you upload path and pin data to Azure Map data storage.
 
 To upload pins and path data:
 
@@ -215,7 +219,7 @@ To render the uploaded pins and path data on the map:
 ## Render a polygon with color and opacity
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
+> The procedure in this section requires an Azure Maps account Gen1 (S1) or Gen2 pricing tier.
 
 You can modify the appearance of a polygon by using style modifiers with the [path parameter].
 
@@ -243,9 +247,9 @@ To render a polygon with color and opacity:
 ## Render a circle and pushpins with custom labels
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
+> The procedure in this section requires an Azure Maps account Gen1 (S1) or Gen2 pricing tier.
 
-You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` "scale style" modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 will make the pins larger, and values smaller than 1 will make them smaller. For more information about style modifiers, see [static image service path parameters].
+You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` "scale style" modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 makes the pins larger, and values smaller than 1 makes them smaller. For more information about style modifiers, see [static image service path parameters].
 
 To render a circle and pushpins with custom labels:
 
@@ -269,7 +273,7 @@ To render a circle and pushpins with custom labels:
 
     :::image type="content" source="./media/how-to-render-custom-data/circle-custom-pins.png" alt-text="Render a circle with custom pushpins.":::
 
-8. Now we'll change the color of the pushpins by modifying the `co` style modifier. If you look at the value of the `pins` parameter (`pins=default|la15+50|al0.66|lc003C62|co002D62|`), you'll see that the current color is `#002D62`. To change  the color to `#41d42a`, we'll replace `#002D62` with `#41d42a`.  Now the `pins` parameter is `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. The request  looks like the following URL:
+8. Next, change the color of the pushpins by modifying the `co` style modifier. If you look at the value of the `pins` parameter (`pins=default|la15+50|al0.66|lc003C62|co002D62|`), notice that the current color is `#002D62`. To change  the color to `#41d42a`, replace `#002D62` with `#41d42a`.  Now the `pins` parameter is `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. The request  looks like the following URL:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -285,17 +289,20 @@ Similarly, you can change, add, and remove other style modifiers.
 
 ## Next steps
 
-- Explore the [Azure Maps Get Map Image API] documentation.
-- To learn more about Azure Maps Data service, see the [service documentation].
+> [!div class="nextstepaction"]
+> [Render - Get Map Image]
+
+> [!div class="nextstepaction"]
+> [Data service]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Postman]: https://www.postman.com/
+[Render - Get Map Image]: /rest/api/maps/render/getmapimage
 [Data service]: /rest/api/maps/data
-[static image service]: /rest/api/maps/render/getmapimage
 [Data Upload]: /rest/api/maps/data-v2/upload
-[Render service]: /rest/api/maps/render/get-map-image
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [path parameter]: /rest/api/maps/render/getmapimage#uri-parameters
-[Azure Maps Get Map Image API]: /rest/api/maps/render/getmapimage
-[service documentation]: /rest/api/maps/data
+[Postman]: https://www.postman.com/
+[Render service]: /rest/api/maps/render/get-map-image
 [static image service path parameters]: /rest/api/maps/render/getmapimage#uri-parameters
+[static image service]: /rest/api/maps/render/getmapimage
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

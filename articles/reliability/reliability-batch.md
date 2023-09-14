@@ -19,9 +19,8 @@ This article describes reliability support in Azure Batch and covers both intra-
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability in the case of a local zone failure. When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
 
-There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Batch maintains parity with Azure on supporting availability zones.
 
@@ -44,7 +43,7 @@ Batch maintains parity with Azure on supporting availability zones.
 
 ### Create an Azure Batch pool across availability zones
 
-For examples on how to create a Batch pool across availability zones, see [Create an Azure Batch pool across Availability Zones](/azure/batch/create-pool-availability-zones).
+For examples on how to create a Batch pool across availability zones, see [Create an Azure Batch pool across availability zones](/azure/batch/create-pool-availability-zones).
 
 Learn more about creating Batch accounts with the [Azure portal](../batch/batch-account-create-portal.md), the [Azure CLI](../batch/scripts/batch-cli-sample-create-account.md), [PowerShell](../batch/batch-powershell-cmdlets-get-started.md), or the [Batch management API](../batch/batch-management-dotnet.md).
 
@@ -58,6 +57,10 @@ Azure Batch account doesn't reallocate or create new nodes to compensate for nod
 
 To prepare for a possible availability zone failure, you should over-provision capacity of service to ensure that the solution can tolerate 1/3 loss of capacity and continue to function without degraded performance during zone-wide outages. Since the platform spreads VMs across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of zones/(zones-1), or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
 
+
+### Availability zone redeployment and migration
+
+You can't migrate an existing Batch pool to availability zone support. If you wish to recreate your Batch pool across availability zones, see [Create an Azure Batch pool across availability zones](/azure/batch/create-pool-availability-zones).
 
 ## Disaster recovery: cross region failover
 

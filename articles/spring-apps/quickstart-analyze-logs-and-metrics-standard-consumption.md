@@ -1,32 +1,32 @@
 ---
-title: Quickstart - Analyze logs and metrics in the Azure Spring Apps Standard consumption plan
-description: Learn how to analyze logs and metrics in the Azure Spring Apps Standard consumption plan.
+title: Quickstart - Analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan
+description: Learn how to analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan.
 author: KarlErickson
 ms.author: shiqiu
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 3/21/2023
+ms.date: 06/21/2023
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Analyze logs and metrics in the Azure Spring Apps Standard consumption plan
+# Quickstart: Analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
-This article shows you how to analyze logs and metrics in the Azure Spring Apps Standard consumption plan.
+This article shows you how to analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- An Azure Spring Apps Standard consumption plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
 - A Spring app deployed to Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md).
 
 ## Analyze logs
 
-The following sections describe various tools in Azure that you can use to analyze your consumption plan usage.
+The following sections describe various tools in Azure that you can use to analyze your consumption and dedicated plan usage.
 
 ### Configure logging options
 
@@ -138,4 +138,4 @@ Optionally, you can create filters to limit the data shown based on application 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to enable your own persistent storage in Azure Spring Apps with the Standard consumption plan](./how-to-custom-persistent-storage-with-standard-consumption.md)
+> [How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan](./how-to-custom-persistent-storage-with-standard-consumption.md)

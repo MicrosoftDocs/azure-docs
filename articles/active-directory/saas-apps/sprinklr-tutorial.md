@@ -71,10 +71,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	1. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.sprinklr.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.sprinklr.com`
 
 	> [!NOTE]
@@ -132,25 +132,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows the Single Sign on page where you can enter the values described.](./media/sprinklr-tutorial/configuration.png "Single Sign-Ons")
 
-    a. In the **Name** textbox, type a name for your configuration (for example: **WAADSSOTest**).
+    1. In the **Name** textbox, type a name for your configuration (for example: **WAADSSOTest**).
 
-    b. Select **Enabled**.
+    1. Select **Enabled**.
 
-    c. Select **Use new SSO Certificate**.
+    1. Select **Use new SSO Certificate**.
 
-    d. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
+    1. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
 
-    e. Paste the **Azure AD Identifier** value which you have copied from Azure Portal into the **Entity Id** textbox.
+    1. Paste the **Azure AD Identifier** value which you have copied from Azure portal into the **Entity Id** textbox.
 
-    f. Paste the **Login URL** value which you have copied from Azure Portal into the **Identity Provider Login URL** textbox.
+    1. Paste the **Login URL** value which you have copied from Azure portal into the **Identity Provider Login URL** textbox.
 
-    g. Paste the **Logout URL** value which you have copied from Azure Portal into the **Identity Provider Logout URL** textbox.
+    1. Paste the **Logout URL** value which you have copied from Azure portal into the **Identity Provider Logout URL** textbox.
 
-    h. As **SAML User ID Type**, select **Assertion contains User’s sprinklr.com username**.
+    1. As **SAML User ID Type**, select **Assertion contains User’s sprinklr.com username**.
 
-    i. As **SAML User ID Location**, select **User ID is in the Name Identifier element of the Subject statement**.
+    1. As **SAML User ID Location**, select **User ID is in the Name Identifier element of the Subject statement**.
 
-    j. Click **Save**.
+    1. Click **Save**.
 
     ![SAML](./media/sprinklr-tutorial/save-configuration.png "SAML")
 
@@ -174,15 +174,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Edit user](./media/sprinklr-tutorial/update-users.png "Edit user")
 
-    a. In the **Email**, **First Name** and **Last Name** textboxes, type the information of an Azure AD user account you want to provision.
+    1. In the **Email**, **First Name** and **Last Name** textboxes, type the information of an Azure AD user account you want to provision.
 
-    b. Select **Password Disabled**.
+    1. Select **Password Disabled**.
 
-    c. Select **Language**.
+    1. Select **Language**.
 
-    d. Select **User Type**.
+    1. Select **User Type**.
 
-    e. Click **Update**.
+    1. Click **Update**.
 
     > [!IMPORTANT]
     > **Password Disabled** must be selected to enable a user to log in via an Identity provider. 
@@ -191,9 +191,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Partner Roles](./media/sprinklr-tutorial/role.png "Partner Roles")
 
-    a. From the **Global** list, select **ALL_Permissions**.  
+    1. From the **Global** list, select **ALL_Permissions**.  
 
-    b. Click **Update**.
+    1. Click **Update**.
 
 > [!NOTE]
 > You can use any other Sprinklr user account creation tools or APIs provided by Sprinklr to provision Azure AD user accounts.

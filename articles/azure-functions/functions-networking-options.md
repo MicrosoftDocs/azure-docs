@@ -1,9 +1,9 @@
 ---
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
-author: cachai2
+author: ggailey777
 ms.topic: conceptual
-ms.date: 3/28/2022
+ms.date: 4/6/2023
 ms.author: cachai
 ---
 
@@ -283,9 +283,32 @@ The following APIs let you programmatically manage regional virtual network inte
 + **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integration.  
 + **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/).
 
+## Testing considerations
+
+When testing functions in a function app with private endpoints, you must do your testing from within the same virtual network, such as on a virtual machine (VM) in that network. To use the **Code + Test** option in the portal from that VM, you need to add following [CORS origins](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#cors) to your function app:
+
+* `https://functions-next.azure.com`
+* `https://functions-staging.azure.com`
+* `https://functions.azure.com`
+* `https://portal.azure.com`
+
 ## Troubleshooting
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
+
+### Network troubleshooter
+
+You can also use the Network troubleshooter to resolve connection issues. To open the network troubleshooter, go to the app in the Azure portal. Select **Diagnostic and solve problem**, and then search for **Network troubleshooter**.
+
+**Connection issues** - It checks the status of the virtual network integration, including checking if the Private IP has been assigned to all instances of the plan and the DNS settings. If a custom DNS isn't configured, default Azure DNS is applied. The troubleshooter also checks for common Function app dependencies including connectivity for Azure Storage and other binding dependencies.
+
+:::image type="content" source="./media/functions-networking-options/network-troubleshooter-function-app.png" alt-text="Screenshot that shows running troubleshooter for connection issues.":::
+
+**Configuration issues** - This troubleshooter checks if your subnet is valid for virtual network Integration.
+
+:::image type="content" source="./media/functions-networking-options/network-troubleshooter-configuration-function-app.png" alt-text="Screenshot that shows running troubleshooter for configuration issues.":::
+
+**Subnet/VNet deletion issue** - This troubleshooter checks if your subnet has any locks and if it has any unused Service Association Links that might be blocking the deletion of the VNet/subnet.
 
 ## Next steps
 

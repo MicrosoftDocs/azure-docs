@@ -6,12 +6,12 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ms.custom: template-concept
-#Customer intent: As a developer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
+#Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---
 
-# Key concepts for Microsoft Dev Box Preview
+# Key concepts for Microsoft Dev Box 
 
 This article describes the key concepts and components of Microsoft Dev Box.
 
@@ -23,10 +23,10 @@ As a dev box user, you have control over your own dev boxes. You can create more
 
 ## Dev center
 
-A dev center is a collection of projects that require similar settings. Dev centers enable dev infrastructure managers to:
+A dev center is a collection of projects that require similar settings. Dev centers enable platform engineers to:
 
 - Manage the images and SKUs available to the projects by using dev box definitions.
-- Configure the networks that the development teams consume by using network connections.  
+- Configure the networks that the development teams consume by using network connections. 
 
 ## Project
 
@@ -40,7 +40,7 @@ A dev box definition specifies a source image and size, including compute size a
 
 ## Network connection
 
-IT administrators and dev infrastructure managers configure the network that's used for dev box creation in accordance with their organizational policies. Network connections store configuration information, like Active Directory join type and virtual network, that dev boxes use to connect to network resources.
+IT administrators and platform engineers configure the network that's used for dev box creation in accordance with their organizational policies. Network connections store configuration information, like Active Directory join type and virtual network, that dev boxes use to connect to network resources.
 
 When you're creating a network connection, you must choose the Active Directory join type:
 
@@ -54,3 +54,15 @@ The virtual network specified in a network connection also determines the region
 ## Dev box pool
 
 A dev box pool is a collection of dev boxes that you manage together and to which you apply similar settings. You can create multiple dev box pools to support the needs of hybrid teams that work in different regions or on different workloads.
+
+## Resources shared with Azure Deployment Environments
+
+Microsoft Dev Box and Azure Deployment Environments are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise. You can configure projects for Deployment Environments and projects for Dev Box resources in the same dev center. 
+
+To learn more about the components common to Deployment Environments and Dev Box, see [Components common to Microsoft Dev Box and Azure Deployment Environments](concept-common-components.md).
+
+## Related content
+
+- [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
+- [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
+- [What is Azure Deployment Environments?](../deployment-environments/overview-what-is-azure-deployment-environments.md)

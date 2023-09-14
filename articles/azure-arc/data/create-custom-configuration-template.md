@@ -4,6 +4,7 @@ description: Create custom configuration templates
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: dinethi
 ms.author: dinethi
 ms.reviewer: mikeray

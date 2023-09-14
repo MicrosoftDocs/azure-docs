@@ -1,3 +1,4 @@
+items:
 - name: Elastic Azure Integration Documentation
   href: index.yml
 - name: Overview
@@ -11,7 +12,7 @@
     href: create.md
 - name: How to
   items:
-  - name: Manage integration
+  - name: Manage Elastic resource
     href: manage.md
   - name: Troubleshoot
     href: troubleshoot.md

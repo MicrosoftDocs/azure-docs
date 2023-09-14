@@ -1,12 +1,12 @@
 ---
 title: Creating a private endpoint for Azure Data Manager for Agriculture
 description: Learn how to use private links in Azure Data Manager for Agriculture
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 03/22/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Create a private endpoint for Azure Data Manager for Agriculture

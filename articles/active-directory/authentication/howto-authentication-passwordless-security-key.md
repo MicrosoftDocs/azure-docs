@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -29,7 +29,7 @@ This document focuses on enabling security key based passwordless authentication
 - WebAuthN requires Windows 10 version 1903 or higher
 
 To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. 
-These include Microsoft Edge, Chrome, Firefox, and Safari.
+These include Microsoft Edge, Chrome, Firefox, and Safari. For more information about, see [Browser support of FIDO2 passwordless authentication](fido2-compatibility.md).
 
 ## Prepare devices
 
@@ -45,8 +45,10 @@ Registration features for passwordless authentication methods rely on the combin
 
 ### Enable FIDO2 security key method
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Authentication method policy**.
 1. Under the method **FIDO2 Security Key**, click **All users**, or click **Add groups** to select specific groups. *Only security groups are supported*.
 1. **Save** the configuration.
 
@@ -60,7 +62,7 @@ There are some optional settings on the **Configure** tab to help manage how sec
 
 ![Screenshot of FIDO2 security key options](media/howto-authentication-passwordless-security-key/optional-settings.png) 
 
-- **Allow self-service set up** should remain set to **Yes**. If set to no, your users won't be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
+- **Allow self-service set up** should remain set to **Yes**. If set to no, your users won't be able to register a FIDO key through MySecurityInfo, even if enabled by Authentication Methods policy.  
 - **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](concept-authentication-passwordless.md#fido2-security-key-providers)
 
 **Key Restriction Policy**
@@ -72,7 +74,7 @@ There are some optional settings on the **Configure** tab to help manage how sec
 
 To remove a FIDO2 key associated with a user account, delete the key from the user’s authentication method.
 
-1. Sign in to the Azure portal and search for the user account from which the FIDO key is to be removed.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and search for the user account from which the FIDO key is to be removed.
 1. Select **Authentication methods** > right-click **FIDO2 security key** and click **Delete**. 
 
     ![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)

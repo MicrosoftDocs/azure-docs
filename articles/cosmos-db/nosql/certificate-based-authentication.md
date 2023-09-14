@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.custom: devx-track-azurepowershell, subject-rbac-steps, has-azure-ad-ps-ref
 ---
 
 # Certificate-based authentication for an Azure AD identity to access keys from an Azure Cosmos DB account
@@ -18,7 +18,7 @@ Certificate-based authentication enables your client application to be authentic
 
 ## Prerequisites
 
-* Install the [latest version](/powershell/azure/install-az-ps) of Azure PowerShell.
+* Install the [latest version](/powershell/azure/install-azure-powershell) of Azure PowerShell.
 
 * If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -26,7 +26,7 @@ Certificate-based authentication enables your client application to be authentic
 
 In this step, you will register a sample web application in your Azure AD account. This application is later used to read the keys from your Azure Cosmos DB account. Use the following steps to register an application: 
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open the Azure **Active Directory** pane, go to **App registrations** pane, and select **New registration**. 
 
@@ -103,7 +103,7 @@ The above command results in the output similar to the screenshot below:
 
 ## Configure your Azure Cosmos DB account to use the new identity
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cosmos DB account.
 
@@ -117,7 +117,7 @@ You can associate the certificate-based credential with the client application i
 
 In the Azure app registration for the client application:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open the Azure **Active Directory** pane, go to the **App registrations** pane, and open the sample app you created in the previous step. 
 

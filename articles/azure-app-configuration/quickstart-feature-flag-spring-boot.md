@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/20/2023
+ms.date: 04/11/2023
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -52,16 +52,18 @@ To create a new Spring Boot project:
 
 1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
+    ### [Spring Boot 3](#tab/spring-boot-3)
+
     ```xml
     <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-        <version>2.6.0</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>5.4.0</version>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-cloud-feature-management-web</artifactId>
-        <version>2.4.0</version>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>5.4.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -69,8 +71,28 @@ To create a new Spring Boot project:
     </dependency>
     ```
 
+    ### [Spring Boot 2](#tab/spring-boot-2)
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>4.10.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>4.10.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+
+    ---
+
 > [!NOTE]
-> * If you need to support an older version of Spring Boot see our [old appconfiguration library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md) and our [old feature flag library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
 > * There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.
 
 ## Connect to an App Configuration store
@@ -133,7 +155,7 @@ To create a new Spring Boot project:
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
 
-    import com.azure.spring.cloud.feature.manager.FeatureManager;
+    import com.azure.spring.cloud.feature.management.FeatureManager;
     import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -198,7 +220,7 @@ To create a new Spring Boot project:
         </header>
         <div class="container body-content">
             <h1 class="mt-5">Welcome</h1>
-            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-spring-cloud-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
+            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
 
         </div>
         <footer class="footer">

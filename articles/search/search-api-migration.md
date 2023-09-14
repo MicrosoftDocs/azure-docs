@@ -7,7 +7,7 @@ manager: nitinme
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 ms.date: 10/03/2022
 ---
@@ -62,7 +62,7 @@ Version 2019-05-06 is the previous generally available release of the REST API. 
 * [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially specified term input.
 * [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in search index.
 * [JsonLines parsing modes](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
-* [AI enrichment](cognitive-search-concept-intro.md) provides indexing that uses the AI enrichment engines of Cognitive Services.
+* [AI enrichment](cognitive-search-concept-intro.md) provides indexing that uses the AI enrichment engines of Azure AI services.
 
 ### Breaking changes
 
@@ -70,7 +70,7 @@ Existing code written against earlier API versions will break on api-version=201
 
 #### Indexer for Azure Cosmos DB - datasource is now `"type": "cosmosdb"`
 
-If you're using an [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md ), you must change `"type": "documentdb"` to `"type": "cosmosdb"`.
+If you're using an [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md), you must change `"type": "documentdb"` to `"type": "cosmosdb"`.
 
 #### Indexer execution result errors no longer have status
 

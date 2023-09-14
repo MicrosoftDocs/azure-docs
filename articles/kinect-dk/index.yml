@@ -34,6 +34,8 @@ landingContent:
     linkLists:
       - linkListType: download
         links:
+          - text: Azure Kinect NuGet library
+            url: add-library-to-project.md
           - text: Azure Kinect Sensor SDK
             url: sensor-sdk-download.md
           - text: Azure Kinect Body Tracking SDK
@@ -59,7 +61,7 @@ landingContent:
           - text: Find then open device
             url: find-then-open-device.md
           - text: Retrieve image data
-            url: about-sensor-sdk.md
+            url: retrieve-images.md
           - text: Access microphone
             url: access-mics.md
           - text: Record and playback
@@ -87,4 +89,4 @@ landingContent:
           - text: Vision Services
             url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
           - text: Speech Services
-            url: ../cognitive-services/speech-service/index.yml
+            url: ../ai-services/speech-service/index.yml

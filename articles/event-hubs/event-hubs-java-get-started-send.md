@@ -4,7 +4,7 @@ description: This article provides a walkthrough of creating a Java application 
 ms.topic: quickstart
 ms.date: 02/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs
@@ -91,7 +91,7 @@ public class SenderAAD {
     // Example: private static final String namespaceName = "contosons.servicebus.windows.net";
     private static final String namespaceName = "<NAMESPACE NAME>.servicebus.windows.net";
 
-    // Replace <EVENT HUB NAME> with the name of your event hug. 
+    // Replace <EVENT HUB NAME> with the name of your event hub. 
     // Example: private static final String eventHubName = "ordersehub";
     private static final String eventHubName = "<EVENT HUB NAME>";
 
@@ -215,11 +215,7 @@ Build the program, and ensure that there are no errors. You'll run this program 
 
 The code in this tutorial is based on the [EventProcessorClient sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorBlobCheckpointStoreSample.java), which you can examine to see the full working application.
 
-> [!WARNING]
-> If you run this code on Azure Stack Hub, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Azure Blob Storage SDK than those typically available on Azure. If you are using Azure Blob Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code.
->
-> For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java).
-
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
 ### Create an Azure Storage and a blob container
 

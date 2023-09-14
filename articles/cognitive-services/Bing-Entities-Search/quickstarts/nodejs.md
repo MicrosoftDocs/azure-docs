@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Send a search request to the REST API using Node.js - Bing Entity Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using Node.js and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: devx-track-js, mode-api
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using Node.js
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple JavaScript application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
@@ -39,7 +39,7 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
     let https = require ('https');
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -178,5 +178,5 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [What is the Bing Entity Search API?](../overview.md)
 * [Bing Entity Search API reference](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

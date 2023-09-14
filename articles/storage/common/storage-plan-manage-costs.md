@@ -3,11 +3,11 @@ title: Plan and manage costs for Azure Blob Storage
 description: Learn how to plan for and manage costs for Azure Blob Storage by using cost analysis in Azure portal.
 services: storage
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 04/03/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
 ---
 
@@ -179,7 +179,7 @@ When you use cost analysis, you can view Azure Storage costs in graphs and table
 
 To view Azure Storage costs in cost analysis:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 
@@ -208,13 +208,12 @@ Some actions, such as changing the default access tier of your account, can lead
 | Access tiers | Rehydrating from archive  | High priority rehydration from archive can lead to higher than normal bills. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations. <br><br>For more information, see [Rehydration priority](../blobs/archive-rehydrate-overview.md#rehydration-priority).|
 | Data protection | Enabling blob soft delete | Overwriting blobs can lead to blob snapshots. Unlike the case where a blob is deleted, the creation of these snapshots isn't logged. This can lead to unexpected storage costs. Consider whether data that is frequently overwritten should be placed in an account that doesn't have soft delete enabled.<br><br>For more information, see [How overwrites are handled when soft delete is enabled](../blobs/soft-delete-blob-overview.md#how-overwrites-are-handled-when-soft-delete-is-enabled).|
 | Data protection | Enabling blob versioning | Every write operation on a blob creates a new version. As is the case with enabling blob soft delete, consider whether data that is frequently overwritten should be placed in an account that doesn't have versioning enabled. <br><br>For more information, see [Versioning on write operations](../blobs/versioning-overview.md#versioning-on-write-operations). |
-| Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy is not set. Make sure to set the retention policy to avoid log build up which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |
+| Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy is not set. Make sure to set the retention policy to avoid log buildup which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |
+| Protocols | Enabling SSH File Transfer Protocol (SFTP) support| Enabling the SFTP endpoint incurs an hourly cost. To avoid passive charges, consider enabling SFTP only when you are actively using it to transfer data.<br><br> For guidance about how to enable and then disable SFTP support, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md). |
 
-## FAQ
+## Frequently asked questions (FAQ)
 
-**If I use Azure Storage for only a few days a month, is the cost prorated?**
-
-Storage capacity is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
+See [Managing costs FAQ](../blobs/storage-blob-faq.yml#managing-costs).
 
 ## Next steps
 

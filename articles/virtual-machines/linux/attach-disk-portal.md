@@ -2,13 +2,12 @@
 title: Attach a data disk to a Linux VM 
 description: Use the portal to attach new or existing data disk to a Linux VM.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 08/09/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.collection: linux
-
 ---
 # Use the portal to attach a data disk to a Linux VM 
 
@@ -65,7 +64,7 @@ lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 
 The output is similar to the following example:
 
-```bash
+```output
 sda     0:0:0:0      30G
 ├─sda1             29.9G /
 ├─sda14               4M
@@ -85,7 +84,7 @@ In the image, you can see that there are 3 data disks: 4 GB on LUN 0, 16GB at LU
 
 Here's what that might look like using `lsblk`:
 
-```bash
+```output
 sda     0:0:0:0      30G
 ├─sda1             29.9G /
 ├─sda14               4M
@@ -143,7 +142,7 @@ sudo blkid
 
 The output looks similar to the following example:
 
-```bash
+```output
 /dev/sda1: LABEL="cloudimg-rootfs" UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4" PARTUUID="1a1b1c1d-11aa-1234-1a1a1a1a1a1a"
 /dev/sda15: LABEL="UEFI" UUID="BCD7-96A6" TYPE="vfat" PARTUUID="1e1g1cg1h-11aa-1234-1u1u1a1a1u1u"
 /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4" TYPE="ext4" PARTUUID="1a2b3c4d-01"
@@ -156,7 +155,7 @@ The output looks similar to the following example:
 
 Next, open the **/etc/fstab** file in a text editor. Add a line to the end of the file, using the UUID value for the `/dev/sdc1` device that was created in the previous steps, and the mountpoint of `/datadrive`. Using the example from this article, the new line would look like the following:
 
-```bash
+```config
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
@@ -178,7 +177,7 @@ lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 
 The output will look something like this:
 
-```bash
+```output
 sda     0:0:0:0      30G
 ├─sda1             29.9G /
 ├─sda14               4M
@@ -199,7 +198,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 * Use the `discard` mount option in */etc/fstab*, for example:
 
-    ```bash
+    ```config
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
 * In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
@@ -221,6 +220,7 @@ sudo fstrim /datadrive
 # [SUSE](#tab/suse)
 
 ```bash
+sudo zypper install util-linux
 sudo fstrim /datadrive
 ```
 ---

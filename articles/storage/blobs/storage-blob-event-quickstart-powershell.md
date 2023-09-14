@@ -6,8 +6,7 @@ ms.author: normesta
 ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
-ms.service: storage
-ms.subservice: blobs 
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -25,7 +24,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Sign in to Azure
 

@@ -29,7 +29,7 @@
       "source_path": "how-to-monitor-diagnostics.md",
       "redirect_url": "/azure/digital-twins/how-to-monitor",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "how-to-monitor-alerts.md",
       "redirect_url": "/azure/digital-twins/how-to-monitor",
@@ -155,7 +155,6 @@
       "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
-
     {
       "source_path": "how-to-manage-routes-apis-cli.md",
       "redirect_url": "/azure/digital-twins/how-to-create-routes",
@@ -166,7 +165,6 @@
       "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
     },
-
     {
       "source_path": "how-to-use-parser.md",
       "redirect_url": "/azure/digital-twins/how-to-parse-models",
@@ -344,5 +342,3 @@
     }
   ]
 }
-
-

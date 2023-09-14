@@ -37,7 +37,7 @@ The purpose of the configuration file is to:
 - Define entity security rules
 - Control development configuration settings
 
-If you're using Azure Cosmos DB with GraphQL, you also need to provide a [`gql` schema file](https://github.com/Azure/data-api-builder/blob/main/docs/getting-started/getting-started-azure-cosmos-db.md).
+If you're using Azure Cosmos DB with GraphQL, you also need to provide a [`gql` schema file](/azure/data-api-builder/get-started/get-started-azure-cosmos-db#add-book-schema-file).
 
 > [!NOTE]
 > Static Web Apps database connections requires a folder containing the configuration files.  This folder must contain the *staticwebapp.database.config.json* configuration file for all database types. For Cosmos DB for NoSQL databases, a *staticwebapp.database.schema.gql* schema file is also required. 
@@ -46,11 +46,11 @@ If you're using Azure Cosmos DB with GraphQL, you also need to provide a [`gql` 
 
 ## Sample configuration file
 
-The following sample configuration file shows you how to connect to an Azure SQL database and expose both REST and GraphQL endpoints. For full details on the configuration file and its supported features, refer to the [Data API Builder documentation](https://github.com/Azure/data-api-builder/blob/main/docs/configuration-file.md).
+The following sample configuration file shows you how to connect to an Azure SQL database and expose both REST and GraphQL endpoints. For full details on the configuration file and its supported features, refer to the [Data API Builder documentation](/azure/data-api-builder/configuration-file).
 
 ```json
 {
-  "$schema": "https://dataapibuilder.azureedge.net/schemas/latest/dab.draft.schema.json",
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
   "data-source": {
     "database-type": "mssql",
     "options": {
@@ -95,7 +95,7 @@ The following sample configuration file shows you how to connect to an Azure SQL
 
 | Property | Description |
 |---|---|
-| `$schema` | The version of the [Database API builder](https://github.com/Azure/data-api-builder) used by Azure Static Web Apps to interpret the configuration file. |
+| `$schema` | The version of the [Database API builder](/azure/data-api-builder/) used by Azure Static Web Apps to interpret the configuration file. |
 | `data-source` | Configuration settings specific to the target database. The `database-type` property accepts `mssql`, `postgresql`, `cosmosdb_nosql`, or `mysql`.<br><br>The connection string is overwritten upon deployment when a database is connected to your Static Web Apps resource. During local development, the connection string defined in the configuration file is what is used to connect to the database.  |
 | `runtime` | Section that defines the exposed endpoints. The `rest` and `graphql` properties control the URL fragment used to access the respective API protocol. The `host` configuration section defines settings specific to your development environment. Make sure the `origins` array include your localhost address and port. The host.mode is overwritten to `production` when a database is connected to your Static Web Apps resource. |
 | `entities` | Section that maps URL path to database entities and tables. The same [role-based authentication rules](configuration.md#authentication) used to secure paths also secure database entities, and can be used to define permissions for each entity. The entities object also specifies the relationships between entities. |
@@ -126,7 +126,7 @@ The following code shows you how to use a folder named *db-config* for the datab
 app_location: "/src"
 api_location: "api"
 output_location: "/dist"
-data_api_location: "db-config" # Folder holding the staticwebapps.database.config.json file
+data_api_location: "db-config" # Folder holding the staticwebapp.database.config.json file
 ```
 
 

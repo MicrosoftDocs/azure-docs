@@ -12,14 +12,14 @@ ms.date: 03/15/2023
 
 # Quickstart: Deploy a private mobile network and site - Azure CLI
 
-Azure Private 5G Core is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. This quickstart describes how to use an Azure CLI to deploy the following.
+Azure Private 5G Core is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. This quickstart describes how to use an Azure CLI to deploy the following resources in the East US Azure region. See [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=private-5g-core) for the Azure regions where Azure Private 5G Core is available.
 
 - A private mobile network.
 - A site.
-- The default service and SIM policy (as described in [Default service and SIM policy](default-service-sim-policy.md)).
+- The default service and allow-all SIM policy (as described in [Default service and allow-all SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs, and a SIM group.
 
-[!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
+[!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Prerequisite: Prepare to deploy a private mobile network and site
 
@@ -233,7 +233,7 @@ az mobile-network sim policy create -g <RESOURCEGROUP> -n <SIMPOLICY> --mobile-n
 
 ### Create a SIM
 
-Use `` to create a new **SIM**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
+Use `az mobile-network sim create` to create a new **SIM**. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
 
 |Placeholder|Value|
 |-|-|

@@ -2,22 +2,21 @@
 title: 'C# tutorial: AI on Azure blobs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure Cognitive Search .NET SDK. 
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 12/10/2021
-ms.custom: devx-track-csharp
+ms.date: 09/13/2023
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Tutorial: Use .NET and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search can extract information and create new content for full-text search or knowledge mining scenarios. 
 
-In this C# tutorial, you will learn how to:
+In this C# tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a development environment.
@@ -56,13 +55,13 @@ The sample data consists of 14 files of mixed content type that you will upload 
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+This tutorial uses Azure Cognitive Search for indexing and queries, Azure AI services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Azure AI services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
 ### Start with Azure Storage
 
-1. [Sign in to the Azure portal](https://portal.azure.com/) and click **+ Create Resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **+ Create Resource**.
 
 1. Search for *storage account* and select Microsoft's Storage Account offering.
 
@@ -74,7 +73,7 @@ If possible, create both in the same region and resource group for proximity and
 
    + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
+   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Azure AI services. A single location voids bandwidth charges.
 
    + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 
@@ -106,11 +105,11 @@ If possible, create both in the same region and resource group for proximity and
 
 <!-- The next section says that a key isn't required, but the code won't run without it. Is there a way to make the key declaration work as null? It would be nice to keep the appsetting so that people know how to set it up, but at the same time, the other versions of this sample don't require a key, so this one shouldn't either. -->
 
-### Cognitive Services
+### Azure AI services
 
-AI enrichment is backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Azure AI services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
-For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 14 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
+For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Azure AI services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 14 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Azure AI services at the pay-as-you-go S0 tier. For more information, see [Attach Azure AI services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Cognitive Search
 
@@ -122,12 +121,9 @@ You can use the Free tier to complete this walkthrough.
 
 To interact with your Azure Cognitive Search service you will need the service URL and an access key.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. You can copy either the primary or secondary key.
-
-<!-- This code sample doesn't include a query so the following sentence should be deleted.
-  Get the query key as well. It's a best practice to issue query requests with read-only access. -->
 
    ![Get the service name and admin key](media/search-get-started-javascript/service-name-and-keys.png)
 
@@ -165,10 +161,11 @@ For this project, install version 11 or later of the `Azure.Search.Documents` an
 
     ```json
     {
-      "SearchServiceUri": "Put your search service URI here",
-      "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-      "SearchServiceQueryApiKey": "Put your query API key here",
-      "AzureBlobConnectionString": "Put your Azure Blob connection string here",
+      "SearchServiceUri": "<YourSearchServiceUri>",
+      "SearchServiceAdminApiKey": "<YourSearchServiceAdminApiKey>",
+      "SearchServiceQueryApiKey": "<YourSearchServiceQueryApiKey>",
+      "AzureAIServicesKey": "<YourMultiRegionAzureAIServicesKey>",
+      "AzureBlobConnectionString": "<YourAzureBlobConnectionString>"
     }
     ```
 
@@ -205,7 +202,7 @@ public static void Main(string[] args)
 
     string searchServiceUri = configuration["SearchServiceUri"];
     string adminApiKey = configuration["SearchServiceAdminApiKey"];
-    string cognitiveServicesKey = configuration["CognitiveServicesKey"];
+    string azureAiServicesKey = configuration["AzureAIServicesKey"];
 
     SearchIndexClient indexClient = new SearchIndexClient(new Uri(searchServiceUri), new AzureKeyCredential(adminApiKey));
     SearchIndexerClient indexerClient = new SearchIndexerClient(new Uri(searchServiceUri), new AzureKeyCredential(adminApiKey));
@@ -513,12 +510,14 @@ private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
 Build the [`SearchIndexerSkillset`](/dotnet/api/azure.search.documents.indexes.models.searchindexerskillset) using the skills you created.
 
 ```csharp
-private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerClient indexerClient, IList<SearchIndexerSkill> skills,string cognitiveServicesKey)
+private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerClient indexerClient, IList<SearchIndexerSkill> skills,string azureAiServicesKey)
 {
     SearchIndexerSkillset skillset = new SearchIndexerSkillset("demoskillset", skills)
     {
+        // Azure AI services was formerly known as Cognitive Services.
+        // The APIs still use the old name, so we need to create a CognitiveServicesAccountKey object.
         Description = "Demo skillset",
-        CognitiveServicesAccount = new CognitiveServicesAccountKey(cognitiveServicesKey)
+        CognitiveServicesAccount = new CognitiveServicesAccountKey(azureAiServicesKey)
     };
 
     // Create the skillset in your search service.
@@ -560,7 +559,7 @@ skills.Add(splitSkill);
 skills.Add(entityRecognitionSkill);
 skills.Add(keyPhraseExtractionSkill);
 
-SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skills, cognitiveServicesKey);
+SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skills, azureAiServicesKey);
 ```
 
 ### Step 3: Create an index

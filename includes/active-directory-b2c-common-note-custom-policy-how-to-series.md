@@ -8,4 +8,4 @@ ms.author: kengaderdus
 ---
 
 > [!NOTE] 
-> This article is part of the **[Create and run your own custom policies in Azure Active Directory B2C how-to guide series](../articles/active-directory-b2c/custom-policies-series-overview.md)**. We recommend that you start this series from the fist article.
+> This article is part of the **[Create and run your own custom policies in Azure Active Directory B2C how-to guide series](../articles/active-directory-b2c/custom-policies-series-overview.md)**. We recommend that you start this series from the first article.

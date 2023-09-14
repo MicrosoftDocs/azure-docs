@@ -2,8 +2,8 @@
 title: Enable VM insights overview
 description: Learn how to deploy and configure VM insights and find out about the system requirements.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.reviewer: xpathak
 ms.date: 06/24/2022
 ms.custom: references_regions
@@ -38,7 +38,10 @@ VM insights is available for Azure Arc-enabled servers in regions where the Arc 
 
 ## Supported operating systems
 
-VM insights supports any operating system that supports the Dependency agent and either the Azure Monitor agent (preview) or Log Analytics agent. For a complete list, see [Azure Monitor agent overview](../agents/agents-overview.md#supported-operating-systems).
+VM insights supports all operating systems supported by the Dependency agent and either Azure Monitor Agent or Log Analytics agent. For a complete list of operating systems supported by Azure Monitor Agent and Log Analytics agent, see [Azure Monitor agent overview](../agents/agents-overview.md#supported-operating-systems).
+
+Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
+For Dependency Agent Linux support, see [Dependency Agent Linux support](../vm/vminsights-dependency-agent-maintenance.md#dependency-agent-linux-support).
 
 > [!IMPORTANT]
 > If the Ethernet device for your virtual machine has more than nine characters, it won't be recognized by VM insights and data won't be sent to the InsightsMetrics table. The agent will collect data from [other sources](../agents/agent-data-sources.md).
@@ -94,7 +97,7 @@ The DCR is defined by the options in the following table.
 
 | Option | Description |
 |:---|:---|
-| Guest performance | Specifies whether to collect performance data from the guest operating system. This option is required for all machines. The collection interval for performance data is every 60 seconds.|
+| Guest performance | Specifies whether to collect [performance data](/azure/azure-monitor/vm/vminsights-performance) from the guest operating system. This option is required for all machines. The collection interval for performance data is every 60 seconds.|
 | Processes and dependencies | Collects information about processes running on the virtual machine and dependencies between machines. This information enables the [Map feature in VM insights](vminsights-maps.md). This is optional and enables the [VM insights Map feature](vminsights-maps.md) for the machine. |
 | Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights are listed. |
 
@@ -117,7 +120,7 @@ If you associate a data collection rule with the Map feature enabled to a machin
 
 - You must remove the Log Analytics agent yourself from any machines that are using it. Before you do this step, ensure that the machine isn't relying on any other solutions that require the Log Analytics agent. For more information, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
 
-- After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the VM Insights solution from the workspace](vminsights-configure-workspace.md#remove-vminsights-solution-from-workspace). It's no longer needed.
+- After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the VM Insights solution from the workspace](vminsights-configure-workspace.md#remove-the-vminsights-solution-from-a-workspace). It's no longer needed.
 
     > [!NOTE]
     > To check if you have any machines with both agents sending data to your Log Analytics workspace, run the following [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md). This query will show the last heartbeat for each computer. If a computer has both agents, it will return two records, each with a different `category`. The Azure Monitor agent will have a `category` of *Azure Monitor Agent*. The Log Analytics agent will have a `category` of *Direct Agent*.

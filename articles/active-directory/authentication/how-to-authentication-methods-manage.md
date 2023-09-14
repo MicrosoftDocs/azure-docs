@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -53,7 +53,7 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 ### Review the legacy SSPR policy
 
-To get the authentication methods available in the legacy SSPR policy, go to **Azure Active Directory** > **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. 
+To get the authentication methods available in the legacy SSPR policy, go to **Azure Active Directory** > **Users** > **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. 
 
 :::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-sspr-policy.png" alt-text="Screenshot that shows the legacy Azure AD SSPR policy." lightbox="media/how-to-authentication-methods-manage/legacy-sspr-policy.png":::
 
@@ -70,7 +70,10 @@ Record which users are in scope for SSPR (either all users, one specific group, 
 
 ### Authentication methods policy
 
-To check settings in the Authentication methods policy, sign in as an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and go to **Azure Active Directory** > **Security** > **Authentication methods** > **Policies**. A new tenant has all methods **Off** by default, which makes migration easier because legacy policy settings don't need to be merged with existing settings. 
+To check settings in the Authentication methods policy, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and browse to **Protection** > **Authentication methods** > **Policies**. A new tenant has all methods **Off** by default, which makes migration easier because legacy policy settings don't need to be merged with existing settings. 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods** >
 
 :::image type="content"  source="media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot that shows the authentication methods." lightbox="media/concept-authentication-methods-manage/authentication-methods-policy.png":::
 

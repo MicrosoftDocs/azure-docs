@@ -1,12 +1,12 @@
 ---
-title: Query Store - Azure Database for PostgreSQL - Flex Server
-description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flex Server.
+title: Query Store - Azure Database for PostgreSQL - Flexible Server
+description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 9/1/2023
 ---
 # Monitor Performance with Query Store
 
@@ -92,8 +92,9 @@ The following options apply specifically to wait statistics.
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Sets which statements are tracked for wait stats. | none | none, all|
 | Pgms_wait_sampling.history_period | Set the frequency, in milliseconds, at which wait events are sampled. | 100 | 1-600000 |
->  [!NOTE]
->  **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
+
+> [!NOTE]
+> **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
 
 Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
 
@@ -109,7 +110,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 |user_id	|oid	|pg_authid.oid	|OID of user who executed the statement|
 |db_id	|oid	|pg_database.oid	|OID of database in which the statement was executed|
 |query_id	|bigint	 ||	Internal hash code, computed from the statement's parse tree|
-|query_sql_text	|Varchar(10000)	 ||	Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster.|
+|query_sql_text	|varchar(10000)	 ||	Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. The default query text length is 6000 and can be modified using query store parameter `pg_qs.max_query_text_length`.|
 |plan_id	|bigint	|	|ID of the plan corresponding to this query|
 |start_time	|timestamp	||	Queries are aggregated by time buckets - the time span of a bucket is 15 minutes by default. This is the start time corresponding to the time bucket for this entry.|
 |end_time	|timestamp	||	End time corresponding to the time bucket for this entry.|
@@ -168,7 +169,7 @@ This view returns the query plan that was used to execute a query. There is one 
 
 ## Limitations and known issues
 - If a PostgreSQL server has the parameter `default_transaction_read_only` on, Query Store will not capture any data.
-- 
+
 ## Next steps
 - Learn more about [scenarios where Query Store can be especially helpful](concepts-query-store-scenarios.md).
 - Learn more about [best practices for using Query Store](concepts-query-store-best-practices.md).

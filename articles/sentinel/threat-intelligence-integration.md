@@ -31,10 +31,6 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - [Learn about Accenture CTI integration with Microsoft Sentinel](https://www.accenture.com/us-en/services/security/cyber-defense).
 
-### Anomali
-
-- [Learn how to import threat intelligence from Anomali ThreatStream into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-anomali-threatstream-feed-into-microsoft-sentinel/ba-p/3561742#M3787)
-
 ### Cybersixgill Darkfeed
 
 - [Learn about Cybersixgill integration with Microsoft Sentinel @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
@@ -109,7 +105,8 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### MISP Open Source Threat Intelligence Platform
 
-- For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
+- Push threat indicators from MISP to Microsoft Sentinel using the TI upload indicators API with [MISP2Sentinel](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).
+- Azure Marketplace link for [MISP2Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel?tab=Overview).
 - [Learn more about the MISP Project](https://www.misp-project.org/).
 
 ### Palo Alto Networks MineMeld

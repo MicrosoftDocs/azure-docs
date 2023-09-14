@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Azure Queue Storage client library for Java'
-description: Learn how to use the Azure Queue Storage client library for Java to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+description: Learn how to use the Azure Queue Storage client library for Java to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You also learn how to delete a queue.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 12/13/2022
+ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ---
 
 # Quickstart: Azure Queue Storage client library for Java
@@ -23,7 +22,9 @@ Use the Azure Queue Storage client library for Java to:
 - Add messages to a queue
 - Peek at messages in a queue
 - Update a message in a queue
-- Receive and delete messages from a queue
+- Get the queue length
+- Receive messages from a queue
+- Delete messages from a queue
 - Delete a queue
 
 ## Prerequisites
@@ -199,9 +200,9 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue Storage offers three types of resources:
 
-- The storage account
-- A queue in the storage account
-- Messages within the queue
+- **Storage account**: All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md)
+- **Queue**: A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+- **Message**: A message, in any format, of up to 64 KB. A message can remain in the queue for a maximum of 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
 
 The following diagram shows the relationship between these resources.
 
@@ -223,6 +224,7 @@ These example code snippets show you how to do the following actions with the Az
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
+- [Get the queue length](#get-the-queue-length)
 - [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
 
@@ -232,7 +234,7 @@ These example code snippets show you how to do the following actions with the Az
 
 [!INCLUDE [default-azure-credential-sign-in-no-vs](../../../includes/passwordless/default-azure-credential-sign-in-no-vs.md)]
 
-Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step.
+Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed in with in the previous step.
 
 To authorize using `DefaultAzureCredential`, make sure you've added the **azure-identity** dependency in `pom.xml`, as described in [Install the packages](#install-the-packages). Also, be sure to add an import directive for `com.azure.identity` in the *App.java* file:
 
@@ -240,7 +242,7 @@ To authorize using `DefaultAzureCredential`, make sure you've added the **azure-
 import com.azure.identity.*;
 ```
 
-Decide on a name for the queue and create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization. We use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -283,7 +285,7 @@ System.out.println("Azure Queue Storage client library - Java quickstart sample\
 String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-Decide on a name for the queue and create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class, using the connection string for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class, using the connection string for authorization. We use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -305,6 +307,9 @@ QueueClient queueClient = new QueueClientBuilder()
 ```
 
 ---
+
+> [!NOTE]
+> Messages sent using the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class must be in a format that can be included in an XML request with UTF-8 encoding. You can optionally set the [QueueMessageEncoding](/java/api/com.azure.storage.queue.queuemessageencoding) option to `BASE64` to handle non-compliant messages.
 
 ### Create a queue
 
@@ -365,11 +370,24 @@ queueClient.updateMessage(result.getMessageId(),
                           Duration.ofSeconds(1));
 ```
 
+### Get the queue length
+
+You can get an estimate of the number of messages in a queue.
+
+The `getProperties` method returns several values including the number of messages currently in a queue. The count is only approximate because messages can be added or removed after your request. The `getApproximateMessageCount` method returns the last value retrieved by the call to `getProperties`, without calling Queue Storage.
+
+```java
+QueueProperties properties = queueClient.getProperties();
+long messageCount = properties.getApproximateMessagesCount();
+
+System.out.println(String.format("Queue length: %d", messageCount));
+```
+
 ### Receive and delete messages from a queue
 
 Download previously added messages by calling the [`receiveMessages`](/java/api/com.azure.storage.queue.queueclient.receivemessages) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-The app pauses for user input by calling `System.console().readLine();` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
+The app pauses for user input by calling `System.console().readLine();` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted eventually become visible in the queue again for another chance to process them.
 
 Add this code to the end of the `main` method:
 
@@ -389,6 +407,8 @@ queueClient.receiveMessages(10).forEach(
     }
 );
 ```
+
+When calling the `receiveMessages` method, you can optionally specify a value for `maxMessages`, which is the number of messages to retrieve from the queue. The default is 1 message and the maximum is 32 messages. You can also specify a value for `visibilityTimeout`, which hides the messages from other operations for the timeout period. The default is 30 seconds.
 
 ### Delete a queue
 
@@ -468,4 +488,5 @@ For tutorials, samples, quick starts, and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for Java cloud developers](/azure/developer/java/)
 
+- For related code samples using deprecated Java version 8 SDKs, see [Code samples using Java version 8](queues-v8-samples-java.md).
 - For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for Java - samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

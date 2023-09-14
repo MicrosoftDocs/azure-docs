@@ -85,7 +85,9 @@ Further extensions will no longer be automatically approved. If you need additio
 
 ### To request an extension
 
-1. Sign in to the Azure portal and create a [new support request](https://portal.azure.com/#create/Microsoft.Support).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and create a [new support request](https://portal.azure.com/#create/Microsoft.Support).
 1. Fill in the new support request form as shown in the following example.
 
     | Support request field | Value |

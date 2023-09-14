@@ -3,7 +3,7 @@ title: Azure HDInsight clusters with disk encryption lose Key Vault access
 description: Troubleshooting steps and possible resolutions for Key Vault access issues when interacting with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 05/27/2022
+ms.date: 06/08/2023
 ---
 
 # Scenario: Azure HDInsight clusters with disk encryption lose Key Vault access

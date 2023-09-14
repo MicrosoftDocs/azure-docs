@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a basic internal load balancer using Azure PowerShell
 author: mbender-ms
 ms.author: mbender
-ms.date: 02/03/2023
+ms.date: 06/08/2023
 ms.topic: quickstart
 ms.service: load-balancer
 ms.custom: devx-track-azurepowershell, mode-api
@@ -24,7 +24,7 @@ Get started with Azure Load Balancer by using Azure PowerShell to create a publi
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -134,6 +134,12 @@ Create a network security group to define inbound connections to your virtual ne
 
 Create an Azure Bastion host to securely manage the virtual machines in the backend pool.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
+
 ### Create virtual network, network security group and bastion host.
 
 * Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
@@ -145,6 +151,8 @@ Create an Azure Bastion host to securely manage the virtual machines in the back
 * Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
 
 * Create the NAT gateway resource with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway)
+
+
 
 ```azurepowershell-interactive
 ## Create backend subnet config ##

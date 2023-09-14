@@ -15,12 +15,11 @@ ms.reviewer: etbasser
 
 ms.collection: M365-identity-device-management
 ---
-
 # Securing workload identities
 
 Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications and service principals.
 
-A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
+A [workload identity](../workload-identities/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
 - Can’t perform multifactor authentication.
 - Often have no formal lifecycle process.
@@ -38,13 +37,12 @@ These differences make workload identities harder to manage and put them at high
 
 To make use of workload identity risk, including the new **Risky workload identities** blade and the **Workload identity detections** tab in the **Risk detections** blade in the portal, you must have the following.
 
-- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
+- Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade).
 - One of the following administrator roles assigned
-   - Global Administrator
    - Security Administrator
    - Security Operator
-   - Security Reader
-Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
+   - Security Reader Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
+   - Global Administrator
 
 ## Workload identity risk detections
 
@@ -64,10 +62,8 @@ We detect risk on workload identities across sign-in behavior and offline indica
 
 Organizations can find workload identities that have been flagged for risk in one of two locations:
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities**.
-1. Or browse to **Azure Active Directory** > **Security** > **Risk detections**.
-   1. Select the **Workload identity detections** tab.'
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security Reader](../roles/permissions-reference.md#security-reader).
+1. Browse to **Protection** > **Identity Protection** > **Risky workload identities**.
    
 :::image type="content" source="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png" alt-text="Screenshot showing risks detected against workload identities in the report." lightbox="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png":::
 
@@ -75,8 +71,8 @@ Organizations can find workload identities that have been flagged for risk in on
 
 You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api). There are two new collections in the [Identity Protection APIs](/graph/api/resources/identityprotection-root). 
 
-- riskyServicePrincipals
-- servicePrincipalRiskDetections
+- `riskyServicePrincipals`
+- `servicePrincipalRiskDetections`
 
 ### Export risk data 
 
@@ -90,7 +86,7 @@ For improved security and resilience of your workload identities, Continuous Acc
 
 ## Investigate risky workload identities
 
-Identity Protection provides organizations with two reports they can use to investigate workload identity risk. These reports are the risky workload identities, and risk detections for workload identities. All reports allow for downloading of events in .CSV format for further analysis outside of the Azure portal. 
+Identity Protection provides organizations with two reports they can use to investigate workload identity risk. These reports are the risky workload identities, and risk detections for workload identities. All reports allow for downloading of events in .CSV format for further analysis. 
 
 Some of the key questions to answer during your investigation include:
 
@@ -99,18 +95,18 @@ Some of the key questions to answer during your investigation include:
 - Have there been suspicious configuration changes to accounts?
 - Did the account acquire unauthorized application roles?
 
-The [Azure Active Directory security operations guide for Applications](../fundamentals/security-operations-applications.md) provides detailed guidance on the above investigation areas.
+The [Azure Active Directory security operations guide for Applications](../architecture/security-operations-applications.md) provides detailed guidance on the above investigation areas.
 
 Once you determine if the workload identity was compromised, dismiss the account’s risk, or confirm the account as compromised in the Risky workload identities report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
 
-:::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk in the Azure portal." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
+:::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
 
 ## Remediate risky workload identities
 
-1.	Inventory credentials assigned to the risky workload identity, whether for the service principal or application objects.
+1. Inventory credentials assigned to the risky workload identity, whether for the service principal or application objects.
 1. Add a new credential. Microsoft recommends using x509 certificates.
 1. Remove the compromised credentials. If you believe the account is at risk, we recommend removing all existing credentials.
-1.	Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
+1. Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
 
 The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerShell module that can help you perform some of these actions.
 
@@ -121,5 +117,3 @@ The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerSh
 - [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
 - [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
-
-

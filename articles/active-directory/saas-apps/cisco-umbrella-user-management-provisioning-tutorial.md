@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 1aa20f40-19ec-4213-9a3b-5eb2bcdd9bbd
 ms.service: active-directory
@@ -63,7 +63,7 @@ When using Microsoft Azure AD Connect, the ObjectGUID attribute of users is not 
 
 ## Step 3. Configure Cisco Umbrella User Management to support provisioning with Azure AD
 
-1. Log in to [Cisco Umbrella dashboard](https://login.umbrella.com ). Navigate to **Deployments** > **Core Identities** > **Users and Groups**.
+1. Log in to [Cisco Umbrella dashboard](https://login.umbrella.com). Navigate to **Deployments** > **Core Identities** > **Users and Groups**.
 
 
 1. Expand the Azure Active Directory card and click on the **API Keys page**.

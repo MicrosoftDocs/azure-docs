@@ -2,11 +2,10 @@
 title: Introduction to Azure Elastic SAN Preview
 description: An overview of Azure Elastic SAN Preview, a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: overview
-ms.date: 02/22/2023
+ms.date: 08/15/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: ignite-2022
 ---
 
@@ -14,7 +13,7 @@ ms.custom: ignite-2022
 
 Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN Preview is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
-Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service.
+Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service. Instead of having to deploy and manage individual storage options for each individual compute deployment, you can provision an Elastic SAN and use the SAN volumes as backend storage for all your workloads. Consolidating your storage like this can be more cost effective if you have a sizeable amount of large scale IO-intensive workloads and top tier databases.
 
 ## Benefits of Elastic SAN
 
@@ -71,7 +70,7 @@ The status of items in this table may change over time.
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](elastic-san-planning.md#redundancy)|	✔️ |
-| Private endpoints | ⛔  |
+| Private endpoints |	✔️ |
 | Grant network access to specific Azure virtual networks|  ✔️  |
 | Soft delete | ⛔  |
 | Snapshots | ⛔ |

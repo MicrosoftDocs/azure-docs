@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 03/27/2023
+ms.date: 05/10/2023
 ms.custom: references_regions
 ---
 
@@ -20,6 +20,19 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+
+## May 2023
+
+### General Availability: Python 3.8 runbooks
+
+Azure Automation announces General Availability of Python 3.8 runbooks. Learn more about Azure Automation [Runbooks](automation-runbook-types.md) and [Python packages](python-3-packages.md).
+
+## April 2023
+
+### Public preview update: Azure Automation supports PowerShell 7.2 and Python 3.10 runbooks
+
+Azure Automation has expanded Public preview support for PowerShell 7.2 and Python 3.10 runbooks in almost all [Public regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=automation) except Australia Central2, Korea South, Sweden South, Jio India Central, Brazil Southeast, Central India, West India, UAE Central and Gov clouds. These new runtimes are now supported for both Cloud and Hybrid jobs. Learn more about [PowerShell 7.2 and Python 3.10 runbooks](automation-runbook-types.md) and [execution of Hybrid jobs](automation-hrw-run-runbooks.md#service-accounts) on new runtime versions.
 
 ## March 2023
 
@@ -69,7 +82,7 @@ Azure Automation now supports [Azure availability zones](../reliability/availabi
 **Type:** Plan for change
 
 
-Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities.Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities.Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
 
 ## August 2022
 
@@ -110,13 +123,13 @@ Users can now restore an Automation account deleted within 30 days. Read [here](
 
 **Type:** New feature
 
-New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation-create-alert-triggered-runbook.md#common-azure-vm-management-operations).
+New scripts are added to the Azure Automation [GitHub organisation](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation-create-alert-triggered-runbook.md#common-azure-vm-management-operations).
 
-- Stop-Azure-VM-On-Alert
-- Restart-Azure-VM-On-Alert
-- Delete-Azure-VM-On-Alert
-- ScaleDown-Azure-VM-On-Alert
-- ScaleUp-Azure-VM-On-Alert
+- [Stop-Azure-VM-On-Alert](https://github.com/azureautomation/Stop-Azure-VM-On-Alert)
+- [Restart-Azure-VM-On-Alert](https://github.com/azureautomation/Restart-Azure-VM-On-Alert)
+- [Delete-Azure-VM-On-Alert](https://github.com/azureautomation/Delete-Azure-VM-On-Alert)
+- [ScaleDown-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleDown-Azure-VM-On-Alert)
+- [ScaleUp-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleUp-Azure-VM-On-Alert)
 
 ## November 2021
 
@@ -124,13 +137,13 @@ New scripts are added to the Azure Automation [GitHub repository](https://github
 
 **Type:** New feature
 
-Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Azure China cloud. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./automation-security-overview.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
+Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Microsoft Azure operated by 21Vianet. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./automation-security-overview.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
 
 ### Preview support for PowerShell 7.1
 
 **Type:** New feature
 
-Azure Automation support for PowerShell 7.1 runbooks is available as public preview in Azure public, Azure Gov, and Azure China clouds. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-powershell-7/) for more information.
+Azure Automation support for PowerShell 7.1 runbooks is available as public preview in Azure public, Azure Gov, and  Azure operated by 21Vianet clouds. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-powershell-7/) for more information.
 
 
 
@@ -178,7 +191,7 @@ Customers should evaluate and plan for migration from Azure Automation State Con
 
 **Type:** New feature
 
-Azure Automation now supports [user-assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure global, Azure Government, and Azure China regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
+Azure Automation now supports [user-assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure global, Azure Government, and  Azure operated by 21Vianet regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
 
 ### General Availability of customer-managed keys for Azure Automation
 

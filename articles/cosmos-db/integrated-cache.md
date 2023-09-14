@@ -46,6 +46,7 @@ Some workloads shouldn't consider the integrated cache, including:
 
 -	Write-heavy workloads
 -  Rarely repeated point reads or queries
+-  Workloads reading the change feed
 
 ## Item cache
 

@@ -27,7 +27,20 @@ The way in which you develop functions on your local computer depends on your [l
 
 Each of these local development environments lets you create function app projects and use predefined function templates to create new functions. Each uses the Core Tools so that you can test and debug your functions against the real Functions runtime on your own machine just as you would any other app. You can also publish your function app project from any of these environments to Azure.
 
-## Local settings file
+## Local project files
+
+A Functions project directory contains the following files in the project root folder, regardless of language: 
+
+| File name | Description |
+| --- | --- |
+| host.json | To learn more, see the [host.json reference](functions-host-json.md). |
+| local.settings.json | Settings used by Core Tools when running locally, including app settings. To learn more, see [local settings file](#local-settings-file). |
+| .gitignore | Prevents the local.settings.json file from being accidentally published to a Git repository. To learn more, see [local settings file](#local-settings-file).|
+| .vscode\extensions.json | Settings file used when opening the project folder in Visual Studio Code.  |
+
+Other files in the project depend on your language and specific functions. For more information, see the developer guide for your language.   
+
+### Local settings file
 
 The local.settings.json file stores app settings and settings used by local development tools. Settings in the local.settings.json file are used only when you're running your project locally. When you publish your project to Azure, be sure to also add any required settings to the app settings for the function app.
 
@@ -87,7 +100,7 @@ When you develop your functions locally, any local settings required by your app
 
 ## Triggers and bindings
 
-When you develop your functions locally, you need to take trigger and binding behaviors into consideration. The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to difference services during production. You can also use a local storage emulator.
+When you develop your functions locally, you need to take trigger and binding behaviors into consideration. The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to different services during production. You can also use a local storage emulator.
 
 ## Local storage emulator
 

@@ -1,84 +1,80 @@
 ---
-title: 'Delete a Lifecycle workflow'
-description: Describes how to delete a Lifecycle Workflow using.
+title: Delete a lifecycle workflow
+description: Learn how to delete a lifecycle workflow.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 05/31/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Delete a Lifecycle workflow (Preview)
+# Delete a lifecycle workflow
 
-You can remove workflows that are no longer needed. Deleting these workflows allows you to make sure your lifecycle strategy is up to date. When a workflow is deleted, it enters a soft delete state. During this period, it's still able to be viewed within the deleted workflows list, and can be restored if needed. 30 days after a workflow enters a soft delete state it will be permanently removed. If you don't wish to wait 30 days for a workflow to permanently delete you can always manually delete it yourself.
+You can remove workflows that you no longer need. Deleting these workflows helps keep your lifecycle strategy up to date.
+
+When a workflow is deleted, it enters a soft-delete state. During this period, you can still view it in the list of deleted workflows and restore it if needed. A workflow is permanently removed 30 days after it  enters a soft-delete state. If you don't want to wait 30 days for a workflow to be permanently deleted, you can manually delete it.
 
 ## Prerequisites
 
-The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
-
-## Delete a workflow using the Azure portal
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Type in **Identity Governance** on the search bar near the top of the page and select it.
-
-1. In the left menu, select **Lifecycle Workflows (Preview)**.
-
-1. select **Workflows (Preview)**.
-
-1. On the workflows screen, select the workflow you want to delete.
-
-     :::image type="content" source="media/delete-lifecycle-workflow/delete-button.png" alt-text="Screenshot of list of Workflows to delete.":::
-
-1. With the workflow highlighted, select **Delete**.
-
-1. Confirm you want to delete the selected workflow. 
- 
-     :::image type="content" source="media/delete-lifecycle-workflow/delete-workflow.png" alt-text="Screenshot of confirming to delete a workflow.":::
-
-## View deleted workflows
-
-After deleting workflows, you can view them on the **Deleted Workflows (Preview)** page.
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 
-1. On the left of the screen, select **Deleted Workflows (Preview)**.
+## Delete a workflow by using the Azure portal
 
-1. On this page, you'll see a list of deleted workflows, a description of the workflow, what date it was deleted, and its permanent delete date. By default the permanent delete date for a workflow is always 30 days after it was originally deleted.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-     :::image type="content" source="media/delete-lifecycle-workflow/deleted-list.png" alt-text="Screenshot of a list of deleted workflows.":::
- 
-1. To restore a deleted workflow, select the workflow you want to restore and select **Restore workflow**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. To permanently delete a workflow immediately, you select the workflow you want to delete from the list, and select **Delete permanently**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
+1. On the **Workflows** page, select the workflow that you want to delete. Then select **Delete**.
 
- 
+    :::image type="content" source="media/delete-lifecycle-workflow/delete-button.png" alt-text="Screenshot of a list of workflows with one selected, along with the Delete button.":::
 
-## Delete a workflow using Microsoft Graph
+1. Confirm that you want to delete the workflow by selecting the **Delete** button.
 
-To delete a workflow using API via Microsoft Graph, see: [Delete workflow (lifecycle workflow)](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta&preserve-view=true).
+    :::image type="content" source="media/delete-lifecycle-workflow/delete-workflow.png" alt-text="Screenshot of confirming the deletion of a workflow.":::
 
-## View deleted workflows using Microsoft Graph
+## View deleted workflows in the Azure portal
 
-To View a list of deleted workflows using API via Microsoft Graph, see: [List deleted workflows](/graph/api/identitygovernance-lifecycleworkflowscontainer-list-deleteditems).
+After you delete workflows, you can view them on the **Deleted workflows** page.
 
-## Permanently delete a workflow using Microsoft Graph
+1. On the left pane, select **Deleted workflows**.
 
-To permanently delete a workflow using API via Microsoft Graph, see: [Permanently delete a deleted workflow](/graph/api/identitygovernance-deleteditemcontainer-delete)
+1. On the **Deleted workflows** page, check the list of deleted workflows. Each workflow has a description, the date of deletion, and a permanent delete date. By default, the permanent delete date for a workflow is 30 days after it was originally deleted.
 
-## Restore deleted workflows using Microsoft Graph
+    :::image type="content" source="media/delete-lifecycle-workflow/deleted-list.png" alt-text="Screenshot of a list of deleted workflows.":::
 
-To restore a deleted workflow using API via Microsoft Graph, see: [Restore a deleted workflow](/graph/api/identitygovernance-workflow-restore)
+1. To restore a deleted workflow, select it and then select **Restore workflow**.
+
+   To permanently delete a workflow immediately, select it and then select **Delete permanently**.
+
+## Delete a workflow by using Microsoft Graph
+
+To delete a workflow by using an API via Microsoft Graph, see [Delete a lifecycle workflow](/graph/api/identitygovernance-workflow-delete?view=graph-rest-beta&preserve-view=true).
+
+## View deleted workflows by using Microsoft Graph
+
+To view a list of deleted workflows by using an API via Microsoft Graph, see [List deleted workflows](/graph/api/identitygovernance-lifecycleworkflowscontainer-list-deleteditems).
+
+## Permanently delete a workflow by using Microsoft Graph
+
+To permanently delete a workflow by using an API via Microsoft Graph, see [Permanently delete a deleted workflow](/graph/api/identitygovernance-deleteditemcontainer-delete).
+
+## Restore a deleted workflow by using Microsoft Graph
+
+To restore a deleted workflow by using an API via Microsoft Graph, see [Restore a deleted workflow](/graph/api/identitygovernance-workflow-restore).
+
 > [!NOTE]
-> Permanently deleted workflows are not able to be restored.
+> You can't restore permanently deleted workflows.
 
 ## Next steps
 
-- [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md)
-- [Manage Lifecycle Workflow Versions](manage-workflow-tasks.md)
+- [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
+- [Manage lifecycle workflow versions](manage-workflow-tasks.md)

@@ -47,7 +47,7 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
    > Be sure to update this TLE value before you schedule a contact. A TLE that is more than two weeks old might result in an unsuccessful downlink.
 
    > [!NOTE]
-   > Spacecraft resources can be created in any Azure region with a Microsoft ground station and schedule contacts on any ground station. Current eligible Azure regions are West US 2, Sweden Central, and Southeast Asia.
+   > Spacecraft resources can be created in any Azure region with a Microsoft ground station and schedule contacts on any ground station. Current eligible Azure regions are West US 2, Sweden Central, Southeast Asia, Brazil South, and South Africa North.
 
    :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
 
@@ -75,8 +75,8 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 
 
 1. Navigate to the newly created spacecraft resource's overview page.
-1. Select **New support request** in the Support + troubleshooting section of the left-hand blade.
-1. In the **New support request** page, enter or select this information in the Basics tab:
+2. Select **New support request** in the Support + troubleshooting section of the left-hand blade.
+3. In the **New support request** page, enter or select this information in the Basics tab:
 
 | **Field** | **Value** |
 | --- | --- |
@@ -88,8 +88,8 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 | Problem type |	Select **Spacecraft Management and Setup** |
 | Problem subtype |	Select **Spacecraft Registration** |
 
-1. Select the Details tab at the top of the page
-1. In the Details tab, enter this information in the Problem details section:
+4. Select the Details tab at the top of the page
+5. In the Details tab, enter this information in the Problem details section:
 
 | **Field** | **Value** |
 | --- | --- |
@@ -97,9 +97,9 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 | Description |	List your spacecraft's **frequency bands** and **desired ground stations** |
 | File upload |	Upload any **pertinent licensing material**, if applicable |
 
-1. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
-1. Select the **Review + create** tab, or select the **Review + create** button.
-1. Select **Create**.
+6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
+7. Select the **Review + create** tab, or select the **Review + create** button.
+8. Select **Create**.
 
    > [!NOTE]
    > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.

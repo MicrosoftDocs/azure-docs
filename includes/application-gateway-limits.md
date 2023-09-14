@@ -2,12 +2,12 @@
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: include
-ms.date: 10/19/2022
+ms.date: 07/29/2023
 ms.author: greglin
 ---
 | Resource | Limit | Note |
 | --- | --- | --- |
-| Azure Application Gateway |1,000 per subscription | |
+| Azure Application Gateway |1,000 per region per subscription | |
 | Frontend IP configurations |2 |1 public and 1 private |
 | Frontend ports |100<sup>1</sup> | |
 | Backend address pools |100 | |
@@ -19,6 +19,7 @@ ms.author: greglin
 | SSL certificates |100<sup>1</sup> |1 per HTTP listener |
 | Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Maximum trusted client CA certificate size | 25 KB| 25 KB is the maximum aggregated size of root and intermediate certificates contained in an uploaded pem or cer file. |
+| Maximum trusted client CA certificates |200 | 100 per SSL Profile |
 | Authentication certificates |100 | |
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |
@@ -26,6 +27,7 @@ ms.author: greglin
 | Request timeout maximum to external backend |4 minutes | |
 | Number of sites |100<sup>1</sup> |1 per HTTP listener |
 | URL maps per listener |1 | |
+| Host names per listener |5 | |
 | Maximum path-based rules per URL map|100||
 | Redirect configurations |100<sup>1</sup>| |
 | Number of rewrite rule sets |400| |
@@ -44,6 +46,7 @@ ms.author: greglin
 | Maximum WAF custom rules|100||
 | WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or newer|
 | Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or newer|
+| WAF string match values per match condition|10||
 
 <sup>1</sup> The number of resources listed in the table applies to standard Application Gateway SKUs and WAF-enabled SKUs running CRS 3.2 or higher. For WAF-enabled SKUs running CRS 3.1 or lower, the supported number is 40. For more information, see [WAF engine](../articles/web-application-firewall/ag/waf-engine.md).
 

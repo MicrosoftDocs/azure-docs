@@ -7,7 +7,7 @@ author: hhunter-ms
 ms.contributor: cawa
 ms.date: 08/23/2022 
 ms.subservice: change-analysis
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Enable Change Analysis
@@ -62,7 +62,7 @@ If your subscription includes several web apps, run the following script to enab
 
 ### Pre-requisites
 
-PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
+PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
 ### Run the following script:
 

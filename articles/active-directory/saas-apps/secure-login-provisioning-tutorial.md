@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: f37882fb-80fa-446c-8f56-d13fd905fe54
 ms.service: active-directory
@@ -84,7 +84,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to **SecureLogin**'s Go to domain page. Input your SecureLogin domain and click on the **Go** button. You will be redirected to **SecureLogin**'s Authorization page. Input your **Username** and **Password** and click on the **Login** button. Click **Test Connection** to ensure Azure AD can connect to SecureLogin. If the connection fails, ensure your SecureLogin account has Admin permissions and try again.
 
- 	![ Admin Credentials](./media/secure-login-provisioning-tutorial/authorize.png)
+ 	![Admin Credentials](./media/secure-login-provisioning-tutorial/authorize.png)
 
  	![Welcome](./media/secure-login-provisioning-tutorial/login.png)
 

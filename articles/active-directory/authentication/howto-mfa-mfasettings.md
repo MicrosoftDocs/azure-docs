@@ -1,30 +1,30 @@
 ---
 title: Configure Azure AD Multi-Factor Authentication
-description: Learn how to configure settings for Azure AD Multi-Factor Authentication in the Azure portal
+description: Learn how to configure settings for Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 08/16/2023
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jupetter
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ---
 # Configure Azure AD Multi-Factor Authentication settings
 
-To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like account lockout thresholds or fraud alerts and notifications. Some settings are available directly in the Azure portal for Azure Active Directory (Azure AD), and some are in a separate Azure AD Multi-Factor Authentication portal.
-
-The following Azure AD Multi-Factor Authentication settings are available in the Azure portal:
+To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like account lockout thresholds or fraud alerts and notifications. 
+ 
+The following Azure AD Multi-Factor Authentication settings are available:
 
 | Feature | Description |
 | ------- | ----------- |
-| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server only) |
+| [Account lockout (MFA Server only)](#account-lockout-mfa-server-only) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who use MFA Server to enter a PIN to authenticate. |
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked or until they're manually unblocked. |
 | [Report suspicious activity](#report-suspicious-activity) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
@@ -34,9 +34,14 @@ The following Azure AD Multi-Factor Authentication settings are available in the
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
-## Account lockout
+## Account lockout (MFA Server only)
 
-To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are  applied only when a PIN code is entered for the MFA prompt.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+>[!NOTE]
+>Account lockout only affects users who sign in by using MFA Server on-premises. 
+
+To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are applied only when a PIN code is entered for the MFA prompt by using MFA Server on-premises.
 
 The following settings are available:
 
@@ -78,15 +83,20 @@ To unblock a user, complete the following steps:
 
 ## Report suspicious activity
 
-A preview of **Report Suspicious Activity**, the updated MFA **Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
+**Report suspicious activity**, the updated **MFA Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
 
 Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have an Azure AD P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](../identity-protection/concept-identity-protection-policies.md).  
 
-To enable **Report Suspicious Activity** from the Authentication Methods Settings:   
+To enable **Report suspicious activity** from the Authentication methods **Settings**:   
 
 1. In the Azure portal, click **Azure Active Directory** > **Security** > **Authentication Methods** > **Settings**. 
-1. Set **Report Suspicious Activity** to **Enabled**. 
+1. Set **Report suspicious activity** to **Enabled**. The feature remains disabled if you choose **Microsoft managed**. For more information about Microsoft managed values, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
 1. Select **All users** or a specific group. 
+1. Select a **Reporting code**.
+1. Click **Save**. 
+
+>[!NOTE]
+>If you enable **Report suspicious activity** and specify a custom voice reporting value while the tenant still has **Fraud Alert** enabled in parallel with a custom voice reporting number configured, the **Report suspicious activity** value will be used instead of **Fraud Alert**.
 
 ### View suspicious activity events 
 
@@ -104,9 +114,9 @@ Once a user has reported a prompt as suspicious, the risk should be investigated
 
 ### Report suspicious activity and fraud alert 
 
-**Report Suspicious Activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report Suspicious Activity** with a targeted test group. 
+**Report suspicious activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report suspicious activity** with a targeted test group. 
 
-If **Fraud Alert** is enabled with Automatic Blocking, and **Report Suspicious Activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
+If **Fraud Alert** is enabled with Automatic Blocking, and **Report suspicious activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
 
 ## Notifications
 
@@ -129,7 +139,7 @@ OATH TOTP hardware tokens typically come with a secret key, or seed, pre-program
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
 
-OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://aka.ms/EntraPreviewsTermsOfUse).
 
 ![Screenshot that shows the OATH tokens section.](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -159,18 +169,53 @@ Users can have a combination of up to five OATH hardware tokens or authenticator
 
 If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
 
-In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Uses with spam filters should exclude this number.
+In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following numbers. Users with spam filters should exclude these numbers.
 
-* *+1 (855) 330-8653*
+Default number: *+1 (855) 330-8653*
+
+The following table lists more numbers for different countries.
+
+| Country/Region       | Number(s)       |
+|:---------------------|:----------------|
+| Austria              | +43 6703062076  |
+| Bangladesh           | +880 9604606026 |
+| Croatia              | +385 15507766   |
+| Ecuador              | +593 964256042  |
+| Estonia              | +372 6712726    |
+| France               | +33 744081468   |
+| Ghana                | +233 308250245  |
+| Greece               | +30 2119902739  |
+| Guatemala            | +502 23055056   |
+| Hong Kong SAR        | +852 25716964   |
+| India                | +91 3371568300, +91 1205089400, +91 4471566601, +91 2271897557, +91 1203524400, +91 3335105700, +91 2235544120, +91 4435279600|
+| Jordan               | +962 797639442  |
+| Kenya                | +254 709605276  |
+| Netherlands          | +31 202490048   |
+| Nigeria              | +234 7080627886 |
+| Pakistan             | +92 4232618686  |
+| Poland               | +48 699740036   |
+| Saudi Arabia         | +966 115122726  |
+| South Africa         | +27 872405062   |
+| Spain                | +34 913305144   |
+| Sri Lanka            | +94 117750440   |
+| Sweden               | +46 701924176   |
+| Taiwan               | +886 277515260  |
+| Türkiye              | +90 8505404893  |
+| Ukraine              | +380 443332393  |
+| United Arab Emirates | +971 44015046   |
+| Vietnam              | +84 2039990161  |
 
 > [!NOTE]
-> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-).
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-short-codes-are-used-for-sending-text-messages-to-my-users-).
 
 To configure your own caller ID number, complete the following steps:
 
 1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Phone call settings**.
 1. Set the **MFA caller ID number** to the number you want users to see on their phones. Only US-based numbers are allowed.
 1. Select **Save**.
+
+> [!NOTE]
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-short-codes-are-used-for-sending-text-messages-to-my-users-).
 
 ### Custom voice messages
 
@@ -256,6 +301,9 @@ If your organization uses the NPS extension to provide MFA to on-premises applic
 | Federated |**All Federated Users**: All federated users who sign in from inside the organization can bypass multi-factor authentications. Users bypass verifications by using a claim that's issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. |
 
 Trusted IP bypass works only from inside the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multi-factor authentication. The process is the same even if the user presents an AD FS claim.
+
+>[!NOTE]
+>If both per-user MFA and Conditional Access policies are configured in the tenant, you will need to add trusted IPs to the Conditional Access policy and update the MFA service settings.
 
 #### User experience inside the corporate network
 
@@ -366,6 +414,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 >
 > The **remember multi-factor authentication** feature isn't compatible with B2B users and won't be visible for B2B users when they sign in to the invited tenants.
 >
+> The **remember multi-factor authentication** feature isn't compatible with the Sign-in frequency Conditional Access control. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md#configuring-authentication-session-controls).
 
 #### Enable remember multi-factor authentication
 

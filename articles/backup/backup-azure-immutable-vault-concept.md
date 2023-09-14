@@ -4,9 +4,9 @@ description: This article explains about the concept of Immutable vault for Azur
 ms.topic: conceptual
 ms.service: backup
 ms.custom: references_regions
-ms.date: 02/17/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 05/25/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Immutable vault for Azure Backup
@@ -47,7 +47,7 @@ Immutable vault prevents you  from performing the following operations  on the v
 | Operation type | Description |
 | --- | --- |
 | **Stop protection with delete data** | A protected item can't have its recovery points deleted before their respective expiry date. However, you can still stop protection of the instances while retaining data forever or until their expiry. |
-| **Modify backup policy to reduce retention** | Any actions that reduce the retention period in a backup policy are disallowed on Immutable vault. However, you can make policy changes that result in the increase of retention. You can also make changes to the schedule of a backup policy. |
+| **Modify backup policy to reduce retention** | Any actions that reduce the retention period in a backup policy are disallowed on Immutable vault. However, you can make policy changes that result in the increase of retention. You can also make changes to the schedule of a backup policy. <br><br>  Note that the increase in retention can't be applied if any item has its backups suspended (stop backup).  |
 | **Change backup policy to reduce retention** | Any attempt to replace a backup policy associated with a backup item with another policy with retention lower than the existing one is blocked. However, you can replace a policy with the one that has higher retention. |
 
 # [Backup vault](#tab/backup-vault)

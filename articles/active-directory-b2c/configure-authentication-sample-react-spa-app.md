@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -58,7 +58,7 @@ The following diagram describes the app registrations and the app architecture.
 Before you follow the procedures in this article, make sure that your computer is running:
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
-* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
+* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/). To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
 
 ## Step 1: Configure your user flow
 
@@ -213,7 +213,7 @@ You're now ready to test the React scoped access to the API. In this step, run b
 
     ```console
     npm install && npm update
-    node index.js
+    npm start
     ```
 
     The console window displays the port number where the application is hosted:

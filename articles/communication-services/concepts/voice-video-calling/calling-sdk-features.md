@@ -11,6 +11,7 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
+ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
@@ -76,7 +77,7 @@ The following list presents the set of features that are currently available in 
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 
-1. The Share Screen capability can be achieved using Raw Media (this feature is in Public Preview), if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+1. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 2. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
 
 ## UI Library
@@ -92,9 +93,9 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing  WebSDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24) or greater | 9 videos + 1 screen sharing |
 
-While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded.
+While the Calling SDK don't enforce these limits, your users may experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
 
 ## Calling SDK timeouts
 
@@ -102,7 +103,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 | Action                                                                      | Timeout in seconds |
 | --------------------------------------------------------------------------- | ------------------ |
-| Reconnect/removal participant                                               | 120                |
+| Reconnect/removal participant                                               | 60                |
 | Add or remove new modality from a call (Start/stop video or screen sharing) | 40                 |
 | Call Transfer operation timeout                                             | 60                 |
 | 1:1 call establishment timeout                                              | 85                 |
@@ -120,13 +121,13 @@ The following table represents the set of supported browsers, which are currentl
 
 | Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
 | ------------ | ------ | ------ | ------ | ------- | ------- |
-| Android      | ✔️      | ❌      | ❌           | ❌      | ✔️ *    |
-| iOS          | ❌      | ✔️      | ❌           | ❌      | ✔️      |
+| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️ *    |
+| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      |
 | macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      |
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
 
-- Outgoing Screen Sharing isn't supported on iOS or Android.
+- Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
 - Firefox support is in public preview.
 - ACS only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
 Running JavaScript Calling SDK on these platforms isn't actively tested, it may or may not work.
@@ -135,15 +136,12 @@ Running JavaScript Calling SDK on these platforms isn't actively tested, it may 
 ## Android Calling SDK support
 
 - Support for Android API Level 21 or Higher
-
 - Support for Java 7 or higher
-
 - Support for Android Studio 2.0
 
 ## iOS Calling SDK support
 
 - Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
-
 - Xcode 12.0+
 
 ## Calling client - browser security model
@@ -179,4 +177,5 @@ For more information, see the following articles:
 
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
+- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications. 
 - [Plan your PSTN solution](../telephony/plan-solution.md)

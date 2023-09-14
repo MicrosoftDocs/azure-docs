@@ -17,6 +17,8 @@ ms.custom: legacy, devx-track-azurepowershell
 > [!IMPORTANT]
 > This article covers the older managed image technology. For the most current technology, customers are encouraged to use [Azure Compute Gallery](azure-compute-gallery.md). All new features, like ARM64, Trusted Launch, and Confidential VM  are only supported through Azure Compute Gallery.  If you have an existing managed image, you can use it as a source and create an Azure Compute Gallery image.  For more information, see [Create an image definition and image version](image-version.md).
 >
+> Once you mark a VM as `generalized` in Azure, you cannot restart the VM.
+> 
 > One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use an [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) image configured with 1 replica for every 20 concurrent VM deployments.
 
 For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -50,7 +52,7 @@ This command returns JSON that describes the VM image. Save this output for late
 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
-Before you begin, make sure that you have the latest version of the Azure PowerShell module. To find the version, run `Get-Module -ListAvailable Az` in PowerShell. If you need to upgrade, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps). If you are running PowerShell locally, run `Connect-AzAccount` to create a connection with Azure.
+Before you begin, make sure that you have the latest version of the Azure PowerShell module. To find the version, run `Get-Module -ListAvailable Az` in PowerShell. If you need to upgrade, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, run `Connect-AzAccount` to create a connection with Azure.
 
 
 > [!NOTE]
@@ -61,53 +63,54 @@ To create a VM image, follow these steps:
 1. Create some variables.
 
     ```azurepowershell-interactive
-	$vmName = "myVM"
-	$rgName = "myResourceGroup"
-	$location = "EastUS"
-	$imageName = "myImage"
-	```
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $imageName = "myImage"
+    ```
+
 2. Make sure the VM has been deallocated.
 
     ```azurepowershell-interactive
-	Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
-	```
-	
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
+    ```
+    
 3. Set the status of the virtual machine to **Generalized**. 
    
     ```azurepowershell-interactive
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
-	```
-	
+    ```
+    
 4. Get the virtual machine. 
 
     ```azurepowershell-interactive
-	$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
-	```
+    $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
+    ```
 
 5. Create the image configuration.
 
     ```azurepowershell-interactive
-	$image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
-	```
+    $image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
+    ```
 6. Create the image.
 
     ```azurepowershell-interactive
     New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
-    ```	
+    ```    
 
 ## PowerShell: Create a legacy managed image from a managed disk 
 
 If you want to create an image of only the OS disk, specify the managed disk ID as the OS disk:
 
-	
+    
 1. Create some variables. 
 
     ```azurepowershell-interactive
-	$vmName = "myVM"
-	$rgName = "myResourceGroup"
-	$location = "EastUS"
-	$imageName = "myImage"
-	```
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $imageName = "myImage"
+    ```
 
 2. Get the VM.
 
@@ -118,36 +121,36 @@ If you want to create an image of only the OS disk, specify the managed disk ID 
 3. Get the ID of the managed disk.
 
     ```azurepowershell-interactive
-	$diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
-	```
+    $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
+    ```
    
 3. Create the image configuration.
 
     ```azurepowershell-interactive
-	$imageConfig = New-AzImageConfig -Location $location
-	$imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
-	```
-	
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    ```
+    
 4. Create the image.
 
     ```azurepowershell-interactive
     New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```	
+    ```    
 
 
 ## PowerShell: Create a legacy managed image from a snapshot
 
 You can create a managed image from a snapshot of a generalized VM by following these steps:
 
-	
+    
 1. Create some variables. 
 
     ```azurepowershell-interactive
-	$rgName = "myResourceGroup"
-	$location = "EastUS"
-	$snapshotName = "mySnapshot"
-	$imageName = "myImage"
-	```
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $snapshotName = "mySnapshot"
+    $imageName = "myImage"
+    ```
 
 2. Get the snapshot.
 
@@ -158,14 +161,14 @@ You can create a managed image from a snapshot of a generalized VM by following 
 3. Create the image configuration.
 
     ```azurepowershell-interactive
-	$imageConfig = New-AzImageConfig -Location $location
-	$imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
-	```
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
+    ```
 4. Create the image.
 
     ```azurepowershell-interactive
     New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```	
+    ```
 
 
 ## PowerShell: Create a legacy managed image from a VM that uses a storage account
@@ -176,29 +179,29 @@ To create a managed image from a VM that doesn't use managed disks, you need the
 1.  Create some variables.
 
     ```azurepowershell-interactive
-	$vmName = "myVM"
-	$rgName = "myResourceGroup"
-	$location = "EastUS"
-	$imageName = "myImage"
-	$osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/vhdfilename.vhd"
+    $vmName = "myVM"
+    $rgName = "myResourceGroup"
+    $location = "EastUS"
+    $imageName = "myImage"
+    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/vhdfilename.vhd"
     ```
 2. Stop/deallocate the VM.
 
     ```azurepowershell-interactive
-	Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
-	```
-	
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
+    ```
+    
 3. Mark the VM as generalized.
 
     ```azurepowershell-interactive
-	Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized	
-	```
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized    
+    ```
 4.  Create the image by using your generalized OS VHD.
 
     ```azurepowershell-interactive
-	$imageConfig = New-AzImageConfig -Location $location
-	$imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-	$image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
 
@@ -262,7 +265,7 @@ The following example creates a VM named *myVMFromImage*, in the *myResourceGrou
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
-	-ImageName "myImage" `
+    -ImageName "myImage" `
     -Location "East US" `
     -VirtualNetworkName "myImageVnet" `
     -SubnetName "myImageSubnet" `
@@ -270,8 +273,6 @@ New-AzVm `
     -PublicIpAddressName "myImagePIP" 
 ```
 
-
-	
 ## Next steps
 
 - Learn more about using an [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)

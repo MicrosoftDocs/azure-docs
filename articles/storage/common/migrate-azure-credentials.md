@@ -1,23 +1,20 @@
 ---
-title: Migrate applications to use passwordless authentication with Azure Storage
+title: Migrate applications to use passwordless authentication with Azure Blob Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 12/07/2022
-ms.service: storage
-ms.subservice: common
+ms.date: 05/09/2023
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: csharp
+ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Migrate an application to use passwordless connections with Azure Storage
+# Migrate an application to use passwordless connections with Azure Blob Storage
 
-Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use passwords or secret keys create additional security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
-
-The following tutorial explains how to migrate an existing application to connect to Azure Storage to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
+[!INCLUDE [passwordless-intro](../../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure roles and users for local development authentication
 
@@ -25,40 +22,146 @@ The following tutorial explains how to migrate an existing application to connec
 
 ## Sign-in and migrate the app code to use passwordless connections
 
-For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
-
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Next you need to update your code to use passwordless connections.
+Next, update your code to use passwordless connections.
 
 ## [.NET](#tab/dotnet)
 
-1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
+1. To use `DefaultAzureCredential` in a .NET application, install the `Azure.Identity` package:
 
    ```dotnetcli
    dotnet add package Azure.Identity
    ```
 
-1. At the top of your `Program.cs` file, add the following `using` statement:
+1. At the top of your file, add the following code:
 
    ```csharp
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that currently create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Blob Storage. Update your code to match the following example:
 
    ```csharp
-   // TODO: Update <storage-account-name> placeholder to your account name
-   var blobServiceClient = new BlobServiceClient(
-       new Uri("https://<storage-account-name>.blob.core.windows.net"),
-       new DefaultAzureCredential());
+   DefaultAzureCredential credential = new();
+
+   BlobServiceClient blobServiceClient = new(
+       new Uri($"https://{storageAccountName}.blob.core.windows.net"),
+       credential);
    ```
 
-1. Make sure to update the storage account name in the URI of your `BlobServiceClient`. You can find the storage account name on the overview page of the Azure portal.
+## [Go](#tab/go)
 
-   :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name.":::
+1. To use `DefaultAzureCredential` in a Go application, install the `azidentity` module:
+
+    ```bash
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+    ```
+
+1. Identify the locations in your code that create a `Client` instance to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```go
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        // handle error
+    }
+
+    serviceURL := fmt.Sprintf("https://%s.blob.core.windows.net", storageAccountName)
+    client, err := azblob.NewClient(serviceURL, cred, nil)
+    if err != nil {
+        // handle error
+    }
+    ```
+
+## [Java](#tab/java)
+
+1. To use `DefaultAzureCredential` in a Java application, install the `azure-identity` package via one of the following approaches:
+    1. [Include the BOM file](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-the-bom-file).
+    1. [Include a direct dependency](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-direct-dependency).
+
+1. At the top of your file, add the following code:
+
+    ```java
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    ```
+
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```java
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .build();
+    String endpoint = 
+        String.format("https://%s.blob.core.windows.net", storageAccountName);
+
+    BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+        .endpoint(endpoint)
+        .credential(credential)
+        .buildClient();
+    ```
+
+## [Node.js](#tab/nodejs)
+
+1. To use `DefaultAzureCredential` in a Node.js application, install the `@azure/identity` package:
+
+    ```bash
+    npm install --save @azure/identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```nodejs
+    import { DefaultAzureCredential } from "@azure/identity";
+    ```
+
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```nodejs
+    const credential = new DefaultAzureCredential();
+    
+    const blobServiceClient = new BlobServiceClient(
+      `https://${storageAccountName}.blob.core.windows.net`,
+      credential
+    );    
+    ```
+
+## [Python](#tab/python)
+
+1. To use `DefaultAzureCredential` in a Python application, install the `azure-identity` package:
+    
+    ```bash
+    pip install azure-identity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    ```
+
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```python
+    credential = DefaultAzureCredential()
+
+    blob_service_client = BlobServiceClient(
+        account_url = "https://%s.blob.core.windows.net" % storage_account_name,
+        credential = credential
+    )
+    ```
 
 ---
+
+4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. You can find the storage account name on the overview page of the Azure portal.
+
+   :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name.":::
 
 ### Run the app locally
 
@@ -83,7 +186,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 * Azure Spring Apps
 * Azure Container Apps
 * Azure virtual machines
-* Azure Kubernetes Service.
+* Azure Kubernetes Service
 
 1. Navigate to the overview page of your web app.
 1. Select **Identity** from the left navigation.
@@ -153,29 +256,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-### Update the application code
-
-You need to configure your application code to look for the specific managed identity you created when it is deployed to Azure. In some scenarios, explicitly setting the managed identity for the app also prevents other environment identities from accidentally being detected and used automatically.
-
-## [.NET](#tab/dotnet)
-
-1. On the managed identity overview page, copy the client ID value to your clipboard.
-1. Update the `DefaultAzureCredential` object in the `Program.cs` file of your app to specify this managed identity client ID.
-
-    ```csharp
-    // TODO: Update the <your-storage-account-name> and <your-managed-identity-client-id> placeholders
-    var blobServiceClient = new BlobServiceClient(
-                        new Uri("https://<your-storage-account-name>.blob.core.windows.net"),
-                        new DefaultAzureCredential(
-                            new DefaultAzureCredentialOptions() 
-                            { 
-                                ManagedIdentityClientId = "<your-managed-identity-client-id>" 
-                            }));
-    ```
-
-3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
-
----
+[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 

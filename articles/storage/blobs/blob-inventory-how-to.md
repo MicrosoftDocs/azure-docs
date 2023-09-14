@@ -4,12 +4,11 @@ description: Obtain an overview of your containers, blobs, snapshots, and blob v
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.date: 02/24/2023
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
-ms.subservice: blobs
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -65,7 +64,7 @@ You can add, edit, or remove a policy by using the Azure PowerShell module.
 
 1. Open a Windows PowerShell command window.
 
-2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+2. Make sure that you have the latest Azure PowerShell module. See [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 

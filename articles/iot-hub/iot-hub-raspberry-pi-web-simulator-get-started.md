@@ -97,7 +97,7 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Read the messages received by your hub
 
-One way to monitor messages received by your IoT hub from the simulated device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+One way to monitor messages received by your IoT hub from the simulated device is to use the Azure IoT Hub extension for Visual Studio Code. To learn more, see [Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 For more ways to process data sent by your device, continue on to the next section.
 

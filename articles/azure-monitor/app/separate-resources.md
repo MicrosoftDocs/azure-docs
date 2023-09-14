@@ -2,7 +2,7 @@
 title: 'Design your Application Insights deployment: One vs. many resources?'
 description: Direct telemetry to different resources for development, test, and production stamps.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 09/12/2023
 ms.reviewer: rijolly
 ---
 
@@ -52,7 +52,7 @@ Be aware that:
 
 To make it easier to change the instrumentation key as the code moves between stages of production, reference the key dynamically in code instead of using a hardcoded or static value.
 
-Set the key in an initialization method, such as `global.aspx.cs`, in an ASP.NET service:
+Set the key in an initialization method, such as `global.asax.cs`, in an ASP.NET service:
 
 ```csharp
 protected void Application_Start()
@@ -85,7 +85,10 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## Create more Application Insights resources
 
-To create an Applications Insights resource, see [Create an Application Insights resource](./create-new-resource.md).
+To create an Applications Insights resource, see [Create an Application Insights resource](./create-workspace-resource.md).
+
+> [!WARNING]
+> You may incur additional network costs if your Application Insights resource is monitoring an Azure resource (i.e., telemetry producer) in a different region. Costs will vary depending on the region the telemetry is coming from and where it is going. Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
 
 ### Get the instrumentation key
 The instrumentation key identifies the resource that you created.

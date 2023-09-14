@@ -1,0 +1,68 @@
+variables: 
+- group: AzureResourcesVariableGroup
+   
+trigger:
+- main
+
+stages:
+- stage: Build
+  jobs: 
+  - job: Build
+
+    pool:
+      vmImage: 'windows-latest'
+
+    variables:
+      solution: '**/*.sln'
+      buildPlatform: 'Any CPU'
+      buildConfiguration: 'Release'      
+
+    steps:
+    - task: NuGetToolInstaller@1
+
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
+
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+        
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'  
+    
+- stage: DeployAzureResources
+  displayName: 'Deploy resources to Azure'
+  dependsOn: Build
+  condition: |
+    succeeded()    
+  jobs: 
+  - job: DeployAzureResources
+    pool: 
+      vmImage: 'windows-latest'
+    steps:
+      - task: AzureCLI@2
+        inputs:
+          azureSubscription: $(AZURESUBSCRIPTION)
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            # Create a resource group
+            az group create --location $LOCATION --name $RESOURCEGROUPNAME
+            echo "Created resource group $RESOURCEGROUPNAME"    
+
+            # Create App Service plan
+            az appservice plan create -g $RESOURCEGROUPNAME -n $SVCPLANNAME --sku FREE
+            echo "Created App Service plan $SVCPLANNAME"
+            
+            ### Create Test resources
+            # create and configure an Azure App Service web app
+            az webapp create -g $RESOURCEGROUPNAME -p $SVCPLANNAME -n $WEBAPPNAMETEST -r "dotnet:7"
+                        
+        name: DeploymentScript

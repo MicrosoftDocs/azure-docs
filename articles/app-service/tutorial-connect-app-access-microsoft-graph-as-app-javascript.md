@@ -12,7 +12,7 @@ ms.date: 03/14/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: javascript
-ms.custom: azureday1
+ms.custom: azureday1, devx-track-js, AppServiceConnectivity
 ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---

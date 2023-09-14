@@ -8,20 +8,20 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-ignite-2022
 ms.date: 03/08/2023
-ms.author: shoja
-author: shouryaj
+ms.author: rasavage
+author: rsavage2
 ms.reviewer: ssalgado
 ---
 
 # CLI (v2) Automated ML Forecasting command job YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/autoMLForecastingJob.schema.json
 
 
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -76,7 +76,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `frequency` | string | The frequency at which the forecast generation is desired, for example daily, weekly, yearly, etc. <br>If it isn't specified or set to None, then its default value is inferred from the dataset time index. The user can set its value greater than dataset's inferred frequency, but not less than it. For example, if dataset's frequency is daily, it can take values like daily, weekly, monthly, but not hourly as hourly is less than daily(24 hours).<br> Refer to [pandas documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects) for more information.|  | `None` |
 | `time_series_id_column_names` | string or list(strings) | The names of columns in the data to be used to group data into multiple time series. If time_series_id_column_names is not defined or set to None, the Automated ML uses auto-detection logic to detect the columns.|  | `None` |
 | `feature_lags` | string | Represents if user wants to generate lags automatically for the provided numeric features. The default is set to `auto`, meaning that Automated ML uses autocorrelation-based heuristics to automatically select lag orders and generate corresponding lag features for all numeric features. "None" means no lags are generated for any numeric features.| `'auto'`, `None` | `None` |
-| `country_or_region_for_holidays` | string | The country or region to be used to generate holiday features. These characters should be represented in ISO 3166 two-letter country/region codes, for example 'US' or 'GB'. The list of the ISO codes can be found here: https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes|  | `None` |
+| `country_or_region_for_holidays` | string | The country or region to be used to generate holiday features. These characters should be represented in ISO 3166 two-letter country/region codes, for example 'US' or 'GB'. The list of the ISO codes can be found at [https://wikipedia.org/wiki/List_of_ISO_3166_country_codes](https://wikipedia.org/wiki/List_of_ISO_3166_country_codes).  | `None` |
 | `cv_step_size` | string or integer | The number of periods between the origin_time of one CV fold and the next fold. For example, if it is set to 3 for daily data, the origin time for each fold is three days apart. If it set to None or not specified, then it's set to `auto` by default. If it is of integer type, minimum value it can take is 1 else it raises an error. | `auto`, [int] | `auto` |
 | `seasonality` | string or integer | The time series seasonality as an integer multiple of the series frequency. If seasonality is not specified, its value is set to `'auto'`, meaning it is inferred automatically by Automated ML. If this parameter is not set to `None`, the Automated ML assumes time series as non-seasonal, which is equivalent to setting it as integer value 1. | `'auto'`, [int] | `auto` | 
 | `short_series_handling_config` | string | Represents how Automated ML should handle short time series if specified. It takes following values: <br><ul><li>`'auto'` : short series is padded if there are no long series, otherwise short series is dropped.</li><li>`'pad'`: all the short series is padded with zeros.</li><li>`'drop'`: all the short series is dropped.</li><li> `None`: the short series is not modified.</li><ul>| `'auto'`, `'pad'`, `'drop'`, `None` | `auto` |

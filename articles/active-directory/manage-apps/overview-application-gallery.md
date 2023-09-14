@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 01/22/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Overview of the Azure Active Directory application gallery
@@ -19,7 +20,7 @@ The Azure Active Directory (Azure AD) application gallery is a collection of sof
 
 To find the gallery when signed into your tenant, select **Enterprise applications**, select **All applications**, and then select **New application**.
 
-:::image type="content" source="media/overview-application-gallery/enterprise-applications.png" alt-text="Screenshot showing the Azure Active Directory application gallery blade in the Azure portal.":::
+:::image type="content" source="media/overview-application-gallery/enterprise-applications.png" alt-text="Screenshot showing the Azure Active Directory application gallery blade in the [Microsoft Entra admin center](https://entra.microsoft.com).":::
 
 The applications available from the gallery follow the SaaS model that allows users to connect to and use cloud-based applications over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365). 
 
@@ -39,7 +40,7 @@ The gallery contains thousands of applications that have been pre-integrated int
 
 If you don’t find the application that you are looking for in the featured applications, you can search for a specific application by name. 
 
-:::image type="content" source="media/overview-application-gallery/search-applications.png" alt-text="Screenshot showing the search options on the Azure Active Directory application gallery blade in the Azure portal.":::
+:::image type="content" source="media/overview-application-gallery/search-applications.png" alt-text="Screenshot showing the search options on the Azure Active Directory application gallery blade in the Microsoft Entra admin center.":::
 
 When searching for an application, you can also specify specific filters, such as single sign-on options, automated provisioning, and categories. 
 
@@ -51,7 +52,7 @@ When searching for an application, you can also specify specific filters, such a
 
 Applications that are specific to major cloud platforms, such as AWS, Google, or Oracle can be found by selecting the appropriate platform.
 
-:::image type="content" source="media/overview-application-gallery/cloud-applications.png" alt-text="Screenshot showing the cloud application options on the Azure Active Directory application gallery blade in the Azure portal.":::
+:::image type="content" source="media/overview-application-gallery/cloud-applications.png" alt-text="Screenshot showing the cloud application options on the Azure Active Directory application gallery blade in the Microsoft Entra admin center.":::
 
 ### On-premises applications
 
@@ -61,13 +62,13 @@ On-premises applications are connected to Azure AD using Azure AD Application Pr
 - Use the documentation to learn more about how to use Application Proxy to secure remote access to on-premises applications.
 - Manage any Application Proxy connectors that you've already created.
 
-:::image type="content" source="media/overview-application-gallery/on-premises-applications.png" alt-text="Screenshot showing the on-premises application options on the Azure Active Directory application gallery blade in the Azure portal.":::
+:::image type="content" source="media/overview-application-gallery/on-premises-applications.png" alt-text="Screenshot showing the on-premises application options on the Azure Active Directory application gallery blade in the Microsoft Entra admin center.":::
 
 ### Featured applications
 
 A collection of featured applications is listed by default when you open the Azure AD gallery. Each application is marked with a symbol to enable you to identify whether it supports federated SSO or automated provisioning.
 
-:::image type="content" source="media/overview-application-gallery/featured-applications.png" alt-text="Screenshot showing the featured applications on the Azure Active Directory application gallery blade in the Azure portal.":::
+:::image type="content" source="media/overview-application-gallery/featured-applications.png" alt-text="Screenshot showing the featured applications on the Azure Active Directory application gallery blade in the Microsoft Entra admin center.":::
 
 - **Federated SSO** - When you set up [SSO](what-is-single-sign-on.md) to work between multiple identity providers, it's called federation. An SSO implementation based on federation protocols improves security, reliability, user experiences, and implementation. Some applications implement federated SSO as SAML-based or as OIDC-based. For SAML applications, when you select create, the application is added to your tenant. For OIDC applications, the administrator must first sign up or sign-in on the application's website to add the application to Azure AD.
 - **Provisioning** - Azure AD to SaaS [application provisioning](../app-provisioning/user-provisioning.md) refers to automatically creating user identities and roles in the SaaS applications that users need access to.

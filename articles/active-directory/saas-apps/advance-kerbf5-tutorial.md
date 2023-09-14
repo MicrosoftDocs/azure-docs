@@ -93,16 +93,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<YourCustomFQDN>.f5.com/`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [F5 Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [F5 Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up F5** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -156,7 +156,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
     ![F5 (Advanced Kerberos) configuration](./media/advance-kerbf5-tutorial/configure04.png)
 
-    ![Screenshot that shows the Single Sign On Service Settings screen. ](./media/advance-kerbf5-tutorial/configure05.png)
+    ![Screenshot that shows the Single Sign On Service Settings screen.](./media/advance-kerbf5-tutorial/configure05.png)
  
 1. Specify the Certificate uploaded from Task 3
 
@@ -184,10 +184,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     >[!Note]
     >You will need the Kerberos Delegation Account to be created and specified. Refer KCD Section ( Refer Appendix for Variable References)
 
-    •	Username Source
+    *    Username Source
     `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    •	User Realm Source
+    *    User Realm Source
     `session.logon.last.domain`
 
     ![Screenshot that highlights Access > Single Sign On.](./media/advance-kerbf5-tutorial/configure11.png)
@@ -282,7 +282,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 | Session | Attribute |
 | -- | -- |
 | eb46b6b6.session.saml.last.assertionID | `<TENANT ID>` |
-| eb46b6b6.session.saml.last.assertionIssueInstant	| `<ID>` |
+| eb46b6b6.session.saml.last.assertionIssueInstant    | `<ID>` |
 | eb46b6b6.session.saml.last.assertionIssuer | `https://sts.windows.net/<TENANT ID>`/ |
 | eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
 | eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/displayname | user0 |
@@ -326,11 +326,11 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
 
 
@@ -338,8 +338,8 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 - [Configure F5 single sign-on for Kerberos application](kerbf5-tutorial.md)
 
-- [F5 BIG-IP APM and Azure AD integration for secure hybrid access](../manage-apps/f5-aad-integration.md)
+- [F5 BIG-IP APM and Azure AD integration for secure hybrid access](../manage-apps/f5-integration.md)
 
 - [Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access](../manage-apps/f5-bigip-deployment-guide.md)
 
-- [Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN](../manage-apps/f5-aad-password-less-vpn.md)
+- [Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN](../manage-apps/f5-passwordless-vpn.md)

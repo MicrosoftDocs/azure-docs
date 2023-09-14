@@ -5,8 +5,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 08/24/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: fryu
 ---
@@ -102,7 +101,8 @@ Rehydration of an archived blob may take up to 15 hours, and it is inefficient t
 
 Azure Event Grid raises one of the following two events on blob rehydration, depending on which operation was used to rehydrate the blob:
 
-- The **Microsoft.Storage.BlobCreated** event fires when a blob is created. In the context of blob rehydration, this event fires when a [Copy Blob](/rest/api/storageservices/copy-blob) operation creates a new destination blob in either the Hot or Cool tier and the blob's data is fully rehydrated from the Archive tier.
+- The **Microsoft.Storage.BlobCreated** event fires when a blob is created. In the context of blob rehydration, this event fires when a [Copy Blob](/rest/api/storageservices/copy-blob) operation creates a new destination blob in either the Hot or Cool tier and the blob's data is fully rehydrated from the Archive tier. If the account has the **hierarchical namespace** feature enabled on it, the `CopyBlob` operation works a little differently. In that case, the **Microsoft.Storage.BlobCreated** event is triggered when the `CopyBlob` operation is **initiated** and not when the Block Blob is completely committed.
+  
 - The **Microsoft.Storage.BlobTierChanged** event fires when a blob's tier is changed. In the context of blob rehydration, this event fires when a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation successfully changes an archived blob's tier to the Hot or Cool tier.
 
 To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
@@ -111,7 +111,7 @@ For more information on handling events in Blob Storage, see [Reacting to Azure 
 
 ## Pricing and billing
 
-A rehydration operation with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is billed for data read transactions and data retrieval size. A high-priority rehydration has higher operation and data retrieval costs compared to standard priority. High-priority rehydration shows up as a separate line item on your bill. If a high-priority request to return an archived blob of a few gigabytes takes more than five hours, you won't be charged the high-priority retrieval rate. However, standard retrieval rates still apply.
+A rehydration operation with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is billed for data read transactions and data retrieval size. A high-priority rehydration has higher operation and data retrieval costs compared to standard priority. High-priority rehydration shows up as a separate line item on your bill. If a high-priority request to return an archived blob that is less than 10 GB in size takes more than five hours, you won't be charged the high-priority retrieval rate. However, standard retrieval rates still apply.
 
 Copying an archived blob to an online tier with [Copy Blob](/rest/api/storageservices/copy-blob) is billed for data read transactions and data retrieval size. Creating the destination blob in an online tier is billed for data write transactions. Early deletion fees don't apply when you copy to an online blob because the source blob remains unmodified in the Archive tier. High-priority retrieval charges do apply if selected.
 

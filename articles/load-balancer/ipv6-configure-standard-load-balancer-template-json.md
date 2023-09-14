@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Deploy an IPv6 dual stack application in Azure virtual network - Template

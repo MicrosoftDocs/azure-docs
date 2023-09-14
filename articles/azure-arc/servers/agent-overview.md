@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
-description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 01/23/2023
+description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
+ms.date: 09/11/2023
 ms.topic: conceptual
 ---
 
@@ -11,7 +11,7 @@ The Azure Connected Machine agent enables you to manage your Windows and Linux m
 
 ## Agent components
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc-enabled servers agent architectural overview." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Connected Machine agent architectural overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components bundled together:
 
@@ -23,7 +23,7 @@ The Azure Connected Machine agent package contains several logical components bu
 
   * An Azure Policy assignment that targets disconnected machines is unaffected.
   * Guest assignment is stored locally for 14 days. Within the 14-day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.
-  * Assignments are deleted after 14 days, and are not reassigned to the machine after the 14-day period.
+  * Assignments are deleted after 14 days, and aren't reassigned to the machine after the 14-day period.
 
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Azure downloads extensions and copies them to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension installs to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension installs to `/var/lib/waagent/<extension>`.
 
@@ -101,9 +101,9 @@ Installing the Connected Machine agent for Window applies the following system-w
 
 ### Linux agent installation details
 
-The preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/) provides the Connected Machine agent for Linux. The shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent) installs and configurs the agent.
+The preferred package format for the distribution (`.rpm` or `.deb`) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/) provides the Connected Machine agent for Linux. The shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent) installs and configures the agent.
 
-Installing, upgrading, and removing the Connected Machine agent is not required after server restart.
+Installing, upgrading, and removing the Connected Machine agent isn't required after server restart.
 
 Installing the Connected Machine agent for Linux applies the following system-wide configuration changes.
 
@@ -152,14 +152,27 @@ Installing the Connected Machine agent for Linux applies the following system-wi
 The Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
 * The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
-* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. The following exceptions apply:
+* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. Some extensions may apply more restrictive CPU limits once installed. The following exceptions apply:
 
-  * If the extension installs background services that run independent of Azure Arc, such as the Microsoft Monitoring Agent, those services are not subject to the resource governance constraints listed above.
-  * The Log Analytics agent and Azure Monitor Agent can use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
-  * The Azure Monitor Agent can use up to 30% of the CPU during normal operations.
-  * The Linux OS Update Extension (used by Azure Update Management Center) can use up to 30% of the CPU to patch the server.
-  * The Microsoft Defender for Endpoint extension can use up to 30% of the CPU during installation, upgrades, and removal operations.
-  * The Microsoft Sentinel DNS extension can use up to 30% of the CPU to collect logs from DNS servers
+  | Extension type | Operating system | CPU limit |
+  | -------------- | ---------------- | --------- |
+  | AzureMonitorLinuxAgent | Linux | 60% |
+  | AzureMonitorWindowsAgent | Windows | 100% |
+  | AzureSecurityLinuxAgent | Linux | 30% |
+  | LinuxOsUpdateExtension | Linux | 60% |
+  | MDE.Linux | Linux | 30% |
+  | MicrosoftDnsAgent | Windows | 100% |
+  | MicrosoftMonitoringAgent | Windows | 60% |
+  | OmsAgentForLinux | Windows | 60%|
+
+During normal operations, defined as the Azure Connected Machine agent being connected to Azure and not actively modifying an extension or evaluating a policy, you can expect the agent to consume the following system resources:
+
+|     | Windows | Linux |
+| --- | ------- | ----- |
+| **CPU usage (normalized to 1 core)** | 0.07% | 0.02% |
+| **Memory usage** | 57 MB | 42 MB |
+
+The performance data above was gathered in April 2023 on virtual machines running Windows Server 2022 and Ubuntu 20.04. Actual agent performance and resource consumption will vary based on the hardware and software configuration of your servers.
 
 ## Instance metadata
 
@@ -180,7 +193,10 @@ Metadata information about a connected machine is collected after the Connected 
 * Cluster resource ID (for Azure Stack HCI nodes)
 * Hardware manufacturer
 * Hardware model
-* CPU logical core count
+* CPU family, socket, physical core and logical core counts
+* Total physical memory
+* Serial number
+* SMBIOS asset tag
 * Cloud provider
 * Amazon Web Services (AWS) metadata, when running in AWS:
   * Account ID
@@ -216,5 +232,5 @@ We provide several options for deploying the agent. For more information, see [P
 ## Next steps
 
 * To begin evaluating Azure Arc-enabled servers, see [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](learn/quick-enable-hybrid-vm.md).
-* Before you deploy the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
+* Before you deploy the Azure Connected Machine agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
 * Review troubleshooting information in the [agent connection issues troubleshooting guide](troubleshoot-agent-onboard.md).

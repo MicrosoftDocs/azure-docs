@@ -12,6 +12,7 @@ ms.date: 06/11/2019
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # One-click app configuration of single sign-on
@@ -69,7 +70,7 @@ The one-click SSO feature is designed to configure single sign-on for Azure Mark
 
    ![SSO configured](./media/one-click-sso-tutorial/sso-configured.png)
 
-10. After the configuration is successful, you're signed out of the application and returned to the Azure portal.
+10. After the configuration is successful, you're signed out of the application and returned to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 11. You can select **Test** to test single sign-on.
 

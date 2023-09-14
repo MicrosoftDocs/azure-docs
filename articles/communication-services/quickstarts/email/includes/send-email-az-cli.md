@@ -88,7 +88,9 @@ Make these replacements in the code:
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
 
-To track the status of the email delivery, you need the `messageId` from the response.
+The above command also performs a polling on the messageId and returns the status of the email delivery. The status can be one of the following:
+
+[!INCLUDE [Email Message Status](./email-operation-status.md)]
 
 ### Optional parameters
 
@@ -97,6 +99,8 @@ The following optional parameters are available in Azure CLI.
 - `--html` can be used instead of `--text` for html email body.
 
 - `--importance` sets the importance type for the email. Known values are: high, normal, and low. Default is normal.
+
+- `--to` sets the list of email recipients.
 
 - `--cc` sets carbon copy email addresses.
 
@@ -110,18 +114,5 @@ The following optional parameters are available in Azure CLI.
 
 - `--attachment-types` sets the list of email attachment types, in the same order of attachments.
 
-Also, you can use a list of recipients with `--to`, similar to `--cc` and `--bcc`.
-
-
-## Get the status of the email delivery
-
-We can keep checking the email delivery status until the status is `OutForDelivery`.
-
-```azurecli-interactive
-az communication email status get --message-id "\<messageId\>"
-```
-
-- Replace "\<messageId\>" with the messageId from the response of the send request.
-
-[!INCLUDE [Email Message Status](./email-operation-status.md)]
-
+Also, you can use a list of recipients with `--cc` and `--bcc` similar to `--to`. There needs to be at least one recipient in `--to` or `--cc` or `--bcc`.
+ 

@@ -5,10 +5,9 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.date: 12/9/2022
+ms.date: 04/09/2023
 ms.author: mattmcinnes
-ms.custom: mvc, devx-track-azurecli, GGAL-freshness822
-
+ms.custom: mvc, devx-track-azurecli, GGAL-freshness822, devx-track-linux
 #Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with TLS/SSL certificates so that I can protect my customer data on web applications that I build and run.
 ---
 

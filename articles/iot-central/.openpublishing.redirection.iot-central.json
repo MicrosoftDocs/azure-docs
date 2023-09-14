@@ -1359,8 +1359,11 @@
       "source_path_from_root": "/articles/iot-central/core/concepts-faq-start-iot-central.md",
       "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-telemetry-properties-commands.md",
+      "redirect_url": "/azure/iot-develop/concepts-message-payloads/",
+      "redirect_document_id": false
     }
   ]
 }
-
-

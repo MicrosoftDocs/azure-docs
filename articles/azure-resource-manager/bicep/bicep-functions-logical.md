@@ -4,6 +4,7 @@ description: Describes the functions to use in a Bicep file to determine logical
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 01/30/2023
 ---
 

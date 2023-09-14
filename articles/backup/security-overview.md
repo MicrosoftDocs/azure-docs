@@ -3,8 +3,8 @@ title: Overview of security features
 description: Learn about security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 ms.topic: conceptual
 ms.date: 03/31/2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Overview of security features in Azure Backup
@@ -85,7 +85,7 @@ Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to 
 
 ## Compliance with standardized security requirements
 
-To help organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
+To help organizations comply with national/regional and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
 
 ## Next steps
 

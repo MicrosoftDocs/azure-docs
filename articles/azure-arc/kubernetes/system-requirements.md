@@ -1,7 +1,8 @@
 ---
 title: "Azure Arc-enabled Kubernetes system requirements"
-ms.date: 03/08/2023
+ms.date: 08/28/2023
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 description: Learn about the system requirements to connect Kubernetes clusters to Azure Arc.
 ---
 
@@ -20,7 +21,7 @@ The cluster must have at least one node with operating system and architecture t
 > [!IMPORTANT]
 > Many Arc-enabled Kubernetes features and scenarios are supported on ARM64 nodes, such as [cluster connect](cluster-connect.md) and [viewing Kubernetes resources in the Azure portal](kubernetes-resource-view.md). However, if using Azure CLI to enable these scenarios, [Azure CLI must be installed](/cli/azure/install-azure-cli) and run from an AMD64 machine.
 >
-> Currently, Azure Arc-enabled Kubernetes [cluster extensions](conceptual-extensions.md) aren't supported on ARM64-based clusters. To [install and use cluster extensions](extensions.md), the cluster must have at least one node of operating system and architecture type `linux/amd64`.
+> Currently, Azure Arc-enabled Kubernetes [cluster extensions](conceptual-extensions.md) aren't supported on ARM64-based clusters, except for [Flux (GitOps)](conceptual-gitops-flux2.md). To [install and use other cluster extensions](extensions.md), the cluster must have at least one node of operating system and architecture type `linux/amd64`.
 
 ## Compute and memory requirements
 
@@ -33,9 +34,7 @@ For a multi-node Kubernetes cluster environment, pods can get scheduled on diffe
 
 ## Management tool requirements
 
-Connecting a cluster to Azure Arc requires [Helm 3](https://helm.sh/docs/intro/install), version 3.7.0 or earlier.
-
-You'll also need to use either Azure CLI or Azure PowerShell.
+To connect a cluster to Azure Arc, you'll need to use either Azure CLI or Azure PowerShell.
 
 For Azure CLI:
 
@@ -48,12 +47,15 @@ For Azure CLI:
 
 For Azure PowerShell:
 
-- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps).
+- Install [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell).
 - Install the **Az.ConnectedKubernetes** PowerShell module:
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ConnectedKubernetes
     ```
+
+> [!NOTE]
+> When you deploy the Azure Arc agents to a cluster,  Helm v. 3.6.3 will be installed in the `.azure` folder of the deployment machine. This [Helm 3](https://helm.sh/docs/) installation is only used for Azure Arc, and it doesn't remove or change any previously installed versions of Helm on the machine.
 
 ## Azure AD identity requirements
 

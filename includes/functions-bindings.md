@@ -13,7 +13,8 @@ This table shows the bindings that are supported in the major versions of the Az
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Azure Cosmos DB](../articles/azure-functions/functions-bindings-cosmosdb-v2.md)               |✔|✔|✔|✔|✔|
-| [Azure SQL (preview)](../articles/azure-functions/functions-bindings-azure-sql.md)<sup>2</sup>               | |✔|✔|✔|✔|
+| [Azure Data Explorer](../articles/azure-functions/functions-bindings-azure-data-explorer.md)               | |✔| |✔|✔|
+| [Azure SQL](../articles/azure-functions/functions-bindings-azure-sql.md)               | |✔|✔|✔|✔|
 | [Dapr](https://github.com/dapr/azure-functions-extension)<sup>3</sup>             | |✔|✔|✔|✔|
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
@@ -23,6 +24,7 @@ This table shows the bindings that are supported in the major versions of the Az
 | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
+| [Redis](../articles/azure-functions/functions-bindings-cache.md)                         | |✔|✔| | |
 | [RabbitMQ](../articles/azure-functions/functions-bindings-rabbitmq.md)<sup>2</sup>             | |✔|✔| |✔|
 | [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔| | |✔|
 | [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|

@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: python
 ms.topic: how-to
 ms.date: 11/15/2022
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022, devx-track-python
 ---
 
 # Manage a MongoDB database using Python

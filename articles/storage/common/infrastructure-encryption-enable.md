@@ -3,14 +3,14 @@ title: Enable infrastructure encryption for double encryption of data
 titleSuffix: Azure Storage
 description: Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account or encryption scope is encrypted twice with two different encryption algorithms and two different keys.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.date: 10/19/2022
 ms.topic: conceptual
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -51,7 +51,7 @@ To verify that infrastructure encryption is enabled for a storage account with t
 
 # [PowerShell](#tab/powershell)
 
-To use PowerShell to create a storage account with infrastructure encryption enabled, make sure you have installed the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 2.2.0 or later. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+To use PowerShell to create a storage account with infrastructure encryption enabled, make sure you have installed the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 2.2.0 or later. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 Next, create a general-purpose v2 or premium block blob storage account by calling the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command. Include the `-RequireInfrastructureEncryption` option to enable infrastructure encryption.
 

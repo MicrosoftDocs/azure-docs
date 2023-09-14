@@ -4,7 +4,7 @@ description: This article shows you how to authenticate access to Event Hubs res
 ms.topic: conceptual
 ms.date: 03/13/2023
 ms.devlang: csharp, java, javascript, php
-ms.custom: devx-track-js, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)
@@ -199,7 +199,7 @@ private static string createToken(string resourceUri, string keyName, string key
 
 ```azurepowershell-interactive
 [Reflection.Assembly]::LoadWithPartialName("System.Web")| out-null
-$URI="myNamespace.servicebus.windows.net/myEventHub"
+$URI="myNamespace.servicebus.windows.net/myEventHub/"
 $Access_Policy_Name="RootManageSharedAccessKey"
 $Access_Policy_Key="myPrimaryKey"
 #Token expires now+300

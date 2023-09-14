@@ -4,7 +4,7 @@ description: Learn how to create ExpressRoute Global Reach peering to a private 
 ms.topic: tutorial
 ms.custom: "contperf-fy21q4, contperf-fy22q1, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 10/27/2022 
+ms.date: 4/6/2023 
 ---
 
 # Tutorial: Peer on-premises environments to Azure VMware Solution
@@ -74,7 +74,7 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
 
 ## Verify on-premises network connectivity
 
-In your **on-premises edge router**, you should now see where the ExpressRoute connects the NSX-T network segments and the Azure VMware Solution management segments.
+In your **on-premises edge router**, you should now see where the ExpressRoute connects the NSX-T Data Center network segments and the Azure VMware Solution management segments.
 
 >[!IMPORTANT]
 >Everyone has a different environment, and some will need to allow these routes to propagate back into the on-premises network.  

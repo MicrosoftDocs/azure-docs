@@ -15,6 +15,12 @@ The following example policy, when added to the `<inbound>` policy section, chec
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration" />
+    <audiences>
+        <audience>{audience-value - (ex:api://guid)}</audience>
+    </audiences>
+    <issuers>
+        <issuer>{issuer-value - (ex: https://sts.windows.net/{tenant id}/)}</issuer>
+    </issuers>
     <required-claims>
         <claim name="aud">
             <value>{backend-app-client-id}</value>
@@ -26,4 +32,4 @@ The following example policy, when added to the `<inbound>` policy section, chec
 > [!NOTE]
 > The preceding `openid-config` URL corresponds to the v2 endpoint. For the v1 `openid-config` endpoint, use `https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration`.
 
-For information on how to configure policies, see [Set or edit policies](../articles/api-management/set-edit-policies.md). Refer to the [validate-jwt](../articles/api-management/validate-jwt-policy.md) reference for more customization on JWT validations.
+For information on how to configure policies, see [Set or edit policies](../articles/api-management/set-edit-policies.md). Refer to the [validate-jwt](../articles/api-management/validate-jwt-policy.md) reference for more customization on JWT validations. To validate a JWT that was provided by the Azure Active Directory service, API Management also provides the [`validate-azure-ad-token`](../articles/api-management/validate-azure-ad-token-policy.md) policy. 

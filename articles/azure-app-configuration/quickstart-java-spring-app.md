@@ -6,8 +6,8 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/22/2023
-ms.custom: devx-track-java, mode-api
+ms.date: 04/11/2023
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---
@@ -38,16 +38,27 @@ Now that you have an App Configuration store, you can use the Spring Cloud Azure
 
 To install the Spring Cloud Azure Config starter module, add the following dependency to your *pom.xml* file:
 
+### [Spring Boot 3](#tab/spring-boot-3)
+
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
-    <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-    <version>2.11.0</version>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>5.4.0</version>
 </dependency>
 ```
 
-> [!NOTE]
-> If you need to support an older version of Spring Boot, see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>4.10.0</version>
+</dependency>
+```
+
+---
 
 ### Code the application
 

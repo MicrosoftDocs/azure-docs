@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -78,16 +78,16 @@ In this scenario, you use the following credentials:
 
 ## Allow users to create app passwords
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 By default, users can't create app passwords. The app passwords feature must be enabled before users can use them. To give users the ability to create app passwords, **admin needs** to complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Search for and select **Azure Active Directory**, then choose **Security**.
-3. Select **Conditional Access** from the left navigation blade.
-4. Selet **Named location** from the left navigation blade.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Conditional Access** > **Named locations**.
 5. Click on **"Configure MFA trusted IPs"** in the bar across the top of the *Conditional Access | Named Locations* window.
 6. On the **multi-factor authentication** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
 
-    ![Screenshot of the Azure portal that shows the service settings for multi-factor authentication to allow the user of app passwords](media/concept-authentication-methods/app-password-authentication-method.png)
+    ![Screenshot that shows the service settings for multi-factor authentication to allow the user of app passwords](media/concept-authentication-methods/app-password-authentication-method.png)
     
 > [!NOTE]
 >
@@ -99,8 +99,7 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 When users complete their initial registration for Azure AD Multi-Factor Authentication, there's an option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. For more information and detailed steps for your users, see the following resources:
-* [What are app passwords in Azure AD Multi-Factor Authentication?](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9)
+Users can also create app passwords after registration. For more information and detailed steps for your users, see the following resource:
 * [Create app passwords from the Security info page](https://support.microsoft.com/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137)
 
 ## Next steps

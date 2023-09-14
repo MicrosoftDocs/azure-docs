@@ -5,6 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ---

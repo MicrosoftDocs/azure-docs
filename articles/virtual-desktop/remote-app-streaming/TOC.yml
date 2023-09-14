@@ -1,8 +1,8 @@
-- name: Azure Virtual Desktop remote app streaming
+- name: Azure Virtual Desktop RemoteApp streaming
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Virtual Desktop remote app streaming?
+  - name: What is Azure Virtual Desktop RemoteApp streaming?
     href: overview.md
   - name: What is Azure Virtual Desktop?
     href: ../overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
@@ -10,7 +10,7 @@
   items:
   - name: 1. Create a host pool with the Azure portal
     href: ../create-host-pools-azure-marketplace.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-  - name: 2. Manage app groups
+  - name: 2. Manage application groups
     href: ../manage-app-groups.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: 3. Create a host pool to validate service updates
     href: ../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
@@ -22,7 +22,7 @@
     href: ../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
   items:
-  - name: Essentials for remote app streaming
+  - name: Essentials for RemoteApp streaming
     items:
     - name: Create user accounts
       href: identities.md
@@ -82,7 +82,7 @@
           href: ../configure-vm-gpu.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Expand an existing host pool
           href: ../expand-existing-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-        - name: Manage app groups with PowerShell
+        - name: Manage application groups with PowerShell
           href: ../manage-app-groups-powershell.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Delete a host pool
       href: ../delete-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
@@ -134,7 +134,7 @@
       href: ../drain-mode.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Concepts
   items:
-  - name: Essentials for remote app streaming
+  - name: Essentials for RemoteApp streaming
     items: 
     - name: Architecture recommendations 
       href: architecture-recs.md
@@ -190,8 +190,6 @@
       items:
         - name: What is MSIX app attach?
           href: ../what-is-app-attach.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-        - name: Glossary
-          href: ../app-attach-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: FAQ
           href: ../app-attach-faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Data locations

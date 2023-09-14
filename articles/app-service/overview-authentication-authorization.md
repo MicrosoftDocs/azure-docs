@@ -5,7 +5,9 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 02/03/2023
 ms.reviewer: mahender
-ms.custom: "UpdateFrequency3, seodec18, fasttrack-edit"
+ms.custom: UpdateFrequency3, seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
@@ -20,6 +22,8 @@ Implementing a secure solution for authentication (signing-in users) and authori
 - Azure App Service allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
 - You can integrate with multiple login providers. For example, Azure AD, Facebook, Google, Twitter.
+
+Your app might need to support more complex scenarios such as Visual Studio integration or incremental consent.  There are several different authentication solutions available to support these scenarios. To learn more, read [Identity scenarios](identity-scenarios.md).
 
 ## Identity providers
 

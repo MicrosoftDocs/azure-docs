@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
@@ -24,7 +24,7 @@ Azure AD B2C supports the [OAuth 2.0 and OpenID Connect protocols](protocols-ove
 
 The following tokens are used in communication with Azure AD B2C:
 
-- **ID token** - A JWT that contains claims that you can use to identify users in your application. This token is securely sent in HTTP requests for communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They're commonly used to display account information or to make access control decisions in an application. ID tokens are signed, but they're not encrypted. When your application or API receives an ID token, it must validate the signature to prove that the token is authentic. Your application or API must also validate a few claims in the token to prove that it's valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
+- **ID token** - A JWT that contains claims that you can use to identify users in your application. This token is securely sent in HTTP requests for communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They're commonly used to display account information or to make access control decisions in an application. The ID tokens issued by Azure AD B2C are signed, but they're not encrypted. When your application or API receives an ID token, it must validate the signature to prove that the token is authentic. Your application or API must also validate a few claims in the token to prove that it's valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
 
 - **Access token** -  A JWT that contains claims that you can use to identify the granted permissions to your APIs. Access tokens are signed, but they aren't encrypted. Access tokens are used to provide access to APIs and resource servers.  When your API receives an access token, it must validate the signature to prove that the token is authentic. Your API must also validate a few claims in the token to prove that it's valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
 

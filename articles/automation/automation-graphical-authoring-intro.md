@@ -3,15 +3,15 @@ title: Author graphical runbooks in Azure Automation
 description: This article tells how to author a graphical runbook without working with code.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/07/2023
+ms.date: 04/25/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Author graphical runbooks in Azure Automation
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
 
 All runbooks in Azure Automation are Windows PowerShell workflows. Graphical runbooks and graphical PowerShell Workflow runbooks generate PowerShell code that the Automation workers run but that you cannot view or modify. You can convert a graphical runbook to a graphical PowerShell Workflow runbook, and vice versa. However, you can't convert these runbooks to a textual runbook. Additionally, the Automation graphical editor can't import a textual runbook.
 
@@ -63,7 +63,8 @@ Select an activity on the canvas to configure its properties and parameters in t
 
 A parameter set defines the mandatory and optional parameters that accept values for a particular cmdlet. All cmdlets have at least one parameter set, and some have several sets. If a cmdlet has multiple parameter sets, you must select the one to use before you can configure parameters. You can change the parameter set used by an activity by selecting **Parameter Set** and choosing another set. In this case, any parameter values that you have already configured are lost.
 
-In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
+In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet has three parameter sets. The example uses one set called **ListLocationVirtualMachinesParamSet**, with a single optional parameter, to return the location for the virtual machines to be listed. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
+
 
 ![Parameter set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 

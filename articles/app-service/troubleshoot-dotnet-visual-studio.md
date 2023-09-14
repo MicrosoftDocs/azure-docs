@@ -5,8 +5,9 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/29/2016
-ms.custom: "devx-track-csharp, seodec18"
-
+ms.custom: devx-track-csharp, seodec18, devx-track-dotnet
+ms.author: msangapu
+author: msangapu-msft
 ---
 # Troubleshoot an app in Azure App Service using Visual Studio
 ## Overview
@@ -171,7 +172,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 2. In the ContosoAdsWebJob project, open *Functions.cs*.
 
-3. [Set a breakpoint](/visualstudio/debugger/) on the first statement in the `GnerateThumbnail` method.
+3. [Set a breakpoint](/visualstudio/debugger/) on the first statement in the `GenerateThumbnail` method.
 
     ![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -614,7 +615,7 @@ For more information about troubleshooting apps in Azure App Service, see the fo
 
 * [How to monitor apps](web-sites-monitor.md)
 * [Investigating Memory Leaks in Azure App Service with Visual Studio 2013](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/). Microsoft ALM blog post about Visual Studio features for analyzing managed memory issues.
-* [Azure App Service online tools you should know about](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog post by Amit Apple.
+* [Azure App Service online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about). Blog post by Amit Apple.
 
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
@@ -628,9 +629,9 @@ For more information about how to use debug mode in Visual Studio, see [Debuggin
 ### Remote debugging in Azure
 For more information about remote debugging for App Service apps and WebJobs, see the following resources:
 
-* [Introduction to Remote Debugging Azure App Service](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introduction to Remote Debugging Azure App Service part 2 - Inside Remote debugging](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introduction to Remote Debugging on Azure App Service part 3 - Multi-Instance environment and GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introduction to Remote Debugging Azure App Service](https://azure.microsoft.com/blog/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Introduction to Remote Debugging Azure App Service part 2 - Inside Remote debugging](https://azure.microsoft.com/blog/introduction-to-remote-debugging-on-azure-web-sites/)
+* [Introduction to Remote Debugging on Azure App Service part 3 - Multi-Instance environment and GIT](https://azure.microsoft.com/blog/introduction-to-remote-debugging-on-azure-web-sites/)
 * [WebJobs Debugging (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 If your app uses an Azure Web API or Mobile Services back-end and you need to debug that, see [Debugging .NET Backend in Visual Studio](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio).

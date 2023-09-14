@@ -12,7 +12,7 @@ services: azure-maps
 
 # Best practices for Azure Maps Route service
 
-The Route Directions and Route Matrix APIs in Azure Maps [Route service] can be used to calculate the estimated arrival times (ETAs) for each requested route. Route APIs consider factors such as real-time traffic information and historic traffic data, like the typical road speeds on the requested day of the week and time of day. The APIs return the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. Users can also request specialized routes and details for walkers, bicyclists, and commercial vehicles like trucks. In this article, we'll share the best practices to call Azure Maps [Route service], and you'll learn how-to:
+The Route Directions and Route Matrix APIs in Azure Maps [Route service] can be used to calculate the estimated arrival times (ETAs) for each requested route. Route APIs consider factors such as real-time traffic information and historic traffic data, like the typical road speeds on the requested date and time. The APIs return the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. Users can also request specialized routes and details for walkers, bicyclists, and commercial vehicles like trucks. This article discusses best practices for calling the Azure Maps [Route service], including how-to:
 
 * Choose between the Route Directions APIs and the Matrix Routing API
 * Request historic and predicted travel times, based on real-time and historical traffic data
@@ -35,7 +35,7 @@ This article uses the [Postman] application to build REST calls, but you can cho
 
 ## Choose between Route Directions and Matrix Routing
 
-The Route Directions APIs return instructions including the travel time and the coordinates for a route path. The Route Matrix API lets you calculate the travel time and distances for a set of routes that are defined by origin and destination locations. For every given origin, the Matrix API calculates the cost (travel time and distance) of routing from that origin to every given destination. These API allow you to specify parameters such as the desired departure time, arrival times, and the vehicle type, like car or truck. They all use real-time or predictive traffic data accordingly to return the most optimal routes.
+The Route Directions APIs return instructions including the travel time and the coordinates for a route path. The Route Matrix API lets you calculate the travel time and distances for a set of routes defined by origin and destination locations. For every given origin, the Matrix API calculates the cost (travel time and distance) of routing from that origin to every given destination. These API allow you to specify parameters such as the desired departure time, arrival times, and the vehicle type, like car or truck. They all use real-time or predictive traffic data accordingly to return the most optimal routes.
 
 Consider calling Route Directions APIs if your scenario is to:
 
@@ -50,7 +50,7 @@ Consider calling Matrix Routing API if your scenario is to:
 * Sort potential routes by their actual travel distance or time. The Matrix API returns only travel times and distances for each origin and destination combination.
 * Cluster data based on travel time or distances. For example, your company has 50 employees, find all employees that live within 20 minute Drive Time from your office.
 
-Here is a comparison to show some capabilities of the Route Directions and Matrix APIs:
+Here's a comparison to show some capabilities of the Route Directions and Matrix APIs:
 
 | Azure Maps API | Max number of queries in the request | Avoid areas | Truck and electric vehicle routing | Waypoints and Traveling Salesman optimization | Supporting points |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
@@ -63,11 +63,11 @@ To learn more about electric vehicle routing capabilities, see our tutorial on h
 
 ## Request historic and real-time data
 
-By default, the Route service assumes the traveling mode is a car and the departure time is now. It returns route based on real-time traffic conditions unless a route calculation request specifies otherwise. Fixed time-dependent traffic restrictions, like 'Left turns aren't allowed between 4:00 PM to 6:00 PM' are captured and will be considered by the routing engine. Road closures, like roadworks, will be considered unless you specifically request a route that ignores the current live traffic. To ignore the current traffic, set `traffic` to `false` in your API request.
+By default, the Route service assumes the traveling mode is a car and the departure time is now. It returns route based on real-time traffic conditions unless a route calculation request specifies otherwise. The routing engine factors fixed time-dependent traffic restrictions, like 'Left turns aren't allowed between 4:00 PM to 6:00 PM'. Road closures, like roadworks, are considered unless you specifically request a route that ignores the current live traffic. To ignore the current traffic, set `traffic` to `false` in your API request.
 
-The route calculation **travelTimeInSeconds** value includes the delay due to traffic. It's generated by leveraging the current and historic travel time data, when departure time is set to now. If your departure time is set in the future, the APIs return predicted travel times based on historical data.
+The route calculation **travelTimeInSeconds** value includes the delay due to traffic. It's generated by using the current and historic travel time data, when departure time is set to now. If your departure time is set in the future, the APIs return predicted travel times based on historical data.
 
-If you include the **computeTravelTimeFor=all** parameter in your request, then the summary element in the response will have the following additional fields including historical traffic conditions:
+If you include the **computeTravelTimeFor=all** parameter in your request, then the summary element in the response has the following fields including historical traffic conditions:
 
 | Element | Description|
 | :--- | :--- |
@@ -85,7 +85,7 @@ In the first example below the departure time is set to the future, at the time 
 https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
-The response contains a summary element, like the one below. Because the departure time is set to the future, the **trafficDelayInSeconds** value is zero. The **travelTimeInSeconds** value is calculated using time-dependent historic traffic data. So, in this case, the **travelTimeInSeconds** value is equal to the **historicTrafficTravelTimeInSeconds** value.
+The response contains a summary element, like the following example. Because the departure time is set to the future, the **trafficDelayInSeconds** value is zero. The **travelTimeInSeconds** value is calculated using time-dependent historic traffic data. So, in this case, the **travelTimeInSeconds** value is equal to the **historicTrafficTravelTimeInSeconds** value.
 
 ```json
 "summary": {
@@ -102,13 +102,13 @@ The response contains a summary element, like the one below. Because the departu
 
 ### Sample query
 
-In the second example below, we have a real-time routing request, where departure time is now. It's not explicitly specified in the URL because it's the default value.
+In the next example, we have a real-time routing request, where departure time is now. It's not explicitly specified in the URL because it's the default value.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-The response contains a summary as shown below. Because of congestions, the **trafficDelaysInSeconds** value is greater than zero. It's also greater than **historicTrafficTravelTimeInSeconds**.
+The response contains a summary as shown in the following example. Because of congestion, the **trafficDelaysInSeconds** value is greater than zero. It's also greater than **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -125,7 +125,7 @@ The response contains a summary as shown below. Because of congestions, the **tr
 
 ## Request route and leg details
 
-By default, the Route service will return an array of coordinates. The response will contain the coordinates that make up the path in a list named `points`. Route response also includes the distance from the start of the route and the estimated elapsed time. These values can be used to calculate the average speed for the entire route.
+By default, the Route service returns an array of coordinates. The response contains the coordinates that make up the path in a list named `points`. Route response also includes the distance from the start of the route and the estimated elapsed time. These values can be used to calculate the average speed for the entire route.
 
 The following image shows the `points` element.
 
@@ -165,13 +165,13 @@ The Route API returns directions that accommodate the dimensions of the truck an
 
 ### Sample query
 
-Changing the US Hazmat Class, from the above query, will result in a different route to accommodate this change.
+Changing the US Hazmat Class, from the above query, results in a different route to accommodate this change.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-The response below is for a truck carrying a class 9 hazardous material, which is less dangerous than a class 1 hazardous material. When you expand the `guidance` element to read the directions, you'll notice that the directions aren't the same. There are more route instructions for the truck carrying class 1 hazardous material.
+The following response is for a truck carrying a class 9 hazardous material, which is less dangerous than a class 1 hazardous material. When you expand the `guidance` element to read the directions, notice that the directions aren't the same. There are more route instructions for the truck carrying class 1 hazardous material.
 
 ![Truck with class 9 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
 
@@ -191,7 +191,7 @@ The response contains the sections that are suitable for traffic along the given
 
 ![Traffic sections](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
 
-This option can be used to color the sections when rendering the map, as in the image below:
+This option can be used to color the sections when rendering the map, as in The following image:
 
 ![Colored sections rendered on map](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
@@ -203,7 +203,7 @@ Azure Maps currently provides two forms of route optimizations:
 
 * Traveling salesman optimization, which changes the order of the waypoints to obtain the best order to visit each stop
 
-For multi-stop routing, up to 150 waypoints may be specified in a single route request. The starting and ending coordinate locations can be the same, as would be the case with a round trip. But you need to provide at least one additional waypoint to make the route calculation. Waypoints can be added to the query in-between the origin and destination coordinates.
+For multi-stop routing, up to 150 waypoints may be specified in a single route request. The starting and ending coordinate locations can be the same, as would be the case with a round trip. But you need to provide at least one more waypoint to make the route calculation. Waypoints can be added to the query in-between the origin and destination coordinates.
 
 If you want to optimize the best order to visit the given waypoints, then you need to specify **computeBestOrder=true**. This scenario is also known as the traveling salesman optimization problem.
 
@@ -219,7 +219,7 @@ The response describes the path length to be 140,851 meters, and that it would t
 
 ![Non-optimized response](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
 
-The image below illustrates the path resulting from this query. This path is one possible route. It's not the optimal path based on time or distance.
+The following image illustrates the path resulting from this query. This path is one possible route. It's not the optimal path based on time or distance.
 
 ![Non-optimized image](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
@@ -237,7 +237,7 @@ The response describes the path length to be 91,814 meters, and that it would ta
 
 ![Optimized response](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
 
-The image below illustrates the path resulting from this query.
+The following image illustrates the path resulting from this query.
 
 ![Optimized image](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
 
@@ -255,9 +255,9 @@ You might have situations where you want to reconstruct a route to calculate zer
 3. Order the locations based on the distance from the start of the route
 4. Add these locations as supporting points in a new route request to [Post Route Directions]. To learn more about the supporting points, see the [Post Route Directions API documentation].
 
-When calling [Post Route Directions], you can set the minimum deviation time or the distance constraints, along with the supporting points. Use these parameters if you want to offer alternative routes, but you also want to limit the travel time. When these constraints are used, the alternative routes will follow the reference route from the origin point for the given time or distance. In other words, the other routes diverge from the reference route per the given constraints.
+When calling [Post Route Directions], you can set the minimum deviation time or the distance constraints, along with the supporting points. Use these parameters if you want to offer alternative routes, but you also want to limit the travel time. When these constraints are used, the alternative routes follow the reference route from the origin point for the given time or distance. In other words, the other routes diverge from the reference route per the given constraints.
 
-The image below is an example of rendering alternative routes with specified deviation limits for the time and the distance.
+The following image is an example of rendering alternative routes with specified deviation limits for the time and the distance.
 
 ![Alternative routes](media/how-to-use-best-practices-for-routing/alternative-routes-img.png)
 
@@ -270,24 +270,28 @@ The Azure Maps Web SDK provides a [Service module]. This module is a helper libr
 To learn more, please see:
 
 > [!div class="nextstepaction"]
-> [Azure Maps Route service](/rest/api/maps/route)
+> [Azure Maps Route service]
 
 > [!div class="nextstepaction"]
-> [How to use the Service module](./how-to-use-services-module.md)
+> [How to use the Service module]
 
 > [!div class="nextstepaction"]
-> [Show route on the map](./map-route.md)
+> [Show route on the map]
 
 > [!div class="nextstepaction"]
-> [Azure Maps npm Package](https://www.npmjs.com/package/azure-maps-rest  )
+> [Azure Maps npm Package]
 
-[Route service]: /rest/api/maps/route
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Routing Coverage]: routing-coverage.md
-[Postman]: https://www.postman.com/downloads/
-[RouteType]: /rest/api/maps/route/postroutedirections#routetype
+[Azure Maps npm Package]: https://www.npmjs.com/package/azure-maps-rest
+[Azure Maps Route service]: /rest/api/maps/route
+[How to use the Service module]: how-to-use-services-module.md
 [Point of Interest]: /rest/api/maps/search/getsearchpoi
-[Post Route Directions]: /rest/api/maps/route/postroutedirections
 [Post Route Directions API documentation]: /rest/api/maps/route/postroutedirections#supportingpoints
+[Post Route Directions]: /rest/api/maps/route/postroutedirections
+[Postman]: https://www.postman.com/downloads/
+[Route service]: /rest/api/maps/route
+[RouteType]: /rest/api/maps/route/postroutedirections#routetype
+[Routing Coverage]: routing-coverage.md
 [Service module]: /javascript/api/azure-maps-rest/
+[Show route on the map]: map-route.md
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Securely access Azure resources for your machine learning model deployment from an online endpoint with a system-assigned or user-assigned managed identity.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
@@ -16,7 +16,7 @@ ms.custom: devplatv2, cliv2, event-tier1-build-2022, ignite-2022
 
 # Access Azure resources from an online endpoint with a managed identity 
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
@@ -775,7 +775,7 @@ Delete the User-assigned managed identity:
 
 * [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 * For more on deployment, see [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
-* For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](how-to-configure-cli.md).
 * To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * For information on monitoring endpoints, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).

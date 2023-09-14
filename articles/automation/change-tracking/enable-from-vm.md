@@ -22,7 +22,7 @@ This article describes how you can use an Azure VM to enable [Change Tracking an
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Change Tracking and Inventory
 

@@ -3,8 +3,8 @@ ms.service: defender-for-cloud
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 07/14/2022
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 
@@ -33,7 +33,7 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
 1. Continue through the remaining pages of the connector wizard.
 
-1. Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There is a dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
+1. Azure Arc-enabled Kubernetes, the Defender agent, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There is a dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
     - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
 
     For each of the recommendations, follow the steps below to install the required extensions.

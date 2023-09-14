@@ -119,7 +119,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$ACI_IP"
+  --servers "$ACI_IP" \ 
   --priority 100
 ```
 

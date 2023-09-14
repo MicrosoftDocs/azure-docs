@@ -3,10 +3,9 @@ title: 'Azure ExpressRoute: Reset circuit peerings by using the Azure portal'
 description: Learn how to disable and enable peerings of an Azure ExpressRoute circuit by using the Azure portal.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 06/30/2023
 ms.author: duau
 ---
 
@@ -14,18 +13,18 @@ ms.author: duau
 
 This article describes how to disable and enable peerings of an Azure ExpressRoute circuit using the Azure portal. When you disable a peering, the Border Gateway Protocol (BGP) session for both the primary and the secondary connection of your ExpressRoute circuit is shut down. When you enable a peering, the BGP session on both the primary and the secondary connection of your ExpressRoute circuit is restored.
 
-> [!Note]
+> [!NOTE]
 > The first time you configure the peerings on your ExpressRoute circuit, the peerings are enabled by default.
 
 Resetting your ExpressRoute peerings might be helpful in the following scenarios:
 
 * You're testing your disaster recovery design and implementation. For example, assume that you have two ExpressRoute circuits. You can disable the peerings of one circuit and force your network traffic to use the other circuit.
 
-* You want to enable Bidirectional Forwarding Detection (BFD) on Azure private peering or Microsoft peering. If your ExpressRoute circuit was created before August 1, 2018, on Azure private peering or before January 10, 2020, on Microsoft peering, BFD was not enabled by default. Reset the peering to enable BFD.
+* You want to enable Bidirectional Forwarding Detection (BFD) on Azure private peering or Microsoft peering. If your ExpressRoute circuit was created before August 1, 2018, on Azure private peering or before January 10, 2020, on Microsoft peering, BFD wasn't enabled by default. Reset the peering to enable BFD.
 
 ## Sign in to the Azure portal
 
-From a browser, go to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
+From a browser, sign in to the [Azure portal](https://portal.azure.com), and then sign in with your Azure account.
 
 ## Reset a peering
 

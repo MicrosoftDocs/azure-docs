@@ -3,8 +3,8 @@ title: Azure Policy applicability logic
 description: Describes the rules Azure Policy uses to determine whether the policy is applied to its assigned resources.
 ms.date: 09/22/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # What is applicability in Azure Policy?
 
@@ -14,6 +14,7 @@ Applicability is determined by several factors:
 - **Conditions** in the `if` block of the [policy rule](../concepts/definition-structure.md#policy-rule).
 - **Mode** of the policy definition.
 - **Excluded scopes** specified in the assignment. 
+- **Resource selectors** specified in the assignment. 
 - **Exemptions** of resources or resource hierarchies.
 
 Condition(s) in the `if` block of the policy rule are evaluated for applicability in slightly different ways based on the effect.
@@ -34,7 +35,10 @@ Following are special cases to the previously described applicability logic:
 |Any invalid aliases in the `if` conditions     |The policy isn't applicable |
 |When the `if` conditions consist of only `kind` conditions     |The policy is applicable to all resources |
 |When the `if` conditions consist of only `name` conditions     |The policy is applicable to all resources |
-|When the `if` conditions consist of only `type` and `kind` or `type` and `name` conditions     |Only type conditions are considered when deciding applicability |
+|When the `if` conditions consist of only `type` and `kind` conditions     |Only `type` conditions are considered when deciding applicability |
+|When the `if` conditions consist of only `type` and `name` conditions     |Only `type` conditions are considered when deciding applicability |
+|When the `if` conditions consist of `type`, `kind`, and other conditions |Both `type` and `kind` conditions are considered when deciding applicability |
+|When the `if` conditions consist of `type`, `name`, and other conditions |Both `type` and `name` conditions are considered when deciding applicability |
 |When any conditions (including deployment parameters) include a `location` condition     |Won't be applicable to subscriptions |
 
 ### AuditIfNotExists and DeployIfNotExists policy effects
@@ -47,17 +51,20 @@ The applicability of `AuditIfNotExists` and `DeployIfNotExists` policies is base
 
 The applicability of `Microsoft.Kubernetes.Data` policies is based off the entire `if` condition of the policy rule. When the `if` evaluates to false, the policy isn't applicable.
 
-### Microsoft.KeyVault.Data
+### Microsoft.KeyVault.Data, Microsoft.ManagedHSM.Data, Microsoft.DataFactory.Data
 
-Policies with mode `Microsoft.KeyVault.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type, such as:
+Policies with mode `Microsoft.KeyVault.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type.
+
+Key Vault component types:
 - Microsoft.KeyVault.Data/vaults/certificates
 - Microsoft.KeyVault.Data/vaults/keys
 - Microsoft.KeyVault.Data/vaults/secrets
 
-### Microsoft.ManagedHSM.Data
-
-Policies with mode `Microsoft.ManagedHSM.Data` are applicable if the `type` condition of the policy rule evaluates to true. The `type` refers to component type: 
+Managed HSM component type:
 - Microsoft.ManagedHSM.Data/managedHsms/keys
+
+Azure Data Factory component type:
+- Microsoft.DataFactory.Data/factories/outboundTraffic
 
 ### Microsoft.Network.Data
 

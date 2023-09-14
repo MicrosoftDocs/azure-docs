@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/21/2023
+ms.date: 8/28/2023
 ms.author: gasinh
 ms.reviewer: 
 ms.custom: aaddev 
@@ -40,12 +40,13 @@ pricing](https://www.microsoft.com/security/business/identity-access/microsoft-e
 | Workload identities sign-in activity and audit trail |   Monitor and track workload identity behavior  |  Yes |  Yes |
 | **Managed identities**| Use Azure AD identities in Azure without handling credentials |  Yes| Yes |
 | Workload identity federation | Use workloads tested by external Identity Providers (IdPs) to access Azure AD protected resources | Yes | Yes |
-|  **Conditional Access (CA)**     |   |   |    
-| CA policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
+|  **Conditional Access**     |   |   |    
+| Conditional Access policies for workload identities |Define the condition in which a workload can access a resource, such as an IP range | |  Yes | 
 |**Lifecycle Management**|    |    |   |
 |Access reviews for service provider-assigned privileged roles  |   Closely monitor workload identities with impactful permissions |    |  Yes |
+| Application authentication methods API |  Allows IT admins to enforce best practices for how apps in their organizations use application authentication methods. |  | Yes |
 |**Identity Protection**  |  | |
-|Identity Protection for workload identities  | Detect and remediate compromised workload identities | | Yes |                                                                            
+|Identity Protection for workload identities  | Detect and remediate compromised workload identities | | Yes |
 
 ## What is the cost of Workload Identities Premium plan? 
 

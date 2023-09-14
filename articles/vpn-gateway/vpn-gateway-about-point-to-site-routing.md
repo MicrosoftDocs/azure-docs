@@ -5,7 +5,7 @@ description: Learn about Azure Point-to-Site VPN routing for different operating
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 12/03/2021
+ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---
@@ -25,7 +25,7 @@ There are a number of different diagrams in this article. Each section shows a d
 
 ## <a name="isolatedvnet"></a>One isolated VNet
 
-The Point-to-Site VPN gateway connection in this example is for a VNet that is not connected or peered with any other virtual network (VNet1). In this example, clients can access VNet1.
+The Point-to-Site VPN gateway connection in this example is for a VNet that isn't connected or peered with any other virtual network (VNet1). In this example, clients can access VNet1.
 
 :::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg" alt-text="Isolated VNet routing" lightbox="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg":::
 
@@ -49,7 +49,7 @@ The Point-to-Site VPN gateway connection in this example is for a VNet that is n
 
 In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is peered with VNet2. VNet 2 is peered with VNet3. VNet1 is peered with VNet4. There is no direct peering between VNet1 and VNet3. VNet1 has “Allow gateway transit” and VNet2 and VNet4 have “Use remote gateways” enabled.
 
-Clients using Windows can access directly peered VNets, but the VPN client must be downloaded again if any changes are made to VNet peering or the network topology. Non-Windows clients can access directly peered VNets. Access is not transitive and is limited to only directly peered VNets.
+Clients using Windows can access directly peered VNets, but the VPN client must be downloaded again if any changes are made to VNet peering or the network topology. Non-Windows clients can access directly peered VNets. Access isn't transitive and is limited to only directly peered VNets.
 
 :::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Multiple peered VNets" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
@@ -77,7 +77,7 @@ Clients using Windows can access directly peered VNets, but the VPN client must 
 
 ## <a name="multis2s"></a>Multiple VNets connected using an S2S VPN
 
-In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is connected to VNet2 using a Site-to-Site VPN connection. VNet2 is connected to VNet3 using a Site-to-Site VPN connection. There is no direct peering or Site-to-Site VPN connection between VNet1 and VNet3. All Site-to-Site connections are not running BGP for routing.
+In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is connected to VNet2 using a Site-to-Site VPN connection. VNet2 is connected to VNet3 using a Site-to-Site VPN connection. There is no direct peering or Site-to-Site VPN connection between VNet1 and VNet3. All Site-to-Site connections aren't running BGP for routing.
 
 Clients using Windows, or another supported OS, can only access VNet1. To access additional VNets, BGP must be used.
 
@@ -133,7 +133,7 @@ Clients using Windows, or another supported OS, can access all VNets that are co
 
 ## <a name="vnetbranch"></a>One VNet and a branch office
 
-In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is not connected/ peered with any other virtual network, but is connected to an on-premises site through a Site-to-Site VPN connection that is not running BGP.
+In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 isn't connected/ peered with any other virtual network, but is connected to an on-premises site through a Site-to-Site VPN connection that isn't running BGP.
 
 Windows and non-Windows clients can only access VNet1.
 
@@ -159,9 +159,9 @@ Windows and non-Windows clients can only access VNet1.
 
 ## <a name="vnetbranchbgp"></a>One VNet and a branch office (BGP)
 
-In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is not connected or peered with any other virtual network, but is connected to an on-premises site (Site1) through a Site-to-Site VPN connection running BGP.
+In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 isn't connected or peered with any other virtual network, but is connected to an on-premises site (Site1) through a Site-to-Site VPN connection running BGP.
 
-Windows clients can access the VNet and the branch office (Site1), but the routes to Site1 must be manually added to the client. Non-Windows clients can access the VNet as well as the on-premises branch office.
+Windows clients can access the VNet and the branch office (Site1), but the routes to Site1 must be manually added to the client. Non-Windows clients can access the VNet and the on-premises branch office.
 
 :::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Routing with a VNet and a branch office - BGP" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 

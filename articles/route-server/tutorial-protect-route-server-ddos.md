@@ -89,7 +89,7 @@ In this section, you'll create an Azure Route Server. The virtual network and pu
 
 ## Enable DDoS protection
 
-Azure DDoS protection Standard is enabled at the virtual network where the resource you want to protect reside. 
+Azure DDoS Network is enabled at the virtual network where the resource you want to protect reside. 
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 

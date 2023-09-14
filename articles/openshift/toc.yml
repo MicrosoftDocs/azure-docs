@@ -30,13 +30,18 @@
           href: howto-upgrade.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
+        - name: Deploy infrastructure nodes
+          href: howto-infrastructure-nodes.md
         - name: Use GPU workloads
           href: howto-gpu-workloads.md
         - name: Segregate worker nodes into subnets
           href: howto-segregate-machinesets.md
-
+        - name: Tag ARO resources using Azure Policy
+          href: howto-tag-resources.md
         - name: Manually update cluster certificates
           href: howto-update-certificates.md
+        - name: Use Admin Kubeconfig
+          href: howto-kubeconfig.md
     - name: Networking 
       items:
         - name: Create a private Azure Red Hat OpenShift cluster
@@ -45,8 +50,6 @@
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
-        - name: Configure OVN-Kubernetes network provider
-          href: howto-configure-ovn-kubernetes.md
         - name: Restrict egress traffic
           href: howto-restrict-egress.md
     - name: Storage
@@ -112,6 +115,9 @@
       items:
       - name: Overview of egress lockdown
         href: concepts-egress-lockdown.md
+      - name: Overview of OVN-Kubernetes
+        href: concepts-ovn-kubernetes.md
+
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI

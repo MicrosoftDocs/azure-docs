@@ -2,12 +2,12 @@
 title: Managed identities in Azure Container Apps
 description: Using managed identities in Container Apps
 services: container-apps
-author: cebundy
+author: v-jaswel
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 09/29/2022
-ms.author: v-bcatherine
+ms.author: v-wellsjason
 ---
 
 # Managed identities in Azure Container Apps
@@ -47,6 +47,8 @@ User-assigned identities are ideal for workloads that:
 ## Limitations
 
 Using managed identities in scale rules isn't supported. You'll still need to include the connection string or key in the `secretRef` of the scaling rule.
+
+[Init containers](containers.md#init-containers) can't access managed identities.
 
 ## Configure managed identities
 

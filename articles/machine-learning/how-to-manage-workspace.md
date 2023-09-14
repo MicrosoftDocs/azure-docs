@@ -10,16 +10,13 @@ author: deeikele
 ms.reviewer: sgilley
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python, moe-wsvnet
 ---
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](v1/how-to-manage-workspace.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current)](how-to-manage-workspace.md)
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-machine-learning.md), using the [Azure portal](https://portal.azure.com) or the [SDK for Python](https://aka.ms/sdk-v2-install).  
 
@@ -34,7 +31,7 @@ As your needs change or requirements for automation increase you can also manage
 
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]
 
-   1. Get a handle to the subscription.  `ml_client` will be used in all the Python code in this article.
+   1. Get a handle to the subscription.  `ml_client` is used in all the Python code in this article.
 
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ml_client)]
       
@@ -44,7 +41,7 @@ As your needs change or requirements for automation increase you can also manage
             DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
             ```
                 
-        * (Optional) If you're working on a [sovereign cloud](reference-machine-learning-cloud-parity.md)**, specify the sovereign cloud to authenticate with into the `DefaultAzureCredential`..
+        * (Optional) If you're working on a [sovereign cloud](reference-machine-learning-cloud-parity.md), specify the sovereign cloud to authenticate with into the `DefaultAzureCredential`..
                 
             ```python
             from azure.identity import AzureAuthorityHosts
@@ -53,25 +50,25 @@ As your needs change or requirements for automation increase you can also manage
 
 ## Limitations
 
-[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+[!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-* If you're using Azure Container Registry (ACR), Storage Account, Key Vault, or Application Insights in the different subscription than the workspace, you cannot use network isolation with managed online endpoints. If you want to use network isolation with managed online endpoints, you must have ACR, Storage Account, Key Vault, and Application Insights in the same subscription with the workspace. For limitations that apply to network isolation with managed online endpoints, see [How to secure online endpoint](how-to-secure-online-endpoint.md#limitations).
+* When you use network isolation that is based on a workspace's managed virtual network (preview) with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace. For limitations that apply to securing managed online endpoints using a workspace's managed virtual network, see [Network isolation with managed online endpoints](concept-secure-online-endpoint.md#limitations).
 
 * By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR doesn't currently support unicode characters in resource group names, use a resource group that doesn't contain these characters.
 
 * Azure Machine Learning doesn't support hierarchical namespace (Azure Data Lake Storage Gen2 feature) for the workspace's default storage account.
 
-[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
+[!INCLUDE [application-insight](includes/machine-learning-application-insight.md)]
 
 ## Create a workspace
 
-You can create a workspace [directly in Azure Machine Learning studio](./quickstart-create-resources.md#create-the-workspace), with limited options available. Or use one of the methods below for more control of options.
+You can create a workspace [directly in Azure Machine Learning studio](./quickstart-create-resources.md#create-the-workspace), with limited options available. Or use one of the following methods for more control of options.
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-* **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
+* **Default specification.** By default, dependent resources and the resource group are created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
    [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_workspace_name)]
 
@@ -112,7 +109,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
    :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configure your workspace.":::
 
-1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking) and [Advanced](#advanced) sections to configure more settings for the workspace.
+1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking), [Advanced](#advanced), and  [Tags](#tags) sections to configure more settings for the workspace.
 
 1. Review the settings and make any other changes or corrections. When you're satisfied with the settings, select **Create**.
 
@@ -133,7 +130,7 @@ If you have problems in accessing your subscription, see [Set up authentication 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=basic_private_link_workspace_name)]
  
@@ -160,26 +157,26 @@ By default, metadata for the workspace is stored in an Azure Cosmos DB instance 
 To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]    
-> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.    
+> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
 
 #### Use your own data encryption key
 
 You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. For more information, see [Customer-managed keys](concept-customer-managed-keys.md).
 
-
 Use the following steps to provide your own key:
 
 > [!IMPORTANT]    
-> Before following these steps, you must first perform the following actions:    
+> Before following these steps, you must first perform the following actions:
 >
 > Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
+>
 > * Register the Azure Cosmos DB provider
 > * Create and configure an Azure Key Vault
 > * Generate a key
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 
@@ -213,9 +210,32 @@ ml_client.workspaces.begin_create(ws)
 
 ---
 
+### Tags
+
+While using a workspace, you have opportunities to provide feedback about Azure Machine Learning.  You provide feedback by using:
+
+* Occasional in-product surveys
+* The smile-frown feedback tool in the banner of the workspace
+
+You can turn off all feedback opportunities for a workspace.  When off, users of the workspace won't see any surveys, and the smile-frown feedback tool is no longer visible. Use the Azure portal to turn off feedback.
+
+* When creating the workspace, turn off feedback from the **Tags** section:
+
+   1. Select the **Tags** section
+   1. Add the key value pair "ADMIN_HIDE_SURVEY: TRUE"
+
+* Turn off feedback on an existing workspace:
+
+   1. Go to workspace resource in the Azure portal
+   1. Open **Tags** from left navigation panel
+   1. Add the key value pair "ADMIN_HIDE_SURVEY: TRUE"
+   1. Select **Apply**.  
+
+:::image type="content" source="media/how-to-manage-workspace/tags.png" alt-text="Screenshot shows setting tags to prevent feedback in the workspace.":::
+
 ### Download a configuration file
 
-If you'll be running your code on a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance will create and store copy of this file for you.
+If you'll be running your code on a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance creates and stores copy of this file for you.
 
 If you plan to use code on your local environment that references this workspace, download the file:
 1. Select your workspace in [Azure studio](https://ml.azure.com)
@@ -229,9 +249,9 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 When running machine learning tasks using the SDK, you require a MLClient object that specifies the connection to your workspace. You can create an `MLClient` object from parameters, or with a configuration file.
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-* **With a configuration file:** This code will read the contents of the configuration file to find your workspace.  You'll get a prompt to sign in if you aren't already authenticated.
+* **With a configuration file:** This code reads the contents of the configuration file to find your workspace.  You'll get a prompt to sign in if you aren't already authenticated.
 
     ```python
     from azure.ai.ml import MLClient
@@ -253,7 +273,7 @@ You can also search for workspace inside studio.  See [Search for Azure Machine 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=my_ml_client)]
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=ws_name)]
@@ -284,13 +304,14 @@ To get details of a specific workspace:
 
 When you no longer need a workspace, delete it.  
 
-[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+[!INCLUDE [machine-learning-delete-workspace](includes/machine-learning-delete-workspace.md)]
 
-If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./how-to-high-availability-machine-learning.md#workspace-deletion).
+> [!TIP]
+> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](./concept-soft-delete.md).
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 ml_client.workspaces.begin_delete(name=ws_basic.name, delete_dependent_resources=True)
@@ -308,7 +329,7 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Troubleshooting
 
@@ -325,18 +346,18 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 ### Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](includes/machine-learning-workspace-diagnostics.md)]
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
  
 
 ### Deleting the Azure Container Registry
 
-The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
+The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It automatically creates an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 ## Examples
 

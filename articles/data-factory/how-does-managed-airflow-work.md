@@ -128,7 +128,6 @@ If you're using Airflow version 1.x, delete DAGs that are deployed on any Airflo
 
 ## Next steps
 
-* [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-* [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
-* [Managed Airflow pricing](airflow-pricing.md)
-* [How to change the password for Managed Airflow environments](password-change-airflow.md)
+- [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
+- [Managed Airflow pricing](airflow-pricing.md)
+- [How to change the password for Managed Airflow environments](password-change-airflow.md)

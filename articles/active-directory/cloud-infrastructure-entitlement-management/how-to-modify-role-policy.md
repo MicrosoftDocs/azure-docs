@@ -1,6 +1,6 @@
 ---
 title: Modify a role/policy in the Remediation dashboard in Permissions Management
-description: How to modify a role/policy in the Remediation dashboard in Permissions Management.
+description: How to modify a role/policy in the Remediation dashboard in Microsoft Entra Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
 # Modify a role/policy in the Remediation dashboard
 
-This article describes how you can use the **Remediation** dashboard in Permissions Management to modify roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
+This article describes how you can use the **Remediation** dashboard in Microsoft Entra Permissions Management to modify roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 > [!NOTE]
 > To view the **Remediation** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.

@@ -1,6 +1,6 @@
 ---
 title: How to use Azure Active Directory recommendations
-description: Learn how to use Azure Active Directory recommendations.
+description: Learn how to use Azure Active Directory recommendations to monitor and improve the health of your tenant.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/06/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ---
 
-# How to: Use Azure AD recommendations
+# How to use Azure Active Directory Recommendations
 
 The Azure Active Directory (Azure AD) recommendations feature provides you with personalized insights with actionable guidance to:
 
@@ -43,8 +43,9 @@ Some recommendations may require a P2 or other license. For more information, se
 
 To view the details of a recommendation:
 
-1. Sign in to Azure using the appropriate least-privilege role.
-1. Go to **Azure AD** > **Recommendations** and select a recommendation from the list.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Overview** > **Recommendations tab**
+1. Select a recommendation from the list.
 
     ![Screenshot of the list of recommendations.](./media/howto-use-recommendations/recommendations-list.png)
 
@@ -71,6 +72,12 @@ Each recommendation provides the same set of details that explain what the recom
 - The **Action plan** provides step-by-step instructions to implement a recommendation. The Action plan may include links to relevant documentation or direct you to other pages in the Azure portal.
 
 - The **Impacted resources** table contains a list of resources identified by the recommendation. The resource's name, ID, date it was first detected, and status are provided. The resource could be an application or resource service principal, for example. 
+
+> [!NOTE]
+> In the Azure portal the impacted resources are limited to a maximum of 50 resources. To view all impacted resources for a recommendation, use this Microsoft Graph API request:
+>`GET /directory/recommendations/{recommendationId}/impactedResources`
+>
+>For more information, see the [How to use Microsoft Graph with with Azure AD recommendations](#how-to-use-microsoft-graph-with-azure-active-directory-recommendations) section of this article.
 
 ## How to update a recommendation
 
@@ -106,32 +113,41 @@ Continue to monitor the recommendations in your tenant for changes.
 
 ### How to use Microsoft Graph with Azure Active Directory recommendations
 
-Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, postpone a recommendation for later, and more. 
+Azure Active Directory recommendations can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can view recommendations along with their impacted resources, postpone a recommendation for later, and more. For more information, see the [Microsoft Graph documentation for recommendations](/graph/api/resources/recommendations-api-overview). 
 
-To get started, follow these instructions to work with recommendations using Microsoft Graph in Graph Explorer. The example uses the "Migrate apps from Active Directory Federated Services (ADFS) to Azure AD" recommendation.
+To get started, follow these instructions to work with recommendations using Microsoft Graph in Graph Explorer. 
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
-1. Add the following query to retrieve recommendations, then select the **Run query** button.
 
-    ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations
-    ```
+#### View all recommendations
 
-1. To view the details of a specific `recommendationType`, use the following API. This example retrieves the detail of the "Migrate apps from AD FS to Azure AD" recommendation.
+Add the following query to retrieve all recommendations for your tenant, then select the **Run query** button.
 
-    ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'adfsAppsMigration'
-    ```
+```http
+GET https://graph.microsoft.com/beta/directory/recommendations
+```
 
-1. To view the impacted resources for a specific recommendation, expand the `impactedResources` relationship.
+All recommendations that apply to your tenant appear in the response. The impact, benefits, summary of the impacted resources, and remediation steps are provided in the response. Locate the recommendation ID for any recommendation to view the impacted resources.
 
-    ```http
-    GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'adfsAppsMigration'&$expand=impactedResources
-    ```
+#### View a specific recommendation
 
-For more information, see the [Microsoft Graph documentation for recommendations](/graph/api/resources/recommendations-api-overview).
+If you want to look for a specific recommendation, you can add a `recommendationType` to the request. This example retrieves the details of the `applicationCredentialExpiry` recommendation.
+
+```http
+GET https://graph.microsoft.com/beta/directory/recommendations?$filter=recommendationType eq 'applicationCredentialExpiry'
+```
+
+#### View impacted resources for a recommendation
+
+Some recommendations may potentially return a long list of impacted resources. To view the list of impacted resources, you need to locate the recommendation ID. The recommendation ID appears in the response when viewing all recommendations and a specific recommendation.
+
+To view the impacted resources for a specific recommendation, use the following query with the recommendation ID you saved.
+
+```http
+GET /directory/recommendations/{recommendationId}/impactedResources
+```
 
 ## Next steps
 

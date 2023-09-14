@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/30/2023
 ms.reviewer: rijolly
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
 ---
 
 # What is distributed tracing and telemetry correlation?
@@ -20,7 +20,7 @@ Azure Monitor provides two experiences for consuming distributed trace data: the
 
 To enable distributed tracing for an application, add the right agent, SDK, or library to each service based on its programming language.
 
-### Enable via Application Insights through auto-instrumentation or SDKs
+### Enable via Application Insights through autoinstrumentation or SDKs
 
 The Application Insights agents and SDKs for .NET, .NET Core, Java, Node.js, and JavaScript all support distributed tracing natively. Instructions for installing and configuring each Application Insights SDK are available for:
 
@@ -171,21 +171,24 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 ### Enable W3C distributed tracing support for web apps
 
-This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
+This feature is enabled by default for Javascript and the headers are automatically included when the hosting page domain is the same as the domain the requests are sent to (for example, the hosting page is `example.com` and the Ajax requests are sent to `example.com`). To change the distributed tracing mode, use the [`distributedTracingMode` configuration field](./javascript-sdk-configuration.md#sdk-configuration). AI_AND_W3C is provided by default for backward compatibility with any legacy services instrumented by Application Insights.
 
-- **[npm-based setup](./javascript.md#npm-based-setup)**
+- **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#get-started)**
 
    Add the following configuration:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
 
-- **[Snippet-based setup](./javascript.md#snippet-based-setup)**
+- **[JavaScript (Web) SDK Loader Script-based setup](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started)**
 
    Add the following configuration:
   ```
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
+
+If the XMLHttpRequest or Fetch Ajax requests are sent to a different domain host, including sub-domains, the correlation headers are not included by default. To enable this feature, set the [`enableCorsCorrelation` configuration field](./javascript-sdk-configuration.md#sdk-configuration) to `true`. If you set `enableCorsCorrelation` to `true`, all XMLHttpRequest and Fetch Ajax requests include the correlation headers. As a result, if the application on the server that is being called doesn't support the `traceparent` header, the request may fail, depending on whether the browser / version can validate the request based on which headers the server will accept.
+
 > [!IMPORTANT]
 > To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-distributed-tracing).
 
@@ -256,7 +259,7 @@ By looking at the [Trace-Context header format](https://www.w3.org/TR/trace-cont
 
 If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find the data under **Logs (Analytics)** in the Azure Monitor Application Insights resource.
 
-![Screenshot that shows Request telemetry in Logs (Analytics).](./media/opencensus-python/0011-correlation.png)
+:::image type="content" source="./media/opencensus-python/0011-correlation.png" lightbox="./media/opencensus-python/0011-correlation.png" alt-text="Screenshot that shows Request telemetry in Logs (Analytics).":::
 
 The `id` field is in the format `<trace-id>.<span-id>`, where `trace-id` is taken from the trace header that was passed in the request and `span-id` is a generated 8-byte array for this span.
 

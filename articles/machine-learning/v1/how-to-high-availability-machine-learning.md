@@ -5,7 +5,7 @@ description: Learn how to plan for disaster recovery and maintain business conti
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
@@ -194,7 +194,9 @@ The following artifacts can be exported and imported between workspaces by using
 
 ### Workspace deletion
 
-If you accidentally deleted your workspace it is currently not possible to recover it. However you are able to retrieve your existing notebooks from the corresponding storage if you follow these steps:
+If you accidentally deleted your workspace, you might able to recover it. For recovery steps, see [Recover workspace data after accidental deletion with soft delete](../concept-soft-delete.md). 
+
+Even if your workspace cannot be recovered, you may still be able to retrieve your notebooks from the workspace-associated Azure storage resource by following these steps:
 * In the [Azure portal](https://portal.azure.com) navigate to the storage account that was linked to the deleted Azure Machine Learning workspace.
 * In the Data storage section on the left, click on **File shares**.
 * Your notebooks are located on the file share with the name that contains your workspace ID. 
@@ -204,3 +206,4 @@ If you accidentally deleted your workspace it is currently not possible to recov
 ## Next steps
 
 To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](../tutorial-create-secure-workspace-template.md).
+

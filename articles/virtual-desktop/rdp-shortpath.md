@@ -27,9 +27,9 @@ RDP Shortpath can be used in two ways:
 The transport used for RDP Shortpath is based on the [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed.
 
 > [!IMPORTANT]
-> - RDP Shortpath is only available in the Azure public cloud.
->
 > - During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+>
+> - RDP Shortpath for public networks with TURN is only available in the Azure public cloud.
 
 ## Key benefits
 

@@ -2,13 +2,13 @@
 title: Create a JavaScript function using Visual Studio Code - Azure Functions
 description: Learn how to create a JavaScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 02/06/2023
+ms.date: 08/03/2023
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
 ms.devlang: javascript
-ms.custom: mode-api, vscode-azure-extension-update-complete
+ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-js
 zone_pivot_groups: functions-nodejs-model
 ---
 
@@ -33,6 +33,8 @@ Before you get started, make sure you have the following requirements in place:
 [!INCLUDE [functions-requirements-visual-studio-code-node-v4](../../includes/functions-requirements-visual-studio-code-node-v4.md)]
 ::: zone-end
 
+[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
+
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in JavaScript. Later in this article, you publish your function code to Azure.
@@ -53,7 +55,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files). 
 ::: zone-end
@@ -66,9 +68,9 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a JavaScript programming model**|Choose `Model V4 (Preview)`|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
-    |**Select how you would like to open your project**|Choose `Add to workspace`|
+    |**Select how you would like to open your project**|Choose `Open in current window`|
 
-    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions JavaScript developer guide](functions-reference-node.md). 
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript). 
 ::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
@@ -186,6 +188,7 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript)
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
+> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-javascript)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

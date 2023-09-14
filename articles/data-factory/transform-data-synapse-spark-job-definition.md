@@ -8,7 +8,7 @@ ms.custom: synapse
 author: nabhishek
 ms.author: jejiang
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.date: 07/13/2023
 ---
 
 # Transform data by running a Synapse Spark job definition

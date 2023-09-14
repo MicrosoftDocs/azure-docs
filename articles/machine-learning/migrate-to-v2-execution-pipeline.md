@@ -240,12 +240,29 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 |`r_script_step`| `command` job|`command` component|
 |`synapse_spark_step`| coming soon|coming soon|
 
+## Published pipelines
+
+Once you have a pipeline up and running, you can publish a pipeline so that it runs with different inputs. This was known as __Published Pipelines__. [Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview).
+
+[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
+
+The following table shows a comparison of each of the concepts:
+
+| Concept                                           | SDK v1              | SDK v2                         |
+|---------------------------------------------------|---------------------|--------------------------------|
+| Pipeline's REST endpoint for invocation           | Pipeline endpoint   | Batch endpoint                 |
+| Pipeline's specific version under the endpoint    | Published pipeline  | Pipeline component deployment  |
+| Pipeline's arguments on invocation                | Pipeline parameter  | Job inputs                     |
+| Job generated from a published pipeline           | Pipeline job        | Batch job                      |
+
+See [Upgrade pipeline endpoints to SDK v2](migrate-to-v2-deploy-pipelines.md) for specific guidance about how to migrate to batch endpoints.
+
 ## Related documents
 
 For more information, see the documentation here:
 
 * [steps in SDK v1](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)
 * [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md)
-* [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
+* [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
 * [OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)
 * [`mldesigner`](https://pypi.org/project/mldesigner/)

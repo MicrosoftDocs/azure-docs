@@ -4,7 +4,7 @@ description: In this article, learn about which Azure services support Private L
 author: asudbring
 ms.author: allensu
 ms.service: private-link
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 10/28/2022
 ms.custom: template-concept, references_regions, ignite-2022
 ---
@@ -26,7 +26,7 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
 |Azure Bot Service | All public regions | Supported only on Direct Line App Service extension | GA </br> [Learn how to create a private endpoint for Azure Bot Service](/azure/bot-service/dl-network-isolation-concept) |
-| Azure Cognitive Services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](../cognitive-services/cognitive-services-virtual-networks.md#use-private-endpoints)  |
+| Azure AI services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](../ai-services/cognitive-services-virtual-networks.md#use-private-endpoints)  |
 | Azure Cognitive Search | All public regions | | GA </br> [Learn how to create a private endpoint for Azure Cognitive Search](../search/service-create-private-endpoint.md) |
 
 ### Analytics
@@ -74,7 +74,7 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn how to create a private endpoint for Azure Event Grid.](../event-grid/network-security.md) |
 |Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Select for tiers](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Learn how to create a private endpoint for Azure Service Bus.](../service-bus-messaging/private-link-service.md)  |
-| Azure API Management | All public regions  |  | Preview   <br/> [Connect privately to API Management using a private endpoint.](../api-management/private-endpoint.md) |
+| Azure API Management | All public regions  |  | GA   <br/> [Connect privately to API Management using a private endpoint.](../api-management/private-endpoint.md) |
 | Azure Logic Apps | All public regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Logic Apps.](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md) |
 
 ### Internet of Things (IoT)

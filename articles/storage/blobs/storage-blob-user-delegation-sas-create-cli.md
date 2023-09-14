@@ -3,14 +3,13 @@ title: Use Azure CLI to create a user delegation SAS for a container or blob
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using Azure CLI.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: dineshm
-ms.subservice: blobs 
 ms.custom: devx-track-azurecli
 ---
 
@@ -83,6 +82,9 @@ The user delegation SAS token returned will be similar to:
 se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26T18%3A01%3A22Z&ske=2019-07-27T00%3A00%3A00Z&sks=b&skv=2018-11-09&sig=<signature>
 ```
 
+> [!NOTE]
+> The SAS token returned by Blob Storage does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to also append the delimiter character.
+
 ### Create a user delegation SAS for a blob
 
 To create a user delegation SAS for a blob with the Azure CLI, call the [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas) command.
@@ -111,6 +113,8 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 ```
 
 > [!NOTE]
+> The SAS token returned by Azure CLI does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
+>
 > A user delegation SAS does not support defining permissions with a stored access policy.
 
 ## Revoke a user delegation SAS

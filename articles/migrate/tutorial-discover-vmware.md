@@ -5,8 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/16/2023
-ms.custom: mvc, subject-rbac-steps, engagement-fy23
+ms.date: 08/24/2023
+ms.service: azure-migrate
+ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 
@@ -39,6 +40,7 @@ Requirement | Details
 **vCenter Server/ESXi host** | You need a server running vCenter Server version 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Servers must be hosted on an ESXi host running version 5.5 or later.<br /><br /> On the vCenter Server, allow inbound connections on TCP port 443 so that the appliance can collect configuration and performance metadata.<br /><br /> The appliance connects to vCenter Server on port 443 by default. If the server running vCenter Server listens on a different port, you can modify the port when you provide the vCenter Server details in the appliance configuration manager.<br /><br /> On the ESXi hosts, make sure that inbound access is allowed on TCP port 443 for discovery of installed applications and for agentless dependency analysis on servers.
 **Azure Migrate appliance** | vCenter Server must have these resources to allocate to a server that hosts the Azure Migrate appliance:<br /><br /> - 32 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage.<br /><br /> - An external virtual switch and internet access on the appliance server, directly or via a proxy.
 **Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).<br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
+**SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
 
 ## Prepare an Azure user account
 
@@ -74,13 +76,9 @@ To set Contributor or Owner permissions in the Azure subscription:
 
 To give the account the required permissions to register Azure AD apps:
 
-1. In the portal, go to **Azure Active Directory** > **Users** > **User Settings**.
+1. In the portal, go to **Azure Active Directory** > **Users**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
-
-    :::image type="content" source="./media/tutorial-discover-vmware/register-apps.png" alt-text="Screenshot that shows verifying user setting to register apps.":::
-
-1. If **App registrations** is set to **No**, request the tenant, or global admin to assign the required permissions. Alternately, the tenant or global admin can assign the Application Developer role to an account to allow Azure AD app registration by users. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Azure AD app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare VMware
 
@@ -103,10 +101,9 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Screenshot that shows the v sphere web client and how to create a new account and select user roles and privileges.":::
 
 > [!NOTE]
-> You can scope the vCenter Server account to limit discovery to specific vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers. Learn how to [scope the vCenter Server user account](set-discovery-scope.md).
-
-> [!NOTE]
-> vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate.
+> - For vCenter Server 7.x and above you must clone the Read Only system role and add the Guest Operations Privilages to the cloned role.  Assign the cloned role to the vCenter Account. Learn how to [create a custom role in VMware vCenter](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-41E5E52E-A95B-4E81-9724-6AD6800BEF78.html). 
+> - You can scope the vCenter Server account to limit discovery to specific vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers. Learn how to [scope the vCenter Server user account](set-discovery-scope.md).
+> - vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate.
 
 ### Create an account to access servers
 
@@ -124,7 +121,7 @@ To set up a new project:
 
 1. In the Azure portal, select **All services**, and then search for **Azure Migrate**.
 1. Under **Services**, select **Azure Migrate**.
-1. In **Overview**,  select one of the following options, depending on your migration goals: **Servers, databases and web apps**, **SQL Server (only)**, or **Explore more scenarios**.
+1. In **Get started**,  select one of the following options, depending on your migration goals: **Servers, databases and web apps**, **Databases (only)**, or **Explore more scenarios**.
 1. Select **Create project**.
 1. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](migrate-support-matrix.md#public-cloud) and [supported geographies for government clouds](migrate-support-matrix.md#azure-government).
@@ -169,6 +166,9 @@ To set up the appliance by using an OVA template, complete these steps, which ar
 
 #### Download the OVA template
 
+> [!NOTE]
+> To make sure you get the latest version of the OVA template refer to the [Azure Migrate appliance requirements](./migrate-appliance.md) under the **Appliance - VMware** section.
+
 In **2: Download Azure Migrate appliance**, select the OVA file, and then select **Download**.
 
 ##### Verify security
@@ -190,13 +190,13 @@ Before you deploy the OVA file, verify that the file is secure:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954) | 8A64806762A37698E7CFFB1D0DCACA91E9082803B5977F49A0ACE32A281DB8A1
+        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954) | 06256F9C6FB3F011152D861DA43FFA1C5C8FF966931D5CE00F1F252D3A2F4723
 
     - For Azure Government:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 967FC3B8A5C467C303D86C8889EB4E0D4A8A7798865CBFBDF23E425D4EE425CA
 
 #### Create the appliance server
 
@@ -347,6 +347,21 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 1. Select the discovered servers count to review the discovered inventory. You can filter the inventory by selecting the appliance name and selecting one or more vCenter Servers from the **Source** filter.
 
    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
+
+Details such as OS license support status, inventory, database instances, etc are displayed. 
+
+#### View support status
+
+You can gain deeper insights into the support posture of your environment from the **Discovered servers** and **Discovered database instances** sections.
+
+The **Operating system license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+
+To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
+
+The **Database instances** displays the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+
+To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
+ 
 
 ## Next steps
 

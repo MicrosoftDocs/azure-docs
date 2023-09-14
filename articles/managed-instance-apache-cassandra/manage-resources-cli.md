@@ -6,7 +6,7 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra
-ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021
+ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021, devx-track-arm-template
 keywords: azure resource manager cli
 ---
 
@@ -257,7 +257,7 @@ az managed-cassandra datacenter update \
 > - seed_provider
 > - initial_token
 > - autobootstrap
-> - client_ecncryption_options
+> - client_encryption_options
 > - server_encryption_options
 > - transparent_data_encryption_options
 > - audit_logging_options
@@ -276,6 +276,10 @@ az managed-cassandra datacenter update \
 > - commitlog_directory
 > - cdc_raw_directory
 > - saved_caches_directory
+> - endpoint_snitch
+> - partitioner
+> - rpc_address
+> - rpc_interface
 
 
 

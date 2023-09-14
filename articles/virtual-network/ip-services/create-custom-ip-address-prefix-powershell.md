@@ -1,19 +1,19 @@
 ---
 title: Create a custom IP address prefix - Azure PowerShell
 titleSuffix: Azure Virtual Network
-description: Learn about how to create a custom IPv4 address prefix using Azure PowerShell
-author: asudbring
+description: Learn how to create a custom IPv4 address prefix using Azure PowerShell
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/31/2022
-ms.author: allensu
+ms.date: 08/24/2023
 ---
 
 # Create a custom IPv4 address prefix using Azure PowerShell
 
-A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
+A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. You continue ownership of the range while Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
 
 The steps in this article detail the process to:
 
@@ -28,11 +28,11 @@ The steps in this article detail the process to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 - Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-- Ensure your Az.Network module is 5.1.1 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az.Network" if necessary.
+- Ensure your `Az.Network` module is 5.1.1 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name "Az.Network"` if necessary.
 - A customer owned IPv4 range to provision in Azure.
     - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 > [!NOTE]
 > For problems encountered during the provisioning process, please see [Troubleshooting for custom IP prefix](manage-custom-ip-address-prefix.md#troubleshooting-and-faqs).
@@ -43,7 +43,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 ### Requirements and prefix readiness
 
-* The address range must be owned by you and registered under your name with the one of the 5 major Regional Internet Registries:
+* The address range must be owned by you and registered under your name with the one of the five major Regional Internet Registries:
       * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
       * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
       * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
@@ -66,6 +66,9 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 > [!NOTE]
 > It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
+
+> [!IMPORTANT]
+> While Microsoft will not stop advertising the range after the specified date,  it is strongly recommended to independently create a follow-up ROA if the original expiration date has passed to avoid external carriers from not accepting the advertisement.
 
 ### Certificate readiness
 
@@ -160,7 +163,7 @@ $prefix =@{
 $myCustomIpPrefix = New-AzCustomIPPrefix @prefix -Zone 1,2,3
 ```
 
-The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:  
+The range is pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:  
 
  ```azurepowershell-interactive
 Get-AzCustomIpPrefix -ResourceId $myCustomIpPrefix.Id
@@ -199,7 +202,7 @@ As before, the operation is asynchronous. Use [Get-AzCustomIpPrefix](/powershell
 > The estimated time to fully complete the commissioning process is 3-4 hours.
 
 > [!IMPORTANT]
-> As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.  Additionally, you could take advantage of the regional commissioning feature to put a custom IP prefix into a state where it is only advertised within the Azure region it is deployed in-- see [Manage a custom IP address prefix (BYOIP)](manage-custom-ip-address-prefix.md) for more information.
+> As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.  Additionally, you could take advantage of the regional commissioning feature to put a custom IP prefix into a state where it is only advertised within the Azure region it is deployed in--see [Manage a custom IP address prefix (BYOIP)](manage-custom-ip-address-prefix.md) for more information.
 
 ## Next steps
 

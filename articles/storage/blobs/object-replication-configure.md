@@ -5,11 +5,10 @@ description: Learn how to configure object replication to asynchronously copy bl
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/05/2022
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -69,7 +68,7 @@ After you have configured object replication, the Azure portal displays the repl
 
 ### [PowerShell](#tab/powershell)
 
-To create a replication policy with PowerShell, first install version [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) or later of the Az.Storage PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+To create a replication policy with PowerShell, first install version [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) or later of the Az.Storage PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 The following example shows how to create a replication policy first on the destination account, and then on the source account. Remember to replace values in angle brackets with your own values:
 

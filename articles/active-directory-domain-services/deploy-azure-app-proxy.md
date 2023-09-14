@@ -113,7 +113,7 @@ With the Azure AD Application Proxy integrated with Azure AD DS, publish applica
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md

@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, automl, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ms.date: 01/24/2022
 monikerRange: 'azureml-api-1'
 ---
 
 # Data featurization in automated machine learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Learn about the data featurization settings in Azure Machine Learning, and how to customize those features for [automated machine learning experiments](../concept-automated-ml.md).
 
@@ -32,11 +32,11 @@ In Azure Machine Learning, data-scaling and normalization techniques are applied
 
 This article assumes that you already know how to configure an automated ML experiment. 
 
-[!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
+[!INCLUDE [automl-sdk-version](../includes/machine-learning-automl-sdk-version.md)]
 
 For information about configuration, see the following articles:
 
-- For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train-v1.md).
+- For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
 - For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using the Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md).
 
 ## Configure featurization
@@ -122,9 +122,9 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
 **Missing feature values imputation** |Passed <br><br><br> Done| No missing feature values were detected in your training data. Learn more about [missing-value imputation.](../how-to-use-automated-ml-for-ml-models.md#customize-featurization) <br><br> Missing feature values were detected in your training data and were imputed.
 **High cardinality feature detection** |Passed <br><br><br> Done| Your inputs were analyzed, and no high-cardinality features were detected. <br><br> High-cardinality features were detected in your inputs and were handled.
-**Validation split handling** |Done| The validation configuration was set to `'auto'` and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data](how-to-configure-auto-train-v1.md#training-validation-and-test-data). <br><br> The validation configuration was set to `'auto'`, and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
+**Validation split handling** |Done| The validation configuration was set to `'auto'` and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data](how-to-configure-auto-train.md#training-validation-and-test-data). <br><br> The validation configuration was set to `'auto'`, and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
 **Class balancing detection** |Passed <br><br><br><br>Alerted <br><br><br>Done | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered to be balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](../concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data).<br><br> Imbalanced classes were detected in your inputs and the sweeping logic has determined to apply balancing.
-**Memory issues detection** |Passed <br><br><br><br> Done |<br> The selected values (horizon, lag, rolling window) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](how-to-auto-train-forecast-v1.md#configuration-settings). <br><br><br>The selected values (horizon, lag, rolling window) were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling-window configurations have been turned off.
+**Memory issues detection** |Passed <br><br><br><br> Done |<br> The selected values (horizon, lag, rolling window) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](how-to-auto-train-forecast.md#configuration-settings). <br><br><br>The selected values (horizon, lag, rolling window) were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling-window configurations have been turned off.
 **Frequency detection** |Passed <br><br><br><br> Done |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that don't align with the detected frequency were detected. These data points were removed from the dataset.
 **Cross validation** |Done| In order to accurately evaluate the model(s) trained by AutoML, we leverage a dataset that the model is not trained on. Hence, if the user doesn't provide an explicit validation dataset, a part of the training dataset is used to achieve this. For smaller datasets (fewer than 20,000 samples), cross-validation is leveraged, else a single hold-out set is split from the training data to serve as the validation dataset. Hence, for your input data we leverage cross-validation with 10 folds, if the number of training samples are fewer than 1000, and 3 folds in all other cases.
 **Train-Test data split** |Done| In order to accurately evaluate the model(s) trained by AutoML, we leverage a dataset that the model is not trained on. Hence, if the user doesn't provide an explicit validation dataset, a part of the training dataset is used to achieve this. For smaller datasets (fewer than 20,000 samples), cross-validation is leveraged, else a single hold-out set is split from the training data to serve as the validation dataset. Hence, your input data has been split into a training dataset and a holdout validation dataset.
@@ -136,7 +136,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 
 You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions.
 
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](../how-to-use-automated-ml-for-ml-models.md#customize-featurization). To customize featurization for forecastings task types, refer to the [forecasting how-to](how-to-auto-train-forecast-v1.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](../how-to-use-automated-ml-for-ml-models.md#customize-featurization). To customize featurization for forecastings task types, refer to the [forecasting how-to](how-to-auto-train-forecast.md#customize-featurization).
 
 Supported customizations include:
 
@@ -337,7 +337,7 @@ If the underlying model does not support the `predict_proba()` function or the f
 
 For BERT, the model is fine-tuned and trained utilizing the user-provided labels. From here, document embeddings are output as features alongside others, like timestamp-based features, day of week. 
 
-Learn how to [set up natural language processing (NLP) experiments that also use BERT with automated ML](how-to-auto-train-nlp-models-v1.md).
+Learn how to [set up natural language processing (NLP) experiments that also use BERT with automated ML](how-to-auto-train-nlp-models.md).
 
 ### Steps to invoke BERT
 
@@ -345,7 +345,7 @@ In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use
 
 Automated ML takes the following steps for BERT. 
 
-1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
 2. **Concatenate all text columns into a single text column**, hence the `StringConcatTransformer` in the final model. 
 
@@ -384,9 +384,9 @@ automl_settings = {
 
 * Learn how to set up your automated ML experiments:
 
-    * For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK](how-to-configure-auto-train-v1.md).
+    * For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK](how-to-configure-auto-train.md).
     * For a low-code or no-code experience: [Create your automated ML experiments in the Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md).
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-* Learn more about [how to train a regression model by using automated machine learning](how-to-auto-train-models-v1.md) or [how to train by using automated machine learning on a remote resource](concept-automated-ml-v1.md#local-remote).
+* Learn more about [how to train a regression model by using automated machine learning](how-to-auto-train-models-v1.md) or [how to train by using automated machine learning on a remote resource](concept-automated-ml.md#local-remote).

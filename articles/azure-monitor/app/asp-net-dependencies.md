@@ -2,10 +2,10 @@
 title: Dependency tracking in Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 08/11/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-ms.reviewer: casocha
+ms.custom: devx-track-csharp, build-2023
+ms.reviewer: mmcc
 ---
 
 # Dependency tracking in Application Insights
@@ -26,7 +26,7 @@ Application Insights SDKs for .NET and .NET Core ship with `DependencyTrackingTe
 |[Azure Blob Storage, Table Storage, or Queue Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with the Azure Storage client. |
 |[Azure Event Hubs client SDK](https://nuget.org/packages/Azure.Messaging.EventHubs) | Use the latest package: https://nuget.org/packages/Azure.Messaging.EventHubs. |
 |[Azure Service Bus client SDK](https://nuget.org/packages/Azure.Messaging.ServiceBus)| Use the latest package: https://nuget.org/packages/Azure.Messaging.ServiceBus. |
-|Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
+|[Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) | Tracked automatically if HTTP/HTTPS is used. TCP will also be captured automatically using preview package >= [3.33.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0-preview). |
 
 If you're missing a dependency or using a different SDK, make sure it's in the list of [autocollected dependencies](#dependency-auto-collection). If the dependency isn't autocollected, you can track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
@@ -53,7 +53,7 @@ Dependencies are automatically collected by using one of the following technique
 
 The following examples of dependencies, which aren't automatically collected, require manual tracking:
 
-* Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../../cosmos-db/performance-tips.md#networking) is used. TCP mode won't be captured by Application Insights.
+* Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../../cosmos-db/performance-tips.md#networking) is used. TCP mode won't be automatically captured by Application Insights for SDK versions older than [`2.22.0-Beta1`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/main/CHANGELOG.md#version-2220-beta1).
 * Redis
 
 For those dependencies not automatically collected by SDK, you can track them manually by using the [TrackDependency API](api-custom-events-metrics.md#trackdependency) that's used by the standard autocollection modules.
@@ -140,11 +140,11 @@ Select the **Performance** tab on the left and select the **Dependencies** tab a
 
 Select a **Dependency Name** under **Overall**. After you select a dependency, a graph of that dependency's distribution of durations appears on the right.
 
-![Screenshot that shows the Dependencies tab open to select a Dependency Name in the chart.](./media/asp-net-dependencies/2-perf-dependencies.png)
+:::image type="content" source="./media/asp-net-dependencies/2-perf-dependencies.png" lightbox="./media/asp-net-dependencies/2-perf-dependencies.png" alt-text="Screenshot that shows the Dependencies tab open to select a Dependency Name in the chart.":::
 
 Select the **Samples** button at the bottom right. Then select a sample to see the end-to-end transaction details.
 
-![Screenshot that shows selecting a sample to see the end-to-end transaction details.](./media/asp-net-dependencies/3-end-to-end.png)
+:::image type="content" source="./media/asp-net-dependencies/3-end-to-end.png" lightbox="./media/asp-net-dependencies/3-end-to-end.png" alt-text="Screenshot that shows selecting a sample to see the end-to-end transaction details.":::
 
 ### Profile your live site
 
@@ -156,7 +156,7 @@ Failed requests might also be associated with failed calls to dependencies.
 
 Select the **Failures** tab on the left and then select the **Dependencies** tab at the top.
 
-![Screenshot that shows selecting the failed requests chart.](./media/asp-net-dependencies/4-fail.png)
+:::image type="content" source="./media/asp-net-dependencies/4-fail.png" lightbox="./media/asp-net-dependencies/4-fail.png" alt-text="Screenshot that shows selecting the failed requests chart.":::
 
 Here you'll see the failed dependency count. To get more information about a failed occurrence, select a **Dependency Name** in the bottom table. Select the **Dependencies** button at the bottom right to see the end-to-end transaction details.
 
@@ -256,7 +256,7 @@ Below is the currently supported list of dependency calls that are automatically
 ### Java
 
 See the list of Application Insights Java's
-[autocollected dependencies](opentelemetry-enable.md?tabs=java#distributed-tracing).
+[autocollected dependencies](opentelemetry-add-modify.md?tabs=java#included-instrumentation-libraries).
 
 ### Node.js
 
@@ -273,7 +273,7 @@ A list of the latest [currently supported modules](https://github.com/microsoft/
 * [Exceptions](./asp-net-exceptions.md)
 * [User and page data](./javascript.md)
 * [Availability](./availability-overview.md)
-* Set up custom dependency tracking for [Java](opentelemetry-enable.md?tabs=java#add-custom-spans).
+* Set up custom dependency tracking for [Java](opentelemetry-add-modify.md?tabs=java#add-custom-spans).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 * See [data model](./data-model-complete.md) for Application Insights types and data model.

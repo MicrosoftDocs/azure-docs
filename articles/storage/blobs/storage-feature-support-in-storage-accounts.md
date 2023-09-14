@@ -2,10 +2,9 @@
 title: Blob Storage feature support in Azure storage accounts
 description: Determine the level of support for each storage account feature given storage account type, and the settings that are enabled on the account.
 author: normesta
-ms.subservice: blobs
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 07/28/2023
 ms.author: normesta
 ---
 
@@ -35,16 +34,14 @@ Even though a feature is not be negatively impacted, it might not be compatible 
 
 ## Standard general-purpose v2 accounts
 
-The following table describes whether a feature is supported in a standard general-purpose v2 account when you enable a hierarchical namespace (HNS), NFS 3.0 protocol, or SFTP. 
+The following table describes whether a feature is supported in a standard general-purpose v2 account when you enable a hierarchical namespace (HNS), NFS 3.0 protocol, or SFTP.
 
 > [!IMPORTANT]
 > This table describes the impact of **enabling** HNS, NFS, or SFTP and not the specific use of those capabilities.
 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
-| [Access tier - archive](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
-| [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup>| &#x2705;<sup>3</sup> |
-| [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
+| [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -58,7 +55,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
-| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-managed keys with key vault in the same tenant](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Customer-managed keys with key vault in a different tenant (cross-tenant)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-provided keys](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
@@ -94,9 +91,7 @@ The following table describes whether a feature is supported in a premium block 
 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
-| [Access tier - archive](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Access tier - cool](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Access tier - hot](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

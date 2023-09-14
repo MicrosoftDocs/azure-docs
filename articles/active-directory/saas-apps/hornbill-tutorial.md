@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 08/16/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Hornbill
@@ -76,15 +76,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://sso.hornbill.com/<INSTANCE_NAME>/<SUBDOMAIN>`
-
-	b. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/`
+`https://sso.hornbill.com/<INSTANCE_NAME>/live`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Hornbill Client support team](https://www.hornbill.com/support/?request/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> If you are deploying the Hornbill Mobile Catalog to your organization, you will need to add an additional identifier URL, as so:
+`https://sso.hornbill.com/hornbill/mcatalog`
+    
+	b. In the **Reply URL (Assertion Consumer Service URL)** section, add the following:
+`https://<API_SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/xmlmc/sso/saml2/authorize/user/live`
 
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+	> [!NOTE]
+	> If you are deploying the Hornbill Mobile Catalog to your organization, you will need to add an additional Reply URL, as so:
+`https://<API_SUBDOMAIN>.hornbill.com/hornbill/xmlmc/sso/saml2/authorize/user/mcatalog`
+   
+	c. In the **Sign on URL** text box, type a URL using the following pattern:
+`https://live.hornbill.com/<INSTANCE_NAME>/`
+
+	> [!NOTE]
+	> These values are not real. Update the <INSTANCE_NAME> and <API_SUBDOMAIN> values with the actual values in the Identifier(s), Reply URL(s) and Sign on URL. These values can be retrieved from the Hornbill Solution Center in your Hornbill instance, under **_Your usage > Support_**.  Contact [Hornbill Support](https://www.hornbill.com/support) for assistance in getting these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+6. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
@@ -116,37 +127,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, log in to Hornbill as a Security Administrator.
 
-2. On the Home page, click **System**.
+2. On the Home page, click the **Configuration** settings icon at the bottom left of the page.
 
-	![Screenshot shows the Hornbill system.](./media/hornbill-tutorial/system.png   "Hornbill system")
+	![Screenshot shows the Hornbill system.](./media/hornbill-tutorial/settings.png "Hornbill system")
 
-3. Navigate to **Security**.
+3. Navigate to **Platform Configuration**.
 
-	![Screenshot shows the Hornbill security.](./media/hornbill-tutorial/security.png "Hornbill security")
+	![Screenshot shows the Hornbill platform configuration.](./media/hornbill-tutorial/platform-configuration.png "Hornbill security")
 
-4. Click **SSO Profiles**.
+4. Click **SSO Profiles** under Security.
 
-	![Screenshot shows the Hornbill single.](./media/hornbill-tutorial/profile.png "Hornbill single")
+	![Screenshot shows the Hornbill single.](./media/hornbill-tutorial/profiles.png "Hornbill single")
 
-5. On the right side of the page, click on **Add logo**.
+5. On the right side of the page, click on **+ Create New Profile**.
 
-	![Screenshot shows to add the logo.](./media/hornbill-tutorial/add-logo.png "Hornbill add")
+	![Screenshot shows to add the logo.](./media/hornbill-tutorial/create-new-profile.png "Hornbill create")
 
-6. On the **Profile Details** bar, click on **Import SAML Meta logo**.
+6. On the **Profile Details** bar, click on the **Import IDP Meta Data** button.
 
-	![Screenshot shows Hornbill Meta logo.](./media/hornbill-tutorial/logo.png "Hornbill logo")
+	![Screenshot shows Hornbill Meta logo.](./media/hornbill-tutorial/import-metadata.png "Hornbill logo")
 
-7. On the Pop-up page in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
+7. On the pop-up, in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
 
-	![Screenshot shows Hornbill process.](./media/hornbill-tutorial/process.png "Hornbill process")
+	![Screenshot shows Hornbill process.](./media/hornbill-tutorial/metadata-url.png "Hornbill process")
 
 8. After clicking process the values get auto populated automatically under **Profile Details** section.
 
-	![Screenshot shows Hornbill profile](./media/hornbill-tutorial/page.png "Hornbill profile")
-
-	![Screenshot shows Hornbill details.](./media/hornbill-tutorial/services.png "Hornbill details")
-
-	![Screenshot shows Hornbill certificate.](./media/hornbill-tutorial/details.png "Hornbill certificate")
+	![Screenshot shows Hornbill profile](./media/hornbill-tutorial/profile-details.png "Hornbill profile")
 
 9. Click **Save Changes**.
 
@@ -155,7 +162,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, a user called Britta Simon is created in Hornbill. Hornbill supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Hornbill, a new one is created after authentication.
 
 > [!Note]
-> If you need to create a user manually, contact [Hornbill Client support team](https://www.hornbill.com/support/?request/).
+> If you need to create a user manually, contact [Hornbill Client support team](https://www.hornbill.com/support/?request/).
 
 ## Test SSO
 

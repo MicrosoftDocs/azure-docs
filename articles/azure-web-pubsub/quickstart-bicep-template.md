@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.date: 06/15/2022
 ms.topic: quickstart
 ms.service: azure-web-pubsub
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-bicep
 ---
 
 # Quickstart: Use Bicep to deploy Azure Web PubSub service

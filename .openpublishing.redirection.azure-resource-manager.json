@@ -1919,6 +1919,11 @@
           "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md",
           "redirect_url": "/azure/azure-resource-manager/managed-applications/overview",
           "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/governance/policy/tutorials/policy-as-code-github.md",
+            "redirect_url": "/azure/governance/policy/concepts/policy-as-code",
+            "redirect_document_id": false
+          }
     ]
 }

@@ -51,7 +51,7 @@ The following images show how Azure AD CBA simplifies the customer environment b
 The following scenarios are supported:
 
 - User sign-ins to web browser-based applications on all platforms.
-- User sign-ins to Office mobile apps, including Outlook, OneDrive, and so on.
+- User sign-ins to Office mobile apps on iOS/Android platforms as well as Office native apps in Windows, including Outlook, OneDrive, and so on.
 - User sign-ins on mobile native browsers.
 - Support for granular authentication rules for multifactor authentication by using the certificate issuer **Subject** and **policy OIDs**.
 - Configuring certificate-to-user account bindings by using any of the certificate fields:
@@ -71,6 +71,10 @@ The following scenarios aren't supported:
 - The CDP can be only HTTP URLs. We don't support Online Certificate Status Protocol (OCSP), or Lightweight Directory Access Protocol (LDAP) URLs.
 - Configuring other certificate-to-user account bindings, such as using the **Subject**, **Subject + Issuer** or **Issuer + Serial Number**, aren’t available in this release.
 - Password as an authentication method cannot be disabled and the option to sign in using a password is displayed even with Azure AD CBA method available to the user.
+
+## Known Limitation with Windows Hello For Business certificates
+
+- While Windows Hello For Business (WHFB) can be used for multi-factor authentication in Azure AD, WHFB is not supported for fresh MFA. Customers may choose to enroll certificates for your users using the WHFB key pair.  When properly configured, these WHFB certificates can be used for multi-factor authentication in Azure AD. WHFB certificates are compatible with Azure AD certificate-based authentication (CBA) in Edge and Chrome browsers; however, at this time WHFB certificates are not compatible with Azure AD CBA in non-browser scenarios (e.g. Office 365 applications). The workaround is to use the "Sign in Windows Hello or security key" option to sign in (when available) as this option does not use certificates for authentication and avoids the issue with Azure AD CBA; however, this option may not be available in some older applications.
 
 ## Out of Scope
 

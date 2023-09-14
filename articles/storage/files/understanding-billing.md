@@ -2,11 +2,10 @@
 title: Understand Azure Files billing
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure file shares.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 01/24/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Understand Azure Files billing
@@ -14,7 +13,7 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m5_-GsKv4-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube-nocookie.com/embed/m5_-GsKv4-o]
     :::column-end:::
     :::column:::
         This video is an interview that discusses the basics of the Azure Files billing model. It covers how to optimize Azure file shares to achieve the lowest costs possible, and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
@@ -113,7 +112,7 @@ The following table illustrates a few examples of these formulae for the provisi
 | 51,200 | 54,200 | Up to 100,000 | 164,880,000 | 5,220 |
 | 102,400 | 100,000 | Up to 100,000 | 0 | 10,340 |
 
-Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling SMB Multichannel on premium file shares. To learn more see [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel). Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [performance troubleshooting guide](files-troubleshoot-performance.md) for some common performance issues and workarounds.
+Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling SMB Multichannel on premium file shares. To learn more see [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel). Refer to [SMB Multichannel performance](smb-performance.md) and [performance troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json) for some common performance issues and workarounds.
 
 ### Bursting
 If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above the share's baseline IOPS limit to give the share the performance it needs to meet the demand. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis, and the burst limit isn't a guarantee.
@@ -157,11 +156,11 @@ The following table shows the categorization of each transaction:
 
 | Transaction bucket | Management operations | Data operations |
 |-|-|-|
-| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> |
+| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareAcl`</li><li>`SnapshotShare`</li><li>`RestoreShare`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li><li>`Flush`</li><li>`SetDirectoryProperties`</li></ul> |
 | List transactions | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
 | Read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
-| Other/protocol transactions | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li><li>`BreakShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> |
-| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |  
+| Other/protocol transactions | <ul><li>`AcquireShareLease`</li><li>`BreakShareLease`</li><li>`ReleaseShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
+| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li><li>`DeleteFile`</li></ul> |  
 
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model. Transactions don't affect billing for premium file shares.

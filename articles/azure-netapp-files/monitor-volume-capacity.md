@@ -11,6 +11,7 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/30/2022
 ms.author: anfdocs

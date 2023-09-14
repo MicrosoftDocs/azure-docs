@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: UpdateFrequency5
 monikerRange: 'azureml-api-1'
 ---
 
@@ -20,7 +20,7 @@ Learn how to configure a development environment in Azure Machine Learning that 
 
 Azure Databricks is ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform in the Azure cloud. It provides a collaborative Notebook-based environment with a CPU or GPU-based compute cluster.
 
-For information on other machine learning development environments, see [Set up Python development environment](how-to-configure-environment-v1.md).
+For information on other machine learning development environments, see [Set up Python development environment](how-to-configure-environment.md).
 
 
 ## Prerequisite
@@ -35,7 +35,7 @@ Azure Databricks integrates with Azure Machine Learning and its AutoML capabilit
 You can use Azure Databricks:
 
 + To train a model using Spark MLlib and deploy the model to ACI/AKS.
-+ With [automated machine learning](concept-automated-ml-v1.md) capabilities using an Azure Machine Learning SDK.
++ With [automated machine learning](concept-automated-ml.md) capabilities using an Azure Machine Learning SDK.
 + As a compute target from an [Azure Machine Learning pipeline](../concept-ml-pipelines.md).
 
 ## Set up a Databricks cluster
@@ -109,7 +109,7 @@ In AutoML config, when using Azure Databricks add the following parameters:
 ## ML notebooks that work with Azure Databricks
 
 Try it out:
-+ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
++ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/v1-archive/v1/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
 
 + Import these samples directly from your workspace. See below:
 ![Select Import](../media/how-to-configure-environment/azure-db-screenshot.png)
