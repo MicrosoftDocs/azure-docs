@@ -19,12 +19,13 @@ If you are using a non-UI tool to manage connections, it's crucial to understand
 
 Source services are usually Azure compute services. Note that Service Connector is an [Azure extension resource](../azure-resource-manager/management/extension-resource-types.md), so when you send requests using REST tools to create a connection for example, the request URL should be like: `{source_resource_id}/providers/Microsoft.ServiceLinker/linkers/{linkerName}`. And the `{source_resource_id}` should be one of Service Connector supported source services which are listed in the following table.
 
-| Source Service Type  | Resource Id Format                                                                                                                                           |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Azure App Service    | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
-| Azure Functions      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
-| Azure Spring Apps    | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.AppPlatform/Spring/{spring}/apps/{app}/deployments/{deployment}` |
-| Azure Container Apps | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.App/containerApps/{app}`                                         |
+| Source Service Type    | Resource Id Format                                                                                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Azure App Service      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
+| Azure App Service Slot | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}/slots/{slot}`                                   |
+| Azure Functions        | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
+| Azure Spring Apps      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.AppPlatform/Spring/{spring}/apps/{app}/deployments/{deployment}` |
+| Azure Container Apps   | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.App/containerApps/{app}`                                         |
 
 ## Target Service
 
