@@ -25,8 +25,8 @@ You should already have published and tested your app with Application Proxy. If
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Select **Azure Active Directory** > **Enterprise applications** > **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. From the list, select the app that you want to set up with SSO.  
 1. Select **Application Proxy**. 
 1. Change the **Pre Authentication type** to **Passthrough** and select **Save**. Later you can switch back to **Azure Active Directory** type again! 
