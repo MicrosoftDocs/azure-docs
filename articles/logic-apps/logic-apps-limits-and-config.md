@@ -309,7 +309,7 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 | Name | Multi-tenant | Single-tenant | Notes |
 |------|--------------|---------------|-------|
-| Request trigger (inbound) - Content size limit per 5-minute rolling interval per workflow | 3145728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger. If there are 100 workers in the backend, each worker will have a limit of 3145728000/100 = 31457280 bytes. Using new HTTP client for each request will help distribute the calls evenly on all nodes to avoid running into throttling prematurely. |
+| Request trigger (inbound) - Content size limit per 5-minute rolling interval per workflow | 3,145,728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger. <br><br>For example, suppose the backend has 100 workers. Each worker has a limit of 31,457,280 bytes, which is the result from dividing 3,145,728,000 bytes by 100 workers. To avoid experiencing premature throttling, use a new HTTP client for each request, which helps evenly distribute the calls across all nodes. |
 
 <a name="message-size-limits"></a>
 
