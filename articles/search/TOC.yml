@@ -123,6 +123,8 @@
     href: samples-rest.md
 - name: Concepts
   items:
+  - name: Retrieval Augmented Generation (RAG)
+    href: retrieval-augmented-generation-overview.md
   - name: Search
     items:
     - name: Full-text search

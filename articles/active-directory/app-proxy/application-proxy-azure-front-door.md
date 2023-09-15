@@ -22,7 +22,7 @@ Azure Front Door helps deliver low-latency, high-throughput content at scale fro
 
 ## Deployment steps
 
-This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure Front Door. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
+This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure Front Door. In this guide we'll be using the Microsoft Entra admin center. The reference architecture for this deployment is represented below.   
  
 :::image type="content" source="./media/application-proxy-azure-front-door/azure-front-door.png" alt-text="Diagram of deployment described." lightbox="./media/application-proxy-azure-front-door/azure-front-door.png":::
 

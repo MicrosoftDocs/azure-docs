@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 08/30/2023
+ms.date: 09/12/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -43,7 +43,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-- Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
+- [ASP.NET Core Application](/aspnet/core/introduction-to-aspnet-core) using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet)
 
 ### [.NET](#tab/net)
 
@@ -128,7 +128,7 @@ npm install @opentelemetry/sdk-trace-base
 Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-monitor-opentelemetry/) PyPI package:
 
 ```sh
-pip install azure-monitor-opentelemetry --pre
+pip install azure-monitor-opentelemetry
 ```
 
 ---
@@ -143,14 +143,19 @@ To enable Azure Monitor Application Insights, you make a minor modification to y
 Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, it is in either your `startup.cs` or `program.cs` class.
 
 ```csharp
+// Import the Azure.Monitor.OpenTelemetry.AspNetCore namespace.
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 
+// Create a new WebApplicationBuilder instance.
 var builder = WebApplication.CreateBuilder(args);
 
+// Add the OpenTelemetry NuGet package to the application's services and configure OpenTelemetry to use Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the application.
 var app = builder.Build();
 
+// Run the application.
 app.Run();
 ```
 
@@ -158,12 +163,18 @@ app.Run();
 
 Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup. Depending on your version of .NET, it is in either your `startup.cs` or `program.cs` class.
 ```csharp
+// Create a new tracer provider builder and add an Azure Monitor trace exporter to the tracer provider builder.
+// It is important to keep the TracerProvider instance active throughout the process lifetime.
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddAzureMonitorTraceExporter();
 
+// Add an Azure Monitor metric exporter to the metrics provider builder.
+// It is important to keep the MetricsProvider instance active throughout the process lifetime.
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
     .AddAzureMonitorMetricExporter();
 
+// Create a new logger factory.
+// It is important to keep the LoggerFactory instance active throughout the process lifetime.
 var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder.AddOpenTelemetry(options =>
@@ -191,25 +202,37 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 ##### [Node.js](#tab/nodejs)
 
 ```typescript
+// Import the `useAzureMonitor()` function from the `@azure/monitor-opentelemetry` package.
 const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+
+// Call the `useAzureMonitor()` function to configure OpenTelemetry to use Azure Monitor.
 useAzureMonitor();
 ```
 
 ##### [Python](#tab/python)
 
 ```python
+# Import the `configure_azure_monitor()` function from the
+# `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
+
+# Import the tracing api from the `opentelemetry` package.
 from opentelemetry import trace
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection
+# string.
 configure_azure_monitor(
     connection_string="<Your Connection String>",
 )
 
+# Get a tracer for the current module.
 tracer = trace.get_tracer(__name__)
 
+# Start a new span with the name "hello". This also sets this created span as the current span in this context. This span will be exported to Azure Monitor as part of the trace.
 with tracer.start_as_current_span("hello"):
     print("Hello, World!")
 
+# Wait for export to take place in the background.
 input()
 
 ```
@@ -312,8 +335,8 @@ As part of using Application Insights instrumentation, we collect and send diagn
 ### [Node.js](#tab/nodejs)
 
 - For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md)
-- To review the source code, see the [Application Insights Beta GitHub repository](https://github.com/microsoft/ApplicationInsights-node.js/tree/beta).
-- To install the npm package and check for updates, see the [applicationinsights npm Package](https://www.npmjs.com/package/applicationinsights/v/beta) page.
+- To review the source code, see the [Azure Monitor OpenTelemetry GitHub repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry).
+- To install the npm package and check for updates, see the [`@azure/monitor-opentelemetry` npm Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-node.js).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry JavaScript GitHub repository](https://github.com/open-telemetry/opentelemetry-js).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).

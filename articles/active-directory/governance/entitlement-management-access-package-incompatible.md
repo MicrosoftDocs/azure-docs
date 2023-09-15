@@ -182,8 +182,8 @@ $ap_w_id = "29be137f-b006-426c-b46a-0df3d4e25ccd"
 $ap_e_id = "cce10272-68d8-4482-8ba3-a5965c86cfe5"
 $apa_w_filter = "accessPackage/id eq '" + $ap_w_id + "' and state eq 'Delivered'"
 $apa_e_filter = "accessPackage/id eq '" + $ap_e_id + "' and state eq 'Delivered'"
-$apa_w = Get-MgEntitlementManagementAssignment -Filter $apa_w_filter -ExpandProperty target -All
-$apa_e = Get-MgEntitlementManagementAssignment -Filter $apa_e_filter -ExpandProperty target -All
+$apa_w = @(Get-MgEntitlementManagementAssignment -Filter $apa_w_filter -ExpandProperty target -All)
+$apa_e = @(Get-MgEntitlementManagementAssignment -Filter $apa_e_filter -ExpandProperty target -All)
 $htt = @{}; foreach ($e in $apa_e) { if ($null -ne $e.Target -and $null -ne $e.Target.Id) {$htt[$e.Target.Id] = $e} }
 foreach ($w in $apa_w) { if ($null -ne $w.Target -and $null -ne $w.Target.Id -and $htt.ContainsKey($w.Target.Id)) { write-output $w.Target.Email } }
 ```

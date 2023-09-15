@@ -57,9 +57,9 @@ Semantic ranking is both resource and time intensive. In order to complete proce
 
 ### How inputs are prepared
 
-In semantic ranking, the query subsystem must provide content that can be handled efficiently by the language understanding models. The following steps explain how the inputs are assembled.
+In semantic ranking, the query subsystem passes search results as an input to the language understanding models. Because the models have input size constraints and are processing intensive, search results must be sized and structured for efficient handling.
 
-1. Content reduction starts with a [BM25-ranked search result](index-ranking-similarity.md) from a text query. Only full text queries are in scope, and only the top 50 results progress to semantic ranking, even if results include more than 50.
+1. Semantic ranking starts with a [BM25-ranked search result](index-ranking-similarity.md) from a text query. Only full text queries are in scope, and only the top 50 results progress to semantic ranking, even if results include more than 50.
 
 1. From each match, for each field listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration), the query subsystem combines values into one long string. Typically, fields used in semantic ranking are textual and descriptive.
 
@@ -101,12 +101,6 @@ Scoring is done over captions.
 > [!NOTE]
 > Beginning on July 14, 2023, the **@search.rerankerScore** distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
 
-The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
-
-The following video provides an overview of the capabilities.
-
-> [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
-
 ## Semantic capabilities and limitations
 
 Semantic search is a newer technology so it's important to set expectations about what it can and can't do. What it can do:
@@ -118,6 +112,12 @@ Semantic search is a newer technology so it's important to set expectations abou
 What semantic search can't do is rerun the query over the entire corpus to find semantically relevant results. Semantic search reranks the *existing* result set, consisting of the top 50 results as scored by the default ranking algorithm. Furthermore, semantic search can't create new information or strings. Captions and answers are extracted verbatim from your content so if the results don't include answer-like text, the language models won't produce one.
 
 Although semantic search isn't beneficial in every scenario, certain content can benefit significantly from its capabilities. The language models in semantic search work best on searchable content that is information-rich and structured as prose. A knowledge base, online documentation, or documents that contain descriptive content see the most gains from semantic search capabilities.
+
+The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure as an add-on feature. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
+
+The following video provides an overview of the capabilities.
+
+> [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
 ## Availability and pricing
 

@@ -45,10 +45,10 @@ You must have the **Global Administrator** role to enable the 'Stay signed in?' 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-The KMSI setting is managed in the **User settings** of Azure Active Directory (Azure AD).
+The KMSI setting is managed in **User settings**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to **Azure Active Directory** > **Users** > **User settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Users** > **User settings**.
 1. Set the **Show keep user signed in** toggle to **Yes**.
 
     ![Screenshot of the Show keep user signed in prompt.](media/how-to-manage-stay-signed-in-prompt/show-keep-user-signed-in.png)
@@ -59,14 +59,14 @@ If a user doesn't act on the **Stay signed in?** prompt but abandons the sign-in
 
 ![Sample 'Stay signed in?' prompt](media/how-to-manage-stay-signed-in-prompt/kmsi-stay-signed-in-prompt.png)
 
-Details about the sign-in error are found in the **Sign-in logs** in Azure AD. Select the impacted user from the list and locate the following details in the **Basic info** section.
+Details about the sign-in error are found in the **Sign-in logs**. Select the impacted user from the list and locate the following details in the **Basic info** section.
 
 * **Sign in error code**: 50140
 * **Failure reason**: This error occurred due to "Keep me signed in" interrupt when the user was signing in.
 
-You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the user settings. This setting disables the KMSI prompt for all users in your Azure AD directory.
+You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the user settings. This setting disables the KMSI prompt for all users in your directory.
 
-You also can use the [persistent browser session controls in Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to prevent users from seeing the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the global administrators) without affecting sign-in behavior for everyone else in the directory.
+You also can use the [persistent browser session controls in Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to prevent users from seeing the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the Global Administrators) without affecting sign-in behavior for everyone else in the directory.
 
 To ensure that the KMSI prompt is shown only when it can benefit the user, the KMSI prompt is intentionally not shown in the following scenarios:
 

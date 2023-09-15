@@ -4,12 +4,12 @@ description: Sign in Azure AD users by using the Microsoft identity platform's i
 author: OwenRichards1
 manager: CelesteDG
 ms.custom: aaddev, identityplatformtop40
-ms.date: 05/30/2023
+ms.date: 09/13/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # OpenID Connect on the Microsoft identity platform
@@ -32,7 +32,11 @@ The *ID token* introduced by OpenID Connect is issued by the authorization serve
 
 ID tokens aren't issued by default for an application registered with the Microsoft identity platform. ID tokens for an application are enabled by using one of the following methods:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Under **Platform configurations**, select **Add a platform**. 
+1. In the pane that opens, select the appropriate platform for your application. For example, select **Web** for a web application.
+1. Under Redirect URIs, add the redirect URI of your application. For example, `https://localhost:8080/`.
 1. Under **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 
 Or:
@@ -71,9 +75,9 @@ The value of `{tenant}` varies based on the application's sign-in audience as sh
 > [!TIP]
 > Note that when using the `common` or `consumers` authority for personal Microsoft accounts, the consuming resource application must be configured to support such type of accounts in accordance with [signInAudience](./supported-accounts-validation.md).
 
-To find the OIDC configuration document in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) and then:
+To find the OIDC configuration document in the Microsoft Entra admin center, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and then:
 
-1. Select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Endpoints**.
+1. Browse to **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Endpoints**.
 1. Locate the URI under **OpenID Connect metadata document**.
 
 ### Sample request
@@ -132,7 +136,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Required | You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](./v2-protocols.md#endpoints). Critically, for guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to correctly sign them into the resource tenant.|
-| `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
+| `client_id` | Required | The **Application (client) ID** that the [Mcirosoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `response_type` | Required | Must include `id_token` for OpenID Connect sign-in. |
 | `redirect_uri` | Recommended | The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL-encoded. If not present, the endpoint will pick one registered `redirect_uri` at random to send the user back to. |
 | `scope` | Required | A space-separated list of scopes. For OpenID Connect, it must include the scope `openid`, which translates to the **Sign you in** permission in the consent UI. You might also include other scopes in this request for requesting consent. |

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 8/15/2023
+ms.date: 09/08/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -69,6 +69,8 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 1. For the above properties, determine which fields to assign.
 
+   A field must be searchable and retrievable.
+
    A field must be a [supported data type](/rest/api/searchservice/supported-data-types) and it should contain strings. If you happen to include an invalid field, there's no error, but those fields won't be used in semantic ranking.
 
     | Data type | Example from hotels-sample-index |
@@ -90,9 +92,9 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
    The **New Semantic Configuration** page opens with options for selecting a title field, content fields, and keyword fields. Make sure to list content fields and keyword fields in priority order.
 
-   Select **OK** to save the changes.
-
    :::image type="content" source="./media/semantic-search-overview/create-semantic-config.png" alt-text="Screenshot that shows how to create a semantic configuration in the Azure portal." border="true":::
+
+   Select **OK** to save the changes.
 
 ### [**REST API**](#tab/rest)
 
@@ -216,21 +218,23 @@ Several query capabilities in Cognitive Search bypass relevance scoring. If your
 
 ## 4 - Set up the query
 
-Your next step is adding parameters to the query request. To be successful, your query should be full text search (using the "search" parameter to pass in a string), and the index should contain text fields with rich semantic content.
+Your next step is adding parameters to the query request. To be successful, your query should be full text search (using the "search" parameter to pass in a string), and the index should contain text fields with rich semantic content and a semantic configuration.
 
 ### [**Azure portal**](#tab/portal-query)
 
-[Search explorer](search-explorer.md) has been updated to include options for semantic queries. To configure semantic ranking in the portal, follow the steps below:
+[Search explorer](search-explorer.md) has been updated to include options for semantic queries. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-how-to-enable-disable.md).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Search explorer** at the top of the overview page.
+1. Open your search index and select **Search explorer**.
 
-1. Choose an index that has content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
+1. There are two ways to specify the query, JSON or options. Using JSON, you can paste definitions into the query editor:
 
-1. In Search explorer, set query options that enable semantic queries, semantic configurations, and spell correction. You can also paste the required query parameters into the query string.
+   :::image type="content" source="./media/semantic-search-overview/semantic-portal-json-query.png" alt-text="Screenshot showing JSON query syntax in the Azure portal." border="true":::
 
-:::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
+1. Using options, specify that you want to use semantic search and select a query language. If you don't see these options, make sure semantic search is enabled and also refresh your browser.
+
+    :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options-v2.png" alt-text="Screenshot showing query options in Search explorer." border="true":::
 
 ### [**REST API**](#tab/rest-query)
 
@@ -363,6 +367,6 @@ The response for the above example query returns the following match as the top 
 Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry forward to semantic search. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
 
 + [Analyzers for text processing](search-analyzers.md)
-+ [Similarity ranking algorithm](index-similarity-and-scoring.md)
-+ [Scoring profiles](index-add-scoring-profiles.md)
++ [Configure BM25 relevance scoring](index-similarity-and-scoring.md)
++ [Add scoring profiles](index-add-scoring-profiles.md)
 + [Semantic search overview](semantic-search-overview.md)

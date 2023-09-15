@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -69,7 +69,7 @@ The graphics you choose are shown in the following circumstances:
 
 ### Directory name
 
-To make things look more user-friendly, you can change organization name in the portal and in the automated communications. To change the directory name attribute in the Azure portal, browse to **Azure Active Directory** > **Properties**. This friendly organization name option is the most visible in automated emails, as in the following examples:
+To make things look more user-friendly, you can change organization name in the portal and in the automated communications. To change the directory name attribute in the Microsoft Entra admin center, sign in as a Global Administrator and browse to **Identity** > **Overview** > **Properties**. This friendly organization name option is the most visible in automated emails, as in the following examples:
 
 * The friendly name in the email, for example "*Microsoft on behalf of CONTOSO demo*"
 * The subject line in the email, for example "*CONTOSO demo account email verification code*"

@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -105,21 +105,21 @@ Under each sign-in log, go to the **Authentication Details** tab and explore **S
 
 To configure or review the *Remain signed-in* option, complete the following steps:
 
-1. In the Azure portal, search for and select *Azure Active Directory*.
-1. Select **Company Branding**, then for each locale, choose **Show option to remain signed in**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Company Branding**, then for each locale, choose **Show option to remain signed in**.
 1. Choose *Yes*, then select **Save**.
 
 To remember multifactor authentication settings on trusted devices, complete the following steps:
 
-1. In the Azure portal, search for and select *Azure Active Directory*.
-1. Select **Security**, then **MFA**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > then **Multifactor authentication**.
 1. Under **Configure**, select **Additional cloud-based MFA settings**.
 1. In the *Multi-factor authentication service settings* page, scroll to **remember multi-factor authentication settings**. Disable the setting by unchecking the checkbox.
 
 To configure Conditional Access policies for sign-in frequency and persistent browser session, complete the following steps:
 
-1. In the Azure portal, search for and select *Azure Active Directory*.
-1. Select **Security**, then **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 
 To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/configure-token-lifetimes.md#get-started). Disable any policies that you have in place.

@@ -585,6 +585,11 @@
       "source_path_from_root": "/articles/ai-services/document-intelligence/concept-insurance-card.md",
       "redirect_url": "/azure/ai-services/document-intelligence/concept-health-insurance-card",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/concept-w2.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-tax-document",
+      "redirect_document_id": true
     }
   ]
 }

@@ -37,6 +37,8 @@
       href: cache-rust-get-started.md
 - name: Tutorials
   items:
+  - name: Connect an AKS application to a cache
+    href: cache-tutorial-aks-get-started.md
   - name: ASP.NET
     items:
     - name: Use session state provider
