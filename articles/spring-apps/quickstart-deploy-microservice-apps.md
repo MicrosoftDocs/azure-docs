@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.date: 06/21/2023
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
+zone_pivot_groups: spring-apps-plan-selection
 ---
 
 # Quickstart: Deploy microservice applications to Azure Spring Apps
@@ -16,8 +17,6 @@ ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-bu
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
-
-**This article applies to:** ✔️ Basic/Standard
 
 This article explains how to deploy microservice applications to Azure Spring Apps using the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices). The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on Azure Spring Apps.
 
@@ -38,10 +37,24 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 This article provides the following options for deploying to Azure Spring Apps:
 
+::: zone pivot="sc-standard"
+
+This article provides the following options for deploying to Azure Spring Apps:
 - The Azure portal and Maven plugin are a more conventional way to create resources and deploy applications step by step. It's suitable for Spring developers who are using Azure cloud services for the first time.
 - The Azure Developer CLI is a more efficient way to automatically create resources and deploy applications through simple commands. It covers application code and infrastructure as code files needed to provision the Azure resources. It's suitable for Spring developers who are familiar with Azure cloud services.
 
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+This article provides the following option for deploying to Azure Spring Apps:
+- The Azure portal is the easiest and fastest way to create resources and deploy applications with one-click. This method is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+
+::: zone-end
+
 ## 1. Prerequisites
+
+::: zone pivot="sc-standard"
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -58,7 +71,27 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ---
 
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- (Optional) [Git](https://git-scm.com/downloads).
+- (Optional) [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
 [!INCLUDE [deploy-microservice-apps-with-basic-standard-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-basic-standard-plan.md)]
+
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+[!INCLUDE [deploy-microservice-apps-with-enterprise-plan](includes/quickstart-deploy-microservice-apps/deploy-microservice-apps-with-enterprise-plan.md)]
+
+::: zone-end
 
 ## 5. Validate the apps
 
