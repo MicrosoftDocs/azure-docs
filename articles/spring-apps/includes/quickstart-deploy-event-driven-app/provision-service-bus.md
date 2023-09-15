@@ -35,13 +35,11 @@ Use the following steps to create a Service Bus instance:
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create namespace page for Service Bus creation." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-creation.png":::
 
-1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
+1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Service Bus instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/service-bus-notifications.png" alt-text="Screenshot of the Azure portal showing the Notifications pane of the Deployment Overview page." lightbox="../../media/quickstart-deploy-event-driven-app/service-bus-notifications.png":::
-
-1. Select **Review and Create** to review the creation parameters, then select **Create** to finish creating the Service Bus instance.
 
 1. Select **Go to resource** to go to the **Service Bus Namespace** page.
 
