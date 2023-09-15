@@ -27,10 +27,10 @@ To use the new feature, follow the steps below.
 
 
 [!INCLUDE [sign in](../../../includes/cloud-sync-sign-in.md)]
- 4. Under **Configuration**, select your configuration.
- 5. Select **View default properties**.
- 6. Click the pencil next to **Basics**
- 5. On the right, fill in the following information.
+ 3. Under **Configuration**, select your configuration.
+ 4. Select **View default properties**.
+ 5. Click the pencil next to **Basics**
+ 6. On the right, fill in the following information.
 	 - **Notification email** - email used for notifications
 	- **Prevent accidental deletions** - check this box to enable the feature
 	- **Accidental deletion threshold** - enter the number of objects to stop synchronization and send a notification
