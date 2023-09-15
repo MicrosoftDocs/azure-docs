@@ -143,14 +143,19 @@ To enable Azure Monitor Application Insights, you make a minor modification to y
 Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET, it is in either your `startup.cs` or `program.cs` class.
 
 ```csharp
+// Import the Azure.Monitor.OpenTelemetry.AspNetCore namespace.
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 
+// Create a new WebApplicationBuilder instance.
 var builder = WebApplication.CreateBuilder(args);
 
+// Add the OpenTelemetry NuGet package to the application's services and configure OpenTelemetry to use Azure Monitor.
 builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
+// Build the application.
 var app = builder.Build();
 
+// Run the application.
 app.Run();
 ```
 
@@ -158,12 +163,15 @@ app.Run();
 
 Add the Azure Monitor Exporter to each OpenTelemetry signal in application startup. Depending on your version of .NET, it is in either your `startup.cs` or `program.cs` class.
 ```csharp
+// Create a new tracer provider builder and add an Azure Monitor trace exporter to the tracer provider builder.
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddAzureMonitorTraceExporter();
 
+// Add an Azure Monitor metric exporter to the metrics provider builder.
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
     .AddAzureMonitorMetricExporter();
 
+// Create a new logger factory.
 var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder.AddOpenTelemetry(options =>
@@ -191,25 +199,40 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 ##### [Node.js](#tab/nodejs)
 
 ```typescript
+// Import the `useAzureMonitor()` function from the `@azure/monitor-opentelemetry` package.
 const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
+
+// Call the `useAzureMonitor()` function to configure OpenTelemetry to use Azure Monitor.
 useAzureMonitor();
 ```
 
 ##### [Python](#tab/python)
 
 ```python
+# Import the `configure_azure_monitor()` function from the
+# `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
+
+# Import the `get_tracer()` function from the `opentelemetry` package.
 from opentelemetry import trace
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection
+# string.
 configure_azure_monitor(
     connection_string="<Your Connection String>",
 )
 
+# Get a tracer for the current module.
 tracer = trace.get_tracer(__name__)
 
+# Start a new trace with the name "hello". This trace will be exported to
+# Azure Monitor.
 with tracer.start_as_current_span("hello"):
+    
+    # Print "Hello, World!" to the console.
     print("Hello, World!")
 
+# Wait for user input.
 input()
 
 ```
