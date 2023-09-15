@@ -84,20 +84,50 @@ Learn more about the [workflow for determining the optimal configuration](#workf
 
 ## Workflow for determining your optimal configuration
 
-The optimal configuration for minimizing the test suite completion time is specific to your application and environment. To determine your optimal configuration, experiment with different levels of parallelization and environment configuration.
-
-Depending on the scenario, your requirements for test completion might also differ. When you're running your end-to-end tests with every code change, as part of a continuous integration (CI) workflow, minimizing test completion time is essential. When you schedule your end-to-end tests in a (nightly) batch run, you might have requirements that are less demanding.
+The optimal configuration for minimizing the test suite completion time is specific to your application and environment. To determine your optimal configuration, experiment with different levels of parallelization, client machine configuration, and test suite setup.
 
 The following approach can help you find the optimal configuration for running your tests with Microsoft Playwright Testing:
 
-1. Set your test completion time goal
-1. Make sure your Playwright tests run correctly on your client machine
-1. Configure your tests to run on Microsoft Playwright Testing. Run your tests from the expected client machine (CI agent, developer workstation).
-1. Experiment with the number of parallel workers and detemine your performance graph
-1. Increase the computing resources on the client machine and experiment with the number of parallel workers
-1. Configure your Playwright test configuration settings
+### 1. Determine your test completion time goal
 
-You can now use the results of these experiments and the performance graphs to determine the optimal number of parallel workers to meet your test completion time goal.
+Determine what is an acceptable test suite completion time and associated cost per test run.
+
+Depending on the scenario, your requirements for test completion might be different. When you're running your end-to-end tests with every code change, as part of a continuous integration (CI) workflow, minimizing test completion time is essential. When you schedule your end-to-end tests in a (nightly) batch run, you might have requirements that are less demanding.
+
+### 2. Verify that your tests run correctly on the client machine
+
+Before you run your Playwright test suite with Microsoft Playwright Testing, make sure that your tests run correctly on your client machine. If you run your tests as part of a CI workflow, validate that your tests run correctly on the CI agent machine.
+
+### 3. Run with cloud-hosted browsers on Microsoft Playwright Testing
+
+Once your tests run correctly, add the service configuration to run your tests on cloud-hosted browsers with the service. Validate that your tests continue to run correctly from your client machine (developer workstation or CI agent machine).
+
+Get started with the [Quickstart: run Playwright tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md).
+
+### 4. Verify the Azure region remote browsers
+
+Microsoft Playwright Testing can use remote browsers in the Azure region that's nearest to your client machine, or use the fixed region on which your workspace was created.
+
+Learn how you can [optimize regional latency for your workspace](./how-to-optimize-regional-latency.md).
+
+### 5. Experiment with the number of parallel workers
+
+Experiment with the number of parallel workers to run your tests. Measure the test completion time and compare against the target goal you set previously. 
+
+Notice at which point the test completion time no longer reduces as you add more workers. Move to the next step to further optimize your setup.
+
+> [!NOTE]
+> While the service is in preview, the number of [parallel workers per workspace is limited](./resource-limits-quotas-capacity.md) to 50. You can request an increase of this limit for your workspace.
+
+### 6. Increase computing resources on the client machine
+
+As you increase parallelism, the client machine might experience compute resource contention. Increase the computing resources on the client machine, for example by selecting [larger GitHub-hosted runners](https://docs.github.com/actions/using-github-hosted-runners/about-larger-runners).
+
+Rerun your tests and experiment with the number of parallel workers.
+
+### 7. Update your Playwright test configuration setttings
+
+Configure your Playwright test configuration settings, such as test [timeouts](https://playwright.dev/docs/test-timeouts), [trace](https://playwright.dev/docs/api/class-testoptions#test-options-trace) settings, or [reties](https://playwright.dev/docs/test-retries).
 
 ## Related content
 
