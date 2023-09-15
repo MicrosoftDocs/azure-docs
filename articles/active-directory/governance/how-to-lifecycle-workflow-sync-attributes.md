@@ -176,4 +176,5 @@ Get-MgUser -UserId "44198096-38ea-440d-9497-bb6b06bcaf9b" | Select-Object Displa
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
 - [Create a custom workflow using the Microsoft Entra admin center](tutorial-onboard-custom-workflow-portal.md)
+- [Configure API-driven inbound provisioning app (Public preview)](../app-provisioning/inbound-provisioning-api-configure-app.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
