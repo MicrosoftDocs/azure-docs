@@ -48,7 +48,7 @@ The report provides the following information:
 
 | Report&nbsp;item | Description |
 | ------- | ----------- |
-| Time Stamp | The time stamp that's based on Azure portal local time when the detection time window starts.<br> All daily events are generated at midnight UTC time. <br>Hourly events have the time stamp rounded to the beginning of the hour. You can find the first activity start time from “firstAuditTimestamp” in the exported file. |
+| Time Stamp | The time stamp that's based on [Microsoft Entra admin center](https://entra.microsoft.com) local time when the detection time window starts.<br> All daily events are generated at midnight UTC time. <br>Hourly events have the time stamp rounded to the beginning of the hour. You can find the first activity start time from “firstAuditTimestamp” in the exported file. |
 | Trigger Type | The type of detection time window. The aggregation trigger types are per hour or per day. They're helpful in differentiating between a high-frequency brute force attack and a slow attack, where the number of attempts is distributed throughout the day. |
 | IP Address | The single risky IP address that had either bad password or extranet lockout sign-in activities. It can be either an IPv4 or an IPv6 address. |
 | Bad Password Error Count | The count of bad password errors that occur from the IP address during the detection time window. Bad password errors can happen multiple times to certain users. **Note**: This count doesn't include failed attempts resulting from expired passwords. |
