@@ -46,8 +46,6 @@ This article provides the following options for deploying to Azure Spring Apps:
 ### [Azure portal](#tab/Azure-portal)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- (Optional) [Git](https://git-scm.com/downloads).
-- (Optional) [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
@@ -71,8 +69,6 @@ This article provides the following options for deploying to Azure Spring Apps:
 ### [Azure portal](#tab/Azure-portal-ent)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- (Optional) [Git](https://git-scm.com/downloads).
-- (Optional) [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
