@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 09/14/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
 ---
@@ -29,7 +29,7 @@ In addition, the sign-ins logs can also help you troubleshoot sign-in failures f
 You need:
 
 * An Azure AD tenant with a Premium P1/P2 license.
-* A user with the **Global Administrator**, **Security Administrator**, **Security Reader**, or **Reports Reader** role for the tenant.
+* A user with the **Reports Reader**, **Security Reader**, **Security Administrator**, or **Global Administrator** role for the tenant.
 * In addition, any user can access their own sign-ins from https://mysignins.microsoft.com. 
 
 ## Gather sign-in details

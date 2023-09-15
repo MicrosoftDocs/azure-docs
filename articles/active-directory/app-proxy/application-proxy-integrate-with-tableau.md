@@ -35,7 +35,7 @@ Application Proxy supports the OAuth 2.0 Grant Flow, which is required for Table
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To publish Tableau, you need to publish an application in the Azure portal.
+To publish Tableau, you need to publish an application in the Microsoft Entra admin center.
 
 For:
 
