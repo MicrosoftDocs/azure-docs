@@ -17,17 +17,19 @@ This article provides guidance to move virtual machines from Automation Update M
 Azure Update Manager provides a SaaS solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multi cloud environments. It is an evolution of [Azure Automation Update management solution](../automation/update-management/overview.md) with new features and functionality, for assessment and deployment of software updates on a single machine or on multiple machines at scale.
 
 For the Azure Update Manager, both AMA and MMA aren't a requirement to manage software update workflows as it relies on the Microsoft Azure VM Agent for Azure VMs and Azure connected machine agent for Arc-enabled servers. When you perform an update operation for the first time on a machine, an extension is pushed to the machine and it interacts with the agents to assess missing updates and install updates.
-    - All capabilities of Azure Automation Update Management will be available on Azure Update Manager before the deprecation date.
+
+- All capabilities of Azure Automation Update Management will be available on Azure Update Manager before the deprecation date.
 
 > [!NOTE] 
-> If you are using Azure Automation Update Management Solution, we recommend that you don't remove MMA agents from the machines without completing the migration to Azure Update Manager for the machine's patch management needs.
-> If you remove the MMA agent from the machine without moving to Azure Update Manager, it would break the patching workflows for that machine. 
+> - If you are using Azure Automation Update Management Solution, we recommend that you don't remove MMA agents from the machines without completing the migration to Azure Update Manager for the machine's patch management needs.
+>
+> - If you remove the MMA agent from the machine without moving to Azure Update Manager, it would break the patching workflows for that machine. 
 
 ## Guidance to move virtual machines from Automation Update Management to Azure Update Manager
 
 Guidance to move various capabilities is provided in table below:
 
-**S.No** | **Capability** | **Automation Update Management* | **Azure Update Manager** | **Steps using Azure portal** | **Steps using API/script** | 
+**S.No** | **Capability** | **Automation Update Management** | **Azure Update Manager** | **Steps using Azure portal** | **Steps using API/script** | 
 --- | --- | --- | ---| ---| ---| 
 1 | Patch management for Off-Azure machines. | Could run with or without Arc connectivity. | Azure Arc is a prerequisite for non-Azure machines. | 1. [Create service principal](../app-service/quickstart-php.md#1---get-the-sample-repository) </br> 2. [Generate installation script](../azure-arc/servers/onboard-service-principal.md#generate-the-installation-script-from-the-azure-portal) </br> 3. [Install agent and connect to Azure](../azure-arc/servers/onboard-service-principal.md#install-the-agent-and-connect-to-azure) | 1. [Create service principal](../azure-arc/servers/onboard-service-principal.md#azure-powershell) <br> 2. [Generate installation script](../azure-arc/servers/onboard-service-principal.md#generate-the-installation-script-from-the-azure-portal) </br> 3. [Install agent and connect to Azure](../azure-arc/servers/onboard-service-principal.md#install-the-agent-and-connect-to-azure) |
 2 | Enable periodic assessment to check for latest updates automatically every few hours. | Machines automatically receive the latest updates every 12 hours for Windows and every 3 hours for Linux. | Periodic assessment is an update setting on your machine. If it's turned on, the Update Manager fetches updates every 24 hours for the machine and shows the latest update status. | 1. [Single machine](manage-update-settings.md#configure-settings-on-a-single-vm) </br> 2. [At scale](manage-update-settings.md#configure-settings-at-scale) </br> 3. [At scale using policy](periodic-assessment-at-scale.md) | 1. [For Azure VM](../virtual-machines/automatic-vm-guest-patching.md#azure-powershell-when-updating-a-windows-vm) </br> 2.[For Arc-enabled VM](/powershell/module/az.connectedmachine/update-azconnectedmachine?view=azps-10.2.0) |
