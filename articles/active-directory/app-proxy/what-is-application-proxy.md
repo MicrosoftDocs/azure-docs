@@ -69,7 +69,7 @@ With Application Proxy, Azure AD keeps track of users who need to access web app
 
 ### An overview of how App Proxy works
 
-Application Proxy is an Azure AD service you configure in the Azure portal. It enables you to publish an external public HTTP/HTTPS URL endpoint in the Azure Cloud, which connects to an internal application server URL in your organization. These on-premises web apps can be integrated with Azure AD to support single sign-on. Users can then access on-premises web apps in the same way they access Microsoft 365 and other SaaS apps.
+Application Proxy is an Azure AD service you configure in the Microsoft Entra admin center. It enables you to publish an external public HTTP/HTTPS URL endpoint in the Azure Cloud, which connects to an internal application server URL in your organization. These on-premises web apps can be integrated with Azure AD to support single sign-on. Users can then access on-premises web apps in the same way they access Microsoft 365 and other SaaS apps.
 
 Components of this feature include the Application Proxy service, which runs in the cloud, the Application Proxy connector, which is a lightweight agent that runs on an on-premises server, and Azure AD, which is the identity provider. All three components work together to provide the user with a single sign-on experience to access on-premises web applications.
 
@@ -152,7 +152,7 @@ Azure AD Application Proxy consists of the cloud-based Application Proxy service
 Setup and registration between a connector and the App Proxy service is accomplished as follows:
 
 1. The IT administrator opens ports 80 and 443 to outbound traffic and allows access to several URLs that are needed by the connector, the App Proxy service, and Azure AD.
-2. The admin signs into the Azure portal and runs an executable to install the connector on an on-premises Windows server.
+2. The admin signs into the Microsoft Entra admin center and runs an executable to install the connector on an on-premises Windows server.
 3. The connector starts to "listen" to the App Proxy service.
 4. The admin adds the on-premises application to Azure AD and configures settings such as the URLs users need to connect to their apps.
 
@@ -165,7 +165,7 @@ Connectors also poll the server to find out if there is a newer version of the c
 > [!NOTE]
 > You can monitor the Application Proxy [version history page](./application-proxy-release-version-history.md) to be notified when updates have been released by subscribing to its RSS feed.
 
-Each Application Proxy connector is assigned to a [connector group](./application-proxy-connector-groups.md). Connectors in the same connector group act as a single unit for high availability and load balancing. You can create new groups, assign connectors to them in the Azure portal, then assign specific connectors to serve specific applications. It's recommended to have at least two connectors in each connector group for high availability.
+Each Application Proxy connector is assigned to a [connector group](./application-proxy-connector-groups.md). Connectors in the same connector group act as a single unit for high availability and load balancing. You can create new groups, assign connectors to them in the Microsoft Entra admin center, then assign specific connectors to serve specific applications. It's recommended to have at least two connectors in each connector group for high availability.
 
 Connector groups are useful when you need to support the following scenarios:
 
