@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/18/2023
+ms.date: 09/15/2023
 ms.author: jfields
 ms.reviewer: cmmdesai
 ---
@@ -180,12 +180,12 @@ To illustrate the procedure, let's use the CSV file `Samples/csv-with-2-records.
 
 This section explains how to send the generated bulk request payload to your inbound provisioning API endpoint. 
 
-1. Log in to your Microsoft Entra admin center as *Application Administrator* or *Global Administrator*.
-1. Copy the `ServicePrincipalId` associated with your provisioning app from **Provisioning App** > **Properties** > **Object ID**.
+1. Log in to your [Microsoft Entra admin center](https://entra.micsrosoft.com) as at least an [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823).
+1. Browse to **Provisioning App** > **Properties** > **Object ID** and copy the `ServicePrincipalId` associated with your provisioning app.
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/object-id.png" alt-text="Screenshot of the Object ID." lightbox="./media/inbound-provisioning-api-powershell/object-id.png":::
 
-1. As user with *Global Administrator* role, run the following command by providing the correct values for `ServicePrincipalId` and `TenantId`. It will prompt you for authentication if an authenticated session doesn't already exist for this tenant. Provide your consent to permissions prompted during authentication.  
+1. As user with Global Administrator role, run the following command by providing the correct values for `ServicePrincipalId` and `TenantId`. It will prompt you for authentication if an authenticated session doesn't already exist for this tenant. Provide your consent to permissions prompted during authentication.  
 
    ```powershell
    .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ServicePrincipalId <servicePrincipalId> -TenantId "contoso.onmicrosoft.com"
@@ -204,7 +204,7 @@ This section explains how to send the generated bulk request payload to your inb
     $ThumbPrint = $ClientCertificate.ThumbPrint
     ```
     The generated certificate is stored **Current User\Personal\Certificates**. You can view it using the **Control Panel** -> **Manage user certificates** option. 
-1. To associate this certificate with a valid service principal, log in to your Microsoft Entra admin center as *Application Administrator*.
+1. To associate this certificate with a valid service principal, log in to your Microsoft Entra admin center as Application Administrator.
 1. Open [the service principal you configured](inbound-provisioning-api-grant-access.md#configure-a-service-principal) under **App Registrations**.
 1. Copy the **Object ID** from the **Overview** blade. Use the value to replace the string `<AppObjectId>`. Copy the **Application (client) Id**. We will use it later and it is referenced as `<AppClientId>`.
 1. Run the following command to upload your certificate to the registered service principal. 
