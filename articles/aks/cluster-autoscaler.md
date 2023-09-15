@@ -137,6 +137,17 @@ Monitor the performance of your applications and services, and adjust the cluste
 
 You can also configure more granular details of the cluster autoscaler by changing the default values in the cluster-wide autoscaler profile. For example, a scale down event happens after nodes are under-utilized after 10 minutes. If you have workloads that run every 15 minutes, you may want to change the autoscaler profile to scale down under-utilized nodes after 15 or 20 minutes. When you enable the cluster autoscaler, a default profile is used unless you specify different settings. The cluster autoscaler profile has the following settings you can update:
 
+Example profile update that scales after every 15 minutes and change after 10 minutes of non-use.
+
+```azurecli-interactive
+az aks update \
+  -g learn-aks-cluster-scalability \
+  -n learn-aks-cluster-scalability \
+  --cluster-autoscaler-profile scan-interval=5s \
+    scale-down-unready-time=10m \
+    scale-down-delay-after-add=15m
+```
+
 | Setting                          | Description                                                                              | Default value |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | scan-interval                    | How often cluster is reevaluated for scale up or down                                    | 10 seconds    |
