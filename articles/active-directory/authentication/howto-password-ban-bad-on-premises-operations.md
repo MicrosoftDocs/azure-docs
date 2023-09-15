@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Users often create passwords that use common local words such as a school, sports team, or famous person. These passwords are easy to guess, and weak against dictionary-based attacks. To enforce strong passwords in your organization, Azure Active Directory (Azure AD) Password Protection provides a global and custom banned password list. A password change request fails if there's a match in these banned password list.
 
-To protect your on-premises Active Directory Domain Services (AD DS) environment, you can install and configure Azure AD Password Protection to work with your on-prem DC. This article shows you how to enable Azure AD Password Protection for your on-premises environment.
+To protect your on-premises Active Directory Domain Services (AD DS) environment, you can install and configure Azure AD Password Protection to work with your on-premises DC. This article shows you how to enable Azure AD Password Protection for your on-premises environment.
 
 For more information on how Azure AD Password Protection works in an on-premises environment, see [How to enforce Azure AD Password Protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md).
 
@@ -71,4 +71,4 @@ Affected end users may need to work with their IT staff to understand the new re
 
 To customize the banned password list for your organization, see [Configure the Azure AD Password Protection custom banned password list](tutorial-configure-custom-password-protection.md).
 
-To monitor on-prem events, see [Monitoring on-prem Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
+To monitor on-premises events, see [Monitoring on-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
