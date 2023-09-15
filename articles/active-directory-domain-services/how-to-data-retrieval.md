@@ -29,7 +29,7 @@ You can create a user in the Azure AD portal or by using Graph PowerShell or Gra
 You can create a new user using the Azure Active Directory portal.
 To add a new user, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator).
 
 1. Browse to **Identity** > **Users**, and then select **New user**.
 
