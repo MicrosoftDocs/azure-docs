@@ -130,9 +130,9 @@ spring:
            endpoint: <your-endpoint>
            selects:
              -
-              snapshot-name: <name of your snapshot>
+              snapshot-name: <name-of-your-snapshot>
            trim-key-prefix: 
-             - <prefix to trim>
+             - <prefix-to-trim>
 ```
 
 > [!NOTE]
