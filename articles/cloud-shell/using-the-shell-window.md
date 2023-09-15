@@ -109,8 +109,10 @@ select restore.
   - FireFox/IE may not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
 - Linux: <kbd>CTRL</kbd>-<kbd>C</kbd> to copy and <kbd>CTRL</kbd>-<kbd>SHIFT</kbd>-<kbd>V</kbd> to paste.
-  - Make sure you have something selected before issuing the copy sequence, otherwise it will just send the TERM signal to cloud-shell.
- 
+
+> [!NOTE]
+> If no text is selected when you type <kbd>Ctrl</kbd>-<kbd>C</kbd>, Cloud Shell sends the `Ctrl C`
+> character to the shell. This could terminate the currently running command.
 
 ## Resize Cloud Shell window
 
