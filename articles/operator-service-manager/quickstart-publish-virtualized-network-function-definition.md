@@ -77,7 +77,7 @@ Here's sample Input.Json:
 To construct the Network Function Definition (NFD), initiate the build process.
 
 ```azurecli
-az aosm nfd build -f input.json --definition-type cnf --interactive
+az aosm nfd build -f input.json --definition-type vnf --interactive
 ```
 Once the build is complete, examine the generated files to better understand the Network Function Definition (NFD) structure.
 
@@ -97,7 +97,7 @@ The following files are created:
 Execute the following command to publish the Network Function Definition (NFD) and upload the associated artifacts:
 
 ```azurecli
-az aosm nfd publish -f input.json --definition-type cnf
+az aosm nfd publish -f input.json --definition-type vnf
 ```
 When the command completes, inspect the resources within your Publisher Resource Group to observe the created components and artifacts.
 
