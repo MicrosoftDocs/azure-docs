@@ -6,8 +6,9 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 08/28/2023
+ms.date: 09/15/2023
 ms.author: cynthn
+ms.reviewer: erd
 ms.custom: mvc, mode-ui
 ---
 
@@ -94,11 +95,16 @@ In the portal, select the VM and in the overview of the VM, hover over the IP ad
 
 ## Clean up resources
 
+### Delete resources
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 1. On the Overview page for the VM, select the **Resource group** link.
 1. At the top of the page for the resource group, select **Delete resource group**. 
 1. A page will open warning you that you are about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
+
+### Auto-shutdown
+
+To help manage costs and ensure you are not billed for resources you're not using, Azure provides an Auto-shutdown feature for virtual machines. This feature is located in the left-hand menu of the VM's page, under the "Operations" section. By setting a specific time, you can schedule your VM to shut down automatically when it's not in use. Remember to configure the time zone correctly to match your requirements.
 
 ## Next steps
 
