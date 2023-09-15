@@ -3,15 +3,15 @@ title: Create an access review of Azure resource and Azure AD roles in PIM
 description: Learn how to create an access review of Azure resource and Azure AD roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 5/11/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -35,9 +35,13 @@ Access Reviews for **Service Principals** requires an Entra Workload Identities 
 
 ## Create access reviews
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a user that is assigned to one of the prerequisite role(s).
 
-1. Browse to **Identity governance** > **Privileged Identity Management** > For **Azure AD roles**, select **Azure AD roles**. For **Azure resources**, select **Azure resources**
+1. Browse to **Identity governance** > **Privileged Identity Management**.
+
+1. For **Azure AD roles**, select **Azure AD roles**. For **Azure resources**, select **Azure resources**
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in the Microsoft Entra admin center screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  

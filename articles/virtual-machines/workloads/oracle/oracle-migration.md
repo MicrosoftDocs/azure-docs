@@ -1,5 +1,5 @@
 ---
-title: Migrate Oracle workload to Azure VMs (IaaS)| Microsoft Docs
+title: Migrate Oracle workload to Azure VMs (IaaS)
 description: Migrate Oracle workload to Azure VMs. 
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -31,7 +31,7 @@ First step in the migration journey starts with understanding the customer’s O
 6. Move your **on-premises Oracle data to the Oracle on Azure VM:** Now that your required Oracle setup is done, pending task is to move data from on premise to cloud. There are many approaches. Best approaches are:
 
    - Azure databox: [Copy your on-premises](/training/modules/move-data-with-azure-data-box/3-how-azure-data-box-family-works) data and ship to Azure cloud securely. This suits high volume data scenarios. Data box [provides multiple options.](https://azure.microsoft.com/products/databox/data)
-   - Data Factory [data pipeline to](/azure/data-factory/connector-oracle?tabs=data-factory) move data from one premise to Oracle on Azure – heavily dependent on bandwidth.
+   - Data Factory [data pipeline to](../../../data-factory/connector-oracle.md?tabs=data-factory) move data from one premise to Oracle on Azure – heavily dependent on bandwidth.
 
    Depending on the size of your data, you can also select from the following available options. 
 
@@ -49,12 +49,12 @@ First step in the migration journey starts with understanding the customer’s O
 
 7. **Load data received at cloud to Oracle on Azure VM:**
 
-      Now that data is moved into data box, or data factory is pumping it to file system, in this step migrate this data to a newly set up Oracle on Azure VM using the following tools. 
+   Now that data is moved into data box, or data factory is pumping it to file system, in this step migrate this data to a newly set up Oracle on Azure VM using the following tools. 
 
-      - RMAN - Recovery Manager
-      - Oracle Data Guard 
-      - Goldengate with Data Guard
-      - Oracle Data Pump
+   - RMAN - Recovery Manager
+   - Oracle Data Guard 
+   - Goldengate with Data Guard
+   - Oracle Data Pump
 
 8. **Measure performance of your Oracle on Azure VM:** Demonstrate the performance of the Oracle on Azure VM using:
 
@@ -74,4 +74,5 @@ First step in the migration journey starts with understanding the customer’s O
    - Use a change control management tool and consider checking in data changes, not just code changes, into the system. 
 
 ## Next steps
-- [Storage options for Oracle on Azure VMs](oracle-storage.md)
+
+[Storage options for Oracle on Azure VMs](oracle-storage.md)

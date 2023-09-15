@@ -1,7 +1,7 @@
 ---
 title: Microsoft Entra Permissions Management roles and permissions
 description: Review roles and the level of permissions assigned in Microsoft Entra Permissions Management.
-# customerintent: As a cloud administer, I want to understand Permissions Management role assignments, so that I can effectively assign the correct permissions to users.
+# customerintent: As a cloud administrator, I want to understand Permissions Management role assignments, so that I can effectively assign the correct permissions to users.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -22,10 +22,10 @@ In Microsoft Azure and Microsoft Entra Permissions Management role assignments g
 - **Billing Administrator**: Performs common billing related tasks like updating payment information. 
 - **Permissions Management Administrator**: Manages all aspects of Entra Permissions Management. 
 
-See [Microsoft Entra ID built-in roles to learn more.](product-privileged-role-insights.md)
+See [Microsoft Entra ID built-in roles to learn more.](https://go.microsoft.com/fwlink/?linkid=2247090)
 
 ## Enabling Permissions Management
-- To activate a trial or purchase a license, you must have *Global Administrator* or *Billing Administrator* permissions.
+- To activate a trial or purchase a license, you must have *Global Administrator* permissions.
 
 ## Onboarding your Amazon Web Service (AWS), Microsoft Entra, or Google Cloud Platform (GCP) environments
 

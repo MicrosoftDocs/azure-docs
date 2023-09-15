@@ -308,7 +308,7 @@ Click Save and Go to Authentication.
 
     ![Screenshot of the opening screen for myapps.microsoft.com with a background image and a Sign in dialog.](./media/header-akamai-tutorial/end-user-1.png)
 
-    ![Screenshot showing part of an Apps window with icons for Add-in, HRWEB, Akamai - CorpApps, Expense, Groups, and Access reviews. ](./media/header-akamai-tutorial/end-user-2.png)
+    ![Screenshot showing part of an Apps window with icons for Add-in, HRWEB, Akamai - CorpApps, Expense, Groups, and Access reviews.](./media/header-akamai-tutorial/end-user-2.png)
 
 1. Conditional Access.
 
@@ -560,7 +560,7 @@ Assign the Identity Provider.
 
 1. User Experience
 
-    ![Screenshot of the Sign in dialog at myapps.microsoft.com. ](./media/header-akamai-tutorial/end-user-3.png)
+    ![Screenshot of the Sign in dialog at myapps.microsoft.com.](./media/header-akamai-tutorial/end-user-3.png)
 
     ![Screenshot of the Apps window for myapps.microsoft.com showing App icons.](./media/header-akamai-tutorial/end-user-4.png)
 

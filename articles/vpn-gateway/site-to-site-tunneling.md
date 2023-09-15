@@ -4,6 +4,7 @@ description: Learn how to split or force tunnel traffic for VPN Gateway site-to-
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/04/2023
 ms.author: cherylmc

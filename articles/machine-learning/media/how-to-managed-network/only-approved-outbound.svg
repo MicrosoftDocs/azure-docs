@@ -33,7 +33,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="g43-3">
     <inkscape:grid
        id="grid1"
        units="px"
@@ -352,6 +352,15 @@
          width="371475"
          height="371475"
          id="rect30" />
+    </clipPath>
+    <clipPath
+       id="clip4-9">
+      <rect
+         x="0"
+         y="0"
+         width="202660"
+         height="190500"
+         id="rect4-5" />
     </clipPath>
   </defs>
   <g
@@ -1198,6 +1207,26 @@
          id="text137"
          x="860.49719"
          y="266">outbound rules.</text>
+      <g
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,301.27454,360.9275)"
+         id="g43-3">
+        <g
+           clip-path="url(#clip4-9)"
+           transform="matrix(1.034,0,0,1,380316.96,138491.16)"
+           id="g42-9">
+          <use
+             width="100%"
+             height="100%"
+             xlink:href="#img3"
+             transform="scale(4053.19)"
+             id="use42-8" />
+        </g>
+      </g>
     </g>
+    <path
+       d="m 50.386047,61.495126 14.491944,-1.9e-5 V 61.21648 l -14.491944,1.9e-5 z m 14.208686,0.696544 1.699464,-0.835878 -1.699464,-0.835875 z"
+       id="path102-6"
+       style="stroke-width:0.210694"
+       sodipodi:nodetypes="ccccccccc" />
   </g>
 </svg>

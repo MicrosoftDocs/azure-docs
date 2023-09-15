@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.custom: devx-track-dotnet, devx-track-python, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-dotnet, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-go
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
@@ -58,5 +58,11 @@ Use this article to get started making your first calls to Azure OpenAI.
 ::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/rest.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/powershell.md)]
 
 ::: zone-end

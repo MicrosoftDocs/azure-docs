@@ -5,7 +5,7 @@ description: Azure Storage offers WORM (Write Once, Read Many) support for Blob 
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 09/19/2022
 ms.author: normesta

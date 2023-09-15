@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 09/01/2023
 ---
 
 # Prepare for live traffic with Operator Connect, Teams Phone Mobile and Azure Communications Gateway
@@ -127,7 +127,7 @@ Before you can launch, Microsoft Teams requires proof that your network is prope
        exit-address-family
     ```
 
-1. Test failover of the MAPS connections to your network. Your onboarding team will work with you to plan this testing and gather the required evidence.
+1. Test failover of the connectivity to your network. Your onboarding team will work with you to plan this testing and gather the required evidence.
 1. Work with your onboarding team to validate emergency call handling.
 
 ## 5. Get your go-to-market resources approved

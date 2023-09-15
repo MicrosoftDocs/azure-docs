@@ -36,7 +36,7 @@ Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure sub
 
 **Prerequisite role**: Global Administrator
 
-1. Sign in to the [Microsoft Entra admin center](https://portal.azure.com) as a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
 1. Browse to **Identity** > **Monitoring & health** > **Diagnostic settings**.
 
@@ -123,8 +123,7 @@ Make sure you, the user or service principal that will authenticate to Azure AD,
 
 To set the role assignment and create a query, do the following steps:
 
-1. In the Azure portal, locate the [Log Analytics workspace](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
-).
+1. In the Microsoft Entra admin center, locate the [Log Analytics workspace](https://entra.microsoft.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces).
 
 1. Select **Access Control (IAM)**.
 
@@ -164,7 +163,7 @@ $subs | ft
  
 You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace ID" displayed in the Azure portal in the Log Analytics workspace overview.
+If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace ID" displayed in the Microsoft Entra admin center in the Log Analytics workspace overview.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace

@@ -3,17 +3,16 @@ title: Use Azure Virtual Desktop Insights to monitor your deployment - Azure
 description: How to set up Azure Virtual Desktop Insights to monitor your Azure Virtual Desktop environments.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 09/12/2023
 ms.author: helohr
 manager: femila
 ---
 # Use Azure Virtual Desktop Insights to monitor your deployment
 
-> [!IMPORTANT]
-> Azure Virtual Desktops Insights support for the Azure Monitor Agent is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Azure Virtual Desktop Insights is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Azure Virtual Desktop environments. This topic will walk you through how to set up Azure Virtual Desktop Insights to monitor your Azure Virtual Desktop environments.
+
+>[!IMPORTANT]
+>[The Log Analytics Agent is currently being deprecated](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you use the Log Analytics Agent, you'll eventually need to migrate to the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) by August 31, 2024.
 
 ## Prerequisites
 
@@ -59,7 +58,7 @@ To start using Azure Virtual Desktop Insights, you'll need at least one Log Anal
 
 If it's your first time opening Azure Virtual Desktop Insights, you'll need set up Azure Virtual Desktop Insights for your Azure Virtual Desktop environment. To configure your resources:
 
-1. Open Azure Virtual Desktop Insights in the Azure portal at [aka.ms/avdi](https://aka.ms/avdi), then select **configuration workbook**.
+1. Open Azure Virtual Desktop Insights in the Azure portal at [`aka.ms/avdi`](https://aka.ms/avdi), then select **configuration workbook**.
 1. Select an environment to configure from the drop-down lists for **Subscription**, **Resource Group**, and **Host Pool**.
 
 The configuration workbook sets up your monitoring environment and lets you check the configuration after you've finished the setup process. It's important to check your configuration if items in the dashboard aren't displaying correctly, or when the product group publishes updates that require new settings.
@@ -115,6 +114,38 @@ To set up workspace diagnostics using the resource diagnostic settings section i
 1. Refresh the configuration workbook.
 
 ### Session host data settings
+
+You can use either the Azure Monitor Agent or the Log Analytics agent to collect information on your Azure Virtual Desktop session hosts. Select the relevant tab for your scenario.
+
+# [Azure Monitor Agent](#tab/monitor)
+
+To collect information on your Azure Virtual Desktop session hosts, you must configure a [Data Collection Rule (DCR)](../azure-monitor/essentials/data-collection-rule-overview.md) to collect performance data and Windows Event Logs, associate the session hosts with the DCR, install the Azure Monitor Agent on all session hosts in host pools you're collecting data from, and ensure the session hosts are sending data to a Log Analytics workspace. 
+
+The Log Analytics workspace you send session host data to doesn't have to be the same one you send diagnostic data to.
+
+To configure a DCR and select a Log Analytics workspace destination using the configuration workbook:
+
+1. Select the **Session host data settings** tab in the configuration workbook.
+1. Select the **Log Analytics workspace** you want to send session host data to.
+1. If you haven't already created a resource group for the DCR, select **Create a resource group** to create one.
+1. If you haven't already configured a DCR, select **Create data collection rule** to automatically configure the DCR using the configuration workbook.
+
+#### Session hosts
+
+You need to install the Azure Monitor Agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If the session hosts don't all meet the requirements, you'll see a **Session hosts** section at the top of **Session host data settings** with the message *Some hosts in the host pool are not sending data to the selected Log Analytics workspace.*
+
+>[!NOTE]
+> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Automated deployment is limited to 1000 session hosts or fewer.
+
+To set up your remaining session hosts using the configuration workbook:
+
+1. Select the DCR you're using for data collection.
+1. Select **Deploy association** to create the DCR association.
+1. Select **Add extension** to deploy the Azure Monitor Agent.
+1. Select **Add system managed identity** to configure the required [managed identity](../azure-monitor/agents/azure-monitor-agent-manage.md#prerequisites).
+
+>[!NOTE]
+>For larger host pools (over 1,000 session hosts) or if you encounter deployment issues, we recommend you [install the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md#install) when you create a session host by using an Azure Resource Manager template.
 
 # [Log Analytics agent](#tab/analytics)
 
@@ -172,36 +203,6 @@ To set up Windows Event Logs using the configuration workbook:
 
 >[!NOTE]
 >If automatic event deployment fails, select **Open agent configuration** in the configuration workbook to manually add any missing Windows Event Logs.
-
-# [Azure Monitor Agent (preview)](#tab/monitor)
-
-To collect information on your Azure Virtual Desktop session hosts, you must configure a [Data Collection Rule (DCR)](../azure-monitor/essentials/data-collection-rule-overview.md) to collect performance data and Windows Event Logs, associate the session hosts with the DCR, install the Azure Monitor Agent on all session hosts in host pools you're collecting data from, and ensure the session hosts are sending data to a Log Analytics workspace. 
-
-The Log Analytics workspace you send session host data to doesn't have to be the same one you send diagnostic data to.
-
-To configure a DCR and select a Log Analytics workspace destination using the configuration workbook:
-
-1. Select the **Session host data settings** tab in the configuration workbook.
-1. Select the **Log Analytics workspace** you want to send session host data to.
-1. If you haven't already created a resource group for the DCR, select **Create a resource group** to create one.
-1. If you haven't already configured a DCR, select **Create data collection rule** to automatically configure the DCR using the configuration workbook.
-
-#### Session hosts
-
-You need to install the Azure Monitor Agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If the session hosts don't all meet the requirements, you'll see a **Session hosts** section at the top of **Session host data settings** with the message *Some hosts in the host pool are not sending data to the selected Log Analytics workspace.*
-
->[!NOTE]
-> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Automated deployment is limited to 1000 session hosts or fewer.
-
-To set up your remaining session hosts using the configuration workbook:
-
-1. Select the DCR you're using for data collection.
-1. Select **Deploy association** to create the DCR association.
-1. Select **Add extension** to deploy the Azure Monitor Agent.
-1. Select **Add system managed identity** to configure the required [managed identity](../azure-monitor/agents/azure-monitor-agent-manage.md#prerequisites).
-
->[!NOTE]
->For larger host pools (over 1,000 session hosts) or if you encounter deployment issues, we recommend you [install the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md#install) when you create a session host by using an Azure Resource Manager template.
 
 ---
 
