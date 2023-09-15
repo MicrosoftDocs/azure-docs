@@ -27,6 +27,11 @@ Cloud sync uses the Azure AD Connect provisioning agent.  Use the steps below to
  4. On the left, select **Agent**.
  5. Select **Download on-premises agent**, and select **Accept terms & download**.
  6. Once the **Azure AD Connect Provisioning Agent Package** has completed downloading, run the *AADConnectProvisioningAgentSetup.exe* installation file from your downloads folder.
+   >[!NOTE]
+   >When installing for the US Government Cloud use:  
+   >*AADConnectProvisioningAgentSetup.exe ENVIRONMENTNAME=AzureUSGovernment*  
+   >See "[Install an agent in the US government cloud](cloud-sync/how-to-install.md#install-an-agent-in-the-us-government-cloud)" for more information.
+
  7. On the splash screen, select **I agree to the license and conditions**, and then select **Install**.
  8. Once the installation operation completes, the configuration wizard will launch. Select **Next** to start the configuration.
  9. On the **Select Extension** screen, select **HR-driven provisioning (Workday and SuccessFactors) / Azure AD Connect Cloud Sync** and click **Next**.
@@ -50,7 +55,7 @@ Express settings are the default option to install Azure AD Connect, and it's us
  4. On **Express settings**, select **Use express settings**.
  5.  n **Connect to Azure AD**, enter the username and password of the Hybrid Identity Administrator account, and then select **Next**.
  6. On **Connect to AD DS**, enter the username and password for an Enterprise Admin account. You can enter the domain part in either NetBIOS or FQDN format, like `FABRIKAM\administrator` or `fabrikam.com\administrator`. Select **Next**
- 7. The [Azure AD sign-in configuration](plan-connect-user-signin.md#azure-ad-sign-in-configuration) page appears only if you didn't complete the step to [verify your domains](../fundamentals/add-custom-domain.md) in the [prerequisites](how-to-connect-install-prerequisites.md)
+ 7. The [Azure AD sign-in configuration](./connect/plan-connect-user-signin.md#azure-ad-sign-in-configuration) page appears only if you didn't complete the step to [verify your domains](../fundamentals/add-custom-domain.md) in the [prerequisites](./connect/how-to-connect-install-prerequisites.md)
  8. On **Ready to configure**, select **Install**
  9. When the installation is finished, select **Exit**.
  10. Before you use Synchronization Service Manager or Synchronization Rule Editor, sign out, and then sign in again.

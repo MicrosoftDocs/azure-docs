@@ -1,8 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Communications Gateway documentation
-summary: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
-
+summary: Learn about Azure Communications Gateway for telecommunications operators and service providers. If you have signed an Operator Connect or Teams Phone Mobile agreement with Microsoft, you can use Azure Communications Gateway to provide these services.
 metadata:
   title: Azure Communications Gateway documentation
   description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
@@ -10,47 +9,72 @@ metadata:
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan
-  ms.date: 03/17/2023
+  ms.date: 07/17/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
 
   # Card
-  - title: Understand Azure Communications Gateway
+  - title: Understand and plan for Azure Communications Gateway
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Communications Gateway?
             url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: What's New?
+            url: whats-new.md
       - linkListType: concept
         links:
-          - text: Interoperability with Microsoft Teams
-            url: interoperability.md
-          - text: Mobile Control Point
-            url: mobile-control-point.md
-          - text: Emergency calling
-            url: emergency-calling.md
+          - text: Your network and Azure Communications Gateway
+            url: role-in-network.md
           - text: Reliability
             url: reliability-communications-gateway.md
           - text: Security
             url: security.md
 
+
+
   # Card
   - title: Learn how to deploy Azure Communications Gateway
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
-          - text: Onboarding to Microsoft Teams 
+          - text: Get started
+            url: get-started.md
+          - text: Onboarding and Included Benefits
             url: onboarding.md
       - linkListType: deploy
         links:
           - text: Prepare to deploy
             url: prepare-to-deploy.md
-          - text: Deploy
+          - text: Deploy Azure Communications Gateway
             url: deploy.md
+
+  # Card
+  - title: Use Azure Communications Gateway for Operator Connect and Teams Phone Mobile
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect to Operator Connect and Teams Phone Mobile
+            url: connect-operator-connect.md
           - text: Prepare for live traffic
-            url: prepare-for-live-traffic.md
+            url: prepare-for-live-traffic-operator-connect.md
+      - linkListType: concept
+        links:
+          - text: Overview of interoperability
+            url: interoperability-operator-connect.md
+          - text: Mobile Control Point
+            url: mobile-control-point.md
+          - text: Emergency calling
+            url: emergency-calling-operator-connect.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage enterprises and numbers in the Number Management Portal
+            url: manage-enterprise-operator-connect.md
+
 
   # Card
   - title: Manage Azure Communications Gateway

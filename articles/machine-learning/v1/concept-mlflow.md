@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency5, how-to, sdkv1, event-tier1-build-2022
 
 # MLflow and Azure Machine Learning (v1)
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLflow's tracking URI and logging API are collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api). This component of MLflow logs and tracks your training run metrics and model artifacts, no matter where your experiment's environment is--on your computer, on a remote compute target, on a virtual machine, or in an Azure Databricks cluster. 
@@ -50,9 +50,16 @@ With MLflow Tracking, you can connect Azure Machine Learning as the back end of 
 
 + [Track Azure Databricks training runs](../how-to-use-mlflow-azure-databricks.md).
 
-## Train MLflow projects 
+## Train MLflow projects (preview)
 
-You can use MLflow Tracking to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning back-end support. You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud via [Azure Machine Learning compute](../how-to-create-attach-compute-cluster.md).
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+You can use MLflow Tracking to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning back-end support.
+
+You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud via [Azure Machine Learning compute](../how-to-create-attach-compute-cluster.md).
 
 Learn more at [Train machine learning models with MLflow projects and Azure Machine Learning](../how-to-train-mlflow-projects.md).
 

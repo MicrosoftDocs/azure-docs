@@ -97,6 +97,5 @@ In this article, you created a resource group, an Event Hubs namespace, and an e
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
 
 
-[Azure portal]: https://portal.azure.com/
 [3]: ./media/event-hubs-quickstart-portal/sender1.png
 [4]: ./media/event-hubs-quickstart-portal/receiver1.png

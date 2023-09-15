@@ -16,11 +16,11 @@ ms.reviewer: franksolomon
 
 # CLI (v2) Azure Blob datastore YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 See the source JSON schema at https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 

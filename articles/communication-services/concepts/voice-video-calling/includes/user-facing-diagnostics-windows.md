@@ -17,7 +17,7 @@ ms.subservice: calling
 User-facing diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```csharp
-this.diagnosticsCallFeature = call.Features.Diagnostics;
+this.diagnosticsCallFeature = call.Features.LocalUserDiagnostics;
 ```
 
 ## User Facing Diagnostic events
@@ -25,7 +25,7 @@ this.diagnosticsCallFeature = call.Features.Diagnostics;
 - Implement listeners for diagnostic events.
 
 ```csharp
-private async void Call__OnNoNetworkChanged(object sender, FlagDiagnosticChangedEventArgs args)
+private async void Call__OnNetworkUnavailableChanged(object sender, FlagDiagnosticChangedEventArgs args)
 {
   var value = args.Value;
   // Handle the diagnostic event value changed...
@@ -45,11 +45,11 @@ private async void Call__OnMediaSpeakerNotFunctioningChanged(object sender, Flag
 - Set event methods for listening to events.
 
 ```csharp
-this.diagnosticsCallFeature = call.Features.Diagnostics;
+this.diagnosticsCallFeature = call.Features.LocalUserDiagnostics;
 this.networkDiagnostics = diagnosticsCallFeature.Network;
 this.mediaDiagnostics = diagnosticsCallFeature.Media;
 
-this.networkDiagnostics.NoNetworkChanged += Call__OnNoNetworkChanged;
+this.networkDiagnostics.NetworkUnavailableChanged += Call__OnNetworkUnavailableChanged;
 // Listen to other network events as well ... 
 
 this.mediaDiagnostics.SpeakerNotFunctioningChanged += Call__OnMediaSpeakerNotFunctioningChanged;
@@ -57,7 +57,7 @@ this.mediaDiagnostics.SpeakerNotFunctioningChanged += Call__OnMediaSpeakerNotFun
 
 // Removing listeners
 
-this.networkDiagnostics.NoNetworkChanged -= Call__OnNoNetworkChanged;
+this.networkDiagnostics.NetworkUnavailable -= Call__NetworkUnavailableChanged;
 // Remove the other listeners as well ... 
 
 this.mediaDiagnostics.SpeakerNotFunctioningChanged -= Call__OnMediaSpeakerNotFunctioningChanged;
@@ -70,13 +70,13 @@ this.mediaDiagnostics.SpeakerNotFunctioningChanged -= Call__OnMediaSpeakerNotFun
 - Get the latest diagnostic values that were raised in current call. If we still didn't receive a value for the diagnostic, `null` or `.unknown` for is returned.
 
 ```csharp
-this.diagnosticsCallFeature = call.Features.Diagnostics;
+this.diagnosticsCallFeature = call.Features.LocalUserDiagnostics;
 this.networkDiagnostics = diagnosticsCallFeature.Network;
 this.mediaDiagnostics = diagnosticsCallFeature.Media;
 
-bool? lastSpeakerNotFunctionValue = this.mediaDiagnostics.GetLatest().IsSpeakerNotFunctioning; // Boolean?
-bool? lastNetworkRelayNotReachableValue = this.networkDiagnostics.GetLatest().IsNetworkRelaysNotReachable; // Boolean?
-DiagnosticQuality lastReceiveQualityValue = this.networkDiagnostics.GetLatest().NetworkReceiveQuality; // DiagnosticQuality (.good, .poor, .bad)
+bool? lastSpeakerNotFunctionValue = this.mediaDiagnostics.GetLatestDiagnostics().IsSpeakerNotFunctioning; // Boolean?
+bool? lastNetworkRelayNotReachableValue = this.networkDiagnostics.GetLatestDiagnostics().IsNetworkRelaysUnreachable; // Boolean?
+DiagnosticQuality lastReceiveQualityValue = this.networkDiagnostics.GetLatestDiagnostics().NetworkReceiveQuality; // DiagnosticQuality (.good, .poor, .bad)
 // or .unknown if there isn't a diagnostic for this.
 
 ```

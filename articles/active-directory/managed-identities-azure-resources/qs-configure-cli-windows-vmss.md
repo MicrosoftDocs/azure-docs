@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 05/25/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
 ---
 

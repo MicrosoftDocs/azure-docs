@@ -6,7 +6,7 @@ author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
-ms.custom: ignite-2022
+ms.custom: ignite-2022, has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 01/12/2023
 ms.subservice: hybrid
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 ## Directory extensions
 You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. 
 
-For additional information on directory extensions see [Using directory extension attributes in claims](../../develop/active-directory-schema-extensions.md)
+For additional information on directory extensions see [Using directory extension attributes in claims](../../develop/schema-extensions.md)
 
  You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
 

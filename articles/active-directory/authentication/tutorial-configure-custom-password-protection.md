@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 01/29/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -35,7 +35,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *global administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test a password change event using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users.md).
     * To test the password change operation using a banned password, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md).
 
 ## What are banned password lists?
@@ -60,13 +60,14 @@ The custom banned password list is limited to a maximum of 1000 terms. It's not 
 
 ## Configure custom banned passwords
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Let's enable the custom banned password list and add some entries. You can add additional entries to the custom banned password list at any time.
 
 To enable the custom banned password list and add entries to it, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
-1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
-1. Under the **Manage** menu header, select **Authentication methods**, then **Password protection**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods**, then **Password protection**.
 1. Set the option for **Enforce custom list** to *Yes*.
 1. Add strings to the **Custom banned password list**, one string per line. The following considerations and limitations apply to the custom banned password list:
 
@@ -77,7 +78,7 @@ To enable the custom banned password list and add entries to it, complete the fo
 
     Specify your own custom passwords to ban, as shown in the following example
 
-    [ ![Modify the custom banned password list under Authentication Methods in the Azure portal](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [ ![Modify the custom banned password list under Authentication methods](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. Leave the option for **Enable password protection on Windows Server Active Directory** to *No*.
 1. To enable the custom banned passwords and your entries, select **Save**.
@@ -108,9 +109,8 @@ To see the custom banned password list in action, try to change the password to 
 
 If you no longer want to use the custom banned password list you have configured as part of this tutorial, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
-1. Under the **Manage** menu header, select **Authentication methods**, then **Password protection**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication methods**, then **Password protection**.
 1. Set the option for **Enforce custom list** to *No*.
 1. To update the custom banned password configuration, select **Save**.
 

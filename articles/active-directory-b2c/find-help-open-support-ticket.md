@@ -24,7 +24,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 * For content such as how-to information or code samples for IT professionals and developers, see the [technical documentation for Azure AD B2C](../active-directory-b2c/index.yml).
 
-* The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* The [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for our IT pro partners and customers to collaborate, share, and learn. The [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/community-lounge/ct-p/Community-Info-Center) is used for announcements, blog posts, ask-me-anything (AMA) interactions with experts, and more. You can also [join the community to submit your ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 ## Open a support ticket
 
@@ -35,7 +35,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 > [!NOTE]
 > For billing or subscription issues, use the [Microsoft 365 admin center](https://admin.microsoft.com).  
 
-1. Sign in to [the Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your Azure subscription:
 

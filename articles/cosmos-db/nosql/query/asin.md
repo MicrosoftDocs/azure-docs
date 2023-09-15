@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/18/2023
 ms.custom: query-reference
 ---
 
@@ -38,19 +38,9 @@ Returns a numeric expression.
 
 The following example calculates the arcsine of the specified angle using the function.
 
-```sql
-SELECT VALUE {
-  arcsine: ACOS(-1)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/asin/query.sql" highlight="2":::  
 
-```json
-[
-  {
-    "arcsine": 3.141592653589793
-  }
-] 
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/asin/result.json":::
 
 ## Remarks
 
@@ -58,5 +48,5 @@ SELECT VALUE {
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SIN`](sin.md)

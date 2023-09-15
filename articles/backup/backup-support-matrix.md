@@ -2,11 +2,11 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 08/14/2023
 ms.custom: references_regions 
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure Backup
@@ -147,13 +147,14 @@ Backup supports the compression of backup traffic, as summarized in the followin
 
 ## Cross Region Restore
 
-Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving you full control to restore data to a secondary region. To configure this feature, visit [the Set Cross Region Restore article.](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
+Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving you full control to restore data to a secondary region. To configure this feature, see [Set Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
-| MARS Agent/On premises  | No                                                           | N/A               |
+| MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
+| DPM/MABS | No                        |                      N/A                   |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 
 ## Resource health

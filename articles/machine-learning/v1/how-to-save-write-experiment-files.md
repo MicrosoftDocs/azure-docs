@@ -13,7 +13,7 @@ ms.date: 01/25/2023
 
 ---
 # Where to save and write files for Azure Machine Learning experiments
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn where to save input files, and where to write output files from your experiments to prevent storage limit errors and experiment latency.
 
@@ -37,7 +37,9 @@ For this reason, we recommend:
 
 ### Storage limits of experiment snapshots
 
-For experiments, Azure Machine Learning automatically makes an experiment snapshot of your code based on the directory you suggest when you configure the job. This has a total limit of 300 MB and/or 2000 files. If you exceed this limit, you'll see the following error:
+For experiments, Azure Machine Learning automatically makes an experiment snapshot of your code based on the directory you suggest when you configure the job. For a pipeline, the directory is configured for each step.
+
+This has a total limit of 300 MB and/or 2000 files. If you exceed this limit, you'll see the following error:
 
 ```Python
 While attempting to take snapshot of .
@@ -49,7 +51,7 @@ To resolve this error, store your experiment files on a datastore. If you can't 
 Experiment&nbsp;description|Storage limit solution
 ---|---
 Less than 2000 files & can't use a datastore| Override snapshot size limit with <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> This may take several minutes depending on the number and size of files.
-Must use specific script directory| [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
+Must use specific script directory| [!INCLUDE [amlinclude-info](../includes/machine-learning-amlignore-gitignore.md)]
 Pipeline|Use a different subdirectory for each step
 Jupyter notebooks| Create a `.amlignore` file or move your notebook into a new, empty, subdirectory and run your code again.
 

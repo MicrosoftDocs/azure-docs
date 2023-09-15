@@ -11,6 +11,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path": "service-bus-messaging-exceptions.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md",
+    "redirect_document_id": false
+  },
+  {
     "source_path": "service-bus-amqp-apache.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-overview",
     "redirect_document_id": false
@@ -54,7 +59,7 @@
     "source_path": "service-bus-create-namespace-portal.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-portal#create-a-namespace-in-the-azure-portal",
     "redirect_document_id": false
-  },  
+  },
   {
     "source_path": "service-bus-create-queues.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
@@ -64,12 +69,12 @@
     "source_path": "service-bus-create-topics-subscriptions.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
     "redirect_document_id": false
-  },  
+  },
   {
     "source_path": "service-bus-diagnostic-logs.md",
     "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference#resource-logs",
     "redirect_document_id": false
-  },  
+  },
   {
     "source_path": "service-bus-dotnet-advanced-message-queuing.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",
@@ -79,12 +84,12 @@
     "source_path": "service-bus-dotnet-get-started-with-queues-legacy.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
     "redirect_document_id": false
-  },  
+  },
   {
     "source_path": "service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
     "redirect_document_id": false
-  },  
+  },
   {
     "source_path": "service-bus-event-hubs-manage-with-ps.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-manage-with-ps",
@@ -109,12 +114,12 @@
     "source_path": "service-bus-java-how-to-use-queues-legacy.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-queues",
     "redirect_document_id": false
-  }, 
+  },
   {
     "source_path": "service-bus-java-how-to-use-topics-subscriptions-legacy.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions",
     "redirect_document_id": false
-  },     
+  },
   {
     "source_path": "service-bus-messaging-security-attributes.md",
     "redirect_url": "/azure/service-bus-messaging/security-baseline",

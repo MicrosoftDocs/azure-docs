@@ -126,3 +126,10 @@ Your next step is to configure metrics and logs on the **Metrics + Logs** tab. W
 
 - [Manage the New Relic resource](new-relic-how-to-manage.md)
 - [Quickstart: Get started with New Relic](new-relic-create.md)
+- Get started with Azure Native New Relic Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)

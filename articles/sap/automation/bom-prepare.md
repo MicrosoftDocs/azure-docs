@@ -219,8 +219,6 @@ To generate a BOM with permalinks:
 
 The following sample is a small part of an example BOM file for S/4HANA 1909 SP2. 
 
-You can find multiple complete, usable BOM files in the [GitHub repository](https://github.com/Azure/sap-automation/tree/main/training-materials/WORKSPACES/BOMS) folder.
-
 ```yml
 step|BOM Content
 

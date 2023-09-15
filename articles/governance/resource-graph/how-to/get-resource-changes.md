@@ -1,7 +1,7 @@
 ---
-title: Get resource changes
+title: Get resource configuration changes
 description: Get resource configuration changes at scale
-ms.date: 06/16/2022
+ms.date: 08/17/2023
 ms.topic: how-to
 ---
 
@@ -9,12 +9,11 @@ ms.topic: how-to
 
 Resources change through the course of daily use, reconfiguration, and even redeployment. Most change is by design, but sometimes it isn't. You can:
 
-- Find when changes were detected on an Azure Resource Manager property
-- View property change details
-- Query changes at scale across your subscriptions, management group, or tenant
+- Find when changes were detected on an Azure Resource Manager property.
+- View property change details.
+- Query changes at scale across your subscriptions, management group, or tenant.
 
 This article shows how to query resource configuration changes through Resource Graph.
-
 
 ## Prerequisites
 
@@ -64,19 +63,19 @@ Each change resource has the following properties:
 | `targetResourceId` | The resourceID of the resource on which the change occurred. |
 |---|---|
 | `targetResourceType` | The resource type of the resource on which the change occurred. |
-| `changeType` | Describes the type of change detected for the entire change record. Values are: Create, Update, and Delete. The **changes** property dictionary is only included when `changeType` is _Update_. For the delete case, the change resource will still be maintained as an extension of the deleted resource for 14 days, even if the entire Resource group has been deleted. The change resource won't block deletions or impact any existing delete behavior. |
+| `changeType` | Describes the type of change detected for the entire change record. Values are: Create, Update, and Delete. The **changes** property dictionary is only included when `changeType` is _Update_. For the delete case, the change resource is maintained as an extension of the deleted resource for 14 days, even if the entire resource group was deleted. The change resource doesn't block deletions or affect any existing delete behavior. |
 | `changes` | Dictionary of the resource properties (with property name as the key) that were updated as part of the change: |
 | `propertyChangeType` | This property is deprecated and can be derived as follows `previousValue` being empty indicates Insert, empty `newValue` indicates Remove, when both are present, it's Update.|
 | `previousValue` | The value of the resource property in the previous snapshot. Value is empty when `changeType` is _Insert_. |
-| `newValue` | The value of the resource property in the new snapshot. This property will be empty (absent) when `changeType` is _Remove_. |
-| `changeCategory` | This property was optional and has been deprecated, this field will no longer be available|
+| `newValue` | The value of the resource property in the new snapshot. This property is empty (absent) when `changeType` is _Remove_. |
+| `changeCategory` | This property was optional and has been deprecated, this field is no longer available. |
 | `changeAttributes` | Array of metadata related to the change: |
 | `changesCount` | The number of properties changed as part of this change record. |
-| `correlationId` | Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template will share the same correlation ID. |
+| `correlationId` | Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template share the same correlation ID. |
 | `timestamp` | The datetime of when the change was detected. |
 | `previousResourceSnapshotId` | Contains the ID of the resource snapshot that was used as the previous state of the resource. |
 | `newResourceSnapshotId` | Contains the ID of the resource snapshot that was used as the new state of the resource. |
-| `isTruncated` | When the number of property changes reaches beyond a certain number they're truncated and this property becomes present. |
+| `isTruncated` | When the number of property changes reaches beyond a certain number, they're truncated and this property becomes present. |
 
 ## Get change events using Resource Graph
 
@@ -259,11 +258,11 @@ resourcechanges 
 
 ### Best practices
 
-- Query for change events during a specific window of time and evaluate the change details. This query works best during incident management to understand _potentially_ related changes. 
+- Query for change events during a specific window of time and evaluate the change details. This query works best during incident management to understand _potentially_ related changes.
 - Keep a Configuration Management Database (CMDB) up to date. Instead of refreshing all resources and their full property sets on a scheduled frequency, only get what changed.
 - Understand what other properties may have been changed when a resource changed compliance state. Evaluation of these extra properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
-- The order of query commands is important. In this example, the `order by` must come before the `limit` command. This command order first orders the query results by the change time and then limits them to ensure that you get the five most recent results.
-- Resource configuration changes supports changes to resource types from the [Resources table](../reference/supported-tables-resources.md#resources), `resourcecontainers` and `healthresources` table in Resource Graph. Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores (such as [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
+- The order of query commands is important. In this example, the `order by` must come before the `limit` command. This command orders the query results by the change time and then limits them to ensure that you get the five most recent results.
+- Resource configuration changes support changes to resource types from the Resource Graph tables [resources](../reference/supported-tables-resources.md#resources), [resourcecontainers](../reference/supported-tables-resources.md#resourcecontainers), and [healthresources](../reference/supported-tables-resources.md#healthresources). Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores like [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
 
 ## Next steps
 

@@ -65,7 +65,7 @@ If you have a resource forest and want to create additional trusts after the SKU
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 [create-trust]: tutorial-create-forest-trust.md

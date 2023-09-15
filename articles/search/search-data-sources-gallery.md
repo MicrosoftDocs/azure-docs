@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom: 
 ms.topic: conceptual
 layout: LandingPage
 ms.date: 10/17/2022
@@ -1455,7 +1455,7 @@ The M-Files connector enables indexing of content managed by the M-Files platfor
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's MediaPlatform PrimeTime indexing connector makes it possible to make the content accessible to users via an organization's enterprise search platform, combining the connector with BA Insight's SmartHub. The BA Insight MediaPlatform PrimeTime Connector retrieves information about channels and videos from MediaPlatform PrimeTime and indexes them via Azure Cognitive Search.
+BA Insight's MediaPlatform PrimeTime indexing connector makes it possible to make the content accessible to users via an organization's enterprise search platform, combining the connector with BA Insight's SmartHub. The BA Insight MediaPlatform PrimeTime Connector retrieves information about channels and videos from MediaPlatform PrimeTime and indexes them via an Azure Cognitive Search.
 
 [More details](https://www.bainsight.com/connectors/mediaplatform-primetime-connector-sharepoint-azure-elasticsearch/)
 

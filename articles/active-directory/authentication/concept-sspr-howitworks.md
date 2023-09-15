@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/19/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -71,14 +71,14 @@ To get started with SSPR, complete the following tutorial:
 You can enable the option to require a user to complete the SSPR registration if they use modern authentication or web browser to sign in to any applications using Azure AD. This workflow includes the following applications:
 
 * Microsoft 365
-* Azure portal
+* Microsoft Entra admin center
 * Access Panel
 * Federated applications
 * Custom applications using Azure AD
 
 When you don't require registration, users aren't prompted during sign-in, but they can manually register. Users can either visit [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) or select the **Register for password reset** link under the **Profile** tab in the Access Panel.
 
-![Registration options for SSPR in the Azure portal][Registration]
+![Registration options for SSPR in the Microsoft Entra admin center][Registration]
 
 > [!NOTE]
 > Users can dismiss the SSPR registration portal by selecting **cancel** or by closing the window. However, they're prompted to register each time they sign in until they complete their registration.
@@ -109,7 +109,7 @@ Users can only reset their password if they have registered an authentication me
 > [!WARNING]
 > Accounts assigned Azure *administrator* roles are required to use methods as defined in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Authentication methods selection in the Azure portal][Authentication]
+![Authentication methods selection in the Microsoft Entra admin center][Authentication]
 
 ### Number of authentication methods required
 
@@ -175,9 +175,9 @@ Consider the following example scenario:
 
 > [!NOTE]
 > Email notifications from the SSPR service will be sent from the following addresses based on the Azure cloud you are working with: 
-> - Public: msonlineservicesteam@microsoft.com
-> - China: msonlineservicesteam@oe.21vianet.com 
-> - Government: msonlineservicesteam@azureadnotifications.us
+> - Public: msonlineservicesteam@microsoft.com, msonlineservicesteam@microsoftonline.com
+> - China: msonlineservicesteam@oe.21vianet.com, 21Vianetonlineservicesteam@21vianet.com
+> - Government: msonlineservicesteam@azureadnotifications.us, msonlineservicesteam@microsoftonline.us
 
 > If you observe issues in receiving notifications, please check your spam settings. 
 ## On-premises integration
@@ -186,11 +186,11 @@ If you have a hybrid environment, you can configure Azure AD Connect to write pa
 
 ![Validating password writeback is enabled and working][Writeback]
 
-Azure AD checks your current hybrid connectivity and provides one of the following messages in the Azure portal:
+Azure AD checks your current hybrid connectivity and provides one of the following messages in the Microsoft Entra admin center:
 
 * Your on-premises writeback client is up and running.
-* Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
-* Unfortunately, we can't check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) to be able to check your connection status.
+* Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](../hybrid/connect/how-to-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
+* Unfortunately, we can't check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](../hybrid/connect/how-to-upgrade-previous-version.md) to be able to check your connection status.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
 * Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](./tutorial-enable-sspr-writeback.md) to restore the connection.
 * Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](./troubleshoot-sspr-writeback.md) to restore the connection.
@@ -202,7 +202,7 @@ To get started with SSPR writeback, complete the following tutorial:
 
 ### Write back passwords to your on-premises directory
 
-You can enable password writeback using the Azure portal. You can also temporarily disable password writeback without having to reconfigure Azure AD Connect.
+You can enable password writeback using the Microsoft Entra admin center. You can also temporarily disable password writeback without having to reconfigure Azure AD Connect.
 
 * If the option is set to **Yes**, then writeback is enabled. Federated, pass-through authentication, or password hash synchronized users are able to reset their passwords.
 * If the option is set to **No**, then writeback is disabled. Federated, pass-through authentication, or password hash synchronized users aren't able to reset their passwords.

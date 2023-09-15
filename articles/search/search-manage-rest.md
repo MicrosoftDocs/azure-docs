@@ -2,7 +2,6 @@
 title: Manage with REST
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -238,7 +237,7 @@ PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegrou
 
 ## (preview) Disable semantic search
 
-Although [semantic search isn't enabled](semantic-search-overview.md#enable-semantic-search) by default, you could lock down the feature at the service level.
+Although [semantic search isn't enabled](semantic-how-to-enable-disable.md) by default, you could lock down the feature at the service level.
 
 ```rest
 PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview

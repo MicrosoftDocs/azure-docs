@@ -7,6 +7,10 @@
       href: overview.md
     - name: About hubs, groups, and connections
       href: key-concepts.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/web-pubsub/
+    - name: Region availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
 - name: Quickstarts
   expanded: true
   items:
@@ -80,7 +84,7 @@
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity
           href: howto-use-managed-identity.md
-        - name: Configure Azure AD Authorizations
+        - name: Configure Microsoft Entra authorizations
           items:
             - name: Authorize from Azure applications
               href: howto-authorize-from-application.md
@@ -92,10 +96,12 @@
           href: howto-client-certificate.md
         - name: Custom domain
           href: howto-custom-domain.md
-    - name: Scale
+    - name: Scale and geo-replicate
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
+        - name: Geo-replication
+          href: howto-enable-geo-replication.md
     - name: Integrate
       items: 
         - name: App Service
@@ -122,6 +128,47 @@
           href: howto-troubleshoot-resource-logs.md
         - name: Common issues
           href: howto-troubleshoot-common-issues.md
+    - name: Move across regions
+      href: howto-move-across-regions.md
+- name: Socket.IO (preview)
+  expanded: false
+  items: 
+    - name: Overview
+      href: socketio-overview.md
+    - name: Quickstart for Socket.IO users
+      href: socketio-quickstart.md
+    - name: Tutorials
+      expanded: true
+      items:
+        - name: Build real time code streaming app
+          href: socketio-build-realtime-code-streaming-app.md
+    - name: How-to guides
+      items:
+        - name: Easily migrate a self-hosted Socket.IO app 
+          href: socketio-migrate-from-self-hosted.md
+        - name: Integrate with Azure App Service
+          href: socket-io-howto-integrate-web-app.md
+        - name: Troubleshoot
+          items: 
+            - name: Common issues
+              href: socketio-troubleshoot-common-issues.md
+            - name: Collect logs
+              href: socketio-troubleshoot-logging.md
+    - name: Concepts
+      items:
+        - name: How does Web PubSub support Socket.IO library
+          href: socketio-service-internal.md
+        - name: Supported Socket.IO server APIs
+          href: socketio-supported-server-apis.md
+- name: Samples
+  expanded: false
+  items: 
+    - name: Authenticate and connect
+      href: samples-authenticate-and-connect.md
+    - name: App scenarios
+      href: samples-app-scenarios.md
+    - name: Platform and frameworks
+      href: samples-platforms-and-frameworks.md
 - name: Concepts
   expanded: false
   items:
@@ -139,7 +186,7 @@
       href: concept-performance.md
     - name: Billing model
       href: concept-billing-model.md
-    - name: Azure AD Authorization
+    - name: Microsoft Entra ID Authorization
       href: concept-azure-ad-authorization.md
     - name: Metrics
       href: concept-metrics.md
@@ -147,17 +194,38 @@
       items:
       - name: Security baseline
         href: /security/benchmark/azure/baselines/azure-web-pubsub-security-baseline?toc=/azure/azure-web-pubsub/toc.json
-- name: Samples
-  expanded: false
-  items: 
-    - name: Authenticate and connect
-      href: samples-authenticate-and-connect.md
-    - name: App scenarios
-      href: samples-app-scenarios.md
-    - name: Platform and frameworks
-      href: samples-platforms-and-frameworks.md
 - name: Reference
   items:
+    - name: Client-side API
+      items: 
+        - name: Client SDK - JavaScript
+          href: reference-client-sdk-javascript.md
+        - name: Client SDK - C#
+          href: reference-client-sdk-csharp.md
+        - name: Client SDK - Python
+          href: reference-client-sdk-python.md
+        - name: Client SDK - Java
+          href: reference-client-sdk-java.md
+        # - name: WebSocket API
+        #   href: reference-client-api-websocket.md
+    - name: Server-side API
+      items:
+        - name: REST API
+          href: reference-rest-api-data-plane.md
+        - name: Server SDK - C#
+          href: reference-server-sdk-csharp.md
+        - name: Server SDK - Java
+          href: reference-server-sdk-java.md
+        - name: Server SDK - JavaScript
+          href: reference-server-sdk-js.md
+        - name: Server SDK - Python
+          href: reference-server-sdk-python.md
+        - name: OData filter syntax reference
+          href: reference-odata-filter.md
+    - name: API for resource management 
+      href: /rest/api/webpubsub/
+    - name: Azure CLI webpubsub extension
+      href: /cli/azure/webpubsub
     - name: WebSocket subprotocols
       expanded: false
       items:
@@ -177,24 +245,6 @@
       href: reference-functions-bindings.md
     - name: Azure policy definitions
       href: policy-definitions.md
-    - name: Data plane REST API and SDKs
-      items:
-        - name: REST API
-          href: reference-rest-api-data-plane.md
-        - name: Server SDK - C#
-          href: reference-server-sdk-csharp.md
-        - name: Server SDK - Java
-          href: reference-server-sdk-java.md
-        - name: Server SDK - JavaScript
-          href: reference-server-sdk-js.md
-        - name: Server SDK - Python
-          href: reference-server-sdk-python.md
-        - name: OData filter syntax reference
-          href: reference-odata-filter.md
-    - name: Control plane
-      href: /rest/api/webpubsub/
-    - name: Azure CLI
-      href: /cli/azure/webpubsub
     - name: Web PubSub client specification
       href: reference-client-specification.md
 - name: Resources
@@ -203,10 +253,6 @@
       href: https://aka.ms/awps/samples
     - name: Solutions
       href: /azure/architecture/
-    - name: Region availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: FAQs
       href: resource-faq.md
     - name: Microsoft Q&A

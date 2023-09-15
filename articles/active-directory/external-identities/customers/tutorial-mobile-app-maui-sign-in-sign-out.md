@@ -8,6 +8,7 @@ ms.author: henrymbugua
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: ciam
+ms.custom: devx-track-dotnet
 ms.date: 06/05/2023
 ---
 
@@ -68,8 +69,8 @@ The next step is to add the code for the button's `Clicked` event.
 
    :::code language="csharp" source="~/ms-identity-ciam-dotnet-tutorial/1-Authentication/2-sign-in-maui/Views/MainView.xaml.cs" :::
 
-   The `MainView` class is a content page responsible for displaying the main view of the app. In the constructor, it retrieves the cached user account using the `MSALClientHelper` from the `PublicClientSingleton` instance and enables the sign-in button, if no cached user account is found. 
-    
+   The `MainView` class is a content page responsible for displaying the main view of the app. In the constructor, it retrieves the cached user account using the `MSALClientHelper` from the `PublicClientSingleton` instance and enables the sign-in button, if no cached user account is found.
+
    When the sign-in button is clicked, it calls the `AcquireTokenSilentAsync` method to acquire a token silently and navigates to the `claimsview` page using the `Shell.Current.GoToAsync` method. Additionally, the `OnBackButtonPressed` method is overridden to return true, indicating that the back button is disabled for this view.
 
 ### Add claims view page
@@ -85,11 +86,11 @@ The next steps will organize the code so that `ClaimsView` page is defined. The 
 
    :::code language="xaml" source="~/ms-identity-ciam-dotnet-tutorial/1-Authentication/2-sign-in-maui/Views/ClaimsView.xaml" :::
 
-    This XAML markup code represents the UI layout for a claim view in a .NET MAUI app. It starts by defining the `ContentPage` with a title and disabling the back button behavior. 
-    
-    Inside a `VerticalStackLayout`, there are several `Label` elements displaying static text, followed by a `ListView` named `Claims` that binds to a collection called `IdTokenClaims` to display the claims found in the ID token. Each claim is rendered within a `ViewCell` using a `DataTemplate` and displayed as a centered `Label` within a Grid. 
-    
-    Lastly, there's a `Sign Out` button centered at the bottom of the layout, which triggers the `SignOutButton_Clicked` event handler when clicked.
+   This XAML markup code represents the UI layout for a claim view in a .NET MAUI app. It starts by defining the `ContentPage` with a title and disabling the back button behavior.
+
+   Inside a `VerticalStackLayout`, there are several `Label` elements displaying static text, followed by a `ListView` named `Claims` that binds to a collection called `IdTokenClaims` to display the claims found in the ID token. Each claim is rendered within a `ViewCell` using a `DataTemplate` and displayed as a centered `Label` within a Grid.
+
+   Lastly, there's a `Sign Out` button centered at the bottom of the layout, which triggers the `SignOutButton_Clicked` event handler when clicked.
 
 #### Handle the ClaimsView data
 
@@ -99,7 +100,7 @@ The next step is to add the code to handle `ClaimsView` data.
 
    :::code language="csharp" source="~/ms-identity-ciam-dotnet-tutorial/1-Authentication/2-sign-in-maui/Views/ClaimsView.xaml.cs" :::
 
-   The _ClaimsView.xaml.cs_ code represents the code-behind for a claim view in a .NET MAUI app. It starts by importing the necessary namespaces and defining the `ClaimsView` class, which extends `ContentPage`. The `IdTokenClaims` property is an enumerable of strings, initially set to a single string indicating no claims found. 
+   The _ClaimsView.xaml.cs_ code represents the code-behind for a claim view in a .NET MAUI app. It starts by importing the necessary namespaces and defining the `ClaimsView` class, which extends `ContentPage`. The `IdTokenClaims` property is an enumerable of strings, initially set to a single string indicating no claims found.
 
    The `ClaimsView` constructor sets the binding context to the current instance, initializes the view components, and calls the `SetViewDataAsync` method asynchronously. The `SetViewDataAsync` method attempts to acquire a token silently, retrieves the claims from the authentication result, and sets the `IdTokenClaims` property to display them in the `ListView` named `Claims`. If a `MsalUiRequiredException` occurs, indicating that user interaction is needed for authentication, the app navigates to the claims view.
 
@@ -118,7 +119,7 @@ The `AppShell` class defines an app's visual hierarchy, the XAML markup used in 
 1. In the **Solution Explorer** pane of Visual Studio, expand the **AppShell.xaml** file to reveal its code-behind file **AppShell.xaml.cs**. Open the **AppShell.xaml.cs** and replace the content of the file with following code:
 
    :::code language="csharp" source="~/ms-identity-ciam-dotnet-tutorial/1-Authentication/2-sign-in-maui/AppShell.xaml.cs" :::
-   
+
    You update the `AppShell.xaml.cs` file to include the necessary route registrations for the `MainView` and `ClaimsView`. By calling the `InitializeComponent()` method, you ensure the initialization of the `AppShell` class. The `RegisterRoute()` method associate the `mainview` and `claimsview` routes with their respective view types, `MainView` and `ClaimsView`.
 
 ## Add platform-specific code
@@ -132,25 +133,25 @@ A .NET MAUI app project contains a Platforms folder, with each child folder repr
    - Set **Minimum Android version** to _Android 5.0 (API level 21)_.
 
 1. Double-click `Platforms/Android/MainActivity.cs` file in the **Solution Explorer** pane to open the csharp editor. Replace the content of the file with following code:
-    
+
    :::code language="csharp" source="~/ms-identity-ciam-dotnet-tutorial/1-Authentication/2-sign-in-maui/Platforms/Android/MainActivity.cs" :::
-    
-    Let's break down the key parts of the code you have added:
-    
-    - The necessary `using` statements are included at the top.
-    - The `MainActivity` class is defined, inheriting from `MauiAppCompatActivity`, which is the base class for the Android platform in .NET MAUI.
-    - The [Activity] attribute is applied to the `MainActivity` class, specifying various settings for the Android activity.
-        - `Theme = "@style/Maui.SplashTheme"` sets the splash theme for the activity.
-        - `MainLauncher = true` designates this activity as the main entry point of the application.
-        - `ConfigurationChanges` specifies the configuration changes that the activity can handle, such as _screen size_, _orientation_, _UI mode_, _screen layout_, _smallest screen size_, and _density_.
-    - `OnCreate` method is overridden to provide custom logic when the activity is being created.
-        - `base.OnCreate(savedInstanceState)` calls the base implementation of the method.
-        - `PlatformConfig.Instance.RedirectUri` is set to a dynamically generated value based on `PublicClientSingleton.Instance.MSALClientHelper.AzureAdConfig.ClientId`. It configures the redirect URI for the MSAL client.
-        - `PlatformConfig.Instance.ParentWindow` is set to the current activity instance, which specifies the parent window for authentication-related operations.
-        - `PublicClientSingleton.Instance.MSALClientHelper.InitializePublicClientAppAsync()` initializes the MSAL client app asynchronously using a helper method from a singleton instance called `MSALClientHelper`. The `Task.Run` is used to execute the initialization on a background thread, and `.Result` is used to synchronously wait for the task to complete.
-    - `OnActivityResult` method is overridden to handle the result of an activity launched by the current activity.
-        - `base.OnActivityResult(requestCode, resultCode, data)` calls the base implementation of the method.
-        - `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data)` sets the authentication continuation event arguments based on the received request code, result code, and intent data. This is used to continue the authentication flow after an external activity returns a result.
+
+   Let's break down the key parts of the code you have added:
+
+   - The necessary `using` statements are included at the top.
+   - The `MainActivity` class is defined, inheriting from `MauiAppCompatActivity`, which is the base class for the Android platform in .NET MAUI.
+   - The [Activity] attribute is applied to the `MainActivity` class, specifying various settings for the Android activity.
+     - `Theme = "@style/Maui.SplashTheme"` sets the splash theme for the activity.
+     - `MainLauncher = true` designates this activity as the main entry point of the application.
+     - `ConfigurationChanges` specifies the configuration changes that the activity can handle, such as _screen size_, _orientation_, _UI mode_, _screen layout_, _smallest screen size_, and _density_.
+   - `OnCreate` method is overridden to provide custom logic when the activity is being created.
+     - `base.OnCreate(savedInstanceState)` calls the base implementation of the method.
+     - `PlatformConfig.Instance.RedirectUri` is set to a dynamically generated value based on `PublicClientSingleton.Instance.MSALClientHelper.AzureAdConfig.ClientId`. It configures the redirect URI for the MSAL client.
+     - `PlatformConfig.Instance.ParentWindow` is set to the current activity instance, which specifies the parent window for authentication-related operations.
+     - `PublicClientSingleton.Instance.MSALClientHelper.InitializePublicClientAppAsync()` initializes the MSAL client app asynchronously using a helper method from a singleton instance called `MSALClientHelper`. The `Task.Run` is used to execute the initialization on a background thread, and `.Result` is used to synchronously wait for the task to complete.
+   - `OnActivityResult` method is overridden to handle the result of an activity launched by the current activity.
+     - `base.OnActivityResult(requestCode, resultCode, data)` calls the base implementation of the method.
+     - `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data)` sets the authentication continuation event arguments based on the received request code, result code, and intent data. This is used to continue the authentication flow after an external activity returns a result.
 
 1. In the **Solution Explorer** pane of Visual Studio, select **Platforms**.
 1. Right-click on the **Android** folder > **Add** > **New Item...**.
@@ -194,7 +195,7 @@ To create `appsettings.json`, follow these steps:
 Set the **Debug Target** in the Visual Studio toolbar to the device you want to debug and test with. The following steps demonstrate setting the **Debug Target** to _Android_:
 
 1. Select **Debug Target** drop-down.
-1. Select **Android Emulators**. 
+1. Select **Android Emulators**.
 1. Select emulator device.
 
 Run the app by pressing _F5_ or select the _play button_ at the top of Visual Studio.

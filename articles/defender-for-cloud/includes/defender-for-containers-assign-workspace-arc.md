@@ -8,9 +8,9 @@ author: dcurwin
 
 ## Default Log Analytics workspace for Arc
 
-The Log Analytics workspace is used by the Defender extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users won't be billed in this use case.
+The Log Analytics workspace is used by the Defender agent as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users won't be billed in this use case.
 
-The Defender extension uses a default Log Analytics workspace. If you don't already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender extension is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
+The Defender agent uses a default Log Analytics workspace. If you don't already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender agent is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
 
 The naming convention for the default Log Analytics workspace and resource group is:
 - **Workspace**: DefaultWorkspace-\[subscription-ID]-\[geo]
@@ -22,7 +22,7 @@ When you enable the auto-provision option, a default workspace will be automatic
 
 **To check if you have a workspace assigned**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for, and select **Policy**.
 

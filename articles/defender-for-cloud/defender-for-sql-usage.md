@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
-ms.date: 06/29/2023
+ms.date: 09/04/2023
 ---
 
 # Enable Microsoft Defender for SQL servers on machines
@@ -31,7 +31,7 @@ Microsoft Defender for SQL servers on machines extends the protections for your 
   - [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 
     > [!NOTE]
-    > Enable database protection for your multicloud SQL servers through the [AWS connector](quickstart-onboard-aws.md#connect-your-aws-account) or the [GCP connector](quickstart-onboard-gcp.md#configure-the-databases-plan).
+    > Enable database protection for your multicloud SQL servers through the [AWS connector](quickstart-onboard-aws.md#connect-your-aws-account) or the [GCP connector](quickstart-onboard-gcp.md#configure-the-defender-for-databases-plan).
 
 This plan includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases.
 
@@ -45,8 +45,8 @@ Learn more about [vulnerability assessment for Azure SQL servers on machines](de
 |----|:----|
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for SQL servers on machines** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
-|Protected SQL versions:|SQL Server version: 2012 R2, 2014, 2016, 2017, 2019, 2022 <br>- [SQL on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)<br>- [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)<br>- On-premises SQL servers on Windows machines without Azure Arc<br>|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet **(Advanced Threat Protection Only)**|
+|Protected SQL versions:|SQL Server version: 2012, 2014, 2016, 2017, 2019, 2022 <br>- [SQL on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)<br>- [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)<br>- On-premises SQL servers on Windows machines without Azure Arc<br>|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Microsoft Azure operated by 21Vianet **(Advanced Threat Protection Only)**|
 
 ## Set up Microsoft Defender for SQL servers on machines
 

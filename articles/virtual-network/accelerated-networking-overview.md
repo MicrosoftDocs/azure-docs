@@ -3,6 +3,7 @@ title: Accelerated Networking overview
 description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
 author: steveesp
 ms.service: virtual-network
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 04/18/2023
 ms.author: steveesp
@@ -11,6 +12,9 @@ ms.author: steveesp
 # Accelerated Networking overview
 
 This article describes the benefits, constraints, and supported configurations of Accelerated Networking. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance. This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for the most demanding network workloads.
+
+>[!NOTE]
+>For more information on Microsoft Azure Network Adapter (MANA) preview, please refer to the [Azure MANA Docs](./accelerated-networking-mana-overview.md)
 
 The following diagram illustrates how two VMs communicate with and without Accelerated Networking.
 

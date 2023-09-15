@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-
+ms.custom: mimckitt, devx-track-azurecli, devx-track-linux
 ---
 # Encrypt OS and attached data disks in a Virtual Machine Scale Set with the Azure CLI
 

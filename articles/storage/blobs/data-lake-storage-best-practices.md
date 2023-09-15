@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
 ms.date: 03/09/2023
 ms.author: normesta
@@ -197,7 +196,7 @@ If you want to store your logs for both near real-time query and long term reten
 
 If you want to access your logs through another query engine such as Splunk, you can configure your diagnostic settings to send logs to an event hub and ingest logs from the event hub to your chosen destination.
 
-Azure Storage logs in Azure Monitor can be enabled through the Azure portal, PowerShell, the Azure CLI, and Azure Resource Manager templates. For at-scale deployments, Azure Policy can be used with full support for remediation tasks. For more information, see [Azure/Community-Policy](https://github.com/Azure/Community-Policy/tree/master/Policies/Storage/deploy-storage-monitoring-log-analytics) and [ciphertxt/AzureStoragePolicy](https://github.com/ciphertxt/AzureStoragePolicy).
+Azure Storage logs in Azure Monitor can be enabled through the Azure portal, PowerShell, the Azure CLI, and Azure Resource Manager templates. For at-scale deployments, Azure Policy can be used with full support for remediation tasks. For more information, see [ciphertxt/AzureStoragePolicy](https://github.com/ciphertxt/AzureStoragePolicy).
 
 
 ## See also

@@ -10,6 +10,8 @@ ms.author: geguirgu
 
 Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by leveraging your IoT data for data analysis, storage, and visualizations, among other use cases. 
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
 
 ## How can I use the routing feature?
@@ -33,10 +35,10 @@ The routing configuration enables you to send all your messages from your client
 The Event Grid custom topic that is used for routing need to fulfill the following requirements:
 - It needs to be set to use the Cloud Event Schema v1.0
 - It needs to be in the same region as the namespace.
-- You need to assign "EventGrid Data Sender" role to yourself on the Event Grid custom topic.
+- You need to assign "Event Grid Data Sender" role to yourself on the Event Grid custom topic.
     - In the portal, go to the created Event Grid topic resource.
     - In the "Access control (IAM)" menu item, select "Add a role assignment".
-    - In the "Role" tab, select "EventGrid Data Sender", then select "Next".
+    - In the "Role" tab, select "Event Grid Data Sender", then select "Next".
     - In the "Members" tab, select +Select members, then type your AD user name in the "Select" box that will appear (for example, [user@contoso.com](mailto:user@contoso.com)).
     - Select your AD user name, then select "Review + assign"
 

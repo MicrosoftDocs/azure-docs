@@ -16,7 +16,7 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2,
 
 # Troubleshooting online endpoints deployment and scoring
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
@@ -547,7 +547,7 @@ Others:
 * [InvalidDeploymentSpec](#error-invaliddeploymentspec)
 * [PodUnschedulable](#error-podunschedulable)
 * [PodOutOfMemory](#error-podoutofmemory)
-* [InferencingClientCallFailed](#error-inferencingclientcallfailed )
+* [InferencingClientCallFailed](#error-inferencingclientcallfailed)
 
 
 ### ERROR: ACRSecretError 
@@ -569,7 +569,7 @@ This is because extension cannot get principal credential from Azure because the
 
 This is because the Kubernetes cluster request AAD token failed or timeout, please check your network accessibility then try again. 
 
-* You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute ) to check the outbound proxy, make sure the cluster can connect to workspace. 
+* You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute) to check the outbound proxy, make sure the cluster can connect to workspace. 
 * The workspace endpoint url can be found in online endpoint CRD in cluster. 
 
 If your workspace is a private workspace which disabled public network access, the Kubernetes cluster should only communicate with that private workspace through the private link. 
@@ -725,7 +725,7 @@ This is a list of common model consumption errors resulting from the endpoint `i
 
 Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
-- Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+- Use metric "Network bytes" to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
     - `ms-azureml-bandwidth-request-delay-ms`: delay time in milliseconds it took for the request stream transfer.
     - `ms-azureml-bandwidth-response-delay-ms`: delay time in milliseconds it took for the response stream transfer.
@@ -829,12 +829,12 @@ We recommend that you use Azure Functions, Azure Application Gateway, or any ser
 
 ## Common network isolation issues
 
-[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+[!INCLUDE [network isolation issues](includes/machine-learning-online-endpoint-troubleshooting.md)]
 
 ## Troubleshoot inference server
 In this section, we provide basic troubleshooting tips for [Azure Machine Learning inference HTTP server](how-to-inference-server-http.md). 
 
-[!INCLUDE [inference server TSGs](../../includes/machine-learning-inference-server-troubleshooting.md)]
+[!INCLUDE [inference server TSGs](includes/machine-learning-inference-server-troubleshooting.md)]
 
 ## Next steps
 

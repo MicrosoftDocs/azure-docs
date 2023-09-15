@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 04/06/2023
 ms.author: cynthn
 ms.reviewer: mattmcinnes
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator or developer, I want learn about cloud-init so that I customize and configure Linux VMs in Azure on first boot to minimize the number of post-deployment configuration tasks required.
 ---
 

@@ -19,9 +19,7 @@ This article describes reliability support in Azure Operator Nexus and covers in
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability in the case of a local zone failure.  When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
-
-There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Azure Operator Nexus offers availability zone-redundant deployments by default. Operator Nexus components, such as Cluster Manager and Network Fabric Controller are all deployed on an Azure Kubernetes Service (AKS) cluster that's enabled with availability zones. Other service dependencies, such as Storage Account Service, and KeyVault are also configured with availability zone-redundancy.
 

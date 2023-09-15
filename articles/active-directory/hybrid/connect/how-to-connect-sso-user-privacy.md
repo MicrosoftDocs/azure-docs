@@ -29,8 +29,8 @@ Azure AD Seamless SSO creates the following log type, which can contain Personal
 
 Improve user privacy for Seamless SSO in two ways:
 
-1.	Upon request, extract data for a person and remove data from that person from the installations.
-2.	Ensure no data is retained beyond 48 hours.
+1. Upon request, extract data for a person and remove data from that person from the installations.
+2. Ensure no data is retained beyond 48 hours.
 
 We strongly recommend the second option as it is easier to implement and maintain. See following instructions for each log type:
 
@@ -61,6 +61,6 @@ If audit logging is enabled, this product may generate security logs for your Do
 
 ## Next steps
 
-* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
+* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trust-center)
   - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
   - [**UserVoice**](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - For filing new feature requests.

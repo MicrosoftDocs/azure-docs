@@ -43,21 +43,21 @@ Once you've migrated the apps, consider applying the following suggestions to en
 
 ## Secure app access
 
-Azure AD provides a centralized access location to manage your migrated apps. Go to the [Azure portal](https://portal.azure.com/) and enable the following capabilities:
+Azure AD provides a centralized access location to manage your migrated apps. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and enable the following capabilities:
 
 - **Secure user access to apps.** Enable [Conditional Access policies](../conditional-access/overview.md)or [Identity Protection](../identity-protection/overview-identity-protection.md)to secure user access to applications based on device state, location, and more.
 - **Automatic provisioning.** Set up [automatic provisioning of users](../app-provisioning/user-provisioning.md) with various third-party SaaS apps that users need to access. In addition to creating user identities, it includes the maintenance and removal of user identities as status or roles change.
 - **Delegate user access** **management**. As appropriate, enable self-service application access to your apps and *assign a business approver to approve access to those apps*. Use [Self-Service Group Management](../enterprise-users/groups-self-service-management.md)for groups assigned to collections of apps.
-- **Delegate admin access.** using **Directory Role** to assign an admin role (such as Application administrator, Cloud Application administrator, or Application developer) to your user.
+- **Delegate admin access** using **Directory Role** to assign an admin role (such as Application administrator, Cloud Application administrator, or Application developer) to your user.
 - **Add applications to Access Packages** to provide governance and attestation.
 
 ## Audit and gain insights of your apps
 
-You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
+You can also use the [Microsoft Entra admin center](https://entra.microsoft.com) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to integrate into your favorite tools.
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth/OpenID Connect.
-- **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Azure AD Reporting API.](../reports-monitoring/concept-reporting-api.md)
+- **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Azure AD Reporting API.](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 - **Visualize your app’s usage** from the [Azure AD Power BI content pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## Exit criteria
@@ -71,7 +71,7 @@ You're successful in this phase when you:
 
 Deployment plans walk you through the business value, planning, implementation steps, and management of Azure AD solutions, including app migration scenarios. They bring together everything that you need to start deploying and getting value out of Azure AD capabilities. The deployment guides include content such as Microsoft recommended best practices, end-user communications, planning guides, implementation steps, test cases, and more.
 
-Many [deployment plans](../fundamentals/deployment-plans.md) are available for your use, and we’re always making more!
+Many [deployment plans](../architecture/deployment-plans.md) are available for your use, and we’re always making more!
 
 ## Contact support
 
@@ -83,4 +83,4 @@ Visit the following support links to create or track support ticket and monitor 
 
 ## Next steps
 
-- [Migration process](migrate-adfs-apps-to-azure.md)
+- [Migration process](./migrate-adfs-apps-stages.md)

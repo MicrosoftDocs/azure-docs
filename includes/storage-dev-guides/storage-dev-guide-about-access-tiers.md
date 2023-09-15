@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: storage
 author: pauljewellmsft
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: include
 ms.date: 07/03/2023
 ms.author: pauljewell
@@ -24,6 +24,8 @@ Azure Storage access tiers include:
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
 
 To learn more about access tiers, see [Access tiers for blob data](../../articles/storage/blobs/access-tiers-overview.md).
+
+While a blob is in the Archive access tier, it's considered to be offline, and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier. To learn more about rehydrating a blob from the Archive tier to an online tier, see [Blob rehydration from the Archive tier](../../articles/storage/blobs/archive-rehydrate-overview.md).
 
 #### Restrictions
 

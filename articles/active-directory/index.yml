@@ -1,32 +1,32 @@
 ### YamlMime:Hub
 
-title: Azure Active Directory documentation
-summary: Use Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra, to manage user identities and control access to your apps, data, and resources.
+title: Microsoft Entra ID documentation
+summary: Microsoft Azure Active Directory (Azure AD) is being renamed to Microsoft Entra ID. Use Microsoft Entra ID to manage user identities and control access to your apps, data, and resources.
 brand: azure ## Used for color theming of icons and hero area
 
 metadata:
-  title: Azure Active Directory documentation
-  description: Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra, is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
+  title: Microsoft Entra ID documentation
+  description: Microsoft Azure Active Directory (Azure AD) is being renamed to Microsoft Entra ID. Microsoft Entra ID is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
   ms.service: active-directory
   ms.topic: hub-page
   ms.collection: M365-identity-device-management
   author: rolyon
   ms.author: rolyon
   manager: amycolannino
-  ms.date: 01/23/2023
+  ms.date: 06/20/2023
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: What is Azure AD?
       itemType: overview # controls the icon image and super-title text
-      url: ./fundamentals/active-directory-whatis.md
+      url: ./fundamentals/whatis.md
     - title: What's new in Azure AD?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
     - title: Azure AD feature deployment guide
       itemType: concept
-      url: ./fundamentals/active-directory-deployment-checklist-p2.md
+      url: ./fundamentals/concept-secure-remote-workers.md
     - title: Microsoft Entra
       itemType: get-started
       url: /entra
@@ -123,6 +123,10 @@ additionalContent:
         - title: Fundamentals
           summary: Learn basic Azure Active Directory (Azure AD) concepts and processes.
           url: ./fundamentals/index.yml
+        # Card
+        - title: Architecture
+          summary: Learn basic Azure Active Directory (Azure AD) architecture.
+          url: ./architecture/index.yml
         # Card
         - title: Enterprise users
           summary: Create Azure AD tenants, manage user accounts, roles, and groups, and assign app access.

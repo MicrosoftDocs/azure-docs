@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/10/2022
-ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
+ms.custom: UpdateFrequency5, designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
 ---
 
 # Tutorial: Designer - deploy a machine learning model
@@ -40,7 +40,7 @@ In [part one of the tutorial](tutorial-designer-automobile-price-train-score.md)
 
 Complete [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 ## Create a real-time inference pipeline
 

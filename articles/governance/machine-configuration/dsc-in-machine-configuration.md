@@ -26,7 +26,7 @@ create and publish configurations using scripting skills.
 Machine configuration only uses PowerShell DSC version 3 and doesn't rely on the previous
 implementation of [DSC for Linux][04] or the `nx*` providers included in that repository.
 
-As of version 1.29.33, machine configuration operates in PowerShell 7.1.2 for Windows and
+As of version 1.26.33, machine configuration operates in PowerShell 7.1.2 for Windows and
 PowerShell 7.2 preview 6 for Linux. Starting with version 7.2, the **PSDesiredStateConfiguration**
 module moved from being part of the PowerShell installation and is instead installed as a
 [module from the PowerShell Gallery][05].

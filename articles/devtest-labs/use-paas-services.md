@@ -4,7 +4,8 @@ description: Learn about platform-as-a-service (PaaS) environments in Azure DevT
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/22/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Use PaaS services in Azure DevTest Labs

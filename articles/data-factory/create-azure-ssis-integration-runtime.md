@@ -20,7 +20,7 @@ This article provides steps for provisioning an Azure-SQL Server Integration Ser
 - Running packages deployed into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model)
 
 > [!NOTE] 
-> Azure-SSIS IR in Azure Synapse Analytics is in public preview, please check [limitations](https://aka.ms/AAfq9i3) for preview.
+> There are certain features that are not available for Azure-SSIS IR in Azure Synapse Analytics, please check the [limitations](https://aka.ms/AAfq9i3).
 
 After an Azure-SSIS IR is provisioned, you can use familiar tools to deploy and run your packages in Azure. These tools are already Azure-enabled and include SQL Server Data Tools (SSDT), SQL Server Management Studio (SSMS), and command-line utilities like [dtutil](/sql/integration-services/dtutil-utility) and [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
 

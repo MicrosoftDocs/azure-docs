@@ -3,7 +3,7 @@ title: Tutorial to fail back Azure VMs to a primary region during disaster recov
 description: Tutorial to learn about failing back Azure VMs to a primary region with Azure Site Recovery.
 ms.topic: tutorial
 ms.service: site-recovery
-ms.date: 11/05/2020
+ms.date: 08/01/2023
 ms.custom: mvc
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -81,10 +81,8 @@ After failing back VMs to the primary region, you need to reprotect them, so tha
 
 4. Monitor reprotect progress in notifications. 
 
-    ![Reprotect progress notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-start.png)
-    [Reprotect progress notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-finish.png)
-    
-  
+    ![Reprotect start notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-start.png)
+    ![Reprotect finish notification](./media/azure-to-azure-tutorial-failback/notification-reprotect-finish.png)
 
 ## Clean up resources
 

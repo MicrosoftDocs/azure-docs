@@ -276,7 +276,7 @@ The process of key rotation and regeneration is simple. First, make sure that **
 
 After you rotate or regenerate a key, you can track its status from the Activity log. Use the following steps to track the status:
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
 
 1. Open the **Activity log** pane and set the following filters:
 

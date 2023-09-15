@@ -1,10 +1,10 @@
 ---
 title: Overview - Azure Database for MySQL single server
 description: Learn about the Azure Database for MySQL single server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
-author: savjani
+author: sudheeshgh
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
-ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 06/20/2022

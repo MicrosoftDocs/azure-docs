@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -78,14 +78,14 @@ If you use MFA Server, the following personal data is stored.
 
 ## Organizational data stored by Azure AD multifactor authentication
 
-Organizational data is tenant-level information that can expose configuration or environment setup. Tenant settings from the following Azure portal multifactor authentication pages might store organizational data such as lockout thresholds or caller ID information for incoming phone authentication requests:
+Organizational data is tenant-level information that can expose configuration or environment setup. Tenant settings from the Multifactor authentication pages might store organizational data such as lockout thresholds or caller ID information for incoming phone authentication requests:
 
 * Account lockout
 * Fraud alert
 * Notifications
 * Phone call settings
 
-For MFA Server, the following Azure portal pages might contain organizational data:
+For MFA Server, the following pages might contain organizational data:
 
 * Server settings
 * One-time bypass
@@ -115,7 +115,7 @@ The following table shows the location for service logs for sovereign clouds.
 
 | Sovereign cloud                      | Sign-in logs                         | Multifactor authentication activity report | Multifactor authentication service logs |
 |--------------------------------------|--------------------------------------|--------------------------------------------|-----------------------------------------|
-| Azure China 21Vianet                 | China                                | United States                              | United States                           |
+| Microsoft Azure operated by 21Vianet                 | China                                | United States                              | United States                           |
 | Microsoft Government Cloud           | United States                        | United States                              | United States                           |
 
 ## Next steps

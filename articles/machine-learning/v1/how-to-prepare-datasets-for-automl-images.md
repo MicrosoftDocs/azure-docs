@@ -13,10 +13,10 @@ ms.date: 10/13/2021
 
 # Prepare data for computer vision tasks with automated machine learning v1
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
   
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 > [!IMPORTANT]
 > Support for training computer vision models with automated ML in Azure Machine Learning is an experimental public preview feature. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -47,7 +47,7 @@ If you already have a data labeling project and you want to use that data, you c
 
 ## Use conversion scripts
 
-If you have labeled data in popular computer vision data formats, like VOC or COCO, [helper scripts](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to generate JSONL files for training and validation data are available in [notebook examples](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml).
+If you have labeled data in popular computer vision data formats, like VOC or COCO, [helper scripts](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to generate JSONL files for training and validation data are available in [notebook examples](https://github.com/Azure/azureml-examples/tree/v1-archive/v1/python-sdk/tutorials/automl-with-azureml).
 
 If your data doesn't follow any of the previously mentioned formats, you can use your own script to generate JSON Lines files based on schemas defined in [Schema for JSONL files for AutoML image experiments](../reference-automl-images-schema.md).
 

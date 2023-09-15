@@ -31,10 +31,6 @@ sections:
         answer: |
           Any active connections associated with a public IP address terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs.
           
-      - question: Can NAT gateway be used with IPv6 public IP addresses?
-        answer: |
-          No, NAT gateway doesn't support IPv6 public IP addresses at this time. You can configure dual stack outbound connectivity with NAT gateway and public Load balancer, see [configure dual stack outbound connectivity](./tutorial-dual-stack-outbound-nat-load-balancer.md?tabs=dual-stack-outbound-portal)
-  
   - name: NAT gateway configurations
     questions:  
       - question: Is the NAT gateway public IP address static?  
@@ -60,6 +56,10 @@ sections:
       - question: Can public IP addresses with routing preference "internet" be used with NAT gateway?
         answer: |
           No, NAT gateway does not support public IP addresses with routing preference "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services). 
+      
+      - question: Can public IP addresses with DDoS protection enabled be used with NAT gateway? 
+        answer: |
+          No, public IP addresses with DDoS protection enabled are not supported by NAT gateway. See [DDoS limitations](/azure/ddos-protection/ddos-protection-sku-comparison#limitations) for more information. 
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |

@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Optimize the performance of your Network File System (NFS) 3.0 storage requests by using the recommendations in this article.
 author: normesta
 
-ms.subservice: blobs
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 06/21/2023
 ms.author: normesta

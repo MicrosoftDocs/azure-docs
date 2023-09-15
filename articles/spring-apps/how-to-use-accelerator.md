@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use [Application Accelerator for VMware Tanzu®](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-about-application-accelerator.html) with the Azure Spring Apps Enterprise plan to bootstrap developing your applications in a discoverable and repeatable way.
+This article shows you how to use [Application Accelerator for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-about-application-accelerator.html) with the Azure Spring Apps Enterprise plan to bootstrap developing your applications in a discoverable and repeatable way.
 
 Application Accelerator for VMware Tanzu helps you bootstrap developing your applications and deploying them in a discoverable and repeatable way. You can use Application Accelerator to create new projects based on published accelerator projects. For more information, see [Application Accelerator for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-about-application-accelerator.html) in the VMware documentation.
 
@@ -115,9 +115,9 @@ You can see the running instances and resource usage of all the components using
 
 ### [Azure portal](#tab/Portal)
 
-You can view the state of Application Accelerator in the Azure portal on the **Developer Tools (Preview)** page, as shown in the following screenshot:
+You can view the state of Application Accelerator in the Azure portal on the **Developer Tools** page, as shown in the following screenshot:
 
-:::image type="content" source="media/how-to-use-accelerator/accelerator-components.png" alt-text="Screenshot of the Azure portal showing the Developer Tools (Preview) page." lightbox="media/how-to-use-accelerator/accelerator-components.png":::
+:::image type="content" source="media/how-to-use-accelerator/accelerator-components.png" alt-text="Screenshot of the Azure portal showing the Developer Tools page." lightbox="media/how-to-use-accelerator/accelerator-components.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -211,14 +211,14 @@ After you create your *accelerator.yaml* file, you can create your accelerator. 
 
 To create your own accelerator, open the **Accelerators** section and then select **Add Accelerator** under the Customized Accelerators section.
 
-:::image type="content" source="media/how-to-use-accelerator/add-accelerator.png" alt-text="Screenshot of the Azure portal showing the Developer Tools (Preview) page Accelerators tab, with the Add Accelerator button highlighted." lightbox="media/how-to-use-accelerator/add-accelerator.png":::
+:::image type="content" source="media/how-to-use-accelerator/add-accelerator.png" alt-text="Screenshot of the Azure portal showing the Developer Tools page Accelerators tab, with the Add Accelerator button highlighted." lightbox="media/how-to-use-accelerator/add-accelerator.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to create your own accelerator in Azure CLI.
 
 ```azurecli
-az spring application-accelerator customized-accelerator add \
+az spring application-accelerator customized-accelerator create \
     --name <customized-accelerator-name> \
     --service <service-instance-name> \
     --resource-group <resource-group-name> \
@@ -262,9 +262,9 @@ The following table describes the customizable accelerator fields.
 | **Host key algorithm**             | `host-key-algorithm`      | The host key algorithm to access the accelerator source repository whose authentication type is `SSH`. Can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                               | Required when authentication type is `SSH`.                    |
 | **CA certificate name**            | `ca-cert-name`            | The CA certificate name to access the accelerator source repository with self-signed certificate whose authentication type is `Public` or `Basic auth`.                                                                                                                                                                                                                         | Required when a self-signed cert is used for the Git repo URL. |
 
-To view all published accelerators, see the App Accelerators section of the **Developer Tools (Preview)** page. Select the App Accelerator URL to view the published accelerators in Dev Tools Portal:
+To view all published accelerators, see the App Accelerators section of the **Developer Tools** page. Select the App Accelerator URL to view the published accelerators in Dev Tools Portal:
 
-:::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Azure portal showing the Developer Tools (Preview) page with the App Accelerator URL highlighted." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
+:::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Azure portal showing the Developer Tools page with the App Accelerator URL highlighted." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
 To view the newly published accelerator, refresh Dev Tools Portal.
 
@@ -277,9 +277,9 @@ To view the newly published accelerator, refresh Dev Tools Portal.
 
 Use the following steps to bootstrap a new project using accelerators:
 
-1. On the **Developer Tools (Preview)** page, select the App Accelerator URL to open the Dev Tools Portal.
+1. On the **Developer Tools** page, select the App Accelerator URL to open the Dev Tools Portal.
 
-   :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Azure portal showing the Developer Tools (Preview) page with the App Accelerator URL highlighted." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
+   :::image type="content" source="media/how-to-use-accelerator/tap-gui-url.png" alt-text="Screenshot of the Azure portal showing the Developer Tools page with the App Accelerator URL highlighted." lightbox="media/how-to-use-accelerator/tap-gui-url.png":::
 
 1. On the Dev Tools Portal, select an accelerator.
 
@@ -319,7 +319,7 @@ To configure a certificate for an accelerator, open the **Accelerators** section
 Use the following command to configure a certificate for the accelerator:
 
 ```azurecli
-az spring application-accelerator customized-accelerator add \
+az spring application-accelerator customized-accelerator create \
     --resource-group <resource-group-name> \
     --service <service-instance-name> \
     --name <customized-accelerator-name> \
@@ -366,19 +366,19 @@ az spring application-accelerator customized-accelerator sync-cert \
 
 You can enable App Accelerator under an existing Azure Spring Apps Enterprise plan instance using the Azure portal or Azure CLI.
 
-If a Dev tools public endpoint has already been exposed, you can enable App Accelerator, and then use <kbd>Ctrl</kbd>+<kbd>F5</kdb> to deactivate the browser cache to view it on the Dev Tools Portal.
-
 ### [Azure portal](#tab/Portal)
+
+If a Dev tools public endpoint has already been exposed, you can enable App Accelerator, and then use <kbd>Ctrl</kbd>+<kbd>F5</kdb> to deactivate the browser cache to view it on the Dev Tools Portal.
 
 Use the following steps to enable App Accelerator under an existing Azure Spring Apps Enterprise plan instance using the Azure portal:
 
-1. Navigate to your service resource, and then select **Developer Tools (Preview)**.
+1. Navigate to your service resource, and then select **Developer Tools**.
 1. Select **Manage tools**.
 1. Select **Enable App Accelerator**, and then select **Apply**.
 
    :::image type="content" source="media/how-to-use-accelerator/enable-app-accelerator.png" alt-text="Screenshot of the Azure portal showing the Manage tools pane with the Enable App Accelerator option highlighted." lightbox="media/how-to-use-accelerator/enable-app-accelerator.png":::
 
-You can view whether App Accelerator is enabled or disabled on the **Developer Tools (Preview)** page.
+You can view whether App Accelerator is enabled or disabled on the **Developer Tools** page.
 
 ### [Azure CLI](#tab/Azure-CLI)
 

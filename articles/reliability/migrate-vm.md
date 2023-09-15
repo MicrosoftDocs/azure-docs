@@ -12,15 +12,15 @@ ms.custom: references_regions, subject-reliability
  
 # Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support
 
-This guide describes how to migrate Virtual Machines (VMs) and Virtual Machine Scale Sets (VMSS) from non-availability zone support to availability zone support. We'll take you through the different options for migration, including how you can use availability zone support for Disaster Recovery solutions.
+This guide describes how to migrate Virtual Machines (VMs) and Virtual Machine Scale Sets from non-availability zone support to availability zone support. We take you through the different options for migration, including how you can use availability zone support for Disaster Recovery solutions.
 
-Virtual Machine (VM) and Virtual Machine Scale Sets (VMSS) are zonal services, which means that VM resources can be deployed by using one of the following methods:
+Virtual Machine (VM) and Virtual Machine Scale Sets are zonal services, which means that VM resources can be deployed by using one of the following methods:
 
 - VM resources are deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements.
 
 - VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
 
-When you migrate resources to availability zone support, we recommend that you select multiple zones for your new VMs and VMSS, to ensure high-availability of your compute resources.
+When you migrate resources to availability zone support, we recommend that you select multiple zones for your new VMs and Virtual Machine Scale Sets, to ensure high-availability of your compute resources.
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ Use the redeployment option if you have set up good Infrastructure as Code (IaC)
 
 ### Redeployment considerations
 
-- When you redeploy your VM and VMSS resources, the underlying resources such as managed disk and IP address for the VM are created in the same availability zone. You must use a Standard SKU public IP address and load balancer to create zone-redundant network resources.  
+- When you redeploy your VM and Virtual Machine Scale Sets resources, the underlying resources such as managed disk and IP address for the VM are created in the same availability zone. You must use a Standard SKU public IP address and load balancer to create zone-redundant network resources.  
 
-- Existing managed disks without availability zone support can't be attached to a VM with availability zone support. To attach existing managed disks to a VM with availability zone support, you'll need to take a snapshot of the current disks, and then create your VM with the new managed disks attached.
+- Existing managed disks without availability zone support can't be attached to a VM with availability zone support. To attach existing managed disks to a VM with availability zone support, you need to take a snapshot of the current disks, and then create your VM with the new managed disks attached.
 
 - For zonal deployments that require reasonably low network latency and good performance between application tier and data tier, use [proximity placement groups](../virtual-machines/co-location.md). Proximity groups can force grouping of different VM resources under a single network spine. For an example of an SAP workload that uses proximity placement groups, see [Azure proximity placement groups for optimal network latency with SAP applications](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md)
 
@@ -59,17 +59,17 @@ If you only want to create new VM with new managed disks in an availability zone
 - [Create VM using Azure PowerShell](../virtual-machines/windows/create-PowerShell-availability-zone.md)
 - [Create VM using Azure portal](../virtual-machines/create-portal-availability-zone.md?tabs=standard)
 
-To learn how to create VMSS in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).
+To learn how to create Virtual Machine Scale Sets in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).
 
 ### Migrate your managed disks
 
-In this section, you'll migrate the data from your current managed disks to either zone-redundant storage (ZRS) managed disks or zonal managed disks.
+In this section, you migrate the data from your current managed disks to either zone-redundant storage (ZRS) managed disks or zonal managed disks.
 
 #### Step 1: Create your snapshot
 
-The easiest and cleanest way to create a snapshot is to do so while the VM is offline. See [Create snapshots while the VM is offline](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#create-snapshots-while-the-vm-is-offline). If you choose this approach, some downtime should be expected. To create a snapshot of your VM using the Azure portal, PowerShell, or Azure CLI, see [Create a snapshot of a virtual hard disk](../virtual-machines/snapshot-copy-managed-disk.md)
+The easiest and cleanest way to create a snapshot is to do so while the VM is offline. See [Snapshots](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#snapshots). If you choose this approach, some downtime should be expected. To create a snapshot of your VM using the Azure portal, PowerShell, or Azure CLI, see [Create a snapshot of a virtual hard disk](../virtual-machines/snapshot-copy-managed-disk.md)
 
-If you'll be taking a snapshot of a disk that's attached to a running VM, read the guidance in [Create snapshots while the VM is running](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#create-snapshots-while-the-vm-is-running) before proceeding.
+If you're taking a snapshot of a disk that's attached to a running VM, read the guidance in [Snapshots](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#snapshots) before proceeding.
 
 >[!NOTE]
 > The source managed disks remain intact with their current configurations and you'll continue to be billed for them. To avoid this, you must manually delete the disks once you've finished your migration and confirmed the new disks are working. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
@@ -82,7 +82,7 @@ Now that you have snapshots of your original disks, you can use them to create e
 
 To migrate a non-zonal managed disk to zonal:
 
-1. Create a zonal managed disk from the source disk snapshot. The zone parameter should match your zonal VM.  To create a zonal managed disk from the snapshot, you can use [Azure CLI](../virtual-machines/scripts/create-managed-disk-from-snapshot.md)(example below), [PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md), or the Azure Portal.
+1. Create a zonal managed disk from the source disk snapshot. The zone parameter should match your zonal VM.  To create a zonal managed disk from the snapshot, you can use [Azure CLI](../virtual-machines/scripts/create-managed-disk-from-snapshot.md)(example below), [PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md), or the Azure portal.
 
     ```azurecli
         az disk create --resource-group $resourceGroupName --name $diskName --location $location --zone $zone --sku $storageType --size-gb $diskSize --source $snapshotId
@@ -93,7 +93,7 @@ To migrate a non-zonal managed disk to zonal:
 ##### Migrate your data to ZRS managed disks
 
 >[!IMPORTANT]
-> Zone-redundant storage (ZRS) for managed disks has some restrictions. For more information see [Limitations](../virtual-machines/disks-deploy-zrs.md?tabs=portal#limitations). 
+> Zone-redundant storage (ZRS) for managed disks has some restrictions. For more information, see [Limitations](../virtual-machines/disks-deploy-zrs.md?tabs=portal#limitations). 
 
 1. Create a ZRS managed disk from the source disk snapshot by using the following Azure CLI snippet: 
 
@@ -140,7 +140,7 @@ Typically, availability zones are used to deploy VMs in a High Availability conf
 The following requirements should be part of a disaster recovery strategy that helps your organization run its workloads during planned or unplanned outages across zones:
 
 - The source VM must already be a zonal VM, which means that it's placed in a logical zone.  
-- You'll need to replicate your VM from one zone to another zone using Azure Site Recovery service.  
+- You need to replicate your VM from one zone to another zone using Azure Site Recovery service.  
 - Once your VM is replicated to another zone, you can follow steps to run a Disaster Recovery drill, fail over, reprotect, and failback.  
 - To enable VM disaster recovery between availability zones, follow the instructions in [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) .  
 

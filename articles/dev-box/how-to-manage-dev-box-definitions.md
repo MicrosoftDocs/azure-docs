@@ -8,12 +8,12 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/25/2023
 ms.topic: how-to
-#Customer intent: As a dev infrastructure manager, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.
+#Customer intent: As a platform engineer, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.
 ---
 
 # Manage a dev box definition
 
-A dev box definition is a Microsoft Dev Box Preview resource that specifies a source image, compute size, and storage size.
+A dev box definition is a Microsoft Dev Box resource that specifies a source image, compute size, and storage size.
 
 Depending on their task, development teams have different software, configuration, compute, and storage requirements. You can create a new dev box definition to fulfill each team's needs. There's no limit to the number of dev box definitions that you can create, and you can use dev box definitions across multiple projects in a dev center.
 

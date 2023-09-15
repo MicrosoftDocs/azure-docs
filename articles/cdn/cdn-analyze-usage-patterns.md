@@ -1,6 +1,6 @@
 ---
-title: Core Reports from Verizon | Microsoft Docs
-description: 'Learn how to access and view Verizon Core Reports via the Manage portal for Verizon profiles.'
+title: Core Reports from Edgio | Microsoft Docs
+description: 'Learn how to access and view Edgio Core Reports via the Manage portal for Edgio profiles.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -16,11 +16,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 
 ---
-# Core Reports from Verizon
+# Core Reports from Edgio
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-By using Verizon Core Reports via the Manage portal for Verizon profiles, you can view usage patterns for your CDN with the following reports:
+By using Edgio Core Reports via the Manage portal for Edgio profiles, you can view usage patterns for your CDN with the following reports:
 
 * Bandwidth
 * Data Transferred
@@ -29,7 +29,9 @@ By using Verizon Core Reports via the Manage portal for Verizon profiles, you ca
 * Cache Hit Ratio
 * IPV4/IPV6 Data Transferred
 
-## Accessing Verizon Core Reports
+<a name='accessing-verizon-core-reports'></a>
+
+## Accessing Edgio Core Reports
 1. From the CDN profile blade, click the **Manage** button.
    
     ![CDN profile Manage button](./media/cdn-reports/cdn-manage-btn.png)
@@ -129,4 +131,3 @@ This report shows the traffic usage distribution in IPV4 vs IPV6.
 
 ## Considerations
 Reports can only be generated within the last 18 months.
-

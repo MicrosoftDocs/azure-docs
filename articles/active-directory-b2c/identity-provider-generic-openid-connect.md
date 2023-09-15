@@ -310,6 +310,9 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
+## Known Issues
+* Azure AD B2C does not support JWE (JSON Web Encryption) for exchanging encrypted tokens with OpenID connect identity providers. 
+
 ## Next steps
 
 Find more information see the [OpenId Connect technical profile](openid-connect-technical-profile.md) reference guide.

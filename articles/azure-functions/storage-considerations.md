@@ -13,7 +13,7 @@ Azure Functions requires an Azure Storage account when you create a function app
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.  <br/>Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). <br/>May be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
 | [Azure Files](../storage/files/storage-files-introduction.md)<sup>2</sup>  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/> |
-| [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md).   |
+| [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob Storage trigger](functions-bindings-storage-blob-trigger.md). |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 <sup>1</sup> Blob storage is the default store for function keys, but you can [configure an alternate store](./security-concepts.md#secret-repositories).
@@ -155,7 +155,7 @@ Creating your function app resources using methods other than the Azure CLI requ
 
 ## Create an app without Azure Files
 
-Azure Files is set up by default for Premium and non-Linux Consumption plans to serve as a shared file system in high-scale scenarios. The file system is used by the platform for some features such as log streaming, but it primarily ensures consistency of the deployed function payload. When an app is [deployed using an external package URL](./run-functions-from-deployment-package.md), the app content is served from a separate read-only file system. This means that you can create your function app without Azure Files. If you create your function app with Azure Files, a writeable file system is still provided. However, this file system may not be available for all function app instances.  
+Azure Files is set up by default for Elastic Premium and non-Linux Consumption plans to serve as a shared file system in high-scale scenarios. The file system is used by the platform for some features such as log streaming, but it primarily ensures consistency of the deployed function payload. When an app is [deployed using an external package URL](./run-functions-from-deployment-package.md), the app content is served from a separate read-only file system. This means that you can create your function app without Azure Files. If you create your function app with Azure Files, a writeable file system is still provided. However, this file system may not be available for all function app instances.  
 
 When Azure Files isn't used, you must meet the following requirements:
 
@@ -166,7 +166,7 @@ When Azure Files isn't used, you must meet the following requirements:
 
 If the above are properly accounted for, you may create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings. You can avoid these settings by generating an ARM template for a standard deployment, removing the two settings, and then deploying the template. 
 
-Because Functions use Azure Files during parts of the dynamic scale-out process, scaling could be limited when running without Azure Files on Consumption and Premium plans.
+Because Functions use Azure Files during parts of the dynamic scale-out process, scaling could be limited when running without Azure Files on Consumption and Elastic Premium plans.
 
 ## Mount file shares
 

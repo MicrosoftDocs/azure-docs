@@ -55,7 +55,7 @@ The following architecture diagram shows the implementation.
 
 1. IDology provides a variety of solutions, which you can find [here](https://www.idology.com/solutions/). For this sample, we use ExpectID.
 
-2. To create an IDology account, contact [IDology](https://www.idology.com/request-a-demo/microsoft-integration-signup/).
+2. To create an IDology account, contact [IDology](https://www.idology.com/talk-to-a-trust-expert/).
 
 3. Once an account is created, you'll receive the information you need for API configuration. The following sections describe the process.
 
@@ -63,7 +63,7 @@ The following architecture diagram shows the implementation.
 
 ### Part 1 - Deploy the API
 
-Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-aspnet-web-app).
 
 You'll need the URL of the deployed service to configure Azure AD with the required settings.
 

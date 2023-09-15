@@ -191,6 +191,9 @@ You can also create wildcard indexes using the Data Explorer in the Azure portal
 
 Documents with many fields may have a high Request Unit (RU) charge for writes and updates. Therefore, if you have a write-heavy workload, you should opt to individually index paths as opposed to using wildcard indexes.
 
+> [!NOTE]
+> Support for unique index on existing collections with data is available in preview. This feature can be enabled for your database account by enabling the ['EnableUniqueIndexReIndex' capability](./how-to-configure-capabilities.md#available-capabilities).
+
 ### Limitations
 
 Wildcard indexes do not support any of the following index types or properties:

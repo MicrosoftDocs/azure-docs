@@ -98,8 +98,8 @@ For near-edge, the fabric is designed based on high availability model and the r
 ### Is Network packet Broker (NPB) a hard requirement?
 For near-edge SKUs, NPBs will be part of the BOM. 
 
-### How do I configure the load balancing service in a Nexus cluster?
-You can deploy load balancers with the Nexus AKS clusters. Ensure you reserve and dedicate a pool of IP addresses while creating DCN network. 
+### How do I configure the load balancing service in a Nexus Kubernetes cluster?
+The load balancer allows external services to access the services running within the cluster. You can refer to the [load balancer](./howto-kubernetes-service-load-balancer.md) article for more information.
       
 ## Tenant workloads
 

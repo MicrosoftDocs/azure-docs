@@ -34,7 +34,7 @@ You learn how to:
 
 Create an Azure AD application for the API and give it the appropriate permissions for the requests that you want to call.
 
-1. Sign into the [Azure portal](https://portal.azure.com/) with an account with sufficient permissions in the tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account with sufficient permissions in the tenant.
 1. Under **Azure Services**, search for **Azure Active Directory**.
 1. On the left menu, select **App registrations**, and then select **+ New registration**. 
     :::image type="content" source="media/authorizations-how-to-azure-ad/create-registration.png" alt-text="Screenshot of creating an Azure AD app registration in the portal.":::

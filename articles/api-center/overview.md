@@ -42,12 +42,12 @@ For more information about the information assets and capabilities in API Center
 ## Preview limitations
 
 * In preview, API Center is available in the following Azure regions:
-
-    * East US 
-    * UK South     
-    * Central India 
-    * Australia East 
-    
+   * Australia East
+   * Central India
+   * East US
+   * UK South
+   * West Europe 
+               
 ## Frequently asked questions
 
 ### Q: Is API Center part of Azure API Management? 
@@ -69,3 +69,4 @@ A: Yes, all data in API Center is encrypted at rest.
 
 > [!div class="nextstepaction"]
 > [Provide feedback](https://aka.ms/apicenter/preview/feedback)
+

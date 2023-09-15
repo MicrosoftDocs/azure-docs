@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 With access reviews, you can easily ensure that users or guests have appropriate access. You can ask the users themselves or a decision maker to participate in an access review and recertify (or attest) to users' access. The reviewers can give their input on each user's need for continued access based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access from users who no longer need it.
  
 > [!NOTE]
-> This article discusses conducting access reviews for users and applications. To see information on conducting an access review for multiple resources in access packages see here [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md). If you want to review user or service principal access to Azure AD or Azure resource roles, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
+> This article discusses conducting access reviews for users and applications. To see information on conducting an access review for multiple resources in access packages see here [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md). If you want to review user or service principal access to Azure AD or Azure resource roles, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md).
  
 ## Prerequisites
  
@@ -146,11 +146,9 @@ In some organizations, guests might not be aware of their group memberships.
  
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
  
-5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review or they didn't previously accept an invitation, you can disable their accounts by using the Azure portal or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Azure portal or PowerShell to delete the guest user object.
+5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review or they didn't previously accept an invitation, you can disable their accounts by using the Microsoft Entra admin center or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Microsoft Entra admin center or PowerShell to delete the guest user object.
 
  
 ## Next steps
  
 [Create an access review of groups or applications](create-access-review.md)
-
-

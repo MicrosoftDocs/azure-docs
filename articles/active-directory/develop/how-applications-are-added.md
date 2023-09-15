@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/26/2022
 ms.author: cwerner
-ms.custom: aaddev, engagement-fy23
+ms.custom: aaddev, engagement-fy23, has-azure-ad-ps-ref
 ms.reviewer: lenalepa, sureshja
 ---
 
@@ -114,7 +114,7 @@ Applications are added to Azure AD to use one or more of the services it provide
 - Role-based access control (RBAC) - Use the directory to define application roles to perform role-based authorization checks in an application
 - OAuth authorization services - Used by Microsoft 365 and other Microsoft applications to authorize access to APIs/resources
 - Application publishing and proxy - Publish an application from a private network to the internet
-- Directory schema extension attributes - [Extend the schema of service principal and user objects](active-directory-schema-extensions.md) to store additional data in Azure AD
+- Directory schema extension attributes - [Extend the schema of service principal and user objects](./schema-extensions.md) to store additional data in Azure AD
 
 ## Who has permission to add applications to my Azure AD instance?
 

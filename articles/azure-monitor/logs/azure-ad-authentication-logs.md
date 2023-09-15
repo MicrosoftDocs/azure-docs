@@ -15,13 +15,20 @@ These options might be cumbersome and pose a risk because it's difficult to mana
 
 To enable Azure AD integration for Azure Monitor Logs and remove reliance on these shared secrets:
 
-1. [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
-1. [Disable local authentication for Log Analytics workspaces](#disable-local-authentication-for-log-analytics).
+1. [Disable local authentication for Log Analytics workspaces](#disable-local-authentication-for-log-analytics-workspaces).
 1. Ensure that only authenticated telemetry is ingested in your Application Insights resources with [Azure AD authentication for Application Insights (preview)](../app/azure-ad-authentication.md).
 
-## Disable local authentication for Log Analytics
+## Prerequisites
 
-After you've removed your reliance on the Log Analytics agent, you can disable local authentication for Log Analytics workspaces. Then you can ingest and query telemetry authenticated exclusively by Azure AD.
+- [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
+- [Migrate to the Log Ingestion API](./custom-logs-migrate.md) from the HTTP Data Collector API to send data to Azure Monitor Logs.
+
+## Permissions required
+
+To disable local authentication for a Log Analytics workspace, you need `microsoft.operationalinsights/workspaces/write` permissions on the workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+
+## Disable local authentication for Log Analytics workspaces
+
 
 Disabling local authentication might limit the availability of some functionality, specifically:
 
@@ -31,7 +38,7 @@ Disabling local authentication might limit the availability of some functionalit
 
 You can disable local authentication by using Azure Policy. Or you can disable it programmatically through an Azure Resource Manager template, PowerShell, or the Azure CLI.
 
-### Azure Policy
+### [Azure Policy](#tab/azure-policy)
 
 Azure Policy for `DisableLocalAuth` won't allow you to create a new Log Analytics workspace unless this property is set to `true`. The policy name is `Log Analytics Workspaces should block non-Azure Active Directory based ingestion`. To apply this policy definition to your subscription, [create a new policy assignment and assign the policy](../../governance/policy/assign-policy-portal.md).
 
@@ -87,7 +94,7 @@ The policy template definition:
 }
 ```
 
-### Azure Resource Manager
+### [Azure Resource Manager](#tab/azure-resource-manager)
 
 The `DisableLocalAuth` property is used to disable any local authentication on your Log Analytics workspace. When set to `true`, this property enforces that Azure AD authentication must be used for all access.
 
@@ -130,7 +137,7 @@ Use the following Azure Resource Manager template to disable local authenticatio
 
 ```
 
-### Azure CLI
+### [Azure CLI](#tab/azure-cli)
 
 The `DisableLocalAuth` property is used to disable any local authentication on your Log Analytics workspace. When set to `true`, this property enforces that Azure AD authentication must be used for all access.
 
@@ -140,7 +147,7 @@ Use the following Azure CLI commands to disable local authentication:
     az resource update --ids "/subscriptions/[Your subscription ID]/resourcegroups/[Your resource group]/providers/microsoft.operationalinsights/workspaces/[Your workspace name]--api-version "2021-06-01" --set properties.features.disableLocalAuth=True
 ```
 
-### PowerShell
+### [PowerShell](#tab/powershell)
 
 The `DisableLocalAuth` property is used to disable any local authentication on your Log Analytics workspace. When set to `true`, this property enforces that Azure AD authentication must be used for all access.
 
@@ -165,6 +172,8 @@ Use the following PowerShell commands to disable local authentication:
     $workspace.Properties.Features | Add-Member -MemberType NoteProperty -Name DisableLocalAuth -Value $disableLocalAuth -Force
     $workspace | Set-AzResource -Force
 ```
+
+---
 
 ## Next steps
 See [Azure AD authentication for Application Insights (preview)](../app/azure-ad-authentication.md).

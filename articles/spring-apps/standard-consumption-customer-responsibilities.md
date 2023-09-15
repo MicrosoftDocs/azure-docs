@@ -6,7 +6,7 @@ ms.author: xuycao
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 03/21/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network

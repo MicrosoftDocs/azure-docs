@@ -90,8 +90,8 @@ WITH  ( <with_options> )
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
 - **LOCATION**: Specifies the name for the actual data or location in the data source.
    - For Edge Hub or Kafka stream objects, location specifies the name of the Edge Hub or Kafka topic to read from or write to.
-   - For SQL stream objects(SQL Server, Azure SQL Database or Azure SQL Edge) location specifies the name of the table. If the stream is created in the same database and schema as the destination table, then just the Table name suffices. Otherwise you need to fully qualify (<database_name.schema_name.table_name) the table name.
-   - For Azure Blob Storage stream object location refers to the path pattern to use inside the blob container. For more information on this feature refer to (/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2)
+   - For SQL stream objects(SQL Server, Azure SQL Database or Azure SQL Edge) location specifies the name of the table. If the stream is created in the same database and schema as the destination table, then just the Table name suffices. Otherwise you need to fully qualify (`database_name.schema_name.table_name`) the table name.
+   - For Azure Blob Storage stream object location refers to the path pattern to use inside the blob container. For more information, see [Outputs from Azure Stream Analytics](/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2).
 
 - **INPUT_OPTIONS**: Specify options as key-value pairs for services such as Kafka, IoT Edge Hub that are inputs to streaming queries
     - PARTITIONS:

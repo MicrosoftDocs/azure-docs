@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -95,12 +95,14 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 15. Click **Ok**.
 16. Close AD FS Management.
 
-### Configure Azure AD Multi-Factor Authentication Trusted IPs with Federated Users
+### Configure Azure AD Multi-Factor Authentication Trusted IPs with federated users
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Now that the claims are in place, we can configure trusted IPs.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Conditional Access** > **Named locations**.
 3. From the **Conditional Access - Named locations** blade, select **Configure MFA trusted IPs**
 
    ![Azure AD Conditional Access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)

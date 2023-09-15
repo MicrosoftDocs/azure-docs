@@ -45,10 +45,9 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There's a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the source. Use this feature for workloads that can accommodate this delay.
 
-## Cross-region replication in Geo-Paired Region
+## Cross-region replication
 
-You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users. Azure database for MySQL Flexible Server allows you to provision read-replica in the Azure supported [geo-paired region] (https://learn.microsoft.com/azure/reliability/cross-region-replication-azure) to the source server. 
-
+You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users. Azure database for MySQL Flexible Server allows you to provision read-replica in any [Azure supported regions](/azure/reliability/cross-region-replication-azure) where Azure Database for MySQL Flexible server is available. Using this feature, a source server can have a replica in its paired region or the universal replica regions. Please refer [here](./overview.md#azure-regions) to find the list of Azure regions where Azure Database for MySQL Flexible server is available today
 
 ## Create a replica
 
@@ -57,7 +56,7 @@ If a source server has no existing replica servers, the source first restarts to
 When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the source server. The creation time depends on the amount of data on the source and the time since the last weekly full backup. The time can range from a few minutes to several hours.
 
 > [!NOTE]  
-> Read replicas are created with the same server configuration as the source. The replica server configuration can be changed after it has been created. The replica server is always created in the same resource group, same location and same subscription as the source server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](../../azure-resource-manager/management/move-resource-group-and-subscription.md) after creation. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the source.
+> Read replicas are created with the same server configuration as the source. The replica server configuration can be changed after it has been created. The replica server is always created in the same resource group and same subscription as the source server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](../../azure-resource-manager/management/move-resource-group-and-subscription.md) after creation. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the source.
 
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
 

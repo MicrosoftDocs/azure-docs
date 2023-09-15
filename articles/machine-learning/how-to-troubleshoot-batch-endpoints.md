@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and diagnostic errors with batch endpoints jobs
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
-ms.reviewer: larryfr
+ms.reviewer: mopeakande 
 ms.custom: devplatv2
 ---
 
 # Troubleshooting batch endpoints
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring. In this article you'll learn:
 
@@ -136,6 +136,15 @@ __Message logged__: `No progress update in [number] seconds. No progress update 
 __Reason__: Batch Deployments can be configured with a `timeout` value that indicates the amount of time the deployment shall wait for a single batch to be processed. If the execution of the batch takes more than such value, the task is aborted. Tasks that are aborted can be retried up to a maximum of times that can also be configured. If the `timeout` occurs on each retry, then the deployment job fails. These properties can be configured for each deployment.
 
 __Solution__: Increase the `timemout` value of the deployment by updating the deployment. These properties are configured in the parameter `retry_settings`. By default, a `timeout=30` and `retries=3` is configured. When deciding the value of the `timeout`, take into consideration the number of files being processed on each batch and the size of each of those files. You can also decrease them to account for more mini-batches of smaller size and hence quicker to execute. 
+
+
+### ScriptExecution.StreamAccess.Authentication
+
+__Message logged__: ScriptExecutionException was caused by StreamAccessException. StreamAccessException was caused by AuthenticationException.
+
+__Reason__: The compute cluster where the deployment is running can't mount the storage where the data asset is located. The managed identity of the compute don't have permissions to perform the mount.
+
+__Solutions__: Ensure the identity associated with the compute cluster where your deployment is running has at least has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
 ### Dataset initialization failed
 

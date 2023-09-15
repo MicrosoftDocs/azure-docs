@@ -96,7 +96,7 @@ az login --service-principal --username "<client-id>" --password "<client-secret
 Use the command [az grafana api-key create](/cli/azure/grafana/api-key#az-grafana-api-key-create) to create a key. Here's an example output:
 
 ```
-az grafana api-key create --key keyname --name <name> --resource-group <rg> --resource-group editor --output json
+az grafana api-key create --key keyname --name <name> --resource-group <rg> --role editor --output json
 
 {
   "id": 3,

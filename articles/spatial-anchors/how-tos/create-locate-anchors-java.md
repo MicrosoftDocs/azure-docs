@@ -82,13 +82,13 @@ Learn more about the [TokenRequiredListener](/java/api/com.microsoft.azure.spati
     });
 ```
 
-[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
+[!INCLUDE [Azure AD Tokens](../../../includes/spatial-anchors-create-locate-anchors-tokens.md)]
 
 ```java
     mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
 ```
 
-[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
+[!INCLUDE [Azure AD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-tokens-event.md)]
 
 ```java
     mCloudSession.addTokenRequiredListener(args -> {

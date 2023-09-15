@@ -3,14 +3,13 @@ title: Encryption scopes for Blob storage
 titleSuffix: Azure Storage
 description: Encryption scopes provide the ability to manage encryption at the level of the container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.date: 06/01/2023
 ms.topic: conceptual
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: ozgun
-ms.subservice: common
 ms.custom: engagement-fy23
 ---
 
@@ -81,9 +80,9 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 
 ## Billing for encryption scopes
 
-When you enable an encryption scope, you are billed for a minimum of one month (30 days). After the first month, charges for an encryption scope are prorated on an hourly basis.
+When you enable an encryption scope, you are billed for a minimum of 30 days. After 30 days, charges for an encryption scope are prorated on an hourly basis.
 
-If you disable the encryption scope within the first month, then you are billed for that full month, but not for subsequent months. If you disable the encryption scope after the first month, then you are charged for the first month, plus the number of hours that the encryption scope was in effect after the first month.
+After enabling the encryption scope, if you disable it within 30 days, you are still billed for 30 days. If you disable the encryption scope after 30 days, you are charged for those 30 days plus the number of hours the encryption scope was in effect after 30 days.
 
 Disable any encryption scopes that are not needed to avoid unnecessary charges.
 
@@ -99,3 +98,4 @@ To learn about pricing for encryption scopes, see [Blob Storage pricing](https:/
 - [Create and manage encryption scopes](encryption-scope-manage.md)
 - [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
+

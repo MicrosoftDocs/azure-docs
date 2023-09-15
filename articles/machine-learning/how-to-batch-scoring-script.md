@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: In this article, learn how to author scoring scripts to perform batch inference in batch deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia
@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Author scoring scripts for batch deployments
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
 Batch endpoints allow you to deploy models to perform long-running inference at scale. When deploying models, you need to create and specify a scoring script (also known as batch driver script) to indicate how we should use it over the input data to create predictions. In this article, you will learn how to use scoring scripts in model deployments for different scenarios and their best practices.
 
