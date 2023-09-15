@@ -149,61 +149,67 @@ The following sample code uses the [Azure Monitor Ingestion client module for Go
     package main
     
     import (
-    	"context"
-    	"encoding/json"
-    	"os"
-    	"strconv"
-    	"time"
+        "context"
+        "encoding/json"
+        "strconv"
+        "time" 
     
         "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    	"github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest"
+        "github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest"
     )
     
+    // data collection endpoint (DCE)
     const endpoint = "https://logs-ingestion-rzmk.eastus2-1.ingest.monitor.azure.com"
-    
-    // set necessary data collection rule variables
+    // data collection rule (DCR) immutable ID
     const ruleID = "dcr-00000000000000000000000000000000"
-    const streamName = "Custom-MyTableRawData"
+    // stream name in the DCR that represents the destination table
+    const streamName = "Custom-MyTableRawData"                 
     
     type Computer struct {
-    	Time              time.Time
-    	Computer          string
-    	AdditionalContext string
+        Time              time.Time
+        Computer          string
+        AdditionalContext string
     }
     
     func main() {
-    	// generating logs
-    	// logs should match the schema defined by the provided stream
-    	var data []Computer
-    	for i := 0; i < 10; i++ {
-    		data = append(data, Computer{
-    			Time:              time.Now().UTC(),
-    			Computer:          "Computer" + strconv.Itoa(i),
-    			AdditionalContext: "context",
-    		})
-    	}
-    
-    	// Marshal data into []byte
-    	logs, err := json.Marshal(data)
-    	if err != nil {
-    		panic(err)
-    	}
-    
+        // creating the client using DefaultAzureCredential
         cred, err := azidentity.NewDefaultAzureCredential(nil)
+    
         if err != nil {
             //TODO: handle error
         }
     
         client, err := azingest.NewClient(endpoint, cred, nil)
+    
         if err != nil {
-        	//TODO: handle error
+            //TODO: handle error
         }
     
-    	// upload logs
-    	_, err = client.Upload(context.TODO(), ruleID, streamName, logs, nil)
-    	if err != nil {
-    		//TODO: handle error
-    	}
+        // generating logs
+        // logs should match the schema defined by the provided stream
+        var data []Computer
+    
+        for i := 0; i < 10; i++ {
+            data = append(data, Computer{
+                Time:              time.Now().UTC(),
+                Computer:          "Computer" + strconv.Itoa(i),
+                AdditionalContext: "context",
+            })
+        }
+    
+        // marshal data into []byte
+        logs, err := json.Marshal(data)
+    
+        if err != nil {
+            panic(err)
+        }
+    
+        // upload logs
+        _, err = client.Upload(context.TODO(), ruleID, streamName, logs, nil)
+    
+        if err != nil {
+            //TODO: handle error
+        }
     }
     ```
 
