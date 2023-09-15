@@ -19,7 +19,7 @@ To provide authentication services, Azure Active Directory Domain Services (Azur
 
 By default, all users and groups from an Azure AD directory are synchronized to an Azure AD DS managed domain. If you have specific needs, you can instead choose to synchronize only a defined set of users.
 
-This article shows you how to create a managed domain that uses scoped synchronization and then change or disable the set of scoped users using Azure AD PowerShell. You can also [complete these steps using the Azure portal][scoped-sync].
+This article shows you how to create a managed domain that uses scoped synchronization and then change or disable the set of scoped users using Azure AD PowerShell. You can also [complete these steps using the Microsoft Entra admin center][scoped-sync].
 
 ## Before you begin
 

@@ -5,10 +5,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 09/15/2023
 ---
 
-# Troubleshooting Azure Route Server issues
+# Troubleshoot Azure Route Server issues
+
+Learn how to troubleshoot some of the common Azure Route Server issues.
 
 ## Connectivity issues
 
@@ -71,6 +73,9 @@ The ASN that Azure Route Server uses is 65515. Make sure you configure a differe
 
 When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your on-premises network. However, after the route server is deployed, the multiple-path information is lost in the BGP exchange between ExpressRoute and Azure Route Server, and consequently traffic from Azure will traverse only on one of the ExpressRoute connections.
 
-## Next steps
+## Next step
 
-Learn how to [configure an Azure Route Server](quickstart-configure-route-server-powershell.md).
+To learn how to create and configure Azure Route Server, see:
+
+> [!div class="nextstepaction"]
+> [Create and configure Azure Route Server](quickstart-configure-route-server-portal.md)
