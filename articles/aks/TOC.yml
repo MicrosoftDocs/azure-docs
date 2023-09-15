@@ -309,23 +309,27 @@
               href: virtual-nodes-portal.md
     - name: Workloads
       items:       
-        - name: Use Vertical Pod Autoscaler
-          href: vertical-pod-autoscaler.md
+        - name: Vertical Pod Autoscaler
+          items:
+            - name: About Vertical Pod Autoscaler 
+              href: vertical-pod-autoscaler.md
+            - name: Vertical Pod Autoscaler API reference
+              href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA
           href: use-metrics-server-vertical-pod-autoscaler.md
-        - name: Use proximity placement groups
+        - name: Proximity placement groups
           href: reduce-latency-ppg.md
-        - name: Use Cluster Autoscaler
+        - name: Cluster Autoscaler
           href: cluster-autoscaler.md
-        - name: Use Availability Zones
+        - name: Availability Zones
           href: availability-zones.md
     - name: Cluster management
       items:
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
-        - name: Use tags
+        - name: Tags
           href: use-tags.md
-        - name: Use labels
+        - name: Labels
           href: use-labels.md
     - name: Security and authentication
       items:
