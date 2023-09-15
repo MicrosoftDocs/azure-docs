@@ -74,7 +74,7 @@ Learn how to migrate from Azure Database for PostgreSQL - Single Server to Azure
 
 **Q. Will I incur downtime when I migrate my Azure Database from PostgreSQL - Single Server to a Flexible Server?**
 
-**A.** Currently, the Single Server to Flexible Server migration tool only supports offline migrations. Offline migration requires downtime to your applications during the migration process. Visit Single Server to Flexible Server migration tool](../migrate/concepts-single-to-flexible.md) for more information.
+**A.** Currently, the Single Server to Flexible Server migration tool only supports offline migrations. Offline migration requires downtime to your applications during the migration process. For more information, see [Migration tool - Azure Database for PostgreSQL Single Server to Flexible Server](../migrate/concepts-single-to-flexible.md).
 
 Downtime depends on several factors, including the number of databases, size of your databases, number of tables inside each database, number of indexes, and the distribution of data across tables. It also depends on the SKU of the source and target server and the IOPS available on the source and target server.
 

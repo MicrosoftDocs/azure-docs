@@ -201,7 +201,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
 
    If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or Conditional Access policy, you must create a new ToU policy.
 
-    ![Edit showing different language options ](./media/terms-of-use/edit-terms-use.png)
+    ![Edit showing different language options](./media/terms-of-use/edit-terms-use.png)
 
 1. Once you're done, select **Save** to save your changes.
 

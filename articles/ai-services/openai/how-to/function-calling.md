@@ -64,8 +64,8 @@ functions= [
                     "description": "A comma separated list of features (i.e. beachfront, free wifi, etc.)"
                 }
             },
-            "required": ["location"],
-        },
+            "required": ["location"]
+        }
     }
 ]  
 

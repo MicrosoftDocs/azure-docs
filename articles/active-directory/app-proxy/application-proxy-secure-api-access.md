@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: has-adal-ref
@@ -48,9 +48,9 @@ To publish the SecretAPI web API through Application Proxy:
 
 1. Build and publish the sample SecretAPI project as an ASP.NET web app on your local computer or intranet. Make sure you can access the web app locally.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory**, then select **Enterprise applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
 
@@ -100,8 +100,11 @@ You've published your web API through Azure AD Application Proxy. Now, add users
 Native apps are programs developed to use on a particular platform or device. Before your native app can connect and access an API, you must register it in Azure AD. The following steps show how to register a native app and give it access to the web API you published through Application Proxy.
 
 To register the AppProxyNativeAppSample native app:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. On the Azure Active Directory **Overview** page, select **App registrations**, and at the top of the **App registrations** pane, select **New registration**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **App registrations**.
+
+1. Select **New registration**.
 
 1. On the **Register an application** page:
 
@@ -117,7 +120,7 @@ To register the AppProxyNativeAppSample native app:
 
 You've now registered the AppProxyNativeAppSample app in Azure Active Directory. To give your native app access to the SecretAPI web API:
 
-1. On the Azure Active Directory **Overview** > **App Registrations** page, select the **AppProxyNativeAppSample** app.
+1. On the **App registrations** page, select the **AppProxyNativeAppSample** app.
 
 1. On the **AppProxyNativeAppSample** page, select **API permissions** in the left navigation.
 

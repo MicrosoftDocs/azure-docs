@@ -25,7 +25,7 @@ The new experience shows all Azure AD B2C app registrations and Azure AD app reg
 
 You can reach the new experience by navigating to **App registrations** in an Azure AD B2C tenant from both the **Azure AD B2C** or the **Azure Active Directory** services in the Azure portal.
 
-The Azure AD B2C App registrations experience is based on the general [App Registration experience](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) for any Azure AD tenant, but is tailored for Azure AD B2C tenants.
+The Azure AD B2C App registrations experience is based on the general [App Registration experience](https://devblogs.microsoft.com/microsoft365dev/new-app-registrations-experience-is-now-generally-available/) for any Azure AD tenant, but is tailored for Azure AD B2C tenants.
 
 ## What's not changing?
 - Your applications and related configurations can be found as-is in the new experience. You do not need to register the applications again and users of your applications will not need to sign-in again.
@@ -72,7 +72,7 @@ You might not see all Microsoft Graph permissions, because many of these permiss
 
 The **openid** scope is necessary so that Azure AD B2C can sign users in to an app. The **offline_access** scope is needed to issue refresh tokens for a user. These scopes were previously added and given admin consent by default. Now, you can easily add permissions for these scopes during the creation process by ensuring the **Grant admin consent to openid and offline_access permissions** option is selected. Else, the Microsoft Graph permissions can be added with admin consent in the **API permissions** settings for an existing app.
 
-Learn more about [permissions and consent](../active-directory/develop/v2-permissions-and-consent.md).
+Learn more about [permissions and consent](../active-directory/develop/permissions-consent-overview.md).
 
 ## Platforms/Authentication: Reply URLs/redirect URIs
 In the legacy experience, the various platform types were managed under **Properties** as reply URLs for web apps/APIs and Redirect URI for Native clients. "Native clients" are also known as "Public clients" and include apps for iOS, macOS, Android, and other mobile and desktop application types.

@@ -132,7 +132,7 @@ Add a user as a participant to the room
 az communication rooms participant add-or-update --attendee-participant "<participantId>" --room "<roomId>"
 ```
 
-- Replace `<participantId>` with your participant ID. If the <participantId> does not exist in the room, the participant will be added to the room as an attendee role. Otherwise, the participant's role is updated to an attendee role.
+- Replace `<participantId>` with your participant ID. If the `<participantId>` does not exist in the room, the participant will be added to the room as an attendee role. Otherwise, the participant's role is updated to an attendee role.
 - Replace `<roomId>` with your room ID.
 
 ### Get list of participants in a room

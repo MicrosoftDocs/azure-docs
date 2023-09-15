@@ -26,7 +26,7 @@ The following table shows the highest level of .NET or .NET Framework that can b
 
 <sup>3</sup> Build process also requires [.NET 6 SDK](https://dotnet.microsoft.com/download).
 
-<sup>4</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/).
+<sup>4</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/). Within Visual Studio, you must also get the latest toolset and template updates by navigating to `Tools->Options`, selecting `Azure Functions` under `Projects and Solutions`, and then clicking the `Check for updates` button and installing updates as prompted.
 
 For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
 

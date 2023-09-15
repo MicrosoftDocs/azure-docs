@@ -19,14 +19,12 @@ The expression builder is a new function in Azure located under cloud sync. It h
 ## Use the expression builder
 To access the expression builder:
 
- 1. In the Azure portal, select **Azure Active Directory**.
- 1. Select **Azure AD Connect**.
- 1. Select **Manage cloud sync**.
- 1. Under **Configuration**, select your configuration.
- 1. Under **Manage attributes**, select **Click to edit mappings**.
- 1. On the **Edit attribute mappings** pane, select **Add attribute mapping**.
- 1. Under **Mapping type**, select **Expression**.
- 1. Select **Try the expression builder (Preview)**.
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 2. Under **Configuration**, select your configuration.
+ 3. Under **Manage attributes**, select **Click to edit mappings**.
+ 4. On the **Edit attribute mappings** pane, select **Add attribute mapping**.
+ 5. Under **Mapping type**, select **Expression**.
+ 6. Select **Try the expression builder (Preview)**.
  
     ![Screenshot that shows using expression builder.](media/how-to-expression-builder/expression-1.png)
 

@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 08/01/2023
-ms.custom: seodec18, references_regions
+ms.custom: seodec18, references_regions, devx-track-python
 zone_pivot_groups: programming-languages-computer-vision-40
 ---
 
