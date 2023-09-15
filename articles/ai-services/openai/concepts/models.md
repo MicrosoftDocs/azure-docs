@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 09/12/2023
+ms.date: 09/15/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -24,6 +24,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
 | [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
+| [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
 
 ## GPT-4
 
@@ -59,6 +60,12 @@ The previous embeddings models have been consolidated into the following new rep
 ## DALL-E (Preview)
 
 The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+
+## Whisper (Preview)
+
+The Whisper models, currently in preview, can be used for speech to text.
+
+You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
 
 ## Model summary table and region availability
 
@@ -111,6 +118,12 @@ These models can only be used with Embedding API requests.
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (characters) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
 | dalle2 | East US | N/A | 1000 | N/A |
+
+### Whisper models (Preview)
+
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (audio file size) | Training Data (up to)  |
+|  --- |  --- | --- | --- | --- |
+| whisper | North Central US, West Europe | N/A | 25 MB | N/A |
 
 ## Working with models
 
