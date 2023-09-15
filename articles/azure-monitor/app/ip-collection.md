@@ -126,9 +126,9 @@ Content-Length: 54
 }
 ```
 
-### Powershell
+### PowerShell
 
-The Powershell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
+The PoweShell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
 
 ```powershell
 Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking:$true
