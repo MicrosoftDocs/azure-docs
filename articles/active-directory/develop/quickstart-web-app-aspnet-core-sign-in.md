@@ -49,11 +49,11 @@ In this article you register a web application in the Microsoft Entra admin cent
 1. Select **In 1 year** for the secret's expiration.
 1. Select **Add** and immediately record the secret's **Value** for use in a later step. The secret value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.
 
-### Step 2: Download the ASP.NET Core project
+### Download the ASP.NET Core project
 
 [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
 
-### Step 3: Configure your ASP.NET Core project
+### Configure your ASP.NET Core project
 
 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 1. Open the solution in the chosen code editor.
@@ -74,7 +74,7 @@ In this article you register a web application in the Microsoft Entra admin cent
 
 For this quickstart, don't change any other values in the *appsettings.json* file.
  
-### Step 4: Build and run the application
+### Build and run the application
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **App registrations**.
@@ -83,7 +83,6 @@ For this quickstart, don't change any other values in the *appsettings.json* fil
 1. Under **Supported account types**, select *Accounts in this organizational directory only*.
 1. Select **Register**.
 1. The application's **Overview** pane displays upon successful registration. Record the **Application (client) ID** and **Directory (tenant) ID** to be used in your application source code.
-
 
 ## Add a redirect URI
 
@@ -113,11 +112,11 @@ To obtain the sample application, you can either clone it from GitHub or downloa
     ```
 
 
-| *appsettings.json* key | Description                                                                                                                                                          |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ClientId`             | Application (client) ID of the application registered in the Microsoft Entra admin center.                                                                                       |
-| `Instance`             | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
-| `TenantId`             | Name of your tenant or the tenant ID (a GUID), or `common` to sign in users with work or school accounts or Microsoft personal accounts.                             |
+   | *appsettings.json* key | Description                                                                                                                                                          |
+   |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | `ClientId`             | Application (client) ID of the application registered in the Microsoft Entra admin center.                                                                                       |
+   | `Instance`             | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
+   | `TenantId`             | Name of your tenant or the tenant ID (a GUID), or `common` to sign in users with work or school accounts or Microsoft personal accounts.                             |
 
 1. Return to the Microsoft Entra admin center, and under **Manage**, select **Certificates & secrets** > **Upload certificate**.
 1. Select the **Certificates (0)** tab, then select **Upload certificate**.
