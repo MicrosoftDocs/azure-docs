@@ -49,7 +49,7 @@ To submit custom metrics to Azure Monitor, the entity that submits the metric ne
   The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
 > [!TIP]
-> When you request an Azure AD token to emit custom metrics, ensure that the audience or resource that the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing slash.
+> When you request an Azure AD token to emit custom metrics, ensure that the audience or resource that the token is requested for is `https://monitor.azure.com/`. Be sure to include the trailing slash.
 
 ### Subject
 
