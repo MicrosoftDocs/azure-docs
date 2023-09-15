@@ -92,7 +92,7 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 #### Depending on your configuration, you may want to change the following parameters:  
 
-- *Resource group name:*The default resource group name is “rg-devbox-test”; you can change it by editing the `$resourceGroupName = "rg-devbox-test` line in the template. You use the resource group name in the next section. 
+- *Resource group name:* The default resource group name is “rg-devbox-test”; you can change it by editing `$resourceGroupName = "rg-devbox-test` in the template. 
 
 - *Subnet:* If you have an existing subnet, you can use the parameter `-existingSubnetId` to pass the existing subnet ID. The template doesn't create a new Virtual network and subnet if you specify an existing one. 
 
