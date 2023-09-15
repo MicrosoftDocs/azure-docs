@@ -41,17 +41,17 @@ This fix has to be backported to `hive 3.1.2`.
      ```
 
 - Add the following keys in the `flink` configuration management under core-site.xml section:
-```
-fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
-flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
-```
+  ```
+  fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
+  flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
+  ```
 
 ## Execution
 
 [https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/hive-compatibility/hive-dialect/queries/overview/](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/hive-compatibility/hive-dialect/queries/overview/)
 
 **Without partitioning**
-```sql
+  ```sql
     root [ ~ ]# ./bin/sql-client.sh
     Flink SQL>
     Flink SQL> create catalog myhive with ('type' = 'hive', 'hive-conf-dir' = '/opt/hive-conf');
@@ -73,7 +73,7 @@ flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
     [INFO] Session property has been set.
 
     Flink SQL> select explode(array(1,2,3));Hive Session ID = 6ba45be2-360e-4bee-8842-2765c91581c8
-```
+  ```
 
 > [!WARNING]
 > An illegal reflective access operation has occurred
