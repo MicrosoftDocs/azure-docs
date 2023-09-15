@@ -4,7 +4,7 @@ description: Get started using MapReduce samples in jar files included in HDInsi
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 08/26/2022
+ms.date: 09/15/2023
 ---
 
 # Run the MapReduce examples included in HDInsight
