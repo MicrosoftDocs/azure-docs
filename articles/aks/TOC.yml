@@ -223,7 +223,7 @@
            - name: Create a private cluster
              href: private-clusters.md
            - name: Access a private cluster remotely
-             href: command-invoke.md
+             href: access-private-cluster.md
         - name: Integration
           items:      
             - name: Integrate ACR with an AKS cluster
