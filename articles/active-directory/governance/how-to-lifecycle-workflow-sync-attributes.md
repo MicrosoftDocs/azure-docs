@@ -76,7 +76,6 @@ StatusOriginalHireDate|Workday|Joiner|EmployeeHireDate|
 
 For more attributes, see the [Workday attribute reference](../app-provisioning/workday-attribute-reference.md) and [SAP SuccessFactors attribute reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-
 ## Importance of time
 To ensure timing accuracy of scheduled workflows it’s crucial to consider:
 
@@ -87,7 +86,7 @@ To ensure timing accuracy of scheduled workflows it’s crucial to consider:
 
 
 ## Create a custom sync rule in Azure AD Connect cloud sync for EmployeeHireDate
- The following steps will guide you through creating a synchronization rule using cloud sync.
+ The following steps guide you through creating a synchronization rule using cloud sync.
  1.  In the Microsoft Entra admin center, browse to > **Hybrid management** > **Azure AD Connect**.
  2.  Select **Manage Azure AD cloud sync**.
  3. Under **Configuration**, select your configuration.
@@ -106,7 +105,7 @@ To ensure timing accuracy of scheduled workflows it’s crucial to consider:
 For more information on attributes, see [Attribute mapping in Azure AD Connect cloud sync.](../hybrid/cloud-sync/how-to-attribute-mapping.md)
 
 ## How to create a custom sync rule in Azure AD Connect for EmployeeHireDate
-The following example will walk you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
+The following example walks you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
 
    1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
    2. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
@@ -153,7 +152,6 @@ The following example will walk you through setting up a custom synchronization 
 
 For more information, see [How to customize a synchronization rule](../hybrid/connect/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/connect/how-to-connect-sync-change-the-configuration.md)
 
-
 ## How to verify these attribute values in Azure AD
 To review the values set on these properties on user objects in Azure AD, you can use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example:
 
@@ -172,6 +170,34 @@ Select-MgProfile -Name beta
 Get-MgUser -UserId "44198096-38ea-440d-9497-bb6b06bcaf9b" | Select-Object DisplayName, EmployeeLeaveDateTime
 ```
 ![Screenshot of the result.](media/how-to-lifecycle-workflow-sync-attributes/user-lifecycle-properties-return.png)
+
+## Edit attribute mapping in the provisioning application
+
+Once you have set up your provisioning application, you're able to edit its attribute mapping. When the app is created, you get a list of default mappings between your HRM and Active Directory. From there you can either edit the existing mapping, or add new mapping. 
+
+To update this mapping, you'd do the following:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+
+1. Open your provisioned application.
+
+1. Select Provisioning  and then select **Edit attribute Mapping**.
+
+1.  Select **Show advanced options**, and then select edit Attribute list for On Premise Active Directory.
+    :::image type="content" source="media/how-to-lifecycle-workflow-sync-attributes/edit-on-prem-attribute.png" alt-text="Screenshot of editing on-premises attribute.":::
+1.  Add your source attribute(s) created as Type String, and select on the CheckBox for required.
+    :::image type="content" source="media/how-to-lifecycle-workflow-sync-attributes/edit-attribute-list.png" alt-text="Screenshot of source api list.":::
+    > [!NOTE]
+    > The number, and name, of source attributes added will depend on which attributes you are syncing.
+1.  Select Save. 
+
+1. From there you must map the HRM attributes to the added Active Directory attributes. To do this, Add New Mapping using an Expression. 
+
+1. Your expression must match the formatting found in the [Understanding EmployeeHireDate and EmployeeLeaveDateTime formatting](how-to-lifecycle-workflow-sync-attributes.md#understanding-employeehiredate-and-employeeleavedatetime-formatting) section.
+    :::image type="content" source="media/how-to-lifecycle-workflow-sync-attributes/attribute-formatting-expression.png" alt-text="Screenshot of setting attribute format.":::
+1. Select ok.
 
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
