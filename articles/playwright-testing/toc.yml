@@ -46,6 +46,7 @@ items:
       displayName: quotas, limits, capacity, supported browsers, supported platforms, supported operating systems, supported OS, supported OSes, supported OSs, supported devices, supported device, supported mobile devices, supported mobile device, supported mobile OS, supported mobile OSes, supported mobile operating systems, supported mobile operating system,
       href: resource-limits-quotas-capacity.md
 - name: Reference
+  expanded: false
   items: 
     - name: Monitoring data reference
       href: monitor-playwright-testing-reference.md
