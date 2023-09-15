@@ -30,7 +30,7 @@ Now that your users have been synchronized to the cloud, you need to assign them
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an admin.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
 2. On the left, select **Active Directory**.
 3. On the **Active Directory** page, double-click the directory that has the users you want to set up.
 4. At the top of the directory page, select **Licenses**.
