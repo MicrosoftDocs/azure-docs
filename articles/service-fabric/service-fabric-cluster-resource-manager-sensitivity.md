@@ -9,16 +9,19 @@ ms.author: jinghuafeng
 ---
 
 # 1. Service sensitivity
-Service Fabric Cluster Resource Manager provides the interface of move cost to allow the adjustment of the service failover priority when movements has to be conducted for balancing, defragmentation, and other requirements. However, move cost has a few limitations to satisfy the customers' needs. For instance, Move cost cannot explicitly optimize an individual move as Cluster Resource Manager (CRM) relies on the total score for all movements made in a single algorithm run. Moreover, move cost does not function when CRM conducts swaps as all replicas share the same swap cost, which results in the failure of limiting the swap failover for sensitive replicas. Another limitation is the move cost only provides four possible values  (Zero, Low, Medium, High) and one special value (Very High) to adjust the priority of a replica. This does not provide enough flexibility for differentiation of replica sensitivity to failover. In addition, very high move cost (VHMC) does not provide enough protection on a high-priority replica, i.e., the replica with VHMC is allowed to be moved in quite a few cases.
+Service Fabric Cluster Resource Manager provides the interface of move cost to allow the adjustment of the service failover priority when movements are conducted for balancing, defragmentation, or other requirements. However, move cost has a few limitations to satisfy the customers' needs. For instance, move cost cannot explicitly optimize an individual move as Cluster Resource Manager (CRM) relies on the total score for all movements made in a single algorithm run. Move cost does not function when CRM conducts swaps as all replicas share the same swap cost, which results in the failure of limiting the swap failover for sensitive replicas. Another limitation is the move cost only provides four possible values (Zero, Low, Medium, High) and one special value (Very High) to adjust the priority of a replica. This does not provide enough flexibility for differentiation of replica sensitivity to failover.
 
-CRM sensitivity feature offers an option for service fabric customers to finely tune the importance of a stateful service replica and thus to set levels of SLOs to the interruptions to the service. The service sensitivity is defined as a non-negative integer with default value of 0. Larger value implies the lower probability of victimizing (failovering) the corresponding replica. Sensitivity description class contains three different non-negative integers to represent the sensitivities of primary, secondary, and auxiliary replicas respectively. In addition, a separate boolean value IsMaximumSensitivity denotes if a replica is the most sensitive replica. 
+CRM sensitivity feature offers an option for service fabric customers to finely tune the importance of a stateful service replica and thus to set levels of SLOs to the interruptions to the service. The service sensitivity is defined as a non-negative integer with default value of 0. Larger value implies the lower probability of victimizing (failovering) the corresponding replica. Sensitivity description class contains three different non-negative integers to represent the sensitivities of primary, secondary, and auxiliary replicas respectively. In addition, a separate boolean value `IsMaximumSensitivity` denotes if a replica is the most sensitive replica. 
 
-A Max Sensitivity Replica (MSR) can only be moved or swapped in the following cases:
+When `IsMaximumSensitivity` is set to true, the Max Sensitivity Replica (MSR) can only be moved or swapped in the following cases:
 * FD/UD constraint violation only if FD/UD is set to hard constraint
-* Swap during upgrade
+* replica swap during upgrade
 * Node capacity violation with only MSR(s) on the node (i.e., if any other non-MSR is present on the node, the MSR should not be movable.)
 
 The sensitivity feature allows multiple MSRs to collocate on the same node. Nevertheless, an excessive number of MSRs may result in node capacity violation. Sensitivity feature introduces the maximum load to the metric to ensure the sum of maximum loads for each metric is below or equal to the node capacity of that metric.
+
+> [!NOTE]
+Current sensitivity feature only provides MSR functionality. For non-MSR but with different sensitivity values, CRM does not treat them differently from the perspective of sensitivity.
 
 ## 1.1. Enable/Disable service sensitivity
 
@@ -53,16 +56,11 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 
 ### 1.2.1. Use service Manifest
 ```xml
-<ServiceTypes>
-  <StatefulServiceType ServiceTypeName="ServiceType">
-    <ServiceSensitivityDescription>
-      <PrimaryDefaultSensitivity>10</PrimaryDefaultSensitivity>
-      <SecondaryDefaultSensitivity>10</SecondaryDefaultSensitivity>
-      <AuxiliaryDefaultSensitivity>10</AuxiliaryDefaultSensitivity>
-      <IsMaximumSensitivity>false</IsMaximumSensitivity>
-    </ServiceSensitivityDescription>
-  </StatefulServiceType>
-</ServiceTypes>
+<Service>
+  <StatefulService>
+    <ServiceSensitivityDescription PrimaryDefaultSensitivity="10" SecondaryDefaultSensitivity="10" AuxiliaryDefaultSensitivity="10" IsMaximumSensitivity="False" />
+  </StatefulService>
+</Service>
 ```
 
 ### 1.2.2. Use Powershell API
@@ -124,11 +122,14 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ## 1.3. Set Maximum Load
 ### 1.3.1. Use service Manifest
 ```xml
-<StatefulServiceType ServiceTypeName="StatefulType" HasPersistedState="true">
-  <LoadMetrics>
-    <LoadMetric Name="CPU" PrimaryDefaultLoad="10" SecondaryDefaultLoad="5" AuxiliaryDefaultLoad="5" Weight="High" MaximumLoad="20"/>
-  </LoadMetrics>
-</StatefulServiceType>
+<Service>
+  <StatefulService>
+    <SingletonPartition />
+    <LoadMetrics>
+      <LoadMetric Name="CPU" PrimaryDefaultLoad="10" SecondaryDefaultLoad="5" MaximumLoad="20" Weight="High" />
+    </LoadMetrics>
+  </StatefulService>
+</Service>
 
 ```
 ### 1.3.2. Use Powershell API
@@ -139,7 +140,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 To specify or update the max load for an existing service:
 ```posh
-Update-ServiceFabricService -Stateful -ServiceName fabric:/AppName/ServiceName -Metric @("CPU,High,10,5,5,20")
+Update-ServiceFabricService -Stateful -ServiceName fabric:/AppName/ServiceName -Metric @("CPU,High,10,5,0,20")
 ```
 ### 1.3.3. Use C# API
 To specify the sensitivity for a service when it is created:
@@ -150,7 +151,7 @@ StatefulServiceLoadMetricDescription cpuMetric = new StatefulServiceLoadMetricDe
 cpuMetric.Name = "CPU";
 cpuMetric.PrimaryDefaultLoad = 10;
 cpuMetric.SecondaryDefaultLoad = 5;
-cpuMetric.AuxiliaryDefaultLoad = 5;
+cpuMetric.AuxiliaryDefaultLoad = 0;
 cpuMetric.Weight = ServiceLoadMetricWeight.High;
 cpuMetric.MaximumLoad = 20;
 
@@ -168,7 +169,7 @@ StatefulServiceLoadMetricDescription cpuMetric = new StatefulServiceLoadMetricDe
 cpuMetric.Name = "CPU";
 cpuMetric.PrimaryDefaultLoad = 10;
 cpuMetric.SecondaryDefaultLoad = 5;
-cpuMetric.AuxiliaryDefaultLoad = 5;
+cpuMetric.AuxiliaryDefaultLoad = 0;
 cpuMetric.Weight = ServiceLoadMetricWeight.High;
 cpuMetric.MaximumLoad = 20;
 
