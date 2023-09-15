@@ -35,7 +35,7 @@ Audit your experiences to find references to Azure AD and its icons.
 
 **Scan your content** to identify references to Azure AD and its synonyms. Compile a detailed list of all instances.
 
-- Search for the following terms: 'Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD', 'AAD'
+- Search for the following terms: "'Azure Active Directory', '"Azure Active Directory (Azure AD)', 'Azure AD', 'AAD'
 - Search for graphics with the Azure AD icon (![Azure AD product icon](./media/new-name/azure-ad-icon-1.png)  ![Alternative Azure AD product icon](./media/new-name/azure-ad-icon-2.png)) to replace with the Microsoft Entra ID icon (![Microsoft Entra ID product icon](./media/new-name/microsoft-entra-id-icon.png))
 
 **Identify exceptions in your list**:
@@ -46,7 +46,7 @@ Audit your experiences to find references to Azure AD and its icons.
 
 **Evaluate and prioritize based on future usage**. Consider which content needs to be updated based on whether it's user-facing or has broad visibility within your organization, audience, or customer base. You may decide that some code or content doesn't need to be updated if it has limited exposure to your end-users.
 
-Decide whether existing dated content such as videos or blogs are worth updating for future viewers. It's okay to not rename old content. To help end-users, you may want to add a simple disclaimer such as "Azure AD is now Microsoft Entra ID."
+Decide whether existing dated content such as videos or blogs are worth updating for future viewers. It's okay to not rename old content. To help end-users, you may want to add a disclaimer such as "Azure AD is now Microsoft Entra ID."
 
 ## Update the naming in your content
 
@@ -55,33 +55,33 @@ Update your organization's content and experiences using the relevant tools.
 ### How to use "find and replace" for text-based content
 
 1. Almost all editing tools offer "search and replace" or "find and replace" functionality, either natively or using plug-ins. Use your preferred app.
-1. Use "find and replace" to find the strings 'Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD', 'AAD'.
+1. Use "find and replace" to find the strings "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD".
 1. Don't replace all instances with Microsoft Entra ID.
 1. Review whether each instance refers to the product or a feature of the product.
 
    - Azure AD as the product name alone should be replaced by Microsoft Entra ID.
    - Azure AD features or functionality become Microsoft Entra features or functionality. For example, Azure AD Conditional Access becomes Microsoft Entra Conditional Access.
 
-### Automate bulk editing thru custom code
+### Automate bulk editing using custom code
 
-Use the following criteria to determine what change(s) you need to make to instances of 'Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD',or 'AAD'.
+Use the following criteria to determine what change(s) you need to make to instances of "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD".
 
 1. If the text string is found in the naming dictionary of previous terms, change it to the new term.
-1. If a punctuation mark follows 'Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD',or 'AAD', replace with 'Microsoft Entra ID' because that's the product name.
-1. If 'Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD', or 'AAD' is followed by 'for', 'Premium', 'Plan', 'P1', or 'P2', replace with 'Microsoft Entra ID' because it refers to a SKU name or Service Plan.
-1. If an article (a, an, the) or possessive (your, your organization’s) precedes ('Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD', or 'AAD'), then replace with 'Microsoft Entra' because it is a feature name. For example:
+1. If a punctuation mark follows "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD", replace with 'Microsoft Entra ID' because that's the product name.
+1. If "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD" is followed by "for, Premium, Plan, P1, or P2", replace with 'Microsoft Entra ID' because it refers to a SKU name or Service Plan.
+1. If an article (a, an, the) or possessive (your, your organization’s) precedes ("Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD"), then replace with 'Microsoft Entra' because it's a feature name. For example:
    1. 'an Azure AD tenant' becomes 'a Microsoft Entra tenant'
    1. 'your organization's Azure AD tenant' becomes 'your Microsoft Entra tenant'
 
-1. If 'Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD', or 'AAD' is followed by an adjective or noun not listed above, then replace with 'Microsoft Entra' because it is a feature name. For example,'Azure AD Conditional Access' becomes 'Microsoft Entra Conditional Access', while 'Azure AD tenant' becomes 'Microsoft Entra tenant'.
-1. Otherwise, replace 'Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD', or 'AAD' with 'Microsoft Entra ID'
+1. If "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD" is followed by an adjective or noun not listed above, then replace with 'Microsoft Entra' because it's a feature name. For example,'Azure AD Conditional Access' becomes 'Microsoft Entra Conditional Access', while 'Azure AD tenant' becomes 'Microsoft Entra tenant'.
+1. Otherwise, replace "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD" with 'Microsoft Entra ID'
 
 See the section [Glossary of updated terminology](new-name.md#glossary-of-updated-terminology) to further refine your custom logic.
 
 ### Update graphics and icons
 
 1. Replace the Azure AD icon with the Microsoft Entra ID icon.
-1. Replace titles or text containing 'Azure Active Directory', 'Azure Active Directory (Azure AD)', 'Azure AD', or 'AAD' with 'Microsoft Entra ID'.
+1. Replace titles or text containing "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD" with 'Microsoft Entra ID'.
 
 ## Communicate the change to your customers
 
