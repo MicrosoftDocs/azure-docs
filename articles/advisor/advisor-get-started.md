@@ -8,115 +8,100 @@ ms.date: 02/01/2019
 
 # Get started with Azure Advisor
 
-Learn how to access Advisor through the Azure portal, get recommendations, and implement recommendations.
+Learn how to access Advisor through the Azure portal, configure Advisor settings, and get and print out recommendations. <!--- removed "implement recommendations" as that is tricky and cannot be covered here --->
 
 > [!NOTE]
 > Azure Advisor automatically runs in the background to find newly created resources. It can take up to 24 hours to provide recommendations on those resources.
 
 ## Get recommendations
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). Your Advisor **Score** page opens.
 
-1. In the left pane, click **Advisor**.  If you do not see Advisor in the left pane, click **All services**.  In the service menu pane, under **Monitoring and Management**, click **Advisor**. The Advisor dashboard is displayed.
+   ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page.png) 
 
-   ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-portal-menu.png) 
+1. Each tile represents a category of recommendations for the selected subscriptions.  You can filter the display by **Subscription**, **Recommendation Status**, **Resource Group**, or **Type** using the buttons at the top of the page. For more advanced filtering, click **Add filter**.
 
-1. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be displayed for using the subscription filter dropdown.
+   The **Commitments** button lets you adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. 
 
-1. To get recommendations for a specific category, click one of the tabs: **Reliability**, **Security**, **Performance**, **Operational Excellence**, or **Cost**. 
+1. To get recommendations for a specific category, click one of the tiles: **Cost**, **Security**, **Reliability**, **Operational Excellence**, or **Performance**.
 
-   ![Azure Advisor dashboard](./media/advisor-overview/advisor-dashboard.png)
+   To view a list of all recommendations for all categories, click the **All recommendations** tile. By default, the **Cost** tile is selected.
 
-## Get recommendation details and implement a solution
+## Get recommendation details and solution options
 
-You can select a recommendation in Advisor to view additional details – such as the recommendation actions and impacted resources – and to implement the solution to the recommendation.  
+View recommendation additional details – such as the recommendation actions and impacted resources – and the solution options, including postponing or dismissing a recommendation.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
+1. To display a specific list of recommendations, click a category tile. The following screenshot shows the **Cost** tile selected.
 
-1. Select a recommendation category to display the list of recommendations within that category, or select the **All** tab to view all your recommendations.
+    ![Advisor search-filter criteria](./media/advisor-get-started/advisor-cost-tile-no-wsp.png)
 
-1. Click a recommendation that you want to review in detail.
+1. To review details of a recommendation, including the affected resources, click the **Description** link for it. Category recommendations and links vary. The following screenshot shows a **Cost** tile recommendation.
 
-1. Review the information about the recommendation and the resources that the recommendation applies to.
+   ![Advisor search-filter criteria](./media/advisor-get-started/advisor-cost-tile-recommendation-detail-no-wsp.png)
+   
+1. To take action, click a **Recommended actions** link. The Azure page where you can act opens. Other links may open the corresponding resource page for you to take the recommended action.
+  
+   To understand more about the recommended actions, open the **Learn more** link at the top of the page.
 
-1. Click on the **Recommended Action** to implement the recommendation.
+1.   You can postpone the recommendation.
+
+   ![Advisor search-filter criteria](./media/advisor-get-started/advisor-recommendation-postpone.png)
+
+   You cannot dismiss the recommendation without certain privileges.
 
 ## Filter recommendations
 
-You can filter recommendations to drill down to what is most important to you.  You can filter by subscription, resource type, or recommendation status.  
+Drill down to what is most important to you by filtering the recommendations. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
+1. Filter the recommendations by **Subscription**, **Recommendation Status**, **Resource Group**, **Type**, or **Commitments** using the buttons at the top of the page. For more advanced filtering, click **Add filter**.
 
-1. Use the dropdowns on the Advisor dashboard to filter by subscription, resource type, or recommendation status.
-
-    ![Advisor search-filter criteria](./media/advisor-get-started/advisor-filters.png)
-
-## Postpone or dismiss recommendations
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
-
-1. Navigate to the recommendation you want to postpone or dismiss.
-
-1. Click the recommendation.
-
-1. Click **Postpone**. 
-
-1. Specify a postpone time period, or select **Never** to dismiss the recommendation.
+* **Subscription**: Choose **All** for Advisor recommendations on all subscriptions. Alternatively, select specific subscriptions. Apply changes by clicking outside of the button.
+* **Recommendation Status**: Your options are **Active** (recommendations that you have not postponed or dismissed) or **Postponed or Dismissed**. Apply changes by clicking outside of the button.
+* **Resource Group**: Choose **All** (the default) or specific resource groups. Apply changes by clicking outside of the button.
+* **Type**: Choose **All** (the default) or specific resources. Apply changes by clicking outside of the button.
+* **Commitments**: Applicable only to cost recommendations. Adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.
 
 ## Exclude subscriptions or resource groups
 
-You may have resource groups or subscriptions for which you do not want to receive Advisor recommendations – such as ‘test’ resources.  You can configure Advisor to only generate recommendations for specific subscriptions and resource groups.
+You can exclude Advisor recommendations for specified subscriptions or resources – such as ‘test’ resources. 
 
 > [!NOTE]
 > To include or exclude a subscription or resource group from Advisor, you must be a subscription Owner.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it is disabled in the user interface.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
+1. From any Azure Advisor page, click **Configuration** in the left navigation pane.
 
-1. Click **Configure** in the action bar.
+    ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources-no-wsp.png)
 
-1. Uncheck any subscriptions or resource groups you do not want to receive Advisor recommendations for.
+1. Uncheck any subscriptions or resource groups you do not want to receive Advisor recommendations for, click **Apply**. The page refreshes.
 
-    ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources.png)
+## Configure low usage virtual maching (VM) recommendations
 
-1. Click the **Apply** button.
+Advisor monitors your virtual machine usage for 7 days by default, and then identifies low-utilization virtual machines (VMs).
+Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the current workload can be accommodated by a smaller virtual machine size.
 
-## Configure low usage VM recommendation
-
-This procedure configures the average CPU utilization rule for the low usage virtual machine recommendation.
-
-Advisor monitors your virtual machine usage for 7 days by default and then identifies low-utilization virtual machines.
-Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size.
-
-If you would like to be more aggressive at identifying low usage virtual machines, you can adjust the average CPU utilization rule and the look back period on a per subscription basis.
-The CPU utilization rule can be set to 5%, 10%, 15%, 20%, or 100%(Default). In case the trigger is selected as 100%, it will present recommendations for virtual machines with less than 5%, 10%, 15%, and 20% of CPU utilization.
-You can select how far back in historical data you want to analyze: 7 days (default), 14, 21, 30, 60, or 90 days.
+If you would like to be more aggressive at identifying low usage virtual machines, you can adjust the average CPU utilization rule and the look back period on a per-subscription basis.
+The CPU utilization rule can be set to 5%, 10%, 15%, 20%, or 100%(Default). In case the trigger is selected as 100%, it will present recommendations for virtual machines with less than 5%, 10%, 15%, and 20% of CPU utilization. You can also select how far back in historical data, the look back, you want to analyze: 7 days (default), 14, 21, 30, 60, or 90 days.
 
 > [!NOTE]
-> To adjust the average CPU utilization rule for identifying low usage virtual machines, you must be a subscription *Owner*.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it will be disabled in the user interface. 
+> To adjust the average CPU utilization rule for identifying low usage virtual machines, you must be a subscription *Owner*.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it will be disabled in the user interface.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
+1. From any Azure Advisor page, click **Configuration** in the left navigation pane. 
 
-1. Click **Configure** in the action bar.
+1. Click the **VM/VMSS right sizing** tab. A configuration panel opens on the right.
 
-1. Click the **Rules** tab.
+1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing.
 
-1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**.
+1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
-1. Select the desired average CPU utilization value, and click **Apply**.
-
-1. Click **Refresh recommendations** to update your existing recommendations to use the new average CPU utilization rule. 
-
-   ![Advisor configure recommendation rules example](./media/advisor-get-started/advisor-configure-rules.png)
+  ![Advisor configure recommendation rules example](./media/advisor-get-started/advisor-configure-rules.png)
 
 ## Download recommendations
 
-Advisor enables you to download a summary of your recommendations.  You can download your recommendations as a PDF file or a CSV file.  Downloading your recommendations enables you to easily share with your colleagues or perform your own analysis on top of the recommendation data.
+To share Advisor recommendations with colleagues or to perform your own analysis, you can download your recommendations as a PDF file or a CSV file.
+   
+1. From the **Score** or any **Recommendations** page, click **Download as CSV** or **Download as PDF** on the action bar at the top.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
-
-1. Click **Download as CSV** or **Download as PDF** on the action bar.
-
-The download option respects any filters you have applied to the Advisor dashboard.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation. 
+The download option respects any filters you have applied to Advisor.  If you select the download option while viewing a specific recommendation category or recommendation, the downloaded summary only includes information for that category or recommendation. 
 
 ## Next steps
 
