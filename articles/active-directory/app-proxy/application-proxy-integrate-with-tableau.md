@@ -45,7 +45,7 @@ For:
 **To publish your app**: 
 
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
