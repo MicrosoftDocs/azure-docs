@@ -65,7 +65,7 @@ Prompt flow relies on fileshare to store snapshot of flow. If fileshare have som
 
 ### My runtime is failed with a system error **runtime not ready** when using a custom environment
 
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png" alt-text="Screenshot of a failed run on the runtime detail page. " lightbox = "./media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
+:::image type="content" source="../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png" alt-text="Screenshot of a failed run on the runtime detail page. " lightbox = "../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
 
 First, go to the Compute Instance terminal and run `docker ps` to find the root cause. 
 
@@ -73,7 +73,7 @@ Use  `docker images`  to check if the image was pulled successfully. If your ima
 
 ### Run failed due to "No module named XXX"
 
-This type error related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+This type error related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](../how-to-create-manage-runtime.md#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
 ### Request timeout issue
 
@@ -81,13 +81,13 @@ This type error related to runtime lack required packages. If you're using defau
 
 **MIR runtime request timeout error in the UI:**
 
-:::image type="content" source="./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
+:::image type="content" source="../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
 
 Error in the example says "UserError: Upstream request timeout".
 
 **Compute instance runtime request timeout error:**
 
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
+:::image type="content" source="../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
 
 Error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing".
 
@@ -103,13 +103,13 @@ Error in the example says "UserError: Invoking runtime gega-ci timeout, error me
 
    - Case 1: Python script node running for long time.
 
-        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
 
         In this case, you can find that the `PythonScriptNode` was running for a long time (almost 300 s), then you can check the node details to see what's the problem.
 
    - Case 2: LLM node running for long time.
 
-        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot of a timeout logs caused by LLM timeout in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
+        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot of a timeout logs caused by LLM timeout in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
 
         In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
 
@@ -129,6 +129,6 @@ Go to the compute instance terminal and run  `docker logs -<runtime_container_na
 
 ### User doesn't have access to this compute instance. Check if this compute instance is assigned to you and you have access to the workspace. Additionally, verify that you are on the correct network to access this compute instance.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of don't have access error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
+:::image type="content" source="../media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of don't have access error on the flow page. " lightbox = "../media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
 
 It's because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others. 
