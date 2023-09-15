@@ -1,4 +1,4 @@
----
+[---
 title: Get started with Azure Advisor
 description: Get started with Azure Advisor.
 ms.topic: article
@@ -113,3 +113,4 @@ To learn more about Advisor, see:
 - [Advisor Performance recommendations](advisor-performance-recommendations.md)
 - [Advisor Cost recommendations](advisor-cost-recommendations.md)
 - [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)
+](https://github.com/mabrahms/azure-docs-pr/edit/main/articles/advisor/azure-advisor-score.md)https://github.com/mabrahms/azure-docs-pr/edit/main/articles/advisor/azure-advisor-score.md
