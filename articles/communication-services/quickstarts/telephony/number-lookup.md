@@ -30,6 +30,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python](./includes/number-lookup-python.md)]
+::: zone-end
 
 ## Troubleshooting
 
