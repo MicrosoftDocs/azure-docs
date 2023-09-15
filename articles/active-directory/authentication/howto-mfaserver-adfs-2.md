@@ -1,17 +1,17 @@
 ---
-title: Use Azure MFA Server with AD FS 2.0
-description: Describes how to get started with Azure MFA and AD FS 2.0.
+title: Use Azure Active Directory Multi-Factor Authentication Server with AD FS 2.0
+description: Describes how to get started with Azure Active Directory Multi-Factor Authentication and AD FS 2.0.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/29/2022
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
@@ -22,7 +22,7 @@ This article is for organizations that are federated with Azure Active Directory
 This documentation covers using the Azure Multi-Factor Authentication Server with AD FS 2.0. For information about AD FS, see [Securing cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server](howto-mfaserver-adfs-windows-server.md).
 
 > [!IMPORTANT]
-> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure Active Directory Multi-Factor Authentication service by using the latest Migration Utility included in the most recent [Azure Active Directory Multi-Factor Authentication Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure Active Directory Multi-Factor Authentication Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 >
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
@@ -77,7 +77,7 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
    ![Configure LDAP settings for specific LDAP settings](./media/howto-mfaserver-adfs-2/ldap1.png)
 
 3. Click **Edit**.
-4. In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller. Descriptions of the fields are included in the Azure Multi-Factor Authentication Server help file.
+4. In the Edit LDAP Configuration dialog box, populate the fields with the information required to connect to the AD domain controller. 
 5. Test the LDAP connection by clicking the **Test** button.
 
    ![Test LDAP Configuration in MFA Server](./media/howto-mfaserver-adfs-2/ldap2.png)
@@ -89,7 +89,7 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
 1. Next, click the **Company Settings** icon and select the **Username Resolution** tab.
 2. Select the **Use LDAP unique identifier attribute for matching usernames** radio button.
 3. If users enter their username in "domain\username" format, the Server needs to be able to strip the domain off the username when it creates the LDAP query, which can be done through a registry setting.
-4. Open the registry editor and go to HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server. If on a 32-bit server, take the "Wow6432Node" out of the path. Create a DWORD registry key called "UsernameCxz_stripPrefixDomain" and set the value to 1. Azure Multi-Factor Authentication is now securing the AD FS proxy.
+4. Open the registry editor and go to HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server. If you use a 32-bit server, remove **/Wow6432Node** from the path. Create a DWORD registry key called "UsernameCxz_stripPrefixDomain" and set the value to 1. Azure Multi-Factor Authentication is now securing the AD FS proxy.
 
 Make sure users are imported from Active Directory into the Server. To allow users to skip two-step verification from internal IP addresses, see the [Trusted IPs](#trusted-ips).
 
@@ -115,7 +115,7 @@ You can secure AD FS when the AD FS proxy isn't used. Install the Azure Multi-Fa
 
 Azure Multi-Factor Authentication is now securing AD FS.
 
-Ensure that users have been imported from Active Directory into the Server. See the Trusted IPs section if you would like to allow internal IP addresses so that two-step verification isn't required when signing in to the website from those locations.
+Ensure that users have been imported from Active Directory into the Server. See the next section if you would like to allow internal IP addresses so that two-step verification isn't required when signing in to the website from those locations.
 
 ## Trusted IPs
 
