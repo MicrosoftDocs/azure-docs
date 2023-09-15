@@ -132,8 +132,6 @@ items:
         href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
       - name: Azure AI services Python SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
-      - name: Azure AI services Go SDK Samples
-        href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
     - name: Transparency note
