@@ -14,9 +14,8 @@ ms.date: 09/15/2023
 
 # Evaluate your Semantic Kernel with Prompt flow (preview)
 
-In the rapidly evolving landscape of AI orchestration, a comprehensive evaluation of your plugins and planners is paramount for optimal performance. This article introduces how to evaluate your **Semantic Kernel** [plugins](https://learn.microsoft.com/semantic-kernel/ai-orchestration/plugins) and [planners](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners) with Prompt flow. Furthermore, you can learn the seamless integration story between Prompt flow and Semantic Kernel.
+In the rapidly evolving landscape of AI orchestration, a comprehensive evaluation of your plugins and planners is paramount for optimal performance. This article introduces how to evaluate your **Semantic Kernel** [plugins](/semantic-kernel/ai-orchestration/plugins) and [planners](/semantic-kernel/ai-orchestration/planners) with Prompt flow. Furthermore, you can learn the seamless integration story between Prompt flow and Semantic Kernel.
 
-[plugins](/semantic-kernel/ai-orchestration/plugins) 
 
 The integration of Semantic Kernel with Prompt flow is a significant milestone. 
 * It allows you to harness the powerful AI orchestration capabilities of Semantic Kernel to enhance the efficiency and effectiveness of your Prompt flow. 
@@ -24,7 +23,7 @@ The integration of Semantic Kernel with Prompt flow is a significant milestone.
 
 ## What is Semantic Kernel?
 
-[Semantic Kernel](https://learn.microsoft.com/semantic-kernel/overview/) is an open-source SDK that lets you easily combine AI services with conventional programming languages like C# and Python. By doing so, you can create AI apps that combine the best of both worlds. It provides plugins and planners, which are powerful tool that makes use of AI capabilities to optimize operations, thereby driving efficiency and accuracy in planning. 
+[Semantic Kernel](/semantic-kernel/overview/) is an open-source SDK that lets you easily combine AI services with conventional programming languages like C# and Python. By doing so, you can create AI apps that combine the best of both worlds. It provides plugins and planners, which are powerful tool that makes use of AI capabilities to optimize operations, thereby driving efficiency and accuracy in planning. 
 
 ## Using prompt flow for plugin and planner evaluation
 
@@ -46,7 +45,7 @@ Similar to the integration of Langchain with Prompt flow, Semantic Kernel, which
 #### Prerequisites: Setup runtime and connection
 
 > [!IMPORTANT]
-> Prior to developing the flow, it's essential to install the [Semantic Kernel package](https://learn.microsoft.com/semantic-kernel/get-started/quick-start-guide/?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=python) in your runtime environment for executor. 
+> Prior to developing the flow, it's essential to install the [Semantic Kernel package](/semantic-kernel/get-started/quick-start-guide/?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=python) in your runtime environment for executor. 
 
 Please refer to this [documentation](./how-to-customize-environment-runtime.md) for guidance on customizing the environment for runtime.
 
@@ -72,7 +71,7 @@ Once the setup is complete, you can conveniently convert your existing Semantic 
 1. Set the flow input and output.
 1. Click *Run* for a single test.
 
-For example, we can create a flow with a Semantic Kernel planner that solves math problems. Follow this [documentation](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/create-a-prompt-flow-with-semantic-kernel) with steps necessary to create a simple Prompt flow with Semantic Kernel at its core.
+For example, we can create a flow with a Semantic Kernel planner that solves math problems. Follow this [documentation](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/create-a-prompt-flow-with-semantic-kernel) with steps necessary to create a simple Prompt flow with Semantic Kernel at its core.
 
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/semantic-kernel-flow.png" alt-text="Create a flow with semantic kernel planner" lightbox = "./media/how-to-evaluate-semantic-kernel/semantic-kernel-flow.png":::
 
@@ -96,7 +95,7 @@ Once the flow has passed the single test run in the previous step, you can effor
 1. Complete the batch run settings, especially the data part.
 1. Submit run without evaluation (for this specific batch test, the *Evaluation st*ep can be skipped).
 
-In our [updated docs](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/running-batches-with-prompt-flow?tabs=gpt-35-turbo), we demonstrate how you can use this functionality to run batch tests on a planner that uses a math plugin. By defining a bunch of word problems, we can quickly test any changes we make to our plugins or planners so we can catch regressions early and often.
+In our [updated docs](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/running-batches-with-prompt-flow?tabs=gpt-35-turbo), we demonstrate how you can use this functionality to run batch tests on a planner that uses a math plugin. By defining a bunch of word problems, we can quickly test any changes we make to our plugins or planners so we can catch regressions early and often.
 
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/semantic-kernel-test-data.png" alt-text="Data of batch runs with prompt flow for Semantic kernel" lightbox = "./media/how-to-evaluate-semantic-kernel/semantic-kernel-test-data.png":::
 
@@ -135,7 +134,7 @@ In Prompt flow, you can quick create an evaluation run based on an completed bat
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/evaluate-setting.png" alt-text="Evaluation settings" lightbox = "./media/how-to-evaluate-semantic-kernel/evaluate-setting.png":::
 
 
-Follow this [documentation](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/evaluating-plugins-and-planners-with-prompt-flow?tabs=gpt-35-turbo) for Semantic Kernel to learn more about how to use the [math accuracy evaluation flow](https://github.com/microsoft/promptflow/tree/main/examples/flows/evaluation/eval-accuracy-maths-to-code) to test our planner to see how well it solves word problems. 
+Follow this [documentation](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/evaluating-plugins-and-planners-with-prompt-flow?tabs=gpt-35-turbo) for Semantic Kernel to learn more about how to use the [math accuracy evaluation flow](https://github.com/microsoft/promptflow/tree/main/examples/flows/evaluation/eval-accuracy-maths-to-code) to test our planner to see how well it solves word problems. 
 
 After running the evaluator, you’ll get a summary back of your metrics. Initial runs may yield less than ideal results, which can be used as a motivation for immediate improvement. 
 
@@ -153,8 +152,8 @@ You can check the aggregated metric in the **Metrics** tab.
 If you find that your plugins and planners aren’t performing as well as they should, there are steps you can take to make them better. In this documentation, we provide an in-depth guide on practical strategies to bolster the effectiveness of your plugins and planners. We recommend the following high-level considerations:
 
 1. Use a more advanced model like GPT-4 instead of GPT-3.5-turbo.
-1. [Improve the description of your plugins](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/evaluating-plugins-and-planners-with-prompt-flow?tabs=gpt-35-turbo#improving-the-descriptions-of-your-plugin) so they’re easier for the planner to use.
-1. [Inject additional help to the planner](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/evaluating-plugins-and-planners-with-prompt-flow?tabs=gpt-35-turbo#improving-the-descriptions-of-your-plugin) when sending the user’s ask.
+1. [Improve the description of your plugins](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/evaluating-plugins-and-planners-with-prompt-flow?tabs=gpt-35-turbo#improving-the-descriptions-of-your-plugin) so they’re easier for the planner to use.
+1. [Inject additional help to the planner](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/evaluating-plugins-and-planners-with-prompt-flow?tabs=gpt-35-turbo#improving-the-descriptions-of-your-plugin) when sending the user’s ask.
 
 By doing a combination of these three things, we demonstrate how you can take a failing planner and turn it into a winning one! At the end of the walkthrough, you should have a planner that can correctly answer all of the benchmark data.
 
@@ -180,10 +179,10 @@ This will present you with a detailed table, line-by-line comparison of the resu
 
 If you’re interested in learning more about how you can use Prompt flow to test and evaluate Semantic Kernel, we recommend following along to the new doc articles we created. At each step, we provide sample code and explanations so you can use Prompt flow successfully with Semantic Kernel.
 
-* [Using Prompt flow with Semantic Kernel](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
-* [Create a Prompt flow with Semantic Kernel](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/create-a-prompt-flow-with-semantic-kernel)
-* [Running batches with Prompt flow](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/running-batches-with-prompt-flow)
-* [Evaluate your plugins and planners](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
+* [Using Prompt flow with Semantic Kernel](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
+* [Create a Prompt flow with Semantic Kernel](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/create-a-prompt-flow-with-semantic-kernel)
+* [Running batches with Prompt flow](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/running-batches-with-prompt-flow)
+* [Evaluate your plugins and planners](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
 
 When your planner is fully prepared, it can be deployed as an online endpoint in Azure Machine Learning. This allows it to be easily integrated into your application for consumption. Learn more about how to [deploy a flow as a managed online endpoint for real-time inference](./how-to-deploy-for-real-time-inference.md).
 
