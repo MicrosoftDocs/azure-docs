@@ -552,7 +552,7 @@ Sample Python applications using the Flask and Django framework are provided to 
 Download the sample repository and change to the sample directory.
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app/
+git clone https://github.com/cephalin/msdocs-flask-postgresql.git
 cd msdocs-flask-postgresql-sample-app
 ```
 
@@ -627,7 +627,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     ### [Flask](#tab/flask)
 
     ```bash
-    git clone https://github.com/Azure-Samples/msdocs-flask-postgresql.git
+    git clone https://github.com/cephalin/msdocs-flask-postgresql.git
     ```
 
     ### [Django](#tab/django)
