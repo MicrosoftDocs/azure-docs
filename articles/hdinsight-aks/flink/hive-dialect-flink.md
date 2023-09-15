@@ -26,9 +26,9 @@ This fix has to be backported to `hive 3.1.2`.
 - Execute the following steps in `webssh` client pod:
 
   1. Remove the existing flink-sql-connector-hive*jar in lib location
-    ```command
-    rm /opt/flink-webssh/lib/flink-sql-connector-hive*jar
-    ```
+     ```command
+     rm /opt/flink-webssh/lib/flink-sql-connector-hive*jar
+     ```
   1. Download the below jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://aka.ms/hdiflinkhivejdk11jar.
     (The above hive jar has the fix [https://issues.apache.org/jira/browse/HIVE-27508](https://issues.apache.org/jira/browse/HIVE-27508))
 
