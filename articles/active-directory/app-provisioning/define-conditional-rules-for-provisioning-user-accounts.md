@@ -98,6 +98,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 ::: zone pivot="cross-tenant-synchronization"
 
    1. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Azure Active Directory Users".
+
 ::: zone-end
 
 1. Select the **Source object scope** menu.
