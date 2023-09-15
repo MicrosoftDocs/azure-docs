@@ -253,7 +253,7 @@ The field name used in SQL is not aligned with GAQL. You also need to learn the 
 
 2. If the field name belongs to segments or metrics, the prefix `segments.` or `metrics.` should be added in GAQL, then follow the same rule as described in the first point to convert the name.
 
-Below are the concrete examples of the field name conversion:
+Here are the concrete examples of the field name conversion:
 
 | Category | Field names in SQL | Field  names in GAQL | 
 |---------| --------|---------| 
