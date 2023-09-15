@@ -62,6 +62,12 @@ Use the following steps to use AZD to package the app, provision the Azure resou
    azd package
    ```
 
+   The console outputs messages similar to the following example:
+
+   ```output
+   SUCCESS: Your application was packaged for Azure in xx seconds.
+   ```
+
 1. Use the following command to deploy the application code to those newly provisioned resources:
 
    ```bash
@@ -72,9 +78,6 @@ Use the following steps to use AZD to package the app, provision the Azure resou
 
    ```output
    Deploying services (azd deploy)
-   
-   WARNING: Feature 'springapp' is in alpha stage.
-   To learn more about alpha features and their support, visit https://aka.ms/azd-feature-stages.
    
    (✓) Done: Deploying service simple-event-driven-app
    - No endpoints were found

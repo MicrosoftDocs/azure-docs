@@ -4,7 +4,7 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 04/24/2023
+ms.date: 09/12/2023
 ms.reviewer: mmcc
 ---
 # Application Insights for ASP.NET Core applications
@@ -658,7 +658,7 @@ For more information about custom data reporting in Application Insights, see [A
 
 The default setting for Application Insights is to only capture **Warning** and more severe logs.
 
-Capture **Information** and more severe logs by changing the logging configuration for the Application Insights provider as follows.
+Capture **Information** and less severe logs by changing the logging configuration for the Application Insights provider as follows.
 
 ```json
 {

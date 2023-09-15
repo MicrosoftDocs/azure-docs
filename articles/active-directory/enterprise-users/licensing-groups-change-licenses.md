@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -42,8 +42,9 @@ Before you update the license assignments, it's important to verify certain assu
 
 On the **Update license assignments** page, if you see that some checkboxes are unavailable, it indicates services that can't be changed because they're inherited from a group license.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
-1. Select **Azure Active Directory** > **Users**, and then open the **Profile** page for a user.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [License Administrator](../roles/permissions-reference.md#license-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **All users** > **Users**, and then open the **Profile** page for a user.
 1. Select **Licenses**.
 1. Select **Assignments** to edit license assignment for the user or group. The **Assignments** page is where you can resolve license assignment conflicts.
 1. Select the check box for Office 365 E3 and ensure that at minimum the all of the E1 services that are assigned to the user are selected.
@@ -57,8 +58,9 @@ Azure AD applies the new licenses and removes the old licenses simultaneously to
 
 ## Change group license assignments
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
-1. Select **Azure Active Directory** > **Groups**, and then open the **Overview** page for a group.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [License Administrator](../roles/permissions-reference.md#license-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+1. Select **All groups** > **Groups**, and then open the **Overview** page for a group.
 1. Select **Licenses**.
 1. Select the **Assignments** command to edit license assignment for the user or group.
 1. Select the check box for Office 365 E3. To maintain continuity of service, ensure that you select all of the E1 services that are already assigned to the user.

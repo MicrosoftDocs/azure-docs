@@ -55,7 +55,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   [ ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration") ](common/edit-urls.png#lightbox)
+   [ ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")](common/edit-urls.png#lightbox)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -91,11 +91,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-    [ ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate") ](common/metadataxml.png#lightbox)
+    [ ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")](common/metadataxml.png#lightbox)
 
 1. On the **Set up Vbrick Rev Cloud** section, copy the appropriate URL(s) based on your requirement.
 
-	[ ![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata") ](common/copy-configuration-urls.png#lightbox)
+	[ ![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")](common/copy-configuration-urls.png#lightbox)
 
 ## Configure Vbrick Rev Cloud
 
@@ -105,7 +105,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the **SAML SINGLE SIGN ON** section, perform the following steps:
 	
-	[ ![Screenshot shows the administration portal.](media/vbrick-rev-cloud-tutorial/manage.png "Admin") ](media/vbrick-rev-cloud-tutorial/manage.png#lightbox)
+	[ ![Screenshot shows the administration portal.](media/vbrick-rev-cloud-tutorial/manage.png "Admin")](media/vbrick-rev-cloud-tutorial/manage.png#lightbox)
 
 	1. Check the **Enable Single Sign On** checkbox.
 

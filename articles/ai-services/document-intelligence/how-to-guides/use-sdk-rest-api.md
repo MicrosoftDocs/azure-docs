@@ -41,7 +41,13 @@ Choose from the following Document Intelligence models to analyze and extract da
 >
 > * The [prebuilt-healthInsuranceCard.us](../concept-health-insurance-card.md) model extracts key information from US health insurance cards.
 >
-> * The [prebuilt-tax.us.w2](../concept-w2.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+> * The [prebuilt-tax.us.w2](../concept-tax-document.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+>
+> * The [prebuilt-tax.us.1098](../concept-tax-document.md) model extracts information reported on US 1098 tax forms.
+>
+> * The [prebuilt-tax.us.1098E](../concept-tax-document.md) model extracts information reported on US 1098-E tax forms.
+>
+> * The [prebuilt-tax.us.1098T](../concept-tax-document.md) model extracts information reported on US 1098-T tax forms.
 >
 > * The [prebuilt-invoice](../concept-invoice.md) model extracts key fields and line items from sales invoices in various formats and quality including phone-captured images, scanned documents, and digital PDFs.
 >
