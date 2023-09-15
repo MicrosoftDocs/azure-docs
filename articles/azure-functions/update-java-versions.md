@@ -52,7 +52,7 @@ The `FUNCTIONS_EXTENSION_VERSION` setting sets the runtime version. A value of `
 
 If you need to first update your function app to version 4.x, see [Migrate apps from Azure Functions version 3.x to version 4.x](./migrate-version-3-version-4.md). You should follow the instructions in this article rather than just manually changing the `FUNCTIONS_EXTENSION_VERSION` setting.
 
-## update your Java function app
+## Update the Java version
 :::zone pivot="platform-windows"  
 You can use the Azure portal, Azure CLI, or Azure PowerShell to update the Java version for your function app. 
 These procedures apply to all [Functions hosting options](./functions-scale.md). 
