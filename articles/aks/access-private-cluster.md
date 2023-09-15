@@ -2,7 +2,7 @@
 title: Access a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to access a private Azure Kubernetes Service (AKS) cluster using the Azure CLI or Azure portal.
 ms.topic: article
-ms.date: 09/05/2023
+ms.date: 09/15/2023
 ---
 
 # Access a private Azure Kubernetes Service (AKS) cluster
@@ -23,7 +23,9 @@ The pod created by the `run` command provides `helm` and the latest compatible v
 
 `command invoke` runs the commands from your cluster, so any commands run in this manner are subject to your configured networking restrictions and any other configured restrictions. Make sure there are enough nodes and resources in your cluster to schedule this command pod.
 
-## [Azure CLI - `command invoke`](#tab/azure-cli)
+## Run commands on your AKS cluster
+
+### [Azure CLI - `command invoke`](#tab/azure-cli)
 
 ### Use `command invoke` to run a single command
 
@@ -71,7 +73,7 @@ The pod created by the `run` command provides `helm` and the latest compatible v
       --file .
     ```
 
-## [Azure portal - `Run command`](#tab/azure-portal)
+### [Azure portal - `Run command`](#tab/azure-portal)
 
 To get started with `Run command`, navigate to your private cluster in the Azure portal. Under the **Kubernetes resources** section, select **Run command**.
 
