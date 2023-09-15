@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 author: SimranArora904
 ms.author: siarora
 ms.reviewer: larryfr
-ms.date: 07/25/2023
+ms.date: 09/15/2023
 ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
@@ -86,16 +86,22 @@ Available resources:
 
 + **Low-priority cores per region** have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families.
 
-+ **Total compute limit per region** has a default limit of 500 per region within a given subscription and can be increased up to a maximum value of 2500 per region. This limit is shared between training clusters, compute instances and managed online endpoint deployments. A compute instance is considered a single-node cluster for quota purposes. In order to increase the total compute limit, [open an online customer support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/5088c408-f627-4398-9aa3-c41cdd93a6eb/callerName/Microsoft_Azure_Support%2FHelpAndSupportOverview.ReactView). Provide the following information:
++ **Total compute limit per region** has a default limit of 500 per region within a given subscription and can be increased up to a maximum value of 2500 per region. This limit is shared between training clusters, compute instances, and managed online endpoint deployments. A compute instance is considered a single-node cluster for quota purposes. In order to increase the total compute limit, [open an online customer support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/5088c408-f627-4398-9aa3-c41cdd93a6eb/callerName/Microsoft_Azure_Support%2FHelpAndSupportOverview.ReactView). Provide the following information:
 
 1. When opening the support request, select __Technical__ as the __Issue type__.
-2. Select the subscription of your choice
-3. Select __Machine Learning__ as the __Service__.
-4. Select the resource of your choice
-5. In the summary, mention "Increase total compute limits"
-6. Select __Compute Cluster__ as the __Problem type__ and __Cluster does not scale up or is stuck in resizing__ as the __Problem subtype__.
-7. On the __Additional details__ tab, provide the subscription ID, region, new limit (between 500 and 2500) and business justification if you would like to increase the toital compute limits in this region.
-8. Finally, select __Create__ to create a support request ticket.
+1. Select the subscription of your choice
+1. Select __Machine Learning__ as the __Service__.
+1. Select the resource of your choice
+1. In the summary, mention "Increase total compute limits"
+1. Select __Compute Cluster__ as the __Problem type__ and __Cluster does not scale up or is stuck in resizing__ as the __Problem subtype__.
+
+    :::image type="content" source="media/how-to-manage-quotas/problem-description.png" alt-text="Screenshot of the problem description tab.":::
+
+1. On the __Additional details__ tab, provide the subscription ID, region, new limit (between 500 and 2500) and business justification if you would like to increase the total compute limits in this region.
+
+    :::image type="content" source="media/how-to-manage-quotas/additional-details.png" alt-text="Screenshot of the additional details tab.":::
+
+1. Finally, select __Create__ to create a support request ticket.
 
 
 The following table shows more limits in the platform. Reach out to the Azure Machine Learning product team through a **technical** support ticket to request an exception.
@@ -105,7 +111,7 @@ The following table shows more limits in the platform. Reach out to the Azure Ma
 | Workspaces per resource group | 800 |
 | Nodes in a single Azure Machine Learning compute (AmlCompute) **cluster** set up as a non communication-enabled pool (that is, can't run MPI jobs) | 100 nodes but configurable up to 65,000 nodes |
 | Nodes in a single Parallel Run Step **run** on an Azure Machine Learning compute (AmlCompute) cluster | 100 nodes but configurable up to 65,000 nodes if your cluster is set up to scale as mentioned previously |
-| Nodes in a single Azure Machine Learning compute (AmlCompute) **cluster** set up as a communication-enabled pool | 300 nodes but configurable up to 4000 nodes |
+| Nodes in a single Azure Machine Learning compute (AmlCompute) **cluster** set up as a communication-enabled pool | 300 nodes but configurable up to 4,000 nodes |
 | Nodes in a single Azure Machine Learning compute (AmlCompute) **cluster** set up as a communication-enabled pool on an RDMA enabled VM Family | 100 nodes |
 | Nodes in a single MPI **run** on an Azure Machine Learning compute (AmlCompute) cluster | 100 nodes but can be increased to 300 nodes |
 | Job lifetime | 21 days<sup>1</sup> |
