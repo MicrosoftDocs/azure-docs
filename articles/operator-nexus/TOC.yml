@@ -87,6 +87,8 @@
           href: howto-kubernetes-service-load-balancer.md
         - name: Configure role-based access control
           href: howto-kubernetes-cluster-aad-rbac.md
+        - name: Connect to the cluster
+          href: howto-kubernetes-cluster-connect.md
     - name: Nexus Virtual Machine
       expanded: false
       items:

@@ -15,9 +15,8 @@ ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 2.4.
 
 > [!IMPORTANT]
-> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 2.4 has been announced July 29, 2022. 
-> * End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
-> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 2.4 will be retired and disabled as of September 29, 2023. 
+> * End of life announced (EOLA) for Azure Synapse Runtime for Apache Spark 2.4 has been announced July 29, 2022.
+> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 2.4 will be retired and disabled as of September 29, 2023. After the EOL date, the retired runtimes are unavailable for new Spark pools and existing workflows can't execute. Metadata will temporarily remain in the Synapse workspace.
 > * We recommend that you upgrade your Apache Spark 2.4 workloads to version 3.3 at your earliest convenience. 
 
 ## Component versions

@@ -45,8 +45,12 @@ The rows in a downloaded CSV template are as follows:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk import members of groups they own.
-1. In Azure AD, select **Groups** > **All groups**.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
+   >[!NOTE]
+   >Group owners can also bulk import members of groups they own.
+1. Select **Groups** > **All groups**.
 1. Open the group to which you're adding members and then select **Members**.
 1. On the **Members** page, select **bulk operations** and then choose **Import members**.
 1. On the **Bulk import group members** page, select **Download** to get the CSV file template with required group member properties.

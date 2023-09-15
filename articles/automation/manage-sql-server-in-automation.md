@@ -8,7 +8,7 @@ ms.topic: conceptual
 
 # Manage databases in Azure SQL database using Azure Automation
 
-This article describes the procedure to connect and manage databases in Azure SQL database using Azure Automation's [system-assigned managed identity](enable-managed-identity-for-automation.md). With Azure Automation, you can manage databases in Azure SQL Database by using the [latest Az PowerShell cmdlets](https://learn.microsoft.com/powershell/module/) that are available in [Azure Az PowerShell](https://learn.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-10.2.0).
+This article describes the procedure to connect and manage databases in Azure SQL database using Azure Automation's [system-assigned managed identity](enable-managed-identity-for-automation.md). With Azure Automation, you can manage databases in Azure SQL Database by using the [latest Az PowerShell cmdlets](/powershell/module/) that are available in [Azure Az PowerShell](/powershell/azure/new-azureps-module-az).
 
 Azure Automation has these Azure Az PowerShell cmdlets available out of the box, so that you can perform all the SQL database management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets of other Azure services to automate complex tasks across Azure services and across third-party systems.
 

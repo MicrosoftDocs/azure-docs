@@ -180,7 +180,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Portal]",
+                AllowedAudience = "[Your App ID URI goes here]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
@@ -312,7 +312,7 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
     Get-MsIdSigningKeyThumbprint
     ```
 
-1. Pick any of the key thumbprints and configure Azure Active Directory to use that key with your application (get the app ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
+1. Pick any of the key thumbprints and configure Azure Active Directory to use that key with your application (get the app ID from the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)):
 
     ```powershell
     Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -KeyThumbprint <Thumbprint>
@@ -341,7 +341,7 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
     Install-Module -Name MSIdentityTools
     ```
 
-1. Get the latest signing key (get the tenant ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)):
+1. Get the latest signing key (get the tenant ID from the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)):
 
     ```powershell
     Get-MsIdSigningKeyThumbprint -Tenant <tenandId> -Latest
@@ -357,7 +357,7 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
 
 1. Update your application's code or configuration to use the new key.
 
-1. Configure Azure Active Directory to use that latest key with your application (get the app ID from the [portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
+1. Configure Azure Active Directory to use that latest key with your application (get the app ID from the [Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)):
 
     ```powershell
     Get-MsIdSigningKeyThumbprint -Latest | Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId>

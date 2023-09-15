@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 ---
 # Known issues: Service principal alerts in Azure Active Directory Domain Services
@@ -32,8 +32,7 @@ If a required service principal is deleted, the Azure platform can't perform aut
 
 To check which service principal is missing and must be recreated, complete the following steps:
 
-1. In the Azure portal, select **Azure Active Directory** from the left-hand navigation menu.
-1. Select **Enterprise applications**. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Enterprise applications**. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
 1. Search for each of the following application IDs. For Azure Global, search for AppId value *2565bd9d-da50-47d4-8b85-4c97f669dc36*. For other Azure clouds, search for AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. If no existing application is found, follow the *Resolution* steps to create the service principal or re-register the namespace.
 
     | Application ID | Resolution |
@@ -66,7 +65,7 @@ The managed domain's health automatically updates itself within two hours and re
 
 If application ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*, or *d87dcbc6-a371-462e-88e3-28ad15ec4e64* is missing from your Azure AD directory, complete the following steps to re-register the *Microsoft.AAD* resource provider:
 
-1. In the Azure portal, search for and select **Subscriptions**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Subscriptions**.
 1. Choose the subscription associated with your managed domain.
 1. From the left-hand navigation, choose **Resource Providers**.
 1. Search for *Microsoft.AAD*, then select **Re-register**.
@@ -108,7 +107,7 @@ After you delete both applications, the Azure platform automatically recreates t
 If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: ../active-directory/fundamentals/how-to-get-support.md
 
 <!-- EXTERNAL LINKS -->
-[New-AzureAdServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal
+[New-AzureAdServicePrincipal]: /powershell/module/azuread/new-azureadserviceprincipal

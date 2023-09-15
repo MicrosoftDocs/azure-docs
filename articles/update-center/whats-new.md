@@ -59,7 +59,7 @@ Update Manager (preview) now supports new five regions for Azure Arc-enabled ser
 
 ### Improved on-boarding experience
 
-You can now enable periodic assessment for your machines at scale using [Policy](periodic-assessment-at-scale.md) or from the [portal](manage-update-settings.md#configure-settings-on-single-vm).
+You can now enable periodic assessment for your machines at scale using [Policy](periodic-assessment-at-scale.md) or from the [portal](manage-update-settings.md#configure-settings-on-a-single-vm).
 
 
 ## Next steps
