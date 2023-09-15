@@ -63,7 +63,9 @@ items:
     - name: Cloud monitoring with Azure Monitor Workbooks
       href: monitor-private-5g-core-workbooks.md
     - name: Cloud monitoring of UE usage with Event Hubs (preview)
-      href: ue-usage-event-hub.md  
+      href: ue-usage-event-hub.md
+    - name: Cloud monitring with alerts
+      href: monitor-private-5g-core-alerts.md  
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
     - name: Local monitoring with distributed tracing
