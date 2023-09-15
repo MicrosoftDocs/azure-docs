@@ -75,15 +75,17 @@ It is not currently possible to assign directory read permissions scoped to an a
 
 ## Assign a role with an administrative unit scope
 
-You can assign an Azure AD role with an administrative unit scope by using the Azure portal, PowerShell, or Microsoft Graph.
+You can assign an Azure AD role with an administrative unit scope by using the Microsoft Entra admin center, PowerShell, or Microsoft Graph.
 
-### Azure portal
+### Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit that you want to assign a user role scope to. 
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
+
+1. Select the administrative unit that you want to assign a user role scope to. 
 
 1. On the left pane, select **Roles and administrators** to list all the available roles.
 
@@ -133,15 +135,17 @@ Body
 
 ## List role assignments with administrative unit scope
 
-You can view a list of Azure AD role assignments with administrative unit scope by using the Azure portal, PowerShell, or Microsoft Graph.
+You can view a list of Azure AD role assignments with administrative unit scope by using the Microsoft Entra admin center, PowerShell, or Microsoft Graph.
 
-### Azure portal
+### Microsoft Entra admin center
 
-You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
+You can view all the role assignments created with an administrative unit scope in the **Admin units** section of the Microsoft Entra admin center. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit for the list of role assignments you want to view. 
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
+
+1. Select the administrative unit for the list of role assignments you want to view. 
 
 1. Select **Roles and administrators**, and then open a role to view the assignments in the administrative unit.
 

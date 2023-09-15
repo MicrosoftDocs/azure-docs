@@ -55,7 +55,7 @@ When you test the scenarios, this tutorial assumes:
 If you don't have the previous items for testing, you can deploy an AD domain environment into Azure, using a script on [Cloud Identity Lab](https://github.com/Rainier-MSFT/Cloud_Identity_Lab). You can programmatically deploy sample test applications to an IIS web host using a scripted automation on [Demo Suite](https://github.com/jeevanbisht/DemoSuite).
 
 >[!NOTE]
->Some steps in this tutorial might differ from the layout in the Azure portal.
+>Some steps in this tutorial might differ from the layout in the Microsoft Entra admin center.
 
 ## Azure deployment
 
@@ -65,7 +65,7 @@ You can deploy a BIG-IP in different topologies. This guide focuses on a network
 
 To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with permissions to create VMs, such as Contributor.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) with an account with permissions to create VMs, such as a Global Administrator.
 2. In the top ribbon search box, type **marketplace**
 3. Select **Enter**.
 4. Type **F5** into the Marketplace filter.
@@ -113,7 +113,7 @@ To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.micros
 19. Select **Next: Management** and complete the settings:
 
 * **Detailed monitoring**: Off
-* **Boot diagnostics** Enable with custom storage account. This feature allows connection to the BIG-IP secure shell (SSH) interface via the Serial Console option in the Azure portal. Select an available Azure storage account.
+* **Boot diagnostics** Enable with custom storage account. This feature allows connection to the BIG-IP secure shell (SSH) interface via the Serial Console option in the Microsoft Entra admin center. Select an available Azure storage account.
  
 20. For **Identity**:
  
@@ -125,7 +125,7 @@ To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.micros
 23. Select **Next: Tags**.
 24. To review your BIG-IP-VM configuration, select **Next: Review + create**.
 25. Select **Create**. Time to deploy a BIG-IP VM typically is 5 minutes.
-26. When complete, expand the Azure portal left-hand menu.
+26. When complete, expand the Microsoft Entra admin center left-hand menu.
 27. Select **Resource groups** and navigate to the BIG-IP-VM. 
 
 > [!NOTE]
