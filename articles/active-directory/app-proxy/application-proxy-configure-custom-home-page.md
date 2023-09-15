@@ -47,7 +47,7 @@ You can set the home page URL either through the Microsoft Entra admin center or
 
 To change the home page URL of your app through the Microsoft Entra admin center, follow these steps:
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
-1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses 
+1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
 1. Browse to **Identity** > **Applications** > **App registrations**. The list of registered apps appears.
 1. Choose your app from the list. A page showing the details of the registered app appears.
 1. Under **Manage**, select **Branding**.
