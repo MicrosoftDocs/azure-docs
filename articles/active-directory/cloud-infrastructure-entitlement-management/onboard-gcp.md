@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 09/15/2023
 ms.author: jfields
 ---
 
@@ -17,7 +17,7 @@ ms.author: jfields
 This article describes how to onboard a Google Cloud Platform (GCP) project in Microsoft Entra Permissions Management.
 
 > [!NOTE]
-> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
+> You must have the Global Administrator role assignment to perform the tasks in this article.
 
 ## Explanation
 
@@ -141,7 +141,5 @@ The required commands to run in Google Cloud Shell are listed in the Manage Auth
 
 ## Next steps
 
-- To onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](onboard-aws.md).
-- To onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](onboard-azure.md).
 - To enable or disable the controller after onboarding is complete, see [Enable or disable the controller](onboard-enable-controller-after-onboarding.md).
 - To add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md).
