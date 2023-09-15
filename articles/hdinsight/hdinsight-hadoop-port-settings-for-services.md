@@ -4,7 +4,7 @@ description: This article provides a list of ports used by Apache Hadoop service
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 08/05/2022
+ms.date: 09/15/2023
 ---
 
 # Ports used by Apache Hadoop services on HDInsight
