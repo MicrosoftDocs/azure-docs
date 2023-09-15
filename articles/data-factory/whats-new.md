@@ -69,7 +69,7 @@ Documentation search now included in the Azure Data Factory search toolbar. [Lea
 
 ### Continuous integration and continuous deployment
 
-NPM package now supports pre-downloaded bundle for building ARM templates. If your firewall setting is blocking direct download for your NPM package, you can now pre-load the package upfront, and let NPM package consume local version instead. This is a super boost for your CI/CD pipeline in a firewalled environment.
+npm package now supports pre-downloaded bundle for building ARM templates. If your firewall setting is blocking direct download for your npm package, you can now pre-load the package upfront, and let npm package consume local version instead. This is a super boost for your CI/CD pipeline in a firewalled environment.
 
 ### Region expansion
 
