@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/23/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -32,7 +32,7 @@ For Azure AD Multi-Factor Authentication or SSPR, users can choose to receive a 
 
 If users don't want their mobile phone number to be visible in the directory but want to use it for password reset, administrators shouldn't populate the phone number in the directory. Instead, users should populate their **Authentication Phone** at [My Sign-Ins](https://aka.ms/setupsecurityinfo). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
-:::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Screenshot of the Azure portal that shows authentication methods with a phone number populated":::
+:::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Screenshot of the Microsoft Entra admin center that shows authentication methods with a phone number populated":::
 
 > [!NOTE]
 > Phone extensions are supported only for office phones.
@@ -81,7 +81,7 @@ If you have problems with phone authentication for Azure AD, review the followin
 * Call forwarded to voicemail.
    * Ensure that the user has their phone turned on and that service is available in their area, or use alternate method.
 * User is blocked
-   * Have an Azure AD administrator unblock the user in the Azure portal.
+   * Have an Azure AD administrator unblock the user in the Microsoft Entra admin center.
 * Text messaging platforms like SMS, RCS, or WhatsApp aren't subscribed on the device.
    * Have the user change methods or activate a text messaging platform on the device.
 * Faulty telecom providers, such as when no phone input is detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked text messages across multiple devices.

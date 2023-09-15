@@ -55,7 +55,7 @@ applications and to help secure your applications on Azure:
 
 [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) (SDL) - The SDL is a software development process from Microsoft that helps developers build more secure software. It helps you address security compliance requirements while reducing development costs.
 
-[Open Web Application Security Project](https://www.owasp.org/) (OWASP) - OWASP is an online community that produces freely available articles, methodologies, documentation, tools, and technologies in the field of web application security.
+[Open Worldwide Application Security Project](https://www.owasp.org/) (OWASP) - OWASP is an online community that produces freely available articles, methodologies, documentation, tools, and technologies in the field of web application security.
 
 [Pushing Left, Like a Boss](https://wehackpurple.com/pushing-left-like-a-boss-part-1/) - A series of online articles that outline different types of application security activities that developers should complete to create more secure code.
 
