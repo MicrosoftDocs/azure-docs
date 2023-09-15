@@ -1,6 +1,6 @@
 ---
 title: Single sign-on to apps with Azure Active Directory Application Proxy
-description: Turn on single sign-on for your published on-premises applications with Azure Active Directory Application Proxy in the Azure portal.
+description: Turn on single sign-on for your published on-premises applications with Azure Active Directory Application Proxy in the Microsoft Entra admin center.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.reviewer: ashishj
 
 # Password vaulting for single sign-on with Application Proxy
 
-Azure Active Directory Application Proxy helps you improve productivity by publishing on-premises applications so that remote employees can securely access them, too. In the Azure portal, you can also set up single sign-on (SSO) to these apps. Your users only need to authenticate with Azure AD, and they can access your enterprise application without having to sign in again.
+Azure Active Directory Application Proxy helps you improve productivity by publishing on-premises applications so that remote employees can securely access them, too. In the Microsoft Entra admin center, you can also set up single sign-on (SSO) to these apps. Your users only need to authenticate with Azure AD, and they can access your enterprise application without having to sign in again.
 
 Application Proxy supports several [single sign-on modes](../manage-apps/plan-sso-deployment.md#choosing-a-single-sign-on-method). Password-based sign-on is intended for applications that use a username/password combination for authentication. When you configure password-based sign-on for your application, your users have to sign in to the on-premises application once. After that, Azure Active Directory stores the sign-in information and automatically provides it to the application when your users access it remotely.
 
