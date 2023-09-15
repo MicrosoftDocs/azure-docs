@@ -49,7 +49,7 @@ Take a look at our video for an overview of the MFA Server Migration Utility and
 ||[Configure MFA Server Migration Utility](#configure-the-mfa-server-migration-utility) |
 |Migrations |[Migrate user data](#migrate-user-data)|
 ||[Validate and test](#validate-and-test)|
-||[Staged Rollout](#enable-staged-rollout-using-azure-portal) |
+||[Staged Rollout](#enable-staged-rollout) |
 ||[Educate users](#educate-users)|
 ||[Complete user migration](#complete-user-migration)|
 |Finalize |[Migrate MFA Server dependencies](#migrate-mfa-server-dependencies)|
