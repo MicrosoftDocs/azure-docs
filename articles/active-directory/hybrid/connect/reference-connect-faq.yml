@@ -47,10 +47,10 @@ sections:
       - question: |
           Is there a way to install Azure AD Connect unattended?  
         answer: |
-          Azure AD Connect installation is supported only when you use the installation wizard. An unattended, silent installation is not supported.
+          Azure AD Connect installation is supported only when you use the installation wizard. An unattended, silent installation isn't supported.
 
       - question: |
-          I have a forest where one domain cannot be contacted. How do I install Azure AD Connect?  
+          I have a forest where one domain can't be contacted. How do I install Azure AD Connect?  
         answer: |
           As of the February 2016 builds, this scenario is supported.
 
@@ -74,14 +74,14 @@ sections:
       - question: |
           Can I move the Azure AD Connect database from the local database to a remote SQL Server instance?   
         answer: |
-          Yes, the following steps provide general guidance on how to do this. We are currently working on a more detailed document.
+          Yes, the following steps provide general guidance on how to do this. We're currently working on a more detailed document.
           1. Back up the LocalDB ADSync database.
           The simplest way to do this is to use SQL Server Management Studio installed on the same machine as Azure AD Connect. Connect to *(LocalDb).\ADSync*, and then back up the ADSync database.
           
           2. Restore the ADSync database to your remote SQL Server instance.
           
           3. Install Azure AD Connect against the existing [remote SQL database](how-to-connect-install-existing-database.md).
-             The article demonstrates how to migrate to using a local SQL database. If you are migrating to using a remote SQL database, in step 5 of the process you must also enter an existing service account that the Windows Sync service will run as. This sync engine service account is described here:
+             The article demonstrates how to migrate to using a local SQL database. If you're migrating to using a remote SQL database, in step 5 of the process you must also enter an existing service account that the Windows Sync service will run as. This sync engine service account is described here:
              
                 **Use an existing service account**: By default, Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL Server instance or use a proxy that requires authentication, use a managed service account or a service account in the domain, and know the password. In those cases, enter the account to use. Make sure that users who are running the installation are system administrators in SQL so that login credentials for the service account can be created. For more information, see [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md#adsync-service-account). 
              
@@ -99,12 +99,12 @@ sections:
               - Easier to troubleshoot
               - Less complexity
               - Need to designate resources to SQL and allow overhead for Azure AD Connect and OS
-          - Bypass Proxy if at all possible, if you are unable to bypass the proxy then you need to ensure that the timeout value is greater than 5 minutes.
+          - Bypass Proxy if at all possible, if you're unable to bypass the proxy then you need to ensure that the timeout value is greater than 5 minutes.
           - If proxy is required then you must add the proxy to the machine.config file
-          - Be aware of local SQL jobs and maintenance and how they will impact Azure AD Connect - particularly re-indexing
+          - Be aware of local SQL jobs and maintenance and how they'll impact Azure AD Connect - particularly re-indexing
           - Ensure than DNS can resolve externally
-          - Ensure that [server specifications](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) are per recommendation whether you are using physical or virtual servers
-          - Ensure that if you are using a virtual server that resources required are dedicated
+          - Ensure that [server specifications](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) are per recommendation whether you're using physical or virtual servers
+          - Ensure that if you're using a virtual server that resources required are dedicated
           - Ensure that you have the disk and disk configuration meet Best Practices for SQL Server
           - Install and configure Azure AD Connect Health for monitoring
           - Use the Delete Threshold that is built into Azure AD Connect.
@@ -120,7 +120,7 @@ sections:
           - Be leery of modifying  cloud synchronization rules without great understanding of the impact and the right business drivers
           - Make sure that the correct URL's and Firewall ports are open for support of Azure AD Connect and Azure AD Connect Health
           - Leverage the cloud filtered attribute to troubleshoot and prevent phantom objects
-          - With the Staging Server ensure that you are using the Azure AD Connect Configuration Documenter for consistency between servers
+          - With the Staging Server ensure that you're using the Azure AD Connect Configuration Documenter for consistency between servers
           - Staging Servers should be in separate datacenters (Physical Locations
           - Staging servers are not meant to be a High Availability solution, but you can have multiple staging servers
           - Introducing a "Lag" Staging Servers could mitigate some potential downtime in case of error
@@ -148,22 +148,22 @@ sections:
       - question: |
           Are Forests with disjoint AD domains supported?  
         answer: |
-          No, Azure AD Connect does not support on-premises forests that contain disjoint namespaces.
+          No, Azure AD Connect doesn't support on-premises forests that contain disjoint namespaces.
 
       - question: |
           Are "dotted" NetBIOS names supported?  
         answer: |
-          No, Azure AD Connect does not support on-premises forests or domains where the NetBIOS name contains a dot (.).
+          No, Azure AD Connect doesn't support on-premises forests or domains where the NetBIOS name contains a dot (.).
 
       - question: |
           Is pure IPv6 environment supported?  
         answer: |
-          No, Azure AD Connect does not support a pure IPv6 environment.
+          No, Azure AD Connect doesn't support a pure IPv6 environment.
           
       - question: |
           I have a multi-forest environment and the network between the two forests is using NAT (Network Address Translation). Is using Azure AD Connect between these two forests supported?
         answer: |
-          No, using Azure AD Connect over NAT is not supported. 
+          No, using Azure AD Connect over NAT isn't supported. 
           
   - name: Federation
     questions:
@@ -182,7 +182,7 @@ sections:
       - question: |
           Is it supported to rename the server after Azure AD Connect has been installed?  
         answer: |
-          No. Changing the server name renders the sync engine unable to connect to the SQL database instance, and the service cannot start.
+          No. Changing the server name renders the sync engine unable to connect to the SQL database instance, and the service can't start.
 
       - question: |
           Are Next Generation Cryptographic (NGC) sync rules supported on a FIPS-enabled machine?  
@@ -214,7 +214,7 @@ sections:
       - question: |
           Is it supported to soft-match an on-premises Azure AD group or contact object with an existing Azure AD group or contact object?  
         answer: |
-          Yes, this soft match is based on the proxyAddress. Soft matching is not supported for groups that are not mail-enabled.
+          Yes, this soft match is based on the proxyAddress. Soft matching isn't supported for groups that are not mail-enabled.
 
       - question: |
           Is it supported to manually set the ImmutableId attribute on an existing Azure AD group or contact object to hard-match it to an on-premises Azure AD group or contact object?  
@@ -231,17 +231,17 @@ sections:
       - question: |
           Can I use the "Server export/server import" option that's found in Synchronization Service Manager to move the configuration between servers?  
         answer: |
-          No. This option does not retrieve all configuration settings, and it should not be used. Instead, use the wizard to create the base configuration on the second server, and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers. For more information, see [Swing migration](how-to-upgrade-previous-version.md#swing-migration).
+          No. This option doesn't retrieve all configuration settings, and it should not be used. Instead, use the wizard to create the base configuration on the second server, and use the sync rule editor to generate PowerShell scripts to move any custom rule between servers. For more information, see [Swing migration](how-to-upgrade-previous-version.md#swing-migration).
           
       - question: |
           Can passwords be cached for the Azure sign-in page, and can this caching be prevented because it contains a password input element with the autocomplete = "false" attribute?  
         answer: |
-          Currently, modifying the HTML attributes of the **Password** field, including the autocomplete tag, is not supported. We are currently working on a feature that allows for custom JavaScript, which lets you add any attribute to the **Password** field.
+          Currently, modifying the HTML attributes of the **Password** field, including the autocomplete tag, isn't supported. We're currently working on a feature that allows for custom JavaScript, which lets you add any attribute to the **Password** field.
 
       - question: |
           The Azure sign-in page displays the usernames of users who have previously signed in successfully. Can this behavior be turned off?  
         answer: |
-          Currently, modifying the HTML attributes of the **Password** input field, including the autocomplete tag, is not supported. We are currently working on a feature that allows for custom JavaScript, which lets you add any attribute to the **Password** field.
+          Currently, modifying the HTML attributes of the **Password** input field, including the autocomplete tag, isn't supported. We're currently working on a feature that allows for custom JavaScript, which lets you add any attribute to the **Password** field.
 
       - question: |
           Is there a way to prevent concurrent sessions?  
@@ -253,7 +253,7 @@ sections:
       - question: |
           What are the advantages and consequences of using auto upgrade?  
         answer: |
-          We are advising all customers to enable auto upgrade for their Azure AD Connect installation. The benefit is that you always receive the latest patches, including security updates for vulnerabilities that have been found in Azure AD Connect. The upgrade process is painless and happens automatically as soon as a new version is available. Many thousands of Azure AD Connect customers use auto upgrade with every new release.
+          We're advising all customers to enable auto upgrade for their Azure AD Connect installation. The benefit is that you always receive the latest patches, including security updates for vulnerabilities that have been found in Azure AD Connect. The upgrade process is painless and happens automatically as soon as a new version is available. Many thousands of Azure AD Connect customers use auto upgrade with every new release.
           
           The auto-upgrade process always first establishes whether an installation is eligible for auto upgrade. If it is eligible, the upgrade is performed and tested. The process also includes looking for custom changes to rules and specific environmental factors. If the tests show that an upgrade is unsuccessful, the previous version is automatically restored.
           
@@ -279,7 +279,7 @@ sections:
       - question: |
           I received an email telling me to upgrade to the latest version to re-enable auto upgrade. If I have used PowerShell to enable auto upgrade, do I still need to install the latest version?  
         answer: |
-          Yes, you still need to upgrade to version 1.1.750.0 or later. Enabling the auto-upgrade service with PowerShell does not mitigate the auto-upgrade issue found in versions before 1.1.750.0.
+          Yes, you still need to upgrade to version 1.1.750.0 or later. Enabling the auto-upgrade service with PowerShell doesn't mitigate the auto-upgrade issue found in versions before 1.1.750.0.
 
       - question: |
           I want to upgrade to a newer version but I’m not sure who installed Azure AD Connect, and we do not have the username and password. Do we need this?
@@ -311,7 +311,7 @@ sections:
       - question: |
           I believe I upgraded to Azure AD Connect, but the Office portal still mentions DirSync. Why is this?  
         answer: |
-          The Office team is working to get the Office portal updates to reflect the current product name. It does not reflect which sync tool you are using.
+          The Office team is working to get the Office portal updates to reflect the current product name. It doesn't reflect which sync tool you're using.
 
       - question: |
           My auto-upgrade status says, “Suspended." Why is it suspended? Should I enable it?  
@@ -344,9 +344,9 @@ sections:
           Yes, you can auto-upgrade an Azure AD Connect server that is in staging mode.
 
       - question: |
-          If auto upgrade fails and my Azure AD Connect server does not start, what should I do?  
+          If auto upgrade fails and my Azure AD Connect server doesn't start, what should I do?  
         answer: |
-          In rare cases, the Azure AD Connect service does not start after you perform the upgrade. In these cases, rebooting the server usually fixes the issue. If the Azure AD Connect service still does not start, open a support ticket. For more information, see [Create a service request to contact Microsoft 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
+          In rare cases, the Azure AD Connect service doesn't start after you perform the upgrade. In these cases, rebooting the server usually fixes the issue. If the Azure AD Connect service still doesn't start, open a support ticket. For more information, see [Create a service request to contact Microsoft 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
           
       - question: |
           I’m not sure what the risks are when I upgrade to a newer version of Azure AD Connect. Can you call me to help me with the upgrade?  
