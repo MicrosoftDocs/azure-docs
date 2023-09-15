@@ -163,7 +163,7 @@ Input and output define the interface of a component. Input and output could be 
 
 If you want to add an input to a component, remember to edit three places:  1)`inputs` field in component YAML 2) `command` field in component YAML. 3) component source code to handle the command line input. It's marked in green box in above screenshot.  
 
-To learn more about inputs and outputs, see [Manage inputs and outputs of component and pipeline](./how-to-manage-inputs-and-outputs-in-pipeline.md).
+To learn more about inputs and outputs, see [Manage inputs and outputs of component and pipeline](./how-to-manage-inputs-outputs-pipeline.md).
 
 ### Environment
 
