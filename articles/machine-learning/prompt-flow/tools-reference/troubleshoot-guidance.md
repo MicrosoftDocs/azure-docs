@@ -16,7 +16,7 @@ ms.date: 09/05/2023
 
 This article addresses frequent questions about tool usage.
 
-## Error "package tool is not found" occurs when updating the flow for code first experience.
+## Error "package tool isn't found" occurs when updating the flow for code first experience.
 
 When you update flows for code first experience, if the flow utilized these tools (Faiss Index Lookup, Vector Index Lookup, Vector DB Lookup, Content Safety (Text)), you may encounter the error message like below:
 
@@ -26,7 +26,7 @@ To resolve the issue, you have two options:
 
 - **Option 1**
   - Update your runtime to latest version. 
-  - Click on "Raw file mode" to switch to the raw code view, then open the "flow.dag.yaml" file.
+  - Select on "Raw file mode" to switch to the raw code view, then open the "flow.dag.yaml" file.
      ![how-to-switch-to-raw-file-mode](../media/faq/switch-to-raw-file-mode.png)
   - Update the tool names.
      ![how-to-update-tool-name](../media/faq/update-tool-name.png)
@@ -44,15 +44,15 @@ To resolve the issue, you have two options:
   - Remove the old tool and re-create a new tool.
 
 ## Why I can't create or upgrade my flow when I disable public network access of storage account?
-Prompt flow rely on fileshare to store snapshot of flow. Prompt flow didn't support private storage account now. Here are some workarounds you can try:
-- Make the storage account as public access enabled if there is no security concern. 
-- If you are only using UI to authoring promptflow, you can add following flights (flight=PromptFlowCodeFirst=false) to use our old UI.
-- You can use our CLI/SDK to authoring promptflow, CLI/SDK authong didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](../how-to-integrate-with-llm-app-devops.md). 
+Prompt flow relies on fileshare to store snapshot of flow. Prompt flow didn't support private storage account now. Here are some workarounds you can try:
+- Make the storage account as public access enabled if there's no security concern. 
+- If you're only using UI to authoring prompt flow, you can add following flights (flight=PromptFlowCodeFirst=false) to use our old UI.
+- You can use our CLI/SDK to authoring prompt flow, CLI/SDK authong didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](../how-to-integrate-with-llm-app-devops.md). 
 
 
 ## Why I can't upgrade my old flow?
-Prompt flow rely on fileshare to store snapshot of flow. If fileshare have some issue, you may encounter this issue. Here are some workarounds you can try:
-- If you are using private storage account, please see [Why I can't create or upgrade my flow when I disable public network access of storage account?](#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
+Prompt flow relies on fileshare to store snapshot of flow. If fileshare have some issue, you may encounter this issue. Here are some workarounds you can try:
+- If you're using private storage account, please see [Why I can't create or upgrade my flow when I disable public network access of storage account?](#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - If the storage account is enabled public access, please check whether there are datastore named `workspaceworkingdirectory` in your workspace, it should be fileshare type.
 ![workspaceworkingdirectory](../media/faq/workingdirectory.png) 
     - If you didn't get this datastore, you need add it in your workspace.
@@ -73,7 +73,7 @@ Use  `docker images`  to check if the image was pulled successfully. If your ima
 
 ### Run failed due to "No module named XXX"
 
-This type error usually related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+This type error related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
 ### Request timeout issue
 
@@ -105,7 +105,7 @@ Error in the example says "UserError: Invoking runtime gega-ci timeout, error me
 
         :::image type="content" source="./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "./media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
 
-        In this case, you can find that the `PythonScriptNode` was running for a long time (almost 300s), then you can check the node details to see what's the problem.
+        In this case, you can find that the `PythonScriptNode` was running for a long time (almost 300 s), then you can check the node details to see what's the problem.
 
    - Case 2: LLM node running for long time.
 
@@ -117,18 +117,18 @@ Error in the example says "UserError: Invoking runtime gega-ci timeout, error me
 
         You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
 
-        If retrying doesn't work, check whether you're using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If so, it's expected behavior because your prompt may generate a very long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode doesn't have a timeout setting.
+        If retrying doesn't work, check whether you're using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If so, it's expected behavior because your prompt may generate a long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode doesn't have a timeout setting.
 
 3. If you can't find anything in runtime logs to indicate it's a specific node issue
 
-    Contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
+    Contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
 
 ### How to find the compute instance runtime log for further investigation?
 
 Go to the compute instance terminal and run  `docker logs -<runtime_container_name>`
 
-### User doesn't have access to this compute instance. Please check if this compute instance is assigned to you and you have access to the workspace. Additionally, verify that you are on the correct network to access this compute instance.
+### User doesn't have access to this compute instance. Check if this compute instance is assigned to you and you have access to the workspace. Additionally, verify that you are on the correct network to access this compute instance.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of a don't have access error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of don't have access error on the flow page. " lightbox = "./media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
 
-This because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others. 
+It's because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others. 
