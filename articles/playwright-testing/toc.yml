@@ -16,6 +16,12 @@ items:
     - name: Set up continuous end-to-end testing
       displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
       href: quickstart-automate-end-to-end-testing.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Determine optimal test suite configuration
+      displayName: workers, concurrency, parallel, parallelism, parallelize, parallelization
+      href: concept-determine-optimal-configuration.md
 - name: How-to guides
   expanded: true
   items:

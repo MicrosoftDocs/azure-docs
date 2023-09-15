@@ -24,7 +24,7 @@ Generally, increasing the number of parallel workers can reduce the time it take
 
 As previously shown in the chart, the test suite completion time doesn't continue to decrease as you add more worker processes. There are [other factors that influence the test suite duration](#factors-that-influence-completion-time).
 
-### Running tests locally
+### Run tests locally
 
 By default, Playwright limits the number of workers to 1/2 of the number of CPU cores on your machine. You can override the number of workers for running your test.
 
@@ -46,7 +46,7 @@ export default defineConfig({
 });
 ```
 
-### Running tests with the service
+### Run tests with the service
 
 When you use Microsoft Playwright Testing, you can increase the number of workers at cloud-scale to larger numbers. When you use the service, the worker processes continue to run locally, but the resource-intensive browser instances are now running remotely in the cloud.
 

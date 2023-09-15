@@ -34,6 +34,10 @@ landingContent:
             url: quickstart-run-end-to-end-tests.md
           - text: Set up continuous end-to-end testing
             url: quickstart-automate-end-to-end-testing.md
+      - linkListType: concept
+        links:
+          - text: Determine optimal test suite configuration
+            url: concept-determine-optimal-configuration.md
 
   - title: Manage workspaces
     linkLists:
