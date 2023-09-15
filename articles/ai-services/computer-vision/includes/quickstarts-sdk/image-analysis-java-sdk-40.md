@@ -24,7 +24,7 @@ Use the Image Analysis client SDK for Java to analyze an image to read text and 
 ## Prerequisites
 
 * A Windows 10 (or higher) x64, or Linux x64 machine.
-* [Java 8](https://www.java.com/download/) or newer installed. Run `java -version` from a command line to see your version and confirm a successful installation. Make sure that the Java installation is native to the system architecture and not running through emulation.
+* Java Development Kit (JDK) version 8 or above installed, such as [Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk), [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk), [Oracle Java](https://www.java.com/download/), or your preferred JDK. Run `java -version` from a command line to see your version and confirm a successful installation. Make sure that the Java installation is native to the system architecture and not running through emulation.
 * [Apache Maven](https://maven.apache.org/download.cgi) installed. On Linux, install from the distribution repositories if available. Run `mvn -v` to confirm successful installation.
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, select **Go to resource**.
