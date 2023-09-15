@@ -527,5 +527,3 @@ For deploying virtual machines, customers can use [flexible orchestration](../vi
 ## Next steps
 > [!div class="nextstepaction"]
 > [Resiliency in Azure](/azure/reliability/availability-zones-overview)
-
-
