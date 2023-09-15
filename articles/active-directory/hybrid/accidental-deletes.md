@@ -26,7 +26,7 @@ You can change the default behavior and tailor it to your organizations needs.
 To use the new feature, follow the steps below.
 
 
-[!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+[!INCLUDE [sign in](../../../includes/cloud-sync-sign-in.md)]
  4. Under **Configuration**, select your configuration.
  5. Select **View default properties**.
  6. Click the pencil next to **Basics**
