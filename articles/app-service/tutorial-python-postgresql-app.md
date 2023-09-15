@@ -553,7 +553,7 @@ Download the sample repository and change to the sample directory.
 
 ```bash
 git clone https://github.com/cephalin/msdocs-flask-postgresql.git
-cd msdocs-flask-postgresql-sample-app
+cd msdocs-flask-postgresql
 ```
 
 Create an *.env* file as shown below using the *.env.sample* file as a guide. Set the values of `DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
@@ -790,7 +790,7 @@ Azure App Service captures all messages output to the console to help you diagno
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
+:::code language="python" source="~/msdocs-flask-postgresql/app.py" range="37-41" highlight="3":::
 
 ### [Django](#tab/django)
 
