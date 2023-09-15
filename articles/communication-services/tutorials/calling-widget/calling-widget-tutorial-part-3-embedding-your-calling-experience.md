@@ -183,7 +183,7 @@ export const clickToCallInCallContainerStyles = (theme: Theme): IStackStyles => 
 }
 ```
 
-Finally, in the widget we'll need to add a section to the template that is when the widget is in the `'inCall'` state that we added earlier. So now we should have our template looking as follows:
+Finally, in the widget we'll need to add a section to the template that is when the widget is in the `'inCall'` state that we added earlier. So now we should have our template looking as follows, lets also import our new styles:
 ```ts
 import { clickToCallInCallContainerStyles } from '../styles/CallingWidgetComponent.styles';
 ```
