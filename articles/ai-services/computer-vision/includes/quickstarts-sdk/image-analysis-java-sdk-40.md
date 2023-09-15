@@ -37,52 +37,47 @@ Use the Image Analysis client SDK for Java to analyze an image to read text and 
 Open a console window and create a new folder for your quickstart application.
 
 1. Open a text editor and copy the following content to a new file. Save the file as `pom.xml` in your project directory
-
-<!-- [!INCLUDE][](https://raw.githubusercontent.com/Azure-Samples/azure-ai-vision-sdk/main/docs/learn.microsoft.com/java/image-analysis/quick-start/pom.xml)] -->
-
-  ```xml
-  <project xmlns="http://maven.apache.org/POM/4.0.0"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>azure.ai.vision.imageanalysis.samples</groupId>
-    <artifactId>image-analysis-quickstart</artifactId>
-    <version>0.0</version>
-    <dependencies>
-      <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis -->
-      <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-ai-vision-imageanalysis</artifactId>
-        <version>0.15.1-beta.1</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/com.azure/azure-core-http-netty -->
-      <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-core-http-netty</artifactId>
-        <version>1.13.6</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>2.0.7</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>2.0.7</version>
-      </dependency>
-    </dependencies>
-  </project>
-  ```
-
+    <!-- [!INCLUDE][](https://raw.githubusercontent.com/Azure-Samples/azure-ai-vision-sdk/main/docs/learn.microsoft.com/java/image-analysis/quick-start/pom.xml)] -->
+    ```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>azure.ai.vision.imageanalysis.samples</groupId>
+      <artifactId>image-analysis-quickstart</artifactId>
+      <version>0.0</version>
+      <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis -->
+        <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-ai-vision-imageanalysis</artifactId>
+          <version>0.15.1-beta.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.azure/azure-core-http-netty -->
+        <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-core-http-netty</artifactId>
+          <version>1.13.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>2.0.7</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+          <version>2.0.7</version>
+        </dependency>
+      </dependencies>
+    </project>
+    ```
 1. Install the SDK and dependencies by running the following in the project directory:
-
-  ```console
-  mvn clean dependency:copy-dependencies
-  ```
-
+    ```console
+    mvn clean dependency:copy-dependencies
+    ```
 1. Once the operation succeeds, verify that the folders `target\dependency` were creating and they contain `.jar` files.
 
 For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-java).

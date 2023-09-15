@@ -6,6 +6,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 08/01/2023
 ms.author: pafarley
+ms.custom: references_regions
 ---
 
 ## Prerequisites
@@ -78,8 +79,7 @@ Visual features 'Captions' and 'DenseCaptions' are only supported in the followi
 > [!NOTE]
 > The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**. The SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
 
-
-Create a new [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by call the [setFeatures](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setfeatures(java-util-enumset(com-azure-ai-vision-imageanalysis-imageanalysisfeature))) method. [ImageAnalysisFeature](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisfeature) enum defines the supported values.
+Create a new [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by calling the [setFeatures](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setfeatures(java-util-enumset(com-azure-ai-vision-imageanalysis-imageanalysisfeature))) method. [ImageAnalysisFeature](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisfeature) enum defines the supported values.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=visual_features)]
 
