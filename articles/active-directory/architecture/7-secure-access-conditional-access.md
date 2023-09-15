@@ -91,7 +91,7 @@ You can block external users from accessing resources with Conditional Access po
 1. Select **Create** to create to enable your policy.
 
 > [!NOTE]
-> After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
+> After administrators confirm the settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
 Learn more: [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 
@@ -115,7 +115,7 @@ Before you begin, we recommend you create a security group, which contains exter
 1. Select **Create** to create to enable your policy.
 
 > [!NOTE]
-> After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
+> After administrators confirm the settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
 Learn more: [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 
