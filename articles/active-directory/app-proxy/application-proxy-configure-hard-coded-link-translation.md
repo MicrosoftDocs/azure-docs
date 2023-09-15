@@ -130,7 +130,7 @@ If you need to support one of these two scenarios, use the same internal and ext
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Getting started with link translation is as easy as clicking a button:
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. Select the app you want to manage.
 1. Turn **Translate URLs in application body** to **Yes**.
