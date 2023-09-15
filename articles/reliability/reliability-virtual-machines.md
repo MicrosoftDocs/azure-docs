@@ -472,7 +472,7 @@ For migrating existing virtual machine resources to a zone redundant configurati
 - [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
 - [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
 - [Move region maintenance configuration resources](../virtual-machines/move-region-maintenance-configuration-resources.md)
-
+  
 ## Disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
