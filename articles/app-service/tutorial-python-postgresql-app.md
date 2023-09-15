@@ -692,7 +692,7 @@ The azd template generated the connectivity variables for you already as [app se
 ### [Flask](#tab/flask)
 
 1.  In the App Service page, in the left menu, select **Configuration**.
-    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the environment variables page in App Service." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-environment-variables-1.png":::
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the environment variables page in App Service." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
 
 2. In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` is present. Application settings will be injected into the runtime environment as environment variables.
 
@@ -700,7 +700,7 @@ The azd template generated the connectivity variables for you already as [app se
 
 ### [Django](#tab/django)
 1.  In the App Service page, in the left menu, select **Configuration**.
-    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the environment variables page in App Service." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-environment-variables-1.png":::
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the environment variables page in App Service." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
 
 2. In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` and `SECRET_KEY` are present. These variables will be injected into the runtime environment as an environment variable.
 
@@ -748,7 +748,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
     :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-1.png":::
 
-    2. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+2. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
     Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
 
     :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png":::
@@ -757,17 +757,17 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run [Django database migrations](https://docs.djangoproject.com/en/4.1/topics/migrations/) is in an SSH session with the App Service container. 
 
-    1. Back in the App Service page, in the left menu, select **SSH**, then select **Go**.
+1. Back in the App Service page, in the left menu, select **SSH**, then select **Go**.
 
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png":::
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-1.png":::
 
-    2. In the SSH terminal, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
-        Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+2. In the SSH terminal, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations). Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
 
-        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png":::
+    :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png":::
 
 > [!TIP]
 > In an SSH session, for Django you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
+>
 
 -----
 
