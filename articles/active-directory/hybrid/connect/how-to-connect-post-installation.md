@@ -42,7 +42,7 @@ Use the [Microsoft Entra admin center](https://entra.microsoft.com) to check the
 
 ### To verify the scheduled synchronization task
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../articles/active-directory/roles/permissions-reference.md#hybrid-identity-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
 2. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect sync**.
 4. At the top of the page, note the last synchronization.
 
