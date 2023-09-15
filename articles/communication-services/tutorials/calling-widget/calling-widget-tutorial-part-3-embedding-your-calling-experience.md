@@ -20,8 +20,8 @@ ms.subservice: calling
 Finally in this optional section of the tutorial we talk about making an embedded version of the Calling surface. We continue from where we left off in the last section and make some modifications to our existing screens. 
 
 To start, let's take a look at the props for the `CallingWidgetComponent.tsx` props, these properties need to be updated to have the widget hold the Calling surface. We make two changes.
-- Add a new prop for the adapter arguments needed for the `AzureCommunicationCallAdapter` we'll call this `adapterArgs`.
-- Make `onRenderStartCall` optional, this will allow us to come back to using a new window easier in the future.
+- Add a new prop for the adapter arguments needed for the `AzureCommunicationCallAdapter` we call this `adapterArgs`.
+- Make `onRenderStartCall` optional, this change will allow us to come back to using a new window easier in the future.
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -58,7 +58,7 @@ export interface CallingWidgetComponentProps {
 }
 ```
 
-Now, we need to introduce some logic to use these arguments to make sure that we're starting a call appropriately. This will include adding state to create an `AzureCommunicationCallAdapter` inside the widget itself so it will look a lot like the logic in `NewWindowCallScreen.tsx` adding the adapter to the widget will look something like this:
+Now, we need to introduce some logic to use these arguments to make sure that we're starting a call appropriately. This includes adding state to create an `AzureCommunicationCallAdapter` inside the widget itself so it looks a lot like the logic in `NewWindowCallScreen.tsx` adding the adapter to the widget will look something like this:
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -104,7 +104,7 @@ You will also need to update the spread of the props for the component to includ
     const { onRenderStartCall, onRenderLogo, onSetDisplayName, onSetUseVideo, adapterArgs } = props;
 ```
 
-Let's also add a `afterCreate` function like before, to do a few things with our adapter once it's constructed. Since we're now interacting with state in the widget we'll want to use a React `useCallback` just to make sure we're not defining this function every time we do a render pass. In our case, our function will reset the widget to the `'new'` state when the call ends and clear the user's `displayName` so they can start a new session. You can however return it to the `'setup'` state with the old displayName so that the app can easily call again as well.
+Let's also add a `afterCreate` function like before, to do a few things with our adapter once it's constructed. Since we're now interacting with state in the widget, we want to use a React `useCallback` just to make sure we're not defining this function every time we do a render pass. In our case, our function resets the widget to the `'new'` state when the call ends and clear the user's `displayName` so they can start a new session. You can however return it to the `'setup'` state with the old displayName so that the app can easily call again as well.
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -122,7 +122,7 @@ Let's also add a `afterCreate` function like before, to do a few things with our
 
 ```
 
-Once we again have an adapter we'll need to update the template to account for a new widget state, so on that note we'll also need to add to the different modes that the widget itself can hold. We'll add a new `'inCall'` state like so:
+Once we again have an adapter we need to update the template to account for a new widget state, so on that note we also need to add to the different modes that the widget itself can hold. We add a new `'inCall'` state like so:
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -131,7 +131,7 @@ const [widgetState, setWidgetState] = useState<'new' | 'setup' | 'inCall'>('new'
 
 ```
 
-Next, we'll need to add a new logic to our Start Call button in the widget that will check to see which mode it will start the call, new window or embedded. That logic is as follows:
+Next, we'll need to add new logic to our Start Call button so that it checks to see whether the call is to be in a new window or embedded. That logic is as follows:
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -160,7 +160,7 @@ We'll also want to introduce some internal state to the widget about the local u
 const [useLocalVideo, setUseLocalVideo] = useState<boolean>(false);
 ```
 
-Next, lets go back to our style sheet for the widget. We'll need to add new styles to allow the `CallComposite` to grow to its minimum size.
+Next, lets go back to our style sheet for the widget. We need to add new styles to allow the `CallComposite` to grow to its minimum size.
 
 `CallingWidgetComponent.styles.ts`
 ```ts
@@ -183,7 +183,7 @@ export const clickToCallInCallContainerStyles = (theme: Theme): IStackStyles => 
 }
 ```
 
-Finally, in the widget we'll need to add a section to the template that is when the widget is in the `'inCall'` state that we added earlier. So now we should have our template looking as follows, lets also import our new styles:
+Finally, in the widget we need to add a section to the template that is when the widget is in the `'inCall'` state that we added earlier. So now we should have our template looking as follows, lets also import our new styles:
 ```ts
 import { clickToCallInCallContainerStyles } from '../styles/CallingWidgetComponent.styles';
 ```
@@ -276,7 +276,7 @@ return (
     </Stack>
 );
 ```
-Now that we have updated our widget to be more versatile, we'll want to take another look at the `CallingWidgetScreen.tsx` to make some adjustments to how we're calling the widget. We'll turn on the new embedded experience do two things:
+Now that we have updated our widget to be more versatile, we'll want to take another look at the `CallingWidgetScreen.tsx` to make some adjustments to how we're calling the widget. We turn on the new embedded experience do two things:
 - Remove the start call handler that we provided earlier
 - provide the adapter arguments to the widget that we would normally be emitting through our post messages.
 
@@ -303,7 +303,7 @@ That looks like this:
     </Stack>
 
 ```
-Now that we have made these changes we can start our app again if it's shut down with `npm run start`. If we go through the start call process like we did before we should see the following when starting the call:
+Now that we have made these changes we can start our app again if it's shut down with `npm run start`. If we go through the start call process like we did before, we should see the following screen when starting the call:
 
 ![Screenshot of click to call sample app home page with calling experience embedded in widget](../media/calling-widget/calling-widget-embedded-start.png)
 
