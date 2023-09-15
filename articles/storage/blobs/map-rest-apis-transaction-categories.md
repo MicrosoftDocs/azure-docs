@@ -40,9 +40,9 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Get Container ACL](/rest/api/storageservices/get-container-acl)                          | Other                     | Other                       | Read                        |
 | [Set Container ACL](/rest/api/storageservices/set-container-acl)                          | Other                     | Other                       | Write                       |
 | [Delete Container](/rest/api/storageservices/delete-container)                            | Free                      | Free                        | Free                        |
-| [Lease Container](/rest/api/storageservices/lease-container) (acquire, release, renew)      | Other                     | Other                       | Read                        |
+| [Lease Container](/rest/api/storageservices/lease-container) (acquire, release, renew)    | Other                     | Other                       | Read                        |
 | [Lease Container](/rest/api/storageservices/lease-container) (break, change)              | Other                     | Other                       | Write                       |
-| [Restore Container](/rest/api/storageservices/restore-container)                          |List and create container                    | List and create container                       | List and create container                       |
+| [Restore Container](/rest/api/storageservices/restore-container)                          | List and create container | List and create container   | List and create container   |
 | [List Blobs](/rest/api/storageservices/list-blobs)                                        | List and create container | List and create container   | List and create container   |
 | [Find Blobs by Tags in Container](/rest/api/storageservices/find-blobs-by-tags-container) | List and create container | List and create container   | List and create container   |
 | [Put Blob](/rest/api/storageservices/put-blob)                                            | Write                     | Write                       | Write                       |
@@ -73,13 +73,12 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Put Block from URL](/rest/api/storageservices/put-block-from-url)                        | Write                     | Write                       | Write                       |
 | [Put Block List](/rest/api/storageservices/put-block-list)                                | Write                     | Write                       | Write                       |
 | [Get Block List](/rest/api/storageservices/get-block-list)                                | Other                     | Other                       | Read                        |
-| [Query Blob Contents](/rest/api/storageservices/query-blob-contents)                      | Read<sup>2</sup>                       | Read<sup>2</sup>                         | N/A                         |
-Read                        |
+| [Query Blob Contents](/rest/api/storageservices/query-blob-contents)                      | Read<sup>2</sup>          | Read<sup>2</sup>            | N/A                         |
 | [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)                  | Other                     | Other                       | Write                       |
 | [Append Block](/rest/api/storageservices/append-block)                                    | Write                     | Write                       | Write                       |
 | [Append Block from URL](/rest/api/storageservices/append-block-from-url)                  | Write                     | Write                       | Write                       |
 | [Append Blob Seal](/rest/api/storageservices/append-blob-seal)                            | Write                     | Write                       | Write                       |
-| [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       |
+| [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       | Write                       |
 
 <sup>2</sup>    In addition to a read charge, charges for incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
