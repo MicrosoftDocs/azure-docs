@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 09/11/2023
+ms.date: 09/15/2023
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -160,7 +160,7 @@ git clone https://github.com/Azure-Samples/active-directory-verifiable-credentia
 
 Create a client secret for the registered application that you created. The sample application uses the client secret to prove its identity when it requests tokens.
 
-1. 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Select Microsoft Entra ID (Azure AD).
 1. Go to **Applications** > **App registrations** page.
 

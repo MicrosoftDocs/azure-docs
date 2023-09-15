@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 09/11/2023
+ms.date: 09/15/2023
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -55,7 +55,7 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your administrative account.
 1. Go to the key vault you use for this tutorial.
-1. 1. Under **Settings**, select **Access policies**.
+1. Under **Settings**, select **Access policies**.
 
 1. In **Add access policies**, under **USER**, select the account you use to follow this tutorial.
 
@@ -71,7 +71,7 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 To set up Verified ID, follow these steps:
 
-1. 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
 1. Select **Verifiable Credentials**.
 
