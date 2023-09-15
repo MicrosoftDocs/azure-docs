@@ -30,6 +30,8 @@ items:
     - name: Manage workspace access
       displayName: RBAC, permissions, access, role-based access control, users, roles, security, authorization, authentication, grant, revoke
       href: how-to-manage-workspace-access.md
+    - name: Monitor Microsoft Playwright Testing
+      href: monitor-playwright-testing.md
 - name: Resources
   items: 
     - name: Azure roadmap
@@ -40,3 +42,7 @@ items:
       href: https://azure.microsoft.com/pricing/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+- name: Reference
+  items: 
+    - name: Monitoring data reference
+      href: monitor-playwright-testing-reference.md
