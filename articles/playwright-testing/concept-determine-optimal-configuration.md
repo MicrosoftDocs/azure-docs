@@ -48,7 +48,7 @@ export default defineConfig({
 
 ### Running tests with the service
 
-When you use Microsoft Playwright Testing, you can increase the number of workers at cloud-scale to much bigger numbers. When you use the service, the worker processes continue to run locally, but the resource-intensive browser instances are now running remotely in the cloud.
+When you use Microsoft Playwright Testing, you can increase the number of workers at cloud-scale to larger numbers. When you use the service, the worker processes continue to run locally, but the resource-intensive browser instances are now running remotely in the cloud.
 
 Because the worker processes still run on the client machine (developer workstation or CI agent machine), the client machine might still become a bottleneck for scalable execution as you add more workers. Learn how you can [determine the optimal configuration](#workflow-for-determining-your-optimal-configuration).
 
@@ -84,7 +84,7 @@ Learn more about the [workflow for determining the optimal configuration](#workf
 
 ## Workflow for determining your optimal configuration
 
-The optimal configuration for minimizing the test suite completion time is specific to your application and environment. To determine your optimal configuration, experiment with different levels of parallelization, client machine configuration, and test suite setup.
+The optimal configuration for minimizing the test suite completion time is specific to your application and environment. To determine your optimal configuration, experiment with different levels of parallelization, client machine hardware configuration, or test suite setup.
 
 The following approach can help you find the optimal configuration for running your tests with Microsoft Playwright Testing:
 
@@ -125,7 +125,7 @@ As you increase parallelism, the client machine might experience compute resourc
 
 Rerun your tests and experiment with the number of parallel workers.
 
-### 7. Update your Playwright test configuration setttings
+### 7. Update your Playwright test configuration settings
 
 Configure your Playwright test configuration settings, such as test [timeouts](https://playwright.dev/docs/test-timeouts), [trace](https://playwright.dev/docs/api/class-testoptions#test-options-trace) settings, or [reties](https://playwright.dev/docs/test-retries).
 
