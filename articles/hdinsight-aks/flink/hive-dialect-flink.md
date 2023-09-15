@@ -8,7 +8,7 @@ ms.date: 09/15/2023
 
 # Problem Statement
 
-In the current AKS on Flink, the user cannot change the default flink dialect to hive dialect for their usage. All the SQL operations fail once changed to hive dialect with the following error.
+In the current AKS on Flink, the user cannot change the default `flink` dialect to hive dialect for their usage. All the SQL operations fail once changed to hive dialect with the following error.
 
 ```sql
 Caused by: java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class java.net.URLClassLoader
@@ -17,7 +17,7 @@ Caused by: java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$
 
 Reason: [https://issues.apache.org/jira/browse/HIVE-21584](https://issues.apache.org/jira/browse/HIVE-21584) [Java 11 preparation: system class loader is not URLClassLoader]
 
-Currently, Hive assumes that the system class loader is an instance of `URLClassLoader`. In `Java 11`, this is not the case.
+Currently, Hive assumes that the system class loader is an instance of `URLClassLoader`. In `Java 11`, this assumption is not the case.
 
 This fix has to be backported to `hive 3.1.2`.
 
@@ -40,7 +40,7 @@ This fix has to be backported to `hive 3.1.2`.
      mv $FLINK_HOME/lib/flink-table-planner-loader-1.16.0-0.0.18.jar $FLINK_HOME/opt/flink-table-planner-loader-1.16.0-0.0.18.jar
      ```
 
-- Add the following in the flink configuration management under core-site.xml section:
+- Add the following keys in the `flink` configuration management under core-site.xml section:
 ```
 fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
 flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
@@ -85,7 +85,7 @@ flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
 > Please consider reporting this to the maintainers of org.apache.hadoop.hive.common.StringInternUtils
 
 > [!WARNING]
-> Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+> `Use --illegal-access=warn` to enable warnings of further illegal reflective access operations
 
 > [!WARNING]
 > All illegal access operations will be denied in a future release
