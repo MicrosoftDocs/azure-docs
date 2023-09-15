@@ -53,7 +53,7 @@ The following table lists each setting that can be set to Microsoft managed and 
 
 | Setting                                                                                         | Configuration |
 |-------------------------------------------------------------------------------------------------|---------------|
-| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Beginning in Sept, 2023, enabled for text message and voice call users. |
+| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | From Sept 25 to Oct 20, 2023, the registration campaign will be enabled for text message and voice call users across all tenants. |
 | [Location in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)           | Disabled      |
 | [Application name in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)   | Disabled      |
 | [System-preferred MFA](concept-system-preferred-multifactor-authentication.md)                  | Enabled       |

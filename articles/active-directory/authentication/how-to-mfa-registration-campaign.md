@@ -78,7 +78,7 @@ To enable a registration campaign in the Microsoft Entra admin center, complete 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 1. Browse to **Protection** > **Authentication methods** > **Registration campaign**.
-1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. For the registration campaign, the Microsoft managed value is Enabled for voice call and text message users. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
+1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. From Sept 25 to Oct 20, 2023 the Microsoft managed value for the registration campaing will be **Enabled** for voice call and text message users across all tenants. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
    
    ![Screenshot of enabling a registration campaign.](./media/how-to-nudge-authenticator-app/registration-campaign.png)
 
