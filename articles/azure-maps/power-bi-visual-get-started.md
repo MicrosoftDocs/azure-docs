@@ -68,11 +68,6 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored bubbles on the map after legend field is provided." lightbox="media/power-bi-visual/bubble-layer-with-legend-color.png":::
 
-<!---------------------------------------------------------------
-    > [!NOTE]
-    > The built-in legend control for Power BI does not currently appear in this preview.
---------------------------------------------------------------->
-
 1. To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we're using **Avg Weekly Sales** column.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored and scaled bubbles on the map that demonstrate the size field." lightbox="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png":::
@@ -210,7 +205,6 @@ Customize the visual:
 [road shaded relief]: supported-map-styles.md#road_shaded_relief
 [satellite]: supported-map-styles.md#satellite
 [satellite road labels]: supported-map-styles.md#satellite_road_labels
-
 
 [Manage the Azure Maps Power BI visual within your organization]: power-bi-visual-manage-access.md
 [Microsoft Azure Legal Information]: https://azure.microsoft.com/support/legal/
