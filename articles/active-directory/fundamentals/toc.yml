@@ -25,6 +25,8 @@ items:
     href: properties-area.md
   - name: Add company branding
     href: how-to-customize-branding.md
+  - name: Rename Azure AD
+    href: how-to-rename-azure-ad.md
 - name: Users, groups, and licenses
   expanded: false
   items:
