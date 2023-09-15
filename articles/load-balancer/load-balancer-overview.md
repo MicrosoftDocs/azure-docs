@@ -5,12 +5,12 @@ description: Overview of Azure Load Balancer features, architecture, and impleme
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
+# Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.topic: overview
 ms.workload: infrastructure-services
-ms.date: 11/30/2022
+ms.date: 09/15/2023
 ms.author: mbender
 ms.custom: template-overview, engagement-fy23
-# Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ---
 
 # What is Azure Load Balancer?
