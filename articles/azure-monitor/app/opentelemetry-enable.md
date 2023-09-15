@@ -216,7 +216,7 @@ useAzureMonitor();
 # `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 
-# Import the `get_tracer()` function from the `opentelemetry` package.
+# Import the tracing api from the `opentelemetry` package.
 from opentelemetry import trace
 
 # Configure OpenTelemetry to use Azure Monitor with the specified connection
