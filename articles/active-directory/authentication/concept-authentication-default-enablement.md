@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/16/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: mjsantani
@@ -27,7 +27,7 @@ For example, in response to increasing MFA fatigue attacks, Microsoft recommende
 
 There are two ways for protection of a security feature to be enabled by default: 
 
-- After a security feature is released, customers can use the Azure portal or Graph API to test and roll out the change on their own schedule. To help defend against new attack vectors, Azure AD may enable protection of a security feature by default for all tenants on a certain date, and there won't be an option to disable protection. Microsoft schedules default protection far in advance to give customers time to prepare for the change. Customers can't opt out if Microsoft schedules protection by default. 
+- After a security feature is released, customers can use the Microsoft Entra admin center or Graph API to test and roll out the change on their own schedule. To help defend against new attack vectors, Azure AD may enable protection of a security feature by default for all tenants on a certain date, and there won't be an option to disable protection. Microsoft schedules default protection far in advance to give customers time to prepare for the change. Customers can't opt out if Microsoft schedules protection by default. 
 - Protection can be **Microsoft managed**, which means Azure AD can enable or disable protection based upon the current landscape of security threats. Customers can choose whether to allow Microsoft to manage the protection. They can change from **Microsoft managed** to explicitly make the protection **Enabled** or **Disabled** at any time. 
 
 >[!NOTE]

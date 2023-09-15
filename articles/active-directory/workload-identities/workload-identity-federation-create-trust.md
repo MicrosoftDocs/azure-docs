@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/19/2023
+ms.date: 09/15/2023
 ms.author: ryanwi
 ms.custom: aaddev, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: shkhalid, udayh, vakarand
@@ -38,7 +38,7 @@ To learn more about supported regions, time to propagate federated credential up
 ## Prerequisites
 [Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.
 
-Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
+Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the [Microsoft Entra admin center](https://entra.microsoft.com).  Go to the list of app registrations and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
 Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
@@ -48,7 +48,7 @@ Get the *subject* and *issuer* information for your external IdP and software wo
 
 To add a federated identity for GitHub actions, follow these steps:
 
-1. Find your app registration in the [App Registrations](https://aka.ms/appregistrations) experience of the Azure portal.  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
+1. Find your app registration in the app registrations experience of the [Microsoft Entra admin center](https://entra.microsoft.com).  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
 
 1. In the **Federated credential scenario** drop-down box, select **GitHub actions deploying Azure resources**.
 
@@ -74,7 +74,7 @@ Use the following values from your Azure AD application registration for your Gi
 
     ![Screenshot that demonstrates how to copy the application ID and tenant ID from Microsoft Entra admin center.](./media/workload-identity-federation-create-trust/copy-client-id.png)
 
-- `AZURE_SUBSCRIPTION_ID` your subscription ID. To get the subscription ID, open **Subscriptions** in Azure portal and find your subscription. Then, copy the **Subscription ID**.
+- `AZURE_SUBSCRIPTION_ID` your subscription ID. To get the subscription ID, open **Subscriptions** in [Azure portal](https://portal.azure.com) and find your subscription. Then, copy the **Subscription ID**.
 
 #### Entity type examples
 
@@ -139,7 +139,7 @@ For a workflow triggered by a pull request event, specify an **Entity type** of 
 
 ### Kubernetes
 
-Find your app registration in the [App Registrations](https://aka.ms/appregistrations) experience of the Azure portal.  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
+Find your app registration in the app registrations experience of the [Microsoft Entra admin center](https://entra.microsoft.com).  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
 
 Select the **Kubernetes accessing Azure resources** scenario from the dropdown menu.
 
@@ -152,7 +152,7 @@ Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and
 
 ### Other identity providers
 
-Find your app registration in the [App Registrations](https://aka.ms/appregistrations) experience of the Azure portal.  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
+Find your app registration in the app registrations experience of the [Microsoft Entra admin center](https://entra.microsoft.com).  Select **Certificates & secrets** in the left nav pane, select the **Federated credentials** tab, and select **Add credential**.
 
 Select the **Other issuer** scenario from the dropdown menu.
 
@@ -164,11 +164,11 @@ Specify the following fields (using a software workload running in Google Cloud 
 
 ## List federated identity credentials on an app
 
-Find your app registration in the [App Registrations](https://aka.ms/appregistrations) experience of the Azure portal.  Select **Certificates & secrets** in the left nav pane and select the **Federated credentials** tab.  The federated credentials that are configured on your app are listed.
+Find your app registration in the app registrations experience of the [Microsoft Entra admin center](https://entra.microsoft.com).  Select **Certificates & secrets** in the left nav pane and select the **Federated credentials** tab.  The federated credentials that are configured on your app are listed.
 
 ## Delete a federated identity credential from an app
 
-Find your app registration in the [App Registrations](https://aka.ms/appregistrations) experience of the Azure portal.  Select **Certificates & secrets** in the left nav pane and select the **Federated credentials** tab.  The federated credentials that are configured on your app are listed.
+Find your app registration in the app registrations experience of the [Microsoft Entra admin center](https://entra.microsoft.com).  Select **Certificates & secrets** in the left nav pane and select the **Federated credentials** tab.  The federated credentials that are configured on your app are listed.
 
 To delete a federated identity credential, select the **Delete** icon for the credential.
 
@@ -183,7 +183,7 @@ To delete a federated identity credential, select the **Delete** icon for the cr
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - [Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.
-- Find the object ID, app (client) ID, or identifier URI of the app, which you need in the following steps.  You can find these values in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, get the **Object ID**, **Application (client) ID**, or **Application ID URI** value, which you need in the following steps.
+- Find the object ID, app (client) ID, or identifier URI of the app, which you need in the following steps.  You can find these values in the [Microsoft Entra admin center](https://entra.microsoft.com).  Go to the list of registered applications and select your app registration.  In **Overview**->**Essentials**, get the **Object ID**, **Application (client) ID**, or **Application ID URI** value, which you need in the following steps.
 - Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
 ## Configure a federated identity credential on an app
@@ -313,7 +313,7 @@ az ad app federated-credential delete --id f6475511-fd81-4965-a00e-41e7792b7b9c 
   - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
   - Run scripts locally with Azure PowerShell, as described in the next section.
 - [Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.
-- Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
+- Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the [Microsoft Entra admin center](https://entra.microsoft.com).  Go to the list of registered applications and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 - Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
 ### Configure Azure PowerShell locally
@@ -418,7 +418,7 @@ Remove-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -FederatedCr
 ## Prerequisites
 [Create an app registration](/azure/active-directory/develop/quickstart-register-app) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.
 
-Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
+Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the [Microsoft Entra admin center](https://entra.microsoft.com).  Go to the list of registered applications and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
 Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 

@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions
 | Version | Support level | Description |
 | --- | --- | --- |
 | 4.x | GA | **_Recommended runtime version for functions in all languages._** Check out [Supported language versions](#languages). |
-| 1.x | GA | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. We highly recommend you migrate your apps to version 4.x, which [supports .NET Framework 4.8](migrate-version-1-version-4.md?tabs=v4&pivots=programming-language-csharp).|
+| 1.x | GA ([support ends September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1)) | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. **Support will end for version 1.x on September 14, 2026.** We highly recommend you [migrate your apps to version 4.x](migrate-version-1-version-4.md?pivots=programming-language-csharp), which supports .NET Framework 4.8, .NET 6, .NET 7, and a preview of .NET 8.|
 
 > [!IMPORTANT]
 > As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of life (EOL) of extended support. For more information, see [Retired versions](#retired-versions).
@@ -105,6 +105,8 @@ To learn more about extension bundles, see [Extension bundles](functions-binding
 
 ## Retired versions
 
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
 These versions of the Functions runtime reached the end of life (EOL) for extended support on December 13, 2022. 
 
 | Version | Current support level | Previous support level |
@@ -116,7 +118,7 @@ As soon as possible, you should migrate your apps to version 4.x to obtain full 
 
 Apps using versions 2.x and 3.x can still be created and deployed from your CI/CD DevOps pipeline, and all existing apps continue to run without breaking changes. However, your apps aren't eligible for new features, security patches, and performance optimizations. You can only get related service support after you upgrade your apps to version 4.x.
 
-End of support for these older runtime versions is due to the end of support for .NET Core 3.1, which they had as a core dependency. This requirement affects all [languages supported by Azure Functions](supported-languages.md). 
+End of support for versions 2.x and 3.x is due to the end of support for .NET Core 3.1, which they had as a core dependency. This requirement affects all [languages supported by Azure Functions](supported-languages.md).
 
 ## Locally developed application versions
 

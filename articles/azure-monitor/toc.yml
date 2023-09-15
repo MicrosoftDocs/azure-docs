@@ -400,8 +400,6 @@ items:
       items:
       - name: Create an Azure support ticket
         href: https://azure.microsoft.com/support/create-ticket
-      - name: Application Insights FAQ
-        href: /azure/azure-monitor/faq#application-insights
       - name: Q&A forum (general questions)
         href: /answers/topics/24223/azure-monitor
       - name: Stack Overflow (coding questions)
