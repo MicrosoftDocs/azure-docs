@@ -15,22 +15,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-This section isn't required to prepare the jar package for deployment, the `Deploy to azure` button process downloads the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
-If you want to run the app locally, following the steps below:
-
-1. Use the following command to clone the sample project from GitHub:
-
-   ```bash
-   git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
-   ```
-
-1. Use the following command to change to the sample root path and execute the shell script to run the sample project locally:
-
-   ```bash
-   bash ./scripts/run_all_without_infra.sh
-   ```
-
-1. After the script executes successfully, go to `http://localhost:8080` in your browser to access the PetClinic app.
+This section isn't required to prepare the jar package for deployment, the Deploy to azure button process downloads the jar from [GitHub release](https://github.com/Azure-Samples/spring-petclinic-microservices/releases).
 
 ## 3. Prepare the cloud environment
 
