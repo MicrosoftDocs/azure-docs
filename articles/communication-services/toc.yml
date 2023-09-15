@@ -208,6 +208,8 @@ items:
         href: quickstarts/sms/apply-for-toll-free-verification.md
       - name: Enable alphanumeric sender ID
         href: quickstarts/sms/enable-alphanumeric-sender-id.md
+      - name: Look up a recipient phone number
+        href: quickstarts/telephony/number-lookup.md
     - name: Events
       items:
       - name: View SMS events
