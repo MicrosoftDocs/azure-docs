@@ -35,6 +35,7 @@ az aosm nsd generate-config
             "name": "The name of the existing Network Function Definition Group to deploy using this NSD",
             "version": "The version of the existing Network Function Definition to base this NSD on.  This NSD will be able to deploy any NFDV with deployment parameters compatible with this version.",
             "publisher_offering_location": "The region that the NFDV is published to.",
+            "publisher_scope": "The scope that the publisher is published under. Currently, only 'private' is supported.",    
             "type": "Type of Network Function. Valid values are 'cnf' or 'vnf'",
             "multiple_instances": "Set to true or false.  Whether the NSD should allow arbitrary numbers of this type of NF.  If set to false only a single instance will be allowed.  Only supported on VNFs, must be set to false on CNFs."
         }
@@ -59,6 +60,7 @@ Here's a sample:
             "name": "nginx-nfdg",
             "version": "1.0.0",
             "publisher_offering_location": "uksouth",
+            "publisher_scope": "private",
             "type": "cnf",
             "multiple_instances": false
         }
