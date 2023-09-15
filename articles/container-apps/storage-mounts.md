@@ -17,20 +17,20 @@ A container app has access to different types of storage. A single app can take 
 
 | Storage type | Description | Usage examples |
 |--|--|--|
-| [Container-scoped storage](#container-file-system) | Ephemeral storage scoped to the local container | Writing a local app cache.  |
-| [Replica-scoped storage](#temporary-storage) | Ephemeral storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
+| [Container-scoped storage](#container-scoped-storage) | Ephemeral storage scoped to the local container | Writing a local app cache.  |
+| [Replica-scoped storage](#replica-scoped-storage) | Ephemeral storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
 | [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
 
 ## Ephemeral storage
 
 A container app can read and write temporary data to ephemeral storage. Ephermal storage can be scoped to a container or a replica. The total amount of container-scoped and replica-scoped storage available to each replica depends on the total amount of vCPUs allocated to the replica.
 
-    | vCPUs | Ephemeral storage |
-    |--|--|
-    | 0.25 or lower | 1 GiB |
-    | 0.5 or lower | 2 GiB |
-    | 1 or lower | 4 GiB |
-    | Over 1 | 8 GiB |
+| vCPUs | Ephemeral storage |
+|--|--|
+| 0.25 or lower | 1 GiB |
+| 0.5 or lower | 2 GiB |
+| 1 or lower | 4 GiB |
+| Over 1 | 8 GiB |
 
 ### Container-scoped storage
 
@@ -41,7 +41,7 @@ Container file system storage has the following characteristics:
 * The storage is temporary and disappears when the container is shut down or restarted.
 * Files written to this storage are only visible to processes running in the current container.
 
-### <a name="temporary-storage"></a>Replica-scoped storage
+### Replica-scoped storage
 
 You can mount an ephemeral, temporary volume that is equivalent to [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) (empty directory) in Kubernetes. This storage is scoped to a single replica. Use an `emptyDir` volume to share data between containers in the same replica.
 
