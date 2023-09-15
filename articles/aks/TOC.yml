@@ -501,24 +501,26 @@
           items:
             - name: Create a controller in AKS using Terraform
               href: create-k8s-cluster-with-aks-application-gateway-ingress.md
-            - name: Use ingress-nginx
-              items:
-                - name: Create an ingress controller
-                  href: ingress-basic.md
-                - name: Use TLS with an ingress controller
-                  href: ingress-tls.md
             - name: Use application routing add-on 
               items:
                 - name: Application routing add-on overview
                   href: app-routing.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
+                - name: Migrate from HTTP application routing to the application routing add-on
+                  href: app-routing-migration.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Use Istio gateway with Istio Service Mesh add-on
               href: istio-deploy-ingress.md
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
+            - name: Use unmanaged ingress-nginx
+              items:
+                - name: Create an ingress controller
+                  href: ingress-basic.md
+                - name: Use TLS with an ingress controller
+                  href: ingress-tls.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer

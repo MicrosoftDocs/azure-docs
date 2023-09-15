@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/22/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -49,7 +49,7 @@ Take a look at our video for an overview of the MFA Server Migration Utility and
 ||[Configure MFA Server Migration Utility](#configure-the-mfa-server-migration-utility) |
 |Migrations |[Migrate user data](#migrate-user-data)|
 ||[Validate and test](#validate-and-test)|
-||[Staged Rollout](#enable-staged-rollout-using-azure-portal) |
+||[Staged Rollout](#enable-staged-rollout) |
 ||[Educate users](#educate-users)|
 ||[Complete user migration](#complete-user-migration)|
 |Finalize |[Migrate MFA Server dependencies](#migrate-mfa-server-dependencies)|
@@ -180,7 +180,7 @@ You'll also need access to the following URLs:
 - `https://graph.microsoft.com/*` (or `https://graph.microsoft.us/*` for government cloud customers)
 - `https://login.microsoftonline.com/*` (or `https://login.microsoftonline.us/*` for government cloud customers)
 
-The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Azure portal, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
+The script will instruct you to grant admin consent to the newly created application. Navigate to the URL provided, or within the Microsoft Entra admin center, click **Application Registrations**, find and select the **MFA Server Migration Utility** app, click on **API permissions** and then granting the appropriate permissions.
 
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/permissions.png" alt-text="Screenshot of permissions.":::
 
@@ -342,9 +342,9 @@ AuditLogs
 
 ### Validate and test
 
-Once you've successfully migrated user data, you can validate the end-user experience using Staged Rollout before making the global tenant change. The following process will allow you to target specific Azure AD group(s) for Staged Rollout for MFA. Staged Rollout tells Azure AD to perform MFA by using Azure AD MFA for users in the targeted groups, rather than sending them on-premises to perform MFA. You can validate and test—we recommend using the Azure portal, but if you prefer, you can also use Microsoft Graph.
+Once you've successfully migrated user data, you can validate the end-user experience using Staged Rollout before making the global tenant change. The following process will allow you to target specific Azure AD group(s) for Staged Rollout for MFA. Staged Rollout tells Azure AD to perform MFA by using Azure AD MFA for users in the targeted groups, rather than sending them on-premises to perform MFA. You can validate and test—we recommend using the Microsoft Entra admin center, but if you prefer, you can also use Microsoft Graph.
 
-#### Enable Staged Rollout using Azure portal
+#### Enable Staged Rollout
 
 1. Navigate to the following url: [Enable staged rollout features - Microsoft Azure](https://portal.azure.com/?mfaUIEnabled=true%2F#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2).
 

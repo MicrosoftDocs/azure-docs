@@ -148,7 +148,7 @@ Precedence can be defined between Connectors. That allows Connectors with better
 ### Multiple objects from the same connector space
 It is not possible to have several objects in the same connector space joined to the same metaverse object. This configuration is reported as ambiguous even if the attributes in the source have the same value.
 
-![Diagram that shows multiple objects joined to the same mv object with a transparent red X overlay. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png) 
+![Diagram that shows multiple objects joined to the same mv object with a transparent red X overlay.](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png) 
 
 ## Next steps
 * Read more about the expression language in [Understanding Declarative Provisioning Expressions](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
