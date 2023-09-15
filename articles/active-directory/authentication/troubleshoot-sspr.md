@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -23,11 +23,11 @@ If you have problems with SSPR, the following troubleshooting steps and common e
 
 If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
 
-## SSPR configuration in the Azure portal
+## SSPR configuration in the Microsoft Entra admin center
 
-If you have problems seeing or configuring SSPR options in the Azure portal, review the following troubleshooting steps:
+If you have problems seeing or configuring SSPR options in the Microsoft Entra admin center, review the following troubleshooting steps:
 
-### I don't see the **Password reset** section under Azure AD in the Azure portal.
+### I don't see the **Password reset** section under Azure AD in the Microsoft Entra admin center.
 
 You won't see if **Password reset** menu option if you don't have an Azure AD license assigned to the administrator performing the operation.
 
@@ -45,7 +45,7 @@ For more information, see [Getting started with Azure AD Connect](../hybrid/conn
 
 ## SSPR reporting
 
-If you have problems with SSPR reporting in the Azure portal, review the following troubleshooting steps:
+If you have problems with SSPR reporting in the Microsoft Entra admin center, review the following troubleshooting steps:
 
 ### I see an authentication method that I have disabled in the Add method option in combined registration.
 
@@ -75,13 +75,13 @@ If your users have problems registering for SSPR, review the following troublesh
 
 ### The directory isn't enabled for password reset. The user may see an error that reports, "Your administrator has not enabled you to use this feature."
 
-You can enable SSPR for all users, no users, or for selected groups of users. Only one Azure AD group can currently be enabled for SSPR using the Azure portal. As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned.
+You can enable SSPR for all users, no users, or for selected groups of users. Only one Azure AD group can currently be enabled for SSPR using the Microsoft Entra admin center. As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned.
 
-In the Azure portal, change the **Self-service password reset enabled** configuration to *Selected* or *All* and then select **Save**.
+In the Microsoft Entra admin center, change the **Self-service password reset enabled** configuration to *Selected* or *All* and then select **Save**.
 
 ### The user doesn't have an Azure AD license assigned. The user may see an error that reports, "Your administrator has not enabled you to use this feature."
 
-Only one Azure AD group can currently be enabled for SSPR using the Azure portal. As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. Review the previous troubleshooting step to enable SSPR as required.
+Only one Azure AD group can currently be enabled for SSPR using the Microsoft Entra admin center. As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. Review the previous troubleshooting step to enable SSPR as required.
 
 Also review troubleshooting steps to make sure that the administrator performing the configuration options has a license assigned. To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
@@ -95,7 +95,7 @@ If you or your users have problems using SSPR, review the following troubleshoot
 
 | Error | Solution |
 | --- | --- |
-| The directory isn't enabled for password reset. | In the Azure portal, change the **Self-service password reset enabled** configuration to *Selected* or *All* and then select **Save**. |
+| The directory isn't enabled for password reset. | In the Microsoft Entra admin center, change the **Self-service password reset enabled** configuration to *Selected* or *All* and then select **Save**. |
 | The user doesn't have an Azure AD license assigned. | This can happen if you don't have an Azure AD license assigned to the desired user. To assign a license to the administrator account in question, follow the steps to [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | The directory is enabled for password reset, but the user has missing or malformed authentication information. | Make sure that user has properly formed contact data on file in the directory. For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md). |
 | The directory is enabled for password reset, but the user has only one piece of contact data on file when the policy is set to require two verification methods. | Make sure that the user has at least two properly configured contact methods. An example is having both a mobile phone number *and* an office phone number. |
