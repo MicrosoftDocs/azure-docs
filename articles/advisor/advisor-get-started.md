@@ -8,7 +8,7 @@ ms.date: 02/01/2019
 
 # Get started with Azure Advisor
 
-Learn how to access Advisor through the Azure portal, configure Advisor settings, and get and print out recommendations. <!--- removed "implement recommendations" as that is tricky and cannot be covered here --->
+Learn how to access Advisor through the Azure portal, configure Advisor settings, and get and print out recommendations.
 
 > [!NOTE]
 > Azure Advisor automatically runs in the background to find newly created resources. It can take up to 24 hours to provide recommendations on those resources.
