@@ -966,7 +966,7 @@ The 67 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Ce
 - `SQLG7_AMD_IaaS`
 - `SQLG7_AMD_NVME`
 
-Instance size flexibility is available for these VMs. For more information about Instance Size Flexibility, see [Virtual machine size flexibility](../../virtual-machines/reserved-vm-instance-size-flexibility.md)
+Instance size flexibility is available for these VMs. For more information about Instance Size Flexibility, see [Virtual machine size flexibility](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 **Discount limitations**
 
