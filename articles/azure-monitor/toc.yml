@@ -19,9 +19,9 @@ items:
     href: best-practices-plan.md
   - name: Configure data collection
     href: best-practices-data-collection.md
-  - name: Analysis and visualizations
+  - name: Understand analysis and visualization tools
     href: best-practices-analysis.md
-  - name: Configure alerts and automated actions
+  - name: Plan alerts and automated actions
     href: alerts/alerts-plan.md
   - name: Optimize costs
     href: best-practices-cost.md
@@ -1308,6 +1308,8 @@ items:
       href: alerts/alerts-overview.md
     - name: Alert types
       href: alerts/alerts-types.md
+    - name: Best practices
+      href: best-practices-alerts.md
     - name: Alert rules
       items:
         - name: Create or edit an alert rule

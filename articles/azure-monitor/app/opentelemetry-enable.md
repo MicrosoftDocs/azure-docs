@@ -128,7 +128,7 @@ npm install @opentelemetry/sdk-trace-base
 Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-monitor-opentelemetry/) PyPI package:
 
 ```sh
-pip install azure-monitor-opentelemetry --pre
+pip install azure-monitor-opentelemetry
 ```
 
 ---

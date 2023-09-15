@@ -43,6 +43,9 @@ For more information about subscription roles, see [Azure roles](../../role-base
 
 After you create your directory, you can add your custom domain name.
 
+> [!IMPORTANT]
+> When updating domain information, you may be unable to complete the process and encounter a   HTTP 500 Internal Server Error message. Under some conditions, this error may be expected. This message may appear if you try to use a protected DNS suffix. Protected DNS suffixes may only be used by Microsoft. If you believe that this operation should have been completed successfully, please contact your Microsoft representative for assistance. 
+
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Domain Name Administrator](../roles/permissions-reference.md#domain-name-administrator).
 
 1. Browse to **Identity** > **Settings** > **Domain names** > **Add custom domain**.

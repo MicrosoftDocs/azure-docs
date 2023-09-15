@@ -17,7 +17,7 @@ ms.custom: mode-other, enterprise-apps
 
 # Quickstart: Add an enterprise application
 
-In this quickstart, you use the Azure portal to add an enterprise application to your Azure Active Directory (Azure AD) tenant. Azure AD has a gallery that contains thousands of enterprise applications that have been preintegrated. Many of the applications your organization uses are probably already in the gallery. This quickstart uses the application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most [enterprise applications in the gallery](../saas-apps/tutorial-list.md).
+In this quickstart, you use the Microsoft Entra admin center to add an enterprise application to your Azure Active Directory (Azure AD) tenant. Azure AD has a gallery that contains thousands of enterprise applications that have been preintegrated. Many of the applications your organization uses are probably already in the gallery. This quickstart uses the application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most [enterprise applications in the gallery](../saas-apps/tutorial-list.md).
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
