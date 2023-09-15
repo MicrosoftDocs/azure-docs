@@ -21,9 +21,6 @@ Use the following steps to clone and run the app locally.
 ### [Azure portal](#tab/Azure-portal-ent)
 
 This section isn't required to prepare the jar package for deployment, the `Deploy to azure` button process downloads the jar from [GitHub release](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases).
-If you want to run the app locally, following the steps below:
-
-[!INCLUDE [prepare-project-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-web-project.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 
