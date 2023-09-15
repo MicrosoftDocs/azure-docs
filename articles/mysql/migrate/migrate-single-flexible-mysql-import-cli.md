@@ -109,6 +109,16 @@ az mysql flexible-server import create --data-source-type "mysql_single" --data-
 The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) with Zone Redundancy enabled and virtual network integration and performs an import from source to target. Learn more about virtual network configuration [here](../flexible-server/how-to-manage-virtual-network-cli.md).
 
 ```azurecli-interactive
+# create vnet
+az network vnet create --resource-group testGroup --name myVnet --location testLocation --address-prefixes 172.0.0.0/16
+
+# create subnet
+az network vnet subnet create --resource-group testGroup --vnet-name myVnet --address-prefixes 172.0.0.0/24 --name mySubnet
+
+# create private dns zone
+az network private-dns zone create -g testGroup -n myserver.private.contoso.com
+
+# trigger mysql import
 az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server" --high-availability ZoneRedundant --zone 1 --standby-zone 3  --vnet "myVnet" --subnet "mySubnet" --private-dns-zone "myserver.private.contoso.com"
 ```
 
@@ -132,7 +142,7 @@ az keyvault set-policy -g testGroup -n testVault --object-id $identityPrincipalI
   --key-permissions wrapKey unwrapKey get list
 
 # trigger mysql import for CMK enabled single server
-az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server" --key <key identifier of testKey> --identity testIdentity
+az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server" --key $keyIdentifier --identity testIdentity
 ```
 
 Here are the details for the arguments above:

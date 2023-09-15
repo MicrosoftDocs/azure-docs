@@ -5,13 +5,13 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.author: ankitadutta
 ms.topic: how-to 
-ms.date: 04/04/2023
+ms.date: 09/14/2023
 ---
 
 # Migrate from a Run As account to Managed Identities 
 
 > [!IMPORTANT]
-> - Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use managed identities. For more information, see [migrating from an existing Run As accounts to managed identity](/azure/automation/automation-managed-identity-faq).
+> - Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use managed identities. For more information, see [migrating from an existing Run As accounts to managed identity](../automation/automation-managed-identity-faq.md).
 > - Delaying the feature has a direct impact on our support burden, as it would cause upgrades of mobility agent to fail.
 
 This article shows you how to migrate your runbooks to use a Managed Identities for Azure Site Recovery. Azure Automation Accounts are used by Azure Site Recovery customers to auto-update the agents of their protected virtual machines. Site Recovery creates Azure Automation Run As Accounts when you enable replication via the IaaS VM Blade and Recovery Services Vault. 
@@ -110,6 +110,6 @@ To link an existing managed identity Automation account to your Recovery Service
 ## Next steps
 
 Learn more about:
-- [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
+- [Managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 - [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing).
 
