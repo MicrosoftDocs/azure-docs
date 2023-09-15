@@ -34,9 +34,9 @@ ms.service: azure-operator-service-manager
    
 1. Select **Next: Set initial configuration >**. 
 1. Select **Create New** and enter *nginx-sns-cgvs* in the **Name** field. 
-    :::image type="content" source="media/create-site-network-service-configuration.png" alt-text="Set Initial Configuration screen that shows the dialog box that appears when you select the Create New option. ":::
+    :::image type="content" source="media/create-site-network-service-configuration.png" alt-text="Screenshot showing the Initial Configuration screen including the dialog box that appears when you select the Create New option. ":::
 1. In the resulting editor panel, enter the following configuration:
-    :::image type="content" source="media/nginx-sns-cgvs-editor-window.png" alt-text="Screenshot shows an editor window with json code used for initial configuration of the site network service.":::
+    
 ```json
 { 
     "nginx-nfdg": { 
@@ -53,6 +53,7 @@ ms.service: azure-operator-service-manager
 
    > [!NOTE]
    > Refer to the Retrieve Custom Location section for config group value for the customlocationID. 
+
 10. Allow the deployment state to reach **Succeeded**. This status indicates your CNF is up and running.
 1. Access your CNF by navigating to the **Site Network Service Object** in the Azure portal. Select the **Current State -> Resources** to view the managed resource group created by Azure Operator Service Manager (AOSM).
     :::image type="content" source="media/site-network-service-preview.png" alt-text="Screenshot shows an overview of the site network service created.":::
