@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual 
-ms.date: 09/12/2023
+ms.date: 09/15/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT

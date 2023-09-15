@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: release-notes
-ms.date: 9/13/2023
+ms.date: 09/15/2023
 ms.custom: ignite-fall-2021, references_regions
 ---
 

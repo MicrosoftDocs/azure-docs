@@ -8,7 +8,7 @@ manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 09/15/2023
 ms.author: heikora
 ms.devlang: csharp
 ms.custom: devx-track-csharp

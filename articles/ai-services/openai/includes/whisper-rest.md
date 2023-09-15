@@ -5,7 +5,7 @@ author: eric-urban
 ms.author: eur
 ms.service: openai
 ms.topic: include
-ms.date: 08/28/2023
+ms.date: 09/15/2023
 ---
 
 ## REST API

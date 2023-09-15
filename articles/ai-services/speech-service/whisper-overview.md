@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 09/03/2023
+ms.date: 09/15/2023
 ms.author: eur
 ---
 

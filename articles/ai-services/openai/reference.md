@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 08/25/2023
+ms.date: 09/15/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
