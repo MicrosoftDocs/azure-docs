@@ -30,7 +30,7 @@ HDInsight also includes Jython, which is a Python implementation written in Java
 
 ## Storage configuration
 
-No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article will produces output to at least `/tezstaging`.  A default hadoop configuration contains `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration causes output to the directory to be page blobs, which aren't supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you receive the error message: `Page blob is not supported for this account type.`
+No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article produces output to at least `/tezstaging`.  A default hadoop configuration contains `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration causes output to the directory to be page blobs, which aren't supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you receive the error message: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > The steps in this document make the following assumptions:  
