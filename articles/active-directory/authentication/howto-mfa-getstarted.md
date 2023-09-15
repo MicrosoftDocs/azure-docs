@@ -74,9 +74,9 @@ Azure AD Multi-Factor Authentication is enforced with Conditional Access policie
 
 ![Conceptual Conditional Access process flow](media/howto-mfa-getstarted/conditional-access-overview-how-it-works.png)
 
-In the Azure portal, you configure Conditional Access policies under **Azure Active Directory** > **Security** > **Conditional Access**.
+In the Microsoft Entra admin center, you configure Conditional Access policies under **Protection** > **Conditional Access**.
 
-To learn more about creating Conditional Access policies, see [Conditional Access policy to prompt for Azure AD Multi-Factor Authentication when a user signs in to the Azure portal](tutorial-enable-azure-mfa.md). This helps you to:
+To learn more about creating Conditional Access policies, see [Conditional Access policy to prompt for Azure AD Multi-Factor Authentication when a user signs in](tutorial-enable-azure-mfa.md). This helps you to:
 
 - Become familiar with the user interface
 - Get a first impression of how Conditional Access works
@@ -183,7 +183,7 @@ As mentioned before, ensure users are registered for more than one MFA method, s
 If the user does not have a backup method available, you can: 
 
 - Provide them a Temporary Access Pass so that they can manage their own authentication methods. You can also provide a Temporary Access Pass to enable temporary access to resources. 
-- Update their methods as an administrator. To do so, select the user in the Azure portal, then select Authentication methods and update their methods.
+- Update their methods as an administrator. To do so, select the user in the Microsoft Entra admin center, then select **Protection** > **Authentication methods** and update their methods.
 
 
 ## Plan integration with on-premises systems

@@ -94,7 +94,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, click **Authorize**. It opens a Dropbox for Business login dialog in a new browser window.
 
-	![Provisioning ](common/provisioning-oauth.png)
+	![Provisioning](common/provisioning-oauth.png)
 
 6. On the **Sign-in to Dropbox for Business to link with Azure AD** dialog, sign in to your Dropbox for Business tenant and verify your identity.
 
@@ -156,4 +156,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-
