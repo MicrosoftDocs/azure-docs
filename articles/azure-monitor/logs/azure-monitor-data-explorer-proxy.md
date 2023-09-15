@@ -23,7 +23,7 @@ To run a cross-service query, you need:
 
 ## Function supportability
 
-Azure Monitor cross-service queries support functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
+Azure Monitor cross-service queries support **only ".show"** functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
 This capability enables cross-cluster queries to reference an Azure Monitor, Azure Data Explorer, or Azure Resource Graph tabular function directly.
 The following commands are supported with the cross-service query:
 
@@ -166,7 +166,7 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 * Database names are case sensitive.
 * Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
 * The cross-service query ability is used for data retrieval only. 
-* [Private Link](../logs/private-link-security.md) does not support cross-service queries.
+* [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) are not support cross-service queries.
 * mv-expand is limited to 2000 records.
 
 * the following operators do not work with the cross query with ability with Azure Resource Graph:

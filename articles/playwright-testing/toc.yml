@@ -19,9 +19,9 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Configure region affinity
-      displayName: region, location, workspace, location preference
-      href: how-to-configure-region-affinity.md
+    - name: Optimize regional latency
+      displayName: region, location, workspace, location preference, latency
+      href: how-to-optimize-regional-latency.md
     - name: Manage workspaces
       href: how-to-manage-playwright-workspace.md
     - name: Manage access keys
@@ -32,6 +32,8 @@ items:
       href: how-to-manage-workspace-access.md
     - name: Configure visual comparisons
       href: how-to-configure-visual-comparisons.md   
+    - name: Monitor Microsoft Playwright Testing
+      href: monitor-playwright-testing.md
 - name: Resources
   items: 
     - name: Azure roadmap
@@ -42,3 +44,11 @@ items:
       href: https://azure.microsoft.com/pricing/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Service limits
+      displayName: quotas, limits, capacity, supported browsers, supported platforms, supported operating systems, supported OS, supported OSes, supported OSs, supported devices, supported device, supported mobile devices, supported mobile device, supported mobile OS, supported mobile OSes, supported mobile operating systems, supported mobile operating system,
+      href: resource-limits-quotas-capacity.md
+- name: Reference
+  expanded: false
+  items: 
+    - name: Monitoring data reference
+      href: monitor-playwright-testing-reference.md

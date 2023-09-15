@@ -3,15 +3,15 @@ title: Assign eligibility for a group in Privileged Identity Management
 description: Learn how to assign eligibility for a group in Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 6/7/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Assign eligibility for a group in Privileged Identity Management
 
-In Azure Active Directory (Azure AD), part of Microsoft Entra, you can use Privileged Identity Management (PIM) to manage just-in-time membership in the group or just-in-time ownership of the group.
+In Microsoft Entra ID, formerly known as Azure Active Directory (Azure AD), you can use Privileged Identity Management (PIM) to manage just-in-time membership in the group or just-in-time ownership of the group.
 
 When a membership or ownership is assigned, the assignment:
 
@@ -33,7 +33,7 @@ When a membership or ownership is assigned, the assignment:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Follow these steps to make a user eligible member or owner of a group. You will need permissions to manage groups. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role-assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not administrative unit level). 
+Follow these steps to make a user eligible member or owner of a group. You'll need permissions to manage groups. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role-assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not administrative unit level). 
 
 > [!NOTE]
 > Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.
@@ -80,7 +80,7 @@ Follow these steps to make a user eligible member or owner of a group. You will 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Follow these steps to update or remove an existing role assignment. You will need permissions to manage groups. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role-assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not administrative unit level). 
+Follow these steps to update or remove an existing role assignment. You'll need permissions to manage groups. For role-assignable groups, you need to have Global Administrator, Privileged Role Administrator role, or be an Owner of the group. For non-role-assignable groups, you need to have Global Administrator, Directory Writer, Groups Administrator, Identity Governance Administrator, User Administrator role, or be an Owner of the group. Role assignments for administrators should be scoped at directory level (not administrative unit level). 
 
 > [!NOTE]
 > Other roles with permissions to manage groups (such as Exchange Administrators for non-role-assignable M365 groups) and administrators with assignments scoped at administrative unit level can manage groups through Groups API/UX and override changes made in Azure AD PIM.

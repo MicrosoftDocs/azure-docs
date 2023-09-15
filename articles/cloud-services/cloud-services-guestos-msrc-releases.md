@@ -45,6 +45,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 23-09 |  [5030329]  |  Servicing Stack Update LKG | 4.122 | Sep 12, 2023 |
 |  Rel 23-09 |  [5030504]  |  Servicing Stack Update LKG | 5.86 | Sep 12, 2023 |
 |  Rel 23-09 |  [5028264]  |  Servicing Stack Update LKG | 2.142 | Jul 11, 2023 |
+|  Rel 23-09 |  [4494175]  |  January '20 Microcode | 5.86 | Sep 1, 2020 |
+|  Rel 23-09 |  [4494174]  |  January '20 Microcode | 6.62 | Sep 1, 2020 |
 |  Rel 23-09 |  5030369  |  Servicing Stack Update | 7.31 |  |
 |  Rel 23-09 |  5030505  |  Servicing Stack Update | 6.62 |  |
 
