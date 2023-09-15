@@ -77,11 +77,11 @@ For example, we can create a flow with a Semantic Kernel planner that solves mat
 
 Set up the connection in python code.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/set-kconnection-in-python.png" alt-text="Create a flow with semantic kernel planner" lightbox = "./media/how-to-evaluate-semantic-kernel/set-kconnection-in-python.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/set-connection-in-python.png" alt-text="Set custom connection in python node" lightbox = "./media/how-to-evaluate-semantic-kernel/set-connection-in-python.png":::
 
 Select the connection object in the node input, and set the model name of OpenAI or deployment name of Azure OpenAI.
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/set-key-model.png" alt-text="Create a flow with semantic kernel planner" lightbox = "./media/how-to-evaluate-semantic-kernel/set-key-model.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/set-key-model.png" alt-text="Set model and key in node input" lightbox = "./media/how-to-evaluate-semantic-kernel/set-key-model.png":::
 
 ### Batch testing your plugins and planners
 
