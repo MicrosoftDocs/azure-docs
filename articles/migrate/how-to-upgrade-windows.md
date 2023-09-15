@@ -5,16 +5,13 @@ author: AnuragMehrotra
 ms.author: anuragm
 ms.manager: vijain
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 09/15/2023
 ms.custom: engagement-fy24
 ---
 
 # Azure Migrate Windows Server upgrade (Preview)  
 
 This article describes how to upgrade Windows Server OS while migrating to Azure. Azure Migrate OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. You can move your on-premises server to Azure with an upgraded OS version of Windows Server using Windows upgrade.
-
-> [!NOTE]
-> This feature is currently available only for [VMware agentless migration](tutorial-migrate-vmware.md).
 
 ## Prerequisites 
 
