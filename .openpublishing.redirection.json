@@ -23593,6 +23593,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-prescriptive-adoption.md",
+            "redirect_url": "/azure/devtest-labs/deliver-proof-of-concept",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
