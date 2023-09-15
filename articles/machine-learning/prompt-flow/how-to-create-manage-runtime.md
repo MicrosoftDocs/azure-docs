@@ -108,7 +108,6 @@ Go to runtime detail page and select update button at the top. You can change ne
 > [!NOTE]
 > If you used a custom environment, you need to rebuild it using latest prompt flow image first, and then update your runtime with the new custom environment.
 
-## Troubleshooting guide for runtime
 
 ### Common issues
 

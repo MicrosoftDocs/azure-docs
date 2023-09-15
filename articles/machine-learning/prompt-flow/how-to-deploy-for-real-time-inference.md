@@ -45,6 +45,11 @@ If you didn't complete the tutorial, you need to build a flow. Testing the flow 
 
 We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
 
+## Define the environment used by deployment
+When you deploy prompt flow to managed online endpoint in UI. You need define the environment used by this flow. By default, it will use the latest prompt image version. You can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder, which is system generated file.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of Web requiremnts-text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
+
 ## Create an online endpoint
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
