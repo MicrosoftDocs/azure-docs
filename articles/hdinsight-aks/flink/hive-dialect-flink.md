@@ -32,9 +32,13 @@ This fix has to be backported to `hive 3.1.2`.
   1. Download the below jar in `webssh` pod and add it under the /opt/flink-webssh/lib `wget https://aka.ms/hdiflinkhivejdk11jar`.
     (The above hive jar has the fix [https://issues.apache.org/jira/browse/HIVE-27508](https://issues.apache.org/jira/browse/HIVE-27508))
 
-  1. `mv $FLINK_HOME/opt/flink-table-planner_2.12-1.16.0-0.0.18.jar` `$FLINK_HOME/lib/flink-table-planner_2.12-1.16.0-0.0.18.jar`
+  1. ```
+     mv $FLINK_HOME/opt/flink-table-planner_2.12-1.16.0-0.0.18.jar $FLINK_HOME/lib/flink-table-planner_2.12-1.16.0-0.0.18.jar
+     ```
 
-  1. `mv $FLINK_HOME/lib/flink-table-planner-loader-1.16.0-0.0.18.jar` `$FLINK_HOME/opt/flink-table-planner-loader-1.16.0-0.0.18.jar`
+  1. ```
+     mv $FLINK_HOME/lib/flink-table-planner-loader-1.16.0-0.0.18.jar $FLINK_HOME/opt/flink-table-planner-loader-1.16.0-0.0.18.jar
+     ```
 
 - Add the following in the flink configuration management under core-site.xml section:
 ```
