@@ -23,9 +23,7 @@ You can use cloud sync to test configuration changes by applying these changes t
 ## Steps to use on-demand provisioning
 To use on-demand provisioning, follow these steps:
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
+[!INCLUDE [sign in](../../../includes/cloud-sync-sign-in.md)]
  4. Under **Configuration**, select your configuration.
  5. On the left, select **Provision on demand**.
  6. Enter the distinguished name of a user and select the **Provision** button.
