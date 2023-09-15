@@ -19,7 +19,7 @@ ms.custom: references_regions
 > - [Finland](../concepts/numbers/phone-number-management-for-finland.md)
 > - [France](../concepts/numbers/phone-number-management-for-france.md)
 > - [Germany](../concepts/numbers/phone-number-management-for-germany.md)
-> - [Hong Kong](../concepts/numbers/phone-number-management-for-hong-kong.md)
+> - [Hong Kong SAR](../concepts/numbers/phone-number-management-for-hong-kong.md)
 > - [Ireland](../concepts/numbers/phone-number-management-for-ireland.md)
 > - [Israel](../concepts/numbers/phone-number-management-for-israel.md)
 > - [Italy](../concepts/numbers/phone-number-management-for-italy.md)

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -54,13 +54,13 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
 > These limitations also apply to Windows Hello for Business PIN reset from the device lock screen.
 >
 
-## Windows 11 and 10 password reset
+## Windows 11 and Windows 10 password reset
 
-To configure a Windows 11 or 10 device for SSPR at the sign-in screen, review the following prerequisites and configuration steps.
+To configure a Windows 11 or Windows 10 device for SSPR at the sign-in screen, review the following prerequisites and configuration steps.
 
-### Windows 11 and 10 prerequisites
+### Windows 11 and Windows 10 prerequisites
 
-- An administrator [must enable Azure AD self-service password reset from the Azure portal](tutorial-enable-sspr.md).
+- Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and [enable Azure AD self-service password reset](tutorial-enable-sspr.md).
 - Users must register for SSPR before using this feature at [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Not unique to using SSPR from the Windows sign-in screen, all users must provide the authentication contact information before they can reset their password.
 - Network proxy requirements:
@@ -70,7 +70,7 @@ To configure a Windows 11 or 10 device for SSPR at the sign-in screen, review th
     - Azure AD joined
     - Hybrid Azure AD joined
 
-### Enable for Windows 11 and 10 using Microsoft Intune
+### Enable for Windows 11 and Windows 10 using Microsoft Intune
 
 Deploying the configuration change to enable SSPR from the login screen using Microsoft Intune is the most flexible method. Microsoft Intune allows you to deploy the configuration change to a specific group of machines you define. This method requires Microsoft Intune enrollment of the device.
 
@@ -98,7 +98,7 @@ Deploying the configuration change to enable SSPR from the login screen using Mi
 1. Configure applicability rules as desired for your environment, such as to *Assign profile if OS edition is Windows 10 Enterprise*, then select **Next**.
 1. Review your profile, then select **Create**.
 
-### Enable for Windows 11 and 10 using the Registry
+### Enable for Windows 11 and Windows 10 using the Registry
 
 To enable SSPR at the sign-in screen using a registry key, complete the following steps:
 
@@ -111,7 +111,7 @@ To enable SSPR at the sign-in screen using a registry key, complete the followin
        "AllowPasswordReset"=dword:00000001
     ```
 
-### Troubleshooting Windows 11 and 10 password reset
+### Troubleshooting Windows 11 and Windows 10 password reset
 
 If you have problems with using SSPR from the Windows sign-in screen, the Azure AD audit log includes information about the IP address and *ClientType* where the password reset occurred, as shown in the following example output:
 
@@ -146,7 +146,7 @@ To configure a Windows 7, 8, or 8.1 device for SSPR at the sign-in screen, revie
 
 ### Windows 7, 8, and 8.1 prerequisites
 
-- An administrator [must enable Azure AD self-service password reset from the Azure portal](tutorial-enable-sspr.md).
+- Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and [enable Azure AD self-service password reset](tutorial-enable-sspr.md).
 - Users must register for SSPR before using this feature at [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Not unique to using SSPR from the Windows sign-in screen, all users must provide the authentication contact information before they can reset their password.
 - Network proxy requirements:
