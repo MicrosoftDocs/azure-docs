@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/14/2023
+ms.date: 09/15/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: 
@@ -98,7 +98,7 @@ To restore write access to your data, you can [initiate a failover](storage-init
 
 ![Customer initiates account failover to secondary endpoint](media/storage-failover-customer-managed-unplanned/failover-to-secondary-grs.png).
 
-The failover typically takes about an hour.
+The service-level objective (SLO) for customer-managed failover is 1 hour, but there is no service-level agreement (SLA) for failover.
 
 After the failover is complete, the original secondary becomes the new primary (1) and the copy of the storage account in the original primary is deleted (2). The storage account is configured as LRS in the new primary region and is no longer geo-redundant. Users can resume writing data to the storage account (3) as shown in the image below:
 
