@@ -24,7 +24,11 @@ To start, let's take a look at the props for the `CallingWidgetComponent.tsx` pr
 - Make `onRenderStartCall` optional, this will allow us to come back to using a new window easier in the future.
 
 `CallingWidgetComponent.tsx`
-
+```ts
+// imports needed
+import { AdapterArgs } from '../utils/AppUtils';
+```
+`CallingWidgetComponent.tsx`
 ```ts
 export interface CallingWidgetComponentProps {
     /**
@@ -68,13 +72,12 @@ import {
     useAzureCommunicationCallAdapter,
     AzureCommunicationCallAdapterArgs
 } from '@azure/communication-react';
-import { AdapterArgs } from '../utils/AppUtils';
-// lets update our react imports as well
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+// lets add to our react imports as well
+import { useCallback, useMemo } from 'react';
 
 ```
+`CallingWidgetComponent.tsx`
 ```ts
-
     const credential = useMemo(() => {
         try {
             return new AzureCommunicationTokenCredential(adapterArgs.token);
@@ -92,10 +95,13 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
             displayName: displayName,
             alternateCallerId: adapterArgs.alternateCallerId
         }
-    },[adapterArgs.locator, adapterArgs.userId, credential, displayName])
+    }, [adapterArgs.alternateCallerId, adapterArgs.locator, adapterArgs.userId, credential, displayName])
 
-    const adapter = useAzureCommunicationCallAdapter(callAdapterArgs as AzureCommunicationCallAdapterArgs);
-
+```
+You will also need to update the spread of the props for the component to include the new property, should look like the followwing:
+`CallingWidgetComponent.tsx`
+```ts
+    const { onRenderStartCall, onRenderLogo, onSetDisplayName, onSetUseVideo, adapterArgs } = props;
 ```
 
 Let's also add a `afterCreate` function like before, to do a few things with our adapter once it's constructed. Since we're now interacting with state in the widget we'll want to use a React `useCallback` just to make sure we're not defining this function every time we do a render pass. In our case, our function will reset the widget to the `'new'` state when the call ends and clear the user's `displayName` so they can start a new session. You can however return it to the `'setup'` state with the old displayName so that the app can easily call again as well.
@@ -138,7 +144,7 @@ Next, we'll need to add a new logic to our Start Call button in the widget that 
                 onRenderStartCall();
             } else if (displayName && consentToData && adapter) {
                 setWidgetState('inCall');
-                adapter?.joinCall();
+                adapter?.joinCall({microphoneOn: true});
             }
         }}
     >
@@ -178,6 +184,9 @@ export const clickToCallInCallContainerStyles = (theme: Theme): IStackStyles => 
 ```
 
 Finally, in the widget we'll need to add a section to the template that is when the widget is in the `'inCall'` state that we added earlier. So now we should have our template looking as follows:
+```ts
+import { clickToCallInCallContainerStyles } from '../styles/CallingWidgetComponent.styles';
+```
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -187,8 +196,7 @@ if (widgetState === 'setup' && onSetDisplayName && onSetUseVideo) {
                 <IconButton
                     styles={collapseButtonStyles}
                     iconProps={{ iconName: 'Dismiss' }}
-                    onClick={() => setWidgetState('new')}
-                />
+                    onClick={() => setWidgetState('new')} />
                 <Stack tokens={{ childrenGap: '1rem' }} styles={logoContainerStyles}>
                     <Stack style={{ transform: 'scale(1.8)' }}>{onRenderLogo && onRenderLogo()}</Stack>
                 </Stack>
@@ -198,27 +206,23 @@ if (widgetState === 'setup' && onSetDisplayName && onSetUseVideo) {
                     placeholder={'Enter your name'}
                     onChange={(_, newValue) => {
                         setDisplayName(newValue);
-                    }}
-                />
+                    } } />
                 <Checkbox
                     styles={checkboxStyles(theme)}
                     label={'Use video - Checking this box will enable camera controls and screen sharing'}
                     onChange={(_, checked?: boolean | undefined) => {
                         onSetUseVideo(!!checked);
                         setUseLocalVideo(true);
-                    }}
+                    } }
                 ></Checkbox>
                 <Checkbox
                     required={true}
                     styles={checkboxStyles(theme)}
-                    label={
-                        'By checking this box, you are consenting that we'll collect data from the call for customer support reasons'
-                    }
-                    onChange={(_, checked?: boolean | undefined) => {
-                        setConsentToData(!!checked);
-                    }}
-                ></Checkbox>
-                <PrimaryButton
+                    label={'By checking this box, you are consenting that we will collect data from the call for customer support reasons'}
+                onChange={(_, checked?: boolean | undefined) => {
+                    setConsentToData(!!checked);
+                }}
+                ></Checkbox><PrimaryButton
                     styles={startCallButtonStyles(theme)}
                     onClick={() => {
                         if (displayName && consentToData && onRenderStartCall) {
@@ -228,7 +232,7 @@ if (widgetState === 'setup' && onSetDisplayName && onSetUseVideo) {
                             setWidgetState('inCall');
                             adapter?.joinCall();
                         }
-                    }}
+                    } }
                 >
                     StartCall
                 </PrimaryButton>
@@ -236,41 +240,41 @@ if (widgetState === 'setup' && onSetDisplayName && onSetUseVideo) {
         );
     }
 
-    if(widgetState === 'inCall' && adapter){
-        return(
-            <Stack styles={clickToCallInCallContainerStyles(theme)}>
-                <CallComposite adapter={adapter} options={{
-                    callControls: {
-                        cameraButton: useLocalVideo,
-                        screenShareButton: useLocalVideo,
-                        moreButton: false,
-                        peopleButton: false,
-                        displayType: 'compact'
-                    },
-                    localVideoTileOptions: { position: !useLocalVideo ? 'hidden' : 'floating' }
-                }}></CallComposite>
-            </Stack>
-        )
-    }
-
+if (widgetState === 'inCall' && adapter) {
     return (
+        <Stack styles={clickToCallInCallContainerStyles(theme)}>
+            <CallComposite adapter={adapter} options={{
+                callControls: {
+                    cameraButton: useLocalVideo,
+                    screenShareButton: useLocalVideo,
+                    moreButton: false,
+                    peopleButton: false,
+                    displayType: 'compact'
+                },
+                localVideoTile: !useLocalVideo ? false : { position: 'floating' }
+            }}></CallComposite>
+        </Stack>
+    )
+}
+
+return (
+    <Stack
+        horizontalAlign="center"
+        verticalAlign="center"
+        styles={clickToCallContainerStyles(theme)}
+        onClick={() => {
+            setWidgetState('setup');
+        }}
+    >
         <Stack
             horizontalAlign="center"
             verticalAlign="center"
-            styles={clickToCallContainerStyles(theme)}
-            onClick={() => {
-                setWidgetState('setup');
-            }}
+            style={{ height: '4rem', width: '4rem', borderRadius: '50%', background: theme.palette.themePrimary }}
         >
-            <Stack
-                horizontalAlign="center"
-                verticalAlign="center"
-                style={{ height: '4rem', width: '4rem', borderRadius: '50%', background: theme.palette.themePrimary }}
-            >
-                <Icon iconName="callAdd" styles={callIconStyles(theme)} />
-            </Stack>
+            <Icon iconName="callAdd" styles={callIconStyles(theme)} />
         </Stack>
-    );
+    </Stack>
+);
 ```
 Now that we have updated our widget to be more versatile, we'll want to take another look at the `CallingWidgetScreen.tsx` to make some adjustments to how we're calling the widget. We'll turn on the new embedded experience do two things:
 - Remove the start call handler that we provided earlier
@@ -288,7 +292,7 @@ That looks like this:
                 return (
                     <img
                         style={{ height: '4rem', width: '4rem', margin: 'auto' }}
-                        src={hero}
+                        src={logo}
                         alt="logo"
                     />
                 );
