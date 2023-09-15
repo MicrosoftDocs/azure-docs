@@ -204,7 +204,7 @@ This script sets the variables `$resourceGroup`, `$vmName`, `$newVmSize`, and `$
 To resize your VM in Terraform code, you modify the `size` parameter in the `azurerm_linux_virtual_machine` or `azurerm_windows_virtual_machine` resource blocks to the desired size and run `terraform plan -out main.tfplan` to see the VM size change that will be made. Then run `terraform apply main.tfplan` to apply the changes to resize the VM.
 
 > [!IMPORTANT]
-> The below Terraform example modifies the size of an existing virtual machine when you're using the state file that created the original virtual machine.
+> The below Terraform example modifies the size of an existing virtual machine when you're using the state file that created the original virtual machine. For more information on the full Terraform code that below example is based off of, see the [Windows Terraform quickstart](./windows/quick-create-terraform.md).
 
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-windows-vm-with-iis-server/main.tf" range="91-117" highlight="8":::
 
