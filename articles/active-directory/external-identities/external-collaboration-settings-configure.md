@@ -30,6 +30,10 @@ External collaboration settings let you specify what roles in your organization 
 
 For B2B collaboration with other Azure AD organizations, you should also review your [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to ensure your inbound and outbound B2B collaboration and scope access to specific users, groups, and applications.
 
+For B2B collaboration end-users who perform cross-tenant sign-ins, their home tenant branding appears, even if there isn't custom branding specified. In the following example, the company branding for Woodgrove Groceries appears on the left. The example on the right displays the default branding for the user's home tenant.
+
+:::image type="content" source="media/external-identities-overview/b2b-comparison.png" alt-text="Screenshots showing a comparison of the branded sign-in experience and the default sign-in experience.":::
+
 ## Configure settings in the portal
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]

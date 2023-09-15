@@ -69,7 +69,7 @@ The connectors are stateless and have no configuration data on the machine. The 
 
 Connectors also poll the server to find out whether there is a newer version of the connector. If one is found, the connectors update themselves.
 
-You can monitor your connectors from the machine they are running on, using either the event log and performance counters. Or you can view their status from the Application Proxy page of the Azure portal:
+You can monitor your connectors from the machine they are running on, using either the event log and performance counters. Or you can view their status from the Application Proxy page of the Microsoft Entra admin center:
 
 ![Example: Azure AD Application Proxy connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 

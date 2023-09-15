@@ -7,6 +7,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # How to manage assignments with PowerShell
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 A blueprint assignment can be managed using the **Az.Blueprint** Azure PowerShell module. The module
 supports fetching, creating, updating, and removing assignments. The module can also fetch details
 on existing blueprint definitions. This article covers how to install the module and start using it.
