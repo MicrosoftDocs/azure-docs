@@ -242,7 +242,7 @@ create_monitor:
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:
-        nemerical:
+        numerical:
           jensen_shannon_distance: 0.01
         categorical:
           pearsons_chi_squared_test: 0.02
@@ -304,6 +304,10 @@ from azure.ai.ml.entities import (
     DataQualitySignal,
     DataDriftMetricThreshold,
     DataQualityMetricThreshold,
+    NumericalDriftMetrics,
+    CategoricalDriftMetrics,
+    DataQualityMetricsNumerical,
+    DataQualityMetricsCategorical,
     MonitorFeatureFilter,
     MonitorInputData,
     MonitoringTarget,
@@ -341,8 +345,12 @@ reference_data_training = ReferenceData(
 # create an advanced data drift signal
 features = MonitorFeatureFilter(top_n_feature_importance=20)
 metric_thresholds = DataDriftMetricThreshold(
-    numerical={'JENSEN_SHANNON_DISTANCE':0.01},
-    categorical={'PEARSONS_CHI_SQUARED_TEST':0.02}
+    numerical=NumericalDriftMetrics(
+        jensen_shannon_distance=0.01
+    ),
+    categorical=CategoricalDriftMetrics(
+        pearsons_chi_squared_test=0.02
+    )
 )
 
 advanced_data_drift = DataDriftSignal(
@@ -356,8 +364,12 @@ advanced_data_drift = DataDriftSignal(
 features = ['feature_A', 'feature_B', 'feature_C']
 
 metric_thresholds = DataQualityMetricThreshold(
-    numerical={'NULL_VALUE_RATE':0.01},
-    categorical={'OUT_OF_BOUNDS_RATE':0.02}
+    numerical=DataQualityMetricsNumerical(
+        null_value_rate=0.01
+    ),
+    categorical=DataQualityMetricsCategorical(
+        out_of_bounds_rate=0.02
+    )
 )
 
 advanced_data_quality = DataQualitySignal(
@@ -368,7 +380,7 @@ advanced_data_quality = DataQualitySignal(
 )
 
 # create feature attribution drift signal
-metric_thresholds = FeatureAttributionDriftMetricThreshold({'normalized_discounted_cumulative_gain':0.9})
+metric_thresholds = FeatureAttributionDriftMetricThreshold(normalized_discounted_cumulative_gain=0.9)
 
 feature_attribution_drift = FeatureAttributionDriftSignal(
     reference_data=reference_data_training,
@@ -513,6 +525,7 @@ create_monitor:
     runtime_version: 3.2
   monitoring_target:
     ml_task: classification
+    endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
   
   monitoring_signals:
     advanced_data_drift: # monitoring signal name, any user defined name works
@@ -583,6 +596,7 @@ create_monitor:
           data_column_names:
             correlation_id: correlation_id
           pre_processing_component: azureml:model_inputs_preprocessing
+          data_window_size: P30D
         - input_data:
             path: azureml:my_model_outputs:1
             type: uri_folder
@@ -592,12 +606,13 @@ create_monitor:
             prediction: is_fraund
             prediction_probability: is_fraund_probability
           pre_processing_component: azureml:model_outputs_preprocessing
+          data_window_size: P30D
       reference_data:
-        input_data:
-          path: azureml:my_model_training_data:1
-          type: mltable
-        data_context: training
-        target_column_name: is_fraud
+          input_data:
+             path: azureml:my_model_training_data:1
+             type: mltable
+          data_context: training
+          target_column_name: is_fraud
       metric_thresholds:
         normalized_discounted_cumulative_gain: 0.9
   
@@ -626,6 +641,10 @@ from azure.ai.ml.entities import (
     DataQualitySignal,
     DataDriftMetricThreshold,
     DataQualityMetricThreshold,
+    NumericalDriftMetrics,
+    CategoricalDriftMetrics,
+    DataQualityMetricsNumerical,
+    DataQualityMetricsCategorical,
     MonitorFeatureFilter,
     MonitorInputData,
     MonitoringTarget,
@@ -674,8 +693,12 @@ reference_data_training = ReferenceData(
 # create an advanced data drift signal
 features = MonitorFeatureFilter(top_n_feature_importance=20)
 metric_thresholds = DataDriftMetricThreshold(
-    numerical={'JENSEN_SHANNON_DISTANCE':0.01},
-    categorical={'PEARSONS_CHI_SQUARED_TEST':0.02}
+    numerical=NumericalDriftMetrics(
+        jensen_shannon_distance=0.01
+    ),
+    categorical=CategoricalDriftMetrics(
+        pearsons_chi_squared_test=0.02
+    )
 )
 
 advanced_data_drift = DataDriftSignal(
@@ -689,8 +712,12 @@ advanced_data_drift = DataDriftSignal(
 # create an advanced data quality signal
 features = ['feature_A', 'feature_B', 'feature_C']
 metric_thresholds = DataQualityMetricThreshold(
-    numerical={'NULL_VALUE_RATE':0.01},
-    categorical={'OUT_OF_BOUNDS_RATE':0.02}
+    numerical=DataQualityMetricsNumerical(
+        null_value_rate=0.01
+    ),
+    categorical=DataQualityMetricsCategorical(
+        out_of_bounds_rate=0.02
+    )
 )
 
 advanced_data_quality = DataQualitySignal(
@@ -806,13 +833,20 @@ create_monitor:
     customSignal:
       type: custom
       component_id: azureml:my_custom_signal:1.0.0
-      input_datasets:
-        production_data:
+      input_data:
+        test_data_1:
           input_data:
-            type: uri_folder
-            path: azureml:custom_without_drift:1
+            type: mltable
+            path: azureml:Direct:1
           data_context: test
-          data_window_size: 360
+        test_data_2:
+          input_data:
+            type: mltable
+            path: azureml:Direct:1
+          data_context: test
+          data_window:
+            trailing_window_size: P30D
+            trailing_window_offset: P7D
           pre_processing_component: azureml:custom_preprocessor:1.0.0
       metric_thresholds:
         - metric_name: std_dev
