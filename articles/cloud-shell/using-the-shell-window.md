@@ -108,6 +108,9 @@ select restore.
   <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
   - FireFox/IE may not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
+- Linux: <kbd>CTRL</kbd>-<kbd>C</kbd> to copy and <kbd>CTRL</kbd>-<kbd>SHIFT</kbd>-<kbd>V</kbd> to paste.
+  - Make sure you have something selected before issuing the copy sequence, otherwise it will just send the TERM signal to cloud-shell.
+ 
 
 ## Resize Cloud Shell window
 
