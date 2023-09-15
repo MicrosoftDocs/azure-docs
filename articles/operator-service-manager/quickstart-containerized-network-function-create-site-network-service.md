@@ -30,6 +30,7 @@ ms.service: azure-operator-service-manager
 1. On this screen, select the **Publisher**, **Network Service Design Resource**, and the **Network Service Design Version** you published earlier.
     > [!NOTE]
     > Be sure to select the same Publisher Offering Location you defined in the Publisher Quickstart.
+
      :::image type="content" source="media/create-site-network-service-network-service-design.png" alt-text="Screenshot shows the Choose a Network Service Design tab where you choose the details of the initial Network Service Design version.":::
    
 1. Select **Next: Set initial configuration >**. 
