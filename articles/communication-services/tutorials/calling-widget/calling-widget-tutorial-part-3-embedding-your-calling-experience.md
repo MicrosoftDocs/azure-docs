@@ -17,9 +17,9 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Finally in this optional section of the tutorial we'll talk about making an embedded version of the Calling surface. We'll continue from where we left off in the last section and make some modifications to our existing screens. 
+Finally in this optional section of the tutorial we talk about making an embedded version of the Calling surface. We continue from where we left off in the last section and make some modifications to our existing screens. 
 
-To start, let's take a look at the props for the `CallingWidgetComponent.tsx` props, these will need to be updated to have the widget hold the Calling surface. We'll make two changes.
+To start, let's take a look at the props for the `CallingWidgetComponent.tsx` props, these properties need to be updated to have the widget hold the Calling surface. We make two changes.
 - Add a new prop for the adapter arguments needed for the `AzureCommunicationCallAdapter` we'll call this `adapterArgs`.
 - Make `onRenderStartCall` optional, this will allow us to come back to using a new window easier in the future.
 
@@ -58,7 +58,7 @@ export interface CallingWidgetComponentProps {
 }
 ```
 
-Now, we'll need to introduce some logic to use these arguments to make sure that we're starting a call appropriately. This will include adding state to create an `AzureCommunicationCallAdapter` inside the widget itself so it will look a lot like the logic in `NewWindowCallScreen.tsx` adding the adapter to the widget will look something like this:
+Now, we need to introduce some logic to use these arguments to make sure that we're starting a call appropriately. This will include adding state to create an `AzureCommunicationCallAdapter` inside the widget itself so it will look a lot like the logic in `NewWindowCallScreen.tsx` adding the adapter to the widget will look something like this:
 
 `CallingWidgetComponent.tsx`
 ```ts
