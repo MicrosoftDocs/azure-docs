@@ -134,15 +134,15 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 > - Filtering is not supported for multi-valued attributes.
 > - Scoping filters will return "false" if the value is null / empty.
 
-12. Optionally, repeat steps 7-8 to add more scoping clauses.
+9. Optionally, repeat steps 7-8 to add more scoping clauses.
 
-13. In **Scoping Filter Title**, add a name for your scoping filter.
+10. In **Scoping Filter Title**, add a name for your scoping filter.
 
-14. Select **OK**.
+11. Select **OK**.
 
-15. Select **OK** again on the **Scoping Filters** screen. Optionally, repeat steps 6-11 to add another scoping filter.
+12. Select **OK** again on the **Scoping Filters** screen. Optionally, repeat steps 6-11 to add another scoping filter.
 
-16. Select **Save** on the **Attribute Mapping** screen. 
+13. Select **Save** on the **Attribute Mapping** screen. 
 
 >[!IMPORTANT] 
 > Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application. To override this default behavior, refer to [Skip deletion for user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md).
