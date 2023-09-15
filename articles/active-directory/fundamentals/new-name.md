@@ -37,7 +37,9 @@ During 2023, you may see both the current Azure AD name and the new Microsoft En
 
 The product name and icons are changing,and features are now branded as Microsoft Entra instead of Azure AD. If you're updating the name to Microsoft Entra ID in your own content or experiences, see [How to: Rename Azure AD](how-to-rename-azure-ad.md).
 
-## Product name
+## Naming changes and exceptions
+
+### Product name
 
 Microsoft Entra ID is the new name for Azure AD. The names Azure Active Directory, Azure AD, and AAD are replaced with Microsoft Entra ID.
 
@@ -45,7 +47,7 @@ Microsoft Entra ID is the new name for Azure AD. The names Azure Active Director
 - Microsoft Entra ID is one of the products within that family.
 - Acronym usage is not encouraged, but if you must replace AAD with an acronym due to space limitations, use ME-ID.
 
-## Logo/icon
+### Logo/icon
 
 Azure AD product icons are replaced with the Microsoft Entra ID product icon.
 
@@ -55,7 +57,7 @@ Azure AD product icons are replaced with the Microsoft Entra ID product icon.
 
 You can download the Microsoft Entra ID icon here: [Microsoft Entra architecture icons](../architecture/architecture-icons.md)
 
-## Feature names
+### Feature names
 
 Capabilities or services formerly known as "Azure Active Directory &lt;feature name&gt;" or "Azure AD &lt;feature name&gt;" are branded as Microsoft Entra product family features. This change is done across our portfolio to avoid naming length and complexity, and because many features work across all the products. For example:
 
