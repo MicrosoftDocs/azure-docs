@@ -76,7 +76,7 @@ The following activity types appear in the **Self-Service Password Management** 
 * [Reset password (by admin)](#activity-type-reset-password-by-admin): Indicates that an administrator performed a password reset on behalf of a user.
 * [Reset password (self-service)](#activity-type-reset-password-self-service): Indicates that a user successfully reset their password from [Azure AD password reset](https://passwordreset.microsoftonline.com).
 * [Self-service password reset flow activity progress](#activity-type-self-serve-password-reset-flow-activity-progress): Indicates each specific step a user proceeds through, such as passing a specific password reset authentication gate, as part of the password reset process.
-* [Unlock user account (self-service)](#activity-type-unlock-a-user-account-self-service): Indicates that a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD password reset portal](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
+* [Unlock user account (self-service)](#activity-type-unlock-a-user-account-self-service): Indicates that a user successfully unlocked their Active Directory account without resetting their password from [Azure AD password reset](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
 * [User registered for self-service password reset](#activity-type-user-registered-for-self-service-password-reset): Indicates that a user has registered all the required information to be able to reset their password in accordance with the currently specified tenant password reset policy.
 
 ### Activity type: Blocked from self-service password reset
@@ -122,7 +122,7 @@ The following list explains this activity in detail:
 
 The following list explains this activity in detail:
 
-* **Activity description**: Indicates that a user successfully reset their password from the [Azure AD password reset portal](https://passwordreset.microsoftonline.com).
+* **Activity description**: Indicates that a user successfully reset their password from [Azure AD password reset](https://passwordreset.microsoftonline.com).
 * **Activity actor**: The user who reset their password. The user can be an end user or an administrator.
 * **Activity target**: The user who reset their password. The user can be an end user or an administrator.
 * **Activity statuses**:
@@ -142,13 +142,13 @@ The following list explains this activity in detail:
   * _Success_: Indicates that a user successfully completed a specific step of the password reset flow.
   * _Failure_: Indicates that a specific step of the password reset flow failed. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 * **Activity status reasons**:
-    See the following table for [all the permissible reset activity status reasons](#description-of-the-report-columns-in-the-azure-portal).
+    See the following table for [all the permissible reset activity status reasons](#description-of-the-report-columns).
 
 ### Activity type: Unlock a user account (self-service)
 
 The following list explains this activity in detail:
 
-* **Activity description**: Indicates that a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD password reset portal](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
+* **Activity description**: Indicates that a user successfully unlocked their Active Directory account without resetting their password from [Azure AD password reset](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
 * **Activity actor**: The user who unlocked their account without resetting their password. The user can be an end user or an administrator.
 * **Activity target**: The user who unlocked their account without resetting their password. The user can be an end user or an administrator.
 * **Allowed activity statuses**:
