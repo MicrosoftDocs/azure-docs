@@ -228,14 +228,11 @@ configure_azure_monitor(
 # Get a tracer for the current module.
 tracer = trace.get_tracer(__name__)
 
-# Start a new trace with the name "hello". This trace will be exported to
-# Azure Monitor.
+# Start a new span with the name "hello". This also sets this created span as the current span in this context. This span will be exported to Azure Monitor as part of the trace.
 with tracer.start_as_current_span("hello"):
-    
-    # Print "Hello, World!" to the console.
     print("Hello, World!")
 
-# Wait for user input.
+# Wait for export to take place in the background.
 input()
 
 ```
