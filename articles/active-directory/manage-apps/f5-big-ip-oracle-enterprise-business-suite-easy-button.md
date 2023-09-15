@@ -155,7 +155,7 @@ To reduce time and effort, reuse global settings to publish other applications.
 4. Confirm the BIG-IP connects to your tenant.
 5. Select **Next**.
 
-   ![ Screenshot of input on the Configuration Properties dialog.](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
+   ![Screenshot of input on the Configuration Properties dialog.](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
 
 ### Service Provider
 
@@ -302,7 +302,7 @@ The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization h
 6. For **Header Name**, enter **USER_ORCLGUID**.
 7. For **Header Value**, enter **%{session.ldap.last.attr.orclguid}**.
 
-   ![ Screenshot of entries and selections for Header Operation, Header Name, and Header Value.](./media/f5-big-ip-oracle/sso-and-http-headers.png)
+   ![Screenshot of entries and selections for Header Operation, Header Name, and Header Value.](./media/f5-big-ip-oracle/sso-and-http-headers.png)
 
    >[!NOTE] 
    >APM session variables in curly brackets are case-sensitive.

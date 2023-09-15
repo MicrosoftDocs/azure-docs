@@ -199,7 +199,7 @@ There's a possibility you may encounter the following screen after getting redir
 
 ![EasySSO failure screen](./media/easysso-for-confluence-tutorial/confluence-admin-8.png)
 
-In this case you have to follow the [instructions on this page]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) to get access to **atlassian-confluence.log** file. Details of the error will be available by the reference ID found on EasySSO error page.
+In this case you have to follow the [instructions on this page](https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) to get access to **atlassian-confluence.log** file. Details of the error will be available by the reference ID found on EasySSO error page.
 
 Should you have any issues digesting the log messages, please contact [EasySSO support team](mailto:support@techtime.co.nz).
 

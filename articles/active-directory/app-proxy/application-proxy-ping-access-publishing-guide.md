@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -44,8 +44,9 @@ If you've enabled Application Proxy and installed a connector already, you can s
 
 The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Application Administrator.
-1. Browse to **Azure Active Directory** > **Application proxy** > **Download connector service**. The **Application Proxy Connector Download** page appears.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
+1. Select **Download connector service**. The **Application Proxy Connector Download** page appears.
 
    ![Application proxy connector download](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
 
@@ -109,8 +110,7 @@ Now assign a user for application testing and choose header-based single sign-on
 
 Then make sure your redirect URL is set to your external URL:
 
-1. From the **Azure portal**, browse to **Azure Active Directory** > **App registrations**. A list of applications appears.
-1. Select your application.
+1. Browse to **Identity** > **Applications** > **App registrations** and select your application.
 1. Select the link next to **Redirect URIs**, showing the number of redirect URIs set up for web and public clients. The **\<application name> - Authentication** page appears.
 1. Check whether the external URL that you assigned to your application earlier is in the **Redirect URIs** list. If it isn't, add the external URL now, using a redirect URI type of **Web**, and select **Save**.
 
@@ -142,8 +142,7 @@ You need to collect these three pieces of information (all GUIDs) to set up your
 
 To collect this information:
 
-1. From the **Azure portal**, browse to **Azure Active Directory** > **App registrations**. A list of applications appears.
-1. Select your application. The **App registrations** page for your application appears.
+1. Browse to **Identity** > **Applications** > **App registrations** and select your application.
 
    ![Registration overview for an application](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
 
@@ -160,9 +159,9 @@ To collect this information:
 
 **Update the `acceptMappedClaims` field:**
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Application Administrator.
-1. Browse to **Azure Active Directory** > **App registrations**. A list of applications appears.
-1. Select your application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
+1. Browse to **Identity** > **Applications** > **App registrations** and select your application.
 1. From the sidebar of the **App registrations** page for your application, select **Manifest**. The manifest JSON code for your application's registration appears.
 1. Search for the `acceptMappedClaims` field, and change the value to `True`.
 1. Select **Save**.

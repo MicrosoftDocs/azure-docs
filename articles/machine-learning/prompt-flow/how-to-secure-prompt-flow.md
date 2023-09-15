@@ -31,6 +31,7 @@ When you're developing your LLM application using prompt flow, you may want a se
 - Endpoint: you may want to limit Azure services or IP address to access your endpoint.
 - Related Azure Cognitive Services as such Azure OpenAI, Azure content safety and Azure cognitive search, you can use network config to make them as private then using private endpoint to let Azure Machine Learning services communicate with them.
 - Other non Azure resources such as SerpAPI, pinecone etc. If you have strict outbound rule, you need add FQDN rule to access them. 
+
 ## Secure prompt flow with workspace managed virtual network
 
 Workspace managed virtual network is the recommended way to support network isolation in prompt flow. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI, Azure content safety, and Azure cognitive search. You also can configure FQDN rule to approve outbound to non-Azure resources use by your prompt flow such as OpenAI, Pinecone etc.
@@ -64,6 +65,14 @@ Workspace managed virtual network is the recommended way to support network isol
 - Only public access enable storage account is supported. You can't use private storage account now.
 - Workspace hub / lean workspace and AI studio don't support bring your own virtual network.
 - Managed online endpoint only supports workspace managed virtual network. If you want to use your own virtual network, you may need one workspace for prompt flow authoring with your virtual network and another workspace for prompt flow deployment using managed online endpoint with workspace managed virtual network.
+
+## FAQ
+
+### Why I can't create or upgrade my flow when I disable public network access of storage account?
+Prompt flow rely on fileshare to store snapshot of flow. Prompt flow didn't support private storage account now. Here are some workarounds you can try:
+- Make the storage account as public access enabled if there is no security concern. 
+- If you are only use UI to authoring promptflow, you can add following flights (flight=PromptFlowCodeFirst=false) to use our old UI.
+- You can use our CLI/SDK to authoring promptflow, CLI/SDK authong didn't rely on fileshare. See [Integrate Prompt Flow with LLM-based application DevOps ](how-to-integrate-with-llm-app-devops.md).
 
 ## Next steps
 
