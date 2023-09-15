@@ -65,6 +65,10 @@
       href: cache-tutorial-functions-getting-started.md
     - name: Using Azure Functions to create a write-behind cache
       href: cache-tutorial-write-behind.md
+  - name: Connect from apps hosted on Azure Kubernetes Service
+    items:
+    - name: Use Enterprise active geo-replication with your AKS hosted application
+      href: cache-tutorial-active-replication.md
 - name: Samples
   items:
   - name: PowerShell samples
