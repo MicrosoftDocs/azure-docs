@@ -79,13 +79,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** textbox, type the URL:
-    `https://ainz-okal-gown.firebaseapp.com/__/auth/handler`
+    `https://idgate.bitkey.cloud/__/auth/handler`
 
     b. In the **Reply URL** textbox, type the URL:
-    `https://ainz-okal-gown.firebaseapp.com/__/auth/handler`
-
-    c. In the **Sign-on URL** text box, type the URL:
-    `https://admin.workhub.site/sso`
+    `https://idgate.bitkey.cloud/__/auth/handler`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
