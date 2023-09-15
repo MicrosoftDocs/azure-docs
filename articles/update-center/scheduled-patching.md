@@ -19,7 +19,7 @@ You can use Update Manager (preview) in Azure to create and save recurring deplo
 
 - Create a schedule on a daily, weekly, or hourly cadence.
 - Specify the machines that must be updated as part of the schedule.
-- Indicate the updates to be installed.
+- Select the updates to be installed.
 
 This schedule then automatically installs the updates according to the created schedule for a single virtual machine (VM) and at scale.
 
@@ -41,7 +41,7 @@ VMs in a common availability set are updated within Update Domain boundaries. VM
 
 ## Configure reboot settings
 
-The registry keys listed in [Configure Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot. A reboot occurs even if you specify **Never Reboot** in the **Schedule** settings. Configure these registry keys to best suit your environment.
+The registry keys listed in [Configure Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot. A reboot can occur even if you specify **Never Reboot** in the **Schedule** settings. Configure these registry keys to best suit your environment.
 
 ## Service limits
 
@@ -56,7 +56,7 @@ We recommend the following limits for the indicators.
 
 ## Schedule recurring updates on a single VM
 
-You can schedule updates from the **Overview** or **Machines** pane on the **Update Manager (preview**) page or from the selected VM.
+You can schedule updates from **Overview** or **Machines** on the **Update Manager (preview**) page or from the selected VM.
 
 # [From Overview pane](#tab/schedule-updates-single-overview)
 
@@ -64,7 +64,7 @@ To schedule recurring updates on a single VM:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Update Manager (preview)** page, under **Overview**, select your subscription and select **Schedule updates**.
+1. On the **Update Manager (preview)** page, select **Overview**, select your subscription and select **Schedule updates**.
 
 1. On the **Create new maintenance configuration** page, you can create a schedule for a single VM.
 
@@ -91,13 +91,13 @@ To schedule recurring updates on a single VM:
 
 1. On the **Machines** tab, select your machine and select **Next**.
 
-1. On the **Updates** tab, specify the updates to include in the deployment, such as update classifications or KB ID/packages that must be installed when you trigger your schedule.
+1. On the **Updates** tab, specify the updates to include in the deployment, such as update classifications or Knowledge Base (KB) ID/packages that must be installed when you trigger your schedule.
 
    Update Manager (preview) doesn't support driver updates.
 
 1. On the **Tags** tab, assign tags to maintenance configurations.
 
-1. On the **Review + Create** tab, verify your update deployment options and select **Create**.
+1. On the **Review + create** tab, verify your update deployment options and select **Create**.
 
 # [From Machines pane](#tab/schedule-updates-single-machine)
 
@@ -152,7 +152,7 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. On the **Tags** tab, assign tags to maintenance configurations.
 
-1. On the **Review + Create** tab, verify your update deployment options and select **Create**.
+1. On the **Review + create** tab, verify your update deployment options and select **Create**.
 
 # [From Machines pane](#tab/schedule-updates-scale-machine)
 
@@ -170,11 +170,11 @@ A notification confirms that the deployment was created.
  A maintenance configuration can be attached to multiple machines. It can be attached to machines at the time of creating a new maintenance configuration or even after you create one.
 
  1. On the **Update Manager** page, select the **Machines** tab and select your subscription.
- 1. Select your machine and in **Updates (Preview)**, select **Scheduled updates** to create a maintenance configuration or attach existing maintenance configuration to the scheduled recurring updates.
-1. In **Scheduling**, select **Attach maintenance configuration**.
+ 1. Select your machine and on the **Updates (Preview)** pane, select **Scheduled updates** to create a maintenance configuration or attach existing maintenance configuration to the scheduled recurring updates.
+1. On the **Scheduling** tab, select **Attach maintenance configuration**.
 1. Select the maintenance configuration that you want to attach and select **Attach**.
-1. In **Updates (Preview)**, select **Scheduling** and **Attach maintenance configuration**.
-1. On the **Attach existing maintenance configuration** page, select the maintenance configuration that you want to attach and select **Attach**.
+1. On the **Updates (Preview)** pane, select **Scheduling** > **Attach maintenance configuration**.
+1. On the **Attach existing maintenance configuration** pane, select the maintenance configuration that you want to attach and select **Attach**.
 
 	:::image type="content" source="./media/scheduled-updates/scheduled-patching-attach-maintenance-inline.png" alt-text="Screenshot that shows Scheduled patching attach maintenance configuration." lightbox="./media/scheduled-updates/scheduled-patching-attach-maintenance-expanded.png":::
 
@@ -193,7 +193,7 @@ You can create a new guest OS update maintenance configuration or modify an exis
 ### Create a new maintenance configuration
 
 1. On the **Machines** tab, select machines from the list.
-1. In **Updates (Preview)**, select **Scheduled updates**.
+1. On the **Updates (Preview)** pane, select **Scheduled updates**.
 1. On the **Create a maintenance configuration** page, follow step 3 in this [procedure](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration.
 1. On the **Basics** tab, select **Maintenance scope** as **Guest (Azure VM, Arc-enabled VMs/servers)**.
 
@@ -202,14 +202,14 @@ You can create a new guest OS update maintenance configuration or modify an exis
 ### Add or remove machines from maintenance configuration
 
 1. On the **Machines** tab, select machines from the list.
-1. In **Updates (Preview)**, select **One-time updates**.
-1. On the **Install one-time updates** page, on the **Machines** tab, select **Add machine**.
+1. On the **Updates (Preview)** pane, select **One-time updates**.
+1. On the **Install one-time updates** pane, on the **Machines** tab, select **Add machine**.
 
 	:::image type="content" source="./media/scheduled-updates/add-or-remove-machines-from-maintenance-configuration-inline.png" alt-text="Screenshot that shows adding or removing machines from maintenance configuration." lightbox="./media/scheduled-updates/add-or-remove-machines-from-maintenance-configuration-expanded.png":::
 
 ### Change update selection criteria
 
-1. On the **Install one-time updates** page, select the resources and machines to install the updates.
+1. On the **Install one-time updates** pane, select the resources and machines to install the updates.
 1. On the **Machines** tab, select **Add machine** to add machines that weren't previously selected and select **Add**.
 1. On the **Updates** tab, specify the updates to include in the deployment.
 1. Select **Include KB ID/package** and **Exclude KB ID/package**, respectively, to select updates like **Critical**, **Security**, and **Feature updates**.
@@ -238,30 +238,29 @@ Azure Policy allows you to assign standards and assess compliance at scale. For 
 	- Ensure that **Policy enforcement** is set to **Enabled** and select **Next**.
 1. On the **Parameters** tab, by default, only the **Maintenance configuration ARM ID** is visible.
 
-   If you do not specify any other parameters, all machines in the subscription and resource group that you selected on the **Basics** tab will be covered under scope. If you want to scope further based on resource group, location, OS, tags, and so on, clear **Only show parameters that need input or review** to view all parameters.
+   If you don't specify any other parameters, all machines in the subscription and resource group that you selected on the **Basics** tab are covered under scope. If you want to scope further based on resource group, location, OS, tags, and so on, clear **Only show parameters that need input or review** to view all parameters:
 
-	- **Maintenance Configuration ARM ID**: A mandatory parameter to be provided. It denotes the ARM ID of the schedule that you want to assign to the machines.
+	- **Maintenance Configuration ARM ID**: A mandatory parameter to be provided. It denotes the Azure Resource Manager (ARM) ID of the schedule that you want to assign to the machines.
 	- **Resource groups**: You can optionally specify a resource group if you want to scope it down to a resource group. By default, all resource groups within the subscription are selected.
 	- **Operating System types**: You can select Windows or Linux. By default, both are preselected.
 	- **Machine locations**: You can optionally specify the regions that you want to select. By default, all are selected.
 	- **Tags on machines**: You can use tags to scope down further. By default, all are selected.
-	- **Tags operator**: If you selected multiple tags, you can specify if you want the scope to be machines that have all the tags or machines that have any of those tags.
+	- **Tags operator**: If you select multiple tags, you can specify if you want the scope to be machines that have all the tags or machines that have any of those tags.
 
 	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-assign-policy.png" alt-text="Screenshot that shows how to assign a policy.":::
 
-1. In **Remediation**, **Managed Identity**, and **Type of Managed Identity**, select **System assigned managed identity**. **Permissions** is already set as **Contributor** according to the policy definition.
+1. On the **Remediation** tab, in **Managed Identity** > **Type of Managed Identity**, select **System assigned managed identity**. **Permissions** is already set as **Contributor** according to the policy definition.
 
+   If you select **Remediation**, the policy is in effect on all the existing machines in the scope or else it's assigned to any new machine that's added to the scope.
 
-   If you select **Remediation**, the policy is effective on all the existing machines in the scope or else it's assigned to any new machine that's added to the scope.
-
-1. On the **Review + Create** page, verify your selections and select **Create** to identify the noncompliant resources to understand the compliance state of your environment.
+1. On the **Review + create** tab, verify your selections and select **Create** to identify the noncompliant resources to understand the compliance state of your environment.
 
 ### View compliance
 
 To view the current compliance state of your existing resources:
 
 1. In **Policy Assignments**, select **Scope** to select your subscription and resource group.
-1. In **Definition type**, select policy and in the list, select the assignment name.
+1. In **Definition type**, select the policy. In the list, select the assignment name.
 1. Select **View compliance**. **Resource compliance** lists the machines and reasons for failure.
 
 	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-policy-compliance.png" alt-text="Screenshot that shows policy compliance.":::

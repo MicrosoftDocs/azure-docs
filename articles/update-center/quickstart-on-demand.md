@@ -40,14 +40,14 @@ To configure the settings on your machines:
 
 1. On the **Update Manager (preview) | Getting started** page, in **On-demand assessment and updates**, select **Update settings**.
 
-    On the **Change update settings** page, **Properties** is selected by default.
+    On the **Change update settings** pane, **Properties** is selected by default.
 1. Select from the list of update settings to apply them to the selected machines.
 
 1. On the **Update settings to change** page, select **Periodic assessment**, **Hotpatch**, or **Patch orchestration** to configure. Select **Next**. For more information, see [Configure settings on virtual machines](manage-update-settings.md#configure-settings-on-a-single-vm).
 
 1. On the **Machines** tab, verify the machines for which you can apply the updates. You can also add or remove machines from the list. Select **Next**.
 
-1. On the **Review and change** page, verify the resource selection and update settings and select **Review and change**.
+1. On the **Review and change** tab, verify the resource selection and update settings and select **Review and change**.
     A notification confirms that the update settings were successfully applied.
 
 ## Install updates
@@ -56,21 +56,21 @@ Based on the last assessment performed on the selected machines, you can now sel
 
 1. On the **Update Manager (preview) | Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
 
-1. On the **Install one-time updates** page, select one or more machines from the list on the **Machines** tab. Select **Next**.
+1. On the **Install one-time updates** pane, select one or more machines from the list on the **Machines** tab. Select **Next**.
 
-1. In **Updates**, specify the updates to include in the deployment and select **Next**:
+1. On the **Updates** tab, specify the updates to include in the deployment and select **Next**:
 
     - Include update classification.
-    - Include the KB ID/package, by specific KB IDs or package. For Windows, see [MSRC](https://msrc.microsoft.com/update-guide/deployments) for the latest KBs.
+    - Include the Knowledge Base (KB) ID/package, by specific KB IDs or package. For Windows, see the [Microsoft Security Response Center (MSRC)](https://msrc.microsoft.com/update-guide/deployments) for the latest information.
     - Exclude the KB ID/package that you don't want to install as part of the process. Updates not shown in the list can be installed based on the time between last assessment and release of new updates.
     - Include by maximum patch publish date includes the updates published on or before a specific date.
 
-1. In **Properties**, select **Reboot** and **Maintenance window** (in minutes). Select **Next**.
+1. On the **Properties** tab, select **Reboot** and **Maintenance window** (in minutes). Select **Next**.
 
-1. On the **Review + install** page, verify the update deployment options and select **Install**.
+1. On the **Review + install** tab, verify the update deployment options and select **Install**.
 
-A notification confirms that the installation of updates is in progress. After the update is finished, you can view the results on the **Update Manager** > **History** page.
+A notification confirms that the installation of updates is in progress. After the update is finished, you can view the results on the **Update Manager (preview) | History** page.
 
 ## Next steps
 
-  Learn about [managing multiple machines](manage-multiple-machines.md).
+Learn about [managing multiple machines](manage-multiple-machines.md).
