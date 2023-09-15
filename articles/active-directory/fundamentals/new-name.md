@@ -35,7 +35,7 @@ Service plan display names will change on October 1, 2023. Microsoft Entra ID Fr
 
 During 2023, you may see both the current Azure AD name and the new Microsoft Entra ID name in support area paths. For self-service support, look for the topic path of "Microsoft Entra" or "Azure Active Directory/Microsoft Entra ID."
 
-The product name and icons are changing,and features are now branded as Microsoft Entra instead of Azure AD. If you're updating the name to Microsoft Entra ID in your own content or experiences, see [How to: Rename Azure AD](how-to-rename-azure-ad.md).
+The product name and icons are changing, and features are now branded as Microsoft Entra instead of Azure AD. If you're updating the name to Microsoft Entra ID in your own content or experiences, see [How to: Rename Azure AD](how-to-rename-azure-ad.md).
 
 ## Naming changes and exceptions
 
