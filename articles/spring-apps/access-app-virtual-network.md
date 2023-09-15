@@ -25,16 +25,13 @@ When **Assign Endpoint** on applications in an Azure Spring Apps service instanc
 
 #### [Portal](#tab/azure-portal)
 
-1. Select the virtual network resource you created as explained in [Deploy Azure Spring Apps in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
+1. Go to the Azure Spring Apps service **Networking** page.
 
-2. In the **Connected devices** search box, enter *kubernetes-internal*.
+2. Select the **Vnet injection** tab.
 
-3. In the filtered result, find the **Device** connected to the **Service Runtime Subnet** of the service instance, and copy its **IP Address**. In this sample, the IP Address is *10.1.0.7*.
+3. In the **General info** section, find the **Endpoint** and copy its **IP Address**. In this sample, the IP Address is *10.0.1.6*.
 
-   > [!WARNING]
-   > Be sure that the IP Address belongs to **Service Runtime subnet** instead of **Spring Boot microservice apps subnet**. Subnet specifications are provided when you deploy an Azure Spring Apps instance. For more information, see the [Deploy an Azure Spring Apps instance](./how-to-deploy-in-azure-virtual-network.md#deploy-an-azure-spring-apps-instance) section of [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
-
-   :::image type="content" source="media/spring-cloud-access-app-vnet/create-dns-record.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network, filtered for kubernetes-internal devices, with the IP Address for the service runtime subnet highlighted." lightbox="media/spring-cloud-access-app-vnet/create-dns-record.png":::
+   ![Find the IP Address for your application](media/spring-cloud-access-app-vnet/find-ip-address.png)
 
 #### [CLI](#tab/azure-CLI)
 
