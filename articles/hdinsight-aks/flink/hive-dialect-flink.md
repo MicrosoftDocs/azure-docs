@@ -142,7 +142,7 @@ root [ ~ ]# exit
 
 The data is written in the same container configured in the hive/warehouse directory.
 
-:::image type="content" source="./media/hive-dialect-flink/flink-container-table-1.png" alt-text="Screenshot shows container table 1." lightbox="flink-container-table-1./media/hive-dialect-flink/.png":::
+:::image type="content" source="./media/hive-dialect-flink/flink-container-table-1.png" alt-text="Screenshot shows container table 1." lightbox="./media/hive-dialect-flink/flink-container-table-1.png":::
 
 With partitions
 ```sql
