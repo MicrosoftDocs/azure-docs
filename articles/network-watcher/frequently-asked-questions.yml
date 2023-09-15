@@ -87,7 +87,7 @@ sections:
           NetworkWatcherRG is a resource group that's automatically created for Network Watcher resources. For example, Network Watcher regional instances and the NSG flow log resources are created in **NetworkWatcherRG** resource group. You can customize the name of Network Watcher resource group using [PowerShell](network-watcher-create.md?tabs=powershell#enable-network-watcher-for-your-region), [Azure CLI](network-watcher-create.md?tabs=cli#enable-network-watcher-for-your-region), or [REST API](/rest/api/network-watcher/network-watchers/create-or-update).
 
       - question: |
-          What ?
+          Does Network Watcher store customer data?
         answer: |
           Azure Network Watcher doesn't store customer data, except for the Connection monitor. Connection monitor stores customer data, which is automatically stored by Network Watcher in a single region to satisfy in-region data residency requirements.
 
