@@ -62,7 +62,7 @@ Next, you can use a template to [add other customized images for Base, Java, .NE
 
 ## Deploy the template 
 
-1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure. 
+1. Select **Open Cloudshell** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure. 
 
    ```azurepowershell-interactive
    $vnetAddressPrefixes = Read-Host -Prompt "Enter a vnet address prefixes like 10.0.0.0/16" 
