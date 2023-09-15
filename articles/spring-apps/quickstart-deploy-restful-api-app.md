@@ -44,7 +44,7 @@ The following diagram shows the architecture of the system:
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- AMicrosoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
+- A Microsoft Entra ID tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Azure AD](../active-directory/fundamentals/create-new-tenant.md).
 - [curl](https://curl.se/download.html).
 
 #### [Azure Developer CLI](#tab/Azure-Developer-CLI)

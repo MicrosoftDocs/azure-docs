@@ -49,7 +49,7 @@ Use Azure Developer CLI to initialize the web application from the templates.
    The following list describes the command interactions:
 
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group that'll be created to hold all the Azure resources. This name should be unique within your Azure subscription.
+    - **Please enter a new environment name**: Provide an environment name. This name is used as a suffix for the resource group that is created to hold all the Azure resources. This name should be unique within your Azure subscription.
 
    The console outputs messages similar to the following example:
 
@@ -168,7 +168,7 @@ Use the following steps to connect your service instances:
    azd config set alpha.springapp on
    ```
 
-1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and also deploy the application code to those newly-provisioned resources:
+1. Run the following command to package a deployable copy of your application, provision the template's infrastructure to Azure, and also deploy the application code to those newly provisioned resources:
 
    ```bash
    azd provision
@@ -273,11 +273,11 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    The following list describes the command interactions:
 
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you just created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
-    - **Select Azure Spring Apps for deployment**: Select the number of the Azure Spring Apps instance you just created, If you use the default number, press Enter directly.
-    - **Input the app name(simple-todo-api)**: Input a name for your application deployment on Azure Spring Apps, If you use the default name, press Enter directly.
+    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
+    - **Select Azure Spring Apps for deployment**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
+    - **Input the app name(simple-todo-api)**: Input a name for your application deployment on Azure Spring Apps. If you use the default name, press Enter directly.
     - **Expose public access for this app (RESTful API for SimpleTodo)?**: Enter *y*.
-    - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration will not be saved in the pom files.
+    - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration won't saved in the .pom files.
 
 1. Use the following command to deploy the app:
 
@@ -311,7 +311,7 @@ Use Azure Developer CLI to package the app, provision the Azure resources requir
    azd package
    ```
 
-1. Run the following command to deploy the application code to those newly-provisioned resources:
+1. Run the following command to deploy the application code to those newly provisioned resources:
 
    ```bash
    azd deploy
