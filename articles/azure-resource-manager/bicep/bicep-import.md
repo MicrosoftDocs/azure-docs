@@ -12,7 +12,7 @@ This article describes the syntax you use to import user-defined data types and 
 
 ## Import user-defined data types (Preview)
 
-[Bicep version 0.12.1 or newer](./install.md) is required to use this feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
+[Bicep version 0.21.1 or newer](./install.md) is required to use this feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
 
 
 The syntax for importing [user-defined data type](./user-defined-data-types.md) is:
