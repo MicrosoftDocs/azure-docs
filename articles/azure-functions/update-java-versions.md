@@ -33,9 +33,11 @@ Before updating your Java version, make sure your function app is running on the
 
 Use these steps to determine your Functions runtime version:
 
-1. In the [Azure portal](https://portal.azure.com), locate your function app and select **Configuration** on the left-hand side under **Settings**. 
+1. In the [Azure portal](https://portal.azure.com), locate your function app and select **Configuration** on the left-hand side under **Settings**. 
 
-1. Select the **Function runtime settings** tab and see if your function app is running on version 4.x of the Functions runtime (`~4`). 
+1. Select the **Function runtime settings** tab and check the **Runtime version** value to see if your function app is running on version 4.x of the Functions runtime (`~4`). 
+
+    :::image type="content" source="media/update-java-versions/update-functions-version-portal.png" alt-text="Screenshot of how to view the Functions runtime version for your app in the Azure portal"::: 
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -44,21 +46,11 @@ Use this [`az functionapp config appsettings list`](/cli/azure/functionapp/confi
 ```azurecli
 az functionapp config appsettings list --name "<FUNCTION_APP_NAME>" --resource-group "<RESOURCE_GROUP_NAME>"  
 ```
-The `FUNCTIONS_EXTENSION_VERSION` setting dictates the runtime version. A value of `~4` means that your function app is already running on the latest minor version of the latest major version (4.x). 
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-The [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet returns the existing application settings, as in the following example: 
-
-```azurepowershell-interactive
-Get-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
-```
-
-The `FUNCTIONS_EXTENSION_VERSION` setting dictates the runtime version. A value of `~4` means that your function app is already running on the latest minor version of the latest major version (4.x). 
+The `FUNCTIONS_EXTENSION_VERSION` setting sets the runtime version. A value of `~4` means that your function app is already running on the latest minor version of the latest major version (4.x). 
 
 ---
 
-If you need to first update your function app to version 4.x, see [Migrate apps from Azure Functions version 3.x to version 4.x](./migrate-version-3-version-4.md). 
+If you need to first update your function app to version 4.x, see [Migrate apps from Azure Functions version 3.x to version 4.x](./migrate-version-3-version-4.md). You should follow the instructions in this article rather than just manually changing the `FUNCTIONS_EXTENSION_VERSION` setting.
 
 ## update your Java function app
 :::zone pivot="platform-windows"  
@@ -78,8 +70,8 @@ Use the following steps to update the Java version:
 1. In the [Azure portal](https://portal.azure.com), locate your function app and select **Configuration** on the left-hand side. 
 
 1. In the **General settings** tab, update the **Java version** to `Java 17`. 
-1. 
-1. 
+
+    :::image type="content" source="media/update-java-versions/update-java-version-portal.png" alt-text="Screenshot of how to set the desired Java version for a function app in the Azure portal"::: 
 
 1. When notified about a restart, select **Continue**, and then **Save**. 
 
@@ -88,7 +80,7 @@ Use the following steps to update the Java version:
 You can use the Azure CLI to update the Java version for any hosting plan.
 
 :::zone pivot="platform-windows"  
-Use this [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to update the `java-version` setting to `17`: 
+Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Java version site setting to `17`: 
 
 ```azurecli
 az functionapp config set --java-version "17" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" 
@@ -103,20 +95,6 @@ az functionapp config set --linux-fx-version "java|17" --name "<APP_NAME>" --res
 :::zone-end  
 
 In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of your function app and resource group, respectively.  
-
-### [Azure PowerShell](#tab/azure-powershell)
-:::zone pivot="platform-windows"  
-Use the [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) cmdlet to update the `java-version` setting to `17`: 
-
-```azurepowershell
-Update-AzFunctionAppSetting -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP> -AppSetting @{"java-version" = "17"}
-```
-
-In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of your function app and resource group, respectively.  
-:::zone-end  
-:::zone pivot="platform-linux"  
-You can't use PowerShell to update the Java version on Linux. Use the Azure CLI instead.
-:::zone-end  
 
 ---
 
