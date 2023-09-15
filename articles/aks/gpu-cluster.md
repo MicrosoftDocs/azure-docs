@@ -188,7 +188,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
             value: "gpu"
             effect: "NoSchedule"
           containers:
-          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
+          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:v0.14.1
             name: nvidia-device-plugin-ctr
             securityContext:
               allowPrivilegeEscalation: false
