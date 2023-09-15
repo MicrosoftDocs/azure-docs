@@ -6,7 +6,7 @@ author: yeturis
 ms.author: sairamyeturi
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 09/15/2023
 #Customer intent: The azure advisories help to tune the cluster/query. This doc gives a much deeper understanding of the various advisories including the recommended configuration tunings.
 ---
 # Apache HBase advisories in Azure HDInsight
