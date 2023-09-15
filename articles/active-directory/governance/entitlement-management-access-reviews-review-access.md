@@ -28,7 +28,7 @@ Entitlement management simplifies how enterprises manage access to groups, appli
 
 To review users' active access package assignments, the creator of a review must satisfy these prerequisites:
 - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
-- Global administrator, Identity Governance administrator, or User administrator
+- Global administrator or Identity Governance administrator
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 

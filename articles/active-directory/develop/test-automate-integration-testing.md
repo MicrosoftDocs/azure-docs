@@ -282,7 +282,7 @@ export const keyVaultConfig = {
 
 ### Initialize MSAL.js and fetch the user credentials from Key Vault
 
-Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) with a [Configuration](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal.html#configuration) object. The minimum required configuration property is the `clientID` of the application.
+Initialize the MSAL.js authentication context by instantiating a [PublicClientApplication](/javascript/api/@azure/msal-node/publicclientapplication) with a [Configuration](/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-constructor) object. The minimum required configuration property is the `clientID` of the application.
 
 Use [SecretClient()](/javascript/api/@azure/keyvault-secrets/secretclient) to get the test username and password secrets from Azure Key Vault.
 

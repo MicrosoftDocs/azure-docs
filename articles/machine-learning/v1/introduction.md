@@ -58,5 +58,5 @@ For more information on installing and using the different extensions, see the f
 
 For more information on installing and using the different SDK versions:
 
-* `azureml-core` - [Install the Azure Machine Learning SDK (v1) for Python](/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true )
+* `azureml-core` - [Install the Azure Machine Learning SDK (v1) for Python](/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * `azure-ai-ml` - [Install the Azure Machine Learning SDK (v2) for Python](https://aka.ms/sdk-v2-install)

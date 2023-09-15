@@ -31,9 +31,11 @@ Watch the following video to learn how to view what resources users have access 
 
 ## View users assigned to an access package
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This report enables you to list all of the users who are assigned to an access package.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
+**Prerequisite role:** Global Administrator or Identity Governance Administrator
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -49,7 +51,7 @@ This report enables you to list all of the users who are assigned to an access p
 
 This report enables you to list all of the access packages a user can request and the access packages that are currently assigned to the user.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
+**Prerequisite role:** Global Administrator or Identity Governance Administrator
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -73,7 +75,7 @@ This report enables you to list all of the access packages a user can request an
 
 This report enables you to list the resources currently assigned to a user in entitlement management. This report is for resources managed with entitlement management. The user might have access to other resources in your directory outside of entitlement management.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
+**Prerequisite role:** Global administrator or Identity Governance Administrator
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -105,7 +107,7 @@ To get additional details on how a user requested and received access to an acce
 
 1. To download the logs, select **Download**.
 
-When Azure AD receives a new request, it writes an audit record, in which the **Category** is `EntitlementManagement` and the **Activity** is typically `User requests access package assignment`.  In the case of a direct assignment created in the Azure portal, the **Activity** field of the audit record is `Administrator directly assigns user to access package`, and the user performing the assignment is identified by the **ActorUserPrincipalName**.
+When Azure AD receives a new request, it writes an audit record, in which the **Category** is `EntitlementManagement` and the **Activity** is typically `User requests access package assignment`.  In the case of a direct assignment created in the Microsoft Entra admin center, the **Activity** field of the audit record is `Administrator directly assigns user to access package`, and the user performing the assignment is identified by the **ActorUserPrincipalName**.
 
 Azure AD writes additional audit records while the request is in progress, including:
 
@@ -125,7 +127,7 @@ When the user's access package assignment expires, is canceled by the user, or r
 
 ## Download list of connected organizations
 
-**Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
+**Prerequisite role**: *Global Administrator* or *Identity Governance Administrator*
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 

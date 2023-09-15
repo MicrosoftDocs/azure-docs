@@ -111,14 +111,14 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 ## Customize the recovery plan
 
 1. In the vault, select **Recovery Plans (Site Recovery)**
-2. To create a recovery plan, click **+Recovery Plan**. [Learn more](site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
-3. In the recovery plan page, click **Customize**.
+2. To create a recovery plan, select **+Recovery Plan**. [Learn more](site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
+3. In the recovery plan page, select **Customize**.
 
-    ![Click the Customize button](media/site-recovery-runbook-automation-new/custom-rp.png)
+    ![Select the Customize button](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Click the ellipses (...) next to **Group 1: Start** > **Add post action**.
+2. Select the ellipses (...) next to **Group 1: Start** > **Add post action**.
 3. In **Insert action**, verify that **Script** is selected, and specify a name for the script (**Hello World**).
-4. Specify an automation account and select a runbook. To save the script, click **OK**. The script is added to **Group 1: Post-steps**.
+4. Specify an automation account and select a runbook. To save the script, select **OK**. The script is added to **Group 1: Post-steps**.
 
 
 ## Reuse a runbook script
@@ -197,7 +197,7 @@ In some scenarios you might not be able to create separate variables for each re
 - For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end.
 - In this scenario you can't create separate variables for each recovery plan.
 
-In the following example, we create a [complex variable](https://learn.microsoft.com/powershell/module/az.automation/set-azautomationvariable) in the Azure Automation account.
+In the following example, we create a [complex variable](/powershell/module/az.automation/set-azautomationvariable) in the Azure Automation account.
 
 We do this by specifying multiple values, using Azure PowerShell.
 
@@ -250,7 +250,7 @@ You can use the same script for different recovery plans. Enter different parame
 
 ## Sample scripts
 
-To deploy sample scripts to your Automation account, click the **Deploy to Azure** button.
+To deploy sample scripts to your Automation account, select the **Deploy to Azure** button.
 
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 

@@ -56,7 +56,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![SpaceIQ Provisioning and SSO](media/spaceiq-provisioning-tutorial/provisioning.png)
 
-	![SpaceIQ Activate Azure ](media/spaceiq-provisioning-tutorial/azure.png)
+	![SpaceIQ Activate Azure](media/spaceiq-provisioning-tutorial/azure.png)
 
 3.	Copy the **SCIM Bearer Token**. This value will be entered in the Secret Token field in the Provisioning tab of your SpaceIQ application in the Azure portal. Click **Activate**
 

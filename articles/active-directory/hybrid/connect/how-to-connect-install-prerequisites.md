@@ -26,7 +26,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### Azure AD
 * You need an Azure AD tenant. You get one with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). You can use one of the following portals to manage Azure AD Connect:
-  * The [Azure portal](https://portal.azure.com).
+  * The [Entra portal](https://entra.microsoft.com).
   * The [Office portal](https://portal.office.com).
 * [Add and verify the domain](../../fundamentals/add-custom-domain.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users, make sure this domain has been verified and you're not using only the contoso.onmicrosoft.com default domain.
 * An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security.

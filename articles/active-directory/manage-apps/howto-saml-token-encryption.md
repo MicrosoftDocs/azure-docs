@@ -30,11 +30,18 @@ To configure token encryption, you need to upload an X.509 certificate file that
 
 Azure AD uses AES-256 to encrypt the SAML assertion data.
 
+## Prerequisites
+
+To configure SAML token encryption, you need:
+
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Configure enterprise application SAML token encryption
 
-This section describes how to configure enterprise application's SAML token encryption. Applications that have been set up from the **Enterprise applications** blade in the Azure portal, either from the Application Gallery or a Non-Gallery app. For applications registered through the **App registrations** experience, follow the [Configure registered application SAML token encryption](#configure-registered-application-saml-token-encryption) guidance.
+This section describes how to configure enterprise application's SAML token encryption. Applications that have been set up from the **Enterprise applications** blade in the Microsoft Entra admin center, either from the Application Gallery or a Non-Gallery app. For applications registered through the **App registrations** experience, follow the [Configure registered application SAML token encryption](#configure-registered-application-saml-token-encryption) guidance.
 
 To configure enterprise application's SAML token encryption, follow these steps:
 
@@ -48,26 +55,23 @@ To configure enterprise application's SAML token encryption, follow these steps:
 
 1. Add the certificate to the application configuration in Azure AD.
 
-### To configure token encryption in the Azure portal
+### Configure token encryption in the Microsoft Entra admin center
 
-You can add the public cert to your application configuration within the Azure portal.
+You can add the public cert to your application configuration within the Microsoft Entra admin center.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Search for and select the **Azure Active Directory**.
-
-1. Select **Enterprise applications** blade and then select the application that you wish to configure token encryption for.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. On the application's page, select **Token encryption**.
 
-    ![Screenshot shows how to select the Token encryption option in the Azure portal.](./media/howto-saml-token-encryption/token-encryption-option-small.png)
+    ![Screenshot shows how to select the Token encryption option in the Microsoft Entra admin center.](./media/howto-saml-token-encryption/token-encryption-option-small.png)
 
     > [!NOTE]
-    > The **Token encryption** option is only available for SAML applications that have been set up from the **Enterprise applications** blade in the Azure portal, either from the Application Gallery or a Non-Gallery app. For other applications, this menu option is disabled. 
+    > The **Token encryption** option is only available for SAML applications that have been set up from the **Enterprise applications** blade in the Microsoft Entra admin center, either from the Application Gallery or a Non-Gallery app. For other applications, this menu option is disabled. 
 
 1. On the **Token encryption** page, select **Import Certificate** to import the .cer file that contains your public X.509 certificate.
 
-    ![Screenshot shows how to import a certificate file using Azure portal.](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Screenshot shows how to import a certificate file using Microsoft Entra admin center.](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Once the certificate is imported, and the private key is configured for use on the application side, activate encryption by selecting the **...** next to the thumbprint status, and then select **Activate token encryption** from the options in the dropdown menu.
 
@@ -75,9 +79,9 @@ You can add the public cert to your application configuration within the Azure p
 
 1. Confirm that the SAML assertions emitted for the application are encrypted.
 
-### To deactivate token encryption in the Azure portal
+### To deactivate token encryption in the Microsoft Entra admin center
 
-1. In the Azure portal, go to **Azure Active Directory > Enterprise applications**, and then select the application that has SAML token encryption enabled.
+1. In the Microsoft Entra admin center, go to **Identity** > **Applications** > **Enterprise applications** > **All applications**, and then select the application that has SAML token encryption enabled.
 
 1. On the application's page, select **Token encryption**, find the certificate, and then select the **...** option to show the dropdown menu.
 
@@ -85,22 +89,21 @@ You can add the public cert to your application configuration within the Azure p
 
 ## Configure registered application SAML token encryption
 
-This section describes how to configure registered application's SAML token encryption. Applications that have been set up from the **App registrations** blade in the Azure portal. For enterprise application, follow the [Configure enterprise application SAML token encryption](#configure-enterprise-application-saml-token-encryption) guidance.
+This section describes how to configure registered application's SAML token encryption. Applications that have been set up from the **App registrations** blade in the Microsoft Entra admin center. For enterprise application, follow the [Configure enterprise application SAML token encryption](#configure-enterprise-application-saml-token-encryption) guidance.
 
 Encryption certificates are stored on the application object in Azure AD with an `encrypt` usage tag. You can configure multiple encryption certificates and the one that's active for encrypting tokens is identified by the `tokenEncryptionKeyID` attribute.
 
-You'll need the application's object ID to configure token encryption using Microsoft Graph API or PowerShell. You can find this value programmatically, or by going to the application's **Properties** page in the Azure portal and noting the **Object ID** value.
+You'll need the application's object ID to configure token encryption using Microsoft Graph API or PowerShell. You can find this value programmatically, or by going to the application's **Properties** page in the Microsoft Entra admin center and noting the **Object ID** value.
 
 When you configure a keyCredential using Graph, PowerShell, or in the application manifest, you should generate a GUID to use for the keyId.
 
-To configure token encryption, follow these steps:
+To configure token encryption for an application registration, follow these steps:
 
 # [Portal](#tab/azure-portal)
 
-1. From the Azure portal, go to **Azure Active Directory > App registrations**.
-
-1. Select the **All apps** tab to show all apps, and then select the application that you want to configure.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **App registrations** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. In the application's page, select **Manifest** to edit the [application manifest](../develop/reference-app-manifest.md).
 
     The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEncryptionKeyId.
@@ -174,7 +177,7 @@ To configure token encryption, follow these steps:
 
 # [Azure AD PowerShell](#tab/azuread-powershell)
 
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
+1. Use the latest Azure AD PowerShell module to connect to your tenant. You need to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 
 1. Set the token encryption settings using the **[Set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)** command.
 
@@ -192,7 +195,7 @@ To configure token encryption, follow these steps:
 
 # [Microsoft Graph PowerShell](#tab/msgraph-powershell)
 
-1. Use the Microsoft Graph PowerShell module to connect to your tenant.
+1. Use the Microsoft Graph PowerShell module to connect to your tenant. You need to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 1. Set the token encryption settings using the **[Update-MgApplication](/powershell/module/microsoft.graph.applications/update-mgapplication?view=graph-powershell-1.0&preserve-view=true)** command.
 

@@ -21,17 +21,13 @@ In this scenario, Azure Active Directory (Azure AD) signs the user in. But the a
 
 There are several possible reasons why the app didn't accept the response from Azure AD. If there's an error message or code displayed, use the following resources to diagnose the error:
 
-* [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md)
-
-* [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)
-
+- [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md)
+- [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)
 
 If the error message doesn't clearly identify what's missing from the response, try the following:
 
-- If the app is the Azure AD gallery, verify that you followed the steps in [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
-
+- If the app is in the Azure AD gallery, verify that you followed the steps in [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
 - Use a tool like [Fiddler](https://www.telerik.com/fiddler) to capture the SAML request, response, and token.
-
 - Send the SAML response to the app vendor and ask them what's missing.
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
@@ -40,24 +36,11 @@ If the error message doesn't clearly identify what's missing from the response, 
 
 To add an attribute in the Azure AD configuration that will be sent in the Azure AD response, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global administrator or co-admin.
-
-2. At the top of the navigation pane on the left side, select **All services** to open the Azure AD extension.
-
-3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
-
-4. Select **Enterprise Applications** in the Azure AD navigation pane.
-
-5. Select **All Applications** to view a list of your apps.
-
-   > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
-
-6. Select the application that you want to configure for single sign-on.
-
-7. After the app loads, select **Single sign-on** in the navigation pane.
-
-8. In the **User Attributes** section, select **View and edit all other user attributes**. Here you can change which attributes to send to the app in the SAML token when users sign in.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Enter the name of the existing application in the search box, and then select the application that you want to configure for single sign-on.
+1. After the app loads, select **Single sign-on** in the navigation pane.
+1. In the **User Attributes** section, select **View and edit all other user attributes**. Here you can change which attributes to send to the app in the SAML token when users sign in.
 
    To add an attribute:
 
@@ -65,7 +48,7 @@ To add an attribute in the Azure AD configuration that will be sent in the Azure
 
    1. Select **Save**. You'll see the new attribute in the table.
 
-9. Save the configuration.
+1. Save the configuration.
 
    The next time that the user signs in to the app, Azure AD will send the new attribute in the SAML response.
 
@@ -79,24 +62,11 @@ If you're using [Azure AD automated user provisioning](../app-provisioning/user-
 
 To change the User Identifier value, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a global administrator or co-admin.
-
-2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
-
-3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
-
-4. Select **Enterprise Applications** in the Azure AD navigation pane.
-
-5. Select **All Applications** to view a list of your apps.
-
-   > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
-
-6. Select the app that you want to configure for SSO.
-
-7. After the app loads, select **Single sign-on** in the navigation pane.
-
-8. Under **User attributes**, select the unique identifier for the user from the **User Identifier** drop-down list.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app that you want to configure for SSO.
+1. After the app loads, select **Single sign-on** in the navigation pane.
+1. Under **User attributes**, select the unique identifier for the user from the **User Identifier** drop-down list.
 
 ### Change the NameID format
 
@@ -108,26 +78,12 @@ Azure AD selects the format for the **NameID** attribute (User Identifier) based
 
 To change which parts of the SAML token are digitally signed by Azure AD, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
-
-2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
-
-3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
-
-4. Select **Enterprise Applications** in the Azure AD navigation pane.
-
-5. Select **All Applications** to view a list of your apps.
-
-   > [!NOTE]
-   > If you don't see the application that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
-
-6. Select the application that you want to configure for single sign-on.
-
-7. After the application loads, select **Single sign-on** in the navigation pane.
-
-8. Under **SAML Signing Certificate**, select  **Show advanced certificate signing settings**.
-
-9. Select the **Signing Option** that the app expects from among these options:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the application that you want to configure for single sign-on.
+1. After the application loads, select **Single sign-on** in the navigation pane.
+1. Under **SAML Signing Certificate**, select  **Show advanced certificate signing settings**.
+1. Select the **Signing Option** that the app expects from among these options:
 
    - **Sign SAML response**
    - **Sign SAML response and assertion**
@@ -141,33 +97,17 @@ By default, Azure AD signs the SAML token by using the most-secure algorithm. We
 
 To change the signing algorithm, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and sign in as a global administrator or co-admin.
-
-2. Select **All services** at the top of the navigation pane on the left side to open the Azure AD extension.
-
-3. Type **Azure Active Directory** in the filter search box, and then select **Azure Active Directory**.
-
-4. Select **Enterprise Applications** in the Azure AD navigation pane.
-
-5. Select **All Applications** to view a list of your applications.
-
-   > [!NOTE]
-   > If you don't see the application that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
-
-6. Select the app that you want to configure for single sign-on.
-
-7. After the app loads, select **Single sign-on** from the navigation pane on the left side of the app.
-
-8. Under **SAML Signing Certificate**, select **Show advanced certificate signing settings**.
-
-9. Select **SHA-1** as the **Signing Algorithm**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Select the app that you want to configure for single sign-on.
+1. After the app loads, select **Single sign-on** from the navigation pane on the left side of the app.
+1. Under **SAML Signing Certificate**, select **Show advanced certificate signing settings**.
+1. Select **SHA-1** as the **Signing Algorithm**.
 
    The next time that the user signs in to the app, Azure AD will sign the SAML token by using the SHA-1 algorithm.
 
 ## Next steps
 
-* [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
-
-* [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md)
-
-* [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)
+- [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md)
+- [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md)
+- [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)

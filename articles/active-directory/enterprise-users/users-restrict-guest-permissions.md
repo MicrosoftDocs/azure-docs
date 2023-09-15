@@ -37,8 +37,8 @@ You must be in the Global Administrator role to configure guest user access. The
 
 We’ve made changes to the existing Azure portal controls for guest user permissions.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with Global Administrator permissions.
-1. Browse to **Azure Active Directory** > **User settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD)  > **Users** > **All users**.
 1. Under **External users**, select **Manage external collaboration settings**.
 1. On the **External collaboration settings** page, select **Guest user access is restricted to properties and memberships of their own directory objects** option.
 
