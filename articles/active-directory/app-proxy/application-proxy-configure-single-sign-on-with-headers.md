@@ -47,7 +47,7 @@ The following table lists common capabilities required for header-based authenti
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png" alt-text="How header-based single sign-on works with Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png":::
 
-1. The Admin customizes the attribute mappings required by the application in the Azure portal. 
+1. The Admin customizes the attribute mappings required by the application in the Microsoft Entra admin center. 
 2. When a user accesses the app, Application Proxy ensures the user is authenticated by Azure AD 
 3. The Application Proxy cloud service is aware of the attributes required. So the service fetches the corresponding claims from the ID token received during authentication. The service then translates the values into the required HTTP headers as part of the request to the Connector. 
 4. The request is then passed along to the Connector, which is then passed to the backend application. 

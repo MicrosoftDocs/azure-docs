@@ -76,24 +76,22 @@ Use a naming convention that clarifies policy purpose. External access examples 
 
 You can block external users from accessing resources with Conditional Access policies. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-3. Select **New policy**.
-4. Enter a policy a name. 
-5. Under **Assignments**, select **Users or workload identities**.
-6. Under **Include**, select **All guests and external users**. 
-7. Under **Exclude**, select **Users and groups**.
-8. Select emergency access accounts. 
-9. Select **Done**.
-10. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-11. Under **Exclude**, select applications you want to exclude.
-12. Under **Access controls** > **Grant**, select **Block access**.
-13. Select **Select**.
-14. Select **Enable policy** to **Report-only**.
-15. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users or workload identities**.
+   1. Under **Include**, select **All guests and external users**. 
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+1. Under **Target resources** > **Cloud apps**, select the following options:
+   1. Under **Include**, select **All cloud apps**
+   1. Under **Exclude**, select applications you want to exclude.
+1. Under **Access controls** > **Grant**, select **Block access**, then select **Select**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
+1. Select **Create** to create to enable your policy.
 
 > [!NOTE]
-> You can confirm settings in **report only** mode. See, Configure a Conditional Access policy in repory-only mode, in [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
+> After administrators confirm the settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
 Learn more: [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 
@@ -103,24 +101,21 @@ There are scenarios when it's necessary to allow access for a small, specific gr
 
 Before you begin, we recommend you create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Azure AD](../fundamentals/groups-view-azure-portal.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-3. Select **New policy**.
-4. Enter a policy name.
-5. Under **Assignments**, select **Users or workload identities**.
-6. Under **Include**, select **All guests and external users**. 
-7. Under **Exclude**, select **Users and groups**
-8. Select emergency access accounts.
-9. Select the external users security group.
-10. Select **Done**.
-11. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-12. Under **Exclude**, select applications you want to exclude.
-13. Under **Access controls** > **Grant**, select **Block access**.
-14. Select **Select**.
-15. Select **Create**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+1. Under **Assignments**, select **Users or workload identities**.
+   1. Under **Include**, select **All guests and external users**. 
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts and the external users security group.
+1. Under **Target resources** > **Cloud apps**, select the following options:
+   1. Under **Include**, select **All cloud apps**
+   1. Under **Exclude**, select applications you want to exclude.
+1. Under **Access controls** > **Grant**, select **Block access**, then select **Select**.
+1. Select **Create** to create to enable your policy.
 
 > [!NOTE]
-> You can confirm settings in **report only** mode. See, Configure a Conditional Access policy in repory-only mode, in [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
+> After administrators confirm the settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
 Learn more: [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 

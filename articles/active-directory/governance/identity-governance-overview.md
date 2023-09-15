@@ -92,14 +92,14 @@ In addition to the features listed above, additional Microsoft Entra features fr
 
 ## Getting started
 
-Check out the [Getting started tab](https://portal.azure.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/GettingStarted) of **Identity Governance** in the Azure portal to start using entitlement management, access reviews, Privileged Identity Management, and Terms of use, and see some common use cases.
+Check out the [Getting started tab](https://portal.azure.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/GettingStarted) of **Identity Governance** in the Microsoft Entra admin center to start using entitlement management, access reviews, Privileged Identity Management, and Terms of use, and see some common use cases.
 
 ![Identity Governance getting started](./media/identity-governance-overview/getting-started.png)
 
 
 There are also tutorials for [managing access to resources in entitlement management](entitlement-management-access-package-first.md), [onboarding external users to Azure AD through an approval process](entitlement-management-onboard-external-user.md), [governing access to your applications](identity-governance-applications-prepare.md) and the [application's existing users](identity-governance-applications-existing-users.md).
 
-If you have any feedback about Identity Governance features, click **Got feedback?** in the Azure portal to submit your feedback. The team regularly reviews your feedback.
+If you have any feedback about Identity Governance features, click **Got feedback?** in the Microsoft Entra admin center to submit your feedback. The team regularly reviews your feedback.
 
 While there's no perfect solution or recommendation for every customer, the following configuration guides also provide the baseline policies Microsoft recommends you follow to ensure a more secure and productive workforce.
 
