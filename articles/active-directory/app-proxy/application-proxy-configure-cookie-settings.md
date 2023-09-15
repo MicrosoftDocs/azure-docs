@@ -40,11 +40,11 @@ Additionally, if your back-end application has cookies that need to be available
 
 
 
-## Set the cookie settings - Azure portal
+## Set the cookie settings - Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To set the cookie settings using the Azure portal:
+To set the cookie settings using the Microsoft Entra admin center:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.

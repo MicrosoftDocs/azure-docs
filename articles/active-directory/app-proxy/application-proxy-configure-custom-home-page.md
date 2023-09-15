@@ -39,13 +39,13 @@ Before you set the home page URL, keep in mind the following requirements:
 
 - If you make a change to the published app, the change might reset the value of the home page URL. When you update the app in the future, you should recheck and, if necessary, update the home page URL.
 
-You can set the home page URL either through the Azure portal or by using PowerShell.
+You can set the home page URL either through the Microsoft Entra admin center or by using PowerShell.
 
-## Change the home page in the Azure portal
+## Change the home page in the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To change the home page URL of your app through the Azure portal, follow these steps:
+To change the home page URL of your app through the Microsoft Entra admin center, follow these steps:
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses 
 1. Browse to **Identity** > **Applications** > **App registrations**. The list of registered apps appears.
