@@ -15,8 +15,6 @@ ms.date: 09/13/2023
 
 This quickstart describes how to use an Azure Resource Manager (ARM) template to set up the Microsoft Dev Box Service in Azure. 
 
-A [Resource Manager template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
