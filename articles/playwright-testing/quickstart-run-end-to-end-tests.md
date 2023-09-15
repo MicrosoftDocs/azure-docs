@@ -20,113 +20,27 @@ After you complete this quickstart, you have a Microsoft Playwright Testing work
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), or one of the [classic administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
 
-## 1. Create a workspace
+## Create a workspace
 
 To get started with running your Playwright tests at scale on cloud browsers, you first create a Microsoft Playwright Testing workspace in the Playwright portal.
 
-1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
+[!INCLUDE [Create workspace in Playwright portal](./includes/include-playwright-portal-create-workspace.md)]
 
-1. If you already have a workspace, select an existing workspace, and move to the next step.
-    
-    > [!TIP]
-    > If you have multiple workspaces, you can switch to another workspace by selecting the workspace name at the top of the page, and then select **Manage all workspaces**.
-
-1. If you don't have a workspace yet, select **+ New workspace**, and then provide the following information:
-
-    |Field  |Description  |
-    |---------|---------|
-    |**Workspace name**     | Enter a unique name to identify your workspace.<BR>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. |
-    |**Azure subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
-    |**Region**     | Select a geographic location to host your workspace. <BR>This location also determines where the test execution results and related artifacts are stored. |
-
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-create-workspace.png" alt-text="Screenshot that shows the 'Create workspace' page in the Playwright portal.":::
-
-1. Select **Create workspace** to create the workspace in your subscription.
-
-    During the workspace creation, a new resource group and a Microsoft Playwright Testing Azure resource are created in your Azure subscription.
-
-## 2. Add Microsoft Playwright Testing configuration
-
-To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to add a service configuration file alongside your Playwright configuration file. In a later step, you use this service configuration file with the Playwright CLI. The service configuration file references environment variables that you specify in a later step to configure your environment.
-
-1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
-
-1. Create a file `playwright.service.config.ts` and add the following content to it:
-
-    ```typescript
-    /*
-    * This file enables Playwright client to connect to remote browsers.
-    * It should be placed in the same directory as playwright.service.config.ts.
-    * The file is temporary for private preview.
-    */
-    
-    import { defineConfig } from '@playwright/test';
-    import config from './playwright.config';
-    import dotenv from 'dotenv';
-    
-    // Define environment on the dev box in .env file:
-    //  .env:
-    //    PLAYWRIGHT_SERVICE_ACCESS_KEY=XXX
-    //    PLAYWRIGHT_SERVICE_URL=XXX
-    //    PLAYWRIGHT_SERVICE_OS=XXX
-    
-    // Define environment in your GitHub workflow spec.
-    //  env:
-    //    PLAYWRIGHT_SERVICE_ACCESS_KEY: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_KEY }}
-    //    PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-    //    PLAYWRIGHT_SERVICE_OS: ${{ matrix.service-os }}
-    //    PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
-    
-    dotenv.config();
-    
-    // Name the test run if it's not named yet.
-    process.env.PLAYWRIGHT_SERVICE_RUN_ID = process.env.PLAYWRIGHT_SERVICE_RUN_ID || new Date().toISOString();
-    
-    export default defineConfig(config, {
-      // Define more generous timeout for the service operation if necessary.
-      // timeout: 60000,
-      // expect: {
-      //   timeout: 10000,
-      // },
-      use: {
-        connectOptions: {
-          wsEndpoint: `${process.env.PLAYWRIGHT_SERVICE_URL}?cap=${JSON.stringify({
-            os: process.env.PLAYWRIGHT_SERVICE_OS || 'linux',
-            runId: process.env.PLAYWRIGHT_SERVICE_RUN_ID
-          })}`,
-          timeout: 30000,
-          headers: {
-            'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_KEY!
-          },
-          exposeNetwork: '<loopback>'
-        }
-      }
-    });
-    ```
-
-1. Save and commit the file to your source code repository.
-
-## 3. Create an access key for service authentication
+## Create an access key for service authentication
 
 Microsoft Playwright Testing uses access keys to authorize users to run Playwright tests with the service. You first generate a service access key in the Playwright portal, and then store the value in an environment variable.
 
 To generate the access key, perform the following steps:
 
-1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
-
-1. Select the workspace you created previously.
-
-1. Select **Generate key**, and then copy the shell command for your environment.
+1. In the [Playwright portal](https://aka.ms/mpt/portal), select **Generate key**, and then copy the shell command for your environment.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
 
+1. Copy the access key for the workspace.
+
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
 
-1. Open a terminal window, and paste and run the value you copied previously. 
-
-    The command creates an environment variable `PLAYWRIGHT_SERVICE_ACCESS_KEY`. The [service configuration file](#2-add-microsoft-playwright-testing-configuration) references this environment variable to connect to your workspace.
-
-## 4. Configure the service region endpoint
+## Configure the service region endpoint
 
 In the service configuration, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
@@ -136,23 +50,86 @@ To get the service endpoint URL, perform the following steps:
 
 1. Select the workspace you created previously.
 
-1. In **Add region endpoint in your setup**, copy the shell command for your environment.
+1. In **Add region endpoint in your setup**, copy the region endpoint for your workspace.
 
     The endpoint URL matches the Azure region that you selected when creating the workspace.
 
-1. Open a terminal window, and paste and run the value you copied previously. 
+## Set up your environment
 
-    The command creates an environment variable `PLAYWRIGHT_SERVICE_URL`. The [service configuration file](#2-add-microsoft-playwright-testing-configuration) references this environment variable to connect to your workspace.
+Ensure that the `PLAYWRIGHT_SERVICE_ACCESS_KEY` and `PLAYWRIGHT_SERVICE_URL` environment variables that you obtained in the previous steps are available in your environment.
 
-## 5. Run your tests at scale with Microsoft Playwright Testing
+We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
+
+1. Add the `dotenv` module to your project:
+
+    ```shell
+    npm i --save-dev dotenv
+    ```
+
+1. Create a `.env` file and replace the `{MY-ACCESS-KEY}` and `{MY-REGION-ENDPOINT}` text placeholders:
+
+    ```
+    PLAYWRIGHT_SERVICE_ACCESS_KEY={MY-ACCESS-KEY}
+    PLAYWRIGHT_SERVICE_URL={MY-REGION-ENDPOINT}
+    ```
+
+## Add Microsoft Playwright Testing configuration
+
+To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to add a service configuration file alongside your Playwright configuration file. The service configuration file references the environment variables that you specified previously. In a later step, you use this service configuration file with the Playwright CLI.
+
+Use playwright.service.config.ts as a starting point:
+
+1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
+
+1. Create a file `playwright.service.config.ts` and add the following content to it:
+
+    ```typescript
+    import { defineConfig } from '@playwright/test';
+    import config from './playwright.config';
+    import dotenv from 'dotenv';
+    
+    dotenv.config();
+    
+    // Name the test run if it's not named yet.
+    process.env.PLAYWRIGHT_SERVICE_RUN_ID = process.env.PLAYWRIGHT_SERVICE_RUN_ID || new Date().toISOString();
+    
+    export default defineConfig(config, {
+        // Define more generous timeout for the service operation if necessary.
+        // timeout: 60000,
+        // expect: {
+        //   timeout: 10000,
+        // },
+        workers: 20,
+        use: {
+            // Specify the service endpoint.
+            connectOptions: {
+                wsEndpoint: `${process.env.PLAYWRIGHT_SERVICE_URL}?cap=${JSON.stringify({
+                    // Can be 'linux' or 'windows'.
+                    os: process.env.PLAYWRIGHT_SERVICE_OS || 'linux',
+                    runId: process.env.PLAYWRIGHT_SERVICE_RUN_ID
+                })}`,
+                timeout: 30000,
+                headers: {
+                    'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_KEY!
+                },
+                // Allow service to access the localhost.
+                exposeNetwork: '<loopback>'
+            }
+        }
+    });
+    ```
+
+1. Save and commit the file to your source code repository.
+
+## Run your tests at scale with Microsoft Playwright Testing
 
 You've now configured your Playwright tests to run in the cloud with Microsoft Playwright Testing. To run your Playwright tests, you use the Playwright CLI and specify the service configuration file and number of workers on the command-line.
 
 Perform the following steps to run your Playwright tests:
 
-1. In the terminal window where you configured the environment variables:
+1. Open a terminal window and enter the following command to run your Playwright tests on remote browsers in your workspace:
 
-    Your test run on cloud browsers in your workspace. Depending on the size of your test suite, the tests run on up to 20 parallel workers.
+    Depending on the size of your test suite, the tests run on up to 20 parallel workers.
 
     ```bash
     npx playwright test --config=playwright.service.config.ts --workers=20
@@ -169,7 +146,7 @@ Perform the following steps to run your Playwright tests:
       npx playwright show-report
     ```
 
-1. You can view the list of test runs in the Azure portal.
+1. You can view the list of test runs in the Playwright portal.
 
     The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
 
@@ -179,7 +156,7 @@ Perform the following steps to run your Playwright tests:
 
 Once your tests are running smoothly with the service, experiment with varying the number of parallel workers to determine the optimal configuration that minimizes test completion time. With Microsoft Playwright Testing, you can run with up to 50 parallel workers. Several factors influence the best configuration for your project, such as the CPU, memory, and network resources of your client machine, the target application's load-handling capacity, and the type of actions carried out in your tests.
 
-## Next steps
+## Next step
 
 You've successfully created a Microsoft Playwright Testing workspace in the Playwright portal and run your Playwright tests on cloud browsers.
 

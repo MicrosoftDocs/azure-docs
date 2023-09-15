@@ -182,7 +182,7 @@ We provide a test script hosted on GitHub for you to use for testing. For produc
 
     ```
 
-Add a Microsoft Graph [User](https://learn.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) ID to the `participantIds` array. You can find this value through [Microsoft Graph](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http) or through [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) for testing purposes. There you can grab the `id` value from the response.
+Add a Microsoft Graph [User](/graph/api/resources/user) ID to the `participantIds` array. You can find this value through [Microsoft Graph](/graph/api/user-get?tabs=http) or through [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) for testing purposes. There you can grab the `id` value from the response.
 
 ## Run code
 

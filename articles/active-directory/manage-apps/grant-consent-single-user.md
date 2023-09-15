@@ -37,7 +37,7 @@ To grant consent to an application on behalf of one user, you need:
 
 ## Grant consent on behalf of a single user
 
-Before you start, record the following details from the Azure portal:
+Before you start, record the following details from the Microsoft Entra admin center:
 
 - The app ID for the app that you're granting consent. For purposes of this article, we'll call it the "client application."
 - The API permissions that are required by the client application. Find out the app ID of the API and the permission IDs or claim values.

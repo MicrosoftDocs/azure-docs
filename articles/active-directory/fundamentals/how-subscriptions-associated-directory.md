@@ -9,24 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 09/12/2023
 ms.author: barclayn
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18, contperf-fy20q4"
-ms.collection: M365-identity-device-management
 ---
-
 # Associate or add an Azure subscription to your Azure Active Directory tenant
 
-All Azure subscriptions have a trust relationship with an Azure Active Directory (Azure AD) instance. Subscriptions rely on their trusted Azure AD to authenticate and authorize security principals and devices.  When a subscription expires, the trusted instance of the Azure AD service remains, but the security principals lose access to Azure resources. Subscriptions can only trust a single directory while one Azure AD may be trusted by multiple subscriptions.
+All Azure subscriptions have a trust relationship with an Azure Active Directory (Azure AD) tenant. Subscriptions rely on this tenant (directory) to authenticate and authorize security principals and devices. When a subscription expires, the trusted instance remains, but the security principals lose access to Azure resources. Subscriptions can only trust a single directory while one Azure AD tenant may be trusted by multiple subscriptions.
 
-When a user signs up for a Microsoft cloud service, a new Azure AD tenant is created and the user is made a member of the Global Administrator role. However, when an owner of a subscription joins their subscription to an existing tenant, the owner isn't assigned to the Global Administrator role.
+When a user signs up for a Microsoft cloud service, a new Azure AD tenant is created and the user is made a Global Administrator. However, when an owner of a subscription joins their subscription to an existing tenant, the owner isn't assigned to the Global Administrator role.
 
 While users may only have a single authentication *home* directory, users may participate as guests in multiple directories. You can see both the home and guest directories for each user in Azure AD.
 
 :::image type="content" source="media/how-subscriptions-associated-directory/trust-relationship.png" alt-text="Screenshot that shows the trust relationship between Azure subscriptions and Azure active directories.":::
 
-> [!Important]
+> [!IMPORTANT]
 > When a subscription is associated with a different directory, users who have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
 >
 > Moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principal's rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](../../aks/index.yml).
@@ -53,7 +50,11 @@ Before you can associate or add your subscription, do the following steps:
 
 To associate an existing subscription with your Azure AD, follow these steps:
 
-1. Sign in and select the subscription you want to use from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Sign to the [Azure portal](https://portal.azure.com) with the [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription.
+
+1. Browse to **Subscriptions**. 
+
+1. Select the name of the subscription you want to use.
 
 1. Select **Change directory**.
 

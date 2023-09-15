@@ -109,7 +109,7 @@ Check the authentication [scenarios](#scenario-description) in your applications
 
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 
-- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](custom-policy-get-started.md?tabs=applications)
+- [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
 
 - [SAAS Platform - Organization Application Onboarding Portal](https://app.archbee.com/doc/G_YZFq_VwvgMlmX-_efmX/8m90WVb2M6Yi0gCe7yor2)
 

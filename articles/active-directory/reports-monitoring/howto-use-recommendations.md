@@ -1,6 +1,6 @@
 ---
 title: How to use Azure Active Directory recommendations
-description: Learn how to use Azure Active Directory recommendations.
+description: Learn how to use Azure Active Directory recommendations to monitor and improve the health of your tenant.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -43,8 +43,9 @@ Some recommendations may require a P2 or other license. For more information, se
 
 To view the details of a recommendation:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privilege role.
-1. Browse to **Azure AD** > **Monitoring** > **Recommendations** and select a recommendation from the list.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Overview** > **Recommendations tab**
+1. Select a recommendation from the list.
 
     ![Screenshot of the list of recommendations.](./media/howto-use-recommendations/recommendations-list.png)
 

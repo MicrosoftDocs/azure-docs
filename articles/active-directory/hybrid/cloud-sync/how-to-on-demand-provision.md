@@ -27,19 +27,15 @@ For additional information and an example see the following video.
 ## Validate a user
 To use on-demand provisioning, follow these steps:
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
- 
- :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
 
- 4. Under **Configuration**, select your configuration.
- 5. On the left, select **Provision on demand**.
- 6. Enter the distinguished name of a user and select the **Provision** button.
+ 3. Under **Configuration**, select your configuration.
+ 4. On the left, select **Provision on demand**.
+ 5. Enter the distinguished name of a user and select the **Provision** button.
  
  :::image type="content" source="media/how-to-on-demand-provision/new-ux-2.png" alt-text="Screenshot of user distinguished name." lightbox="media/how-to-on-demand-provision/new-ux-2.png":::    
 
- 7. After provisioning finishes, a success screen appears with four green check marks. Any errors appear to the left.
+ 6. After provisioning finishes, a success screen appears with four green check marks. Any errors appear to the left.
 
  :::image type="content" source="media/how-to-on-demand-provision/new-ux-3.png" alt-text="Screenshot of on-demand success." lightbox="media/how-to-on-demand-provision/new-ux-3.png":::  
 

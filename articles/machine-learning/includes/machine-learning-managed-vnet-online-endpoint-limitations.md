@@ -11,7 +11,11 @@ ms.author: mopeakande
 - If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](../how-to-configure-private-link.md).
 
     > [!TIP]
-    > To confirm when a workspace is created, you can check the workspace properties. In Studio, click `View all properties in Azure Portal` from `Directory + Subscription + Workspace` section (top right of the Studio), Click JSON View from top right of the Overview page, and choose the latest API Version. You can check the value of `properties.creationTime`. You can do the same by using `az ml workspace show` with [CLI](../how-to-manage-workspace-cli.md#get-workspace-information), or `my_ml_client.workspace.get("my-workspace-name")` with [SDK](../how-to-manage-workspace.md?tabs=python#find-a-workspace), or `curl` on workspace with [REST API](../how-to-manage-rest.md#drill-down-into-workspaces-and-their-resources).
+    > To confirm when a workspace was created, you can check the workspace properties.
+    >
+    > In the Studio, go to the `Directory + Subscription + Workspace` section (top right of the Studio) and select `View all properties in Azure Portal`. Select the JSON view from the top right of the "Overview" page, then choose the latest API version. From this page, you can check the value of `properties.creationTime`.
+    >
+    > Alternatively, use `az ml workspace show` with [CLI](../how-to-manage-workspace-cli.md#get-workspace-information), `my_ml_client.workspace.get("my-workspace-name")` with [SDK](../how-to-manage-workspace.md?tabs=python#find-a-workspace), or `curl` on a workspace with [REST API](../how-to-manage-rest.md#drill-down-into-workspaces-and-their-resources).
 
 - When you use network isolation with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace.
 

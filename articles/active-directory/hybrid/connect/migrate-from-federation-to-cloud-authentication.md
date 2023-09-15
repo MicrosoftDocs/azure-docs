@@ -219,7 +219,9 @@ To choose one of these options, you must know what your current settings are.
 
 #### Verify current Azure AD Connect settings
 
-Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Active Directory** > **Azure AD Connect** and verify the **USER SIGN_IN** settings as shown in this diagram:
+[!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+
+3. Verify the **USER SIGN_IN** settings as shown in this diagram:
 
 ![Verify current Azure AD Connect settings](media/deploy-cloud-user-authentication/current-user-settings-on-azure-ad-portal.png)
 
@@ -287,7 +289,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
       - **Seamless single sign-on** is set to **Enabled**.
       - **Password Hash Sync** is set to **Enabled**.
 
-   ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
+   ![Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
 
 9. In case you're switching to PTA, follow the next steps.
 
@@ -306,7 +308,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 4. Run the authentication agent installation. During installation, you must enter the credentials of a Global Administrator account.
 
-    ![ Microsoft Azure AD Connect Authentication Agent](media/deploy-cloud-user-authentication/install-azure-ad-connect-installation-agent.png)
+    ![Microsoft Azure AD Connect Authentication Agent](media/deploy-cloud-user-authentication/install-azure-ad-connect-installation-agent.png)
 
 5. When the authentication agent is installed, you can return to the PTA health page to check the status of the more agents.
 
@@ -318,7 +320,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). Notice that on the User sign-in page, the **Do not configure** option is preselected.
 
-![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
+![See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**. 
 
@@ -328,7 +330,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
   - **Seamless single sign-on** is set to **Disabled**.
   - **Password Hash Sync** is set to **Enabled**.
 
-    ![ Verify current user settings on the Azure portal](media/deploy-cloud-user-authentication/verify-current-user-settings-on-azure-ad-portal.png)
+    ![Verify current user settings on the Azure portal](media/deploy-cloud-user-authentication/verify-current-user-settings-on-azure-ad-portal.png)
 
 **In case of PTA only**, follow these steps to install more PTA agent servers.
 
@@ -336,7 +338,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 
 2. Select **Pass-through authentication**. Verify that the status is **Active**.
 
-    ![ Pass-through authentication settings](media/deploy-cloud-user-authentication/pass-through-authentication-settings.png)
+    ![Pass-through authentication settings](media/deploy-cloud-user-authentication/pass-through-authentication-settings.png)
 
    If the authentication agent isn't active, complete these [troubleshooting steps](tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
 

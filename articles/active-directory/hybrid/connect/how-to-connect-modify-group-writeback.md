@@ -32,50 +32,54 @@ If the original version of group writeback is already enabled and in use in your
 
 To configure directory settings to disable automatic writeback of newly created Microsoft 365 groups, use one of these methods:
 
-- PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
+- PowerShell: Use the [Microsoft Graph Beta PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
     
   ```PowerShell 
-  # Import Module
-  Import-Module Microsoft.Graph.Identity.DirectoryManagement
-
-  #Connect to MgGraph with necessary scope and select the Beta API Version
-  Connect-MgGraph -Scopes Directory.ReadWrite.All
-  Select-MgProfile -Name beta
-
-  # Verify if "Group.Unified" directory settings exist
-  $DirectorySetting = Get-MgDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
-
-  # If "Group.Unified" directory settings exist, update the value for new unified group writeback default
-  if ($DirectorySetting) {
-    $DirectorySetting.Values | ForEach-Object {
-        if ($_.Name -eq "NewUnifiedGroupWritebackDefault") {
-            $_.Value = "false"
-        }
-    }
-    Update-MgDirectorySetting -DirectorySettingId $DirectorySetting.Id -BodyParameter $DirectorySetting
-  }
-  else
-  {
-    # In case the directory setting doesn't exist, create a new "Group.Unified" directory setting
-    # Import "Group.Unified" template values to a hashtable
-    $Template = Get-MgDirectorySettingTemplate | Where-Object {$_.DisplayName -eq "Group.Unified"}
-    $TemplateValues = @{}
-    $Template.Values | ForEach-Object {
-        $TemplateValues.Add($_.Name, $_.DefaultValue)
-    }
-
-    # Update the value for new unified group writeback default
-    $TemplateValues["NewUnifiedGroupWritebackDefault"] = "false"
+    # Import Module
+    Import-Module Microsoft.Graph.Beta.Identity.DirectoryManagement
     
-    # Create a directory setting using the Template values hashtable including the updated value
-    $params = @{}
-    $params.Add("TemplateId", $Template.Id)
-    $params.Add("Values", @())
-    $TemplateValues.Keys | ForEach-Object {
-        $params.Values += @(@{Name = $_; Value = $TemplateValues[$_]})
+    #Connect to MgGraph with necessary scope
+    Connect-MgGraph -Scopes Directory.ReadWrite.All
+    
+    
+    # Verify if "Group.Unified" directory settings exist
+    $DirectorySetting = Get-MgBetaDirectorySetting| Where-Object {$_.DisplayName -eq "Group.Unified"}
+    
+    # If "Group.Unified" directory settings exist, update the value for new unified group writeback default
+    if ($DirectorySetting) 
+    {
+      $params = @{
+        Values = @(
+          @{
+            Name = "NewUnifiedGroupWritebackDefault"
+            Value = $false
+          }
+        )
+      }
+      Update-MgBetaDirectorySetting -DirectorySettingId $DirectorySetting.Id -BodyParameter $params
     }
-    New-MgDirectorySetting -BodyParameter $params
-  }
+    else
+    {
+      # In case the directory setting doesn't exist, create a new "Group.Unified" directory setting
+      # Import "Group.Unified" template values to a hashtable
+      $Template = Get-MgBetaDirectorySettingTemplate | Where-Object {$_.DisplayName -eq "Group.Unified"}
+      $TemplateValues = @{}
+      $Template.Values | ForEach-Object {
+          $TemplateValues.Add($_.Name, $_.DefaultValue)
+      }
+    
+      # Update the value for new unified group writeback default
+      $TemplateValues["NewUnifiedGroupWritebackDefault"] = $false
+    
+      # Create a directory setting using the Template values hashtable including the updated value
+      $params = @{}
+      $params.Add("TemplateId", $Template.Id)
+      $params.Add("Values", @())
+      $TemplateValues.Keys | ForEach-Object {
+          $params.Values += @(@{Name = $_; Value = $TemplateValues[$_]})
+      }
+      New-MgBetaDirectorySetting -BodyParameter $params
+    }
   ``` 
 
 > [!NOTE]     
@@ -88,23 +92,22 @@ To configure directory settings to disable automatic writeback of newly created 
 To disable writeback of all Microsoft 365 groups that were created before these modifications, use one of the following methods:
 
 - Portal: Use the [Microsoft Entra admin portal](../../enterprise-users/groups-write-back-portal.md).
-- PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
+- PowerShell: Use the [Microsoft Graph Beta PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
   
   ```PowerShell
     #Import-module
-    Import-module Microsoft.Graph
-
-    #Connect to MgGraph with necessary scope and select the Beta API Version
+    Import-Module Microsoft.Graph.Beta
+    
+    #Connect to MgGraph with necessary scope
     Connect-MgGraph -Scopes Group.ReadWrite.All
-    Select-MgProfile -Name beta
-
+    
     #List all Microsoft 365 Groups
-    $Groups = Get-MgGroup -All | Where-Object {$_.GroupTypes -like "*unified*"}
-
+    $Groups = Get-MgBetaGroup -All | Where-Object {$_.GroupTypes -like "*unified*"}
+    
     #Disable Microsoft 365 Groups
     Foreach ($group in $Groups) 
     {
-        Update-MgGroup -GroupId $group.id -WritebackConfiguration @{isEnabled=$false}
+      Update-MgBetaGroup -GroupId $group.id -WritebackConfiguration @{isEnabled=$false}
     }
   ```
       

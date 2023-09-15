@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 08/24/2023
+ms.date: 08/25/2023
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
 
@@ -138,9 +138,9 @@ The following table lists the fields in the schema and what they signify for NSG
 | **Subnet2_s** | \<ResourceGroup_Name\>/<VirtualNetwork_Name\>/\<SubnetName\>	| Subnet associated with the Destination IP in the flow. |
 | **ApplicationGateway1_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the Source IP in the flow. |
 | **ApplicationGateway2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the Destination IP in the flow. |
-| **ExpressRouteCircuit1** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is sent from site via ExpressRoute. |
-| **ExpressRouteCircuit2** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is received from cloud by ExpressRoute. |
-| **ExpressRouteCircuitPeeringType** | - AzurePrivatePeering <br> - AzurePublicPeering <br> - MicrosoftPeering | ExpressRoute peering type involved in the flow. |
+| **ExpressRouteCircuit1_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is sent from site via ExpressRoute. |
+| **ExpressRouteCircuit2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is received from cloud by ExpressRoute. |
+| **ExpressRouteCircuitPeeringType_s** | - AzurePrivatePeering <br> - AzurePublicPeering <br> - MicrosoftPeering | ExpressRoute peering type involved in the flow. |
 | **LoadBalancer1_s** |	\<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the Source IP in the flow. |
 | **LoadBalancer2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the Destination IP in the flow. |
 | **LocalNetworkGateway1_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the Source IP in the flow. |
@@ -163,7 +163,7 @@ The following table lists the fields in the schema and what they signify for NSG
 | **PublicIPs_s** | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **SrcPublicIPs_s** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **DestPublicIPs_s** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
-| **IsFlowCapturedAtUDRHop** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
+| **IsFlowCapturedAtUDRHop_b** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
 
 > [!IMPORTANT]
 > The traffic analytics schema was updated on August 22, 2019. The new schema provides source and destination IPs separately, removing the need to parse the `FlowDirection` field so that queries are simpler. The updated schema had the following changes:

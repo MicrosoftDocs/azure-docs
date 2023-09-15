@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/21/2023
+ms.date: 09/08/2023
 ms.custom: references_regions 
 ms.reviewer: sharrai
 ms.service: backup
@@ -51,6 +51,7 @@ Automatically adjust the clock | Not supported.<br/><br/> Azure Backup doesn't a
 Back up a VM whose machine time is changed | Not supported.<br/><br/> If you change the machine time to a future date/time after enabling backup for that VM, even if the time change is reverted, successful backup isn't guaranteed.
 Do multiple backups per day    |  Supported through **Enhanced policy**. <br><br>   For hourly backup, the minimum recovery point objective (RPO) is 4 hours and the maximum is 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours, respectively. <br><br> Note that the maximum limit of instant recovery point retention range depends on the number of snapshots you take per day. If the snapshot count is more (for example, every *4 hours* frequency in *24 hours* duration - *6* scheduled snapshots), then the maximum allowed days for retention reduces. However, if you choose lower RPO of *12* hours, the snapshot retention is increased to *30 days*. <br><br> Learn about how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
 Back up a VM with a deprecated plan when the publisher has removed it from Azure Marketplace | Not supported. <br><br> Backup is possible. However, restore will fail. <br><br> If you've already configured backup for a VM with a deprecated virtual machine offer and encounter a restore error, see [Troubleshoot backup errors with Azure VMs](backup-azure-vms-troubleshoot.md#usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present).
+Back up VMs with docker (containers) | Not supported
 
 ## Operating system support (Windows)
 
@@ -190,12 +191,14 @@ Adding a disk to a protected VM | Supported.
 Resizing a disk on a protected VM | Supported.
 Shared storage| Backing up VMs by using Cluster Shared Volumes (CSV) or Scale-Out File Server isn't supported. CSV writers are likely to fail during backup. On restore, disks that contain CSV volumes might not come up.
 [Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
-<a name="ultra-disk-backup">Ultra disks</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). The support is currently in preview.       <br><br>    Supported region(s) - Sweden Central, Central US, North Central US, South Central US, East US, East US 2, West US 2, West Europe and North Europe.      <br><br>    To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/1GLRnNCntU).       <br><br>    - Configuration of Ultra disk protection is supported via Recovery Services vault only. This configuration is currently not supported via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Ultra disks. <br><br> - ZRS type vaults cannot be used for enabling backup. 
-<a name="premium-ssd-v2-backup">Premium SSD v2</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). The support is currently in preview.       <br><br>    Supported region(s) - East US, West Europe, Central US, South Central US, East US 2, West US 2 and North Europe.       <br><br>    To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/h56TpTc773).       <br><br>    - Configuration of Premium v2 disk protection is supported via Recovery Services vault only. This configuration is currently not supported via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Premium v2 disks.  <br><br> - ZRS type vaults cannot be used for enabling backup.
+<a name="ultra-disk-backup">Ultra disks</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). The support is currently in preview.       <br><br>    Supported region(s) - Sweden Central, Central US, North Central US, South Central US, East US, East US 2, West US 2, West Europe and North Europe.      <br><br>    To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/1GLRnNCntU).       <br><br>    - Configuration of Ultra disk protection is supported via Recovery Services vault only. This configuration is currently not supported via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Ultra disks. <br><br> - GRS type vaults cannot be used for enabling backup. 
+<a name="premium-ssd-v2-backup">Premium SSD v2</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md). The support is currently in preview.       <br><br>    Supported region(s) - East US, West Europe, Central US, South Central US, East US 2, West US 2 and North Europe.       <br><br>    To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/h56TpTc773).       <br><br>    - Configuration of Premium v2 disk protection is supported via Recovery Services vault only. This configuration is currently not supported via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Premium v2 disks.  <br><br> - GRS type vaults cannot be used for enabling backup.
 [Temporary disks](../virtual-machines/managed-disks-overview.md#temporary-disk) | Azure Backup doesn't back up temporary disks.
 NVMe/[ephemeral disks](../virtual-machines/ephemeral-os-disks.md) | Not supported.
 [Resilient File System (ReFS)](/windows-server/storage/refs/refs-overview) restore | Supported. Volume Shadow Copy Service (VSS) supports app-consistent backups on ReFS.
 Dynamic disk with spanned or striped volumes | Supported, unless you enable the selective disk feature on an Azure VM.
+VMs with encryption at host | Supported
+Disks with enabled Data Access with Azure Active Directory Authentication for disk upload/download | Not Supported
 
 ## VM network support
 

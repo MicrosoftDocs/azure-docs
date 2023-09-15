@@ -3,12 +3,13 @@ title: Upgrade to a general-purpose v2 storage account
 titleSuffix: Azure Storage
 description: Upgrade to general-purpose v2 storage accounts using the Azure portal, PowerShell, or the Azure CLI. Specify an access tier for blob data.
 services: storage
-author: tamram
+author: akashdubey-ms
 
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 08/17/2023
-ms.author: tamram
+ms.author: akashdubey
 ms.custom: devx-track-azurecli, engagement
 ---
 

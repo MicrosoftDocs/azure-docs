@@ -1,18 +1,18 @@
 ---
-title: Authenticate requests
+title: Manage workspace access keys
 description: Learn how to create & manage access keys to authenticate requests to Microsoft Playwright Testing. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 09/04/2023
 ms.custom: playwright-testing-preview
 ---
 
-# Authenticate requests to Microsoft Playwright Testing Preview
+# Manage workspace access keys in Microsoft Playwright Testing Preview
 
-In this article, you'll learn how to manage access keys to authenticate requests to Microsoft Playwright Testing Preview. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
+In this article, you'll learn how to manage workspace access keys in Microsoft Playwright Testing Preview. You use access keys to authenticate and authorize access to your workspace.
 
-To run existing Playwright tests with Microsoft Playwright Testing, you specify the workspace access key in the Playwright configuration file. Learn how to [use your access key to grant access](#use-your-access-key-to-grant-access).
+Access keys are associated with a user account and workspace. You can create multiple access keys per workspace.
 
-Access keys have a fixed duration expiration period that ranges from seven days to one year. When an access key expires, processes that use this key are no longer authorized to run tests. You'll create a new access key and replace the access key value in the client processes.
+To run Playwright tests with Microsoft Playwright Testing, you specify the workspace access key in the service configuration file. Learn how to [set up your service configuration](./quickstart-run-end-to-end-tests.md#set-up-your-environment).
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -20,33 +20,14 @@ Access keys have a fixed duration expiration period that ranges from seven days 
 ## Prerequisites  
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Microsoft Playwright Testing workspace. To create a workspace, see [Quickstart: Run web UI tests at scale](./quickstart-run-end-to-end-tests.md).
-- To create or delete access keys, your Azure account needs to have the Contributor or Owner role at the workspace level. Learn more about [managing access to a workspace](./how-to-assign-roles.md).
-
-<!-- TODO: use link to manage workspaces instead -->
+- A Microsoft Playwright Testing workspace. To create a workspace, see [Quickstart: Run Playwright tests at scale](./quickstart-run-end-to-end-tests.md).
+- To create or revoke access keys, your Azure account needs to have the [Contributor](/azure/role-based-access-control/built-in-roles#owner) or [Owner](/azure/role-based-access-control/built-in-roles#contributor) role at the workspace level. Learn more about [managing access to a workspace](./how-to-manage-workspace-access.md).
 
 ## Protect your access keys
 
 Your workspace access keys are similar to a password for your Microsoft Playwright Testing workspace. Always be careful to protect your access keys. Avoid distributing access keys to other users, hard-coding them, or saving them anywhere in plain text that is accessible to others.
 
-Delete and recreate your keys if you believe they may have been compromised.
-
-## View workspace access keys
-
-You can view the list of workspace access keys from the Microsoft Playwright Testing portal. The portal shows the key expiration date and expiration status, and enables you to [delete the key](#delete-your-access-key). The access key value is no longer accessible after you've created it.
-
-
-To view the list of access keys in your workspace from the Microsoft Playwright Testing portal:
-
-1. Open the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/) and sign in with your Azure credentials.
-
-1. Access the **Menu > Manage Access keys** menu in the top-right of the screen.
-
-    :::image type="content" source="./media/how-to-manage-access-keys/access-key-menu.png" alt-text="Screenshot that shows the Access Key menu in the Microsoft Playwright Testing portal.":::
-
-1. View the list of workspace access keys. You can filter the list by expiration status.
-
-    :::image type="content" source="./media/how-to-manage-access-keys/access-key-list.png" alt-text="Screenshot that shows the list of access keys in the Microsoft Playwright Testing portal.":::
+Revoke and recreate your keys if you believe they may have been compromised.
 
 ## Create an access key
 
@@ -54,54 +35,21 @@ Create an access key to authorize access to your Microsoft Playwright Testing wo
 
 To create a new workspace access key: 
 
-1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/), access the **Menu > Manage Access keys** menu in the top-right of the screen.
+1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
 
-1. Select **Generate a new key**.
+1. Select your workspace.
 
-    :::image type="content" source="./media/how-to-manage-access-keys/access-key-list-generate-new-key.png" alt-text="Screenshot that shows the list of access keys in the Microsoft Playwright Testing portal, highlighting the Generate a new key button.":::
+1. Select **Generate key** to generate a new access key for your account and workspace.
 
-1. Enter a **Key name**, select an **Expiration** duration, and then select **Generate key**.
+    :::image type="content" source="./media/how-to-manage-access-keys/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
 
-    :::image type="content" source="./media/how-to-manage-access-keys/create-access-key.png" alt-text="Screenshot that shows the New access key page in the Microsoft Playwright Testing portal.":::
+1. Copy the access key for the workspace.
 
-1. In the list of access keys, select **Copy** to copy the generated key value.
-
-    :::image type="content" source="./media/how-to-manage-access-keys/copy-access-key-value.png" alt-text="Screenshot that shows how to copy the access key functionality in the Microsoft Playwright Testing portal.":::
+    :::image type="content" source="./media/how-to-manage-access-keys/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
     
     > [!IMPORTANT]
     > You can only access the key value immediately after you've created it. You can't access the key value anymore at a later time.
 
-## Use your access key to grant access
+## Related content
 
-To use your access key to run your Playwright tests, specify the `PlaywrightService.accessKey` property in the `playwright.config.ts` Playwright configuration file. 
-
-Use an environment variable or use a secret when running in a CI/CD workflow, to avoid sharing the access key with others.
-
-```typescript
-// playwright.config.ts
-var playwrightServiceConfig = new PlaywrightService({{
-    accessKey: process.env.ACCESS_KEY || ""
-    }
-})
-```
-
-## Delete your access key
-
-You can delete a workspace access key from the Microsoft Playwright Testing portal. Delete a key when it has expired, to replace an access key that you believe has been compromised, or when you no longer need it.
-
-> [!IMPORTANT]
-> You won't be able to restore the access key once it has been deleted. Any processes that depend on this key to run tests, will no longer work.
-
-To delete an existing workspace access key:
-
-1. In the [Microsoft Playwright Testing portal](https://dashboard.playwright-ppe.io/), access the **Menu > Manage Access keys** menu in the top-right of the screen.
-
-1. Select **Delete** for the access key you want to delete.
-
-    :::image type="content" source="./media/how-to-manage-access-keys/access-key-list-delete-key.png" alt-text="Screenshot that shows the list of access keys in the Microsoft Playwright Testing portal, highlighting the Delete button for an item in the list.":::
-
-1. Select **Delete** in the **Delete Key** confirmation popup window, to delete the access key.
-
-## Next steps
-
-- Learn more about [managing access to a workspace](./how-to-assign-roles.md).
+- Learn more about [managing access to a workspace](./how-to-manage-workspace-access.md).

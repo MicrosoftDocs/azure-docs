@@ -248,6 +248,13 @@ productDirectory:
         - integration
       url: energy-data-services/index.yml
     # Card
+    - title: Azure Data Manager for Agriculture (Preview)
+      summary: Create a more sustainable future by innovating with agriculture data
+      imageSrc: data-manager-for-agri/media/icon/data-manager-for-agriculture.svg
+      azureCategories:
+        - integration
+      url: data-manager-for-agri/index.yml
+    # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
       imageSrc: https://static.docs.com/ui/media/product/azure/genomics.svg
@@ -821,6 +828,15 @@ productDirectory:
       azureCategories:
         - devops
       url: load-testing/index.yml
+    # Card
+    - title: Microsoft Playwright Testing (Preview)
+      summary: Run end-to-end Playwright tests at scale
+      imageSrc: ./media/index/playwright-testing-icon.svg
+      azureCategories:
+        - devops
+        - developer-tools
+        - web
+      url: playwright-testing/index.yml
     # Card
     - title: Azure Managed Grafana
       summary: Deploy Grafana dashboards as a fully managed Azure service

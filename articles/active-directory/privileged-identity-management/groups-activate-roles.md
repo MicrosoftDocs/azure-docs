@@ -3,15 +3,15 @@ title: Activate your group membership or ownership in Privileged Identity Manage
 description: Learn how to activate your group membership or ownership in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 6/7/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Activate your group membership or ownership in Privileged Identity Management
 
-In Azure Active Directory (Azure AD), part of Microsoft Entra, you can use Privileged Identity Management (PIM) to have just-in-time membership in the group or just-in-time ownership of the group.
+You can use Privileged Identity Management (PIM) In Microsoft Entra ID, previously known as Azure Active Directory (Azure AD), to have just-in-time membership in the group or just-in-time ownership of the group.
 
 This article is for eligible members or owners who want to activate their group membership or ownership in PIM.
 
@@ -30,13 +30,11 @@ This article is for eligible members or owners who want to activate their group 
 
 ## Activate a role
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
 When you need to take on a group membership or ownership, you can request activation by using the **My roles** navigation option in PIM.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD Privileged Identity Management -> My roles -> Groups**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My roles** > **Groups**. 
     >[!NOTE]
     > You may also use this [short link](https://aka.ms/pim) to open the **My roles** page directly.
 
@@ -50,7 +48,7 @@ When you need to take on a group membership or ownership, you can request activa
 
 1. If necessary, specify a custom activation start time. The membership or ownership is to be activated only after the selected time.
 
-1. Depending on the group’s setting, justification for activation may be required. If required, provide it in the **Reason** box.
+1. Depending on the group’s setting, justification for activation may be required. If needed, provide the justification in the **Reason** box.
 
     :::image type="content" source="media/pim-for-groups/pim-group-7.png" alt-text="Screenshot of where to provide a justification in the Reason box." lightbox="media/pim-for-groups/pim-group-7.png":::
 
@@ -60,7 +58,7 @@ If the [role requires approval](pim-resource-roles-approval-workflow.md) to acti
 
 ## View the status of your requests
 
-You can view the status of your pending requests to activate. It is specifically important when your requests undergo approval of another person.
+You can view the status of your pending requests to activate. It is important when your requests undergo approval of another person.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -81,7 +79,7 @@ You can view the status of your pending requests to activate. It is specifically
 
 1. For the request that you want to cancel, select **Cancel**.
 
-When you select **Cancel**, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
+When you select **Cancel**, the request is canceled. To activate the role again, you have to submit a new request for activation.
 
 ## Next steps
 

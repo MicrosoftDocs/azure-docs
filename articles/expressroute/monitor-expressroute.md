@@ -72,6 +72,9 @@ ExpressRoute stores data in the following tables.
 
 To view these tables, navigate to your ExpressRoute circuit resource and select **Logs** under *Monitoring*.
 
+> [!NOTE]
+> Azure diagnostic logs, such as BGP route table log are updated every 24 hours.
+
 ### Sample Kusto queries
 
 Here are some queries that you can enter into the Log search bar to help you monitor your Azure ExpressRoute resources. These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).

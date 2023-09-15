@@ -17,6 +17,7 @@
 | Azure Front Door resources per subscription | 100 |
 | Front-end hosts, which include custom domains per resource | 500 |
 | Routing rules per resource | 500 |
+| Rules per Rule set | 25 |
 | Back-end pools per resource | 50<sup>1</sup> |
 | Back ends per back-end pool | 100 |
 | Path patterns to match for a routing rule | 25 |

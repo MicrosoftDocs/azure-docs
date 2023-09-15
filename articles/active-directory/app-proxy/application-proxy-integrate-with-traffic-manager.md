@@ -7,7 +7,7 @@ ms.reviewer: ashishj
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 09/14/2023
 ms.custom: template-how-to
 ---
 

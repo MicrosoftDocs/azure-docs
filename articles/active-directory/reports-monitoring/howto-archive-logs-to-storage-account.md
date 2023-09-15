@@ -1,6 +1,6 @@
 ---
 title: How to archive activity logs to a storage account
-description: Learn how to archive Azure Active Directory logs to a storage account 
+description: Learn how to archive Azure Active Directory activity logs to a storage account through Diagnostic settings.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/22/2023
+ms.date: 08/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -23,7 +23,8 @@ If you need to store Azure Active Directory (Azure AD) activity logs for longer 
 
 To use this feature, you need:
 
-* An Azure subscription with an Azure storage account. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
+* An Azure storage account. 
 * A user who's a *Security Administrator* or *Global Administrator* for the Azure AD tenant.
 
 ## Archive logs to an Azure storage account

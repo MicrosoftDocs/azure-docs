@@ -72,7 +72,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     - **Azure CDN Standard from Microsoft** profiles:
        - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
 
-    - **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles:
+    - **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles:
        - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
        - [**Dynamic site acceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
@@ -92,12 +92,12 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
     - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
     - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-    - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 30 minutes. 
+    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 30 minutes. 
    
     If you attempt to use the CDN domain name before the endpoint configuration has propagated to the point-of-presence (POP) servers, you might receive an HTTP 404 response status. If it has been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure CDN endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).
 
 > [!NOTE]
-> For *Verizon CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Verizon supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make those configuration changes again.
+> For *Edgio CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make those configuration changes again.
 
 ## Clean up resources
 To delete an endpoint when it's no longer needed, select it and then select **Delete**. 
@@ -107,5 +107,3 @@ To learn about custom domains, continue to the tutorial for adding a custom doma
 
 > [!div class="nextstepaction"]
 > [Add a custom domain](cdn-map-content-to-custom-domain.md)
-
-

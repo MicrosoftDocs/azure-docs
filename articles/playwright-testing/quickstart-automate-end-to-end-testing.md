@@ -2,7 +2,7 @@
 title: 'Quickstart: Continuous end-to-end testing'
 description: In this quickstart, you learn how to run your Playwright tests at scale in your CI pipeline with Microsoft Playwright Testing. Continuously validate that your web app runs correctly across browsers and operating systems.
 ms.topic: quickstart
-ms.date: 08/16/2023
+ms.date: 09/04/2023
 ms.custom: playwright-testing-preview
 ---
 
@@ -32,7 +32,7 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 
 ---
 
-## 1. Configure a service access key
+## Configure a service access key
 
 Microsoft Playwright Testing uses access keys to authorize users to run Playwright tests with the service. You can generate a service access key in the Playwright portal, and then specify the access key in the service configuration file.
 
@@ -42,13 +42,13 @@ To generate an access key and store it as a CI workflow secret, perform the foll
 
 1. Select **Generate new access key**.
 
-    :::image type="content" source="./media/include-generate-access-key/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows Microsoft Playwright Testing portal, highlighting the 'Generate access key' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows the workspace home page in the Playwright Testing portal, highlighting the 'Generate new access key' button.":::
 
 1. Select **Generate key** and then copy the access key value.
 
-    :::image type="content" source="./media/include-generate-access-key/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
 
-    :::image type="content" source="./media/include-generate-access-key/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
 
 1. Store the access key in a CI workflow secret to avoid specifying the key in clear text in the workflow definition:
 
@@ -85,7 +85,7 @@ To generate an access key and store it as a CI workflow secret, perform the foll
 
 ---
 
-## 2. Get the service region endpoint URL
+## Get the service region endpoint URL
 
 In the service configuration, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
@@ -108,7 +108,7 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
     | ----------- | ------------ |
     | *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
 
-## 3. Add service configuration file
+## Add service configuration file
 
 If you haven't configured your Playwright tests yet for running them on cloud-hosted browsers, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
 
@@ -117,28 +117,9 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 1. Create a file `playwright.service.config.ts` and add the following content to it:
 
     ```typescript
-    /*
-    * This file enables Playwright client to connect to remote browsers.
-    * It should be placed in the same directory as playwright.service.config.ts.
-    * The file is temporary for private preview.
-    */
-    
     import { defineConfig } from '@playwright/test';
     import config from './playwright.config';
     import dotenv from 'dotenv';
-    
-    // Define environment on the dev box in .env file:
-    //  .env:
-    //    PLAYWRIGHT_SERVICE_ACCESS_KEY=XXX
-    //    PLAYWRIGHT_SERVICE_URL=XXX
-    //    PLAYWRIGHT_SERVICE_OS=XXX
-    
-    // Define environment in your GitHub workflow spec.
-    //  env:
-    //    PLAYWRIGHT_SERVICE_ACCESS_KEY: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_KEY }}
-    //    PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-    //    PLAYWRIGHT_SERVICE_OS: ${{ matrix.service-os }}
-    //    PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
     
     dotenv.config();
     
@@ -146,32 +127,36 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
     process.env.PLAYWRIGHT_SERVICE_RUN_ID = process.env.PLAYWRIGHT_SERVICE_RUN_ID || new Date().toISOString();
     
     export default defineConfig(config, {
-      // Define more generous timeout for the service operation if necessary.
-      // timeout: 60000,
-      // expect: {
-      //   timeout: 10000,
-      // },
-      use: {
-        connectOptions: {
-          wsEndpoint: `${process.env.PLAYWRIGHT_SERVICE_URL}?cap=${JSON.stringify({
-            os: process.env.PLAYWRIGHT_SERVICE_OS || 'linux',
-            runId: process.env.PLAYWRIGHT_SERVICE_RUN_ID
-          })}`,
-          timeout: 30000,
-          headers: {
-            'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_KEY!
-          },
-          exposeNetwork: '<loopback>'
+        // Define more generous timeout for the service operation if necessary.
+        // timeout: 60000,
+        // expect: {
+        //   timeout: 10000,
+        // },
+        workers: 20,
+        use: {
+            // Specify the service endpoint.
+            connectOptions: {
+                wsEndpoint: `${process.env.PLAYWRIGHT_SERVICE_URL}?cap=${JSON.stringify({
+                    // Can be 'linux' or 'windows'.
+                    os: process.env.PLAYWRIGHT_SERVICE_OS || 'linux',
+                    runId: process.env.PLAYWRIGHT_SERVICE_RUN_ID
+                })}`,
+                timeout: 30000,
+                headers: {
+                    'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_KEY!
+                },
+                // Allow service to access the localhost.
+                exposeNetwork: '<loopback>'
+            }
         }
-      }
     });
     ```
 
 1. Save and commit the file to your source code repository.
 
-## 4. Update the workflow definition
+## Update the workflow definition
 
-Update the CI workflow definition to run your Playwright tests with the Playwright CLI. Pass the [service configuration file](#3-add-service-configuration-file) as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
+Update the CI workflow definition to run your Playwright tests with the Playwright CLI. Pass the [service configuration file](#add-service-configuration-file) as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
 
 1. Open the CI workflow definition
 
@@ -179,52 +164,54 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     The following steps describe the workflow changes for GitHub Actions or Azure Pipelines. Similarly, you can run your Playwright tests by using the Playwright CLI in other CI platforms.
 
-# [GitHub Actions](#tab/github)
+    # [GitHub Actions](#tab/github)
 
-  ```yml
-  - name: Install dependencies
-    working-directory: path/to/playwright/folder # update accordingly
-    run: npm ci
-  - name: Run Playwright tests
-    working-directory: path/to/playwright/folder # update accordingly
-    env:
-      # Access key and regional endpoint for Microsoft Playwright Testing
-      PLAYWRIGHT_SERVICE_ACCESS_KEY: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_KEY }}
-      PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-    run: npx playwright test -c playwright.service.config.ts --workers=20
-  ```
+    ```yml
+    - name: Install dependencies
+      working-directory: path/to/playwright/folder # update accordingly
+      run: npm ci
+    - name: Run Playwright tests
+      working-directory: path/to/playwright/folder # update accordingly
+      env:
+        # Access key and regional endpoint for Microsoft Playwright Testing
+        PLAYWRIGHT_SERVICE_ACCESS_KEY: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_KEY }}
+        PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+      run: npx playwright test -c playwright.service.config.ts --workers=20
+    ```
 
-# [Azure Pipelines](#tab/pipelines)
+    # [Azure Pipelines](#tab/pipelines)
 
-  ```yml
-  - task: PowerShell@2
-    enabled: true
-    displayName: "Install dependencies"
-    inputs:
-      targetType: 'inline'
-      script: 'npm ci'
-      workingDirectory: path/to/playwright/folder # update accordingly
-  
-  - task: PowerShell@2
-    enabled: true
-    displayName: "Run Playwright tests"
-    env:
-      PLAYWRIGHT_SERVICE_ACCESS_KEY: $(PLAYWRIGHT_SERVICE_ACCESS_KEY)
-      PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
-    inputs:
-      targetType: 'inline'
-      script: 'npx playwright test -c playwright.service.config.ts --workers=20'
-      workingDirectory: path/to/playwright/folder # update accordingly
-  ```
+    ```yml
+    - task: PowerShell@2
+      enabled: true
+      displayName: "Install dependencies"
+      inputs:
+        targetType: 'inline'
+        script: 'npm ci'
+        workingDirectory: path/to/playwright/folder # update accordingly
+    
+    - task: PowerShell@2
+      enabled: true
+      displayName: "Run Playwright tests"
+      env:
+        PLAYWRIGHT_SERVICE_ACCESS_KEY: $(PLAYWRIGHT_SERVICE_ACCESS_KEY)
+        PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
+      inputs:
+        targetType: 'inline'
+        script: 'npx playwright test -c playwright.service.config.ts --workers=20'
+        workingDirectory: path/to/playwright/folder # update accordingly
+    ```
 
----
+    ---
 
 1. Save and commit your changes.
 
     When the CI workflow is triggered, your Playwright tests will run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers.
 
-## Next steps
+## Related content
 
 You've successfully set up a continuous end-to-end testing workflow to run your Playwright tests at scale on cloud-hosted browsers.
 
-- Learn more about [managing workspaces in the Azure portal](./how-to-manage-playwright-workspace.md).
+- [Grant users access to the workspace](./how-to-manage-workspace-access.md)
+
+- [Manage your workspaces](./how-to-manage-playwright-workspace.md)

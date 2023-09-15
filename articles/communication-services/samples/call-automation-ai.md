@@ -10,12 +10,13 @@ ms.date: 08/11/2023
 ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: call-automation
+ms.custom: devx-track-extended-java
 zone_pivot_groups: acs-csharp-java
 ---
 
 # Get started with the Azure Communication Services Call Automation OpenAI sample
 
-The Azure Communication Services Call Automation OpenAI sample demonstrates how you can use Call Automation SDK and the recently announced public preview integration with Azure Cognitive Services to build intelligent virtual assistants.
+The Azure Communication Services Call Automation OpenAI sample demonstrates how you can use Call Automation SDK and the recently announced public preview integration with Azure AI services to build intelligent virtual assistants.
 
 
 In this sample, we'll cover off what this sample does and what you need as pre-requisites before we run this sample locally on your machine. 

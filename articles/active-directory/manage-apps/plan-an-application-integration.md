@@ -104,9 +104,9 @@ The following articles describe ways you can manage access to applications once 
 
 ## Next steps
 
-For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../architecture/deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com).
+For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../architecture/deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-To download a deployment plan from the Azure portal:
+To download a deployment plan from the Microsoft Entra admin center:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 2. Select **Enterprise Applications** | **Pick an App** | **Deployment Plan**.

@@ -29,14 +29,24 @@ items:
       href: how-to-manage-access-keys.md
     - name: Manage workspace access
       displayName: RBAC, permissions, access, role-based access control, users, roles, security, authorization, authentication, grant, revoke
-      href: how-to-assign-roles.md
+      href: how-to-manage-workspace-access.md
+    - name: Monitor Microsoft Playwright Testing
+      href: monitor-playwright-testing.md
 - name: Resources
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
+    - name: Playwright documentation
+      href: https://playwright.dev
     - name: Pricing
       href: https://azure.microsoft.com/pricing/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
-    - name: Supported browsers and operating systems
-      href: resource-supported-operating-systems-browsers.md
+    - name: Service limits
+      displayName: quotas, limits, capacity, supported browsers, supported platforms, supported operating systems, supported OS, supported OSes, supported OSs, supported devices, supported device, supported mobile devices, supported mobile device, supported mobile OS, supported mobile OSes, supported mobile operating systems, supported mobile operating system,
+      href: resource-limits-quotas-capacity.md
+- name: Reference
+  expanded: false
+  items: 
+    - name: Monitoring data reference
+      href: monitor-playwright-testing-reference.md

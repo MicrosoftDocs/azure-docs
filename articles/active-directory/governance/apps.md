@@ -67,7 +67,7 @@ Microsoft Entra identity governance can be integrated with many other applicatio
 | [Atmos](../../active-directory/saas-apps/atmos-provisioning-tutorial.md) | ● |  |
 | [AuditBoard](../../active-directory/saas-apps/auditboard-provisioning-tutorial.md) | ● |  |
 | [Autodesk SSO](../../active-directory/saas-apps/autodesk-sso-provisioning-tutorial.md) | ● | ● |
-| [Azure Databricks SCIM Connector](https://learn.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad) | ● |  |
+| [Azure Databricks SCIM Connector](/azure/databricks/administration-guide/users-groups/scim/aad) | ● |  |
 | [AWS IAM Identity Center](../../active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial.md) | ● | ● |
 | [BambooHR](../../active-directory/saas-apps/bamboo-hr-tutorial.md) |  | ● |
 | [BenQ IAM](../../active-directory/saas-apps/benq-iam-provisioning-tutorial.md) | ● | ● |
@@ -272,7 +272,7 @@ Microsoft Entra identity governance can be integrated with many other applicatio
 | [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Azure Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) | ● | ● |
-| [SAP SuccessFactors Writeback ](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md) | ● | ● |
+| [SAP SuccessFactors Writeback](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md) | ● | ● |
 | [SchoolStream ASA](../../active-directory/saas-apps/schoolstream-asa-provisioning-tutorial.md) | ● | ● |
 | [SCIM-based apps in the cloud](../app-provisioning/use-scim-to-provision-users-and-groups.md) | ● |  |
 | [SCIM-based apps on-premises](../app-provisioning/on-premises-scim-provisioning.md) | ● |  |

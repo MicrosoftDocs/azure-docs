@@ -53,10 +53,10 @@ All users start out *Disabled*. When you enroll users in per-user Azure AD Multi
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To view and manage user states, complete the following steps to access the Azure portal page:
+To view and manage user states, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator.
-1. Search for and select **Azure Active Directory**, then select **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select **Per-user MFA**. 
    :::image type="content" border="true" source="media/howto-mfa-userstates/selectmfa-cropped.png" alt-text="Screenshot of select Multi-Factor Authentication from the Users window in Azure AD.":::
 1. A new page opens that displays the user state, as shown in the following example.
