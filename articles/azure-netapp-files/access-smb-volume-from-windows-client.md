@@ -14,9 +14,15 @@ You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Man
 
 :::image type="content" source="../media/azure-netapp-files/diagram-windows-joined-active-directory.png" alt-text="Diagram of SMB volume joined to Azure Active Directory." lightbox="../media/azure-netapp-files/diagram-windows-joined-active-directory.png":::
 
-## Considerations 
+## Requirements and considerations 
 
 * NFSv4.1 Kerberos and dual-protocol Azure NetApp Files volumes are currently not supported. 
+* You must have installed and configured [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) to synchronize your AD DS users with Microsoft Azure AD ID. For more information, see [Get started with Azure AD Connect by using express settings](../active-directory/hybrid/connect/how-to-connect-install-express.md).  
+
+    Verify the hybrid identities are synced with Microsoft Entra ID users. In the Azure portal under Azure Active Directory, navigate to Users. You should see that user accounts from AD DS are listed and the property, ‘On-premises sync enabled’ shows ‘yes’. 
+    
+    >[!NOTE]
+    >After the initial configuration of Azure AD Connect, when you add a new AD DS user, you must run the `Start-ADSyncSyncCycle` command in the Administrator PowerShell to synchronize the new user to Azure AD or wait for the scheduled sync to occur. 
 
 ## Steps
 
@@ -47,17 +53,6 @@ Begin by adding the CIFS service principal name (SPN) to the computer account cr
     
 1. Grant **Admin Consent** on your application. 
 
-### Install Azure AD Connect in your on-premises environment 
-
-1. Sign on to your on-premises Active Directory account.
-1. Create a local user and assign it administrator privileges. This user serves to connect to Azure AD. 
-1. Install [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) using the Azure AD global administrator account. For more information, see [Get started with Azure AD Connect by using express settings](../active-directory/hybrid/connect/how-to-connect-install-express.md).
-
-    1. Configure the [service connection point and synchronize](../active-directory/hybrid/connect/how-to-connect-install-express.md).
-    1. In the Azure portal under Azure Active Directory, navigate to **Users**. Verify the domain local user is synced with Azure AD users. 
-    >[!NOTE]
-    >After the initial configuration, when you add a new local user, you must run the `Start-ADSyncSyncCycle` command in the Administrator PowerShell to synchronize the new user to Azure AD.
-    
 ### Sync CIFS password from on-premises AD to Azure AD application 
 
 1. In your on-premises environment, sign into Active Directory.
