@@ -125,8 +125,7 @@ Use Service Fabric API version `2023-09-01-preview` or later.
 ```
 
 >[!NOTE]
-> Special handling for AzureDiskEncryption (ADE) extension: ADE needs to run before the Service Fabric runtime to ensures that the disk is decrypted after a reimage operations, allowing the Service Fabric runtime to start using it. Even if the extension is not explicitly marked with `BeforeSFRuntime`, it will run before the runtime. But note that enabling encryption at host is recomended over using ADE extension. For detailed instructions, please refer to [Enable encryption at host](https://learn.microsoft.com/azure/service-fabric/how-to-managed-cluster-enable-disk-encryption?tabs=azure-powershell#enable-encryption-at-host)
-
+> Special handling for AzureDiskEncryption (ADE) extension: ADE needs to run before the Service Fabric runtime to ensures that the disk is decrypted after a reimage operations, allowing the Service Fabric runtime to start using it. Even if the extension is not explicitly marked with `BeforeSFRuntime`, it will run before the runtime. But note that enabling encryption at host is recomended over using ADE extension. For detailed instructions, please refer to [Enable encryption at host](how-to-managed-cluster-enable-disk-encryption#enable-encryption-at-host)
 ## Next steps
 
 To learn more about Service Fabric managed clusters, see:
