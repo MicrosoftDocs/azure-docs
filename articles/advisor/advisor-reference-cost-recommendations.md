@@ -333,7 +333,7 @@ Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 Your App Service plan has no apps running for at least 3 days. Consider deleting the resource to save costs or add new apps under it.
 
 > [!NOTE]
-> It might take up to 48 hours for this recommendation to refresh after you take action
+> It might take up to 48 hours for this recommendation to refresh after you take an action.
  
 Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
 
