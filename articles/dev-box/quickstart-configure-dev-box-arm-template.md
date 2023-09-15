@@ -20,7 +20,7 @@ This quickstart describes how to use an Azure Resource Manager (ARM) template to
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
 **Deploy to Azure** button. The template opens in the Azure portal.
 
-:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/<encoded template URL>":::
+:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Screenshot of the Deploy to Azure button to deploy resources with a template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devcenter%2Fdevbox-with-builtin-image%2Fazuredeploy.json":::
 
 ## Prerequisites 
 
@@ -36,13 +36,13 @@ The template used in this QuickStart is from [Azure Quickstart Templates](/sam
 
 Multiple Azure resources are defined in the template: 
 
-- Microsoft.Network/virtualNetworks/subnets: create a subnet. 
-- Microsoft.Network/virtualNetworks: create a virtual network. 
-- Microsoft.DevCenter/devcenters 
-- Microsoft.DevCenter/projects 
-- Microsoft.DevCenter/networkConnections 
-- Microsoft.DevCenter/devcenters/devboxdefinitions 
-- Microsoft.DevCenter/projects/pools
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): create a virtual network. 
+- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): create a subnet. 
+- [Microsoft.DevCenter/devcenters](/azure/templates/microsoft.devcenter/devcenters): create a dev center.
+- [Microsoft.DevCenter/projects](/azure/templates/microsoft.devcenter/projects): create a project.
+- [Microsoft.DevCenter/networkConnections](/azure/templates/microsoft.devcenter/networkConnections): create a network connection. 
+- [Microsoft.DevCenter/devcenters/devboxdefinitions](/azure/templates/microsoft.devcenter/devcenters/devboxdefinitions): create a dev box definition. 
+- [Microsoft.DevCenter/projects/pools](/azure/templates/microsoft.devcenter/projects/pools): create a dev box pool.
  
 ### Find more templates
 
@@ -56,9 +56,9 @@ Next, you can use a template to [add other customized images for Base, Java, .NE
 |Image type  |Software and tools  |
 |---------|---------|
 |Base     |Git, Azure CLI, VS Code, VS Code Extension for GitHub Copilot |
-|Java     |Git, Azure CLI, VS Code, Maven, OpenJdk11, VS Code Extension for Java Pack         |
-|.NET     |Git, Azure CLI, VS Code，.NET SDK, Visual Studio         |
-|Data     |Git, Azure CLI, VS Code，Python 3, VS Code Extension for Python and Jupyter         |
+|Java     |Git, Azure CLI, VS Code, Maven, OpenJdk11, VS Code Extension for Java Pack |
+|.NET     |Git, Azure CLI, VS Code，.NET SDK, Visual Studio |
+|Data     |Git, Azure CLI, VS Code，Python 3, VS Code Extension for Python and Jupyter |
 
 ## Deploy the template 
 
@@ -66,26 +66,23 @@ Next, you can use a template to [add other customized images for Base, Java, .NE
 
    ```azurepowershell-interactive
    $vnetAddressPrefixes = Read-Host -Prompt "Enter a vnet address prefixes like 10.0.0.0/16" 
-   $subnetAddressPrefixes = Read-Host -Prompt " Enter a vnet address prefixes like 10.0.0.0/24" 
-   $location = Read-Host -Prompt "Enter the location (i.e. eastus)" 
+   $subnetAddressPrefixes = Read-Host -Prompt "Enter a vnet address prefixes like 10.0.0.0/24" 
+   $location = Read-Host -Prompt "Enter the location (e.g. eastus)" 
    
    $resourceGroupName = "rg-devbox-test" 
    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devcenter/devbox-with-builtin-image/azuredeploy.json" 
    New-AzResourceGroup -Name $resourceGroupName -Location $location 
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -vnetAddressPrefixes $vnetAddressPrefixes -subnetAddressPrefixes $subnetAddressPrefixes -location $location 
 
-   Write-Host "After all the resources are provisioned, please visit https://devportal.microsoft.com/ to create Dev Box. You can also refer to this guide: Quickstart: Create a dev box - Microsoft Dev Box | Microsoft Learn" 
+   Write-Host "After all the resources are provisioned, go to https://devportal.microsoft.com/ to create a Dev Box. You can also refer to this guide: [Quickstart: Create a dev box - Microsoft Dev Box | Microsoft Learn](https://learn.microsoft.com/azure/dev-box/quickstart-create-dev-box)." 
    Write-Host "Press [ENTER] to continue." 
    ```
 
-Wait until you see the prompt from the console.
+   Wait until you see the prompt from the console.
  
 2. Select **Copy** from the previous code block to copy the PowerShell script. 
 3. Right-click the shell console pane and then select **Paste**. 
 4. Enter the values. 
-
-The default resource group name is “rg-devbox-test”; you can change it by editing the `$resourceGroupName = "rg-devbox-test` command. You use
- the resource group name in the next section. 
 
 It takes about 10 minutes to deploy the template. When completed, the output is similar to: 
 
@@ -93,11 +90,13 @@ It takes about 10 minutes to deploy the template. When completed, the output is 
 
 Azure PowerShell is used to deploy the template. You can also use the Azure portal and Azure CLI. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-portal). 
 
-Note:  
+#### Depending on your configuration, you may want to change the following parameters:  
 
-1. If you have an existing subnet, you can use the parameter `-existingSubnetId` to pass the existing subnet ID. The template doesn't create a new Virtual network and subnet if you specify an existing one. 
+- *Resource group name:*The default resource group name is “rg-devbox-test”; you can change it by editing the `$resourceGroupName = "rg-devbox-test` line in the template. You use the resource group name in the next section. 
 
-2. To grant the role [*DevCenter Dev Box User*](how-to-dev-box-user.md) to your user at Dev box project level, pass the principal ID to the `-principalId` parameter. 
+- *Subnet:* If you have an existing subnet, you can use the parameter `-existingSubnetId` to pass the existing subnet ID. The template doesn't create a new Virtual network and subnet if you specify an existing one. 
+
+- *Dev Box User role:* To grant the role [*DevCenter Dev Box User*](how-to-dev-box-user.md) to your user at Dev box project level, pass the principal ID to the `-principalId` parameter. 
    - **User:** You can find the principal ID listed as the object ID on the user Overview page.
      :::image type="content" source="media/quickstart-configure-dev-box-arm-template/user-object-id.png" alt-text="Screenshot showing the user overview page with object ID highlighted."::: 
    - **Group:** You can find the principal ID listed as the object ID on the group Overview page. 
