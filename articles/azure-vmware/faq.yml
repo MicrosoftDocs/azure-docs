@@ -95,8 +95,8 @@ sections:
       - question: How long does it take to provision the initial three hosts in a cluster?
         answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
 
-     - question: Can I use the folder name "AVS-vendor-folders" for vCenter VM folders in Azure VMware Solution?
-       answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution (AVS) and using it may lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to AVS. Please choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in AVS.
+      - question: Can I use the folder name "AVS-vendor-folders" for vCenter VM folders in Azure VMware Solution?
+        answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution (AVS) and using it may lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to AVS. Please choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in AVS.
 
   - name: VMware solution software
     questions:
