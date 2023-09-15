@@ -16,6 +16,8 @@ ms.date: 09/15/2023
 
 In the rapidly evolving landscape of AI orchestration, a comprehensive evaluation of your plugins and planners is paramount for optimal performance. This article introduces how to evaluate your **Semantic Kernel** [plugins](https://learn.microsoft.com/semantic-kernel/ai-orchestration/plugins) and [planners](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planners) with Prompt flow. Furthermore, you can learn the seamless integration story between Prompt flow and Semantic Kernel.
 
+[plugins](/semantic-kernel/ai-orchestration/plugins) 
+
 The integration of Semantic Kernel with Prompt flow is a significant milestone. 
 * It allows you to harness the powerful AI orchestration capabilities of Semantic Kernel to enhance the efficiency and effectiveness of your Prompt flow. 
 * More importantly, it enables you to utilize Prompt flow's powerful evaluation and experiment management to assess the quality of your Semantic Kernel plugins and planners comprehensively.
