@@ -25,7 +25,7 @@ Ensure the following before you begin:
 
 - **VM support**: Check that the VMs you want to move are supported. [Learn more](../reliability/migrate-vm.md). Check supported VM settings.
       
-- **Subscription quota**: The subscription must have enough quota to create the new VM and associated networking resources in target zonal configuration (in same region). If the subscription doesn't have enough quota, you need to [request additional limits](). 
+- **Subscription quota**: The subscription must have enough quota to create the new VM and associated networking resources in target zonal configuration (in same region). If the subscription doesn't have enough quota, you need to [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md). 
 
 ## Select and move VMs
 
@@ -35,9 +35,12 @@ To select the VMs you want to move from Regional to Zonal configuration within s
 
 To select the VMs for the move, follow these steps: 
 
-1.	On the [Azure portal](), select the VM. In this tutorial, we're using **DemoTestVM1** as an example. 
+1.	On the [Azure portal](https://ms.portal.azure.com/#home), select the VM. In this tutorial, we're using **DemoTestVM1** as an example.
+    
+    :::image type="content" source="./media/tutorial-move-regional-zonal/demo-test-machine.png" alt-text="Screenshot of demo virtual machine."::: 
  
-2.	In the DemoTestVM1 resource pane, select **Availability + scaling** > **edit**.
+2.	In the DemoTestVM1 resource pane, select **Availability + scaling** > **edit**. 
+    :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling.png" alt-text="Screenshot of Availability + scaling option."::: 
  
 ### Select the target availability zones
 
@@ -45,11 +48,14 @@ To select the target availability zones, follow these steps:
 
 1.	Under **Target availability zone**, select the desired target availability zones for the VM. For example, Zone 1.
  
+    
     >[!Important]
-    >If you select an unsupported VM to move, the validation fails. In this case, you must restart the workflow with the correct selection of VM. Refer to the [Support Matrix]() to learn more about unsupported VMs type.
+    >If you select an unsupported VM to move, the validation fails. In this case, you must restart the workflow with the correct selection of VM. Refer to the [Support Matrix](../reliability/migrate-vm.md#support-matrix) to learn more about unsupported VMs type.
 
 1. TBD
 1.	Select the consent statement for **System Assigned Managed Identity** process then select **Next**.
+
+    :::image type="content" source="./media/tutorial-move-regional-zonal/move-virtual-machine-availability-zone.png" alt-text="Screenshot of select target availability zone."::: 
    
     The MSI authentication process takes a few minutes to complete. During this time, the updates on the progress are displayed on the screen.
   
@@ -62,7 +68,7 @@ To review the properties of the VM before you commit the move, follow these step
     
     Find more information on the impact of the move on the VM properties. 
     
-    By default, the following source VM properties are retained in the target zonal VM:
+    **The following source VM properties are retained in the target zonal VM by default:**
     
     | Property | Description |
     | --- | --- |
@@ -73,7 +79,7 @@ To review the properties of the VM before you commit the move, follow these step
     | Load balancer (Standard SKU) | Standard SKU Load balance supports target zonal configuration and are retained. |
     | Public IP (Standard SKU) | Standard SKU PIP supports target zonal configuration and are retained. |
     
-    By default, the following source VM properties are created in the target zonal VM:
+    **The following source VM properties are created in the target zonal VM by default:**
     
     | Property | Description |
     | --- | --- |
@@ -84,14 +90,18 @@ To review the properties of the VM before you commit the move, follow these step
     | Load balancer (Basic SKU) | Basic SKU Load balance won't support target zonal configuration and hence isn't retained. <br> A new Standard SKU Load balancer is created by default. <br> However, you can still edit the load balancer properties, or you can select an existing target load balancer as well.|
     | Public IP (Basic SKU) | Basic SKU Public IPs won't be retained after the move as they don't support target zonal configurations. <br> By default, a new Standard SKU Public IP is created. <br> However, you can still edit the Public IP properties or you can select an existing target Public IP as well.|
 
-2.	Review and fix if there are any errors.
+2.	Review and fix if there are any errors.  
  
-3.	Select the consent statement at the bottom of the page to enable the **Move** option.
+3.	Select the consent statement at the bottom of the page before moving the resources.
+        :::image type="content" source="./media/tutorial-move-regional-zonal/migrate-vms.png" alt-text="Screenshot of migrating virtual machine page.":::
  
 ### Move the VMs
 
 Select **Move** to complete the move to Availability zones.
 
+:::image type="content" source="./media/tutorial-move-regional-zonal/move-completed.png" alt-text="Screenshot of move completion page.":::
+
+During this process:
 *    The source virtual machine is stopped hence, there's a brief downtime.
 *    A copy of the source VM is created in the target zonal configuration and the new virtual machine is up and running.
 
@@ -112,6 +122,7 @@ To manually remove the move collection that was made, follow these steps:
 1.	Ensure you can view hidden resources as the move collection is hidden by default.
 2.	Select the Resource group of the move collection using the search string *ZonalMove-MC-RG-SourceRegion*.
 3.	Delete the move collection. For example, *ZonalMove-MC-RG-UKSouth*.
+
 
 > [!NOTE]
 > The move collection is hidden and must be turned on to view it.

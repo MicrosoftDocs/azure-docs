@@ -237,3 +237,8 @@ Learn more about:
 > [!div class="nextstepaction"]
 > [Azure services and regions that support availability zones](availability-zones-service-support.md)
 >
+>[!div class="nextstepaction"]
+>[Move single instance Azure VMs from regional to zonal configuration using PowerShell](./move-virtual-machines-regional-zonal-powershell.md)
+>
+> [!div class="nextstepaction"]
+> [move single instance Azure VMs from regional to zonal configuration via portal](./move-virtual-machines-regional-zonal-portal.md)

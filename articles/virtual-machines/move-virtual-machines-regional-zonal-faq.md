@@ -125,4 +125,4 @@ Review the following scenarios where you can or can't retain Public IP addresses
 
 ## Next steps
 
-- Learn more about moving single instance [Azure VMs](../reliability/migrate-vm.md) from regional to zonal configuration.
+- Learn more about [moving single instance Azure VMs from regional to zonal configuration](../reliability/migrate-vm.md#migration-option-2-regional-to-zonal-move).
