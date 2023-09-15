@@ -2,39 +2,87 @@
 title: Optimal test suite configuration
 description: Learn about the factors that affect test completion time in Microsoft Playwright Testing. Get practical steps to determine the optimal Playwright test project configuration.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 09/27/2023
 ms.custom: playwright-testing-preview
 ---
 
 # Determine the optimal test suite configuration
 
-Microsoft Playwright Testing enables you to run Playwright tests with high parallelization across parallel workers. However, adding more parallel workers doesn't always result in shorter test suite completion times. Several factors influence the optimizal configuration for minimizing the test duration, such as the computing resources on the client machine, test complexity, or the target application's load-handling capacity.
+Microsoft Playwright Testing Preview enables you to speed up your Playwright test execution by increasing parallelism at cloud scale. Several factors affect the completion time for your test suite. Determining the optimal configuration for reducing test suite completion is application-specific and requires experimentation. This article explains the different levels to configure parallelism for your tests, the factors that influence test duration, and how to determine your optimal configuration to minimize test completion time.
 
-This article explains different factors that affect the test suite completion, and provides practical steps to determine the optimal test project configuration.
+In Playwright, you can run tests in parallel by using worker processes. By using Microsoft Playwright Testing, you can further increase parallelism by using cloud-hosted browsers. In general, adding more parallelism reduced the time to complete your test suite. However, adding more worker processes doesn't always result in shorter test suite completion times. For example, the client machine computing resources, network latency, or test complexity might also affect test duration.
 
-## Factors that influence the test suite completion time
-
-A key factor that influences the time it takes to complete a test suite, is the size of the test suite. The test suite size is determined by the number of tests times the number of browser and operating system combinations. For example, if you have 100 tests that you want to run across 3 browsers, and 2 operating systems, you end up with 100 * 3 * 2 = 600 tests runs.
-
-Playwright supports running multiple tests in parallel by using *workers*. With Microsoft Playwright Testing, you can further scale your test suite to run on cloud-hosted, remote browsers. By using parallelization, you can shorten the overall time to complete all tests in the test suite.
-
-You might be tempted to run your test suite across as many parallel workers as possible to minize the test suite completion time. However, adding more parallel workers doesn't always result in a shorter test completion. There are multiple factors that influence the test suite duration, and that might limit the performance gains of adding more parallelization. Specifically, the computing resources of the client machine that runs the Playwright test code, can have a significant affect.
-
-The following graph shows how the test suite completion time evolves as you increase parallelization. Initially the number of parallel workers significantly shortens the test completion time. As you add more workers, the gains become smaller and might even adversely influence the test duration. Notice how using more computing resources on the client machine (orange line) can further improve the benefits of parallelization. The client machine is responsible for running the Playwright tests and, depending on the complexity of the test code, benefits from additional CPU, memory, or networking resources.
+The following chart gives an example of running a test suite. By running the test suite with Microsoft Playwright Testing instead of locally, you can significantly increase the parallelism and reduce the test completion time. Notice that, when running with the service, the completion time reaches a minimum limit, after which adding more workers only has a minimal effect. The chart also shows how using more computing resources on the client machine positively affects the test completion time for tests running with the service.
 
 :::image type="complex" source="./media/concept-determine-optimal-configuration/playwright-testing-parallelization-chart.png" alt-text="Line chart that shows the relation between the number of parallel workers and the test suite completion time for different run environments." lightbox="./media/concept-determine-optimal-configuration/playwright-testing-parallelization-chart.png":::
-Line chart that shows the relation between the number of parallel workers, on the X-axis, and the test suite completion time (Y-axis). The chart has a data series for where the tests are being run: small-powered client machine, high-powered client machine, Playwright Testing with a low-powered client machine, and Playwright Testing with a high-powered client machine. The data shows that when running on the client machine, the performance initially improves but quickly degrades with more workers because of resource contention. When running with Playwright Testing, the performance increases are much higher and last longer by adding more workers. Using a high-powered client machine positively affects both running on the client machine, as well as running with the service.
-:::image-end:::
 
-Other factors that might influence the test completion time are:
+## Worker processes
 
-- The target application's load-handling capacity
-- The complexity of the test code
-- The latency between the client machine and the cloud-hosted, remote browsers
-- The Playwright configuration settings, such as timeouts, retries, or tracing
+In [Playwright](https://playwright.dev/docs/intro), all tests run in worker processes. These processes are OS processes, running independently, in parallel, orchestrated by the Playwright Test runner. All workers have identical environments and each process starts its own browser. 
 
+Generally, increasing the number of parallel workers can reduce the time it takes to complete the full test suite. You can learn more about [Playwright Test parallelism](https://playwright.dev/docs/test-parallel) in the Playwright documentation.
 
-## Process for determining the optimal configuration
+As previously shown in the chart, the test suite completion time doesn't continue to decrease as you add more worker processes. There are [other factors that influence the test suite duration](#factors-that-influence-completion-time).
+
+### Running tests locally
+
+By default, Playwright limits the number of workers to 1/2 of the number of CPU cores on your machine. You can override the number of workers for running your test.
+
+When you run tests locally, the number of worker processes is limited to the number of CPU cores on your machine. In addition, beyond a certain point, adding more workers leads to resource contention, which slows down each worker and introduces test flakiness.
+
+To override the number of workers using the [`--workers` command line flag](https://playwright.dev/docs/test-cli#reference):
+
+```bash
+npx playwright test --workers=30
+```
+
+To specify the number of workers in `playwright.config.ts` using the `workers` setting:
+
+```typescript
+export default defineConfig({
+  ...
+  workers: 5;
+  ...
+});
+```
+
+### Running tests with the service
+
+When you use Microsoft Playwright Testing, you can increase the number of workers at cloud-scale to much bigger numbers. When you use the service, the worker processes continue to run locally, but the resource-intensive browser instances are now running remotely in the cloud.
+
+Because the worker processes still run on the client machine (developer workstation or CI agent machine), the client machine might still become a bottleneck for scalable execution as you add more workers. Learn how you can [determine the optimal configuration](#workflow-for-determining-your-optimal-configuration).
+
+You can specify the number of workers on the command line with the `--workers` flag:
+
+```bash
+npx playwright test --config=playwright.service.config.ts --workers=20
+```
+
+Alternately you can specify the number of workers in `playwright.service.config.ts` using the `workers` setting:
+
+```typescript
+export default defineConfig({
+  ...
+  workers: 5;
+  ...
+});
+```
+
+## Factors that influence completion time
+
+In addition to the number of parallel worker processes, there are several factors that influence the test suite completion time.
+
+| Factor | Effects on test duration |
+|-|-|
+| **Client machine compute resources** | The worker processes still run on the client machine (developer workstation or CI agent machine) and need to communicate with the remote browsers. Increasing the number of parallel workers might result in resource contention on the client machine, and slow down tests. |
+| **Complexity of the test code** | As the complexity of the test code increases, the time to complete the tests might also increase. |
+| **Latency between the client machine and the remote browsers** | The workers run on the client machine and communicate with the remote browsers. Depending on the Azure region where the browsers are hosted, the network latency might increase. Learn how you can optimize regional latency in Microsoft Playwright Testing. |
+| **Playwright configuration settings** | Playwright settings such as service timeouts, retries, or tracing can adversely affect the test completion time. Experiment with the optimal configuration for these settings when running your tests in the cloud. |
+| **Target application's load-handling capacity** | Running tests with Microsoft Playwright Testing enables you to run with higher parallelism, which results in a higher load on the target application. Verify that the application can handle the load that is generated by running your Playwright tests. |
+
+Learn more about the [workflow for determining the optimal configuration](#workflow-for-determining-your-optimal-configuration) for minimizing the test suite duration.
+
+## Workflow for determining your optimal configuration
 
 The optimal configuration for minimizing the test suite completion time is specific to your application and environment. To determine your optimal configuration, experiment with different levels of parallelization and environment configuration.
 
