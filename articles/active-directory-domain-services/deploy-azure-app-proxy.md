@@ -49,7 +49,7 @@ To create a VM for the Azure AD Application Proxy connector, complete the follow
 
 Perform the following steps to download the Azure AD Application Proxy connector. The setup file you download is copied to your App Proxy VM in the next section.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Enterprise Administrator](../active-directory/roles/permissions-reference.md#enterprise-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator).
 1. Search for and select **Enterprise applications**.
 1. Select **Application proxy** from the menu on the left-hand side. To create your first connector and enable App Proxy, select the link to **download a connector**.
 1. On the download page, accept the license terms and privacy agreement, then select **Accept terms & Download**.
