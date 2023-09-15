@@ -10,13 +10,13 @@ author: Bozhong68
 ms.author: bozhlin
 ms.reviewer: mopeakande
 reviewer: msakande
-ms.date: 05/23/2023
+ms.date: 09/15/2023
 ms.custom: devplatv2
 ---
 
 # Monitor performance of models deployed to production (preview)
 
-Once a machine learning model is in production, it's important to critically evaluate the inherent risks associated with it and identify blind spots that could adversely affect your business. Azure Machine Learning's model monitoring continuously tracks the performance of models in production by providing a broad view of monitoring signals and alerting you to potential issues. In this article, you'll learn to perform out-of box and advanced monitoring setup for models that are deployed to Azure Machine Learning online endpoints. You'll also learn to set up model monitoring for models that are deployed outside Azure Machine Learning or deployed to Azure Machine Learning batch endpoints.
+Once a machine learning model is in production, it's important to critically evaluate the inherent risks associated with it and identify blind spots that could adversely affect your business. Azure Machine Learning's model monitoring continuously tracks the performance of models in production by providing a broad view of monitoring signals and alerting you to potential issues. In this article, you learn to perform out-of box and advanced monitoring setup for models that are deployed to Azure Machine Learning online endpoints. You also learn to set up model monitoring for models that are deployed outside Azure Machine Learning or deployed to Azure Machine Learning batch endpoints.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -187,7 +187,7 @@ created_monitor = poller.result()
 
 ## Set up advanced model monitoring
 
-Azure Machine Learning provides many capabilities for continuous model monitoring. See [Capabilities of model monitoring](concept-model-monitoring.md#capabilities-of-model-monitoring) for a list of these capabilities. In many cases, you'll need to set up model monitoring with advanced monitoring capabilities. In the following example, we'll set up model monitoring with these capabilities:
+Azure Machine Learning provides many capabilities for continuous model monitoring. See [Capabilities of model monitoring](concept-model-monitoring.md#capabilities-of-model-monitoring) for a list of these capabilities. In many cases, you need to set up model monitoring with advanced monitoring capabilities. In the following example, we set up model monitoring with these capabilities:
 
 * Use of multiple monitoring signals for a broad view
 * Use of historical model training data or validation data as the comparison baseline dataset
@@ -436,12 +436,12 @@ created_monitor = poller.result()
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-data.png" alt-text="Screenshot showing how to add datasets for the monitoring signals to use." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-data.png":::
 
-1. In the "Select monitoring signals" section, you'll see three monitoring signals already added if you have selected Azure Machine Learning online deployment earlier. These signals are: data drift, prediction drift, and data quality. All these prepopulated monitoring signals use recent past production data as the comparison baseline and use smart defaults for metrics and threshold.
+1. In the "Select monitoring signals" section, you see three monitoring signals already added if you have selected Azure Machine Learning online deployment earlier. These signals are: data drift, prediction drift, and data quality. All these prepopulated monitoring signals use recent past production data as the comparison baseline and use smart defaults for metrics and threshold.
 1. Select **Edit** next to the data drift signal.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-select-signals.png" alt-text="Screenshot showing how to select monitoring signals." lightbox="media/how-to-monitor-models/model-monitoring-advanced-select-signals.png":::
 
-1. In the data drift "Edit signal" window, configure following:
+1. In the data drift **Edit signal** window, configure following:
     1. Change the baseline dataset to use training data.
     1. Monitor drift for top 1-20 important features, or monitor drift for specific set of features.
     1. Select your preferred metrics and set thresholds.
@@ -457,7 +457,7 @@ created_monitor = poller.result()
    
       :::image type="content" source="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png" alt-text="Screenshot showing how to configure a custom data asset with inputs and outputs joined." lightbox="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png":::
       
-   1. Specify your training reference dataset that will be used in the feature attribution drift component, and select your 'target column name' field, which is required to enable feature importance. 
+   1. Specify your training reference dataset that is used in the feature attribution drift component, and select your 'target column name' field, which is required to enable feature importance. 
    1. Confirm your parameters are correct
 1. Adjust the data window size according to your business case.
 1. Adjust the threshold according to your need.
@@ -771,13 +771,13 @@ The studio currently doesn't support monitoring for models that are deployed out
 
 ## Set up model monitoring with custom signals and metrics
 
-With Azure Machine Learning model monitoring, you have the option to define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it will compute the metric(s) you have defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, data quality, & feature attribution drift). To get started with defining your own custom signal, you must meet the following requirement:
+With Azure Machine Learning model monitoring, you have the option to define your own custom signal and implement any metric of your choice to monitor your model. You can register this signal as an Azure Machine Learning component. When your Azure Machine Learning model monitoring job runs on the specified schedule, it computes the metric(s) you have defined within your custom signal, just as it does for the prebuilt signals (data drift, prediction drift, data quality, & feature attribution drift). To get started with defining your own custom signal, you must meet the following requirement:
 
 * You must define your custom signal and register it as an Azure Machine Learning component. The Azure Machine Learning component must have these input and output signatures:
 
 ### Component input signature
 
-The component input DataFrame should contain a `mltable` with the processed data from the preprocessing component and any number of literals, each representing an implemented metric as part of the custom signal component. For example, if you have implemented one metric, `std_deviation`, then you will need an input for `std_deviation_threshold`. Generally, there should be one input per metric with the name {metric_name}_threshold.
+The component input DataFrame should contain a `mltable` with the processed data from the preprocessing component and any number of literals, each representing an implemented metric as part of the custom signal component. For example, if you have implemented one metric, `std_deviation`, then you'll need an input for `std_deviation_threshold`. Generally, there should be one input per metric with the name {metric_name}_threshold.
 
   | signature name | type | description | example value |
   |---|---|---|---|
@@ -795,7 +795,7 @@ The component output DataFrame should contain four columns: `group`, `metric_nam
   | metric_value | mltable | The value of the custom metric. | 44,896.082 |
   | threshold_value | | The threshold for the custom metric. | 2 |
 
-Here is an example output from a custom signal component computing the metric, `std_deviation`:
+Here's an example output from a custom signal component computing the metric, `std_deviation`:
 
   | group | metric_value | metric_name | threshold_value |
   |---|---|---|---|
@@ -815,7 +815,7 @@ Once you've satisfied the previous requirements, you can set up model monitoring
 az ml schedule create -f ./custom-monitoring.yaml
 ```
 
-The following YAML contains the definition for model monitoring with a custom signal. It is assumed that you have already created and registered your component with the custom signal definition to Azure Machine Learning. In this example, the `component_id` of the registered custom signal component is `azureml:my_custom_signal:1.0.0`:
+The following YAML contains the definition for model monitoring with a custom signal. It's assumed that you have already created and registered your component with the custom signal definition to Azure Machine Learning. In this example, the `component_id` of the registered custom signal component is `azureml:my_custom_signal:1.0.0`:
 
 ```yaml
 # custom-monitoring.yaml
