@@ -59,7 +59,7 @@ To configure an on-premises app to use a custom domain, you need a verified Azur
 ### Create and verify a custom domain
 
 To create and verify a custom domain:
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference).
 1. Browse to **Identity** > **Settings** > **Domain names**.
 1. Select **Add custom domain**. 
 1. Enter your custom domain name and select **Add Domain**. 

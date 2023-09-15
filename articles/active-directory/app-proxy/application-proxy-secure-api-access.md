@@ -48,7 +48,7 @@ To publish the SecretAPI web API through Application Proxy:
 
 1. Build and publish the sample SecretAPI project as an ASP.NET web app on your local computer or intranet. Make sure you can access the web app locally.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference).
 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
@@ -100,7 +100,7 @@ You've published your web API through Azure AD Application Proxy. Now, add users
 Native apps are programs developed to use on a particular platform or device. Before your native app can connect and access an API, you must register it in Azure AD. The following steps show how to register a native app and give it access to the web API you published through Application Proxy.
 
 To register the AppProxyNativeAppSample native app:
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference).
 
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **App registrations**.
 
