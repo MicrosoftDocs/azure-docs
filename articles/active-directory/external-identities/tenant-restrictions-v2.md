@@ -372,31 +372,47 @@ Tenant restrictions v2 policies can't be directly enforced on non-Windows 10, Wi
 
 ### Migrating tenant restrictions v1 to v2
 
-On your corporate proxy, you can move from tenant restrictions V1 to tenant restrictions V2 by changing the tenant restrictions v1 header `Restrict-Access-To-Tenants: <allowed-tenant-list>` to the tenant restrictions V2 header `sec-Restrict-Tenant-Access-Policy: <DirectoryID>:<policyGUID>`, where `<DirectoryID>` is your Azure AD tenant ID and `<policyGUID>` is the object ID for your cross-tenant access policy.
+On your corporate proxy, you can move from tenant restrictions v1 to tenant restrictions v2 by changing the tenant restrictions v1 header:
 
-Example:
+`Restrict-Access-To-Tenants: <allowed-tenant-list>`
+
+to the tenant restrictions v2 header:
+
+`sec-Restrict-Tenant-Access-Policy: <DirectoryID>:<policyGUID>`
+
+where `<DirectoryID>` is your Azure AD tenant ID and `<policyGUID>` is the object ID for your cross-tenant access policy.
+
+#### Tenant restrictions v1 settings on the corporate proxy
+
+The following is an example of existing tenant restrictions V1 settings on the corporate proxy:
+
 Restrict-Access-To-Tenants: contoso.com, fabrikam.com, dogfood.com
 sec-Restrict-Tenant-Access-Policy: restrict-msa
 
-#### Tenant restrictions V2 settings on the corporate proxy
+[Learn more](../manage-apps/tenant-restrictions.md) about tenant restrictions v1.
 
-You can configure client-side tenant restrictions V2 header tagging by either configuiring the corporate proxy or using Windows Group Policy to enable client-side tagging of the tenant restrictions V2 header.
+#### Tenant restrictions v2 settings on the corporate proxy
 
-- Proxy settings: sec-Restrict-Tenant-Access-Policy: <DirectoryID>:<policyGUID>
-where DirectoryID is your Azure AD tenant ID and policyGUID is the object ID for your cross-tenant access policy. For details, see [Set up tenant restrictions v2 on your corporate proxy](#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy)
+You can enable client-side tenant restrictions v2 header tagging by configuring  the corporate proxy or by using Windows Group Policy.
 
-- Windows Group Policy: This option is supported only on Windows devices and Microsoft Edge. Enable tenant restrictions V2 tagging by referring to the steps and information in [Step 3: Enable tenant restrictions on Windows managed devices](#step-3-enable-tenant-restrictions-on-windows-managed-devices).
+- Corporate proxy: On the corporate proxy, configure the following setting:
 
-You can configure server-side cloud tenant restrictions V2 policy by following the steps at [Step 2: Configure tenant restrictions V2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners).
+   `sec-Restrict-Tenant-Access-Policy: <DirectoryID>:<policyGUID>`
+   
+   where DirectoryID is your Azure AD tenant ID and policyGUID is the object ID for your cross-tenant access policy. For details, see [Set up tenant restrictions v2 on your corporate proxy](#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy)
 
-- Leave as-is the tenant restrictions V2 default policy that blocks all external tenant access using foreign identities (user@externaltenant.com).
+- To use Windows Group Policy: This option is supported only on Windows devices and Microsoft Edge. Enable tenant restrictions v2 tagging by referring to the steps and information in [Step 3: Enable tenant restrictions on Windows managed devices](#step-3-enable-tenant-restrictions-on-windows-managed-devices).
 
-- Create a partner tenant policy for each tenant in the allow list from tenant restrictions V1 by following the steps at [Step 2: Configure tenant restrictions V2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners).
+You can configure server-side cloud tenant restrictions v2 policy by following the steps at [Step 2: Configure tenant restrictions v2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners).
+
+- Leave as-is the tenant restrictions v2 default policy that blocks all external tenant access using foreign identities (user@externaltenant.com).
+
+- Create a partner tenant policy for each tenant in the allow list from tenant restrictions v1 by following the steps at [Step 2: Configure tenant restrictions v2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners).
 
 - Allow only specific users to access specific applications. This will increase your security posture by limiting access to necessary users only.
 
-- MSA: Tenant restrictions V2 treats MSA as a partner tenant.
-Create a partner tenant configuration for MSA by following the steps in [Step 2: Configure tenant restrictions V2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners). MSA does not have user granularity and applies to all users. Use application granularity to allow only specific applications that are needed to be accessed by MSA or Consumer accounts. Users will be allowed to access only applications in Application Granularity using MSA/Consumer accounts. 
+- MSA: Tenant restrictions v2 treats MSA as a partner tenant.
+Create a partner tenant configuration for MSA by following the steps in [Step 2: Configure tenant restrictions v2 for specific partners](#step-2-configure-tenant-restrictions-v2-for-specific-partners). MSA does not have user granularity and applies to all users. Use application granularity to allow only specific applications that are needed to be accessed by MSA or Consumer accounts. Users will be allowed to access only applications in Application Granularity using MSA/Consumer accounts. 
 > [!NOTE]
 >Blocking the MSA tenant will not block user-less traffic for devices, including:
 >- Traffic for Autopilot, Windows Update, and organizational telemetry
@@ -420,7 +436,7 @@ Although these alternatives provide protection, certain scenarios can only be co
 After you create a tenant restrictions v2 policy, you can enforce the policy on each Windows 10, Windows 11, and Windows Server 2022 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions v2; domain-joined devices that are managed with Group Policy are also supported.
 
 > [!NOTE]
-> Tenant restrictions V2 on Windows is a partial solution that protects the authentication and data planes for some scenarios. It works on managed Windows devices and does not protect .NET stack, Chrome, or Firefox. The Windows solution provides a temporary solution until general availability of Universal tenant restrictions in Global Secure Access (preview).
+> Tenant restrictions v2 on Windows is a partial solution that protects the authentication and data planes for some scenarios. It works on managed Windows devices and does not protect .NET stack, Chrome, or Firefox. The Windows solution provides a temporary solution until general availability of Universal tenant restrictions in [Microsoft Entra Global Secure Access (preview)](/azure/global-secure-access/overview-what-is-global-secure-access).
 
 #### Administrative Templates (.admx) for Windows 10 November 2021 Update (21H2) and Group policy settings
 
