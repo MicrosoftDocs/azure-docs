@@ -2,7 +2,7 @@
 title: Get started with Azure Advisor
 description: Get started with Azure Advisor.
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 09/15/2023
 
 ---
 
