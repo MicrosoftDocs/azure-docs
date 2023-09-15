@@ -692,6 +692,7 @@ The azd template generated the connectivity variables for you already as [app se
 ### [Flask](#tab/flask)
 
 1.  In the App Service page, in the left menu, select **Configuration**.
+
     :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the environment variables page in App Service." lightbox="./media/tutorial-python-postgresql-app/azure-portal-get-connection-string-1.png":::
 
 2. In the **Application settings** tab of the **Configuration** page, verify that `AZURE_POSTGRESQL_CONNECTIONSTRING` is present. Application settings will be injected into the runtime environment as environment variables.
