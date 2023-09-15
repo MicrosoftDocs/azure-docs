@@ -19,7 +19,7 @@ The Playwright Test runner uses the host OS as a part of the expected screenshot
 
 ## Configure ignoreSnapshots
 
-To only run visual comparisons when using Microsoft Playwright Testing, we can use the [`ignoreSnapshots` option](https://playwright.dev/docs/api/class-testconfig#test-config-ignore-snapshots).
+You can use the [`ignoreSnapshots` option](https://playwright.dev/docs/api/class-testconfig#test-config-ignore-snapshots) to only run visual comparisons when using Microsoft Playwright Testing.
 
 1. Set `ignoreSnapshots: true` in the original `playwright.config.ts` that doesn't use the service.
 1. Set `ignoreSnapshots: false` in `playwright.service.config.ts`.
