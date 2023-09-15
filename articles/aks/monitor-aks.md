@@ -91,9 +91,13 @@ If the [diagnostic setting for your cluster](#resource-logs) uses Azure diagnost
 
 | Description | Log query |
 |:---|:---|
-| Count logs for each category | AzureDiagnostics<br>\| where ResourceType == "MANAGEDCLUSTERS"<br>\| summarize count() by Category |
-| All API server logs | AzureDiagnostics<br>\| where Category == "kube-apiserver" |
-| All kube-audit logs withing a time range | let starttime = datetime("2023-02-23");<br>let endtime = datetime("2023-02-24");<br>AzureDiagnostics<br>\| where TimeGenerated between(starttime..endtime)<br>\| where Category == "kube-audit"<br>\| extend event = parse_json(log_s)<br>\| extend HttpMethod = tostring(event.verb)<br>\| extend User = tostring(event.user.username)<br>\| extend Apiserver = pod_s<br>\| extend SourceIP = tostring(event.sourceIPs[0])<br>\| project TimeGenerated, Category, HttpMethod, User, Apiserver, SourceIP, OperationName, event |
+| Count logs for each category<br>(Azure diagnostics mode) | AzureDiagnostics<br>\| where ResourceType == "MANAGEDCLUSTERS"<br>\| summarize count() by Category |
+| All API server logs<br>(Azure diagnostics mode) | AzureDiagnostics<br>\| where Category == "kube-apiserver" |
+| All kube-audit logs in a time range<br>(Azure diagnostics mode) | let starttime = datetime("2023-02-23");<br>let endtime = datetime("2023-02-24");<br>AzureDiagnostics<br>\| where TimeGenerated between(starttime..endtime)<br>\| where Category == "kube-audit"<br>\| extend event = parse_json(log_s)<br>\| extend HttpMethod = tostring(event.verb)<br>\| extend User = tostring(event.user.username)<br>\| extend Apiserver = pod_s<br>\| extend SourceIP = tostring(event.sourceIPs[0])<br>\| project TimeGenerated, Category, HttpMethod, User, Apiserver, SourceIP, OperationName, event |
+| All audit logs<br>(resource-specific mode) | AKSAudit |
+| All audit logs excluding the get and list audit events  <br>(resource-specific mode) | AKSAuditAdmin |
+| All API server logs<br>(resource-specific mode) | AKSControlPlane<br>\| where Category == "kube-apiserver" |
+
 
 
 To access a set of prebuilt queries in the Log Analytics workspace, see the [Log Analytics queries interface](../azure-monitor/logs/queries.md#queries-interface) and select resource type **Kubernetes Services**. For a list of common queries for Container insights, see [Container insights queries](../azure-monitor/containers/container-insights-log-query.md).
