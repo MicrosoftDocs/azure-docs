@@ -39,31 +39,7 @@ While the service is in preview, the following limits apply on a per-subscriptio
 
 ## Request quota increases
 
-To raise the limit or quota above the default limit, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) at no charge.
-
-1. Select **Create a support ticket**.
-
-1. Provide a **summary** of your issue.
-
-1. Select **Issue type** as *Service and subscription limits (quotas)*.
-
-1. Select your subscription. Then, select **Quota Type** as *Microsoft Playwright Testing*.
-
-1. Select **Next** to continue.
-
-1. In **Problem details**, select **Enter details**.
-
-1. On the **Quota details** pane, for **Location**, enter the Azure region where you want to increase the limit.
-
-1. Select the **Quota type** for which you want to increase the limit.
-
-1. Enter the **New limit requested** and select **Save and continue**.
-
-1. Fill the details for **Advanced diagnostic information**, **Support method**, and **Contact information**.
-
-1. Select **Next** to continue.
-
-1. Select **Create** to submit the support request.
+To raise the resource quota above the default limit for your subscription, [create an issue in the Playwright Testing GitHub repository](https://github.com/microsoft/playwright-testing-service/issues/new/choose).
 
 ## Related content
 
