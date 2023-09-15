@@ -562,7 +562,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like "1" means numOfWorker is 1 or "1:10" means autoscale from 1 as min and 10 as max.  | No                |
 | newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads. This field is required for new cluster                | No               |
 | newClusterSparkConf  | a set of optional, user-specified Spark configuration key-value pairs. Users can also pass in a string of extra JVM options to the driver and the executors via spark.driver.extraJavaOptions and spark.executor.extraJavaOptions respectively. | No  |
-| newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. Specifying the DBFS path to the init scripts. | No  |
+| newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. You can specify the init scripts in workspace files (recommended) or via the DBFS path (legacy). | No  |
 
 
 ## Azure SQL Database linked service

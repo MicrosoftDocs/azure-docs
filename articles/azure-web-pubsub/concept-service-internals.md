@@ -88,20 +88,25 @@ var pubsub = new WebSocket(
 A PubSub WebSocket client can:
 
 - Join a group, for example:
+
   ```json
   {
     "type": "joinGroup",
     "group": "<group_name>"
   }
   ```
+
 - Leave a group, for example:
+
   ```json
   {
     "type": "leaveGroup",
     "group": "<group_name>"
   }
   ```
+
 - Publish messages to a group, for example:
+
   ```json
   {
     "type": "sendToGroup",
@@ -109,6 +114,7 @@ A PubSub WebSocket client can:
     "data": { "hello": "world" }
   }
   ```
+
 - Send custom events to the upstream server, for example:
 
   ```json
@@ -123,7 +129,7 @@ A PubSub WebSocket client can:
 
 You may have noticed that for a [simple WebSocket client](#the-simple-websocket-client), the _server_ is a **must have** role to receive the `message` events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different event handlers / event listeners by customizing the _event_ the message belongs.
 
-#### Scenarios:
+#### Scenarios
 
 Such clients can be used when clients want to talk to each other. Messages are sent from `client2` to the service and the service delivers the message directly to `client1` if the clients are authorized to do so.
 
@@ -242,13 +248,13 @@ When doing the validation, the `{event}` parameter is resolved to `validate`. Fo
 
 For now, we don't support [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback).
 
-#### Authentication between service and webhook
+#### Authentication/Authorization between service and webhook
 
 - Anonymous mode
 - Simple authentication that `code` is provided through the configured Webhook URL.
-- Use Azure Active Directory (Azure AD) authentication. For more information, see [how to use managed identity](howto-use-managed-identity.md) for details.
+- Use Microsoft Entra authorization. For more information, see [how to use managed identity](howto-use-managed-identity.md) for details.
   - Step1: Enable Identity for the Web PubSub service
-  - Step2: Select from existing Azure AD application that stands for your webhook web app
+  - Step2: Select from existing Microsoft Entra application that stands for your webhook web app
 
 ### Connection manager
 

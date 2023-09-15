@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -31,9 +31,8 @@ To group your connectors, you have to make sure you [installed multiple connecto
 ## Create connector groups
 
 Use these steps to create as many connector groups as you want.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Azure Active Directory** > **Enterprise applications** > **Application proxy**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Select **New connector group**. The New Connector Group blade appears.
 
    ![Shows the screen to select a new connector group](./media/application-proxy-connector-groups/new-group.png)

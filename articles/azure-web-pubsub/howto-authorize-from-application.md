@@ -1,6 +1,6 @@
 ---
-title: Authorize request to Web PubSub resources with Azure AD from Azure applications
-description: This article provides information about authorizing request to Web PubSub resources with Azure AD from Azure applications
+title: Authorize request to Web PubSub resources with Microsoft Entra ID from applications
+description: This article provides information about authorizing request to Web PubSub resources with Microsoft Entra ID from applications
 author: terencefan
 
 ms.author: tefa
@@ -9,9 +9,9 @@ ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
 
-# Authorize request to Web PubSub resources with Azure AD from Azure applications
+# Authorize request to Web PubSub resources with Microsoft Entra ID from Azure applications
 
-Azure Web PubSub Service supports Azure Active Directory (Azure AD) authorizing requests from [Azure applications](../active-directory/develop/app-objects-and-service-principals.md).
+Azure Web PubSub Service supports Microsoft Entra ID for authorizing requests from [applications](../active-directory/develop/app-objects-and-service-principals.md).
 
 This article shows how to configure your Web PubSub resource and codes to authorize the request to a Web PubSub resource from an Azure application.
 
@@ -19,7 +19,7 @@ This article shows how to configure your Web PubSub resource and codes to author
 
 The first step is to register an Azure application.
 
-1. On the [Azure portal](https://portal.azure.com/), search for and select **Azure Active Directory**
+1. On the [Azure portal](https://portal.azure.com/), search for and select **Microsoft Entra ID**
 2. Under **Manage** section, select **App registrations**.
 3. Click **New registration**.
 
@@ -66,7 +66,7 @@ To learn more about adding credentials, see
 
 This sample shows how to assign a `Web PubSub Service Owner` role to a service principal (application) over a Web PubSub resource.
 
-> [!Note]
+> [!NOTE]
 > A role can be assigned to any scope, including management group, subscription, resource group or a single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md)
 
 1. On the [Azure portal](https://portal.azure.com/), navigate to your Web PubSub resource.
@@ -111,7 +111,7 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a service p
 - [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [Assign Azure roles using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
 
-## Use Postman to get the Azure AD token
+## Use Postman to get the Microsoft Entra token
 
 1. Launch Postman
 
@@ -121,7 +121,7 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a service p
 
 4. On the **Headers** tab, add **Content-Type** key and `application/x-www-form-urlencoded` for the value.
 
-![Screenshot of the basic info using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman.png)
+   ![Screenshot of the basic info using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman.png)
 
 5. Switch to the **Body** tab, and add the following keys and values.
    1. Select **x-www-form-urlencoded**.
@@ -130,13 +130,13 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a service p
    4. Add `client_secret` key, and paste the value of client secret you noted down earlier.
    5. Add `resource` key, and type `https://webpubsub.azure.com` for the value.
 
-![Screenshot of the body parameters when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png)
+   ![Screenshot of the body parameters when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png)
 
 6. Select **Send** to send the request to get the token. You see the token in the `access_token` field.
 
-![Screenshot of the response token when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png)
+   ![Screenshot of the response token when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png)
 
-## Sample codes using Azure AD auth
+## Sample codes using Microsoft Entra authorization
 
 We officially support 4 programming languages:
 
@@ -149,6 +149,6 @@ We officially support 4 programming languages:
 
 See the following related articles:
 
-- [Overview of Azure AD for Web PubSub](concept-azure-ad-authorization.md)
-- [Authorize request to Web PubSub resources with Azure AD from managed identities](howto-authorize-from-managed-identity.md)
+- [Overview of Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
+- [Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities](howto-authorize-from-managed-identity.md)
 - [Disable local authentication](./howto-disable-local-auth.md)

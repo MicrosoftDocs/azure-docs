@@ -81,5 +81,5 @@ Health status alerts are categorized into the following levels of severity:
 For more information on alerts that are shown in the health status page, see [Resolve alerts on your managed domain][troubleshoot-alerts]
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: ../active-directory/fundamentals/how-to-get-support.md
 [troubleshoot-alerts]: troubleshoot-alerts.md

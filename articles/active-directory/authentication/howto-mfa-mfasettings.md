@@ -6,12 +6,12 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 08/16/2023
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jupetter
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
@@ -87,11 +87,16 @@ To unblock a user, complete the following steps:
 
 Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have an Azure AD P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](../identity-protection/concept-identity-protection-policies.md).  
 
-To enable **Report suspicious activity** from the Authentication Methods Settings:   
+To enable **Report suspicious activity** from the Authentication methods **Settings**:   
 
 1. In the Azure portal, click **Azure Active Directory** > **Security** > **Authentication Methods** > **Settings**. 
-1. Set **Report suspicious activity** to **Enabled**. 
+1. Set **Report suspicious activity** to **Enabled**. The feature remains disabled if you choose **Microsoft managed**. For more information about Microsoft managed values, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
 1. Select **All users** or a specific group. 
+1. Select a **Reporting code**.
+1. Click **Save**. 
+
+>[!NOTE]
+>If you enable **Report suspicious activity** and specify a custom voice reporting value while the tenant still has **Fraud Alert** enabled in parallel with a custom voice reporting number configured, the **Report suspicious activity** value will be used instead of **Fraud Alert**.
 
 ### View suspicious activity events 
 
@@ -134,7 +139,7 @@ OATH TOTP hardware tokens typically come with a secret key, or seed, pre-program
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
 
-OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://aka.ms/EntraPreviewsTermsOfUse).
 
 ![Screenshot that shows the OATH tokens section.](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -170,7 +175,7 @@ Default number: *+1 (855) 330-8653*
 
 The following table lists more numbers for different countries.
 
-| Country              | Number(s)       |
+| Country/Region       | Number(s)       |
 |:---------------------|:----------------|
 | Austria              | +43 6703062076  |
 | Bangladesh           | +880 9604606026 |
@@ -181,7 +186,7 @@ The following table lists more numbers for different countries.
 | Ghana                | +233 308250245  |
 | Greece               | +30 2119902739  |
 | Guatemala            | +502 23055056   |
-| Hong Kong            | +852 25716964   |
+| Hong Kong SAR        | +852 25716964   |
 | India                | +91 3371568300, +91 1205089400, +91 4471566601, +91 2271897557, +91 1203524400, +91 3335105700, +91 2235544120, +91 4435279600|
 | Jordan               | +962 797639442  |
 | Kenya                | +254 709605276  |
@@ -195,13 +200,13 @@ The following table lists more numbers for different countries.
 | Sri Lanka            | +94 117750440   |
 | Sweden               | +46 701924176   |
 | Taiwan               | +886 277515260  |
-| Turkey               | +90 8505404893  |
+| Türkiye              | +90 8505404893  |
 | Ukraine              | +380 443332393  |
 | United Arab Emirates | +971 44015046   |
 | Vietnam              | +84 2039990161  |
 
 > [!NOTE]
-> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-).
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-short-codes-are-used-for-sending-text-messages-to-my-users-).
 
 To configure your own caller ID number, complete the following steps:
 
@@ -210,7 +215,7 @@ To configure your own caller ID number, complete the following steps:
 1. Select **Save**.
 
 > [!NOTE]
-> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-).
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-short-codes-are-used-for-sending-text-messages-to-my-users-).
 
 ### Custom voice messages
 

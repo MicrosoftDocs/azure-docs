@@ -44,12 +44,12 @@ Microsoft Entra identity governance can be integrated with many applications, us
 
 Before you begin the process of governing application access from Azure AD, you should check your Azure AD environment is appropriately configured.
 
-* **Ensure your Azure AD and Microsoft Online Services environment is ready for the [compliance requirements](../standards/standards-overview.md) for the applications to be integrated and properly licensed**.  Compliance is a shared responsibility among Microsoft, cloud service providers (CSPs), and organizations.  To use Azure AD to govern access to applications, you must have one of the following licenses in your tenant:
+* **Ensure your Azure AD and Microsoft Online Services environment is ready for the [compliance requirements](../standards/standards-overview.md) for the applications to be integrated and properly licensed**.  Compliance is a shared responsibility among Microsoft, cloud service providers (CSPs), and organizations.  To use Azure AD to govern access to applications, you must have one of the following [license combinations](licensing-fundamentals.md) in your tenant:
 
-  * Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
-  * Enterprise Mobility + Security (EMS) E5 license
+  *  **Microsoft Entra ID Governance** and its prerequisite, Microsoft Azure AD Premium P1
+  * **Microsoft Entra ID Governance Step Up for Microsoft Entra ID P2** and its prerequisite, either Microsoft Azure AD Premium P2 or Enterprise Mobility + Security (EMS) E5
 
-   Your tenant needs to have at least as many licenses as the number of member (non-guest) users who have or can request access to the applications, approve, or review access to the applications.  With an appropriate license for those users, you can then govern access to up to 1500 applications per user.
+   Your tenant needs to have at least as many licenses as the number of member (non-guest) users who are governed, including those that have or can request access to the applications, approve, or review access to the applications.  With an appropriate license for those users, you can then govern access to up to 1500 applications per user.
 
 * **If you will be governing guest's access to the application, link your Azure AD tenant to a subscription for MAU billing**. This step is necessary prior to having a guest request or review their access. For more information, see [billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md).
 

@@ -18,7 +18,7 @@ ms.reviewer: chmutali
 This document provides a conceptual overview of the Azure AD API-driven inbound user provisioning.
 
 > [!IMPORTANT]
-> API-driven inbound provisioning is currently in public preview and is governed by [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> API-driven inbound provisioning is currently in public preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Introduction
 

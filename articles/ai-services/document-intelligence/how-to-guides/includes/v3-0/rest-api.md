@@ -14,7 +14,7 @@ ms.author: lajanuar
 >
 > * This project targets Azure AI Document Intelligence API version **3.0** using cURL to execute REST API calls.
 
-| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview.md)
+| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?ap
 
    **Enable add-on capabilities
 
-   To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available with the 2023-07-31 (GA) release: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, visit the [Add-On Capabilities concept page](../../../concept-accuracy-confidence.md). You can only call the highResolution, formula and font capabilities for the Read and Layout model, and the queryFields capability for the General Documents model. The following example shows how to call the highResolution, formula and font capabilities for the Layout model.
+   To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available with the `2023-07-31` (GA) release: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, visit the [Add-On Capabilities concept page](../../../concept-accuracy-confidence.md). You can only call the highResolution, formula and font capabilities for the Read and Layout model, and the queryFields capability for the General Documents model. The following example shows how to call the highResolution, formula and font capabilities for the Layout model.
 
    ```bash
    curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
@@ -85,7 +85,7 @@ curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?ap
 
 ### POST response
 
-You receive a `202 (Success)` response that includes an **Operation-location** header. You use the value of this header to retrieve the response results.
+You receive a `202 (Success)` response that includes an **Operation-Location** header. You use the value of this header to retrieve the response results.
 
 :::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="{alt-text}":::
 
@@ -162,13 +162,13 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 Before you run the following command, make these changes:
 
-1. Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
+1. Replace `{POST response}` with the Operation-Location header from the [POST response](#post-response).
 
 1. Replace `FR_KEY` with the variable name for your environment variable if it differs.
 
-* Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
+* Replace `{POST response}` with the Operation-Location header from the [POST response](#post-response).
 
-* Replace `FR_KEY` with the variable for your environment variable if differs from the name in the code.
+* Replace `FR_KEY` with the variable for your environment variable if it differs from the name in the code.
 
 * Replace `{json-tool}` with your JSON formatting tool.
 

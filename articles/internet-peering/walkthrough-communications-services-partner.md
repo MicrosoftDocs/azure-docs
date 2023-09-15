@@ -1,5 +1,5 @@
 ---
-title: Internet peering for Peering Service Voice Services walkthrough
+title: Internet peering for Peering Service Voice walkthrough
 description: Learn about Internet peering for Peering Service Voice Services, its requirements, the steps to establish direct interconnect, and how to register and activate a prefix.
 author: halkazwini
 ms.author: halkazwini
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 08/09/2023
 ---
 
-# Internet peering for Peering Service Voice Services walkthrough
+# Internet peering for Peering Service Voice walkthrough
 
-In this article, you learn steps to establish a Peering Service interconnect between a voice services provider and Microsoft.
+In this article, you learn how to establish a Peering Service interconnect between a voice services provider and Microsoft.
 
 **Voice Services Providers** are the organizations that offer communication services (messaging, conferencing, and other communications services.) and want to integrate their communications services infrastructure (SBC, SIP gateways, and other infrastructure device) with Azure Communication Services and Microsoft Teams. 
 
@@ -28,8 +28,7 @@ To establish direct interconnect for Peering Service Voice Services, follow thes
 
 -	The Peer MUST provide its own Autonomous System Number (ASN), which MUST be public.
 -	The Peer MUST have redundant Interconnect (PNI) at each interconnect location to ensure local redundancy.
--	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's endpoints (for example, SBC). 
--	The Peer MUST supply detail of what class of traffic and endpoints are housed in each advertised subnet.
+-	The Peer MUST supply and advertise their own publicly routable IPv4 address space used by Peer's endpoints (for example, SBC).
 -	The Peer MUST run BGP over Bidirectional Forwarding Detection (BFD) to facilitate subsecond route convergence.
 -	The Peer MUST NOT terminate the peering on a device running a stateful firewall.
 -	The Peer CANNOT have two local connections configured on the same router, as diversity is required

@@ -9,12 +9,11 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/01/2022
+ms.date: 08/25/2023
 ms.author: sarahlipsey
 ms.reviewer: tspring  
 
 # Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
-ms.collection: M365-identity-device-management
 ---
 
 # What are flagged sign-ins in Azure Active Directory?
@@ -29,7 +28,7 @@ Azure AD sign-in events are critical to understanding what went right or wrong w
 
 Flagged Sign-ins is a feature intended to increase the signal to noise ratio for user sign-ins requiring help. The functionality is intended to empower users to raise awareness about sign-in errors they want help with. Admins and help desk workers also benefit from finding the right events more efficiently. Flagged Sign-in events contain the same information as other sign-in events contain with one addition: they also indicate that a user flagged the event for review by admins.
  
-Flagged sign-ins gives the user the ability to enable flagging when an error is seen on a sign-in page and then reproduce that error. The error event will then appear as “Flagged for Review” in the Azure AD sign-ins log.
+Flagged sign-ins give the user the ability to enable flagging when an error is seen on a sign-in page and then reproduce that error. The error event then appears as “Flagged for Review” in the Azure AD sign-ins log.
 
 In summary, you can use flagged sign-ins to:
 
@@ -52,14 +51,14 @@ Flagged sign-ins gives you the ability to enable flagging when signing in using 
 5. Open a new browser window (in the same browser application) and attempt the same sign-in that failed. 
 6. Reproduce the sign-in error that was seen before.
 
-With flagging enabled, the same browser application and client must be used or the events won't be flagged.
+With flagging enabled, the same browser application and client must be used or the events aren't flagged.
 
 
 ### Admin: Find flagged events in reports
 
-1. In the Azure portal, go to **Sign-in logs** > **Add Filters**.
-1. From the **Pick a field** menu, select **Flagged for review** and **Apply**.
-1. All events that were flagged by users are shown.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Identity** > **Monitoring & health** > **Sign-in logs**.
+1. Open the **Add filters** menu and select **Flagged for review**. All events that were flagged by users are shown.
 1. If needed, apply more filters to refine the event view.
 1. Select the event to review what happened.
 
@@ -88,7 +87,7 @@ Any user signing into Azure AD via web page can use flag sign-ins for review. Me
 
 ## Who can review flagged sign-ins?
 
-Reviewing flagged sign-in events requires permissions to read the sign-in report events in the Azure portal. For more information, see [who can access it?](concept-sign-ins.md#how-do-you-access-the-sign-in-logs)
+Reviewing flagged sign-in events requires permissions to read the sign-in report events in the Azure portal. For more information, see [How to access activity logs](howto-access-activity-logs.md#prerequisites).
 
 
 To flag sign-in failures, you don't need extra permissions.

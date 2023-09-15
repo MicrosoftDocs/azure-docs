@@ -1,17 +1,16 @@
 ---
-title: Analyze sign-ins with the Azure AD sign-ins log
+title: Quickstart guide to analyze a failed Azure AD sign-in
 description: In this quickstart, you learn how you can use the sign-ins log to determine the reason for a failed sign-in to Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
 ms.topic: quickstart
-ms.date: 11/01/2022
+ms.date: 08/21/2023
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
 ms.reviewer: besiler
-ms.collection: M365-identity-device-management
-ms.custom: mode-other
+
 #Customer intent: As an IT admin, you need to know how to use the sign-ins log so that you can fix sign-in issues.
 ---
 # Quickstart: Analyze sign-ins with the Azure AD sign-ins log 
@@ -45,7 +44,7 @@ The goal of this step is to create a record of a failed sign-in in the Azure AD 
 This section provides you with the steps to analyze a failed sign-in:
 
 - **Filter sign-ins**: Remove all records that aren't relevant to your analysis. For example, set a filter to display only the records of a specific user.
-- **Lookup additional error information**: In addition to the information you can find in the sign-ins log, you can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with additional information for a sign-in error. 
+- **Lookup additional error information**: In addition to the information, you can find in the sign-ins log, you can also look up the error using the [sign-in error lookup tool](https://login.microsoftonline.com/error). This tool might provide you with additional information for a sign-in error. 
 
 
 **To review the failed sign-in:**
@@ -77,9 +76,6 @@ This section provides you with the steps to analyze a failed sign-in:
 
 Review the outcome of the tool and determine whether it provides you with additional information.
 
-![Error code lookup tool](./media/concept-all-sign-ins/error-code-lookup-tool.png)
-
-
 ## More tests
 
 Now, that you know how to find an entry in the sign-in log by name, you should also try to find the record using the following filters:
@@ -93,13 +89,11 @@ Now, that you know how to find an entry in the sign-in log by name, you should a
     ![Status failure](./media/quickstart-analyze-sign-in/status-failure.png)
 
 
-
-
 ## Clean up resources
 
 When no longer needed, delete the test user. If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users.md#delete-a-user).
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [What are Azure Active Directory reports?](overview-reports.md)
+- [Learn how to use the sign-in diagnostic](howto-use-sign-in-diagnostics.md)
+- [Analyze sign-in logs with Azure Monitor Log Analytics](howto-analyze-activity-logs-log-analytics.md)

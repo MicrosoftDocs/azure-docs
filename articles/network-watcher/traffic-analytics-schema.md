@@ -6,7 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 08/16/2023
+ms.date: 08/25/2023
+#CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
 
 # Schema and data aggregation in Azure Network Watcher traffic analytics
@@ -92,9 +93,9 @@ https://{storageAccountName}@insights-logs-networksecuritygroupflowevent/resoure
 
 Traffic analytics is built on top of Azure Monitor logs, so you can run custom queries on data decorated by traffic analytics and set alerts.
 
-The following table lists the fields in the schema and what they signify.
+### NSG flow logs
 
-# [**NSG flow logs**](#tab/nsg)
+The following table lists the fields in the schema and what they signify for NSG flow logs.
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
@@ -115,7 +116,7 @@ The following table lists the fields in the schema and what they signify.
 | **L7Protocol_s**	| Protocol Name | Derived from destination port. |
 | **FlowDirection_s** | - I = Inbound <br> -	O = Outbound | Direction of the flow: in or out of network security group per flow log. |
 | **FlowStatus_s**	| - A = Allowed <br> - D = Denied | Status of flow whether allowed or denied by the network security group per flow log. |
-| **NSGList_s** | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Network security group associated with the flow. |
+| **NSGList_s** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
 | **NSGRules_s** | \<Index value 0>\|\<NSG_RULENAME>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> | Network security group rule that allowed or denied this flow. |
 | **NSGRule_s** | NSG_RULENAME | Network security group rule that allowed or denied this flow. |
 | **NSGRuleType_s**	| - User Defined <br> - Default | The type of network security group rule used by the flow. |
@@ -126,23 +127,26 @@ The following table lists the fields in the schema and what they signify.
 | **Region_s** | Azure region of virtual network / network interface / virtual machine that the IP in the flow belongs to. | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is Azure). |
 | **Region1_s** | Azure Region | Azure region of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
 | **Region2_s**	| Azure Region | Azure region of virtual network that the destination IP in the flow belongs to. |
-| **NIC_s** | \<resourcegroup_Name>\/\<NetworkInterfaceName> | NIC associated with the VM sending or receiving the traffic. |
-| **NIC1_s** | <resourcegroup_Name>/\<NetworkInterfaceName> | NIC associated with the source IP in the flow. |
-| **NIC2_s** | <resourcegroup_Name>/\<NetworkInterfaceName> | NIC associated with the destination IP in the flow. |
-| **VM_s** | <resourcegroup_Name>\/\<NetworkInterfaceName> | Virtual Machine associated with the Network interface NIC_s. |
-| **VM1_s** | <resourcegroup_Name>/\<VirtualMachineName> | Virtual Machine associated with the source IP in the flow. |
-| **VM2_s** | <resourcegroup_Name>/\<VirtualMachineName> | Virtual Machine associated with the destination IP in the flow. |
-| **Subnet_s** | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the NIC_s. |
-| **Subnet1_s**	| <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the Source IP in the flow. |
-| **Subnet2_s** | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName>	| Subnet associated with the Destination IP in the flow. |
-| **ApplicationGateway1_s** | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the Source IP in the flow. |
-| **ApplicationGateway2_s** | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the Destination IP in the flow. |
-| **LoadBalancer1_s** |	\<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the Source IP in the flow. |
-| **LoadBalancer2_s** | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the Destination IP in the flow. |
-| **LocalNetworkGateway1_s** | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Source IP in the flow. |
-| **LocalNetworkGateway2_s** | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Destination IP in the flow. |
-| **ConnectionType_s** | Possible values are VNetPeering, VpnGateway, and ExpressRoute |	Connection Type. |
-| **ConnectionName_s** | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Connection Name. For flow type P2S, it is formatted as \<gateway name\>_\<VPN Client IP\>. |
+| **NIC_s** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the VM sending or receiving the traffic. |
+| **NIC1_s** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
+| **NIC2_s** | \<resourcegroup_Name\>/\<NetworkInterfaceName> | NIC associated with the destination IP in the flow. |
+| **VM_s** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | Virtual Machine associated with the Network interface NIC_s. |
+| **VM1_s** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual Machine associated with the source IP in the flow. |
+| **VM2_s** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual Machine associated with the destination IP in the flow. |
+| **Subnet_s** | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the NIC_s. |
+| **Subnet1_s** | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the Source IP in the flow. |
+| **Subnet2_s** | \<ResourceGroup_Name\>/<VirtualNetwork_Name\>/\<SubnetName\>	| Subnet associated with the Destination IP in the flow. |
+| **ApplicationGateway1_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the Source IP in the flow. |
+| **ApplicationGateway2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the Destination IP in the flow. |
+| **ExpressRouteCircuit1_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is sent from site via ExpressRoute. |
+| **ExpressRouteCircuit2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is received from cloud by ExpressRoute. |
+| **ExpressRouteCircuitPeeringType_s** | - AzurePrivatePeering <br> - AzurePublicPeering <br> - MicrosoftPeering | ExpressRoute peering type involved in the flow. |
+| **LoadBalancer1_s** |	\<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the Source IP in the flow. |
+| **LoadBalancer2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the Destination IP in the flow. |
+| **LocalNetworkGateway1_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the Source IP in the flow. |
+| **LocalNetworkGateway2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the Destination IP in the flow. |
+| **ConnectionType_s** | - VNetPeering <br> - VpnGateway <br> - ExpressRoute | The onnection Type. |
+| **ConnectionName_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ConnectionName\> | The connection Name. For flow type P2S, it is formatted as \<gateway name\>_\<VPN Client IP\>. |
 | **ConnectingVNets_s**	| Space separated list of virtual network names | In case of hub and spoke topology, hub virtual networks are populated here. |
 | **Country_s** | Two letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs_s field share the same country code. |
 | **AzureRegion_s** | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs_s field share the Azure region. |
@@ -159,6 +163,7 @@ The following table lists the fields in the schema and what they signify.
 | **PublicIPs_s** | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **SrcPublicIPs_s** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **DestPublicIPs_s** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
+| **IsFlowCapturedAtUDRHop_b** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
 
 > [!IMPORTANT]
 > The traffic analytics schema was updated on August 22, 2019. The new schema provides source and destination IPs separately, removing the need to parse the `FlowDirection` field so that queries are simpler. The updated schema had the following changes:
@@ -167,7 +172,9 @@ The following table lists the fields in the schema and what they signify.
 > - Deprecated fields: `VMIP_s`, `Subscription_s`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
 > - New fields: `SrcPublicIPs_s`, `DestPublicIPs_s`, `NSGRule_s`
 
-# [**VNet flow logs (preview)**](#tab/vnet)
+### VNet flow logs (preview)
+
+The following table lists the fields in the schema and what they signify for VNet flow logs.
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
@@ -190,7 +197,7 @@ The following table lists the fields in the schema and what they signify.
 | **L7Protocol** | Protocol Name | Derived from destination port. |
 | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the network security group per flow log. |
 | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by network security group per flow log. |
-| **NSGList** |\<SUBSCRIPTIONID>/<RESOURCEGROUP_NAME>/<NSG_NAME> | Network security group associated with the flow. |
+| **NSGList** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
 | **NSGRule** | NSG_RULENAME  | Network security group rule that allowed or denied the flow. |
 | **NSGRuleType** | - User Defined <br> - Default | The type of network security group rule used by the flow. |
 | **MACAddress** | MAC Address | MAC address of the NIC at which the flow was captured. |
@@ -198,20 +205,23 @@ The following table lists the fields in the schema and what they signify.
 | **DestSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the destination IP in the flow belongs to. |
 | **SrcRegion** | Azure Region | Azure region of virtual network / network interface / virtual machine to which the source IP in the flow belongs to. |
 | **DestRegion** | Azure Region | Azure region of virtual network to which the destination IP in the flow belongs to. |
-| **SecNIC** | <resourcegroup_Name>/\<NetworkInterfaceName> | NIC associated with the source IP in the flow. |
-| **DestNIC** | <resourcegroup_Name>/\<NetworkInterfaceName> | NIC associated with the destination IP in the flow. |
-| **SrcVM** | <resourcegroup_Name>/\<VirtualMachineName> | Virtual machine associated with the source IP in the flow.  |
-| **DestVM** | <resourcegroup_Name>/\<VirtualMachineName> | Virtual machine associated with the destination IP in the flow. |
-| **SrcSubnet**  | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the source IP in the flow. |
-| **DestSubnet** | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the destination IP in the flow.  |
-| **SrcApplicationGateway** | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the source IP in the flow. |
-| **DestApplicationGateway** | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the destination IP in the flow. |
-| **SrcLoadBalancer**  | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the source IP in the flow. |
-| **DestLoadBalancer** | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the destination IP in the flow. |
-| **SrcLocalNetworkGateway**  | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the source IP in the flow. |
-| **DestLocalNetworkGateway** | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the destination IP in the flow. |
-| **ConnectionType** | Possible values are VNetPeering, VpnGateway, and ExpressRoute | The connection type. |
-| **ConnectionName** | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | The connection name. For flow type P2S, it's formatted as \<GatewayName>_\<VPNClientIP> |
+| **SecNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
+| **DestNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
+| **SrcVM** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
+| **DestVM** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the destination IP in the flow. |
+| **SrcSubnet**  | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the source IP in the flow. |
+| **DestSubnet** | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the destination IP in the flow.  |
+| **SrcApplicationGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the source IP in the flow. |
+| **DestApplicationGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the destination IP in the flow. |
+| **SrcExpressRouteCircuit** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is sent from site via ExpressRoute. |
+| **DestExpressRouteCircuit** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is received from cloud by ExpressRoute. |
+| **ExpressRouteCircuitPeeringType** | - AzurePrivatePeering <br> - AzurePublicPeering <br> - MicrosoftPeering | ExpressRoute peering type involved in the flow. |
+| **SrcLoadBalancer**  | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the source IP in the flow. |
+| **DestLoadBalancer** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the destination IP in the flow. |
+| **SrcLocalNetworkGateway**  | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the source IP in the flow. |
+| **DestLocalNetworkGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the destination IP in the flow. |
+| **ConnectionType** | - VNetPeering <br> - VpnGateway <br> - ExpressRoute | The connection type. |
+| **ConnectionName** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ConnectionName\> | The connection name. For flow type P2S, it's formatted as \<GatewayName>_\<VPNClientIP> |
 | **ConnectingVNets** | Space separated list of virtual network names. | In hub and spoke topology, hub virtual networks are populated here. |
 | **Country** | Two-letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs field share the same country code. |
 | **AzureRegion** | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs field share the Azure region. |
@@ -225,14 +235,13 @@ The following table lists the fields in the schema and what they signify.
 | **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
 | **BytesSrcToDest** | Represents bytes sent from the source to the destination of the flow | Populated only for the Version 2 of NSG flow log schema. |
 | **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of NSG flow log schema. |
-| **SrcPublicIPs** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
+| **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
 | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
+| **IsFlowCapturedAtUDRHop** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
 
 > [!NOTE]
 > *NTANetAnalytics* in VNet flow logs replaces *AzureNetworkAnalytics_CL* used in NSG flow logs.
-
----
 
 ## Public IP details schema
 

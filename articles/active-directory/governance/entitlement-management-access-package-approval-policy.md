@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # Change approval and requestor information settings for an access package in entitlement management
 
-Each access package must have one or more access package assignment policies, before a user can be assigned access.  When an access package is created in the Entra portal, the Entra portal automatically creates the first access package assignment policy for that access package.  The policy determines who can request access, and who if anyone must approve access.
+Each access package must have one or more access package assignment policies, before a user can be assigned access.  When an access package is created in the Microsoft Entra admin center, the Microsoft Entra admin center automatically creates the first access package assignment policy for that access package.  The policy determines who can request access, and who if anyone must approve access.
 
 As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new additional policy for requesting access.
 
@@ -48,13 +48,17 @@ For a demonstration of how to add a multi-stage approval to a request policy, wa
 
 ## Change approval settings of an existing access package assignment policy
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to specify the approval settings for requests for the access package through a policy:
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access packages**.
+
+1. On the **Access packages** page open an access package.
 
 1. Either select a policy to edit or add a new policy to the access package
     1. Select **Policies** and then **Add policy** if you want to create a new policy.
@@ -173,7 +177,7 @@ For example, if you listed Alice and Bob as the first stage approver(s), list Ca
 
 ## Collect additional requestor information for approval
 
-In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or Multiple Choice questions at the time of request. There's a limit of 20 questions per policy and a limit of 25 answers for Multiple Choice questions. The questions will then be shown to approvers to help them make a decision.
+In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or Multiple Choice questions at the time of request. The questions will then be shown to approvers to help them make a decision.
 
 1. Go to the **Requestor information** tab and select the **Questions** sub tab.
  

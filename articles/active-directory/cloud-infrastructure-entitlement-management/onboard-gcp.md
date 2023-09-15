@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 08/24/2023
 ms.author: jfields
 ---
 
@@ -116,17 +116,22 @@ The required commands to run in Google Cloud Shell are listed in the Manage Auth
 
 ### 3. Review and save.
 
-- In the **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
+1. In the **Permissions Management Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration**.
 
     On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.**
-
-    You've completed onboarding GCP, and Permissions Management has started collecting and processing your data.
+    
+    The status column in your Permissions Management UI shows you which step of data collection you're at:  
+ 
+    - **Pending**: Permissions Management has not started detecting or onboarding yet. 
+    - **Discovering**: Permissions Management is detecting the authorization systems. 
+    - **In progress**: Permissions Management has finished detecting the authorization systems and is onboarding. 
+    - **Onboarded**: Data collection is complete, and all detected authorization systems are onboarded to Permissions Management. 
 
 ### 4. View the data.
 
-- To view the data, select the **Authorization Systems** tab.
+1. To view the data, select the **Authorization Systems** tab.
 
     The **Status** column in the table displays **Collecting Data.**
 

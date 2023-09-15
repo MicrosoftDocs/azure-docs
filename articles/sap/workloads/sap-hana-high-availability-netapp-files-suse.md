@@ -61,7 +61,7 @@ Read the following SAP Notes and papers first:
 - [Azure Virtual Machines planning and implementation for SAP on Linux](./planning-guide.md)
 
 >[!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ## Overview
 

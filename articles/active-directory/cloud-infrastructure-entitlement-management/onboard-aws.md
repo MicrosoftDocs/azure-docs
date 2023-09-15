@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 09/13/2023
 ms.author: jfields
 ---
 
@@ -17,7 +17,7 @@ ms.author: jfields
 This article describes how to onboard an Amazon Web Services (AWS) account in Microsoft Entra Permissions Management.
 
 > [!NOTE]
-> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Microsoft Entra Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
+> You must have Global Administrator permissions to perform the tasks in this article.
 
 ## Explanation
 
@@ -126,9 +126,9 @@ Any current or future accounts found get onboarded automatically.
 
 To view status of onboarding after saving the configuration: 
 
-- Navigate to data collectors tab.  
+- Go to **Data Collectors** tab.  
 - Click on the status of the data collector.  
-- View accounts on the In Progress page 
+- View accounts on the **In Progress** page 
 
 #### Option 2: Enter authorization systems
 1. In the **Permissions Management Onboarding - AWS Member Account Details** page, enter the **Member Account Role** and the **Member Account IDs**.
@@ -136,7 +136,7 @@ To view status of onboarding after saving the configuration:
      You can enter up to 100 account IDs. Click the plus icon next to the text box to add more account IDs.
 
     > [!NOTE]
-    > Perform the next 6 steps for each account ID you add.
+    > Do the following steps for each account ID you add:
 
 1. Open another browser window and sign in to the AWS console for the member account.
 
@@ -174,8 +174,8 @@ This option detects all AWS accounts that are accessible through OIDC role acces
 - If AWS SSO is enabled, organization account CFT also adds policy needed to collect AWS SSO configuration details. 
 - Deploy Member account CFT in all the accounts that need to be monitored by Entra Permissions Management. These actions create a cross account role that trusts the OIDC role created earlier. The SecurityAudit policy is attached to the role created for data collection. 
 - Click Verify and Save. 
-- Navigate to newly create Data Collector row under AWSdata collectors. 
-- Click on Status column when the row has “Pending” status 
+- Go to the newly create Data Collector row under AWSdata collectors. 
+- Click on Status column when the row has **Pending** status 
 - To onboard and start collection, choose specific ones from the detected list and consent for collection. 
 
 ### 6. Review and save
@@ -186,7 +186,12 @@ This option detects all AWS accounts that are accessible through OIDC role acces
 
     On the **Data Collectors** dashboard, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.**
 
-    You have now completed onboarding AWS, and Permissions Management has started collecting and processing your data.
+    The status column in your Permissions Management UI shows you which step of data collection you're at:  
+ 
+    - **Pending**: Permissions Management has not started detecting or onboarding yet. 
+    - **Discovering**: Permissions Management is detecting the authorization systems. 
+    - **In progress**: Permissions Management has finished detecting the authorization systems and is onboarding. 
+    - **Onboarded**: Data collection is complete, and all detected authorization systems are onboarded to Permissions Management. 
 
 ### 7. View the data
 

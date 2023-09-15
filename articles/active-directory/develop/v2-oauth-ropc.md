@@ -1,5 +1,5 @@
 ---
-title: Sign in with resource owner password credentials grant
+title: Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials
 description: Support browser-less authentication flows using the resource owner password credential (ROPC) grant.
 services: active-directory
 author: OwenRichards1
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 08/11/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -21,7 +21,6 @@ The Microsoft identity platform supports the [OAuth 2.0 Resource Owner Password 
 
 > [!WARNING]
 > Microsoft recommends you do _not_ use the ROPC flow. In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable.
-
 
 > [!IMPORTANT]
 >
@@ -62,7 +61,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Required | The directory tenant that you want to log the user into. The tenant can be in GUID or friendly name format. However, its parameter can't be set to `common` or `consumers`, but may be set to `organizations`. |
-| `client_id` | Required | The Application (client) ID that the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
+| `client_id` | Required | The Application (client) ID that the [Microsoft Entra admin center - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `grant_type` | Required | Must be set to `password`. |
 | `username` | Required | The user's email address. |
 | `password` | Required | The user's password. |

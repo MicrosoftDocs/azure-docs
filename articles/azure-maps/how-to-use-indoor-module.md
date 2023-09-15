@@ -93,7 +93,7 @@ Set the map domain with a prefix matching the location of your Creator resource,
 
 For more information, see [Azure Maps service geographic scope].
 
-Next, instantiate a *Map object* with the map configuration object set to the `alias` or `mapConfigurationId` property of your map configuration, then set your `styleAPIVersion` to `2022-09-01-preview`.
+Next, instantiate a *Map object* with the map configuration object set to the `alias` or `mapConfigurationId` property of your map configuration, then set your `styleAPIVersion` to `2023-03-01-preview`.
 
 The *Map object* will be used in the next step to instantiate the *Indoor Manager* object. The following code shows you how to instantiate the *Map object* with `mapConfiguration`, `styleAPIVersion` and map domain set:
 
@@ -114,7 +114,7 @@ const map = new atlas.Map("map-id", {
   zoom: 19,
 
   mapConfiguration: mapConfiguration,
-  styleAPIVersion: '2022-09-01-preview'
+  styleAPIVersion: '2023-03-01-preview'
 });
 ```
 
@@ -194,7 +194,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
     - `mapConfiguration` the ID or alias of the map configuration that defines the custom styles you want to display on the map, use the map configuration ID or alias from step 1.
     - `style` allows you to set the initial style from your map configuration that is displayed. If not set, the style matching map configuration's default configuration is used.
     - `zoom` allows you to specify the min and max zoom levels for your map.
-    - `styleAPIVersion`: pass **'2022-09-01-preview'** (which is required while Custom Styling is in public preview)
+    - `styleAPIVersion`: pass **'2023-03-01-preview'** (which is required while Custom Styling is in public preview)
 
 7. Next, create the *Indoor Manager* module with *Indoor Level Picker* control instantiated as part of *Indoor Manager* options, optionally set the `statesetId` option.
 
@@ -255,7 +255,7 @@ Your file should now look similar to the following HTML:
           zoom: 19,
 
           mapConfiguration: mapConfig,
-          styleAPIVersion: '2022-09-01-preview'
+          styleAPIVersion: '2023-03-01-preview'
         });
 
         const levelControl = new atlas.control.LevelControl({
@@ -322,9 +322,9 @@ Learn more about how to add more data to your map:
 [Drawing package requirements]: drawing-requirements.md
 [dynamic map styling]: indoor-map-dynamic-styling.md
 [Indoor Maps dynamic styling]: indoor-map-dynamic-styling.md
-[map configuration API]: /rest/api/maps/v20220901preview/map-configuration
+[map configuration API]: /rest/api/maps/2023-03-01-preview/map-configuration
 [map configuration]: creator-indoor-maps.md#map-configuration
-[Style Rest API]: /rest/api/maps/v20220901preview/style
+[Style Rest API]: /rest/api/maps/2023-03-01-preview/style
 [style-loader]: https://webpack.js.org/loaders/style-loader
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Tileset List API]: /rest/api/maps/v2/tileset/list

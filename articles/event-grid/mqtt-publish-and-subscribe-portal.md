@@ -70,7 +70,8 @@ step certificate fingerprint client1-authnID.pem
 1. On the Review + create tab of the Create namespace page, select **Create**.
 
     > [!NOTE]
-    > To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see Create a Namespace.    
+    > To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see Create a Namespace.
+
 1. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace.  
 1. In the Overview page, you see that the MQTT is in Disabled state.  To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
 1. On Configuration page, select the Enable MQTT option, and Apply the settings.
@@ -88,7 +89,7 @@ step certificate fingerprint client1-authnID.pem
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client1-metadata.png" alt-text="Screenshot of client 1 configuration.":::
 6. Select **Create** to create the client.
-7. Repeat the above steps to create another client called “client2”.  
+7. Repeat the above steps to create another client called "client2".  
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client2-metadata.png" alt-text="Screenshot of client 2 configuration.":::
 
@@ -119,7 +120,7 @@ step certificate fingerprint client1-authnID.pem
         :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-1.png" alt-text="Screenshot showing creation of first permission binding.":::
 4. Select **Create** to create the permission binding.
 5. Create one more permission binding by selecting **+ Permission binding** on the toolbar.
-6. Provide a name and give $all client group Subscriber access to the Topicspace1 as shown.
+6. Provide a name and give $all client group Subscriber access to the "Topicspace1" as shown.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-2.png" alt-text="Screenshot showing creation of second permission binding.":::
 7. Select **Create** to create the permission binding.
@@ -152,7 +153,7 @@ step certificate fingerprint client1-authnID.pem
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-2.png" alt-text="Screenshot showing client 1 configuration part 2 on MQTTX app.":::
 
 1. Select Connect to connect the client to the Event Grid MQTT service.
-1. Repeat the above steps to connect the second client “client2”, with corresponding authentication information as shown.
+1. Repeat the above steps to connect the second client "client2", with corresponding authentication information as shown.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
 

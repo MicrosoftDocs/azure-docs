@@ -29,7 +29,7 @@ There are different ways to check if your admins are covered by an MFA policy.
 
   ![Screenshot of the sign-in log.](./media/how-to-authentication-find-coverage-gaps/auth-requirement.png)
 
-  Click **Authentication details** for [details about the MFA requirements](../reports-monitoring/concept-sign-ins.md#authentication-details).
+  When viewing the details of a specific sign-in, select the **Authentication details** tab for details about the MFA requirements. For more information, see [Sign-in log activity details](../reports-monitoring/concept-sign-in-log-activity-details.md).
   
   ![Screenshot of the authentication activity details.](./media/how-to-authentication-find-coverage-gaps/details.png)
 
@@ -58,3 +58,7 @@ After your admins are enforced for multifactor authentication and have been usin
 - [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 
 You can read more about these authentication methods and their security considerations in [Azure AD authentication methods](concept-authentication-methods.md).
+
+## Next steps
+
+[Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)

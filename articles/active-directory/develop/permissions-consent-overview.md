@@ -93,8 +93,10 @@ Depending on the permissions they require, some applications might require an ad
 
 Preauthorization allows a resource application owner to grant permissions without requiring users to see a consent prompt for the same set of permissions that have been preauthorized. This way, an application that has been preauthorized won't ask users to consent to permissions. Resource owners can preauthorize client apps in the Azure portal or by using PowerShell and APIs, like Microsoft Graph.
 
-## Next steps
+## See also
 
 - [Delegated access scenario](delegated-access-primer.md)
 - [User and admin consent overview](../manage-apps/user-admin-consent-overview.md)
 - [OpenID connect scopes](scopes-oidc.md)
+-- [Making your application multi-tenant](./howto-convert-app-to-be-multi-tenant.md)
+- [AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)
