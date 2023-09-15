@@ -38,10 +38,12 @@ Audit your experiences to find references to Azure AD and its icons.
 - Search for the following terms: "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD"
 - Search for graphics with the Azure AD icon (![Azure AD product icon](./media/new-name/azure-ad-icon-1.png)  ![Alternative Azure AD product icon](./media/new-name/azure-ad-icon-2.png)) to replace with the Microsoft Entra ID icon (![Microsoft Entra ID product icon](./media/new-name/microsoft-entra-id-icon.png))
 
+You can download the Microsoft Entra ID icon here: [Microsoft Entra architecture icons](../architecture/architecture-icons.md)
+
 **Identify exceptions in your list**:
 
 - Don't make breaking changes.
-- Review the [Exceptions and clarifications](new-name.md#what-names-arent-changing) section in the naming guidance and note which Azure AD terminology isn't changing.
+- Review the [What names aren't changing?](new-name.md#what-names-arent-changing) section in the naming guidance and note which Azure AD terminology isn't changing.
 - Don’t change instances of 'Active Directory.' Only 'Azure Active Directory' is being renamed, not 'Active Directory,'which is the shortened name of a different product, Windows Server Active Directory.
 
 **Evaluate and prioritize based on future usage**. Consider which content needs to be updated based on whether it's user-facing or has broad visibility within your organization, audience, or customer base. You may decide that some code or content doesn't need to be updated if it has limited exposure to your end-users.
