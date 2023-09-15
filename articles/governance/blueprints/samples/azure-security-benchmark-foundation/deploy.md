@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Deploy the Azure Security Benchmark Foundation blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 To deploy the Azure Security Benchmark Foundation blueprint sample, the following steps must be
 taken:
 

@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
 # Configure email notifications for issues in Azure Active Directory Domain Services
 
-The health of an Azure Active Directory Domain Services (Azure AD DS) managed domain is monitored by the Azure platform. The health status page in the Azure portal shows any alerts for the managed domain. To make sure issues are responded to in a timely manner, email notifications can be configured to report on health alerts as soon as they're detected in the Azure AD DS managed domain.
+The health of an Azure Active Directory Domain Services (Azure AD DS) managed domain is monitored by the Azure platform. The health status page in the Microsoft Entra admin center shows any alerts for the managed domain. To make sure issues are responded to in a timely manner, email notifications can be configured to report on health alerts as soon as they're detected in the Azure AD DS managed domain.
 
 This article shows you how to configure email notification recipients for a managed domain.
 
 ## Email notification overview
 
-To alert you of issues with a managed domain, you can configure email notifications. These email notifications specify the managed domain that the alert is present on, as well as giving the time of detection and a link to the health page in the Azure portal. You can then follow the provided troubleshooting advice to resolve the issues.
+To alert you of issues with a managed domain, you can configure email notifications. These email notifications specify the managed domain that the alert is present on, as well as giving the time of detection and a link to the health page in the Microsoft Entra admin center. You can then follow the provided troubleshooting advice to resolve the issues.
 
 The following example email notification indicates a critical warning or alert was generated on the managed domain:
 
@@ -33,7 +33,7 @@ The following example email notification indicates a critical warning or alert w
 
 ### Why would I receive email notifications?
 
-Azure AD DS sends email notifications for important updates about the managed domain. These notifications are only for urgent issues that impact the service and should be addressed immediately. Each email notification is triggered by an alert on the managed domain. The alerts also appear in the Azure portal and can be viewed on the [Azure AD DS health page][check-health].
+Azure AD DS sends email notifications for important updates about the managed domain. These notifications are only for urgent issues that impact the service and should be addressed immediately. Each email notification is triggered by an alert on the managed domain. The alerts also appear in the Microsoft Entra admin center and can be viewed on the [Azure AD DS health page][check-health].
 
 Azure AD DS doesn't send emails for advertisement, updates, or sales purposes.
 
@@ -53,7 +53,8 @@ You can also choose to have all *Global Administrators* of the Azure AD director
 
 To review the existing email notification recipients or add additional recipients, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../active-directory/roles/permissions-reference.md#authentication-policy-administrator).
+1. Search for and select **Azure AD Domain Services**.
 1. Select your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side of the Azure AD DS resource window, select **Notification settings**. The existing recipients for email notifications are shown.
 1. To add an email recipient, enter the email address in the additional recipients table.
@@ -64,13 +65,13 @@ To review the existing email notification recipients or add additional recipient
 
 ## Frequently asked questions
 
-### I received an email notification for an alert but when I logged on to the Azure portal there was no alert. What happened?
+### I received an email notification for an alert but when I logged on to the Microsoft Entra admin center there was no alert. What happened?
 
-If an alert is resolved, the alert is cleared from the Azure portal. The most likely reason is that someone else who receives email notifications resolved the alert on the managed domain, or it was autoresolved by Azure platform.
+If an alert is resolved, the alert is cleared from the Microsoft Entra admin center. The most likely reason is that someone else who receives email notifications resolved the alert on the managed domain, or it was autoresolved by Azure platform.
 
 ### Why can I not edit the notification settings?
 
-If you're unable to access the notification settings page in the Azure portal, you don't have the permissions to edit the managed domain. Contact a global administrator to either get permissions to edit Azure AD DS resource or be removed from the recipient list.
+If you're unable to access the notification settings page in the Microsoft Entra admin center, you don't have the permissions to edit the managed domain. Contact a global administrator to either get permissions to edit Azure AD DS resource or be removed from the recipient list.
 
 ### I don't seem to be receiving email notifications even though I provided my email address. Why?
 
