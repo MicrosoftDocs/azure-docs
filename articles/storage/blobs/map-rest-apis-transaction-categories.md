@@ -80,7 +80,7 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Append Blob Seal](/rest/api/storageservices/append-blob-seal)                            | Write                     | Write                       | Write                       |
 | [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       | Write                       |
 
-<sup>2</sup>    In addition to a read charge, charges for incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
+<sup>2</sup>    In addition to a read charge, charges are incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
 ## Operation type of each Data Lake Storage Gen2 REST operation
 
