@@ -13458,6 +13458,11 @@
           "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/governance/policy/samples/azure-security-benchmarkv1.md",
+          "redirect_url": "/azure/governance/policy/samples/azure-security-benchmark",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-policy/create-manage-policy.md",
             "redirect_url": "/azure/governance/policy/tutorials/create-and-manage",
             "redirect_document_id": false
