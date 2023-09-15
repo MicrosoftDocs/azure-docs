@@ -23,9 +23,29 @@ Following are few benefits:
 - Granular access control at a VM level.
 - Support for Azure Policy. 
 
-## Will I be charged if I migrate to Azure Update Manager? 
-Azure Update Manager is free of charge for Azure machines. Azure Arc-enabled machines will be charged up to $5/server/month prorated at a daily level (@0.167/server/day). Example: Let’s say if your Arc machines are turned off (not connected to Azure) for 20 days out 30 days of a month, then you pay only for 10 days when periodic assessment runs on your machine. So, you will pay approximately 0.167*10=$1.67/server/month for those Arc machines.
 
+## LA agent (also known as MMA) is retiring and will be replaced with AMA, can customers continue to use Automation Update Management with AMA?
+
+Azure Update Manager doesn't rely on MMA or AMA. Customers need to move from Automation Update Management to Azure Update Manager as LA agent is retiring. However, note that customers shouldn't remove MMA agent from machines using Automation Update Management before migrating to Azure Update Manager or else Automation Update Management solution will not work.
+ 
+
+## Will I be charged if I migrate to Azure Update Manager? 
+Azure Update Manager is free of charge for Azure machines. Azure Arc-enabled machines are charged up to $5/server/month prorated at a daily level (@0.167/server/day). Example: if your Arc machines are turned off (not connected to Azure) for 20 days out 30 days of a month, then you pay only for 10 days when periodic assessment runs on your machine. So, you will pay approximately 0.167*10=$1.67/server/month for those Arc machines.
+
+## How is Azure Update Manager price calculated for Arc-enabled machines?
+Azure Update Manager is free for machines hosted on Azure or Azure Stack HCI. For Arc-enabled servers, it's chargeable up to $5/server/month. It's charged at a daily prorated value of 0.16/server/day. It means that your Arc-enabled machine would only be charged for the days when it's considered managed by Azure Update Manager.
+
+> [!NOTE]
+> A machine is considered managed by Update Management in a day if the following two conditions are met:
+> 
+> 1. If the machine has **Connected** status for Arc at the time of operation (patched on demand or through a scheduled job/assessed on demand or through periodic assessment) or for a specific time of the day (in case it is associated with a schedule, even if no operations are performed on the day).
+> 
+> 1. **A patch now or assess now operation is triggered for the machine in the day** or **the machine is assessed for pending patches through periodic assessment on the day**, or **the machine is associated with an active schedule on the day either statically or dynamically**.
+
+Following are the cases when Arc-enabled servers wouldn't be charged by Azure Update Manager:
+
+- As additional value added to the Arc ESUs, patch management using Azure Update Manager for machines enabled for extended support via Arc would be provided at no extra charge.
+- Arc-enabled machines present in subscriptions enabled for Microsoft Defender for Servers Plan 2 would be provided at no additional charge. For all other Microsoft Defender for Cloud plans, Arc-enabled machines would be charged by Update Manager.
 
 ## If I migrate to AMA while I'm still using Automation Update Management, will my solution break?
 
@@ -63,7 +83,7 @@ No, it's a native capability on a virtual machine and doesn't rely on MMA or AMA
 
 ## If I have been using pre and post-script or alerting capability in Automation Update management, would I be provided with migration guidance? 
 
-Yes, when these features become available in Azure Update Manager, we'll publish migration guidance for them as well. 
+Yes, when these features become available in Azure Update Manager, we publish migration guidance for them as well. 
 
 ## I have some reports/dashboards built for Automation Update Management, how do I migrate those? 
 
@@ -75,11 +95,11 @@ You can resolve machines manually for those saved searches, Arc-enable them and 
 
 ## I'm a Defender for Server customer and use update recommendations powered by Azure Update Manager namely periodic assessment should be enabled on your machines and system updates should be installed on your machines. Would I be charged for Azure Update Manager?
 
-If you have purchased a Defender for Servers Plan two, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Arc machines, then you would be charged for those machines at the daily prorated $0.167/server by Azure Update Manager.
+If you have purchased a Defender for Servers Plan 2, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Arc machines, then you would be charged for those machines at the daily prorated $0.167/server by Azure Update Manager.
 
 ## I have been using Automation Update Management for free on Arc machines, would I have to pay to use UMC on those machines? 
 
-We'll provide Azure Update Manager for free for one year (starting from when Azure Update Manager goes GA) to all subscriptions that were using Automation Update Management on Arc-enabled machines for free. Post this period, machines will be charged. 
+We'll provide Azure Update Manager for free for one year (starting from when Azure Update Manager goes GA) to all subscriptions that were using Automation Update Management on Arc-enabled machines for free. Post this period, machines are charged. 
 
 ## Does Azure Update Manager support integration with Azure Lighthouse? 
 
