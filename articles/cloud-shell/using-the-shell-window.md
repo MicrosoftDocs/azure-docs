@@ -112,7 +112,7 @@ select restore.
 
 > [!NOTE]
 > If no text is selected when you type <kbd>Ctrl</kbd>-<kbd>C</kbd>, Cloud Shell sends the `Ctrl C`
-> character to the shell. This could terminate the currently running command.
+> character to the shell. This would terminate the currently running command.
 
 ## Resize Cloud Shell window
 
