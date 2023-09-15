@@ -35,12 +35,11 @@ This article is for customers using Azure AD Pass-through Authentication through
 
 Follow these steps to check where your Authentication Agents are installed:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the Global Administrator credentials for your tenant.
-2. Select **Azure Active Directory** on the left-hand navigation.
-3. Select **Azure AD Connect**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../articles/active-directory/roles/permissions-reference.md#hybrid-identity-administrator).
+2. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect sync**.
 4. Select **Pass-through Authentication**. This blade lists the servers where your Authentication Agents are installed.
 
-![Azure portal - Pass-through Authentication blade](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
+![[Microsoft Entra admin center](https://entra.microsoft.com) - Pass-through Authentication blade](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
 
 ### Step 2: Check the versions of your Authentication Agents
 
@@ -65,24 +64,26 @@ You need upgrade Azure AD Connect before upgrading the Authentication Agent on t
 
 1. **Upgrade Azure AD Connect**: Follow this [article](how-to-upgrade-previous-version.md) and upgrade to the latest Azure AD Connect version.
 2. **Uninstall the preview version of the Authentication Agent**: Download [this PowerShell script](https://aka.ms/rmpreviewagent) and run it as an Administrator on the server.
-3. **Download the latest version of the Authentication Agent (versions 1.5.2482.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials. Select **Azure Active Directory -> Azure AD Connect -> Pass-through Authentication -> Download agent**. Accept the [terms of service](https://aka.ms/authagenteula) and download the latest version of the Authentication Agent. You can also download the Authentication Agent from [here](https://aka.ms/getauthagent).
+3. **Download the latest version of the Authentication Agent (versions 1.5.2482.0 or later)**: Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../articles/active-directory/roles/permissions-reference.md#hybrid-identity-administrator).  Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect sync**.
+
+ Select **Pass-through Authentication -> Download agent**. Accept the [terms of service](https://aka.ms/authagenteula) and download the latest version of the Authentication Agent. You can also download the Authentication Agent from [here](https://aka.ms/getauthagent).
 4. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 3. Provide your tenant's Global Administrator credentials when prompted.
 5. **Verify that the latest version has been installed**: As shown before, go to **Control Panel -> Programs -> Programs and Features** and verify that there is an entry for "**Microsoft Azure AD Connect Authentication Agent**".
 
 > [!NOTE]
-> If you check the Pass-through Authentication blade on the [Azure portal](https://portal.azure.com) after completing the preceding steps, you'll see two Authentication Agent entries per server - one entry showing the Authentication Agent as **Active** and the other as **Inactive**. This is _expected_. The **Inactive** entry is automatically dropped after a few days.
+> If you check the Pass-through Authentication blade on the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../articles/active-directory/roles/permissions-reference.md#hybrid-identity-administrator). after completing the preceding steps, you'll see two Authentication Agent entries per server - one entry showing the Authentication Agent as **Active** and the other as **Inactive**. This is _expected_. The **Inactive** entry is automatically dropped after a few days.
 
 ## Upgrading the Authentication Agent on other servers
 
 Follow these steps to upgrade Authentication Agents on other servers (where Azure AD Connect is not installed):
 
 1. **Uninstall the preview version of the Authentication Agent**: Download [this PowerShell script](https://aka.ms/rmpreviewagent) and run it as an Administrator on the server.
-2. **Download the latest version of the Authentication Agent (versions 1.5.2482.0 or later)**: Sign in to the [Azure portal](https://portal.azure.com) with your tenant's Global Administrator credentials. Select **Azure Active Directory -> Azure AD Connect -> Pass-through Authentication -> Download agent**. Accept the terms of service and download the latest version.
+2. **Download the latest version of the Authentication Agent (versions 1.5.2482.0 or later)**: Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../articles/active-directory/roles/permissions-reference.md#hybrid-identity-administrator) with your tenant's Global Administrator credentials. Select **Azure Active Directory -> Azure AD Connect -> Pass-through Authentication -> Download agent**. Accept the terms of service and download the latest version.
 3. **Install the latest version of the Authentication Agent**: Run the executable downloaded in Step 2. Provide your tenant's Global Administrator credentials when prompted.
 4. **Verify that the latest version has been installed**: As shown before, go to **Control Panel -> Programs -> Programs and Features** and verify that there is an entry called **Microsoft Azure AD Connect Authentication Agent**.
 
 > [!NOTE]
-> If you check the Pass-through Authentication blade on the [Azure portal](https://portal.azure.com) after completing the preceding steps, you'll see two Authentication Agent entries per server - one entry showing the Authentication Agent as **Active** and the other as **Inactive**. This is _expected_. The **Inactive** entry is automatically dropped after a few days.
+> If you check the Pass-through Authentication blade on the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../articles/active-directory/roles/permissions-reference.md#hybrid-identity-administrator) after completing the preceding steps, you'll see two Authentication Agent entries per server - one entry showing the Authentication Agent as **Active** and the other as **Inactive**. This is _expected_. The **Inactive** entry is automatically dropped after a few days.
 
 ## Next steps
 - [**Troubleshoot**](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.

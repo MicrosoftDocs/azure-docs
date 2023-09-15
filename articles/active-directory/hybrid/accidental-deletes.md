@@ -26,9 +26,7 @@ You can change the default behavior and tailor it to your organizations needs.
 To use the new feature, follow the steps below.
 
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
+[!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
  4. Under **Configuration**, select your configuration.
  5. Select **View default properties**.
  6. Click the pencil next to **Basics**

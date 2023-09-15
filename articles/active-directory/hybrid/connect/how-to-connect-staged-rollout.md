@@ -177,11 +177,8 @@ You can roll out these options:
 
 To configure Staged Rollout, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
-
-1. Search for and select **Azure Active Directory**.
-
-1. From the left menu, select **Azure AD Connect**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../articles/active-directory/roles/permissions-reference.md#hybrid-identity-administrator).
+2. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect sync**.
 
 1. On the *Azure AD Connect* page, under the *Staged rollout of cloud authentication*, select the **Enable staged rollout for managed user sign-in** link. 
 
@@ -249,7 +246,7 @@ To test sign-in with *seamless SSO*:
     >While users are in Staged Rollout with PHS, changing passwords might take up to 2 minutes to take effect due to sync time. Make sure to set expectations with your users to avoid helpdesk calls after they changed their password.
 
 ## Monitoring
-You can monitor the users and groups added or removed from Staged Rollout and users sign-ins while in Staged Rollout, using the new Hybrid Auth workbooks in the Azure portal.
+You can monitor the users and groups added or removed from Staged Rollout and users sign-ins while in Staged Rollout, using the new Hybrid Auth workbooks in the [Microsoft Entra admin center](https://entra.microsoft.com).
 
  ![Hybrid Auth workbooks](./media/how-to-connect-staged-rollout/staged-13.png)
 

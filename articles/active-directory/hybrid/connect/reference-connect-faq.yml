@@ -190,12 +190,12 @@ sections:
           No.  They are not supported.
           
       - question: |
-          If I disabled a synced device in the Azure portal, why it is re-enabled?
+          If I disabled a synced device in the [Microsoft Entra admin center](https://entra.microsoft.com), why it is re-enabled?
         answer: |
-          Synced devices might be authored or mastered on premises. If a synced device is enabled on premises, it might be re-enabled in the Azure portal even if was previously disabled by an administrator. To disable a synced device, use the on-premises Active Directory to disable the computer account.
+          Synced devices might be authored or mastered on premises. If a synced device is enabled on premises, it might be re-enabled in the [Microsoft Entra admin center](https://entra.microsoft.com) even if was previously disabled by an administrator. To disable a synced device, use the on-premises Active Directory to disable the computer account.
           
       - question: |
-          If I block user sign-in at the Microsoft 365 or Azure portal for synced users, why it is unblocked upon signing in again?
+          If I block user sign-in at the Microsoft 365 or [Microsoft Entra admin center](https://entra.microsoft.com) for synced users, why it is unblocked upon signing in again?
         answer: |
           Synced users might be authored or mastered on premises. If the account is enabled on premises, it can unblock the sign-in block placed by administrator.
           

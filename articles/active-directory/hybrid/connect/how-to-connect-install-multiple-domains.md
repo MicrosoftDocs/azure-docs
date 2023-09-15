@@ -81,7 +81,7 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
 ## How to update the trust between AD FS and Azure AD
 If you did not set up the federated trust between AD FS and your instance of Azure AD, you may need to re-create this trust.  The reason is, when it is originally set up without the `-SupportMultipleDomain` parameter, the IssuerUri is set with the default value.  In the screenshot below, you can see the IssuerUri is set to `https://adfs.bmcontoso.com/adfs/services/trust`.
 
-If you have successfully added a new domain in the Azure portal and then attempt to convert it using `Convert-MsolDomaintoFederated -DomainName <your domain>`, you will get the following error.
+If you have successfully added a new domain in the [Microsoft Entra admin center](https://entra.microsoft.com) and then attempt to convert it using `Convert-MsolDomaintoFederated -DomainName <your domain>`, you will get the following error.
 
 ![Screenshot that shows a federation error in PowerShell after attempting to convert a new domain with the "Convert-MsolDomaintoFederated" command.](./media/how-to-connect-install-multiple-domains/trust1.png)
 

@@ -37,7 +37,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 2. A Log Analytics Workspace with the “ADFSSignInLogs” stream enabled.
 3. Permissions to use the Azure AD Monitor Workbooks. To use Workbooks, you need:
 - An Azure Active Directory tenant with a premium (P1 or P2) license.
-- Access to a Log Analytics Workspace and the following roles in Azure AD (if accessing Log Analytics through Azure portal): Security administrator, Security reader, Reports reader, Global administrator
+- Access to a Log Analytics Workspace and the following roles in Azure AD (if accessing Log Analytics through [Microsoft Entra admin center](https://entra.microsoft.com)): Security administrator, Security reader, Reports reader, Global administrator
 
 
 ## What is in the report?
@@ -57,7 +57,7 @@ Each item in the Risky IP report table shows aggregated information about failed
 
 | Report Item | Description |
 | ------- | ----------- |
-| Detection Window Start Time | Shows the time stamp based on Azure portal local time when the detection time window starts.<br /> All daily events are generated at mid-night UTC time. <br />Hourly events have the timestamp rounded to the beginning of the hour. You can find first activity start time from “firstAuditTimestamp” in the exported file. |
+| Detection Window Start Time | Shows the time stamp based on [Microsoft Entra admin center](https://entra.microsoft.com) local time when the detection time window starts.<br /> All daily events are generated at mid-night UTC time. <br />Hourly events have the timestamp rounded to the beginning of the hour. You can find first activity start time from “firstAuditTimestamp” in the exported file. |
 | Detection Window Length | Shows the type of detection time window. The aggregation trigger types are per hour or per day. This is helpful to detect versus a high frequency brute force attack versus a slow attack where the number of attempts is distributed throughout the day. |
 | IP Address | The single risky IP address that had either bad password or extranet lockout sign-in activities. This could be an IPv4 or an IPv6 address. |
 | Bad Password Error Count (50126) | The count of Bad Password error occurred from the IP address during the detection time window. The Bad Password errors can happen multiple times to certain users. Notice this does not include failed attempts due to expired passwords. |
@@ -93,9 +93,9 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 
 <a name='configure-notification-alerts-using-azure-monitor-alerts-through-the-azure-portal'></a>
 
-## Configure notification alerts using Azure Monitor Alerts through the Azure portal:
+## Configure notification alerts using Azure Monitor Alerts through the [Microsoft Entra admin center](https://entra.microsoft.com):
 [![Azure Alerts Rule](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule-1.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule-1.png#lightbox)
-1. In the Azure portal, search for “Monitor” in the search bar to navigate to the Azure “Monitor” service. Select “Alerts” from the left menu, then “+ New alert rule”. 
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for “Monitor” in the search bar to navigate to the Azure “Monitor” service. Select “Alerts” from the left menu, then “+ New alert rule”. 
 2. On the “Create alert rule” blade:
    * Scope: Click “Select resource” and select your Log Analytics workspace that contains the ADFSSignInLogs you wish to monitor.
    * Condition: Click “Add condition”. Select “Log” for Signal type and “Log analytics” for Monitor service. Choose “Custom log search”. 

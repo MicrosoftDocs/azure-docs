@@ -55,7 +55,7 @@ sections:
           | Application name | Application URL to be used |
           | -- | -- |
           | SharePoint Online | https:\//contoso.sharepoint.com |
-          | Azure portal | https:\//portal.azure.com/contoso.com |
+          | [Microsoft Entra admin center](https://entra.microsoft.com) | https:\//portal.azure.com/contoso.com |
           
           In the above tables, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
           

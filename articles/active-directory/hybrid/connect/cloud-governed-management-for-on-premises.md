@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution used by millions of organizations that span all aspects of identity, access management, and security. Azure AD holds more than a billion user identities and helps users sign in and securely access both:
 
-* External resources, such as Microsoft 365, the Azure portal, and thousands of other Software-as-a-Service (SaaS) applications.
+* External resources, such as Microsoft 365, the [Microsoft Entra admin center](https://entra.microsoft.com), and thousands of other Software-as-a-Service (SaaS) applications.
 * Internal resources, such as applications on an organization's corporate network and intranet, along with any cloud applications developed by that organization.
 
 Organizations can use Azure AD if they are 'pure cloud,' or as a 'hybrid' deployment if they have on-premises workloads. A hybrid deployment of Azure AD can be part of a strategy for an organization to migrate its IT assets to the cloud, or to continue to integrate existing on-premises infrastructure alongside new cloud services.
