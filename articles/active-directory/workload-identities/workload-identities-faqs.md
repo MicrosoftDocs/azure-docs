@@ -95,7 +95,7 @@ applications for connecting resources that support Azure AD authentication.
 ## How many licenses do I need to purchase? Do I need to license all workload identities including Microsoft and Managed Service Identities? 
 
 All workload identities - service principles, apps and managed identities, configured in your directory for a Microsoft Entra
-Workload Identities Premium feature require a license. Select and prioritize the identities based on the available licenses. Remove
+Workload Identities Premium feature require a license. If you have 10,000 workload identities, but only configures 100 of them to be covered by one or more Premium feature, you need to purchase 100 licenses. Select and prioritize the identities based on the available licenses. Remove
 the workload identities from the directory that are no longer required.
 
 The following identity functionalities are currently available to view
