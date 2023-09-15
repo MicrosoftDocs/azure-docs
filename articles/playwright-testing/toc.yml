@@ -19,9 +19,9 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Configure region affinity
-      displayName: region, location, workspace, location preference
-      href: how-to-configure-region-affinity.md
+    - name: Optimize regional latency
+      displayName: region, location, workspace, location preference, latency
+      href: how-to-optimize-regional-latency.md
     - name: Manage workspaces
       href: how-to-manage-playwright-workspace.md
     - name: Manage access keys
