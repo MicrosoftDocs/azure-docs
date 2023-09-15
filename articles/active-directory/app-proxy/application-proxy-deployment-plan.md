@@ -269,7 +269,7 @@ The following capabilities can be used to support Azure AD Application Proxy:
 
 ### Required roles
 
-Microsoft advocates the principle of granting the least possible privilege to perform needed tasks with Azure AD. [Review the different Azure roles that are available](../roles/permissions-reference).md) and choose the right one to address the needs of each persona. Some roles may need to be applied temporarily and removed after the deployment is completed.
+Microsoft advocates the principle of granting the least possible privilege to perform needed tasks with Azure AD. [Review the different Azure roles that are available](../roles/permissions-reference.md) and choose the right one to address the needs of each persona. Some roles may need to be applied temporarily and removed after the deployment is completed.
 
 | Business role| Business tasks| Azure AD roles |
 |---|---|---|
