@@ -79,7 +79,7 @@ The valid type expressions include:
     }
     ```
 
-  Decorators may be used on properties. `*` may be used to make all values require a constrant. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
+  Decorators may be used on properties. `*` may be used to make all values require a constraint. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
 
     ```bicep
     type obj = {
