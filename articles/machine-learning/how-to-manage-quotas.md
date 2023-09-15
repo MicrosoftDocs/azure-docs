@@ -86,7 +86,17 @@ Available resources:
 
 + **Low-priority cores per region** have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families.
 
-+ **Clusters per region** have a default limit of 200 and it can be increased up to a value of 500 per region within a given subscription. This limit is shared between training clusters, compute instances and managed online endpoint deployments. A compute instance is considered a single-node cluster for quota purposes. Starting 1 September 2023, cluster quota limits will automatically be increased from 200 to 500 on your behalf when usage is approaching close to the 200 default limit, eliminating the need to file for a support ticket.
++ **Total compute limit per region** has a default limit of 500 per region within a given subscription and can be increased up to a maximum value of 2500 per region. This limit is shared between training clusters, compute instances and managed online endpoint deployments. A compute instance is considered a single-node cluster for quota purposes. In order to increase the total compute limit, [open an online customer support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/5088c408-f627-4398-9aa3-c41cdd93a6eb/callerName/Microsoft_Azure_Support%2FHelpAndSupportOverview.ReactView). Provide the following information:
+
+1. When opening the support request, select __Technical__ as the __Issue type__.
+2. Select the subscription of your choice
+3. Select __Machine Learning__ as the __Service__.
+4. Select the resource of your choice
+5. In the summary, mention "Increase total compute limits"
+6. Select __Compute Cluster__ as the __Problem type__ and __Cluster does not scale up or is stuck in resizing__ as the __Problem subtype__.
+7. On the __Additional details__ tab, provide the subscription ID, region, new limit (between 500 and 2500) and business justification if you would like to increase the toital compute limits in this region.
+8. Finally, select __Create__ to create a support request ticket.
+
 
 The following table shows more limits in the platform. Reach out to the Azure Machine Learning product team through a **technical** support ticket to request an exception.
 
