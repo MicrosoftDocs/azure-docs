@@ -72,27 +72,37 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
 ::: zone pivot="app-provisioning"
-2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
-3. Select the application for which you have configured automatic provisioning: for example, "ServiceNow".
+
+   1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+
+   1. Select the application for which you have configured automatic provisioning: for example, "ServiceNow".
+
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-4. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
-5. Select your configuration.
+
+   1. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
+
+   1. Select your configuration.
+
 ::: zone-end
 
-6. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 ::: zone pivot="app-provisioning"
-7. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Azure Active Directory Users to ServiceNow".
+
+   1. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Azure Active Directory Users to ServiceNow".
+
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-8. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Azure Active Directory Users".
+
+   1. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Azure Active Directory Users".
 ::: zone-end
-9. Select the **Source object scope** menu.
-10. Select **Add scoping filter**.
-11. Define a clause by selecting a source **Attribute Name**, an **Operator**, and an **Attribute Value** to match against. The following operators are supported:
+
+1. Select the **Source object scope** menu.
+1. Select **Add scoping filter**.
+1. Define a clause by selecting a source **Attribute Name**, an **Operator**, and an **Attribute Value** to match against. The following operators are supported:
 
    a. **EQUALS**. Clause returns "true" if the evaluated attribute matches the input string value exactly (case sensitive).
 
