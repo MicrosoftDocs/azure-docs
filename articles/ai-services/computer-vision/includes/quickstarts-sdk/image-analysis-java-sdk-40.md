@@ -14,18 +14,19 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client SDK for C# to analyze an image to read text and generate an image caption. This quickstart calls a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console. 
+Use the Image Analysis client SDK for Java to analyze an image to read text and generate an image caption. This quickstart analyzes a remote image and prints the results to the console. 
 
-[Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) | [Packages (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](/java/api/com.azure.ai.vision.imageanalysis) | [Maven Package](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
 
 ## Prerequisites
 
+* A Windows 10 (or higher) x64, or Linux x64 machine.
+* Java Development Kit (JDK) version 8 or above installed, such as [Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk), [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk), [Oracle Java](https://www.java.com/download/), or your preferred JDK. Run `java -version` from a command line to see your version and confirm a successful installation. Make sure that the Java installation is native to the system architecture and not running through emulation.
+* [Apache Maven](https://maven.apache.org/download.cgi) installed. On Linux, install from the distribution repositories if available. Run `mvn -v` to confirm successful installation.
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled. Or if you don't plan on using Visual Studio IDE, you need [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or higher installed.
-* [.NET Runtime](https://dotnet.microsoft.com/download/dotnet/) installed.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, select **Go to resource**.
     * You need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -33,80 +34,78 @@ Use the Image Analysis client SDK for C# to analyze an image to read text and ge
 
 ## Set up application
 
-Create a new C# application.
+Open a console window and create a new folder for your quickstart application.
 
-#### [Visual Studio IDE](#tab/visual-studio)
+1. Open a text editor and copy the following content to a new file. Save the file as `pom.xml` in your project directory
+    <!-- [!INCLUDE][](https://raw.githubusercontent.com/Azure-Samples/azure-ai-vision-sdk/main/docs/learn.microsoft.com/java/image-analysis/quick-start/pom.xml)] -->
+    ```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>azure.ai.vision.imageanalysis.samples</groupId>
+      <artifactId>image-analysis-quickstart</artifactId>
+      <version>0.0</version>
+      <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis -->
+        <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-ai-vision-imageanalysis</artifactId>
+          <version>0.15.1-beta.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.azure/azure-core-http-netty -->
+        <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-core-http-netty</artifactId>
+          <version>1.13.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>2.0.7</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+          <version>2.0.7</version>
+        </dependency>
+      </dependencies>
+    </project>
+    ```
+1. Install the SDK and dependencies by running the following in the project directory:
+    ```console
+    mvn clean dependency:copy-dependencies
+    ```
+1. Once the operation succeeds, verify that the folders `target\dependency` were creating and they contain `.jar` files.
 
-Open Visual Studio, and under **Get started** select **Create a new project**. Set the template filters to _C#/All Platforms/Console_. Select **Console App** (command-line application that can run on .NET on Windows, Linux and macOS) and choose **Next**. Update the project name to _ImageAnalysisQuickstart_ and choose **Next**. Select **.NET 6.0** or above, and choose **Create** to create the project.
-
-### Install the client SDK 
-
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**. For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp).
-
-#### [CLI](#tab/cli)
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `image-analysis-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
-
-```dotnet
-dotnet new console -n image-analysis-quickstart
-```
-
-Change your directory to the newly created app folder. You can build the application with:
-
-```dotnet
-dotnet build
-```
-
-The build output should contain no warnings or errors. 
-
-```console
-...
-Build succeeded.
-  0 Warning(s)
-  0 Error(s)
-...
-```
-
-### Install the client SDK
-
-Within the application directory, install the Azure AI Vision client SDK for .NET with the following command:
-
-```dotnet
-dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
-```
-
-For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-csharp).
-    
----
+For more information, see the [SDK installation guide](../../sdk/install-sdk.md?pivots=programming-language-java).
 
 [!INCLUDE [create environment variables](../environment-variables.md)]
 
 ## Analyze Image
 
-From the project directory, open the *Program.cs* file that was created previously with [your new project](#set-up-application). Paste in the following code:
+Open a text editor and copy the following content to a new file. Save the file as `ImageAnalysis.java`
+
+[!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/quick-start/ImageAnalysis.java?name=snippet_single)]
 
 > [!TIP]
 > The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. For more information, see the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md).
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/quick-start/program.cs?name=snippet_single)]
+To compile the Java file, run the following:
 
+```console
+javac ImageAnalysis.java -cp ".;target\dependency\*"
+``` 
 
-Then, build and run the application. You should see output similar to the one shown here.
+You should see the file `ImageAnalysis.class` created in the current folder.
 
-#### [Visual Studio IDE](#tab/visual-studio)
+To run the application:
 
-Build and run the application by selecting **Start Debugging** from the **Debug** menu at the top of the IDE window (or press **F5**).
-
-#### [CLI](#tab/cli)
-
-Build and run the application from your application directory with these commands:
-
-```dotnet
-dotnet build
-dotnet run
-```
-
----
+```console
+java -cp ".;target\dependency\*" ImageAnalysis
+``` 
 
 ## Output
 
@@ -177,8 +176,6 @@ Text:
      Word: 'Product', Bounding polygon {{X=539,Y=370},{X=559,Y=371},{X=558,Y=376},{X=539,Y=376}}, Confidence 0.6150       
      Word: 'review', Bounding polygon {{X=560,Y=371},{X=576,Y=371},{X=575,Y=376},{X=559,Y=376}}, Confidence 0.0400 
 ```
-
-
 
 ## Clean up resources
 
