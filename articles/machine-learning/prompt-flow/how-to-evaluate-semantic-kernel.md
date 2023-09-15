@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
-ms.reviewer: 
-ms.date: 
+ms.reviewer: lagayhar
+ms.date: 09/15/2023
 ---
 
 # Evaluate your Semantic Kernel with Prompt flow (preview)
