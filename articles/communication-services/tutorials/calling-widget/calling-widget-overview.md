@@ -42,7 +42,7 @@ This tutorial is broken down into three parts:
 
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions [Node 18 LTS](https://nodejs.org/en) is recommended. Use the `node --version` command to check your version. 
-- An Azure Communication Services resource. [Create a Communications Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp)
+- An Azure Communication Services resource. [Create a Communications Resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource)
 
 
 ### Set up the project
