@@ -55,12 +55,12 @@ The following metrics are available for a flexible server instance of Azure Data
 
 You can use enhanced metrics for Azure Database for PostgreSQL - Flexible Server to get fine-grained monitoring and alerting on databases. You can configure alerts on the metrics. Some enhanced metrics include a `Dimension` parameter that you can use to split and filter metrics data by using a dimension like database name or state.
 
-#### How to enable enhanced metrics
+#### Enabling enhanced metrics
 
 - Most of these new metrics are *disabled* by default. A few exceptions are described in the next table.
 - To enable these metrics, set the server parameter `metrics.collector_database_activity` to `ON`. This parameter is dynamic and doesn't require an instance restart.
 
-#### List of enhanced metrics
+##### List of enhanced metrics
 
 You can choose from the following categories of enhanced metrics:
 
@@ -245,7 +245,7 @@ In addition to the metrics, you can use Azure Database for PostgreSQL to configu
 
 |Component  |Description | Required training and/or configuration|
 |---------|---------|--------|
-|[Log Analytics](../../azure-monitor/logs/log-analytics-overview.md)|With Log Analytics, you can create log queries to interactively work with log data and create log query alerts.| Some training is required for you to become familiar with the query language, although you can use prebuilt queries for common requirements. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. Then if you're familiar with the query language, you can build queries for others in your organization.        |
+|[Log Analytics](../../azure-monitor/logs/log-analytics-overview.md)|With Log Analytics, you can create log queries to interactively work with log data and create log query alerts.| Some training is required for you to become familiar with the query language, although you can use prebuilt queries for common requirements. |
 
 
 ## Next steps
