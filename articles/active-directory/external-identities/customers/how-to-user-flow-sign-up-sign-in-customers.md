@@ -102,4 +102,5 @@ If you want your customer users to only sign in and not sign up, you can disable
 
 ## Next steps
 
-[Add your application to the user flow](how-to-user-flow-add-application.md) and learn about how to [create custom user attributes and customize the order of the attributes on the sign-up page](how-to-define-custom-attributes.md).
+- [Add your application to the user flow](how-to-user-flow-add-application.md)
+- [Create custom user attributes and customize the order of the attributes on the sign-up page](how-to-define-custom-attributes.md).
