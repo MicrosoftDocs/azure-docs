@@ -5,7 +5,7 @@ author: ericd-mst-github
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 09/15/2023
 ms.author: cynthn 
 ms.custom: compute-cost-fy24
 
@@ -206,36 +206,8 @@ To resize your VM in Terraform code, you modify the `size` parameter in the `azu
 > [!IMPORTANT]
 > The below Terraform example modifies the size of an existing virtual machine when you're using the state file that created the original virtual machine.
 
-```Terraform
-# Create virtual machine
-resource "azurerm_windows_virtual_machine" "main" {
-  name                  = "${var.prefix}-vm"
-  admin_username        = "azureuser"
-  admin_password        = random_password.password.result
-  location              = azurerm_resource_group.rg.location
-  resource_group_name   = azurerm_resource_group.rg.name
-  network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
-  size                  = "Standard_DS1_v2" # Change the VM size here
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-windows-vm-with-iis-server/main.tf" range="91-117" highlight="8":::
 
-  os_disk {
-    name                 = "myOsDisk"
-    caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
-  }
-
-  source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2022-datacenter-azure-edition"
-    version   = "latest"
-  }
-
-
-  boot_diagnostics {
-    storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
-  }
-}
-```
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
    > 
