@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 3/29/2023
+ms.date: 09/15/2023
 ms.author: cynthn
-ms.reviewer: mattmcinnes
+ms.reviewer: erd
 ms.custom: mvc, mode-ui, devx-track-linux
 ---
 
@@ -120,7 +120,14 @@ Use a web browser of your choice to view the default NGINX welcome page. Type th
 
 ## Clean up resources
 
+### Delete resources
 When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+
+
+### Auto-shutdown
+
+To help manage costs and ensure you are not billed for resources you're not using, Azure provides an Auto-shutdown feature for virtual machines. This feature is located in the left-hand menu of the VM's page, under the "Operations" section. By setting a specific time, you can schedule your VM to shut down automatically when it's not in use. Remember to configure the time zone correctly to match your requirements.
+
 
 ## Next steps
 
