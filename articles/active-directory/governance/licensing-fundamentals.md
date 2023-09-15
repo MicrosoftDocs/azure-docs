@@ -141,7 +141,7 @@ With Entra Governance licenses for Lifecycle Workflows, you can:
 
 | Scenario | Calculation | Number of licenses |
 | --- | --- | --- |
-| A Lifecycle Workflows Administrator creates a workflow to add new hires in the marketing department to the Marketing teams group. 250 new hires are assigned to the Marketing teams group via this workflow. | 1 license for the Lifecycle Workflows Administrator, and 250 licenses for the users. | 251 |
+| A Lifecycle Workflows Administrator creates a workflow to add new hires in the Marketing department to the Marketing teams group. 250 new hires are assigned to the Marketing teams group via this workflow. | 1 license for the Lifecycle Workflows Administrator, and 250 licenses for the users. | 251 |
 | A Lifecycle Workflows Administrator creates a workflow to pre-offboard a group of employees before their last day of employment. The scope of users who will be pre-offboarded are 40 users. | 40 licenses for users, and 1 license for the Lifecycle Workflows Administrator. | 41 |
 
 ## Privileged Identity Management
