@@ -18,7 +18,7 @@ The following table lists the differences in functionality, based on how you acc
 | View the list of workspaces | Yes | Yes | [View all workspaces](#display-the-list-of-workspaces) |
 | View the workspace activity log | No | Yes | [Display activity log](#display-the-workspace-activity-log) |
 | Delete a workspace | Yes | Yes | [Delete a workspace](#delete-a-workspace) |
-| Configure region affinity | Yes | No | [Configure region affinity](./how-to-configure-region-affinity.md) |
+| Configure region affinity | Yes | No | [Configure region affinity](./how-to-optimize-regional-latency.md) |
 | Grant or revoke access to a workspace | Yes | No | [Manage workspace access](./how-to-manage-workspace-access.md)|
 
 > [!IMPORTANT]
@@ -167,7 +167,7 @@ To delete a Playwright workspace:
 
 ## Related content
 
-- [Configure region affinity for a workspace](./how-to-configure-region-affinity.md)
+- [Optimize regional latency a workspace](./how-to-optimize-regional-latency.md)
 
 - [Manage workspace access](./how-to-manage-workspace-access.md)
 

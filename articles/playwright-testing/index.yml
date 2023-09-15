@@ -39,8 +39,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure region affinity
-            url: how-to-configure-region-affinity.md
+          - text: Optimize regional latency
+            url: how-to-optimize-regional-latency.md
           - text: Manage workspaces
             url: how-to-manage-playwright-workspace.md
 
