@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: cliv2
 author: bozhong68
 ms.author: bozhlin
-ms.date: 05/07/2023
+ms.date: 09/15/2023
 ms.reviewer: mopeakande
 reviewer: msakande
 ---
@@ -159,8 +159,8 @@ Data quality signal tracks data quality issues in production by comparing to tra
 | `features` | Object | **Optional**. Target features to be monitored for data quality. Some models might have hundreds or thousands of features. It's always recommended to specify interested features for monitoring. | One of following values: list of feature names, `features.top_n_feature_importance`, or `all_features` | Default to `features.top_n_feature_importance = 10` if `reference_data.data_context` is `training`, otherwise default is `all_features` |
 | `alert_enabled` | Boolean | Turn on/off alert notification for the monitoring signal. `True` or `False` | | |
 | `metric_thresholds` | Object | List of metrics and thresholds properties for the monitoring signal. When threshold is exceeded and `alert_enabled` is `true`, user will receive alert notification. | | |
-| `metric_thresholds.numerical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numberical metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
-| `metric_thresholds.categorical` | Object | Optional. List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed `categorical` metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
+| `metric_thresholds.numerical` | Object | **Optional** List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed numberical metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
+| `metric_thresholds.categorical` | Object | **Optional** List of metrics and thresholds in `key:value` format, `key` is the metric name, `value` is the threshold. | Allowed `categorical` metric names: `data_type_error_rate`, `null_value_rate`, `out_of_bounds_rate`| |
 
 #### Feature attribution drift
 
