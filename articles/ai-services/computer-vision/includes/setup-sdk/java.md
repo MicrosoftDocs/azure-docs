@@ -68,7 +68,7 @@ Follow these steps to install the Vision SDK for Java using Apache Maven:
   </project>
   ```
 
-1. Update the version value in `<version>0.15.1-beta.1</version>` based on the latest version you find in the [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis). 
+1. Update the version value in `<version>0.15.1-beta.1</version>` based on the latest version you find in the Maven repository for the [azure-ai-vision-imageanalysis](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis) package.
 
 1. Run the following Maven command to install the Vision SDK and dependencies.
 ```console
@@ -79,13 +79,24 @@ Follow these steps to install the Vision SDK for Java using Apache Maven:
 
 # [Gradle](#tab/gradle)
 
-Gradle configurations require an explicit reference to the .jar dependency extension. Add the following line in your `build.gradle` file:
+1. Install [Gradle](https://gradle.org/install).
+
+1. In a command prompt run `gradle -v` to confirm successful installation.
+
+1. Create you Java application using Gradle. See for example [Building Java Applications Sample](https://docs.gradle.org/8.3/samples/sample_building_java_applications.html).
+
+1. Update your `build.gradle` file by inserting 4 new dependencies:
+
 ```gradle
 dependencies {
-    implementation group: 'com.azure', name: ' azure-ai-vision-imageanalysis', version: "0.15.1-beta.1", ext: "jar"
+  implementation 'com.azure:azure-ai-vision-imageanalysis:0.15.1-beta.1'
+  implementation 'com.azure:azure-core-http-netty:1.13.6'
+  implementation 'org.slf4j:slf4j-api:2.0.7'
+  implementation 'org.slf4j:slf4j-simple:2.0.7'
 }
 ```
 
-Update the version number based on the latest version you find in the [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis). 
+1. Update the version value in `com.azure:azure-ai-vision-imageanalysis:0.15.1-beta.1` based on the latest version you find in the Maven repository for the [azure-ai-vision-imageanalysis](https://mvnrepository.com/artifact/com.azure/azure-ai-vision-imageanalysis) package.
 
+1. Update your Java application with Image Analysis code, compile and run it.
 ---
