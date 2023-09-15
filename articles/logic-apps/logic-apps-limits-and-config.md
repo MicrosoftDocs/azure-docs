@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 08/29/2023
+ms.date: 09/14/2023
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -305,11 +305,11 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 
 <a name="content-storage-size-limits"></a>
 
-### Content storage limits
+### Request trigger size limits
 
 | Name | Multi-tenant | Single-tenant | Notes |
 |------|--------------|---------------|-------|
-| Request trigger (inbound) - Content storage limit per 5-minute rolling interval per workflow | 3145728 KB | None | This limit applies only to the storage content size for inbound requests received by the Request trigger. |
+| Request trigger (inbound) - Content size limit per 5-minute rolling interval per workflow | 3145728 KB | None | This limit applies only to the content size for inbound requests received by the Request trigger. If there are 100 workers in the backend, each worker will have a limit of 3145728000/100 = 31457280 bytes. Using new HTTP client for each request will help distribute the calls evenly on all nodes to avoid running into throttling prematurely. |
 
 <a name="message-size-limits"></a>
 
