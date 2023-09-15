@@ -25,7 +25,7 @@ As your application becomes more complex, your test suite increases in size. The
 
 Microsoft Playwright Testing enables you to distribute your tests across many parallel remote browsers, hosted on cloud infrastructure. By using cloud-hosted browsers, you can scale your test beyond the processing power of your developer workstation, local infrastructure, or continuous integration (CI) agent machines. This parallelization helps you shorten the overall test suite completion time.
 
-Microsoft Playwright Testing helps you to optimize the latency between the client machine and the cloud-hosted browsers by creating the hosted browsers in the Azure region that's closest to your client machine. Alternately, you can choose to run your tests on browsers in the region that's linked to your Microsoft Playwright Testing *workspace*.
+Microsoft Playwright Testing helps you to [optimize the regional latency](./how-to-optimize-regional-latency.md) between the client machine and the cloud-hosted browsers by creating the hosted browsers in the Azure region that's closest to your client machine. Alternately, you can choose to run your tests on browsers in the region that's linked to your Microsoft Playwright Testing workspace.
 
 ## Test across multiple operating systems and browsers
 
