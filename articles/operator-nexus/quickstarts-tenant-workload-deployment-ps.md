@@ -1,23 +1,23 @@
 ---
-title: Create an Azure Operator Nexus virtual machine by using Azure CLI
+title: Create an Azure Operator Nexus virtual machine by using Azure PowerShell
 description: Learn how to create an Azure Operator Nexus virtual machine (VM) for virtual network function (VNF) workloads
-author: dramasamy
-ms.author: dramasamy
+author: rashirg
+ms.author: rashirg
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 07/10/2023
-ms.custom: template-how-to-pattern, devx-track-azurecli
+ms.date: 09/15/2023
+ms.custom: template-how-to-pattern, devx-track-azurepowershell
 ---
 
-# Quickstart: Create an Azure Operator Nexus virtual machine by using Azure CLI
+# Quickstart: Create an Azure Operator Nexus virtual machine by using Azure PowerShell
 
-* Deploy an Azure Nexus virtual machine using Azure CLI
+* Deploy an Azure Nexus virtual machine using Azure PowerShell
 
 This quick-start guide is designed to help you get started with using Nexus virtual machines to host virtual network functions (VNFs). By following the steps outlined in this guide, you're able to quickly and easily create a customized Nexus virtual machine that meets your specific needs and requirements. Whether you're a beginner or an expert in Nexus networking, this guide is here to help. You learn everything you need to know to create and customize Nexus virtual machines for hosting virtual network functions.
 
 ## Before you begin
 
-[!INCLUDE [virtual-machine-prereq](./includes/virtual-machine/quickstart-prereq.md)]
+[!INCLUDE [virtual-machine-prereq](./includes/virtual-machine/quickstart-prereq-ps.md)]
 * Complete the [prerequisites](./quickstarts-tenant-workload-prerequisites.md) for deploying a Nexus virtual machine.
 
 ## Create a Nexus virtual machine
@@ -45,62 +45,71 @@ Before you run the commands, you need to set several variables to define the con
 | ACR_USERNAME               | The username for the Azure Container Registry.                                                        |
 | ACR_PASSWORD               | The password for the Azure Container Registry.                                                        |
 
-Once you've defined these variables, you can run the Azure CLI command to create the virtual machine. Add the ```--debug``` flag at the end to provide more detailed output for troubleshooting purposes.
+Once you've defined these variables, you can run the Azure PowerShell command to create the virtual machine. Add the ```--debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
 To define these variables, use the following set commands and replace the example values with your preferred values. You can also use the default values for some of the variables, as shown in the following example:
 
-```bash
+```azure-powershell
 # Azure parameters
-RESOURCE_GROUP="myResourceGroup"
-SUBSCRIPTION="<Azure subscription ID>"
-CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
-LOCATION="$(az group show --name $RESOURCE_GROUP --query location --subscription $SUBSCRIPTION -o tsv)"
+$RESOURCE_GROUP="myResourceGroup"
+$SUBSCRIPTION="<Azure subscription ID>"
+$CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+$CUSTOM_LOCATION_TYPE="CustomLocation"
+$LOCATION="<ClusterAzureRegion>"
 
 # VM parameters
-VM_NAME="myNexusVirtualMachine"
+$VM_NAME="myNexusVirtualMachine"
+$BOOT_METHOD="UEFI"
+$OS_DISK_CREATE_OPTION="Ephemeral"
+$OS_DISK_DELETE_OPTION="Delete"
 
 # VM credentials
-ADMIN_USERNAME="azureuser"
-SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
+$ADMIN_USERNAME="admin"
+$SSH_PUBLIC_KEY = @{
+    KeyData = "$(cat ~/.ssh/id_rsa.pub)"
+}
 
 # Network parameters
-CSN_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
-L3_NETWORK_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
-NETWORK_INTERFACE_NAME="mgmt0"
+$CSN_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
+$L3_NETWORK_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
+$IP_AllOCATION_METHOD="Dynamic"
+$CSN_ATTACHMENT_DEFAULTGATEWAY="False"
+$CSN_ATTACHMENT_NAME="<l3Network-name>"
+$ISOLATE_EMULATOR_THREAD="True"
+$VIRTIOINTERFACE="Modern"
 
 # VM Size parameters
-CPU_CORES=4
-MEMORY_SIZE=12
-VM_DISK_SIZE="64"
+$CPU_CORES=4
+$MEMORY_SIZE=12
+$VM_DISK_SIZE="64"
 
 # Virtual Machine Image parameters
-VM_IMAGE="<VM image, example: myacr.azurecr.io/ubuntu:20.04>"
-ACR_URL="<Azure container registry URL, example: myacr.azurecr.io>"
-ACR_USERNAME="<Azure container registry username>"
-ACR_PASSWORD="<Azure container registry password>"
+$VM_IMAGE="<VM image, example: myacr.azurecr.io/ubuntu:20.04>"
+$ACR_URL="<Azure container registry URL, example: myacr.azurecr.io>"
+$ACR_USERNAME="<Azure container registry username>"
+
+$NETWORKATTACHMENT = New-AzNetworkCloudNetworkAttachmentObject `
+    -AttachedNetworkId "<$L3_NETWORK_ID>" `
+    -IpAllocationMethod "<$IP_AllOCATION_METHOD>" `
+    -DefaultGateway "True" `
+    -Name "<YourNetworkAttachmentName>"
+
+$HINT = New-AzNetworkCloudVirtualMachinePlacementHintObject `
+    -HintType "<YourHintType>" `
+    -SchedulingExecution "<YourSchedulingExecution>" `
+    -ResourceId "<YourBareMetalMachineId>" `
+    -Scope "<YourScopeType>"
+
+$SECUREPASSWORD = ConvertTo-SecureString "<YourPassword>" -asplaintext -force
 ```
 
 > [!IMPORTANT]
 > It is essential that you replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, L3_NETWORK_ID and ACR parameters with your actual values before running these commands.
 
-After defining these variables, you can create the virtual machine by executing the following Azure CLI command.
+After defining these variables, you can create the virtual machine by executing the following Azure PowerShell command.
 
-```bash
-az networkcloud virtualmachine create \
-    --name "$VM_NAME" \
-    --resource-group "$RESOURCE_GROUP" \
-    --subscription "$SUBSCRIPTION" \
-    --extended-location name="$CUSTOM_LOCATION" type="CustomLocation" \
-    --location "$LOCATION" \
-    --admin-username "$ADMIN_USERNAME" \
-    --csn "attached-network-id=$CSN_ARM_ID" \
-    --cpu-cores $CPU_CORES \
-    --memory-size $MEMORY_SIZE \
-    --network-attachments '[{"attachedNetworkId":"'$L3_NETWORK_ID'","ipAllocationMethod":"Dynamic","defaultGateway":"True","networkAttachmentName":"'$NETWORK_INTERFACE_NAME'"}]'\
-    --storage-profile create-option="Ephemeral" delete-option="Delete" disk-size="$VM_DISK_SIZE" \
-    --vm-image "$VM_IMAGE" \
-    --ssh-key-values "$SSH_PUBLIC_KEY" \
-    --vm-image-repository-credentials registry-url="$ACR_URL" username="$ACR_USERNAME" password="$ACR_PASSWORD"
+```azure-powershell
+New-AzNetworkCloudVirtualMachine -Name $VM_NAME -ResourceGroupName "myResourceGroup" -AdminUsername $ADMIN_USERNAME -CloudServiceNetworkAttachmentAttachedNetworkId $CSN_ARM_ID -CloudServiceNetworkAttachmentIPAllocationMethod $IP_AllOCATION_METHOD -CpuCore $CPU_CORES -ExtendedLocationName $CUSTOM_LOCATION -ExtendedLocationType $CUSTOM_LOCATION_TYPE -Location $LOCATION -SubscriptionId $SUBSCRIPTION -MemorySizeGb $MEMORY_SIZE -OSDiskSizeGb $VM_DISK_SIZE -VMImage $VM_IMAGE -BootMethod $BOOT_METHOD -CloudServiceNetworkAttachmentDefaultGateway $CSN_ATTACHMENT_DEFAULTGATEWAY -CloudServiceNetworkAttachmentName $CSN_ATTACHMENT_NAME -IsolateEmulatorThread $ISOLATE_EMULATOR_THREAD -NetworkAttachment $NETWORKATTACHMENT -NetworkData "" -OSDiskCreateOption $OS_DISK_CREATE_OPTION -OSDiskDeleteOption $OS_DISK_DELETE_OPTION -PlacementHint $HINT -SshPublicKey $SSH_PUBLIC_KEY -Tag $TAG -UserData "" -VirtioInterface $VIRTIOINTERFACE -VMDeviceModel "" -VMImageRepositoryCredentialsUsername $ACR_USERNAME -VMImageRepositoryCredentialsPassword $SECUREPASSWORD -VMImageRepositoryCredentialsRegistryUrl $ACR_URL
 ```
 
 After a few minutes, the command completes and returns information about the virtual machine. You've created the virtual machine. You're now ready to use them.
@@ -110,7 +119,7 @@ After a few minutes, the command completes and returns information about the vir
 
 ## Review deployed resources
 
-[!INCLUDE [quickstart-review-deployment-cli](./includes/virtual-machine/quickstart-review-deployment.md)]
+[!INCLUDE [quickstart-review-deployment-poweshell](./includes/virtual-machine/quickstart-review-deployment.md)]
 
 ## Clean up resources
 

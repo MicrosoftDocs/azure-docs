@@ -74,15 +74,21 @@ Create an L2 network, if necessary, for your workloads. You can repeat the instr
 
 Gather the resource ID of the L2 isolation domain that you [created](#l2-isolation-domain) to configure the VLAN for this network.
 
-Here's an example Azure CLI command:
+### [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
   az networkcloud l2network create --name "<YourL2NetworkName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \
     --extended-location name="<ClusterCustomLocationId>" type="CustomLocation" \
     --location "<ClusterAzureRegion>" \
     --l2-isolation-domain-id "<YourL2IsolationDomainId>"
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzNetworkCloudL2Network -Name "<YourL2NetworkName>" -ResourceGroupName "<YourResourceGroupName>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -L2IsolationDomainId "<YourL2IsolationDomainId>" -Location "<ClusterAzureRegion>" -InterfaceName "<InterfaceName>" -Subscription "<YourSubscription>" -Tag "<YourTag>"
 ```
 
 #### Create an L3 network
@@ -97,7 +103,9 @@ You need:
 - The `ip-allocation-type` value, which can be `IPv4`, `IPv6`, or `DualStack` (default).
 - The `vlan` value, which must match what's in the L3 isolation domain.
 
-```azurecli
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
   az networkcloud l3network create --name "<YourL3NetworkName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \
@@ -110,13 +118,21 @@ You need:
     --vlan <YourNetworkVlan>
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzNetworkCloudL3Network -ResourceGroupName "<YourResourceGroupName>" -Name "<YourL3NetworkName>" -Location "<ClusterAzureRegion>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Vlan "<YourNetworkVlan>" -L3IsolationDomainId "<YourL3IsolationDomainId>" -Ipv4ConnectedPrefix "<YourNetworkIpv4Prefix>" -Ipv6ConnectedPrefix "<YourNetworkIpv6Prefix>" -Subscription "<YourSubscription>" -Tag "<YourTag>"
+```
+
 #### Create a trunked network
 
 Create a trunked network, if necessary, for your VM. Repeat the instructions for each required trunked network.
 
 Gather the `resourceId` values of the L2 and L3 isolation domains that you created earlier to configure the VLANs for this network. You can include as many L2 and L3 isolation domains as needed.
 
-```azurecli
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
   az networkcloud trunkednetwork create --name "<YourTrunkedNetworkName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \
@@ -131,18 +147,44 @@ Gather the `resourceId` values of the L2 and L3 isolation domains that you creat
       "<YourL3IsolationDomainId3>" \
     --vlans <YourVlanList>
 ```
+### [Azure PowerShell](#tab/azure-powershell)
+
+```
+New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" -ResourceGroupName "<YourResourceGroupName>" -SubscriptionId "<YourSubscription>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" -Vlan "<YourVlanList>" -IsolationDomainId "<YourL3IsolationDomainId>" -InterfaceName "<YourNetworkInterfaceName>" -Tag "<YourTag>"
+```
 
 #### Create a cloud services network
 
 Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as `.azurecr.io` or `.docker.io`.
 
-```azurecli
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
     --resource-group "<YourResourceGroupName >" \
     --subscription "<YourSubscription>" \
     --extended-location name="<ClusterCustomLocationId >" type="CustomLocation" \
     --location "<ClusterAzureRegion>" \
     --additional-egress-endpoints "[{\"category\":\"<YourCategory >\",\"endpoints\":[{\"<domainName1 >\":\"< endpoint1 >\",\"port\":<portnumber1 >}]}]"
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$endpointEgressList = @()
+$endpointList = @()
+$endpoint = New-AzNetworkCloudEndpointDependencyObject `
+  -DomainName "<domainName1>" `
+  -Port "<portnumber1>"
+$endpointList+= $endpoint
+$additionalEgressEndpoint = New-AzNetworkCloudEgressEndpointObject `
+  -Category "YourCategory" `
+  -Endpoint "YourEndPointList"
+$endpointEgressList+= $additionalEgressEndpoint
+```
+
+```azurepowershell-interactive
+New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesNeworkName>" -ResourceGroupName "<YourResourceGroupName>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" -Tag "<YourTag>" -AdditionalEgressEndpoint $endpointEgressList -EnableDefaultEgressEndpoint "False" -Subscription "<YourSubscription>"
 ```
 
 #### Using the proxy to reach outside of the virtual machine
