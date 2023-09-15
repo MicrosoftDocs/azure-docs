@@ -32,6 +32,64 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## September 2023
+
+### Public Preview - Managing and Changing Passwords in My Security Info
+
+**Type:**  New feature            
+**Service category:**  My Profile/Account                              
+**Product capability:**  End User Experiences                      
+
+The My Security Info management portal ([My Sign-Ins | Security Info | Microsoft.com](https://mysignins.microsoft.com/security-info)) will now support an improved end user experience of managing passwords. Users are able to change their password, and users that are capable of multifactor authentication (MFA) will be able to update their passwords without providing their current password.
+
+---
+
+### General Availability - Web Sign-In for Windows
+
+**Type:** Changed feature              
+**Service category:** Authentications (Logins)                                 
+**Product capability:** User Authentication    
+
+We're thrilled to announce that as part of the Windows 11 September moment, we're releasing a new Web Sign-In experience that will expand the number of supported scenarios and greatly improve security, reliability, performance, and overall end-to-end experience for our users.
+
+Web Sign-In (WSI) is a credential provider on the Windows lock/sign-in screen for AADJ joined devices that provides a web experience used for authentication and will return an auth token back to the operating system to allow the user to unlock/sign-in to the machine.
+
+Web Sign-In was initially intended to be used for a wide range of auth credential scenarios; however, it was only previously released for limited scenarios such as: [Simplified EDU Web Sign-In](/education/windows/federated-sign-in?tabs=intune) and recovery flows via [Temporary Access Password (TAP)](../authentication/howto-authentication-temporary-access-pass.md).
+
+The underlying provider for Web Sign-In has been re-written from the ground up with security and improved performance in mind. This release moves the Web Sign-in infrastructure from the Cloud Host Experience (CHX) WebApp to a newly written Login Web Host (LWH) for the September moment. This release provides better security and reliability to support previous EDU & TAP experiences and new workflows enabling using various Auth Methods to unlock/login to the desktop.                    
+
+---
+
+### General Availability - Support for Microsoft admin portals in Conditional Access
+
+**Type:** New feature             
+**Service category:** Conditional Access                                   
+**Product capability:** Identity Security & Protection    
+
+When a Conditional Access policy targets the Microsoft Admin Portals cloud app, the policy is enforced for tokens issued to application IDs of the following Microsoft administrative portals:
+
+- Azure portal
+- Exchange admin center
+- Microsoft 365 admin center
+- Microsoft 365 Defender portal
+- Microsoft Entra admin center
+- Microsoft Intune admin center
+- Microsoft Purview compliance portal                   
+
+For more information, see: [Microsoft Admin Portals (preview)](../conditional-access/concept-conditional-access-cloud-apps.md#microsoft-admin-portals-preview).
+
+---
+
+### 
+
+**Type:** New feature             
+**Service category:** Microsoft Graph                                  
+**Product capability:** Monitoring & Reporting                       
+
+The MicrosoftGraphActivityLogs provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. These logs can be used to find activity from compromised accounts, identify anomalous behavior, or investigate application activity.
+
+---
+
 ## August 2023
 
 ### General Availability - Tenant Restrictions V2
