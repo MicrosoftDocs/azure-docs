@@ -72,31 +72,27 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
 ::: zone pivot="app-provisioning"
-1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
-1. Select the application for which you have configured automatic provisioning: for example, "ServiceNow".
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+3. Select the application for which you have configured automatic provisioning: for example, "ServiceNow".
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-1. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
-
-3. Select your configuration.
+4. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
+5. Select your configuration.
 ::: zone-end
 
-4. Select the **Provisioning** tab.
+6. Select the **Provisioning** tab.
 
 ::: zone pivot="app-provisioning"
-5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Azure Active Directory Users to ServiceNow".
+7. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Synchronize Azure Active Directory Users to ServiceNow".
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-5. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Azure Active Directory Users".
+8. In the **Mappings** section, select the mapping that you want to configure a scoping filter for: for example, "Provision Azure Active Directory Users".
 ::: zone-end
-
-6. Select the **Source object scope** menu.
-
-7. Select **Add scoping filter**.
-
-8. Define a clause by selecting a source **Attribute Name**, an **Operator**, and an **Attribute Value** to match against. The following operators are supported:
+9. Select the **Source object scope** menu.
+10. Select **Add scoping filter**.
+11. Define a clause by selecting a source **Attribute Name**, an **Operator**, and an **Attribute Value** to match against. The following operators are supported:
 
    a. **EQUALS**. Clause returns "true" if the evaluated attribute matches the input string value exactly (case sensitive).
 
@@ -127,15 +123,15 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 > - Filtering is not supported for multi-valued attributes.
 > - Scoping filters will return "false" if the value is null / empty.
 
-9. Optionally, repeat steps 7-8 to add more scoping clauses.
+12. Optionally, repeat steps 7-8 to add more scoping clauses.
 
-10. In **Scoping Filter Title**, add a name for your scoping filter.
+13. In **Scoping Filter Title**, add a name for your scoping filter.
 
-11. Select **OK**.
+14. Select **OK**.
 
-12. Select **OK** again on the **Scoping Filters** screen. Optionally, repeat steps 6-11 to add another scoping filter.
+15. Select **OK** again on the **Scoping Filters** screen. Optionally, repeat steps 6-11 to add another scoping filter.
 
-13. Select **Save** on the **Attribute Mapping** screen. 
+16. Select **Save** on the **Attribute Mapping** screen. 
 
 >[!IMPORTANT] 
 > Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application. To override this default behavior, refer to [Skip deletion for user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md).
