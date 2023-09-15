@@ -43,7 +43,7 @@ Either the Whisper model or the Azure AI Speech models are appropriate depending
 
 ## Whisper model via Azure AI Speech or via Azure OpenAI Service?
 
-You can choose whether to use the Whisper Model via [Azure OpenAI](../openai/whisper-quickstart.md) or via [Azure AI Speech](./batch-transcription-create.md#using-whisper-models). In either case, the readabilty of the transcribed text is the same. You can input mixed language audio and the output will be in English. 
+You can choose whether to use the Whisper Model via [Azure OpenAI](../openai/whisper-quickstart.md) or via [Azure AI Speech](./batch-transcription-create.md#using-whisper-models). In either case, the readability of the transcribed text is the same. You can input mixed language audio and the output will be in English. 
 
 Whisper Model via Azure OpenAI Service might be best for:
 - Quickly transcribing audio files one at a time
