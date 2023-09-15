@@ -122,49 +122,17 @@ When you query directly from the Log Analytics workspace, you only see data that
 > If you rename your Application Insights resource after you migrate to the workspace-based model, the Application Insights **Logs** tab no longer shows the telemetry collected before renaming. You can see all old and new data on the **Logs** tab of the associated Log Analytics resource.
 
 
-## How to identify the Application Insights resources based on the ingestion types:
+## Identifying the Application Insights resources by ingestion type
 
-The below powershell script helps customers identify their Applicaiton Insights resources based on the ingestion types.
+Use the following script to identify your Application Insights resources by ingestion type.
 
 #### Example
 
-```powershell
-$subscription = "Your Subscription ID"
-# $AzureContenxt = Connect-AzAccount      ##  this is part of Az.Accounts module
-$token = (Get-AZAccessToken).Token
-$header = @{Authorization = "Bearer $token"}
-$uri = "https://management.azure.com/subscriptions/$subscription/providers/Microsoft.Insights/components?api-version=2015-05-01"
-$RestResult=""
-$RestResult = Invoke-RestMethod -Method GET -Uri $uri -Headers $header -ContentType "application/json" -ErrorAction Stop -Verbose
- 
-$list=@()
-$ClassicList=@()
-foreach ($app in $RestResult.value)
-  {
-    #"processing: " + $app.properties.WorkspaceResourceId  ##  Classic Application Insights do not have a workspace.
-    if ($app.properties.WorkspaceResourceId)
-      {
-        $Obj = New-Object -TypeName PSObject
-        #$app.properties.WorkspaceResourceId
-        $Obj | Add-Member -Type NoteProperty -Name Name  -Value $app.name
-        $Obj | Add-Member -Type NoteProperty -Name WorkspaceResourceId  -Value $app.properties.WorkspaceResourceId
-        $list += $Obj
-      }
-     else
-      {
-        $Obj = New-Object -TypeName PSObject
-        $app.properties.WorkspaceResourceId
-        $Obj | Add-Member -Type NoteProperty -Name Name  -Value $app.name
-        $ClassicList += $Obj
- 
-      }
-  }
-$list |Format-Table -Property Name, WorkspaceResourceId -Wrap
+```azurecli
 
-"";"Classic:"
-$ClassicList | FT
+Get-AzApplicationInsights -SubscriptionId '7faeaa41-541f-48da-82b4-3dc10c594b85' | Format-Table -Property Name, IngestionMode, WorkspaceResourceId, @{label='Type';expression={if ($_.ingestionMode -eq 'LogAnalytics') {'Workspace-based'} elseif ($_.IngestionMode -eq 'ApplicatonInsights') {'Classic'}}}
+
 ```
-
 
 ## Programmatic resource migration
 
