@@ -30,7 +30,7 @@ When you first configure automatic provisioning, the **Current Status** section 
 
 After a provisioning cycle is complete, the **Statistics to date** section shows the cumulative numbers of users and groups that have been provisioned to date, along with the completion date and duration of the last cycle. The **Activity ID** uniquely identifies the most recent provisioning cycle. The **Job ID** is a unique identifier for the provisioning job, and is specific to the app in your tenant.
 
-The provisioning progress is viewed in the Microsoft Entra admin center at **Identity** > **Applications** > **Enterprise applications** > *application name* > **Provisioning**.
+The provisioning progress is viewed in the Microsoft Entra admin center at **Identity** > **Applications** > **Enterprise applications** > \[*application name*\] > **Provisioning**.
 
 ![Provisioning page progress bar](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
