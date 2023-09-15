@@ -45,6 +45,8 @@ To run existing tests with Microsoft Playwright Testing requires no changes to y
 
 After a test run completes, Playwright sends the test run metadata to the service. The test results, trace files, and other test run files are available on the client machine. 
 
+Learn more about how to [determine the optimal configuration for optimizing test suite completion](./concept-determine-optimal-configuration.md).
+
 ## In-region data residency & data at rest
 
 Microsoft Playwright Testing doesn't store or process customer data outside the region you deploy the workspace in. When you use the regional affinity feature, the metadata is transferred from the cloud hosted browser region to the workspace region in a secure and compliant manner.

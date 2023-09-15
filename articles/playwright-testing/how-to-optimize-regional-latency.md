@@ -35,5 +35,6 @@ You can configure the region affinity setting on the workspace in the Azure port
 
 ## Related content
 
+- Learn more about how to [determine the optimal configuration for optimizing test suite completion](./concept-determine-optimal-configuration.md).
 - [Manage a Microsoft Playwright Testing workspace](./how-to-manage-playwright-workspace.md)
 - [Understand how Microsoft Playwright Testing works](./overview-what-is-microsoft-playwright-testing.md#how-it-works)
