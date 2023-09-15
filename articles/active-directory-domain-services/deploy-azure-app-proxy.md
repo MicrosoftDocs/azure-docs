@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
@@ -49,8 +49,8 @@ To create a VM for the Azure AD Application Proxy connector, complete the follow
 
 Perform the following steps to download the Azure AD Application Proxy connector. The setup file you download is copied to your App Proxy VM in the next section.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a user account that has *Enterprise administrator* permissions in Azure AD.
-1. Search for and select **Azure Active Directory** at the top of the portal, then choose **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Enterprise Administrator](../active-directory/roles/permissions-reference.md#enterprise-administrator).
+1. Search for and select **Enterprise applications**.
 1. Select **Application proxy** from the menu on the left-hand side. To create your first connector and enable App Proxy, select the link to **download a connector**.
 1. On the download page, accept the license terms and privacy agreement, then select **Accept terms & Download**.
 
@@ -58,7 +58,7 @@ Perform the following steps to download the Azure AD Application Proxy connector
 
 ## Install and register the Azure AD Application Proxy connector
 
-With a VM ready to be used as the Azure AD Application Proxy connector, now copy and run the setup file downloaded from the Azure portal.
+With a VM ready to be used as the Azure AD Application Proxy connector, now copy and run the setup file downloaded from the Microsoft Entra admin center.
 
 1. Copy the Azure AD Application Proxy connector setup file to your VM.
 1. Run the setup file, such as *AADApplicationProxyConnectorInstaller.exe*. Accept the software license terms.
@@ -73,9 +73,9 @@ With a VM ready to be used as the Azure AD Application Proxy connector, now copy
    * If Internet Explorer Enhanced Security Configuration is turned on for the VM where you install the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message, or turn off Internet Explorer Enhanced Security during the install process.
    * If connector registration fails, see [Troubleshoot Application Proxy](../active-directory/app-proxy/application-proxy-troubleshoot.md).
 1. At the end of the setup, a note is shown for environments with an outbound proxy. To configure the Azure AD Application Proxy connector to work through the outbound proxy, run the provided script, such as `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
-1. On the Application proxy page in the Azure portal, the new connector is listed with a status of *Active*, as shown in the following example:
+1. On the Application proxy page in the Microsoft Entra admin center, the new connector is listed with a status of *Active*, as shown in the following example:
 
-    ![The new Azure AD Application Proxy connector shown as active in the Azure portal](./media/app-proxy/connected-app-proxy.png)
+    ![The new Azure AD Application Proxy connector shown as active in the Microsoft Entra admin center](./media/app-proxy/connected-app-proxy.png)
 
 > [!NOTE]
 > To provide high availability for applications authenticating through the Azure AD Application Proxy, you can install connectors on multiple VMs. Repeat the same steps listed in the previous section to install the connector on other servers joined to the managed domain.
