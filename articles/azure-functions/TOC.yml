@@ -545,6 +545,8 @@
           href: migrate-version-3-version-4.md
         - name: Migrate v1.x to v4.x
           href: migrate-version-1-version-4.md
+        - name: Update Java versions
+          href: update-java-versions.md  
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
