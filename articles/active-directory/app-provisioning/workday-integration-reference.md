@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/01/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
 ---
@@ -87,7 +87,7 @@ To test connectivity to Workday, Azure AD sends the following *Get_Workers* Work
 
 ## How full sync works
 
-**Full sync** in the context of Workday-driven provisioning refers to the process of fetching all identities from Workday and determining what provisioning rules to apply to each worker object. Full sync happens when you turn on provisioning for the first time and also when you *restart provisioning* either from the Azure portal or using Graph APIs. 
+**Full sync** in the context of Workday-driven provisioning refers to the process of fetching all identities from Workday and determining what provisioning rules to apply to each worker object. Full sync happens when you turn on provisioning for the first time and also when you *restart provisioning* either from the Microsoft Entra admin center or using Graph APIs. 
 
 Azure AD sends the following *Get_Workers* Workday Web Services request to retrieve worker data. The query looks up the Workday transaction log for all effective dated worker entries as of the time corresponding to the full sync run. 
 
@@ -419,7 +419,7 @@ Let's say you want to retrieve the following data sets from Workday and use them
 
 The above data sets aren't included by default. 
 To retrieve these data sets:
-1. Sign in to the [Azure portal](https://portal.azure.com) and open your Workday to AD/Azure AD user provisioning app. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and open your Workday to AD/Azure AD user provisioning app. 
 1. In the Provisioning blade, edit the mappings and open the Workday attribute list from the advanced section. 
 1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in AD or Azure AD. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
 
