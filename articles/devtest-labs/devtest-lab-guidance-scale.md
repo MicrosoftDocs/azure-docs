@@ -11,7 +11,7 @@ ms.custom: UpdateFrequency2
 
 # Scale up your Azure DevTest Labs infrastructure
 
-Orchestrating a successful of DevTest Labs at enterprise scale requires consideration of key decision points, and planning an approach for rapid deployment and implementation of Azure DevTest Labs.
+Orchestrating a successful implementation of DevTest Labs at enterprise scale requires consideration of key decision points, and planning an approach for rapid deployment and implementation of Azure DevTest Labs.
 
 This article describes the key decision points you should consider when planning your implementation, and provides a recommended approach for deployment.
 
@@ -81,7 +81,7 @@ The first area of focus when deploying an Azure DevTest Labs solution is to esta
 1. Define **initial IP address ranges** that are assigned to the DevTest Labs subscription in Azure. This step requires forecasting the expected usage in number of VMs so that you can provide a large enough block for future expansion.
 2. Identify **methods of desired access** into the DevTest Labs (for example, external / internal access). A key point in this step is to determine whether virtual machines have public IP addresses (that is, accessible from the internet directly).
 3. Identify and establish **methods of connectivity** with the rest of the Azure cloud environment and on-premises. If the forced routing with Express Route is enabled, it’s likely that the virtual machines need appropriate proxy configurations to traverse the corporate firewall.
-4. If VMs are to be **domain joined**, determine whether they join a cloud-based domain (AAD Directory Services for example) or an on-premises domain. For on-premises, determine which organizational unit (OU) within active directory that the virtual machines joins. In addition, confirm that users have access to join (or establish a service account that has the ability to create machine records in the domain)
+4. If VMs are to be **domain joined**, determine whether they join a cloud-based domain (Entra Directory Services for example) or an on-premises domain. For on-premises, determine which organizational unit (OU) within active directory that the virtual machines join. In addition, confirm that users have access to join (or establish a service account that has the ability to create machine records in the domain)
 
 ### Milestone 2: Deploy the pilot lab
 Once the network topology is in place, the first/pilot lab can be created by taking the following the steps:
@@ -99,7 +99,7 @@ The initial pilot teams may require in-depth support for getting started. Use th
 
 1. Introduce the pilot teams to their new DevTest Labs resources (demos, documentation)
 2. Based on pilot teams' experiences, plan and deliver documentation as needed
-3. Formalize process for onboarding new teams (creating and configuring labs, providing access, etc)
+3. Formalize process for onboarding new teams (creating and configuring labs, providing access, etc.)
 4. Based on initial uptake, verify original forecast of IP address space is still reasonable and accurate
 5. Ensure appropriate compliance and security reviews have been completed
 
