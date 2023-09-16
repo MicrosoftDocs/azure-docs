@@ -140,7 +140,7 @@ If users who will access the applications originate in on-premises Active Direct
 
    ![Azure Active Directory Connect wizard Additional tasks page](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
 
-2. Sign in as a [Global Administrator]((../roles/permissions-reference.md#global-administrator)).
+2. Sign in as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 
 3. On the **Optional Features** page, select **Directory extension attribute sync**.
 

@@ -105,11 +105,11 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > 
 > The line that contains `.AddMicrosoftIdentityWebApi` adds the Microsoft identity platform authorization to your web API. It's then configured to validate access tokens issued by the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 > 
-> | > | *appsettings.json* key | Description |
-> |--|--|--|
-> | > | `ClientId` | Application (client) ID of the application registered. |
-> | > | `Instance` | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
-> | > | `TenantId` | Name of your tenant or its tenant ID (a GUID), or `common` to sign in users with work or school accounts or Microsoft personal accounts. |                         |
+> | *appsettings.json* key | Description |
+> |--|--|
+> | `ClientId` | Application (client) ID of the application registered. |
+> | `Instance` | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
+> | `TenantId` | Name of your tenant or its tenant ID (a GUID), or `common` to sign in users with work or school accounts or Microsoft personal accounts. |                         |
 > 
 > The `Configure()` method contains two important methods, `app.UseAuthentication()` and `app.UseAuthorization()`, that enable their named functionality:
 > 
