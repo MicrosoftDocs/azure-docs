@@ -24,7 +24,7 @@ ms.reviewer: chmutali
 This article explains how the integration works and how you can customize the provisioning behavior for different HR scenarios. 
 
 ## Establishing connectivity 
-Azure AD provisioning service uses basic authentication to connect to Employee Central OData API endpoints. When setting up the SuccessFactors provisioning app, use the *Tenant URL* parameter in the *Admin Credentials* section to configure the [API data center URL](https://apps.support.sap.com/sap/support/knowledge/en/2215682). 
+Azure AD provisioning service uses basic authentication to connect to Employee Central OData API endpoints. When setting up the SuccessFactors provisioning app, use the *Tenant URL* parameter in the *Admin Credentials* section to configure the API data center URL. 
 
 To further secure the connectivity between Azure AD provisioning service and SuccessFactors, add the Azure AD IP ranges in the SuccessFactors IP allowlist:
 
