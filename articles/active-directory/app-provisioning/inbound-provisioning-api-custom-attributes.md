@@ -29,7 +29,7 @@ You have configured API-driven provisioning app. You're provisioning app is succ
 In this step, we'll add the two attributes "HireDate" and "JobCode" that are not part of the standard SCIM schema to the provisioning app and use them in the provisioning data flow.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823).
-1. Browse to **Applications** > **Enterprise applications** 
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. Open your API-driven provisioning app. 
 1. Open the **Provisioning** blade. 
 1. Click on the **Edit Provisioning** button. 

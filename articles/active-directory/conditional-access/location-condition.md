@@ -108,7 +108,7 @@ Some IP addresses don't map to a specific country or region. To capture these IP
 
 ## Define locations
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Protection** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.
