@@ -57,7 +57,8 @@ $location = "<location>"
 New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
-    -SkuName Standard_LRS
+    -SkuName Standard_LRS `
+    -AllowBlobPublicAccess $false `
     -AllowCrossTenantReplication $false
 
 # Read the property for the new storage account
@@ -74,7 +75,8 @@ az storage account create \
     --name <storage-account> \
     --resource-group <resource-group> \
     --location <location> \
-    --sku Standard_LRS
+    --sku Standard_LRS \
+    --allow-blob-public-access false \
     --allow-cross-tenant-replication false
 
 # Read the property for the new storage account

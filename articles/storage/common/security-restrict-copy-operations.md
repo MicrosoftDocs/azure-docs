@@ -181,5 +181,5 @@ az storage account update \
 ## Next steps
 
 - [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md)
-- [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](../blobs/anonymous-read-access-prevent.md)
+- [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](../blobs/anonymous-read-access-prevent.md)
 - [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md)

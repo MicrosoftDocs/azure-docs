@@ -69,7 +69,8 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind BlobStorage `
-  -AccessTier Hot
+  -AccessTier Hot `
+  -AllowBlobPublicAccess $false  
 
 $ctx = $storageAccount.Context
 ```

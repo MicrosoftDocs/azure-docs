@@ -87,13 +87,13 @@ If you must use keys to access your storage resources, we recommend the followin
 > [!NOTE]
 > If you believe a storage account key has been shared or distributed by mistake, you can generate new keys for your storage account from the Azure portal.
 
-### Public access to blob containers
+### anonymous access to blob containers
 
 Storage Explorer allows you to modify the access level of your Azure Blob Storage containers. Non-private blob containers allow anyone anonymous read access to data in those containers.
 
-When enabling public access for a blob container, we recommend the following guidelines:
+When enabling anonymous access for a blob container, we recommend the following guidelines:
 
-- **Don't enable public access to a blob container that may contain any potentially sensitive data.** Make sure your blob container is free of all private data.
+- **Don't enable anonymous access to a blob container that may contain any potentially sensitive data.** Make sure your blob container is free of all private data.
 - **Don't upload any potentially sensitive data to a blob container with Blob or Container access.**
 
 ## Next steps
