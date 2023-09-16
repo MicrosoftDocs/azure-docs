@@ -45,7 +45,7 @@ The following sections outline how to create extension attributes for a tenant w
 ## Create an extension attribute in a tenant with cloud only users
 You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD.  This is necessary if you have any users who need that attribute and do not originate in on-premises Active Directory. (If you do have Active Directory, then continue reading below in the section on how to [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect).)
 
-Once schema extensions are created, these extension attributes are automatically discovered when you next visit the provisioning page in the Azure portal, in most cases.
+Once schema extensions are created, these extension attributes are automatically discovered when you next visit the provisioning page in most cases.
 
 When you've more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
@@ -118,21 +118,17 @@ Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandP
 ## Create an extension attribute using cloud sync
 Cloud sync will automatically discover your extensions in on-premises Active Directory when you go to add a new mapping.  Use the steps below to auto-discover these attributes and set up a corresponding mapping to Azure AD.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a hybrid administrator account.
-2. Select Azure AD Connect.
-3. Select **Manage Azure AD cloud sync**.
-4. Select the configuration you wish to add the extension attribute and mapping.
-5. Under **Manage attributes** select **click to edit mappings**.
-6. Click **Add attribute mapping**.  The attributes will automatically be discovered.
-7. The new attributes will be available in the drop-down under **source attribute**.
-8. Fill in the type of mapping you want and click **Apply**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
+1. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Cloud Sync**.
+1. Select the configuration you wish to add the extension attribute and mapping.
+1. Under **Manage attributes** select **click to edit mappings**.
+1. Click **Add attribute mapping**.  The attributes will automatically be discovered.
+1. The new attributes will be available in the drop-down under **source attribute**.
+1. Fill in the type of mapping you want and click **Apply**.
+
    [![Custom attribute mapping](media/user-provisioning-sync-attributes-for-mapping/schema-1.png)](media/user-provisioning-sync-attributes-for-mapping/schema-1.png#lightbox)
 
 For more information, see [Cloud Sync Custom Attribute Mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
-
-
-
-
 
 ## Create an extension attribute using Azure AD Connect
 
@@ -144,7 +140,7 @@ If users who will access the applications originate in on-premises Active Direct
 
    ![Azure Active Directory Connect wizard Additional tasks page](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
 
-2. Sign in as an Azure AD Global Administrator.
+2. Sign in as a [Global Administrator]((../roles/permissions-reference.md#global-administrator)).
 
 3. On the **Optional Features** page, select **Directory extension attribute sync**.
 
@@ -158,7 +154,7 @@ If users who will access the applications originate in on-premises Active Direct
 
 5. Finish the Azure AD Connect wizard and allow a full synchronization cycle to run. When the cycle is complete, the schema is extended and the new values are synchronized between your on-premises AD and Azure AD.
 
-6. In the Azure portal, while you’re [editing user attribute mappings](customize-application-attributes.md), the **Source attribute** list will now contain the added attribute in the format `<attributename> (extension_<appID>_<attributename>)`, where appID is the identifier of a placeholder application in your tenant. Select the attribute and map it to the target application for provisioning.
+6. In the Microsoft Entra admin center, while you’re [editing user attribute mappings](customize-application-attributes.md), the **Source attribute** list will now contain the added attribute in the format `<attributename> (extension_<appID>_<attributename>)`, where appID is the identifier of a placeholder application in your tenant. Select the attribute and map it to the target application for provisioning.
 
    ![Azure Active Directory Connect wizard Directory extensions selection page](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 

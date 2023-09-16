@@ -13,7 +13,6 @@ ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
-
 # On-demand provisioning in Azure Active Directory
 
 Use on-demand provisioning to provision a user or group in seconds. Among other things, you can use this capability to:
@@ -26,31 +25,32 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
 ::: zone pivot="app-provisioning"
-2. Go to **Azure Active Directory** > **Enterprise applications** > **All applications**.
-
-3. Select your application, and then go to the provisioning configuration page.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select your application.
+1. Select **Provisioning**.
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-2. Go to **Azure Active Directory** > **Cross-tenant Synchronization** > **Configurations**
+1. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
 
-3. Select your configuration, and then go to the **Provisioning** configuration page.
+1. Select your configuration, and then go to the **Provisioning** configuration page.
 ::: zone-end
 
-4. Configure provisioning by providing your admin credentials.
+1. Configure provisioning by providing your admin credentials.
 
-5. Select **Provision on demand**.
+1. Select **Provision on demand**.
 
-6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
+1. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
+
    > [!NOTE]
    > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
    > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
    > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
  
-7. Select **Provision** at the bottom of the page.
+1. Select **Provision** at the bottom of the page.
 
     :::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
 
@@ -78,7 +78,6 @@ Next, the provisioning service retrieves the user from the source system. The us
 * Determine what user attributes to export to the target system.
 
 #### View details
-
 
 The **View details** section shows the properties of the user that were imported from the source system (for example, Azure AD).
 
