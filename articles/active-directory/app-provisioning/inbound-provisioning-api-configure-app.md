@@ -36,7 +36,7 @@ If you're configuring inbound user provisioning to on-premises Active Directory,
 ## Create your API-driven provisioning app
 
 1. Log in to the [Microsoft Entra admin center](<https://entra.microsoft.com>) as at least an [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823).
-2. Browse to **Azure Active Directory** > **Applications** > **Enterprise applications**.
+2. Browse to **Identity** > **Applications** > **Enterprise applications**.
 3. Click on **New application** to create a new provisioning application. 
      [![Screenshot of Entra Admin Center.](media/inbound-provisioning-api-configure-app/provisioning-entra-admin-center.png)](media/inbound-provisioning-api-configure-app/provisioning-entra-admin-center.png#lightbox)
 4. Enter **API-driven** in the search field, then select the application for your setup:

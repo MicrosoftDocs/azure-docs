@@ -45,7 +45,7 @@ The summary widget provides a detailed look at sign-ins related to multifactor a
 * **Number of sign-ins not protected by multi-factor authentication requirement by location:** This widget shows the sign-ins counts that are not protected by MFA requirement in map bubble chart on the world map. 
 
 ## How to import the workbook
-1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**.
+1. Navigate to **Identity** > **Monitoring & health** > **Workbooks**.
 1. Select **+ New**.
 1. Select the **Advanced Editor** button from the top of the page. A JSON editor opens.
     ![Screenshot of the Advanced Editor button on the new workbook page.](./media/workbook-mfa-gaps/advanced-editor-button.png)

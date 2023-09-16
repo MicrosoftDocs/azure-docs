@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how Conditional Access works.
 
-Consider migrating the policies you haven't created in the Azure portal because:
+Consider migrating these older policies because:
 
 - You can now address scenarios you couldn't handle before.
 - You can reduce the number of policies you have to manage by consolidating them.
@@ -31,7 +31,7 @@ This article explains what you need to know to migrate your existing Conditional
 
 ## Classic policies
 
-In the [Azure portal](https://portal.azure.com), Conditional Access policies can be found under **Azure Active Directory** > **Security** > **Conditional Access**. Your organization might also have older Conditional Access policies not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you've created in:
+In the [Microsoft Entra admin center](https://entra.microsoft.com), Conditional Access policies can be found under **Protection** > **Conditional Access**. Your organization might also have older Conditional Access policies not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you've created in:
 
 - The Azure classic portal
 - The Intune classic portal

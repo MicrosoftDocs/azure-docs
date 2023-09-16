@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) provides a central place to manage device iden
 You can access the devices overview by completing these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
-1. Go to **Azure Active Directory** > **Devices**.
+1. Go to **Identity** > **Devices** > **Overview**.
 
 In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. 
 

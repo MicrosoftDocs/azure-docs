@@ -67,7 +67,7 @@ To block a user, complete the following steps.
 
 [Watch a short video that describes this process.](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be)
 
-1. Browse to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Block/unblock users**.
+1. Browse to **Protection** > **Multifactor authentication** > **Block/unblock users**.
 1. Select **Add** to block a user.
 1. Enter the user name for the blocked user in the format `username@domain.com`, and then provide a comment in the **Reason** box.
 1. Select **OK** to block the user.
@@ -76,7 +76,7 @@ To block a user, complete the following steps.
 
 To unblock a user, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Block/unblock users**.
+1. Go to **Protection** > **Multifactor authentication** > **Block/unblock users**.
 1. In the **Action** column next to the user, select **Unblock**.
 1. Enter a comment in the **Reason for unblocking** box.
 1. Select **OK** to unblock the user.
@@ -103,11 +103,11 @@ To enable **Report suspicious activity** from the Authentication methods **Setti
 
 When a user reports a MFA prompt as suspicious, the event shows up in the Sign-ins report (as a sign-in that was rejected by the user), in the Audit logs, and in the Risk detections report.   
 
-- To view the risk detections report, select **Azure Active Directory** > **Security** > **Identity Protection** > **Risk detection**.  The risk event is part of the standard **Risk Detections** report, and will appear as Detection Type **User Reported Suspicious Activity**, Risk level **High**, Source **End user reported**. 
+- To view the risk detections report, select **Protection** > **Identity Protection** > **Risk detection**.  The risk event is part of the standard **Risk Detections** report, and will appear as Detection Type **User Reported Suspicious Activity**, Risk level **High**, Source **End user reported**. 
 
-- To view fraud reports in the Sign-ins report, select **Azure Active Directory** > **Sign-in logs** > **Authentication Details**. The fraud report is part of the standard **Azure AD Sign-ins** report and appears in the Result Detail as MFA denied, Fraud Code Entered. 
+- To view fraud reports in the Sign-ins report, select **Identity** > **Monitoring & health** > **Sign-in logs** > **Authentication Details**. The fraud report is part of the standard **Azure AD Sign-ins** report and appears in the Result Detail as MFA denied, Fraud Code Entered. 
 
-- To view fraud reports in the Audit logs, select **Azure Active Directory** > **Audit logs**. The fraud report appears under Activity type Fraud reported - user is blocked for MFA or Fraud reported - no action taken based on the tenant-level settings for fraud report.  
+- To view fraud reports in the Audit logs, select **Identity** > **Monitoring & health** > **Audit logs**. The fraud report appears under Activity type Fraud reported - user is blocked for MFA or Fraud reported - no action taken based on the tenant-level settings for fraud report.  
 
 ### Manage suspicious activity events 
 
@@ -127,7 +127,7 @@ You can configure Azure AD to send email notifications when users report fraud a
 
 To configure fraud alert notifications:
 
-1. Go to **Azure Active Directory** > **Security** > **Multi-Factor Authentication** > **Notifications**.
+1. Go to **Protection** > **Multi-Factor Authentication** > **Notifications**.
 1. Enter the email address to send the notification to.
 1. To remove an existing email address, select **...** next to the email address, and then select **Delete**.
 1. Select **Save**.
@@ -211,7 +211,7 @@ The following table lists more numbers for different countries.
 
 To configure your own caller ID number, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Phone call settings**.
+1. Go to **Protection** > **Multifactor authentication** > **Phone call settings**.
 1. Set the **MFA caller ID number** to the number you want users to see on their phones. Only US-based numbers are allowed.
 1. Select **Save**.
 
@@ -272,7 +272,7 @@ You can use the following sample scripts to create your own custom messages. The
 
 To use your own custom messages, complete the following steps:
 
-1. Go to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Phone call settings**.
+1. Go to **Protection** > **Multifactor authentication** > **Phone call settings**.
 1. Select **Add greeting**.
 1. Choose the **Type** of greeting, such as **Greeting (standard)** or  **Authentication successful**.
 1. Select the **Language**. See the previous section on [custom message language behavior](#custom-message-language-behavior).

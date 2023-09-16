@@ -55,11 +55,12 @@ To register your application and add the app's registration information to your 
 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
 1. Edit *.env* and replace the values of the fields `TENANT_ID`, `CLIENT_ID`, and `CLIENT_SECRET` with the following snippet:
 
-  ```
-  "TENANT_ID": "Enter_the_Tenant_Id_Here",
+   ```
+   "TENANT_ID": "Enter_the_Tenant_Id_Here",
    "CLIENT_ID": "Enter_the_Application_Id_Here",
    "CLIENT_SECRET": "Enter_the_Client_Secret_Here"
    ```
+
    Where:
    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** of the application you registered earlier. Find this ID on the app registration's **Overview**.
    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com).  Find these values on the app registration's **Overview**.
