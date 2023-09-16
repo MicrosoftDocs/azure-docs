@@ -41,10 +41,10 @@ You want to automatically provision user information from an HCM system to Azure
 
 ## Implement SCIM with Azure AD 
 
-* [How provisioning works in Azure AD ](../app-provisioning/how-provisioning-works.md)
+* [How provisioning works in Azure AD](../app-provisioning/how-provisioning-works.md)
 
-* [Managing user account provisioning for enterprise apps in the Azure portal ](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for enterprise apps in the Azure portal](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
-* [Build a SCIM endpoint and configure user provisioning with Azure AD  ](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 * [SCIM 2.0 protocol compliance of the Azure AD Provisioning Service](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)

@@ -3,15 +3,15 @@ title: Plan a Privileged Identity Management deployment
 description: Learn how to deploy Privileged Identity Management (PIM) in your Azure AD organization.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 2/3/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -61,7 +61,7 @@ You can assign the following to these roles or groups:
 
 * **Users**- To get just-in-time access to Azure AD roles, Azure roles, and PIM for Groups. 
 
-* **Groups**- Anyone in a group to get just-in-time access to Azure AD roles and Azure roles. For Azure AD roles, the group must be a newly created cloud group that’s marked as assignable to a role while for Azure roles, the group can be any Azure AD security group. We do not recommend assigning/nesting a group to a PIM for Groups. 
+* **Groups**- Anyone in a group to get just-in-time access to Azure AD roles and Azure roles. For Azure AD roles, the group must be a newly created cloud group that’s marked as assignable to a role while for Azure roles, the group can be any Azure AD security group. We don't recommend assigning/nesting a group to a PIM for Groups. 
 
 > [!NOTE] 
 >You cannot assign service principals as eligible to Azure AD roles, Azure roles, and PIM for Groups but you can grant a time limited active assignment to all three.
@@ -107,7 +107,7 @@ At each stage of your deployment ensure that you are evaluating that the results
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
+Communication is critical to the success of any new service. Proactively communicate with your users how their experience changes, when it changes, and how to gain support if they experience issues.
 
 Set up time with your internal IT support to walk them through the PIM workflow. Provide them with the appropriate documentations and your contact information.
 
@@ -126,7 +126,7 @@ The following table shows an example test case:
 | --- | --- | --- |
 |Global Administrator| <li> Require MFA <br><li>  Require Approval <br><li>  Approver receives notification and can approve <br><li>  Role expires after preset time|
 
-For both Azure AD and Azure resource role, make sure that you’ve users represented who will take those roles. In addition, consider the following roles when you test PIM in your staged environment:
+For both Azure AD and Azure resource role, make sure that you have users represented who will take those roles. In addition, consider the following roles when you test PIM in your staged environment:
 
 | Roles| Azure AD roles| Azure Resource roles| PIM for Groups |
 | --- | --- | --- |--- |
@@ -194,11 +194,11 @@ A delegated approver receives an email notification when a request is pending fo
 
 [View audit history for all role assignments and activations](pim-how-to-use-audit-log.md) within past 30 days for Azure AD roles. You can access the audit logs if you are a Global Administrator or a privileged role administrator. 
 
-**We recommend** you’ve at least one administrator read through all audit events on a weekly basis and export your audit events on a monthly basis.
+**We recommend** you have at least one administrator read through all audit events on a weekly basis and export your audit events on a monthly basis.
 
 ### Security alerts for Azure AD roles
 
-[Configure security alerts for the Azure AD roles](pim-how-to-configure-security-alerts.md) which will trigger an alert in case of suspicious and unsafe activity.
+[Configure security alerts for the Azure AD roles](pim-how-to-configure-security-alerts.md) which triggers an alert in case of suspicious and unsafe activity.
 
 ## Plan and implement PIM for Azure Resource roles
 
@@ -262,7 +262,7 @@ When these important events occur in Azure resource roles, PIM sends [email noti
 
 ### Security alerts for Azure Resource roles
 
-[Configure security alerts for the Azure resource roles](pim-resource-roles-configure-alerts.md) which will trigger an alert in case of any suspicious and unsafe activity.
+[Configure security alerts for the Azure resource roles](pim-resource-roles-configure-alerts.md) which triggers an alert in case of any suspicious and unsafe activity.
 
 ## Plan and implement PIM for PIM for Groups
 
@@ -270,7 +270,7 @@ Follow these tasks to prepare PIM to manage PIM for Groups.
 
 ### Discover PIM for Groups
 
-It may be the case that an individual has five or six eligible assignments to Azure AD roles through PIM. They will have to activate each role individually, which can reduce productivity. Worse still, they can also have tens or hundreds of Azure resources assigned to them, which aggravates the problem.
+It may be the case that an individual has five or six eligible assignments to Azure AD roles through PIM. They have to activate each role individually, which can reduce productivity. Worse still, they can also have tens or hundreds of Azure resources assigned to them, which aggravates the problem.
 
 In this case, you should use PIM for Groups. Create a PIM for Groups and grant it permanent active access to multiple roles. See [Privileged Identity Management (PIM) for Groups (preview)](concept-pim-for-groups.md).
 
@@ -284,8 +284,8 @@ The following table shows example settings:
 
 | Role| Require MFA| Notification| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration |
 | --- | --- | --- |--- |--- |--- |--- |---|---|
-| Owner| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other owners of the resource| 1 Hour| None| n/a| 3 months |
-| Member| :heavy_check_mark:| :heavy_check_mark:| :x:| None| 5 Hour| None| n/a| 3 months |
+| Owner| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other owners of the resource| One Hour| None| n/a| Three months |
+| Member| :heavy_check_mark:| :heavy_check_mark:| :x:| None| Five Hours| None| n/a| 3 months |
 
 ### Assign eligibility for PIM for Groups
 
@@ -297,7 +297,7 @@ You can [assign eligibility to members or owners of the PIM for Groups.](groups-
 ![Diagram of assign eligibility for PIM for Groups.](media/pim-deployment-plan/pim-for-groups.png)
 
 
-When group assignment nears its expiration, use [PIM to extend or renew the group assignment](groups-renew-extend.md). You’ll require an approval from the group owner.
+When group assignment nears its expiration, use [PIM to extend or renew the group assignment](groups-renew-extend.md). This operation requires group owner approval.
 
 ### Approve or deny PIM activation request
 

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -45,11 +45,11 @@ If your MFA provider isn't linked to an Azure AD tenant, or you link the new MFA
 > [!CAUTION]
 > There is no confirmation when deleting an authentication provider. Selecting **Delete** is a permanent process.
 
-Authentication providers can be found in the **Azure portal** > **Azure Active Directory** > **Security** > **MFA** > **Providers**. Click on listed providers to see details and configurations associated with that provider.
+Authentication providers can be found in the [Microsoft Entra admin center](https://entra.microsoft.com). Sign in as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator). Browse to **Protection** > **Multifactor authentication** > **Providers**. Click the listed providers to see details and configurations associated with that provider.
 
 Before removing an authentication provider, take note of any customized settings configured in your provider. Decide what settings need to be migrated to general MFA settings from your provider and complete the migration of those settings. 
 
-Azure MFA Servers linked to providers will need to be reactivated using credentials generated under **Azure portal** > **Azure Active Directory** > **Security** > **MFA** > **Server settings**. Before reactivating, the following files must be deleted from the `\Program Files\Multi-Factor Authentication Server\Data\` directory on Azure MFA Servers in your environment:
+Azure MFA Servers linked to providers will need to be reactivated using credentials generated under **Server settings**. Before reactivating, the following files must be deleted from the `\Program Files\Multi-Factor Authentication Server\Data\` directory on Azure MFA Servers in your environment:
 
 - caCert
 - cert
@@ -59,9 +59,9 @@ Azure MFA Servers linked to providers will need to be reactivated using credenti
 - licenseKey
 - pkey
 
-![Delete an auth provider from the Azure portal](./media/concept-mfa-authprovider/authentication-provider-removal.png)
+![Delete an authentication provider](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-After you confirm that all settings are migrated, you can browse to the **Azure portal** > **Azure Active Directory** > **Security** > **MFA** > **Providers** and select the ellipses **...** and select **Delete**.
+After you confirm that all settings are migrated, browse to **Providers** and select the ellipses **...** and select **Delete**.
 
 > [!WARNING]
 > Deleting an authentication provider will delete any reporting information associated with that provider. You may want to save activity reports before deleting your provider.

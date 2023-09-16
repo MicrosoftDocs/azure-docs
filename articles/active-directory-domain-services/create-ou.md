@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
@@ -62,7 +62,7 @@ To create a custom OU, you use the Active Directory Administrative Tools from a 
 > [!NOTE]
 > To create a custom OU in a managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
 
-1. Sign in to your management VM. For steps on how to connect using the Azure portal, see [Connect to a Windows Server VM][connect-windows-server-vm].
+1. Sign in to your management VM. For steps on how to connect using the Microsoft Entra admin center, see [Connect to a Windows Server VM][connect-windows-server-vm].
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To create and manage OUs, select **Active Directory Administrative Center** from the list of administrative tools.
 1. In the left pane, choose your managed domain, such as *aaddscontoso.com*. A list of existing OUs and resources is shown:
