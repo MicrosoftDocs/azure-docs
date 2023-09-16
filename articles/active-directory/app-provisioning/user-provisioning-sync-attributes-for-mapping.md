@@ -20,21 +20,21 @@ Azure Active Directory (Azure AD) must contain all the data (attributes) require
 
 ## Determine where the extensions need to be added
 
-Adding missing attributes needed for an application will start in either on-premises Active Directory or in Azure AD, depending on where the user accounts reside.
+Adding missing attributes needed for an application starts in either on-premises Active Directory or in Azure AD, depending on where the user accounts reside.
 
-First, identify which users in your Azure AD tenant will need access to the application and therefore are going to be in scope of being provisioned into the application.
+First, identify which users in your Azure AD tenant who need access to the application and therefore are going to be in scope of being provisioned into the application.
 
 >[!NOTE]
 > For users in on-premises Active Directory, you must sync the users to Azure AD. You can sync users and attributes using [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) or [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md). Both of these solutions automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as SAMAccountName) that are synchronized by default might not be exposed using the Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect) or [use Azure AD Connect cloud sync](#create-an-extension-attribute-using-cloud-sync). That way, the attribute will be visible to the Graph API and the Azure AD provisioning service.
 
-  1. Check with the on-premises Active Directory domain admins whether the required attributes are part of the AD DS schema, and if they are not, extend the AD DS schema in the domains where those users have accounts.
-  1. Configure [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) or Azure AD Connect cloud sync to synchronize the users with their extension attribute from Active Directory to Azure AD.   Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as `sAMAccountName`) that are synchronized by default might not be exposed using the Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect). That way, the attribute will be visible to the Graph API and the Azure AD provisioning service.
-  1. If the users in on-premises Active Directory do not already have the required attributes, you will need to update the users in Active Directory.  This can be done either by reading the properties from [Workday](../saas-apps/workday-inbound-tutorial.md), from [SAP SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md), or if you are using a different HR system, using Microsoft Identity Manager (MIM).
+  1. Check with the on-premises Active Directory domain admins whether the required attributes are part of the AD DS schema, and if they aren't, extend the AD DS schema in the domains where those users have accounts.
+  1. Configure [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) or Azure AD Connect cloud sync to synchronize the users with their extension attribute from Active Directory to Azure AD.   Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as `sAMAccountName`) that are synchronized by default might not be exposed using the Graph API. In these cases, you can [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect). That way, the attribute is visible to the Graph API and the Azure AD provisioning service.
+  1. If the users in on-premises Active Directory don't already have the required attributes, you need to update the users in Active Directory.  This can be done either by reading the properties from [Workday](../saas-apps/workday-inbound-tutorial.md), from [SAP SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md), or if you're using a different HR system, using Microsoft Identity Manager (MIM).
   1. Wait for Azure AD Connect to synchronize those updates you made in the Active Directory schema and the Active Directory users into Azure AD.
 
-Alternatively, if none of the users that will need access to the application originate in on-premises Active Directory, then you will need to [create schema extensions using PowerShell or Microsoft Graph](#create-an-extension-attribute-in-a-tenant-with-cloud-only-users) in Azure AD, before configuring provisioning to your application.
+Alternatively, if none of the users that need access to the application originate in on-premises Active Directory, then you need to [create schema extensions using PowerShell or Microsoft Graph](#create-an-extension-attribute-in-a-tenant-with-cloud-only-users) in Azure AD, before configuring provisioning to your application.
 
-Next, if one or more of the users that will need access to the application do not originate in on-premises Active Directory, then you will need to populate those cloud users in Azure AD with the required attribute, before enabling provisioning to your application.  There are four ways to populate the users in bulk:
+Next, if one or more of the users that need access to the application don't originate in on-premises Active Directory, then you need to populate those cloud users in Azure AD with the required attribute, before enabling provisioning to your application.  There are four ways to populate the users in bulk:
   - If the properties originate in a cloud HR system, you can configure Azure AD to read the properties from [Workday](../saas-apps/workday-inbound-cloud-only-tutorial.md) or [SAP SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md).
   - If the properties originate in an on-premises system, you can configure the [MIM Connector for Microsoft Graph](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph) to create or update Azure AD users.
   - If the properties originate from the users themselves, then you can ask the users to supply the values of the attribute when they request access to the application, by including the attribute requirements in [entitlement management catalog](../governance/entitlement-management-catalog-create.md#add-resource-attributes-in-the-catalog).
@@ -43,11 +43,11 @@ Next, if one or more of the users that will need access to the application do no
 The following sections outline how to create extension attributes for a tenant with cloud only users, and for a tenant with Active Directory users.
 
 ## Create an extension attribute in a tenant with cloud only users
-You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD.  This is necessary if you have any users who need that attribute and do not originate in on-premises Active Directory. (If you do have Active Directory, then continue reading below in the section on how to [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect).)
+You can use Microsoft Graph and PowerShell to extend the user schema for users in Azure AD.  This is necessary if you have any users who need that attribute and don't originate in on-premises Active Directory. (If you do have Active Directory, then continue reading below in the section on how to [use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD](#create-an-extension-attribute-using-azure-ad-connect).)
 
 Once schema extensions are created, these extension attributes are automatically discovered when you next visit the provisioning page in most cases.
 
-When you've more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+When you have more than 1000 service principals, you may find extensions missing in the source attribute list. If an attribute you've created doesn't automatically appear, then verify the attribute was created and add it manually to your schema. To verify it was created, use Microsoft Graph and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview). To add it manually to your schema, see [Editing the list of supported attributes](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### Create an extension attribute for cloud only users using Microsoft Graph
 You can extend the schema of Azure AD users using [Microsoft Graph](/graph/overview).
@@ -58,7 +58,7 @@ First, list the apps in your tenant to get the ID of the app you're working on. 
 GET https://graph.microsoft.com/v1.0/applications
 ```
 
-Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You'll need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty).
+Next, create the extension attribute. Replace the **ID** property below with the **ID** retrieved in the previous step. You need to use the **"ID"** attribute and not the "appId". To learn more, see [Create extensionProperty]/graph/api/application-post-extensionproperty).
 
 ```json
 POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
@@ -82,7 +82,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get).  Note that the Graph v1.0 does not by default return any of a user's directory extension attributes, unless the attributes are specified in the request as one of the properties to return.
+Finally, verify the attribute for the user. To learn more, see [Get a user](/graph/api/user-get). Graph v1.0 doesn't by default return any of a user's directory extension attributes, unless the attributes are specified in the request as one of the properties to return.
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
@@ -92,7 +92,7 @@ GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_in
 ### Create an extension attribute on a cloud only user using PowerShell
 Create a custom extension using PowerShell and assign a value to a user.
 
-```
+```PowerShell
 #Connect to your Azure AD tenant
 Connect-AzureAD
 
@@ -116,15 +116,15 @@ Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandP
 
 ```
 ## Create an extension attribute using cloud sync
-Cloud sync will automatically discover your extensions in on-premises Active Directory when you go to add a new mapping.  Use the steps below to auto-discover these attributes and set up a corresponding mapping to Azure AD.
+Cloud sync will automatically discover your extensions in on-premises Active Directory when you go to add a new mapping.  Use the steps below to autodiscover these attributes and set up a corresponding mapping to Azure AD.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
 1. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Cloud Sync**.
 1. Select the configuration you wish to add the extension attribute and mapping.
 1. Under **Manage attributes** select **click to edit mappings**.
-1. Click **Add attribute mapping**.  The attributes will automatically be discovered.
-1. The new attributes will be available in the drop-down under **source attribute**.
-1. Fill in the type of mapping you want and click **Apply**.
+1. Select **Add attribute mapping**.  The attributes will automatically be discovered.
+1. The new attributes are available in the drop-down under **source attribute**.
+1. Fill in the type of mapping you want and select **Apply**.
 
    [![Custom attribute mapping](media/user-provisioning-sync-attributes-for-mapping/schema-1.png)](media/user-provisioning-sync-attributes-for-mapping/schema-1.png#lightbox)
 
@@ -132,9 +132,9 @@ For more information, see [Cloud Sync Custom Attribute Mapping](../hybrid/cloud-
 
 ## Create an extension attribute using Azure AD Connect
 
-If users who will access the applications originate in on-premises Active Directory, then you must sync the attributes with the users from Active Directory to Azure AD. You will need to perform the following tasks before configuring provisioning to your application.
+If users who access the applications originate in on-premises Active Directory, then you must sync the attributes with the users from Active Directory to Azure AD. You need to perform the following tasks before configuring provisioning to your application.
 
-1. Check with the on-premises Active Directory domain admins whether the required attributes are part of the AD DS schema, and if they are not, extend the AD DS schema in the domains where those users have accounts.
+1. Check with the on-premises Active Directory domain admins whether the required attributes are part of the AD DS schema, and if they aren't, extend the AD DS schema in the domains where those users have accounts.
 
 1. Open the Azure AD Connect wizard, choose Tasks, and then choose **Customize synchronization options**.
 
