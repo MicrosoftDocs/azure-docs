@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: how-to
 author: reachnijel
 ms.author: nijelsf
-ms.date: 07/18/2022
+ms.date: 09/19/2023
 ---
 
 # Find the host names of cluster nodes
