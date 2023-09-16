@@ -60,9 +60,9 @@ This article covers troubleshooting Cloud Shell common scenarios.
 
 ### Storage Dialog - Error: 400 DisallowedOperation
 
-- **Details**: When using an Azure Active Directory subscription, you can't create storage.
-- **Resolution**: Use an Azure subscription capable of creating storage resources. Azure AD
-  subscriptions aren't able to create Azure resources.
+- **Details**: When using a Microsoft Entra ID subscription, you can't create storage.
+- **Resolution**: Use an Azure subscription capable of creating storage resources. Microsoft Entra
+  ID subscriptions aren't able to create Azure resources.
 
 ### Terminal output - Error: Failed to connect terminal: websocket can't be established
 
@@ -181,11 +181,11 @@ directory isn't persisted.
 
 ### Supported entry point limitations
 
-Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal,
+Cloud Shell entry points beside the Azure portal, such as Visual Studio Code and Windows Terminal,
 don't support various Cloud Shell functionalities:
 
 - Use of commands that modify UX components in Cloud Shell, such as `Code`
-- Fetching non-arm access tokens
+- Fetching non-ARM access tokens
 
 ## Bash limitations
 
