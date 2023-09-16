@@ -15,4 +15,4 @@ Use the following line at the end of the heading Prerequisites, with blank lines
 This article provides the following options for deploying to Azure Spring Apps:
 
 - Azure portal: Use the Azure portal for a more conventional way to create resources and deploy applications step by step. This approach is suitable for Spring developers who are using Azure Cloud Services for the first time.
-- Azure Developer CLI: Use Azure Developer CLI for a more efficient way to automatically create resources and deploy applications through simple commands, and to cover application code and infrastructure as code files that are needed to provision the Azure resources. This approach is suitable for Spring developers who are familiar with the Azure Cloud Services.
+- Azure Developer CLI: Use Azure Developer CLI for a more efficient way to create resources and deploy applications through simple commands, and to cover application code and infrastructure as code files needed to provision the Azure resources. This approach is suitable for Spring developers who are familiar with the Azure Cloud Services.
