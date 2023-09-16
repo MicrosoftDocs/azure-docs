@@ -277,7 +277,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
     - **Select Azure Spring Apps for deployment**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
     - **Input the app name(simple-todo-api)**: Input a name for your application deployment on Azure Spring Apps. If you use the default name, press Enter directly.
     - **Expose public access for this app (RESTful API for SimpleTodo)?**: Enter *y*.
-    - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration won't saved in the .pom files.
+    - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If Enter *n*, the configuration won't be saved.
 
 1. Use the following command to deploy the app:
 

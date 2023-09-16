@@ -21,7 +21,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 This article explains how to deploy a RESTful API application protected by [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to Azure Spring Apps. The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application, which only provides the backend service and uses Microsoft Entra ID to protect the RESTful APIs.
 
-These RESTful APIs are protected by applying role-based access control (RBAC). Anonymous users can't access any data and are not allowed to control access for different users. Anonymous users only have the following three permissions:
+These RESTful APIs are protected by applying role-based access control (RBAC). Anonymous users can't access any data and aren't allowed to control access for different users. Anonymous users only have the following three permissions:
 
 - Read: With this permission, can read the ToDo data.
 - Write: With this permission, can add or update the ToDo data.
@@ -66,7 +66,7 @@ Now, you can access the RESTful API to see if it works.
 
 ### Request an access token
 
-The RESTful APIs acts as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, it's required to register another application and grant permissions to the client application, which is named `ToDoWeb`.
+The RESTful APIs act as a resource server, which is protected by Microsoft Entra ID. Before acquiring an access token, it's required to register another application and grant permissions to the client application, which is named `ToDoWeb`.
 
 #### Register the client application
 
@@ -108,7 +108,7 @@ Use the following steps to create a member user in your Microsoft Entra ID, then
 
    > [!NOTE]
    >
-   > - New users must complete the first login authentication and update their passwords, otherwise, you will receive an `AADSTS50055: The password is expired` error when you get the access token.
+   > - New users must complete the first login authentication and update their passwords, otherwise, you receive an `AADSTS50055: The password is expired` error when you get the access token.
    > - When a new user logs in, they will receive an **Action Required** prompt, you may choose to **Ask later** to skip the validation.
 
 1. Select **Review + create** to review your selections. Select **Create** to create the user.
@@ -133,9 +133,9 @@ Use the following steps to use [OAuth 2.0 authorization code flow](../active-dir
 
 1. Open the URL exposed by the app, then select **Authorize** to prepare the OAuth2 authentication.
 
-1. In the pop-up **Available authorizations** window, enter the client id of the app `ToDoWeb` in the **client_id** field, and select all the scopes for **Scopes** field, ignore the **client_secret** field, then select **Authorize** to redirect to the Microsoft Entra ID login page.
+1. In the pop-up **Available authorizations** window, enter the client ID of the app `ToDoWeb` in the **client_id** field, and select all the scopes for **Scopes** field, ignore the **client_secret** field, then select **Authorize** to redirect to the Microsoft Entra ID login page.
 
-1. After completing the login with the previous user, you will be returned to the following pop-up window:
+1. After completing the login with the previous user, you'll return to the following pop-up window:
 
    :::image type="content" source="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png" alt-text="Image that shows the logged of Swagger UI authorization." lightbox="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png":::
 
@@ -151,7 +151,7 @@ Use the following steps to access the RESTful APIs of the app `ToDo` in Swagger 
    }
    ```
 
-   After the execution is complete, you will see the following **Response body**:
+   After the execution is complete, you'll see the following **Response body**:
 
    ```json
    {
