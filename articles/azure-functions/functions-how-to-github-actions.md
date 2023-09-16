@@ -48,13 +48,7 @@ Since GitHub Actions uses your publish profile to access your function app durin
 
 ### Download your publish profile
 
-To download the publishing profile of your function app:
-
-1. Select the function app's **Overview** page, and then select **Get publish profile**.
-
-   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Download publish profile":::
-
-1. Save and copy the contents of the file.
+[!INCLUDE [functions-download-publish-profile](../../includes/functions-download-publish-profile.md)]
 
 ### Add the GitHub secret
 

@@ -5,7 +5,7 @@
  author: rolyon
  ms.service: active-directory
  ms.topic: include
- ms.date: 06/09/2023
+ ms.date: 08/22/2023
  ms.author: rolyon
  ms.custom: include file
 ---
@@ -27,3 +27,4 @@ Here are the usage constraints and other service limits for the Azure AD service
 | Azure AD roles and permissions | <ul><li>A maximum of 100 [Azure AD custom roles](/azure/active-directory//users-groups-roles/roles-custom-overview?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) can be created in an Azure AD organization.</li><li>A maximum of 150 Azure AD custom role assignments for a single principal at any scope.</li><li>A maximum of 100 Azure AD built-in role assignments for a single principal at non-tenant scope (such as an administrative unit or Azure AD object). There is no limit to Azure AD built-in role assignments at tenant scope. For more information, see [Assign Azure AD roles at different scopes](../articles/active-directory/roles/assign-roles-different-scopes.md).</li><li>A group can't be added as a [group owner](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#object-ownership).</li><li>A user's ability to read other users' tenant information can be restricted only by the Azure AD organization-wide switch to disable all non-admin users' access to all tenant information (not recommended). For more information, see [To restrict the default permissions for member users](../articles/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context#restrict-member-users-default-permissions).</li><li>It might take up to 15 minutes or you might have to sign out and sign back in before admin role membership additions and revocations take effect.</li></ul> |
 |Conditional Access Policies|A maximum of 195 policies can be created in a single Azure AD organization (tenant).|
 |Terms of use|You can add no more than 40 terms to a single Azure AD organization (tenant).|
+| Multi-tenant organizations | <ul><li>A maximum of 5 active tenants, including the owner tenant. The owner tenant can add more than 5 pending tenants, but they won't be able to join the multi-tenant organization if the limit is exceeded. This limit is applied at the time a pending tenant joins a multi-tenant organization.</li><li>A maximum of 100,000 internal users per active tenant. This limit is applied at the time a pending tenant joins a multi-tenant organization.</li></ul> |

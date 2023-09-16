@@ -45,11 +45,11 @@ The first time your organization uses these cmdlets for this scenario, you need 
 
 1. Choose the column of the *users.csv* file that will match with an attribute of a user in Azure AD.
 
-   For example, you might have users in the database where the value in the column named `EMail` is the same value as in the Azure AD attribute `mail`:
+   For example, you might have users in the database where the value in the column named `EMail` is the same value as in the Azure AD attribute `userPrincipalName`:
 
    ```powershell
    $db_match_column_name = "EMail"
-   $azuread_match_attr_name = "mail"
+   $azuread_match_attr_name = "userPrincipalName"
    ```
 
 1. Retrieve the IDs of those users in Azure AD.
@@ -123,14 +123,49 @@ The first time your organization uses these cmdlets for this scenario, you need 
 
 1. When the script finishes, it will indicate an error if any records from the data source weren't located in Azure AD. If not all the records for users from the application's data store could be located as users in Azure AD, you'll need to investigate which records didn't match and why.  
 
-   For example, someone's email address might have been changed in Azure AD without their corresponding `mail` property being updated in the application's data source. Or, the user might have already left the organization but is still in the application's data source. Or there might be a vendor or super-admin account in the application's data source that does not correspond to any specific person in Azure AD.
+   For example, someone's email address and userPrincipalName might have been changed in Azure AD without their corresponding `mail` property being updated in the application's data source. Or, the user might have already left the organization but is still in the application's data source. Or there might be a vendor or super-admin account in the application's data source that does not correspond to any specific person in Azure AD.
 
 1. If there were users who couldn't be located in Azure AD, or weren't active and able to sign in, but you want to have their access reviewed or their attributes updated in the database, you need to update or create Azure AD users for them. You can create users in bulk by using either:
 
    - A CSV file, as described in [Bulk create users in the Azure AD portal](../articles/active-directory/enterprise-users/users-bulk-add.md)
    - The [New-MgUser](/powershell/module/microsoft.graph.users/new-mguser?view=graph-powershell-1.0#examples&preserve-view=true) cmdlet  
 
-   Ensure that these new users are populated with the attributes required for Azure AD to later match them to the existing users in the application.
+   Ensure that these new users are populated with the attributes required for Azure AD to later match them to the existing users in the application, and the attributes required by Azure AD, including `userPrincipalName`, `mailNickname` and `displayName`.  The `userPrincipalName` must be unique among all the users in the directory.
+
+   For example, you might have users in the database where the value in the column named `EMail` is the value you want to use as the Azure AD user principal Name, the value in the column `Alias` contains the Azure AD mail nickname, and the value in the column `Full name` contains the user's display name:
+
+   ```powershell
+   $db_display_name_column_name = "Full name"
+   $db_user_principal_name_column_name = "Email"
+   $db_mail_nickname_column_name = "Alias"
+   ```
+
+   Then you can use this script to create Azure AD users for those in the database or directory that didn't match with users in Azure AD.  Note that you may need to modify this script to add additional Azure AD attributes needed in your organization, or if the `$azuread_match_attr_name` is neither `mailNickname` nor `userPrincipalName`, in order to supply that Azure AD attribute.
+
+   ```powershell
+   $dbu_missing_columns_list = @()
+   $dbu_creation_failed_list = @()
+   foreach ($dbu in $dbu_not_matched_list) {
+      if (($null -ne $dbu.$db_display_name_column_name -and $dbu.$db_display_name_column_name.Length -gt 0) -and
+          ($null -ne $dbu.$db_user_principal_name_column_name -and $dbu.$db_user_principal_name_column_name.Length -gt 0) -and
+          ($null -ne $dbu.$db_mail_nickname_column_name -and $dbu.$db_mail_nickname_column_name.Length -gt 0)) {
+         $params = @{
+            accountEnabled = $false
+            displayName = $dbu.$db_display_name_column_name
+            mailNickname = $dbu.$db_mail_nickname_column_name
+            userPrincipalName = $dbu.$db_user_principal_name_column_name
+            passwordProfile = @{
+              Password = -join (((48..90) + (96..122)) * 16 | Get-Random -Count 16 | % {[char]$_})
+            }
+         }
+         try {
+           New-MgUser -BodyParameter $params
+         } catch { $dbu_creation_failed_list += $dbu; throw }
+      } else {
+         $dbu_missing_columns_list += $dbu
+      }
+   }
+   ```
 
 1. After you add any missing users to Azure AD, run the script from step 6 again. Then run the script from step 7. Check that no errors are reported.
 
@@ -183,7 +218,7 @@ The first time your organization uses these cmdlets for this scenario, you need 
    }
    $azuread_not_enabled_count = $azuread_not_enabled_list.Count
    if ($azuread_not_enabled_count -ne 0) {
-    Write-Error "$azuread_not_enabled_count users in Azure AD are blocked from sign-in."
+    Write-Warning "$azuread_not_enabled_count users in Azure AD are blocked from sign-in."
    }
    if ($dbu_not_queried_count -ne 0 -or $dbu_duplicate_count -ne 0 -or $dbu_not_matched_count -ne 0 -or $dbu_match_ambiguous_count -ne 0 -or $dbu_query_failed_count -ne 0 -or $azuread_not_enabled_count -ne 0) {
     Write-Output "You will need to resolve those issues before access of all existing users can be reviewed."

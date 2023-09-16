@@ -141,7 +141,7 @@ To delete an existing user, you must have a *Global administrator* role assignme
 1. In your Azure AD B2C directory, select **Users**, and then select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](../active-directory/fundamentals/active-directory-users-restore.md).
+The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](../active-directory/fundamentals/users-restore.md).
 
 ## Protect administrative accounts
 
@@ -149,7 +149,7 @@ It's recommended that you protect all administrator accounts with multifactor au
 
 ![Authentication methods in use at the sign in screenshot](./media/tenant-management/sing-in-with-multi-factor-authentication.png)
 
-If you're not using [Conditional Access](conditional-access-user-flow.md), you can enable [Azure AD security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) to force all administrative accounts to use MFA.
+If you're not using [Conditional Access](conditional-access-user-flow.md), you can enable [Azure AD security defaults](../active-directory/fundamentals/security-defaults.md) to force all administrative accounts to use MFA.
 
 ## Next steps
 

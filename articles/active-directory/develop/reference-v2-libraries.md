@@ -75,4 +75,4 @@ For more information about the Microsoft Authentication Library, see the [Overvi
 <!--Reference-style links -->
 [AAD-App-Model-V2-Overview]: v2-overview.md
 [Microsoft-SDL]: https://www.microsoft.com/securityengineering/sdl/
-[preview-tos]: https://aka.ms/EntraPreviewsTermsOfUse
+[preview-tos]: https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all

@@ -26,7 +26,7 @@ Azure AD stores reports and security signals for a defined period of time. When 
 | Azure AD MFA usage | 30 days | 30 days | 30 days |
 | Risky sign-ins | 7 days | 30 days | 30 days |
 
-Organizations can choose to store data for longer periods by changing diagnostic settings in Azure AD to send **RiskyUsers**, **UserRiskEvents**, **RiskyServicePrincipals**, and **ServicePrincipalRiskEvents** data to a Log Analytics workspace, archive data to a storage account, stream data to an event hub, or send data to a partner solution. Find these options in the **Azure portal** > **Azure Active Directory**, **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one.
+Organizations can choose to store data for longer periods by changing diagnostic settings in Azure AD to send **RiskyUsers**, **UserRiskEvents**, **RiskyServicePrincipals**, and **ServicePrincipalRiskEvents** data to a Log Analytics workspace, archive data to a storage account, stream data to an event hub, or send data to a partner solution. Find these options in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Identity** > **Monitoring & health** > **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one.
 
 [ ![Diagnostic settings screen in Azure AD showing existing configuration](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png) ](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png#lightbox)
 
@@ -34,7 +34,7 @@ Organizations can choose to store data for longer periods by changing diagnostic
 
 Log Analytics allows organizations to query data using built in queries or custom created Kusto queries, for more information, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
-Once enabled you'll find access to Log Analytics in the **Azure portal** > **Azure AD** > **Log Analytics**. The following tables are of most interest to Identity Protection administrators:
+Once enabled you'll find access to Log Analytics in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Identity** > **Monitoring & health** > **Log Analytics**. The following tables are of most interest to Identity Protection administrators:
 
 - AADRiskyUsers - Provides data like the **Risky users** report in Identity Protection.
 - AADUserRiskEvents - Provides data like the **Risk detections** report in Identity Protection.

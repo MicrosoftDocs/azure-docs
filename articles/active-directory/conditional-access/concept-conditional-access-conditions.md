@@ -176,7 +176,7 @@ This setting has an effect on access attempts made from the following mobile app
 | Outlook mobile app | Exchange Online | Android, iOS |
 | Power BI app | Power BI service | Windows 10, Windows 8.1, Windows 7, Android, and iOS |
 | Skype for Business | Exchange Online| Android, iOS |
-| Visual Studio Team Services app | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS, and Android |
+| Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) app | Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) | Windows 10, Windows 8.1, Windows 7, iOS, and Android |
 
 ### Exchange ActiveSync clients
 

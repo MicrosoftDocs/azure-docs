@@ -59,6 +59,10 @@ An applicable resource has a compliance state of exempt for a policy assignment 
 
  Unknown is the default compliance state for definitions with `manual` effect, unless the default has been explicitly set to compliant or non-compliant. This state indicates that an [attestation](./attestation-structure.md) of compliance is warranted. This compliance state only occurs for policy assignments with `manual` effect.
 
+ ### Protected (preview)
+
+ Protected state signfies that the resource is covered under an assignment with a [denyAction](./effects.md#denyaction-preview) effect.
+
 ### Not registered
 
 This compliance state is visible in portal when the Azure Policy Resource Provider hasn't been registered, or when the account logged in doesn't have permission to read compliance data.
@@ -111,6 +115,7 @@ So how is the aggregate compliance state determined if multiple resources or pol
 1. Compliant
 1. Error
 1. Conflicting
+1. Protected (preview)
 1. Exempted
 1. Unknown (preview)
 

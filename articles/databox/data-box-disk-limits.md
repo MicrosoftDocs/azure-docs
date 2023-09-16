@@ -2,13 +2,13 @@
 title: Azure Data Box Disk limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Disk.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
 ms.date: 12/29/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 # Azure Data Box Disk limits
 

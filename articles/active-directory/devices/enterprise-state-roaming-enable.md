@@ -24,10 +24,8 @@ Enterprise State Roaming provides users with a unified experience across their W
 
 ## To enable Enterprise State Roaming
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-1. Browse to **Azure Active Directory** > **Devices** > **Enterprise State Roaming**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Devices** > **Overview** > **Enterprise State Roaming**.
 1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](./manage-device-identities.md).
 
 For a Windows 10 or newer device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no other configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](./hybrid-join-plan.md). 
@@ -49,8 +47,8 @@ The country/region value is set as part of the Azure AD directory creation proce
 
 Follow these steps to view a per-user device sync status report.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-1. Browse to **Azure Active Directory** > **Users** > **All users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select the user, and then select **Devices**.
 1. Select **View devices syncing settings and app data** to show sync status.
 1. Devices syncing for the user are shown and can be downloaded.

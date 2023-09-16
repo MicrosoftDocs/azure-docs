@@ -1,5 +1,5 @@
   items:
-  - name: SaaS application tutorials
+  - name: Application tutorials
     href: tutorial-list.md
   - name: Single sign-on tutorials
     expanded: true
@@ -1061,8 +1061,8 @@
         href: fuse-tutorial.md
       - name: Fuze
         href: fuze-tutorial.md  
-      - name: Gainsight SAML
-        href: gainsight-saml-tutorial.md
+      - name: Gainsight
+        href: gainsight-tutorial.md
       - name: gamba!
         href: gamba-tutorial.md
       - name: Google Cloud / G Suite Connector
@@ -1961,8 +1961,8 @@
         href: planmyleave-tutorial.md
       - name: Planview Enterprise One
         href: planview-enterprise-one-tutorial.md
-      - name: Planview ID
-        href: planview-id-tutorial.md
+      - name: Planview Admin
+        href: planview-admin-tutorial.md
       - name: Planview LeanKit
         href: planview-leankit-tutorial.md
       - name: Pluralsight
@@ -3006,6 +3006,8 @@
         href: alinto-protect-provisioning-tutorial.md
       - name: ALVAO
         href: alvao-provisioning-tutorial.md
+      - name: Amazon Business
+        href: amazon-business-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Appaegis Isolation Access Cloud
@@ -3126,6 +3128,8 @@
         href: cybsafe-provisioning-tutorial.md
       - name: Dagster Cloud
         href: dagster-cloud-provisioning-tutorial.md
+      - name: Datadog
+        href: datadog-provisioning-tutorial.md
       - name: Documo
         href: documo-provisioning-tutorial.md
       - name: DocuSign
@@ -3375,7 +3379,7 @@
       - name: Playvox
         href: playvox-provisioning-tutorial.md
       - name: Postman
-        href: postman-provisioning-tutorialy.md
+        href: postman-provisioning-tutorial.md
       - name: Preciate
         href: preciate-provisioning-tutorial.md
       - name: PrinterLogic SaaS

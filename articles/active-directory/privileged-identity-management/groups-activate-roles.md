@@ -34,9 +34,9 @@ This article is for eligible members or owners who want to activate their group 
 
 When you need to take on a group membership or ownership, you can request activation by using the **My roles** navigation option in PIM.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure AD Privileged Identity Management -> My roles -> Groups**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My roles** > **Groups**. 
     >[!NOTE]
     > You may also use this [short link](https://aka.ms/pim) to open the **My roles** page directly.
 

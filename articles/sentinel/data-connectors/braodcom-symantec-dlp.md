@@ -3,7 +3,7 @@ title: "Broadcom Symantec DLP connector for Microsoft Sentinel"
 description: "Learn how to install the connector Broadcom Symantec DLP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -72,9 +72,10 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 2. Forward Symantec DLP logs to a Syslog agent
 
 Configure Symantec DLP to forward Syslog messages in CEF format to your Microsoft Sentinel workspace via the Syslog agent.
-1. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+1. [Follow these instructions](https://knowledge.broadcom.com/external/article/159509/generating-syslog-messages-from-data-los.html) to configure the Symantec DLP to forward syslog
+2. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
 
-2. Validate connection
+3. Validate connection
 
 Follow the instructions to validate your connectivity:
 

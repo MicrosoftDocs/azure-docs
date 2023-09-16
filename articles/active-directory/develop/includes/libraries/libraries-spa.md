@@ -34,6 +34,6 @@ ms.author: henrymbugua
 
 [aad-app-model-v2-overview]: v2-overview.md
 [microsoft-sdl]: https://www.microsoft.com/securityengineering/sdl/
-[preview-tos]: https://aka.ms/EntraPreviewsTermsOfUse
+[preview-tos]: https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all
 [auth-code-flow]: ../../v2-oauth2-auth-code-flow.md
 [implicit-flow]: ../../v2-oauth2-implicit-grant-flow.md

@@ -31,7 +31,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 ## Memory bandwidth test 
 
-The STREAM memory test can be run using the scripts in this github repository. 
+The STREAM memory test can be run using the scripts in this GitHub repository. 
 ```bash
 git clone https://github.com/Azure/woc-benchmarking 
 cd woc-benchmarking/apps/hpc/stream/ 
@@ -40,7 +40,7 @@ sh stream_run_script.sh $PWD “hbrs_v4”
 ```
 ## Compute performance test 
 
-The HPL benchmark can be run using the script in this github repository. 
+The HPL benchmark can be run using the script in this GitHub repository. 
 ```bash
 git clone https://github.com/Azure/woc-benchmarking 
 cd woc-benchmarking/apps/hpc/hpl 

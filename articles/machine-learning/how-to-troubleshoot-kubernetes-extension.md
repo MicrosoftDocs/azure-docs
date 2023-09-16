@@ -286,7 +286,20 @@ To update the extension with a custom controller class:
 ```
 az ml extension update --config nginxIngress.controller="k8s.io/amlarc-ingress-nginx"
 ```
+#### Nginx ingress controller installed with the Azure Machine Learning extension crashes due to out-of-memory (OOM) errors
 
+**Symptom**
 
+ The nginx ingress controller installed with the Azure Machine Learning extension crashes due to out-of-memory (OOM) errors even when there is no workload. The controller logs do not show any useful information to diagnose the problem.
 
+**Possible Cause**
 
+This issue may occur if the nginx ingress controller runs on a node with many CPUs. By default, the nginx ingress controller spawns worker processes according to the number of CPUs, which may consume more resources and cause OOM errors on nodes with more CPUs. This is a known [issue](https://github.com/kubernetes/ingress-nginx/issues/8166) reported on GitHub
+
+**Resolution**
+
+To resolve this issue, you can:
+*  Adjust the number of worker processes by installing the extension with the parameter `nginxIngress.controllerConfig.worker-processes=8`.
+*  Increase the memory limit by using the parameter `nginxIngress.resources.controller.limits.memory=<new limit>`. 
+
+Ensure to adjust these two parameters according to your specific node specifications and workload requirements to optimize your workloads effectively.
