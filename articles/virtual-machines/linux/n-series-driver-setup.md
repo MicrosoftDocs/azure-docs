@@ -86,7 +86,7 @@ With Secure Boot enabled, all Linux kernel modules are required to be signed by 
 
    ```bash
    sudo apt-get update
-   sudo apt install -y linux-modules-nvidia-525-azure nvidia-driver-525
+   sudo apt install -y linux-modules-nvidia-525-$(uname -r) nvidia-driver-525
    ```
 
 2. Change preference of NVIDIA packages to prefer NVIDIA repository
