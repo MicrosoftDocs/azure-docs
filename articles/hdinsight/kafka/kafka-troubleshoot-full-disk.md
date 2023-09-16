@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: yeturis
 ms.author: sairamyeturi 
-ms.date: 09/19/2029
+ms.date: 09/19/2023
 ---
 
 # Scenario: Brokers are unhealthy or can't restart due to disk space full issue
