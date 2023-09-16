@@ -23593,6 +23593,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-orchestrate-implementation.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-scale",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
