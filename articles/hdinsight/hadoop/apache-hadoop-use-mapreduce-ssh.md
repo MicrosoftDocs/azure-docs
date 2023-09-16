@@ -1,10 +1,10 @@
----
+![image](https://github.com/MicrosoftDocs/azure-docs-pr/assets/142768852/59ac5b89-e119-49da-af49-fa5c6e7e0d59)---
 title: MapReduce and SSH connection with Apache Hadoop - Azure HDInsight
 description: Learn how to use SSH to run MapReduce jobs using Apache Hadoop on HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 08/30/2022
+ms.date: 09/19/2023
 ---
 
 # Use MapReduce with Apache Hadoop on HDInsight with SSH
