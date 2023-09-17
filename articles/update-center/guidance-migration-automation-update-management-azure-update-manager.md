@@ -18,12 +18,13 @@ Azure Update Manager provides a SaaS solution to manage and govern software upda
 
 For the Azure Update Manager, both AMA and MMA aren't a requirement to manage software update workflows as it relies on the Microsoft Azure VM Agent for Azure VMs and Azure connected machine agent for Arc-enabled servers. When you perform an update operation for the first time on a machine, an extension is pushed to the machine and it interacts with the agents to assess missing updates and install updates.
 
-- All capabilities of Azure Automation Update Management will be available on Azure Update Manager before the deprecation date.
 
 > [!NOTE] 
 > - If you are using Azure Automation Update Management Solution, we recommend that you don't remove MMA agents from the machines without completing the migration to Azure Update Manager for the machine's patch management needs.
 >
 > - If you remove the MMA agent from the machine without moving to Azure Update Manager, it would break the patching workflows for that machine. 
+>
+> - All capabilities of Azure Automation Update Management will be available on Azure Update Manager before the deprecation date.
 
 ## Guidance to move virtual machines from Automation Update Management to Azure Update Manager
 
