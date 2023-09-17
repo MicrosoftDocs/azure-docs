@@ -19,13 +19,14 @@ You can use any of the following resources for a training compute target for mos
 |----|:----:|:----:|:----:|
 |[Local computer](~/articles/machine-learning/v1/how-to-train-model.md#local-computer)| Yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning compute cluster](~/articles/machine-learning/how-to-create-attach-compute-cluster.md)| Yes | Yes | Yes |
+|[Azure Machine Learning serverless compute](~/articles/machine-learning/how-to-use-serverless-compute.md)| Yes | Yes | Yes |
 |[Azure Machine Learning compute instance](~/articles/machine-learning/how-to-create-compute-instance.md) | Yes (through SDK)  | Yes | Yes |
 |[Azure Machine Learning Kubernetes](~/articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | | Yes | Yes |
 |[Remote VM](~/articles/machine-learning/v1/how-to-train-model.md#remote-virtual-machines) | Yes  | Yes | &nbsp; |
 |[Apache Spark pools (preview)](~/articles/machine-learning/v1/how-to-train-model.md#synapse)| Yes (SDK local mode only) | Yes | &nbsp; |
 |[Azure&nbsp;Databricks](~/articles/machine-learning/v1/how-to-train-model.md#azure-databricks)| Yes (SDK local mode only) | Yes | &nbsp; |
 |[Azure Data Lake Analytics](~/articles/machine-learning/v1/how-to-train-model.md#azure-data-lake-analytics) | &nbsp; | Yes | &nbsp; |
-|[Azure HDInsight](~/articles/machine-learning/v1/how-to-train-model.md#azure-hdinsight ) | &nbsp; | Yes | &nbsp; |
+|[Azure HDInsight](~/articles/machine-learning/v1/how-to-train-model.md#azure-hdinsight) | &nbsp; | Yes | &nbsp; |
 |[Azure Batch](~/articles/machine-learning/v1/how-to-train-model.md#azbatch) | &nbsp; | Yes | &nbsp; |
 
 > [!TIP]

@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 09/14/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -24,16 +24,16 @@ Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users 
 
 Password writeback is supported in environments that use the following hybrid identity models:
 
-* [Password hash synchronization](../hybrid/how-to-connect-password-hash-synchronization.md)
-* [Pass-through authentication](../hybrid/how-to-connect-pta.md)
-* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [Password hash synchronization](../hybrid/connect/how-to-connect-password-hash-synchronization.md)
+* [Pass-through authentication](../hybrid/connect/how-to-connect-pta.md)
+* [Active Directory Federation Services](../hybrid/connect/how-to-connect-fed-management.md)
 
 Password writeback provides the following features:
 
 * **Enforcement of on-premises Active Directory Domain Services (AD DS) password policies**: When a user resets their password, it's checked to ensure it meets your on-premises AD DS policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you define in AD DS.
 * **Zero-delay feedback**: Password writeback is a synchronous operation. Users are notified immediately if their password doesn't meet the policy or can't be reset or changed for any reason.
 * **Supports password changes from the access panel and Microsoft 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to AD DS.
-* **Supports password writeback when an admin resets them from the Azure portal**: When an admin resets a user's password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
+* **Supports password writeback when an admin resets them from the Microsoft Entra admin center**: When an admin resets a user's password in the [Microsoft Entra admin center](https://entra.microsoft.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
 * **Doesn't require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
 * **Supports side-by-side domain-level deployment** using [Azure AD Connect](tutorial-enable-sspr-writeback.md) or [cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md) to target different sets of users depending on their needs, including users who are in disconnected domains.  
 
@@ -47,7 +47,7 @@ To get started with SSPR writeback, complete either one or both of the following
 
 ## Azure AD Connect and cloud sync side-by-side deployment
 
-You can deploy Azure AD Connect and cloud sync side-by-side in different domains to target different sets of users. This helps existing users continue to writeback password changes while adding the option in cases where users are in disconnected domains because of a company merger or split. Azure AD Connect and cloud sync can be configured in different domains so users from one domain can use Azure AD Connect while users in another domain use cloud sync. Cloud sync can also provide higher availability because it doesn't rely on a single instance of Azure AD Connect. For a feature comparison between the two deployment options, see [Comparison between Azure AD Connect and cloud sync](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
+You can deploy Azure AD Connect and cloud sync side-by-side in different domains to target different sets of users. This helps existing users continue to writeback password changes while adding the option in cases where users are in disconnected domains because of a company merger or split. Azure AD Connect and cloud sync can be configured in different domains so users from one domain can use Azure AD Connect while users in another domain use cloud sync. Cloud sync can also provide higher availability because it doesn't rely on a single instance of Azure AD Connect. For a feature comparison between the two deployment options, see [Comparison between Azure AD Connect and cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
 
 ## How password writeback works
 
@@ -139,7 +139,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service voluntary change password operation.
    * Any administrator self-service force change password operation, for example, password expiration.
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com).
-   * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com).
+   * Any administrator-initiated end-user password reset from the Microsoft Entra admin center.
    * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword).
 
 ## Unsupported writeback operations
@@ -154,7 +154,7 @@ Passwords aren't written back in any of the following situations:
    * Any administrator cannot use password reset tool to reset their own password for password writeback.
 
 > [!WARNING]
-> Use of the checkbox "User must change password at next logon" in on-premises AD DS administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
+> Use of the checkbox "User must change password at next logon" in on-premises AD DS administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md).
 
 > [!NOTE]
 > If a user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in even if the option to force the user to change their password on next logon option is selected during an administrator-initiated end-user password reset.

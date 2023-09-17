@@ -1,5 +1,5 @@
 ---
-title: How to protect Windows Admin Center servers with Microsoft Defender for Cloud
+title: How to protect Windows Admin Center servers
 description: This article explains how to integrate Microsoft Defender for Cloud with Windows Admin Center
 ms.topic: conceptual
 ms.date: 01/08/2023

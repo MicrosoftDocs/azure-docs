@@ -35,20 +35,22 @@ This article describes how to add users, groups, or devices to administrative un
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
-You can add users, groups, or devices to administrative units using the Azure portal. You can also add users in a bulk operation or create a new group in an administrative unit.
+You can add users, groups, or devices to administrative units using the Microsoft Entra admin center. You can also add users in a bulk operation or create a new group in an administrative unit.
 
 ### Add a single user, group, or device to administrative units
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select one of the following:
+1. Browse to **Identity**.
 
-    - **Users**
-    - **Groups**
+1. Browse to one of the following:
+
+    - **Users** > **All users**
+    - **Groups** > **All groups**
     - **Devices** > **All devices**
   
 1. Select the user, group, or device you want to add to administrative units.
@@ -63,11 +65,11 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Add users, groups, or devices to a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit you want to add users, groups, or devices to.
+1. Select the administrative unit you want to add users, groups, or devices to.
 
 1. Select one of the following:
 
@@ -83,13 +85,11 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Add users to an administrative unit in a bulk operation
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit you want to add users to.
-
-1. Select the administrative unit to which you want to add users.
+1. Select the administrative unit you want to add users to.
 
 1. Select **Users** > **Bulk operations** > **Bulk add members**.
 
@@ -109,11 +109,11 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Create a new group in an administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit you want to create a new group in.
+1. Select the administrative unit you want to create a new group in.
 
 1. Select **Groups**.
 

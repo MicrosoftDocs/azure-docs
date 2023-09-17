@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/17/2023
 ms.custom: query-reference
 ---
 
@@ -38,7 +38,7 @@ Returns a numeric expression.
   
 The following example shows the results of using this function on three different numbers.  
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/query.sql":::  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/query.sql" highlight="2-4":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/absolute-value/result.json":::
 
@@ -48,5 +48,5 @@ The following example shows the results of using this function on three differen
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_NUMBER`](is-number.md)

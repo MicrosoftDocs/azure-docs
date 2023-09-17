@@ -106,6 +106,10 @@ An HTTP 404 response can be returned if a request is sent to an application gate
 
 An HTTP 408 response can be observed when client requests to the frontend listener of application gateway don't respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when virtual appliance inspects the traffic traffic, or the client itself becomes overwhelmed.
 
+#### 413 – Request Entity Too Large
+
+An HTTP 413 response can be observed when using [Azure Web Application Firewall on Application Gateway](../web-application-firewall/ag/ag-overview.md) and the client request size exceeds the maximum request body size limit. The maximum request body size field controls overall request size limit excluding any file uploads. The default value for request body size is 128 KB. For more information, see [Web Application Firewall request size limits](../web-application-firewall/ag/application-gateway-waf-request-size-limits.md).
+
 #### 499 – Client closed the connection
 
 An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed in 2 scenarios. The first scenario is when a large response is returned to the client and the client might have closed or refreshed the application before the server finished sending a large response. The second scenario is when the timeout on the client side is low and doesn't wait long enough to receive the response from server. In this case it's better to increase the timeout on the client. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
@@ -127,7 +131,7 @@ HTTP 502 errors can have several root causes, for example:
 - Invalid or improper configuration of custom health probes.
 - Azure Application Gateway's [backend pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
 - None of the VMs or instances in [virtual machine scale set are healthy](application-gateway-troubleshooting-502.md#unhealthy-instances-in-backendaddresspool).
-- [Request time-out or connectivity issues](application-gateway-troubleshooting-502.md#request-time-out) with user requests.
+- [Request time-out or connectivity issues](application-gateway-troubleshooting-502.md#request-time-out) with user requests-Azure application Gateway V1 SKU sent HTTP 502 errors if the backend response time exceeds the time-out value that is configured in the Backend Setting.
 
 For information about scenarios where 502 errors occur, and how to troubleshoot them, see [Troubleshoot Bad Gateway errors](application-gateway-troubleshooting-502.md).
 
@@ -137,7 +141,7 @@ Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response ti
 
 IIS
 
-If your backend server is IIS, see [Default Limits for Web Sites <limits>](/iis/configuration/system.applicationhost/sites/sitedefaults/limits#configuration) to set the timeout value. Refer to the `connectionTimeout` attribute for details. Ensure the connection timeout in IIS matches or does not exceed the timeout set in the backend setting.
+If your backend server is IIS, see [Default Limits for Web Sites](/iis/configuration/system.applicationhost/sites/sitedefaults/limits#configuration) to set the timeout value. Refer to the `connectionTimeout` attribute for details. Ensure the connection timeout in IIS matches or does not exceed the timeout set in the backend setting.
 
 nginx
 

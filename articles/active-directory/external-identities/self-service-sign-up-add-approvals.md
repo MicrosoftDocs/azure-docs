@@ -32,19 +32,20 @@ This article gives an example of how to integrate with an approval system. In th
 
 ## Register an application for your approval system
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **App registrations**, and then select **New registration**.
-4. Enter a **Name** for the application, for example, _Sign-up Approvals_.
-5. Select **Register**. You can leave other fields at their defaults.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Applications** > **App registrations**, and then select **New registration**.
+1. Enter a **Name** for the application, for example, _Sign-up Approvals_.
+1. Select **Register**. You can leave other fields at their defaults.
 
 :::image type="content" source="media/self-service-sign-up-add-approvals/register-approvals-app.png" alt-text="Screenshot that highlights the Register button.":::
 
-6. Under **Manage** in the left menu, select **API permissions**, and then select **Add a permission**.
-7. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.
-8. Under **Select permissions**, expand **User**, and then select the **User.ReadWrite.All** check box. This permission allows the approval system to create the user upon approval. Then select **Add permissions**.
+1. Under **Manage** in the left menu, select **API permissions**, and then select **Add a permission**.
+1. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.
+1. Under **Select permissions**, expand **User**, and then select the **User.ReadWrite.All** check box. This permission allows the approval system to create the user upon approval. Then select **Add permissions**.
 
 :::image type="content" source="media/self-service-sign-up-add-approvals/request-api-permissions.png" alt-text="Screenshot of requesting API permissions.":::
 
@@ -75,11 +76,9 @@ To create these connectors, follow the steps in [create an API connector](self-s
 
 Now you'll add the API connectors to a self-service sign-up user flow with these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **User flows**, and then select the user flow you want to enable the API connector for.
-5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External identities** > **User flows**, and then select the user flow you want to enable the API connector for.
+1. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
    - **After federating with an identity provider during sign-up**: Select your approval status API connector, for example _Check approval status_.
    - **Before creating the user**: Select your approval request API connector, for example _Request approval_.
@@ -87,7 +86,7 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 :::image type="content" source="media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png" alt-text="Screenshot of API connector in a user flow.":::
 
 
-6. Select **Save**.
+1. Select **Save**.
 
 ## Control the sign-up flow with API responses
 

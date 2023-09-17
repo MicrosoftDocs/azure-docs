@@ -157,7 +157,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Azure AD SAML Toolkit Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Azure AD SAML Toolkit tile in the My Apps, this will redirect to Azure AD SAML Toolkit Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Azure AD SAML Toolkit tile in the My Apps, this will redirect to Azure AD SAML Toolkit Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

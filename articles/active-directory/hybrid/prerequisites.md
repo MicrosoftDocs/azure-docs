@@ -49,7 +49,7 @@ For more information on the cloud sync accounts, and how to set up a custom gMSA
 
 |Requirement|Description and more requirements|
 |-----|-----|
-|Windows server 2016 or greater (Windows Server 2022 not supported yet) that is or has:|• 4 GB RAM or more</br>• .NET 4.6.2 runtime or greater</br>• domain-joined</br>• PowerShell execution policy set to **RemoteSigned**</br>• TLS 1.2 enabled</br>• if federation is being used, the AD FS severs must be Windows Server 2012 R2 or higher and TLS/SSL certificates must be configured.|
+|Windows server 2016 or greater that is or has:|• 4 GB RAM or more</br>• .NET 4.6.2 runtime or greater</br>• domain-joined</br>• PowerShell execution policy set to **RemoteSigned**</br>• TLS 1.2 enabled</br>• if federation is being used, the AD FS severs must be Windows Server 2012 R2 or higher and TLS/SSL certificates must be configured.|
 |Active Directory|• On-premises AD that has a forest functional level 2003 or higher</br>• a writeable domain controller|
 |Azure AD tenant|• A tenant in Azure used to synchronize from on-premises|
 |SQL Server|Azure AD Connect requires a SQL Server database to store identity data. By default, a SQL Server 2019 Express LocalDB (a light version of SQL Server Express) is installed. For more information on using a SQL server, see [Azure AD Connect SQL server requirements](connect/how-to-connect-install-prerequisites.md#sql-server-used-by-azure-ad-connect)
@@ -63,7 +63,7 @@ For more information on the cloud sync prerequisites, see [Azure AD Connect prer
 |-----|-----|
 |Enterprise administrator|Required to install Azure AD Connect.|
 |Hybrid Identity administrator|Required to configure cloud sync.  This account cannot be a guest account.  This account must be a school or organization account and can't be a Microsoft account.|
-|Custom settings|If you use the custom settings installation path, you have more options. You can specify the following information:</br>• [AD DS Connector account](reference-connect-accounts-permissions.md)</br>• [ADSync Service account](reference-connect-accounts-permissions.md)</br>• [Azure AD Connector account](reference-connect-accounts-permissions.md).  </br>For more information, see [Custom installation settings](reference-connect-accounts-permissions.md#custom-settings).|
+|Custom settings|If you use the custom settings installation path, you have more options. You can specify the following information:</br>• [AD DS Connector account](./connect/reference-connect-accounts-permissions.md)</br>• [ADSync Service account](./connect/reference-connect-accounts-permissions.md)</br>• [Azure AD Connector account](./connect/reference-connect-accounts-permissions.md).  </br>For more information, see [Custom installation settings](./connect/reference-connect-accounts-permissions.md#custom-settings).|
 
 For more information on the Azure AD Connect accounts, see [Azure AD Connect: Accounts and permissions](connect/reference-connect-accounts-permissions.md).
 

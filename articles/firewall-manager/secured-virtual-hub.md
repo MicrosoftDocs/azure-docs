@@ -18,15 +18,15 @@ A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan
 > [!IMPORTANT]
 > Currently, Azure Firewall in secured virtual hubs (vWAN) is not supported in Qatar and Poland Central.
 
-You can use a secured virtual hub to filter traffic between virtual networks (V2V), virtual networks and branch offices (B2V) and traffic to the Internet (B2I/V2I). A secured virtual hub provides automated routing. There's no need to configure your own UDRs (user defined routes) to route traffic through your firewall.
+You can use a secured virtual hub to filter traffic between virtual networks (V2V), branch-to-branch (B2B)<sup>*</sup>, branch offices (B2V) and traffic to the Internet (B2I/V2I). A secured virtual hub provides automated routing. There's no need to configure your own UDRs (user defined routes) to route traffic through your firewall.
 
-You can choose the required security providers to protect and govern your network traffic, including Azure Firewall, third-party security as a service (SECaaS) providers, or both. Currently, a secured hub doesn’t support Branch to Branch (B2B) filtering and filtering across multiple hubs. To learn more, see [What is Azure Firewall Manager?](overview.md#known-issues). 
+You can choose the required security providers to protect and govern your network traffic, including Azure Firewall, third-party security as a service (SECaaS) providers, or both. To learn more, see [What is Azure Firewall Manager?](overview.md#known-issues). 
 
 ## Create a secured virtual hub
 
 Using Firewall Manager in the Azure portal, you can either create a new secured virtual hub, or convert an existing virtual hub that you previously created using Azure Virtual WAN.
 
-You may configure Virtual WAN to enable inter-region security use cases in the hub by configuring routing intent. For more information on routing intent, see [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md).
+ <sup>*</sup>Virtual WAN routing intent must be configured to secure inter-hub and branch-to-branch communications, even within a single Virtual WAN hub. For more information on routing intent, see the [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md).
 
 ## Next steps
 

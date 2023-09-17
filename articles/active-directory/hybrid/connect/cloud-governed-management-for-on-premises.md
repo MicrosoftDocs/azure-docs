@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution used by millions of organizations that span all aspects of identity, access management, and security. Azure AD holds more than a billion user identities and helps users sign in and securely access both:
 
-* External resources, such as Microsoft 365, the Azure portal, and thousands of other Software-as-a-Service (SaaS) applications.
+* External resources, such as Microsoft 365, the [Microsoft Entra admin center](https://entra.microsoft.com), and thousands of other Software-as-a-Service (SaaS) applications.
 * Internal resources, such as applications on an organization's corporate network and intranet, along with any cloud applications developed by that organization.
 
 Organizations can use Azure AD if they are 'pure cloud,' or as a 'hybrid' deployment if they have on-premises workloads. A hybrid deployment of Azure AD can be part of a strategy for an organization to migrate its IT assets to the cloud, or to continue to integrate existing on-premises infrastructure alongside new cloud services.
@@ -92,7 +92,7 @@ To begin migrating federated applications to Azure AD as the identity provider, 
 
 * The white paper [Migrating Your Applications to Azure Active Directory](https://aka.ms/migrateapps/whitepaper), which presents the benefits of migration and describes how to plan for migration in four clearly-outlined phases: discovery, classification, migration, and ongoing management. You'll be guided through how to think about the process and break down your project into easy-to-consume pieces. Throughout the document are links to important resources that will help you along the way.
 
-* The solution guide [Migrating Application Authentication from Active Directory Federation Services to Azure Active Directory](../../manage-apps/migrate-adfs-apps-to-azure.md) explores in more detail the same four phases of planning and executing an application migration project. In this guide, you'll learn how to apply those phases to the specific goal of moving an application from Active Directory Federation Services (AD FS) to Azure AD.
+* The solution guide [Migrating Application Authentication from Active Directory Federation Services to Azure Active Directory](../../manage-apps/migrate-adfs-apps-stages.md) explores in more detail the same four phases of planning and executing an application migration project. In this guide, you'll learn how to apply those phases to the specific goal of moving an application from Active Directory Federation Services (AD FS) to Azure AD.
 
 * The [Active Directory Federation Services Migration Readiness Script](https://aka.ms/migrateapps/adfstools) can be run on existing on-premises Active Directory Federation Services (AD FS) servers to determine the readiness of applications for migration to Azure AD.
 

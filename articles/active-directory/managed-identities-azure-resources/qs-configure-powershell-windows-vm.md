@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 05/10/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, has-azure-ad-ps-ref
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using PowerShell
@@ -95,7 +95,7 @@ If you have a Virtual Machine that no longer needs the system-assigned managed i
 
    ```azurepowershell-interactive
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
+   Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
    ```
 
 If you have a virtual machine that no longer needs system-assigned managed identity and it has no user-assigned managed identities, use the following commands:

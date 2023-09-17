@@ -55,12 +55,18 @@ items:
       href: how-to-install-dev-box-cli.md  
     - name: Provision a Custom Image with Azure Image Builder
       href: how-to-customize-devbox-azure-image-builder.md
+    - name: Configure Visual Studio caches
+      href: how-to-generate-visual-studio-caches.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
-    - name: How to configure Dev Box Hibernation
+    - name: Configure Dev Box Hibernation
       href: how-to-configure-dev-box-hibernation.md
     - name: Hibernate your Dev Box
-      href: how-to-hibernate-your-dev-box.md  
+      href: how-to-hibernate-your-dev-box.md
+    - name: Determine resource usage and quota
+      href: how-to-determine-your-quota-usage.md
+    - name: Request a quota limit increase
+      href: how-to-request-quota-increase.md   
     - name: Configure Azure Diagnostic Logs
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference

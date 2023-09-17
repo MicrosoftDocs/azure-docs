@@ -19,10 +19,15 @@ Generating reports in the PDF format requires Grafana's image rendering capabili
 
 ## Image rendering performance
 
-Image rendering is a CPU-intensive operation. An Azure Managed Grafana instance needs about 10 seconds to render one panel, assuming data query is completed in less than 1 second. The Grafana software only allows a maximum of 200 seconds to generate an entire report. Dashboards should contain no more than 20 panels each if they're used in PDF reports. You may have to reduce the panel number further if you plan to include other artifacts (for example, CSV) in the reports.
+Image rendering is a CPU-intensive operation. An Azure Managed Grafana instance needs about 10 seconds to render one panel, assuming data query is completed in less than 1 second. The Grafana software allows a maximum of 200 seconds to generate an entire report. Dashboards should contain no more than 20 panels each if they're used in PDF reports. You may have to reduce the panel number further if you plan to include other artifacts (for example, CSV) in the reports.
 
 > [!NOTE]
-> You'll see a "504 Gateway Timeout" error if a rendering request has exceeded the 200 second limit.
+> You'll see a "Image Rendering Timeout" error if a rendering request has exceeded the 200 second limit.
+
+For screen-capturing in alerts, the Grafana software only allows 30 seconds to snapshot panel images before timing out. At most three screenshots can be taken within this time frame. If there's a sudden surge in alert volume, some alerts may not have screenshots even if screen-capturing has been enabled.
+
+> [!NOTE]
+> Overloading the Grafana image renderer may cause it to become unstable. You can reduce the number of alerts that must include screenshots by only setting the Dashboard UID and Panel ID annotations in those alert rules.
 
 ## Prerequisites
 
@@ -54,9 +59,9 @@ To create a new report, follow these steps.
 4. Choose a layout option in the PDF tab.
 5. Select **Save as PDF** to export.
 
-## Use images in notifications
+## Use image in alerts
 
-Grafana allows screen-capturing a panel that triggers an alert. Recipients can see the panel image directly in the notification message. Azure Managed Grafana is currently configured to upload these screenshots to the local storage on your instance. Only the list of contact points in the **Upload from disk** column of the [Supported contact points](https://grafana.com/docs/grafana/latest/alerting/manage-notifications/images-in-notifications/#supported-contact-points) table can receive the images. In addition, there's a 30-second time limit for taking a screenshot. If a screenshot can't be completed in time, it isn't included with the corresponding alert.
+Grafana allows screen-capturing a panel that triggers an alert. Recipients can see the panel image directly in the notification message. Azure Managed Grafana is currently configured to upload these screenshots to the local storage on your instance. Only the list of contact points in the **Upload from disk** column of the [Supported contact points](https://grafana.com/docs/grafana/latest/alerting/manage-notifications/images-in-notifications/#supported-contact-points) table can receive the images. In addition, there's a 30-second time limit for taking a screenshot. If a screenshot can't be completed in time, it isn't included with the corresponding alert. Screenshots are taken only for those alerts that have Dashboard UID and Panel ID annotations in the rule. You can use these annotations to disable screen-capturing selectively.
 
 ## Next steps
 

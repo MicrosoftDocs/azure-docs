@@ -447,13 +447,15 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 When you disable an NSG flow log, you stop the flow logging for the associated network security group. But the flow log continues to exist as a resource, with all its settings and associations. You can enable it anytime to begin flow logging on the configured network security group.
 
+You can disable a flow log using the [Azure portal](nsg-flow-logging.md#disable-a-flow-log), [PowerShell](network-watcher-nsg-flow-logging-powershell.md#disable-a-flow-log), the [Azure CLI](network-watcher-nsg-flow-logging-cli.md#disable-a-flow-log), or the [REST API](/rest/api/network-watcher/flow-logs/create-or-update).
+
 For steps to disable and enable NSG flow logs, see [Configure NSG flow logs](./network-watcher-nsg-flow-logging-powershell.md).  
 
 ### Delete flow logs
 
 When you delete an NSG flow log, you not only stop the flow logging for the associated network security group but also delete the flow log resource (with all its settings and associations). To begin flow logging again, you must create a new flow log resource for that network security group.
 
-You can delete a flow log using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), the [Azure CLI](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete), or the [REST API](/rest/api/network-watcher/flowlogs/delete).
+You can delete a flow log using the [Azure portal](nsg-flow-logging.md#delete-a-flow-log), [PowerShell](network-watcher-nsg-flow-logging-powershell.md#delete-a-flow-log), the [Azure CLI](network-watcher-nsg-flow-logging-cli.md#delete-a-flow-log), or the [REST API](/rest/api/network-watcher/flow-logs/delete).
 
 When you delete a network security group, the associated flow log resource is deleted by default.
 
@@ -603,5 +605,8 @@ Storage of logs is charged separately. For relevant prices, see [Azure Blob Stor
 
 ## Next steps
 
-- Learn how to [Log network traffic to and from a virtual machine](./network-watcher-nsg-flow-logging-portal.md)
-- Learn how to [Read NSG flow logs](./network-watcher-read-nsg-flow-logs.md)
+- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logging.md).
+- To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
+- To learn how to read flow logs, see [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md).
+
+

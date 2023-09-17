@@ -16,7 +16,7 @@ ms.custom: kr2b-contr-experiment, not-enterprise-apps
 
 # Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza
 
-In this tutorial, learn how to integrate Azure Active Directory (Azure AD) with [Datawiza](https://www.datawiza.com/) for [hybrid access](../devices/concept-azure-ad-join-hybrid.md). [Datawiza Access Proxy (DAP)](https://www.datawiza.com) extends Azure AD to enable single sign-on (SSO) and provide access controls to protect on-premises and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP. With this solution, enterprises can transition from legacy web access managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM, to Azure AD without rewriting applications. Enterprises can use Datawiza as a no-code, or low-code, solution to integrate new applications to Azure AD. This approach enables enterprises to implement their Zero Trust strategy while saving engineering time and reducing costs.
+In this tutorial, learn how to integrate Azure Active Directory (Azure AD) with [Datawiza](https://www.datawiza.com/) for [hybrid access](../devices/concept-hybrid-join.md). [Datawiza Access Proxy (DAP)](https://www.datawiza.com) extends Azure AD to enable single sign-on (SSO) and provide access controls to protect on-premises and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP. With this solution, enterprises can transition from legacy web access managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM, to Azure AD without rewriting applications. Enterprises can use Datawiza as a no-code, or low-code, solution to integrate new applications to Azure AD. This approach enables enterprises to implement their Zero Trust strategy while saving engineering time and reducing costs.
 
 Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
 
@@ -24,7 +24,7 @@ Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
 
 Datawiza integration includes the following components:
 
-* **[Azure AD](../fundamentals/active-directory-whatis.md)** - Identity and access management service that helps users sign in and access external and internal resources
+* **[Azure AD](../fundamentals/whatis.md)** - Identity and access management service that helps users sign in and access external and internal resources
 * **Datawiza Access Proxy (DAP)** - This service transparently passes identity information to applications through HTTP headers
 * **Datawiza Cloud Management Console (DCMC)** - UI and RESTful APIs for administrators to manage the DAP configuration and access control policies
 
@@ -44,7 +44,7 @@ To get started, you need:
 
 * An Azure subscription
   * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
-* An [Azure AD tenant](../fundamentals/active-directory-access-create-new-tenant.md) linked to the Azure subscription
+* An [Azure AD tenant](../fundamentals/create-new-tenant.md) linked to the Azure subscription
 * [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) are required to run DAP
   * Your applications can run on platforms, such as a virtual machine (VM) or bare metal
 * An on-premises or cloud-hosted application to transition from a legacy identity system to Azure AD
@@ -116,5 +116,5 @@ To get started, you need:
 
 * [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
 * [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle JD Edwards](datawiza-sso-oracle-jde.md)
-* [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle PeopleSoft](datawiza-azure-ad-sso-oracle-peoplesoft.md)
+* [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle PeopleSoft](./datawiza-sso-oracle-peoplesoft.md)
 * Go to docs.datawiza.com for Datawiza [User Guides](https://docs.datawiza.com)

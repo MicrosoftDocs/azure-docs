@@ -1,6 +1,6 @@
 ---
 title: Bing Video Search C# client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -81,4 +81,4 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
 ## See also 
 
 * [What is the Bing Video Search API?](../../overview.md)
-* [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Azure AI services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

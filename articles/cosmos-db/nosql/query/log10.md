@@ -1,53 +1,52 @@
 ---
-title: LOG10 in Azure Cosmos DB query language
-description: Learn about the LOG10 SQL system function in Azure Cosmos DB to return the base-10 logarithm of the specified numeric expression
-author: ginamr
+title: LOG10
+description: An Azure Cosmos DB for NoSQL system function that returns the base-10 logarithm of the specified numeric expression
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/20/2023
+ms.custom: query-reference
 ---
-# LOG10 (Azure Cosmos DB)
+
+# LOG10 (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the base-10 logarithm of the specified numeric expression.  
+Returns the base-10 logarithm of the specified numeric expression.  
   
 ## Syntax
-  
+
 ```sql
-LOG10 (<numeric_expr>)  
+LOG10(<numeric_expr>)  
 ```  
-  
+
 ## Arguments
-  
-*numeric_expression*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
-## Remarks
-  
-  The LOG10 and POWER functions are inversely related to one another. For example, 10 ^ LOG10(n) = n. This system function will not utilize the index.
-  
+
+Returns a numeric expression.  
+
 ## Examples
-  
-  The following example declares a variable and returns the LOG10 value of the specified variable (100).  
-  
-```sql
-SELECT LOG10(100) AS log10 
-```  
-  
- Here is the result set.  
-  
-```json
-[{log10: 2}]  
-```  
+
+The following example returns the logarithm value of various values.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/log10/query.sql" highlight="2-4":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/log10/result.json":::
+
+## Remarks
+
+- This function doesn't use the index.
+- The `LOG10` and `POWER` functions are inversely related to one another.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`LOG`](log.md)

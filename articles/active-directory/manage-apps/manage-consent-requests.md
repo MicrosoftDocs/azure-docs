@@ -68,7 +68,7 @@ When you're evaluating a request to grant admin consent, here are some recommend
 
 - Understand the [permissions and consent framework](../develop/permissions-consent-overview.md) in the Microsoft identity platform.
 
-- Understand the difference between [delegated permissions and application permissions](../develop/v2-permissions-and-consent.md#permission-types).
+- Understand the difference between [delegated permissions and application permissions](../develop/permissions-consent-overview.md#permission-types).
 
    Application permissions allow the application to access the data for the entire organization, without any user interaction. Delegated permissions allow the application to act on behalf of a user who was signed into the application at some point.
 
@@ -92,7 +92,7 @@ When you're evaluating a request to grant admin consent, here are some recommend
 
 ## Grant tenant-wide admin consent
 
-For step-by-step instructions for granting tenant-wide admin consent from the Azure portal, see [Grant tenant-wide admin consent to an application](grant-admin-consent.md).
+For step-by-step instructions for granting tenant-wide admin consent from the Microsoft Entra admin center, see [Grant tenant-wide admin consent to an application](grant-admin-consent.md).
 
 ## Revoke tenant wide admin consent
 

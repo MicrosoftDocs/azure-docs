@@ -24,9 +24,19 @@ ms.collection: M365-identity-device-management
 
 When a user submits a request to an access package, a process begins to deliver that access request. Entitlement management sends email notifications to approvers and requestors when key events occur during the process. This article describes the request process and the email notifications that are sent.
 
+## Who can request an access package
+
+The catalog, access package and policy settings control whether a user can request an access package.
+
+* The catalog setting of **Enabled** determines whether users can request access packages in the catalog.
+* The catalog setting of **Enabled for external users** determines whether users who are from external directories can request access packages in the catalog.
+* The access package setting of **Hidden** determines whether users can see the access package in My access. It does not limit whether a user who has a link to the access package can request it.
+* The access package list of incompatible access packages and groups determines whether users who already have other assignments can request.
+* The policy settings within the access package determine who can request.
+
 ## Request process
 
-A user that needs access to an access package can submit an access request. Depending on the configuration of the policy, the request might require an approval. When a request is approved, a process begins to assign the user access to each resource in the access package. The following diagram shows an overview of the process and the different states:
+A user that needs access to the resources in an access package can submit an access request. Depending on the configuration of the policy, the request might require an approval. When a request is approved, a process begins to assign the user access to each resource in the access package. The following diagram shows an overview of the process and the different states:
 
 ![Approval process diagram](./media/entitlement-management-process/request-process.png)
 
@@ -39,6 +49,7 @@ A user that needs access to an access package can submit an access request. Depe
 | Approved | Approver approves a request. |
 | Delivering | User has **not** been assigned access to all the resources in the access package. If this is an external user, the user may not have accessed the resource directory yet. They also may not have accepted the consent prompt. |
 | Delivered | User has been assigned access to all the resources in the access package. |
+| Partially Delivered |  User has **not** been assigned access to all the resources in the access package yet. |
 | Access extended | If extensions are allowed in the policy, the user extended the assignment. |
 | Access expired | User's access to the access package has expired. To get access again, the user has to submit a request. |
 
@@ -94,7 +105,7 @@ The following table provides more detail about each of these email notifications
 
 ### Access request emails
 
-When a requestor submits an access request for an access package configured to require approval, all approvers added to the policy receives an email notification with details of the request. The details in the email include: requestor's name organization, and business justification; and the requested access start and end date (if provided). The details will also include when the request was submitted and when the request will expire.
+When a requestor submits an access request for an access package configured to require approval, all approvers added to the policy receives an email notification with details of the request, at their approval stage. The details in the email include: requestor's name organization, and business justification; and the requested access start and end date (if provided). The details will also include when the request was submitted and when the request will expire.
 
 The email includes a link approvers can select on to go to My Access to approve or deny the access request. Here's a sample email notification that is sent to an approver to complete an access request:
 

@@ -57,7 +57,7 @@ In this tutorial, you learn how to:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>5.2.0</version>
+        <version>5.4.0</version>
     </dependency>
 
     <!-- Adds the Ability to Push Refresh -->
@@ -73,7 +73,7 @@ In this tutorial, you learn how to:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>4.8.0</version>
+        <version>4.10.0</version>
     </dependency>
 
     <!-- Adds the Ability to Push Refresh -->

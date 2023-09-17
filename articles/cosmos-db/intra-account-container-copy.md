@@ -38,7 +38,7 @@ To get started with intra-account offline container copy for NoSQL and Cassandra
 
 ### API for MongoDB
 
-To get started with intra-account offline container copy for Azure Cosmos DB for MongoDB accounts, register for the **Intra-account offline container copy (MongoDB)** preview feature flag in [Preview Features](access-previews.md) in the Azure portal. Once the registration is complete, the preview is effective for all API for MongoDB accounts in the subscription.
+To get started with intra-account offline container copy for Azure Cosmos DB for MongoDB accounts, register for the **Intra-account offline collection copy (MongoDB)** preview feature flag in [Preview Features](access-previews.md) in the Azure portal. Once the registration is complete, the preview is effective for all API for MongoDB accounts in the subscription.
 
 <a name="how-to-do-container-copy"></a>
 

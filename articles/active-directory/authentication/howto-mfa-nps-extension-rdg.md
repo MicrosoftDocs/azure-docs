@@ -5,8 +5,9 @@ description: Integrate your Remote Desktop Gateway infrastructure with Azure AD 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -119,15 +120,16 @@ Follow the steps in [What does Azure AD Multi-Factor Authentication mean for me?
 
 This section provides instructions for configuring RDS infrastructure to use Azure AD MFA for client authentication with the Remote Desktop Gateway.
 
-### Acquire Azure Active Directory tenant ID
+### Obtain the directory tenant ID
 
-As part of the configuration of the NPS extension, you need to supply admin credentials and the Azure AD ID for your Azure AD tenant. To get the tenant ID, complete the following steps:
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
-1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 
-   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Settings**.
+
+   ![Getting the Tenant ID from the Microsoft Entra admin center](./media/howto-mfa-nps-extension-vpn/tenant-id.png)
 
 ### Install the NPS extension
 
@@ -344,7 +346,7 @@ To query successful sign-in events in the Gateway operational logs _(Event Viewe
 * `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '200'} | FL`
 * This command displays the events that show when user met connection authorization policy requirements.
 
-![viewing the connection authorization policy using PowerShell](./media/howto-mfa-nps-extension-rdg/image29.png)
+![Viewing the connection authorization policy using PowerShell](./media/howto-mfa-nps-extension-rdg/image29.png)
 
 You can also view this log and filter on event IDs, 300 and 200. To query successful logon events in the Security event viewer logs, use the following command:
 
@@ -363,7 +365,7 @@ On the server where you installed the NPS extension for Azure AD MFA, you can fi
 
 ## Troubleshoot Guide
 
-If the configuration is not working as expected, the first place to start to troubleshoot is to verify that the user is configured to use Azure AD MFA. Have the user connect to the [Azure portal](https://portal.azure.com). If users are prompted for secondary verification and can successfully authenticate, you can eliminate an incorrect configuration of Azure AD MFA.
+If the configuration is not working as expected, the first place to start to troubleshoot is to verify that the user is configured to use Azure AD MFA. Have the user sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). If users are prompted for secondary verification and can successfully authenticate, you can eliminate an incorrect configuration of Azure AD MFA.
 
 If Azure AD MFA is working for the user(s), you should review the relevant Event logs. These include the Security Event, Gateway operational, and Azure AD MFA logs that are discussed in the previous section.
 

@@ -109,7 +109,7 @@ You need the following components. Prior DAP experience isn't necessary.
 
 -   An Azure AD tenant linked to the Azure account
 
-    -   See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md)
+    -   See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
 
 -   Docker and Docker Compose are required to run DAP
 
@@ -121,7 +121,7 @@ You need the following components. Prior DAP experience isn't necessary.
     directory
 
     -   See, [Azure AD Connect sync: Understand and customize
-        synchronization](../hybrid/how-to-connect-sync-whatis.md)
+        synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 
 -   An account with Microsoft Entra ID Application Administrator permissions
 
@@ -375,28 +375,20 @@ time, effort, and errors.
 
 ## Optional: Enable Microsoft Entra ID Multi-Factor Authentication
 
-To provide more sign-in security, you can enforce Microsoft Entra ID Multi-Factor Authentication. The process starts in the Azure portal.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+To provide more sign-in security, you can enforce Microsoft Entra ID Multi-Factor Authentication. The process starts in the Microsoft Entra admin center.
 
-2.  Select **Azure Active Directory**.
-
-3.  Select **Manage**
-
-4.  Select **Properties**
-
-5.  Under **Tenant properties**, select **Manage security defaults**
-
-    ![Screenshot shows the manage security defaults.](media/datawiza-access-proxy/manage-security-defaults.png)
-
-6.  For **Enable Security defaults**, select **Yes**
-
-7.  Select **Save**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+2. Browse to **Identity** > **Overview** > **Properties** tab.
+3. Under **Security defaults**, select **Manage security defaults**.
+4. On the **Security defaults** pane, toggle the dropdown menu to select **Enabled**.
+5. Select **Save**.
 
 ## Next steps
 
 -   [Video: Enable SSO and MFA for Oracle JD Edwards with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
 
--   [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](datawiza-with-azure-ad.md)
+-   [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-configure-sha.md)
 
 -   Go to docs.datawiza.com for [Datawiza user guides](https://docs.datawiza.com/)

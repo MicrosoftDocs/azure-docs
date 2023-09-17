@@ -52,8 +52,8 @@ The SLA attainment is truncated at three places after the decimal. Numbers aren'
 | April     | 99.999% | 99.999% | 99.999% |
 | May       | 99.999% | 99.999% | 99.999% |
 | June      | 99.999% | 99.999% | 99.999% |
-| July      | 99.999% | 99.999% | |
-| August    | 99.999% | 99.999% | |
+| July      | 99.999% | 99.999% | 99.999% |
+| August    | 99.999% | 99.999% | 99.999% |
 | September | 99.999% | 99.998% | |
 | October   | 99.999% | 99.999% | |
 | November  | 99.998% | 99.999% | |
@@ -88,5 +88,5 @@ To access your tenant-level SLA performance:
 ## Next steps
 
 * [Azure AD reports overview](overview-reports.md)
-* [Programmatic access to Azure AD reports](concept-reporting-api.md)
+* [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)
 * [Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md)

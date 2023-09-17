@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -38,7 +38,8 @@ For more information about creating trusted locations in Conditional Access, see
 
 Complete the following steps to create a policy that applies to all selected users that attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network:
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **+ New policy**.
 1. Enter a name for this policy, such as *Combined Security Info Registration on Trusted Networks*.
 1. Under **Assignments**, select **Users**. Choose the users and groups you want this policy to apply to.
@@ -48,7 +49,7 @@ Complete the following steps to create a policy that applies to all selected use
 
 1. Under **Cloud apps or actions**, select **User actions**. Check **Register security information**, then select **Done**.
 
-    ![Create a conditional access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+    ![Create a Conditional Access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
 1. Under **Conditions** > **Locations**, configure the following options:
    1. Configure **Yes**.

@@ -12,8 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: justinha
-ms.custom: fasttrack-edit
-
+ms.custom: fasttrack-edit, devx-track-linux
 ---
 # Join an Ubuntu Linux virtual machine to an Azure Active Directory Domain Services managed domain
 
@@ -40,7 +39,7 @@ If you have an existing Ubuntu Linux VM in Azure, connect to it using SSH, then 
 
 If you need to create an Ubuntu Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Microsoft Entra admin center](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

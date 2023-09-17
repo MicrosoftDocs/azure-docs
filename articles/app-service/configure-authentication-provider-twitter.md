@@ -4,7 +4,9 @@ description: Learn how to configure Twitter authentication as an identity provid
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
 ms.date: 03/29/2021
-ms.custom: [seodec18, fasttrack-edit]
+ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure your App Service or Azure Functions app to use Twitter login

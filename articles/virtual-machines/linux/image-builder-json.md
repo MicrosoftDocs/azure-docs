@@ -8,7 +8,7 @@ ms.date: 07/17/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions, devx-track-bicep, devx-track-arm-template
+ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, devx-track-linux
 ---
 
 # Create an Azure Image Builder Bicep or ARM template JSON template
@@ -1163,13 +1163,9 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```json
 "optimize": { 
-
       "vmboot": { 
-
         "state": "Enabled" 
-
-      } 
-
+      }
     }
 ```
 
@@ -1184,6 +1180,8 @@ optimize: {
 ```
 ---
 
+- **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
+- state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
 ## Properties: source
 
@@ -1391,6 +1389,9 @@ SharedImageVersion properties:
 ## Properties: stagingResourceGroup
 
 The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service creates for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+
+> [!IMPORTANT]
+> The staging resource group specified cannot be associated with another image template, must be empty (no resources inside), in the same region as the image template, and have either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource.
 
 # [JSON](#tab/json)
 

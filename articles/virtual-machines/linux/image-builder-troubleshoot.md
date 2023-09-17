@@ -8,7 +8,7 @@ ms.date: 09/17/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Troubleshoot Azure VM Image Builder

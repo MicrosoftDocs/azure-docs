@@ -32,19 +32,17 @@ For more information on these customizable parameters, see [Common email task pa
 
 [!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
-## Customize email by using the Azure portal
+## Customize email by using the Microsoft Entra admin center
 
-When you're customizing an email sent via lifecycle workflows, you can choose to customize either a new task or an existing task. You do these customizations the same way whether the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent from tasks within workflows by using the Azure portal:
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+When you're customizing an email sent via lifecycle workflows, you can choose to customize either a new task or an existing task. You do these customizations the same way whether the task is new or existing, but the following steps walk you through updating an existing task. To customize emails sent from tasks within workflows by using the Microsoft Entra admin center:
 
-1. On the search bar near the top of the page, enter **Identity Governance** and select the result.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. On the left menu, select **Lifecycle workflows**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
-1. On the left menu, select **Workflows**.
-
-1. Select **Tasks**.
+1. Select the workflow that contain the email tasks you want to customize.
 
 1. On the pane that lists tasks, select the task for which you want to customize the email.
 

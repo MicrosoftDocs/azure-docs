@@ -1,5 +1,5 @@
 ---
-title: Connect your Azure subscriptions to Microsoft Defender for Cloud
+title: Connect your Azure subscriptions
 description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud 
 ms.topic: install-set-up-deploy
 ms.date: 07/10/2023
@@ -29,7 +29,7 @@ Defender for Cloud helps you find and fix security vulnerabilities. Defender for
 > [!TIP]
 > To enable Defender for Cloud on all subscriptions within a management group, see [Enable Defender for Cloud on multiple Azure subscriptions](onboard-management-group.md).
 
-1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 

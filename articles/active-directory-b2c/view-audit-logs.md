@@ -61,7 +61,7 @@ The activity details panel contains the following relevant information:
 
 The Azure portal provides access to the audit log events in your Azure AD B2C tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Switch to the directory that contains your Azure AD B2C tenant, and then browse to **Azure AD B2C**.
 1. Under **Activities** in the left menu, select **Audit logs**.
 
@@ -80,7 +80,7 @@ To download the list of activity events in a comma-separated values (CSV) file, 
 
 ## Get audit logs with the Azure AD reporting API
 
-Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
+Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](/graph/api/directoryaudit-list). For more information, see [Get started with the Azure Active Directory reporting API](../active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api.md).
 
 ### Enable reporting API access
 

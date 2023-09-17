@@ -77,9 +77,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://mail.skydesk.jp/portal/<companyname>`
 
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
@@ -165,9 +162,6 @@ Click on **User Access** from the left panel in SkyDesk Email and then enter you
 
 ![Screenshot shows User Access selected from Control Panel.](./media/skydeskemail-tutorial/create-users.png)
 
-> [!NOTE]
-> If you need to create bulk users, you need to contact the [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/).
-
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -176,7 +170,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to SkyDesk Email Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the SkyDesk Email tile in the My Apps, this will redirect to SkyDesk Email Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the SkyDesk Email tile in the My Apps, this will redirect to SkyDesk Email Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

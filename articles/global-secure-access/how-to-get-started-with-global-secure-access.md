@@ -1,11 +1,11 @@
 ---
 title: Get started with Global Secure Access (preview)
-description: Get started with Global Secure Access (preview) for Microsoft Entra.
+description: Configure the main components of Microsoft Entra Internet Access and Microsoft Entra Private Access, which make up Global Secure Access, Microsoft's Security Service Edge solution.
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 07/11/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -17,9 +17,9 @@ This guide helps you get started configuring both services for the first time.
 
 ## Prerequisites
 
-Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md). Some features may also require additional roles.
+Administrators who interact with **Global Secure Access preview** features must have the [Global Secure Access Administrator role](/azure/active-directory/roles/permissions-reference). Some features may also require other roles.
 
-To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) to activate just-in-time privileged role assignments.
+To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to activate just-in-time privileged role assignments.
 
 The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense). To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended. After general availability, Microsoft Entra Private Access and Microsoft Entra Internet Access may require different licenses.
 
@@ -44,10 +44,9 @@ Microsoft Entra Internet Access isolates the traffic for Microsoft 365 applicati
 1. [Enable the Microsoft 365 traffic forwarding profile](how-to-manage-microsoft-365-profile.md).
 1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
 1. [Enable universal tenant restrictions](how-to-universal-tenant-restrictions.md).
-1. [Enable enhanced Global Secure Access signaling](how-to-source-ip-restoration.md#enable-global-secure-access-signaling-for-conditional-access).
+1. [Enable enhanced Global Secure Access signaling and Conditional Access](how-to-compliant-network.md).
 
-After you complete these four steps, users with the Global Secure Access Client installed on their Windows device can securely access Microsoft 365 resources from anywhere. The user's source IP address appears in the traffic logs for Microsoft Entra Internet Access.
-
+After you complete these four steps, users with the Global Secure Access client installed on their Windows device can securely access Microsoft 365 resources from anywhere. Conditional Access policy requires users to use the Global Secure Access client or a configured remote network, when they access Exchange Online and SharePoint Online.
 
 ###  Create a remote network, apply Conditional Access, and review the logs
 

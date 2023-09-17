@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: sample
 ms.workload: infrastructure-services
 ms.custom: devx-track-arm-template, devx-track-bicep
-ms.date: 03/10/2022
+ms.date: 07/25/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -36,7 +36,6 @@ The following table includes links to Bicep and Azure Resource Manager deploymen
 | [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
 |**Azure Functions origins**| **Description** |
 | [Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-function-public/) | Creates an Azure Functions app with a public endpoint, and a Front Door profile.  |
-| [Azure Functions with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-function-private-link) | Creates an Azure Functions app with a private endpoint, and a Front Door profile.  |
 |**API Management origins**| **Description** |
 | [API Management (external)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-standard-premium-api-management-external) | Creates an API Management instance with external VNet integration, and a Front Door profile.  |
 |**Storage origins**| **Description** |

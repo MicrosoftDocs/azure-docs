@@ -2,7 +2,7 @@
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 08/10/2023
 ms.author: clemensv
 ---
 ### Create a Node.js application

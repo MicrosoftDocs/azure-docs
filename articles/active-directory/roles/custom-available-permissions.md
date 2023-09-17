@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -164,5 +164,5 @@ Grants the same permissions as microsoft.directory/applications/permissions/upda
 
 ## Next steps
 
-- Create custom roles using [the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
+- [Create and assign a custom role in Azure Active Directory](custom-create.md)
 - [List role assignments](view-assignments.md)
