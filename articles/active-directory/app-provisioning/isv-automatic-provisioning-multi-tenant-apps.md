@@ -96,7 +96,7 @@ Learn more about using Microsoft Graph for provisioning:
 
 * [Microsoft Graph Auth Overview](/graph/auth/)
 
-* [Getting started with Microsoft Graph](https://developer.microsoft.com/graph/get-started)
+* [Getting started with Microsoft Graph](https://developer.microsoft.com/graph/rest-api/)
 
 ## Using SAML JIT for provisioning
 
