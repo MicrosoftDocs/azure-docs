@@ -9,7 +9,7 @@ ms.service: azure-storage
 ms.topic: how-to
 ms.date: 09/12/2023
 ms.author: akashdubey
-ms.subservice: common-concepts
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
 ---
 
