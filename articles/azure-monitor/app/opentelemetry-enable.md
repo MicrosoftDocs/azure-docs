@@ -292,8 +292,6 @@ Run your application and open your **Application Insights Resource** tab in the 
 
 You've now enabled Application Insights for your application. All the following steps are optional and allow for further customization.
 
-Not working? Check out the troubleshooting page for [ASP.NET Core](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-dotnet), [Java](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-java), [Node.js](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-nodejs), or [Python](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-python).
-
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](opentelemetry-configuration.md#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
