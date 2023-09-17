@@ -64,8 +64,8 @@ Follow the steps in this section to instrument your application with OpenTelemet
 - Python Application using Python 3.7+
 
 ---
-> [!CAUTION]
-> We have not tested the Azure Monitor OpenTelemetry Distro running side-by-side with the OpenTelemetry Community Package. We recommend you uninstall any OpenTelemetry-related packages before installing the Distro.
+
+[!TIP] We don't recommend using the OTel Community SDK/API with the Azure Monitor OTel Distro since it automatically loads them as dependencies.
 
 ### Install the client library
 
