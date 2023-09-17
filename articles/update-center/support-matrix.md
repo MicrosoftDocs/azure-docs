@@ -6,7 +6,7 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 07/11/2023
 ms.topic: overview
-ms.custom: references_regions
+ms.custom: references_regions 
 ---
 
 # Support matrix for Azure Update Manager (preview)
@@ -26,6 +26,10 @@ Update Manager (preview) supports operating system updates for both Windows and 
 
 > [!NOTE]
 > Update Manager (preview) doesn't support driver Updates. 
+
+### Extended Security Updates (ESU) for Windows Server
+
+Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. To enroll in Windows Server 2012 Extended Security Updates, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc)
 
 ### First party updates on Windows
 By default, the Windows Update client is configured to provide updates only for Windows operating system. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other Microsoft products, including security patches for Microsoft SQL Server and other Microsoft software. 
