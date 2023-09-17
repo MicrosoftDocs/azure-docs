@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/02/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Managing user account provisioning for enterprise apps in the Azure portal
+# Managing user account provisioning for enterprise apps in the Microsoft Entra admin center
 
 This article describes the general steps for managing automatic user account provisioning and deprovisioning for applications that support it. *User account provisioning* is the act of creating, updating, and/or disabling user account records in an application’s local user profile store. Most cloud and SaaS applications store the role and permissions in the user's own local user profile store. The presence of such a user record in the user's local store is *required* for single sign-on and access to work. To learn more about automatic user account provisioning, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md).
 
@@ -24,10 +24,10 @@ This article describes the general steps for managing automatic user account pro
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Use the Azure portal to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
+Use the Microsoft Entra admin center to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select any app to load its resource pane, where you can view reports and manage app settings.
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
