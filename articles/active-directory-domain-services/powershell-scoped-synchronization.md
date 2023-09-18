@@ -137,7 +137,7 @@ To enable group-based scoped synchronization for a managed domain, complete the 
 
 1. First set *"filteredSync" = "Enabled"* on the Microsoft Entra DS resource, then update the managed domain.
 
-    When prompted, specify the credentials for a *global admin* to sign in to your Microsoft Entra tenant using the [Connect-Microsoft Entra ID][Connect-AzureAD] cmdlet:
+    When prompted, specify the credentials for a *global admin* to sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
 
     ```powershell
     # Connect to your Azure AD tenant
@@ -175,7 +175,7 @@ In the following example, the groups to synchronize no longer includes *GroupNam
 > [!WARNING]
 > You must include the *AAD DC Administrators* group in the list of groups for scoped synchronization. If you don't include this group, the managed domain is unusable.
 
-When prompted, specify the credentials for a *global admin* to sign in to your Microsoft Entra tenant using the [Connect-Microsoft Entra ID][Connect-AzureAD] cmdlet:
+When prompted, specify the credentials for a *global admin* to sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
 
 ```powershell
 .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName3")
@@ -187,7 +187,7 @@ Changing the scope of synchronization causes the managed domain to resynchronize
 
 To disable group-based scoped synchronization for a managed domain, set *"filteredSync" = "Disabled"* on the Microsoft Entra DS resource, then update the managed domain. When complete, all users and groups are set to synchronize from Microsoft Entra ID.
 
-When prompted, specify the credentials for a *global admin* to sign in to your Microsoft Entra tenant using the [Connect-Microsoft Entra ID][Connect-AzureAD] cmdlet:
+When prompted, specify the credentials for a *global admin* to sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
 
 ```powershell
 # Connect to your Azure AD tenant
