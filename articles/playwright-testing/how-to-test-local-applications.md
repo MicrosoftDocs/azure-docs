@@ -10,18 +10,18 @@ ms.custom: playwright-testing-preview
 
 Learn how to use Microsoft Playwright Testing Preview to run end-to-end tests for locally deployed applications. Microsoft Playwright Testing uses cloud-hosted, remote browsers for running Playwright tests at scale. You can use the service to run tests for apps on localhost, or that you host on your infrastructure.
 
-Playwright enables you to expose networks available on the client machine to remote browsers. With this functionality, you can access local resources without having to configure additional firewall settings.
+Playwright enables you to expose networks that are available on the client machine to remote browsers. When you expose a network, you can connect to local resources from your Playwright test code without having to configure additional firewall settings.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Configure Playwright to expose local networks
 
-To expose local networks and resources to remote browsers, you can use the `exposeNetwork` option. With this option, you can specify one or multiple networks to expose by using a list of rules.
+To expose local networks and resources to remote browsers, you can use the `exposeNetwork` option in Playwright. Learn more about the [`exposeNetwork` opion](https://playwright.dev/docs/api/class-browsertype#browser-type-connect) in the Playwright documentation.
 
-For example, to expose test/staging deployments and localhost: `*.test.internal-domain,*.staging.internal-domain,<loopback>`.
+You can specify one or multiple networks by using a list of rules. For example, to expose test/staging deployments and localhost: `*.test.internal-domain,*.staging.internal-domain,<loopback>`.
 
-You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network:
+You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the `<loopback>` rule:
 
 ```typescript
 export default defineConfig(config, {
