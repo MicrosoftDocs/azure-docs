@@ -17,7 +17,7 @@ Learn how to access Advisor through the Azure portal, configure Advisor settings
 
 To see your Advisor score for the selected subscriptions, sign in to the [Azure portal](https://portal.azure.com) and open [Advisor](https://aka.ms/azureadvisordashboard). The Advisor **Score** page opens by default. 
 
-   ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page2.png) 
+   ![Access Azure Advisor using the Azure portal](./media/advisor-get-started/advisor-score-page3.png) 
 
 * Each tile represents a category of recommendations for the selected subscriptions.  
 
@@ -37,25 +37,23 @@ To see your Advisor score for the selected subscriptions, sign in to the [Azure 
 
 ## Get recommendation details and solution options
 
-View recommendation additional details – such as the recommendation actions and impacted resources – and the solution options, including postponing or dismissing a recommendation.
+View recommendation details – such as the recommended actions and impacted resources – and the solution options, including postponing or dismissing a recommendation.
 
-1. To display a specific list of recommendations, click a category tile. The following screenshot shows the **Cost** tile selected.
+1. To display a specific list of recommendations, click a category tile. The following screenshot shows the **Reliability** tile selected.
 
-    ![Advisor search-filter criteria](./media/advisor-get-started/advisor-cost-tile-no-wsp.png)
+    ![Advisor search-filter criteria](./media/advisor-get-started/advisor-score-page3-detail.png)
 
-1. To review details of a recommendation, including the affected resources, click the **Description** link for it. Category recommendations and links vary. The following screenshot shows a **Cost** tile recommendation.
+1. To review details of a recommendation, including the affected resources, click the **Description** link for it. The following screenshot shows a **Reliability** tile recommendation details page.
 
-   ![Advisor search-filter criteria](./media/advisor-get-started/advisor-cost-tile-recommendation-detail-no-wsp.png)
+   ![Advisor search-filter criteria](./media/advisor-get-started/advisor-score-reliability-recommendation-page2.png)
    
-1. To take action, click a **Recommended actions** link. The Azure page where you can act opens. Other links may open the corresponding resource page for you to take the recommended action.
-  
-   To understand more about the recommended actions, open the **Learn more** link at the top of the page.
+1. To take see action details, click a **Recommended actions** link. The Azure page where you can act opens. Alternatively, open a page to the affected resources to take the recommended action (the two pages may be the same). The recommendation may necessitate you learning more about the affected configuration; to do so, open the **Learn more** link on the recommended action page, or at the top of the recommendations details page.
 
 1.   You can postpone the recommendation.
 
-   ![Advisor search-filter criteria](./media/advisor-get-started/advisor-recommendation-postpone.png)
+   ![Advisor search-filter criteria](./media/advisor-get-started/advisor-recommendation-postpone2.png)
 
-   You cannot dismiss the recommendation without certain privileges.
+   You cannot dismiss the recommendation without certain privileges. For information on permissions, see [Advisor Cost recommendations](permissions.md).
 
 ## Exclude subscriptions or resource groups
 
@@ -101,4 +99,3 @@ To learn more about Advisor, see:
 - [Advisor Performance recommendations](advisor-performance-recommendations.md)
 - [Advisor Cost recommendations](advisor-cost-recommendations.md)
 - [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)
-](https://github.com/mabrahms/azure-docs-pr/edit/main/articles/advisor/azure-advisor-score.md)https://github.com/mabrahms/azure-docs-pr/edit/main/articles/advisor/azure-advisor-score.md
