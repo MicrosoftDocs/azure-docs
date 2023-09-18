@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/12/2023
+ms.date: 09/18/2023
 ms.subservice: compliance
 ms.author: owinfrey
 ms.collection: M365-identity-device-management
@@ -88,19 +88,20 @@ To ensure timing accuracy of scheduled workflows it’s crucial to consider:
 ## Create a custom sync rule in Azure AD Connect cloud sync for EmployeeHireDate
  The following steps guide you through creating a synchronization rule using cloud sync.
  1.  In the Microsoft Entra admin center, browse to > **Hybrid management** > **Azure AD Connect**.
- 2.  Select **Manage Azure AD cloud sync**.
- 3. Under **Configuration**, select your configuration.
- 4. Select **Click to edit mappings**.  This link opens the **Attribute mappings** screen.
- 5. Select **Add attribute**.
- 6. Fill in the following information: 
+ 1.  Select **Manage Azure AD cloud sync**.
+ 1. Under **Configuration**, select your configuration.
+ 1. Select **Click to edit mappings**.  This link opens the **Attribute mappings** screen.
+ 1. Select **Add attribute**.
+ 1. Fill in the following information: 
      - Mapping Type: Direct
-     - Source attribute: extensionAttribute1
+     - Source attribute: msDS-cloudExtensionAttribute1
      - Default value: Leave blank
      - Target attribute: employeeHireDate
      - Apply this mapping: Always
- 7. Select **Apply**.
- 8. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
- 9. Select **Save schema**.
+     :::image type="content" source="media/how-to-lifecycle-workflow-sync-attributes/edit-cloud-attribute-mapping.png" alt-text="Screenshot of the cloud attribute mapping.":::
+ 1. Select **Apply**.
+ 1. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
+ 1. Select **Save schema**.
 
 For more information on attributes, see [Attribute mapping in Azure AD Connect cloud sync.](../hybrid/cloud-sync/how-to-attribute-mapping.md)
 
@@ -108,42 +109,42 @@ For more information on attributes, see [Attribute mapping in Azure AD Connect c
 The following example walks you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
 
    1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
-   2. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
-   3. Ensure the direction at the top is set to **Inbound**.
-   4. Select **Add Rule.**
-   5. On the **Create Inbound synchronization rule** screen, enter the following information and select **Next**.
+   1. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
+   1. Ensure the direction at the top is set to **Inbound**.
+   1. Select **Add Rule.**
+   1. On the **Create Inbound synchronization rule** screen, enter the following information and select **Next**.
       - Name:  In from AD - EmployeeHireDate
       - Connected System:  contoso.com
       - Connected System Object Type: user
       - Metaverse Object Type: person
       - Precedence: 200
      ![Screenshot of creating an inbound synchronization rule basics.](media/how-to-lifecycle-workflow-sync-attributes/create-inbound-rule.png)
-   6. On the **Scoping filter** screen, select **Next.**
-   7. On the **Join rules** screen, select **Next**.
-   8. On the **Transformations** screen, Under **Add transformations,** enter the following information.
+   1. On the **Scoping filter** screen, select **Next.**
+   1. On the **Join rules** screen, select **Next**.
+   1. On the **Transformations** screen, Under **Add transformations,** enter the following information.
       - FlowType:  Direct
       - Target Attribute: employeeHireDate
       - Source:  msDS-cloudExtensionAttribute1
      ![Screenshot of creating inbound synchronization rule transformations.](media/how-to-lifecycle-workflow-sync-attributes/create-inbound-rule-transformations.png)
-   9.  Select **Add**.
-   10. In the Synchronization Rules Editor, ensure the direction at the top is set to **Outbound**.
-   11. Select **Add Rule.**  
-   12. On the **Create Outbound synchronization rule** screen, enter the following information and select **Next**.
+   1.  Select **Add**.
+   1. In the Synchronization Rules Editor, ensure the direction at the top is set to **Outbound**.
+   1. Select **Add Rule.**  
+   1. On the **Create Outbound synchronization rule** screen, enter the following information and select **Next**.
        - Name:  Out to Azure AD - EmployeeHireDate
        - Connected System:  &lt;your tenant&gt;
        - Connected System Object Type: user
        - Metaverse Object Type: person
        - Precedence: 201
-   13. On the **Scoping filter** screen, select **Next.**
-   14. On the **Join rules** screen, select **Next**.
-   15. On the **Transformations** screen, Under **Add transformations,** enter the following information.
+   1. On the **Scoping filter** screen, select **Next.**
+   1. On the **Join rules** screen, select **Next**.
+   1. On the **Transformations** screen, Under **Add transformations,** enter the following information.
        - FlowType:  Direct
        - Target Attribute: employeeHireDate
        - Source:  employeeHireDate
      ![Screenshot of create outbound synchronization rule transformations.](media/how-to-lifecycle-workflow-sync-attributes/create-outbound-rule-transformations.png)
-   16.  Select **Add**.
-   17. Close the Synchronization Rules Editor
-   18. Enable the scheduler again by running `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+   1.  Select **Add**.
+   1. Close the Synchronization Rules Editor
+   1. Enable the scheduler again by running `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 > [!NOTE]
 >- **msDS-cloudExtensionAttribute1** is an example source.
@@ -151,25 +152,6 @@ The following example walks you through setting up a custom synchronization rule
 >- **Starting with [Azure AD Connect 2.1.19.0](../hybrid/connect/reference-connect-version-history.md#functional-changes-1), `employeeLeaveDateTime` is added to the default 'Out to Azure AD' rule, so steps 10-16 aren't required.**
 
 For more information, see [How to customize a synchronization rule](../hybrid/connect/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/connect/how-to-connect-sync-change-the-configuration.md)
-
-## How to verify these attribute values in Azure AD
-To review the values set on these properties on user objects in Azure AD, you can use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example:
-
-```PowerShell
-# Import Module
-Import-Module Microsoft.Graph.Users
-
-# Define the necessary scopes
-$Scopes =@("User.Read.All", "User-LifeCycleInfo.Read.All")
-
-# Connect using the scopes defined and select the Beta API Version
-Connect-MgGraph -Scopes $Scopes
-Select-MgProfile -Name beta
-
-# Query a user, using its user ID, and return the desired properties
-Get-MgUser -UserId "44198096-38ea-440d-9497-bb6b06bcaf9b" | Select-Object DisplayName, EmployeeLeaveDateTime
-```
-![Screenshot of the result.](media/how-to-lifecycle-workflow-sync-attributes/user-lifecycle-properties-return.png)
 
 ## Edit attribute mapping in the provisioning application
 
@@ -198,6 +180,25 @@ To update this mapping, you'd do the following:
 1. Your expression must match the formatting found in the [Understanding EmployeeHireDate and EmployeeLeaveDateTime formatting](how-to-lifecycle-workflow-sync-attributes.md#understanding-employeehiredate-and-employeeleavedatetime-formatting) section.
     :::image type="content" source="media/how-to-lifecycle-workflow-sync-attributes/attribute-formatting-expression.png" alt-text="Screenshot of setting attribute format.":::
 1. Select ok.
+
+## How to verify these attribute values in Azure AD
+To review the values set on these properties on user objects in Azure AD, you can use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example:
+
+```PowerShell
+# Import Module
+Import-Module Microsoft.Graph.Users
+
+# Define the necessary scopes
+$Scopes =@("User.Read.All", "User-LifeCycleInfo.Read.All")
+
+# Connect using the scopes defined and select the Beta API Version
+Connect-MgGraph -Scopes $Scopes
+Select-MgProfile -Name beta
+
+# Query a user, using its user ID, and return the desired properties
+Get-MgUser -UserId "44198096-38ea-440d-9497-bb6b06bcaf9b" | Select-Object DisplayName, EmployeeLeaveDateTime
+```
+![Screenshot of the result.](media/how-to-lifecycle-workflow-sync-attributes/user-lifecycle-properties-return.png)
 
 ## Next steps
 - [What are lifecycle workflows?](what-are-lifecycle-workflows.md)
