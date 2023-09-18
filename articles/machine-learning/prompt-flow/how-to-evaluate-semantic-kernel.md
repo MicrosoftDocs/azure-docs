@@ -47,7 +47,7 @@ Similar to the integration of Langchain with Prompt flow, Semantic Kernel, which
 > [!IMPORTANT]
 > Prior to developing the flow, it's essential to install the [Semantic Kernel package](/semantic-kernel/get-started/quick-start-guide/?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=python) in your runtime environment for executor. 
 
-Please refer to this [documentation](./how-to-customize-environment-runtime.md) for guidance on customizing the environment for runtime.
+To learn more, see [Customize environment for runtime](./how-to-customize-environment-runtime.md) for guidance .
 
 > [!IMPORTANT]
 > The approach to consume OpenAI or Azure OpenAI in Semantic Kernel is to to obtain the keys you have specified in environment variables or stored in a `.env` file.
