@@ -16,7 +16,7 @@ ms.custom:
 
 # Do video retrieval using vectorization (version 4.0 preview)
 
-Video Retrieval APIs are hosted by Azure AI  Vision and enable developers to create an index, add documents (video/image) to it, and search with natural language. Developers can define metadata schema for each index, ingest metadata to the service to help with retrieval. Developers can also specify what features to extract (vision, speech) for the index and filter based on features during search.
+Video Retrieval APIs are part of Azure AI Vision and enable developers to create an index, add documents (videos and images) to it, and search with natural language. Developers can define metadata schemas for each index and ingest metadata to the service to help with retrieval. Developers can also specify what features to extract from the index (vision, speech) and filter their search based on features.
 
 ## Prerequisites
 
@@ -29,26 +29,26 @@ Video Retrieval APIs are hosted by Azure AI  Vision and enable developers to cre
 ### Supported file formats
 | File format | Description |
 | ----------- | ----------- |
-| asf         | ASF (Advanced / Active Streaming Format)       |
-| flv         | FLV (Flash Video)        |
-| matroskamm, webm          | Matroska / WebM       |
-| mov, mp4, m4a, 3gp, 3g2, mj2   | QuickTime / MOV        |
-| mpegts                    | MPEG-TS (MPEG-2 Transport Stream)       |
-| rawvideo                  | raw video        |
-| rm                        | RealMedia        |
-| rtsp                      | RTSP input       |
+| `asf`         | ASF (Advanced / Active Streaming Format)       |
+| `flv`         | FLV (Flash Video)        |
+| `matroskamm`, `webm`          | Matroska / WebM       |
+| `mov`, `mp4`, `m4a`, `3gp`, `3g2`, `mj2`   | QuickTime / MOV        |
+| `mpegts`                    | MPEG-TS (MPEG-2 Transport Stream)       |
+| `rawvideo`                  | raw video        |
+| `rm`                        | RealMedia        |
+| `rtsp`                      | RTSP input       |
 
 ### Supported codecs
 | Codec       | Format |
 | ----------- | ----------- |
-| h264        | H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10       |
-| rawvideo    | raw video        |
-| h265        | HEVC
-| libvpx-vp9  | libvpx VP9 (codec vp9)        |
+| `h264`        | H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10       |
+| `rawvideo`    | raw video        |
+| `h265`        | HEVC
+| `libvpx-vp9`  | libvpx VP9 (codec vp9)        |
 
 ## Call the Video Retrieval APIs
 
-To use the Video Retrieval APIs in a typical pattern, you would do the following:
+To use the Video Retrieval APIs in a typical pattern, you would do the following steps:
 
 1. Create an index using **PUT - Create an index**.
 2. Add video documents to the index using **PUT - CreateIngestion**.
@@ -58,7 +58,7 @@ To use the Video Retrieval APIs in a typical pattern, you would do the following
 
 ### Use Video Retrieval APIs for metadata-based search
 
-The Video Retrieval APIs allows a user to add metadata to video files. Metadata is additional information associated with video files such as "Camera ID", "Timestamp", or "Location" that can be used to organize, filter, and search for specific videos. This example demonstrates how to create an index, add video files with associated metadata, and perform searches using different features.
+The Video Retrieval APIs allows a user to add metadata to video files. Metadata is additional information associated with video files such as "Camera ID," "Timestamp," or "Location" that can be used to organize, filter, and search for specific videos. This example demonstrates how to create an index, add video files with associated metadata, and perform searches using different features.
 
 In the following steps, replace https://example.cognitiveservices.azure.com/ with your Cognitive Service Resource endpoint URL. 
 
