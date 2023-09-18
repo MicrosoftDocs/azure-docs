@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/26/2022
 ms.author: cwerner
-ms.custom: aaddev, engagement-fy23
+ms.custom: aaddev, engagement-fy23, has-azure-ad-ps-ref
 ms.reviewer: lenalepa, sureshja
 ---
 
@@ -25,7 +25,7 @@ There are two representations of applications in Azure Active Directory (Azure A
 
 ## What are application objects and where do they come from?
 
-You can manage [application objects](app-objects-and-service-principals.md#application-object) in the Azure portal through the [App registrations](https://aka.ms/appregistrations) experience. Application objects describe the application to Azure AD and can be considered the definition of the application, allowing the service to know how to issue tokens to the application based on its settings. The application object will only exist in its home directory, even if it's a multi-tenant application supporting service principals in other directories. The application object may include (but not limited to) any of the following:
+You can manage [application objects](app-objects-and-service-principals.md#application-object) in the Microsoft Entra admin center through the [App registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) experience. Application objects describe the application to Azure AD and can be considered the definition of the application, allowing the service to know how to issue tokens to the application based on its settings. The application object will only exist in its home directory, even if it's a multi-tenant application supporting service principals in other directories. The application object may include (but not limited to) any of the following:
 
 - Name, logo, and publisher
 - Redirect URIs
@@ -39,7 +39,7 @@ You can manage [application objects](app-objects-and-service-principals.md#appli
 
 Application objects can be created through multiple pathways, including:
 
-- Application registrations in the Azure portal
+- Application registrations in the Microsoft Entra admin center
 - Creating a new application using Visual Studio and configuring it to use Azure AD authentication
 - When an admin adds an application from the app gallery (which will also create a service principal)
 - Using the Microsoft Graph API or PowerShell to create a new application
@@ -47,7 +47,7 @@ Application objects can be created through multiple pathways, including:
 
 ## What are service principals and where do they come from?
 
-You can manage [service principals](app-objects-and-service-principals.md#service-principal-object) in the Azure portal through the [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) experience. Service principals are what govern an application connecting to Azure AD and can be considered the instance of the application in your directory. For any given application, it can have at most one application object (which is registered in a "home" directory), and one or more service principal objects representing instances of the application in every directory in which it acts.
+You can manage [service principals](app-objects-and-service-principals.md#service-principal-object) in the Microsoft Entra admin center through the [Enterprise Applications](https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) experience. Service principals are what govern an application connecting to Azure AD and can be considered the instance of the application in your directory. For any given application, it can have at most one application object (which is registered in a "home" directory), and one or more service principal objects representing instances of the application in every directory in which it acts.
 
 The service principal can include:
 
@@ -127,14 +127,14 @@ Allowing users to register and consent to applications might initially sound con
 - Users signing in to applications using their organization accounts for business purposes is a good thing. If they subsequently leave the organization they'll automatically lose access to their account in the application they were using.
 - Having a record of what data was shared with which application is a good thing. Data is more transportable than ever and it's useful to have a clear record of who shared what data with which applications.
 - API owners who use Azure AD for OAuth decide exactly what permissions users are able to grant to applications and which permissions require an admin to agree to. Only admins can consent to larger scopes and more significant permissions, while user consent is scoped to the users' own data and capabilities.
-- When a user adds or allows an application to access their data, the event can be audited so you can view the Audit Reports within the Azure portal to determine how an application was added to the directory.
+- When a user adds or allows an application to access their data, the event can be audited so you can view the Audit Reports within the Microsoft Entra admin center to determine how an application was added to the directory.
 
 If you still want to prevent users in your directory from registering applications and from signing in to applications without administrator approval, there are two settings that you can change to turn off those capabilities:
 
 - To change the user consent settings in your organization, see [Configure how users consent to applications](../manage-apps/configure-user-consent.md).
 
 - To prevent users from registering their own applications:
-  1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) section under **App registrations**
+  1. In the Microsoft Entra admin center, browse to **Identity** > **Users** > **User settings**.
   2. Change **Users can register applications** to **No**.
 
 <!--Image references-->

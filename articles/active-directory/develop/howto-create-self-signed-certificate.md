@@ -46,7 +46,7 @@ To customize the start and expiry date and other properties of the certificate, 
 
 Use the certificate you create using this method to authenticate from an application running from your machine. For example, authenticate from Windows PowerShell.
 
-In an elevated PowerShell prompt, run the following command and leave the PowerShell console session open. Replace `{certificateName}` with the name that you wish to give to your certificate.
+In a PowerShell prompt, run the following command and leave the PowerShell console session open. Replace `{certificateName}` with the name that you wish to give to your certificate.
 
 ```powershell
 $certname = "{certificateName}"    ## Replace {certificateName}

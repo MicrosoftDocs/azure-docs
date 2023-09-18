@@ -10,8 +10,7 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/24/2023
 ms.author: mimart
-ms.custom: it-pro
-
+ms.custom: it-pro, has-azure-ad-ps-ref
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
@@ -49,7 +48,7 @@ To enable sign-in for customers with a Google account, you need to create an app
     - `https://<tenant-ID>.ciamlogin.com/<tenant-ID>/federation/oauth2`
     - `https://<tenant-ID>.ciamlogin.com/<tenant-name>.onmicrosoft.com/federation/oauth2`
    > [!NOTE]
-   > To find your customer tenant ID, go to the [Microsoft Entra admin center](https://entra.microsoft.com). Under **Azure Active Directory**, select **Overview**. Then select the **Overview** tab and copy the **Tenant ID**.
+   > To find your customer tenant ID, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). Browse to **Identity** > **Overview** and copy the **Tenant ID**.
 2. Select **Create**.
 3. Copy the values of **Client ID** and **Client secret**. You need both values to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
 
@@ -60,8 +59,8 @@ To enable sign-in for customers with a Google account, you need to create an app
 
 After you create the Google application, in this step you set the Google client ID and client secret in Azure AD. You can use the Microsoft Entra admin center or PowerShell to do so. To configure Google federation in the Microsoft Entra admin center, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as the global administrator of your customer tenant.
-1. Go to **Azure Active Directory** > **External Identities** > **All identity providers**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
+1. Browse to **Identity** > **External Identities** > **All identity providers**.
 2. Select **+ Google**.
 
    <!-- ![Screenshot that shows how to add Google identity provider in Azure AD.](./media/sign-in-with-google/configure-google-idp.png)-->
@@ -87,9 +86,11 @@ To configure Google federation by using PowerShell, follow these steps:
 
 At this point, the Google identity provider has been set up in your Azure AD, but it's not yet available in any of the sign-in pages. To add the Google identity provider to a user flow:
 
-1. In your customer tenant, go to **Azure Active Directory** > **External Identities** > **User flows**.
-1. Select the user flow where you want to add the Facebook identity provider.
-1. Under Settings, select **Identity providers**
+1. In your customer tenant, browse to **Identity** > **External Identities** > **User flows**.
+1. Select the user flow where you want to add the Google identity provider.
+
+1. Under Settings, select **Identity providers.**
+
 1. Under **Other Identity Providers**, select **Google**.
 
    <!-- ![Screenshot that shows how to add Google identity provider a user flow.](./media/sign-in-with-google/add-google-idp-to-user-flow.png)-->
@@ -100,3 +101,5 @@ At this point, the Google identity provider has been set up in your Azure AD, bu
 
 - [Add Facebook as an identity provider](how-to-facebook-federation-customers.md)
 - [Customize the branding for customer sign-in experiences](how-to-customize-branding-customers.md)
+
+

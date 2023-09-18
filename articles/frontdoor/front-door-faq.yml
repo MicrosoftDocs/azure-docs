@@ -162,6 +162,11 @@ sections:
           Azure Front Door and Azure CDN can't be configured together because both services utilize the same Azure edge sites when responding to requests. 
 
       - question: |
+          Can I configure Azure Front Door behind my Front Door profile or vice versa?
+        answer:  |
+          An Azure Front Door profile can't be configured behind another because both they utilize the same Azure edge sites when responding to requests. 
+
+      - question: |
           Which network service tags does Front Door support?
         answer:  |
           Azure Front Door supports three service tags:

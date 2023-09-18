@@ -18,7 +18,11 @@ We recommend that you enable Defender for Storage on the subscription level. Doi
 
 To enable and configure Microsoft Defender for Storage at the subscription level using REST API, create a PUT request with this endpoint (replace the `subscriptionId` in the endpoint URL with your own Azure subscription ID):
 
-**PUT** https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2023-01-01
+```
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2023-01-01
+
+```
 And add the following request body:
 
 ```
@@ -99,3 +103,5 @@ Learn more on how to [set up response for malware scanning](defender-for-storage
 ## Next steps
 
 - Learn how to [enable and Configure the Defender for Storage plan at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
+
+

@@ -1,9 +1,9 @@
 ---
 title: Configure security alerts for Azure roles in Privileged Identity Management
-description: Learn how to configure security alerts for Azure resource roles in Azure AD Privileged Identity Management (PIM).
+description: Learn how to configure security alerts for Azure resource roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 3/29/2023
-ms.author: billmath
+ms.author: barclayn
 ms.reviewer: rianakarim
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -56,15 +56,9 @@ Alert | Severity | Trigger | Recommendation
 
 Follow these steps to configure security alerts for Azure roles in Privileged Identity Management:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
-
-1. From the left menu, select **Azure resources**.
-
-1. From the list of resources, select your Azure subscription. 
-
-1. On the **Alerts** page, select **Settings**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure resources** Select your subscription > **Alerts** > **Setting**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
     ![Screenshot of the alerts page with settings highlighted.](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 

@@ -12,6 +12,7 @@ ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/26/2023
 ms.subservice: hybrid

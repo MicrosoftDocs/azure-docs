@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 
 # Certificate user IDs 
@@ -40,11 +40,11 @@ For cloud-only users, only users with roles **Global Administrators**, **Privile
 >[!NOTE]
 >Active Directory Administrators (including accounts with delegated administrative privilege over synched user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Azure AD for any synched accounts.
  
-## Update certificate user IDs in the Azure portal
+## Update certificate user IDs
  
-Tenant admins can use the following steps Azure portal to update certificate user IDs for a user account:
+Tenant admins can use the following steps to update certificate user IDs for a user account:
 
-1. In the Azure portal, click **All users (preview)**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). Search for and select **All users**. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/user.png" alt-text="Screenshot of test user account.":::
 

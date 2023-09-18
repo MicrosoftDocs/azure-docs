@@ -7,6 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
+ms.custom: has-azure-ad-ps-ref
 ms.topic: reference
 ms.date: 01/19/2023
 ms.subservice: hybrid
@@ -36,7 +37,7 @@ You also need the following accounts to *install* Azure AD Connect:
 
 - **AD DS Enterprise Administrator account**: Optionally used to create the required AD DS Connector account.
 
-- **Azure AD Global Administrator account**:  Used to create the Azure AD Connector account and to configure Azure AD. You can view Global Administrator and Hybrid Identity Administrator accounts in the Azure portal. See [List Azure AD role assignments](../../roles/view-assignments.md).
+- **Azure AD Global Administrator account**:  Used to create the Azure AD Connector account and to configure Azure AD. You can view Global Administrator and Hybrid Identity Administrator accounts in the [Microsoft Entra admin center](https://entra.microsoft.com). See [List Azure AD role assignments](../../roles/view-assignments.md).
 
 - **SQL SA account (optional)**: Used to create the ADSync database when you use the full version of SQL Server. The instance of SQL Server can be local or remote to the Azure AD Connect installation. This account can be the same account as the Enterprise Administrator account.
 
@@ -259,7 +260,7 @@ An account in Azure AD is created for the sync service to use. You can identify 
 
 The name of the server the account is used on can be identified in the second part of the username. In the preceding figure, the server name is DC1. If you have staging servers, each server has its own account.
 
-A server account is created with a long, complex password that doesn't expire. The account is granted a special Directory Synchronization Accounts role that has permissions to perform only directory synchronization tasks. This special built-in role can't be granted outside of the Azure AD Connect wizard. The Azure portal shows this account with the User role.
+A server account is created with a long, complex password that doesn't expire. The account is granted a special Directory Synchronization Accounts role that has permissions to perform only directory synchronization tasks. This special built-in role can't be granted outside of the Azure AD Connect wizard. The [Microsoft Entra admin center](https://entra.microsoft.com) shows this account with the User role.
 
 Azure AD has a limit of 20 sync service accounts. To get the list of existing Azure AD service accounts in your Azure AD instance, run the following Azure AD PowerShell cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 

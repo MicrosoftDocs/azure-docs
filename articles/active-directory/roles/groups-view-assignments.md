@@ -1,6 +1,6 @@
 ---
 title: View roles assigned to a group in Azure Active Directory
-description: Learn how the roles assigned to a group can be viewed using the Azure portal. Viewing groups and assigned roles are default user permissions.
+description: Learn how the roles assigned to a group can be viewed using the Microsoft Entra admin center. Viewing groups and assigned roles are default user permissions.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 08/08/2023
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # View roles assigned to a group in Azure Active Directory
 
-This section describes how the roles assigned to a group can be viewed using the Azure portal. Viewing groups and assigned roles are default user permissions.
+This section describes how the roles assigned to a group can be viewed using the Microsoft Entra admin center. Viewing groups and assigned roles are default user permissions.
 
 ## Prerequisites
 
@@ -28,13 +28,13 @@ This section describes how the roles assigned to a group can be viewed using the
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Groups**.
+1. Browse to **Identity** > **Groups** > **All groups**.
 
 1. Select a role-assignable group that you are interested in.
 

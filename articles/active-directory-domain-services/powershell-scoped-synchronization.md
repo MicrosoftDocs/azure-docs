@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/06/2023
 ms.author: justinha 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
 # Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using Azure AD PowerShell
 
@@ -19,7 +19,7 @@ To provide authentication services, Azure Active Directory Domain Services (Azur
 
 By default, all users and groups from an Azure AD directory are synchronized to an Azure AD DS managed domain. If you have specific needs, you can instead choose to synchronize only a defined set of users.
 
-This article shows you how to create a managed domain that uses scoped synchronization and then change or disable the set of scoped users using Azure AD PowerShell. You can also [complete these steps using the Azure portal][scoped-sync].
+This article shows you how to create a managed domain that uses scoped synchronization and then change or disable the set of scoped users using Azure AD PowerShell. You can also [complete these steps using the Microsoft Entra admin center][scoped-sync].
 
 ## Before you begin
 
@@ -86,7 +86,7 @@ foreach ($groupName in $groupsToAdd)
 Write-Output "****************************************************************************`n"
 Write-Output "`n****************************************************************************"
 
-$currentAssignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId
+$currentAssignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true
 Write-Output "Total current group-assignments: $($currentAssignments.Count), SP-ObjectId: $($sp.ObjectId)"
 
 $currAssignedObjectIds = New-Object 'System.Collections.Generic.HashSet[string]'

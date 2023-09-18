@@ -33,7 +33,7 @@ The following guidance should be applied when considering including role-based a
 
 - Define the roles that are required for the authorization needs of the application.
 - Apply, store, and retrieve the pertinent roles for authenticated users.
-- Determine how the application behavior based on the roles assigned affects the current user.
+- Determine the application behavior based on the roles assigned to the current user.
 
 After the roles are defined, the Microsoft identity platform supports several different solutions that can be used to apply, store, and retrieve role information for authenticated users. These solutions include app roles, Azure AD groups, and the use of custom datastores for user role information.
 

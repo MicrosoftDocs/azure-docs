@@ -160,7 +160,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-azure-ad.md
-[aks-add-np-containerd]: /create-node-pools.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: /azure/aks/create-node-pools
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

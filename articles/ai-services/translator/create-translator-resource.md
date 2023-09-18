@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 09/06/2023
 ---
 
 # Create a Translator resource
@@ -48,7 +48,7 @@ After you decide which resource type you want use to access the Translator servi
    * Each subscription has a free tier.
    * The free tier has the same features and functionality as the paid plans and doesn't expire.
    * Only one free tier resource is available per subscription.
-   * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. If you just want to try Document Translation, select the Standard S1 instance tier. 
+   * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. If you just want to try Document Translation, select the Standard S1 instance tier.
 
 1. If you've created a multi-service resource, the links at the bottom of the **Basics** tab provides technical documentation regarding the appropriate operation of the service.
 
@@ -76,9 +76,25 @@ To authenitcate your connection to your Translator resource, you'll need to find
 
 :::image type="content" source="media/keys-and-endpoint-resource.png" alt-text="Screenshot of the Azure portal showing the Keys and Endpoint page of a Translator resource. The keys and endpoints are highlighted.":::
 
-## Delete a  resource or resource group
+## Create a Text Translation client
 
-To remove an Azure AI multi-service or Translator resource, you can delete the resource or delete the resource group.
+Text Translation supports both [global and regional endpoints](#complete-your-project-and-instance-details). Once you have your [authentication keys](#authentication-keys-and-endpoint-url), you need to create an instance of the `TextTranslationClient`, using an `AzureKeyCredential` for authentication, to interact with the Text Translation service:
+
+* To create a `TextTranslationClient` using a global resource endpoint, you need your resource **API key**:
+
+    ```bash
+      AzureKeyCredential credential = new('<apiKey>');
+      TextTranslationClient client = new(credential);
+    ```
+
+* To create a `TextTranslationClient` using a regional resource endpoint, you need your resource **API key** and the name of the **region** where your resource is located:
+
+    ```bash
+     AzureKeyCredential credential = new('<apiKey>');
+     TextTranslationClient client = new(credential, '<region>');
+    ```
+
+## How to delete a  resource or resource group
 
 > [!WARNING]
 >

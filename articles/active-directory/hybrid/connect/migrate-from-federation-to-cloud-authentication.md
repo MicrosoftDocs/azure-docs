@@ -5,6 +5,7 @@ description: This article has information about moving your hybrid identity envi
 services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 04/04/2023
 ms.author: billmath
@@ -85,7 +86,7 @@ Proactively communicate with your users how their experience changes, when it ch
 Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients continue to function without extra configuration.
 
 >[!NOTE] 
->When you migrate from federated to cloud authentication, the process to convert the domain from federated to managed may take up to 60 minutes. During this process, users might not be prompted for credentials for any new logins to Azure portal or other browser based applications protected with Azure AD. We recommend that you include this delay in your maintenance window.
+>When you migrate from federated to cloud authentication, the process to convert the domain from federated to managed may take up to 60 minutes. During this process, users might not be prompted for credentials for any new logins to [Microsoft Entra admin center](https://entra.microsoft.com) or other browser based applications protected with Azure AD. We recommend that you include this delay in your maintenance window.
 
 ### Plan for rollback
 
@@ -218,7 +219,9 @@ To choose one of these options, you must know what your current settings are.
 
 #### Verify current Azure AD Connect settings
 
-Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Active Directory** > **Azure AD Connect** and verify the **USER SIGN_IN** settings as shown in this diagram:
+[!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+
+3. Verify the **USER SIGN_IN** settings as shown in this diagram:
 
 ![Verify current Azure AD Connect settings](media/deploy-cloud-user-authentication/current-user-settings-on-azure-ad-portal.png)
 
@@ -278,7 +281,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
     > [!IMPORTANT] 
     > At this point, all your federated domains changes to managed authentication. Your selected User sign-in method is the new method of authentication.
 
-7. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
+7. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Azure Active Directory**, and then select **Azure AD Connect**.
 
 8. Verify these settings:
 
@@ -286,7 +289,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
       - **Seamless single sign-on** is set to **Enabled**.
       - **Password Hash Sync** is set to **Enabled**.
 
-   ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
+   ![Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
 
 9. In case you're switching to PTA, follow the next steps.
 
@@ -305,7 +308,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 4. Run the authentication agent installation. During installation, you must enter the credentials of a Global Administrator account.
 
-    ![ Microsoft Azure AD Connect Authentication Agent](media/deploy-cloud-user-authentication/install-azure-ad-connect-installation-agent.png)
+    ![Microsoft Azure AD Connect Authentication Agent](media/deploy-cloud-user-authentication/install-azure-ad-connect-installation-agent.png)
 
 5. When the authentication agent is installed, you can return to the PTA health page to check the status of the more agents.
 
@@ -317,9 +320,9 @@ For most customers, two or three authentication agents are sufficient to provide
 
 On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). Notice that on the User sign-in page, the **Do not configure** option is preselected.
 
-![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
+![See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**. 
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Azure Active Directory**, and then select **Azure AD Connect**. 
 
 2. Verify these settings:
 
@@ -327,17 +330,17 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
   - **Seamless single sign-on** is set to **Disabled**.
   - **Password Hash Sync** is set to **Enabled**.
 
-    ![ Verify current user settings on the Azure portal](media/deploy-cloud-user-authentication/verify-current-user-settings-on-azure-ad-portal.png)
+    ![Verify current user settings on the [Microsoft Entra admin center](https://entra.microsoft.com)](media/deploy-cloud-user-authentication/verify-current-user-settings-on-azure-ad-portal.png)
 
 **In case of PTA only**, follow these steps to install more PTA agent servers.
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Azure Active Directory**, and then select **Azure AD Connect**.
 
 2. Select **Pass-through authentication**. Verify that the status is **Active**.
 
-    ![ Pass-through authentication settings](media/deploy-cloud-user-authentication/pass-through-authentication-settings.png)
+    ![Pass-through authentication settings](media/deploy-cloud-user-authentication/pass-through-authentication-settings.png)
 
-   If the authentication agent isn't active, complete these [troubleshooting steps](tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
+   If the authentication agent isn't active, complete these [troubleshooting steps](tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 3. [Deploy more authentication agents](#deploy-more-authentication-agents-for-pta).
 
@@ -361,7 +364,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
     ```
 
 
-3. In the Azure portal, select **Azure Active Directory > Azure AD Connect**.
+3. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Azure Active Directory > Azure AD Connect**.
 
 4. Verify that the domain has been converted to managed by running the command below.  The Authentication type should be set to managed.
     ```powershell
@@ -437,7 +440,7 @@ For more information, see –
 
 ### Remove relying party trust
 
-If you've Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
+If you've Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the [Microsoft Entra admin center](https://entra.microsoft.com). In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
 
 If you don't use AD FS for other purposes (that is, for other relying party trusts), you can decommission AD FS at this point.
 

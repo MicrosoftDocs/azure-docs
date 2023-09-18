@@ -85,7 +85,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Vanilla JS SPA
-            url: how-to-single-page-app-vanillajs-prepare-tenant.md
+            url: tutorial-single-page-app-vanillajs-prepare-tenant.md
           - text: React SPA
             url: tutorial-single-page-app-react-sign-in-prepare-tenant.md
           - text: Node.js web app

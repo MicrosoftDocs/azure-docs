@@ -10,12 +10,18 @@
   - name: Secure virtual hub - Bicep
     displayName: Resource Manager, ARM, Template
     href: quick-secure-virtual-hub-bicep.md
+  - name: Secure virtual hub - Terraform
+    displayName: Terraform
+    href: quick-secure-virtual-hub-terraform.md
   - name: Secure virtual hub - ARM template
     displayName: Resource Manager
     href: quick-secure-virtual-hub.md
   - name: Deploy firewall with policy - Bicep
     displayName: ARM, Resource Manager, Template
     href: quick-firewall-policy-bicep.md
+  - name: Deploy firewall with policy - Terraform
+    displayName: Terraform
+    href: quick-firewall-policy-terraform.md
   - name: Deploy firewall with policy - ARM template
     displayName: Resource Manager
     href: quick-firewall-policy.md

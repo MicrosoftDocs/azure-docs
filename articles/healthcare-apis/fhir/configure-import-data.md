@@ -17,11 +17,6 @@ The FHIR service supports $import operation that allows you to import data into 
   
 * Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API. It also allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
 
-> [!IMPORTANT]
-> Incremental mode capability is currently in preview and offered free of charge. With General Availability, use of Incremental import will incur charges.
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 In this document we go over the three steps used in configuring import settings on the FHIR service:
 
  1. Enable managed identity on the FHIR service.
@@ -73,7 +68,7 @@ To specify the Azure Storage account in JSON view, you need to use [REST API](/r
 
 Below steps walk through setting configurations for initial and incremental import mode. Choose the right import mode for your use case. 
 
-### Step 3.1: Set import configuration for Initial import mode.
+### Step 3a: Set import configuration for Initial import mode.
 Do following changes to JSON:
 1. Set enabled in importConfiguration to **true**.
 2. Update the integrationDataStore with target storage account name.
@@ -84,7 +79,7 @@ Do following changes to JSON:
 
 After you've completed this final step, you're ready to perform **Initial mode** import using $import.
 
-### Step 3.2: Set import configuration for Incremental import mode.
+### Step 3b: Set import configuration for Incremental import mode.
 
 Do following changes to JSON:
 1. Set enabled in importConfiguration to **true**.

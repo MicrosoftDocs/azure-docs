@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
-ms.custom: contperf-fy20q4
+ms.custom: contperf-fy20q4, has-azure-ad-ps-ref
 ---
 # Password policies and account restrictions in Azure Active Directory
 

@@ -1,6 +1,6 @@
 ---
 title: Assign Azure AD roles to groups
-description: Assign Azure AD roles to role-assignable groups in the Azure portal, PowerShell, or Microsoft Graph API.
+description: Assign Azure AD roles to role-assignable groups in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 04/10/2023
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
 
 # Assign Azure AD roles to groups
 
-To simplify role management, you can assign Azure AD roles to a group instead of individuals. This article describes how to assign Azure AD roles to [role-assignable groups](groups-concept.md) using the Azure portal, PowerShell, or Microsoft Graph API.
+To simplify role management, you can assign Azure AD roles to a group instead of individuals. This article describes how to assign Azure AD roles to [role-assignable groups](groups-concept.md) using the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To simplify role management, you can assign Azure AD roles to a group instead of
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -39,9 +39,9 @@ Assigning an Azure AD role to a group is similar to assigning users and service 
 > [!TIP]
 > These steps apply to customers that have an Azure AD Premium P1 license. If you have an Azure AD Premium P2 license in your tenant, you should instead follow steps in [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
+1. Browse to **Identity** > **Roles & admins** > **Roles & admins**.
 
     :::image type="content" source="media/common/roles-and-administrators.png" alt-text="Screenshot of Roles and administrators page in Azure Active Directory." lightbox="media/common/roles-and-administrators.png":::
 
@@ -76,7 +76,7 @@ $group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description
 
 ### Get the role definition you want to assign
 
-Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition?view=graph-powershell-1.0) command to get a role definition.
+Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition) command to get a role definition.
 
 ```powershell
 $roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'"
@@ -84,7 +84,7 @@ $roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayNa
 
 ### Create a role assignment
 
-Use the [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0) command to assign the role.
+Use the [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment) command to assign the role.
 
 ```powershell
 $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id

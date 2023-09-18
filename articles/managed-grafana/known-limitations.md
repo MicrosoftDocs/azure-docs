@@ -33,6 +33,15 @@ Azure Managed Grafana has the following known limitations:
 
 *  Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [contact us](mailto:ad4g@microsoft.com)
 
+* Some Azure Managed Grafana features aren't available in Azure Government and Microsoft Azure operated by 21Vianet due to limitations in these specific environments. This following table lists the feature differences.
+
+  | Feature | Azure Government | Microsoft Azure operated by 21Vianet |
+  |---------|:------------:|:------------:|
+  | Private link | &#x274C; | &#x274C; |
+  | Managed private endpoint | &#x274C; | &#x274C; |
+  | Team sync with Azure AD | &#x274C; | &#x274C; |
+  | Enterprise plugins | &#x274C; | &#x274C; |
+
 ## Next steps
 
 > [!div class="nextstepaction"]

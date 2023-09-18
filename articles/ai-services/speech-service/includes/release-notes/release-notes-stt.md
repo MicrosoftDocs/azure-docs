@@ -2,11 +2,31 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/09/2023
+ms.date: 09/15/2023
 ms.author: eur
 ---
 
+### September 2023 release
+
+#### Whisper public preview
+
+Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](../../batch-transcription-create.md#using-whisper-models) guide. 
+
+> [!NOTE]
+> Azure OpenAI Service also supports OpenAI's Whisper model for speech to text with a synchronous REST API. To learn more, check out the [quickstart](../../../openai/whisper-quickstart.md). 
+
+Check out [What is the Whisper model?](../../whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
+
 ### August 2023 release
+
+#### New Speech to text-locales:
+
+Speech to text supports two new locales as shown in the following table. Refer to the complete language list [here](../../language-support.md?tabs=stt).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `pa-IN`         | Punjabi (India) |
+| `ur-IN`        | Urdu (India)  |
 
 #### Pronunciation Assessment
 
@@ -112,8 +132,8 @@ Added 10 new locales as shown in the following table. See the complete language 
 | `sq-AL`         | Albanian (Albania)                |
 |  `hy-AM`         | Armenian (Armenia)                |
 |  `az-AZ`         | Azerbaijani (Azerbaijan)          |
-|  `eu-ES`         | Basque (Spain)                    |
-|  `gl-ES`         | Galician (Spain)                  |
+|  `eu-ES`         | Basque                    |
+|  `gl-ES`         | Galician                  |
 | `ka-GE`         | Georgian (Georgia)                |
 |  `it-CH`         | Italian (Switzerland)             |
 |  `kk-KZ`         | Kazakh (Kazakhstan)               |
