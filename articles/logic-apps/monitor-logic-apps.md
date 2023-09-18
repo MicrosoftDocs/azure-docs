@@ -143,25 +143,25 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 ## Review workflow run history
 
-Each time the trigger successfully fires, Azure Logic Apps creates a workflow instance and runs that instance. By default, each instance runs in parallel so that no workflow has to wait before starting a run. You can review what happened during each run, including the status, inputs, and outputs for each step in the workflow.
+Each time a trigger successfully fires, Azure Logic Apps creates a workflow instance and runs that instance. By default, each instance runs in parallel so that no workflow has to wait before starting a run. You can review what happened during each run, including the status, inputs, and outputs for each step in the workflow.
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-   To find your logic app, in the main Azure search box, enter **logic apps**, and then select **Logic apps**.
+   To find your logic app, in the Azure search box, enter **logic apps**, and then select **Logic apps**.
 
-   ![Screenshot showing Azure portal main search box with "logic apps" entered and "Logic apps" selected.](./media/monitor-logic-apps/find-your-logic-app.png)
+   ![Screenshot shows Azure portal search box, with the search word logic apps, and selected option for Logic apps.](./media/monitor-logic-apps/find-your-logic-app.png)
 
-   The Azure portal shows all the logic apps that are associated with your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
+   The Azure portal shows all the logic apps in your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
 
-   ![Screenshot showing all the logic apps in selected Azure subscriptions.](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
+   ![Screenshot shows all logic apps in selected Azure subscriptions.](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
-1. Select your logic app. On your logic app's menu, select **Overview**. On the Overview pane, select **Runs history**.
+1. Select your logic app resource. On your logic app menu, select **Overview**. On the **Overview** pane, select **Runs history**.
 
    Under **Runs history**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
-   ![Screenshot showing Consumption logic app workflow "Overview" pane with "Runs history" selected.](./media/monitor-logic-apps/overview-logic-app-runs-history-consumption.png)
+   ![Screenshot shows Consumption workflow and Overview pane with selected option for Runs history.](./media/monitor-logic-apps/overview-logic-app-runs-history-consumption.png)
 
    The following table lists the possible run statuses:
 
@@ -174,7 +174,6 @@ Each time the trigger successfully fires, Azure Logic Apps creates a workflow in
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
    | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
-   |||
 
 1. To review the steps and other information for a specific run, under **Runs history**, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
 
@@ -183,15 +182,15 @@ Each time the trigger successfully fires, Azure Logic Apps creates a workflow in
    > If the run status doesn't appear, try refreshing the overview pane by selecting **Refresh**.
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-   ![Screenshot showing the Consumption logic app workflow run selected.](./media/monitor-logic-apps/select-specific-logic-app-run-consumption.png)
+   ![Screenshot shows Consumption workflow run selected.](./media/monitor-logic-apps/select-specific-logic-app-run-consumption.png)
 
    The **Logic app run** pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
 
-   ![Screenshot showing each action in the selected workflow run.](./media/monitor-logic-apps/logic-app-run-pane-consumption.png)
+   ![Screenshot shows each action in the selected workflow run.](./media/monitor-logic-apps/logic-app-run-pane-consumption.png)
 
    To view this information in list form, on the **Logic app run** toolbar, select **Run Details**.
 
-   ![Screenshot showing the "Logic app run" toolbar with "Run Details" selected.](./media/monitor-logic-apps/toolbar-select-run-details.png)
+   ![Screenshot shows toolbar named Logic app run with the selected option Run Details.](./media/monitor-logic-apps/toolbar-select-run-details.png)
 
    The Run Details lists each step, their status, and other information.
 
@@ -221,28 +220,28 @@ Each time the trigger successfully fires, Azure Logic Apps creates a workflow in
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-   To find your logic app, in the main Azure search box, enter **logic apps**, and then select **Logic apps**.
+   To find your logic app, in the Azure search box, enter **logic apps**, and then select **Logic apps**.
 
-   ![Screenshot showing Azure portal search box with "logic apps" entered and "Logic apps" selected.](./media/monitor-logic-apps/find-your-logic-app.png)
+   ![Screenshot shows Azure portal search box with the word logic apps, and selected option named Logic apps.](./media/monitor-logic-apps/find-your-logic-app.png)
 
-   The Azure portal shows all the logic apps that are associated with your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
+   The Azure portal shows all the logic apps in your Azure subscriptions. You can filter this list based on name, subscription, resource group, location, and so on.
 
-   ![Screenshot showing all logic apps in selected Azure subscriptions.](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
+   ![Screenshot shows all logic apps in selected Azure subscriptions.](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
-1. Select your logic app. On your logic app's menu, under **Workflows**, select **Workflows**, and then select your workflow.
+1. Select your logic app resource. On your logic app menu, under **Workflows**, select **Workflows**, and then select your workflow.
 
    > [!NOTE]
    >
    > By default, stateless workflows don't store run history unless you enable this capability for debugging. 
    > For more information, review [Stateful versus stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
 
-1. On your workflow's menu, select **Overview**. On the Overview pane, select **Run History**.
+1. On your workflow's menu, select **Overview**. On the **Overview** pane, select **Run History**.
 
    Under **Run History**, all the past, current, and any waiting runs appear. If the trigger fires for multiple events or items at the same time, an entry appears for each item with the same date and time.
 
-   ![Screenshot showing Standard logic app workflow "Overview" pane with "Run History" selected.](./media/monitor-logic-apps/overview-logic-app-runs-history-standard.png)
+   ![Screenshot shows Standard workflow and Overview pane with selected option for Run History.](./media/monitor-logic-apps/overview-logic-app-runs-history-standard.png)
 
    The following table lists the possible run statuses:
 
@@ -255,7 +254,6 @@ Each time the trigger successfully fires, Azure Logic Apps creates a workflow in
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
    | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
-   |||
 
 1. To review the steps and other information for a specific run, under **Run History**, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
 
@@ -264,21 +262,21 @@ Each time the trigger successfully fires, Azure Logic Apps creates a workflow in
    > If the run status doesn't appear, try refreshing the overview pane by selecting **Refresh**.
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-   ![Screenshot showing the Standard workflow run selected.](./media/monitor-logic-apps/select-specific-logic-app-run-standard.png)
+   ![Screenshot shows the Standard workflow run selected.](./media/monitor-logic-apps/select-specific-logic-app-run-standard.png)
 
    The workflow run pane shows each step in the selected run, each step's run status, and the time taken for each step to run, for example:
 
-   ![Screenshot showing each action in selected workflow run.](./media/monitor-logic-apps/logic-app-run-pane-standard.png)
+   ![Screenshot shows each action in selected workflow run.](./media/monitor-logic-apps/logic-app-run-pane-standard.png)
 
 1. After all the steps in the run appear, select each step to review more information such as inputs, outputs, and any errors that happened in that step.
 
    For example, suppose you had an action that failed, and you wanted to review which inputs might have caused that step to fail.
 
-   ![Screenshot showing Standard logic app workflow with failed step inputs.](./media/monitor-logic-apps/failed-action-inputs-standard.png)
+   ![Screenshot shows Standard workflow with failed step inputs.](./media/monitor-logic-apps/failed-action-inputs-standard.png)
 
    The following screenshot shows the outputs from the failed step.
 
-   ![Screenshot showing Standard logic app workflow with failed step outputs.](./media/monitor-logic-apps/failed-action-outputs-standard.png)
+   ![Screenshot shows Standard logic app workflow with failed step outputs.](./media/monitor-logic-apps/failed-action-outputs-standard.png)
 
    > [!NOTE]
    >
