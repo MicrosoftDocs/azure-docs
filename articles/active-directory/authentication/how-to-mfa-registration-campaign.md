@@ -14,7 +14,7 @@ author: mjsantani
 manager: amycolannino
 
 ms.collection: M365-identity-device-management
-#Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+#Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Microsoft Entra ID to improve and secure user sign-in events.
 ---
 
 # How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator
@@ -28,7 +28,7 @@ You can also define how many days a user can postpone, or "snooze," the nudge. I
 
 ## Prerequisites 
 
-- Your organization must have enabled Azure AD Multi-Factor Authentication. Every edition of Azure AD includes Azure AD Multi-Factor Authentication. No other license is needed for a registration campaign.
+- Your organization must have enabled Microsoft Entra multifactor authentication. Every edition of Microsoft Entra ID includes Microsoft Entra multifactor authentication. No other license is needed for a registration campaign.
 - Users can't have already set up the Authenticator app for push notifications on their account. 
 - Admins need to enable users for the Authenticator app using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
@@ -36,7 +36,7 @@ You can also define how many days a user can postpone, or "snooze," the nudge. I
 
 ## User experience
 
-1. User successfully authenticates using Azure AD Multi-Factor Authentication. 
+1. User successfully authenticates using Microsoft Entra multifactor authentication. 
 
 1. User sees prompt to set up the Authenticator app to improve their sign-in experience. Only users who are allowed for the Authenticator app push notifications and don't have it currently set up will see the prompt. 
 
@@ -78,7 +78,7 @@ To enable a registration campaign in the Microsoft Entra admin center, complete 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 1. Browse to **Protection** > **Authentication methods** > **Registration campaign**.
-1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. For the registration campaign, the Microsoft managed value is Enabled for voice call and text message users with free and trial subscriptions. For more information, see [Protecting authentication methods in Azure Active Directory](concept-authentication-default-enablement.md).
+1. For **State**, click **Microsoft managed** or **Enabled**. In the following screenshot, the registration campaign is **Microsoft managed**. That setting allows Microsoft to set the default value to be either Enabled or Disabled. For the registration campaign, the Microsoft managed value is Enabled for voice call and text message users with free and trial subscriptions. For more information, see [Protecting authentication methods in Microsoft Entra ID](concept-authentication-default-enablement.md).
    
    ![Screenshot of enabling a registration campaign.](./media/how-to-nudge-authenticator-app/registration-campaign.png)
 
@@ -108,7 +108,7 @@ The following table lists **authenticationMethodsRegistrationCampaign** properti
 
 | Name | Possible values | Description |
 |------|-----------------|-------------|
-| state | "enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Azure AD default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
+| state | "enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Microsoft Entra ID default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
 | snoozeDurationInDays | Range: 0 – 14 | Defines the number of days before the user is nudged again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
 | includeTargets | N/A | Allows you to include different users and groups that you want the feature to target. |
 | excludeTargets | N/A | Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
@@ -261,7 +261,7 @@ The nudge won't appear on mobile devices that run Android or iOS.
 
 **Is registration campaign available for MFA Server?** 
 
-No. This feature is available only for users using Azure AD Multi-Factor Authentication. 
+No. This feature is available only for users using Microsoft Entra multifactor authentication. 
 
 **Can users be nudged within an application?** 
 
@@ -303,9 +303,9 @@ No. The feature, for now, aims to nudge users to set up the Authenticator app on
 
 Users in organizations with free and trial subscriptions can postpone the app setup up to three times. There is no way to hide the snooze option on the nudge for organizations with paid subscriptions yet. You can set the snoozeDuration to 0, which ensures that users see the nudge during each MFA attempt.  
 
-**Will I be able to nudge my users if I am not using Azure AD Multi-Factor Authentication?** 
+**Will I be able to nudge my users if I am not using Microsoft Entra multifactor authentication?** 
 
-No. The nudge only works for users who are doing MFA using the Azure AD Multi-Factor Authentication service. 
+No. The nudge only works for users who are doing MFA using the Microsoft Entra multifactor authentication service. 
 
 **Will Guest/B2B users in my tenant be nudged?** 
 
@@ -330,5 +330,3 @@ A nudge won't appear if a user is redirected during sign-in due to [Conditional 
 ## Next steps
 
 [Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)
-
-
