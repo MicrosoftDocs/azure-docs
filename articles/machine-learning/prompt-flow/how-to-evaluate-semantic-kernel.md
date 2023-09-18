@@ -54,7 +54,7 @@ To learn more, see [Customize environment for runtime](./how-to-customize-enviro
 
 In prompt flow, you need to use **Connection** to store the keys. You can convert these keys from environment variables to key-values in a custom connection in Prompt flow. 
 
-:::image type="content" source="./media/how-to-evaluate-semantic-kernel/custom-conn-sk-aoai.png" alt-text="Custom connection" lightbox = "./media/how-to-evaluate-semantic-kernel/custom-conn-sk-aoai.png":::
+:::image type="content" source="./media/how-to-evaluate-semantic-kernel/custom-conn-sk-aoai.png" alt-text="Screenshot of custom connection." lightbox = "./media/how-to-evaluate-semantic-kernel/custom-conn-sk-aoai.png":::
 
 You can then utilize this custom connection to invoke your OpenAI or Azure OpenAI model within the flow.
 
