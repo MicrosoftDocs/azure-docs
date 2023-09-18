@@ -8,7 +8,7 @@ ms.date: 09/15/2023
 
 # Get started with Azure Advisor
 
-Learn how to access Advisor through the Azure portal, configure Advisor settings, and get and print out recommendations.
+Learn how to access Advisor through the Azure portal, configure Advisor settings, and get and manage recommendations.
 
 > [!NOTE]
 > Azure Advisor automatically runs in the background to find newly created resources. It can take up to 24 hours to provide recommendations on those resources.
@@ -25,7 +25,7 @@ To see your Advisor score for the selected subscriptions, sign in to the [Azure 
 
 * You can filter the display using the buttons at the top of the page:
    * **Subscription**: Choose **All** for Advisor recommendations on all subscriptions. Alternatively, select specific subscriptions. Apply changes by clicking outside of the button.
-   * **Recommendation Status**: Your options are **Active** (recommendations that you have not postponed or dismissed) or **Postponed or Dismissed**. Apply changes by clicking outside of the button.
+   * **Recommendation Status**: **Active** (recommendations that you have not postponed or dismissed, the default), **Postponed or Dismissed**. Apply changes by clicking outside of the button.
    * **Resource Group**: Choose **All** (the default) or specific resource groups. Apply changes by clicking outside of the button.
    * **Type**: Choose **All** (the default) or specific resources. Apply changes by clicking outside of the button.
    * **Commitments**: Applicable only to cost recommendations. Adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.*
