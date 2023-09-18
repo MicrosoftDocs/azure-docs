@@ -194,7 +194,7 @@ The end to end notebook example in [azureml-example repo](https://github.com/Azu
 
 ### Studio
 
-You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double click the component -> find the input you'd like to promote -> Select the three dots on the right -> Select Add to pipeline input. 
+You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double clicking the component -> find the input you'd like to promote -> Select the three dots on the right -> Select Add to pipeline input. 
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" lightbox="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" alt-text="Screenshot highlighting how to promote to pipeline input in designer.":::
 
@@ -208,7 +208,7 @@ Optional input can be useful in below two scenarios:
 - If you have an optional data/model type input and don't assign a value to it when submitting the pipeline job, there will be a component in the pipeline that lacks a preceding data dependency. In other words, the input port isn't linked to any component or data/model node. This causes the pipeline service to invoke this component directly, instead of waiting for the preceding dependency to be ready.
 - Below screenshot provides a clear example of the second scenario. If you set `continue_on_step_failure = True` for the pipeline and have a second node (node2) that uses the output from the first node (node1) as an optional input, node2 will still be executed even if node1 fails. However, if node2 is using required input from node1, it will not be executed if node1 fails.
  
-     :::image type="content" source="./media/how-to-manage-pipeline-input-output/continue_on_failure_optinal_input.png" lightbox="./media/how-to-manage-pipeline-input-output/continue_on_failure_optinal_input.png" alt-text="Screenshot to show the orchestration logic of optional input and continue on failure.":::
+     :::image type="content" source="./media/how-to-manage-pipeline-input-output/continue-on-failure-optional-input.png" lightbox="./media/how-to-manage-pipeline-input-output/continue-on-failure-optional-input.png" alt-text="Screenshot to show the orchestration logic of optional input and continue on failure.":::
 
 Following are examples about how to define optional input.
 
