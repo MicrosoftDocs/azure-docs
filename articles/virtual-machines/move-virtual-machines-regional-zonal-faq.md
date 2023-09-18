@@ -10,7 +10,10 @@ ms.author: ankitadutta
 
 # Frequently asked questions - Move Azure single instance virtual machines from regional to zonal target availability zones
 
-This article answers common questions about Azure Virtual Machines - Regional to Zonal Move.
+This article answers common questions about Azure single instance virtual machines - regional to zonal move.
+
+> [!IMPORTANT]
+> Currently, this feature is in *Public Preview*.
 
 ## Regional to zonal move
 

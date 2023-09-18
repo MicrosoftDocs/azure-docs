@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure Virtual Machines and Virtual Machin
 author: faister
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 09/18/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions, subject-reliability
@@ -120,6 +120,9 @@ Now that you have migrated your data to ZRS managed disks or zonal managed disks
 
 This section details how to move single instance Azure virtual machines from a Regional configuration to a target [Availability Zone](../reliability/availability-zones-overview.md) within the same Azure region.
 
+> [!NOTE]
+> Currently, this feature is in *Public Preview*.
+
 ###  Key benefits of regional to zonal move
 
 The benefits of a regional to zonal move are:
@@ -139,7 +142,6 @@ The following components are used during a regional to zonal move:
 | Move collection |	A move collection is an Azure Resource Manager object that is created during the regional to zonal move process. The collection is based on the VM's region and subscription parameters and contains metadata and configuration information about the resources you want to move. VMs added to a move collection must be in the same subscription and region/location but can be selected from different resource groups.|
 | Move resource |	When you add VM(s) to a move collection, it's tracked as a move resource and this information is maintained in the move collection for each of the VM(s) that are currently in the move process. The move collection will be created in a temporary resource group in your subscription and can be deleted along with the resource group if desired. |
 | Dependencies | When you add VMs to the move collection, validation checks are done to determine if the VMs have any dependencies that aren't in the move collection. For example, a network interface card (NIC) is a dependent resource for a VM and must be moved along with the VM. After identifying the dependencies for each of the VMs, you can either add dependencies to the move collection and move them as well, or you can select alternate existing resources in the target zonal configuration. You can select an existing VNET in the target zonal configuration or create a new VNET as applicable. |
-
 
 ### Support matrix
    

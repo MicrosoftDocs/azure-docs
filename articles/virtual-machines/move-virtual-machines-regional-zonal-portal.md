@@ -12,6 +12,8 @@ ms.author: ankitadutta
 
 This article provides information on how to move Azure single instance Virtual Machines (VMs) from a regional to a zonal configuration within the same Azure region.
 
+> [!IMPORTANT]
+> Currently, this feature is in *Public Preview*.
 ## Prerequisites
 
 Ensure the following before you begin:

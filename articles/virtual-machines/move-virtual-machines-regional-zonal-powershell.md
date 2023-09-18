@@ -14,6 +14,9 @@ This article details using Azure PowerShell to move Azure single instance VMs fr
 
 To use an availability zone, create your virtual machine in a [supported Azure region](../availability-zones/az-region.md).
 
+> [!IMPORTANT]
+> Currently, this feature is in *Public Preview*.
+
 ## Prerequisites
 
 Verify the following requirements:
