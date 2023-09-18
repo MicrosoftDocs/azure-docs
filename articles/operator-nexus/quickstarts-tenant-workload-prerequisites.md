@@ -149,7 +149,7 @@ Gather the `resourceId` values of the L2 and L3 isolation domains that you creat
 ```
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```
+```azurepowershell-interactive
 New-AzNetworkCloudTrunkedNetwork -Name "<YourTrunkedNetworkName>" -ResourceGroupName "<YourResourceGroupName>" -SubscriptionId "<YourSubscription>" -ExtendedLocationName "<ClusterCustomLocationId>" -ExtendedLocationType "CustomLocation" -Location "<ClusterAzureRegion>" -Vlan "<YourVlanList>" -IsolationDomainId "<YourL3IsolationDomainId>" -InterfaceName "<YourNetworkInterfaceName>" -Tag "<YourTag>"
 ```
 

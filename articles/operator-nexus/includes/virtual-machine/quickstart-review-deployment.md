@@ -12,7 +12,7 @@ To view the details of the ```myNexusVirtualMachine``` cluster in the ```myResou
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecliazurecli-interactive
+```azurecli-interactive
 az networkcloud virtualmachine show \
   --name myNexusVirtualMachine \
   --resource-group myResourceGroup
