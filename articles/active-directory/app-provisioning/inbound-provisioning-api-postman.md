@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 09/15/2023
 ms.author: jfields
 ms.reviewer: cmmdesai
 ---
@@ -65,7 +65,7 @@ If the API invocation is successful, you see the message `202 Accepted.` Under H
 You can verify the processing either from the Microsoft Entra admin center or using Postman.
 
 ### Verify processing from Microsoft Entra admin center 
-1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with *global administrator* or *application administrator* login credentials.
+1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with at least [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823) level credentials.
 1. Browse to **Azure Active Directory -> Applications -> Enterprise applications**.
 1. Under all applications, use the search filter text box to find and open your API-driven provisioning application.
 1. Open the Provisioning blade. The landing page displays the status of the last run.

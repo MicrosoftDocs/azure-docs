@@ -642,6 +642,8 @@
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
             - name: Develop a customized evaluation flow
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
+            - name: Evaluate your Semantic Kernel with Prompt flow
+              href: ./prompt-flow/how-to-evaluate-semantic-kernel.md
         - name: Deploy a flow to online endpoint for real-time inference with UI
           href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
         - name: "Code first: Dev to Prod"

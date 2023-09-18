@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -21,9 +21,9 @@ This article describes how to check the status of provisioning jobs after they h
 
 ## Overview
 
-Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. When the connector is configured and running, provisioning jobs can be reported using the following methods:
+Provisioning connectors are set up and configured using the [Microsoft Entra admin center](https://entra.microsoft.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. When the connector is configured and running, provisioning jobs can be reported using the following methods:
 
-- The [Azure portal](https://portal.azure.com)
+- The [Microsoft Entra admin center](https://entra.microsoft.com)
 
 - Streaming the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
 
@@ -38,11 +38,14 @@ This article uses the following terms:
 * **Source System** - The repository of users that the Azure AD provisioning service synchronizes from. Azure Active Directory is the source system for most preintegrated provisioning connectors, however there are some exceptions (example: Workday Inbound Synchronization).
 * **Target System** - The repository of users where the Azure AD provisioning service synchronizes. The repository is typically a SaaS application, such as Salesforce, ServiceNow, G Suite, and Dropbox for Business. In some cases the repository can be an on-premises system such as Active Directory, such as Workday Inbound Synchronization to Active Directory.
 
-## Getting provisioning reports from the Azure portal
+## Getting provisioning reports from the Microsoft Entra admin center
 
-To get provisioning report information for a given application, start by launching the [Azure portal](https://portal.azure.com) and **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs** in the **Activity** section. You can also browse to the Enterprise Application for which provisioning is configured. For example, if you're provisioning users to LinkedIn Elevate, the navigation path to the application details is:
+To get provisioning report information for a given application:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select **Provisioning logs** in the **Activity** section. You can also browse to the Enterprise Application for which provisioning is configured. For example, if you're provisioning users to LinkedIn Elevate, the navigation path to the application details is:
 
-**Azure Active Directory > Enterprise Applications > All applications > LinkedIn Elevate**
+**Identity** > **Applications** > **Enterprise applications** > **All applications** > **LinkedIn Elevate**
 
 From the all applications area, you access both the provisioning progress bar and provisioning logs.
 
@@ -61,7 +64,7 @@ The **Current Status** should be the first place admins look to check on the ope
 
 ## Provisioning logs 
 
-All activities performed by the provisioning service are recorded in the Azure AD [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs ** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+All activities performed by the provisioning service are recorded in the Azure AD [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). You can access the provisioning logs in the Microsoft Entra admin center. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 
 ## Troubleshooting
