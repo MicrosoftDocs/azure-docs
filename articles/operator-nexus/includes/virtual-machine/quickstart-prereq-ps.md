@@ -19,11 +19,11 @@ ms.custom: devx-track-azurepowershell
     Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
     ```
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](../../../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 
-An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you will be prompted to specify a location. This location is:
+An [Azure resource group](../../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you will be prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
@@ -56,5 +56,5 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 [kubernetes-concepts]: ../../../aks/concepts-clusters-workloads.md
 [az-account]: /cli/azure/account
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-group-delete]: /cli/azure/group#az-group-deleteV
 [azure-resource-group]: ../../../azure-resource-manager/management/overview.md
