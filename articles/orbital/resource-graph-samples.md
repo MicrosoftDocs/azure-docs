@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Graph Sample Queries for Azure Orbital Ground Station
-description: Provides a collection of Azure Resource Graph sample queries for Azure Orbital Ground Station
+description: Provides a collection of Azure Resource Graph sample queries for Azure Orbital Ground Station.
 author: kellydevens
 ms.service: orbital
 ms.topic: how-to
