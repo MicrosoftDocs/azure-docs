@@ -6,14 +6,16 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 09/08/2023
+ms.date: 09/18/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 
 # Tutorial: Access and customize the developer portal
 
-In this tutorial, you will get started with customizing the API Management *developer portal*. The developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It's where API consumers can discover your APIs, learn how to use them, and request access.
+In this tutorial, you'll get started with customizing the API Management *developer portal*. The developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It's where API consumers can discover your APIs, learn how to use them, and request access.
+
+[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
 In this tutorial, you learn how to:
 
@@ -37,7 +39,7 @@ For more information about developer portal features and options, see [Azure API
 
 ## Access the portal as an administrator
 
-Follow the steps below to access the managed version of the portal.
+Follow these steps to access the managed version of the developer portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
@@ -48,7 +50,7 @@ Follow the steps below to access the managed version of the portal.
 
 ## Add an image to the media library
 
-You'll usually want to use your own images and other media content in the developer portal to reflect your organization's branding. If an image that you want to use isn't already in the portal's media library, add it in the developer portal:
+You'll want to use your own images and other media content in the developer portal to reflect your organization's branding. If an image that you want to use isn't already in the portal's media library, add it in the developer portal:
 
 1. In the left menu of the visual editor, select **Media**.
 1. Do one of the following:
@@ -61,10 +63,10 @@ You'll usually want to use your own images and other media content in the develo
 
 ## Replace the default logo on the home page
 
-Follow these steps to replace the placeholder logo provided in the top left corner of the navigation bar. You can use your own logo to match your organization's branding.
+A placeholder logo is provided in the top left corner of the navigation bar. You can replace it with your own logo to match your organization's branding.
 
 1. In the developer portal, select the default **Contoso** logo in the top left of the navigation bar. 
-1. Select the **Edit** icon. 
+1. Select **Edit**. 
 1. Under the **Main** section, select **Source**.
 1. In the **Media** pop-up, select one of the following:
     * An image already uploaded in your media library
@@ -80,37 +82,26 @@ The default **Home** page and other pages are filled with placeholder text and o
 
 Edit the structure and content of the generated pages in several ways. For example:
 
-* Select existing text and heading elements to edit and format content.
-
-* Add a section to a page by hovering over a blank area then click on a blue icon with a plus sign.
-
-    :::image type="content" source="media/api-management-howto-developer-portal-customize/add-section.png" alt-text="Screenshot showing the add section icon in the developer portal.":::
-
-* Add a widget (for example, text, image, custom widget, or APIs list) by hovering over a blank area, then click a grey icon with a plus sign.
-
-    :::image type="content" source="media/api-management-howto-developer-portal-customize/add-widget.png" alt-text="Screenshot showing the add widget icon in the developer portal.":::
-
-* Drag and drop page elements to your desired placement.
+[!INCLUDE [api-management-developer-portal-add](../../includes/api-management-developer-portal-add.md)]
 
 ## Edit the site's primary color
 
 To change colors, gradients, typography, buttons, and other user interface elements in the developer portal, edit the site styles. For example, change the primary color in the navigation bar, buttons, and other elements to match your organization's branding.
 
 1. In the developer portal, in the left menu of the visual editor, select **Styles**. 
-1. Select the **Edit** icon. 
 1. Under the **Colors** section, select the color style item you want to edit. For example, select **Primary**.
 1. Select **Edit color**.
-1. Select the color from the color-picker, or enter the hex color code.
+1. Select the color from the color-picker, or enter the color hex code.
 1. Select **Save**.
 
 The updated color is applied to the site in real time.
 
 > [!TIP]
-> If you want to, add and name another color item by selecting **+ Add color** on the **Styles** page.
+> If you want, add and name another color item by selecting **+ Add color** on the **Styles** page.
 
 ## Change the background image on the home page
 
-You can change the background on your home page to an image or color that matches your organization's branding. If you haven't already uploaded a different image to the media library, you can upload it before changing the background image, or when you change the background image.
+You can change the background on your home page to an image or color that matches your organization's branding. If you haven't already uploaded a different image to the media library, upload it before changing the background image, or when you change the background image.
 
 1. On the home page of the developer portal, click in the top right corner so that the top section is highlighted at the corners and a pop-up menu appears.
 1. To the right of **Edit article** in the pop-up menu, select the up-down arrow (**Switch to parent**). 
@@ -130,9 +121,11 @@ The developer portal uses *layouts* to define common content elements such as na
 
 By default, the developer portal comes with two layouts:
 
-*  **Home** - used for the home page (URL template `/`)
+* **Home** - used for the home page (URL template `/`)
 
 * **Default** - used for all other pages (URL template `/*`). 
+
+:::image type="content" source="media/api-management-howto-developer-portal-customize/layouts.png" alt-text="Screenshot of default layouts in the developer portal.":::
 
 You can change the layout for any page in the developer portal and define new layouts to apply to pages that match other URL templates.
 
@@ -140,7 +133,7 @@ For example, to change the logo that's used in the navigation bar of the Default
 
 1. In the left menu of the visual editor, select **Pages**.
 1. Select the **Layouts** tab, and select **Default**.
-1. Select the picture of the logo in the upper left corner.
+1. Select the picture of the logo in the upper left corner and select **Edit**.
 1. Under the **Main** section, select **Source**.
 1. In the **Media** pop-up, either select one of the following:
     * An image already uploaded in your media library
@@ -152,10 +145,11 @@ For example, to change the logo that's used in the navigation bar of the Default
 
 ## Edit navigation menus
 
-You can edit the navigation menus at the top of the developer portal pages to change the order of menu items, add new menu items, and remove menu items. You can also change the name of menu items and the URL or other content they point to.
+You can edit the navigation menus at the top of the developer portal pages to change the order of menu items, add items, or remove items. You can also change the name of menu items and the URL or other content they point to.
 
-The **Default** and **Home** layouts the developer portal pages show a main menu with links to **Home**, **APIs**, and **Products**, and an anonymous user menu with links to **Sign in** and **Sign up** pages. However, you might want to customize them. For example, if you want to independently invite users to your site, you could disable the **Sign up** link in the anonymous user menu.
-<!--Add screenshot of nav items-->
+The **Default** and **Home** layouts the developer portal pages show two menus: a main menu with links to **Home**, **APIs**, and **Products**, and an anonymous user menu with links to **Sign in** and **Sign up** pages. However, you might want to customize them. For example, if you want to independently invite users to your site, you could disable the **Sign up** link in the anonymous user menu.
+
+:::image type="content" source="media/api-management-howto-developer-portal-customize/navigation-menus.png" alt-text="Screenshot of default navigation menus in the developer portal.":::
 
 1. In the left menu of the visual editor, select **Site menu**.
 1. On the left, expand **Anonymous user menu**.
@@ -175,7 +169,11 @@ Edit the site settings for the developer portal to change the site name, descrip
 
 ## Publish the portal
 
-To make your portal and its latest changes available to visitors, you need to *publish* it. Select **Publish site** within the portal's administrative interface. 
+To make your portal and its latest changes available to visitors, you need to *publish* it.
+
+To publish from the adminstrative interface of the developer portal:
+
+[!INCLUDE [api-management-developer-portal-publish](../../includes/api-management-developer-portal-publish.md)]
 
 Publishing the portal can take a few minutes to complete.
 

@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/08/2023
+ms.date: 09/18/2023
 ms.author: danlep 
 ---
 
@@ -15,7 +15,9 @@ ms.author: danlep
 
 The API Management *developer portal* is an automatically generated, fully customizable website with the documentation of your APIs. It's where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-This article introduces features of the developer portal, the types of content the portal presents, and ways to customize and extend the developer portal for your specific users and scenarios. 
+This article introduces features of the developer portal, the types of content the portal presents, and ways to customize and extend the developer portal for your specific users and scenarios.
+
+[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
 :::image type="content" source="media/developer-portal-overview/cover.png" alt-text="Screenshot of the API Management developer portal.":::
 
@@ -31,20 +33,12 @@ For a step-by-step walkthrough of customizing the developer portal, see [Tutoria
 
 ### Visual editor
 
-The developer portal's administrative interface provides a visual editor for customize the portal's content and styling. You can add, remove, and rearrange pages, sections, and widgets. You can also change the styling of the portal's elements, such as fonts, colors, and spacing.
+The developer portal's administrative interface provides a visual editor for customizing the portal's content and styling. You can add, remove, and rearrange pages, sections, and widgets. You can also change the styling of the portal's elements, such as fonts, colors, and spacing.
 
 [!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]
 
+[!INCLUDE [api-management-developer-portal-add](../../includes/api-management-developer-portal-add.md)]
 
-* Add a section to a page by hovering over a blank area then click on a blue icon with a plus sign. 
-
-    :::image type="content" source="media/developer-portal-overview/add-section.png" alt-text="Screenshot showing the add section icon in the developer portal." border="false":::
-
-* Add a widget (for example, text, image, custom widget, or APIs list) by hovering over a blank area, then click a grey icon with a plus sign.
-
-    :::image type="content" source="media/developer-portal-overview/add-widget.png" alt-text="Screenshot showing the add widget icon in the developer portal." border="false":::
-
-* Rearrange items in a page by drag-and-drop. 
 
 ### Layouts and pages
 
@@ -166,10 +160,7 @@ To make your portal and its latest changes available to visitors, you need to *p
 
 ### Publish from the administrative interface
 
-1. Make sure you saved your changes by selecting the **Save** button.
-1. In the menu at the top, select **Publish site**. This operation may take a few minutes.  
-
-    :::image type="content" source="media/developer-portal-overview/publish-portal.png" alt-text="Screenshot of the Publish website button in the developer portal." border="false":::
+[!INCLUDE [api-management-developer-portal-publish](../../includes/api-management-developer-portal-publish.md)]
 
 ### Publish from the Azure portal
 
