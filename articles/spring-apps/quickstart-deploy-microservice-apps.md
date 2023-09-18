@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 06/21/2023
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, event-tier1-build-2022, engagement-fy23
-zone_pivot_groups: spring-apps-plan-selection
+zone_pivot_groups: spring-apps-tier-selection
 ---
 
 # Quickstart: Deploy microservice applications to Azure Spring Apps
