@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/20/2023
+ms.date: 09/18/2023
 ms.author: rolyon
 ---
 
@@ -215,7 +215,7 @@ The following list describes the limits for custom roles.
 > Custom roles with DataActions and management group AssignableScope is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-- You can create a custom role with `DataActions` and one management group in `AssignableScopes`. You can't assign the custom role at the management group scope itself; however, you can assign the custom role at the scope of the subscriptions within the management group. This can be helpful if you need to create a single custom role with `DataActions` that needs to be assigned in multiple subscriptions, instead of creating a separate custom role for each subscription.
+- You can create a custom role with `DataActions` and one management group in `AssignableScopes`. You can't assign the custom role at the management group scope itself; however, you can assign the custom role at the scope of the subscriptions within the management group. This can be helpful if you need to create a single custom role with `DataActions` that needs to be assigned in multiple subscriptions, instead of creating a separate custom role for each subscription. This preview isn't available in Azure Government or Microsoft Azure operated by 21Vianet.
 
 For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
