@@ -263,9 +263,9 @@
       - name: Azure SQL-Managed Instance
         href: /azure/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell
       - name: Azure SQL Server Registry
-        href: /sql/sql-server/end-of-support/sql-server-extended-security-updates?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&view=sql-server-ver15#configure-regional-redundancy
+        href: /sql/sql-server/end-of-support/sql-server-extended-security-updates?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&preserve-view=true&view=sql-server-ver15#configure-regional-redundancy
       - name: Azure Storage-Disk Storage
-        href: ../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.jsonr#cross-region-snapshot-copy-preview
+        href: ../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Stream Analytics
         href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Virtual Machines
@@ -289,7 +289,7 @@
       - name: Azure API Management
         href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure App Configuration
-        href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
+        href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure App Service
         href: reliability-app-service.md
       - name: Azure Application Gateway (V2)

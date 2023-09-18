@@ -35,7 +35,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure Site Recovery](../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 | [Azure SQL](/azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore) |
 | [Azure SQL-Managed Instance](/azure/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell) |
-| [Azure Storage-Disk Storage](../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.jsonr#cross-region-snapshot-copy-preview) |
+| [Azure Storage-Disk Storage](../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.jsonr) |
 | [Azure Virtual Machines](reliability-virtual-machines.md#disaster-recovery-and-business-continuity) |
 | [Azure Virtual Network](../virtual-network/virtual-network-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity) |
 | [Azure VPN and ExpressRoute Gateway](../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
