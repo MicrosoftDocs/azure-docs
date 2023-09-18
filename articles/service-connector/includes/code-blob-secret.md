@@ -69,7 +69,9 @@ var blobServiceClient = new BlobServiceClient(connectionString);
    pip install django-storages[azure]
    ```
 
-1. In setting file, add following lines. For more information, see [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html).
+1. Configure and set up the Azure Blob Storage backend in your Django settings file accordingly to your django version. For more information, see [django-storages[azure]](https://django-storages.readthedocs.io/en/latest/backends/azure.html#configuration-settings).
+
+1. In setting file, add following lines.
    ```python
    # in your setting file, eg. settings.py
    AZURE_CONNECTION_STRING = os.getenv('AZURE_STORAGEBLOB_CONNECTIONSTRING')

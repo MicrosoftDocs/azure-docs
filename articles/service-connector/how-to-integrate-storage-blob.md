@@ -7,6 +7,8 @@ ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 06/13/2022
+zone_pivot_group_filename: service-connector/zone-pivot-groups.json
+zone_pivot_groups: howto-blobstorage-authtype
 ---
 
 # Integrate Azure Blob Storage with Service Connector
@@ -37,10 +39,11 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ---
 
-## Default environment variable names or application properties and Sample codes
+## Default environment variable names or application properties and sample codes
 
 Reference the connection details and sample codes in following tables, accordings to your connection's authentication type and client type, to connect compute services to Azure Blob Storage.
 
+::: zone pivot="system-identity"
 
 ### System-assigned managed identity
 
@@ -54,6 +57,9 @@ Reference the connection details and sample codes in following tables, according
 Follow these steps and sample codes to connect to Azure Blob Storage with system-assigned managed identity.
 [!INCLUDE [code sample for blob](./includes/code-blob-aad.md)]
 
+::: zone-end
+
+::: zone pivot="user-identity"
 
 ### User-assigned managed identity
 
@@ -67,12 +73,12 @@ Follow these steps and sample codes to connect to Azure Blob Storage with system
 Follow these steps and sample codes to connect to Azure Blob Storage with user-assigned managed identity.
 [!INCLUDE [code sample for blob](./includes/code-blob-aad.md)]
 
-### Connection string
+::: zone-end
 
-#### other client types
-| Default environment variable name  | Description                    | Example value                                                                                                       |
-|------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
+
+::: zone pivot="connecteion-string"
+
+### Connection string
 
 #### SpringBoot client type
 
@@ -83,12 +89,20 @@ Follow these steps and sample codes to connect to Azure Blob Storage with user-a
 | azure.storage.blob-endpoint | Your Blob Storage endpoint     | `https://<storage-account-name>.blob.core.windows.net/` |
 
 
+#### other client types
+| Default environment variable name  | Description                    | Example value                                                                                                       |
+|------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
+
+
 #### Sample codes
 
 Follow these steps and sample codes to connect to Azure Blob Storage with connection string.
 [!INCLUDE [code sample for blob](./includes/code-blob-secret.md)]
 
+::: zone-end
 
+::: zone pivot="service-principal"
 
 ### Service principal
 
@@ -104,6 +118,7 @@ Follow these steps and sample codes to connect to Azure Blob Storage with connec
 Follow these steps and sample codes to connect to Azure Blob Storage with service principal.
 [!INCLUDE [code sample for blob](./includes/code-blob-aad.md)]
 
+::: zone-end
 
 ## Next steps
 

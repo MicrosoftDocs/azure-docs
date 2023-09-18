@@ -4,6 +4,8 @@ ms.service: service-connector
 ms.topic: include
 ms.date: 09/11/2023
 ms.author: yungezz
+zone_pivot_group_filename: service-connector/zone-pivot-groups.json
+zone_pivot_groups: howto-blobstorage-authtype
 ---
 
 
@@ -17,6 +19,30 @@ dotnet add package Azure.Identity
 ```
 
 Here's sample codes to connect to Blob storage using managed identity or service principal.
+
+
+:::zone pivot="system-identity"
+
+```csharp
+using Azure.Identity;
+using Azure.Storage.Blobs;
+
+// get blob endpoint
+var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
+
+system-assigned managed identity, uncomment the following codes
+var credential = new DefaultAzureCredential();
+
+var blobServiceClient = new BlobServiceClient(
+        new Uri(blobEndpoint),
+        credential);
+```
+
+:::zone-end
+
+
+:::zone pivot="user-identity"
+
 ```csharp
 using Azure.Identity;
 using Azure.Storage.Blobs;
@@ -31,19 +57,34 @@ var credential = new DefaultAzureCredential(
         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_CLIENTID");
     });
 
-// system-assigned managed identity, uncomment the following codes
-// var credential = new DefaultAzureCredential();
+var blobServiceClient = new BlobServiceClient(
+        new Uri(blobEndpoint),
+        credential);
+```
+
+:::zone-end
+
+:::zone pivot="service-principal"
+
+```csharp
+using Azure.Identity;
+using Azure.Storage.Blobs;
+
+// get blob endpoint
+var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
 
 // service principal 
-//var tenantId = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_TENANTID");
-//var clientId = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_CLIENTID");
-//var clientSecret = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_CLIENTSECRET");
-//var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+var tenantId = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_TENANTID");
+var clientId = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_CLIENTID");
+var clientSecret = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_CLIENTSECRET");
+var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
 var blobServiceClient = new BlobServiceClient(
         new Uri(blobEndpoint),
         credential);
 ```
+
+:::zone-end
 
 ### [Java](#tab/java)
 
@@ -62,29 +103,59 @@ var blobServiceClient = new BlobServiceClient(
     ```
 1. Get the connection string from the environment variable, and add the plugin name to connect to the blob storage:
 
+    :::zone pivot="system-identity"
+
     ```java
     String url = System.getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT");  
 
-    // for system managed identity, uncomment the following codes
+    // system managed identity
     DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
-
-    // for user assigned managed identity, uncommnet the following codes
-    // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
-    //    .managedIdentityClientId(System.getenv("AZURE_STORAGEBLOB_CLIENTID"))
-    //    .build();
-
-    // for service principal, uncomment the following codes
-    //ClientSecretCredential defaultCredential = new ClientSecretCredentialBuilder()
-    //  .clientId(System.getenv("<AZURE_STORAGEBLOB_CLIENTID>"))
-    //  .clientSecret(System.getenv("<AZURE_STORAGEBLOB_CLIENTSECRET>"))
-    //  .tenantId(System.getenv("<AZURE_STORAGEBLOB_TENANTID>"))
-    //  .build();
 
     BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
         .endpoint(url)
         .credential(defaultCredential)
         .buildClient();
     ```
+
+    :::zone-ends
+
+    :::zone pivot="user-identity"
+
+    ```java
+    String url = System.getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT");  
+
+    // for user assigned managed identity
+    DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
+        .managedIdentityClientId(System.getenv("AZURE_STORAGEBLOB_CLIENTID"))
+        .build();
+
+    BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+        .endpoint(url)
+        .credential(defaultCredential)
+        .buildClient();
+    ```
+
+    :::zone-ends
+
+    :::zone pivot="service-principal"
+
+    ```java
+    String url = System.getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT");  
+
+    // for service principal
+    ClientSecretCredential defaultCredential = new ClientSecretCredentialBuilder()
+      .clientId(System.getenv("<AZURE_STORAGEBLOB_CLIENTID>"))
+      .clientSecret(System.getenv("<AZURE_STORAGEBLOB_CLIENTSECRET>"))
+      .tenantId(System.getenv("<AZURE_STORAGEBLOB_TENANTID>"))
+      .build();
+
+    BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+        .endpoint(url)
+        .credential(defaultCredential)
+        .buildClient();
+    ```
+
+    :::zone-ends
 
 
 ### [Python](#tab/python)
@@ -94,6 +165,9 @@ var blobServiceClient = new BlobServiceClient(
    pip install azure-storage-blob
    ```
 1. Authenticate via `azure-identity` library. Get blob storage endpoint url from the environment variable added by Service Connector.
+
+   :::zone pivot="system-identity"
+
    ```python
    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
    from azure.storage.blob import BlobServiceClient
@@ -101,21 +175,52 @@ var blobServiceClient = new BlobServiceClient(
    
    account_url = os.getenv('AZURE_STORAGEBLOB_RESOURCEENDPOINT')
 
-   # user assigned managed identity, uncomment the following codes
+   # system assigned managed identity
+   cred = ManagedIdentityCredential()
+   
+   blob_service_client = BlobServiceClient(account_url, credential=cred)
+   ```
+   
+   :::zone-end
+   
+   :::zone pivot="user-identity"
+
+   ```python
+   from azure.identity import ManagedIdentityCredential, ClientSecretCredential
+   from azure.storage.blob import BlobServiceClient
+   import os
+   
+   account_url = os.getenv('AZURE_STORAGEBLOB_RESOURCEENDPOINT')
+
+   # user assigned managed identity
    managed_identity_client_id = os.getenv('AZURE_STORAGEBLOB_CLIENTID')
    cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
    
-   # system assigned managed identity, uncomment the following codes
-   # cred = ManagedIdentityCredential()
+   blob_service_client = BlobServiceClient(account_url, credential=cred)
+   ```
+
+   :::zone-end
+
+   :::zone pivot="service-principal"
+
+   ```python
+   from azure.identity import ManagedIdentityCredential, ClientSecretCredential
+   from azure.storage.blob import BlobServiceClient
+   import os
    
-   # service principal, uncomment the following codes
-   # tenant_id = os.getenv('AZURE_STORAGEBLOB_TENANTID')
-   # client_id = os.getenv('AZURE_STORAGEBLOB_CLIENTID')
-   # client_secret = os.getenv('AZURE_STORAGEBLOB_CLIENTSECRET')
-   # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)   
+   account_url = os.getenv('AZURE_STORAGEBLOB_RESOURCEENDPOINT')
+   
+   # service principal
+   tenant_id = os.getenv('AZURE_STORAGEBLOB_TENANTID')
+   client_id = os.getenv('AZURE_STORAGEBLOB_CLIENTID')
+   client_secret = os.getenv('AZURE_STORAGEBLOB_CLIENTSECRET')
+   cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)   
 
    blob_service_client = BlobServiceClient(account_url, credential=cred)
    ```
+
+   :::zone-end
+
 
 ### [Django](#tab/django)
 1. Install dependencies.
@@ -124,6 +229,22 @@ var blobServiceClient = new BlobServiceClient(
    pip install django-storages[azure]
    ```
 1. Authenticate via `azure-identity` library.
+   
+   :::zone pivot="system-identity"
+
+   ```python
+   from azure.identity import ManagedIdentityCredential, ClientSecretCredential
+   import os
+
+   # system assigned managed identity
+   cred = ManagedIdentityCredential()
+
+   ```
+
+   :::zone-end
+
+   :::zone pivot="user-identity"
+
    ```python
    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
    import os
@@ -131,17 +252,27 @@ var blobServiceClient = new BlobServiceClient(
    # user assigned managed identity
    managed_identity_client_id = os.getenv('AZURE_STORAGEBLOB_CLIENTID')
    cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
-   
-   # system assigned managed identity
-   # cred = ManagedIdentityCredential()
-   
+   ```
+
+   :::zone-end
+
+   :::zone pivot="service-principal"
+
+   ```python
+   from azure.identity import ManagedIdentityCredential, ClientSecretCredential
+   import os
+
    # service principal
-   # tenant_id = os.getenv('AZURE_STORAGEBLOB_TENANTID')
-   # client_id = os.getenv('AZURE_STORAGEBLOB_CLIENTID')
-   # client_secret = os.getenv('AZURE_STORAGEBLOB_CLIENTSECRET')
-   # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
+   tenant_id = os.getenv('AZURE_STORAGEBLOB_TENANTID')
+   client_id = os.getenv('AZURE_STORAGEBLOB_CLIENTID')
+   client_secret = os.getenv('AZURE_STORAGEBLOB_CLIENTSECRET')
+   cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
 
    ```
+
+   :::zone-end
+
+
 1. In setting file, add following lines. For more information, see [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html).
    ```python
    # in your setting file, eg. settings.py
@@ -159,6 +290,9 @@ var blobServiceClient = new BlobServiceClient(
    go get "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
    ```
 2. In code, authenticate via `azidentity` library. Get blob storage endpoint url from the environment variable added by Service Connector.
+   
+   :::zone pivot="system-identity"
+
    ```go
    import (
      "context"
@@ -178,27 +312,72 @@ var blobServiceClient = new BlobServiceClient(
        // error handling
      }
    
-     // for user-assigned managed identity, uncomment the following code
-     /* clientid := os.Getenv("AZURE_STORAGEBLOB_CLIENTID")
+     client, err := azblob.NewBlobServiceClient(account_endpoint, cred, nil)
+   }
+   ```
+
+   :::zone-end
+
+   :::zone pivot="user-identity"
+
+   ```go
+   import (
+     "context"
+     
+     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+     "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+   )
+   
+   
+   func main() {
+
+     account_endpoint = os.Getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT")
+
+     // for user-assigned managed identity
+     clientid := os.Getenv("AZURE_STORAGEBLOB_CLIENTID")
      azidentity.ManagedIdentityCredentialOptions.ID := clientid
    
      options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
      cred, err := azidentity.NewManagedIdentityCredential(options)
      if err != nil {
-     } */
-   	
-     // for service principal, uncomment the following code
-     /* clientid := os.Getenv("AZURE_STORAGEBLOB_CLIENTID")
+     }
+     
+     client, err := azblob.NewBlobServiceClient(account_endpoint, cred, nil)
+   }
+   ```
+
+   :::zone-end
+
+   :::zone pivot="service-principal"
+   
+   ```go
+   import (
+     "context"
+     
+     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+     "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+   )
+   
+   
+   func main() {
+
+     account_endpoint = os.Getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT")
+     
+     // for service principal
+     clientid := os.Getenv("AZURE_STORAGEBLOB_CLIENTID")
      tenantid := os.Getenv("AZURE_STORAGEBLOB_TENANTID")
      clientsecret := os.Getenv("AZURE_STORAGEBLOB_CLIENTSECRET")
      
      cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
      if err != nil {
-     } */
+     }
    
      client, err := azblob.NewBlobServiceClient(account_endpoint, cred, nil)
    }
    ```
+
+   :::zone-end
+   
 
 ### [NodeJS](#tab/node)
 1. Install dependencies
@@ -207,6 +386,8 @@ var blobServiceClient = new BlobServiceClient(
    npm install @azure/storage-blob
    ```
 2. Get blob storage endpoint url from the environment variable added by Service Connector. Authenticate via `@azure/identity` library.
+   :::zone pivot="system-identity"
+
    ```javascript
    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
    
@@ -217,21 +398,52 @@ var blobServiceClient = new BlobServiceClient(
    // for system assigned managed identity
    const credential = new DefaultAzureCredential();
    
+   const blobServiceClient = new BlobServiceClient(account_url, credential);
+   ```
+
+   :::zone-end
+
+   :::zone pivot="user-identity"
+
+   ```javascript
+   import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
+   
+   const { BlobServiceClient } = require("@azure/storage-blob");
+   
+   const account_url = process.env.AZURE_STORAGEBLOB_RESOURCEENDPOINT;
+
    // for user assigned managed identity
-   // const clientId = process.env.AZURE_STORAGEBLOB_CLIENTID;
-   // const credential = new DefaultAzureCredential({
-   //    managedIdentityClientId: clientId
-   // });
+   const clientId = process.env.AZURE_STORAGEBLOB_CLIENTID;
+   const credential = new DefaultAzureCredential({
+       managedIdentityClientId: clientId
+   });
+      
+   const blobServiceClient = new BlobServiceClient(account_url, credential);
+   ```
+
+   :::zone-end
+
+   :::zone pivot="service-principal"
+
+   ```javascript
+   import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
    
+   const { BlobServiceClient } = require("@azure/storage-blob");
+   
+   const account_url = process.env.AZURE_STORAGEBLOB_RESOURCEENDPOINT;
+
    // for service principal
-   // const tenantId = process.env.AZURE_STORAGEBLOB_TENANTID;
-   // const clientId = process.env.AZURE_STORAGEBLOB_CLIENTID;
-   // const clientSecret = process.env.AZURE_STORAGEBLOB_CLIENTSECRET;
-   
-   // const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+   const tenantId = process.env.AZURE_STORAGEBLOB_TENANTID;
+   const clientId = process.env.AZURE_STORAGEBLOB_CLIENTID;
+   const clientSecret = process.env.AZURE_STORAGEBLOB_CLIENTSECRET;
+   const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
    
    const blobServiceClient = new BlobServiceClient(account_url, credential);
    ```
+
+   :::zone-end
+   
+
 
 
 
