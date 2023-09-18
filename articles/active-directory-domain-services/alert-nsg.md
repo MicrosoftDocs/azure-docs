@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
@@ -63,7 +63,7 @@ The following default inbound and outbound security rules are applied to the net
 
 To verify the existing security rules and make sure the default ports are open, complete the following steps:
 
-1. In the Azure portal, search for and select **Network security groups**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Network security groups**.
 1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*.
 1. On the **Overview** page, the existing inbound and outbound security rules are shown.
 
@@ -75,7 +75,7 @@ To verify the existing security rules and make sure the default ports are open, 
 
 To add a missing security rule, complete the following steps:
 
-1. In the Azure portal, search for and select **Network security groups**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Network security groups**.
 1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*.
 1. Under **Settings** in the left-hand panel, click *Inbound security rules* or *Outbound security rules* depending on which rule you need to add.
 1. Select **Add**, then create the required rule based on the port, protocol, direction, etc. When ready, select **OK**.
@@ -87,5 +87,5 @@ It takes a few moments for the security rule to be added and show in the list.
 If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: ../active-directory/fundamentals/how-to-get-support.md
 [configure-ldaps]: tutorial-configure-ldaps.md

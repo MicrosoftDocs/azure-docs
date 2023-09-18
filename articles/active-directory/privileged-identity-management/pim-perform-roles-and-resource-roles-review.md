@@ -3,7 +3,7 @@ title: Perform an access review of Azure resource and Azure AD roles in PIM
 description: Learn how to review access of Azure resource and Azure AD roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 5/11/2023
-ms.author: billmath
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---

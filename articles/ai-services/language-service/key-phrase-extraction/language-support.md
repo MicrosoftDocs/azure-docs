@@ -85,10 +85,10 @@ Total supported language codes: 94
 | Mongolian             |     `mn`      |                2022-10-01                 |                    |
 | Nepali                |     `ne`      |                2022-10-01                 |                    |
 | Norwegian (Bokmål)    |     `no`      |                2020-07-01                 | `nb` also accepted |
-| Oriya                 |     `or`      |                2022-10-01                 |                    |
+| Odia                 |     `or`      |                2022-10-01                 |                    |
 | Oromo                 |     `om`      |                2022-10-01                 |                    |
 | Pashto                |     `ps`      |                2022-10-01                 |                    |
-| Persian (Farsi)       |     `fa`      |                2022-10-01                 |                    |
+| Persian       |     `fa`      |                2022-10-01                 |                    |
 | Polish                |     `pl`      |                2019-10-01                 |                    |
 | Portuguese (Brazil)   |    `pt-BR`    |                2019-10-01                 |                    |
 | Portuguese (Portugal) |    `pt-PT`    |                2019-10-01                 | `pt` also accepted |

@@ -31,7 +31,7 @@ Support for vector search is in public preview and available through the [**2023
 
 ## What's vector search in Cognitive Search?
 
-Vector search is a new capability for indexing, storing, and retrieving vector embeddings from a search index. You can use it to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
+Vector search is a new capability for indexing, storing, and retrieving vector embeddings from a search index. You can use it to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://aka.ms/what-is-rag).
 
 The following diagram shows the indexing and query workflows for vector search.
 
@@ -134,4 +134,4 @@ Azure Cognitive Search uses Hierarchical Navigable Small Worlds (HNSW), which is
 + [Try the quickstart](search-get-started-vector.md)
 + [Learn more about vector indexing](vector-search-how-to-create-index.md)
 + [Learn more about vector queries](vector-search-how-to-query.md)
-
++ [Azure Cognitive Search and LangChain: A Seamless Integration for Enhanced Vector Search Capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-and-langchain-a-seamless-integration-for/ba-p/3901448)

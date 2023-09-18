@@ -39,7 +39,7 @@ If you have an existing RHEL Linux VM in Azure, connect to it using SSH, then co
 
 If you need to create a RHEL Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Microsoft Entra admin center](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

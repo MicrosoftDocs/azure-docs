@@ -34,7 +34,7 @@ This guide describes how to migrate SQL Managed Instances that use Business Crit
 
 ## Downtime requirements
 
-All scaling operations in Azure SQL are online operations and require minimal to no downtime. For more details on Azure SQL dynamic scaling, see [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources?view=azuresql&preserve-view=tru).
+All scaling operations in Azure SQL are online operations and require minimal to no downtime. For more details on Azure SQL dynamic scaling, see [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources?view=azuresql&preserve-view=true).
 
 ## How to enable the zone redundant configuration
 
@@ -77,10 +77,10 @@ Use the following REST API commands to enable zone redundant configuration with 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with SQL Managed Instance with our Quick Start reference guide](/azure/azure-sql/managed-instance/quickstart-content-reference-guide?view=azuresql&preserve-view=tru)
+> [Get started with SQL Managed Instance with our Quick Start reference guide](/azure/azure-sql/managed-instance/quickstart-content-reference-guide?view=azuresql&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure SQL Managed Instance zone redundancy and high availability](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell#premium-and-business-critical-service-tier-zone-redundant-availability)
+> [Learn more about Azure SQL Managed Instance zone redundancy and high availability](/azure/azure-sql/database/high-availability-sla?view=azuresql&preserve-view=truetabs=azure-powershell#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 
 

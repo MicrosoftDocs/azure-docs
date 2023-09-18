@@ -4,205 +4,184 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 08/09/2023
+ms.date: 08/31/2023
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to deploy to Azure Spring Apps with standard consumption plan.
 
-[!INCLUDE [deploy-event-driven-app-with-standard-consumption-plan](includes/quickstart/deploy-app-with-basic-standard-plan.md)]
+[!INCLUDE [deploy-app-with-standard-consumption-plan](includes/quickstart/deploy-app-with-basic-standard-plan.md)]
 
 -->
 
 ## 2. Prepare the Spring project
 
-[!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart/prepare-spring-project.md)]
+### [Azure portal](#tab/Azure-portal)
+
+[!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
+
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+Use the following steps to initialize the application from the Azure Developer CLI templates:
+
+1. Open a terminal window, create a new folder, and then change directory into it.
+1. Use the following command to initialize the project:
+
+   ```bash
+   azd init --template spring-guides/gs-spring-boot-for-azure
+   ```
+
+   The following list describes the command interactions:
+
+   - **Enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all Azure resources. This name should be unique within your Azure subscription.
+
+   The console outputs messages similar to the following example:
+
+   ```output
+   Initializing a new project (azd init)
+
+   (✓) Done: Initialized git repository
+   (✓) Done: Downloading template code to: <your-local-path>
+   Enter a new environment name: <your-env-name>
+   SUCCESS: New project initialized!
+   You can view the template code in your directory: <your-local-path>
+   Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
+   ```
+
+---
 
 ## 3. Prepare the cloud environment
 
-Use the following steps to create an Azure Spring Apps service instance.
+The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
 
-### 3.1. Provide names for each resource
+### [Azure portal](#tab/Azure-portal)
 
-Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+### 3.1. Sign in to the Azure portal
 
-```azurecli
-export LOCATION="<region>"
-export RESOURCE_GROUP="<resource-group-name>"
-export MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-export SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
-export APP_NAME="demo"
-```
+Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
-### 3.2. Create a new resource group
+### 3.2. Create an Azure Spring Apps instance
 
-Use the following steps to create a new resource group:
+[!INCLUDE [provision-spring-apps](provision-consumption-azure-spring-apps.md)]
 
-1. Use the following command to sign in to the Azure CLI.
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-   ```azurecli
-   az login
+1. Use the following command to log in to Azure with OAuth2. Ignore this step if you've already logged in.
+
+   ```bash
+   azd auth login
    ```
 
-1. Use the following command to set the default location:
+   The console outputs messages similar to the following example:
 
-   ```azurecli
-   az configure --defaults location=${LOCATION}
+   ```text
+   Logged in to Azure.
    ```
 
-1. Use the following command to list all available subscriptions to determine the subscription ID to use:
+1. Use the following command to provision the template's infrastructure to Azure:
 
-   ```azurecli
-   az account list --output table
+   ```bash
+   azd provision
    ```
 
-1. Use the following command to set the default subscription:
+   The following list describes the command interactions:
 
-   ```azurecli
-   az account set --subscription <subscription-ID>
+   - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
+   - **Select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
+
+   The console outputs messages similar to the following example:
+
+   ```text
+   SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name>-<random-string>> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
    ```
 
-1. Use the following command to create a resource group:
+   > [!NOTE]
+   > This may take a while to complete. You will see a progress indicator as it provisions Azure resources.
 
-   ```azurecli
-   az group create --resource-group ${RESOURCE_GROUP}
-   ```
-
-1. Use the following command to set the newly created resource group as the default resource group:
-
-   ```azurecli
-   az configure --defaults group=${RESOURCE_GROUP}
-   ```
-
-### 3.3. Install extensions and register namespaces
-
-Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`:
-
-```azurecli
-az extension add --name spring --upgrade
-az extension add --name containerapp --upgrade
-az provider register --namespace Microsoft.App
-az provider register --namespace Microsoft.OperationalInsights
-az provider register --namespace Microsoft.AppPlatform
-```
-
-### 3.4. Create an Azure Spring Apps instance
-
-Use the following steps to create the service instance:
-
-1. Use the following command to create a resource group:
-
-   ```azurecli
-   az group create \
-       --resource-group ${RESOURCE_GROUP} \
-       --location ${LOCATION}
-   ```
-
-1. An Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same log analytics workspace. For more information, see [Log Analytics workspace overview](../../../azure-monitor/logs/log-analytics-workspace-overview.md). Use the following command to create the environment:
-
-   ```azurecli
-   az containerapp env create \
-       --resource-group ${RESOURCE_GROUP} \
-       --name ${MANAGED_ENVIRONMENT} \
-       --location ${LOCATION} \
-       --enable-workload-profiles
-   ```
-
-1. Use the following command to create a variable to store the environment resource ID:
-
-   ```azurecli
-   export MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
-       --resource-group ${RESOURCE_GROUP} \
-       --name ${MANAGED_ENVIRONMENT} \
-       --query id \
-       --output tsv)
-   ```
-
-1. Use the following command to create an Azure Spring Apps service instance. An instance of the Azure Spring Apps Standard consumption and dedicated plan is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created.
-
-   ```azurecli
-   az spring create \
-       --resource-group ${RESOURCE_GROUP} \
-       --name ${SERVICE_NAME} \
-       --managed-environment ${MANAGED_ENV_RESOURCE_ID} \
-       --sku standardGen2 \
-       --location ${LOCATION}
-   ```
-
-### 3.5. Create an app in your Azure Spring Apps instance
-
-An *App* is an abstraction of one business app. For more information, see [App and deployment in Azure Spring Apps](../../concept-understand-app-and-deployment.md). Apps run in an Azure Spring Apps service instance, as shown in the following diagram.
-
-:::image type="content" source="../../media/spring-cloud-app-and-deployment/app-deployment-rev.png" alt-text="Diagram that shows the relationship between apps and an Azure Spring Apps service instance." border="false":::
-
-You can create an app in either the standard consumption or dedicated workload profiles.
-
-> [!IMPORTANT]
-> The consumption workload profile has a pay-as-you-go billing model with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
-
-### 3.5.1. Create an app with consumption workload profile
-
-Use the following command to specify the app name on Azure Spring Apps and to allocate the required resources:
-
-```azurecli
-az spring app create \
-    --resource-group ${RESOURCE_GROUP} \
-    --service ${SERVICE_NAME} \
-    --name ${APP_NAME} \
-    --cpu 1 \
-    --memory 2Gi \
-    --runtime-version Java_17 \
-    --min-replicas 1 \
-    --max-replicas 2 \
-    --assign-endpoint true
-```
-
-Azure Spring Apps creates an empty welcome application and provides its URL in the field named `properties.url`.
-
-:::image type="content" source="../../media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page for a Spring app in an Azure Spring Apps instance." lightbox="../../media/quickstart/app-welcome-page.png":::
-
-### 3.5.2. (Optional) Create an app with dedicated workload profile
-
-Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
-
-Use the following command to create a dedicated workload profile:
-
-```azurecli
-az containerapp env workload-profile set \
-    --resource-group ${RESOURCE_GROUP} \
-    --name ${MANAGED_ENVIRONMENT} \
-    --workload-profile-name my-wlp \
-    --workload-profile-type D4 \
-    --min-nodes 1 \
-    --max-nodes 2
-```
-
-Then, use the following command to create an app with the dedicated workload profile:
-
-```azurecli
-az spring app create \
-   --resource-group ${RESOURCE_GROUP} \
-   --service ${SERVICE_NAME} \
-   --name ${APP_NAME} \
-   --cpu 1 \
-   --memory 2Gi \
-   --runtime-version Java_17 \
-   --min-replicas 1 \
-   --max-replicas 2 \
-   --assign-endpoint true \
-   --workload-profile my-wlp
-```
+---
 
 ## 4. Deploy the app to Azure Spring Apps
 
-Use the following command to deploy the *.jar* file for the app:
+This section provides the steps to deploy your application to Azure Spring Apps.
 
-```azurecli
-az spring app deploy \
-    --resource-group ${RESOURCE_GROUP} \
-    --service ${SERVICE_NAME} \
-    --name ${APP_NAME} \
-    --artifact-path target/demo-0.0.1-SNAPSHOT.jar
-```
+### [Azure portal](#tab/Azure-portal)
 
-Deploying the application can take a few minutes.
+Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
+
+1. Navigate to the *complete* directory, and then run the following command to configure the app in Azure Spring Apps:
+
+   ```bash
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:config
+   ```
+
+   The following list describes the command interactions:
+
+   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd> directly.
+   - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd> directly.
+   - **Input the app name**: Provide an app name. If you use the default project artifact ID, press <kbd>Enter</kbd> directly.
+   - **Expose public access for this app (boot-for-azure)?**: Press <kbd>y</kbd>.
+   - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
+
+1. Use the following command to deploy the app:
+
+   ```bash
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:deploy
+   ```
+
+   The following list describes the command interaction:
+
+   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+
+   After the command is executed, you can see from the following log messages that the deployment was successful:
+
+   ```output
+   [INFO] Deployment(default) is successfully updated.
+   [INFO] Deployment Status: Running
+   [INFO]   InstanceName:demo-default-x-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:UNREGISTERED
+   [INFO] Getting public url of app(demo)...
+   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
+   ```
+
+### [Azure Developer CLI](#tab/Azure-Developer-CLI)
+
+Use the following steps to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps:
+
+1. Use the following command to package a deployable copy of your application:
+
+   ```bash
+   azd package
+   ```
+
+   The console outputs messages similar to the following example:
+
+   ```output
+   SUCCESS: Your application was packaged for Azure in xx seconds.
+   ```
+
+1. Use the following command to deploy the application code to those newly provisioned resources:
+
+   ```bash
+   azd deploy
+   ```
+
+   The console outputs messages similar to the following example:
+
+   ```output
+   Deploying services (azd deploy)
+
+   (✓) Done: Deploying service demo
+   - Endpoint: https://demo.xxx.<your-azure-location>.azurecontainerapps.io
+
+
+   SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
+   ```
+
+> [!NOTE]
+> You can also use `azd up` to combine the previous three commands: `azd provision` (provisions Azure resources), `azd package` (packages a deployable copy of your application), and `azd deploy` (deploys application code). For more information, see [spring-guides/gs-spring-boot-for-azure](https://github.com/spring-guides/gs-spring-boot-for-azure).
+
+---

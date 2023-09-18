@@ -3,7 +3,7 @@ title: Get started with custom claims providers (preview)
 titleSuffix: Microsoft identity platform
 description: Learn how to develop and register an Azure Active Directory custom authentication extensions REST API. The custom authentication extension allows you to source claims from a data store that is external to Azure Active Directory.  
 services: active-directory
-author: yoelhor
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -157,14 +157,11 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
 
 In this step, you configure a custom authentication extension, which will be used by Azure AD to call your Azure function. The custom authentication extension contains information about your REST API endpoint, the claims that it parses from your REST API, and how to authenticate to your REST API. Follow these steps to register a custom authentication extension:
 
-# [Azure portal](#tab/azure-portal)
+# [Microsoft Entra admin center](#tab/entra-admin-center)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Under **Azure services**, select **Azure Active Directory**.
-1. Ensure your user account has the Global Administrator or Application Administrator and Authentication Extensibility Administrator role. Otherwise, learn how to [assign a role](../roles/manage-roles-portal.md).
-1. From the menu, select **Enterprise applications**.
-1. Under **Manage**, select the **Custom authentication extensions**.
-1. Select **Create a custom authentication extension**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](../roles/permissions-reference.md#application-developer) and [Authentication Administrator](../roles/permissions-reference.md#authentication-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select **Custom authentication extensions**, and then select **Create a custom authentication extension**.
 1. In **Basics**, select the **tokenIssuanceStart** event and select **Next**.
 1. In **Endpoint Configuration**, fill in the following properties:
 
@@ -361,8 +358,9 @@ Follow these steps to register the **jwt.ms** web application:
 
 ### 3.1 Register a test web application
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Active Directory**.
-1. Select **App registrations**, and then select **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for the application. For example, **My Test application**.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. In the **Select a platform** dropdown in **Redirect URI**, select **Web** and then enter `https://jwt.ms` in the URL text box.
@@ -414,12 +412,12 @@ For tokens to be issued with claims incoming from the custom authentication exte
 
 Follow these steps to connect the *My Test application* with your custom authentication extension:
 
-# [Azure portal](#tab/azure-portal)
+# [Microsoft Entra admin center](#tab/entra-admin-center)
 
 First assign the custom authentication extension as a custom claims provider source:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Azure Active Directory**.
-1. Select **App registrations**, and find the *My Test application* registration you created.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Application registrations**.
 1. In the **Overview** page, under **Managed application in local directory**, select **My Test application**.
 1. Under **Manage**, select **Single sign-on**.
 1. Under **Attributes & Claims**, select **Edit**.
@@ -630,7 +628,7 @@ If you configured the [Microsoft identity provider](#step-5-protect-your-azure-f
 
 1. Under the **App registration**, enter the application ID (client ID) of the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-authentication-extension).
 
-1. Go to your Azure AD tenant in which your custom authentication extension is registered, and select **Azure Active Directory** > **App registrations**.
+1. In the Microsoft Entra admin center:
     1. Select the *Azure Functions authentication events API* app registration [you created previously](#step-2-register-a-custom-authentication-extension).
     1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
     1. Add a description for your client secret.

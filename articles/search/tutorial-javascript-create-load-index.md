@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 08/29/2023
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: javascript
 ---
@@ -15,9 +15,10 @@ ms.devlang: javascript
 # 2 - Create and load Search Index with JavaScript
 
 Continue to build your search-enabled website by following these steps:
+
 * Create a search resource
 * Create a new index
-* Import data with JavaScript using the [sample script](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/bulk-insert-v4/bulk_insert_books.js) and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
+* Import data with JavaScript using the [bulk_insert_books script](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/bulk-insert-v4/bulk_insert_books.js) and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
 
 ## Create an Azure Cognitive Search resource
 
@@ -54,7 +55,7 @@ The ESM script uses the Azure SDK for Cognitive Search:
 1. As the code runs, the console displays progress. 
 1. When the upload is complete, the last statement printed to the console is "done".
 
-## Review the new Search Index
+## Review the new search index
 
 [!INCLUDE [tutorial-load-index-review-index](includes/tutorial-add-search-website-load-index-review.md)]
 
@@ -65,7 +66,6 @@ The ESM script uses the Azure SDK for Cognitive Search:
 ## Copy your Search resource name
 
 [!INCLUDE [tutorial-load-index-copy](includes/tutorial-add-search-website-load-index-copy-resource-name.md)]
-
 
 ## Next steps
 

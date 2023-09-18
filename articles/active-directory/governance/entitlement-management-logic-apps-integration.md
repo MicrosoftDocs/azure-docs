@@ -50,6 +50,8 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
 ## Create and add a Logic App workflow to a catalog for use in entitlement management 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner or Resource Group Owner 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
@@ -153,7 +155,7 @@ For newly created Logic Apps linked to custom extensions, these Logic Apps begin
 
 1. Select the Logic App under the Logic app column for the associated custom extension row. This allows you to edit or create the workflow in Logic App designer.  
 
-For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps with the Azure portal](../../logic-apps/quickstart-create-example-consumption-workflow.md).
+For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps](../../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 
 ## Configuring custom extensions that pause entitlement management processes

@@ -8,7 +8,7 @@ metadata:
   ms.subservice: authentication
   ms.custom: has-azure-ad-ps-ref
   ms.topic: faq
-  ms.date: 02/21/2023
+  ms.date: 09/23/2023
   ms.author: justinha
   author: justinha
   manager: amycolannino
@@ -36,9 +36,9 @@ sections:
 
       - question: |
           How can an administrator enable Azure AD CBA?
-        answer: |
-          1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-          2. Select **Azure Active Directory** > **Security** > **Authentication methods** > **Policies**.
+        answer: |        
+          1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+          2. Browse to **Protection** > **Authentication methods** > **Policies**.
           3. Select policy: **Certificate-based Authentication**.
           4. On the **Enable and Target** tab, select the **Enable** toggle to enable certificate-based authentication.
 

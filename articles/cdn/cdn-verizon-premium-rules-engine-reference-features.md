@@ -1,6 +1,6 @@
 ---
-title: Azure CDN from Verizon Premium rules engine features
-description: Reference documentation for Azure CDN from Verizon Premium rules engine features.
+title: Azure CDN from Edgio Premium rules engine features
+description: Reference documentation for Azure CDN from Edgio Premium rules engine features.
 services: cdn
 author: duongau
 manager: kumudd
@@ -11,13 +11,13 @@ ms.author: duau
 
 ---
 
-# Azure CDN from Verizon Premium rules engine features
+# Azure CDN from Edgio Premium rules engine features
 
 This article lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-verizon-premium-rules-engine.md).
 
 The third part of a rule is the feature. A feature defines the type of action that is applied to the request type that gets identified by a set of match conditions.
 
-## <a name="top"></a>Azure CDN from Verizon Premium rules engine features reference
+## <a name="top"></a>Azure CDN from Edgio Premium rules engine features reference
 
 The available types of features are:
 
@@ -157,7 +157,7 @@ These features allow a request to be redirected or rewritten to a different URL.
 
 **[Back to the top](#top)**
 
-For the most recent features, see the [Verizon Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions).
+For the most recent features, see the [Edgio Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions).
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 09/13/2023
 ms.author: jfields
 ---
 
@@ -27,7 +27,7 @@ Before you begin, you need access to these tools for the onboarding process:
 
 - Access to a local BASH shell with the Azure CLI or Azure Cloud Shell using BASH environment (Azure CLI is included). 
 - Access to AWS, Azure, and GCP consoles.
-- A user must have *Global Administrator* or *Permissions Management Administrator* role assignments to create a new app registration in Entra ID tenant is required for AWS and GCP onboarding. 
+- A user must have the *Global Administrator* role assignment to create a new app registration in Entra ID tenant is required for AWS and GCP onboarding. 
 
 
 ## Step 1: Set-up Permissions Management
@@ -40,7 +40,7 @@ If the above points are met, continue with:
 
 [Enable Microsoft Entra Permissions Management in your organization](onboard-enable-tenant.md)
 
-Ensure you're a *Global Administrator* or *Permissions Management Administrator*. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
+Ensure you're a Global Administrator. Learn more about [Permissions Management roles and permissions](product-roles-permissions.md). 
 
  
 ## Step 2: Onboard your multicloud environment
@@ -85,8 +85,8 @@ Permissions Management automatically discovers all current subscriptions. Once d
 > To use **Automatic** or **Select** modes, the controller must be enabled while configuring data collection. 
 
 To configure data collection:
-1. In Permissions Management, navigate to the data collectors page.
-2. Select a cloud environment: AWS, Azure, or GCP.
+1. In Permissions Management, go to the **Data Collectors** page.
+2. Select a cloud environment: **AWS**, **Azure**, or **GCP**.
 3. Click **Create configuration**.
 
 ### Onboard Amazon Web Services (AWS)

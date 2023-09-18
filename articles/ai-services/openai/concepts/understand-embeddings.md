@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 08/25/2023
+ms.date: 09/12/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -38,4 +38,5 @@ An alternative method of identifying similar documents is to count the number of
 
 ## Next steps
 
-Learn more about using Azure OpenAI and embeddings to perform document search in [Explore Azure OpenAI Service embeddings and document search](../tutorials/embeddings.md).
+* Learn more about using Azure OpenAI and embeddings to perform document search with our [embeddings tutorial](../tutorials/embeddings.md).
+* Store your embeddings and perform vector (similarity) search using [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md) or [Azure Cosmos DB for NoSQL](../../../cosmos-db/rag-data-openai.md)

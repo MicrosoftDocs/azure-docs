@@ -73,7 +73,7 @@ Create a risk-based Conditional Access policy that applies to service principals
    1. Set the **Configure** toggle to **Yes**.
    1. Select the levels of risk where you want this policy to trigger.
    1. Select **Done**.
-1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
+1. Under **Grant**, **Block access** is the only available option. Access is blocked when the specified risk levels are seen.
 1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
 1. Select **Create** to complete your policy.
 

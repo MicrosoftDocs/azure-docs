@@ -86,8 +86,6 @@ Before beginning this tutorial, the following prerequisites must be completed:
  - **Search for Reference data** - Call Search service to retrieve the Reference metadata records
 
 ## Next steps
-Advance to the next tutorial to learn about sdutil
-> [!div class="nextstepaction"]
-> [Tutorial: Seismic store sdutil](tutorial-seismic-ddms-sdutil.md)
-
+- [Tutorial: Seismic store sdutil](tutorial-seismic-ddms-sdutil.md)
+- [OSDU Operator Data Loading Quick Start Guide](https://community.opengroup.org/groups/osdu/platform/data-flow/data-loading/-/wikis/home#osdu-operator-data-loading-quick-start-guide)
 

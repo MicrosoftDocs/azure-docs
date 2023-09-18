@@ -15,7 +15,7 @@ This article describes how to enable Periodic Assessment for your machines at sc
 
 ## Enable Periodic assessment for your Azure machines using Policy
 1. Go to **Policy** from the Azure portal and under **Authoring**, go to **Definitions**. 
-1. From the **Category** dropdown, select **Update management center**. Select *[Preview]: Configure periodic checking for missing system updates on Azure virtual machines* for Azure machines.
+1. From the **Category** dropdown, select **Update Manager**. Select *[Preview]: Configure periodic checking for missing system updates on Azure virtual machines* for Azure machines.
 1. When the Policy Definition opens, select Assign.
 1. In **Basics**, select your subscription as your scope. You can also specify a resource group within subscription as the scope and select Next.
 1. In **Parameters**, uncheck **Only show parameters that need input or review** so that you can see the values of parameters. In **Assessment** mode, select *AutomaticByPlatform*, select *Operating system* and select **Next**. You need to create separate policies for Windows and Linux.

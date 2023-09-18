@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure CLI
 
-In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](network-watcher-security-group-view-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
+In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
 :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 

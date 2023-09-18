@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Configure a virtual network gateway for ExpressRoute using Azure portal'
-description: This tutorial walks you through adding a virtual network gateway to a VNet for ExpressRoute using the Azure portal.
+description: This tutorial walks you through adding a virtual network gateway to a virtual network for ExpressRoute using the Azure portal.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 07/21/2022
+ms.date: 08/31/2023
 ms.author: duau
 ms.custom: seodec18, template-tutorial
 
@@ -17,7 +17,9 @@ ms.custom: seodec18, template-tutorial
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
 > 
 
-This tutorial walks you through the steps to add and remove a virtual network gateway for a pre-existing virtual network (VNet). The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md). 
+This tutorial walks you through the steps to add and remove a virtual network gateway for a pre-existing virtual network (virtual network). The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
+
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit.":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -45,7 +47,7 @@ The steps for this tutorial use the values in the following configuration refere
 ## Create the gateway subnet
 
 1. In the [portal](https://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
-1. In the **Settings** section of your VNet, select **Subnets** to expand the Subnet settings.
+1. In the **Settings** section of your virtual network, select **Subnets** to expand the Subnet settings.
 1. Select **+ Gateway subnet** to add a gateway subnet. 
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Screenshot that shows the button to add the gateway subnet.":::
@@ -66,9 +68,9 @@ The steps for this tutorial use the values in the following configuration refere
     | Setting | Value |
     | --------| ----- |
     | Subscription | Verify that the correct subscription is selected. |
-    | Resource Group | The resource group will automatically be chosen once you select the virtual network. | 
-    | Name | Name your gateway. This isn't the same as naming a gateway subnet. It's the name of the gateway resource you're creating.|
-    | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network won't appear in the **Virtual network** dropdown. |
+    | Resource Group | The resource group gets automatically chosen once you select the virtual network. | 
+    | Name | Name your gateway. This name isn't the same as naming a gateway subnet. It's the name of the gateway resource you're creating.|
+    | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. |
     | Gateway type | Select **ExpressRoute**|
     | SKU | Select the gateway SKU from the dropdown. |
     | Virtual network | Select *TestVNet*. |
@@ -92,7 +94,7 @@ If you no longer need the ExpressRoute gateway, locate the gateway in the virtua
 
 In this tutorial, you learned how to create a virtual network gateway. For more information about virtual network gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-To learn how to link your VNet to an ExpressRoute circuit, advance to the next tutorial.
+To learn how to link your virtual network to an ExpressRoute circuit, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Link a Virtual Network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
