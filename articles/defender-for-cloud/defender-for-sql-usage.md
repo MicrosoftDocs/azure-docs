@@ -10,9 +10,12 @@ ms.date: 09/14/2023
 
 # Enable Microsoft Defender for SQL servers on machines
 
-This plan protects your IaaS SQL Servers by identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases. You see alerts when there are suspicious database activities, potentially harmful attempts to access or exploit SQL machines, SQL injection attacks, and anomalous database access and query patterns. These events can trigger alerts shown in the [alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
+Defender for SQL protects your IaaS SQL Servers by identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases. 
 
-The vulnerability assessment service discovers, tracks, and helps you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
+Defender for Cloud will populate with alerts when there are suspicious database activities, potentially harmful attempts to access or exploit SQL machines, SQL injection attacks, and anomalous database access and query patterns. These events can trigger alerts that will appear on the [alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
+
+Vulnerability assessment discovers, tracks, and helps you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
+
 Learn more about [vulnerability assessment for Azure SQL servers on machines](defender-for-sql-on-machines-vulnerability-assessment.md).
 
 Microsoft Defender for SQL servers on machines extends the protections for your Azure-native SQL servers to fully support hybrid environments and protect SQL servers hosted in Azure, multicloud ,and even on-premises machines:
