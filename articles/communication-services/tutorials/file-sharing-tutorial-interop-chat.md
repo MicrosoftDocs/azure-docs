@@ -15,13 +15,12 @@ ms.subservice: chat
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Service end users and Teams users. Note, Interop Chat is different from the Azure Communication Service Chat ("ACS Chat"). If you want to enable file sharing in an ACS Chat, refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md).
+In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Service end users and Teams users. Note, Interop Chat is different from the Azure Communication Service Chat ("ACS Chat"). If you want to enable file sharing in an ACS Chat, refer to [Add file sharing with UI Library in Azure Communication Service Chat](./file-sharing-tutorial-acs-chat.md). Currently, the Azure Communication Service end user is only able to receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
 >[!IMPORTANT]
 >
 >File sharing feature comes with the CallWithChat Composite without additional setups. 
 >
->Currently, the Azure Communication Service end user is able to only receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
 
 ## Download code
@@ -41,42 +40,16 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 
 ## Background
 
-First of all, we need to understand that Teams Interop Chat is part of a Teams meeting. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Azure Communication Service end user joining the chat and starting to send/receive messages, one meeting participant (a Teams user) will need to admit them first. Otherwise, they don't have access to the chat.
-Once the Azure Communication Service end user is admitted, they would be able to start any chat related operations. 
-In this tutorial, we're checking out how file sharing works in an Interop Chat.
+First of all, we need to understand that Teams Interop Chat has to part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Azure Communication Service end user joining the chat and starting to send/receive messages, a meeting participant (a Teams user) would need to admit them to the call first. Otherwise, they don't have access to the chat.
+
+Once the Azure Communication Service end user is admitted to the call, they would be able to start to chat with other participants on the call. In this tutorial, we're checking out how inline image works in Interop chat.
 
 ## Overview
 
-Similar to how we're [Adding Inline Image Support](./inline-image-tutorial-interop-chat.md) to the UI library, we need a `CallWithChat` Composite created like this:
+Similar to how we're [Adding Inline Image Support](./inline-image-tutorial-interop-chat.md) to the UI library, we need a `CallWithChat` Composite created. 
+Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) to create a ChatWithChat Composite.
 
-```js
-export const CallWithChatExperience = (props: CallWithChatExampleProps): JSX.Element => {
-  // Construct a credential for the user with the token retrieved from your server. This credential
-  // must be memoized to ensure useAzureCommunicationCallWithChatAdapter is not retriggered on every render pass.
-  const credential = useMemo(() => new AzureCommunicationTokenCredential(props.token), [props.token]);
-
-  // Create the adapter using a custom react hook provided in the @azure/communication-react package.
-  // See https://aka.ms/acsstorybook?path=/docs/composite-adapters--page for more information on adapter construction and alternative constructors.
-  const adapter = useAzureCommunicationCallWithChatAdapter({
-    userId: props.userId,
-    displayName: props.displayName,
-    credential,
-    locator: props.locator,
-    endpoint: props.endpointUrl
-  });
-
-  // The adapter is created asynchronously by the useAzureCommunicationCallWithChatAdapter hook.
-  // Here we show a spinner until the adapter has finished constructing.
-  if (!adapter) {
-    return <Spinner label="Initializing..." />;
-  }
-
-  return <CallWithChatComposite adapter={adapter} fluentTheme={props.fluentTheme} options={props.compositeOptions} />;
-};
-
-```
-
-Noticing it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
+From the sample code, it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
 
 ```js
 export type CallWithChatExampleProps = {
@@ -120,7 +93,7 @@ Specifically, the UI library currently only supports "Anyone" and "People you ch
 ![Teams File Permissions](./media/file-sharing-tutorial-interop-chat-0.png "Screenshot of a Teams client listing out file permissions.")
 
 
-Moreover, the Teams user's tenant admin might impose restrictions on file sharing, including disabling some file permissions or disabling file sharing all together. 
+Moreover, the Teams user's tenant admin might impose restrictions on file sharing, including disabling some file permissions or disabling file sharing option all together. 
 
 ## Run the code
 
@@ -146,6 +119,7 @@ And now if the user click on the file attachment card, a new tab would be opened
 
 You may also want to:
 
+- [Check UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
