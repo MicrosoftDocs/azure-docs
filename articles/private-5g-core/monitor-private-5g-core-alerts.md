@@ -99,18 +99,15 @@ TODO: Add ordered list of procedure steps
   - You can do this by searching for it under **All resources** or from the **Overview** page of the site that contains the packet core you want to add alerts for.
 1. Select **Alerts** from the **Monitoring** tab on the resource menu.
 
-      :::image type="content" source="alert1.png"
-      alt-text="Screenshot of Azure portal showing packet core control/data plane resource menu.":::
+      :::image type="content" source="alert1.png" alt-text="Screenshot of Azure portal showing packet core control/data plane resource menu.":::
 
 1. Select **Alert Rule** from the **Create** dropdown at the top of the page.
 
-      :::image type="content" source="alert2.png"
-      alt-text="Screenshot of Azure portal showing alerts menu with the create dropdown menu open.":::
+      :::image type="content" source="alert2.png" alt-text="Screenshot of Azure portal showing alerts menu with the create dropdown menu open.":::
 
 1. Select **See all signals** just under the dropdown menu or from inside the dropdown menu.
 
-      :::image type="content" source="alert3.png"
-      alt-text="Screenshot of Azure portal showing alert signal selection menu.":::
+      :::image type="content" source="alert3.png" alt-text="Screenshot of Azure portal showing alert signal selection menu.":::
 
 1. Select the signal you want the alert to be based on and follow the rest of the create instructions.
 
@@ -121,21 +118,6 @@ Optional: You have two options for manually curated links in this pattern: Next 
   - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
 
 -->
-
-## Next step
-
-TODO: Add your next step link(s)
-
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-<!-- OR -->
-
-## Related content
-
-TODO: Add your next step link(s)
-
-- [Write concepts](article-concept.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
