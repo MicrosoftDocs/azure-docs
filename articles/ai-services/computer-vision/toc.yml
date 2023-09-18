@@ -164,6 +164,8 @@ items:
           href: how-to/shelf-planogram.md
       - name: Call the Image retrieval APIs
         href: how-to/image-retrieval.md
+      - name: Call the Video retrieval APIs
+        href: how-to/video-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
       - name: Configure a storage account
