@@ -1,11 +1,11 @@
 ---
 title: Export knowledge bases - QnA Maker
 description: Exporting a knowledge base requires exporting from one knowledge base, then importing into another.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.custom: ignite-fall-2021

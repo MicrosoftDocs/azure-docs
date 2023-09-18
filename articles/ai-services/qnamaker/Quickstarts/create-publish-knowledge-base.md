@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021, mode-other

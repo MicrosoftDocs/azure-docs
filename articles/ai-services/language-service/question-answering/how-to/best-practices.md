@@ -1,8 +1,8 @@
 ---
 title: Project best practices
 description: Best practices for Question Answering
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 author: jboback
 ms.author: jboback
