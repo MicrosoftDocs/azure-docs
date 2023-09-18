@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -30,7 +30,7 @@ When you first configure automatic provisioning, the **Current Status** section 
 
 After a provisioning cycle is complete, the **Statistics to date** section shows the cumulative numbers of users and groups that have been provisioned to date, along with the completion date and duration of the last cycle. The **Activity ID** uniquely identifies the most recent provisioning cycle. The **Job ID** is a unique identifier for the provisioning job, and is specific to the app in your tenant.
 
-The provisioning progress is viewed in the Azure portal at **Azure Active Directory &gt; Enterprise Apps &gt; \[application name\] &gt; Provisioning**.
+The provisioning progress is viewed in the Microsoft Entra admin center at **Identity** > **Applications** > **Enterprise applications** > \[*application name*\] > **Provisioning**.
 
 ![Provisioning page progress bar](./media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -38,7 +38,7 @@ The provisioning progress is viewed in the Azure portal at **Azure Active Direct
 
 To see the provisioning status for a selected user, consult the [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure AD. All operations run by the user provisioning service are recorded in the Azure AD provisioning logs. The logs include read and write operations made to the source and target systems. Associated user data related to read and write operations is also logged.
 
-You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+You can access the provisioning logs in the Microsoft Entra admin center by selecting **Identity** > **Applications** > **Enterprise applications** > **Provisioning logs** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 The provisioning logs record all the operations performed by the provisioning service, including:
 
@@ -47,7 +47,7 @@ The provisioning logs record all the operations performed by the provisioning se
 * Comparing the user objects between the system
 * Adding, updating, or disabling the user account in the target system based on the comparison
 
-For more information on how to read the provisioning logs in the Azure portal, see [provisioning reporting guide](check-status-user-account-provisioning.md).
+For more information on how to read the provisioning logs in the Microsoft Entra admin center, see [provisioning reporting guide](check-status-user-account-provisioning.md).
 
 ## How long will it take to provision users?
 When you're using automatic user provisioning with an application, there are some things to keep in mind. First, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](../manage-apps/assign-user-or-group-access-portal.md). The sync happens at a regularly scheduled time interval, typically every 40 minutes.

@@ -223,7 +223,7 @@
            - name: Create a private cluster
              href: private-clusters.md
            - name: Access a private cluster remotely
-             href: command-invoke.md
+             href: access-private-cluster.md
         - name: Integration
           items:      
             - name: Integrate ACR with an AKS cluster
@@ -415,16 +415,6 @@
               href: control-kubeconfig-access.md
             - name: Control deployments with Azure Policy
               href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Node security
-          items:
-            - name: Confidential Virtual Machines
-              href: use-cvm.md
-            - name: Dedicated Hosts with AKS
-              href: use-azure-dedicated-hosts.md
-            - name: Enable host-based encryption
-              href: enable-host-encryption.md
-            - name: Enable FIPS
-              href: enable-fips-nodes.md
         - name: Application security
           items:
             - name: Create an OIDC Issuer for your cluster

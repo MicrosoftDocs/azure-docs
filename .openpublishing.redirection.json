@@ -13458,6 +13458,11 @@
           "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/governance/policy/samples/azure-security-benchmarkv1.md",
+          "redirect_url": "/azure/governance/policy/samples/azure-security-benchmark",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-policy/create-manage-policy.md",
             "redirect_url": "/azure/governance/policy/tutorials/create-and-manage",
             "redirect_document_id": false
@@ -23588,6 +23593,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-prescriptive-adoption.md",
+            "redirect_url": "/azure/devtest-labs/deliver-proof-of-concept",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
@@ -24480,6 +24490,11 @@
         {
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-cosmosdb-portal.md",
             "redirect_url": "/azure/cosmos-db/how-to-configure-private-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/command-invoke.md",
+            "redirect_url": "/azure/aks/access-private-cluster",
             "redirect_document_id": false
         }
     ]

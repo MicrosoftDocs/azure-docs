@@ -219,9 +219,9 @@ $domainServiceParams = @{
 New-AzADDomainService @domainServiceParams
 ```
 
-It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
+It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Microsoft Entra admin center, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
 
-When the Azure portal shows that the managed domain has finished provisioning, the following tasks need to be completed:
+When the Microsoft Entra admin center shows that the managed domain has finished provisioning, the following tasks need to be completed:
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
@@ -361,9 +361,9 @@ $domainServiceParams = @{
 New-AzADDomainService @domainServiceParams
 ```
 
-It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
+It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Microsoft Entra admin center, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
 
-When the Azure portal shows that the managed domain has finished provisioning, the following tasks need to be completed:
+When the Microsoft Entra admin center shows that the managed domain has finished provisioning, the following tasks need to be completed:
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.

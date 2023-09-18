@@ -1,8 +1,8 @@
 ---
 title: Authorize access to Azure App Configuration using Azure Active Directory
 description: Enable Azure RBAC to authorize access to your Azure App Configuration instance
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
