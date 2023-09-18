@@ -30,7 +30,7 @@ using Azure.Storage.Blobs;
 // get blob endpoint
 var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
 
-system-assigned managed identity, uncomment the following codes
+// system-assigned managed identity
 var credential = new DefaultAzureCredential();
 
 var blobServiceClient = new BlobServiceClient(
@@ -50,7 +50,7 @@ using Azure.Storage.Blobs;
 // get blob endpoint
 var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
 
-// user-assigned managed identity, uncomment the following codes
+// user-assigned managed identity
 var credential = new DefaultAzureCredential(
     new DefaultAzureCredentialOptions
     {
@@ -117,7 +117,7 @@ var blobServiceClient = new BlobServiceClient(
         .buildClient();
     ```
 
-    :::zone-ends
+    :::zone-end
 
     :::zone pivot="user-identity"
 
@@ -135,7 +135,7 @@ var blobServiceClient = new BlobServiceClient(
         .buildClient();
     ```
 
-    :::zone-ends
+    :::zone-end
 
     :::zone pivot="service-principal"
 
@@ -155,7 +155,7 @@ var blobServiceClient = new BlobServiceClient(
         .buildClient();
     ```
 
-    :::zone-ends
+    :::zone-end
 
 
 ### [Python](#tab/python)

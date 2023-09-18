@@ -76,7 +76,7 @@ Follow these steps and sample codes to connect to Azure Blob Storage with user-a
 ::: zone-end
 
 
-::: zone pivot="connecteion-string"
+::: zone pivot="connection-string"
 
 ### Connection string
 
