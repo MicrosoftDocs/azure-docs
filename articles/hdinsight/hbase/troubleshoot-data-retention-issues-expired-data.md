@@ -8,13 +8,13 @@ ms.date: 09/14/2023
 
 # Troubleshoot data retention (TTL) issues with expired data not being deleted from storage on Azure HDInsight
 
-In HBase cluster, you may decide that you would like to remove data after it ages either to free some storage and save on costs as the older data is no longer needed, either to comply with regulations. When that is needed, you will usually set TTL in a table at the ColumnFamily level to expire and automatically delete older data. While TTL can be set as well at cell level, setting it at ColumnFamily level is usually a more convenient option because the ease of administration and because a cell TTL (expressed in ms) can't extend the effective lifetime of a cell beyond a ColumnFamily level TTL setting (expressed in seconds), so only required shorter retention times at cell level could benefit from setting cell level TTL. 
+In HBase cluster, you may decide that you would like to remove data after it ages either to free some storage and save on costs as the older data is no longer needed, either to comply with regulations. When that is needed, you need to set TTL in a table at the ColumnFamily level to expire and automatically delete older data. While TTL can be set as well at cell level, setting it at ColumnFamily level is usually a more convenient option because the ease of administration and because a cell TTL (expressed in ms) can't extend the effective lifetime of a cell beyond a ColumnFamily level TTL setting (expressed in seconds), so only required shorter retention times at cell level could benefit from setting cell level TTL. 
 
 Despite setting TTL, you may notice sometimes that you don't obtain the desired effect, i.e. some data hasn't expired and/or storage size hasn't decreased.
 
 ## Prerequisites
 
-To prepare follow the steps and commands given below, open two ssh connections to HBase cluster:
+Follow the steps and given commands, open two ssh connections to HBase cluster:
 
 * In one of, the ssh sessions keep the default bash shell.
 
@@ -28,7 +28,7 @@ To prepare follow the steps and commands given below, open two ssh connections t
 
 Follow the steps given to understand where is the issue. Start by checking if the behavior occurs for a specific table or for all the tables. If you're unsure whether the issue impacts all the tables or a specific table, just consider as example a specific table name for the start. 
 
-1. Check first that TTL has been configured for ColumnFamily for the target tables. Run the command below in the ssh session where you launched HBase shell and observe example and output below. One column family has TTL set to 50 seconds, the other ColumnFamily has no value configured for TTL, thus it appears as "FOREVER" (data in this column family isn't configured to expire).
+1. Check first that TTL has been configured for ColumnFamily for the target tables. Run following command in the ssh session where you launched HBase shell and observe example and output below. One column family has TTL set to 50 seconds, the other ColumnFamily has no value configured for TTL, thus it appears as "FOREVER" (data in this column family isn't configured to expire).
 
    ```
    describe 'table_name'
@@ -38,7 +38,7 @@ Follow the steps given to understand where is the issue. Start by checking if th
 
 1. If not configured, default TTL is set to 'FOREVER.' There are two possibilities why data is not expired as expected and removed from query result.
 
-   1. If TTL has any other value then 'FOREVER', observe the value for column family and note down the value in seconds(pay special attention to value correlated with the unit measure as cell TTL is in ms, but column family TTL is in seconds) to confirm if it is the expected one. If the observed value isn't correct, fix that first.
+   1. If TTL has any other value, then 'FOREVER', observe the value for column family and note down the value in seconds(pay special attention to value correlated with the unit measure as cell TTL is in ms, but column family TTL is in seconds) to confirm if it is the expected one. If the observed value isn't correct, fix that first.
    1. If TTL value is 'FOREVER' for all column families, configure TTL as first step and afterwards monitor if data is expired as expected.
 
 1. If you establish that TTL is configured and has the correct value for the ColumnFamily, next step is to confirm that the expired data no longer shows up when doing table scans. When data expires, it should be removed and not show up in the scan table results. Run the below command in HBase shell to check.
@@ -49,7 +49,7 @@ Follow the steps given to understand where is the issue. Start by checking if th
 
 ### Check the number and size of StoreFiles per table per region to observe if any changes are visible after the compaction operation
 
-1. Before moving to next step, from ssh session with bash shell, run the following command to check the current number of StoreFiles and size for each StoreFile currently showing up for the ColumnFamily for which the TTL has been configured. Note first the table and ColumnFamily for which you'll be doing the check, then run the following command in ssh session (bash).
+1. Before moving to next step, from ssh session with bash shell, run the following command to check the current number of StoreFiles and size for each StoreFile currently showing up for the ColumnFamily for which the TTL has been configured. Note first the table and ColumnFamily for which you are doing the check, then run the following command in ssh session (bash).
 
    ```
    hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"
@@ -57,7 +57,7 @@ Follow the steps given to understand where is the issue. Start by checking if th
 
    ![Screenshot showing check size of store file command.](media/troubleshoot-data-retention-issues-expired-data/image-2.png)
 
-1. Likely, there will be more results shown in the output, one result for each region ID that is part of the table and between 0 and more results for StoreFiles present under each region name, for the selected ColumnFamily. To count the overall number of rows in the result output above, run the following command.
+1. Likely, there are more results shown in the output, one result for each region ID that is part of the table and between 0 and more results for StoreFiles present under each region name, for the selected ColumnFamily. To count the overall number of rows in the result output above, run the following command.
 
    ```
    hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name" | wc -l
@@ -77,13 +77,13 @@ Follow the steps given to understand where is the issue. Start by checking if th
    hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"
    ```
 
-1. An additional store file is created compared to previous result output for each region where data is modified, the StoreFile will include current content of MemStore for that region.
+1. An additional store file is created compared to previous result output for each region where data is modified, the StoreFile includes current content of MemStore for that region.
 
    ![Screenshot showing memory store for the region.](media/troubleshoot-data-retention-issues-expired-data/image-3.png)
 
 ### Check the number and size of StoreFiles per table per region after major compaction
 
-1. At this point, the data from MemStore has been written to StoreFile, in storage, but expired data may still exist in one or more of the current StoreFiles. Although minor compactions can help delete some of the expired entries, it isn't guaranteed that it will remove all of them as minor compaction will usually not select all the StoreFiles for compaction, while major compaction will select all the StoreFiles for compaction in that region. 
+1. At this point, the data from MemStore has been written to StoreFile, in storage, but expired data may still exist in one or more of the current StoreFiles. Although minor compactions can help delete some of the expired entries, it is not guaranteed that it removes all of them as minor compaction. It will not select all the StoreFiles for compaction, while major compaction will select all the StoreFiles for compaction in that region. 
 
       Also, there's another situation when minor compaction may not remove cells with TTL expired. There's a property named MIN_VERSIONS and it defaults to 0 only (see in the above output from describe 'table_name' the property MIN_VERSIONS=>'0'). If this property is set to 0, the minor compaction will remove the cells with TTL expired. If this value is greater than 0, minor compaction may not remove the cells with TTL expired even if it touches the corresponding file as part of compaction. This property configures the min number of versions of a cell to keep, even if those versions have TTL expired.
 
@@ -93,13 +93,13 @@ Follow the steps given to understand where is the issue. Start by checking if th
    major_compact 'table_name'
    ```
 
-1. Depending on the table size, major compaction operation can take some time. Use the command below in HBase shell to monitor progress. If the compaction is still running when you execute the command below, you'll see the output "MAJOR", but if the compaction is completed, you will see the output "NONE."
+1. Depending on the table size, major compaction operation can take some time. Use following command in HBase shell to monitor progress. If the compaction is still running when you execute the following command, you get the output as "MAJOR", but if the compaction is completed, you get the as output "NONE."
 
    ```
    compaction_state 'table_name'
    ```
 
-1. When the compaction status appears as "NONE" in hbase shell, if you switch quickly to bash and run command
+1. When the compaction status appears as "NONE" in hbase shell, if you switch quickly to bash and run command.
 
    ```
    hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"
