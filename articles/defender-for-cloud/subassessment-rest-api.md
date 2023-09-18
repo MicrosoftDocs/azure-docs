@@ -10,8 +10,6 @@ ms.topic: how-to
 
 # Container vulnerability assessments REST API
 
-Get security subassessments on all your scanned resources inside a scope.
-
 ## Overview
 
 Azure Resource Graph (ARG) provides a REST API that can be used to pragmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
