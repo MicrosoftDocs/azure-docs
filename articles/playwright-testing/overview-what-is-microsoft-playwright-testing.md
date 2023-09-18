@@ -14,7 +14,7 @@ Run your Playwright test suite in the cloud, without changes to your test code o
 
 Get started with [Quickstart: run your Playwright tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md).
 
-To learn more about how Playwright works, visit the [Getting started documentation](https://playwright.dev/docs/intro) on the Playwright website.
+To learn more about how Playwright works and how to write end-to-end tests, visit the [Getting started documentation](https://playwright.dev/docs/intro) on the Playwright website.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

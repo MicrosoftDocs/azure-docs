@@ -36,6 +36,9 @@ items:
     - name: Manage workspace access
       displayName: RBAC, permissions, access, role-based access control, users, roles, security, authorization, authentication, grant, revoke
       href: how-to-manage-workspace-access.md
+    - name: Run tests for local apps
+      displayName: local, localhost, internal app, private apps, private endpoint
+      href: how-to-test-local-applications.md
     - name: Configure visual comparisons
       href: how-to-configure-visual-comparisons.md   
     - name: Monitor Microsoft Playwright Testing
