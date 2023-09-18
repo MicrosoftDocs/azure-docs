@@ -91,29 +91,28 @@ For portal-based procedures, minimize bullets and numbering.
 
 -->
 
-## "\<verb\> * \<noun\>"
+## "Create an alert rule for your packet core control/data plane"
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+1. Navigate to the packet core control/data plane you want to create an alert for:
+  - You can do this by searching for it under **All resources** or from the **Overview** page of the site that contains the packet core you want to add alerts for.
+1. Select **Alerts** from the **Monitoring** tab on the resource menu.
 
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+      :::image type="content" source="alert1.png"
+      alt-text="Screenshot of Azure portal showing packet core control/data plane resource menu.":::
 
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
+1. Select **Alert Rule** from the **Create** dropdown at the top of the page.
+
+      :::image type="content" source="alert2.png"
+      alt-text="Screenshot of Azure portal showing alerts menu with the create dropdown menu open.":::
+
+1. Select **See all signals** just under the dropdown menu or from inside the dropdown menu.
+
+      :::image type="content" source="alert3.png"
+      alt-text="Screenshot of Azure portal showing alert signal selection menu.":::
+
+1. Select the signal you want the alert to be based on and follow the rest of the create instructions.
 
 <!-- 5. Next step/Related content------------------------------------------------------------------------
 
