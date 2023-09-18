@@ -42,7 +42,7 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 * Microsoft Azure Consumption Contract (MACC) credits
 
-## **Azure Hybrid Benefits (AHUB) for NC2 on Azure**
+## Azure Hybrid Benefits (AHUB) for NC2 on Azure
 
 ### Azure Commercial benefits
 
