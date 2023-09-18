@@ -17,11 +17,11 @@ ms.custom: how-to, devplatv2, event-tier1-build-2022
 
 Azure Machine Learning provides several ways to track and monitor metrics and logs regarding [Azure Machine Learning online endpoints](concept-endpoints.md). Integrated with Azure Monitor, you can view metrics in chart, compare between endpoints and deployments, pin to Azure portal dashboards, configure alerts, query from log tables and push the logs to supported targets. You can also use Application Insights to analyze events from user containers.
 
-* **Metrics**: Endpoint level metrics such as request latency, requests per minute, new connections per second, network bytes, etc. can be drilled down to deployment or status level. Deployment level metrics such as CPU/GPU utilization, memory or disk utilization can be drilled down to instance level. Azure Monitor allows tracking these Metrics in charts and setting up dashboards and alerts for further analysis.
+* **Metrics**: For endpoint-level metrics such as request latency, requests per minute, new connections per second, and network bytes, you can drill down to see details at the deployment level or status level. Deployment-level metrics such as CPU/GPU utilization and memory or disk utilization can also be drilled down to instance level. Azure Monitor allows tracking these metrics in charts and setting up dashboards and alerts for further analysis.
 
-* **Logs**: You can send Metrics to the Log Analytics Workspace where you can query the logs using rich Kusto query syntax. You can also send Metrics to Storage Account and/or Event Hubs for further processing. In addition, you can use dedicated Log tables for online endpoint related events, traffic, and console (container) logs. Kusto query allows complex analysis joining multiple tables.
+* **Logs**: You can send metrics to the Log Analytics workspace where you can query the logs using Kusto query syntax. You can also send metrics to Azure Storage accounts and/or Event Hubs for further processing. In addition, you can use dedicated log tables for online endpoint related events, traffic, and console (container) logs. Kusto query allows complex analysis and joining of multiple tables.
 
-* **Application insights**: Curated environments include the integration with Application Insights, and you can simply enable/disable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures and Performance for further analysis. 
+* **Application insights**: Curated environments include integration with Application Insights, and you can enable or disable this integration when you create an online deployment. Built-in metrics and logs are sent to Application Insights, and you can use the built-in features of Application Insights (such as Live metrics, Transaction search, Failures, and Performance) for further analysis. 
 
 In this article you learn how to:
 
@@ -31,7 +31,7 @@ In this article you learn how to:
 > * Create a dashboard for your metrics
 > * Create a metric alert
 > * View logs for your online endpoint
-> * Use application insights to track metrics and logs 
+> * Use Application Insights to track metrics and logs 
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ In this article you learn how to:
 
 ## Metrics
 
-You can view metrics pages for online endpoints or deployments in the Azure portal. An easy way to access these metrics pages is through links available in the Azure Machine Learning studio user interface — specifically in the **Details** tab of an endpoint's page. Following these links will take you to the exact metrics page in the Azure portal for the endpoint or deployment. Alternatively, you can also go into the Azure portal to search for the metrics page for the endpoint or deployment.
+You can view metrics pages for online endpoints or deployments in the Azure portal. An easy way to access these metrics pages is through links available in the Azure Machine Learning studio user interface—specifically in the **Details** tab of an endpoint's page. Following these links will take you to the exact metrics page in the Azure portal for the endpoint or deployment. Alternatively, you can also go into the Azure portal to search for the metrics page for the endpoint or deployment.
 
 To access the metrics pages through links available in the studio:
 
@@ -82,11 +82,11 @@ Split on the following dimensions:
 - Status Code
 - Status Code Class
 
-For instance, using splits you can compare request latency and/or requests per minute between different deployments under an endpoint. 
+For example, you can split along the deployment dimension to compare the request latency of different deployments under an endpoint. 
 
 **Bandwidth throttling**
 
-Bandwidth will be throttled if the limits are exceeded for _managed_ online endpoints quota (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)). To determine if requests are throttled:
+Bandwidth will be throttled if the quota limits are exceeded for _managed_ online endpoints. For more information on limits, see the article on [managing and increasing quotas for managed online endpoints](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)). To determine if requests are throttled:
 - Monitor the "Network bytes" metric
 - The response trailers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
 For more information, see [Bandwidth limit issues](how-to-troubleshoot-online-endpoints.md#bandwidth-limit-issues).
@@ -102,13 +102,13 @@ For more information, see [Bandwidth limit issues](how-to-troubleshoot-online-en
 
 Split on the following dimension:
 
-- InstanceId
+- Instance Id
 
 For instance, you can compare CPU and/or memory utilization between difference instances for an online deployment. 
 
 ### Create dashboards and alerts
 
-Azure Monitor allows creating dashboards and alerts based on metrics.
+Azure Monitor allows you to create dashboards and alerts, based on metrics.
 
 #### Create dashboards and visualize queries
 
@@ -120,11 +120,11 @@ You can also create custom alerts to notify you of important status updates to y
 
 1. At the top right of the metrics page, select **New alert rule**.
 
-    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Screenshot showing 'New alert rule' button surrounded by a red box.":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Screenshot showing 'New alert rule' button surrounded by a red box."  lightbox="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" :::
 
 1. Select a condition name to specify when your alert should be triggered.
 
-    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Screenshot showing 'Configure signal logic' button surrounded by a red box.":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Screenshot showing 'Configure signal logic' button surrounded by a red box."  lightbox="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" :::
 
 1. Select **Add action groups** > **Create action groups** to specify what should happen when your alert is triggered.
 
@@ -224,7 +224,7 @@ The following tables provide details on the data stored in each log:
 
 ## Using Application Insights
 
-When your online deployment uses curated docker image, it includes the integration with Application Insights. To activate log collection using Application Insights, you can simply enable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures and Performance. 
+When your online deployment uses a curated docker image, the environment includes the integration with Application Insights. When you create an online deployment, you can enable log collection using Application Insights. Built-in metrics and logs are sent to Application insights, and you can use its built-in features, such as live metrics, transaction search, failures, and performance. 
 
 
 ## Next steps
