@@ -61,17 +61,15 @@ The protocol used by the health probe can be configured to one of the following 
 | Single instance probes down |  New TCP connections succeed to remaining healthy backend endpoint. Established TCP connections to this backend endpoint continue. |   Existing UDP flows move to another healthy instance in the backend pool.|
 | All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance.  Basic Load Balancer terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
 
-## Probe interval
+## Probe interval & timeout
 
 The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 15 seconds by default but can be explicitly set to another value.
 
-## Probe timeout
+In order to ensure a timely response is received, health probes have built-in timeouts. The following are the timeout durations for TCP and HTTP/S probes:
+* TCP probe timeout duration: 60 seconds
+* HTTP/S probe timeout duration: 30 seconds (60 seconds for establishing a connection)
 
-In order to ensure a timely response is received, health probes have built-in timeout intervals.
-
-TCP probes will timeout at 60 seconds or the configured probe interval if shorter. HTTP/S probes will timeout at 30s or the configured probe interval if shorter. HTTP/S probes can also timeout if a connection is not established within 60s (or the probe interval, whichever comes first) - the 30s timeout applies after a connection is established.
-
-As an example, if a TCP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 60s, the probe will timeout and fail. If a TCP health probe is configured with a probe interval of 30 seconds, and no probe response is received within 30 seconds, the probe will also timeout and fail.
+If the configured interval is longer than the above timeout period, the health probe will timeout and fail if no response is received during the timeout period. For example, if a TCP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 60 seconds, the probe will have reached its timeout period and fail.
 
 ## Design guidance
 
