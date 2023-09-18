@@ -1,4 +1,4 @@
-[---
+---
 title: Get started with Azure Advisor
 description: Get started with Azure Advisor.
 ms.topic: article
