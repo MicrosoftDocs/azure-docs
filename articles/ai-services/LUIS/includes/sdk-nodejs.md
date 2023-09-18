@@ -4,8 +4,8 @@ description: include file
 services: cognitive-services
 
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.date: 03/07/2022
 ms.topic: include
 ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020

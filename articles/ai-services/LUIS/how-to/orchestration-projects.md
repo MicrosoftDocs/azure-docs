@@ -1,11 +1,11 @@
 ---
 title: Use LUIS and question answering
 description:  Learn how to use LUIS and question answering using orchestration.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 05/23/2022
 ---
