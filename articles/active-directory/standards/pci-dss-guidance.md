@@ -17,13 +17,13 @@ ms.collection:
 
 # Microsoft Entra PCI-DSS guidance
 
-The Payment Card Industry Security Standards Council (PCI SSC) is responsible for developing and promoting data security standards and resources, including the Payment Card Industry Data Security Standard (PCI-DSS), to ensure the security of payment transactions. To achieve PCI compliance, organizations using Microsoft Entra ID can refer to guidance in this document. However, it is the responsibility of the organizations to ensure their PCI compliance. Their IT teams, SecOps teams, and Solutions Architects are responsible for creating and maintaining secure systems, products, and networks that handle, process, and store payment card information. 
+The Payment Card Industry Security Standards Council (PCI SSC) is responsible for developing and promoting data security standards and resources, including the Payment Card Industry Data Security Standard (PCI-DSS), to ensure the security of payment transactions. To achieve PCI compliance, organizations using Microsoft Entra ID can refer to guidance in this document. However, it's the responsibility of the organizations to ensure their PCI compliance. Their IT teams, SecOps teams, and Solutions Architects are responsible for creating and maintaining secure systems, products, and networks that handle, process, and store payment card information. 
 
-While Microsoft Entra ID helps meet some PCI-DSS control requirements, and provides modern identity and access protocols for cardholder data environment (CDE) resources, it should not be the sole mechanism for protecting cardholder data. Therefore, review this document set and all PCI-DSS requirements to establish a comprehensive security program that preserves customer trust. For a complete list of requirements, please visit the official PCI Security Standards Council website at pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf)
+While Microsoft Entra ID helps meet some PCI-DSS control requirements, and provides modern identity and access protocols for cardholder data environment (CDE) resources, it shouldn't be the sole mechanism for protecting cardholder data. Therefore, review this document set and all PCI-DSS requirements to establish a comprehensive security program that preserves customer trust. For a complete list of requirements, visit the official PCI Security Standards Council website at pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf)
 
 ## PCI requirements for controls
 
-The global PCI-DSS v4.0  establishes a baseline of technical and operational standards for protecting account data. It “was developed to encourage and enhance payment card account data security and facilitate the broad adoption of consistent data security measures, globally. It provides a baseline of technical and operational requirements designed to protect account data. While specifically designed to focus on environments with payment card account data, PCI-DSS can also be used to protect against threats and secure other elements in the payment ecosystem.”  
+The global PCI-DSS v4.0  establishes a baseline of technical and operational standards for protecting account data. It "was developed to encourage and enhance payment card account data security and facilitate the broad adoption of consistent data security measures, globally. It provides a baseline of technical and operational requirements designed to protect account data. While designed to focus on environments with payment card account data, PCI-DSS can also be used to protect against threats and secure other elements in the payment ecosystem."  
 
 <a name='azure-ad-configuration-and-pci-dss'></a>
 
@@ -43,11 +43,11 @@ PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by 
 
 |PCI Data Security Standard - High Level Overview|Microsoft Entra ID recommended PCI-DSS controls|
 |-|-|
-|Build and Maintain Secure Network and Systems|[1. Install and Maintain Network Security Controls]() </br> [2. Apply Secure Configurations to All System Components]()|
+|Build and Maintain Secure Network and Systems|[1. Install and Maintain Network Security Controls](pci-requirement-1.md) </br> [2. Apply Secure Configurations to All System Components](pci-requirement-2.md)|
 |Protect Account Data|3. Protect Stored Account Data </br> 4. Protect Cardholder Data with Strong Cryptography During Transmission Over Public Networks|
-|Maintain a Vulnerability Management Program|[5. Protect All Systems and Networks from Malicious Software]() </br> [6. Develop and Maintain Secure Systems and Software]()|
-|Implement Strong Access Control Measures|[7. Restrict Access to System Components and Cardholder Data by Business Need to Know]() </br> [8. Identify and Authenticate Access to System Components]() </br> 9. Restrict Physical Access to System Components and Cardholder Data|
-|Regularly Monitor and Test Networks|[10. Log and Monitor All Access to System Components and Cardholder Data]() </br> [11. Test Security of Systems and Networks Regularly]()|
+|Maintain a Vulnerability Management Program|[5. Protect All Systems and Networks from Malicious Software](pci-requirement-5.md) </br> [6. Develop and Maintain Secure Systems and Software](pci-requirement-6.md)|
+|Implement Strong Access Control Measures|[7. Restrict Access to System Components and Cardholder Data by Business Need to Know](pci-requirement-7.md) </br> [8. Identify and Authenticate Access to System Components](pci-requirement-8.md) </br> 9. Restrict Physical Access to System Components and Cardholder Data|
+|Regularly Monitor and Test Networks|[10. Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md) </br> [11. Test Security of Systems and Networks Regularly](pci-requirement-11.md)|
 |Maintain an Information Security Policy|12. Support Information Security with Organizational Policies and Programs|
 
 ## PCI-DSS applicability
@@ -64,7 +64,7 @@ CHD consists of:
 SAD consists of security-related information used to authenticate cardholders and/or authorize payment card transactions. SAD includes, but isn't limited to:
 
 * **Full track data** - magnetic stripe or chip equivalent
-* **Card verification codes/values** - also referred to as the card validation code (CVC), or value (CVV). It’s the three- or four-digit value on the front or back of the payment card. It’s also referred to as CAV2, CVC2, CVN2, CVV2 or CID, determined by the participating payment brands (PPB).  
+* **Card verification codes/values** - also referred to as the card validation code (CVC), or value (CVV). It's the three- or four-digit value on the front or back of the payment card. It's also referred to as CAV2, CVC2, CVN2, CVV2 or CID, determined by the participating payment brands (PPB).  
 * **PIN** - personal identification number 
   * **PIN blocks** - an encrypted representation of the PIN used in a debit or credit card transaction. It ensures the secure transmission of sensitive information during a transaction 
 
@@ -79,11 +79,11 @@ Protecting the CDE is essential to the security and confidentiality of customer 
 
 PCI audit scope relates to the systems, networks, and processes in the storage, processing, or transmission of CHD and/or SAD. If Account Data is stored, processed, or transmitted in a cloud environment, PCI-DSS applies to that environment and compliance typically involves validation of the cloud environment and the usage of it.  There are five fundamental elements in scope for a PCI audit: 
 
-* **Cardholder data environment (CDE)** - the area where CHD, and/or SAD, is stored, processed, or transmitted. It includes an organization’s components that touch CHD, such as networks, and network components, databases, servers, applications, and payment terminals.
+* **Cardholder data environment (CDE)** - the area where CHD, and/or SAD, is stored, processed, or transmitted. It includes an organization's components that touch CHD, such as networks, and network components, databases, servers, applications, and payment terminals.
 * **People** - with access to the CDE, such as employees, contractors, and third-party service providers, are in the scope of a PCI audit.
 * **Processes** - that involve CHD, such as authorization, authentication, encryption and storage of account data in any format, are within the scope of a PCI audit.
 * **Technology** - that processes, stores, or transmits CHD, including hardware such as printers, and multi-function devices that scan, print and fax, end-user devices such as computers, laptops workstations, administrative workstations, tablets and mobile devices, software, and other IT systems, are in the scope of a PCI audit.
-* **System components** – that might not store, process, or transmit CHD/SAD but have unrestricted connectivity to system components that store, process, or transmit CHD/SAD, or that could effect the security of the CDE.
+* **System components** – that might not store, process, or transmit CHD/SAD but have unrestricted connectivity to system components that store, process, or transmit CHD/SAD, or that could affect the security of the CDE.
 
 If PCI scope is minimized, organizations can effectively reduce the effects of security incidents and lower the risk of data breaches. Segmentation can be a valuable strategy for reducing the size of the PCI CDE, resulting in reduced compliance costs and overall benefits for the organization including but not limited to:
 
@@ -94,7 +94,7 @@ If PCI scope is minimized, organizations can effectively reduce the effects of s
 
 ## Strategies to reduce PCI audit scope
 
-An organization’s definition of its CDE determines PCI audit scope. Organizations document and communicate this definition to the PCI-DSS Qualified Security Assessor (QSA) performing the audit. The QSA assesses controls for the CDE to determine compliance.
+An organization's definition of its CDE determines PCI audit scope. Organizations document and communicate this definition to the PCI-DSS Qualified Security Assessor (QSA) performing the audit. The QSA assesses controls for the CDE to determine compliance.
 Adherence to PCI standards and use of effective risk mitigation helps businesses protect customer personal and financial data, which maintains trust in their operations. The following section outlines strategies to reduce risk in PCI audit scope. 
 
 ### Tokenization
@@ -169,7 +169,7 @@ With ongoing processes, organizations respond effectively to changes in the regu
 
 ### Implement strong security for shared infrastructure
 
-Typically, web services such as Azure, have a shared infrastructure wherein customer data might be stored on the same physical server or data storage device. This scenario creates the risk of unauthorized customers accessing data they don’t own, and the risk of malicious actors targeting the shared infrastructure. Microsoft Entra security features help mitigate risks associated with shared infrastructure:
+Typically, web services such as Azure, have a shared infrastructure wherein customer data might be stored on the same physical server or data storage device. This scenario creates the risk of unauthorized customers accessing data they don't own, and the risk of malicious actors targeting the shared infrastructure. Microsoft Entra security features help mitigate risks associated with shared infrastructure:
 
 * User authentication to network access technologies that support modern authentication protocols: virtual private network (VPN), remote desktop, and network access points.
 * Access control policies that enforce strong authentication methods and device compliance based on signals such as user context, device, location, and risk. 
@@ -196,8 +196,8 @@ Implement accurate logging and monitoring to detect, and respond to, security in
 
 Learn more: 
 
-•	[What are Microsoft Entra ID reports?](../reports-monitoring/overview-reports.md)
-•	[Microsoft Entra built-in roles](../roles/permissions-reference.md)
+* [What are Microsoft Entra reports?](../reports-monitoring/overview-reports.md)
+* [Microsoft Entra built-in roles](../roles/permissions-reference.md)
 
 ### Multi-application environments: host outside the CDE
 
