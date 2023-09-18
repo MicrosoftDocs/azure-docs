@@ -1,7 +1,7 @@
 ---
-title: Upgrade to the Azure Search .NET Management SDK
+title: Management SDKs
 titleSuffix: Azure Cognitive Search
-description: Upgrade to the Azure Search .NET Management SDK from previous versions. Learn about new features and the code changes necessary for migration.
+description: Learn about the management libraries and packages used for control plane operations in Azure Cognitive Search.
 
 manager: nitinme
 author: bevloh
@@ -10,10 +10,14 @@ ms.service: cognitive-search
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 09/15/2023
 ---
 
-# Upgrading versions of the Azure Search .NET Management SDK
+# Manage a search service using Azure SDKs
+
+Azure SDKs include libraries and packages for provisioning and managing an Azure Cognitive Search service. This article enumerates the c
+## Control plane tasks
+
 
 This article explains how to migrate to successive versions of the Azure Search .NET Management SDK, used to provision or deprovision search services, adjust capacity, and manage API keys.
 
