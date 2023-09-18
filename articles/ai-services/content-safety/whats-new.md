@@ -17,6 +17,15 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## October 2023
+
+### Content Safety is generally available (GA)
+
+The Azure AI Content Safety service is now generally available as a cloud service.
+- The service is available in many more Azure regions. See the [Overview](./overview.md) for a list.
+- The return formats of the Analyze APIs have changed. See the [Quickstarts](./quickstart-text.md) for the latest examples.
+- The names and return formats of the Blocklist APIs have changed. See the [Blocklist guide](./how-to/use-blocklist.md) for the latest information.
+
 ## July 2023
 
 ### Content Safety C# SDK
