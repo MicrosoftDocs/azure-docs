@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2023
+ms.date: 09/14/2023
 ms.author: kfriedemann
 ms.reviewer: 
 ms.custom: 
@@ -47,28 +47,26 @@ To follow this tutorial, you will need:
 
 When a new Enterprise Application is created, a matching App Registration is also created. The App Registration allows configuration of secure programmatic access using certificates, secrets, or federated credentials. For integration with a Logic App, we will need to configure a client secret key, and configure the API permissions.
 
-1. From the Azure portal, open **Azure Active Directory**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
-2. Select the **App Registrations** menu item from the navigation pane
+1. Browse to **Identity** > **Applications** > **App registrations**.
 
-    ![Screenshot of the Azure Active Directory App Registration Menu Item.](./media/application-proxy-integrate-with-logic-apps/app-registration-menu.png)
+1. From the *App Registrations* window, select the **All applications** tab option
 
-3. From the *App Registrations* window, select the **All applications** tab option
-
-4. Navigate to the application with a matching name to your deployed App Proxy application. For example, if you deployed *Sample App 1* as an Enterprise Application, click the **Sample App 1** registration item
+1. Navigate to the application with a matching name to your deployed App Proxy application. For example, if you deployed *Sample App 1* as an Enterprise Application, click the **Sample App 1** registration item
 
     > [!NOTE]
     > If an associated application cannot be found, it may have not been automatically created or may have been deleted. A registration can be created using the **New Registration** button.
 
-5. From the *Sample App 1* detail page, take note of the *Application (client) ID* and *Directory (tenant) ID* fields. These will be used later.
+1. From the *Sample App 1* detail page, take note of the *Application (client) ID* and *Directory (tenant) ID* fields. These will be used later.
 
     ![Screenshot of the Azure Active Directory App Registration Detail.](./media/application-proxy-integrate-with-logic-apps/app-registration-detail.png)
 
-6. Select the **API permissions** menu item from the navigation pane
+1. Select the **API permissions** menu item from the navigation pane
 
     ![Screenshot of the Azure Active Directory App Registration API Permissions Menu Item.](./media/application-proxy-integrate-with-logic-apps/api-permissions-menu.png)
 
-7. From the *API permissions* page:
+1. From the *API permissions* page:
 
     1. Click the **Add a permission** button
 
@@ -86,11 +84,11 @@ When a new Enterprise Application is created, a matching App Registration is als
 
         ![Screenshot of the Azure Active Directory App Registration API Permissions Detail.](./media/application-proxy-integrate-with-logic-apps/api-permissions-detail.png)
 
-8. Select the **Certificates & secrets** menu item from the navigation pane
+1. Select the **Certificates & secrets** menu item from the navigation pane
 
     ![Screenshot of the Azure Active Directory App Registration Certificates and Secrets Menu Item.](./media/application-proxy-integrate-with-logic-apps/certificates-and-secrets-menu.png)
 
-9. From the *Certificates & secrets* page:
+1. From the *Certificates & secrets* page:
 
     1. Select the **Client secrets** tab item
 

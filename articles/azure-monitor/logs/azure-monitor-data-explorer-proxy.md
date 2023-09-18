@@ -166,12 +166,10 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 * Database names are case sensitive.
 * Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass along the time filter.
 * The cross-service query ability is used for data retrieval only. 
-* [Private Link](../logs/private-link-security.md) does not support cross-service queries.
+* [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) are not support cross-service queries.
 * mv-expand is limited to 2000 records.
 
-* the following operators do not work with the cross query with ability with Azure Resource Graph:
-
-smv-apply(), rand(), arg_max() , arg_min(), avg() , avg_if(), countif(), sumif(), percentile() , percentiles() , percentilew() , percentilesw(), stdev() , stdevif() , stdevp(), variance() , variancep() , varianceif().
+* The following operators do not work with the cross query with ability with Azure Resource Graph: smv-apply(), rand(), arg_max() , arg_min(), avg() , avg_if(), countif(), sumif(), percentile() , percentiles() , percentilew() , percentilesw(), stdev() , stdevif() , stdevp(), variance() , variancep() , varianceif().
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)

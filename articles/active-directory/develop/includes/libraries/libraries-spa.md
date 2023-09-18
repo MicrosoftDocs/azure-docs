@@ -16,7 +16,7 @@ ms.author: henrymbugua
 | React                | [MSAL React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)<sup>2</sup>                 | [msal-react](https://www.npmjs.com/package/@azure/msal-react)         |        [Tutorial](../../single-page-app-tutorial-01-register-app.md)         | ![Library can request ID tokens for user sign-in.][y] | ![Library can request access tokens for protected web APIs.][y] |                              GA                              |
 
 <!--
-| Vue | [Vue MSAL]( https://github.com/mvertopoulos/vue-msal) | [vue-msal]( https://www.npmjs.com/package/vue-msal) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
+| Vue | [Vue MSAL](https://github.com/mvertopoulos/vue-msal) | [vue-msal](https://www.npmjs.com/package/vue-msal) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
 -->
 
 <sup>1</sup> [Universal License Terms for Online Services][preview-tos] apply to libraries in _Public preview_.

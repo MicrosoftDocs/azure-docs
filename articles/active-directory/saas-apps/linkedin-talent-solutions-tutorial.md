@@ -139,11 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Download** button to download the **metadata file** or click on **or click here to load and copy individual fields from the form** link to reveal the configuration data.
 
-    ![ configuration data](./media/linkedin-talent-solutions-tutorial/sso-settings.png)
+    ![configuration data](./media/linkedin-talent-solutions-tutorial/sso-settings.png)
 
 1. Perform the following steps to copy the individual fields from the form.
 
-    ![ configuration with input data](./media/linkedin-talent-solutions-tutorial/configuration.png)
+    ![configuration with input data](./media/linkedin-talent-solutions-tutorial/configuration.png)
 
     a. Copy **Entity ID** value, paste this value into the **Azure AD Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Upload XML file** to upload the **Federation Metadata XML** file which you have copied from the Azure portal.
 
-    ![ Upload XML file](./media/linkedin-talent-solutions-tutorial/xml-file.png)
+    ![Upload XML file](./media/linkedin-talent-solutions-tutorial/xml-file.png)
 
 ### Create LinkedIn Talent Solutions test user
 

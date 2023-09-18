@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/19/2023
+ms.date: 09/15/2023
 
 ms.author: justinha
 author: justinha
@@ -32,7 +32,7 @@ Most methods also have configuration parameters to more precisely control how th
  
 Or let's say you want to enable passwordless authentication with Microsoft Authenticator. You can set extra parameters like showing the user sign-in location or the name of the app being signed into. These options provide more context for users when they sign-in and help prevent accidental MFA approvals.
 
-To manage the Authentication methods policy in the Azure AD portal, click **Security** > **Authentication methods** > **Policies**.
+To manage the Authentication methods policy, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and browse to **Protection** > **Authentication methods** > **Policies**.
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
@@ -78,7 +78,7 @@ Similarly, let's suppose you enable **Voice calls** for a group. After you enabl
 The Authentication methods policy provides a migration path toward unified administration of all authentication methods. All desired methods can be enabled in the Authentication methods policy. Methods in the legacy MFA and SSPR policies can be disabled. Migration has three settings to let you move at your own pace, and avoid problems with sign-in or SSPR during the transition. After migration is complete, you'll centralize control over authentication methods for both sign-in and SSPR in a single place, and the legacy MFA and SSPR policies will be disabled.
 
 >[!Note]
->Hardware OATH tokens and security questions can only be enabled today by using these legacy policies. In the future, these methods will be available in the Authentication methods policy. If you use hardware OATH tokens, which are currently in preview, you should hold off on migrating OATH tokens and don't complete the migration process. If you're using security questions, and don't want to disable them, make sure to keep them enabled in the legacy SSPR policy until the new control is available in the future.
+>Security questions can only be enabled today by using the legacy SSPR policy. In the future, it will be made available in the Authentication methods policy. If you're using security questions, and don't want to disable them, make sure to keep them enabled in the legacy SSPR policy until the new control is available in the future. You can migrate the remainder of your authentication methods and still manage security questions in the legacy SSPR policy.
 
 To view the migration options, open the Authentication methods policy and click **Manage migration**.
 
@@ -92,7 +92,7 @@ The following table describes each option.
 | Migration in Progress | The Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are respected.     |
 | Migration Complete | Only the Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are ignored.  |
 
-Tenants are set to either Pre-migration or Migration in Progress by default, depending on their tenant's current state. At any time, you can change to another option. If you move to Migration Complete, and then choose to roll back to an earlier state, we'll ask why so we can evaluate performance of the product.
+Tenants are set to either Pre-migration or Migration in Progress by default, depending on their tenant's current state. If you start in Pre-migration, you can move to any of the states at any time. If you started in Migration in Progress, you can move between Migration in Progress and Microsoft Complete at any time, but won't be allowed to move to Pre-migration. If you move to Migration Complete, and then choose to roll back to an earlier state, we'll ask why so we can evaluate performance of the product.
 
 :::image type="content" border="true" source="./media/concept-authentication-methods-manage/reason.png" alt-text="Screenshot of reasons for rollback.":::
 

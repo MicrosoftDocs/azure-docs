@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a forest trust in Azure AD Domain Services | Microsoft Docs
-description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
+description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Microsoft Entra admin center for Azure AD Domain Services
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/02/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create a one-way outbound forest from an Azure Active Directory Domain Services forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
@@ -50,9 +50,9 @@ To complete this tutorial, you need the following resources and privileges:
     > [!IMPORTANT]
     > You need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com). You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to modify an Azure AD DS instance. 
+In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to modify an Azure AD DS instance. 
 
 ## Networking considerations
 
@@ -92,7 +92,7 @@ To correctly resolve the managed domain from the on-premises environment, you ma
 
 ## Create inbound forest trust in the on-premises domain
 
-The on-premises AD DS domain needs an incoming forest trust for the managed domain. This trust must be manually created in the on-premises AD DS domain, it can't be created from the Azure portal.
+The on-premises AD DS domain needs an incoming forest trust for the managed domain. This trust must be manually created in the on-premises AD DS domain, it can't be created from the Microsoft Entra admin center.
 
 To configure inbound trust on the on-premises AD DS domain, complete the following steps from a management workstation for the on-premises AD DS domain:
 
@@ -101,8 +101,8 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 1. Choose **Trusts** tab, then **New Trust**.
 1. Enter the name for Azure AD DS domain name, such as *aaddscontoso.com*, then select **Next**.
 1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
-1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Azure portal for the managed domain.
-1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
+1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Microsoft Entra admin center for the managed domain.
+1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Microsoft Entra admin center in the next section.
 1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**.
 1. Select **Finish**.
 
@@ -118,20 +118,20 @@ If the forest trust is no longer needed for an environment, complete the followi
 
 With the on-premises AD DS domain configured to resolve the managed domain and an inbound forest trust created, now create the outbound forest trust. This outbound forest trust completes the trust relationship between the on-premises AD DS domain and the managed domain.
 
-To create the outbound trust for the managed domain in the Azure portal, complete the following steps:
+To create the outbound trust for the managed domain in the Microsoft Entra admin center, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
+1. In the Microsoft Entra admin center, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
 1. From the menu on the left-hand side of the managed domain, select **Trusts**, then choose to **+ Add** a trust.
 1. Enter a display name that identifies your trust, then the on-premises trusted forest DNS name, such as *onprem.contoso.com*.
 1. Provide the same trust password that was used to configure the inbound forest trust for the on-premises AD DS domain in the previous section.
 1. Provide at least two DNS servers for the on-premises AD DS domain, such as *10.1.1.4* and *10.1.1.5*.
 1. When ready, **Save** the outbound forest trust.
 
-    ![Create outbound forest trust in the Azure portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
+    ![Create outbound forest trust in the Microsoft Entra admin center](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
 If the forest trust is no longer needed for an environment, complete the following steps to remove it from Azure AD DS:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
+1. In the Microsoft Entra admin center, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
 1. From the menu on the left-hand side of the managed domain, select **Trusts**, choose the trust, and click **Remove**.
 1. Provide the same trust password that was used to configure the forest trust and click **OK**.
 
