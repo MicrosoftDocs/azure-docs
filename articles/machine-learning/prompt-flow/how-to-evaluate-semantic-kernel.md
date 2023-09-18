@@ -65,7 +65,7 @@ Once the setup is complete, you can conveniently convert your existing Semantic 
 1. Select a runtime with Semantic Kernel installed.
 1. Select the *+ Python* icon to create a new Python node.
 1. Name it as your planner name (e.g., *math_planner*).
-1. Click *+* button in *Files* tab to upload any other reference files (e.g., *plugins*).
+1. Select **+** button in *Files* tab to upload any other reference files (for example, *plugins*).
 1. Update the code in *__.py* file with your planner's code.
 1. Define the input and output of the planner node.
 1. Set the flow input and output.
