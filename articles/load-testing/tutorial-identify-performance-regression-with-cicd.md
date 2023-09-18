@@ -6,9 +6,8 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 09/29/2022
+ms.date: 09/18/2023
 ms.topic: tutorial
-ms.custom: engagement-fy23
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment by using Azure Pipelines.
 ---
 
@@ -18,16 +17,19 @@ This tutorial describes how to quickly identify performance regressions by using
 
 In  this tutorial, you'll set up a CI/CD pipeline that runs a load test for a sample application on Azure. You'll verify the application behavior under load directly from the CI/CD dashboard. You'll then use load test fail criteria to get alerted when the application doesn't meet your quality requirements.
 
+TODO: explain regression testing, what test criteria do, and how the view trends can help to view longer-term trend
+
 In this tutorial, you'll use a sample Node.js application and JMeter script. The tutorial doesn't require any coding or Apache JMeter skills.
 
 You'll learn how to:
 
 > [!div class="checklist"]
 > * Set up the sample application GitHub repository.
-> * Configure service authentication for your CI/CD workflow.
-> * Configure the CI/CD workflow to run a load test.
+> * Set up a CI/CD workflow from the Azure portal.
+> * Update the load test configuration in the CI/CD workflow.
 > * View the load test results in the CI/CD dashboard.
 > * Define load test fail criteria to identify performance regressions.
+> * View client-metrics trends.
 
 > [!NOTE]
 > Azure Pipelines has a 60-minute timeout on jobs that are running on Microsoft-hosted agents for private projects. If your load test is running for more than 60 minutes, you'll need to pay for [additional capacity](/azure/devops/pipelines/agents/hosted?tabs=yaml#capabilities-and-limitations). If not, the pipeline will time out without waiting for the test results. You can view the status of the load test in the Azure portal.
@@ -35,158 +37,32 @@ You'll learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* If you're using Azure Pipelines, an Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
-* A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
+* An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true).
 
 ## Set up the sample application repository
 
-To get started with this tutorial, you first need to set up a sample Node.js web application. The sample application contains an Azure Pipelines definition to deploy the application on Azure and trigger a load test.
+To get started with this tutorial, you first need to set up a sample Node.js web application.
 
 [!INCLUDE [azure-load-testing-set-up-sample-application](../../includes/azure-load-testing-set-up-sample-application.md)]
 
-## Configure service authentication
+## Create a URL-based test
 
-Before you configure the CI/CD pipeline to run a load test, you'll grant the CI/CD workflow the permissions to access your Azure load testing resource.
+## Set up the CI/CD workflow from the Azure portal
 
-# [Azure Pipelines](#tab/pipelines)
+Create and run the load test from 
 
-To access your Azure Load Testing resource from the Azure Pipelines workflow, you first create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. 
+## Update the load test configuration in the CI/CD workflow
 
-Next, you grant permissions to this service principal to create and run a load test with your Azure Load Testing resource.
+## View load test results
 
-### Create a service connection in Azure Pipelines
+## Add test fail criteria
 
-Create a service connection in Azure Pipelines so that your CI/CD workflow has access to your Azure subscription. In a next step, you'll then grant permissions to create and run load tests.
+Add criteria and run the load test
 
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
+Update # users and rerun
 
-1. Select **Project settings** > **Service connections**.
+## View trends over time
 
-1. Select **+ New service connection**, select the **Azure Resource Manager** service connection, and then select **Next**.
-
-1. Select the **Service Principal (automatic)** authentication method, and then select **Next**.
-
-1. Enter the service connection information, and then select **Save** to create the service connection.
-
-    | Field | Value |
-    | ----- | ----- |
-    | **Scope level** | *Subscription*. |
-    | **Subscription** | Select the Azure subscription that will host your load testing resource. |
-    | **Resource group** | Leave empty. The pipeline creates a new resource group for the Azure Load Testing resource. |
-    | **Service connection name** | Enter a unique name for the service connection. You'll use this name later, to configure the pipeline definition. |
-    | **Grant access permission to all pipelines** | Checked. |
-
-1. Select the service connection that you created from the list, and then select **Manage Service Principal**.
-
-    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal.":::
-
-1. In the Azure portal, copy the **Application (Client) ID** value.
-
-[!INCLUDE [cli-launch-cloud-shell-sign-in](../../includes/cli-launch-cloud-shell-sign-in.md)]
-
-### Grant access to Azure Load Testing
-
-To grant access to your Azure Load Testing resource, assign the Load Test Contributor role to the service principal. This role grants the service principal access to create and run load tests with your Azure Load Testing service. Learn more about [managing users and roles in Azure Load Testing](./how-to-assign-roles.md).
-
-1. Retrieve the ID of the service principal object using the Azure CLI. Replace the text placeholder `<application-client-id>` with the value you copied.
-
-    ```azurecli-interactive
-    object_id=$(az ad sp show --id "<application-client-id>" --query "id" -o tsv)
-    echo $object_id
-    ```
-    
-1. Assign the `Load Test Contributor` role to the service principal:
-
-    ```azurecli-interactive
-    subscription=$(az account show --query "id" -o tsv)
-    echo $subscription
-
-    az role assignment create --assignee $object_id \
-        --role "Load Test Contributor" \
-        --scope /subscriptions/$subscription \
-        --subscription $subscription
-    ```
-
-# [GitHub Actions](#tab/github)
-
-To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
-
-Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
-
-[!INCLUDE [cli-launch-cloud-shell-sign-in](../../includes/cli-launch-cloud-shell-sign-in.md)]
-
-### Create a service principal
-
-Create a service principal in the Azure subscription and assign the Contributor role so that your GitHub Actions workflow has access to your Azure subscription. In a next step, you'll then grant permissions to create and run load tests.
-
-1. Create a service principal and assign the `Contributor` role:
-
-    ```azurecli-interactive
-    subscription=$(az account show --query "id" -o tsv)
-    echo $subscription
-
-    az ad sp create-for-rbac --name "my-load-test-cicd" --role contributor \
-                             --scopes /subscriptions/$subscription \
-                             --sdk-auth
-    ```
-
-    The output is a JSON object that represents the service principal. You'll use this information to authenticate with Azure in the GitHub Actions workflow.
-
-    ```output
-    Creating 'contributor' role assignment under scope '/subscriptions/123abc45-6789-0abc-def1-234567890abc'
-    {
-      "clientId": "00000000-0000-0000-0000-000000000000",
-      "clientSecret": "00000000-0000-0000-0000-000000000000",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "tenantId": "00000000-0000-0000-0000-000000000000",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/",
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/"    
-    }
-    ```
-
-    > [!NOTE]
-    > You might get a `--sdk-auth` deprecation warning when you run this command. Alternatively, you can use OpenID Connect (OIDC) based authentication for authenticating GitHub with Azure. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
-
-1. Copy the output JSON object.
-
-1. Add a GitHub secret **AZURE_CREDENTIALS** to your repository to store the service principal you created earlier. The `azure/login` action in the GitHub Actions workflow uses this secret to authenticate with Azure.
-
-    > [!NOTE]
-    > If you're using OpenID Connect to authenticate with Azure, you don't have to pass the service principal object in the Azure login action. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
-    
-    1. In [GitHub](https://github.com), browse to your forked repository, and select **Settings** > **Secrets** > **Actions** > **New repository secret**.
-    
-    1. Enter the new secret information, and then select **Add secret** to create a new secret.
-
-        | Field | Value |
-        | ----- | ----- |
-        | **Name** | *AZURE_CREDENTIALS* |
-        | **Secret** | Paste the JSON role assignment credentials you copied earlier. |
-
-### Grant access to Azure Load Testing
-
-To grant access to your Azure Load Testing resource, assign the Load Test Contributor role to the service principal. This role grants the service principal access to create and run load tests with your Azure Load Testing service. Learn more about [managing users and roles in Azure Load Testing](./how-to-assign-roles.md).
-
-1. Retrieve the ID of the service principal object:
-
-    ```azurecli-interactive
-    object_id=$(az ad sp list --filter "displayname eq 'my-load-test-cicd'" --query "[0].id" -o tsv)
-    echo $object_id
-    ```
-
-1. Assign the `Load Test Contributor` role to the service principal:
-
-    ```azurecli-interactive
-    az role assignment create --assignee $object_id \
-        --role "Load Test Contributor" \
-        --scope /subscriptions/$subscription \
-        --subscription $subscription
-    ```
----
 
 ## Configure the CI/CD workflow to run a load test
 
