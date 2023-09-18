@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 This article shows how to:
 
 * Create an Event Grid domain
-* Subscribe to event grid topics
+* Subscribe to Event Grid topics
 * List keys
 * Publish events to a domain
 
@@ -115,14 +115,14 @@ New-AzEventGridSubscription `
 
 ---
 
-If you need a test endpoint to subscribe your events to, you can always deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
+If you need a test endpoint to subscribe your events to, you can always deploy a [prebuilt web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../media/template-deployments/deploy-to-azure.svg"  alt="Button to deploy to Azure."></a>
 
-Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they've write access on a topic.
+Permissions that are set for a topic are stored in Microsoft Entra ID and must be deleted explicitly. Deleting an event subscription doesn't revoke a users access to create event subscriptions if they've write access on a topic.
 
 
-## Publish events to an Event Grid Domain
+## Publish events to an Event Grid domain
 
 Publishing events to a domain is the same as [publishing to a custom topic](./post-to-custom-topic.md). However, instead of publishing to the custom topic, you publish all events to the domain endpoint. In the JSON event data, you specify the topic you wish the events to go to. The following array of events would result in event with `"id": "1111"` to topic `demotopic1` while event with `"id": "2222"` would be sent to topic `demotopic2`:
 
