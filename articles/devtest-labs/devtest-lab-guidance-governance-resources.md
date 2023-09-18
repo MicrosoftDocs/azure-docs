@@ -26,7 +26,7 @@ The **first recommended practice** is to review organizations' Azure taxonomy wh
 
 The **second recommended practice** is to enable the DevTest subscription within the Azure Enterprise portal. It allows an organization to run client operating systems that aren't typically available in an Azure enterprise subscription. Then, use enterprise software where you pay only for the compute and don't worry about licensing. It ensures that the billing for designated services, including gallery images in IaaS such as Microsoft SQL Server, is based on consumption only. Details about the Azure DevTest subscription can be found [here](https://azure.microsoft.com/offers/ms-azr-0148p/) for Enterprise Agreement (EA) customers and [here](https://azure.microsoft.com/offers/ms-azr-0023p/) for Pay as you Go customers.
 
-:::image type="content" source="media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png" alt-text="Resource alignment with subscriptions":::
+:::image type="content" source="media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png" alt-text="Diagram showing how resources alignment with subscriptions.":::
 
 This model provides an organization the flexibility to deploy Azure DevTest Labs at scale. An organization can support hundreds of labs for various business units with 100 to 1000 virtual machines running in parallel. It promotes the notion of a centralized enterprise lab solution that can share the same principles of configuration management and security controls.
 
@@ -101,8 +101,8 @@ As part of your organization's overall governance and configuration management s
 
 An organization may apply corporate security policies by:
 
-1. Developing and publishing a comprehensive security policy. The policy articulates the rules of acceptable use associated with the using software, cloud assets. It also defines what clearly violates the policy. 
-2. Develop a custom image, custom artifacts, and a deployment process that allows for orchestration within the security realm that is defined with active directory. This approach enforces the corporate boundary and sets a common set of environmental controls. These controls against the environment a developer can consider as they develop and follow a secure development lifecycle as part of their overall process. The objective also is to provide an environment that isn't overly restrictive that may hinder development, but a reasonable set of controls. The group policies at the organization unit (OU) that contains lab virtual machines could be a subset of the total group policies that are found in production. Alternatively, they can be an another set to properly mitigate any identified risks.
+- Developing and publishing a comprehensive security policy. The policy articulates the rules of acceptable use associated with the using software, cloud assets. It also defines what clearly violates the policy. 
+- Developing a custom image, custom artifacts, and a deployment process that allows for orchestration within the security realm that is defined with active directory. This approach enforces the corporate boundary and sets a common set of environmental controls. These controls against the environment a developer can consider as they develop and follow a secure development lifecycle as part of their overall process. The objective also is to provide an environment that isn't overly restrictive that may hinder development, but a reasonable set of controls. The group policies at the organization unit (OU) that contains lab virtual machines could be a subset of the total group policies that are found in production. Alternatively, they can be another set to properly mitigate any identified risks.
 
 ### Data integrity
 
