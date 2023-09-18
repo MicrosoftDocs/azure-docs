@@ -32,7 +32,7 @@ Azure PowerShell provides several cmdlets for command line- and script-based cus
 
 ## Connect PowerShell session to B2C tenant
 
-To work with custom policies in your Azure AD B2C tenant, you first need to connect your PowerShell session to the tenant by using the [Connect-AzureAD][Connect-AzureAD] command.
+To work with custom policies in your Azure AD B2C tenant, you first need to connect your PowerShell session to the tenant by using the [Connect-Microsoft Entra ID][Connect-AzureAD] command.
 
 Execute the following command, substituting `{b2c-tenant-name}` with the name of your Azure AD B2C tenant. Sign in with an account that's assigned the [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) role in the directory.
 
