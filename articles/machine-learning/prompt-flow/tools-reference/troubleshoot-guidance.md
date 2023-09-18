@@ -62,18 +62,13 @@ Prompt flow relies on fileshare to store snapshot of flow. If fileshare have som
      
 ## Flow is missing
 
-:::image type="content" source="../media/faq/flow-.png" alt-text="Screenshot of a failed run on the runtime detail page. " lightbox = "../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
+:::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot of a flow missing in authoring page. " lightbox = "../media/faq/flow-missing.png":::
 
 Prompt flow relies on fileshare to store snapshot of flow. This error mean prompt flow service can operate prompt flow folder in fileshare, but the prompt flow UI can't find folder in fileshare. There are some potential reasons:
 - Prompt flow relies datastore named `workspaceworkingdirectory` in your workspace, which using `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`, please make sure your data store using the same container.
-![file-share-name](../media/faq/file-share-name.png) 
+![name of fileshare in datastore detail page](../media/faq/file-share-name.png) 
 
 - Please try in different network environment, such as home network, company network, etc. There are rare case, fileshare can't be accessed in some network environment.
-
-
-
-
-
 
 ## Runtime related issues
 
