@@ -47,30 +47,40 @@ The following FQDNs are proxied through the service, and won't need additional f
 
 ### ADDITIONAL CONTAINER IMAGES
 
-- **`registry.redhat.io`**: Used to provide images for things such as Operator Hub. 
-- **`*.quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall can't use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html)
+| Destination FQDN | Port | Use |
+| ----------- | ----------- | ------------- |
+| **`registry.redhat.io`** | **HTTPS:443** | Used to install the default [OperatorHub catalogs](https://docs.openshift.com/container-platform/4.13/operators/understanding/olm-rh-catalogs.html). |
+| **`*.quay.io`** | **HTTPS:443** | May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall can't use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html). |
 
 ---
 
 ### TELEMETRY
 
-You can opt out of telemetry, but make sure you understand this feature before doing so: https://docs.openshift.com/container-platform/4.12/support/remote_health_monitoring/about-remote-health-monitoring.html
-- **`cert-api.access.redhat.com`**: Used for Red Hat telemetry.
-- **`api.access.redhat.com`**: Used for Red Hat telemetry.
-- **`infogw.api.openshift.com`**: Used for Red Hat telemetry.
-- **`https://cloud.redhat.com/api/ingress`**: Used in the cluster for the insights operator that integrates with Red Hat Insights (required in 4.10 and earlier only).
-- **`https://console.redhat.com/api/ingress`**: Used in the cluster for the insights operator that integrates with Red Hat Insights.
-- In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, and better understand how product upgrades clusters. Check details here: https://docs.openshift.com/container-platform/4.12/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
+In OpenShift Container Platform, customers can opt out of reporting health and usage information. However, connected clusters allow Red Hat to react more quickly to problems and better support our customers, and better understand how product upgrades clusters. Check details here: https://docs.openshift.com/container-platform/4.13/support/remote_health_monitoring/opting-out-of-remote-health-reporting.html.
+
+In addition, ARO clusters may be registered with [OpenShift Cluster Manager](https://docs.openshift.com/rosa/ocm/ocm-overview.html) at [console.redhat.com/openshift](https://console.redhat.com/openshift) by following the 
+procedure documented [here](https://access.redhat.com/solutions/6526031).  This allows a central view of a fleet of OpenShift clusters.  The 
+URLs listed below are required for this integration to work properly.  This integration occurs by way of the [OpenShift Insights Operator](https://docs.openshift.com/container-platform/4.13/support/remote_health_monitoring/using-insights-operator.html).
+
+| Destination FQDN | Port | Use |
+| ----------- | ----------- | ------------- |
+| **`cert-api.access.redhat.com`** | **HTTPS:443** | Used for Red Hat telemetry. |
+| **`api.access.redhat.com`** | **HTTPS:443** | Used for Red Hat telemetry. |
+| **`infogw.api.openshift.com`** | **HTTPS:443** | Used for Red Hat telemetry. |
+| **`cloud.redhat.com/api/ingress`** | **HTTPS:443** | Used by the insights operator which integrates with Red Hat Insights (required in 4.10 and earlier only). |
+| **`cloud.redhat.com/api/ingress`** | **HTTPS:443** | Used by the insights operator which integrates with Red Hat Insights. |
 
 ---
 
 ### OTHER POSSIBLE OPENSHIFT REQUIREMENTS
 
-- **`mirror.openshift.com`**: Required to access mirrored installation content and images. This site is also a source of release image signatures.
-- **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
-- **`api.openshift.com`**: Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as an alternative.
-- **`registry.access.redhat.com`**: Registry access is required in your VDI or laptop environment to download dev images when using the ODO CLI tool. (This CLI tool is an alternative CLI tool for developers who aren't familiar with kubernetes). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html
-- **`access.redhat.com`**: Used in conjunction with `registry.access.redhat.com` when pulling images. Failure to add this access could result in an error message.
+| Destination FQDN | Port | Use |
+| ----------- | ----------- | ------------- |
+| **`mirror.openshift.com`** | **HTTPS:443** | Required to access mirrored installation content and images. This site is also a source of release image signatures. |
+| **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL) | **HTTPS:443** | When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console. |
+| **`api.openshift.com`** | **HTTPS:443** | Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as an alternative. |
+| **`registry.access.redhat.com`** | **HTTPS:443** | Registry access is required in your VDI or laptop environment to download dev images when using the ODO CLI tool. (This CLI tool is an alternative CLI tool for developers who aren't familiar with kubernetes). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html |
+| **`access.redhat.com`** | **HTTPS:443** | Used in conjunction with `registry.access.redhat.com` when pulling images. Failure to add this access could result in an error message. |
 
 ## ARO integrations
 
