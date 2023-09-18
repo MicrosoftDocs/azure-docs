@@ -18,18 +18,18 @@ The following troubleshooting steps apply to the Azure VMs related to the patch 
 
 ### Azure Linux VM
 
-To verify if the Microsoft Azure Virtual Machine Agent (VM Agent) is running, has triggered appropriate actions on the machine, and the sequence number for the autopatching request, check the agent log for more information in `/var/log/waagent.log`. Every autopatching request has a unique sequence number associated with it on the machine. Look for a log similar to `2021-01-20T16:57:00.607529Z INFO ExtHandler`.
+To verify if the Microsoft Azure Virtual Machine agent (VM agent) is running, has triggered appropriate actions on the machine, and the sequence number for the autopatching request, check the agent log for more information in `/var/log/waagent.log`. Every autopatching request has a unique sequence number associated with it on the machine. Look for a log similar to `2021-01-20T16:57:00.607529Z INFO ExtHandler`.
 
 The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Core.Edp.LinuxPatchExtension-<version>`. The `/status` subfolder has a `<sequence number>.status` file. It includes a brief description of the actions performed during a single autopatching request and the status. It also includes a short list of errors that occurred while applying updates.
 
 To review the logs related to all actions performed by the extension, check for more information in `/var/log/azure/Microsoft.CPlat.Core.Edp.LinuxPatchExtension/`. It includes the following two log files of interest:
 
 * `<seq number>.core.log`: Contains information related to the patch actions. This information includes patches assessed and installed on the machine and any problems encountered in the process.
-* `<Date and Time>_<Handler action>.ext.log`: There's a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the `<Date and Time>_Enable.ext.log` has information on whether the specific patch operation was invoked.
+* `<Date and Time>_<Handler action>.ext.log`: There's a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log `<Date and Time>_Enable.ext.log` has information on whether the specific patch operation was invoked.
 
 ### Azure Windows VM
 
-To verify if the VM Agent is running, has triggered appropriate actions on the machine, and the sequence number for the autopatching request, check the agent log for more information in `C:\WindowsAzure\Logs\AggregateStatus`. The package directory for the extension is `C:\Packages\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`.
+To verify if the VM agent is running, has triggered appropriate actions on the machine, and the sequence number for the autopatching request, check the agent log for more information in `C:\WindowsAzure\Logs\AggregateStatus`. The package directory for the extension is `C:\Packages\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`.
 
 To review the logs related to all actions performed by the extension, check for more information in `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`. It includes the following two log files of interest:
 
@@ -37,6 +37,8 @@ To review the logs related to all actions performed by the extension, check for 
 * `CommandExecution.log`: There's a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
 
 ## Unable to change the patch orchestration option to manual updates from automatic updates
+
+Here's the scenario.
 
 ### Problem
 
@@ -50,10 +52,12 @@ If you don't want any patch installation to be orchestrated by Azure or aren't u
 
 ## Machine shows as "Not assessed" and shows an HRESULT exception
 
+Here's the scenario.
+
 ### Problem
 
 * You have machines that show as `Not assessed` under **Compliance**, and you see an exception message below them.
-* You see an HRESULT error code in the portal.
+* You see an `HRESULT` error code in the portal.
 
 ### Cause
 
@@ -71,18 +75,18 @@ This problem is frequently caused by network configuration and firewall problems
   * If the machines are configured for Windows Update, make sure that you can reach the endpoints described in [Issues related to HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
   * If the machines are configured for Windows Server Update Services (WSUS), make sure that you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
 
-If you see an HRESULT, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.
+If you see an `HRESULT` error code, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.
 
 |Exception  |Resolution or action  |
 |---------|---------|
-|`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows Update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find more information about the cause of the exception.        |
+|`Exception from HRESULT: 0x……C`     | Search the relevant error code in the [Windows Update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find more information about the cause of the exception.        |
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicates network connectivity problems. Make sure your machine has network connectivity to Update Management. For a list of required ports and addresses, see the [Network planning](../automation/update-management/plan-deployment.md#ports) section.        |
 |`0x8024001E`| The update operation didn't finish because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
 |`0x80072EE2`|There's a network connectivity problem or a problem in talking to a configured WSUS server. Check WSUS settings and make sure the service is accessible from the client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (`wuauserv`) is running and not disabled.        |
-|`0x80070005`| An access denied error can be caused by any one of the following problems:<br> Infected computer<br> Windows Update settings not configured correctly<br> File permission error with `%WinDir%\SoftwareDistribution folder<br> Insufficient disk space on the system drive (drive C).
+|`0x80070005`| An access denied error can be caused by any one of the following problems:<br> - Infected computer.<br> - Windows Update settings not configured correctly.<br> - File permission error with the `%WinDir%\SoftwareDistribution` folder.<br> - Insufficient disk space on the system drive (drive C).
 |Any other generic exception     | Run a search on the internet for possible resolutions and work with your local IT support.         |
 
 Reviewing the `%Windir%\Windowsupdate.log` file can also help you determine possible causes. For more information about how to read the log, see [Read the Windowsupdate.log file](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
@@ -110,6 +114,8 @@ To review the logs related to all actions performed by the extension, on Windows
 
 ### Scenario: Unable to apply patches for the shutdown machines
 
+Here's the scenario.
+
 #### Problem
 
 Patches aren't getting applied for the machines that are in shutdown state. You might also see that machines are losing their associated maintenance configurations or schedules.
@@ -124,6 +130,8 @@ Keep your machines turned on at least 15 minutes before the scheduled update. Fo
 
 ### Scenario: Patch run failed with Maintenance window exceeded property showing true even if time remained
 
+Here's the scenario.
+
 #### Problem
 
 When you view an update deployment in **Update History**, the property **Failed with Maintenance window exceeded** shows **true** even though enough time was left for execution. In this case, one of the following problems is possible:
@@ -134,11 +142,11 @@ When you view an update deployment in **Update History**, the property **Failed 
 
 #### Cause
 
-During an update deployment, it checks for Maintenance window utilization at multiple steps. Ten minutes of the Maintenance window are reserved for reboot at any point. Before getting a list of missing updates or downloading or installing any update (except Windows service pack updates), it checks to verify if there are 15 minutes + 10 minutes for reboot (that is, 25 minutes left in the Maintenance window).
+During an update deployment, Maintenance window utilization is checked at multiple steps. Ten minutes of the Maintenance window are reserved for reboot at any point. Before the deployment gets a list of missing updates or downloads or installs any update (except Windows service pack updates), it checks to verify if there are 15 minutes + 10 minutes for reboot (that is, 25 minutes left in the Maintenance window).
 
-For Windows service pack updates, we check for 20 minutes + 10 minutes for reboot (that is, 30 minutes). If the deployment doesn't have the sufficient time left, it skips the scan/download/installation of updates. The deployment run then checks if a reboot is needed and if there's 10 minutes left in the Maintenance window. If there is, the deployment triggers a reboot. Otherwise, the reboot is skipped.
+For Windows service pack updates, the deployment checks for 20 minutes + 10 minutes for reboot (that is, 30 minutes). If the deployment doesn't have the sufficient time left, it skips the scan/download/installation of updates. The deployment run then checks if a reboot is needed and if 10 minutes are left in the Maintenance window. If there are, the deployment triggers a reboot. Otherwise, the reboot is skipped.
 
-In such cases, the status is updated to **Failed**, and the Maintenance window exceeded property is updated to **true**. For cases where the time left is less than 25 minutes, updates aren't scanned or attempted for installation.
+In such cases, the status is updated to **Failed**, and the **Maintenance window exceeded** property is updated to **true**. For cases where the time left is less than 25 minutes, updates aren't scanned or attempted for installation.
 
 To find more information, review the logs in the file path provided in the error message of the deployment run.
 
