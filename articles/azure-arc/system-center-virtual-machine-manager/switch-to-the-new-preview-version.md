@@ -12,12 +12,12 @@ keywords: "VMM, Arc, Azure"
 #Customer intent: As a VI admin, I want to switch to the new preview version of Arc-enabled SCVMM (preview) and leverage the associated capabilities
 ---
 
-# Switch to the new preview version
+# Switch to the new preview version of Arc-enabled SCVMM
 
 On September 22, 2023, we rolled out major changes to **Azure Arc-enabled System Center Virtual Machine Manager** preview. By switching to the new preview version, you can use all the Azure management services that are available for Arc-enabled Servers.
 
 >[!Note]
->If you're new to Arc-enabled SCVMM (preview), you will be able to leverage the new capabilities by default. To get started with the preview, see [Quick Start for Azure Arc-enabled System Center Virtual Machine Manager (preview)](quickstart-connect-system-center-virtual-machine-manager-to-arc.md)
+>If you're new to Arc-enabled SCVMM (preview), you'll be able to leverage the new capabilities by default. To get started with the preview, see [Quick Start for Azure Arc-enabled System Center Virtual Machine Manager (preview)](quickstart-connect-system-center-virtual-machine-manager-to-arc.md).
 
 ## Switch to the new preview version (Existing preview customer)
 
@@ -30,12 +30,12 @@ If you're an existing Azure Arc-enabled SCVMM customer, for VMs that are Azure-e
 2.	Select all the virtual machines that are Azure enabled with the older preview version.
 3.	Select **Remove from Azure**. 
 
-:::image type="content" source="media/switch-to-the-new-preview-version/select-older-preview-vms.png" alt-text="Screenshot of how to remove VMs that are Azure enabled with the older preview version." lightbox="media/switch-to-the-new-preview-version/select-older-preview-vms.png":::
+    :::image type="content" source="media/switch-to-the-new-preview-version/select-older-preview-vms-inline.png" alt-text="Screenshot of how to remove VMs that are Azure enabled with the older preview version." lightbox="media/switch-to-the-new-preview-version/select-older-preview-vms-expanded.png":::
 
 4.	After successful removal from Azure, enable the same resources again in Azure.
 5.	Once the resources are re-enabled, the VMs are auto switched to the new preview version. The VM resources will now be represented as **Machine - Azure Arc (SCVMM)**.
 
-:::image type="content" source="media/switch-to-the-new-preview-version/re-enable-the-vms.png" alt-text="Screenshot of how to re-enable the VMs." lightbox="media/switch-to-the-new-preview-version/re-enable-the-vms.png":::
+    :::image type="content" source="media/switch-to-the-new-preview-version/re-enable-the-vms-inline.png" alt-text="Screenshot of how to re-enable the VMs." lightbox="media/switch-to-the-new-preview-version/re-enable-the-vms-expanded.png":::
  
 ## Next steps
 
