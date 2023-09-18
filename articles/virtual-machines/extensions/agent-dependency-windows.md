@@ -4,8 +4,8 @@ description: Deploy the Azure Monitor Dependency agent on Windows virtual machin
 ms.topic: article
 ms.service: azure-monitor
 ms.subservice: extensions
-author: guywild
-ms.author: guywi-ms
+author: guywi-ms
+ms.author: guywild
 ms.reviewer: erd
 ms.collection: windows
 ms.date: 08/29/2023
