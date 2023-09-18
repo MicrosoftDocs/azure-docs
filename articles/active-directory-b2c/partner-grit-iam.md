@@ -29,7 +29,7 @@ Use Grit's B2BB2C solution for:
 To get started, ensure the following prerequisites are met:
 
 - A Grit IAM account. You can go to [Grit IAM B2B2C solution](https://www.gritiam.com/b2b2c) to get a demo.
-- An Azure AD subscription. If you don't have one, you can create a [free Azure account](https://azure.microsoft.com/free/).
+- A Microsoft Entra subscription. If you don't have one, you can create a [free Azure account](https://azure.microsoft.com/free/).
 - An Azure AD B2C tenant linked to the Azure subscription. You can learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md). 
 - Configure your application in the Azure portal. 
 
@@ -43,9 +43,9 @@ Contoso does business with end customers and large enterprises, like Fabrikam_bi
 
 This integration is composed of the following components:
 
-- **Azure AD B2C Identity Experience Framework (IEF)**: An engine that executes user journeys, which can include validating credentials, performing MFA, checking user access. It's aided by the Azure AD database and the API layer, which's configured using XML.
+- **Azure AD B2C Identity Experience Framework (IEF)**: An engine that executes user journeys, which can include validating credentials, performing MFA, checking user access. It's aided by the Microsoft Entra database and the API layer, which's configured using XML.
 
-- **Grit API layer**: This layer exposes user profile data and metadata about organizations and applications. The data is stored in Azure AD and Cosmos DB.
+- **Grit API layer**: This layer exposes user profile data and metadata about organizations and applications. The data is stored in Microsoft Entra ID and Cosmos DB.
 
 - **Grit Onboarding portal**: Used by admins to onboard applications and organizations.
 
