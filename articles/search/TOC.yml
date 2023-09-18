@@ -123,30 +123,28 @@
     href: samples-rest.md
 - name: Concepts
   items:
+  - name: Retrieval Augmented Generation (RAG)
+    href: retrieval-augmented-generation-overview.md
   - name: Search
     items:
-    - name: Full-text
+    - name: Full-text search
       items:
-      - name: Full-text search
+      - name: Overview
         href: search-lucene-query-architecture.md
       - name: Query types and composition
         href: search-query-overview.md
       - name: Relevance scoring
         href: index-similarity-and-scoring.md
-    - name: Semantic
+    - name: Vector search
       items:
-      - name: Semantic search
-        href: semantic-search-overview.md
-      - name: Semantic ranking
-        href: semantic-ranking.md 
-    - name: Vectors
-      items:
-      - name: Vector search
+      - name: Overview
         href: vector-search-overview.md
       - name: Vector index size limit
         href: vector-search-index-size.md
       - name: Vector query execution
         href: vector-search-ranking.md
+    - name: Semantic search
+      href: semantic-search-overview.md
   - name: Indexing
     items:
     - name: Search indexes
@@ -266,9 +264,9 @@
       href: search-howto-concurrency.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Upgrade to 11.0
+    - name: Upgrade .NET libraries
       href: search-dotnet-sdk-migration-version-11.md
-    - name: Upgrade the Management SDK
+    - name: Manage with Azure SDKs
       href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
@@ -466,13 +464,13 @@
         href: search-query-fuzzy.md
   - name: Relevance
     items:
-    - name: Configure scoring
+    - name: Configure BM25 ranking
       href: index-ranking-similarity.md
     - name: Add a scoring profile
       href: index-add-scoring-profiles.md
     - name: Enable or disable semantic search
       href: semantic-how-to-enable-disable.md      
-    - name: Configure semantic search
+    - name: Configure semantic ranking
       href: semantic-how-to-query-request.md
   - name: Performance and monitoring
     items:

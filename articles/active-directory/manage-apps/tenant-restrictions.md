@@ -41,6 +41,7 @@ The overall solution comprises the following components:
 The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Azure AD, not to the Microsoft 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
 :::image type="content" source="./media/tenant-restrictions/traffic-flow.png" alt-text="Diagram of tenant restrictions traffic flow.":::
+
 ## Set up tenant restrictions
 
 There are two steps to get started with tenant restrictions. First, make sure that your clients can connect to the right addresses. Second, configure your proxy infrastructure.
@@ -80,10 +81,13 @@ The headers should include the following elements:
 
 - For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`. You *must* use your own directory ID here to get logs for these authentications. If you use any directory ID other than your own, those sign-in logs *will* appear in someone else's tenant, with all personal information removed. For more information, see [Admin experience](#admin-experience).
 
-> [!TIP]
-> You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
->
-> To validate that a directory ID or domain name refer to the same tenant, use that ID or domain in place of \<tenant\> in this URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  If the results with the domain and the ID are the same, they refer to the same tenant.
+To find your directory ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader). 
+1. Browse to **Identity** > **Overview** > **Overview**.
+1. Copy the **Tenant ID** value.
+
+To validate that a directory ID or domain name refer to the same tenant, use that ID or domain in place of \<tenant\> in this URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  If the results with the domain and the ID are the same, they refer to the same tenant.
 
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the *Restrict-Access-To-Tenants* header if it's already present in the incoming request.
 
@@ -100,19 +104,16 @@ An example user is on the Contoso network, but is trying to access the Fabrikam 
 :::image type="content" source="./media/tenant-restrictions/error-message.png" alt-text="Screenshot of tenant restrictions error message, from April 2021.":::
 ### Admin experience
 
-While configuration of tenant restrictions is done on the corporate proxy infrastructure, admins can access the tenant restrictions reports in the Azure portal directly. To view the reports:
+While configuration of tenant restrictions is done on the corporate proxy infrastructure, admins can access the tenant restrictions reports in the Microsoft Entra admin center directly. To view the reports:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Browse to **Azure Active Directory**. The Azure Active Directory overview page appears.
-
-3. On the Overview page, select **Tenant restrictions**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader). 
+1. Browse to **Identity** > **Overview** > **Tenant restrictions**.
 
 The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the tenant restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
 
 The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants (For example, `"{PII Removed}@domain.com" or 00000000-0000-0000-0000-000000000000` in place of usernames and object IDs as appropriate).
 
-Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific time interval, user, application, client, or status. If you select the **Columns** button, you can choose to display data with any combination of the following fields:
+Like other reports in the Microsoft Entra admin center, you can use filters to specify the scope of your report. You can filter on a specific time interval, user, application, client, or status. If you select the **Columns** button, you can choose to display data with any combination of the following fields:
 
 - **User** - this field can have personal data removed, where it is set to `00000000-0000-0000-0000-000000000000`.
 - **Application**

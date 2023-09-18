@@ -23,7 +23,7 @@ In this tutorial:
 
 > [!div class="checklist"]
 >
-> - Register the application in the Azure portal
+> - Register the application in the Microsoft Entra admin center
 > - Create an Angular project with `npm`
 > - Add code to support user sign-in and sign-out
 > - Add code to call Microsoft Graph API
@@ -71,10 +71,10 @@ To continue with the tutorial and build the application yourself, move on to the
 
 To complete registration, provide the application a name, specify the supported account types, and add a redirect URI. Once registered, the application **Overview** pane displays the identifiers needed in the application source code.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations > New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for the application, such as _Angular-SPA-auth-code_.
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option.
 1. Under **Redirect URI (optional)**, use the drop-down menu to select **Single-page-application (SPA)** and enter `http://localhost:4200` into the text box.
@@ -155,7 +155,7 @@ To complete registration, provide the application a name, specify the supported 
    export class AppModule {}
    ```
 
-1. Replace the following values with the values obtained from the Azure portal. For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
+1. Replace the following values with the values obtained from the Microsoft Entra admin center. For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
    - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
    - `authority` - This is composed of two parts:
@@ -994,7 +994,7 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
 
 ## Add scopes and delegated permissions
 
-The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration you create in the Azure portal. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require other scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
+The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require other scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
 
 As you add scopes, your users might be prompted to provide extra consent for the added scopes.
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -130,7 +130,7 @@ To secure when and how users register for Azure AD Multi-Factor Authentication a
 
 An admin has enforced registration.
 
-A user has not set up all required security info and goes to the Azure portal. After the user enters the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After users complete the wizard, they review the methods they set up and their default method for multifactor authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
+A user has not set up all required security info and goes to the Microsoft Entra admin center. After the user enters the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After users complete the wizard, they review the methods they set up and their default method for multifactor authentication. To complete the setup process, the user confirms the info and continues to the Microsoft Entra admin center.
 
 ### Set up security info from My Account
 
@@ -161,7 +161,7 @@ For example, a user sets Microsoft Authenticator app push notification as the pr
 This user is also configured with SMS/Text option on a resource tenant. 
 If this user removes SMS/Text as one of the authentication options on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
 
-To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
+To switch the directory in the Microsoft Entra admin center, click the user account name in the upper right corner and click **Switch directory**.
 
 ![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 

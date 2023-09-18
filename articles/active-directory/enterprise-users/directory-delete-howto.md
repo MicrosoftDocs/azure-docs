@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 09/06/2023
 ms.author: barclayn
 ms.reviewer: addimitu
 ms.custom: it-pro, has-azure-ad-ps-ref
@@ -18,33 +18,31 @@ ms.collection: M365-identity-device-management
 ---
 # Delete a tenant in Azure Active Directory
 
-When an organization (tenant) is deleted in Azure Active Directory (Azure AD), part of Microsoft Entra, all resources in the organization are also deleted. Prepare your organization by minimizing its associated resources before you delete. Only a global administrator in Azure AD can delete an Azure AD organization from the Azure portal.
+When an organization (tenant) is deleted in Microsoft Entra ID (Azure AD), all resources in the organization are also deleted. Prepare your organization by minimizing its associated resources before you delete. Only a global administrator can delete an Entra ID organization from the Entra Admin center.
 
 ## Prepare the organization
 
-You can't delete an organization in Azure AD until it passes several checks. These checks reduce the risk that deleting an Azure AD organization negatively affects user access, such as the ability to sign in to Microsoft 365 or access resources in Azure. For example, if the organization associated with a subscription is unintentionally deleted, users can't access the Azure resources for that subscription. 
+You can't delete an organization in Entra ID until it passes several checks. These checks reduce the risk that deleting an Entra ID organization negatively affects user access, such as the ability to sign in to Microsoft 365 or access resources in Azure. For example, if the organization associated with a subscription is unintentionally deleted, users can't access the Azure resources for that subscription. 
 
 Check the following conditions:
 
 * You've paid all outstanding invoices and amounts due or overdue.
-* No users are in the Azure AD tenant, except one global administrator who will delete the organization. You must delete any other users before you can delete the organization. 
+* No users are in the Entra ID tenant, except one global administrator who will delete the organization. You must delete any other users before you can delete the organization. 
 
-  If users are synchronized from on-premises, turn off the sync first. You must delete the users in the cloud organization by using the Azure portal or Azure PowerShell cmdlets.
+  If users are synchronized from on-premises, turn off the sync first. You must delete the users in the cloud organization by using the Entra admin center or Azure PowerShell cmdlets.
 * No applications are in the organization. You must remove any applications before you can delete the organization.
 * No multifactor authentication providers are linked to the organization.
 * No subscriptions for any Microsoft Online Services offerings (such as Azure, Microsoft 365, or Azure AD Premium) are associated with the organization. 
 
-  For example, if a default Azure AD tenant was created for you in Azure, you can't delete this organization if your Azure subscription still relies on it for authentication. You also can't delete a tenant if another user has associated an Azure subscription with it.
+  For example, if a default Entra ID tenant was created for you, you can't delete this organization if your subscription still relies on it for authentication. You also can't delete a tenant if another user has associated a subscription with it.
 
 > [!NOTE]
-> Microsoft is aware that customers with certain tenant configurations might be unable to successfully delete their Azure AD organization. We're working to address this problem. If you need more information, contact Microsoft support.
+> Microsoft is aware that customers with certain tenant configurations might be unable to successfully delete their Entra ID organization. We're working to address this problem. If you need more information, contact Microsoft support.
 
 ## Delete the organization
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your organization.
-1. Select **Azure Active Directory**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
 1. On a tenant's **Overview** page, select **Manage tenants**.
   
    ![Screenshot that shows the button for managing tenants.](./media/directory-delete-howto/manage-tenants-command.png)
@@ -56,7 +54,7 @@ Check the following conditions:
 
 ## Deprovision subscriptions to allow organization deletion
 
-When you configured your Azure AD organization, you might have also activated license-based subscriptions for your organization, like Azure AD Premium P2, Microsoft 365 Business Standard, or Enterprise Mobility + Security E5. To avoid accidental data loss, you can't delete an organization until the subscriptions are fully deleted. The subscriptions must be in a **Deprovisioned** state to allow organization deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisioned** state.
+When you configured your Entra ID organization, you might have also activated license-based subscriptions for your organization, like Azure AD Premium P2, Microsoft 365 Business Standard, or Enterprise Mobility + Security E5. To avoid accidental data loss, you can't delete an organization until the subscriptions are fully deleted. The subscriptions must be in a **Deprovisioned** state to allow organization deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisioned** state.
 
 For what to expect when a trial Microsoft 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Microsoft 365 data retention and subscription lifecycle, see [What happens to my data and access when my Microsoft 365 for business subscription ends?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -95,25 +93,25 @@ You can use the Microsoft admin center to put a subscription into the **Deprovis
 
    Now the subscription state has changed to **Disabled**, and the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
-1. After you've deleted a subscription in your organization and 72 hours have elapsed, sign in to the Azure portal again. Confirm that no required actions or subscriptions are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
+1. After you've deleted a subscription in your organization and 72 hours have elapsed, sign in to the Entra admin center again. Confirm that no required actions or subscriptions are blocking your organization deletion. You should be able to successfully delete your Entra ID organization.
   
    ![Screenshot that shows resources that have passed a subscription check.](./media/directory-delete-howto/delete-checks-passed.png)
    
 ## Delete an Azure subscription
 
-If you have an active or canceled Azure subscription associated with your Azure AD tenant, you can't delete the Azure AD tenant. After you cancel, billing is stopped immediately. However, Microsoft waits 30 to 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for keeping the data. 
+If you have an active or canceled Azure subscription associated with your Entra ID tenant, you can't delete the tenant. After you cancel, billing is stopped immediately. However, Microsoft waits 30 to 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for keeping the data. 
 
 If you have a free trial or pay-as-you-go subscription, you don't have to wait 90 days for the subscription to be automatically deleted. You can delete your subscription three days after you cancel it, when the **Delete subscription** option becomes available. For details, read through [Delete free trial or pay-as-you-go subscriptions](../../cost-management-billing/manage/cancel-azure-subscription.md#delete-subscriptions).
 
 All other subscription types are deleted only through the [subscription cancellation](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) and ask to have the subscription deleted immediately.
 
-Alternatively, you can move the Azure subscription to another Azure AD tenant account. When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. Performing a **Switch Directory** action on the subscription wouldn't help, because the billing would still be aligned with the Azure AD tenant that was used to sign up for the subscription. For more information, review [Transfer a subscription to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account).
+Alternatively, you can move the Azure subscription to another tenant. When you transfer billing ownership of your subscription to an account in another tenant, you can move the subscription to the new account's tenant. Performing a **Switch Directory** action on the subscription wouldn't help, because the billing would still be aligned with the Azure AD tenant that was used to sign up for the subscription. For more information, review [Transfer a subscription to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account).
 
 After you have all the Azure, Office 365, and Microsoft 365 subscriptions canceled and deleted, you can clean up the rest of the things within an Azure AD tenant before you delete it.
 
 ## Remove enterprise apps that you can't delete
 
-A few enterprise applications can't be deleted in the Azure portal and might block you from deleting the tenant. Use the following PowerShell procedure to remove those applications:
+A few enterprise applications can't be deleted in the Entra admin center and might block you from deleting the tenant. Use the following PowerShell procedure to remove those applications:
 
 1. Install the MSOnline module for PowerShell by running the following command:
 
@@ -123,7 +121,7 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
 
    `Install-Module -Name Az`
 
-3. Create or use a managed admin account from the tenant that you want to delete. For example: `newAdmin@tenanttodelete.onmicrosoft.com`. 
+3. Create or use a managed administrative account from the tenant that you want to delete. For example: `newAdmin@tenanttodelete.onmicrosoft.com`.
 
 4. Open PowerShell and connect to Azure AD by using admin credentials with the following command:
 
@@ -157,9 +155,9 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
 
     `Get-MsolServicePrincipal | Set-MsolServicePrincipal -AccountEnabled $false`
 
-9. Sign in to the [Azure portal](https://portal.azure.com) again, and remove any new admin account that you created in step 3.
+9. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator)., and remove any new admin account that you created in step 3.
 
-10. Retry tenant deletion from the Azure portal.
+10. Retry tenant deletion from the Entra admin center.
 
 ## Handle a trial subscription that blocks deletion
 
@@ -169,7 +167,7 @@ These self-service products block directory deletions until the products are ful
 
 There are two types of self-service sign-up products, in terms of how they're assigned: 
 
-* Organizational-level assignment: An Azure AD admin assigns the product to the entire organization. A user can actively use the service with the organizational-level assignment, even if the user isn't licensed individually.
+* Organizational-level assignment: An Entra ID administrator assigns the product to the entire organization. A user can actively use the service with the organizational-level assignment, even if the user isn't licensed individually.
 * User-level assignment: An individual user during self-service sign-up essentially self-assigns the product without an admin. After an admin starts managing the organization (see [Administrator takeover of an unmanaged organization](domains-admin-takeover.md)), the admin can directly assign the product to users without self-service sign-up.  
 
 When you begin the deletion of a self-service sign-up product, the action permanently deletes the data and removes all user access to the service. Any user who was assigned the offer individually or on the organization level is then blocked from signing in or accessing any existing data. If you want to prevent data loss with a self-service sign-up product like [Microsoft Power BI dashboards](/power-bi/service-export-to-pbix) or [Azure RMS policy configuration](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), ensure that the data is backed up and saved elsewhere.
@@ -185,11 +183,13 @@ Product state | Data | Access to data
 
 ## Delete a self-service sign-up product
 
-You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Azure portal:
+You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Entra admin portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
-1. Browse to **Azure Active Directory**.
+>[!NOTE]
+> If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID (Azure AD).
 1. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product that you want to permanently delete. Here's an example in Microsoft Power BI:
 
     ![Screenshot that shows a list of self-service sign-up products.](./media/directory-delete-howto/licenses-page.png)
@@ -206,7 +206,7 @@ You can put a self-service sign-up product like Microsoft Power BI or Azure RMS 
 
     ![Screenshot that shows the list of self-service sign-up products and a pane that confirms the deletion of a self-service sign-up product.](./media/directory-delete-howto/product-deleted.png)
 
-1. After you've deleted all the products, sign in to the Azure portal again. Confirm that no required actions or products are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
+1. After you've deleted all the products, sign in to the Entra admin center again. Confirm that no required actions or products are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
 
     ![Screenshot that shows status information for resources.](./media/directory-delete-howto/delete-checks-passed.png)
 

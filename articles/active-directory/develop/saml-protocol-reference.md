@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/4/2022
 ms.author: owenrichards
 ms.reviewer: kenwith
@@ -23,7 +23,7 @@ The SAML protocol requires the identity provider (Microsoft identity platform) a
 
 When an application is registered with Azure AD, the app developer registers federation-related information with Azure AD. This information includes the **Redirect URI** and **Metadata URI** of the application.
 
-The Microsoft identity platform uses the cloud service's **Metadata URI** to retrieve the signing key and the logout URI. This way the Microsoft identity platform can send the response to the correct URL. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>; 
+The Microsoft identity platform uses the cloud service's **Metadata URI** to retrieve the signing key and the logout URI. This way the Microsoft identity platform can send the response to the correct URL. In the <a href="https://entra.microsoft.com/" target="_blank">Microsoft Entra admin center</a>; 
 
 - Open the app in **Azure Active Directory** and select **App registrations**
 - Under **Manage**, select **Authentication**. From there you can update the Logout URL. 

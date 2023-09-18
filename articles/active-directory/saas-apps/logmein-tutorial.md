@@ -122,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Identity Provider** tab and in the **Metadata url** textbox, paste the **Federation Metadata URL**, which you have copied from the Azure portal.
 
-    ![Screenshot for Federation Metadata URL. ](./media/logmein-tutorial/configuration.png)
+    ![Screenshot for Federation Metadata URL.](./media/logmein-tutorial/configuration.png)
 
 1. Click **Save**.
 

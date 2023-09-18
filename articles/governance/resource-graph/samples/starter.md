@@ -3,7 +3,7 @@ title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
 author: davidsmatlak
 ms.author: davidsmatlak
-ms.date: 07/19/2022
+ms.date: 08/31/2023
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ The first step to understanding queries with Azure Resource Graph is a basic und
 [KQL tutorial](/azure/kusto/query/tutorial) to understand how to compose requests for the
 resources you're looking for.
 
-We'll walk through the following starter queries:
+This article uses the following starter queries:
 
 - [Count Azure resources](#count-resources)
 - [Count Key Vault resources](#count-keyvaults)
@@ -56,14 +56,59 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+By default, Azure CLI queries all accessible subscriptions but you can specify the `--subscriptions` parameter to query specific subscriptions.
+
+```azurecli-interactive
 az graph query -q "Resources | summarize count()"
+```
+
+This example uses a variable for the subscription ID.
+
+```azurecli-interactive
+subid=$(az account show --query id --output tsv)
+az graph query -q "Resources | summarize count()" --subscriptions $subid
+```
+
+You can also query by the scopes for management group and tenant. Replace `<managementGroupId>` and `<tenantId>` with your values.
+
+```azurecli-interactive
+az graph query -q "Resources | summarize count()" --management-groups '<managementGroupId>'
+```
+
+```azurecli-interactive
+az graph query -q "Resources | summarize count()" --management-groups '<tenantId>'
+```
+
+You can also use a variable for the tenant ID.
+
+```azurecli-interactive
+tenantid=$(az account show --query tenantId --output tsv)
+az graph query -q "Resources | summarize count()" --management-groups $tenantid
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
+By default, Azure PowerShell gets results for all subscriptions in your tenant.
+
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | summarize count()"
+```
+
+This example uses a variable to query a specific subscription ID.
+
+```azurepowershell-interactive
+$subid = (Get-AzContext).Subscription.Id
+Search-AzGraph -Query "authorizationresources | summarize count()" -Subscription $subid
+```
+
+You can query by the scopes for management group and tenant. Replace `<managementGroupId>`with your value. The `UseTenantScope` parameter doesn't require a value.
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | summarize count()" -ManagementGroup '<managementGroupId>'
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | summarize count()" -UseTenantScope
 ```
 
 # [Portal](#tab/azure-portal)
@@ -89,7 +134,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
 ```
 
@@ -123,7 +168,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | project name, type, location | order by name asc"
 ```
 
@@ -158,7 +203,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
@@ -180,7 +225,7 @@ Search-AzGraph -Query "Resources | project name, location, type| where type =~ '
 
 ## <a name="show-sorted"></a>Show first five virtual machines by name and their OS type
 
-This query will use `top` to only retrieve five matching records that are ordered by name. The type
+This query uses `top` to only retrieve five matching records that are ordered by name. The type
 of the Azure resource is `Microsoft.Compute/virtualMachines`. `project` tells Azure Resource Graph
 which properties to include.
 
@@ -193,7 +238,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
@@ -230,7 +275,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
@@ -263,7 +308,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
@@ -291,7 +336,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ## <a name="show-storage"></a>Show resources that contain storage
 
-Instead of explicitly defining the type to match, this example query will find any Azure resource
+Instead of explicitly defining the type to match, this example query finds any Azure resource
 that `contains` the word **storage**.
 
 ```kusto
@@ -301,7 +346,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type contains 'storage' | distinct type"
 ```
 
@@ -335,7 +380,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type == 'microsoft.network/virtualnetworks' | extend subnets = properties.subnets | mv-expand subnets | project name, subnets.name, subnets.properties.addressPrefix, location, resourceGroup, subscriptionId"
 ```
 
@@ -371,7 +416,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
@@ -403,7 +448,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
@@ -437,7 +482,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where tags.environment=~'internal' | project name"
 ```
 
@@ -468,7 +513,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
@@ -502,7 +547,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
@@ -555,7 +600,7 @@ ResourceContainers
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
 ```
 
@@ -589,7 +634,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az graph query -q "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 

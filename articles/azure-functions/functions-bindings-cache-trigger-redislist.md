@@ -6,9 +6,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: azure-functions
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
 ms.date: 08/07/2023
-
 ---
 
 # RedisListTrigger Azure Function (preview)

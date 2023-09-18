@@ -4,6 +4,7 @@ description: This article describes how the Azure AI Video Indexer language iden
 ms.topic: how-to
 ms.date: 08/28/2023
 ms.author: ellbe
+author: IngridAtMicrosoft
 ---
 
 # Automatically identify the spoken language with language identification model

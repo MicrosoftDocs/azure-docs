@@ -30,7 +30,7 @@ Now that your users have been synchronized to the cloud, you need to assign them
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an admin.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
 2. On the left, select **Active Directory**.
 3. On the **Active Directory** page, double-click the directory that has the users you want to set up.
 4. At the top of the directory page, select **Licenses**.
@@ -38,13 +38,12 @@ Now that your users have been synchronized to the cloud, you need to assign them
 6. In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.
 
 ## Verify the scheduled synchronization task
-Use the Azure portal to check the status of a synchronization.
+Use the [Microsoft Entra admin center](https://entra.microsoft.com) to check the status of a synchronization.
 
 ### To verify the scheduled synchronization task
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an admin.
-2. On the left, select **Active Directory**.
-3. On the left, select **Azure AD Connect**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+2. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Connect sync**.
 4. At the top of the page, note the last synchronization.
 
 ![Directory sync time](./media/how-to-connect-post-installation/verify2.png)

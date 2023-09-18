@@ -7,14 +7,12 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 09/12/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: sama
-
-ms.collection: M365-identity-device-management
 ---
 # Security defaults in Azure AD
 
@@ -56,8 +54,8 @@ To configure security defaults in your directory, you must be assigned at least 
 
 To enable security defaults:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Properties**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Overview** > **Properties**.
    1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Enabled**.
 1. Select **Save**.
@@ -186,8 +184,8 @@ Organizations that choose to implement Conditional Access policies that replace 
 
 To disable security defaults in your directory:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Properties**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Overview** > **Properties**.
    1. Select **Manage security defaults**.
 1. Set **Security defaults** to **Disabled (not recommended)**.
 1. Select **Save**.

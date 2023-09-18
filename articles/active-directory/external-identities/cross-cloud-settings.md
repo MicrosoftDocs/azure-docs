@@ -49,9 +49,8 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator, Security administrator, or an account with a [custom role](cross-tenant-access-overview.md#custom-roles-for-managing-cross-tenant-access-settings) you've created. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings**.
-1. Select **Microsoft cloud settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
+1. Browse to **Identity** > **External Identities** > **Cross-tenant access settings**, then select **Microsoft cloud settings**.
 1. Select the checkboxes next to the external Microsoft Azure clouds you want to enable.
 
    ![Screenshot showing Microsoft cloud settings.](media/cross-cloud-settings/cross-cloud-settings.png)
@@ -63,9 +62,8 @@ In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to c
 
 Follow these steps to add the tenant you want to collaborate with to your Organizational settings.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings**.
-1. Select **Organizational settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Security administrator](../roles/permissions-reference.md#security-administrator).
+1. Browse to **Identity** > **External Identities** > **Cross-tenant access settings**, then select **Organizational settings**.
 1. Select **Add organization**.
 1. On the **Add organization** pane, type the tenant ID for the organization (cross-cloud lookup by domain name isn't currently available).
 

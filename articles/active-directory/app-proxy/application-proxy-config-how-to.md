@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: asteen
 ---
@@ -21,7 +21,7 @@ This article helps you to understand how to configure an Application Proxy appli
 
 To learn about the initial configurations and creation of an Application Proxy application through the Admin Portal, follow the [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
-For details on configuring Connectors, see [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md).
+For details on configuring Connectors, see [Enable Application Proxy in the Microsoft Entra admin center](application-proxy-add-on-premises-application.md).
 
 For information on uploading certificates and using custom domains, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
@@ -37,7 +37,7 @@ If you are following the steps in the [Publish applications using Azure AD Appli
 
 The error message should display in the top-right corner when you create the application. You can also select the notification icon to see the error messages.
 
-![Shows where to find the Notification prompt in the Azure portal](./media/application-proxy-config-how-to/error-message.png)
+![Shows where to find the Notification prompt in the Microsoft Entra admin center](./media/application-proxy-config-how-to/error-message.png)
 
 ## Configure connectors/connector groups
 

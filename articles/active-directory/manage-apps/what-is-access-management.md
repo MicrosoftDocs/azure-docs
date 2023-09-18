@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 07/18/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.custom: enterprise-apps
@@ -101,7 +101,7 @@ Some applications combine these methods. For example, certain Microsoft applicat
 
 Users can access Microsoft 365 applications through their Office 365 portals. You can also show or hide Microsoft 365 applications in the My Apps with the [Office 365 visibility toggle](hide-application-from-user-portal.md) in your directory's **User settings**.
 
-As with enterprise apps, you can [assign users](assign-user-or-group-access-portal.md) to certain Microsoft applications via the Azure portal or, if the portal option isn't available, by using PowerShell.
+As with enterprise apps, you can [assign users](assign-user-or-group-access-portal.md) to certain Microsoft applications via the Microsoft Entra admin center or, using PowerShell.
 
 ## Next steps
 

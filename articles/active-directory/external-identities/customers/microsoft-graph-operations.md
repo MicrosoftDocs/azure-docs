@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 09/04/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn how to use the Microsoft Graph to manage operations in my Azure AD customer tenant.
@@ -105,6 +105,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 - [Create a user flow](/graph/api/identitycontainer-post-authenticationeventsflows)
 - [Get a user flow](/graph/api/authenticationeventsflow-get)
 - [Delete a user flow](/graph/api/authenticationeventsflow-delete)
+- [Update a user flow](/graph/api/authenticationeventsflow-update)
 
 ## Identity providers (Preview)
 

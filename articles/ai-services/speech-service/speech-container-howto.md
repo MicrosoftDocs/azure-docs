@@ -23,8 +23,7 @@ By using containers, you can use a subset of the Speech service features in your
 ## Prerequisites
 
 You must meet the following prerequisites before you use Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. You need:
-
-* You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container.
+    
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure.
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 

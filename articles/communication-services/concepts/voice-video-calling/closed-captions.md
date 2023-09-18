@@ -38,7 +38,7 @@ Here are main scenarios where Closed Captions are useful:
 
 
 ## Availability
-Closed Captions are supported in Private Preview only in ACS to ACS calls on all platforms. 
+Closed Captions are supported in Private Preview only in Azure Communication Services to Azure Communication Services calls on all platforms. 
 - Android
 - iOS
 - Web

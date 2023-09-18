@@ -45,6 +45,8 @@ Add the extension to your project by installing the [NuGet package], version 3.x
 
 # [Functions v1.x](#tab/functionsv1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
+
 Version 1.x of the Functions runtime doesn't require an extension. 
 
 # [Extension v5.x+](#tab/extensionv5/isolated-process)
@@ -65,7 +67,7 @@ Version 1.x of the Functions runtime doesn't support running in an isolated work
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
