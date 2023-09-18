@@ -8,13 +8,13 @@ ms.date: 09/11/2023
 ms.topic: how-to
 ---
 
-# Container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments
+# Container vulnerability assessments REST API
 
 Get security subassessments on all your scanned resources inside a scope.
 
 ## Overview
 
-Use Azure Resource Graph (ARG) to access vulnerability assessment results pragmatically for both registry and runtime recommendations.
+Azure Resource Graph (ARG) provides a REST API that can be used to pragmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
 Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview).
 
 Azure container registry vulnerabilities sub assessments are published to ARG as part of the security resources. For more information see:
@@ -23,7 +23,7 @@ Azure container registry vulnerabilities sub assessments are published to ARG as
 
 ## ARG Query Examples
 
-To pull specific sub assessments, you need the assessment key. For MDVM powered sub-assessments (AKA AzureContainerRegistryVulnerability) the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`. 
+To pull specific sub assessments, you need the assessment key. For MDVM powered sub-assessments the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`. 
 
 The following is a generic security sub assessment query example which can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
 ```kql
