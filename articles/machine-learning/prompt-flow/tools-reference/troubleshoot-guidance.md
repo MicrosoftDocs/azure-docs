@@ -54,7 +54,7 @@ Prompt flow relies on fileshare to store snapshot of flow. Prompt flow didn't su
 Prompt flow relies on fileshare to store snapshot of flow. If fileshare have some issue, you may encounter this issue. Here are some workarounds you can try:
 - If you're using private storage account, please see [Why I can't create or upgrade my flow when I disable public network access of storage account?](#why-i-cant-create-or-upgrade-my-flow-when-i-disable-public-network-access-of-storage-account)
 - If the storage account is enabled public access, please check whether there are datastore named `workspaceworkingdirectory` in your workspace, it should be fileshare type.
-![workspaceworkingdirectory](../media/faq/workingdirectory.png) 
+![workspaceworkingdirectory](../media/faq/working-directory.png) 
     - If you didn't get this datastore, you need add it in your workspace.
         - Create fileshare with name `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`
         - Create data store with name `workspaceworkingdirectory` . See [Create datastores](../../how-to-datastore.md)
