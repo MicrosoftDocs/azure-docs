@@ -17,11 +17,11 @@ Playwright enables you to expose networks that are available on the client machi
 
 ## Configure Playwright to expose local networks
 
-To expose local networks and resources to remote browsers, you can use the `exposeNetwork` option in Playwright. Learn more about the [`exposeNetwork` opion](https://playwright.dev/docs/api/class-browsertype#browser-type-connect) in the Playwright documentation.
+To expose local networks and resources to remote browsers, you can use the `exposeNetwork` option in Playwright. Learn more about the [`exposeNetwork` option](https://playwright.dev/docs/next/api/class-browsertype#browser-type-connect-option-expose-network) in the Playwright documentation.
 
-You can specify one or multiple networks by using a list of rules. For example, to expose test/staging deployments and localhost: `*.test.internal-domain,*.staging.internal-domain,<loopback>`.
+You can specify one or multiple networks by using a list of rules. For example, to expose test/staging deployments and [localhost](https://en.wikipedia.org/wiki/Localhost): `*.test.internal-domain,*.staging.internal-domain,<loopback>`.
 
-You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the `<loopback>` rule:
+You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule:
 
 ```typescript
 export default defineConfig(config, {
