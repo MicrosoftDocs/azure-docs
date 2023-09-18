@@ -10,9 +10,7 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 08/10/2023
-ms.collection: M365-identity-device-management
-
+ms.date: 09/12/2023
 ---
 # View activity logs for Microsoft Support access requests (preview)
 
@@ -31,7 +29,9 @@ To access the audit logs for a tenant, you must have one of the following roles:
 
 You can access a filtered view of audit logs for your tenant from the Microsoft Support access requests area. Select **Audit logs** from the side menu to view the audit logs with the category pre-selected.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) and navigate to **Diagnose and solve problems**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Service Support Administrator](../roles/permissions-reference.md#service-support-administrator).
+
+1. Browse to **Learn & support** > **Diagnose and solve problems**.
 
 1. Scroll to the bottom of the page and select **Manage pending requests** from the **Microsoft Support Access Requests** section.
 
@@ -47,7 +47,7 @@ Activity logs for Microsoft Support access requests fall into two categories: us
 
 ### User-initiated activities
 
-There are three user-initiated activities that you can see in your Azure AD audit logs. These are actions requested by administrators of your tenant.
+There are three user-initiated activities that you can see in your audit logs. These are actions requested by administrators of your tenant.
 
 - Approval of a Microsoft Support access request
 - Rejection of a Microsoft Support access request

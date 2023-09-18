@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 
 ms.author: justinha
@@ -32,9 +32,8 @@ This article explains how to migrate from running federated servers such as Acti
 
 To configure Staged Rollout, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
-1. Search for and select **Azure Active Directory**.
-1. From the left menu, select **Azure AD Connect**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Search for and select **Azure AD Connect**.
 1. On the Azure AD Connect page, under the Staged Rollout of cloud authentication, click **Enable Staged Rollout for managed user sign-in**.
 1. On the **Enable Staged Rollout** feature page, click **On** for the option [Certificate-based authentication](./certificate-based-authentication-federation-get-started.md)
 1. Click **Manage groups** and add groups you want to be part of cloud authentication. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.

@@ -303,7 +303,7 @@ If the proxy and workspace with private link is configured correctly, you can se
 
 ## Other known issues
 
-### Kubernetes compute upadte does not take effect
+### Kubernetes compute update does not take effect
 
 At this time, the CLI v2 and SDK v2 do not allow updating any configuration of an existing Kubernetes compute. For example, changing the namespace will not take effect.
 
