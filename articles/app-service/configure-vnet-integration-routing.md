@@ -9,7 +9,7 @@ ms.date: 10/20/2021
 
 # Manage Azure App Service virtual network integration routing
 
-Through application routing or configuration routing options, you can configure what traffic will be sent through the virtual network integration. See the [overview section](./overview-vnet-integration.md#routes) for more details.
+Through application routing or configuration routing options, you can configure what traffic is sent through the virtual network integration. For more information, see the [overview section](./overview-vnet-integration.md#routes).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ az resource update --resource-group <group-name> --name <app-name> --resource-ty
 
 ## Configure configuration routing
 
-When you're using virtual network integration, you can configure how parts of the configuration traffic are managed. By default, configuration traffic will go directly over the public route, but for the mentioned individual components, you can actively configure it to be routed through the virtual network integration.
+When you're using virtual network integration, you can configure how parts of the configuration traffic are managed. By default, configuration traffic goes directly over the public route, but for the mentioned individual components, you can actively configure it to be routed through the virtual network integration.
 
 ### Container image pull
 
@@ -66,7 +66,7 @@ We recommend that you use the site property to enable content share traffic thro
 
 ### Backup/restore
 
-Routing backup traffic over virtual network integration can be configured using the Azure CLI. Note that database backup is not supported over the virtual network integration.
+Routing backup traffic over virtual network integration can be configured using the Azure CLI. Database backup isn't supported over the virtual network integration.
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetBackupRestoreEnabled=[true|false]
