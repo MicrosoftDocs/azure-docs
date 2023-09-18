@@ -85,11 +85,11 @@ MSAL Supports a wide range of application types and scenarios. Refer to [Microso
 ADAL to MSAL migration guide for different platforms are available in the following links:
 
 - [Migrate to MSAL iOS and macOS](migrate-objc-adal-msal.md)
-- [Migrate to MSAL Java](migrate-adal-msal-java.md)
+- [Migrate to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
 - [Migrate to MSAL.js](msal-compare-msal-js-and-adal-js.md)
 - [Migrate to MSAL .NET](msal-net-migration.md)
 - [Migrate to MSAL Node](msal-node-migration.md)
-- [Migrate to MSAL Python](migrate-python-adal-msal.md)   
+- [Migrate to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)   
 
 ## Migration help
 

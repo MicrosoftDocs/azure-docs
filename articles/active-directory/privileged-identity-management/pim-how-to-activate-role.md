@@ -3,22 +3,22 @@ title: Activate Azure AD roles in PIM
 description: Learn how to activate Azure AD roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/15/2023
-ms.author: billmath
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 # Activate an Azure AD role in PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Microsoft 365 or Microsoft Intune.  
+Microsoft Entra Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Microsoft 365 or Microsoft Intune.  
 
 If you have been made *eligible* for an administrative role, then you must *activate* the role assignment when you need to perform privileged actions. For example, if you occasionally manage Microsoft 365 features, your organization's privileged role administrators might not make you a permanent Global Administrator, since that role impacts other services, too. Instead, they would make you eligible for Azure AD roles such as Exchange Online Administrator. You can request to activate that role when you need its privileges, and then you'll have administrator control for a predetermined time period.
 
@@ -33,7 +33,7 @@ This article is for administrators who need to activate their Azure AD role in P
 
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
 1. Browse to **Identity governance** > **Privileged Identity Management** > **My roles**.  For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
@@ -210,9 +210,11 @@ Content-Type: application/json
 
 You can view the status of your pending requests to activate.
 
-1. Open Azure AD Privileged Identity Management.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **My requests** to see a list of your Azure AD role and Azure resource role requests.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My requests**.
+
+1. When you select **My requests** you see a list of your Azure AD role and Azure resource role requests.
 
     ![My requests - Azure AD page showing your pending requests](./media/pim-how-to-activate-role/my-requests-page.png)
 
@@ -222,9 +224,9 @@ You can view the status of your pending requests to activate.
 
 If you don't require activation of a role that requires approval, you can cancel a pending request at any time.
 
-1. Open Azure AD Privileged Identity Management.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **My requests**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **My requests**.
 
 1. For the role that you want to cancel, select the **Cancel** link.
 

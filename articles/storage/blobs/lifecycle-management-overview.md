@@ -5,9 +5,8 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 08/10/2023
-ms.service: azure-storage
-ms.subservice: storage-common-concepts
+ms.date: 08/30/2023
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: references_regions, engagement-fy23
@@ -138,7 +137,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier isn't supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the container or blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/` or `sample-container/blob1/`. To match the container or blob name pattern, omit the trailing forward slash, *e.g.*, `sample-container` or `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`.<br /><br />To match the container or blob name exactly, include the trailing forward slash ('/'), *e.g.*, `sample-container/` or `sample-container/blob1/`. To match the container or blob name pattern, omit the trailing forward slash, *e.g.*, `sample-container` or `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals. | No |
 | blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
@@ -456,6 +455,20 @@ Lifecycle management policies are free of charge. Customers are billed for stand
 Each update to a blob's last access time is billed under the [other operations](https://azure.microsoft.com/pricing/details/storage/blobs/) category.
 
 For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## Known issues and limitations
+
+- Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
+
+- A lifecycle management policy must be read or written in full. Partial updates are not supported.
+
+- Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
+
+- If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+
+- A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
+
+- The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
 
 ## Frequently asked questions (FAQ)
 

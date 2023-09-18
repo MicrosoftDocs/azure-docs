@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Socket.IO common problems
 description: Learn how to troubleshoot common problems with the Socket.IO library and the Azure Web PubSub service.
-keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, Socket.IO issues
+keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, Socket.IO issues, socketio, azure socketio
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023

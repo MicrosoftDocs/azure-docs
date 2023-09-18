@@ -11,7 +11,7 @@ ms.subservice: msi
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 08/31/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: mode-ui
@@ -107,7 +107,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 To remove a user-assigned identity from a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment. No other Azure AD directory role assignments are required.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
-2. Navigate to the desired VM and click **Identity**, **User assigned**, the name of the user-assigned managed identity you want to delete and then click **Remove** (click **Yes** in the confirmation pane).
+2. Navigate to the desired VM and select **Identity**, **User assigned**, the name of the user-assigned managed identity you want to delete and then click **Remove** (click **Yes** in the confirmation pane).
 
    ![Remove user-assigned managed identity from a VM](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vm-screenshot.png)
 

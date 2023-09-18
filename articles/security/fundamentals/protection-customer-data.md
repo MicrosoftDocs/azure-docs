@@ -5,15 +5,14 @@ services: security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-editor: TomSh
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2022
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---
@@ -36,7 +35,7 @@ Azure provides customers with strong data security, both by default and as custo
 
 **In-transit data protection**: Microsoft provides a number of options that can be utilized by customers for securing data in transit internally within the Azure network and externally across the Internet to the end user.  These include communication through Virtual Private Networks (utilizing IPsec/IKE encryption), Transport Layer Security (TLS) 1.2 or later (via Azure components such as Application Gateway or Azure Front Door), protocols directly on the Azure virtual machines (such as Windows IPsec or SMB), and more. 
 
-Additionally, "encryption by default" using MACsec (an IEEE standard at the data-link layer) is enabled for all Azure traffic travelling between Azure datacenters to ensure confidentiality and integrity of customer data. 
+Additionally, "encryption by default" using MACsec (an IEEE standard at the data-link layer) is enabled for all Azure traffic traveling between Azure datacenters to ensure confidentiality and integrity of customer data. 
 
 **Data redundancy**: Microsoft helps ensure that data is protected if there is a cyberattack or physical damage to a datacenter. Customers may opt for:
 

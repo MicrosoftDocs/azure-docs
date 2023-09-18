@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. On the **SAML Configuration** page, perform the following steps:
 
-    ![SAML configuration section ](./media/xmatters-ondemand-tutorial/saml-configuration.png "SAML configuration section")
+    ![SAML configuration section](./media/xmatters-ondemand-tutorial/saml-configuration.png "SAML configuration section")
 
     a. Select **Enable SAML**.
 

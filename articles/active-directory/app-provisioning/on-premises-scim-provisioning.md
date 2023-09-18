@@ -14,7 +14,7 @@ ms.reviewer: arvinh
 
 # Azure AD on-premises application provisioning to SCIM-enabled apps
 
-The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This article outlines how you can use the Azure AD provisioning service to provision users into an on-premises application that's SCIM enabled. If you want to provision users into non-SCIM on-premises applications that use SQL as a data store, see the [Azure AD ECMA Connector Host Generic SQL Connector tutorial](tutorial-ecma-sql-connector.md). If you want to provision users into cloud apps such as DropBox and Atlassian, review the app-specific [tutorials](../../active-directory/saas-apps/tutorial-list.md).
+The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This article outlines how you can use the Azure AD provisioning service to provision users into an on-premises application that's SCIM enabled. If you want to provision users into non-SCIM on-premises applications that use SQL as a data store, see the [Azure AD ECMA Connector Host Generic SQL Connector tutorial](tutorial-ecma-sql-connector.md). If you want to provision users into cloud apps such as DropBox and Atlassian, review the app-specific [tutorials](../../active-directory/saas-apps/tutorial-list.md).
 
 ![Diagram that shows SCIM architecture.](./media/on-premises-scim-provisioning/scim-4.png)
 
@@ -70,7 +70,7 @@ The following video provides an overview of on-premises provisioning.
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 ## Additional requirements
-* Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](use-scim-to-provision-users-and-groups.md).
+* Ensure your [SCIM](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](use-scim-to-provision-users-and-groups.md).
   
   Azure AD offers open-source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation. The code is as is.
 * Support the /schemas endpoint to reduce configuration required in the Azure portal. 

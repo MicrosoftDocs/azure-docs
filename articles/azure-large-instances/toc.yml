@@ -20,5 +20,5 @@
   items:
   - name: Azure Large Instances for Epic workload
     href: ./workloads/epic/index.yml
-- name: FAQ
-  href: faq.md
+  - name: FAQ
+    href: faq.md

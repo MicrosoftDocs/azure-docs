@@ -32,8 +32,8 @@ To download and install the My Apps Secure Sign-in Extension, use one of the fol
 
 To test SAML-based single sign-on between Azure AD and a target application:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator or other administrator that is authorized to manage applications.
-1. In the left navigation pane, select **Azure Active Directory**, and then select **Enterprise applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. From the list of enterprise applications, select the application for which you want to test single sign-on, and then from the options on the left, select **Single sign-on**.
 1. To open the SAML-based single sign-on testing experience, go to **Test single sign-on** (step 5). If the **Test** button is greyed out, you need to fill out and save the required attributes first in the **Basic SAML Configuration** section.
 1. In the **Test single sign-on** page, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt asks you to authenticate.

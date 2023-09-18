@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/15/2023
+ms.date: 09/15/2023
 ms.author: justinha
 ms.reviewer: xyuan
 
@@ -47,9 +47,9 @@ To complete this tutorial, you need the following resources and privileges:
   * If needed, [install the Remote Server Administration Tools (RSAT)][rsat] for *Active Directory Domain Services and LDAP*.
 * You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable secure LDAP.
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you configure secure LDAP for the managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you configure secure LDAP for the managed domain using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Create a certificate for secure LDAP
 
@@ -192,7 +192,7 @@ The *.CER* certificate file can now be distributed to client computers that need
 
 With a digital certificate created and exported that includes the private key, and the client computer set to trust the connection, now enable secure LDAP on your managed domain. To enable secure LDAP on a managed domain, perform the following configuration steps:
 
-1. In the [Azure portal](https://portal.azure.com), enter *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), enter *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side of the Azure AD DS window, choose **Secure LDAP**.
 1. By default, secure LDAP access to your managed domain is disabled. Toggle **Secure LDAP** to **Enable**.
@@ -210,7 +210,7 @@ With a digital certificate created and exported that includes the private key, a
 1. Enter the **Password to decrypt .PFX file** set in a previous step when the certificate was exported to a *.PFX* file.
 1. Select **Save** to enable secure LDAP.
 
-    ![Enable secure LDAP for a managed domain in the Azure portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
+    ![Enable secure LDAP for a managed domain in the Microsoft Entra admin center](./media/tutorial-configure-ldaps/enable-ldaps.png)
 
 A notification is displayed that secure LDAP is being configured for the managed domain. You can't modify other settings for the managed domain until this operation is complete.
 
@@ -221,7 +221,7 @@ Some common reasons for failure are if the domain name is incorrect, the encrypt
 ## Change an expiring certificate
 
 1. Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](#create-a-certificate-for-secure-ldap).
-1. To apply the replacement certificate to Azure AD DS, in the left menu for Azure AD DS in the Azure portal, select **Secure LDAP**, and then select **Change Certificate**.
+1. To apply the replacement certificate to Azure AD DS, in the left menu for Azure AD DS in the Microsoft Entra admin center, select **Secure LDAP**, and then select **Change Certificate**.
 1. Distribute the certificate to any clients that connect by using secure LDAP.
 
 ## Lock down secure LDAP access over the internet
@@ -230,7 +230,7 @@ When you enable secure LDAP access over the internet to your managed domain, it 
 
 Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a specified set of IP addresses. A default *DenyAll* rule with a lower priority applies to all other inbound traffic from the internet, so only the specified addresses can reach your managed domain using secure LDAP.
 
-1. In the Azure portal, select *Resource groups* on the left-hand side navigation.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select *Resource groups*.
 1. Choose your resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
 1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group window, choose **Settings > Inbound security rules**.
 1. Select **Add**, then create a rule to allow *TCP* port *636*. For improved security, choose the source as *IP Addresses* and then specify your own valid IP address or range for your organization.
@@ -255,7 +255,7 @@ Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a
 
 With secure LDAP access enabled over the internet, update the DNS zone so that client computers can find this managed domain. The *Secure LDAP external IP address* is listed on the **Properties** tab for your managed domain:
 
-![View the secure LDAP external IP address for your managed domain in the Azure portal](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
+![View the secure LDAP external IP address for your managed domain in the Microsoft Entra admin center](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
 Configure your external DNS provider to create a host record, such as *ldaps*, to resolve to this external IP address. To test locally on your machine first, you can create an entry in the Windows hosts file. To successfully edit the hosts file on your local machine, open *Notepad* as an administrator, then open the file *C:\Windows\System32\drivers\etc\hosts*
 

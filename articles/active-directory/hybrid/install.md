@@ -21,12 +21,15 @@ The following document provides the steps to install either cloud sync or Azure 
 ## Install the Azure AD Connect provisioning agent for cloud sync
 Cloud sync uses the Azure AD Connect provisioning agent.  Use the steps below to install it.
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
+[!INCLUDE [sign in](../../../includes/cloud-sync-sign-in.md)]
  4. On the left, select **Agent**.
  5. Select **Download on-premises agent**, and select **Accept terms & download**.
  6. Once the **Azure AD Connect Provisioning Agent Package** has completed downloading, run the *AADConnectProvisioningAgentSetup.exe* installation file from your downloads folder.
+   >[!NOTE]
+   >When installing for the US Government Cloud use:  
+   >*AADConnectProvisioningAgentSetup.exe ENVIRONMENTNAME=AzureUSGovernment*  
+   >See "[Install an agent in the US government cloud](cloud-sync/how-to-install.md#install-an-agent-in-the-us-government-cloud)" for more information.
+
  7. On the splash screen, select **I agree to the license and conditions**, and then select **Install**.
  8. Once the installation operation completes, the configuration wizard will launch. Select **Next** to start the configuration.
  9. On the **Select Extension** screen, select **HR-driven provisioning (Workday and SuccessFactors) / Azure AD Connect Cloud Sync** and click **Next**.
