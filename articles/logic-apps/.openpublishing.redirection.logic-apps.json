@@ -1,11 +1,6 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/connectors/introduction.md",
-            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/connectors/connectors-overview.md",
             "redirect_url": "https://learn.microsoft.com/connectors/connectors",
             "redirect_document_id": false
