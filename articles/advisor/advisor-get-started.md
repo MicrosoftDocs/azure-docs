@@ -55,33 +55,28 @@ View recommendation details – such as the recommended actions and impacted res
 
    You cannot dismiss the recommendation without certain privileges. For information on permissions, see [Advisor Cost recommendations](permissions.md).
 
-## Exclude subscriptions or resource groups
+## Manage subscriptions and Advisor rules
 
-You can exclude Advisor recommendations for specified subscriptions or resources – such as ‘test’ resources. 
+You can choose to include or exclude specific subscriptions for Advisor recommendations. You can also set Advisor compute rules.
 
 > [!NOTE]
-> To include or exclude a subscription or resource group from Advisor, you must be a subscription Owner.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it is disabled in the user interface.
+> To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you do not have the required permissions, the option is disabled in the user interface. For information on permissions, see [Advisor Cost recommendations](permissions.md).
 
-1. From any Azure Advisor page, click **Configuration** in the left navigation pane.
+### Resources (subscriptions)
+
+1. From any Azure Advisor page, click **Configuration** in the left navigation pane. The Advisor **Configuration** page opens with the default **Resources** tab selected. 
 
     ![Advisor configure resources example](./media/advisor-get-started/advisor-configure-resources-no-wsp.png)
 
-1. Uncheck any subscriptions or resource groups you do not want to receive Advisor recommendations for, click **Apply**. The page refreshes.
+1. Uncheck any subscriptions you do not want to receive Advisor recommendations for, click **Apply**. The page refreshes.
 
-## Configure low usage virtual maching (VM) recommendations
+### VM/VMSS right sizing
 
-Advisor monitors your virtual machine usage for 7 days by default, and then identifies low-utilization virtual machines (VMs).
-Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the current workload can be accommodated by a smaller virtual machine size.
+You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing this requires specialized knowledge. 
 
-If you would like to be more aggressive at identifying low usage virtual machines, you can adjust the average CPU utilization rule and the look back period on a per-subscription basis.
+Advisor monitors your virtual machine usage for 7 days by default, and then identifies low-utilization virtual machines (VMs). Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2%, or if the current workload can be accommodated by a smaller virtual machine size.
+
 The CPU utilization rule can be set to 5%, 10%, 15%, 20%, or 100%(Default). In case the trigger is selected as 100%, it will present recommendations for virtual machines with less than 5%, 10%, 15%, and 20% of CPU utilization. You can also select how far back in historical data, the look back, you want to analyze: 7 days (default), 14, 21, 30, 60, or 90 days.
-
-> [!NOTE]
-> To adjust the average CPU utilization rule for identifying low usage virtual machines, you must be a subscription *Owner*.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it will be disabled in the user interface.
-
-1. From any Azure Advisor page, click **Configuration** in the left navigation pane. 
-
-1. Click the **VM/VMSS right sizing** tab. A configuration panel opens on the right.
 
 1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing.
 
