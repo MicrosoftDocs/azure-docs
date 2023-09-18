@@ -69,11 +69,11 @@ The Product Recognition APIs let you analyze photos of shelves in a retail store
 
 [Product Recognition](./concept-shelf-analysis.md)
 
-## Image Retrieval (v4.0 preview only)
+## Image and Video Retrieval (v4.0 preview only)
 
-The Image Retrieval APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
+The Image and Video Retrieval APIs enable the _vectorization_ of images, video frames, and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images or video content using text, without needing to use image tags or other metadata. Semantic closeness often produces better results in search.
 
-These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+The Image Retrieval APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. Video Retrieval is only available in the East US region.
 
 [Image Retrieval](./concept-image-retrieval.md)
 
