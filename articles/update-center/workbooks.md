@@ -38,11 +38,13 @@ The following four tabs help you organize workbook types.
    | My Templates | Shows the list of all the available deployed workbook templates that you created or are shared with you. Grouped by category. |
 
 - On the **Quick start** tile, you can create new workbooks.
+
   :::image type="content" source="./media/workbooks/quickstart-workbooks.png" alt-text="Screenshot that shows creating a new workbook by using Quick start.":::
 
 - On the **Recently modified** tile, you can view and edit the workbooks.
 
 - On the **Update Manager** tile, you can view the following summary.
+
   :::image type="content" source="./media/workbooks/workbooks-summary-inline.png" alt-text="Screenshot that shows a workbook summary." lightbox="./media/workbooks/workbooks-summary-expanded.png":::
  
    - **Machines overall status and configurations**: Provides the status of all machines in a specific subscription.
@@ -58,6 +60,7 @@ The following four tabs help you organize workbook types.
       :::image type="content" source="./media/workbooks/workbooks-schedules-maintenance-inline.png" alt-text="Screenshot that shows a summary of schedules and maintenance configurations." lightbox="./media/workbooks/workbooks-schedules-maintenance-expanded.png":::
 
    - **History of installation runs**: Provides a history of machines and maintenance runs.
+
        :::image type="content" source="./media/workbooks/workbooks-history-installation-inline.png" alt-text="Screenshot that shows history of installation runs." lightbox="./media/workbooks/workbooks-history-installation-expanded.png":::
 
 For information on how to use the workbooks for customized reporting, see [Edit a workbook](manage-workbooks.md#edit-a-workbook).
