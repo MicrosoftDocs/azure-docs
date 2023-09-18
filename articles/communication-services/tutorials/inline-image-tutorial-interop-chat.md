@@ -40,43 +40,15 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 
 ## Background
 
-First of all, we need to understand that Teams Interop Chat is part of a Teams meeting. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Azure Communication Service end user joining the chat and starting to send/receive messages, a meeting participant (a Teams user) would need to admit them to the call first. Otherwise, they don't have access to the chat.
+First of all, we need to understand that Teams Interop Chat has to part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread would be created and associated with the meeting. To enable the Azure Communication Service end user joining the chat and starting to send/receive messages, a meeting participant (a Teams user) would need to admit them to the call first. Otherwise, they don't have access to the chat.
 
-Once the Azure Communication Service end user is admitted to the call, they would be able to start any chat related operations. 
-In this tutorial, we're checking out how inline image works in Interop chat.
+Once the Azure Communication Service end user is admitted to the call, they would be able to start to chat with other participants on the call. In this tutorial, we're checking out how inline image works in Interop chat.
 
 ## Overview
 
-As mentioned previously, since we need to join a Teams meeting first, we need to use the ChatWithChat Composite from the UI library. Let's recall that we can create a ChatWithChat Composite [Storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) like the following code snippet:
+As mentioned previously, since we need to join a Teams meeting first, we need to use the ChatWithChat Composite from the UI library. Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) to create a ChatWithChat Composite.
 
-```js
-export const CallWithChatExperience = (props: CallWithChatExampleProps): JSX.Element => {
-  // Construct a credential for the user with the token retrieved from your server. This credential
-  // must be memoized to ensure useAzureCommunicationCallWithChatAdapter is not retriggered on every render pass.
-  const credential = useMemo(() => new AzureCommunicationTokenCredential(props.token), [props.token]);
-
-  // Create the adapter using a custom react hook provided in the @azure/communication-react package.
-  // See https://aka.ms/acsstorybook?path=/docs/composite-adapters--page for more information on adapter construction and alternative constructors.
-  const adapter = useAzureCommunicationCallWithChatAdapter({
-    userId: props.userId,
-    displayName: props.displayName,
-    credential,
-    locator: props.locator,
-    endpoint: props.endpointUrl
-  });
-
-  // The adapter is created asynchronously by the useAzureCommunicationCallWithChatAdapter hook.
-  // Here we show a spinner until the adapter has finished constructing.
-  if (!adapter) {
-    return <Spinner label="Initializing..." />;
-  }
-
-  return <CallWithChatComposite adapter={adapter} fluentTheme={props.fluentTheme} options={props.compositeOptions} />;
-};
-
-```
-
-Noticing it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
+From the sample code, it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
 
 ```js
 export type CallWithChatExampleProps = {
@@ -101,7 +73,8 @@ To be able to start the Composite for meeting chat, we need to pass `TeamsMeetin
 { "meetingLink": "<TEAMS_MEETING_LINK>" }
 ```
 
-Note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
+Note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`.
+
 
 And this is all you need! And there's no other setup needed to enable inline image specifically. 
 
@@ -124,7 +97,7 @@ Note that in a Teams Interop Chat, we currently only support Azure Communication
 ## Known Issues
 
 * The UI library might not support certain GIF images at this time. The user might receive a static image instead.
-* the Web UI library doesn't support Clips (short videos) sent by the Teams users at this time.**
+* the Web UI library doesn't support Clips (short videos) sent by the Teams users at this time.
 
 
 ## Next steps
