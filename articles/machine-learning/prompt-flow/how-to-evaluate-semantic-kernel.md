@@ -163,7 +163,7 @@ Throughout the process of enhancing your plugins and planners in Prompt flow, yo
 
 This enables you to conveniently compare the results of various runs, assisting you in identifying which modifications are beneficial and which are not.
 
-To compare, select the runs you wish to analyze, then click on the **Visualize outputs** button in the above.
+To compare, select the runs you wish to analyze, then select the **Visualize outputs** button in the above.
 
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/compare.png" alt-text="Compare runs" lightbox = "./media/how-to-evaluate-semantic-kernel/compare.png":::
 
